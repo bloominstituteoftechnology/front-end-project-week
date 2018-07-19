@@ -26,7 +26,7 @@ class CreateNote extends React.Component {
     .then(response => {
       console.log(response);
       this.props.setData();
-      this.props.history.push("/")
+      this.props.history.push(`/notes/${response.data.success}`)
     })
     .catch(err => {
       console.log("Error is:", err);
