@@ -5,6 +5,7 @@ import Note from "./Note";
 const Notes = props => {
   return (
     <div className="notesList">
+      <p>Log Out</p>
       <h2>Your Notes: </h2>
       <form className="notesSearch">
         <input placeholder="Search Note..." />
