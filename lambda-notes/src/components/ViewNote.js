@@ -22,10 +22,14 @@
             <React.Fragment>
                 {/* does not display edit or delete button if note no longer exists */}
                 {this.props.singleNote.errorMessage ? null : (
-                    <div className='options'>
-                        <Link className='option-edit' to={`/edit/${this.props.singleNote._id}`}>edit</Link>
-                        <Link className='option-delete' to={`/note/${this.props.singleNote._id}/delete`}>delete</Link>
-                    </div>
+                    <React.Fragment>
+                        {this.props.singleNote.kind ? null : (
+                            <div className='options'>
+                                <Link className='option-edit' to={`/edit/${this.props.singleNote._id}`}>edit</Link>
+                                <Link className='option-delete' to={`/note/${this.props.singleNote._id}/delete`}>delete</Link>
+                            </div>
+                        )}
+                    </React.Fragment>
                 )}
                 <React.Fragment>
                     {/* waits for notes to fetch then displays notes */}
@@ -37,20 +41,26 @@
                     {this.props.singleNote.errorMessage ? (
                     <h1>{this.props.singleNote.errorMessage}</h1>
                     ) : (
-                    <div className='single-note'>
-                        <p className='single-title'>{this.props.singleNote.title}</p>
-                        <p className='single-body'>{this.props.singleNote.textBody}</p>
                         <React.Fragment>
-                            {this.props.singleNote.tags ? (
-                                <div className='tags'>
-                                <p className='tagger'>Tags: </p>
-                                {this.props.singleNote.tags.map(tag => {
-                                    return <Tag key={tag} tag={tag} />
-                                })}
+                            {this.props.singleNote.kind ? (
+                                <h1>The ID you have entered is the incorrect length</h1>
+                            ) : (
+                                <div className='single-note'>
+                                    <p className='single-title'>{this.props.singleNote.title}</p>
+                                    <p className='single-body'>{this.props.singleNote.textBody}</p>
+                                    <React.Fragment>
+                                        {this.props.singleNote.tags ? (
+                                            <div className='tags'>
+                                                <p className='tagger'>Tags: </p>
+                                                {this.props.singleNote.tags.map(tag => {
+                                                    return <Tag key={Math.random()} tag={tag} />
+                                                })}
+                                            </div>
+                                        ) : null}
+                                    </React.Fragment>
                                 </div>
-                            ) : null}
+                            )}
                         </React.Fragment>
-                    </div>
                     )}
                     </React.Fragment>
                     )}

@@ -11,7 +11,7 @@ const Note = props => {
             <div className='tag-text'>
                 <p className='tagger'>Tags: </p>
                 {props.tags.map(tag => {
-                    return <Tag key={tag} tag={tag} />
+                    return <Tag key={Math.random()} tag={tag} />
                 })}
             </div>
         </div>

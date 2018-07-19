@@ -14,15 +14,19 @@ class DeleteNote extends Component {
 
     render() {
         return (
-            <div className='delete-modal-container'>
-                <div className='delete-modal'>
-                    <p className='modal-text'>Are you sure you want to delete this?</p>
-                    <div className='modal-buttons'>
-                    <button type='button' className='delete-btn' onClick={() => this.props.deleteNote(URL, this.props.singleNote._id)}>Delete</button>
-                    <button type='button' className='no-btn' onClick={() => this.noDelete(this.props.singleNote._id)}>No</button>
+            <React.Fragment>
+                {this.props.singleNote.kind ? null : (
+                    <div className='delete-modal-container'>
+                        <div className='delete-modal'>
+                            <p className='modal-text'>Are you sure you want to delete this?</p>
+                                <div className='modal-buttons'>
+                                    <button type='button' className='delete-btn' onClick={() => this.props.deleteNote(URL, this.props.singleNote._id)}>Delete</button>
+                                    <button type='button' className='no-btn' onClick={() => this.noDelete(this.props.singleNote._id)}>No</button>
+                                </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                )}
+            </React.Fragment>
         )
     }
 }
