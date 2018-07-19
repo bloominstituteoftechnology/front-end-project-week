@@ -12,13 +12,9 @@ import '../styles/App.css';
 
 const URL = 'https://killer-notes.herokuapp.com/note/get/';
 
-class App extends Component {
-  // fetches notes from api
-  componentDidMount() {
-    this.props.fetchNotes(URL);
-  }
+const App = () => {
 
-  render() {
+
     return (
       // handles component routing
         <Router>
@@ -32,7 +28,7 @@ class App extends Component {
             </div>
         </Router>
     );
-  }
+  
 }
 
-export default connect(null, { fetchNotes })(App);
+export default App;

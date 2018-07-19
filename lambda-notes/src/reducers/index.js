@@ -1,8 +1,9 @@
-import { FETCHING_NOTES, FETCHED_NOTES, FETCHED_NOTE, ERROR } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, FETCHED_NOTE, SET_SEARCHED, ERROR } from '../actions';
 
 const initialState = {
     fetchingNotes: false,
     notes: [],
+    searchedNotes: [],
     singleNote: {},
     error: null,
 }
@@ -18,6 +19,8 @@ export default (state = initialState, action) => {
         // places the note requested by user to state
         case FETCHED_NOTE:
             return { ...state, fetchingNotes: false, singleNote: action.payload };
+        case SET_SEARCHED:
+            return { ...state, searchedNotes: action.payload};
         // places server error message on state
         case ERROR:
             return { ...state, fetchingNotes: false, error: action.payload };

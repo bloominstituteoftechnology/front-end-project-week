@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const FETCHED_NOTE = 'FETCHED_NOTE';
+export const SET_SEARCHED = 'SET_SEARCHED';
 export const ERROR = 'ERROR';
 
 // fetches all notes
@@ -79,5 +80,12 @@ export const editNote = (URL, id, note) => {
             .catch(err => {
                 dispatch({ type: ERROR, payload: err.message });
             })
+    }
+}
+
+export const handleSearch = notes => {
+    return {
+        type: SET_SEARCHED,
+        payload: notes,
     }
 }
