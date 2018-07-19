@@ -13,7 +13,7 @@ class Search extends Component {
     componentDidUpdate() {
         if(this.state.search === ''){
             this.props.fetchNotes(URL);
-        }
+        } 
     }
 
     handleInputChange = event => {
