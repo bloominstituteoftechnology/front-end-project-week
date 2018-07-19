@@ -3,7 +3,7 @@ import SideBar from '../Sidebar/sidebar';
 import './notecard.css';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import {deleteNote} from '../../actions';
+import {deleteNote, fetchSingleNote} from '../../actions';
 
 class NoteCard extends Component {
     state={
@@ -11,15 +11,17 @@ class NoteCard extends Component {
         id: 0,
         note: {
             title: '',
-            content: ''
+            textBody: ''
         }
     }
     componentDidMount(){
         const id = this.props.match.params.id;
         const nuNote =  this.props.notes.filter((note) => {
-            return note.id == id});
+            return note._id == id});
         this.setState({id: id});
         this.setState({ note: nuNote[0] });
+
+        this.props.fetchSingleNote(id);
 
     }
 
@@ -37,8 +39,9 @@ class NoteCard extends Component {
 
         const idFinder = nuNotes.indexOf(nuNotes.find(isindex));
         nuNotes.splice(idFinder, 1);
-        console.log(this.props);
-        this.props.deleteNote(nuNotes);
+
+        console.log(this.props.note)
+        this.props.deleteNote(this.props.note._id);
     }
 
     render() {
@@ -62,8 +65,8 @@ class NoteCard extends Component {
                          </Link>  
                          <a onClick={() => this.showDeleteHandler()}> delete </a>
                      </div>
-                    <h1 className="notes-title card "> {this.state.note.title}</h1>
-                    <a className="single-notes-content"> {this.state.note.content} </a>
+                    <h1 className="notes-title card "> {this.props.note.title}</h1>
+                    <a className="single-notes-content"> {this.props.note.textBody} </a>
                  </div>
             </div>
         )
@@ -71,9 +74,11 @@ class NoteCard extends Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state);
     return{
-        notes: state.notes
+        notes: state.notes,
+        note: state.note
       }
    }
 
-export default connect (mapStateToProps, {deleteNote}) (NoteCard);
+export default connect (mapStateToProps, {deleteNote, fetchSingleNote}) (NoteCard);

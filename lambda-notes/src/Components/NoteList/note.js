@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const Note = props => {
     return(
         <div className='note'>
-            <Link to={`/note/${props.note.id}`}>
+            <Link to={`/note/${props.note._id}`}>
                 <h3> {props.note.title} </h3>
              </Link>
-             <a> {props.note.content} </a>
+             <a> {props.note.textBody} </a>
         </div>
     )
 }

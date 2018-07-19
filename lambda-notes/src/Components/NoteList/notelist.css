@@ -1,6 +1,7 @@
 .page-container {
     display: flex;
     min-height: 800px;
+    width: 100vw;
 }
 
 .section-container {
