@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Note from './Note';
 
 const Notecont = styled.div`
 
@@ -45,26 +46,75 @@ display: flex;
 `
 
 
- const NoteCard = () => (
-     <Notecont>
-      <div>Your Notes:</div>    
-    <Notebod className = 'Note'>
+ const NoteCard = (props) => (
     
-    <StyledLink to="/note"> <SmallNote>
-    <NoteTitle>Note Title</NoteTitle>
-    <NoteBod>Lorem Ipsum</NoteBod>
-      </SmallNote> </StyledLink>
-      <StyledLink to="/note"> <SmallNote>
+     <Notecont>
+    <Notebod className = 'Note'>  
+    {props.notes.map(note => (
+        <Note
+          
+          key={note.id}
+          note={note}
+        />
+      ))}
+    {/* <StyledLink to="/note"> <SmallNote>
+    <NoteTitle>Title</NoteTitle>
+    <NoteBod>Note</NoteBod>
+      </SmallNote> </StyledLink> */}
+      {/* <StyledLink to="/note"> <SmallNote>
     <NoteTitle>Note Title</NoteTitle>
     <NoteBod>Lorem Ipsum</NoteBod>
       </SmallNote> </StyledLink> 
       <StyledLink to="/note"> <SmallNote>
     <NoteTitle>Note Title</NoteTitle>
     <NoteBod>Lorem Ipsum</NoteBod>
-      </SmallNote> </StyledLink>
+      </SmallNote> </StyledLink> */}
  </Notebod>
  </Notecont>
- )
+ 
+ ) 
+ 
  ;
+ 
+// class NoteCard extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             notes: [
+//                 {
+//             notetitle: "Note Title",
+//             notebod:"lorem ipsum lorem impsum" ,
+//             id: 123, 
+//         },
+//     ],
+//     note: ''
+// }
+// }
+// addNote = e => {
+//     e.preventDefault();
+//     const notes = this.state.notes.slice();
+//     notes.push({ notetitle: this.state.notetitle, notebod: this.state.notebod,  id: Date.now() });
+//     this.setState({ notes, note: '' });
+//   };
 
-export default NoteCard
+//   changeNote = e => this.setState({ [e.target.name]: e.target.value });
+
+
+// render () {
+//     return (
+//         <Notecont>
+//         <div>Your Notes:</div>    
+//       <Notebod className = 'Note'>
+      
+//       <StyledLink to="/note"> <SmallNote>
+//       <NoteTitle>{this.state.notetitle}</NoteTitle>
+//       <NoteBod>Lorem Ipsum</NoteBod>
+//         </SmallNote> </StyledLink>
+        
+//    </Notebod>
+//    </Notecont>
+   
+//     );
+// }
+// }
+export default NoteCard;

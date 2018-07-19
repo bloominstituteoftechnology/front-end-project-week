@@ -10,12 +10,26 @@ const List = styled.div`
     display: flex;
 `;
 
- const CreateNoteView = () => (
+ const CreateNoteView = (props) => (
     <List > 
     <SideBar />
     <div>
-        <CreateNote />
+        <CreateNote 
+           value={props.note}
+           handleNoteChange={props.changeNote}
+           handleAddNote={props.addNote}
+           
+        />
         </div>
         </List>);
 
 export default CreateNoteView
+
+// createNote = e => {
+//     e.preventDefault();
+//     const notes = this.state.notes.slice();
+//     notes.push({ notetitle: this.state.note, notebod: this.state.note,  id: Date.now() });
+//     this.setState({ notes, note: '' });
+//   };
+
+//   changeNote = e => this.setState({ [e.target.name]: e.target.value });

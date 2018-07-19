@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Note from './Note';
 
 const Createcont = styled.div`
 
@@ -16,8 +17,6 @@ justify-content: space-between;
 align-items: flex-start;
 margin-left: 25px;
     
-    
-   
 `;
 const Notetitle = styled.input`
 margin-top: 25px;
@@ -64,35 +63,42 @@ text-decoration: none;
 // `;
 
 
- const CreateNote = () => (
+ const CreateNote = props => {
+     return(
+        <form>
      <Createcont>
          <div>Create New Note:</div>
          <Createbod>
- 
+             
         <Notetitle
         //   className="input"
-        //   value={this.state.notetitle}
-        //   name="notetitle"
-           type="text"
+        onChange={props.handleNoteChange}
+        type="text"
+        name="notetitle"
+          value={props.value}
            placeholder="Note Title"
-        //   onChange={this.handleInputChange}
+           
         />
         <Notecontent
         //   className="input"
-        //   value={this.state.notebody}
-        //   name="notebody"
-           type="text"
+        onChange={props.handleNoteChange}
+        type="text"
+          name="notebod"
+           value={props.value}
            placeholder="Note Content"
-        //   onChange={this.handleInputChange}
+           
         />
-        <Button  onClick={() => this.handleAddNote()} type="button"><StyledLink to="/">
+        <StyledLink to="/"><Button  
+        onClick={props.handleAddNote} type="button">
           Save
-          </StyledLink>
-        </Button>
+          
+        </Button></StyledLink>
       
       </Createbod>
      </Createcont>
- )
- ;
+     </form>
+     );
+ };
+ 
 <StyledLink to="/">View Your Notes</StyledLink>
-export default CreateNote
+export default CreateNote;

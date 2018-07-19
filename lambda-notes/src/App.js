@@ -10,6 +10,8 @@ import EditView from './components/EditView';
 import Delete from './components/DeleteView';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const Appcont = styled.div`
 
@@ -17,13 +19,44 @@ const Appcont = styled.div`
     width: 880px;
 `;
 
-class App extends Component {
+// class App extends Component {
+  class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            notes: [
+                {
+            notetitle: "Note Title",
+            notebod:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" ,
+            id: 123, 
+        },
+        {
+          notetitle: "Note Title2",
+          notebod:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" ,
+          id: 1233, 
+      },
+    ],
+    note: ''
+}
+}
+addNote = e => {
+    // e.preventDefault();
+    const notes = this.state.notes.slice();
+    notes.push({ notetitle: this.state.note, notebod: this.state.note,  id: Date.now() });
+    this.setState({ notes, note: '' });
+  };
+
+  changeNote = e => this.setState({ [e.target.name]: e.target.value });
+  
   render() {
     return (
       <Appcont className="App">
-       
-        <Route exact path='/' component={ListView}/>
-        <Route exact path='/createnote' component={CreateNoteView}/>
+       <Route exact path="/" render={props=><ListView notes={this.state.notes} {...props}/>}/>
+        {/* <Route exact path='/' render={props => 
+          <ListView notes={this.state.notes} {...props}/>}/> */}
+          {/* <Route exact path='/' component={ListView}/> */}
+        {/* <Route exact path='/createnote' component={CreateNoteView}/> */}
+        <Route exact path="/createnote" render={props=><CreateNoteView value={this.state.note} handleNoteChange={this.changeNote} handleAddNote={this.addNote} {...props}/>}/>
         <Route path='/note' component={OneNote}/>
         <Route path='/edit' component={EditView}/>
         <Route path='/delete' component={Delete}/>
@@ -33,3 +66,4 @@ class App extends Component {
 }
 
 export default App;
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
