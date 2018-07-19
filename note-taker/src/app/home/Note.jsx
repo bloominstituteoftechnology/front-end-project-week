@@ -27,10 +27,12 @@ const CardTitle = styled.h2`
 const CardContent = styled.div`
   font-weight: 200;
   padding: 0.5rem 0;
+  word-break: break-all;
 `;
 const UnstyledLink = styled(Link)`
   color: inherit;
 `;
+
 const Note = props => {
   return (
     <UnstyledLink to={`note/get/${props.id}`}>

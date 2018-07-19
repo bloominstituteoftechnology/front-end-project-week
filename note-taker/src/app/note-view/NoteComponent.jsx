@@ -26,7 +26,9 @@ const OptionsBtn = styled.button`
   font-size: 1.2rem;
   cursor: pointer;
 `;
-
+const TextBody = styled.p`
+  word-break: break-all;
+`;
 class NoteComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -65,7 +67,7 @@ class NoteComponent extends React.Component {
         id = {id}/>
 
         <HeadingTitle>{this.props.note.title}</HeadingTitle>
-        <p>{this.props.note.textBody}</p>
+        <TextBody>{this.props.note.textBody}</TextBody>
       </div>
     );
   }
