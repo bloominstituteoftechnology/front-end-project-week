@@ -13,7 +13,6 @@ const StyledNoteCard = styled.div`
     width: 190px;
     height: 190px;
     overflow: hidden;
-    
 `;
 
 const StyledTitle = styled.h4`

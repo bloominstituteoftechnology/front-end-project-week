@@ -47,6 +47,10 @@ const StyledButton = styled.button`
     &:hover{cursor: pointer;}
 `;
 
+const StyledLabel = styled.label`
+    margin: 5%;
+`;
+
 class NoteForm extends Component {
     constructor(props){
         super(props);
@@ -54,20 +58,41 @@ class NoteForm extends Component {
             inputTitle: '',
             inputBody: '',
             addNote: props.addNote,
+            tags: {
+                todo: false,
+                wisdom: false,
+                nonsense: false,
+            },
             created: false,
         }
     }
 
     handleInput = (e) => {
-        this.setState({[e.target.name] : e.target.value});
+        if(e.target.type === 'checkbox'){
+            let name = e.target.name;
+            let newTags = {...this.state.tags};
+            newTags[name] = !newTags[name];
+            this.setState({ tags: newTags});
+        }
+        else{
+            this.setState({[e.target.name] : e.target.value});
+        }
+        
     }
 
     addNote = (e) => {
         e.preventDefault();
-        const newNote = {title: this.state.inputTitle, textBody: this.state.inputBody}
+        console.log(Object.entries(this.state.tags));
+        const newTags = Object.entries(this.state.tags).reduce((acc, entry) => {
+            entry[1] === true ? acc.push(entry[0]) : null
+            return acc;
+        }, [])
+        console.log("NEWTAGS!", newTags);
+        const newNote = {tags: newTags, title: this.state.inputTitle, textBody: this.state.inputBody}
         this.props.addNote(newNote);
         this.setState({inputTitle: '', inputBody: '', created: true});
     }
+
 
     render(){
         if(this.state.created){
@@ -87,6 +112,19 @@ class NoteForm extends Component {
                             placeholder="Note Content"
                             value={this.state.inputBody}
                             onChange={this.handleInput} /><br />
+                    <H3>Optional Tags</H3>
+                    <StyledLabel>To-Do<input type="checkbox"
+                                            name="todo"
+                                            checked={this.state.tags.todo}
+                                            onChange={this.handleInput} /></StyledLabel>
+                    <StyledLabel>Words of Wisdom<input type="checkbox"
+                                            name="wisdom"
+                                            checked={this.state.tags.wisdom}
+                                            onChange={this.handleInput} /></StyledLabel>
+                    <StyledLabel>Nonsense<input type="checkbox"
+                                            name="nonsense"
+                                            checked={this.state.tags.nonsense}
+                                            onChange={this.handleInput} /></StyledLabel><br />
                     <StyledButton>Save</StyledButton>
                 </form>
             </StyledNoteForm>
