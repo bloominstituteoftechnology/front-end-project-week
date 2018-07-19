@@ -131,15 +131,26 @@ class ViewNote extends React.Component {
     this.setState({modal: !this.state.modal});
   }
 
+/*Allows the user to logout of the app*/
   handleLogout = () => {
     localStorage.removeItem('user');
     window.location.reload();
   }
 
-  deleteTag = () => {
-
+/*Deletes a tag from the view edit page*/
+  deleteTag = (event) => {
+    let newArray = this.state.tags.slice();
+    newArray.splice(event.target.getAttribute('index'), 1);
+    const newArrayObject = {tags: newArray}
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, newArrayObject)
+    .then(response => {
+      console.log("delete edit response", response.data);
+      this.setState({tags: response.data.tags})
+    })
+    .catch(err => {
+      console.log("Tag Edit Error", err);
+    })
   }
-
 
   render() {
     return (
@@ -168,8 +179,8 @@ class ViewNote extends React.Component {
         <h3 className="view-note-header">{this.state.note ? (this.state.editingNote ? <input name="title" className="title-input" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
         <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : <MarkdownRenderer markdown={this.state.note.textBody} />) : "Loading..."}</p>
         <div className="tagContainer">
-        {this.state.tags ? this.state.tags.map(tag => {
-          return <span key={Math.random()} className="tagg">{tag}<span className="close" onClick={this.deleteTag}></span></span>
+        {this.state.tags ? this.state.tags.map((tag, index) => {
+          return <span key={Math.random()} className="tagg">{tag}<span className="close" index={index} onClick={this.deleteTag}></span></span>
         }) : "Loading..."}
         <form className="tagForm" onSubmit={this.handleTagSubmit}>
         <input className="mainInput" type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
