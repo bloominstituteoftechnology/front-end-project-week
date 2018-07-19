@@ -59,10 +59,11 @@ class NewNote extends Component {
                 onChange={this.changeHandler}
                 ></textarea>
 
-                <div 
+                <Link className="note-save-button-inner" to="/"><div 
                 className="note-save-button"
                 onClick={this.saveHandler}
-                ><Link className="note-save-button-inner" to="/">Save</Link></div>
+                >Save</div>
+                </Link>
             </div>
         )
     }

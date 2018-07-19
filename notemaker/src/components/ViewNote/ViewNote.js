@@ -9,43 +9,39 @@ class ViewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: props.initialData.notes
+            notes: props.initialData.notes,
+            modalOpen: false,
+            deleteNote: false
         }
+        this.handleModalClick = this.handleModalClick.bind(this)
+        this.deleteNoteClick = this.deleteNoteClick.bind(this)
     }    
 
-    // //Function to open modal
-    // openModal() {
-    
-
-
-
-    // }
-
-    // // let modalButtonDelete = document.querySelector('modal-button-delete');
-    // // let modalButtonNo = document.querySelector('modal-button-no');
-
-
-    openModal() {
-        let modal = document.querySelector('delete');
-        let modalButtonDelete = document.querySelector('modal-button-delete');
-        let modalButtonNo = document.querySelector('modal-button-no');    
-
-        modal.style.display = 'block';
+    handleModalClick() {
+        this.setState({
+            modalOpen: !this.state.modalOpen
+        })
     }
 
+    deleteNoteClick() {
+        this.setState({
+            deleteNote: true,
+            modalOpen: false
+        })
+    }
 
     render() {
-        console.log(document.querySelector('.delete-link'));
+        // console.log(document.querySelector('.delete-link'));
         return (
             <div className="view-note">
                 <div className="controls">
                     <Link className="edit-link" to={`/edit/${this.props.match.params.id}`}>edit</Link>
                     <div 
                         className="delete-link" 
-                        onClick={this.openModal()}
+                        onClick={ this.handleModalClick }
                     >delete</div>
 
-                    <div className={"delete-modal display-none"} id="delete-modal" >
+                    <div className={ this.state.modalOpen ? "delete-modal" : "display-none" } id="delete-modal" >
                         <div className="modal-content">
                             <p className="modal-warning-message">
                                 Are you sure you want to delete this?
@@ -53,18 +49,25 @@ class ViewNote extends Component {
                             <div className="modal-button-group">
                                 <div 
                                     className="modal-button-delete"
-                                    // onClick={() => props.handleDelete(props.todo.id)}
+                                    onClick={ this.deleteNoteClick }
                                 >Delete</div>
-                                <div className="modal-button-no">No</div>
+                                <div 
+                                    className="modal-button-no"
+                                    onClick={ this.handleModalClick }
+                                >No</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="displayed-note-for-reading">
-                    <div className="displayed-note-for-reading-title">{this.state.notes[this.props.match.params.id].title}</div>
-                    <div className="displayed-note-for-reading-content">{this.state.notes[this.props.match.params.id].content}</div>
-                </div>
+                {this.state.deleteNote 
+                    ? <div className="displayed-note-for-reading">Note has been deleted</div> 
+                    : 
+                    <div className="displayed-note-for-reading">
+                        <div className="displayed-note-for-reading-title">{this.state.notes[this.props.match.params.id].title}</div>
+                        <div className="displayed-note-for-reading-content">{this.state.notes[this.props.match.params.id].content}</div>
+                    </div>
+                }
             </div>
         )
     }

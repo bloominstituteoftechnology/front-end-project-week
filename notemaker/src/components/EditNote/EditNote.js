@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './EditNote.css';
+import { Link } from 'react-router-dom';
 
 class EditNote extends Component {
 
@@ -42,9 +43,13 @@ class EditNote extends Component {
                 onChange={this.changeHandler}
                 ></textarea>
 
-                <div className="note-save-button"
-                onClick={() => this.editHandler}
-                >Update</div>
+                <Link to="/">
+                    <div className="note-save-button"
+                    onClick={() => this.editHandler}
+                    >
+                        <div className="update-link-text">Update</div>
+                    </div>
+                </Link>
             </div>
         )
     }

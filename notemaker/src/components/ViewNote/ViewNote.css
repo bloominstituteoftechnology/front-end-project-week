@@ -67,6 +67,7 @@
 
     background: #D0021B;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .modal-button-no {
@@ -79,6 +80,7 @@
 
     background: #2BC1C4;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .display-none {
@@ -94,6 +96,7 @@
     color: #4A4A4A;
     font-family: "Roboto", sans-serif;
     font-size: 13.4px;
+    cursor: pointer;
 }
 
 .view-note .controls .delete-link {
@@ -101,6 +104,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 13.4px;
     margin-right: 34px;
+    cursor: pointer;
 }
 
 .displayed-note-for-reading {

@@ -57,6 +57,8 @@
     position: relative;
     left: 2px;
     top: 13px;
+
+    cursor: pointer;
 }
 
 .note-save-button-inner {
