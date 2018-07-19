@@ -9,7 +9,7 @@ const LeftStyled = styled.div`
   background-color: #d8d8d8;
   position: absolute;
   top: 0;
-  border: 1px solid black;
+  border: 1px solid #979797;
   display: flex;
   flex-direction: column;
 `;

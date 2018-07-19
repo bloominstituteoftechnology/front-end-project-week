@@ -21,7 +21,7 @@ const DeleteButtonsWrapper = styled.div`
   height: 200px;
   width: 500px;
   background-color: #f3f3f3;
-  border: 1px solid black;
+  border: 1px solid #979797;
   border-radius: 2px;
   display: flex;
   justify-content: center;

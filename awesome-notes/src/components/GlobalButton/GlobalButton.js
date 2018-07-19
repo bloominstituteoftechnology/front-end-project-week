@@ -7,7 +7,7 @@ const NavButton = styled.button`
   margin: 0 auto;
   margin-top: 2rem;
   font-weight: bold;
-  border: 1px solid black;
+  border: 1px solid #979797;
   border-radius: 2px;
   background-color: #2bc1c4;
 `;

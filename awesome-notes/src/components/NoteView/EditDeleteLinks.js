@@ -14,6 +14,12 @@ const LinksWrapper = styled.div`
 
 const StyledP = styled.p`
   margin: 1rem;
+  text-decoration: none;
+  color: #4a4a4a;
+  &:hover {
+    text-decoration: none;
+    color: #4a4a4a;
+  }
 `;
 
 const EditDeleteLinks = props => {

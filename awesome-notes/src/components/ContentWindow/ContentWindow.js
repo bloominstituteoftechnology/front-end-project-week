@@ -14,9 +14,9 @@ const StyledWindow = styled.div`
   top: 0;
   left: 220px;
   background-color: #f3f3f3;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #979797;
+  border-right: 1px solid #979797;
+  border-bottom: 1px solid #979797;
   height: 100%;
   min-height: 100vh;
   width: 668px;

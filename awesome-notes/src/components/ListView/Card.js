@@ -7,7 +7,7 @@ import "./ListView.css";
 const CardWrapper = styled.div`
   height: 190px;
   width: 190px;
-  border: 1px solid black;
+  border: 1px solid #979797;
   margin-bottom: 2rem;
   padding: 1rem 1.5rem;
   border-radius: 2px;
