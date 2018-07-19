@@ -18,7 +18,7 @@ class App extends Component {
       notes: [],
       currentNote: {},
       deleting: false,
-      loggedIn: false
+      loggedIn: true
     }
   }
 
@@ -34,11 +34,27 @@ class App extends Component {
   handleSetData = data => {this.setState({ notes: data, deleting: false })}
   toggleDeleting = () => {this.setState({ deleting: !this.state.deleting })}
   toggleLogin = () => {this.setState({ loggedIn: !this.state.deleting })}
+  compare = (a,b) => {
+    if (a.title < b.title) {
+      return -1;
+    } else if (a.title > b.title) {
+      return 1;
+    } else {return 0;}
+  }
+  sortAz = () => {
+    let notes = this.state.notes.slice().sort(this.compare);
+    this.setState({ notes })
+  }
+  sortZa = () => {
+    let notes = this.state.notes.slice().sort(this.compare).reverse();
+    this.setState({ notes })
+  }
+
   render() {
     return (
       <div className="App">
         <Banner />
-        <Route exact path='/' render={() => <ListView notes={this.state.notes} />} />
+        <Route exact path='/' render={() => <ListView notes={this.state.notes} sortAz={this.sortAz} sortZa={this.sortZa} />} />
         <Route path='/create' render={() => <CreateNote contentValue={this.state.contentValue} titleValue={this.state.titleValue} handleSetData={this.handleSetData} />} />
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} toggleDeleting={this.toggleDeleting} />} />
         <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} currentNote={this.state.currentNote} handleSetData={this.handleSetData} handleEditNote={this.handleEditNote} handleEditTitle={this.state.handleEditTitle} handleEditContent={this.state.handleEditContent} handleSetCurrent={this.handleSetCurrent} />} />

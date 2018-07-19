@@ -58,6 +58,28 @@
   width: 100%;
   padding: 30px 15px;
 }
+.list-header {
+  display: flex;
+  justify-content: space-between;
+}
+.list-header div {
+  display: flex;
+}
+.list-header .sort-btn {
+  text-decoration: none;
+  border: 2px solid #979797;
+  background: #FFFFFF;
+  color: #2BC1C4;
+  font-size: .75rem;
+  text-align: center;
+  margin-left: 3px;
+  padding: 3px 4px;
+  cursor: pointer;
+}
+.list-header .sort-btn:hover {
+  background: #2BC1C4;
+  color: #FFFFFF;
+}
 .note-list {
   display: flex;
   flex-wrap: wrap;
@@ -109,6 +131,11 @@
   padding: 10px 0;
   margin: 20px 0;
   text-align: center;
+  cursor: pointer;
+}
+.create-note .link {
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 /* View Note Styles */
@@ -166,6 +193,10 @@
   text-align: center;
   cursor: pointer;
 }
+.edit-note .link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
 
 /* Delete Note Styles */
 .delete-note {
@@ -206,6 +237,10 @@
   /* margin: 10px 0; */
   text-align: center;
 }
+.delete-btn .link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
 .no-btn {
   text-decoration: none;
   font-size: 1rem;
@@ -221,7 +256,7 @@
 /* Login Form Styles */
 .login-form {
   background: #2BC1C4;
-  height: 93vh;
+  height: 100vh;
   width: 100vw;
   max-width: 992px;
   position: fixed;

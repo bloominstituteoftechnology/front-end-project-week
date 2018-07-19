@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 const ListView = (props) => {
     return (
         <div className='list-view'>
-            <h1>Your Notes:</h1>
+            <div className='list-header'>
+                <h1>Your Notes:</h1>
+                <div>
+                    <div onClick={props.sortAz} className='sort-btn'>A-Z</div>
+                    <div onClick={props.sortZa} className='sort-btn'>Z-A</div>
+                </div>    
+            </div>
             <ul className='note-list'>
                 {props.notes.map(note => {
                     return (

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 class CreateNote extends React.Component {
     constructor(props) {
@@ -17,7 +18,6 @@ class CreateNote extends React.Component {
                 console.log('POST RESPONSE: ', response)
                 this.setState({ titleValue: '', contentValue: '' })
                 this.props.handleSetData(response.data)
-                alert('NOTE ADDED: Click \'View Your Notes\' in side banner to see all notes.')
             })
             .catch(err => {console.log(err)})
     }
@@ -39,7 +39,7 @@ class CreateNote extends React.Component {
                 placeholder="Note content..."
             />
             <div onClick={this.addNote} className="custom-button">
-                Save
+                <Link className='link' to='/'>Save</Link>
             </div>
         </form>
         );    
