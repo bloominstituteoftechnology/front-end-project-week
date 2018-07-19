@@ -41,7 +41,8 @@ class App extends Component {
         <Switch>
 
           <Route exact path="/" render={ props =>
-              <NoteList notes={this.props.notes} />
+              <NoteList notes={this.props.notes}
+                        fetchingNotes={this.props.fetchingNotes} />
             }
           />
 
@@ -74,7 +75,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes
   }
 }
 

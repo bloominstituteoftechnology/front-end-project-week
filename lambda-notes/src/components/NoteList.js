@@ -5,7 +5,7 @@ import Loading from './Loading';
 
 const NoteList = props => {
   // if notes are not yet loaded into store, return loading icon
-  if (!props.notes) {
+  if (props.fetchingNotes) {
     return (
       <Loading />
     )

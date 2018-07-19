@@ -4,6 +4,7 @@ const url = `https://killer-notes.herokuapp.com/note`;
 
 export const getNotes = () => {
   return dispatch => {
+    dispatch({ type: 'FETCHING_NOTES' });
     axios
       .get(`${url}/get/all`)
       .then(response => {
@@ -28,13 +29,14 @@ export const addNote = (newNote) => {
 
 export const getNote = (id) => {
   return dispatch => {
+    dispatch({ type: 'FETCHING_NOTE' });
     axios
       .get(`${url}/get/${id}`)
       .then(response => {
         if (!response.data.name && !response.data.errorMessage) {
           dispatch({ type: 'NOTE_FETCHED', payload: response.data });
         } else {
-          dispatch({ type: 'NOTE_FETCHED', payload: "no such note" });
+          dispatch({ type: 'NO_NOTE_FETCHED' });
         }
       })
       .catch(error => {
@@ -45,6 +47,7 @@ export const getNote = (id) => {
 
 export const editNote = (editedNote) => {
   return dispatch => {
+    dispatch({ type: 'EDITING_NOTE' });
     axios
       .put(`${url}/edit/${editedNote.id}`, editedNote)
       .then(response => {

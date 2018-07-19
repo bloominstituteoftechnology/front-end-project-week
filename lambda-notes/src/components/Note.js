@@ -67,13 +67,13 @@ class Note extends React.Component {
 
   render() {
     // if note is not yet loaded into store, or if requested id does not exist, return NoMatch
-    if (!this.props.note || (this.props.note._id !== this.id && this.props.note !== "no such note")) {
+    if (this.props.fetchingNote || this.props.editingNote) {
       return (
         <Loading />
       )
     }
 
-    if (this.props.note === "no such note") {
+    if (!this.props.fetchingNote && !this.props.noteExists) {
       return (
         <NoMatch missing={"note"}/>
       )
@@ -124,7 +124,9 @@ class Note extends React.Component {
 const mapStateToProps = (state) => {
   return {
     note: state.note,
-    error: state.error
+    fetchingNote: state.fetchingNote,
+    editingNote: state.editingNote,
+    noteExists: state.noteExists
   }
 }
 

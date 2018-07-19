@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 
 const NoMatch = props => {
+  // set error text according to the current error
   const text = props.missing === "note" ? "Some jerk probably deleted it." : "This page doesn't exist.";
   return (
     <div className="main-container no-match">
