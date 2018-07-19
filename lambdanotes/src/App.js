@@ -8,10 +8,10 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <div className="row no-gutters">
-          <div className="left-nav col-sm-3">
+          <div className="left-nav col-md-3">
             <LeftNav />
           </div>
-          <div className="main-content col-sm-9">
+          <div className="main-content col-md-9">
             <MainContent />
           </div>
         </div>

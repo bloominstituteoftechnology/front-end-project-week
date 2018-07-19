@@ -12,3 +12,17 @@
 .fade {
   background-color: rgba(200, 200, 200, .6);
 }
+
+@media (max-width: 770px) {
+  .modal-content {
+    width: 100%;
+  }
+  .custom-button-red-modal {
+    width: 7rem;
+    padding-left: 2rem;
+  }
+  .custom-button-teal-modal {
+    width: 7rem;
+    padding-left: 2rem;
+  }
+}

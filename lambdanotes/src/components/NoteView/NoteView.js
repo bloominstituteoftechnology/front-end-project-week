@@ -23,7 +23,7 @@ export default class NoteView extends Component {
   render() {
     console.log('this.state.notes', this.state.note);
     return (
-      <div>
+      <div className="container">
         <div className="top-content float-right mt-0">
           <Link to={`/edit-note/${this.props.match.params.id}`}><button type="button" class="btn btn-link text-dark underline">Edit</button></Link>
           <button type="button" class="btn btn-link text-dark underline" data-toggle="modal" data-target="#exampleModal">Delete</button>

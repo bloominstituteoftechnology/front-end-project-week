@@ -18,7 +18,7 @@ export default class DeleteNote extends Component {
   render() {
     console.log('this.props', this.props)
     return (
-      <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade container" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-body text-center">
@@ -27,13 +27,13 @@ export default class DeleteNote extends Component {
             <div class="modal-buttons text-center">
               <button 
                 type="button" 
-                className="custom-button-red text-white mr-3"
+                className="custom-button-red-modal text-white mr-3"
                 onClick={() => this.handleDelete(this.props.id)}
                 data-dismiss="modal"
               >
                 Delete
               </button>
-              <button type="button" className="custom-button-teal text-white" data-dismiss="modal">No</button>
+              <button type="button" className="custom-button-teal-modal text-white" data-dismiss="modal">No</button>
             </div>
           </div>
         </div>

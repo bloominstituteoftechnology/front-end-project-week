@@ -47,3 +47,26 @@ body {
   border-radius: 1px;
   border-color: #979797;
 }
+
+.custom-button-teal-modal {
+  padding: .7rem 3em;
+  width: 16rem;
+  margin-bottom: 1rem;
+  background-color: #2BC1C4;
+  margin: 1rem auto;
+  text-decoration: none;
+  border-radius: 1px;
+  border-color: #979797;
+}
+
+.custom-button-red-modal {
+  padding: .7rem 3em;
+  width: 16rem;
+  margin-bottom: 1rem;
+  background-color: #D0021B;
+  margin: 1rem auto;
+  text-decoration: none;
+  border-radius: 1px;
+  border-color: #979797;
+}
+

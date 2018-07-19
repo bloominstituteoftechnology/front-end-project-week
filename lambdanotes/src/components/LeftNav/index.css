@@ -13,3 +13,9 @@
     margin-bottom: 2.5rem;
     margin-top: .5rem;
 }
+
+@media (max-width: 770px) {
+    .nav-container {
+      height: 25vh;
+    }
+  }

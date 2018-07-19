@@ -20,3 +20,17 @@
 .card-title {
   font-weight: 600;
 }
+
+@media (max-width: 770px) {
+  .noteList-container {
+      width: 100%;
+      margin-top: -2rem;
+    }
+  .notes {
+    clear: left;
+    display: block;
+  }
+  .card {
+    margin-bottom: 1rem;
+  }
+}

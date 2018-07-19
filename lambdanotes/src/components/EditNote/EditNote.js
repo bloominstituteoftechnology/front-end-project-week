@@ -27,7 +27,7 @@ export default class CreateNote extends Component {
         title: this.state.title,
         textBody: this.state.message
       })
-      .then(response => window.location.href = URL)
+      .then(() => window.location.href = URL)
       //.then(response => console.log(response))
       .catch(error => console.log(error));
   }
@@ -39,7 +39,7 @@ export default class CreateNote extends Component {
   }
 
   render() {
-    console.log('edit', this.state.note)
+    //console.log('edit', this.state.note)
     return (
       <div class="form-group">
         <h3 className="header mt-2">Edit Note:</h3>
