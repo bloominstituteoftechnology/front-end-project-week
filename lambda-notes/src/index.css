@@ -7,7 +7,7 @@ body {
   font-family: 'Frank Ruhl Libre', serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 label {
   margin-bottom: 0px !important;
@@ -20,10 +20,10 @@ label {
   background-color: white;
   width: 280px;
   height: 270px;
-  margin-bottom: 2%;
+  margin-bottom: 1em;
   display: inline-flex;
   flex-direction: column;
-  padding: 1%;
+  padding: 0.8em;
   overflow: hidden;
   box-shadow: 10px 5px 5px #e5e4e6;
 }
@@ -75,18 +75,19 @@ label {
 }
 
 .noteList-header {
-  margin: 2% 10% 0 2.5%;
+  margin: 2em 10em 0 2.5em;
 }
 
 .cardTitle {
   border-bottom: 1px solid black;
+  width: 323px;
 }
 
 .noteList-container {
   display: flex;
   background-color: #f2f1f2;
   width: 100%;
-  min-height: 93%;
+  min-height: 100px;
 }
 .noteList {
   background-color: #f2f1f2;
@@ -111,10 +112,11 @@ label {
 
 .sidenav-button {
   border: 1px solid black;
-  padding: 6% 0%;
-  margin-top: 11%;
+  padding: 1em 0;
   text-align: center;
   background-color: #55b9bd;
+  margin-top: 35px;
+
   color: white;
 }
 .sidenav-button:hover {
@@ -125,8 +127,8 @@ label {
 
 .save-Btn {
   border: 1px solid black;
-  padding: 1% 0%;
-  margin-top: 2%;
+  padding: 1em 0;
+  margin-top: 0.5rem;
   text-align: center;
   background-color: #55b9bd;
   color: white;
@@ -144,17 +146,17 @@ label {
 .sideNav {
   background-color: #d3d2d3;
   min-height: 100vh;
-  min-width: 250px;
+  min-width: 300px;
   display: flex;
   flex-flow: column;
-  padding: 1%;
+  padding: 1em;
 }
 
 .title-input {
   height: 60px;
   width: 600px;
-  margin-bottom: 3%;
-  padding: 1%;
+  margin-bottom: 1em;
+  padding: 1em;
 }
 
 .newNote-form {
@@ -164,29 +166,29 @@ label {
 
 .textBody-input {
   height: 400px;
-  padding: 1.5%;
-  margin-bottom: 1%;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
 .newNote-container {
   min-height: 100vh;
   width: 100%;
   background-color: #f2f1f2;
-  padding: 1.5%;
+  padding: 1em;
 }
 
 .newNote-header {
-  margin-top: 2%;
+  margin-top: 2em;
 }
 
 .sideNav-header {
-  margin-top: 1.5%;
+  margin-top: 15px;
   font-size: 3.1rem;
   line-height: 1;
 }
 .noteDetails-container {
   background-color: #f2f1f2;
-  padding: 2.5%;
+  padding: 2.5em;
   width: 100%;
   overflow: hidden;
 }
@@ -211,13 +213,13 @@ label {
 }
 
 .tag-list {
-  margin-top: 10%;
+  margin-top: 2em;
 }
 .tag-input {
   height: 38px;
   width: 200px;
-  padding: 1%;
-  margin-bottom: 3%;
+  padding: 1em;
+  margin-bottom: 2em;
 }
 .search-input {
   width: 550px;
@@ -237,67 +239,52 @@ label {
   left: 1;
 }
 .padding-container {
-  padding: 1%;
+  padding: 1em;
 }
-@media (max-width: 1147px) {
+@media (max-width: 1193px) {
   .note-header {
     display: none;
   }
 }
 
-/* @media (max-width:935px) */
-
-/* @media (max-width: 867px) {
-  h1 {
-    font-size: 1.5rem;
-  }
+@media (max-width: 908px) {
   .myLink {
-    width: 220px;
-    margin: 0%;
+    width: 270px;
   }
   .sideNav {
+    min-width: 240px;
   }
-  .noteDetails-container {
-    border: 2px solid red;
-  } */
-/* .noteDetails {
-    flex-direction: column-reverse;
-  }
-  .title-header {
-    order: 1;
-  }
-  .noteDetails-btns {
-    flex-direction: column;
-    align-self: auto;
-  }
-  .noteBody {
-    font-size: larger;
-  }
-  .Btn-modal {
-    margin-top: 10%;
-    width: 300px;
-  } */
+}
 
-/* @media (max-width: 527px) {
+@media (max-width: 892px) {
+  .search-input {
+    width: 21rem;
+  }
+  .myLink {
+    width: 240px;
+  }
+}
+@media (max-width: 832px) {
+  .notes {
+    /* justify-content: flex-start; */
+  }
+  .myLink {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
   .App {
     display: flex;
     flex-direction: column;
   }
-  .sideNav {
-    min-height: 30vh;
-  }
   .myLink {
-    width: 450px;
-    margin: 3%;
+    width: 193px;
   }
-  .lambda-logo {
-    display: flex;
-    justify-content: center;
+  .sideNav {
+    min-height: 65vh;
   }
-  .save-Btn {
-    padding: 3% 0%;
+  .sidenav-button {
+    margin-top: 0;
   }
-  .noteDetails-btns {
-    margin-left: 15%;
-  }
-} */
+}
