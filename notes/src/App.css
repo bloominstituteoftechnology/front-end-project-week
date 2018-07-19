@@ -196,3 +196,14 @@
   height: 50px;
   border-radius: 0;
 }
+
+.logout-button {
+  position: absolute;
+  right: 130px;
+  top: 10px;
+  text-decoration: underline;
+}
+
+.logout-button:hover {
+  cursor: pointer;
+}
