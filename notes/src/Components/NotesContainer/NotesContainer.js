@@ -13,15 +13,19 @@ class NotesContainer extends Component {
     componentDidMount() {
         this.props.getNotes();
     }
+    
     render() {
+       
         return (
-            
+           
             <FlexDiv>
+                
             <Scrollbars>
             <FlexNotes>
                 {console.log(this.props.notes)}
+               
             {this.props.notes.map(note => {
-               return <MiniNote note = {note}/>
+             return <MiniNote note = {note}/>
             })}
            </FlexNotes>
          </Scrollbars>

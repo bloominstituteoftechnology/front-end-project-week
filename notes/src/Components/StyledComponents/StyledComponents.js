@@ -73,11 +73,14 @@ position:relative;
 z-index:25;
 display:flex;
 align-items: center;
+justify-content:space-between;
 width: 70%;
 height: 50px;
 position: relative;
-top: 50px;
+top: 60px;
 background-color: #262626;
+background: -webkit-linear-gradient(to right, #242424, #424242); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #242424, #424242); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 border-top-left-radius: 20px;
 border-top-right-radius: 10px;
 `
@@ -133,7 +136,7 @@ margin-top: 10px;
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: #2BC1C4;
+background-color: #2BC1C4;  
 color: white;
 width: 100%;
 border: none;
@@ -144,17 +147,19 @@ box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
 
 `
 export const Header = styled.span`
-font-size: 20px;
+font-size: 30px;
 font-weight: bold;
 color: white;
-padding-left: 10px;
-padding-right: 10px;
-border-left: 1px solid grey;
+padding: 10px 10px 0 10px;
+border-bottom: 1px solid grey;
+color: #363636;
 `
 
 export const LinkBar = styled.span`
-font-size: 10px;
+display: flex;
+align-items: center;
+font-size: 16px;
 color: grey;
-padding-left: 10px;
+padding-left: 20px;
 padding-right: 10px;
 `

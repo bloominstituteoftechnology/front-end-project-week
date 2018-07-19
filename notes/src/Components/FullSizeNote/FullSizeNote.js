@@ -67,6 +67,12 @@ class FullSizeNote extends Component {
         }
     }
     componentDidMount() {
+        let note_id = this.props.match.params.id
+        console.log('didmount_id', note_id)
+        let thisNote = this.props.notes.filter(note => note_id == note.id)
+        thisNote = thisNote.pop();
+        console.log('didmount_thisNote', thisNote)
+        this.setState({title:thisNote.title, content:thisNote.content})
     }
 
     // saveNote = (e, note) => {
@@ -91,7 +97,7 @@ class FullSizeNote extends Component {
     onChange = (e) => {
         console.log(e);
         this.setState({
-            [e.target.name] : e.target.value || e.target.defaulValue
+            [e.target.name] : e.target.value || e.target.defaultValue
         })
     }
 
@@ -99,7 +105,9 @@ class FullSizeNote extends Component {
         e.preventDefault();
         console.log('event!', e.target.value);
         this.setState({
-            contentEditable: !this.state.contentEditable
+            contentEditable: !this.state.contentEditable,
+          
+
         })
     }
 
@@ -132,16 +140,19 @@ class FullSizeNote extends Component {
             
                 {this.state.contentEditable? 
                 <React.Fragment>
-                    <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
-                    <DashedStyleHeader onKeyUp={(e)=>{this.saveChanges(e, savedNote, myhistory)}} onDoubleClick={(e)=>{this.editContent(e)}} name='title' onChange={this.onChange} defaultValue={this.state.title? this.state.title : thisNote[0].title}/>
+                   
+                    <DashedStyleHeader onKeyUp={(e)=>{this.saveChanges(e, savedNote, myhistory)}} onDoubleClick={(e)=>{this.editContent(e)}} name='title' onChange={this.onChange} value={this.state.title? this.state.title : thisNote[0].title}/>
                 <DashedStyleTextArea name='content' onKeyUp={(e)=>{this.saveChanges(e, savedNote, myhistory)}} defaultValue={this.state.content? this.state.content : thisNote[0].content} onChange={this.onChange}> 
-                </DashedStyleTextArea></React.Fragment>
+                </DashedStyleTextArea>
+                 <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
+                 </React.Fragment>
                : 
                <React.Fragment>
-                   <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
+                   
                   <h1 onDoubleClick={this.editContent}>{this.state.title ? this.state.title : thisNote[0].title}</h1>
                  <SolidStyleTextArea name='content' value={this.state.content? this.state.content: thisNote[0].content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
                 </SolidStyleTextArea> 
+                <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
                 </React.Fragment>}
 
            

@@ -10,7 +10,7 @@ import UserMiniCard from './Components/User/UserMiniCard';
 import NewNote from './Components/NewNote/NewNote';
 import {withRouter} from 'react-router-dom';
 import FullSizeNote from './Components/FullSizeNote/FullSizeNote';
-import Loader from './Components/Loader/Loader';
+import ToggleSwitch from './Components/Misc/ToggleSwitch';
 
 //for API KEY: create a constants.js file, with an export for your google api key 
 //or create a variable below this line that stores your API key.
@@ -21,16 +21,19 @@ class App extends Component {
 
   }
   render() {
+    
     return (
       <Main>
-      <TopBar> <UserMiniCard/> <Header>Lambda  Notes<LinkBar>Home | About | Blog | Careers | Contact</LinkBar></Header> </TopBar>
+      <TopBar> <UserMiniCard/><LinkBar><i class="far fa-moon"></i>&nbsp;&nbsp; <ToggleSwitch/> </LinkBar> </TopBar>
       <MiddleSection>
         
       <Sidebar>
+      <Header>Lambda Notes</Header>
       <Link style={{textDecoration:'none', width: '100%'}} to='/'><PrimaryButton>View Notes</PrimaryButton> </Link>
       <Link style={{textDecoration:'none', width: '100%'}} to='/notes/new'> <PrimaryButton>Create A Note</PrimaryButton> </Link>
       </Sidebar>
       <Route exact path = '/' component = {NotesContainer}/>
+     
       <Route exact path ='/notes/new' render={(props)=> {
       
        return (<NewNote location = {props.history.location}/>)

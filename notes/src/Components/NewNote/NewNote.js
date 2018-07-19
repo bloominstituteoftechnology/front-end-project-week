@@ -91,7 +91,7 @@ class NewNote extends Component {
                 
                 {this.state.contentEditable? 
                 <React.Fragment>
-                    <DashedStyleHeader name='title' onChange={this.onChange} defaultValue='Title...'/>
+                <DashedStyleHeader name='title' onChange={this.onChange} defaultValue='Title...'/>
                 <DashedStyleTextArea name='content' value={this.state.content} onChange={this.onChange}> 
                 </DashedStyleTextArea> <SaveButton onClick={(e)=>{this.props.addNote(e, note, history )}}>save</SaveButton></React.Fragment>
                : 
