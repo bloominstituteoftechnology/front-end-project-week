@@ -16,6 +16,7 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
 
 export const SET_NULL = 'SET_NULL';
+export const SET_NOTES = 'SET_NOTES';
 
 export const ERROR = 'ERROR';
 
@@ -68,5 +69,12 @@ export const setNull = () => {
     return {
         type: SET_NULL,
         payload: null
+    }
+}
+
+export const setNotes = (dragIndex, hoverIndex, dragCard) => {
+    return {
+        type: SET_NOTES,
+        payload: { dragIndex, hoverIndex, dragCard }
     }
 }

@@ -3,15 +3,13 @@ import NotesCard from './NotesCard';
 import { NotesWrapper, NotesCards, SearchForm, MainNotesHeader } from '../ReusableComponents/Notes';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-import update from 'immutability-helper';
 
 class NotesContainer extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            searchString: '',
-            notes: this.props.notes
+            searchString: ''
         }
     }
 
@@ -20,21 +18,14 @@ class NotesContainer extends React.Component {
     }
 
     moveCard = (dragIndex, hoverIndex) => {
-        const { notes } = this.state
-        const dragCard = notes[dragIndex]
+        const dragCard = this.props.notes[dragIndex]
+        this.props.setNotes(dragIndex, hoverIndex, dragCard);
 
-        this.setState(
-            update(this.state, {
-                notes: {
-                    $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]],
-                },
-            }),
-        )
     }
 
     // Maps over all notes and passes them down to the NotesCard component
     render() {
-        let notes = this.state.notes;
+        let notes = this.props.notes;
         let search = this.state.searchString.trim().toLowerCase().replace(/\\/g, "\\\\");
 
         if (search.length > 0) {

@@ -20,7 +20,7 @@ body {
   min-height: 891px;
 }
 
-.test-div {
+.notes-card-wrapper {
   margin-right: 14px;
   width: 192px;
   height: 197px;
@@ -29,6 +29,6 @@ body {
   margin-bottom: 24px;
 }
 
-.test-div:nth-child(3n+3) {
+.notes-card-wrapper:nth-child(3n+3) {
   margin-right: 0;
 }

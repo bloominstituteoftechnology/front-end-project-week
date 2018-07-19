@@ -1,4 +1,5 @@
-import { FETCHING_NOTES, NOTES_FETCHED, FETCHING_NOTE, NOTE_FETCHED, CREATING_NOTE, NOTE_CREATED, EDITING_NOTE, NOTE_EDITED, DELETING_NOTE, NOTE_DELETED, ERROR, SET_NULL } from '../actions';
+import { FETCHING_NOTES, NOTES_FETCHED, FETCHING_NOTE, NOTE_FETCHED, CREATING_NOTE, NOTE_CREATED, EDITING_NOTE, NOTE_EDITED, DELETING_NOTE, NOTE_DELETED, ERROR, SET_NULL, SET_NOTES } from '../actions';
+import update from 'immutability-helper';
 
 const initialState = {
     fetchingNotes: false,
@@ -63,7 +64,15 @@ export default (state = initialState, action) => {
             return { ...state, notes: deleteNote, deletingNote: false, noteDeleted: true };
 
         case SET_NULL:
-            return { ...state, note: [], noteFetched: false }
+            return { ...state, noteFetched: false }
+
+        case SET_NOTES:
+            let setNotes = update(state, {
+                notes: {
+                    $splice: [[action.payload.dragIndex, 1], [action.payload.hoverIndex, 0, action.payload.dragCard]],
+                },
+            });
+            return { ...state, notes: setNotes.notes };
 
         case ERROR:
             return { ...state, error: action.payload };

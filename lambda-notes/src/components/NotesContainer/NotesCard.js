@@ -34,7 +34,7 @@ const NotesCard = props => {
     const { isDragging, connectDragSource, connectDropTarget, note } = props;
     const opacity = isDragging ? 0 : 1;
     return connectDragSource && connectDropTarget && connectDragSource(connectDropTarget(
-        <div className='test-div' style={{ opacity }}>
+        <div className='notes-card-wrapper' style={{ opacity }}>
             <NotesCardLink to={`/notes/${note._id}`}>
 
                 <NotesCardContainer>
