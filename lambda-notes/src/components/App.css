@@ -522,14 +522,70 @@ button:hover {
     flex-flow: column-reverse;
     margin: 0 auto 16px auto;
   }
-
-  .DeleteModal-buttons button {
-
-  }
-
 }
 
 /* phone styles */
 @media (max-width: 400px) {
+  .App-container {
+    margin: 0;
+  }
 
+  .Nav-buttons button {
+    width: 300px;
+  }
+
+  .NoteView-wrapper {
+    width: 250px;
+  }
+
+  .Note-header, .Note-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .CreateView-container, .EditView-container {
+    width: 100%;
+    margin: 0 10px;
+  }
+
+  .CreateView-header, .EditView-header {
+    margin: 16px auto;
+  }
+
+  .CreateView-content input, .EditView-content input {
+    width: 76%;
+  }
+
+  .CreateView-content textarea, .EditView-content textarea {
+    width: 70%;
+  }
+
+  .CreateView-buttons, .EditView-buttons {
+    width: 80%;
+    
+  }
+
+  .CreateView-buttons button, .EditView-buttons button {
+    width: 278px;
+    margin: 10px auto;
+  }
+
+  .DeleteModal-modal {
+    
+    top: 250px;
+    right: 1px;
+    width: 98%;
+  }
+
+  .DeleteModal-header {
+    margin: 0;
+  }
+
+  .DeleteModal-buttons {
+    width: 100%;
+  }
+
+  .DeleteModal-buttons button {
+    width: 80%;
+  }
 }
