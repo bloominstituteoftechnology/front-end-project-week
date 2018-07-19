@@ -20,7 +20,7 @@
 }
 .modalB {
     width: 40%;
-
+    cursor: pointer;
 }
 .redButton {
     background-color: #D0021B;

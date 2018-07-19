@@ -9,6 +9,9 @@
     padding-top: 1.5rem;
     margin-right: 1.5rem;
 }
+.editDeleteLinks a {
+    cursor: pointer;
+}
 
 .textBody  {
     text-align: left;
