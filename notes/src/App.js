@@ -5,18 +5,15 @@ import { getNotes, themeSwitch } from './Actions';
 import NotesContainer from './Components/NotesContainer/NotesContainer';
 import { GOOGLE_API_KEY } from './constants';
 import { Route, Link } from 'react-router-dom';
-import { MiddleSection, Sidebar, TopBar, Main, PrimaryButton, Header, LinkBar, } from './Components/StyledComponents/StyledComponents';
+import { MiddleSection, Sidebar, TopBar, Main, PrimaryButton, Header, LinkBar, DownloadButton } from './Components/StyledComponents/StyledComponents';
 import UserMiniCard from './Components/User/UserMiniCard';
 import NewNote from './Components/NewNote/NewNote';
 import {withRouter} from 'react-router-dom';
 import FullSizeNote from './Components/FullSizeNote/FullSizeNote';
 import ThemeSwitch from 'react-theme-switch';
+import {CSVLink} from 'react-csv';
 
-import styled from 'styled-components';
 
-const NewSwitch = styled(ThemeSwitch)`
-background-color: green;
-`
 
 
 
@@ -38,7 +35,7 @@ class App extends Component {
     return (
   
       <Main>   
-      <TopBar> <UserMiniCard/><LinkBar> <ThemeSwitch/> &nbsp;&nbsp; <i class="far fa-moon"></i> </LinkBar> </TopBar>
+      <TopBar> <UserMiniCard/><LinkBar>  <CSVLink data={this.props.notes}> <DownloadButton> <i class="fas fa-download"></i></DownloadButton></CSVLink><ThemeSwitch/></LinkBar> </TopBar>
        <MiddleSection theme={this.props.theme}> 
         
       <Sidebar>

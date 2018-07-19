@@ -15,13 +15,28 @@ export const DeleteButton = styled.button`
 border: none;
 background-color: white;
 outline:none;
-color: red;
+cursor: pointer;
+color: white;
 position: absolute;
-top: 120px;
-right: 240px;
-font-size: 20px;
+top: 5px;
+right: 5px;
+font-size: 14px;
+&:hover {
+ color: red !important;
+}
 `
-
+export const DownloadButton = styled.button`
+border: none;
+outline:none;
+color: grey;
+background: none;
+font-size: 14px;
+padding-right: 10px;
+cursor:pointer;
+&:hover {
+    color:white;
+}
+`
 export const MiddleSection = styled.div`
 display: flex;
 flex-direction: row;
@@ -89,13 +104,12 @@ background-color: #262626;
 background: -webkit-linear-gradient(to right, #242424, #424242); /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #242424, #424242); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 border-top-left-radius: 20px;
-border-top-right-radius: 10px;
 `
 
 export const MiniBox = styled.div`
 position: relative;
-width: 200px;
-height: 250px;
+width: 180px;
+height: 200px;
 padding: 10px;
 display:flex;
 flex-direction: column;
@@ -103,6 +117,10 @@ z-index: 0;
 background-color: white;
 margin-top:20px;
 border: 1px solid lightgrey;
+&:hover ${DeleteButton}{
+    color: lightgrey;
+}
+
 @media (max-width: 900px) {
 
 }
@@ -111,7 +129,7 @@ border: 1px solid lightgrey;
 
 export const TruncatedText = styled.p`
 position: relative;
-width: 200px;
+width: 180px;
 whitespace: pre-wrap;
 overflow-wrap: break-word;
 overflow: hidden;
@@ -119,7 +137,7 @@ z-index: 5;
 border-top: 1px solid grey;
 padding-top: 30px;
 `
-export const Title = styled.h2`
+export const Title = styled.h3`
 text-align: center;
 `
 
@@ -161,7 +179,7 @@ export const Header = styled.span`
 font-size: 30px;
 font-weight: bold;
 color: white;
-padding: 10px 10px 0 10px;
+padding: 20px 10px 0 10px;
 border-bottom: 1px solid grey;
 color: #363636;
 `
