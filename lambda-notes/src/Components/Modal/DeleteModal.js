@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 class DeleteModal extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class DeleteModal extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });

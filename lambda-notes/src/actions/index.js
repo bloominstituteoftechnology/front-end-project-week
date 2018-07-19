@@ -6,6 +6,8 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
 
 export const getNotes = () => {
     const promise = axios.get('http://localhost:5000/notes')

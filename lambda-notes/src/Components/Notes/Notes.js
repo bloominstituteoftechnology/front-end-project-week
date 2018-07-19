@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const styled = {
     textDecoration: 'none',
-    // color: 'rgb(97, 76, 76)'
     color: 'black'
 }
 
@@ -40,7 +39,7 @@ class Notes extends React.Component {
 const stateProps = (state, ownProps) => {
     console.log('state props notes', state, 'ownProps', ownProps)
     return {
-        notes: state.rootReducer.notes
+        notes: state.rootReducer.noteReducer.notes
     }
 }
 

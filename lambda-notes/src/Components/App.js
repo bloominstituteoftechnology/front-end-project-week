@@ -20,7 +20,6 @@ class App extends Component {
           render = {(props) => <NewNote />} 
           />
           <Route path="/notes/:id" component={ViewNote}
-          // render = {(props) => <ViewNote />} 
           />
         </Switch>
       </div>

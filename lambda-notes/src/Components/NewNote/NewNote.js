@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../../actions';
 
+
 class NewNote extends React.Component {
     constructor(props) {
         super(props);
@@ -15,8 +16,8 @@ class NewNote extends React.Component {
         event.preventDefault();
         const { noteName, noteBody } = this.state;
         const newNote = {
-            name: this.capTitle(noteName),
-            body: this.capSentences(noteBody)
+            name: noteName,
+            body: noteBody
         }
         this.props.addNote(newNote);
         this.setState({ noteName: '', noteBody: '' });
@@ -24,16 +25,6 @@ class NewNote extends React.Component {
 
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value })
-    }
-
-    capTitle = str => {
-        return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
-    }
-
-    capSentences = str => {
-        return str.replace(/.+?[\.\?\!](\s|$)/g, function (txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
     }
 
     render() {
@@ -59,7 +50,7 @@ class NewNote extends React.Component {
                             value={this.state.noteBody}
                             name="noteBody"
                         />
-                        <button className="link__button" type="submit">Save</button>
+                            <button className="link__button" type="submit">Save</button>
                     </form>
                 </div>
             </div>

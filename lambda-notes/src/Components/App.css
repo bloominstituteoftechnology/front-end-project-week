@@ -216,6 +216,8 @@ textarea {
   width: 550px;
   margin: 0 auto;
   height: 150px;
+  position: sticky;
+  bottom: 200px;
 }
 
 .modal__body {

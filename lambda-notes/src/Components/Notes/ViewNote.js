@@ -2,7 +2,6 @@ import React from 'react';
 import { getNote } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import DeleteModal from '../Modal/DeleteModal';
 
 const styled = {
@@ -12,16 +11,15 @@ const styled = {
 
 class ViewNote extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            modal: false
-        };
-    }
-
+            super(props);
+            this.state = {
+                modal: false
+            };
+        }
     componentDidMount() {
         this.props.getNote(this.props.id);
+        console.log('cdm state', this.state)
     }
-
     toggle = () => {
         this.setState({
             modal: !this.state.modal
@@ -53,7 +51,8 @@ class ViewNote extends React.Component {
                             <div className="mainContent__content mainContent__content--view" >
                                 {note.body}
                             </div>
-                        </div>)
+                        </div>
+                    )
                 })}
             </div>
         )
@@ -62,7 +61,7 @@ class ViewNote extends React.Component {
 
 const stateProps = (state, ownProps) => {
     return {
-        notes: state.rootReducer.notes,
+        notes: state.rootReducer.noteReducer.notes,
         id: ownProps.match.params.id
     }
 }
