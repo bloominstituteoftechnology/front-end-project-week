@@ -16,13 +16,13 @@ class ViewNote extends React.Component {
 }
  
 
-    toggleModal = e => {
-        this.setState({ modal: this.state.modal });
+    toggleModal = () => {
+        this.setState({ modal: !this.state.modal });
     }
 
     handleDeleteNote = () => {
         this.toggleModal();
-        this.props.deleteNote(this.props.singleNote.title);
+        this.props.deleteNote(this.props.title);
         this.props.history.push('/');
     }
 
@@ -31,7 +31,13 @@ render() {
         <div>
             <Sidebar />
             <Link to={{pathname: `/editNote/${this.props.location.state.id}`, state: {title: this.props.location.state.title, body: this.props.location.state.body, id: this.props.location.state.id, notes: this.props.location.state.notes}}}>edit</Link>
-                {/* <Link>delete</Link> */}
+            <a onClick={this.toggleModal}>delete</a>
+            {this.state.modal ?
+             <Modal 
+             toggleModal={this.toggleModal} 
+             id={this.props.location.state.id} 
+             notes={this.props.location.state.notes} 
+             delete={this.props.delete}/> : null}
         <div className="Viewnote">
         <h3>{this.props.location.state.title}</h3>
         <p>{this.props.location.state.body}</p>    
