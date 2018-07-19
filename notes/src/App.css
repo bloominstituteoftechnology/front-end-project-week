@@ -43,7 +43,8 @@
   padding-bottom: 20px;
   margin-left: 250px;
   width: 80%;
-  height: 120vh;
+  height: 200vh;
+  background-image: cover;
 }
 
 .cards {
