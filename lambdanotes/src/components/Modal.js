@@ -6,8 +6,8 @@ const Modal = props => {
     return (
         <div>
             <p>Are you sure you want to delete this?</p>
-            <button onClick={() => props.delete(props.id)}>Delete</button>            
-            <button onClick={() => props.toggle()}>Just Kidding</button>
+            <button onClick={() => props.deleteNote(props.id)} >Delete</button>            
+            <button onClick={() => props.toggleModal()}>Just Kidding</button>
         </div>
     )
 }

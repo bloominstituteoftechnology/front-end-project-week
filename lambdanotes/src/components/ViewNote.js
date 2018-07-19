@@ -20,6 +20,17 @@ class ViewNote extends React.Component {
         this.setState({ modal: !this.state.modal });
     }
 
+    deleteNote = e => {
+        e.preventDefault();
+        let notes = this.props.notes.slice();
+        let id = this.props.id
+        let index = notes.findIndex(function(n) {
+            return n.id === id;
+        });
+        notes.splice(index, 1)
+        this.setState({ delete: !this.state.delete })
+    }
+
     handleDeleteNote = () => {
         this.toggleModal();
         this.props.deleteNote(this.props.title);
