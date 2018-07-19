@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNoteReq, updateReq } from '../actions';
+import { fetchReq, fetchNoteReq, updateReq } from '../actions';
 import { Link } from 'react-router-dom';
 import logo from '../logo.svg';
 
@@ -28,7 +28,7 @@ class EditView extends Component {
     };
 
     handleUpdate = (e) => {
-        if(this.state.title === '' && this.state.textBody === '') return null;
+        // if(this.state.title === '' && this.state.textBody === '') return null;
 
         const id = this.props.match.params.id;
         const note = {
@@ -36,9 +36,10 @@ class EditView extends Component {
             textBody: this.state.textBody,
             tags: this.state.tags
         }
+
         this.props.updateReq(id, note);
-        console.log('working?');
-    }
+
+    };
 
     handleTag = (e) => {
         if(this.state.tag === '') return null;
@@ -47,9 +48,17 @@ class EditView extends Component {
         tags.push(newTag);
         console.log(tags);
         this.setState({tags, tag: ''});
-    }
+    };
+
+    handleTagClick = (id) => {
+        let tags = this.props.tags;
+        tags.splice(id, 1);
+        console.log(tags);
+        this.setState({tags, tag: ''});
+    };
 
     render() {
+        // console.log(this.props);
         if(!this.props.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
         return (
@@ -70,7 +79,7 @@ class EditView extends Component {
                         value={this.state.textBody === "" ? this.props.note.textBody : this.state.textBody}
                         onChange={this.handleChange}
                     />
-                    <label>tags: {this.props.note ? this.props.tags.map((tag) => <span onClick={() => console.log('delete')}>{`${tag}`}</span>) : ``}</label>
+                    <label>tags: {this.props.note ? this.props.tags.map((tag, index) => <span key={index} id={index} onClick={() => this.handleTagClick(index)}>{`${tag}`}</span>) : ``}</label>
                     <input
                         name="tag"
                         placeholder="Note Tag"
@@ -80,7 +89,10 @@ class EditView extends Component {
                 </form>
                 <div className="EditView-buttons">
                     <button onClick={this.handleTag}>Add Tag</button>
-                    <button onClick={() => this.handleUpdate()}>Update</button>
+                    <Link to={`/note/${this.props.match.params.id}`}><button onClick={() => {
+                        this.handleUpdate();
+                        setTimeout(window.location.reload(), 3000);
+                    }}>Update</button></Link>
                 </div>
             </div>
         );
@@ -95,4 +107,4 @@ const mapStateToProps = ({ notes }) => {
     };
 }
 
-export default connect(mapStateToProps, { fetchNoteReq, updateReq })(EditView);
+export default connect(mapStateToProps, { fetchReq, fetchNoteReq, updateReq })(EditView);

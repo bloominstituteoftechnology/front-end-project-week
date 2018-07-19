@@ -18,6 +18,7 @@ class ListView extends Component {
     }
 
     render() {
+        console.log(this.props.notes);
         if (!this.props.notes) {
             return <img src={logo} className="App-logo" alt="logo" style={{ margin: "auto", height: "50%" }} />;
         } else {

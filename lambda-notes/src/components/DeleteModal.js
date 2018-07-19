@@ -9,7 +9,10 @@ const DeleteModal = props => {
                     <h2>Are you sure you want to delete this?</h2>
                 </div>
                 <div className="DeleteModal-buttons">
-                    <Link to="/"><button onClick={() => props.handleDelete(props.id)}>Delete</button></Link>
+                    <Link to="/"><button onClick={() => {
+                        props.handleDelete(props.id);
+                        setTimeout(window.location.reload(), 3000);
+                    }}>Delete</button></Link>
                     <button onClick={props.toggleDelete}>No</button>
                 </div>
             </div>

@@ -240,7 +240,8 @@ button:hover {
 }
 
 .CreateView-content label, .EditView-content label {
-  margin: 16px auto;
+  text-align: left;
+  margin: 16px 0;
 }
 
 .CreateView-buttons, .EditView-buttons {

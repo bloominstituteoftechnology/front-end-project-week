@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { submitReq } from '../actions';
+import { fetchReq, submitReq } from '../actions';
 import logo from '../logo.svg';
 
 class CreateView extends Component {
@@ -32,6 +32,7 @@ class CreateView extends Component {
             textBody: this.state.textBody,
             tags: this.state.tags
         }
+
         this.props.submitReq(note);
     }
 
@@ -45,6 +46,7 @@ class CreateView extends Component {
     }
 
     render() {
+        console.log(this.props.history);
         return (
             <div className="CreateView-container">
                 <div className="CreateView-header">
@@ -63,7 +65,7 @@ class CreateView extends Component {
                         value={this.state.textBody}
                         onChange={this.handleChange}
                         />
-                    <label>{this.state.tags.length !== 0 ? (this.state.tags.map((tag) => <span>{`${tag} `}</span>)) : `tags`}</label>
+                    <label>tags: {this.state.tags.length !== 0 ? (this.state.tags.map((tag) => <span>{`${tag} `}</span>)) : ``}</label>
                     <input
                         name="tag"
                         placeholder="Note Tag"
@@ -73,7 +75,10 @@ class CreateView extends Component {
                 </form>
                 <div className="CreateView-buttons">
                     <button onClick={this.handleTag}>Add Tag</button>
-                    <button onClick={() => this.handleSubmit()}>Save</button>
+                    <Link to="/"><button onClick={() => {
+                        this.handleSubmit();
+                        setTimeout(window.location.reload(), 3000);
+                    }}>Save</button></Link>
                 </div>
             </div>
         );
@@ -84,4 +89,4 @@ const mapStateToProps = ({ notes }) => {
     return {};
 };
 
-export default connect(mapStateToProps, { submitReq })(CreateView);
+export default connect(mapStateToProps, { fetchReq, submitReq })(CreateView);
