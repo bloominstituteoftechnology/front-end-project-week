@@ -17,7 +17,7 @@ class ViewNote extends React.Component {
   render(){
     return (
       <div>
-        <DeleteNote closePopup={this.closeDeletePopup}/>
+        <DeleteNote closePopup={this.closeDeletePopup} notes={this.props.notes} arrayIndex={this.props.match.params.id} deleteNote={this.props.deletenote}/>
         <Link to={`./${this.props.match.params.id}/edit`}>
           <small className="view-edit view-options">Edit</small>
         </Link>

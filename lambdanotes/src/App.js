@@ -23,11 +23,15 @@ class App extends Component {
     }
     this.addNote = this.addNote.bind(this);
     this.editNote = this.editNote.bind(this);
+    this.deletenote = this.deletenote.bind(this);
   }
   addNote(note) {
     this.state.notes.push(note);
   }
   editNote(note){
+    this.setState({notes: note})
+  }
+  deletenote(note){
     this.setState({notes: note})
   }
 
@@ -48,7 +52,7 @@ class App extends Component {
         />
         <Route
           exact path='/notes/:id'
-          render={(props) => <ViewNote {...props} notes={this.state.notes} />}
+          render={(props) => <ViewNote {...props} notes={this.state.notes} deletenote={this.deletenote}/>}
              />
         <Route
           exact path='/notes/:id/edit'
