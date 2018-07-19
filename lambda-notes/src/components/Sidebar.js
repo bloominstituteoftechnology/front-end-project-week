@@ -22,6 +22,13 @@ export default props =>
       >
         View Your Notes
       </Button>
+      <Button 
+        onClick={props.notesToCsv}
+        variant='primary'
+        my={3}
+      >
+        Download Notes
+      </Button>
     </Link>
     <Link to='/new'>
       <Button

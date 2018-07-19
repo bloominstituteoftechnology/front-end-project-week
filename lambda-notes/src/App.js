@@ -16,6 +16,7 @@ import {
   put,
   delete as _delete
 } from 'axios'
+import ObjectsToCsv from 'objects-to-csv'
 
 class App extends Component {
  
@@ -154,6 +155,29 @@ class App extends Component {
       )
     })
   }
+
+  notesToCsv = async () => {
+    
+    const { notes } = this.state
+
+    try {
+
+      // https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
+      
+      
+      let csvString = await new ObjectsToCsv(notes).toString()
+      csvString = `data:text/csv;charset=utf-8,${csvString}`
+
+      const encodedUri = encodeURI(csvString)
+      
+      window.open(encodedUri)
+
+    } catch(e) {
+
+        console.log('error:', e)
+
+    }
+  }
   
   render() {
 
@@ -162,7 +186,10 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme} >
         <Flex>
-          <Sidebar filterNotes={this.filterNotes} />
+          <Sidebar 
+            filterNotes={this.filterNotes}
+            notesToCsv={this.notesToCsv}
+          />
           <MainContainer>
             <Route exact path='/' render={() =>
               <NoteCardsContainer>
