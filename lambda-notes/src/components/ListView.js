@@ -4,6 +4,7 @@ import { addNote } from '../actions';
 import { SideBar} from './SideBar';
 import  NoteCard from './NoteCard';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const List = styled.div`
 
@@ -63,12 +64,14 @@ const ListView = (props) => {
     return (
       <div>
         <List > 
-         <SideBar />
+         {/* <SideBar /> */}
          <div>
+             
             <NoteCard 
             notes={props.notes}
             
              />
+             
             </div>
             </List>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
-import { SideBar} from './SideBar';
+import  SideBar from './SideBar';
 import  Edit from './Edit';
 import styled from 'styled-components';
 

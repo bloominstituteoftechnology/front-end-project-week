@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
-import { SideBar} from './SideBar';
+import  SideBar from './SideBar';
 import  CreateNote from './CreateNote';
 import styled from 'styled-components';
 
@@ -12,11 +12,12 @@ const List = styled.div`
 
  const CreateNoteView = (props) => (
     <List > 
-    <SideBar />
+    {/* <SideBar /> */}
     <div>
         <CreateNote 
-           title={props.title}
-           body={props.body}
+           notetitle={props.notetitle}
+           notebod={props.notebod}
+        //    body={props.value.notebod}
            handleNoteChange={props.handleNoteChange}
            handleAddNote={props.handleAddNote}
            

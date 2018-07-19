@@ -74,8 +74,8 @@ text-decoration: none;
         //   className="input"
         onChange={props.handleNoteChange}
         type="text"
-        name="note"
-        title={props.title}
+        name="notetitle"
+        value={props.notetitle}
         //   value={props.value}
            placeholder="Note Title"
            
@@ -84,17 +84,18 @@ text-decoration: none;
         //   className="input"
         onChange={props.handleNoteChange}
         type="text"
-          name="note"
-          body={props.body}
+          name="notebod"
+          value={props.notebod}
         //    value={props.value}
            placeholder="Note Content"
            
         />
-        <StyledLink to="/"><Button  
-        onClick={props.handleAddNote} type="button">
-          Save
-          
-        </Button></StyledLink>
+        <Button  
+        onClick={props.handleAddNote} ><StyledLink to="/">
+          Save</StyledLink>
+        </Button>
+        
+        
       
       </Createbod>
      </Createcont>
@@ -102,5 +103,5 @@ text-decoration: none;
      );
  };
  
-<StyledLink to="/">View Your Notes</StyledLink>
+<StyledLink to="/">View Your Notes</StyledLink> 
 export default CreateNote;

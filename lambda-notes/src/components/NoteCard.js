@@ -49,22 +49,36 @@ display: flex;
 `
 
 
- const NoteCard = (props) => (
-    
-     <Notecont>
-    <Notebod className = 'Note'>  
-    {props.notes.map(note => (
-        <Note
-          
-          key={note.id}
-          note={note}
-        />
-      ))}
-    {/* <StyledLink to="/note"> <SmallNote>
+const NoteCard = (props) => {
+    return (
+        <Notecont>
+            <Notebod className='Note'>
+                {props.notes.map(note => {
+                    return (
+                        <div>
+                            <Link to={`/note/${note.id}`}>
+
+
+                                <p>{note.notetitle}
+                                </p>
+                                <p>{note.notebod}
+                                </p>
+                            </Link>
+                        </div>
+                        // <Note
+
+                        //   key={note.id}
+                        //   note={note}
+                        //   notetitle={note.notetitle}
+                        //   notebod={note.notebod}
+                        // />
+                    )
+                })}
+                {/* <StyledLink to="/note"> <SmallNote>
     <NoteTitle>Title</NoteTitle>
     <NoteBod>Note</NoteBod>
       </SmallNote> </StyledLink> */}
-      {/* <StyledLink to="/note"> <SmallNote>
+                {/* <StyledLink to="/note"> <SmallNote>
     <NoteTitle>Note Title</NoteTitle>
     <NoteBod>Lorem Ipsum</NoteBod>
       </SmallNote> </StyledLink> 
@@ -72,13 +86,14 @@ display: flex;
     <NoteTitle>Note Title</NoteTitle>
     <NoteBod>Lorem Ipsum</NoteBod>
       </SmallNote> </StyledLink> */}
- </Notebod>
- </Notecont>
- 
- ) 
- 
- ;
- 
+            </Notebod>
+        </Notecont>
+
+    )
+}
+
+    ;
+
 // class NoteCard extends React.Component {
 //     constructor() {
 //         super();
@@ -108,15 +123,15 @@ display: flex;
 //         <Notecont>
 //         <div>Your Notes:</div>    
 //       <Notebod className = 'Note'>
-      
+
 //       <StyledLink to="/note"> <SmallNote>
 //       <NoteTitle>{this.state.notetitle}</NoteTitle>
 //       <NoteBod>Lorem Ipsum</NoteBod>
 //         </SmallNote> </StyledLink>
-        
+
 //    </Notebod>
 //    </Notecont>
-   
+
 //     );
 // }
 // }

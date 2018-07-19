@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SidebarExample from './components/SideBar';
+import SideBar from './components/SideBar';
 import NoteForm from './components/NoteForm';
 import ListView from './components/ListView';
 import OneNote from './components/OneNote';
@@ -36,13 +36,16 @@ const Appcont = styled.div`
           id: 1233, 
       },
     ],
-    note: ''
+    note: "",
+    notetitle: '',
+    notebod: ""
+
 }
 }
 addNote = e => {
     e.preventDefault();
     const notes = this.state.notes.slice();
-    notes.push({ notetitle: this.state.note, notebod: this.state.note,  id: Date.now() });
+    notes.push({ notetitle: this.state.notetitle, notebod: this.state.notebod,  id: Date.now() });
     this.setState({ notes, note: '' });
   };
 
@@ -51,15 +54,17 @@ addNote = e => {
   render() {
     return (
       <Appcont className="App">
+<SideBar />
        <Route exact path="/" render={props=><ListView notes={this.state.notes} {...props}/>}/>
         {/* <Route exact path='/' render={props => 
           <ListView notes={this.state.notes} {...props}/>}/> */}
           {/* <Route exact path='/' component={ListView}/> */}
         {/* <Route exact path='/createnote' component={CreateNoteView}/> */}
         <Route exact path="/createnote" render={props=><CreateNoteView 
-        title={this.state.note.notetitle} body={this.state.note.notebod}
+        notetitle={this.state.notetitle} notebod={this.state.notebod}
         handleNoteChange={this.changeNote} handleAddNote={this.addNote} {...props}/>}/>
-        <Route path='/note' component={OneNote}/>
+        {/* <Route path='/note' component={OneNote}/> */}
+        <Route  path="/note/:id" render={props=><OneNote notes={this.state.notes} {...props}/>}/>
         <Route path='/edit' component={EditView}/>
         <Route path='/delete' component={Delete}/>
       </Appcont>

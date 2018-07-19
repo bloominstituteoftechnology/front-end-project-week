@@ -51,7 +51,8 @@ margin-bottom: 15px;
 
 `;
 
-export const SideBar = () => (
+ const SideBar = () => {
+     return(
     <SideBr className = 'sideBar'> 
     <SBarHead1 className = 'sideBarHeading'>Lambda
         </SBarHead1>
@@ -64,7 +65,8 @@ export const SideBar = () => (
         </SideBr>
 
 ) 
-
+ }
+export default SideBar
 
 // .sideBar {
 //     display: flex;

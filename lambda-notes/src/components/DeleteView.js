@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
-import { SideBar} from './SideBar';
+import  SideBar from './SideBar';
 import  NoteCard from './NoteCard';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";

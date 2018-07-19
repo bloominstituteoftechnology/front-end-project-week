@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
-import { SideBar} from './SideBar';
+import  SideBar from './SideBar';
 // import SidebarExample from './SideBar';
 
 class NoteForm extends Component {
@@ -17,12 +17,12 @@ class NoteForm extends Component {
   handleAddNote = _ => {
     const { notetitle, notebody, } = this.state;
     this.props.addNote({ notetitle, notebody });
-    this.setState({ notetitle: '', agenotebody: '' });
+    this.setState({ notetitle: '', notebody: '' });
   };
 
   render() {
     return (
-        <div>
+        <div className="whole-container">
             {/* <SidebarExample /> */}
             <SideBar />
             <div className="page-container">
