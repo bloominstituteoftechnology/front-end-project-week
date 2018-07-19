@@ -12,10 +12,12 @@ import {withRouter} from 'react-router-dom';
 import FullSizeNote from './Components/FullSizeNote/FullSizeNote';
 import ThemeSwitch from 'react-theme-switch';
 import {CSVLink} from 'react-csv';
+import DeleteModal from './Components/DeleteModal/DeleteModal';
+import firebase from './firebase';
 
 
-
-
+var database = firebase.database();
+console.log('firebase', database);
 
 
 //for API KEY: create a constants.js file, with an export for your google api key 
@@ -25,8 +27,10 @@ class App extends Component {
 
 
   componentDidMount() {
-  this.props.getNotes();
+      this.props.getNotes();
   }
+
+  
 
  
   render() {
@@ -35,7 +39,7 @@ class App extends Component {
     return (
   
       <Main>   
-      <TopBar> <UserMiniCard/><LinkBar>  <CSVLink data={this.props.notes}> <DownloadButton> <i class="fas fa-download"></i></DownloadButton></CSVLink><ThemeSwitch/></LinkBar> </TopBar>
+      <TopBar> <UserMiniCard/><LinkBar>  <CSVLink data={this.props.notes}> <DownloadButton> <i className="fas fa-download"></i></DownloadButton></CSVLink><ThemeSwitch/></LinkBar> </TopBar>
        <MiddleSection theme={this.props.theme}> 
         
       <Sidebar>
@@ -49,11 +53,21 @@ class App extends Component {
       
        return (<NewNote location = {props.history.location}/>)
       }}/>
-      <Route exact path ='/:id' render={(props)=> {
+      <Route path ='/:id' render={(props)=> {
       
-      return (<FullSizeNote location = {props.history.location}/>)
+      return (
+      <FullSizeNote location = {props.history.location}/>
+    )
       }}/>
+<Route path ='/:id/delete' render={(props)=> {
+      
+      return (
 
+      <DeleteModal {...props} >
+      <FullSizeNote location = {props.history.location}/>
+      </DeleteModal>
+    )
+      }}/>
 
       </MiddleSection>
       </Main>

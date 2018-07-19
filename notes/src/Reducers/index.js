@@ -18,6 +18,8 @@ const initialState = {
 }
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
+    case GET_NOTES:
+    return Object.assign({}, state, {notes: action.payload})
     case THEME_SWITCH:
     return Object.assign({}, state, {nightVision: !state.nightVision}, {theme: action.payload})
     case SAVED:
@@ -29,6 +31,7 @@ const rootReducer = (state = initialState, action) => {
        console.log(Object.assign({}, state, {notes:updatedNotes}));
        return Object.assign({}, state, {notes:updatedNotes},  {saveInProgress: false, saved:false});
     case ADDING_NOTE:
+  
        return (Object.assign({}, state, {notes:[...state.notes, {title: action.payload.title, id: action.payload.id, content:action.payload.content}]}, {saveInProgress: false, saved:false}))
     default:
         return state;

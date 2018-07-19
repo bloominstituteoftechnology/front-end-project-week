@@ -10,6 +10,8 @@ import Loader from '../Loader/Loader';
 import styled from 'styled-components';
 
 const FlexDivColumn = FlexDiv.extend`
+position: relative;
+z-index: 5;
 flex-direction: column;
 justify-content: center;
 align-items: center;
@@ -68,6 +70,7 @@ class FullSizeNote extends Component {
     }
     componentDidMount() {
         let note_id = this.props.match.params.id
+        debugger;
         console.log('didmount_id', note_id)
         let thisNote = this.props.notes.filter(note => note_id == note.id)
         thisNote = thisNote.pop();
@@ -149,8 +152,8 @@ class FullSizeNote extends Component {
                : 
                <React.Fragment>
                  
-                  <h1 onDoubleClick={this.editContent}>{this.state.title ? this.state.title : thisNote[0].title}</h1>
-                 <SolidStyleTextArea name='content' value={this.state.content? this.state.content: thisNote[0].content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
+                  <h1 onDoubleClick={this.editContent}>{this.state.title}</h1>
+                 <SolidStyleTextArea name='content' value={this.state.content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
                 </SolidStyleTextArea> 
                 <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
                 </React.Fragment>}

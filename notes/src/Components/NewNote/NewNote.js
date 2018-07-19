@@ -73,7 +73,7 @@ class NewNote extends Component {
 
     render() {
         let note = {
-            id: Date.now(),
+        
             title: this.state.title,
             content: this.state.content
         }

@@ -9,7 +9,7 @@ const MiniNote = (props) => {
     return (
         <Link style={{textDecoration:'none', color: 'black'}} to={`/${props.note.id}`}>
         <MiniBox className='test'>
-        <Link to='/dude'> <DeleteButton><i class="fas fa-trash"></i></DeleteButton></Link>
+        <Link to={`/${props.note.id}/delete`}> <DeleteButton><i class="fas fa-trash"></i></DeleteButton></Link>
         <Title>{props.note.title}</Title>
         
         <TruncatedText>{props.note.content}</TruncatedText>

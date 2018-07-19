@@ -11,6 +11,16 @@ overfly-x:hidden;
 overflow-y: auto;
 height:auto;
 `
+export const Modal = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 40vw;
+height: 30vh;
+background-color: white;
+color: black;
+`
 export const DeleteButton = styled.button`
 border: none;
 background-color: white;
@@ -160,13 +170,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 `
 
 export const PrimaryButton = styled.button `
-min-width: 75px;
+
 margin-top: 10px;
 display: flex;
+outline: none;
 justify-content: center;
 align-items: center;
 background-color: #2BC1C4;  
 color: white;
+min-width: 75px;
 width: 100%;
 border: none;
 font-size: 16px;

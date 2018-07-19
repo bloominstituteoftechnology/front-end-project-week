@@ -7,11 +7,8 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import {withRouter} from 'react-router-dom';
 
 class NotesContainer extends Component {
-    componentWillMount() {
-        this.props.getNotes();
-    }
+
     componentDidMount() {
-        this.props.getNotes();
     }
     
     render() {
