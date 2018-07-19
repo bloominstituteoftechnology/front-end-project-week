@@ -1,0 +1,57 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 675px;
+    height: 100vh;
+    background: #f1f1f1;
+}
+.delete-container{
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 1px 1px 8px rgb(66, 66, 66);
+    margin-left: 100px;
+    margin-top: 100px;
+}
+.delete-button{
+    display: flex;
+    background-color: #5CBDC2;
+    border: 1px solid #86AEB1;
+    height: 40px;
+    color: white;
+    font-weight: 800;
+    border-radius: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    width:25%;
+}
+
+.cancel-button{
+    display: flex;
+    background-color: red;
+    border: 1px solid #86AEB1;
+    height: 40px;
+    color: white;
+    font-weight: 800;
+    border-radius: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    width:25%;
+    margin: 1rem
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center
+
+}
+.hidden{
+    display : none;
+}
