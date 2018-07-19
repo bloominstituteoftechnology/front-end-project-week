@@ -23,11 +23,16 @@ class Login extends React.Component {
 
   render() {
     return (
-      <form className="login">
-      Username: <input name="username" placeholder="username" onChange={this.handleChange} value={this.state.username} />
-      Password: <input name="password" placeholder="password" onChange={this.handleChange} value={this.state.password} /><br/>
-      <input type="submit" value="Log In" onClick={this.handleLogin} />
-      </form>
+      <div>
+        <form className="login">
+        <h1 className="loginTitle">Lambda Notes</h1>
+        <div>Username: <input name="username" placeholder="Username"
+        onChange={this.handleChange} value={this.state.username} /></div><br/>
+        <div>Password: <input name="password" placeholder="Password"
+        onChange={this.handleChange} value={this.state.password} /><br/>
+        <input className="sidebar-button login-button" type="submit" value="Log In" onClick={this.handleLogin} /></div>
+        </form>
+      </div>
     );
   }
 }

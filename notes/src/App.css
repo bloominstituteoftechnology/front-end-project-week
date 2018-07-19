@@ -99,6 +99,10 @@ body {
   border: 1px solid black;
 }
 
+.sidebar-button.login-button {
+  width: 250px;
+}
+
 .logout-button {
   background: firebrick;
   color: white;
@@ -207,12 +211,14 @@ body {
 .tagContainer {
   border: 1px solid black;
   display: inline-block;
-
+  margin-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
 .tagContainer .tagg {
   font-size: 85%;
-  padding: 0.5em 0.75em;
+  padding: 5px 10px;
   display: inline-block;
   margin: 0.25em 0.1em;
   background: #ddd;
@@ -245,4 +251,27 @@ body {
 
 .tagForm {
   display: inline-block;
+}
+
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  background: linear-gradient(to bottom, gray 10%, silver 100%)
+}
+
+.loginTitle {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  width: 300px;
+  border: 2px solid ;
+  background: firebrick;
+  opacity: 0.9;
+  font-size: 80px;
+  text-align: center;
+  margin-bottom: 50px;
 }

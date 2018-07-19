@@ -186,7 +186,7 @@ class ViewNote extends React.Component {
         <input className="mainInput" type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
         </form>
         </div>
-        {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}}>Save</button> : null}
+        {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}} className="view-note-button">Save</button> : null}
       </div>
     </div>
   )
