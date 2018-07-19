@@ -27,11 +27,17 @@ class NoteView extends React.Component {
   }
 
   ShowModal = () => {
+    console.log("SHOW MODAL CALLED");
+    console.log("PREVIOUS STATE", this.state);
     this.setState({ showDeleteModal: true });
+    console.log("POST STATE", this.state);
   };
 
   HideModal = () => {
+    console.log("HIDE MODAL CALLED");
+    console.log("PREVIOUS STATE", this.state);
     this.setState({ showDeleteModal: false });
+    console.log("NEXT STATE", this.state);
   };
 
   render() {

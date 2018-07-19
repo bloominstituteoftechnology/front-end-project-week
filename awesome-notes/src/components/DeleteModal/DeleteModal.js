@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GlobalButton from "../GlobalButton/GlobalButton";
 import DeleteButton from "../GlobalButton/DeleteButton";
+import CancelDeleteButton from "../GlobalButton/CancelDeleteButton";
 
 const ModalWrapper = styled.div`
   height: 100vh;
@@ -48,12 +49,13 @@ const DeleteModal = props => {
       <DeleteButtonsWrapper>
         <TextSection>Are you sure you want to delete this?</TextSection>
         <ButtonsSection>
-          <DeleteButton message="Delete" onClick={props.delHandler} />
-          <ButtonSpacer />
-          <GlobalButton
-            message="no"
-            onClick={props.hideModal(props.currentNote)}
+          <DeleteButton
+            message="Delete"
+            delHandler={props.delHandler}
+            currentNote={props.currentNote}
           />
+          <ButtonSpacer />
+          <CancelDeleteButton message="no" hideModal={props.hideModal} />
         </ButtonsSection>
       </DeleteButtonsWrapper>
     </ModalWrapper>

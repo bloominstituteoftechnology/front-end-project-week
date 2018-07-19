@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavButton = styled.button`
   height: 45px;
@@ -13,7 +14,13 @@ const NavButton = styled.button`
 `;
 
 const DeleteButton = props => {
-  return <NavButton>{props.message}</NavButton>;
+  return (
+    <Link to="/">
+      <NavButton onClick={() => props.delHandler(props.currentNote)}>
+        {props.message}
+      </NavButton>
+    </Link>
+  );
 };
 
 export default DeleteButton;

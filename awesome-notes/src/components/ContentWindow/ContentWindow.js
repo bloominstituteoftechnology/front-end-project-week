@@ -27,7 +27,7 @@ class ContentWindow extends React.Component {
     this.state = {
       possibleViews: ["note", "new", "edit", "list"],
       currentView: "list",
-      deleteModalVisible: false,
+      deleteModalVisible: true,
       content: Sample,
       selectedNote: "01"
     };
@@ -54,13 +54,17 @@ class ContentWindow extends React.Component {
 
   handleDeleteNote = note => {
     console.log("HANDLE DELETE NOTE CALLED!");
-    const newContent = this.state.content.map(note => note);
+    console.log("NOTE PASSED TO HANDLE DELETE", note);
+    let newContent = this.state.content.map(note => note);
     const elementPos = newContent
       .map(function(x) {
         return x._id;
       })
       .indexOf(note._id);
-    newContent.slice(elementPos);
+    console.log("ELEMENT POSITION", elementPos);
+    newContent.splice(elementPos, 1);
+    this.setState({ content: newContent });
+    console.log("POST DELETE STATE", this.state);
   };
 
   render() {
@@ -72,7 +76,6 @@ class ContentWindow extends React.Component {
           render={props => <ListView {...props} content={this.state.content} />}
         />
 
-        {/* un-hard-code-me */}
         <Route
           path="/note/:_id"
           render={props => (
@@ -91,7 +94,6 @@ class ContentWindow extends React.Component {
           )}
         />
 
-        {/* un-hard-code-me */}
         <Route
           path="/edit/:_id"
           render={props => (

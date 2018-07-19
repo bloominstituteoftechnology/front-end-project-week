@@ -12,8 +12,8 @@ const NavButton = styled.button`
   background-color: #2bc1c4;
 `;
 
-const GlobalButton = props => {
-  return <NavButton>{props.message}</NavButton>;
+const CancelDeleteButton = props => {
+  return <NavButton onClick={props.hideModal}>{props.message}</NavButton>;
 };
 
-export default GlobalButton;
+export default CancelDeleteButton;
