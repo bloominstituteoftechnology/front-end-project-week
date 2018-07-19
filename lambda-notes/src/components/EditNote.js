@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react';
+import { Link } from 'react-router-dom';
 
 class EditNote extends Component {
   constructor(props) {
@@ -23,9 +23,9 @@ class EditNote extends Component {
         <h2>Edit Note:</h2>
         <form>
           <input name='title' value={this.props.currentNote.title} onChange={this.props.handleEditTitle}/>
-          <textarea name='textBody' value={this.props.currentNote.textBody} onChange={this.props.handleEditText}/>
+          <textarea name='textBody' value={this.props.currentNote.textBody} onChange={this.props.handleEditTextBody}/>
         </form>
-        <Link to='/'><button type='button' onClick={this.editCompleted}>Update</button></Link>
+        <Link to={'/'}><button type='button' onClick={this.editCompleted}>Update</button></Link>
       </div>
     )
   }

@@ -9,38 +9,41 @@ import EditNote from './components/EditNote';
 import './App.css';
 
 class App extends Component {
-  state = {
-    notes: [
-      {
-        id: 0,
-        title: 'Lorem Ipsum',
-        textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-      },
-      {
-        id: 1,
-        title: 'Lorem Ipsum',
-        textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-      },
-      {
-        id: 2,
-        title: 'Lorem Ipsum',
-        textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-      },
-      {
-        id: 3,
-        title: 'Lorem Ipsum',
-        textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-      },
-      {
-        id: 4,
-        title: 'Lorem Ipsum',
-        textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-      },
-    ],
-    newTitle: '',
-    newTextBody: '',
-    currentNote: {},
-    deleting: false
+  constructor() {
+    super();
+    this.state = {
+      notes: [
+        {
+          id: 0,
+          title: 'Lorem Ipsum',
+          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
+        },
+        {
+          id: 1,
+          title: 'Lorem Ipsum',
+          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
+        },
+        {
+          id: 2,
+          title: 'Lorem Ipsum',
+          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
+        },
+        {
+          id: 3,
+          title: 'Lorem Ipsum',
+          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
+        },
+        {
+          id: 4,
+          title: 'Lorem Ipsum',
+          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
+        },
+      ],
+      newTitle: '',
+      newTextBody: '',
+      deleting: false,
+      currentNote: {}
+    }
   }
   handleInputChange = event => {
     this.setState({[event.target.name]:event.target.value})
@@ -64,16 +67,18 @@ class App extends Component {
   handleEditTitle = event => {
     this.setState({currentNote: {id: this.state.currentNote.id, title: event.target.value, textBody: this.state.currentNote.textBody}})
   }
-  handleEditText = event => {
+  handleEditTextBody = event => {
   this.setState({currentNote: {id: this.state.currentNote.id, title: this.state.currentNote.title, textBody: event.target.value}})
 }
   handleEditNote = id => {
     const notes = this.state.notes.slice();
     for(let i = 0; i < notes.length; i++) {
-      if(notes[i].id === id) {
+      if(notes[i].id === Number(id)) {
         notes[i] = { id: this.state.currentNote.id, title: this.state.currentNote.title, textBody: this.state.currentNote.textBody}
       }
     }
+    this.setState({notes, currentNote: {}});
+    alert('asdf');
   }
   render() {
     return (
@@ -87,7 +92,7 @@ class App extends Component {
           <Route path='/add' render={props =>
             <AddNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} newTitle={this.state.newTitle} newTextBody={this.state.newTextBody}/>
           } />
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} currentNote={this.state.currentNote} handleSetCurrent={this.handleSetCurrent} handleEditNote={this.handleEditNote} handleEditTitle={this.handleEditTitle} handleEditText={this.handleEditText} />} />
+        <Route path='/edit/:id' render={props => <EditNote {...props} notes={this.state.notes} currentNote={this.state.currentNote} handleSetCurrent={this.handleSetCurrent} handleEditNote={this.handleEditNote} handleEditTitle={this.handleEditTitle} handleEditTextBody={this.handleEditTextBody} />} />
         </div>
         <Route path='/note/:id/delete' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleSetCurrent={this.handleSetCurrent} handleDeleteNote={this.handleDeleteNote} currentNote={this.state.currentNote}/>)}/>
       </div>
