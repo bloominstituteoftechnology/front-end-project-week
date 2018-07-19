@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import Markdown from 'markdown-to-jsx';
 
 const StyledNoteCard = styled.div`
     display: flex;
@@ -27,14 +27,15 @@ const StyledText = styled.p`
     font: Raleway Medium;
 `;
 class NoteCard extends Component {
+
     render(){
-        let { id, title, textBody } = this.props.note
+        let { _id, title, textBody } = this.props.note
         return(
             <StyledNoteCard>
-                <Link to={`/notes/${id}`}
+                <Link to={`/notes/${_id}`}
                     style={{ textDecoration: 'none', color: 'black' }}>
                     <StyledTitle>{title}</StyledTitle>
-                    <StyledText>{textBody}</StyledText>
+                    <StyledText><Markdown>{textBody}</Markdown></StyledText>
                 </Link>
             </StyledNoteCard>
 
