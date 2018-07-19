@@ -24,7 +24,7 @@ export default class NotesList extends Component {
   render() {
     return (
       <div className="noteList-container">
-        <h3 class="header">Your Notes:</h3>
+        <h3 class="header noteList-header">Your Notes:</h3>
         {this.state.notes.map(note =>
           <div className="float-left mr-3 notes">
           <Link to={`/note/${note._id}`} style={{ textDecoration: 'none' }}>

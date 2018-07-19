@@ -16,6 +16,21 @@
 
 @media (max-width: 770px) {
     .nav-container {
-      height: 25vh;
+      height: 24vh;
+      padding: .7rem 1rem;
+    }
+    .nav-header {
+        font-weight: 600;
+        font-size: 30px;
+        margin: .8rem 1rem;
+        letter-spacing: 4px;
+    }
+    .custom-button-teal-nav {
+        width: 8.4rem;
+        float: left;
+        height: 3rem;
+        font-size: 13px;
+        padding: .5rem .5rem;;
+        margin-left: .7rem;
     }
   }

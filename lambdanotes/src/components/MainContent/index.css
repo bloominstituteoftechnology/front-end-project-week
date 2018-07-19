@@ -6,5 +6,6 @@
   padding-left: 3rem;
   padding-right: 3rem;
   max-width: 1000px;
+  overflow: auto;
 }
 

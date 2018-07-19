@@ -1,0 +1,12 @@
+@media (max-width: 770px) {
+  .header {
+    color: #4A4A4A;
+    padding-top: 0;
+    padding-bottom: 1rem;
+    font-size: 20px;
+  } 
+  textarea {
+    height: 200px;
+    font-size: 10px;
+  }
+}
