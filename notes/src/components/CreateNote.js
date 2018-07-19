@@ -18,6 +18,7 @@ class CreateNote extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
+/*Saves a note to the server*/
   saveNote = event => {
     const newNote = {title: this.state.title, textBody: this.state.content}
     event.preventDefault();
@@ -32,6 +33,7 @@ class CreateNote extends React.Component {
     });
   }
 
+/*Logs user out on click event*/
   handleLogout = () => {
     localStorage.removeItem('user');
     window.location.reload();

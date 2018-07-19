@@ -23,19 +23,6 @@ class ViewNote extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
-/*Saves a note to the server*/
-  saveNote = event => {
-    const newNote = {title: this.state.title, textBody: this.state.content}
-    event.preventDefault();
-    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
-    .then(response => {
-      console.log(response)
-    })
-    .catch(err => {
-      console.log("Error is:", err);
-    });
-  }
-
   componentDidMount() {
     this.fetchNote(this.props.match.params.id);
   }
