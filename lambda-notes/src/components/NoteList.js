@@ -76,7 +76,6 @@ class NoteList extends React.Component {
             <Toggle
               checked={this.state.isSortable}
               onChange={this.toggleSortable}
-              focused="false"
             >
               <Label>Sort Notes</Label>
             </Toggle>
