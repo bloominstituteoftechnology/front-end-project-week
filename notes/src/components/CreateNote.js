@@ -56,7 +56,7 @@ class CreateNote extends React.Component {
         onChange={this.handleChange}/>
         <br/>
         <textarea name="content" className="content-input"
-        placeholder="Note Content" value={this.state.content}
+        placeholder="Enter content here..." value={this.state.content}
         onChange={this.handleChange}></textarea>
         <br/>
         <button className="sidebar-button save-create" type="submit">Save</button>
