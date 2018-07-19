@@ -42,6 +42,9 @@
 //             value={this.state.body}
 //             name="body"
 //           />
+        //     <Link to={'/'}> 
+        //   <button onClick={this.handleSubmitNote}>Update</button>
+        //   </Link>
 //           </div>
 //     )
 // }

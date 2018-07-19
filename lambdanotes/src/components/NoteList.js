@@ -24,13 +24,17 @@ class NoteList extends Component {
         <Sidebar />
         <h2>Your Notes:</h2>
         {this.state.notes.map(note => {
-        return <Link key={note.id} to={`viewNote/${note.id}`} style={{textDecoration: 'none'}}>
-            <ViewNote 
-            key={note.id}
-            title={note.title}
-            body={note.body}
-        />
-        </Link>
+        return <div key={note.id}>
+        <Link to={{pathname: `viewNote/${note.id}`, state: {title: note.title, body: note.body, id: note.id}}} style={{textDecoration: 'none'}}>
+        <h1>{note.title}</h1>
+        <p>{note.body}</p></Link></div>
+        // <Link key={note.id} to={`viewNote/${note.id}`} style={{textDecoration: 'none'}}>
+        //     <ViewNote 
+        //     key={note.id}
+        //     title={note.title}
+        //     body={note.body}
+        // />
+        // </Link>
         })}
         </div>
     )

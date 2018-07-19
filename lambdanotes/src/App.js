@@ -32,10 +32,12 @@ class App extends Component {
       <div className="App">
       {/* <Sidebar /> */}
       <Route exact path='/' component={NoteList} />
-      <Route exact path='/createNote' render={(props)=>{
+      <Route path='/createNote' render={(props)=>{
       return( <CreateNote notes={this.state.notes} createNote={this.createNote}/>)
       }} />
-      <Route exact path='/viewNote/:id' component={ViewNote} />
+      <Route path='/viewNote/:id' render={(props)=>{
+        return <ViewNote {...props} />
+      }} />
       {/* <Route exact path='/editNote/:id' component={EditNote} /> */}
       </div>
     );
