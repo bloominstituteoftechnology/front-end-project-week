@@ -32,8 +32,8 @@ class App extends Component {
     setTimeout(() => {
       const notes = this.props.notes.filter(note => {
         return (
-          note.title.includes(this.state.searchPhrase) ||
-          note.textBody.includes(this.state.searchPhrase)
+          note.title.toLowerCase().includes(this.state.searchPhrase.toLowerCase()) ||
+          note.textBody.toLowerCase().includes(this.state.searchPhrase.toLowerCase())
         )
       });
       this.setState({ filteredNotes: notes });

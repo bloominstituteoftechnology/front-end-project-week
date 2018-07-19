@@ -21,12 +21,12 @@ const NoteList = props => {
       note.title = note.title.slice(0, 10) + '...';
     }
     // trims regular case note body
-    if (note.textBody.length > 110) {
-      note.textBody = note.textBody.slice(0, 110) + '...';
+    if (note.textBody.length > 95) {
+      note.textBody = note.textBody.slice(0, 95) + '...';
     }
     // trims uppercase note body
-    if (note.textBody.length > 92 && note.textBody === note.textBody.toUpperCase()) {
-      note.textBody = note.textBody.slice(0, 92) + '...';
+    if (note.textBody.length > 87 && note.textBody === note.textBody.toUpperCase()) {
+      note.textBody = note.textBody.slice(0, 87) + '...';
     }
   });
 
