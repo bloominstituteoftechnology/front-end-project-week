@@ -15,11 +15,13 @@ const List = styled.div`
     <SideBar />
     <div>
         <CreateNote 
-           value={props.note}
-           handleNoteChange={props.changeNote}
-           handleAddNote={props.addNote}
+           title={props.title}
+           body={props.body}
+           handleNoteChange={props.handleNoteChange}
+           handleAddNote={props.handleAddNote}
            
         />
+        
         </div>
         </List>);
 

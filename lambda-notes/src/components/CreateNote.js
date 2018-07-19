@@ -74,8 +74,9 @@ text-decoration: none;
         //   className="input"
         onChange={props.handleNoteChange}
         type="text"
-        name="notetitle"
-          value={props.value}
+        name="note"
+        title={props.title}
+        //   value={props.value}
            placeholder="Note Title"
            
         />
@@ -83,8 +84,9 @@ text-decoration: none;
         //   className="input"
         onChange={props.handleNoteChange}
         type="text"
-          name="notebod"
-           value={props.value}
+          name="note"
+          body={props.body}
+        //    value={props.value}
            placeholder="Note Content"
            
         />

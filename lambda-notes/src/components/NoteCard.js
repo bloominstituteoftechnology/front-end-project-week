@@ -11,8 +11,11 @@ const Notecont = styled.div`
     border: solid 1px #979797
 `;
 const Notebod = styled.div`
+margin-top 15px;
+margin-bottom 15px;
 display: flex;
     justify-content: space-around; 
+    flex-wrap:wrap;
 `;
 const SmallNote = styled.div`
 

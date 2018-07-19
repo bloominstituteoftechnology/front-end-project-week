@@ -40,7 +40,7 @@ const Appcont = styled.div`
 }
 }
 addNote = e => {
-    // e.preventDefault();
+    e.preventDefault();
     const notes = this.state.notes.slice();
     notes.push({ notetitle: this.state.note, notebod: this.state.note,  id: Date.now() });
     this.setState({ notes, note: '' });
@@ -56,7 +56,9 @@ addNote = e => {
           <ListView notes={this.state.notes} {...props}/>}/> */}
           {/* <Route exact path='/' component={ListView}/> */}
         {/* <Route exact path='/createnote' component={CreateNoteView}/> */}
-        <Route exact path="/createnote" render={props=><CreateNoteView value={this.state.note} handleNoteChange={this.changeNote} handleAddNote={this.addNote} {...props}/>}/>
+        <Route exact path="/createnote" render={props=><CreateNoteView 
+        title={this.state.note.notetitle} body={this.state.note.notebod}
+        handleNoteChange={this.changeNote} handleAddNote={this.addNote} {...props}/>}/>
         <Route path='/note' component={OneNote}/>
         <Route path='/edit' component={EditView}/>
         <Route path='/delete' component={Delete}/>
