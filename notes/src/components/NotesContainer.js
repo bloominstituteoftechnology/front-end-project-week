@@ -2,15 +2,29 @@ import React from 'react';
 import '../App.css';
 import NoteTab from './NoteTab';
 import {NavLink} from 'react-router-dom';
+import Sortable from 'sortablejs';
 
 /*Purpose of this function is to act as a container for note tabs and to return them via array.map*/
 class NotesContainer extends React.Component {
+  makeSortable = () => {
+    let so = '2';
+    console.log(so);
+  }
+
+  componentDidMount() {
+    let sortableNotes = document.querySelector('.note-container')
+    Sortable.create(sortableNotes);
+  }
   render() {
+
     return (
       <div className="note-container">
         {this.props.notes.map(note => {
           return <NavLink key={note['_id']} id="view-edit-linkz" to={`/notes/${note['_id']}`}><NoteTab key={note['_id']} note={note} /></NavLink>
-        })}
+        })
+
+      }
+
       </div>
     )
   }
