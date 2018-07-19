@@ -23,7 +23,7 @@
 .body {
     font-size: 0.95rem;
     padding: 0 4px;
-    height: 172px;
+    height: 138px;
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -31,4 +31,12 @@
 
 .note:hover {
     box-shadow: 5px 10px 5px #D3D2D3;
+} 
+
+.tag-text {
+    display: flex;
+    font-size: 0.75rem;
+    margin-left: 2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
