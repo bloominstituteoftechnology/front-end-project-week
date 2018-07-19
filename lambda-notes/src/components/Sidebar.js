@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
+// CSS
+import {borderColor, accentColorPrimary } from '../components/css/Globals'
+
 const HeaderSpan = styled.span`
   font-family: 'Roboto', sans-serif;
   font-size: 3.6rem;
@@ -9,14 +12,14 @@ const HeaderSpan = styled.span`
 `
 
 const BaseButton = styled.button`
-  background-color: #2BC1C4;
-  border: 1px solid #979797;
+  font-family: 'Roboto', sans-serif;
+  background-color: ${accentColorPrimary};
+  border: 1px solid ${borderColor};
   height: 40px;
   color: white;
   text-align:center;
   width:100%;
   margin-top: 24px;
-  font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   &:focus{
     outline: 3px solid white;

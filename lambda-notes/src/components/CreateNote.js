@@ -1,7 +1,11 @@
+// Libraries
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+
+// CSS
+import {borderColor, accentColorPrimary } from '../components/css/Globals'
 
 const Header = styled.div`
   font-family: 'Roboto', sans-serif;
@@ -18,11 +22,11 @@ const StyledInput = styled.input`
   width:58%;
   height: 42px;
   padding: 0 10px;
-  border: 1px solid #979797;
+  border: 1px solid ${borderColor};
   border-radius: 3px;
   font-size:1.2rem;
   &:focus{
-    outline: 3px solid #2BC1C4;
+  outline: 3px solid ${accentColorPrimary};
   }
 `
 
@@ -31,11 +35,11 @@ const StyledTextArea = styled.textarea`
   width:100%;
   height:346px;
   padding: 20px 20px;
-  border: 1px solid #979797;
+  border: 1px solid ${borderColor};
   border-radius: 3px;
   font-size:1.2rem;
   &:focus{
-    outline: 3px solid #2BC1C4;
+  outline: 3px solid ${accentColorPrimary};
   }
 `
 
@@ -49,8 +53,8 @@ const FadeIn = keyframes`
 `
 
 const BaseButton = styled.button`
-  background-color: #2BC1C4;
-  border: 1px solid #979797;
+  background-color: ${accentColorPrimary};
+  border: 1px solid ${borderColor};
   height: 40px;
   color: white;
   text-align:center;

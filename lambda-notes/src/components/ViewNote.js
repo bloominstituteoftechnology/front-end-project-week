@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+// CSS
+import {borderColor, accentColorPrimary } from '../components/css/Globals'
+
 const Header = styled.div`
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;
@@ -11,7 +14,7 @@ const Header = styled.div`
 
 const EditDelSpan = styled.span`
   padding-left:1%;
-  color: #2BC1C4;
+  color: ${accentColorPrimary};
   &:hover {
     cursor: pointer;
     text-decoration:underline;
@@ -38,9 +41,9 @@ const StyledLink = styled(Link)`
   &:focus, &:hover, &:visited, &:link, &:active {
       text-decoration: none;
     }
-  color:#2BC1C4;
+  color:${accentColorPrimary};
   &:hover{
-    color:#2BC1C4
+    color:${accentColorPrimary}
   }
 `
 const ViewNote = (props) => {

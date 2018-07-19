@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// CSS
+import {borderColor, accentColorPrimary } from '../components/css/Globals'
+
 const Header = styled.div`
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;
@@ -17,7 +20,7 @@ const NoteCardContainer = styled.div`
 
 const NoteCard = styled.div`
   background-color: white;
-  border: 1px solid #979797;
+  border: 1px solid ${borderColor};
   margin: 10px 0;
   width: 190px;
   height: 200px;
@@ -29,7 +32,7 @@ const NoteCard = styled.div`
 
 const CardTitle = styled.h3`
   font-family: 'Roboto', sans-serif;
-  border-bottom: 2px solid #979797;
+  border-bottom: 2px solid ${borderColor};
   padding-bottom: 4px;
 `
 
@@ -49,7 +52,7 @@ const StyledLink = styled(Link)`
     }
   color:black;
   &:hover{
-    color:#2BC1C4
+    color:${accentColorPrimary}
   }
 `
 

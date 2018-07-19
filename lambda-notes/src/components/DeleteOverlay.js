@@ -1,9 +1,13 @@
+// Libraries
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// CSS
+import {borderColor, accentColorPrimary, overlayColor, warningColor } from '../components/css/Globals'
+
 const Overlay = styled.div`
-  background: #9da7b1;
+  background: ${overlayColor};
   height: 100vh;
   width: 117vh;
   position: fixed;
@@ -21,7 +25,7 @@ const DeleteDialog = styled.div`
   height:23%;
   width:35%;
   z-index: 20;
-  border: 1px solid #979797;
+  border: 1px solid ${borderColor};
 `
 const Title = styled.div`
   font-family: 'Roboto', sans-serif;
@@ -32,13 +36,13 @@ const Title = styled.div`
 `
 
 const BaseButton = styled.button`
-  background-color: #2BC1C4;
-  border: 1px solid #979797;
+  font-family: 'Roboto', sans-serif;
+  background-color: ${accentColorPrimary};
+  border: 1px solid ${borderColor};
   height: 40px;
   color: white;
   text-align:center;
   width:36%;
-  font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   margin-left:4%;
   &:hover{
@@ -47,13 +51,13 @@ const BaseButton = styled.button`
 `
 
 const DelButton = styled.button`
-  background-color: #CA001A;
-  border: 1px solid #979797;
+  font-family: 'Roboto', sans-serif;
+  background-color: ${warningColor};
+  border: 1px solid ${borderColor};
   height: 40px;
   color: white;
   text-align:center;
   width:35.5%;
-  font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   margin-left:14%;
   &:hover{

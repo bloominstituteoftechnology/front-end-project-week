@@ -1,16 +1,22 @@
+// Libraries
 import React, { Component } from 'react';
-import './App.css';
-import styled from 'styled-components'
 import { Container, Row, Col } from 'reactstrap';
+import firebase from '../src/components/firebase';
+import styled from 'styled-components'
+
+// Components
 import Sidebar from '../src/components/Sidebar'
 import Content from '../src/components/Content'
 import DeleteOverlay from './components/DeleteOverlay';
-import firebase from '../src/components/firebase';
 import {initialDataArr} from '../src/initialData';
 
+// CSS
+import './App.css';
+import {bgColorPrimary, bgColorSecondary, borderColor} from '../src/components/css/Globals'
+
 const MainContainer = styled.div`
-  background-color: #D8D8D8;
-  border: 1px solid #979797;
+  background-color: ${bgColorPrimary};
+  border: 1px solid ${borderColor};
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
@@ -21,9 +27,9 @@ const SidebarStyled = styled(Col)`
   /* height:100vh; */
 `
 const ContentStyled = styled(Col)`
-  background-color: #F3F3F3;
+  background-color: ${bgColorSecondary};
   height:100%;
-  border-left: 1px solid #979797;
+  border-left: 1px solid ${borderColor};
 `
 
 //Initialize a global reference to the RT DB on Firebase
