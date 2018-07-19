@@ -28,7 +28,7 @@ class Login extends React.Component {
         <h1 className="loginTitle">Lambda Notes</h1>
         <div>Username: <input name="username" placeholder="Username"
         onChange={this.handleChange} value={this.state.username} /></div><br/>
-        <div>Password: <input name="password" placeholder="Password"
+        <div>Password: <input type="password" name="password" placeholder="Password"
         onChange={this.handleChange} value={this.state.password} /><br/>
         <input className="sidebar-button login-button" type="submit" value="Log In" onClick={this.handleLogin} /></div>
         </form>
