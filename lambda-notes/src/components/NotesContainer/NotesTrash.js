@@ -1,7 +1,6 @@
 import React from 'react';
 import { DropTarget } from 'react-dnd';
 
-
 const collect = (connect, monitor) => {
     return {
         connectDropTarget: connect.dropTarget(),
@@ -11,7 +10,6 @@ const collect = (connect, monitor) => {
 
 const dropTarget = {
     drop(props, monitor) {
-        console.log(props);
         props.toggleModal();
         props.getId(monitor.getItem().id);
     },

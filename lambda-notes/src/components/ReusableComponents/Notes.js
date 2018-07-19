@@ -23,6 +23,7 @@ export const SearchForm = styled.form`
         border: none;
         outline: none;
         background: none;
+        width: 130px;
     }
 `
 

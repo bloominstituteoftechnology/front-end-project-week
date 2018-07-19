@@ -130,6 +130,38 @@ export const CheckListWrapper = styled.div`
 export const CheckListContainer = styled.div`
     display: flex;
     align-items: center;
+
+    input {
+        display: none;
+        font-size: 1.2rem;
+
+        &:checked+label span:before {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            width: 6px;
+            height: 6px;
+            background: #4A4A4A;
+        }
+    }
+
+    label {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        span {
+            top: 2px;
+            width: 1.2rem;
+            height: 1.2rem;
+            position: relative;
+            display: inline-block;
+            border: 2px solid #4A4A4A;
+            margin-right: 5px;
+        }
+    }
 `
 
 export const MoreIcon = styled.img`

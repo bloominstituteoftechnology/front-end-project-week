@@ -26,8 +26,8 @@ class NotesCheckList extends React.Component {
             <CheckListWrapper>
 
                 <CheckListContainer>
-                    <input type='checkbox' checked={this.state.checked} onClick={this.toggleCheckBox} />
-                    <span>{this.props.list.list}</span>
+                    <input type='checkbox' id={this.props.id} checked={this.state.checked} onClick={this.toggleCheckBox} />
+                    <label htmlFor={this.props.id}><span></span>{this.props.list.list}</label>
                 </CheckListContainer>
 
                 <MoreIcon onClick={() => this.props.deleteList(this.props.index)} src="https://png.icons8.com/metro/50/000000/more.png" alt='' />
