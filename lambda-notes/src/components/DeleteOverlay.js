@@ -8,8 +8,14 @@ import {borderColor, accentColorPrimary, overlayColor, warningColor } from '../c
 
 const Overlay = styled.div`
   background: ${overlayColor};
+  
+  /* max-width: 900px; */
+  width: 100%;
+  margin: 0 auto;
+  /* position:relative; */
+
   height: 100vh;
-  width: 117vh;
+  /* width: 117vh; */
   position: fixed;
   opacity: 0.95;
   overflow: hidden;
@@ -70,7 +76,7 @@ const DeleteOverlay = (props) => {
     <div>
       <Overlay />
       <DeleteDialog> 
-        <Title>Are you sure you want to delete this?</Title>
+        <Title>Are you sure you want to delete this note?</Title>
         
         <Link to="/view-notes"><DelButton onClick={props.deleteNoteClick}>Delete</DelButton></Link>
         <BaseButton onClick={props.deletingCompleted}>No</BaseButton>

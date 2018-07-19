@@ -124,8 +124,9 @@ class App extends Component {
 
   render() {
     return (
-      <MainContainer>
+      <React.Fragment>
         {(this.state.deleteNote.deleting) ? <DeleteOverlay deletingCompleted={this.deletingCompleted} deleteNoteClick={this.deleteNoteClick}/> : null}
+      <MainContainer>
         <Container>
           <Row>
             <SidebarStyled md="3"><Sidebar/></SidebarStyled>
@@ -137,6 +138,7 @@ class App extends Component {
           </Row>
         </Container>
       </MainContainer>
+      </React.Fragment>
     );
   }
 }
