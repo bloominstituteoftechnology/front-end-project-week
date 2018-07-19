@@ -11,7 +11,9 @@ const collect = (connect, monitor) => {
 
 const dropTarget = {
     drop(props, monitor) {
-        props.deleteCard(monitor.getItem().id);
+        console.log(props);
+        props.toggleModal();
+        props.getId(monitor.getItem().id);
     },
 }
 

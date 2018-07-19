@@ -4,13 +4,16 @@ import { NotesWrapper, NotesCards, SearchForm, MainNotesHeader, MainNotesHeaderC
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import NotesTrash from './NotesTrash';
+import ModalContainer from '../ModalContainer/ModalContainer';
 
 class NotesContainer extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            searchString: ''
+            searchString: '',
+            id: '',
+            modal: false,
         }
     }
 
@@ -23,8 +26,18 @@ class NotesContainer extends React.Component {
         this.props.setNotes(dragIndex, hoverIndex, dragCard);
     }
 
-    deleteCard = id => {
-        this.props.deleteNote(id);
+    deleteNote = () => {
+        this.props.deleteNote(this.state.id);
+        this.toggleModal();
+    }
+
+    getId = id => {
+        this.setState({ id });
+    }
+
+    toggleModal = () => {
+        // Toggles modal state 
+        this.setState({ modal: !this.state.modal });
     }
 
     // Maps over all notes and passes them down to the NotesCard component
@@ -43,11 +56,13 @@ class NotesContainer extends React.Component {
 
                 <MainNotesHeaderContainer>
 
+                    <ModalContainer modal={this.state.modal} deleteNote={this.deleteNote} toggleModal={this.toggleModal} />
+
                     <MainNotesHeader main>Your Notes:</MainNotesHeader>
                     <SearchForm onSubmit={event => event.preventDefault()}>
                         <input onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search...' />
                     </SearchForm>
-                    <NotesTrash deleteCard={this.deleteCard} />
+                    <NotesTrash toggleModal={this.toggleModal} getId={this.getId} />
 
                 </MainNotesHeaderContainer>
 
