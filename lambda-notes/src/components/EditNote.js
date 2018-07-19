@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import NoteForm from './NoteForm';
 import { connect } from 'react-redux';
+import NoteForm from './NoteForm';
+import TagDisplay from './TagDisplay';
 import { getNoteById } from '../reducers/index';
 import { fetchNoteById, sendEdit } from '../actions/index';
 

@@ -51,7 +51,7 @@ const NotePreview = styled.div`
 `;
 
 export default props => {
-  const { title, textBody } = props.note;
+  const { title, textBody, tags } = props.note;
   // const { color, font } = props.theme;
   return (
     <NotePreview>

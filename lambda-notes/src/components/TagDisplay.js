@@ -11,14 +11,21 @@ const TagDisplay = styled.div`
   border-color: ${props => props.theme.color.border};
 
   div.tagContainer {
-    height: ${props => props.theme.dimensions.tagDisplay.height};
+    height: ${props => props.small ? null : props.theme.dimensions.tagDisplay.height};
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row ${props => props.small ? null : 'wrap'};
     justify-content: flex-start;
+    overflow-y: ${props => props.small ? null : 'auto'};
+    overflow-x: ${props => props.small ? 'auto' : 'null'};
+  }
+
+  div.trashRow {
+    height: ${props => props.theme.dimensions.tagDisplay.iconContainerHeight}
+
   }
 `;
 
-export default ({ tags, theme, writable, deleteTag }) => {
+export default ({ tags, theme, writable, deleteTag, small }) => {
   const tagElems = tags.map((tag, index) => {
     return (
       <Tag className={`tag color${index % 3}`} key={tag.id} id={tag.id} tag={tag.name} />
@@ -32,7 +39,7 @@ export default ({ tags, theme, writable, deleteTag }) => {
   ) : null;
 
   return (
-    <TagDisplay>
+    <TagDisplay small={!!small}>
       <div className="tagContainer">{tagElems}</div>
       {trashRow}
     </TagDisplay>
