@@ -129,6 +129,7 @@ class App extends Component {
     this.setState({ notes, currentNote: {}, deleting: !this.state.deleting });
   };
 
+  //Sort
   handleSortAZ = () => {
     let notes = this.state.notes.slice();
     notes.sort(this.compareTitles);
@@ -142,14 +143,17 @@ class App extends Component {
   }
 
   compareTitles = (a, b) => {
-    if (a.title < b.title) {
+    if (a.title.toUpperCase() < b.title.toUpperCase()) {
       return -1;
-    } else if (a.title > b.title) {
+    } else if (a.title.toUpperCase() > b.title.toUpperCase()) {
       return 1;
     } else {
       return 0;
     }
   };
+
+
+
 
   render() {
     return (
