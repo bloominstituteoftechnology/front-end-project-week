@@ -31,7 +31,16 @@ export const addingNote = (newNote) => {
     dispatch({ type: FETCHING_NOTES });
     promise.then(response => {
       console.log('response data in adding: ', response.data)
-      dispatch({ type: ADD_NOTES, payload: response.data })
+    //   dispatch({ type: ADD_NOTES, payload: response.data })
+    const getNotes = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+        dispatch({ type: FETCHING_NOTES });
+        getNotes.then(response => {
+        console.log('response data: ', response.data)
+        dispatch({ type: FETCHED_NOTES, payload: response.data })
+        })
+        .catch(err => {
+        dispatch({ type: ERROR, payload: err })
+        })
     })
     .catch(err => {
       dispatch({ type: ERROR, payload: err })
@@ -58,7 +67,18 @@ export const deletingNote = (_id) => {
     dispatch({ type: FETCHING_NOTES });
     promise.then(response => {
       console.log('response data in deleting note: ', response.data)
-      dispatch({ type: DELETED, payload: response.data })
+    //   fetch({ type: DELETED, payload: response.data })
+    const getNotes = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+  
+        dispatch({ type: FETCHING_NOTES });
+        getNotes.then(response => {
+        console.log('response data in delete: ', response.data)
+        dispatch({ type: FETCHED_NOTES, payload: response.data })
+        })
+        .catch(err => {
+        dispatch({ type: ERROR, payload: err })
+        })
+  
     })
     .catch(err => {
       dispatch({ type: ERROR, payload: err })
@@ -73,7 +93,18 @@ export const editingNote = (updatedNote) => {
     dispatch({ type: FETCHING_NOTES });
     promise.then(response => {
       console.log('response data in deleting note: ', response.data)
-      dispatch({ type: UPDATED, payload: response.data })
+    //   dispatch({ type: UPDATED, payload: response.data })
+    const getNotes = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+  
+        dispatch({ type: FETCHING_NOTES });
+        getNotes.then(response => {
+        console.log('response data: ', response.data)
+        dispatch({ type: FETCHED_NOTES, payload: response.data })
+        })
+        .catch(err => {
+        dispatch({ type: ERROR, payload: err })
+        })
+  
     })
     .catch(err => {
       dispatch({ type: ERROR, payload: err })

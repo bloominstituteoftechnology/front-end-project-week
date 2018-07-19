@@ -15,8 +15,8 @@ class EditNote extends Component {
     componentDidMount() {
         
         this.setState({
-            title: this.props.notes.title,
-            textBody: this.props.notes.textBody
+            title: this.props.note.title,
+            textBody: this.props.note.textBody
         })
     }
 
@@ -27,7 +27,7 @@ class EditNote extends Component {
     handleSave = e => {
         e.preventDefault();
         const newObj = {
-            id: this.props.notes._id,
+            id: this.props.match.params.id,
             title: this.state.title,
             textBody: this.state.textBody
         }
@@ -51,10 +51,15 @@ class EditNote extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log(' state in edit note: ', state)
+const mapStateToProps = (state, ownProps) => {
+    console.log( 'state in single note view: ', state);
+    const id = ownProps.match.params.id
+    console.log('note in single: ', state.notes)
     return {
-        notes: state.notes,
+        
+        note: state.notes.find(note=>{
+            return note._id === id
+        })
     }
 }
 

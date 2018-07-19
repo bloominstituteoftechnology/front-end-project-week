@@ -16,7 +16,7 @@ class SingleNoteView extends Component {
     componentDidMount() {
         const  { id }  = this.props.match.params;
        
-        this.props.displayingNote(id)
+        // this.props.displayingNote(id)
     }
 
     popModal = () => {
@@ -45,9 +45,9 @@ class SingleNoteView extends Component {
                         <a className='editDeletelink' onClick={this.popModal}>delete</a>
                     </div>
                     <div>
-                        <h3 className='headings mainAreaHeading'>{this.props.notes.title}</h3>
+                        <h3 className='headings mainAreaHeading'>{this.props.note.title}</h3>
                         <div className='textBody'>
-                            <p> {this.props.notes.textBody}</p>
+                            <p> {this.props.note.textBody}</p>
                         </div>
                     </div>
 
@@ -61,10 +61,15 @@ class SingleNoteView extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log( 'state in single note view: ', state)
+const mapStateToProps = (state, ownProps) => {
+    console.log( 'state in single note view: ', state);
+    const id = ownProps.match.params.id
+    console.log('note in single: ', state.notes)
     return {
-        notes: state.notes
+        
+        note: state.notes.find(note=>{
+            return note._id === id
+        })
     }
 }
  

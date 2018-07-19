@@ -13,6 +13,7 @@ export const NotesReducer = (state=initialState, action) => {
     case FETCHING_NOTES:
       return Object.assign({}, state, { loading: true })
     case FETCHED_NOTES:
+    console.log(' action payload: ', action.payload)
       return Object.assign({}, state, { loading: false, success: true, notes: action.payload})
     case FETCH_ONE_NOTE:
       return Object.assign({}, state, { loading: false, success: true, notes: action.payload})

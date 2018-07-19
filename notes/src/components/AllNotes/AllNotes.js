@@ -12,6 +12,7 @@ class AllNotes extends Component {
     }
 
     render() { 
+        console.log('props in all notes: ', this.props)
         return ( 
             <div>
                 <input id="myInput" type="text" placeholder="Search.." />
