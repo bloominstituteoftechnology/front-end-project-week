@@ -11,9 +11,8 @@ class NotePreview extends Component {
     }    
 
     render() {
-        console.log('Props for NotePreview:', this.props)
         return (
-            <a href="/view">
+            <div>
                 <div className="note-preview-container">
                     <div className="note-preview-inner-container">
                         <div className="note-preview-title">{this.props.title}</div>
@@ -24,7 +23,7 @@ class NotePreview extends Component {
 
                     {/* could map over the notes that exist in state, then have them individually represented by each NoteThumbnail */}
                 </div>
-            </a>
+            </div>
         )
     }
 }

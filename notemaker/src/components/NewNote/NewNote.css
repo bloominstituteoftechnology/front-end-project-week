@@ -52,10 +52,21 @@
     align-items: center;
 
     font-family: "Roboto", sans-serif;
-    color: white;
     text-decoration: none;
-    
+    color: white;    
     position: relative;
     left: 2px;
     top: 13px;
+}
+
+.note-save-button-inner {
+    color: white;
+}
+
+.note-save-button:hover {
+    background: #4ED3D3;
+}
+
+.note-save-button:active {
+    background: #09B6B6;
 }

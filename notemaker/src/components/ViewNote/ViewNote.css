@@ -1,5 +1,6 @@
 .view-note {
     width: 666px;
+    background: #F3F3F3;
 }
 
 .view-note .controls {
@@ -11,8 +12,7 @@
 }
 
 .delete-modal {
-    font-family: "Raleway", sans-serif;
-    display: none;   
+    font-family: "Raleway", sans-serif;   
     position: fixed;
     z-index:1;
     left:0;
@@ -79,4 +79,43 @@
 
     background: #2BC1C4;
     color: #FFFFFF;
+}
+
+.display-none {
+    display: none;
+}
+
+.view-note .controls {
+    margin-top: 16px;
+}
+
+.view-note .controls .edit-link {
+    margin-right: 16px;
+    color: #4A4A4A;
+    font-family: "Roboto", sans-serif;
+    font-size: 13.4px;
+}
+
+.view-note .controls .delete-link {
+    color: #4A4A4A;
+    font-family: "Roboto", sans-serif;
+    font-size: 13.4px;
+    margin-right: 34px;
+}
+
+.displayed-note-for-reading {
+    margin-left: 26px;
+    margin-top: 20px;
+}
+
+.displayed-note-for-reading-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.displayed-note-for-reading-content {
+    line-height: 30px;
+    font-size: 14px;
+    padding-right: 50px;
 }

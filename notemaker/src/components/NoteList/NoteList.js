@@ -64,9 +64,7 @@ class NoteList extends Component {
                     content: "Chuck ball tip biltong drumstick bresaola andouille. Shoulder prosciutto cow, capicola sausage kielbasa tri-tip jowl drumstick ball tip leberkas doner. Bacon spare ribs doner porchetta tri-tip. Short loin sirloin frankfurter turkey biltong brisket pig hamburger tri-tip alcatra shank salami ham hock fatback boudin. Landjaeger pig picanha meatball pork chop, burgdoggen short loin.",
                     id: 8
                 }
-
-
-            ],
+            ]
         }
     }
     
@@ -80,6 +78,7 @@ class NoteList extends Component {
                 <NotePreview 
                 title={noteToMap.title}
                 content={noteToMap.content}
+                key={noteToMap.id}
                 />
             </Link>
         )
@@ -94,18 +93,17 @@ class NoteList extends Component {
 
                 <div className="note-list-preview-container">
                     {this.state.notes.map(this.previewNotes)}
-                    {/* could map over the notes that exist in state, then have them individually represented by each NotePreview */}
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-        notes: state
-    }
-}
+// const mapStateToProps = (state) => {
+//     return{
+//         notes: state
+//     }
+// }
 
 export default NoteList;
 

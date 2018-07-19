@@ -1,14 +1,6 @@
-import React, { Component } from 'react';
-import SideBar from '../SideBar/SideBar';
-import NoteList from '../NoteList/NoteList';
-import NewNote from '../NewNote/NewNote';
-import ViewNote from '../ViewNote/ViewNote';
-import EditNote from '../EditNote/EditNote';
-import './MainContainer.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { connect } from 'react-redux';
+import { MAKE_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/actions'
 
-const notesArray = {
+const initialState = {
     notes: [
         {
             tags: ["bacon", "spicy"],
@@ -58,79 +50,29 @@ const notesArray = {
             content: "Frankfurter pork loin capicola turkey. Chicken beef ribs salami swine rump kevin hamburger chuck fatback capicola andouille alcatra spare ribs. Pork chop pork loin cow, sirloin bresaola ham ham hock meatball ribeye corned beef fatback tongue. Pork belly biltong cow shank leberkas. Porchetta tri-tip bacon, flank andouille frankfurter leberkas pork belly ribeye kevin. Ribeye shoulder swine tenderloin short ribs ball tip.",
             id: 7
         },
-        {
-            tags: ["bacon", "chuck"],
-            title: "Bacon Ipsum 9",
-            content: "Chuck ball tip biltong drumstick bresaola andouille. Shoulder prosciutto cow, capicola sausage kielbasa tri-tip jowl drumstick ball tip leberkas doner. Bacon spare ribs doner porchetta tri-tip. Short loin sirloin frankfurter turkey biltong brisket pig hamburger tri-tip alcatra shank salami ham hock fatback boudin. Landjaeger pig picanha meatball pork chop, burgdoggen short loin.",
-            id: 8
-        }
-    ]
-};
-
-const routes = [
-    {
-        path: '/',
-        component: NoteList,
-        exact: true
-    },
-    {
-        path: '/new',
-        component: NewNote,
-        exact: true,
-        initialData: notesArray  
-    },
-    {
-        path: '/view/:id',
-        component: ViewNote,
-        exact: false,
-        initialData: notesArray
-    },
-    {
-        path: '/edit/:id',
-        component: EditNote,
-        exact: true,
-        initialData: notesArray
-        // fetchInitialData: (id) => fetchSettings(id),
-    },
-]
-
-
-class MainContainer extends Component {
-    constructor() {
-        super();
-        this.state = {
-
-        }
-    }    
-
-    render() {
-        return (
-            <Router>
-                <div className="main-container">
-                    <SideBar />
-                    {routes.map(({path,component: C, exact, initialData}) => (
-                        <Route 
-                            path={path}
-                            key={path}
-                            render={(props) => <C {...props} initialData={initialData} />}
-                            exact={exact}
-                        />
-                    ))}
-
-                    {/* <Route exact path="/" component={NoteList}/>
-                    <Route exact path="/new" component={NewNote} />
-                    <Route path="/view/:id" component={ViewNote} />
-                    <Route exact path="/edit" component={EditNote} /> */}
-                </div>
-            </Router>
-        )
-    }
+        // {
+        //     tags: ["bacon", "chuck"],
+        //     title: "Bacon Ipsum 9",
+        //     content: "Chuck ball tip biltong drumstick bresaola andouille. Shoulder prosciutto cow, capicola sausage kielbasa tri-tip jowl drumstick ball tip leberkas doner. Bacon spare ribs doner porchetta tri-tip. Short loin sirloin frankfurter turkey biltong brisket pig hamburger tri-tip alcatra shank salami ham hock fatback boudin. Landjaeger pig picanha meatball pork chop, burgdoggen short loin.",
+        //     id: 8
+        // }
+    ],
+    
+    newingNote: false,
+    editingNote: false,
+    deletingNote: false,
+    viewingNote: ''
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         notes: state.notes
-//     };
-// };
-
-export default MainContainer;
+export default (state = initialState, action) => {
+    switch(action.type) {
+        case MAKE_NOTE:
+            return Object.assign({}, state, { newingNote: true });
+        case EDIT_NOTE:
+            return Object.assign({}, state, { editingNote: true });
+        case DELETE_NOTE:
+            return Object.assign({}, state, { deletingNote: true });
+    default: 
+        return state;
+    }
+}
