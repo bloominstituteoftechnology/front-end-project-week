@@ -17,6 +17,7 @@ const TagDisplay = styled.div`
     justify-content: flex-start;
     overflow-y: ${props => props.small ? null : 'auto'};
     overflow-x: ${props => props.small ? 'auto' : 'null'};
+    background-color: ${props => props.theme.color.tagDisplayBG};
   }
 
   div.trashRow {
@@ -25,10 +26,10 @@ const TagDisplay = styled.div`
   }
 `;
 
-export default ({ tags, theme, writable, deleteTag, small }) => {
+export default ({ tags, theme, writable, deleteTag, small, tagClick }) => {
   const tagElems = tags.map((tag, index) => {
     return (
-      <Tag className={`tag color${index % 3}`} key={tag.id} id={tag.id} tag={tag.name} />
+      <Tag className={`tag color${index % 3}`} key={tag.id} id={tag.id} tag={tag.name} clickHandler={tagClick}/>
     );
   });
 

@@ -36,6 +36,7 @@ export default {
     deleteButtonBG: monzaRed,
     border: dustyGray,
     tagBG: teal,
+    tagDisplayBG: alto,
   },
   dimensions: {
     main: {

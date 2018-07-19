@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import TagSearchBox from './TagSearchBox';
 import NotePreview from './NotePreview';
 
 const StyledNoteGrid = styled.div`
@@ -10,7 +11,9 @@ const StyledNoteGrid = styled.div`
   }
 
   div.searchForm {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     margin: ${props => props.theme.dimensions.noteGrid.searchFormMargin};
 
     label {
@@ -56,9 +59,10 @@ export default class NoteGrid extends Component {
     super(props);
     this.state = {
       searchType: 'word',
-      searchInput: '',
+      searchInput: ''
     };
     this.updateInput = this.updateInput.bind(this);
+    this.updateTagQuery = this.updateTagQuery.bind(this);
   }
 
   updateInput(event) {
@@ -66,13 +70,20 @@ export default class NoteGrid extends Component {
     this.setState({ [name]: value });
   }
 
+  updateTagQuery(name) {
+    this.setState({
+      searchType: 'tag',
+      searchInput: name,
+    });
+  }
+
   render() {
     let { notes } = this.props;
     const { searchType, searchInput } = this.state;
-    const escapedRegEx = new RegExp(searchInput.replace(
-      /[-[\]{}()*+?.,\\^$|#\s]/g,
-      '\\$&'
-    ), 'i');
+    const escapedRegEx = new RegExp(
+      searchInput.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'),
+      'i'
+    );
 
     // Reduces notes array to only notes that fit search query
     const visibleNotes = notes.reduce((accum, note) => {
@@ -89,7 +100,7 @@ export default class NoteGrid extends Component {
         if (searchInput === '') return [...accum, note];
 
         // Performs tag search using regex if indicated
-        for (let i=0; i < note.tags.length; i++) {
+        for (let i = 0; i < note.tags.length; i++) {
           if (escapedRegEx.test(note.tags[i])) {
             return [...accum, note];
           }
@@ -114,6 +125,7 @@ export default class NoteGrid extends Component {
             type="text"
             id="searchInput"
             name="searchInput"
+            placeholder="Search by keyword or tag"
             value={searchInput}
             onChange={this.updateInput}
           />
@@ -127,7 +139,7 @@ export default class NoteGrid extends Component {
                   checked={this.state.searchType === 'word'}
                   onChange={this.updateInput}
                 />
-                Word
+                Keyword
               </label>
             </div>
             <div className="radio">
@@ -143,12 +155,16 @@ export default class NoteGrid extends Component {
               </label>
             </div>
           </div>
+          {this.state.searchType !== 'tag' ? null : (
+            <TagSearchBox
+              className="tagSearchBox"
+              tagClick={this.updateTagQuery}
+              query={this.state.searchInput}
+              notes={this.props.notes}
+            />
+          )}
         </div>
-        <div
-          className="notePreviewsContainer"
-        >
-          {noteElems}
-        </div>
+        <div className="notePreviewsContainer">{noteElems}</div>
       </StyledNoteGrid>
     );
   }

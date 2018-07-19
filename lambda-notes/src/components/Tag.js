@@ -38,9 +38,11 @@ function collect(connect, monitor) {
   };
 }
 
-const Tag = ({ id, tag, isDragging, connectDragSource }) => {
+const Tag = (props) => {
+  const { id, tag, isDragging, connectDragSource, clickHandler=null } = props;
   return (
     <StyledTagSource
+      onClick={ () => clickHandler(tag) }
       id={id}
       innerRef={innerRef => connectDragSource(innerRef)}
       style={{
