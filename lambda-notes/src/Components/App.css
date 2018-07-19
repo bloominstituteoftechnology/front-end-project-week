@@ -133,7 +133,7 @@
   text-align: center;
   cursor: pointer;
 }
-.create-note .link {
+.create-note a {
   text-decoration: none;
   color: #FFFFFF;
 }
@@ -197,6 +197,10 @@
   text-decoration: none;
   color: #FFFFFF;
 }
+.create-note a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
 
 /* Delete Note Styles */
 .delete-note {
@@ -237,10 +241,7 @@
   /* margin: 10px 0; */
   text-align: center;
 }
-.delete-btn .link {
-  text-decoration: none;
-  color: #FFFFFF;
-}
+
 .no-btn {
   text-decoration: none;
   font-size: 1rem;

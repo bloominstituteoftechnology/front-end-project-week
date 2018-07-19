@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 class EditNote extends React.Component {
     constructor(props) {
@@ -52,9 +51,11 @@ class EditNote extends React.Component {
                     value={this.state.notes.content}
                     onChange={this.handleEditContent}
                 />
-                <div onClick={this.editNote} className="custom-button">
-                    <Link className='link' to='/'>Update</Link>
-                </div>
+                <a href='/'>
+                    <div onClick={this.editNote} className="custom-button">
+                        Update
+                    </div>
+                </a>
             </form>
         );    
     }

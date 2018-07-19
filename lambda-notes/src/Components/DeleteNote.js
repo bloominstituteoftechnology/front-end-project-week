@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 class DeleteNote extends React.Component {
     constructor(props) {
@@ -31,7 +30,7 @@ class DeleteNote extends React.Component {
                     <div className='delete-content'>
                         <p>Are you sure you want to delete this?</p>
                         <div className='delete-btns'>
-                            <div onClick={this.deleteNote} className='delete-btn'><Link className='link' to='/'>Delete</Link></div>
+                            <div onClick={this.deleteNote} className='delete-btn'>Delete</div>
                             <div onClick={this.props.toggleDeleting} className='no-btn'>No</div> 
                         </div>
                     </div>
