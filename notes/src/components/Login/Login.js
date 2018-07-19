@@ -26,10 +26,10 @@ class Login extends React.Component {
     return (
       <form className="login-page">
         <div className="login-card">
-          <a href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp">
-            <button className="google-button">
+          <a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
+            <div className="google-button">
               SIGN UP WITH GOOGLE
-            </button>
+            </div>
           </a>
           <p className="login-text">OR USE EMAIL</p>
           <input
