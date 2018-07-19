@@ -8,7 +8,7 @@ const Card = styled.div`
   height: 225px;
   padding: 20px;
   margin: 5px 5px;
-  overflow: hidden;
+  overflow-y: scroll;
 `
 const Title = styled.h2`
   overflow: hidden;

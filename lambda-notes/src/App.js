@@ -192,16 +192,7 @@ class App extends Component {
           />
           <MainContainer>
             <Route exact path='/' render={() =>
-              <NoteCardsContainer>
-                {filteredNotes.map(note =>
-                  <NoteCard 
-                    key={note._id} 
-                    id={note._id}
-                    title={note.title}
-                    text={note.textBody}
-                  />
-                )}
-              </NoteCardsContainer>
+              <NoteCardsContainer notes={filteredNotes} />
             }/>
           
             <Route exact path='/note/:id' render={props => 
