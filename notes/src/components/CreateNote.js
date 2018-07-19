@@ -51,9 +51,13 @@ class CreateNote extends React.Component {
       <div className="right-bar">
         <h3 className="note-list-header">Create New Note: </h3>
         <form className="testing-form" onSubmit={this.saveNote}>
-        <input className="title-input" name="title" placeholder="note title" value={this.state.title} onChange={this.handleChange}/>
+        <input className="title-input" name="title" placeholder="Note title"
+        value={this.state.title}
+        onChange={this.handleChange}/>
         <br/>
-        <textarea name="content" className="content-input" placeholder="Note Content" value={this.state.content} onChange={this.handleChange}></textarea>
+        <textarea name="content" className="content-input"
+        placeholder="Note Content" value={this.state.content}
+        onChange={this.handleChange}></textarea>
         <br/>
         <button className="sidebar-button save-create" type="submit">Save</button>
         </form>
