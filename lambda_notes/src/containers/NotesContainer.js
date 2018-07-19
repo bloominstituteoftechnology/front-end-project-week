@@ -44,9 +44,7 @@ class NotesContainer extends Component {
     }
 
     componentDidMount(){
-        console.log("this.state.mount", this.state.mount);
         setTimeout(this.setState({ mount: true }), 5000);
-        console.log("this.state.mount", this.state.mount);
     }
 
     componentWillUnmount(){

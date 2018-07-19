@@ -86,7 +86,6 @@ export const deleteNote = (id) => {
 
 export const editNote = (id, newNote) => {
     const request = axios.put(`${editURL}${id}`, newNote);
-
     return(dispatch) => {
         dispatch({
             type: UPDATING,
@@ -98,4 +97,24 @@ export const editNote = (id, newNote) => {
             dispatch({type: ERROR, error: err.message})
         })
     }
+}
+
+export const searchNotes = (search) => {
+    const request = axios.get(url);
+    return(dispatch => {
+        dispatch({
+            type: FETCHING,
+        })
+        request.then(response => {
+            let regex = new RegExp(search);
+            let results = response.data.filter(note => 
+                regex.test(note.textBody)
+            )
+            console.log("RESUKTS!!", results);
+            dispatch({type: FETCHED, payload: results})
+        })
+        .catch(err => {
+            dispatch({type: ERROR, error: err.message})
+        })
+    })
 }

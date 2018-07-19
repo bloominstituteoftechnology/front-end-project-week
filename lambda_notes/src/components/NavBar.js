@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { searchNotes } from '../actions';
+import { connect } from 'react-redux';
 
 const StyledSideBar = styled.div`
     display: flex;
@@ -37,17 +39,54 @@ const StyledButton = styled.button`
     &:hover{cursor: pointer;}
 `;
 
+const H5 = styled.h5`
+    margin-bottom: 1%;
+`;
 
-const NavBar = props => {
-    return(
-        <StyledSideBar>
-            <StyledButtonLinks>
-                <h3>Lambda Notes</h3>
-                <Link to={'/'}><StyledButton>View Your Notes</StyledButton></Link>
-                <Link to={'/create'}><StyledButton>Create New Note</StyledButton></Link>
-            </StyledButtonLinks>
-        </StyledSideBar>
-    );
+class NavBar extends Component {
+    constructor(){
+        super();
+        this.state = {
+            search: '',
+        }
+    }
+
+    handleInput = (e) => {
+        console.log(e.target.value);
+        this.setState({[e.target.name] : e.target.value})
+    }
+
+    searchNotes = (e) => {
+        e.preventDefault();
+        this.props.searchNotes(this.state.search);
+        this.setState({ search: '' });
+    }
+    
+    render(){
+        return(
+            <StyledSideBar>
+                <StyledButtonLinks>
+                    <h3>Lambda Notes</h3>
+                    <Link to={'/'}><StyledButton>View Your Notes</StyledButton></Link>
+                    <Link to={'/create'}><StyledButton>Create New Note</StyledButton></Link>
+                    <form onSubmit={this.searchNotes}>
+                        <H5>Search</H5>
+                        <input type='text'
+                                name='search'
+                                value={this.state.search}
+                                placeholder='Search Here'
+                                onChange={this.handleInput} />
+                    </form>
+                </StyledButtonLinks>
+            </StyledSideBar>
+        );   
+    }
 }
 
-export default NavBar;
+const mapStateToProps = () => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, { searchNotes })(NavBar);
