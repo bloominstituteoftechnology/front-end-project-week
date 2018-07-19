@@ -1,14 +1,12 @@
 import { notes } from '../data';
-import { GET_NOTES, ADDING_NOTE, EDIT_NOTE, SAVING_NOTE, SAVED, THEME_SWITCH } from '../Actions';
+import { GET_NOTES, ADDING_NOTE, EDIT_NOTE, SAVING_NOTE, SAVED, THEME_SWITCH, DONE_SAVING } from '../Actions';
 
 const initialState = {
-    notes: notes,
+    notes: [],
     nightVision: false,
     editingContent: false,
     editingHeader: false,
     isUserLoggedIn: true,
-    loginPending: false,
-    logoutPending: false,
     saveInProgress: false,
     saved: false,
     gettingNotes: false,
@@ -24,15 +22,17 @@ const rootReducer = (state = initialState, action) => {
     return Object.assign({}, state, {nightVision: !state.nightVision}, {theme: action.payload})
     case SAVED:
       return Object.assign({}, state, {saveInProgress: false, saved: true})
+    case DONE_SAVING:
+     return Object.assign({}, state, {saveInProgress: false, saved: false})
     case SAVING_NOTE:
-      return Object.assign({}, state, {saveInProgress: true})
+      return Object.assign({}, state, {saveInProgress: true, saved: false})
     case EDIT_NOTE:
        let updatedNotes = [...state.notes].map(note => (note.id == action.payload.id) ? {id: action.payload.id, title: action.payload.title, content: action.payload.content} : note)
        console.log(Object.assign({}, state, {notes:updatedNotes}));
-       return Object.assign({}, state, {notes:updatedNotes},  {saveInProgress: false, saved:false});
+       return Object.assign({}, state, {saveInProgress: false, saved:false});
     case ADDING_NOTE:
   
-       return (Object.assign({}, state, {notes:[...state.notes, {title: action.payload.title, id: action.payload.id, content:action.payload.content}]}, {saveInProgress: false, saved:false}))
+       return (Object.assign({}, state, {saveInProgress: false, saved:false}))
     default:
         return state;
   }

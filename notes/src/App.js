@@ -48,26 +48,29 @@ class App extends Component {
       <Link style={{textDecoration:'none', width: '100%'}} to='/notes/new'> <PrimaryButton>Create A Note</PrimaryButton> </Link>
       </Sidebar>
       <Route exact path = '/' component = {NotesContainer}/>
+          <Route exact path='/:id' render={(props)=> {
+      return (
+      <FullSizeNote location = {props.history.location}/>
+    )
+      }}/>
+
      
-      <Route exact path ='/notes/new' render={(props)=> {
-      
+    
+
+  
+      <Route path ='/:id/delete' render={(props)=> {
+      return (
+        <React.Fragment>
+        <FullSizeNote location = {props.history.location}/>
+      <DeleteModal {...props}  location = {props.history.location}/>
+      </React.Fragment>
+    )
+      }}/>
+
+        <Route exact path ='/notes/new' render={(props)=> {
        return (<NewNote location = {props.history.location}/>)
       }}/>
-      <Route path ='/:id' render={(props)=> {
-      
-      return (
-      <FullSizeNote location = {props.history.location}/>
-    )
-      }}/>
-<Route path ='/:id/delete' render={(props)=> {
-      
-      return (
 
-      <DeleteModal {...props} >
-      <FullSizeNote location = {props.history.location}/>
-      </DeleteModal>
-    )
-      }}/>
 
       </MiddleSection>
       </Main>

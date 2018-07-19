@@ -9,6 +9,7 @@ import {withRouter, Redirect} from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import styled from 'styled-components';
 
+
 const FlexDivColumn = FlexDiv.extend`
 position: relative;
 z-index: 5;
@@ -70,7 +71,7 @@ class FullSizeNote extends Component {
     }
     componentDidMount() {
         let note_id = this.props.match.params.id
-        debugger;
+
         console.log('didmount_id', note_id)
         let thisNote = this.props.notes.filter(note => note_id == note.id)
         thisNote = thisNote.pop();
@@ -143,23 +144,20 @@ class FullSizeNote extends Component {
             
                 {this.state.contentEditable? 
                 <React.Fragment>
-                   
+                   <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
                     <DashedStyleHeader onKeyUp={(e)=>{this.saveChanges(e, savedNote, myhistory)}} onDoubleClick={(e)=>{this.editContent(e)}} name='title' onChange={this.onChange} value={this.state.title? this.state.title : thisNote[0].title}/>
                 <DashedStyleTextArea name='content' onKeyUp={(e)=>{this.saveChanges(e, savedNote, myhistory)}} defaultValue={this.state.content? this.state.content : thisNote[0].content} onChange={this.onChange}> 
                 </DashedStyleTextArea>
-                 <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
+                 
                  </React.Fragment>
                : 
                <React.Fragment>
-                 
+                 <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
                   <h1 onDoubleClick={this.editContent}>{this.state.title}</h1>
                  <SolidStyleTextArea name='content' value={this.state.content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
                 </SolidStyleTextArea> 
-                <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
+                
                 </React.Fragment>}
-
-           
-           
 
          
             </FlexDivColumn>

@@ -11,6 +11,7 @@ export const SAVING_NOTE = 'SAVING_NOTE';
 export const SAVED = 'SAVED';
 export const THEME_SWITCH = 'THEME_SWITCH';
 export const DELETING_NOTE = 'DELETING_NOTE';
+export const DONE_SAVING = 'DONE_SAVING';
 
 
 export const getNotes = () => {
@@ -34,8 +35,7 @@ export const addNote = (e, note, history) => {
     e.preventDefault();
     
      return (dispatch) => {
-     
-     dispatch({type: SAVING_NOTE});
+     dispatch({type: SAVING_NOTE})
      dispatch(()=>{
          let id = Date.now();
          database.ref('notes/'+id).set({
@@ -43,9 +43,9 @@ export const addNote = (e, note, history) => {
          id: id,
          content: note.content
      })});
-     setTimeout(()=>{dispatch({type: SAVED})}, 2000);
-     setTimeout(()=>{dispatch({type: GET_NOTES, payload: note})}, 3000);
-     setTimeout(()=>{history.push('/')}, 3200)
+     setTimeout(()=>{dispatch({type: SAVED})}, 1000);
+     setTimeout(()=>{dispatch({type: DONE_SAVING})}, 2000);
+     setTimeout(()=>{history.push('/')}, 2000)
     
     }
    
@@ -56,8 +56,15 @@ export const editNotes = (e, savedNote, history) => {
     console.log('updating note...');
     return (dispatch) => {
        dispatch({type: SAVING_NOTE});
+        dispatch(()=>{
+         database.ref('notes/'+savedNote.id).set({
+         title: savedNote.title,
+         id: savedNote.id,
+         content: savedNote.content
+     })});
        setTimeout(()=>{dispatch({type: SAVED})}, 2000);
        setTimeout(()=>{dispatch({type: EDIT_NOTE, payload: savedNote})}, 4000);
+    setTimeout(()=>{history.push('/')}, 3200)
     }
 }
 
@@ -71,8 +78,15 @@ export const themeSwitch = (nightVision) => {
     }
 }
 
-export const deleteNote = (e, id) => {
+export const deleteNote = (e, id, history) => {
     e.preventDefault();
  console.log('deleting note');
- return ({type: DELETING_NOTE, payload: id})
+ return (dispatch) => {
+      dispatch({type: SAVING_NOTE});
+      dispatch(() =>{
+      database.ref('notes/' + id).remove();
+      })
+     setTimeout(()=>{history.push('/')}, 1200)
+
+ }
 }

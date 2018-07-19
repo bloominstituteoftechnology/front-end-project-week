@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlexDiv, Modal, FlexNotes, PrimaryButton } from '../StyledComponents/StyledComponents';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import {Link, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { deleteNote } from '../../Actions';
 
@@ -29,13 +29,14 @@ background-color: red;
 const DeleteModal = (props) => {
     const id = props.match.params.id;
     console.log ('id', id)
+     let history = props.history;
     return (
        <FlexDivMod>
          <Modal>
 
           <FlexNotesMod>   <i className="fas fa-exclamation-circle fa-5x" datafatransform="grow-10" style={{color:'red'}}></i> <h2>Are you sure you want to Delete?</h2> </FlexNotesMod>
              <FlexNotesMod>
-                <BigDeleteButton onClick={(e)=>{props.deleteNote(e, id)}}>DELETE</BigDeleteButton>
+                <BigDeleteButton onClick={(e)=>{props.deleteNote(e, id, history)}}>DELETE</BigDeleteButton>
              <Link style={{textDecoration:'none', minWidth:'75px', width:'100%'}} to='/'><PrimaryButton>CANCEL</PrimaryButton></Link>
              </FlexNotesMod>
          </Modal>
@@ -49,4 +50,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { deleteNote })(DeleteModal);
+export default withRouter(connect(mapStateToProps, { deleteNote })(DeleteModal));
