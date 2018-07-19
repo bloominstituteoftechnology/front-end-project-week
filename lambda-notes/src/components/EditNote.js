@@ -107,7 +107,7 @@ class EditNote extends React.Component {
                         
                     <Button onClick={this.editNote}>Update</Button>
                     </FormContainer>
-                    {this.props.update ? <Redirect to={ `/note/${this.props.match.params.id}`} /> : null}
+                    {this.props.update ? <Redirect to='/notes' /> : null}
             </NewContainer>
        
         )

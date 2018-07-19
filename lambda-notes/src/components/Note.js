@@ -81,17 +81,7 @@ class Note extends React.Component {
         this.setState({note: this.props.note})
     }
 
-    /*shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.note.textBody !== nextProps.note.textBody) {
-          return true;
-        } return false;
-      }
-    
-    
-      componentDidUpdate(prevProps) {
-        if(this.props.note.textBody !== prevProps.note.textBody){
-        this.props.getSingleNote(this.props.match.params.id);
-      }}*/
+
 
     render() {
     return (

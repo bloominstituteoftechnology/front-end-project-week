@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Styled from 'styled-components'
 import {Heading} from './../styles/styles';
 import {data} from './../data';
-import { Link, Route} from 'react-router-dom';
-import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
+import { Link } from 'react-router-dom';
 import { getNotes } from './../actions';
 import { connect } from 'react-redux';
+import SearchBar from './SearchBar';
 
 
 const Container = Styled.div`
@@ -14,7 +14,7 @@ const Container = Styled.div`
 const NotesContainer = Styled.div`
   display: block;
   width: 100%;
-  padding: 70px 30px;
+  padding: 50px 30px;
   background: #F3F3F3;
   
 `;
@@ -60,22 +60,35 @@ class Notes extends Component {
   constructor() {
     super();
     this.state = {
-        notes: [],
-        currentlyDisplayed: []      
+        notes: [],  
+        loops: 0  
     }
   }
 
 
   componentDidMount() {
     this.props.getNotes();
-    
+    console.log(this.props.notes)
+  }
+
+/*  shouldComponentUpdate(nextProps, nextState) {
+    console.log(this.props.notes.length)
+    console.log(nextProps.notes.length)
+    if (this.props.notes !== nextProps.notes) {
+      return true; 
+    } return false;
+  }*/
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.notes !== this.props.notes)
+    this.props.getNotes();
   }
   
   render() {
     return (
       <Container>
-
       <NotesContainer>
+        <SearchBar />
         <Heading>Your notes:</Heading>
         <NotesList>
           { this.props.notes.map(note => {
@@ -95,7 +108,6 @@ class Notes extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes.notes,
-    currentlyDisplayed: state.notes.currentlyDisplayed
   }
 }
 
