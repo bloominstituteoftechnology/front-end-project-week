@@ -62,7 +62,7 @@ class ListView extends Component {
           {this.props.notes.map ( note => 
             <StyledLink to={`view-note/${note.id}`} key={Math.random()}>
               <NoteCard>
-                <CardTitle>{note.title}</CardTitle>
+                <CardTitle>{(note.title.length > 13) ? note.title.substring(0,13)+" ..." : note.title}</CardTitle>
                 {/* <CardTextBody>{note.textBody}</CardTextBody> */}
                 <CardTextBody>{(note.textBody.length > 100) ? note.textBody.substring(0,125)+" ..." : note.textBody}</CardTextBody>
               </NoteCard>
