@@ -5667,10 +5667,6 @@ react-is@^16.3.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
-react-lines-ellipsis@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/react-lines-ellipsis/-/react-lines-ellipsis-0.13.0.tgz#d575601c20909e8afb6fca082856073a5f5aa506"
-
 react-markdown@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-3.3.4.tgz#4002599ad133c649923a49aedc06b2f3af2016b6"
