@@ -57,7 +57,11 @@ function withNoteForm(WrappedBtn) {
           </div>
           <Link to={this.props.routeTo}>
             <WrappedBtn width="15rem" onClick = {() => {
-                this.props.btnHandlers(this.state.title, this.state.textBody);
+                this.props.btnHandlers({
+                  title: this.state.title,
+                  textBody: this.state.textBody,
+                  tags: []
+                });
               }}>{this.props.btnText}</WrappedBtn>
           </Link>
         </form>

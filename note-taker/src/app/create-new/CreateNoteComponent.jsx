@@ -19,14 +19,10 @@ class CreateNoteComponent extends Component {
         <GeneralBtnWithNoteForm 
         routeTo = {`/`} 
         btnText = 'Save Note'
-        btnHandlers = {(title,textBody) => {
-          this.postNote({
-            tags: [],
-            title,
-            textBody
-          });
-        }}
-        />
+        btnHandlers = {(noteObj) => {
+          this.postNote(noteObj)
+          }} />
+        
       </div>
     );
   }

@@ -31,12 +31,8 @@ class EditNoteComponent extends Component {
         <GeneralBtnWithNoteForm 
         routeTo = {`/note/get/${this.id}`} 
         btnText = 'Update Note'
-        btnHandlers = {(title, textBody) => {
-          this.updateNote(this.id, {
-            tags: [],
-            title,
-            textBody
-          });
+        btnHandlers = {(noteObj) => {
+          this.updateNote(this.id, noteObj);
         }}
         id = {this.id}
         textBody = {this.props.textBody}
