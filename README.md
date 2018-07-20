@@ -18,7 +18,8 @@ The main objective of this week is to develop the MVP feature set listed below u
 - [ ] Fill in the `To Do` list with the MVP features listed below
 - [ ] Fill in the `backlog` list with all the extra features listed below
 - [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
-- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request     
+      https://trello.com/b/X6qzPqfW/lambda-notes-front-end-dil
 
 ## MVP Features:
 

@@ -1,0 +1,31 @@
+.displayNone {
+    display: none
+}
+.overlayWrapper {
+    z-index: 100;
+    background-color: white;
+    width: 530px;
+    position: fixed;
+    margin-left: -20px;
+    margin-top: 1.6rem;
+    border: 1px solid #979797;
+    box-shadow: 1px 1px 3px rgb(50, 50, 50); 
+
+}
+.modalButtons {
+    max-width: 480px;
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 1rem 2rem;
+}
+.modalB {
+    width: 40%;
+    cursor: pointer;
+}
+.redButton {
+    background-color: #D0021B;
+    
+}
+.modalText {
+    padding: 1rem 0;
+}

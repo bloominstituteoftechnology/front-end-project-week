@@ -1,0 +1,28 @@
+.sideArea {
+    width: 25%;
+    background-color: #D3D3D3;
+}
+.sideButtons{
+    display: flex;
+    flex-direction: column;
+    width: 84%;
+    margin: 0 auto;
+}
+.sideButton {
+    margin-bottom: 1.2rem;
+    border-radius: 2px;
+    padding: 0.73rem 0;
+    border: none;
+    font-weight: 600;
+}
+.sideButton:hover {
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+.sideHeader {
+    line-height: 0.4rem;
+    text-align: left;
+    margin-left: 0.9rem;
+    padding: 1rem 0;
+    font-size: 1.13rem;
+}

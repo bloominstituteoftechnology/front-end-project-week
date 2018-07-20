@@ -1,0 +1,42 @@
+.notesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+    
+}
+.singleNote {
+    width: 192px;
+    height: 198px;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #c4c1c1;
+    border-radius: 0.15rem;
+    padding: 0 0.5rem;
+    /* margin: 0.6rem 0rem; */
+    margin-bottom: 1.2rem;
+    margin-top: 0.3rem;
+    text-align: left;
+    line-height: 1.3rem;
+}
+.singleNote:hover {
+    box-shadow:         inset 0 0 10px #000000;
+}
+
+#myInput {
+    margin: 1.5rem 0 0 0;
+    align-self: right;
+    margin-right: -60%;
+    font-size: 0.65rem;
+}
+
+.noteTitle, .noteBody {
+    margin-top: 0.6rem;
+    margin-left: 0.7rem;
+    max-width: 190px;
+   word-wrap: break-word;
+}
+.noteBody {
+    font-size: 0.8rem;
+    font-weight: 600;
+}

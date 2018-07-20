@@ -1,0 +1,36 @@
+.formCreate {
+    display: flex;
+    flex-direction: column;
+    margin: 1.7rem 0 1rem 0.5rem;
+    padding: 0 1rem;
+
+}
+
+.saveButton {
+    max-width: 30%;
+    height: 40px;
+}
+.saveButton:hover {
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+.inputTitle {
+    max-width: 358px;
+    height: 40px;
+}
+.inputText {
+    max-width: 608px;
+    height: 348px;
+    text-align: left;
+    padding-top: 1rem;
+}
+.inputField {
+    margin-bottom: 1rem;
+    border-radius: 0.1rem;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.createNote {
+    margin-top: 4rem;
+}

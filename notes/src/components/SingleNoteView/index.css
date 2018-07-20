@@ -1,0 +1,20 @@
+.editDeletelink {
+    color: black;
+    font-weight: 400;
+    text-decoration: underline;
+    margin-right: 1rem;
+}
+.editDeleteLinks {
+    text-align: right;
+    padding-top: 1.5rem;
+    margin-right: 1.5rem;
+}
+.editDeleteLinks a {
+    cursor: pointer;
+}
+
+.textBody  {
+    text-align: left;
+    margin: 1.5rem;
+    word-wrap: break-word;
+}
