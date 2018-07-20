@@ -3,10 +3,22 @@ import React from "react";
 const CreateNotes = props => {
   return (
     <div>
-      <form onSubmit={props.CreateNotes}>
-        <input type="text" name="title" placeholder="Title..." />
-        <input type="text" name="body" placeholder="Enter your notes here..." />
-        <button>Save</button>
+      <form>
+        <input
+          onChange={props.handleNoteChange}
+          type="text"
+          name="notetitle"
+          value={props.value}
+          placeholder="title"
+        />
+        <input
+          onChange={props.handleNoteChange}
+          type="text"
+          name="notebody"
+          value={props.value}
+          placeholder="body"
+        />
+        <button onSubmit={props.handleCreateNote}>Test</button>
       </form>
     </div>
   );

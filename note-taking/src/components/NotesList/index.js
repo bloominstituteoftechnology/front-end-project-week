@@ -1,9 +1,10 @@
 import React from "react";
+import CardNotes from '../CardNotes';
+import { Link } from 'react-router-dom';
 
 const NotesListItem = ({ notes }) => (
   <li key={notes.id}>
-    Title: {notes.notetitle}
-    <br />Body: {notes.notebody}
+     <Link to=`/:${notes.id}`><CardNotes/></Link>
   </li>
 );
 

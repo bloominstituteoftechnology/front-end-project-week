@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import NotesList from "../NotesList";
+import CreateNotes from "../CreateNotes";
 
 class Notes extends Component {
   state = {
@@ -20,19 +21,22 @@ class Notes extends Component {
         notetitle: "test",
         notebody: "ing"
       }
-    ]
+    ],
+    note: ""
   };
 
-  CreateNotes(e) {
+  changeNote = e => this.setState({ [e.target.name]: e.target.value });
+
+  createNotes = e => {
     e.preventDefault();
-    const notetitle = e.target.elements.notetitle.value;
-    const notebody = e.target.elements.notebody.value;
-    this.setState({
-      id: this.state.id + 1,
-      notetitle: notetitle,
-      notebody: notebody
+    const notes = this.state.notes.splice();
+    notes.push({
+      id: Date.now(),
+      notetitle: this.state.note,
+      notebody: this.state.note
     });
-  }
+    this.setState({ notes, note: "" });
+  };
 
   render() {
     return (
