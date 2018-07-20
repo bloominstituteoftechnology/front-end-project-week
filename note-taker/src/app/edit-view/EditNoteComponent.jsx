@@ -10,7 +10,6 @@ class EditNoteComponent extends Component {
     super(props);
     
   this.id = this.props.match.params.id;
-
   }
   componentDidMount() {
     this.props.fetchNote(this.id);
@@ -32,8 +31,12 @@ class EditNoteComponent extends Component {
         <GeneralBtnWithNoteForm 
         routeTo = {`/note/get/${this.id}`} 
         btnText = 'Update Note'
-        btnHandlers = {(id, noteObj) => {
-          this.updateNote(id, noteObj);
+        btnHandlers = {(title, textBody) => {
+          this.updateNote(this.id, {
+            tags: [],
+            title,
+            textBody
+          });
         }}
         id = {this.id}
         textBody = {this.props.textBody}
