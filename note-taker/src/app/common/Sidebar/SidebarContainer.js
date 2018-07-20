@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import SidebarComponent from './SidebarComponent';
 import { sidebarOperations } from './duck';

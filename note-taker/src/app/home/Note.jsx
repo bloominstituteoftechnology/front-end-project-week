@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import "../styles/custom-props.css";
 import { Link } from "react-router-dom";
-import LinesEllipsis from "react-lines-ellipsis";
 import Markdown from 'react-markdown';
 
 const Card = styled.div`

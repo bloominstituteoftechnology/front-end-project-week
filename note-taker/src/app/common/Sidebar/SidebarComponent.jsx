@@ -29,7 +29,6 @@ const ButtonsContainer = styled.div`
     margin-bottom: 20px;
   }
 `;
-const UnstyledLink = styled(Link)``;
 
 const SidebarComponent = props => {
 
