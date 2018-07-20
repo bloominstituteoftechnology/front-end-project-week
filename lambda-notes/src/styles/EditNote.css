@@ -50,3 +50,11 @@
     color: white;
     padding: 15px 0;
 }
+
+.id-error {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 518px;
+}

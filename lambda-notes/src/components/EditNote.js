@@ -19,12 +19,17 @@ class EditNote extends Component {
         console.log(id);
         id = id[2];
         this.props.fetchNote(URL, id);
-        this.setState({
-            title: this.props.singleNote.title,
-            body: this.props.singleNote.textBody,
-            tags: this.props.singleNote.tags,
-        })
      }
+
+    componentDidUpdate(prevProps) {
+        if(this.props !== prevProps) {
+            this.setState({
+                title: this.props.singleNote.title,
+                body: this.props.singleNote.textBody,
+                tags: this.props.singleNote.tags,
+            })
+        }
+    }
 
     handeInputChange = event => {
             this.setState({ [event.target.name]: event.target.value });
@@ -58,15 +63,27 @@ class EditNote extends Component {
                 {this.props.fetchingNotes ? (
                     <h1>... fetching note ...</h1>
                 ) : (
-                <div className='edit-container'>
-                    <h1>Edit Note:</h1>
-                    <div className='edit-form'>
-                        <input name='title' className='title' value={this.state.title} onChange={this.handeInputChange} />
-                        <textarea name='body' className='body' value={this.state.body} onChange={this.handeInputChange}></textarea>
-                        <input name='tags' className='tags' placeholder='Tags' value={this.state.tags} onChange={this.handeInputChange} />
-                        <button className='update-btn' type='submit' onClick={() => this.handleInputSubmit(this.props.singleNote._id)}>Update</button>
-                    </div>
-                </div>
+                    <React.Fragment>
+                        {this.props.singleNote.errorMessage ? (
+                            <h1 className='id-error'>{this.props.singleNote.errorMessage}</h1>
+                        ) : (
+                            <React.Fragment>
+                        {this.props.singleNote.kind ? (
+                            <h1 className='id-error'>The ID you have entered is the incorrect length</h1>
+                        ) : (
+                        <div className='edit-container'>
+                            <h1>Edit Note:</h1>
+                            <div className='edit-form'>
+                                <input name='title' className='title' value={this.state.title} onChange={this.handeInputChange} />
+                                <textarea name='body' className='body' value={this.state.body} onChange={this.handeInputChange}></textarea>
+                                <input name='tags' className='tags' placeholder='Tags' value={this.state.tags} onChange={this.handeInputChange} />
+                                <button className='update-btn' type='submit' onClick={() => this.handleInputSubmit(this.props.singleNote._id)}>Update</button>
+                            </div>
+                        </div>
+                        )}
+                    </React.Fragment>
+                        )}
+                    </React.Fragment>
                 )}
             </React.Fragment>
         )
