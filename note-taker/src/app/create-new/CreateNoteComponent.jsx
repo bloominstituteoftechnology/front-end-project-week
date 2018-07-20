@@ -10,8 +10,6 @@ class CreateNoteComponent extends Component {
   
   
   postNote = (noteObj) => {
-    
-    console.log('postNote')
     this.props.postNote(noteObj);
   }
   render() {
