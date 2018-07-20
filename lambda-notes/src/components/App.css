@@ -131,6 +131,7 @@ button:hover {
   font-size: 20px;
   margin: 100px 0 0 32px;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -142,16 +143,16 @@ button:hover {
   height: 40px;
   width: 50px;
   /* border: 1px solid red; */
-  font-size: 36px;
+  font-size: 32px;
   display: flex;
   justify-content: center;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   margin: 0 0 0 16px;
 }
 
 .ListView-header i:hover {
-  background: #2BC1C4;
-  color: #FFFFFF;
+  color: #2BC1C4;
+  /* color: #FFFFFF; */
   cursor: pointer;
 }
 
@@ -219,6 +220,10 @@ button:hover {
   text-decoration: none;
   margin: 0 10px;
   color: #000000;
+}
+
+.NoteView-container div:last-child {
+  display: flex;
 }
 
 /* CreateView styles */
@@ -562,6 +567,15 @@ button:hover {
 
   .Nav-buttons button {
     width: 300px;
+  }
+
+  .ListView-header h2 {
+    width: 100%;
+  }
+
+  .ListView-header i {
+    display: flex;
+    margin: 10px auto 0 auto;
   }
 
   .NoteView-wrapper {

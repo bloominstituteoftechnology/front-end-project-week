@@ -5,14 +5,15 @@ const NoteView = props => {
     return (
         <div className="NoteView-container">
             <div className="NoteView-header">
-                <h3>{`${props.note.index} - ${title}`}</h3>
+                <h3>{`${title}`}</h3>
             </div>
             <div className="NoteView-note">
                 <p>{textBody}</p>
             </div>
             <div className="NoteView-tag">
-                {tags.map((tag) => <span>{tag}</span>)}
+                {tags.length > 0 ? tags.map((tag) => <span>{tag}</span>) : <span></span>}
             </div>
+            <div>{`${props.note['_id'].substr(-4)}`}</div>
         </div>
     );
 
