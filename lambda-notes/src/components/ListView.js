@@ -10,7 +10,9 @@ class ListView extends Component {
         super(props);
         this.state = {
             notes: [],
-            sorted: false
+            sorted: false,
+            search: "",
+            filteredNotes: []
         };
     }
 
@@ -36,25 +38,25 @@ class ListView extends Component {
 
     handleSortUp = () => {
         if(this.state.sorted === false) this.toggleSorted();
-        console.log(this.state.sorted);
+        // console.log(this.state.sorted);
         const notes = this.state.notes;
         notes.sort((a,b) => a['_id'] < b['_id']);
-        console.log(notes); 
+        // console.log(notes); 
         this.setNotes(notes);
     };
 
     handleSortDown = () => {
         if(this.state.sorted === false) this.toggleSorted();
-        console.log(this.state.sorted);
+        // console.log(this.state.sorted);
         const notes = this.state.notes;
         notes.sort((a,b) => a['_id'] >= b['_id']);
-        console.log(notes);
+        // console.log(notes);
         this.setNotes(notes);
     };
 
     handleRedo = () => {
-        console.log(this.state.sorted);
-        console.log(this.state.notes);
+        // console.log(this.state.sorted);
+        // console.log(this.state.notes);
         if(this.state.sorted === true) {
             this.toggleSorted();
             this.props.fetchReq();
@@ -70,11 +72,109 @@ class ListView extends Component {
         this.setState({notes});
     };
 
+    setFilteredNotes = (notes) => {
+        this.setState({filteredNotes: notes});
+    }
+
+    handleChange = (e) => {
+        // console.log(e.target.value);
+        this.setState({[e.target.name]: e.target.value});
+    }
+
+    handleSearch = (e) => {
+        console.log(this.state.filteredNotes);
+        const notes = this.state.notes.filter(note => {
+            if(note.title.includes(e.target.value) || note.textBody.includes(e.target.value)) {
+                return note;
+            } else {
+                return null;
+            }
+        });
+        this.setFilteredNotes(notes);
+    };
+
+    searchFunction = () => {
+        if(this.state.filteredNotes.length > 0) {
+            return this.state.filteredNotes;
+        } else {
+            this.state.notes.map((note, index) => {
+                return (
+                    <Link to={`/note/${note["_id"]}`}>
+                        <NoteDetails
+                            key={note["_id"]}
+                            index={index}
+                            note={note}
+                        />
+                    </Link>
+                );
+            });
+        }
+    };
+
     render() {
         // console.log(this.props.notes);
-        console.log(this.state.sorted);
+        // console.log(this.state.sorted);
         if (!this.props.notes) {
             return <img src={logo} className="App-logo" alt="logo" style={{ margin: "auto", height: "50%" }} />;
+        }
+        if (this.state.sorted === false) {
+            return(
+                <div className="ListView-container">
+                    <div className="ListView-header">
+                        <h2>Your Notes:</h2>
+                        <i className="fas fa-sort-up" onClick={this.handleSortUp}>id</i>
+                        <i className="fas fa-sort-down" onClick={this.handleSortDown}>id</i>
+                        <i className="fas fa-redo-alt" onClick={this.handleRedo}></i>
+                        <input
+                            placeholder="search"
+                            name="search"
+                            value={this.state.search}
+                            onChange={this.handleChange}
+                            onKeyDown={this.handleSearch}
+                        />
+                    </div>
+                    {this.props.notes.map((note, index) => {
+                        return (
+                            <Link to={`/note/${note["_id"]}`}>
+                                <NoteDetails
+                                    key={note["_id"]}
+                                    index={index}
+                                    note={note}
+                                />
+                            </Link>
+                        );
+                    })}
+                </div>
+            );
+        } else if (this.state.filteredNotes.length > 0) {
+            return (
+                <div className="ListView-container">
+                    <div className="ListView-header">
+                        <h2>Your Notes:</h2>
+                        <i className="fas fa-sort-up" onClick={this.handleSortUp}>id</i>
+                        <i className="fas fa-sort-down" onClick={this.handleSortDown}>id</i>
+                        <i className="fas fa-redo-alt" onClick={this.handleRedo}></i>
+                        <input
+                            placeholder="search"
+                            name="search"
+                            value={this.state.search}
+                            onChange={this.handleChange}
+                            onKeyDown={this.handleSearch}
+                        />
+                    </div>
+                    {this.state.filteredNotes.map((note, index) => {
+                        return (
+                            <Link to={`/note/${note["_id"]}`}>
+                                <NoteDetails
+                                    key={note["_id"]}
+                                    index={index}
+                                    note={note}
+                                />
+                            </Link>
+                        );
+                    })}
+                </div>
+            );
         } else {
             return (
                 <div className="ListView-container">
@@ -83,36 +183,31 @@ class ListView extends Component {
                         <i className="fas fa-sort-up" onClick={this.handleSortUp}>id</i>
                         <i className="fas fa-sort-down" onClick={this.handleSortDown}>id</i>
                         <i className="fas fa-redo-alt" onClick={this.handleRedo}></i>
+                        <input
+                            placeholder="search"
+                            name="search"
+                            value={this.state.search}
+                            onChange={this.handleChange}
+                            onKeyDown={this.handleSearch}
+                        />
                     </div>
-                    {this.state.sorted === false ? 
-                        this.props.notes.map((note, index) => {
-                            return (
-                                <Link to={`/note/${note["_id"]}`}>
-                                    <NoteDetails
-                                        key={note["_id"]}
-                                        index={index}
-                                        note={note}
-                                    />
-                                </Link>
-                            );
-                        }) :
-                        this.state.notes.map((note, index) => {
-                            return (
-                                <Link to={`/note/${note["_id"]}`}>
-                                    <NoteDetails
-                                        key={note["_id"]}
-                                        index={index}
-                                        note={note}
-                                    />
-                                </Link>
-                            )
-                        })
-                    }
+                    {this.state.notes.map((note, index) => {
+                        return (
+                            <Link to={`/note/${note["_id"]}`}>
+                                <NoteDetails
+                                    key={note["_id"]}
+                                    index={index}
+                                    note={note}
+                                />
+                            </Link>
+                        );
+                    })}
                 </div>
             );
         }
     }
-};
+}
+
 
 function NoteDetails({ note }) {
     return (

@@ -213,6 +213,9 @@ button:hover {
 .NoteView-tag span {
   text-decoration: underline;
   margin: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .NoteView-tag span:hover {
@@ -580,6 +583,12 @@ button:hover {
 
   .NoteView-wrapper {
     width: 250px;
+  }
+
+  .NoteView-tag {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .Note-header, .Note-links {
