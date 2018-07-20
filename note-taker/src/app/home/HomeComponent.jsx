@@ -11,7 +11,6 @@ class HomeComponent extends React.Component {
     this.props.fetchNotes();
   }
   render() {
-    console.log(this.props);
     return (
       <HomeWrapper>
         <HeadingTitle>Your Notes:</HeadingTitle>
