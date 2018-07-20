@@ -1,85 +1,45 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import HeadingTitle from "../common/Titles/HeadingTitle";
 import GeneralBtn from "../common/GeneralBtn/GeneralBtn";
-import { Link } from "react-router-dom";
-class EditNoteComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      title: "",
-      textBody: ""
-    };
+import withNoteForm from "../common/Forms/WithNoteForm";
+
+const GeneralBtnWithNoteForm = withNoteForm(GeneralBtn);
+
+class EditNoteComponent extends Component {
+  constructor(props) {
+    super(props);
+    
+  this.id = this.props.match.params.id;
+
   }
-  
   componentDidMount() {
-    const id = this.props.match.params.id;
-    this.props.fetchNote(id);
-    this.setState({ title: this.props.title, textBody: this.props.textBody });
+    this.props.fetchNote(this.id);
   }
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.title !== this.props.title && nextProps.textBody !== this.props.textBody) {
-      this.setState({ title: nextProps.title, textBody: nextProps.textBody });
-    }
-  }
-  changeHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-  updateNote = id => {
-    const noteObj = {
-      tags: [],
-      title: this.state.title,
-      textBody: this.state.textBody
-    };
+
+ 
+ 
+  updateNote = (id, noteObj) => {
     this.props.updateNote(id, noteObj);
   };
   render() {
-    const id = this.props.match.params.id;
     if(this.props.fetchingNote === true) {
       return <div>One moment please wait for form to be auto-filled</div>
     }
     else {
     return (
-      <div>
+      <Fragment>
         <HeadingTitle>Edit Note:</HeadingTitle>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-          }}
-        >
-          <div className="field is-horizontal">
-            <div className="control">
-              <input
-                className="input is-large"
-                type="text"
-                name="title"
-                value={this.state.title}
-                placeholder="Note Title"
-                onChange={this.changeHandler}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <textarea
-              className="textarea"
-              name="textBody"
-              value={this.state.textBody}
-              placeholder="Note Content"
-              rows="10"
-              onChange={this.changeHandler}
-            />
-          </div>
-          <Link to={`/note/get/${id}`}>
-            <GeneralBtn
-              width="15rem"
-              onClick={() => {
-                this.updateNote(id);
-              }}
-            >
-              Update
-            </GeneralBtn>
-          </Link>
-        </form>
-      </div>
+        <GeneralBtnWithNoteForm 
+        routeTo = {`/note/get/${this.id}`} 
+        btnText = 'Update Note'
+        btnHandlers = {(id, noteObj) => {
+          this.updateNote(id, noteObj);
+        }}
+        id = {this.id}
+        textBody = {this.props.textBody}
+        title = {this.props.title}
+        />
+      </Fragment>
     );
   }
 }
