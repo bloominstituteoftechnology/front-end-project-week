@@ -240,6 +240,7 @@
   padding: 10px 0;
   /* margin: 10px 0; */
   text-align: center;
+  cursor: pointer;
 }
 
 .no-btn {
@@ -252,6 +253,7 @@
   padding: 10px 0;
   /* margin: 10px 0; */
   text-align: center;
+  cursor: pointer;
 }
 
 /* Login Form Styles */
