@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import "../styles/custom-props.css";
-import { Link } from "react-router-dom";
 import Markdown from 'react-markdown';
 
 const Card = styled.div`
@@ -11,6 +10,7 @@ const Card = styled.div`
   background: var(--note-bg);
   overflow: hidden;
   &:hover {
+    cursor: pointer;
     color: var(--note-hover-color);
   }
 `;
@@ -30,20 +30,19 @@ const CardContent = styled.div`
   padding: 0.5rem 0;
   word-break: break-all;
 `;
-const UnstyledLink = styled(Link)`
-  color: inherit;
-`;
 
-const Note = props => {
+const Note = (props) => {
   return (
-    <UnstyledLink to={`note/get/${props.id}`}>
-      <Card>
+      <Card onDoubleClick = { () => {
+        props.history.push(`note/get/${props.id}`)
+        }
+      }>
         <CardTitle>{props.title}</CardTitle>
         <CardContent>
           <Markdown source = { props.textBody } />
+          }} />
         </CardContent>
       </Card>
-    </UnstyledLink>
   );
 };
 

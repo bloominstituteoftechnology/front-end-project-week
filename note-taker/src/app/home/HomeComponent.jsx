@@ -11,10 +11,11 @@ class HomeComponent extends React.Component {
     this.props.fetchNotes();
   }
   render() {
+    console.log(this.props);
     return (
       <HomeWrapper>
         <HeadingTitle>Your Notes:</HeadingTitle>
-        <NotesList notesData={this.props.notesData} />
+        <NotesList notesData={this.props.notesData} history = {this.props.history} />
       </HomeWrapper>
     );
   }
