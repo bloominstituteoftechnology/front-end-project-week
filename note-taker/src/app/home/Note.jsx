@@ -33,7 +33,7 @@ const CardContent = styled.div`
 
 const Note = (props) => {
   return (
-      <Card onDoubleClick = { () => {
+      <Card onClick = { () => {
         props.history.push(`note/get/${props.id}`)
         }
       }>
