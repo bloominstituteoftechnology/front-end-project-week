@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "bulma/css/bulma.css";
 import HeadingTitle from "../common/Titles/HeadingTitle";
 import GeneralBtn from "../common/GeneralBtn/GeneralBtn";
@@ -7,9 +7,7 @@ import withNoteForm from "../common/Forms/WithNoteForm";
 const GeneralBtnWithNoteForm = withNoteForm(GeneralBtn);
 
 class CreateNoteComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   
   postNote = (noteObj) => {
     
@@ -18,7 +16,7 @@ class CreateNoteComponent extends Component {
   }
   render() {
     return (
-      <Fragment>
+      <div>
         <HeadingTitle>Create new note:</HeadingTitle>
         <GeneralBtnWithNoteForm 
         routeTo = {`/`} 
@@ -31,7 +29,7 @@ class CreateNoteComponent extends Component {
           });
         }}
         />
-      </Fragment>
+      </div>
     );
   }
 }

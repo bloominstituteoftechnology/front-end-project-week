@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import HeadingTitle from "../common/Titles/HeadingTitle";
 import GeneralBtn from "../common/GeneralBtn/GeneralBtn";
 import withNoteForm from "../common/Forms/WithNoteForm";
@@ -26,7 +26,7 @@ class EditNoteComponent extends Component {
     }
     else {
     return (
-      <Fragment>
+      <div>
         <HeadingTitle>Edit Note:</HeadingTitle>
         <GeneralBtnWithNoteForm 
         routeTo = {`/note/get/${this.id}`} 
@@ -42,7 +42,7 @@ class EditNoteComponent extends Component {
         textBody = {this.props.textBody}
         title = {this.props.title}
         />
-      </Fragment>
+      </div>
     );
   }
 }
