@@ -40,7 +40,6 @@ const Note = (props) => {
         <CardTitle>{props.title}</CardTitle>
         <CardContent>
           <Markdown source = { props.textBody } />
-          }} />
         </CardContent>
       </Card>
   );
