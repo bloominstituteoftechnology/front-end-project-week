@@ -11,7 +11,39 @@ import {
 
 
 class MainContainer extends Component {
-    // state = {
+    render() {
+        console.log( "STATE",this.state )
+        return (
+            <Router>
+                <div className = 'app-Container'>
+                        <SideBar />
+                        <Switch>
+                            <Route exact path='/' component={ ListView } />
+                            <Route path='/create' component={CreateNote} />
+                            <Route path='/edit/:id'  component={EditNote} />
+                            <Route path='/note/:id'  component={ViewNote} />
+                        </Switch>
+                </div>
+            </Router>
+        );
+    }
+}
+
+export default MainContainer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// state = {
     //     displayModal : false,
     //     notes : [
     //         {
@@ -68,23 +100,3 @@ class MainContainer extends Component {
     // addNote = () => {
 
     // }
-
-    render() {
-        console.log( "STATE",this.state )
-        return (
-            <Router>
-                <div className = 'app-Container'>
-                        <SideBar />
-                        <Switch>
-                            <Route exact path='/' component={ ListView } />
-                            <Route path='/create' component={CreateNote} />
-                            <Route path='/edit/:id'  component={EditNote} />
-                            <Route path='/note/:id'  component={ViewNote} />
-                        </Switch>
-                </div>
-            </Router>
-        );
-    }
-}
-
-export default MainContainer;

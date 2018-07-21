@@ -30,7 +30,7 @@ const initialState = [
 export const noteReducer =(state = initialState , action) => {
     switch (action.type) {
         case ADD_NOTE:
-            return [...state, action.payload]
+            return [...state, { id:`LAMBDA${Date.now()}`, title : action.title, body : action.body, createdAt : Date.now()}]
         default:
             return state;
     }

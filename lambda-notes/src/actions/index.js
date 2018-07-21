@@ -3,9 +3,10 @@ export const EDIT_NOTE = 'EDIT_NOTE';
 export const VIEW_NOTE = 'VIEW_NOTE'
 export const DELETE_NOTE = 'DELETE_NOTE'
 
-export const addNote = noteData =>({
+export const addNote = (title,body) =>({
    type : ADD_NOTE,
-   noteData
+   title,
+   body
 })
 
 export const editNote = noteData => ({
