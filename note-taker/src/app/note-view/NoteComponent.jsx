@@ -41,7 +41,7 @@ class NoteComponent extends React.Component {
       
   }
   triggerDeleteModal = () => {
-    this.setState({ deleteModalActive: !this.state.deleteModalActive })
+    this.setState(prevState => ({ deleteModalActive: !prevState.deleteModalActive }))
   }
   render() {
     const id = this.props.match.params.id;
