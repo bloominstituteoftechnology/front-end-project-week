@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Sidebar from './Sidebar';
 import { addNote, deleteNote, editNote } from '../Actions/index';
@@ -12,8 +13,8 @@ class EditView extends Component {
         super(props);
         this.state = {
             type: 'Edit Note:', //Edit Note:
-            title: this.props.notes[this.props.match.params.id].title,
-            content: this.props.notes[this.props.match.params.id].content,
+            // title: this.props.notes[this.props.match.params.id].title,
+            // content: this.props.notes[this.props.match.params.id].content,
             id: this.props.match.params.id,
             button: 'Update' //Update
         }
@@ -29,7 +30,14 @@ class EditView extends Component {
             content: this.state.content,
             id: parseInt(this.props.match.params.id, 10),
         };
-        this.props.editNote(updatedNote);
+
+        axios
+            .put(`https://lambda-notes-back-end.herokuapp.com/notes/edit/${this.props.match.params.id}`, updatedNote).then(res => {
+                const note = res.data;
+                this.setState({ note });
+                console.log(res.data)
+            });
+        // this.props.editNote(updatedNote);
         this.props.history.push('/');
     };
 
@@ -44,24 +52,24 @@ class EditView extends Component {
                         <div className='newNote'>
                             <h4 className='createNoteHeading'>{ this.state.type }</h4>
 
-                            <input 
-                                type='text' 
-                                name='title' 
-                                placeholder='Note Title' 
-                                value={ this.state.title } 
-                                onChange={ this.updateInput } 
-                                />
+                            <input
+                                type='text'
+                                name='title'
+                                placeholder='Note Title'
+                                value={ this.state.title }
+                                onChange={ this.updateInput }
+                            />
 
-                            <textarea 
-                                name='content' 
-                                rows='15' 
-                                cols='90' 
-                                placeholder='Note Content' 
-                                value={ this.state.content } 
-                                onChange={ this.updateInput } 
-                                />
+                            <textarea
+                                name='content'
+                                rows='15'
+                                cols='90'
+                                placeholder='Note Content'
+                                value={ this.state.content }
+                                onChange={ this.updateInput }
+                            />
 
-                            <Link to={ '/' }>
+                            <Link to={ '/notes' }>
                                 <button className='submit' onClick={ this.editCurrentNote }>{ this.state.button }</button>
                             </Link>
                         </div>
