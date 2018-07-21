@@ -10,7 +10,7 @@ export const addNote = (title,body) =>({
 
 export const editNote = noteData => ({
     type : EDIT_NOTE,
-    payload : noteData
+    noteData
 })
 
 

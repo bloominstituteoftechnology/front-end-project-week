@@ -31,6 +31,15 @@ export const noteReducer =(state = initialState , action) => {
     switch (action.type) {
         case ADD_NOTE:
             return [...state, { id:`LAMBDA${Date.now()}`, title : action.title, body : action.body, createdAt : Date.now()}]
+        case EDIT_NOTE :
+            state.forEach((note, index) => {
+               if(note.id === action.noteData.id){
+                   state.splice(index, 1)
+                   return
+               }
+               state.push(action.noteData)
+            })
+
         default:
             return state;
     }
