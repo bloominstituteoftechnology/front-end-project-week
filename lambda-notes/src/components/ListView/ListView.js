@@ -12,7 +12,7 @@ const ListView = (props) => {
             <div className='noteList-container'>
                 <div className="note-header"><h2>Your Notes:</h2></div>
                 <div className="noteList">
-                    {props.notes.map((note , index)=> <Link to={`/note/${note.id}`}><Note  style={{ textDecoration : "none" }} tittle = {note.title} body={note.body} key={index} /></Link>)}
+                    {props.notes.map((note , index)=> <Link to={`/note/${note.id}`} style={{ textDecoration : "none" }}><Note   tittle = {note.title} body={note.body} key={index} /></Link>)}
                 </div>
             </div>
         </div>
