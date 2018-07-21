@@ -11,22 +11,21 @@ import '../css/NoteView.css';
 
 class NoteView extends Component {
     state = {
-        id: +this.props.match.params.id,
-        note: {
-            title: '',
-            content: '',
-        },
+        // id: +this.props.match.params.id,
+        note: [],
         modal: false,
     };
-
+   
     toggle = () => {
         this.setState({ modal: !this.state.modal });
     }
 
     async componentDidMount() {
-        axios.get(`https://lambda-notes-back-end.herokuapp.com/notes${this.state.note.id}`).then(res => {
-            const notes = res.data;
-            this.setState({ notes });
+        axios
+            .get(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}`).then(res => {
+            const note = res.data;
+            this.setState({ note });
+            console.log(res.data)
         });
         // const note = await this.props.notes.find(note => note.id === this.state.id);
         // this.setState({ note });

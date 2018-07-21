@@ -28,6 +28,7 @@ class ListView extends Component {
             })
     }
     render() {
+        // console.og
         return (
             <Container className='container'>
                 <Row>
@@ -40,7 +41,7 @@ class ListView extends Component {
                         { this.state.notes.map((note, id) =>
                             <div className='thumbnail'
                                 key={ note.title }>
-                                <Link to={ `https://lambda-notes-back-end.herokuapp.com/notes/${note._id}` }>
+                                <Link to={ `/notes/${note._id}` }>
                                     <div className='title'>{ note.title }</div>
                                     <hr className='line' />
                                     <div className='content'>{ shortenNote(note.content) }</div>
