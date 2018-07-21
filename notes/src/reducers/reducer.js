@@ -16,6 +16,10 @@ export const notesReducer = (
     case FETCH_NOTES:
       return { ...state, notes: action.payload };
     case FETCH_SINGLE_NOTE:
+      /*return {
+        ...state,
+        singleNote: action.payload
+      };*/
       let singleNote = state.notes.slice();
       singleNote = singleNote.filter(note => {
         if (note._id === action.payload) {

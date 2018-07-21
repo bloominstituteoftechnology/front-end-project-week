@@ -8,12 +8,7 @@ import PropTypes from "prop-types";
 const Note = props => {
   return (
     <div className="ind-card">
-      <Link
-        onClick={() =>
-          props.fetchSingleNote(props.note._id)
-        }
-        to={`/note/${props.note._id}`}
-      >
+      <Link to={`/note/${props.note._id}`}>
         <Card>
           <CardTitle>{props.note.title}</CardTitle>
           <CardText>{props.note.textBody}</CardText>
@@ -23,8 +18,15 @@ const Note = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    singleNote: state.singleNote,
+    notes: state
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { fetchSingleNote }
 )(Note);
 

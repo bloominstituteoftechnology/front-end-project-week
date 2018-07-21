@@ -7,7 +7,12 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
-import { deleteNote } from "../actions/action";
+import {
+  deleteNote,
+  fetchSingleNote
+} from "../actions/action";
+
+const URL = "https://killer-notes.herokuapp.com/note/";
 
 class ViewNote extends React.Component {
   constructor(props) {
@@ -19,6 +24,13 @@ class ViewNote extends React.Component {
     };
     this.toggle = this.toggle.bind(this);
   }
+  componentDidMount() {
+    console.log("componentDidMount firing");
+    let id = window.location.pathname.split("/");
+    id = id[2];
+    this.props.fetchSingleNote(URL, id);
+  }
+
   toggle() {
     this.setState({
       modal: !this.state.modal
@@ -80,12 +92,16 @@ class ViewNote extends React.Component {
           </Modal>
         </div>
         <div className="singleNoteBody">
-          <h3>{this.props.singleNote[0].title}</h3>
-          <p>{this.props.singleNote[0].textBody}</p>
-          {this.props.singleNote[0].tags.length > 0 ? (
+          <h3>
+            {this.props.singleNote.map(sing => {
+              return <div>{sing.title}</div>;
+            })}
+          </h3>
+          <p>{this.props.singleNote.textBody}</p>
+          {/*{this.props.singleNote.tags.length > 0 ? (
             <div className="tags">
               Tags:{" "}
-              {this.props.singleNote[0].tags.map(tag => {
+              {this.props.singleNote.tags.map(tag => {
                 return (
                   <p key={Math.random()} className="tag">
                     *{tag}
@@ -93,7 +109,7 @@ class ViewNote extends React.Component {
                 );
               })}
             </div>
-          ) : null}
+          ) : null}*/}
           <hr className="hr" />
 
           <div className="checkList">
@@ -118,11 +134,12 @@ class ViewNote extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    singleNote: state.singleNote
+    singleNote: state.singleNote,
+    notes: state
   };
 };
 
 export default connect(
   mapStateToProps,
-  { deleteNote }
+  { deleteNote, fetchSingleNote }
 )(ViewNote);

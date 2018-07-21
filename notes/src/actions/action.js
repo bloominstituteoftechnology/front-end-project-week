@@ -21,7 +21,21 @@ export const submitNewNote = newNote => {
   };
 };
 
-export const fetchSingleNote = id => {
+export const fetchSingleNote = (URL, id) => {
+  /*console.log("at action, id is: ", id);
+  const promise = axios.get(`${URL}get/${id}`);
+  return dispatch => {
+    promise
+      .then(response => {
+        dispatch({
+          type: FETCH_SINGLE_NOTE,
+          payload: response.data
+        });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err.message });
+      });
+  };*/
   return {
     type: FETCH_SINGLE_NOTE,
     payload: id
