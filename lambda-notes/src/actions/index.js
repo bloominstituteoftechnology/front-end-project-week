@@ -14,10 +14,6 @@ export const editNote = noteData => ({
     payload : noteData
 })
 
-export const viewNote = id => ({
-    type : VIEW_NOTE,
-    payload : id
-})
 
 export const deleteNote = id => ({
     type : DELETE_NOTE,

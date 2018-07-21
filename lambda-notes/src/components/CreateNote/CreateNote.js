@@ -15,16 +15,9 @@ class CreateNote extends Component{
     }
 
     handleSubmit = () =>{
-        console.log("SUBMIT",this.props)
-        console.log("SUBMIT",this.state)
         const { title , textBody } = this.state;
-
         this.props.addNote(title,textBody)
-        this.state.title = '';
-        this.state.textBody = ''
-
-
-
+        this.setState({title:'', textBody : '' })
     }
 
 

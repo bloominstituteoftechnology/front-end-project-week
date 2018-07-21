@@ -1,4 +1,4 @@
-import { ADD_NOTE,EDIT_NOTE,DELETE_NOTE } from '../actions/index';
+import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE, VIEW_NOTE } from '../actions/index';
 
 
 const initialState = [
