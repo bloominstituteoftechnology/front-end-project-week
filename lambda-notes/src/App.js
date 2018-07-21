@@ -13,9 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Route exact path='/' component={ListView} />
-        <Route path='/create' component={CreateNote} />
-        <Route path='/view/:id' component={NoteView} />
+        <Route exact path='/notes' component={ListView} />
+        <Route path='/notes/create' component={CreateNote} />
+        <Route path='/notes/:id' component={NoteView} />
         <Route path='/edit/:id' component={EditView} />
       </div> 
     );

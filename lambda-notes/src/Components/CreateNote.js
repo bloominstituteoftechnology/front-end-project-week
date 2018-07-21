@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Sidebar from './Sidebar';
 import { addNote, deleteNote } from '../Actions/index';
@@ -23,10 +24,14 @@ class CreateNote extends Component {
     createNewNote = () => {
         const newNote = {
             title: this.state.title,
-            content: this.state.content,
-            id: this.props.notes.length || 0,
+            content: this.state.content
         }
-        this.props.addNote(newNote);
+        axios
+            .post('https://lambda-notes-back-end.herokuapp.com/notes/create', newNote)
+            .then(res => {
+                console.log(res.data);
+            })
+        // this.props.addNote(newNote);
         this.setState({ title: '', content: ''});
     }
 
@@ -45,7 +50,7 @@ class CreateNote extends Component {
 
                             <textarea name='content' rows='15' cols='90' placeholder='Note Content' value={ this.state.content } onChange={ this.updateInput } />
 
-                            <Link to={'/'}>
+                            <Link to={'/notes'}>
                             <button className='submit' onClick={ this.createNewNote }>{ this.state.button }</button>
                             </Link>
                         </div>

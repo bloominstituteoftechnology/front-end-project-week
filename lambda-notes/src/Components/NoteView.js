@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import { deleteNote, editNote } from '../Actions';
 import DeleteModal from './DeleteModal';
@@ -23,8 +24,12 @@ class NoteView extends Component {
     }
 
     async componentDidMount() {
-        const note = await this.props.notes.find(note => note.id === this.state.id);
-        this.setState({ note });
+        axios.get(`https://lambda-notes-back-end.herokuapp.com/notes${this.state.note.id}`).then(res => {
+            const notes = res.data;
+            this.setState({ notes });
+        });
+        // const note = await this.props.notes.find(note => note.id === this.state.id);
+        // this.setState({ note });
     }
 
     delete = (id) => {
