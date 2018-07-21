@@ -25,7 +25,7 @@ class ViewNote extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
   componentDidMount() {
-    console.log("componentDidMount firing");
+    console.log("ViewNote componentDidMount firing");
     let id = window.location.pathname.split("/");
     id = id[2];
     this.props.fetchSingleNote(URL, id);
@@ -39,7 +39,7 @@ class ViewNote extends React.Component {
   deleteNote = event => {
     console.log("this.props:", this.props);
     event.preventDefault();
-    this.props.deleteNote(this.props.singleNote[0]._id);
+    this.props.deleteNote(this.props.singleNote._id);
     this.props.history.push("/");
   };
   inputTodo = event => {
@@ -54,6 +54,19 @@ class ViewNote extends React.Component {
     });
   };
   render() {
+    console.log(
+      "this.props.singleNote.tags is: ",
+      this.props.singleNote.tags
+    );
+    /*console.log(
+      "this.props.singleNote.tag.length is: ",
+      this.props.singleNote.tag.length
+    );*/
+    console.log(
+      "this.props.singleNote is: ",
+      this.props.singleNote
+    );
+    console.log("ViewNote render is called");
     return (
       <div className="singleNote">
         <div className="singleNoteButtons">
@@ -91,42 +104,43 @@ class ViewNote extends React.Component {
             </ModalFooter>
           </Modal>
         </div>
-        <div className="singleNoteBody">
-          <h3>
-            {this.props.singleNote.map(sing => {
-              return <div>{sing.title}</div>;
-            })}
-          </h3>
-          <p>{this.props.singleNote.textBody}</p>
-          {/*{this.props.singleNote.tags.length > 0 ? (
-            <div className="tags">
-              Tags:{" "}
-              {this.props.singleNote.tags.map(tag => {
-                return (
-                  <p key={Math.random()} className="tag">
-                    *{tag}
-                  </p>
-                );
-              })}
-            </div>
-          ) : null}*/}
-          <hr className="hr" />
 
-          <div className="checkList">
-            <p>To Do List</p>
-            {this.state.todos ? (
-              <li>{this.state.todos}</li>
+        {this.props.fetching ? (
+          <div>Fetching note...</div>
+        ) : (
+          <div className="singleNoteBody">
+            <h3>{this.props.singleNote.title}</h3>
+            <p>{this.props.singleNote.textBody}</p>
+
+            {this.props.singleNote.tags.length > 0 ? (
+              <div className="tags">
+                Tags:{" "}
+                {this.props.singleNote.tags.map(tag => {
+                  return (
+                    <p key={Math.random()} className="tag">
+                      *{tag}
+                    </p>
+                  );
+                })}
+              </div>
             ) : null}
+            <hr className="hr" />
+            <div className="checkList">
+              <p>To Do List</p>
+              {this.state.todos ? (
+                <li>{this.state.todos}</li>
+              ) : null}
 
-            <form onSubmit={this.submitTodo}>
-              <input
-                onChange={this.inputTodo}
-                placeholder="Add a checklist"
-                value={this.state.input}
-              />
-            </form>
+              <form onSubmit={this.submitTodo}>
+                <input
+                  onChange={this.inputTodo}
+                  placeholder="Add a checklist"
+                  value={this.state.input}
+                />
+              </form>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
@@ -135,7 +149,8 @@ class ViewNote extends React.Component {
 const mapStateToProps = state => {
   return {
     singleNote: state.singleNote,
-    notes: state
+    notes: state,
+    fetching: state.fetching
   };
 };
 

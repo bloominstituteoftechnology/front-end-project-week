@@ -2,6 +2,7 @@ import axios from "axios";
 export const FETCH_SINGLE_NOTE = "FETCH_SINGLE_NOTE";
 export const FETCH_NOTES = "FETCH_NOTES";
 export const ERROR = "ERROR";
+export const FETCHING_NOTES = "FETCHING_NOTES";
 
 let home_path = "http://localhost:3000/";
 
@@ -22,9 +23,10 @@ export const submitNewNote = newNote => {
 };
 
 export const fetchSingleNote = (URL, id) => {
-  /*console.log("at action, id is: ", id);
+  console.log("at action, id is: ", id);
   const promise = axios.get(`${URL}get/${id}`);
   return dispatch => {
+    dispatch({ type: FETCHING_NOTES });
     promise
       .then(response => {
         dispatch({
@@ -35,10 +37,10 @@ export const fetchSingleNote = (URL, id) => {
       .catch(err => {
         dispatch({ type: ERROR, payload: err.message });
       });
-  };*/
-  return {
+    /*return {
     type: FETCH_SINGLE_NOTE,
     payload: id
+  };*/
   };
 };
 

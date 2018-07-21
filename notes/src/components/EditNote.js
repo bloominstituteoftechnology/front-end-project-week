@@ -7,8 +7,8 @@ class EditNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editedTitle: this.props.singleNote[0].title,
-      editedBody: this.props.singleNote[0].textBody
+      editedTitle: this.props.singleNote.title,
+      editedBody: this.props.singleNote.textBody
     };
   }
   inputEditNote = event => {
@@ -21,12 +21,9 @@ class EditNote extends React.Component {
     let edited = {
       title: this.state.editedTitle,
       textBody: this.state.editedBody,
-      _id: this.props.singleNote[0]._id
+      _id: this.props.singleNote._id
     };
-    this.props.editNote(
-      edited,
-      this.props.singleNote[0]._id
-    );
+    this.props.editNote(edited, this.props.singleNote._id);
   };
 
   render() {
