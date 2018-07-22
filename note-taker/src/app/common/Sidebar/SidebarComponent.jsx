@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "../../styles/custom-props.css";
 import GeneralBtn from "../GeneralBtn/GeneralBtn";
 import { Link } from "react-router-dom";
+import { CSVLink, CSVDownload } from 'react-csv';
 const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,7 +32,9 @@ const ButtonsContainer = styled.div`
 `;
 
 const SidebarComponent = props => {
-
+  const noteTitle = props.note.title;
+  const noteBody = props.note.textBody;
+  const csvData = [['Note Title', 'Note Body'],[noteTitle, noteBody]];
   return (
     <SidebarWrapper>
       <Header>Lambda Notes</Header>
@@ -43,6 +46,9 @@ const SidebarComponent = props => {
           <GeneralBtn> + Create new note</GeneralBtn>
         </Link>
         <GeneralBtn onClick = {() => props.toggleTheme(props.isDark)}>Light / Dark Toggler</GeneralBtn>
+        <CSVLink data={csvData}>
+        <GeneralBtn>Export to CSV</GeneralBtn>
+        </CSVLink>
       </ButtonsContainer>
     </SidebarWrapper>
   );

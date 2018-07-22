@@ -3,8 +3,10 @@ import SidebarComponent from './SidebarComponent';
 import { sidebarOperations } from './duck';
 const mapStateToProps = (state) => {
     const isDark = state.sidebar.darkTheme;
+    const { note } = state.noteView;
     return {
-        isDark
+        isDark,
+        note
     }
 }
 const mapDispatchToProps = dispatch => {
