@@ -25,7 +25,7 @@ const Header = styled.h1`
 const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  & > a {
+  & button {
     margin-bottom: 20px;
   }
 `;
