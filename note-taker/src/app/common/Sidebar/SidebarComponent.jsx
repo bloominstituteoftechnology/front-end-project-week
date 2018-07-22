@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "../../styles/custom-props.css";
 import GeneralBtn from "../GeneralBtn/GeneralBtn";
 import { Link } from "react-router-dom";
-import { CSVLink, CSVDownload } from 'react-csv';
+import { CSVLink } from 'react-csv';
 const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
