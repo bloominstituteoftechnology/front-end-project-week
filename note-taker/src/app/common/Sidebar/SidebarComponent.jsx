@@ -32,9 +32,10 @@ const ButtonsContainer = styled.div`
 `;
 
 const SidebarComponent = props => {
-  const noteTitle = props.note.title;
-  const noteBody = props.note.textBody;
-  const csvData = [['Note Title', 'Note Body'],[noteTitle, noteBody]];
+  const csvData = [['Note Title', 'Note Body']];
+  props.notesData.forEach(note => {
+    csvData.push([note.title, note.textBody]);
+  })
   return (
     <SidebarWrapper>
       <Header>Lambda Notes</Header>
