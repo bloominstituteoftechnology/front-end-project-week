@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED, SAVING, SAVED, UPDATING, UPDATED, DELETING, DELETED, ERROR};
+import {FETCHING, FETCHED, SAVING, SAVED, UPDATING, UPDATED, DELETING, DELETED, ERROR} from '../actions';
 
 const initialState = {
   notes: [],
@@ -11,14 +11,14 @@ const initialState = {
   updatingNote: false,
   noteUpdated: false,
   error: null
-}
+} 
 
 const noteReducuer = (state = initialState, action) => {
   switch(action.type) {
     case FETCHING:
       return Object.assign({}, state, {fetchingNotes: true})
     case FETCHED:
-      return Object.assign({}, state, {notesFetched: true, notes:action.payload, fetchingNotes; false})
+      return Object.assign({}, state, {notesFetched: true, notes:action.payload, fetchingNotes: false})
     case SAVING:
       return Object.assign({}, state, {savingNote: true})
     case SAVED:
