@@ -2,9 +2,10 @@ import React from 'react';
 import Login from '../Login/Login';
 import {connect} from 'react-redux';
 import {fetchData} from '../../actions';
+import {withRouter} from 'react-router-dom';
 
-const Authenticate = App =>
-  class extends React.Component {
+const Authenticate = App => {
+  class InnerApp extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -33,7 +34,9 @@ const Authenticate = App =>
     return {
     notes: state.notes,
     fetching: state.fetchingNotes
-  }
-  }
+  };
+};
 
-export default connect(mapStateToProps, {fetchData})(Authenticate);
+return withRouter(connect(mapStateToProps, {fetchData})(InnerApp));
+}
+export default Authenticate;
