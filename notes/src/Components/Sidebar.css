@@ -1,0 +1,22 @@
+.sidebar-container {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D8D8D8;
+    font: Raleway Medium;
+    padding: 10px auto;
+    height: 1250px;
+}
+
+h3 {
+    font-size: 48px;
+    font: Roboto Bold;
+    color: #4A4A4A;
+}
+
+.sidebar-button {
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    width: 85%;
+}
