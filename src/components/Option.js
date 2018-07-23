@@ -5,11 +5,12 @@ import React from 'react';
 const Option = (props) => {
   return (
     <div className="option">
-    <p className="option__text">{props.count}.{props.optionText}</p>
+    <h6>{props.optionTitle}</h6>
+    <p className="option__text">{props.optionText}</p>
      <button
      className="button button--link"
      onClick={(events) => {
-        props.handleDeleteOption(props.optionText);
+        props.handleDeleteOption(props.optionText, props.optionTitle);
      }}
      >
      Remove

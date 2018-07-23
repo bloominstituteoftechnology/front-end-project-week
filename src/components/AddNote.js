@@ -11,8 +11,12 @@ export default class AddNote extends React.Component {
       event.preventDefault();
       // "Event.target" is the form element
       // then uses 'Elements" to go into the "input" by its name which is 'option" then we grab its value property
+      const optionTitle = event.target.elements.optionTitle.value.trim();
       const option = event.target.elements.option.value.trim();
+      
+
       const error = this.props.handleAddNote(option);
+      const error2 = this.props.handleAddNote(optionTitle);
       // if theres an option then do something which is alert that option
   
       // This is the shorthand version of the code below it
@@ -23,6 +27,8 @@ export default class AddNote extends React.Component {
       */
      if (!error) {
       event.target.elements.option.value = '';
+     } else if (!error2) {
+      event.target.elements.optionTitle.value = '';
      }
     };
     render() {
@@ -31,7 +37,8 @@ export default class AddNote extends React.Component {
             {this.state.error && <p className="add-option-error">{this.state.error}</p>}
             {/* this calls the handleAddNote method from above */}
               <form className="add-option" onSubmit={this.handleAddNote}>
-                <input className="add-option__input" type="text" name="option" />
+              <input className="add-option__input" type="text" name="optionTitle" />
+              <input className="add-option__input" type="text" name="option" />
                 <button className="button">Create New Note</button>
               </form>
             </div>
