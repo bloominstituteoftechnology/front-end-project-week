@@ -8,3 +8,29 @@
     border-right: 1px solid #979797;
 }
 
+.header {
+    font-family: 'Roboto Bold', sans-serif;
+    color: #4A4A4A;
+    margin: 23px 0 0 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 50px;
+}
+
+.buttons button {
+    width: 85%;
+    height: 60px;
+    margin: 15px 25px 8px 25px;
+    background: #2BC1C4;
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border: 1px solid #979797
+}
+
+.notes {
+    position: relative;
+    bottom: 15px;
+}
