@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import YourNotes from './components/YourNotes/YourNotes.js';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      notes:[],
+    };
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="App-sidebar">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Lambda Notes</h1>
+          <button className='sidebar-button'>View Your Notes</button>
+          <button className='sidebar-button'>+ Create New Note</button>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Route exact path='/' component={YourNotes} />
+        {/* <YourNotes 
+          notes={this.state.notes}
+        /> */}
       </div>
     );
   }

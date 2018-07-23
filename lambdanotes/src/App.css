@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  /* flex-direction: column; */
 }
 
 .App-logo {
@@ -7,20 +9,31 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+.App-sidebar {
+  background-color: #D8D8D8; 
+  height: 100vh;
+  width:300px;
   padding: 20px;
   color: white;
+  
+}
+
+.sidebar-button{
+  width:220px;
+  height:60px;
+  margin-top: 20px;
+  color: #FFFFFF;
+  background-color: #2BC1C4;
 }
 
 .App-title {
   font-size: 1.5em;
+  color:#4A4A4A;
 }
 
-.App-intro {
+/* .App-intro {
   font-size: large;
-}
+} */
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
