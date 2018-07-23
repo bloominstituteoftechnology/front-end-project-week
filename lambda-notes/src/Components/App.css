@@ -1,0 +1,308 @@
+/* Base App Styles */
+.App {
+  text-align: left;
+  display: flex;
+  background: #F3F3F3;
+}
+.App p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+.App h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4A4A4A;
+}
+
+/* Banner Styles */
+.banner {
+  display: flex;
+  flex-direction: column;
+  background: #D8D8D8;
+  height: 100vh;
+  width: 28%;
+  padding-top: 10px;
+}
+.banner .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  width: 85%;
+  text-align: left;
+}
+.banner-btn-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner .custom-button {
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 85%;
+  padding: 10px 0;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* List View Styles */
+.list-view {
+  width: 100%;
+  padding: 30px 15px;
+}
+.list-header {
+  display: flex;
+  justify-content: space-between;
+}
+.list-header div {
+  display: flex;
+}
+.list-header .sort-btn {
+  text-decoration: none;
+  border: 2px solid #979797;
+  background: #FFFFFF;
+  color: #2BC1C4;
+  font-size: .75rem;
+  text-align: center;
+  margin-left: 3px;
+  padding: 3px 4px;
+  cursor: pointer;
+}
+.list-header .sort-btn:hover {
+  background: #2BC1C4;
+  color: #FFFFFF;
+}
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.note {
+  border: 1px solid #979797;
+  background: white;
+  padding: 13px 15px;
+  margin: 20px 0;
+  width: 28%;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 1px 5px 15px #979797;
+}
+.note:hover {
+  box-shadow: 3px 5px 5px #2BC1C4;
+  background: rgb(250, 250, 250);
+}
+
+/* Create Note Styles */
+.create-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+  padding: 30px 15px;
+}
+.create-note input {
+  width: 65%;
+  margin: 20px 0;
+  border-radius: 5px;
+  height: 28px;
+}
+.create-note textarea {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 50%;
+}
+.create-note .custom-button {
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 25%;
+  padding: 10px 0;
+  margin: 20px 0;
+  text-align: center;
+  cursor: pointer;
+}
+.create-note a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/* View Note Styles */
+.single-note {
+  width: 100%;
+  margin: 30px 15px;
+}
+.single-note p {
+  margin: 15px 0;
+}
+.note-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.note-header .btn {
+  font-size: 1rem;
+  margin: 0 10px 0 5px;
+  cursor: pointer;
+  text-decoration-line: underline;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4A4A4A;
+}
+
+/* Edit Note Styles */
+.edit-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+  padding: 30px 15px;
+}
+.edit-note input {
+  width: 65%;
+  margin: 20px 0;
+  border-radius: 5px;
+  height: 28px;
+}
+.edit-note textarea {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 50%;
+}
+.edit-note .custom-button {
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 25%;
+  padding: 10px 0;
+  margin: 20px 0;
+  text-align: center;
+  cursor: pointer;
+}
+.edit-note .link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.create-note a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/* Delete Note Styles */
+.delete-note {
+  background: #b6c1ccc2;
+  height: 100vh;
+  width: 100vw;
+  max-width: 992px;
+  position: fixed;
+  top: 0;
+  opacity: 0.95;
+  overflow: hidden;
+  z-index: 30;
+}
+.delete-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.delete-content {
+  background: #F3F3F3;
+  border: 3px solid #979797; 
+  padding: 40px 60px;
+}
+.delete-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.delete-btn {
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  background: #D0021B;
+  color: #FFFFFF;
+  width: 35%;
+  padding: 10px 0;
+  /* margin: 10px 0; */
+  text-align: center;
+  cursor: pointer;
+}
+
+.no-btn {
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 35%;
+  padding: 10px 0;
+  /* margin: 10px 0; */
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Login Form Styles */
+.login-form {
+  background: #2BC1C4;
+  height: 100vh;
+  width: 100vw;
+  max-width: 992px;
+  position: fixed;
+  bottom: 0;
+  opacity: .97;
+  overflow: hidden;
+  z-index: 30;
+}
+.login-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-content {
+  background: #F3F3F3;
+  border: 3px solid #979797; 
+  padding: 40px 60px;
+  opacity: 1;
+}
+.login-content p {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.login-content input {
+  margin-bottom: 15px;
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.login-content input:nth-child(2) {
+  margin-right: 5px;
+}
+.login-content .btn {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  border-radius: 5px;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 85%;
+  padding: 10px 0;
+  margin: 0 auto;
+  text-align: center;
+}
