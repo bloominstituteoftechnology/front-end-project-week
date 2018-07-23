@@ -1,66 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // create note form should have an input box for the title, 
 // an input box for the content, and a save button
 
 
-class CreateNoteForm extends Component {
-    constructor() {
-        super();
-        this.state = {
-            noteEntry: {
-                title: "",
-                textBody: "",
-                tags: []
-            }
-        }
-    }
-
-    createNoteTitleHandler = e => {
-        console.log(e.target.value);
-        
-        this.setState({noteEntry: {
-            title:[e.target.value], 
-            textBody: this.state.noteEntry.textBody,
-            tags: this.state.noteEntry.tags
-        }})
-    }
-
-    createNoteTextBodyHandler = e => {
-        console.log(e.target.value);
-        
-        this.setState({noteEntry: {
-            title:this.state.noteEntry.title, 
-            textBody: [e.target.value],
-            tags: this.state.noteEntry.tags
-        }})
-    }
-
-    render() {
-        return (
-            <div>
-                <form>
-                    NOTE TITLE:
+const CreateNoteForm = props => {
+    return (
+        <div>
+            <form>
+                NOTE TITLE:
                     <input
-                        type="text"
-                        placeholder="Note Title"
-                        name = "title"
-                        onChange = {this.createNoteTitleHandler}
-                    />
-                    NOTE CONTENT:
+                    type="text"
+                    placeholder="Note Title"
+                    name="title"
+                    onChange={props.createNoteTitleHandler}
+                    value = {props.noteEntry.title}
+                />
+                NOTE CONTENT:
                     <input
-                        type="text"
-                        placeholder="Note Content"
-                        name = "content"
-                        onChange = {this.createNoteTextBodyHandler}
-                    />
-                </form>
+                    type="text"
+                    placeholder="Note Content"
+                    name="content"
+                    onChange={props.createNoteTextBodyHandler}
+                    value = {props.noteEntry.textBody}
+                />
+            </form>
 
-                <button> Save </button>
-            </div>
-        )
-    }
-} 
+            <button onClick = {props.addNoteEntry}>  Save </button>
+        </div>
+    )
+}
+
 
 
 export default CreateNoteForm
