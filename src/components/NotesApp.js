@@ -45,7 +45,7 @@ export default class NotesApp
     if (!option) {
       return 'Enter valid value to add item';
     } else if (this.state.options.indexOf(option) > - 1) {
-      return 'This option already exists';
+      return 'This note already exists';
     } 
     // This is the shorthand version of the code below it
     this.setState((prevState) => ({ options: prevState.options.concat(option)}));
@@ -91,7 +91,7 @@ export default class NotesApp
   render() {
     // Removed title becauase we set up a default in the Stateless Header component
       // const title = 'Indecision';
-      const subtitle = 'Put your life in the hands of a computer';
+      const subtitle = '';
       return (
           <div>
           {/* This a prop almost like an ID this allows us to have things change for example if we wanted the header to change based on if we were on the home page or about page we'd make a prop in this case "title" is our prop and its holding the string "Test Value"

@@ -1,4 +1,4 @@
-import React from '../../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
+import React from 'react';
 
 // This stateless function replaced code right below it
 const Action = (props) => {
@@ -8,7 +8,7 @@ const Action = (props) => {
       className="big-button"
         onClick={props.handlePick}
         disabled={!props.hasOptions}
-        > What Should I Do?
+        > What Note Do You Want?
       </button>
     </div>
   )

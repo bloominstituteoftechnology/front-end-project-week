@@ -14,7 +14,7 @@ const Header = (props) => {
   };
   // set default title prop which means we can go ahhead and remove title from Header componenet (props.title)
   Header.defaultProps = {
-  title: 'Indecision'
+  title: 'Lambda Notes'
   };
   
   

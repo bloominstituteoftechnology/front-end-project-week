@@ -32,7 +32,7 @@ export default class AddNote extends React.Component {
             {/* this calls the handleAddNote method from above */}
               <form className="add-option" onSubmit={this.handleAddNote}>
                 <input className="add-option__input" type="text" name="option" />
-                <button className="button">Add Option</button>
+                <button className="button">Create New Note</button>
               </form>
             </div>
         );
