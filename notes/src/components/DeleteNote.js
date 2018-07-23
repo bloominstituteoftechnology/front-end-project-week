@@ -20,7 +20,10 @@ class DeleteNote extends Component {
 
   handleDelete = e => {
     e.preventDefault()
-    this.props.deleteNote(this.props.match.params.id)
+    this.props.deleteNote(
+      this.props.notes[this.props.match.params.id]._id,
+      this.props.match.params.id
+    )
     this.setState({ show: false })
     this.props.history.push('/view')
   }

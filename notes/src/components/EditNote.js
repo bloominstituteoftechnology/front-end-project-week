@@ -8,6 +8,7 @@ class EditNote extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      id: this.props.notes[this.props.match.params.id]._id,
       title: this.props.notes[this.props.match.params.id].title,
       content: this.props.notes[this.props.match.params.id].content
     }
@@ -20,7 +21,10 @@ class EditNote extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.editNote(this.state, this.props.match.params.id)
+    this.props.editNote({
+      title: this.state.title,
+      content: this.state.content
+    }, this.state.id, this.props.match.params.id)
     this.setState({ title: '', content: '' })
     this.props.history.push(`/view/${this.props.match.params.id}`)
   }

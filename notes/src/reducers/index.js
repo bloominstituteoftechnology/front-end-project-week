@@ -19,16 +19,16 @@ const reducer = (state = defaultState, action) => {
       case ADD_NOTE:
         return Object.assign({}, state, {notes: [...state.notes, action.payload]});
       case VIEW_NOTES:
-        return state;
+        return Object.assign({}, state, { notes: action.payload });
       case EDIT_NOTE:
         let editNotes = copy(state.notes);
         editNotes.splice(
-            action.payload.id, 1, action.payload.note
+            action.payload.index, 1, action.payload.note
         );
         return Object.assign({}, state, {notes: editNotes})
       case DELETE_NOTE:
         let deleteNotes = copy(state.notes);
-        deleteNotes.splice(action.payload.id, 1);
+        deleteNotes.splice(action.payload.index, 1);
         return Object.assign({}, state, {notes: deleteNotes})
       default:
         return state
