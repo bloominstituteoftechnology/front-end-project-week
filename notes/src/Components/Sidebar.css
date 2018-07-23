@@ -1,22 +1,29 @@
 .sidebar-container {
     width: 25%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     background: #D8D8D8;
     font: Raleway Medium;
-    padding: 10px auto;
-    height: 1250px;
+    height: 1024px;
 }
 
 h3 {
-    font-size: 48px;
+    font-size: 40px;
     font: Roboto Bold;
     color: #4A4A4A;
+    width: 50%;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .sidebar-button {
     background-color: #2BC1C4;
     color: #FFFFFF;
-    width: 85%;
+    font-size: 18px;
+    width: 87.5%;
+    height: 50px;
+    margin: 10px;
 }
