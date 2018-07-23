@@ -4,7 +4,7 @@ import './Sidebar.css';
 const Sidebar = () => {
     return (
         <div className="sidebar-container">
-            <div className="column">
+            <div className="col-lg-3">
             <h3><strong>Lambda Notes</strong></h3>
             <button className="sidebar-button">View Your Notes</button>
             <button className="sidebar-button">+ Create New Note</button>

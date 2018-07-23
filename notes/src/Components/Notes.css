@@ -1,0 +1,51 @@
+.notes-container {
+    width: 73%;
+    display: flex;
+    height: 99%;
+    padding: 10px auto;
+    font: Raleway Medium;
+    color: #4A4A4A;
+    flex-flow: column;
+    justify-content: space-evenly;
+}
+
+h4 {
+    font-size: 24px;
+    margin-right: 570px;
+    margin-top: -25px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.notes-box {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: space-around;
+    border: 2px solid black;
+    width: 220px;
+    height: 220px;
+    font-size: 16px;
+    font: Raleway Medium;
+    color: #4A4A4A;
+    margin: 20px auto;
+}
+    
+span {
+    font-size: 20px;
+    font-weight: 600px;
+    justify-content: center;
+    padding: 5px;
+}
+
+p {
+    padding: 5px;
+    border-top: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    line-height: 24px;
+}

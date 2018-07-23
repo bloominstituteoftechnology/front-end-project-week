@@ -4,6 +4,7 @@
   border-color: #979797;
   font: Raleway Medium;
   color: #4A4A4A;
+  height: 1024px;
 }
 
 .App-logo {
@@ -24,6 +25,11 @@
 
 .App-intro {
   font-size: large;
+}
+
+.notes {
+  display: flex;
+  flex-direction: row;
 }
 
 @keyframes App-logo-spin {
