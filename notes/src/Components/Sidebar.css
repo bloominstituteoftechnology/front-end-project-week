@@ -8,6 +8,7 @@
     font: Raleway Medium;
     height: 100%;
     float: left;
+    border: 1px solid grey;
 }
 
 h3 {
