@@ -10,6 +10,7 @@ import SearchBar from './SearchBar';
 
 const Container = Styled.div`
   display: flex;
+  width: 100%;
 `;
 const NotesContainer = Styled.div`
   display: block;
@@ -71,16 +72,19 @@ class Notes extends Component {
     console.log(this.props.notes)
   }
 
-/*  shouldComponentUpdate(nextProps, nextState) {
-    console.log(this.props.notes.length)
-    console.log(nextProps.notes.length)
-    if (this.props.notes !== nextProps.notes) {
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(this.props.notes)
+    console.log(nextProps.notes)
+    if (nextProps.notes !== this.props.notes){
       return true; 
     } return false;
-  }*/
+  }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.notes !== this.props.notes)
+    console.log(this.props.notes);
+    console.log(prevProps.notes);
+    this.setState({loops: this.state.loops + 1})
+    if (this.state.loops < 3)
     this.props.getNotes();
   }
   

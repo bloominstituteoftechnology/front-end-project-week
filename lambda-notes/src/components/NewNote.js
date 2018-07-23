@@ -96,9 +96,9 @@ class NewNote extends React.Component {
     render() {
         return (
        
-                <NewContainer>{console.log(this.state.newNote.tags)}
+                <NewContainer>
                 <Heading>Create New Note:</Heading>
-                <FormContainer>{console.log(this.state.newNote.checkList)}
+                <FormContainer>
                     <InputTitle 
                         type="text"
                         name="title"
