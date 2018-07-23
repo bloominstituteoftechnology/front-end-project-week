@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import NotesList from './Components/NotesList'
+import NotesList from './Components/NotesList';
+import CreateNoteForm from './Components/CreateNoteForm'; 
 
 class App extends Component {
   constructor() {
@@ -38,6 +39,12 @@ class App extends Component {
   }
 
 
+  addNoteEntry = (e) => {
+    e.preventDefault();
+    const noteEntries = this.state.noteEntries.slice();
+  }
+
+
   render() {
     return (
       <div>
@@ -50,7 +57,11 @@ class App extends Component {
           <NotesList
             noteEntries = {this.state.noteEntries}
           />
-        </div> 
+        </div>
+        <br />
+        <br />
+        CREATE NOTE: 
+        <CreateNoteForm /> 
       </div>
     );
   }
