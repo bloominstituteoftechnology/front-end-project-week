@@ -60,7 +60,7 @@ Once your MVP has been approved, you have been given a feature list that the cli
 
 - [ ] Wire up your static React App to our Notes API.
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
-- [ ] Re-factor your code to include redux for your state-management
+- [ ] Re-factor your code to include Redux for your state-management
 - [ ] Search functionality
 - [ ] Markdown support in notes
 - [ ] Sorting options in the list view
