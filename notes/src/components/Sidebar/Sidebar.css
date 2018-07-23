@@ -1,0 +1,10 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background: #D8D8D8;
+    text-align: left;
+    height: 100vh;
+    width: 25%;
+    border-right: 1px solid #979797;
+}
+
