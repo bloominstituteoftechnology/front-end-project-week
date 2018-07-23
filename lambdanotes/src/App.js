@@ -21,9 +21,7 @@ class App extends Component {
           <button className='sidebar-button'>+ Create New Note</button>
         </header>
         <Route exact path='/' component={YourNotes} />
-        {/* <YourNotes 
-          notes={this.state.notes}
-        /> */}
+        
       </div>
     );
   }

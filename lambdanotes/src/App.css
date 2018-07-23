@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   display: flex;
+  background-color: #F3F3F3;
   /* flex-direction: column; */
 }
 
@@ -15,6 +16,7 @@
   width:300px;
   padding: 20px;
   color: white;
+  text-align: start;
   
 }
 
@@ -24,10 +26,12 @@
   margin-top: 20px;
   color: #FFFFFF;
   background-color: #2BC1C4;
+  
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2.4em;
+  font: Roboto bold;
   color:#4A4A4A;
 }
 

@@ -1,12 +1,47 @@
 import React from 'react';
 import './Note.css';
 
-const Note= () => {
+const Note= props => {
     return (
-        <div>
-            <h3>does this work</h3>
-            <p>dddd</p>
+        <div className='note-container'>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
+            <div className='note-box'>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+            </div>
         </div>
+        
     );
 };
 
