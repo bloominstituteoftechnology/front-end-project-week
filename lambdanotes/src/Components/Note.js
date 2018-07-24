@@ -31,7 +31,7 @@ const Content = styled.div`
 class Note extends Component {
     render() {
         return ( 
-            <Link to='/view-note' style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={`/view-note/${this.props.note.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <NoteBody>
                     <Title>{this.props.note.title}</Title>
                     <Content>{this.props.note.content}</Content>

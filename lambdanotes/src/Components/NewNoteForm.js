@@ -57,7 +57,8 @@ class NewNoteForm extends Component {
     addNote = () => {
         const note = {
             title: this.state.title,
-            content: this.state.content
+            content: this.state.content,
+            id: Math.random(),
         }
         this.props.addNewNote(note);
         this.setState({ title: '', content: '' });
