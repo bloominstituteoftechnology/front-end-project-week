@@ -4,7 +4,16 @@ const ListView = (props) => {
     return (
         <div>
             <h3>Your Notes:</h3>
-            <div></div>
+            <div>
+                {props.notes.map(note => {
+                    return (
+                        <div>
+                            <h4>{note.title}</h4>
+                            <span>{note.textBody}</span>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }

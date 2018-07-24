@@ -15,11 +15,12 @@ class App extends Component {
   componentDidMount() {
     this.setState({ notes: notesData });
   }
+
   render() {
     return (
       <div className="App">
         <Sidebar />
-        <ListView />
+        <ListView notes={this.state.notes}/>
       </div>
     );
   }
