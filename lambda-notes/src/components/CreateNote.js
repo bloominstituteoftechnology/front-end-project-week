@@ -1,11 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import NoteForm from './NoteForm';
 
-const CreateNote = () => {
+const CreateNote = (props) => {
   return ( 
     <div>
-      <p>create</p>
+      <h3>Create New Note</h3>
+      <NoteForm
+        onSubmit={(note) => {
+          console.log(note);
+        }}
+      />
     </div>
    );
 }
  
-export default CreateNote;
+export default connect()(CreateNote);
