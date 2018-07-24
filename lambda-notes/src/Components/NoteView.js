@@ -25,15 +25,26 @@ class NoteView extends Component {
             .get(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}`).then(res => {
             const note = res.data;
             this.setState({ note });
-            console.log(res.data)
+            // console.log(res.data)
         });
         // const note = await this.props.notes.find(note => note.id === this.state.id);
         // this.setState({ note });
     }
 
     delete = (id) => {
-        this.props.deleteNote(id);
-        this.props.history.push('/');
+        axios
+            .delete(
+                `https://lambda-notes-back-end.herokuapp.com/notes/delete/${
+                this.props.match.params.id
+                }`
+            )
+            .then(res => {
+                const note = res.data;
+                // this.setState({ note });
+                console.log(note);
+                // this.props.deleteNote(id);
+                // this.props.history.push('/');
+            });
     }
 
     render() {

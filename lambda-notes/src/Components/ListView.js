@@ -20,7 +20,7 @@ class ListView extends Component {
     }
 
     componentDidMount() {
-        axios
+         axios
             .get('https://lambda-notes-back-end.herokuapp.com/notes')
             .then(res => {
                 const notes = res.data;
@@ -28,7 +28,6 @@ class ListView extends Component {
             })
     }
     render() {
-        // console.og
         return (
             <Container className='container'>
                 <Row>
