@@ -9,7 +9,10 @@ import { createStore } from 'redux';
 import notesReducer from './reducers/index';
 
 
-const store = createStore(notesReducer)
+const store = createStore(
+    notesReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
     <Provider store={store}>

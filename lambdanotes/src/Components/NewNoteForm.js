@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { addNewNote } from '../actions';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 class NewNoteForm extends Component {
@@ -22,6 +24,7 @@ class NewNoteForm extends Component {
         }
         this.props.addNewNote(note);
         this.setState({ title: '', content: '' });
+
     }
 
     render() {
@@ -42,10 +45,14 @@ class NewNoteForm extends Component {
                     value={this.state.content}
                     onChange={this.updateInputChange}
                 />
-                <button onSubmit={this.addNote}>Save</button>
+                <button onClick={this.addNote}>
+                    <Link to='/'>
+                        Save
+                    </Link>
+                </button>
             </form>
         )
     }
 }
 
-export default NewNoteForm;
+export default connect(null, { addNewNote })(NewNoteForm);

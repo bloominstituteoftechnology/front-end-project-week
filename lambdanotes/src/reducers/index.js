@@ -1,11 +1,19 @@
 import { GET_NOTES, ADD_NOTE } from '../actions/index';
 
 
-const notesReducer = (state = [], action) => {
+const initialState = [
+        // {title: 'whatever',
+        // content: 'blah blah blah blah blah blah blah blah blah blah'},
+        // {title: 'whatever2',
+        // content: 'blah blah blah blah blah blah blah blah blah blah'}
+]
+
+
+const notesReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_NOTES:
             return [
-                ...state, action.payload
+                ...state
             ]
         case ADD_NOTE:
             return [
