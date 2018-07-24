@@ -17,7 +17,7 @@ class App extends Component {
         ) : (
           <div>
             {this.props.notes.map((note) => (
-              <div key={Math.random()}>
+              <div className="Note" key={Math.random()}>
                 <div>{note.title}</div>
                 <div>{note.textBody}</div>
               </div>

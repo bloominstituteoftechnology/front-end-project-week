@@ -12,8 +12,7 @@ class NoteForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit = () => {
     const note = { title: this.state.title, textBody: this.state.textBody };
     this.props.addNote(note);
     this.setState({ title: '', textBody: '' });
@@ -36,11 +35,12 @@ class NoteForm extends Component {
           name="textBody"
           value={this.state.textBody}
         />
-        <button onClick={this.handleSubmit}>Add New Note</button>
+        <button onClick={() => this.handleSubmit()}>Add New Note</button>
       </div>
     );
   }
 }
+// pass in anonmyous function
 export default connect(
   null,
   { addNote }
