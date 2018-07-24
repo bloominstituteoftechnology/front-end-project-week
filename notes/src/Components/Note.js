@@ -4,9 +4,9 @@ import noteData from '../data';
 const Note = props =>{
     return (
         <div className='note'>
-            <p>  -{props.note.title} </p>
+            <p>  -{props.notes.title} </p>
             
-            <p>  --{props.note.content} </p>
+            <p>  --{props.notes.content} </p>
 
 
             </div>

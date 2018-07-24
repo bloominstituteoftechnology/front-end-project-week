@@ -3,7 +3,12 @@ import Note from './Note';
 
 const Notes = props => {
     return ( <div className = 'notes-wrapper'>
-            {props.note.map(note => <Note key={note.title} note={note} /> )}
+            {props.notes.map(notes => 
+            <Note 
+            key={notes.id} 
+            notes={notes} 
+            handleToggleComplete = {props.handleToggleComplete}
+            /> )}
 
         </div>
         )

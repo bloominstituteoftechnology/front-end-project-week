@@ -3,16 +3,23 @@ import Note from './Components/Note';
 import './App.css';
 import noteData from './data';
 import Notes from './Components/Notes';
+import Addnote from './Components/Addnote';
+
+
 class App extends Component {
 constructor(){
   super();
   this.state = {
-    note: []
+    notes: [],
+    note: {
+      title: '',
+      content: ''
+    }
   };
 }
 
 componentDidMount(){
-  this.setState({ note: noteData});
+  this.setState({ notes: noteData});
 }
 
   render() {
@@ -20,7 +27,11 @@ componentDidMount(){
 
     return (
       <div className="App">
-        <Notes note={this.state.note}/>
+        <Notes 
+        notes={this.state.notes}
+        handleToggleComplete={this.toggleNoteComplete}/>
+        <Addnote/>
+        
       </div>
     );
   }
