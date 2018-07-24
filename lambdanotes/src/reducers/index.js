@@ -2,10 +2,14 @@ import { GET_NOTES, ADD_NOTE } from '../actions/index';
 
 
 const initialState = [
-        // {title: 'whatever',
-        // content: 'blah blah blah blah blah blah blah blah blah blah'},
-        // {title: 'whatever2',
-        // content: 'blah blah blah blah blah blah blah blah blah blah'}
+        {title: 'whatever1',
+        content: 'blah blah blah blah blah blah blah blah blah blah'},
+        {title: 'whatever2',
+        content: 'blah blah blah blah blah blah blah blah blah blah'},
+        {title: 'whatever3',
+        content: 'blah blah blah blah blah blah blah blah blah blah'},
+        {title: 'whatever4',
+        content: 'blah blah blah blah blah blah blah blah blah blah'},
 ]
 
 

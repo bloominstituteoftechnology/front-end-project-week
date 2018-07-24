@@ -5,8 +5,13 @@ import Note from './Note';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    width: 675px;
-    border: 1px solid red; 
+    width: 650px;
+`;
+
+const NotesContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 `;
 
 class Notes extends Component {
@@ -14,11 +19,11 @@ class Notes extends Component {
         return (
             <Container>
                 <h3>Your Notes:</h3>
-                <div>
+                <NotesContainer>
                     {this.props.notes.map(note => (
                         <Note note={note} />
                     ))}
-                </div>
+                </NotesContainer>
             </Container>
         )
     }

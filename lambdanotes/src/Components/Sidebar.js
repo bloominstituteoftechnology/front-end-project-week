@@ -7,6 +7,7 @@ const Container = styled.div`
     background: #CDCCCD;
     width: 200px;
     height: 100%;
+    border-right: 1px solid #BABABA;
 `;
 
 const Button = styled.button`

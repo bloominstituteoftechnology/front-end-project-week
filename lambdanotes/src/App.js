@@ -26,6 +26,7 @@ const MainContent = styled.div`
   background: #F0EFF0;
   display: flex;
   height: 100%;
+  justify-content: center;
 `;
 
 class App extends Component {
