@@ -93,6 +93,13 @@ class App extends Component {
       <div>
         Lambda Notes App!!!!!!!!!!!!
         <br />
+        <Link to = {"/"}>
+        <button> View Your Notes </button> 
+        </Link>
+        <br />
+        <Link to = {"/createNote"}>
+        <button> + Create New Note </button> 
+        </Link>
         <br />
 
         <div>
