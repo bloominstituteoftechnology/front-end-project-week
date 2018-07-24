@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
 import ListView from './components/PageViews/ListView';
+import CreateNewView from './components/PageViews/CreateNewView';
 import notesData from './notes-data';
 
 class App extends Component {
@@ -20,7 +22,15 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
-        <ListView notes={this.state.notes}/>
+        <Route 
+          exact path='/' 
+          render={() => (
+            <ListView 
+              notes={this.state.notes}
+            />
+          )}
+        />
+        <Route path='/new' component= {CreateNewView} />
       </div>
     );
   }

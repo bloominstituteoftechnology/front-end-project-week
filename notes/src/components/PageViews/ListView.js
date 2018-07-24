@@ -1,4 +1,5 @@
 import React from 'react';
+import './ListView.css';
 
 const ListView = (props) => {
     return (

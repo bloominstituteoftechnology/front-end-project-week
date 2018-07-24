@@ -1,0 +1,48 @@
+.new {
+    width: 75%;
+    margin-top: 50px;
+}
+
+.new h3 {
+    margin-left: 1.3em;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    color: #4A4A4A;
+}
+
+.new form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3rem 0 2.4rem;
+}
+
+.new form input {
+    height: 25px;
+    width: 55%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: Raleway Medium;
+}
+
+.new form textarea {
+    height: 430px;
+    margin-bottom: 20px;
+    padding: 30px;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: Raleway Medium;
+}
+
+.new form button {
+    width: 32%;
+    height: 60px;
+    background: #2BC1C4;
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border: 1px solid #979797
+}
