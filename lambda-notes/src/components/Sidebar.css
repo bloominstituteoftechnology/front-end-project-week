@@ -1,0 +1,20 @@
+.side {
+    flex-direction: column;
+    width: 15%;
+    background: #d3d2d3;
+    color: #414242;
+    align-items: center;
+}
+
+.view,
+.create {
+    height: 40px;
+    background: #56c6c8;
+    width: 85%;
+    margin: auto;
+    color: #f7fcfc;
+}
+
+.create {
+    margin-top: 10%
+}

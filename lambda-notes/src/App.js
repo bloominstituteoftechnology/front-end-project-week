@@ -38,12 +38,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='row'>
       <SideBar />
+
+      <div className='content'>
         {this.state.notes.map((note, index) => {
           return <div key={index}>{note.title} <hr /> {note.note}</div>
         })}
 
+
+        </div>
         <form onSubmit={this.submit}>
         <input
         type='text'
@@ -66,7 +70,6 @@ class App extends Component {
         ADD NOTE
         </button>
         </form>
-        
       </div>
     );
   }
