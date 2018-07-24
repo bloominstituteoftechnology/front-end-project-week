@@ -3,9 +3,10 @@ import React from 'react';
 // This stateless function replaced code right below it
 const Header = (props) => {
   return (
-    <div className="header">
+    <div className="header header-container">
       <div className="container">
         <h1 className="header__title">{props.title}</h1>
+        <button className="switch-page-button">Create New Note</button>
         {/* if props.subtitle is provided then run props.subtitle if not don't */}
         {props.subtitle && <h2 className="header__subtitle">{props.subtitle}</h2>}
       </div>

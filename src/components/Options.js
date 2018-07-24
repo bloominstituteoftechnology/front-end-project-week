@@ -1,5 +1,5 @@
 import React from 'react';
-import Option from './Option'
+import Option from './Option';
 
 /* Mapped over the options array then for ever option in the array we returned them as p tags shorthand version below
 
@@ -24,13 +24,14 @@ const Options = (props) => {
         {
         props.options.map((option, index) => {
           return (
+            <div>
             <Option 
             key={option} 
             optionText={option}
-            optionTitle={option}
             // count={index +1}
             handleDeleteOption={props.handleDeleteOption}
             />
+            </div>
           )})
        }
        </div>

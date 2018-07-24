@@ -1,8 +1,17 @@
 .option {
   margin: 10px 10px 20px 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 1px solid black;
-  width: 21.5%;
+  width: 180px;
   height:200px;
+  background: white;
 }
+
+// .option__text {
+//   color: black;
+//   font-weight: 500;
+//   font-size: 1.25rem;
+//   margin: 0;
+//   word-break: break-all;
+// }
