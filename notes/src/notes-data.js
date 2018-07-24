@@ -23,4 +23,6 @@ const notesData = [
         tags: [],
         textBody: 'Duis vulputate est at bibendum fermentum. Praesent auctor condimentum magna, nec interdum ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam iaculis mauris non erat lobortis luctus. Nunc nec laoreet elit. Duis ut ex viverra, vehicula eros ac, vehicula justo. Donec quis lobortis enim, et interdum dui. Nulla mollis convallis ullamcorper. Nullam ac leo a mi consectetur tempus sit amet et felis. Suspendisse tincidunt nulla felis, non scelerisque turpis consectetur ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eleifend ligula finibus purus volutpat, sit amet gravida orci fermentum.'
     }
-]
+];
+
+export default notesData;
