@@ -9,7 +9,7 @@ class DeleteModal extends Component {
     constructor () {
         super();
         this.state = {
-          showModal: true
+          showModal: false
         };
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
