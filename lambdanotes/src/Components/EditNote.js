@@ -81,7 +81,7 @@ class EditNote extends Component {
                 />
                 <Button onClick={this.saveChanges}>
                     <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-                        Save
+                        Update
                     </Link>
                 </Button>
             </Container>

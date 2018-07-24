@@ -22,8 +22,8 @@ class NoteView extends Component {
                     <Link to='/edit-note' style={{ paddingRight: '15px', color: 'black' }}>edit</Link>
                     <Link to='/' style={{ color: 'black' }}>delete</Link>
                 </Nav>
-                <h3></h3>
-                <span></span>
+                <h3>{}</h3>
+                <span>{}</span>
             </Container>
         );
     }
