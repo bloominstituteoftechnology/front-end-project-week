@@ -1,0 +1,22 @@
+.noteViewLink {
+  padding: 3%;
+  margin: 15px;
+  text-decoration: default;
+}
+.viewLinks {
+  margin-top: 10px;
+  margin-left: 90%;
+  text-decoration: underline;
+  color: #504f4f;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.viewLinks a {
+  color: #504f4f;
+}
+.noteTitle {
+  font-weight: bold;
+  color: #504f4f;
+  margin-bottom: 25px;
+  margin-top: 1.5rem;
+}
