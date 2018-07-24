@@ -46,6 +46,8 @@ h2 {
     justify-content: center;
     padding: 5px;
     margin-right: 240px;
+    margin-top: 60px;
+    font: Roboto Bold;
 }
 
 h3 {
@@ -56,13 +58,15 @@ h3 {
     width: 200px;
     margin-left: 10px;
     margin-bottom: 0px;
+    font: Roboto Bold;
 }
 
-p {
+.note-p {
     padding: 5px;
     border-top: 1px solid black;
     justify-content: center;
     align-items: center;
+    text-align: left;
     line-height: 24px;
     margin: 5px auto;
 }
@@ -71,7 +75,6 @@ p {
     height: 1024px;
     background: #F3F3F3;
     font: Raleway Medium;
-    margin-top: 50px;
 }
 
 .p-top {
@@ -103,4 +106,29 @@ p {
     position: relative;
     left: 135px;
     font-size: 14px;
+}
+
+.viewnote-container {
+    height: 1024px;
+    background: #F3F3F3;
+    font: Raleway Medium;
+}
+
+.viewnote-p {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    text-align: left;
+    width: 68%;
+    font-size: 18px;
+    margin-left: 270px;
+    margin-top: 10px;
+    line-height: 36px;
+}
+
+.view-header {
+    margin-left: 230px;
+    width: 200px;
+    font: Roboto Bold;
+    padding: 10px;
 }

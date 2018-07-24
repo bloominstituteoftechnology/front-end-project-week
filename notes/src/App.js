@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
 import NoteList from './Components/NoteList';
 import NewNote from './Components/NewNote';
+import ViewNote from './Components/ViewNote';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
       <Sidebar />
       <NoteList />
       <NewNote />
+      <ViewNote />
       </div>
     );
   }
