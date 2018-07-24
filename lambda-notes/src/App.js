@@ -60,60 +60,64 @@ class App extends Component {
     }
 
     noteEntries.push(noteEntry);
-    this.setState({noteEntries: noteEntries, noteEntry: noteEntryBlank})
+    this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
   }
 
-    createNoteTitleHandler = e => {
-      console.log(e.target.value);
+  createNoteTitleHandler = e => {
+    console.log(e.target.value);
 
-      this.setState({
-        noteEntry: {
-          title: [e.target.value],
-          textBody: this.state.noteEntry.textBody,
-          tags: this.state.noteEntry.tags
-        }
-      })
-    }
+    this.setState({
+      noteEntry: {
+        title: [e.target.value],
+        textBody: this.state.noteEntry.textBody,
+        tags: this.state.noteEntry.tags
+      }
+    })
+  }
 
-    createNoteTextBodyHandler = e => {
-      console.log(e.target.value);
+  createNoteTextBodyHandler = e => {
+    console.log(e.target.value);
 
-      this.setState({
-        noteEntry: {
-          title: this.state.noteEntry.title,
-          textBody: [e.target.value],
-          tags: this.state.noteEntry.tags
-        }
-      })
-    }
+    this.setState({
+      noteEntry: {
+        title: this.state.noteEntry.title,
+        textBody: [e.target.value],
+        tags: this.state.noteEntry.tags
+      }
+    })
+  }
 
 
-    render() {
-      return (
-        <div>
-          Lambda Notes App!!!!!!!!!!!!
+  render() {
+    return (
+      <div>
+        Lambda Notes App!!!!!!!!!!!!
         <br />
-          <br />
+        <br />
 
-          <div>
-            NOTES LIST:
-          <NotesList
-              noteEntries={this.state.noteEntries}
-            />
-          </div>
-          <br />
-          <br />
-          CREATE NOTE:
-        {/* <Route path = "/createNote" component = {CreateNoteForm} /> */}
-          <CreateNoteForm
-            createNoteTitleHandler={this.createNoteTitleHandler}
-            createNoteTextBodyHandler={this.createNoteTextBodyHandler}
-            addNoteEntry = {this.addNoteEntry}
-            noteEntry = {this.state.noteEntry}
-          />
+        <div>
+          {/* NOTES LIST COMPONENT */}
+          <Route exact path="/" render={() =>
+            <NotesList
+              noteEntries={this.state.noteEntries} />
+          } />
         </div>
-      );
-    }
-  }
 
-  export default App;
+        <br />
+        <br />
+        {/* CREATE NOTE COMPONENT */}
+        <Route path = "/createNote" render = {() =>
+          <CreateNoteForm
+          createNoteTitleHandler={this.createNoteTitleHandler}
+          createNoteTextBodyHandler={this.createNoteTextBodyHandler}
+          addNoteEntry={this.addNoteEntry}
+          noteEntry={this.state.noteEntry}
+          />
+          } 
+        />
+      </div>
+    );
+  }
+}
+
+export default App;

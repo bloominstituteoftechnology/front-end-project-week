@@ -6,7 +6,8 @@ import React from 'react';
 
 const CreateNoteForm = props => {
     return (
-        <div>
+        <div style = {{border:"1px solid black"}}>
+            CREATE NEW NOTE:
             <form>
                 NOTE TITLE:
                     <input
