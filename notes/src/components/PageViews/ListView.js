@@ -2,14 +2,14 @@ import React from 'react';
 
 const ListView = (props) => {
     return (
-        <div>
+        <div className='list-view'>
             <h3>Your Notes:</h3>
-            <div>
+            <div className='tiles'>
                 {props.notes.map(note => {
                     return (
-                        <div>
+                        <div className='tile'>
                             <h4>{note.title}</h4>
-                            <span>{note.textBody}</span>
+                            <p>{note.textBody}</p>
                         </div>
                     )
                 })}
