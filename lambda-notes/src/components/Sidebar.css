@@ -3,7 +3,8 @@
     width: 15%;
     background: #d3d2d3;
     color: #414242;
-    align-items: center;
+    height: 100vh;
+    padding-left: 2%
 }
 
 .view,
