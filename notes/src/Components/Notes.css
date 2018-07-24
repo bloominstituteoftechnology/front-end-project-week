@@ -132,3 +132,76 @@ h3 {
     font: Roboto Bold;
     padding: 10px;
 }
+
+.edit-header {
+    margin-left: 180px;
+    width: 300px;
+    font: Roboto Bold;
+    padding: 10px;
+}
+
+.Modal {
+    position: absolute;
+    top: 150px;
+    left: 240px;
+    right: 340px;
+    bottom: 400px;
+    background-color: white;
+    width: 600px;
+    height: 200px;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    background-color: #F3F3F3;
+  }
+
+  .modal-text {
+      display: flex;
+      font: Railway Medium;
+      font-size: 18px;
+      line-height: 24px;
+      justify-content: center;
+      text-align: center;
+      margin-top: 40px;
+  }
+
+  .edit-delete {
+    margin-left: 600px;
+  }
+
+  .modal-row {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-top: 30px;
+  }
+
+  .modal-delete {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    background-color: red;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+    margin: 10px auto;
+  }
+
+  .modal-no {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin: 10px auto;
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+  }

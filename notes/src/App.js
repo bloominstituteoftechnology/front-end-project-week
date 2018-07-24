@@ -4,6 +4,8 @@ import Sidebar from './Components/Sidebar';
 import NoteList from './Components/NoteList';
 import NewNote from './Components/NewNote';
 import ViewNote from './Components/ViewNote';
+import EditNote from './Components/EditNote';
+import DeleteModal from './Components/DeleteModal';
 import './App.css';
 
 class App extends Component {
@@ -14,6 +16,8 @@ class App extends Component {
       <NoteList />
       <NewNote />
       <ViewNote />
+      <EditNote />
+      <DeleteModal />
       </div>
     );
   }
