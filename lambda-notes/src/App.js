@@ -4,7 +4,9 @@ import Main from "./components/Main";
 
 const App = () => (
   <div>
-    <Main />
+    <div className="container">
+      <Main />
+    </div>
   </div>
 );
 
