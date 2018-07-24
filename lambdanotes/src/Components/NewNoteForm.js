@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addNewNote } from '../actions';
 
 
 class NewNoteForm extends Component {
@@ -15,7 +16,12 @@ class NewNoteForm extends Component {
     }
 
     addNote = () => {
-
+        const note = {
+            title: this.state.title,
+            content: this.state.content
+        }
+        this.props.addNewNote(note);
+        this.setState({ title: '', content: '' });
     }
 
     render() {

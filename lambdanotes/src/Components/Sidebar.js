@@ -1,12 +1,33 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+
+const Container = styled.div`
+    background: #CDCCCD;
+    width: 200px;
+    height: 100%;
+`;
+
+const Button = styled.button`
+    width: 175px;
+    height: 30px;
+    background: #20AFB5;
+    color: white;
+    font: bold;
+`;
 
 const Sidebar = () => {
     return ( 
-        <div>
+        <Container>
           <h1>Lambda Notes</h1>
-          <button>View Your Notes</button>
-          <button>+ Create New Note</button>
-        </div>
+            <Button>
+                <Link to='/'>View Your Notes</Link>
+            </Button>
+            <Button>
+                <Link to='/new-note'>+ Create New Note</Link>
+            </Button>
+        </Container>
      );
 }
  

@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Note = () => {
+const Note = props => {
     return ( 
         <div>
+            <span>{props.title}</span>
+            <span>{props.content}</span>
         </div>
      );
 }
