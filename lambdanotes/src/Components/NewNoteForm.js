@@ -62,7 +62,6 @@ class NewNoteForm extends Component {
         }
         this.props.addNewNote(note);
         this.setState({ title: '', content: '' });
-
     }
 
     render() {

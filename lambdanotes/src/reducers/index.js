@@ -1,4 +1,4 @@
-import { GET_NOTES, ADD_NOTE, VIEW_NOTE } from '../actions/index';
+import { GET_NOTES, ADD_NOTE, VIEW_NOTE, EDIT_NOTE } from '../actions/index';
 
 
 const initialState = [
@@ -31,7 +31,8 @@ const notesReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 state: state.filter(note => note.id === action.payload)
             });
-                
+        case EDIT_NOTE:
+            return {}
         default:
             return state;
     }
