@@ -7,6 +7,6 @@ const DisplayNotes = () => {
       <NotesList />
     </div>
    );
-}
+};
  
 export default DisplayNotes;
