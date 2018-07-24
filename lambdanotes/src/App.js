@@ -6,6 +6,8 @@ import { Route } from 'react-router-dom';
 import Notes from './Components/Notes';
 import NewNoteForm from './Components/NewNoteForm';
 import NoteView from './Components/NoteView';
+import EditNote from './Components/EditNote';
+
 import styled from 'styled-components';
 
 
@@ -39,6 +41,7 @@ class App extends Component {
             <Route exact path='/' component={Notes}/>
             <Route path='/new-note' component={NewNoteForm} />
             <Route path='/view-note' component={NoteView} />
+            <Route path='/edit-note' component={EditNote} />
           </MainContent>
         </AppContent>
       </Container>

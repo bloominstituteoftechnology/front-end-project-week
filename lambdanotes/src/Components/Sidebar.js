@@ -8,14 +8,14 @@ const Container = styled.div`
     width: 200px;
     height: 100%;
     border-right: 1px solid #BABABA;
+    padding-left: 15px;
 `;
 
 const Button = styled.button`
     width: 175px;
     height: 30px;
     background: #20AFB5;
-    color: white;
-    font: bold;
+    margin-bottom: 15px;
 `;
 
 const Sidebar = () => {
@@ -23,10 +23,10 @@ const Sidebar = () => {
         <Container>
           <h1>Lambda Notes</h1>
             <Button>
-                <Link to='/'>View Your Notes</Link>
+                <Link to='/' style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }}>View Your Notes</Link>
             </Button>
             <Button>
-                <Link to='/new-note'>+ Create New Note</Link>
+                <Link to='/new-note' style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }}>+ Create New Note</Link>
             </Button>
         </Container>
      );

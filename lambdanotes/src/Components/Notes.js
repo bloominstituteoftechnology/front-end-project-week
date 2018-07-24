@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     width: 650px;
+    padding-top: 50px;
 `;
 
 const NotesContainer = styled.div`

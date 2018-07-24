@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NoteBody = styled.div`
     width: 170px;
@@ -10,6 +11,7 @@ const NoteBody = styled.div`
     padding-top: 8px;
     padding-left: 15px;
     padding-right: 15px;
+    text-decoration: none;
 `;
 
 const Title = styled.span`
@@ -26,13 +28,17 @@ const Content = styled.div`
     border-top: 2px solid #D0D0D0;
 `;
 
-const Note = props => {
-    return ( 
-        <NoteBody>
-            <Title>{props.note.title}</Title>
-            <Content>{props.note.content}</Content>
-        </NoteBody>
-     );
+class Note extends Component {
+    render() {
+        return ( 
+            <Link to='/view-note' style={{ textDecoration: 'none', color: 'black' }}>
+                <NoteBody>
+                    <Title>{this.props.note.title}</Title>
+                    <Content>{this.props.note.content}</Content>
+                </NoteBody>
+            </Link>
+        );
+    }
 }
  
 export default Note;

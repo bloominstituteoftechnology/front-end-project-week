@@ -83,7 +83,7 @@ class NewNoteForm extends Component {
                     onChange={this.updateInputChange}
                 />
                 <Button onClick={this.addNote}>
-                    <Link to='/'>
+                    <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
                         Save
                     </Link>
                 </Button>
