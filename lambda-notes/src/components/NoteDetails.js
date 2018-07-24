@@ -26,6 +26,17 @@ class NoteDetails extends Component {
       .catch(err => console.log(err));
   }
 
+  onDelete = () => {
+    let noteId = this.state.details._id;
+
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+      .then(response => {
+        this.props.history.push("/");
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div>
@@ -37,7 +48,7 @@ class NoteDetails extends Component {
           <button>
             <Link to="/">EDIT</Link>
           </button>
-          <button>DELETE</button>
+          <button onClick={this.onDelete}> DELETE</button>
         </div>
       </div>
     );

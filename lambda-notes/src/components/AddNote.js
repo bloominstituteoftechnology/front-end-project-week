@@ -13,7 +13,7 @@ class AddNote extends Component {
 
   addNote = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
+
     const addNote = {
       title: this.state.title,
       textBody: this.state.textBody
