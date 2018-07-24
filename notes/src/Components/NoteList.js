@@ -5,7 +5,7 @@ const NoteList = () => {
     return (
     <div className="notes-container">
     <div className="notes-section">
-        <h4><strong>Your Notes: </strong></h4>
+        <h1 className="notes-title">Your Notes:</h1>
         <div className="row">
         <div className="notes-box">
             <h3>Note Title</h3>
