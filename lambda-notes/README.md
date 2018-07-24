@@ -31,20 +31,20 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 
 ```markdown
 ## Trello Set Up:
-* [ ] Create a Trello account
-* [ ] Create a new board called "Lambda Notes - {Your Name}"
-* [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-* [ ] Fill in the `To Do` list with the MVP features listed below
-* [ ] Fill in the `backlog` list with all the extra features listed below
-* [ ] Share your board with the project manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance
-* [ ] Add your Trello URL to your project's README.md file.  Commit the change, push it to your repository & submit a pull request
+* [X] Create a Trello account
+* [X] Create a new board called "Lambda Notes - {Your Name}"
+* [X] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+* [X] Fill in the `To Do` list with the MVP features listed below
+* [X] Fill in the `backlog` list with all the extra features listed below
+* [X] Share your board with the project manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance
+* [X] Add your Trello URL to your project's README.md file.  Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
+* [X] Display a list of notes
+* [X] Create a note with a title and content
+* [X] View an existing note
+* [X] Edit an existing note
+* [X] Delete an existing note
 ```
 ***
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval.  If approved, you may continue working on the Extra Features.
