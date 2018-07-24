@@ -8,13 +8,17 @@
     flex-flow: column;
     justify-content: space-evenly;
     position: relative;
-    left: 300px;
+    left: 280px;
 }
 
 h4 {
+    display: flex;
     font-size: 24px;
     margin-right: 700px;
-    margin-top: -25px;
+    margin-top: -10px;
+    width: 200px;
+    flex-direction: row;
+    margin-bottom: 5px;
 }
 
 .row {
@@ -44,6 +48,14 @@ h2 {
     justify-content: center;
     padding: 5px;
     margin-right: 300px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
 }
 
 p {
