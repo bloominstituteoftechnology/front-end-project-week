@@ -19,7 +19,8 @@ class Notes extends Component {
       .get("https://killer-notes.herokuapp.com/note/get/all")
       .then(response => {
         this.setState({ notes: response.data }, () => {});
-      });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
