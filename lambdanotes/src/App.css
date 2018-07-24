@@ -7,12 +7,13 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 110px; 
+  margin-left: 35px;
 }
 
 .App-sidebar {
   background-color: #D8D8D8; 
-  height: 100vh;
+  height: 200vh;
   width:300px;
   padding: 20px;
   color: white;
@@ -26,7 +27,7 @@
   margin-top: 20px;
   color: #FFFFFF;
   background-color: #2BC1C4;
-  
+
 }
 
 .App-title {
