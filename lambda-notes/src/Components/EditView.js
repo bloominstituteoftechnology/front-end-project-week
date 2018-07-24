@@ -13,8 +13,6 @@ class EditView extends Component {
         super(props);
         this.state = {
             type: 'Edit Note:', //Edit Note:
-            // // title: this.props.notes[this.props.match.params.id].title,
-            // content: this.props.notes[this.props.match.params.id].content,
             id: this.props.match.params.id,
             button: 'Update', //Update
         }
@@ -32,14 +30,12 @@ class EditView extends Component {
         };
 
       axios
-            .put(`https://lambda-notes-back-end.herokuapp.com/notes/edit/${this.props.match.params.id}`, updatedNote)
+          .put(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}/edit/`, updatedNote)
             .then(res => {
                 const note = res.data;
                 this.setState({ note });
                 console.log(res.data)
             });
-        // this.props.editNote(updatedNote);
-        // this.props.history.push('/');
     };
 
     render() {

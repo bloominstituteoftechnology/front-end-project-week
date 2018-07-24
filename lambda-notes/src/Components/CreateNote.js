@@ -28,9 +28,9 @@ class CreateNote extends Component {
         }
         axios
             .post('https://lambda-notes-back-end.herokuapp.com/notes/create', newNote)
-            .then(res => {
-                // this.setState({notes})
-                console.log(res)
+            .then(notes => {
+                this.setState(notes)
+                console.log(notes)
             })
         this.props.addNote(newNote);
         this.setState({ title: '', content: ''});

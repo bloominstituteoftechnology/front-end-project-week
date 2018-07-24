@@ -23,9 +23,14 @@ class ListView extends Component {
          axios
             .get('https://lambda-notes-back-end.herokuapp.com/notes')
             .then(res => {
+                if (res.data.length === 0) {
+                    alert('Add a note to begin')
+                }
                 const notes = res.data;
+                console.log(res.data)
                 this.setState({ notes })
             })
+
     }
     render() {
         return (

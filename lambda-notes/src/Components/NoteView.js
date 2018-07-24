@@ -22,7 +22,8 @@ class NoteView extends Component {
 
     async componentDidMount() {
         axios
-            .get(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}`).then(res => {
+            .get(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}`)
+            .then(res => {
             const note = res.data;
             this.setState({ note });
             // console.log(res.data)
@@ -57,7 +58,7 @@ class NoteView extends Component {
                         </Col>
                         <Col xs='9'>
                             <div className='viewLinks'>
-                                <Link to={ `/edit/${this.props.match.params.id}` }>
+                                <Link to={ `/notes/${this.props.match.params.id}/edit` }>
                                     edit
                                 </Link>
                                 <a className='noteViewLink' onClick={ this.toggle }>delete</a>
