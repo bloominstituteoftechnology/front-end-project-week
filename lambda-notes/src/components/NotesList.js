@@ -1,11 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Note from './Note';
 
-const ExpenseList = () => {
+const NotesList = (props) => {
   return ( 
     <div>
       <h1>Notes:</h1>
+      {
+        props.notes.map((note) => {
+          return <Note key={Math.random()} {...note} />
+        })
+      }
     </div>
    );
 }
  
-export default ExpenseList;
+const mapStateToProps = (state) => {
+  return {
+    notes: state
+  }
+}
+
+export default connect(mapStateToProps)(NotesList);
