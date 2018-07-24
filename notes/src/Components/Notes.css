@@ -43,7 +43,7 @@ h2 {
     font-weight: 700px;
     justify-content: center;
     padding: 5px;
-    margin-right: 580px;
+    margin-right: 300px;
 }
 
 p {
@@ -68,18 +68,21 @@ p {
     width: 250px;
     height: 50px;
     margin-top: 10px;
-    margin-right: 490px;
+    position: relative;
+    right: 105px;
+
 }
 
 .title-bar {
     width: 45%;
     height: 40px;
-    margin-right: 90px;
+    position: relative;
 }
 
 .note-contents {
     height: 400px;
     width: 65%;
-    margin-left: 200px;
     margin-top: 20px;
+    position: relative;
+    left: 100px;
 }
