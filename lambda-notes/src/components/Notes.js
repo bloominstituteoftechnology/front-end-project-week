@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Note from "./Note";
 
 class Notes extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class Notes extends Component {
 
   render() {
     const noteItems = this.state.notes.map((note, i) => {
-      return <li key={i}>{note.textBody}</li>;
+      return <Note key={note.id} note={note} />;
     });
     return (
       <div>
