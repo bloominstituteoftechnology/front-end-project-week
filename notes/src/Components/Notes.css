@@ -32,6 +32,7 @@ h4 {
     width: 220px;
     height: 220px;
     font-size: 16px;
+    background: #F3F3F3;
     font: Raleway Medium;
     color: #4A4A4A;
     margin: 20px auto;
@@ -42,6 +43,7 @@ h2 {
     font-weight: 700px;
     justify-content: center;
     padding: 5px;
+    margin-right: 580px;
 }
 
 p {
@@ -51,4 +53,33 @@ p {
     align-items: center;
     line-height: 24px;
     margin: 5px auto;
+}
+
+.newnote-container {
+    height: 1024px;
+    background: #F3F3F3;
+    font: Raleway Medium;
+}
+
+.form-button {
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 250px;
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 490px;
+}
+
+.title-bar {
+    width: 45%;
+    height: 40px;
+    margin-right: 90px;
+}
+
+.note-contents {
+    height: 400px;
+    width: 65%;
+    margin-left: 200px;
+    margin-top: 20px;
 }
