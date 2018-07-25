@@ -11,19 +11,18 @@ class Notes extends Component {
 
   render() {
     return (
-      <div className="notes">
-        {this.props.notes.map((note) => (
-          <Link
-            className="cards"
-            to="https://killer-notes.herokuapp.com/note/get/${_id}"
-            key={Math.random()}
-          >
-            <div>
-              <h3>{note.title}</h3>
-              <div>{note.textBody}</div>
-            </div>
-          </Link>
-        ))}
+      <div>
+        <h2>Your Notes:</h2>
+        <div className="notes">
+          {this.props.notes.map((note) => (
+            <Link className="cards" to="/${_id}" key={Math.random()}>
+              <div>
+                <h3>{note.title}</h3>
+                <div>{note.textBody}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     );
   }

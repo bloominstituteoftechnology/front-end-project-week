@@ -85,3 +85,18 @@ h2 {
 .cards:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+.single-note {
+  width: 800px;
+}
+
+.note-title {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.note-text {
+  height: 500px;
+  width: 100%;
+}

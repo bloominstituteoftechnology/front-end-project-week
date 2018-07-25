@@ -20,8 +20,10 @@ class NoteForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="single-note">
+        <h2>Create New Note:</h2>
         <input
+          className="note-title"
           type="text"
           placeholder="note title"
           onChange={this.handleNoteInput}
@@ -29,13 +31,16 @@ class NoteForm extends Component {
           value={this.state.title}
         />
         <input
+          className="note-text"
           type="text"
           placeholder="note text"
           onChange={this.handleNoteInput}
           name="textBody"
           value={this.state.textBody}
         />
-        <button onClick={() => this.handleSubmit()}>Add New Note</button>
+        <button className="sidebar-button" onClick={() => this.handleSubmit()}>
+          Save
+        </button>
       </div>
     );
   }

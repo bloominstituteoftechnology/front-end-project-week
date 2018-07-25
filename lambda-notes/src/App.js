@@ -6,28 +6,37 @@ import { gettingAllNotes, addNote } from './actions';
 import NoteForm from './components/NoteForm';
 import Notes from './components/Notes';
 import SplitPane from 'react-split-pane';
+import { Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   componentDidMount() {
     this.props.gettingAllNotes();
   }
+
   render() {
     return (
       <div className="App">
         <SplitPane split="vertical" defaultSize={250}>
           <div className="left">
             <h1>Lambda Notes</h1>
-            <button className="sidebar-button">View Your Notes</button>
-            <button className="sidebar-button">+ Create New Note</button>
+            <Link to="/">
+              <button className="sidebar-button">View Your Notes</button>
+            </Link>
+            <Link to="/new">
+              <button className="sidebar-button">+ Create New Note</button>
+            </Link>
           </div>
           <div className="right">
-            <h2>Your Notes:</h2>
+            <Route
+              exact
+              path="/new"
+              render={(props) => <NoteForm addSmurf={this.props.addNote} />}
+            />
             {this.props.gettingNotes ? (
               <img src={logo} className="App-logo" alt="logo" />
             ) : (
-              <Notes notes={this.props.notes} />
+              <Route exact path="/" render={(props) => <Notes notes={this.props.notes} />} />
             )}
-            <NoteForm addSmurf={this.props.addNote} />
           </div>
         </SplitPane>
       </div>
