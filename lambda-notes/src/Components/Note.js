@@ -1,12 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Note = props => {
     return (
         <div>
             <div>
-                <button>edit</button>
+                <Link to={"/editNote"}>
+                    <button>edit</button>
+                </Link>
                 <br />
                 <button>delete</button>
+
             </div>
             <div>
                 TITLE:{props.noteEntries[1].title}

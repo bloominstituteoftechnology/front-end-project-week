@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CreateNoteFormContainerStyledDiv = styled.div`
+export const CreateNoteFormContainerStyledDiv = styled.div`
     display:flex;
     flex-direction:column;
     border:1px solid red;
     width:100%;
 `
-const CreateNoteStyledForm = styled.form`
+export const CreateNoteStyledForm = styled.form`
     display:flex;
     flex-direction:column;
 `
 
-const CreateNoteStyledTextarea = styled.textarea`
+export const CreateNoteStyledTextarea = styled.textarea`
     width:100%;
     height:200px;
     resize:none;
@@ -53,4 +53,4 @@ const CreateNoteForm = props => {
 
 
 
-export default CreateNoteForm
+export default CreateNoteForm;

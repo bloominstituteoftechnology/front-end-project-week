@@ -148,6 +148,26 @@ class App extends Component {
     this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
   }
 
+  editNoteEntry = (e) => {
+    e.preventDefault();
+    const noteEntries = this.state.noteEntries.slice();
+    const noteEntry = {
+      title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
+      textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
+      tags: [],
+      id: Date.now()
+    }
+
+    const noteEntryBlank = {
+      title: '',
+      textBody: '',
+      tags: [],
+      id: ''
+    }
+    noteEntries.push(noteEntry);
+    this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
+  }
+
   createNoteTitleHandler = e => {
     console.log(e.target.value);
 
@@ -201,6 +221,19 @@ class App extends Component {
           </RightHandSideContainerStyledDiv>
         }
         />
+
+        {/* EDIT NOTE COMPONENT */}
+        <Route path = "/editNote" render ={() =>
+          <RightHandSideContainerStyledDiv>
+            <EditNote
+              noteEntries = {this.state.noteEntries}
+              createNoteTitleHandler={this.createNoteTitleHandler}
+              createNoteTextBodyHandler={this.createNoteTextBodyHandler}
+              editNoteEntry={this.editNoteEntry}
+              noteEntry={this.state.noteEntry}
+            />
+          </RightHandSideContainerStyledDiv>
+        } />
 
         {/* VIEW NOTE COMPONENT */}
           <Route path="/note" render={() =>
