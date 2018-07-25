@@ -1,11 +1,11 @@
 import React from 'react';
-import Note from './Note';
+import NoteCard from './NoteCard';
 
 const NotesList = props => {
     return (
         props.noteEntries.map(noteEntry => {
             return (
-                <Note
+                <NoteCard
                     noteEntry = {noteEntry}
                     key = {noteEntry.id}
                 />

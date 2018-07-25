@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import NotesList from './Components/NotesList';
 import CreateNoteForm from './Components/CreateNoteForm';
+import Note from './Components/Note';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
@@ -112,16 +113,28 @@ class App extends Component {
 
         <br />
         <br />
+
+        <div>
         {/* CREATE NOTE COMPONENT */}
-        <Route path = "/createNote" render = {() =>
-          <CreateNoteForm
-          createNoteTitleHandler={this.createNoteTitleHandler}
-          createNoteTextBodyHandler={this.createNoteTextBodyHandler}
-          addNoteEntry={this.addNoteEntry}
-          noteEntry={this.state.noteEntry}
+          <Route path = "/createNote" render = {() =>
+            <CreateNoteForm
+              createNoteTitleHandler={this.createNoteTitleHandler}
+              createNoteTextBodyHandler={this.createNoteTextBodyHandler}
+              addNoteEntry={this.addNoteEntry}
+              noteEntry={this.state.noteEntry}
+            />
+            } 
           />
-          } 
-        />
+        </div>
+
+        {/* VIEW NOTE COMPONENT */}
+        <div>
+          <Route path = "/note" render = {() => 
+            <Note 
+              noteEntries={this.state.noteEntries}
+            />
+          } />
+        </div>
       </div>
     );
   }
