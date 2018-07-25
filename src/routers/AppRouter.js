@@ -2,10 +2,11 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Header from '../components/Header';
 import NotesApp from '../components/NotesApp';
+import AddNote from '../components/AddNote'
 
 const AppRouter = () => (
   <BrowserRouter>
-  <div>
+  <div className="container">
   {/* Gives us the ability to have our header on every page */}
     <Header />
     <Switch>

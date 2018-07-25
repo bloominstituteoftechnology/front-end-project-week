@@ -2,7 +2,7 @@ import React from 'react';
 import AddNote from './AddNote';
 import Options from './Options';
 import Action from './Action';
-import Header from './header';
+// import Header from './header';
 import OptionModal from './OptionModal'
 
 export default class NotesApp
@@ -96,9 +96,8 @@ export default class NotesApp
           <div>
           {/* This a prop almost like an ID this allows us to have things change for example if we wanted the header to change based on if we were on the home page or about page we'd make a prop in this case "title" is our prop and its holding the string "Test Value"
             <Header title='Test Value'/>  */}
-            <div className="container">
+            <div className="">
             <div>
-            <Header subtitle={subtitle}/>
             <AddNote
              handleAddNote={this.handleAddNote}
             />

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NotesApp from './components/NotesApp'
+import AppRouter from './routers/AppRouter'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
 
 ReactDOM.render(
-  <NotesApp />,
+  <AppRouter />,
   document.getElementById('app')
 )
