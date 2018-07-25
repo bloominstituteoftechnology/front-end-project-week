@@ -22,7 +22,7 @@ class NoteView extends Component {
 
     async componentDidMount() {
         axios
-            .get(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}`)
+            .get(`https://lambda-notes-back-end.herokuapp.com/api/notes/${this.props.match.params.id}`)
             .then(res => {
             const note = res.data;
             this.setState({ note });
@@ -35,7 +35,7 @@ class NoteView extends Component {
     delete = (id) => {
         axios
             .delete(
-                `https://lambda-notes-back-end.herokuapp.com/notes/${
+                `https://lambda-notes-back-end.herokuapp.com/api/notes/${
                 this.props.match.params.id
                 }`
             )
