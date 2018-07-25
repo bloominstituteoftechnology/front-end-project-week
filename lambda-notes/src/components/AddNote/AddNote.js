@@ -26,7 +26,7 @@ class AddNote extends Component {
         return (
             <div className='page new-note'>
                 <div>
-                    <h2>New Note</h2>
+                    <h2>Create New Note</h2>
                     <div className='new-note-form'>
                         <form onSubmit={this.submit}>
                             <div className='input'>
@@ -44,7 +44,7 @@ class AddNote extends Component {
                                 </textarea>
                             </div>
                             <div className='input'>
-                                <button>Submit</button>
+                                <button>Save</button>
                             </div>
                         </form>
                     </div>

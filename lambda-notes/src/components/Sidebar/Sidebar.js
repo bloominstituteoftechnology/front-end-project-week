@@ -13,8 +13,8 @@ render = () => {
       <div className='side-bar'>
       <div>
           <h1>Lambda Notes</h1>
-          <button><Link to="/">View Notes</Link></button>
-          <button><Link to="./Add-Note">Add New Note</Link></button>
+          <button><Link to="/">View Your Notes</Link></button>
+          <button><Link to="./Add-Note">+ Create New Note</Link></button>
       </div>
     </div>
     );
