@@ -1,15 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 
-// create note form should have an input box for the title, 
-// an input box for the content, and a save button
+const CreateNoteFormContainerStyledDiv = styled.div`
+    display:flex;
+    flex-direction:column;
+    border:1px solid red;
+    width:100%;
+`
 
+const CreateNoteStyledForm = styled.form`
+    display:flex;
+    flex-direction:column;
+`
 
 const CreateNoteForm = props => {
     return (
-        <div style = {{border:"1px solid black"}}>
+        <CreateNoteFormContainerStyledDiv>
             CREATE NEW NOTE:
-            <form>
-                NOTE TITLE:
+            <CreateNoteStyledForm>
                     <input
                     type="text"
                     placeholder="Note Title"
@@ -17,7 +25,6 @@ const CreateNoteForm = props => {
                     onChange={props.createNoteTitleHandler}
                     value = {props.noteEntry.title}
                 />
-                NOTE CONTENT:
                     <input
                     type="text"
                     placeholder="Note Content"
@@ -25,10 +32,10 @@ const CreateNoteForm = props => {
                     onChange={props.createNoteTextBodyHandler}
                     value = {props.noteEntry.textBody}
                 />
-            </form>
+            </CreateNoteStyledForm>
 
             <button onClick = {props.addNoteEntry}>  Save </button>
-        </div>
+        </CreateNoteFormContainerStyledDiv>
     )
 }
 

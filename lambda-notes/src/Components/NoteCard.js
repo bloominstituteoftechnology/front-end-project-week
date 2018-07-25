@@ -8,6 +8,8 @@ const NoteCardContainerStyledDiv = styled.div`
     overflow:hidden;
     border:1px solid black;
     padding:5px;
+    background-color:white;
+    margin:10px;
     `
 const NoteCardTitleStyledHeading = styled.h2`
     font-size:22px;

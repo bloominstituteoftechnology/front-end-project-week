@@ -231,4 +231,6 @@ const RightHandSideContainerStyledDiv = styled.div`
   flex-wrap:wrap;
   width: 680px;
   background-color: #F3F3F3;
+  padding-left:15px;
+  padding-right:15px;
 `
