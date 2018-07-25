@@ -1,9 +1,17 @@
-import { GETTING_NOTES, GOT_NOTES, ERROR, ADDING_NOTE, ADDED_NOTE } from '../actions';
+import {
+  GETTING_NOTES,
+  GOT_NOTES,
+  ERROR,
+  ADDING_NOTE,
+  ADDED_NOTE,
+  DELETING_NOTE
+} from '../actions';
 
 const initialState = {
   notes: [],
   gettingNotes: false,
   gotNotes: false,
+  selectedNote: {},
   addingNote: false,
   addedNote: false,
   updatingNote: false,
@@ -26,8 +34,10 @@ export const noteReducer = (state = initialState, action) => {
       };
     case ADDING_NOTE:
       return { ...state, addingNote: true };
-    case ADDED_NOTE:
-      return { ...state, notes: action.payload, addingNote: false };
+    // case ADDED_NOTE:
+    //   return { ...state, notes: action.payload, addingNote: false };
+    case DELETING_NOTE:
+      return { ...state, deletingNote: true };
     case ERROR:
       return { ...state, error: action.message };
     default:

@@ -4,6 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { gettingAllNotes, addNote } from './actions';
 import NoteForm from './components/NoteForm';
+import Notes from './components/Notes';
 
 class App extends Component {
   componentDidMount() {
@@ -15,14 +16,7 @@ class App extends Component {
         {this.props.gettingNotes ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
-          <div>
-            {this.props.notes.map((note) => (
-              <div className="Note" key={Math.random()}>
-                <div>{note.title}</div>
-                <div>{note.textBody}</div>
-              </div>
-            ))}
-          </div>
+          <Notes notes={this.props.notes} />
         )}
         <NoteForm addSmurf={this.props.addNote} />
       </div>
@@ -35,6 +29,7 @@ const mapStateToProps = (state) => {
     notes: state.notes,
     gettingNotes: state.gettingNotes,
     gotNotes: state.gotNotes,
+    selectedNote: state.selectedNote,
     addingNote: state.addingNote,
     addedNote: state.addedNote,
     updatingNote: state.updatingNote,
