@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ViewList from './components/ViewList/ViewList';
 import { Route } from 'react-router-dom';
 import AddNote from './components/AddNote/AddNote';
+//import Sidebar from './components/Sidebar/Sidebar';
 
 import './App.css';
 

@@ -19,4 +19,11 @@ export const addNote = note => {
   }
 }
 
+export const noteEdit = (note, id) => {
+    axios.put('https://localhost:3000/api/notes/${_id}', note)
+    return dispatch => {
+        dispatch(getNotes());
+    }
+} 
+
 
