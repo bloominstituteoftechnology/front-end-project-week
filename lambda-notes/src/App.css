@@ -54,3 +54,28 @@ table {
 }
 
 /* *************************************** */
+
+body {
+	font-family:"Raleway Medium";
+	color:#4A4A4A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Roboto Bold";
+	font-weight: bold;
+}
+
+
+/* NOTE FROM RYAN RE: STYLING*/
+/* some additional things you might need:
+Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797 */

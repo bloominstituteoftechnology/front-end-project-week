@@ -3,7 +3,9 @@ import './App.css';
 import NotesList from './Components/NotesList';
 import CreateNoteForm from './Components/CreateNoteForm';
 import Note from './Components/Note';
+import SideBar from './Components/SideBar';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 
 class App extends Component {
@@ -172,28 +174,19 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        Lambda Notes App!!!!!!!!!!!!
-        <br />
-        <Link to = {"/"}>
-        <button> View Your Notes </button> 
-        </Link>
-        <br />
-        <Link to = {"/createNote"}>
-        <button> + Create New Note </button> 
-        </Link>
-        <br />
-
+        <AppContainerStyledDiv>
         <div>
+          {/* SIDEBAR COMPONENT */}
+          <Route path = "/" component = {SideBar} />
+        </div>
+
+        <RightHandSideContainerStyledDiv>
           {/* NOTES LIST COMPONENT */}
           <Route exact path="/" render={() =>
             <NotesList
               noteEntries={this.state.noteEntries} />
           } />
-        </div>
-
-        <br />
-        <br />
+        </RightHandSideContainerStyledDiv>
 
         <div>
         {/* CREATE NOTE COMPONENT */}
@@ -216,9 +209,25 @@ class App extends Component {
             />
           } />
         </div>
-      </div>
+        </AppContainerStyledDiv>
     );
   }
 }
 
 export default App;
+
+
+
+const AppContainerStyledDiv = styled.div`
+  display:flex;
+  width: 900px;
+  border:1px solid red;
+  margin-left:6.5px;
+  margin-right:6.5px;
+`
+
+const RightHandSideContainerStyledDiv = styled.div`
+  display:flex;
+  flex-wrap:wrap;
+  width: 700px;
+`
