@@ -35,7 +35,7 @@ class NoteView extends Component {
     delete = (id) => {
         axios
             .delete(
-                `https://lambda-notes-back-end.herokuapp.com/notes/delete/${
+                `https://lambda-notes-back-end.herokuapp.com/notes/${
                 this.props.match.params.id
                 }`
             )

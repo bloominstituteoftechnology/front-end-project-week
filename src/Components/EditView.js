@@ -30,7 +30,7 @@ class EditView extends Component {
         };
 
       axios
-          .put(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}/edit/`, updatedNote)
+          .put(`https://lambda-notes-back-end.herokuapp.com/notes/${this.props.match.params.id}/`, updatedNote)
             .then(res => {
                 const note = res.data;
                 this.setState({ note });
