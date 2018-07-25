@@ -12,7 +12,6 @@ const AppRouter = () => (
     {/* {}setup component to reference a component we want to show */}
       <Route path="/" component={NotesApp} exact={true} />
       <Route path="/create" component={AddNote} />
-      <Route component={NotFoundPage} />
     </Switch>
    </div> 
   </BrowserRouter>

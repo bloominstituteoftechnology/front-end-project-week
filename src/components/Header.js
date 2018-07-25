@@ -19,18 +19,5 @@ const Header = (props) => {
   Header.defaultProps = {
   title: 'Lambda Notes'
   };
-  
-  
-  // class Header extends React.Component {
-  //     render() {
-  //         return(
-  //         <div>
-  //         {/* to access/call your prop you made in the indecsion app you use the keyword "this"followed by "props" followed by the prop name/key in this case its "title" all put inside the curly braces "{}" props can be also brought in from Variables for example cons ttile = "Indecision"*/}
-  //     <h1>{this.props.title}</h1>
-  //     <h2>{this.props.subtitle}</h2>
-  //         </div>
-  //    )
-  //   }
-  // }
 
   export default Header
