@@ -66,7 +66,7 @@ class EditView extends Component {
                                 onChange={ this.updateInput }
                             />
 
-                            <Link to={ '/notes' }>
+                            <Link to={ '/' }>
                                 <button className='submit' onClick={ this.editCurrentNote }>{ this.state.button }</button>
                             </Link>
                         </div>
