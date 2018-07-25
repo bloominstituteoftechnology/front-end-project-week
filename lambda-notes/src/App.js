@@ -31,7 +31,7 @@ class App extends Component {
           Maecenas bibendum suscipit aliquam. Sed et ex elit. Nam velit augue, elementum sed accumsan sed, pellentesque vitae sem. Fusce varius libero dolor, non rhoncus risus lobortis id. Nullam a luctus erat, id vestibulum nulla. Donec at tincidunt enim. Sed turpis nibh, elementum vel pulvinar sit amet, tempus eget massa. Vestibulum et orci est. Vivamus eros magna, eleifend quis tincidunt ut, ultrices ac augue.
           
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam odio ac lorem bibendum, in fermentum elit hendrerit. Integer eu cursus metus. Cras varius orci laoreet, efficitur ex luctus, mollis tortor. Donec aliquam erat non semper luctus. Duis cursus porttitor nulla, ut feugiat tortor. Integer quis fermentum nulla.`,
-          
+
           tags: ['four', 'five', 'six'],
           id: 2
         },
@@ -65,7 +65,7 @@ class App extends Component {
           Maecenas bibendum suscipit aliquam. Sed et ex elit. Nam velit augue, elementum sed accumsan sed, pellentesque vitae sem. Fusce varius libero dolor, non rhoncus risus lobortis id. Nullam a luctus erat, id vestibulum nulla. Donec at tincidunt enim. Sed turpis nibh, elementum vel pulvinar sit amet, tempus eget massa. Vestibulum et orci est. Vivamus eros magna, eleifend quis tincidunt ut, ultrices ac augue.
           
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam odio ac lorem bibendum, in fermentum elit hendrerit. Integer eu cursus metus. Cras varius orci laoreet, efficitur ex luctus, mollis tortor. Donec aliquam erat non semper luctus. Duis cursus porttitor nulla, ut feugiat tortor. Integer quis fermentum nulla.`,
-          
+
           tags: ['four', 'five', 'six'],
           id: 5
         },
@@ -99,7 +99,7 @@ class App extends Component {
           Maecenas bibendum suscipit aliquam. Sed et ex elit. Nam velit augue, elementum sed accumsan sed, pellentesque vitae sem. Fusce varius libero dolor, non rhoncus risus lobortis id. Nullam a luctus erat, id vestibulum nulla. Donec at tincidunt enim. Sed turpis nibh, elementum vel pulvinar sit amet, tempus eget massa. Vestibulum et orci est. Vivamus eros magna, eleifend quis tincidunt ut, ultrices ac augue.
           
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam odio ac lorem bibendum, in fermentum elit hendrerit. Integer eu cursus metus. Cras varius orci laoreet, efficitur ex luctus, mollis tortor. Donec aliquam erat non semper luctus. Duis cursus porttitor nulla, ut feugiat tortor. Integer quis fermentum nulla.`,
-          
+
           tags: ['four', 'five', 'six'],
           id: 8
         },
@@ -174,42 +174,42 @@ class App extends Component {
 
   render() {
     return (
-        <AppContainerStyledDiv>
-        <div>
-          {/* SIDEBAR COMPONENT */}
-          <Route path = "/" component = {SideBar} />
-        </div>
+      <AppContainerStyledDiv>
 
-        <RightHandSideContainerStyledDiv>
-          {/* NOTES LIST COMPONENT */}
-          <Route exact path="/" render={() =>
+        {/* SIDEBAR COMPONENT */}
+        <Route path="/" component={SideBar} />
+
+
+        {/* NOTES LIST COMPONENT */}
+        <Route exact path="/" render={() =>
+          <RightHandSideContainerStyledDiv>
             <NotesList
               noteEntries={this.state.noteEntries} />
-          } />
-        </RightHandSideContainerStyledDiv>
+          </RightHandSideContainerStyledDiv>
+        } />
 
-        <div>
         {/* CREATE NOTE COMPONENT */}
-          <Route path = "/createNote" render = {() =>
+        <Route path="/createNote" render={() =>
+          <RightHandSideContainerStyledDiv>
             <CreateNoteForm
               createNoteTitleHandler={this.createNoteTitleHandler}
               createNoteTextBodyHandler={this.createNoteTextBodyHandler}
               addNoteEntry={this.addNoteEntry}
               noteEntry={this.state.noteEntry}
             />
-            } 
-          />
-        </div>
+          </RightHandSideContainerStyledDiv>
+        }
+        />
 
         {/* VIEW NOTE COMPONENT */}
-        <div>
-          <Route path = "/note" render = {() => 
-            <Note 
-              noteEntries={this.state.noteEntries}
-            />
+          <Route path="/note" render={() =>
+            <RightHandSideContainerStyledDiv>
+              <Note
+                noteEntries={this.state.noteEntries}
+              />
+            </RightHandSideContainerStyledDiv>
           } />
-        </div>
-        </AppContainerStyledDiv>
+      </AppContainerStyledDiv>
     );
   }
 }
