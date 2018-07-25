@@ -23,9 +23,9 @@ class ListView extends Component {
          axios
             .get('https://lambda-notes-back-end.herokuapp.com/api/notes')
             .then(res => {
-                if (res.data.length === 0) {
-                    alert('Add a note to begin')
-                }
+                // if (res.data.length === 0) {
+                //     alert('Add a note to begin')
+                // }
                 const notes = res.data;
                 console.log(res.data)
                 this.setState({ notes })
@@ -45,7 +45,7 @@ class ListView extends Component {
                         { this.state.notes.map((note, id) =>
                             <div className='thumbnail'
                                 key={ note.title }>
-                                <Link to={ `/notes/${note._id}` }>
+                                <Link to={ `/${note._id}` }>
                                     <div className='title'>{ note.title }</div>
                                     <hr className='line' />
                                     <div className='content'>{ shortenNote(note.content) }</div>
