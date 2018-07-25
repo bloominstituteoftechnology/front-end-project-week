@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { FETCH_NOTES,
     ADD_NOTE,
     GET_NOTE,
@@ -37,10 +38,7 @@ export const fetchNotes = () => {
     };
     
     export const getNote = ({ id }) => {
-      const request = axios.get(
-        `https://killer-notes.herokuapp.com/note/get/${id}`
-      );
-    
+      const request = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
       return dispatch => {
         dispatch({
           type: FETCHING
@@ -70,10 +68,7 @@ export const fetchNotes = () => {
     };
     
     export const deleteNote = id => {
-      const request = axios.delete(
-        `https://killer-notes.herokuapp.com/note/delete/${id}`
-      );
-    
+      const request = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
       return dispatch => {
         dispatch({ type: FETCHING });
         request
@@ -86,7 +81,7 @@ export const fetchNotes = () => {
       };
     };
     
-    export const search = query => {
+   /* } export const search = query => {
       if (!query) { 
         const request = axios.get('https://killer-notes.herokuapp.com/note/get/all');
         return dispatch => {
@@ -103,4 +98,4 @@ export const fetchNotes = () => {
       else {
         return { type: SEARCH, payload: query };
       };
-    };
+    };*/

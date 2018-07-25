@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import * as actions from '../../Actions';
 import ListedNote from './ListedNote';
 import PropTypes from 'prop-types';
 import './Notes.css';
@@ -18,10 +18,6 @@ class NotesList extends Component {
         }
       }
       render() {
-        const { notes } = this.props.notes;
-        const { error } = this.props.notes;
-        if (error) return <h2>{error}</h2>;
-        if (!notes) return <h2>Loading...</h2>;
         return (
         <div className="notes-container">
          <div className="notes-section">

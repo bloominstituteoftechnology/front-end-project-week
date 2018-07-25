@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import * as actions from '../../Actions';
 import './Notes.css';
 
-class HandleNote extends component {
+class HandleNote extends Component {
     state = {
         showModal: false,
         title: '',
@@ -53,21 +53,23 @@ class HandleNote extends component {
     return (
         <div className="viewnote-container">
         {this.state.delete ? (
-            <DeleteModal 
+        <div>
+         <Modal 
+           isOpen={this.state.showModal}
+           contentLabel="onRequestClose Example"
+           onRequestClose={this.handleCloseModal}
+           className="Modal"
+           overlayClassName="Overlay"/>
+        <DeleteModal 
             handleDelete={this.handleDelete}
             handleCancel={this.handleCancel}/>
-            ):null}
+        </div>
+            ): null}
         {this.state.enableEdit ? (
         <div className="newnote-container">
         <header className="edit-delete">
           <span onClick={this.handleEdit}>edit</span>
           <span onClick={this.handleOpenModal}>delete</span>
-          <Modal 
-           isOpen={this.state.showModal}
-           contentLabel="onRequestClose Example"
-           onRequestClose={this.handleCloseModal}
-           className="Modal"
-           overlayClassName="Overlay"></Modal>
         </header>
         <h2>{note.title}</h2>
          <p>{note.textBody}</p>
@@ -81,12 +83,14 @@ class HandleNote extends component {
                 placeholder="Note Title"
                 onChange={this.handleInput}
                 value={this.state.title}
+                name="title"
                 type=""
                 />
                 <textarea className="note-contents" 
                 placeholder="Note Content"
                 onChange={this.handleInput}
                 value={this.state.body} 
+                name="text"
                 />
             </form>
             <button className="form-button">Update</button>
@@ -94,7 +98,7 @@ class HandleNote extends component {
         </div>
         )}
     </div>
-    }
+    )}
 }
 
 const mapStateToProps = state => ({

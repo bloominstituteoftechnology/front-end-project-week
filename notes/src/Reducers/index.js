@@ -5,7 +5,7 @@ import { FETCH_NOTES,
     FETCHING,  
     DELETE_NOTE, 
     ERROR, 
-    SEARCH } from '../actions/actiontypes';
+    SEARCH } from '../Actions/actiontypes';
     
     const initialState = {
       notes: [],
