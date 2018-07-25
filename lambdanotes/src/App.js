@@ -5,14 +5,33 @@ import logo from './logo.svg';
 import { Link } from 'react-router-dom';
 import './App.css';
 import CreateNote from './components/CreateNote/CreateNote.js';
+import Note from './components/Note/Note.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      notes:[],
+      notes:[{
+          title:'Note Title',
+          content:'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …',
+          id:`${Date.now()}`
+      }],
+      title:'',
+      content:''
     };
   }
+
+  addNote= event => {
+    //event.preventDefault();
+    const notes= this.state.notes.slice();
+    notes.push({title:this.state.title, id:Date.now(), content:this.state.content});
+    this.setState({notes});
+  };
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     return (
       <div className="App">
@@ -26,8 +45,13 @@ class App extends Component {
             <button className='sidebar-button'>+ Create New Note</button>
           </Link>
         </header>
-        <Route exact path='/' component={YourNotes} />
-        <Route exact path='/create' component={CreateNote} />
+        <Route exact path='/' render={props => (
+            <YourNotes {...props} notes={this.state.notes} />
+          )} />
+        <Route exact path='/create' render={props => (
+            <CreateNote {...props} handleInputChange={this.handleInputChange} title={this.state.title} content={this.state.content} addNote={this.addNote} />
+          )} />
+        <Route path='/notes/:id' component={Note}/>
         
       </div>
     );

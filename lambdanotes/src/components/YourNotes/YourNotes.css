@@ -2,6 +2,7 @@
     
     margin-top: 100px;
     padding-left: 50px;
+    text-decoration: none;
     
 }
 
@@ -9,4 +10,11 @@ h1{
     width: 250px;
     color:#4A4A4A;
 
+}
+
+.note-container{
+    display: flex;
+    flex-wrap: wrap;
+    height:100vh;
+    text-decoration: none;
 }

@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     height:100vh;
-
+    text-decoration: none;
 }
 
 .note-box{
@@ -11,11 +11,11 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    width:260px;
+    width:235px;
     height:300px;
     padding-left:20px;
     padding-top: 0px;
-    margin-right: 25px;
+    margin-right: 20px;
     margin-bottom: 25px;
     text-align: start;
     font-size: 24px;
