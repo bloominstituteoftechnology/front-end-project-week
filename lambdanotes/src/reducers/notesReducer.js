@@ -28,7 +28,14 @@ const notesReducer = (state = initialState, action) => {
                 ...state, action.payload
             ]
         case EDIT_NOTE:
-            return {}
+            return (
+                state.map(note => {
+                    if (note.id === action.payload.id) {
+                        note.title = action.payload.title;
+                        note.content = action.payload.content;
+                    }
+                })
+            )
         default:
             return state;
     }

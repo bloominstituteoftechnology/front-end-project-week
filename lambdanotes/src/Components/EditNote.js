@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { editSingleNote } from '../actions/index';
+import { connect } from 'react-redux';
 
 
 const Container = styled.form`
@@ -58,6 +60,7 @@ class EditNote extends Component {
             title: this.state.title,
             content: this.state.content,
         }
+        this.props.editSingleNote(note);
         this.setState({ title: '', content: ''});
     }
     
@@ -89,4 +92,4 @@ class EditNote extends Component {
     }
 }
 
-export default EditNote;
+export default connect(null, { editSingleNote })(EditNote);
