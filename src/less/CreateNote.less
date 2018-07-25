@@ -1,0 +1,39 @@
+body {
+	background: @lightGreyBackground;
+}
+.createNoteHeading {
+	font-weight: bold;
+	color: @darkGreyHeading;
+	margin-bottom: 25px;
+	margin-top: 3.75rem;
+}
+input {
+	display: block;
+	width: 300px;
+	padding: 1.5%;
+	margin-bottom: 15px;
+	border-radius: 2%;
+	border: 1.5px solid @lightGreyBorder;
+	&:focus {
+		outline: none;
+	}
+}
+textarea {
+	&:focus {
+		outline: none;
+	}
+	border: 1.5px solid @lightGreyBorder;
+	padding: 2%;
+}
+.submit {
+	display: block;
+	background: @buttonBlue;
+	padding: 1%;
+	width: 200px;
+	color: white;
+	font-weight: bold;
+	border: 1.5px solid @lightGreyBorder;
+	&:hover {
+		background: @buttonBlueHover;
+	}
+}

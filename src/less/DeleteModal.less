@@ -1,0 +1,38 @@
+.dismissModal {
+	background: @buttonBlue;
+	max-height: 100%;
+	color: white;
+	font-weight: bold;
+	margin: 10px;
+	border: none;
+	border-radius: 0%;
+	width: 150px;
+	&:hover {
+		background: @buttonBlueHover;
+	}
+}
+.deleteButton {
+	background: @buttonRed;
+	border: none;
+	border-radius: 0%;
+	width: 150px;
+	color: white;
+	font-weight: bold;
+	&:hover {
+		background: @buttonRedHover;
+	}
+}
+div {
+	.modal-content {
+		border-radius: 0;
+		border: 1.5px solid @darkGreyHeading;
+	}
+	.modal-body {
+		padding: 8%;
+		color: @darkGreyHeading;
+		margin: 0 auto;
+		p {
+			margin-left: 20px;
+		}
+	}
+}
