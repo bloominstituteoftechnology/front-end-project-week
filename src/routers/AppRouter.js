@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Header from '../components/Header';
 import NotesApp from '../components/NotesApp';
-import AddNote from '../components/AddNote'
 import CreateNote from '../components/CreateNote';
 import EditNote from '../components/EditNote';
 

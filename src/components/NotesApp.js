@@ -2,14 +2,22 @@ import React from 'react';
 import AddNote from './AddNote';
 import Options from './Options';
 import Action from './Action';
+import Modal from 'react-modal';
 // import Header from './header';
-import OptionModal from './OptionModal'
 
 export default class NotesApp
  extends React.Component {
   state = {
     options: [],
-    selectedOption: undefined
+    selectedOption: undefined,
+    show: false
+  };
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
   };
   handleDeleteOptions = () => {
     // This is the shorthand version of the code below it
@@ -141,10 +149,6 @@ export default class NotesApp
               </div>
 
             </div>
-            <OptionModal
-            selectedOption={this.state.selectedOption}
-            handleModal={this.handleModal}
-            />
           </div>
       );
   }

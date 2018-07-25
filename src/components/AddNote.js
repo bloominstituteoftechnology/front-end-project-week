@@ -1,6 +1,5 @@
 import React from 'react';
 
-//  Challeneg setup form with text and sumbit button
 // wire up onSubmit
 // handleAddNote -> fetch the value typed -> if value, then alert
 export default class AddNote extends React.Component {

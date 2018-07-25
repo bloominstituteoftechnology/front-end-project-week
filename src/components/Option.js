@@ -21,22 +21,10 @@ const Option = (props) => {
      }}
      >
      Edit 
-     </NavLink>  
+     </NavLink>
     </div>
   )
   }
 
   export default Option
   
-  /*
-  class Option extends React.Component {
-     render() {
-         return (
-             <div>
-              {this.props.optionText}   
-             </div>
-         )
-     }
-  }
-  
-  */
