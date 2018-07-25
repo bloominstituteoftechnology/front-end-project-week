@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import ListView from './components/PageViews/ListView';
 import CreateNewView from './components/PageViews/CreateNewView';
 import EditView from './components/PageViews/EditView';
+import NoteView from './components/PageViews/NoteView';
 import notesData from './notes-data';
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
         />
         <Route path='/new' component= {CreateNewView} />
         <Route path='/edit' component= {EditView} />
+        <Route path='/view' component= {NoteView} />
       </div>
     );
   }
