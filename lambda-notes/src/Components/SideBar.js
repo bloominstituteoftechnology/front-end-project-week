@@ -10,6 +10,14 @@ const SideBarStyledHeading = styled.h1`
     font-size:36px;
 `
 
+const SideBarStyledButton = styled.button`
+    background-color: #2BC1C4;
+    color: white;
+    width: 190px;
+    height:45px;
+    font-size:16px;
+`
+
 
 const SideBar = props => {
     return (
@@ -19,11 +27,11 @@ const SideBar = props => {
             </SideBarStyledHeading>
             <br />
             <Link to={"/"}>
-                <button> View Your Notes </button>
+                <SideBarStyledButton> View Your Notes </SideBarStyledButton>
             </Link>
             <br />
             <Link to={"/createNote"}>
-                <button> + Create New Note </button>
+                <SideBarStyledButton> + Create New Note </SideBarStyledButton>
             </Link>
             <br />
         </SideBarContainerStyledDiv>
