@@ -21,7 +21,7 @@ class ListView extends Component {
 
     componentDidMount() {
          axios
-            .get('https://lambda-notes-back-end.herokuapp.com/notes')
+            .get('https://lambda-notes-back-end.herokuapp.com/api/notes')
             .then(res => {
                 if (res.data.length === 0) {
                     alert('Add a note to begin')
