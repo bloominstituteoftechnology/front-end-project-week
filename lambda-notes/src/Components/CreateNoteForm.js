@@ -7,10 +7,15 @@ const CreateNoteFormContainerStyledDiv = styled.div`
     border:1px solid red;
     width:100%;
 `
-
 const CreateNoteStyledForm = styled.form`
     display:flex;
     flex-direction:column;
+`
+
+const CreateNoteStyledTextarea = styled.textarea`
+    width:100%;
+    height:200px;
+    resize:none;
 `
 
 const CreateNoteForm = props => {
@@ -18,23 +23,30 @@ const CreateNoteForm = props => {
         <CreateNoteFormContainerStyledDiv>
             CREATE NEW NOTE:
             <CreateNoteStyledForm>
-                    <input
+                <input
                     type="text"
                     placeholder="Note Title"
                     name="title"
                     onChange={props.createNoteTitleHandler}
-                    value = {props.noteEntry.title}
+                    value={props.noteEntry.title}
                 />
-                    <input
+                {/* <input
                     type="text"
                     placeholder="Note Content"
                     name="content"
                     onChange={props.createNoteTextBodyHandler}
-                    value = {props.noteEntry.textBody}
+                    value={props.noteEntry.textBody}
+                /> */}
+                <CreateNoteStyledTextarea
+                    type="text"
+                    placeholder="Note Content"
+                    name="content"
+                    onChange={props.createNoteTextBodyHandler}
+                    value={props.noteEntry.textBody}
                 />
             </CreateNoteStyledForm>
 
-            <button onClick = {props.addNoteEntry}>  Save </button>
+            <button onClick={props.addNoteEntry}>  Save </button>
         </CreateNoteFormContainerStyledDiv>
     )
 }

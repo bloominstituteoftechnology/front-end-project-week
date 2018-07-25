@@ -6,7 +6,7 @@ import Note from './Components/Note';
 import SideBar from './Components/SideBar';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import EditNote from './Components/EditNote'
+import EditNote from './Components/EditNote';
 
 
 class App extends Component {
