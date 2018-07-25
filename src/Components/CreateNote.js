@@ -51,7 +51,7 @@ class CreateNote extends Component {
 
                             <textarea name='content' rows='15' cols='90' placeholder='Note Content (required)' value={ this.state.content } onChange={ this.updateInput } />
 
-                            <Link to={'/api/notes'}>
+                            <Link to={'/'}>
                             <button className='submit' onClick={ this.createNewNote }>{ this.state.button }</button>
                             </Link>
                         </div>
