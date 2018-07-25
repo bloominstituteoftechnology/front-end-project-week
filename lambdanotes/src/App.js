@@ -15,6 +15,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 `;
 
 const AppContent = styled.div`
@@ -35,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <AppContent>
+        <AppContent id='app'>
           <Sidebar />
           <MainContent>
             <Route exact path='/' component={Notes}/>
