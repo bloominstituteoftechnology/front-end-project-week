@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ViewList from './components/ViewList/ViewList';
 import logo from './logo.svg';
 import './App.css';
 

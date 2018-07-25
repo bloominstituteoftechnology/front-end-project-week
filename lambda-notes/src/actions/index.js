@@ -5,11 +5,18 @@ import axios from 'axios';
 export const GET_NOTES = 'GET_NOTES';
 
 export const getNotes = () => {
-    const payload = axios.get("https://killer-notes.herokuapp.com/note/get/all");
+    const payload = axios.get("https://localhost:3000/api/notes");
     return {
         type: GET_NOTES, 
         payload
     };
+}
+
+export const addNote = note => {
+  axios.post("https://localhost:3000/api/notes", note);
+  return dispatch => {
+      dispatch(getNotes());
+  }
 }
 
 
