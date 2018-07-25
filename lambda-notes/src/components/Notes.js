@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
+import { Link } from 'react-router-dom';
 
 class Notes extends Component {
   handleDeleteNote = () => {
@@ -10,12 +11,18 @@ class Notes extends Component {
 
   render() {
     return (
-      <div>
+      <div className="notes">
         {this.props.notes.map((note) => (
-          <div className="Note" key={Math.random()}>
-            <div>{note.title}</div>
-            <div>{note.textBody}</div>
-          </div>
+          <Link
+            className="cards"
+            to="https://killer-notes.herokuapp.com/note/get/${_id}"
+            key={Math.random()}
+          >
+            <div>
+              <h3>{note.title}</h3>
+              <div>{note.textBody}</div>
+            </div>
+          </Link>
         ))}
       </div>
     );

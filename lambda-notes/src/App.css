@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #f3f3f3;
 }
 
 .App-logo {
@@ -31,8 +32,55 @@
   }
 }
 
-/* .Note {
-  height: 300px;
-  width: 300px;
-  padding: 10px;
-} */
+.left {
+  background-color: #d8d8d8;
+  overflow: scroll;
+  height: 100%;
+}
+
+.right {
+  background-color: #f3f3f3;
+  overflow: scroll;
+  padding-left: 15px;
+}
+
+h1 {
+  font-family: Roboto Bold;
+  color: #4a4a4a;
+}
+
+.sidebar-button {
+  width: 200px;
+  height: 60px;
+  margin: 10px;
+  background-color: #2bc1c4;
+  color: white;
+  font-size: 20px;
+  font-weight: heavy;
+}
+
+h2 {
+  font-family: Roboto Bold;
+  color: #4a4a4a;
+}
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+}
+
+.cards {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #979797;
+  font-family: 'Raleway Medium';
+  background-color: white;
+  text-decoration: none;
+  padding: 20px;
+  margin: 10px;
+  color: #4a4a4a;
+}
+
+.cards:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}

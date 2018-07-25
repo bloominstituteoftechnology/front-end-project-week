@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { gettingAllNotes, addNote } from './actions';
 import NoteForm from './components/NoteForm';
 import Notes from './components/Notes';
+import SplitPane from 'react-split-pane';
 
 class App extends Component {
   componentDidMount() {
@@ -13,12 +14,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.gettingNotes ? (
-          <img src={logo} className="App-logo" alt="logo" />
-        ) : (
-          <Notes notes={this.props.notes} />
-        )}
-        <NoteForm addSmurf={this.props.addNote} />
+        <SplitPane split="vertical" defaultSize={250}>
+          <div className="left">
+            <h1>Lambda Notes</h1>
+            <button className="sidebar-button">View Your Notes</button>
+            <button className="sidebar-button">+ Create New Note</button>
+          </div>
+          <div className="right">
+            <h2>Your Notes:</h2>
+            {this.props.gettingNotes ? (
+              <img src={logo} className="App-logo" alt="logo" />
+            ) : (
+              <Notes notes={this.props.notes} />
+            )}
+            <NoteForm addSmurf={this.props.addNote} />
+          </div>
+        </SplitPane>
       </div>
     );
   }
