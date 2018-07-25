@@ -2,13 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const SideBarContainerStyledDiv = styled.div`
+    background-color: #D8D8D8;
+    width: 220px;
+`
 const SideBarStyledHeading = styled.h1`
     font-size:36px;
 `
 
+
 const SideBar = props => {
     return (
-        <div>
+        <SideBarContainerStyledDiv>
             <SideBarStyledHeading>
                 Lambda Notes
             </SideBarStyledHeading>
@@ -21,7 +26,7 @@ const SideBar = props => {
                 <button> + Create New Note </button>
             </Link>
             <br />
-        </div>
+        </SideBarContainerStyledDiv>
     )
 }
 

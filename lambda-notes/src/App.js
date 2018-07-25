@@ -221,13 +221,14 @@ export default App;
 const AppContainerStyledDiv = styled.div`
   display:flex;
   width: 900px;
-  border:1px solid red;
-  margin-left:6.5px;
-  margin-right:6.5px;
+  border: 1px solid black;
+  margin-left:6px;
+  margin-right:6px;
 `
 
 const RightHandSideContainerStyledDiv = styled.div`
   display:flex;
   flex-wrap:wrap;
-  width: 700px;
+  width: 680px;
+  background-color: #F3F3F3;
 `
