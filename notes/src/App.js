@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import Header from './components/Header/Header.js';
-import Notes from './components/Notes';
+import Notes from './components/Notes/Notes.js';
 import axios from 'axios';
+import CreateNote from './components/CreateNote/CreateNote.js';
+
 class App extends Component {
   constructor() {
     super();
@@ -25,6 +27,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Route exact path="/" render={props => <Notes {...props} notes={this.state.notes}/>}/>
+        <Route path="/create" component={CreateNote} />
       </div>
     );
   }

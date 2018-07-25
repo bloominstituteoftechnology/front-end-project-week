@@ -7,6 +7,7 @@ const Header = props => {
     <div className='header'>
       <h1>Lambda Notes</h1>
       <WrappedLink name="View Your Notes" route="/" />
+      <WrappedLink name="+ Create New Note" route="/create" />
     </div>
   )
 }

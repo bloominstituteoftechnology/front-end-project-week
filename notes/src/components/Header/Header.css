@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  background: lightgray;
+}
+
+.header .header-btn {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+}
