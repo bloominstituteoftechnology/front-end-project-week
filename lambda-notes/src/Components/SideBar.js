@@ -10,16 +10,15 @@ const SideBarContainerStyledDiv = styled.div`
 const SideBarStyledHeading = styled.h1`
     font-size:36px;
 `
-
 const SideBarStyledButton = styled.button`
     background-color: #2BC1C4;
     color: white;
     width: 190px;
     height:45px;
     font-size:16px;
+    font-weight:bold;
+    margin-bottom:15px;
 `
-
-
 const SideBar = props => {
     return (
         <SideBarContainerStyledDiv>

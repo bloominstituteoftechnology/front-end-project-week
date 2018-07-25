@@ -255,7 +255,7 @@ export default App;
 const AppContainerStyledDiv = styled.div`
   display:flex;
   width: 900px;
-  border: 1px solid black;
+  border: 1px solid #979797;
   margin-left:6px;
   margin-right:6px;
 `
