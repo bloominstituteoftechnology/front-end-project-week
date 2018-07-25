@@ -42,6 +42,7 @@
   background-color: #f3f3f3;
   overflow: scroll;
   padding-left: 15px;
+  height: 100vh;
 }
 
 h1 {
