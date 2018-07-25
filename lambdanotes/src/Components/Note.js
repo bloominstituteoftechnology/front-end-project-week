@@ -32,7 +32,7 @@ class Note extends Component {
     render() {
         return ( 
             <Link 
-                to={`/view-note/${this.props.note.id}`}
+                to={{pathname: `/view-note/${this.props.note.id}`, state: this.props.note}}
                 style={{ textDecoration: 'none', color: 'black' }}
             >
                 <NoteBody>

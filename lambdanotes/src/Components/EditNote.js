@@ -41,8 +41,8 @@ const Button = styled.button`
 `;
 
 class EditNote extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             title: '',
             content: '',
@@ -67,14 +67,14 @@ class EditNote extends Component {
                 <Header>Edit Note:</Header>
                 <Title 
                     type='text'
-                    placeholder='Note Title'
+                    placeholder={this.props.location.state.title}
                     name='title'
                     value={this.state.title}
                     onChange={this.updateInputChange} 
                 />
                 <Content
                     type='text'
-                    placeholder='Note Content'
+                    placeholder={this.props.location.state.content}
                     name='content'
                     value={this.state.content}
                     onChange={this.updateInputChange}

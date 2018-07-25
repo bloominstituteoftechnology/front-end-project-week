@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { viewSingleNote } from '../actions/index';
 
 
 const Container = styled.div`
@@ -52,20 +50,14 @@ class NoteView extends Component {
                     <button onClick={this.toggleDeleteFormOff}>No</button>
                 </DeleteForm>
                 <Nav>
-                    <Link to='/edit-note' style={{ paddingRight: '15px', color: 'black' }}>edit</Link>
+                    <Link to={{pathname: `/edit-note/${this.props.location.state.id}`, state: this.props.location.state}} style={{ paddingRight: '15px', color: 'black' }}>edit</Link>
                     <Button onClick={this.toggleDeleteFormOn}>delete</Button>
                 </Nav>
-                <h3>{this.props.note.title}</h3>
-                <span>{this.props.note.content}</span>
+                <h3>{this.props.location.state.title}</h3>
+                <span>{this.props.location.state.content}</span>
             </Container>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        note: state
-    }
-}
- 
-export default connect(mapStateToProps, { viewSingleNote })(NoteView);
+export default NoteView;
