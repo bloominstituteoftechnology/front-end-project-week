@@ -20,10 +20,17 @@ export const addNote = note => {
 }
 
 export const noteEdit = (note, id) => {
-    axios.put('https://localhost:3000/api/notes/${_id}', note)
+    axios.put("https://localhost:3000/api/notes/${_id}", note);
     return dispatch => {
         dispatch(getNotes());
     }
 } 
+
+export const deleteNote = id => {
+    axios.delete("https://localhost:3000/api/notes/${_id}");
+    return dispatch => {
+        dispatch(getNotes());
+    }
+}
 
 
