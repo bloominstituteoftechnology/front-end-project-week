@@ -5,6 +5,7 @@ import DisplayNotes from './components/DisplayNotes';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
 import ViewNote from './components/ViewNote';
+import DeleteModal from './components/DeleteModal';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path="/create" component={CreateNote} />
             <Route path="/note/:id" component={ViewNote} />
             <Route path="/edit/:id" component={EditNote} />
+            <Route path="/delete/:id" component={DeleteModal} />
           </Switch>
         </div>
       </BrowserRouter>
