@@ -1,10 +1,15 @@
-export const saveNote = (note) => ({
+export const saveNote = (
+  {
+    title = '',
+    textBody = '',
+  } = {}
+) => ({
   type: 'SAVE_NOTE',
-  payload: note
+  note: {title, textBody}
 });
 
-export const deleteNote = ({ id }) => ({
+export const deleteNote = ({ id } = {}) => ({
   type: 'DELETE_NOTE',
-  payload: id,
+  id,
 })
 

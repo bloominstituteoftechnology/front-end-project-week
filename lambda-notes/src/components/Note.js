@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
-const Note = ({id, title, textBody}) => {
+const Note = (props) => {
+  console.log('log 3', props)
   return ( 
     <div>
-      <Link to={`/note/${id}`}>
-        <h3>{title}</h3>
-      </Link>
-      <p>{textBody}</p>
+      <h4>{props.title}</h4>
+      <p>{props.textBody}</p>
     </div>
    );
-}
+};
  
 export default Note;

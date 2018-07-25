@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
+import { saveNote } from '../actions/notesActions';
+import { connect } from 'react-redux';
 
 class NoteForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      title: '',
-      textBody: '',
-     }
+  state = {
+    title: '',
+    textBody: ''
   }
-  onSubmit = (e) => {
-    e.prevevtDefault();
-    this.props.onSubmit(this.state);
+  createHandler = () => {
+    const title = this.state.title;
+    const textBody = this.state.textBody;
+    const note = {
+      title,
+      textBody,
+      id: Math.random()
+    }
+    this.props.saveNote(note);
+    this.setState({ 
+      title: '' ,
+      textBody: ''
+    });
   }
   onTitleChange = (e) => {
     const title = e.target.value;
@@ -23,7 +32,7 @@ class NoteForm extends Component {
   render() { 
     return ( 
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form>
           <input 
             type="text"
             placeholder="Note Title"
@@ -37,10 +46,10 @@ class NoteForm extends Component {
             id="" cols="30" rows="10"
            >
           </textarea>
-          <button>Add Note</button>
+          <button onClick={this.createHandler}>Save Note</button>
         </form>
       </div> );
   }
 }
  
-export default NoteForm;
+export default connect(null, {saveNote})(NoteForm);
