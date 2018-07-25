@@ -12,7 +12,7 @@ const DeleteModal = (props) => {
             <Modal isOpen={ props.modal } toggle={ props.toggle }>
                 <ModalBody>
                     <p>Are you sure you want to delete this?</p>
-                    <Link to={ "/notes" }>
+                    <Link to={ "/" }>
                         <Button className='deleteButton' onClick={ () => props.delete(props.note._id) }>
                             Delete
                     </Button>
