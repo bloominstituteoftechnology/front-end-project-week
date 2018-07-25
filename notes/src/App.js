@@ -12,12 +12,34 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      title: '',
+      textBody: '',
     };
   }
 
   componentDidMount() {
     this.setState({ notes: notesData });
+  }
+
+  handleInputChange = e => {
+    this.setState({[e.target.name]: e.target.value});
+  };
+
+  addNewNote = e => {
+    e.preventDefault();
+    const newNote = { title: this.state.title, textBody: this.state.textBody };
+    const notes = this.state.notes.slice();
+    notes.push( newNote );
+    this.setState({ notes, title: '', textBody: ''});
+  };
+
+  changeTitle = e => {
+    this.setState({ title: e.target.value });
+  };
+
+  changeTextBody = e => {
+    this.setState({ textBody: e.target.value})
   }
 
   render() {
@@ -32,7 +54,18 @@ class App extends Component {
             />
           )}
         />
-        <Route path='/new' component= {CreateNewView} />
+        <Route 
+          path='/new' 
+          render={() => (
+            <CreateNewView 
+              title={this.state.title}
+              textBody={this.state.textBody}
+              addNewNote={this.addNewNote}
+              changeTitle={this.changeTitle}
+              changeTextBody={this.changeTextBody}
+            />
+          )}
+        />
         <Route path='/edit' component= {EditView} />
         <Route path='/view' component= {NoteView} />
       </div>
