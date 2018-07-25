@@ -1,55 +1,33 @@
 import React, {Component} from 'react';
-import noteData from '../data';
+
 class Addnote extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            notes: [],
-            note: {
-                title: '',
-                content: ''
-            }
+      //  this.state = {
+        //    notes: [],
+         //   title: '',
+         //   content: '',
+           // note: {
+            //    title: '',
+             //   content: ''
+           // }
         }
-    }
-
-    addNote = e => {
-
-        const note = {...this.state.note};
-
-        e.preventDefault();
-        const notes = this.state.notes.slice();
-        
-        this.setState({notes: noteData, note:{title: '', content: ''}});
-      }
-
-
-      handleInputChange = e => {
-          this.setState({ [e.target.name]: e.target.value})
-      }
-
-      handleTitleChange = e => {
-          this.setState({note: Object.assign({}, this.state.note, {title: e.target.value})})
-      }
-
-      handleContentChange = e => {
-          this.setState({note: Object.assign({}, this.state.note, {content: e.target.value})})
-      }
-
+    
       render() {
           return (
                 <div>
-                    <form onSubmit={this.note}>
+                    <form onSubmit={this.props.addNote}>
                         <input
-                        onChange={this.handleTitleChange}
+                        onChange={this.props.handleInputChange}
                         placeholder='title'
-                        value={this.state.note.title}
+                        value={this.props.title}
                         name='title'
                         />
 
                         <input 
-                        onChange={this.handleContentChange}
+                        onChange={this.props.handleInputChange}
                         placeholder='content'
-                        value={this.state.note.content}
+                        value={this.props.content}
                         name='content'
                         />
                         <button type='submit'>Add Note</button>
@@ -59,6 +37,6 @@ class Addnote extends Component {
           )
         }
 
-}
+    }
 
 export default Addnote;

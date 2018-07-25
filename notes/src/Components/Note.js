@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
-import noteData from '../data';
 
-const Note = props =>{
+
+class Note extends Component{
+constructor(props) {
+super(props)
+}
+
+    render(){
     return (
         <div className='note'>
-            <p>  -{props.notes.title} </p>
+            <p>  -{this.props.notes.title} </p>
             
-            <p>  --{props.notes.content} </p>
+            <p>  --{this.props.notes.content} </p>
 
-
+            <button onClick={
+                ()=>{
+                this.props.deleteNote(this.props.notes.id)}}> Delete Note </button>
             </div>
 
     )
 }
-
+}
 export default Note;

@@ -1,17 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Note from './Note';
 
-const Notes = props => {
+class Notes extends Component  {
+constructor(props){
+    super(props);
+}
+
+
+
+
+    render(){
     return ( <div className = 'notes-wrapper'>
-            {props.notes.map(notes => 
+            {this.props.notes.map(notes => 
             <Note 
+           
             key={notes.id} 
             notes={notes} 
-            handleToggleComplete = {props.handleToggleComplete}
+            deleteNote={this.props.deleteNote}
+                      
             /> )}
-
+                
         </div>
         )
 }
-
+}
 export default Notes;
