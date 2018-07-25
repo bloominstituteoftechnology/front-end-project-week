@@ -46,7 +46,7 @@ class NoteDetails extends Component {
         <p>{this.state.details.textBody}</p>
         <div>
           <button>
-            <Link to="/">EDIT</Link>
+            <Link to={`/note/edit/${this.state.details._id}`}>EDIT</Link>
           </button>
           <button onClick={this.onDelete}> DELETE</button>
         </div>
