@@ -58,7 +58,7 @@ class NoteView extends Component {
                         </Col>
                         <Col xs='9'>
                             <div className='viewLinks'>
-                                <Link to={ `/notes/${this.props.match.params.id}/edit` }>
+                                <Link to={ `/${this.props.match.params.id}/edit` }>
                                     edit
                                 </Link>
                                 <a className='noteViewLink' onClick={ this.toggle }>delete</a>
