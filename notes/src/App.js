@@ -69,10 +69,11 @@ class App extends Component {
         <Route path='/edit' component= {EditView} />
         <Route
           path='/view/:_id'
-          render={(props) => (
+          render={props => (
             <NoteView 
-              {...props} 
-              notes={this.state.notes}
+              note={
+                this.state.notes.filter(
+                  note => props.match.params._id === note._id )[0]}
             />
           )}
         />

@@ -9,7 +9,7 @@ const ListView = (props) => {
             <div className='tiles'>
                 {props.notes.map(note => {
                     return (
-                        <div className='tile'>
+                        <div className='tile'  key={note._id}>
                             <Link to={`/view/${note._id}`} style={{textDecoration: 'none', color: '#4A4A4A'}}>
                                 <h4>{note.title}</h4>
                                 <p>{note.textBody}</p>
