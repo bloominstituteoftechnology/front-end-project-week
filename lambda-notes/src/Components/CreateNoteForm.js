@@ -5,11 +5,15 @@ export const CreateNoteFormContainerStyledDiv = styled.div`
     display:flex;
     flex-direction:column;
     border:1px solid red;
-    width:100%;
+    width:97%;
 `
 export const CreateNoteStyledForm = styled.form`
     display:flex;
     flex-direction:column;
+`
+export const CreateNoteStyledInput = styled.input`
+    width: 55%;
+    margin-bottom:10px;
 `
 
 export const CreateNoteStyledTextarea = styled.textarea`
@@ -21,22 +25,15 @@ export const CreateNoteStyledTextarea = styled.textarea`
 const CreateNoteForm = props => {
     return (
         <CreateNoteFormContainerStyledDiv>
-            CREATE NEW NOTE:
+            <h2>Create New Note:</h2>
             <CreateNoteStyledForm>
-                <input
+                <CreateNoteStyledInput
                     type="text"
                     placeholder="Note Title"
                     name="title"
                     onChange={props.createNoteTitleHandler}
                     value={props.noteEntry.title}
                 />
-                {/* <input
-                    type="text"
-                    placeholder="Note Content"
-                    name="content"
-                    onChange={props.createNoteTextBodyHandler}
-                    value={props.noteEntry.textBody}
-                /> */}
                 <CreateNoteStyledTextarea
                     type="text"
                     placeholder="Note Content"

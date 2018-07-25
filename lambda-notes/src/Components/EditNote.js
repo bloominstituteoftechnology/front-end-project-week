@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { CreateNoteFormContainerStyledDiv, CreateNoteStyledForm, CreateNoteStyledTextarea } from './CreateNoteForm';
+import { CreateNoteFormContainerStyledDiv, CreateNoteStyledForm, CreateNoteStyledTextarea, CreateNoteStyledInput } from './CreateNoteForm';
 
 
 const EditNote = props => {
     return (
         <CreateNoteFormContainerStyledDiv>
-            EDIT NOTE:
+            <h2>Edit Note:</h2>
             <CreateNoteStyledForm>
-                <input
+                <CreateNoteStyledInput
                     type="text"
                     placeholder="Note Title"
                     name="title"
