@@ -4,6 +4,7 @@ import { getNotes } from '../actions/index';
 import Note from './Note'; 
 import styled from 'styled-components';
 
+
 const Container = styled.div`
     width: 650px;
     padding-top: 50px;
@@ -14,8 +15,11 @@ const NotesContainer = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
 `;
+ 
 
 class Notes extends Component {
+
+
     render() {
         return (
             <Container>
@@ -32,7 +36,7 @@ class Notes extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state
+        notes: state.notesReducer
     }
 }
 

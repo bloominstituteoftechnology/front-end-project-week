@@ -40,7 +40,7 @@ class App extends Component {
           <MainContent>
             <Route exact path='/' component={Notes}/>
             <Route path='/new-note' component={NewNoteForm} />
-            <Route path='/view-note' component={NoteView} />
+            <Route path='/view-note/:id' component={NoteView} />
             <Route path='/edit-note' component={EditNote} />
           </MainContent>
         </AppContent>
