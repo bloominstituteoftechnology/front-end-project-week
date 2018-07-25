@@ -56,12 +56,12 @@ table {
 /* *************************************** */
 
 body {
-	font-family:"Raleway Medium";
+	font-family:'Raleway', sans-serif;
 	color:#4A4A4A;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Roboto Bold";
+	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
 }
 

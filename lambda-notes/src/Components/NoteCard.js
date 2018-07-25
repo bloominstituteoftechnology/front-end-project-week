@@ -10,6 +10,7 @@ const NoteCardContainerStyledDiv = styled.div`
     padding:5px;
     background-color:white;
     margin:10px;
+    text-decoration:none;
     `
 const NoteCardTitleStyledHeading = styled.h2`
     font-size:22px;
@@ -21,7 +22,7 @@ const NoteCardContentStyledP = styled.p`
 const NoteCard = props => {
     return (
         <div>
-            <Link to={"/note"}>
+            <Link to={"/note"} style = {{textDecoration:"none"}}>
                 <NoteCardContainerStyledDiv>
                     <NoteCardTitleStyledHeading>
                         TITLE:{props.noteEntry.title}

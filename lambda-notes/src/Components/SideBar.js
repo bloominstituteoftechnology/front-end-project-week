@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const SideBarContainerStyledDiv = styled.div`
     background-color: #D8D8D8;
     width: 220px;
+    padding:10px;
 `
 const SideBarStyledHeading = styled.h1`
     font-size:36px;
