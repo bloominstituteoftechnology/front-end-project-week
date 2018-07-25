@@ -7,20 +7,32 @@ class NoteForm extends Component {
     title: '',
     textBody: ''
   }
-  createHandler = () => {
+  // inputChangeHandler = (e) => {
+  //   e.preventDefault();
+  //   this.setState({ [e.target.name]: e.target.value });
+  // }
+  saveHandler = (e) => {
+    e.preventDefault();
+    console.log('wtf');
     const title = this.state.title;
     const textBody = this.state.textBody;
-    const note = {
-      title,
-      textBody,
-      id: Math.random()
-    }
-    this.props.saveNote(note);
-    this.setState({ 
-      title: '' ,
-      textBody: ''
-    });
+    this.props.saveNote(title, textBody);
+    this.setState({ title: '', textBody: '' })
   }
+  // createHandler = () => {
+  //   const title = this.state.title;
+  //   const textBody = this.state.textBody;
+  //   const note = {
+  //     title,
+  //     textBody,
+  //     id: Math.random()
+  //   }
+  //   this.props.saveNote(note);
+  //   this.setState({ 
+  //     title: '' ,
+  //     textBody: ''
+  //   });
+  // }
   onTitleChange = (e) => {
     const title = e.target.value;
     this.setState({ title });
@@ -30,6 +42,7 @@ class NoteForm extends Component {
     this.setState({ textBody });
   }
   render() { 
+    console.log('log 4', this.props)
     return ( 
       <div>
         <form>
@@ -46,7 +59,7 @@ class NoteForm extends Component {
             id="" cols="30" rows="10"
            >
           </textarea>
-          <button onClick={this.createHandler}>Save Note</button>
+          <button onClick={this.saveHandler}>Save Note</button>
         </form>
       </div> );
   }
