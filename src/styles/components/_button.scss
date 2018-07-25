@@ -8,4 +8,29 @@
   font-size: 12px;
   text-align: center;
   text-decoration: none;
-}
+};
+
+.button-new-note {
+  margin-top: 10px;
+  width: 150px;
+  height: 25px;
+  background: #2BC1C4;
+  border: .5px solid darkgray;
+  color: white;
+};
+
+.button-delete {
+  margin-top: 10px;
+  width: 150px;
+  height: 25px;
+  background: #2BC1C4;
+  border: .5px solid darkgray;
+  color: white;
+  margin: 5px auto;
+  text-decoration: none;
+  text-align: center;
+};
+
+.button--link {
+
+};

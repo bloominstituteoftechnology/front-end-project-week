@@ -30,6 +30,7 @@ const Options = (props) => {
             optionText={option}
             // count={index +1}
             handleDeleteOption={props.handleDeleteOption}
+            handleEditOption={props.handleEditOption}
             />
             </div>
           )})

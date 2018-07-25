@@ -1,0 +1,11 @@
+.add-option {
+  margin-left: 10px;
+  color: dimgrey;
+  display: flex;
+  flex-direction: column;
+}
+.add-option__input {
+  width: 450px;
+  height: 350px;
+  border: 1px solid darkgray;
+}

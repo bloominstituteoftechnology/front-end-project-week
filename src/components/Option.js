@@ -1,11 +1,10 @@
 import React from 'react';
-
+import { NavLink, Router } from 'react-router-dom';
 
 // This stateless function replaced code right below it
 const Option = (props) => {
   return (
     <div className="option">
-    <h2>{props.optionText}</h2>
     <p className="option__text">{props.optionText}</p>
      <button
      className="button-delete button--link"
@@ -14,7 +13,15 @@ const Option = (props) => {
      }}
      >
      delete
-     </button>   
+     </button>
+     <NavLink to="/edit"
+     className="button-delete button--link"
+     onClick={(events) => {
+        props.handleEditOption(props.optionText);
+     }}
+     >
+     Edit 
+     </NavLink>  
     </div>
   )
   }

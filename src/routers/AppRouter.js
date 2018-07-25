@@ -3,6 +3,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Header from '../components/Header';
 import NotesApp from '../components/NotesApp';
 import AddNote from '../components/AddNote'
+import CreateNote from '../components/CreateNote';
+import EditNote from '../components/EditNote';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -12,7 +14,8 @@ const AppRouter = () => (
     <Switch>
     {/* {}setup component to reference a component we want to show */}
       <Route path="/" component={NotesApp} exact={true} />
-      <Route path="/create" component={AddNote} />
+      <Route path="/create" component={CreateNote} />
+      <Route path="/edit" component={EditNote} />
     </Switch>
    </div> 
   </BrowserRouter>

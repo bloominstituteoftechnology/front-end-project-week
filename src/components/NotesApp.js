@@ -31,6 +31,26 @@ export default class NotesApp
     
     }))
   };
+  handleEditOptions = () => {
+    // This is the shorthand version of the code below it
+    this.setState(() => ({ options: []}));
+    // ^^^ This code above is the same as below
+   /* this.setState(() => {
+      return {
+        options: []
+      };
+    });
+    */
+  };
+
+  handleEditOption = (optionToRemove) => {
+    this.setState((prevState) => ({
+      options: prevState.options.filter((option) => {
+        return optionToRemove !== option;
+      })
+    
+    }))
+  };
   // this was used as a prop on the Action component/we also .bind(this) it up top
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
@@ -98,9 +118,9 @@ export default class NotesApp
             <Header title='Test Value'/>  */}
             <div className="">
             <div>
-            <AddNote
+           {/* <AddNote
              handleAddNote={this.handleAddNote}
-            />
+           /> */}
             </div>
              {/* <Action hasOptions={this.state.options.length > 0}
               // We set this handle prop up with the method handlePick we then moved the prop to the Actions component to have access to it with "onClick={this.props.handlePick}" so when we clicked it would run the method we just made that allowed us to pick a random number
@@ -112,6 +132,8 @@ export default class NotesApp
                 options ={this.state.options}
                 handleDeleteOptions={this.handleDeleteOptions}
                 handleDeleteOption={this.handleDeleteOption}
+                handleEditOptions={this.handleEditOptions}
+                handleEditOption={this.handleEditOption}
                 />
                 {/*<AddNote
                 handleAddNote={this.handleAddNote}

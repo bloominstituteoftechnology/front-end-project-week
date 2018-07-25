@@ -7,6 +7,23 @@ export default class AddNote extends React.Component {
   state = {
     error: undefined
   };
+  handleAddNote = (option) => {
+    event.preventDefault();
+    if (!option) {
+      return 'Enter valid value to add item';
+    } else if (this.state.options.indexOf(option) > - 1) {
+      return 'This note already exists';
+    } 
+    // This is the shorthand version of the code below it
+    this.setState((prevState) => ({ options: prevState.options.concat(option)}));
+    /*
+    this.setState((prevState) => {
+      return {
+        options: prevState.options.concat(option)
+      }
+    })
+    */
+  };
     handleAddNote = (event) => {
       event.preventDefault();
       // "Event.target" is the form element
@@ -35,7 +52,7 @@ export default class AddNote extends React.Component {
             {/* this calls the handleAddNote method from above */}
               <form className="add-option" onSubmit={this.handleAddNote}>
               <input className="add-option__input" type="text" name="option" />
-                  <button className="button-new-note">Create New Note</button>
+                  <button className="button-new-note">Save</button>
                 </form>
             </div>
         );
