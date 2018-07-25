@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
-import NoteList from './Components/NoteList';
-import NewNote from './Components/NewNote';
-import ViewNote from './Components/ViewNote';
-import EditNote from './Components/EditNote';
-import DeleteModal from './Components/DeleteModal';
+import notes, { NewNote, HandleNote } from './Components/notes';
 import './App.css';
 
 class App extends Component {
@@ -13,11 +9,9 @@ class App extends Component {
     return (
       <div className="App">
       <Sidebar />
-      <NoteList />
-      <NewNote />
-      <ViewNote />
-      <EditNote />
-      <DeleteModal />
+      <Route exact path="/" component={ notes }/>
+      <Route exact path="/notes/new" component={ NewNote }/>
+      <Route path="/note/get/:id" component={ HandleNote }/>
       </div>
     );
   }

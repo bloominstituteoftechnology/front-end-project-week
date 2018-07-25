@@ -158,7 +158,7 @@ h3 {
     right: 0;
     bottom: 0;
     opacity: 0.8;
-    background-color: #F3F3F3;
+    background-color: #D8D8D8;
   }
 
   .modal-text {
@@ -173,6 +173,7 @@ h3 {
 
   .edit-delete {
     margin-left: 600px;
+    margin-bottom: 0px;
   }
 
   .modal-row {
