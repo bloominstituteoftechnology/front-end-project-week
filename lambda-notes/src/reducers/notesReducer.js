@@ -1,4 +1,3 @@
-import { SAVE_NOTE } from '../actions/notesActions';
 
 const initialState = [
   {
@@ -23,7 +22,7 @@ const initialState = [
 
 const notesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE_NOTE:
+    case 'SAVE_NOTE':
       return [...state, { title: action.title, textBody: action.textBody}];
     case 'DELETE_NOTE':
       return state.filter(({ id }) => id !== action.id);
