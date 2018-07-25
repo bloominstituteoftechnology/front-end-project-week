@@ -1,5 +1,6 @@
 import React from 'react';
 import './ListView.css';
+import { Link } from 'react-router-dom';
 
 const ListView = (props) => {
     return (
@@ -9,8 +10,10 @@ const ListView = (props) => {
                 {props.notes.map(note => {
                     return (
                         <div className='tile'>
-                            <h4>{note.title}</h4>
-                            <p>{note.textBody}</p>
+                            <Link to={`/view/${note._id}`} style={{textDecoration: 'none', color: '#4A4A4A'}}>
+                                <h4>{note.title}</h4>
+                                <p>{note.textBody}</p>
+                            </Link>
                         </div>
                     )
                 })}

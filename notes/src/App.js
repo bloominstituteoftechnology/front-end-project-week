@@ -28,7 +28,7 @@ class App extends Component {
 
   addNewNote = e => {
     e.preventDefault();
-    const newNote = { title: this.state.title, textBody: this.state.textBody };
+    const newNote = { title: this.state.title, textBody: this.state.textBody, _id: this.state.notes.length };
     const notes = this.state.notes.slice();
     notes.push( newNote );
     this.setState({ notes, title: '', textBody: ''});
@@ -67,7 +67,15 @@ class App extends Component {
           )}
         />
         <Route path='/edit' component= {EditView} />
-        <Route path='/view' component= {NoteView} />
+        <Route
+          path='/view/:_id'
+          render={(props) => (
+            <NoteView 
+              {...props} 
+              notes={this.state.notes}
+            />
+          )}
+        />
       </div>
     );
   }
