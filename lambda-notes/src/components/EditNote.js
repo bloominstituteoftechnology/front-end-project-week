@@ -40,7 +40,6 @@ class EditNote extends Component {
         textBody: this.state.textBody
       })
       .then(response => (window.location.href = URL))
-      //.then(response => console.log(response))
       .catch(error => console.log(error));
   };
 
