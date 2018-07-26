@@ -82,39 +82,6 @@ class App extends Component {
           id: 6
         },
 
-        {
-          title: 'bleep',
-          textBody: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at nibh ullamcorper, pretium metus a, pretium diam. Fusce lectus elit, fringilla molestie odio sit amet, tempor facilisis felis. Aenean et leo euismod, mollis risus eget, tempus lacus. Praesent id tempor risus. Sed blandit massa nec velit blandit, maximus efficitur metus feugiat. Aliquam erat volutpat. Vivamus rutrum eget orci blandit hendrerit. Donec ac ante efficitur, luctus justo a, efficitur orci. Praesent eget sagittis ipsum. Donec varius volutpat eros, eu interdum mi. Cras iaculis urna in hendrerit dictum. Proin ornare, ex id vulputate varius, mauris ex tincidunt enim, id consectetur mauris tortor at metus. Aenean et dolor dapibus, dignissim metus nec, dapibus mi.
-
-          Maecenas bibendum suscipit aliquam. Sed et ex elit. Nam velit augue, elementum sed accumsan sed, pellentesque vitae sem. Fusce varius libero dolor, non rhoncus risus lobortis id. Nullam a luctus erat, id vestibulum nulla. Donec at tincidunt enim. Sed turpis nibh, elementum vel pulvinar sit amet, tempus eget massa. Vestibulum et orci est. Vivamus eros magna, eleifend quis tincidunt ut, ultrices ac augue.
-          
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam odio ac lorem bibendum, in fermentum elit hendrerit. Integer eu cursus metus. Cras varius orci laoreet, efficitur ex luctus, mollis tortor. Donec aliquam erat non semper luctus. Duis cursus porttitor nulla, ut feugiat tortor. Integer quis fermentum nulla.`,
-          tags: ['one', 'two', 'three'],
-          id: 7
-        },
-
-        {
-          title: 'bloop',
-          textBody: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at nibh ullamcorper, pretium metus a, pretium diam. Fusce lectus elit, fringilla molestie odio sit amet, tempor facilisis felis. Aenean et leo euismod, mollis risus eget, tempus lacus. Praesent id tempor risus. Sed blandit massa nec velit blandit, maximus efficitur metus feugiat. Aliquam erat volutpat. Vivamus rutrum eget orci blandit hendrerit. Donec ac ante efficitur, luctus justo a, efficitur orci. Praesent eget sagittis ipsum. Donec varius volutpat eros, eu interdum mi. Cras iaculis urna in hendrerit dictum. Proin ornare, ex id vulputate varius, mauris ex tincidunt enim, id consectetur mauris tortor at metus. Aenean et dolor dapibus, dignissim metus nec, dapibus mi.
-
-          Maecenas bibendum suscipit aliquam. Sed et ex elit. Nam velit augue, elementum sed accumsan sed, pellentesque vitae sem. Fusce varius libero dolor, non rhoncus risus lobortis id. Nullam a luctus erat, id vestibulum nulla. Donec at tincidunt enim. Sed turpis nibh, elementum vel pulvinar sit amet, tempus eget massa. Vestibulum et orci est. Vivamus eros magna, eleifend quis tincidunt ut, ultrices ac augue.
-          
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam odio ac lorem bibendum, in fermentum elit hendrerit. Integer eu cursus metus. Cras varius orci laoreet, efficitur ex luctus, mollis tortor. Donec aliquam erat non semper luctus. Duis cursus porttitor nulla, ut feugiat tortor. Integer quis fermentum nulla.`,
-
-          tags: ['four', 'five', 'six'],
-          id: 8
-        },
-
-        {
-          title: 'florn',
-          textBody: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at nibh ullamcorper, pretium metus a, pretium diam. Fusce lectus elit, fringilla molestie odio sit amet, tempor facilisis felis. Aenean et leo euismod, mollis risus eget, tempus lacus. Praesent id tempor risus. Sed blandit massa nec velit blandit, maximus efficitur metus feugiat. Aliquam erat volutpat. Vivamus rutrum eget orci blandit hendrerit. Donec ac ante efficitur, luctus justo a, efficitur orci. Praesent eget sagittis ipsum. Donec varius volutpat eros, eu interdum mi. Cras iaculis urna in hendrerit dictum. Proin ornare, ex id vulputate varius, mauris ex tincidunt enim, id consectetur mauris tortor at metus. Aenean et dolor dapibus, dignissim metus nec, dapibus mi.
-
-          Maecenas bibendum suscipit aliquam. Sed et ex elit. Nam velit augue, elementum sed accumsan sed, pellentesque vitae sem. Fusce varius libero dolor, non rhoncus risus lobortis id. Nullam a luctus erat, id vestibulum nulla. Donec at tincidunt enim. Sed turpis nibh, elementum vel pulvinar sit amet, tempus eget massa. Vestibulum et orci est. Vivamus eros magna, eleifend quis tincidunt ut, ultrices ac augue.
-          
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam odio ac lorem bibendum, in fermentum elit hendrerit. Integer eu cursus metus. Cras varius orci laoreet, efficitur ex luctus, mollis tortor. Donec aliquam erat non semper luctus. Duis cursus porttitor nulla, ut feugiat tortor. Integer quis fermentum nulla.`,
-          tags: ['seven', 'eight', 'nine'],
-          id: 9
-        }
       ],
 
       noteEntry: {
@@ -156,7 +123,7 @@ class App extends Component {
       title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
       textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
       tags: [],
-      id: this.state.noteEntries.length+1
+      id: ID
     }
 
     const noteEntryBlank = {

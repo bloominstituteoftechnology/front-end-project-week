@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 export const CreateNoteFormContainerStyledDiv = styled.div`
     display:flex;
@@ -43,7 +44,14 @@ const CreateNoteForm = props => {
                 />
             </CreateNoteStyledForm>
 
-            <button onClick={props.addNoteEntry}>  Save </button>
+            <Link to={`/`}>
+            <button onClick={props.addNoteEntry}>                      
+                    <Link to={`/`}>
+                        Save
+                    </Link>
+            </button>
+            </Link>
+
         </CreateNoteFormContainerStyledDiv>
     )
 }

@@ -39,10 +39,12 @@ const EditNote = props => {
             </CreateNoteStyledForm>
 
 
-            <Link to={`/note/${props.match.match.params.id}`}>  {/*TOO HACKY!!! */}
+            {/* <Link to={`/note/${props.match.match.params.id}`}>  TOO HACKY!!! */}
                 {/* <button onClick={props.editNoteEntry(props.match.match.params.id)}> */}
+            <Link to={`/`}>
                 <button onClick={(e) => props.editNoteEntry(e,props.match.match.params.id)}>
-                    <Link to={`/note/${props.match.match.params.id}`}>
+                    {/* <Link to={`/note/${props.match.match.params.id}`}> */}
+                    <Link to={`/`}>
                         UPDATE
                     </Link>
                 </button>
