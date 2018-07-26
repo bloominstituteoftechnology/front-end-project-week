@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
       <Sidebar />
       <Route exact path="/" component={ notes }/>
-      <Route exact path="/notes/new" component={ NewNote }/>
+      <Route exact path="/note/create" component={ NewNote }/>
       <Route path="/note/get/:id" component={ HandleNote }/>
       </div>
     );

@@ -5,6 +5,7 @@
   font: Raleway Medium;
   color: #4A4A4A;
   height: 1024px;
+  display: flex;
 }
 
 .App-logo {

@@ -18,8 +18,7 @@ class HandleNote extends Component {
 
     componentDidMount() {
         const id = this.props.match.params;
-        this.props.fetchNote(id);
-        console.log(id);//?
+        this.props.fetchNote(id)
       };
 
     componentDidUpdate(prevProps) {
