@@ -4,7 +4,8 @@ import {
   ERROR,
   ADDING_NOTE,
   ADDED_NOTE,
-  DELETING_NOTE
+  DELETING_NOTE,
+  UPDATING_NOTE
 } from '../actions';
 
 const initialState = {
@@ -38,6 +39,8 @@ export const noteReducer = (state = initialState, action) => {
     //   return { ...state, notes: action.payload, addingNote: false };
     case DELETING_NOTE:
       return { ...state, deletingNote: true };
+    case UPDATING_NOTE:
+      return { ...state, updatingNote: true };
     case ERROR:
       return { ...state, error: action.message };
     default:

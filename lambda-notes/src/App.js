@@ -5,13 +5,20 @@ import { connect } from 'react-redux';
 import { gettingAllNotes, addNote } from './actions';
 import NoteForm from './components/NoteForm';
 import Notes from './components/Notes';
+import SingleNote from './components/SingleNote';
 import SplitPane from 'react-split-pane';
 import { Switch, Route, Link } from 'react-router-dom';
+import UpdateForm from './components/UpdateForm';
 
 class App extends Component {
   componentDidMount() {
     this.props.gettingAllNotes();
   }
+
+  handleDeleteNote = () => {
+    const { _id } = this.props.selectedNote;
+    this.props.deleteNote(_id);
+  };
 
   render() {
     return (
@@ -30,13 +37,15 @@ class App extends Component {
             <Route
               exact
               path="/new"
-              render={(props) => <NoteForm addSmurf={this.props.addNote} />}
+              render={(props) => <NoteForm addNote={this.props.addNote} />}
             />
             {this.props.gettingNotes ? (
               <img src={logo} className="App-logo" alt="logo" />
             ) : (
               <Route exact path="/" render={(props) => <Notes notes={this.props.notes} />} />
             )}
+            <Route path="/viewnote" component={SingleNote} />
+            <Route path="/update" component={UpdateForm} />
           </div>
         </SplitPane>
       </div>

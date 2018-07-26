@@ -1,17 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteNote } from '../actions';
 
-export const SingleNote = ({ _id }) => {
-  return (
-    <Link to={`/${note._id}`}>
-      <div>
-        <button>edit</button>
-        <Link to="/" onClick={() => props.handleDeleteNote(_id)}>
-          delete
-        </Link>
-        <div>{props.note.title}</div>
-        <div>{props.note.textBody}</div>
+class SingleNote extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleDeleteNote = () => {
+    const { _id } = this.props.location.state._id;
+    this.props.deleteNote(_id);
+  };
+
+  render() {
+    const { _id } = this.props.location.state._id;
+    return (
+      <div className="single-note">
+        <div className="edit-links">
+          <Link className="edit" to="/update">
+            edit
+          </Link>
+          <Link className="edit" to="/" onClick={() => this.handleDeleteNote(_id)}>
+            delete
+          </Link>
+        </div>
+        <h3>{this.props.location.state.title}</h3>
+        <div className="note-text">{this.props.location.state.textBody}</div>
       </div>
-    </Link>
-  );
-};
+    );
+  }
+}
+
+export default connect(
+  null,
+  {
+    deleteNote
+  }
+)(SingleNote);

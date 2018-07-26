@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
+import { Link } from 'react-router-dom';
 
 class NoteForm extends Component {
   state = {
@@ -21,7 +22,7 @@ class NoteForm extends Component {
   render() {
     return (
       <div className="single-note">
-        <h2>Create New Note:</h2>
+        <h3>Create New Note:</h3>
         <input
           className="note-title"
           type="text"
@@ -38,9 +39,11 @@ class NoteForm extends Component {
           name="textBody"
           value={this.state.textBody}
         />
-        <button className="save-button" onClick={() => this.handleSubmit()}>
-          Save
-        </button>
+        <Link to="/">
+          <button className="save-button" onClick={() => this.handleSubmit()}>
+            Save
+          </button>
+        </Link>
       </div>
     );
   }

@@ -74,6 +74,8 @@ h1 {
 h2 {
   font-family: Roboto Bold;
   color: #4a4a4a;
+  width: 800px;
+  text-align: center;
 }
 .home {
   text-align: center;
@@ -114,4 +116,13 @@ h2 {
 .note-text {
   height: 500px;
   width: 100%;
+}
+
+.edit-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit {
+  margin: 10px;
 }

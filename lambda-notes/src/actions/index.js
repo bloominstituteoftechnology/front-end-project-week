@@ -58,12 +58,16 @@ export const addNote = (note) => {
 };
 // refetch with fetchNotes because payload: data may or not be what you expect
 
+//sends a response status
 export const deleteNote = (_id) => {
   return (dispatch) => {
     dispatch({ type: DELETING_NOTE });
     axios
       .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
-      .then(({ data }) => dispatch({ type: DELETED_NOTE, payload: data }))
+      .then((response) => {
+        console.log(response);
+        fetchNotes(dispatch);
+      })
       .catch((error) => {
         dispatch({ type: ERROR, message: 'error deleting note' });
       });
@@ -75,7 +79,10 @@ export const updateNote = (_id) => {
     dispatch({ type: UPDATING_NOTE });
     axios
       .put(`https://killer-notes.herokuapp.com/note/edit/${_id}`)
-      .then(({ data }) => dispatch({ type: NOTE_UPDATED, payload: data }))
+      .then((response) => {
+        console.log(response);
+        fetchNotes(dispatch);
+      })
       .catch((error) => {
         dispatch({ type: ERROR, message: 'error updating note' });
       });
