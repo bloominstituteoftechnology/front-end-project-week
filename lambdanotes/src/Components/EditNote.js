@@ -34,13 +34,6 @@ const Content = styled.textarea`
     margin-bottom: 10px;
 `;
 
-const Button = styled.button`
-    width: 175px;
-    height: 30px;
-    background: #20AFB5;
-    color: white;
-    font: bold;
-`;
 
 class EditNote extends Component {
     constructor(props) {
@@ -59,6 +52,7 @@ class EditNote extends Component {
         const note = {
             title: this.state.title,
             content: this.state.content,
+            id: this.props.location.state.id
         }
         this.props.editSingleNote(note);
         this.setState({ title: '', content: ''});
@@ -82,11 +76,13 @@ class EditNote extends Component {
                     value={this.state.content}
                     onChange={this.updateInputChange}
                 />
-                <Button onClick={this.saveChanges}>
-                    <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-                        Update
-                    </Link>
-                </Button>
+                <Link 
+                    to='/'
+                    style={{ textDecoration: 'none', width: '175px', height: '20px', paddingTop: '10px', background: '#20AFB5', color: 'white', font: 'bold', fontSize: '14px', textAlign: 'center' }}
+                    onClick={this.saveChanges}
+                >
+                    Update
+                </Link>
             </Container>
         );
     }

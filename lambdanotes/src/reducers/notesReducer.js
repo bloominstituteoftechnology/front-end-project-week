@@ -1,4 +1,4 @@
-import { GET_NOTES, ADD_NOTE, EDIT_NOTE } from '../actions/index';
+import { GET_NOTES, ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/index';
 
 
 const initialState = [
@@ -28,14 +28,14 @@ const notesReducer = (state = initialState, action) => {
                 ...state, action.payload
             ]
         case EDIT_NOTE:
-            return (
-                state.splice().map(note => {
-                    if (note.id === action.payload.id) {
-                        note.title = action.payload.title;
-                        note.content = action.payload.content;
+                state.forEach((note, index) => {
+                    if (note.id == action.payload.id) {
+                        state.splice(index, 1, action.payload)
                     }
                 })
-            )
+                return [...state]
+        case DELETE_NOTE:
+            return
         default:
             return state;
     }

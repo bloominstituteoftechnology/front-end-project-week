@@ -39,7 +39,7 @@ const DeleteSpan = styled.span`
     margin-bottom: 15px;
 `;
 
-const DelButton = styled.button`
+const NoButton = styled.button`
     width: 175px;
     height: 40px;
     background: #20AFB5;
@@ -87,7 +87,7 @@ class NoteView extends Component {
                     }}>
                         Delete
                     </Link>
-                    <DelButton onClick={this.toggleDeleteFormOff}>No</DelButton>
+                    <NoButton onClick={this.toggleDeleteFormOff}>No</NoButton>
                 </DeleteForm>
                 <Nav>
                     <Link to={{pathname: `/edit-note/${this.props.location.state.id}`, state: this.props.location.state}} style={{ paddingRight: '15px', color: 'black' }}>edit</Link>
