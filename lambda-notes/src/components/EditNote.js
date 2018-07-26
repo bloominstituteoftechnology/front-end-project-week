@@ -1,9 +1,14 @@
 import React from 'react';
+import Sidebar from './Sidebar';
+import EditNoteForm from './EditNoteForm';
 
-const EditNote = () => {
+const EditNote = (props) => {
+  console.log('EditNote', props)
   return ( 
     <div>
-      edit
+      <Sidebar />
+      <h3>Edit Note:</h3>
+      <EditNoteForm id={parseInt(props.match.params.id, 10)} />
     </div>
    );
 }

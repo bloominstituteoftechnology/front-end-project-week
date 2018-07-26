@@ -25,7 +25,7 @@ const notesReducer = (state = initialState, action) => {
     case 'SAVE_NOTE':
       return [...state, { title: action.title, textBody: action.textBody}];
     case 'DELETE_NOTE':
-      return state.filter((id) => id !== action.id);
+      return state.filter((note) => note.id !== action.id);
     default:
       return state;
   }
