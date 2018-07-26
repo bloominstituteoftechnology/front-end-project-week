@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
 import Main from "./components/Main";
+import SidebarNav from "./components/SidebarNav";
+import { Nav, NavItem, NavLink } from "reactstrap";
 
 const App = () => (
-  <div>
-    <div className="container">
-      <Main />
-    </div>
+  <div className="container">
+    <Main />
   </div>
 );
 

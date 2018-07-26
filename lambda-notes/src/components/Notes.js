@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 import Note from "./Note";
 import { Link } from "react-router-dom";
+import {
+  Container,
+  Card,
+  Button,
+  CardTitle,
+  CardText,
+  Row,
+  Col
+} from "reactstrap";
+import SidebarNav from "./SidebarNav";
 
 class Notes extends Component {
   constructor() {
@@ -26,12 +36,16 @@ class Notes extends Component {
 
   render() {
     const noteItems = this.state.notes.map((note, i) => {
-      return <Note key={note._id} note={note} />;
+      return (
+        <Col xs="3">
+          <Note key={note._id} note={note} />
+        </Col>
+      );
     });
     return (
       <div>
         <h1>Notes</h1>
-        <ul>{noteItems}</ul>
+        <Row>{noteItems}</Row>
         <Link to="/note/add">
           <i className="fa fa-plus" /> Add Note
         </Link>

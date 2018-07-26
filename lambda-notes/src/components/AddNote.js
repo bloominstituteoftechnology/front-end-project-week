@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
 
 class AddNote extends Component {
   constructor(props) {
@@ -45,6 +46,42 @@ class AddNote extends Component {
       <div>
         <Link to="/">Back</Link>
         <h1>Add Note</h1>
+        <Form onSubmit={this.addNote}>
+          <FormGroup>
+            <Label>Title</Label>
+            <Col sm={6}>
+              <Input
+                onChange={this.handleInputChange}
+                id="title"
+                type="text"
+                name="title"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup>
+            <Label>Text</Label>
+            <Col sm={6}>
+              <Input
+                onChange={this.handleInputChange}
+                id="textBody"
+                name="textBody"
+                type="textarea"
+              />
+            </Col>
+          </FormGroup>
+          <Button>ADD NOTE</Button>
+        </Form>
+      </div>
+    );
+  }
+}
+
+export default AddNote;
+
+{
+  /* <div>
+        <Link to="/">Back</Link>
+        <h1>Add Note</h1>
         <form onSubmit={this.addNote}>
           <label htmlFor="title">
             <h3>Title</h3>
@@ -67,9 +104,5 @@ class AddNote extends Component {
           </label>
           <button>ADD NOTE</button>
         </form>
-      </div>
-    );
-  }
+      </div> */
 }
-
-export default AddNote;

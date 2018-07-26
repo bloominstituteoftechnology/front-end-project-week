@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 class NoteDetails extends Component {
   constructor(props) {
@@ -45,10 +46,12 @@ class NoteDetails extends Component {
         <h1>{this.state.details.title}</h1>
         <p>{this.state.details.textBody}</p>
         <div>
-          <button>
+          <Button color="info">
             <Link to={`/note/edit/${this.state.details._id}`}>EDIT</Link>
-          </button>
-          <button onClick={this.onDelete}> DELETE</button>
+          </Button>
+          <Button onClick={this.onDelete} color="danger">
+            DELETE
+          </Button>
         </div>
       </div>
     );

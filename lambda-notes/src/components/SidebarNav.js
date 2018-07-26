@@ -10,7 +10,9 @@ const SidebarNav = styled.div`
 `;
 
 export default props => (
-  <SidebarNav>
-    <h1>Lambda Notes</h1>
-  </SidebarNav>
+  <div>
+    <SidebarNav>
+      <h1>Lambda Notes</h1>
+    </SidebarNav>
+  </div>
 );
