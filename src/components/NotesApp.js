@@ -86,11 +86,6 @@ export default class NotesApp
     */
   };
 
-  // Modal Prop
-  handleModal = () => {
-    this.setState(() => ({ selectedOption: undefined}));
-  }
-
   //  lifecyccle methods only accessible in class components
   componentDidMount() {
     try {

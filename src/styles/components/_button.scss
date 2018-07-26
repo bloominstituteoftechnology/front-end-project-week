@@ -2,12 +2,13 @@
   width: 200px;
   height: 25px;
   background: #2BC1C4;
-  border: .5px solid darkgray;
+  border: .5px solid dimgray;
   color: white;
-  margin: 0px 5px 0px 5px;
+  margin: 5px 5px 0px 5px;
   font-size: 12px;
   text-align: center;
   text-decoration: none;
+  padding: 13px 0px 0px 0px;
 };
 
 .button-new-note {
@@ -29,8 +30,4 @@
   margin: 5px auto;
   text-decoration: none;
   text-align: center;
-};
-
-.button--link {
-
 };

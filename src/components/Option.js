@@ -22,6 +22,14 @@ const Option = (props) => {
      >
      Edit 
      </NavLink>
+     <button to="/view"
+     className="button-delete button--link"
+     onClick={(events) => {
+        alert(props.optionText);
+     }}
+     >
+     View 
+     </button>
     </div>
   )
   }

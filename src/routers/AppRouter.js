@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import NotesApp from '../components/NotesApp';
 import CreateNote from '../components/CreateNote';
 import EditNote from '../components/EditNote';
+import NotFoundPage from '../components/NotFoundPage';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -15,6 +16,8 @@ const AppRouter = () => (
       <Route path="/" component={NotesApp} exact={true} />
       <Route path="/create" component={CreateNote} />
       <Route path="/edit" component={EditNote} />
+      <Route component={NotFoundPage} />
+     {/* <Route path="/view" component={ViewNote} />*/}
     </Switch>
    </div> 
   </BrowserRouter>
