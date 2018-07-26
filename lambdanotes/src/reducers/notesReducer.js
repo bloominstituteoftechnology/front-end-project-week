@@ -1,9 +1,9 @@
-import { GET_NOTES, ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/index';
+import { GET_NOTES, ADD_NOTE, EDIT_NOTE, DELETE_NOTE, SEARCH_NOTES } from '../actions/index';
 
 
 const initialState = [
         {title: 'whatever1',
-        content: 'blah blah blah blah blah blah blah blah blah blah',
+        content: 'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
         id: 0},
         {title: 'whatever2',
         content: 'blah blah blah blah blah blah blah blah blah blah',
@@ -36,6 +36,9 @@ const notesReducer = (state = initialState, action) => {
                 return [...state]
         case DELETE_NOTE:
             state.filter(note => note.id != action.payload.id)
+            return [...state]
+        case SEARCH_NOTES:
+            state.filter(note => note.title.indexOf(action.payload) == '-1' )
             return [...state]
         default:
             return state;

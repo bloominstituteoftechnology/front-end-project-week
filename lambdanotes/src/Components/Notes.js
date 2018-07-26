@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getNotes } from '../actions/index';
+import { getNotes, searchNotes } from '../actions/index';
 import Note from './Note'; 
 import styled from 'styled-components';
 
@@ -18,11 +18,30 @@ const NotesContainer = styled.div`
  
 
 class Notes extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            criteria: ''
+        }
+    }
 
+    handleSearchbar = e => {
+        e.preventDefault();
+        this.props.searchNotes(this.state.criteria);
+        this.setState({ criterial: '' })
+    }
+
+    updateInputChange = e => {
+        this.setState({ criteria: e.target.value})
+    }
 
     render() {
         return (
             <Container>
+                <form>
+                    <input onChange={this.updateInputChange} type='text' placeholder='' />
+                    <button onClick={this.handleSearchbar}>search</button> 
+                </form>
                 <h3>Your Notes:</h3>
                 <NotesContainer>
                     {this.props.notes.map(note => (
@@ -40,4 +59,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNotes })(Notes);
+export default connect(mapStateToProps, { getNotes, searchNotes })(Notes);

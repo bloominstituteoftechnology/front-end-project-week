@@ -16,6 +16,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  margin-top: 20px;
 `;
 
 const AppContent = styled.div`

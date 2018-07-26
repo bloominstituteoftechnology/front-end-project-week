@@ -33,7 +33,10 @@ class Note extends Component {
         return ( 
             <Link 
                 to={{pathname: `/view-note/${this.props.note.id}`, state: this.props.note}}
-                style={{ textDecoration: 'none', color: 'black' }}
+                style={{ 
+                    textDecoration: 'none', 
+                    color: 'black',
+                }}
             >
                 <NoteBody>
                     <Title>{this.props.note.title}</Title>
