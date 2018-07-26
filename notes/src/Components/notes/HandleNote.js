@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import DeleteModal from './DeleteModal';
-import Modal from 'react-modal';
 import * as actions from '../../Actions';
 import './Notes.css';
 
@@ -13,12 +12,9 @@ class HandleNote extends Component {
         delete: false
     };
 
-    //handleOpenModal(){ this.setState({ showModal: true });};
-    //handleCloseModal(){ this.setState({ showModal: false });};
-
     componentDidMount() {
-        const id = this.props.match.params;
-        this.props.fetchNote(id);
+        //const { id }= this.props.match.params;
+        this.props.fetchNote();
       };
 
     componentDidUpdate(prevProps) {
@@ -31,7 +27,7 @@ class HandleNote extends Component {
     handleSubmit = e => { 
         e.preventDefault();
         const { id } = this.props.match.params;
-        const note = { title: this.state.title, textBody: this.state.text, tags: [] };
+        const { note } = { title: this.state.title, textBody: this.state.text, tags: [] };
         this.props.updateNote(id, note);
         this.setState({ enableEdit: !this.state.enableEdit });
       };
@@ -48,12 +44,11 @@ class HandleNote extends Component {
       
     handleInput = e => {this.setState({ [e.target.name]: e.target.value });};
       
-    handleEdit = () => {this.setState({ enableEdit: !this.state.enableEdit });};
+    handleEditPerms = () => {this.setState({ enableEdit: !this.state.enableEdit });};
     
     render() {
     const { note } = this.props.notes;
-    return (
-        <div className="viewnote-container">
+    return (<div>
         {this.state.delete ? (
         <DeleteModal 
             handleDelete={this.handleDelete}
@@ -62,7 +57,7 @@ class HandleNote extends Component {
         {this.state.enableEdit ? (
         <div className="newnote-container">
         <header className="edit-delete">
-          <span onClick={this.handleEdit}>edit</span>
+          <span onClick={this.handleEditPerms}>edit</span>
           <span onClick={this.handleModal}>delete</span>
         </header>
         <h2>{note.title}</h2>
@@ -70,7 +65,6 @@ class HandleNote extends Component {
          </div>
         ) : (
         <div className="newnote-container">
-          <div className="p-top">
             <h2 className="edit-header">Edit Note: </h2>
             <form onSubmit={this.handleSubmit}>
                 <input className="title-bar" 
@@ -78,21 +72,21 @@ class HandleNote extends Component {
                 onChange={this.handleInput}
                 value={this.state.title}
                 name="title"
-                type=""
+                type="text"
                 />
                 <textarea className="note-contents" 
                 placeholder="Note Content"
                 onChange={this.handleInput}
-                value={this.state.body} 
+                value={this.state.text} 
                 name="text"
+                type="text"
                 />
             </form>
-            <button className="form-button">Update</button>
+            <button onSubmit={this.handleSubmit} className="form-button">Update</button>
           </div>
-        </div>
-        )}
-    </div>
     )}
+    </div>
+)}
 }
 
 const mapStateToProps = state => ({

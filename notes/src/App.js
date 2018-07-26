@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
-import notes, { NewNote, HandleNote } from './Components/notes';
+import notes, { NewNote, EditNote } from './Components/notes';
 import './App.css';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <Sidebar />
       <Route className="app-route" exact path="/" component={ notes }/>
       <Route exact path="/notes/NewNote" component={ NewNote }/>
-      <Route path="/note/HandleNote" component={ HandleNote }/>
+      <Route path="/note/get/:id" component={ EditNote }/>
       </div>
     );
   }

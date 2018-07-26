@@ -18,15 +18,16 @@ display: flex;
 justify-content: flex-start;
 flex-flow: column wrap;
 border: 1px solid grey;
-width: 170px;
-height: 170px;
+width: 160px;
+height: 160px;
 font-size: 16px;
 background: #F3F3F3;
 font: Raleway Medium;
 color: #4A4A4A;
 padding: 5px auto;
 margin-left: 10px;
-margin-top: 0px;
+margin-top: 5px;
+margin-bottom: 5px;
 `;
 
 const NoteContainer = styled.div`

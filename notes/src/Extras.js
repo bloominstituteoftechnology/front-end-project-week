@@ -42,9 +42,32 @@ import logger from 'redux-logger';*/}
             </div>
         </div>*/}
 
-                 <Modal 
+    return ({ <Modal 
            isOpen={this.state.showModal}
            contentLabel="onRequestClose Example"
            onRequestClose={this.handleCloseModal}
            className="Modal"
            overlayClassName="Overlay"/>
+
+                   <div>
+        {this.state.delete ? (
+        <DeleteModal 
+            handleDelete={this.handleDelete}
+            handleCancel={this.handleCancel}/>
+            ): null}
+        {this.state.enableEdit ? (
+        <div className="newnote-container">
+        <header className="edit-delete">
+          <span onClick={this.handleEditPerms}>edit</span>
+          <span onClick={this.handleModal}>delete</span>
+        </header>
+        <h2>{note.title}</h2>
+         <p>{note.textBody}</p>
+         </div>
+        ) : (
+        )};
+    </div>
+    )};
+
+    onChange={this.handleInput}
+    value={this.state.body} 

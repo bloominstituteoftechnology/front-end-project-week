@@ -21,6 +21,7 @@
     flex-flow: row wrap;
     position: relative;
     left: 290px;
+    margin-bottom: 0px;
 }
 
 .notes-box {
@@ -105,6 +106,34 @@ h3 {
     margin-top: 20px;
     position: relative;
     font-size: 14px;
+    margin-left: 50px;
+}
+
+.edit-title {
+width: 70%;
+height: 50px;
+position: relative;
+font-size: 16px;
+left: 170px;
+}
+
+.edit-contents {
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    font-size: 16px;
+    margin-left: 280px;
+}
+
+.edit-button {
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+    margin-top: 10px;
+    position: relative;
     margin-left: 50px;
 }
 
