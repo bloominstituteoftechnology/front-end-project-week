@@ -138,6 +138,24 @@ class App extends Component {
     this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
   }
 
+  deleteNoteEntry = (e,ID) => {
+    const noteEntries = this.state.noteEntries.slice();
+    noteEntries.splice(ID-1,1);
+
+    for (let i = 0; i< noteEntries.length; i++) {
+      noteEntries[i].id=i+1
+    }
+
+    const noteEntryBlank = {
+      title: '',
+      textBody: '',
+      tags: [],
+      id: ''
+    }
+
+    this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
+  }
+
   createNoteTitleHandler = e => {
     console.log(e.target.value);
 
@@ -212,6 +230,7 @@ class App extends Component {
               <Note
                 noteEntries={this.state.noteEntries}
                 match = {match} {...this.props}
+                deleteNoteEntry = {this.deleteNoteEntry}
               />
             </RightHandSideContainerStyledDiv>
           } />
