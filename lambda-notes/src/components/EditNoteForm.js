@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { editNote } from '../actions/notesActions'
 
 class EditNoteForm extends Component {
   constructor(props) {
@@ -9,8 +10,25 @@ class EditNoteForm extends Component {
       textBody: this.props.note.textBody
      }
   }
+  onTitleChange = (e) => {
+    const title = e.target.value;
+    this.setState({ title });
+  }
+  onTextBodyChange = (e) => {
+    const textBody = e.target.value;
+    this.setState({ textBody });
+  }
+  editHandler = (e) => {
+    e.preventDefault();
+    const changedNote = {
+      title: this.state.title,
+      textBody: this.state.textBody,
+    }
+    this.props.editNote(changedNote, this.props.id);
+    this.setState({ title: '', textBody: '' })
+  }
   render() { 
-    console.log(this.state)
+    console.log('EditForm', this.props)
     return ( 
       <div>
         <form>
@@ -27,7 +45,7 @@ class EditNoteForm extends Component {
             id="" cols="30" rows="10"
            >
           </textarea>
-          <button onClick={this.saveHandler}>Edit Note</button>
+          <button onClick={this.editHandler}>Edit Note</button>
         </form>
       </div> 
     );
@@ -40,4 +58,4 @@ const mapStateToProps = (state, props) => {
   };
 };
  
-export default connect(mapStateToProps)(EditNoteForm);
+export default connect(mapStateToProps, {editNote})(EditNoteForm);
