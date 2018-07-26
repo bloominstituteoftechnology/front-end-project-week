@@ -18,11 +18,22 @@ const initial = {
 	title:'new row note',
 	content:ipsum
 	},
-	]
+	],
+	newPostTitle:'',
+	newPostContent:'',
+	posting:false
 };
 
 const reducer = (state=initial,action) => {
 switch (action.type){
+	case 'ADDING':
+		return (
+		{...state,posting:true}
+		);
+	case 'VIEWING':
+		return (
+		{...state,posting:false}
+		)
 default:
 	return state;
 }

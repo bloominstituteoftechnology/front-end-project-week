@@ -2,25 +2,21 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
+import List from './components/list';
+import Form from './components/form';
+import SideBar from './components/sideBar';
+import { newNote,cancelNote } from './actions/actions';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-	  <div className="posts">
-	  { this.props.posts.map(post => {
-		  return(
-		<div key={Math.random(Date.now())} className="card">
-			<div className="title">
-			{post.title}
-			</div>
-			<div className="content">
-			{post.content.length > 199 ? `${post.content.slice(0,199)}`+'...' : post.content}
-			</div>
-		</div>
-		
-	  )})	}
-      </div>
+	  <SideBar adding={this.props.newNote} viewing={this.props.cancelNote} />
+	  {this.props.posting ? 
+	  <Form title={this.props.newPostTitle} content={this.props.newPostContent} />
+	  :
+	  <List props={this.props.posts} />
+	  }
 	  </div>
     );
   }
@@ -28,8 +24,11 @@ class App extends Component {
 
 const stateToProps = (state) => {
 return {
-	posts:state.posts
+	posts:state.posts,
+	newPostTitle:state.newPostTitle,
+	newPostContent:state.newPostContent,
+	posting:state.posting
 	};
 };
 
-export default connect(stateToProps)(App);
+export default connect(stateToProps, { newNote,cancelNote })(App);
