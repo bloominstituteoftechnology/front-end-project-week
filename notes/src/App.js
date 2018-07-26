@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import './App.css';
 import noteData from './data';
 import Notes from './Components/Notes';
 import Addnote from './Components/Addnote';
 import Note from './Components/Note';
+import SideBar from './Components/SideBar';
+
 
 class App extends Component {
 constructor(props){
@@ -58,6 +60,8 @@ deleteNote = (id) => {
     return (
       <div className="App">
 
+        <SideBar/>
+        <div className='notescontainer'>
         <Notes 
         notes={this.state.notes}
         deleteNote={this.deleteNote}
@@ -68,7 +72,9 @@ deleteNote = (id) => {
         title={this.state.title}
         content={this.state.content}
         />
+        </div>
         
+
       </div>
     );
   }

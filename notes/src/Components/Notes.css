@@ -1,0 +1,83 @@
+.notes-wrapper{
+    display: flex;
+    font: bold;
+    font-size: 24px;
+    width: 250px;
+    flex-direction: row;
+    height: 400px;
+    
+}
+
+.note{
+font-family: Arial;
+border: 1px solid #979797;
+    margin-bottom: 25px;
+    padding: 10px;
+}
+
+.deletebtn{
+    text-decoration: none;
+    background-color: #2BC1C4;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    width: 200px;
+    height:25px;
+}
+
+.notetitle{
+    font-weight: bold;
+    border-bottom: 5px solid black;
+    
+}
+
+.notecontent{
+    padding-top: 0px;
+    margin-top: 0px;
+    
+}
+
+.sidecontainer{
+    width: 200px;
+    height: 1024px;
+    display: flex;
+    background: #D8D8D8;
+    margin: 0px;
+    flex-direction: column;
+    margin-right: 0px;
+    font-family: Arial;
+    font-weight: Bold;
+    padding-left: 10px;
+}
+
+.addnote{
+    display: flex;
+    width: 220px;
+    height: 300px;
+    border: 1px solid #979797;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 0px;
+    justify-content: flex-start;
+margin: 0px;
+padding-left: 10px;
+    
+}
+
+h1{
+    display: flex;
+    align-content: flex-start;
+    align-self: left;
+    font-family: Arial;
+    font-size: 24px;
+}
+
+.addbutton{
+    text-decoration: none;
+    background-color: #2BC1C4;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    width: 200px;
+    height:25px;
+}
