@@ -6,7 +6,7 @@ import Notes from './Components/Notes';
 import Addnote from './Components/Addnote';
 import Note from './Components/Note';
 import SideBar from './Components/SideBar';
-
+import ViewNote from './Components/ViewNote';
 
 class App extends Component {
 constructor(props){
@@ -62,18 +62,36 @@ deleteNote = (id) => {
 
         <SideBar/>
         <div className='notescontainer'>
-        <Notes 
+
+          <Route exact path='/' render={props => {
+            return(
+              <Notes 
         notes={this.state.notes}
         deleteNote={this.deleteNote}
         />
-        <Addnote
-        addNote={this.addNote}
+            )
+          }}
+          />
+          <Route exact path ='/addnote' render={props => {
+          return(
+            
+          <Addnote {...props}
+          addNote={this.addNote}
         handleInputChange={this.handleInputChange}
         title={this.state.title}
         content={this.state.content}
-        />
-        </div>
+        /> 
         
+  
+          )
+          
+        }}
+        
+        />
+
+        <Route path ='/notes/' component={ViewNote}/>
+      
+        </div>
 
       </div>
     );

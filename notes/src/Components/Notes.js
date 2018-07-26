@@ -10,8 +10,11 @@ constructor(props){
 
     render(){
         
-    return ( <div className = 'notes-wrapper'>
+    return ( 
+        
+    <div className = 'notes-wrapper'>
             {this.props.notes.map(notes => 
+            
             <Note 
             title={notes.title}
             content={notes.content}
@@ -23,6 +26,7 @@ constructor(props){
             /> )}
                 
         </div>
+        
         )
 }
 }

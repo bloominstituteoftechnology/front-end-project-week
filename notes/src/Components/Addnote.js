@@ -15,8 +15,7 @@ class Addnote extends Component {
     
       render() {
           return (
-                <div className='notes-wrapper'>
-                    <div className='note'>
+                <div className='addnote'>
                     <h1> Add a Note </h1>
                     <form onSubmit={this.props.addNote}>
                         <input
@@ -35,7 +34,6 @@ class Addnote extends Component {
                         <button className='addbutton' type='submit'>Add Note</button>
 
                     </form>
-                    </div>
                     </div>
           )
         }

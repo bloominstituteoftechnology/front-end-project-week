@@ -48,19 +48,14 @@ border: 1px solid #979797;
     font-family: Arial;
     font-weight: Bold;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .addnote{
-    display: flex;
-    width: 220px;
-    height: 300px;
+    font-family: Arial;
     border: 1px solid #979797;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-left: 0px;
-    justify-content: flex-start;
-margin: 0px;
-padding-left: 10px;
+        margin-bottom: 25px;
+        padding: 10px;
     
 }
 
@@ -80,4 +75,30 @@ h1{
     border: none;
     width: 200px;
     height:25px;
+}
+
+.addanotebutton{
+    text-decoration: none;
+    background-color: #2BC1C4;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    width: 200px;
+    height:25px;
+}
+
+.viewnotes{
+    text-decoration: none;
+    background-color: #2BC1C4;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    width: 200px;
+    height:25px;
+    margin-bottom: 25px;
+}
+
+.linkstyle{
+    text-decoration: none;
+    color: black;
 }

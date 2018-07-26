@@ -8,6 +8,7 @@ super(props)
 
     render(){
     return (
+        <Link className='linkstyle'to={{pathname:`/notes/${this.props.notes.id}`, state:this.props.notes} } >
         <div className='note'>
             <div className='notetitle'>
             <p>  {this.props.notes.title} </p>
@@ -19,7 +20,7 @@ super(props)
                 ()=>{
                 this.props.deleteNote(this.props.notes.id)}}> Delete Note </button>
             </div>
-
+            </Link>
     )
 }
 }

@@ -9,6 +9,8 @@
 background-color: #F3F3F3;
 width: 900px;
 display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
 }
 
 
