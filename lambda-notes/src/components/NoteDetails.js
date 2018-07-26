@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Button } from "reactstrap";
+import { Button, Card, CardTitle, CardBody } from "reactstrap";
 
 class NoteDetails extends Component {
   constructor(props) {
@@ -42,13 +42,15 @@ class NoteDetails extends Component {
     return (
       <div>
         <Link to="/">Back</Link>
-        <h1>Note Details</h1>
-        <h1>{this.state.details.title}</h1>
-        <p>{this.state.details.textBody}</p>
+        <Card body>
+          <CardTitle>{this.state.details.title}</CardTitle>
+          <hr />
+          <CardBody>{this.state.details.textBody}</CardBody>
+        </Card>
         <div>
-          <Button color="info">
-            <Link to={`/note/edit/${this.state.details._id}`}>EDIT</Link>
-          </Button>
+          <Link to={`/note/edit/${this.state.details._id}`}>
+            <Button color="info"> EDIT </Button>
+          </Link>
           <Button onClick={this.onDelete} color="danger">
             DELETE
           </Button>
