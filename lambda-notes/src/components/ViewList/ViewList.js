@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Note from './Note';
 import { connect } from 'react-redux';
 import { getNotes } from '../../actions/index';
+import { Grid, Col, Row  } from 'react-bootstrap';
 
 class ViewList extends Component {
 
@@ -13,6 +14,7 @@ class ViewList extends Component {
             <div className="page view-list">
                 <div>
                     <h2>Your Notes</h2>
+
                     <div className="notes">
                         {
                             notes.map((note, index) => {

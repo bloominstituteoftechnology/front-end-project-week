@@ -2,14 +2,16 @@ import axios from 'axios';
 
 // GET, POST, PUT, DELETE
 
-export const GET_NOTES = 'GET_NOTES';
+export const FETCH_NOTES = 'GET_NOTES';
 
 export const getNotes = () => {
-    const payload = axios.get("https://localhost:3000/api/notes");
+    const fetchNotes = axios.get("https://localhost:3000/api/notes");
     return {
-        type: GET_NOTES, 
-        payload
+        type: FETCH_NOTES, 
+        // payload
     };
+
+
 }
 
 export const addNote = note => {

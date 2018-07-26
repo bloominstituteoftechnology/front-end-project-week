@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { Grid, Col, Row  } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 class Sidebar extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     shouldComponentUpdate = (nextProps, nextState) => false;
 }
@@ -17,6 +23,7 @@ render = () => {
           <button><Link to="./Add-Note">+ Create New Note</Link></button>
       </div>
     </div>
+   
     );
 }
 
