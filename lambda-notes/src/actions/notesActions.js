@@ -5,7 +5,7 @@ export const saveNote = (title, textBody) => ({
   textBody
 });
 
-export const deleteNote = ({ id } = {}) => ({
+export const deleteNote = (id) => ({
   type: 'DELETE_NOTE',
   id,
 })
