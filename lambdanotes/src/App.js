@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import { Link } from 'react-router-dom';
 import './App.css';
 import CreateNote from './components/CreateNote/CreateNote.js';
-import Note from './components/Note/Note.js';
+import ViewSingleNote from './components/ViewSingleNote/ViewSingleNote.js';
 
 class App extends Component {
   constructor(props) {
@@ -49,9 +49,14 @@ class App extends Component {
             <YourNotes {...props} notes={this.state.notes} />
           )} />
         <Route exact path='/create' render={props => (
-            <CreateNote {...props} handleInputChange={this.handleInputChange} title={this.state.title} content={this.state.content} addNote={this.addNote} />
-          )} />
-        <Route path='/notes/:id' component={Note}/>
+            <CreateNote {...props} 
+              handleInputChange={this.handleInputChange} 
+              title={this.state.title} 
+              content={this.state.content} 
+              addNote={this.addNote} 
+            /> )} 
+        />
+        <Route path='/notes/:id' component={ViewSingleNote}/>
         
       </div>
     );

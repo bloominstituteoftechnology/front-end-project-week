@@ -1,0 +1,13 @@
+.single-note{
+    border:1px solid black;
+    width:100vw;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+span{
+    margin-right: 30px;
+    margin-top: 30px;
+    text-decoration: underline;
+}

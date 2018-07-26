@@ -19,6 +19,7 @@
     margin-bottom: 25px;
     text-align: start;
     font-size: 24px;
+    text-decoration: none;
 }
 
 h3{
@@ -26,3 +27,9 @@ h3{
     margin-bottom: 5px;
     font-size:24px;
 }
+
+/* .link-box{
+    border:0px;
+    width:20px;
+    height: 20px;
+} */

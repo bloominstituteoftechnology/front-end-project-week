@@ -33,7 +33,11 @@ class CreateNote extends Component {
                     />
                 </form>
                 <Link to ='/'>
-                    <button onClick={() => this.props.addNote()} className='save-button'>Save Note</button>
+                    <button 
+                        onClick={() => this.props.addNote()} 
+                        className='save-button'
+                        >Save Note
+                    </button>
                 </Link>
             </div>
         );
