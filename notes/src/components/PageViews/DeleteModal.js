@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 
-const DeleteModal = props => {
-    console.log(props)
-    return;
-}
+// const DeleteModal = props => {
+//     console.log(props)
+//     return;
+// }
  
-export default DeleteModal;
+// export default DeleteModal;

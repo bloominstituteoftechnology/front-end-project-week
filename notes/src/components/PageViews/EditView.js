@@ -2,7 +2,7 @@ import React from 'react';
 import './EditView.css'
 
 const EditView = props => {
-    console.log(props.location.state)
+    console.log(props)
     return (
         <div className='edit'>
             <h3>Edit Note:</h3>
@@ -11,13 +11,15 @@ const EditView = props => {
                         type='text'
                         placeholder='Note Title'
                         value={props.location.state.title}
+                        onChange={props.changeTitle}
                     />
                     <textarea
                         name='content'
                         placeholder='Note Content'
                         value={props.location.state.textBody}
+                        onChange={props.changeTextBody}
                     />
-                <button>Update</button>
+                <button onClick={props.handleEdit}>Update</button>
             </form>
         </div>
     );

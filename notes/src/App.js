@@ -44,6 +44,15 @@ class App extends Component {
     this.setState({ textBody: e.target.value})
   }
 
+  // handleEdit = (element) => {
+  //   this.state.notes.filter((note, index) => {
+  //     if ( note.id === element.id ) {
+  //       this.state.notes.splice(index, 1, element);
+  //     }
+  //   })
+  //   this.setState({notes: this.state.notes})
+  // }
+
   // deleteNote = () => {
   //   this.state.notes.map((note, index) => {
   //     if(this.state.match.params.id === note.id.toString()) {
@@ -86,7 +95,17 @@ class App extends Component {
             />
           )}
         />
-        <Route path='/edit' component= {EditView} />
+        {/* <Route
+          path='/edit/:_id'
+          render={props => (
+            <EditView 
+              {...props}
+              state={this.state}
+              handleEdit={this.handleEdit}
+            />
+          )}
+        /> */}
+        <Route path='/edit/:_id' component= {EditView} />
         <Route path='/delete' render={props => (<DeleteModal {...props}/> )} />
       </div>
     );

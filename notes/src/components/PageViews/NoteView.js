@@ -17,7 +17,7 @@ class NoteView extends React.Component {
                 <div className='note-header'>
                         <h3>{this.props.note.title}</h3>
                     <div className='actions'>
-                        <Link to={{pathname: '/edit', state: this.props.note}}>
+                        <Link to={{pathname: `/edit/${this.props.note._id}`, state:this.props.note}}>
                             <h4>edit</h4>
                         </Link>
                         <Link to='/'>
