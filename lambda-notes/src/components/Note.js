@@ -11,13 +11,17 @@ class Note extends Component {
   }
   render() {
     return (
-      <Card body>
-        <CardTitle>{this.state.note.title}</CardTitle>
-        <CardText>{this.state.note.textBody}</CardText>
-        <Link to={`/note/${this.state.note._id}`}>
-          <Button>View Card</Button>
-        </Link>
-      </Card>
+      <ul id="notes">
+        <li>
+          <Card body>
+            <CardTitle>{this.state.note.title}</CardTitle>
+            <CardText>{this.state.note.textBody}</CardText>
+            <Link to={`/note/${this.state.note._id}`}>
+              <Button>View Card</Button>
+            </Link>
+          </Card>
+        </li>
+      </ul>
     );
   }
 }

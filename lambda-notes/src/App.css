@@ -10,3 +10,62 @@ body {
   padding: 3rem;
   box-sizing: border-box;
 }
+
+#notes li {
+  position: relative;
+  width: 300px;
+  min-height: 100px;
+  margin: 25px auto;
+  padding: 60px 15px 15px 15px;
+  background: #fff no-repeat 4px 8px;
+  -webkit-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 2px #000;
+  -webkit-transform: rotate(-0.5deg);
+  -moz-transform: rotate(-0.5deg);
+  -o-transform: rotate(-0.5deg);
+}
+
+#notes li:nth-child(even) {
+  -webkit-transform: rotate(0.5deg);
+  -moz-transform: rotate(0.5deg);
+  -o-transform: rotate(0.5deg);
+}
+
+#notes li.kiln {
+  background-image: url(https://rob.kilnhg.com/Content/Images/kiln_focus.gif);
+}
+
+#notes li p {
+  text-align: center;
+  font: normal normal normal 40px/48px "Reenie Beanie", Helvetica, Arial,
+    sans-serif;
+  color: #000;
+  text-shadow: white 1px 1px 0px;
+  overflow: hidden;
+}
+
+#notes li::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 115px;
+  top: -15px;
+  width: 75px;
+  height: 25px;
+  z-index: 2;
+  background-color: rgba(243, 245, 228, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 5px #888;
+  -moz-box-shadow: 0 0 5px #888;
+  box-shadow: 2px 2px 2px #000;
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+}
+
+#notes li:nth-child(even)::before {
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+}

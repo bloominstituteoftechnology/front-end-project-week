@@ -12,6 +12,7 @@ import {
   Col
 } from "reactstrap";
 import SidebarNav from "./SidebarNav";
+import "../App.css";
 
 class Notes extends Component {
   constructor() {
