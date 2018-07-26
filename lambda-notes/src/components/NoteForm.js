@@ -13,7 +13,7 @@ class NoteForm extends Component {
     const title = this.state.title;
     const textBody = this.state.textBody;
     this.props.saveNote(title, textBody);
-    this.setState({ title: '', textBody: '' });
+    
     this.props.history.push('/')
   }
   
@@ -26,7 +26,6 @@ class NoteForm extends Component {
     this.setState({ textBody });
   }
   render() { 
-    console.log('log 4', this.props)
     return ( 
       <div>
         <form>

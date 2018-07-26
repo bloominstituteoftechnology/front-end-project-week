@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 
 const ViewNote = (props) => {
   console.log('ViewNote', props);
-  const selectedId = parseInt(props.match.params.id, 10)
+  const selectedId = props.match.params.id
   const selected = props.notes.filter(note => note.id === selectedId);
   const selectedNote = selected[0];
-  console.log('shit', selectedNote)
+  console.log('selectedNote', selectedNote)
   return ( 
     <div>
       <Sidebar />

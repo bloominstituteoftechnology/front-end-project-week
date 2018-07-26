@@ -4,10 +4,12 @@ import { deleteNote } from '../actions/notesActions'
 
 class DeleteModal extends React.Component  {
   deleteHandler = () => {
-    console.log('bye');
-    this.props.deleteNote(parseInt(this.props.match.params.id, 10));
+    this.props.deleteNote(this.props.match.params.id);
     this.props.history.push('/');
     console.log(this.props);
+  }
+  goBack = () => {
+    this.props.history.push(`/note/${this.props.match.params.id}`);
   }
   render(){
     console.log('delete', this.props)
@@ -15,7 +17,7 @@ class DeleteModal extends React.Component  {
       <div>
         <p>Are you sure you want to delete this?</p>
         <button onClick={this.deleteHandler}>Delete</button>
-        <button>No</button>
+        <button onClick={this.goBack}>No</button>
       </div>
      );
   }
