@@ -30,6 +30,7 @@ class HandleNote extends Component {
         const { note } = { title: this.state.title, textBody: this.state.text, tags: [] };
         this.props.updateNote(id, note);
         this.setState({ enableEdit: !this.state.enableEdit });
+        this.props.history.push(`/notes/${id}`);
       };
 
     handleDelete = () => {
