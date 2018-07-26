@@ -20,14 +20,12 @@ class NotesList extends Component {
       render() {
         const { notes } = this.props.notes;
         return (
-        <div className="notes-container">
-         <div className="notes-section">
+        <div>
         <h1 className="notes-title">Your Notes:</h1>
-            <div className="notes-box">
-              {notes.map(note => <ListedNote {...note} key={note._id} />)}
-            </div>
-          </div>
-          </div>
+        <div className="notes-container">
+        {notes.map(note => <ListedNote {...note} key={note._id} />)}
+              </div>
+              </div>
         );
       }
     }

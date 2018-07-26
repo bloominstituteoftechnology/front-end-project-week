@@ -17,8 +17,8 @@ class HandleNote extends Component {
     //handleCloseModal(){ this.setState({ showModal: false });};
 
     componentDidMount() {
-        const id = this.props.match.params;
-        this.props.fetchNote(id)
+        const { id } = this.props.match.params;
+        this.props.fetchNote(id);
       };
 
     componentDidUpdate(prevProps) {
@@ -29,7 +29,8 @@ class HandleNote extends Component {
         }
       };
 
-    handleSubmit = e => { e.preventDefault();
+    handleSubmit = e => { 
+        e.preventDefault();
         const { id } = this.props.match.params;
         const note = { title: this.state.title, textBody: this.state.text, tags: [] };
         this.props.updateNote(id, note);

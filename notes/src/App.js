@@ -9,8 +9,8 @@ class App extends Component {
     return (
       <div className="App">
       <Sidebar />
-      <Route exact path="/" component={ notes }/>
-      <Route exact path="/note/create" component={ NewNote }/>
+      <Route className="app-route" exact path="/" component={ notes }/>
+      <Route path="/notes/new" component={ NewNote }/>
       <Route path="/note/get/:id" component={ HandleNote }/>
       </div>
     );

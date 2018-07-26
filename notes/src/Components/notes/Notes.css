@@ -1,44 +1,35 @@
 .notes-container {
-    width: 73%;
+    width: 80%;
     display: flex;
     height: 99%;
     padding: 10px auto;
     font: Raleway Medium;
     color: #4A4A4A;
-    flex-flow: column;
-    justify-content: space-evenly;
+    flex-flow: column wrap;
+    justify-content: center;
     position: relative;
-    left: 280px;
+    left: 170px;
+    margin: 10px auto;
 }
 
 .notes-title {
+    display: flex;
     font-size: 24px;
     font-weight: bold;
-    margin-right: 605px;
-    width: 250px;
-    margin-top: -100px;
-}
-
-.row {
-    display: flex;
-    justify-content: space-evenly;
-    flex-flow: column wrap;
-}
-
-.notes-section {
-    display: flex;
+    height: 30px;
+    width: 1024px;
     flex-flow: row wrap;
+    position: relative;
+    left: 290px;
 }
 
 .notes-box {
     display: flex;
     justify-content: flex-start;
-    flex-flow: column;
-    align-items: center;
-    align-content: space-evenly;
+    flex-flow: row wrap;
     border: 1px solid grey;
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
     font-size: 16px;
     background: #F3F3F3;
     font: Raleway Medium;
@@ -69,14 +60,13 @@ h3 {
 
 .note-p {
     display: flex;
-    flex-flow: row;
-    padding: 5px;
+    padding: 10px;
     border-top: 1px solid black;
     justify-content: center;
     align-items: center;
     text-align: left;
     line-height: 24px;
-    margin: 5px auto;
+    margin: 10px auto;
 }
 
 .newnote-container {
@@ -108,7 +98,7 @@ h3 {
 }
 
 .note-contents {
-    height: 400px;
+    height: 300px;
     width: 70%;
     margin-top: 20px;
     position: relative;
@@ -118,8 +108,10 @@ h3 {
 
 .viewnote-container {
     height: 1024px;
-    background: #F3F3F3;
+    background: #555;
     font: Raleway Medium;
+    opacity: 0.7;
+
 }
 
 .viewnote-p {
