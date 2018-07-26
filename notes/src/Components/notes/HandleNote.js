@@ -13,8 +13,8 @@ class HandleNote extends Component {
     };
 
     componentDidMount() {
-        //const { id }= this.props.match.params;
-        this.props.fetchNote();
+        const { id }= this.props.match.params;
+        this.props.getNote(id);
       };
 
     componentDidUpdate(prevProps) {
@@ -67,14 +67,14 @@ class HandleNote extends Component {
         <div className="newnote-container">
             <h2 className="edit-header">Edit Note: </h2>
             <form onSubmit={this.handleSubmit}>
-                <input className="title-bar" 
+                <input className="edit-title" 
                 placeholder="Note Title"
                 onChange={this.handleInput}
                 value={this.state.title}
                 name="title"
                 type="text"
                 />
-                <textarea className="note-contents" 
+                <textarea className="edit-contents" 
                 placeholder="Note Content"
                 onChange={this.handleInput}
                 value={this.state.text} 
@@ -82,7 +82,7 @@ class HandleNote extends Component {
                 type="text"
                 />
             </form>
-            <button onSubmit={this.handleSubmit} className="form-button">Update</button>
+            <button onSubmit={this.handleSubmit} className="edit-button">Update</button>
           </div>
     )}
     </div>
