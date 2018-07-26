@@ -148,8 +148,9 @@ class App extends Component {
     this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
   }
 
-  editNoteEntry = (e) => {
-    e.preventDefault();
+
+  editNoteEntry = (e, ID) => {
+    // e.preventDefault();
     const noteEntries = this.state.noteEntries.slice();
     const noteEntry = {
       title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
@@ -165,9 +166,9 @@ class App extends Component {
       id: ''
     }
 
-    
-    noteEntries.push(noteEntry);
-    this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
+    noteEntries[`${ID}`-1] = noteEntry;
+
+    this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
   }
 
   createNoteTitleHandler = e => {
@@ -225,7 +226,7 @@ class App extends Component {
         />
 
         {/* EDIT NOTE COMPONENT */}
-        <Route path = "/editNote" render ={() =>
+        <Route path = "/editNote/:id" render ={(match) =>
           <RightHandSideContainerStyledDiv>
             <EditNote
               noteEntries = {this.state.noteEntries}
@@ -233,6 +234,7 @@ class App extends Component {
               createNoteTextBodyHandler={this.createNoteTextBodyHandler}
               editNoteEntry={this.editNoteEntry}
               noteEntry={this.state.noteEntry}
+              match = {match} {...this.props}
             />
           </RightHandSideContainerStyledDiv>
         } />

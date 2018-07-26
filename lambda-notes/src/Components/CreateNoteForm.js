@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const CreateNoteFormContainerStyledDiv = styled.div`
     display:flex;
     flex-direction:column;
-    border:1px solid red;
+    border:0px solid red;
     width:97%;
 `
 export const CreateNoteStyledForm = styled.form`

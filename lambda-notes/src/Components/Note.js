@@ -15,15 +15,11 @@ class Note extends Component {
         this.setState({note:this.props.noteEntries[id]})
     }
 
-    // fetchNote = id => {
-    //     this.setState(() => ({note:this.props.noteEntries[id]}))
-    // }
-
     render() {
         return (
             <div>
                 <div>
-                    <Link to={"/editNote"}>
+                    <Link to={`/editNote/${this.state.note.id}`}>
                         <button>edit</button>
                     </Link>
                     <br />
