@@ -7,10 +7,14 @@ const NoteTitle = styled(Link)`
     font-size: 24px;
     font-weight: 700px;
     justify-content: center;
-    padding: 10px;
     font: Roboto Bold;
     display: flex;
     flex-flow: row;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    margin: 5px auto;
+    border-bottom: 1px solid grey;
 `;
 
 const Box = styled.div`
@@ -18,14 +22,14 @@ display: flex;
 justify-content: flex-start;
 flex-flow: column wrap;
 border: 1px solid grey;
-width: 160px;
-height: 160px;
+width: 165px;
+height: 165px;
 font-size: 16px;
 background: #F3F3F3;
 font: Raleway Medium;
 color: #4A4A4A;
-padding: 5px auto;
-margin-left: 10px;
+padding: 3px auto;
+background: 
 margin-top: 5px;
 margin-bottom: 5px;
 `;

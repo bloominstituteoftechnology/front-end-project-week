@@ -8,7 +8,7 @@
     flex-flow: column wrap;
     justify-content: center;
     position: relative;
-    left: 170px;
+    left: 140px;
     margin: 10px auto;
 }
 
@@ -20,7 +20,7 @@
     width: 1024px;
     flex-flow: row wrap;
     position: relative;
-    left: 290px;
+    left: 250px;
     margin-bottom: 0px;
 }
 
