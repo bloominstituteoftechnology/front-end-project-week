@@ -38,7 +38,7 @@ class NoteForm extends Component {
           name="textBody"
           value={this.state.textBody}
         />
-        <button className="sidebar-button" onClick={() => this.handleSubmit()}>
+        <button className="save-button" onClick={() => this.handleSubmit()}>
           Save
         </button>
       </div>

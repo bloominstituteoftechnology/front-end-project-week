@@ -1,7 +1,7 @@
-.App {
+/* .App {
   text-align: center;
   background-color: #f3f3f3;
-}
+} */
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -41,19 +41,30 @@
 .right {
   background-color: #f3f3f3;
   overflow: scroll;
-  padding-left: 15px;
+  padding-left: 20px;
   height: 100vh;
 }
 
 h1 {
   font-family: Roboto Bold;
   color: #4a4a4a;
+  text-align: center;
 }
 
 .sidebar-button {
   width: 200px;
   height: 60px;
-  margin: 10px;
+  margin: 10px 10px 0px 25px;
+  background-color: #2bc1c4;
+  color: white;
+  font-size: 20px;
+  font-weight: heavy;
+}
+
+.save-button {
+  width: 200px;
+  height: 60px;
+  margin-top: 20px;
   background-color: #2bc1c4;
   color: white;
   font-size: 20px;
@@ -64,6 +75,10 @@ h2 {
   font-family: Roboto Bold;
   color: #4a4a4a;
 }
+.home {
+  text-align: center;
+}
+
 .notes {
   display: flex;
   flex-wrap: wrap;
