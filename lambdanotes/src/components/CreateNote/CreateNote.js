@@ -2,16 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import './CreateNote.css';
 class CreateNote extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state={
-    //         title:'',
-    //         content:''
-    //     };
-    // }
-
     
-
     render() {
         return (
             <div className='create-container'>

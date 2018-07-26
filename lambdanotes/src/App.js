@@ -21,10 +21,19 @@ class App extends Component {
     };
   }
 
+
   addNote= event => {
-    //event.preventDefault();
+    // event.preventDefault();
     const notes= this.state.notes.slice();
     notes.push({title:this.state.title, id:Date.now(), content:this.state.content});
+    this.setState({notes});
+  };
+
+  deleteNote=(id) => {
+    const notes= this.state.notes.slice();
+    notes.filter(note => {
+      return note.id !==id;
+    })
     this.setState({notes});
   };
 
@@ -45,9 +54,14 @@ class App extends Component {
             <button className='sidebar-button'>+ Create New Note</button>
           </Link>
         </header>
+    
         <Route exact path='/' render={props => (
-            <YourNotes {...props} notes={this.state.notes} />
-          )} />
+            <YourNotes {...props} 
+              notes={this.state.notes} 
+            />
+          )} 
+        />
+
         <Route exact path='/create' render={props => (
             <CreateNote {...props} 
               handleInputChange={this.handleInputChange} 
@@ -56,7 +70,12 @@ class App extends Component {
               addNote={this.addNote} 
             /> )} 
         />
-        <Route path='/notes/:id' component={ViewSingleNote}/>
+
+        <Route path='/notes/' render={props => (
+            <ViewSingleNote {...props} 
+              deleteNote={this.deleteNote}
+            />)} 
+        />
         
       </div>
     );
