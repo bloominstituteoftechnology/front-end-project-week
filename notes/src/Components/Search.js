@@ -13,4 +13,4 @@ class Search extends Component {
       notes: state.notes
     });
 
-    export default connect(mapStateToProps, actions)(Search);
+export default connect(mapStateToProps, actions)(Search);

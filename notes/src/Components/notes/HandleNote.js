@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DeleteModal from './DeleteModal';
 import * as actions from '../../Actions';
@@ -30,7 +30,6 @@ class HandleNote extends Component {
         const { note } = { title: this.state.title, textBody: this.state.text, tags: [] };
         this.props.updateNote(id, note);
         this.setState({ enableEdit: !this.state.enableEdit });
-        this.props.history.push(`/notes/${id}`);
       };
 
     handleDelete = () => {
@@ -45,10 +44,13 @@ class HandleNote extends Component {
       
     handleInput = e => {this.setState({ [e.target.name]: e.target.value });};
       
-    handleEditPerms = () => {this.setState({ enableEdit: !this.state.enableEdit });};
+    handleEdit = () => {this.setState({ enableEdit: !this.state.enableEdit });};
     
     render() {
     const { note } = this.props.notes;
+    if (!note) {
+        return <h2>Loading...</h2>;
+    }
     return (<div>
         {this.state.delete ? (
         <DeleteModal 
@@ -58,7 +60,7 @@ class HandleNote extends Component {
         {this.state.enableEdit ? (
         <div className="newnote-container">
         <header className="edit-delete">
-          <span onClick={this.handleEditPerms}>edit</span>
+          <span onClick={this.handleEdit}>edit</span>
           <span onClick={this.handleModal}>delete</span>
         </header>
         <h2>{note.title}</h2>
@@ -71,14 +73,14 @@ class HandleNote extends Component {
                 <input className="edit-title" 
                 placeholder="Note Title"
                 onChange={this.handleInput}
-                value={this.state.title}
+                value={note.title}
                 name="title"
                 type="text"
                 />
                 <textarea className="edit-contents" 
                 placeholder="Note Content"
                 onChange={this.handleInput}
-                value={this.state.text} 
+                value={note.textBody} 
                 name="text"
                 type="text"
                 />

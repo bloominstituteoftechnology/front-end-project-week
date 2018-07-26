@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
-import notes, { NewNote, EditNote, HandleNote } from './Components/notes';
+import notes, { NewNote, HandleNote, SingleNote } from './Components/notes';
 import './App.css';
 
 class App extends Component {

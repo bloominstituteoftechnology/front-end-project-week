@@ -69,5 +69,8 @@ import logger from 'redux-logger';*/}
     </div>
     )};
 
+
+     <Route path="/note/get/:id" component={ SingleNote }/>
+     
     onChange={this.handleInput}
-    value={this.state.body} 
+    value={this.state.text} 
