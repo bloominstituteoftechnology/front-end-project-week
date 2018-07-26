@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';*/}
 
-        <div className="notes-box">
+       {/* <div className="notes-box">
             <h3>Note Title</h3>
             <p className="note-p">Bunch of random words that mean nothing just here to fill space on boxes for MVP. Think I might need a few more. That oughta do it.</p>
             </div>
@@ -40,4 +40,11 @@ import logger from 'redux-logger';*/}
             <p className="note-p">Bunch of random words that mean nothing just here to fill space on boxes for MVP. Think I might need a few more. That oughta do it.</p>
             </div>
             </div>
-        </div>
+        </div>*/}
+
+                 <Modal 
+           isOpen={this.state.showModal}
+           contentLabel="onRequestClose Example"
+           onRequestClose={this.handleCloseModal}
+           className="Modal"
+           overlayClassName="Overlay"/>

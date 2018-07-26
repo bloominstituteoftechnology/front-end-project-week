@@ -12,5 +12,5 @@ class Search extends Component {
     const mapStateToProps = state => ({
       notes: state.notes
     });
-    
-    export default connect(mapStateToProps,{ actions })(Search);
+
+    export default connect(mapStateToProps, actions)(Search);

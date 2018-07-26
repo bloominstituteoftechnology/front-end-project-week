@@ -18,7 +18,7 @@ import { FETCH_NOTES,
     export default (state = initialState, action) => {
       switch (action.type) {
         case FETCH_NOTES:
-          return {...state,
+          return { ...state,
             notes: action.payload,
             loading: false,
             error: null,
@@ -34,7 +34,7 @@ import { FETCH_NOTES,
             query: ''
         };
         case GET_NOTE:
-          return {...state,
+          return { ...state,
             note: action.payload,
             loading: false,
             error: null,
@@ -48,8 +48,7 @@ import { FETCH_NOTES,
             query: ''
         };
         case UPDATE_NOTE:
-        return {
-          ...state,
+        return { ...state,
           note: action.payload,
           loading: false,
           error: null,
@@ -57,9 +56,9 @@ import { FETCH_NOTES,
         };
         case ERROR:
           return { ...state, error: action.payload, loading: false, query: '' }
-        case SEARCH:
+       /* case SEARCH:
         // need to do some googling
-            return {};
+            return {};*/
         default:
           return state;
       }

@@ -18,6 +18,7 @@ class NotesList extends Component {
         }
       }
       render() {
+        const { notes } = this.props.notes;
         return (
         <div className="notes-container">
          <div className="notes-section">
@@ -35,4 +36,4 @@ class NotesList extends Component {
       notes: state
     });
 
-    export default connect(mapStateToProps,{ actions })(NotesList);
+    export default connect(mapStateToProps, actions)(NotesList);

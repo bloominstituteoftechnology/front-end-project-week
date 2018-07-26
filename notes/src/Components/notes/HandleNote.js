@@ -7,25 +7,26 @@ import './Notes.css';
 
 class HandleNote extends Component {
     state = {
-        showModal: false,
         title: '',
         text: '',
         enableEdit: false,
         delete: false
     };
 
-    handleOpenModal(){ this.setState({ showModal: true });};
-    handleCloseModal(){ this.setState({ showModal: false });};
+    //handleOpenModal(){ this.setState({ showModal: true });};
+    //handleCloseModal(){ this.setState({ showModal: false });};
 
     componentDidMount() {
         const id = this.props.match.params;
         this.props.fetchNote(id);
+        console.log(id);//?
       };
 
     componentDidUpdate(prevProps) {
         const { note } = this.props.notes;
         if (prevProps.notes.note !== note){
-          this.setState({ title: this.note.title, text: this.note.textBody });
+        console.log(note.title, note.textBody);//?
+          this.setState({ title: note.title, text: note.textBody });
         }
       };
 
@@ -46,24 +47,16 @@ class HandleNote extends Component {
       
     handleInput = e => {this.setState({ [e.target.name]: e.target.value });};
       
-    handleEdit = () => {this.setState({ showModal: true, enableEdit: !this.state.enableEdit });};
+    handleEdit = () => {this.setState({ enableEdit: !this.state.enableEdit });};
     
     render() {
     const { note } = this.props.notes;
     return (
         <div className="viewnote-container">
         {this.state.delete ? (
-        <div>
-         <Modal 
-           isOpen={this.state.showModal}
-           contentLabel="onRequestClose Example"
-           onRequestClose={this.handleCloseModal}
-           className="Modal"
-           overlayClassName="Overlay"/>
         <DeleteModal 
             handleDelete={this.handleDelete}
             handleCancel={this.handleCancel}/>
-        </div>
             ): null}
         {this.state.enableEdit ? (
         <div className="newnote-container">
@@ -105,4 +98,4 @@ const mapStateToProps = state => ({
     notes: state
 });
 
-export default connect(mapStateToProps, { actions })(HandleNote);
+export default connect(mapStateToProps, actions)(HandleNote);

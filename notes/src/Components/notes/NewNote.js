@@ -8,7 +8,6 @@ class NewNote extends Component {
         title: '',
         text: ''
     };
-    handleInput = e => {this.setState({ [e.target.name]: e.target.value });};
 
     handleAddNote = e => {
         e.preventDefault();
@@ -16,7 +15,10 @@ class NewNote extends Component {
         this.props.addNote(note);
         this.props.history.push('/');
     };
-    render(){
+
+    handleInput = e => {this.setState({ [e.target.name]: e.target.value });};
+
+    render() {
     return (
         <div className="newnote-container">
             <div className="p-top">
@@ -43,4 +45,4 @@ class NewNote extends Component {
 }
 }
 
-export default connect(null, { actions })(NewNote);
+export default connect(null, actions)(NewNote);

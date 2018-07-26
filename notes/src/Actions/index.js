@@ -40,9 +40,7 @@ export const fetchNotes = () => {
     export const getNote = ({ id }) => {
       const request = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
       return dispatch => {
-        dispatch({
-          type: FETCHING
-        });
+        dispatch({ type: FETCHING });
         request
           .then(res => {
             dispatch({ type: GET_NOTE, payload: res.data });
