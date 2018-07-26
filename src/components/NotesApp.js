@@ -1,8 +1,5 @@
 import React from 'react';
-import AddNote from './AddNote';
 import Options from './Options';
-import Action from './Action';
-import Modal from 'react-modal';
 // import Header from './header';
 
 export default class NotesApp
