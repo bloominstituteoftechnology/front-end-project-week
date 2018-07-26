@@ -48,9 +48,6 @@ class HandleNote extends Component {
     
     render() {
     const { note } = this.props.notes;
-    if (!note) {
-        return <h2>Loading...</h2>;
-    }
     return (<div>
         {this.state.delete ? (
         <DeleteModal 
