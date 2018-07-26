@@ -38,15 +38,11 @@ class NewNote extends Component {
                 type="text" 
                 name="text"/>
                 </form>
-                <button className="form-button">Save</button>
+                <button type="submit" onClick={this.handleAddNote} className="form-button">Save</button>
                 </div>
             </div>
     )
 }
 }
 
-const mapStateToProps = state => ({
-    notes: state
-});
-
-export default connect(mapStateToProps, actions)(NewNote);
+export default connect(null, actions)(NewNote);

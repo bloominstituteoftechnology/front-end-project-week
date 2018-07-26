@@ -17,14 +17,13 @@ class HandleNote extends Component {
     //handleCloseModal(){ this.setState({ showModal: false });};
 
     componentDidMount() {
-        const { id } = this.props.match.params;
+        const id = this.props.match.params;
         this.props.fetchNote(id);
       };
 
     componentDidUpdate(prevProps) {
         const { note } = this.props.notes;
         if (prevProps.notes.note !== note){
-        console.log(note.title, note.textBody);//?
           this.setState({ title: note.title, text: note.textBody });
         }
       };
@@ -42,6 +41,8 @@ class HandleNote extends Component {
         this.props.deleteNote(id);
         this.props.history.push('/');
       };
+
+    handleModal = () => { this.setState({ delete: true });};
       
     handleCancel = () => {this.setState({ delete: false });};
       
@@ -62,7 +63,7 @@ class HandleNote extends Component {
         <div className="newnote-container">
         <header className="edit-delete">
           <span onClick={this.handleEdit}>edit</span>
-          <span onClick={this.handleOpenModal}>delete</span>
+          <span onClick={this.handleModal}>delete</span>
         </header>
         <h2>{note.title}</h2>
          <p>{note.textBody}</p>
