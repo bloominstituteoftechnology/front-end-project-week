@@ -134,7 +134,7 @@ class App extends Component {
       title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
       textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
       tags: [],
-      id: Date.now()
+      id: this.state.noteEntries.length+1
     }
 
     const noteEntryBlank = {
@@ -155,7 +155,7 @@ class App extends Component {
       title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
       textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
       tags: [],
-      id: Date.now()
+      id: this.state.noteEntries.length+1
     }
 
     const noteEntryBlank = {
@@ -164,6 +164,8 @@ class App extends Component {
       tags: [],
       id: ''
     }
+
+    
     noteEntries.push(noteEntry);
     this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
   }
@@ -236,10 +238,11 @@ class App extends Component {
         } />
 
         {/* VIEW NOTE COMPONENT */}
-          <Route path="/note" render={() =>
+          <Route path="/note/:id" render={(match) =>
             <RightHandSideContainerStyledDiv>
               <Note
                 noteEntries={this.state.noteEntries}
+                match = {match} {...this.props}
               />
             </RightHandSideContainerStyledDiv>
           } />
