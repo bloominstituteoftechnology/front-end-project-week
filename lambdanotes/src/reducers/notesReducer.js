@@ -35,7 +35,8 @@ const notesReducer = (state = initialState, action) => {
                 })
                 return [...state]
         case DELETE_NOTE:
-            return
+            state.filter(note => note.id != action.payload.id)
+            return [...state]
         default:
             return state;
     }

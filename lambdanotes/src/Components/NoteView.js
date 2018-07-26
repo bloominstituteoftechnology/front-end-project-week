@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { deleteNote } from '../actions/index';
 
 
 const Container = styled.div`
@@ -69,22 +71,32 @@ class NoteView extends Component {
         document.getElementById('app').style.opacity = '1';
     }
 
+    handleDeleteNote = () => {
+        document.getElementById('delete-form').style.display = 'none';
+        document.getElementById('app').style.opacity = '1';
+        this.props.deleteNote(this.props.location.state.id)
+    }
+
     render() {
         return ( 
             <Container>
                 <DeleteForm id='delete-form'>
                     <DeleteSpan> Are you sure you want to delete this?</DeleteSpan>
-                    <Link to='/' style={{ 
-                        textDecoration: 'none',
-                        height: '30px', 
-                        width: '175px', 
-                        background: '#C30019', 
-                        color: 'white', 
-                        font: 'bold', 
-                        border: '#E3DADC', 
-                        textAlign: 'center', 
-                        paddingTop: '10px' 
-                    }}>
+                    <Link 
+                        to='/'
+                        onClick={this.handleDeleteNote} 
+                        style={{ 
+                            textDecoration: 'none',
+                            height: '30px', 
+                            width: '175px', 
+                            background: '#C30019', 
+                            color: 'white', 
+                            font: 'bold', 
+                            border: '#E3DADC', 
+                            textAlign: 'center', 
+                            paddingTop: '10px'
+                        }}
+                    >
                         Delete
                     </Link>
                     <NoButton onClick={this.toggleDeleteFormOff}>No</NoButton>
@@ -100,4 +112,4 @@ class NoteView extends Component {
     }
 }
 
-export default NoteView;
+export default connect(null, { deleteNote })(NoteView);
