@@ -16,7 +16,6 @@ const NoteCardContainerStyledDiv = styled.div`
 const NoteCardTitleStyledHeading = styled.h2`
     font-size:22px;
 `
-
 const NoteCardTitleContainerStyledDiv = styled.div`
     margin-top:8px;
     margin-left:10px;
@@ -40,7 +39,6 @@ const NoteCard = props => {
     return (
         <div>
             <Link to = {`/note/${props.noteEntry.id}`} style={{ textDecoration: "none" }}>
-            {/* <Link to={"/note/:id"} style={{ textDecoration: "none" }}> */}
                 <NoteCardContainerStyledDiv>
                     <NoteCardTitleContainerStyledDiv>
                         <NoteCardTitleStyledHeading>
@@ -58,40 +56,5 @@ const NoteCard = props => {
         </div>
     );
 }
-
-
-// class NoteCard extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-            
-//         };
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//             <Link to={"/note/:id"} style={{ textDecoration: "none" }}>
-//                 <NoteCardContainerStyledDiv>
-//                     <NoteCardTitleContainerStyledDiv>
-//                         <NoteCardTitleStyledHeading>
-//                             TITLE:{props.noteEntry.title}
-//                         </NoteCardTitleStyledHeading>
-//                     </NoteCardTitleContainerStyledDiv>
-                    
-//                     <NoteCardContentContainerStyledDiv>
-//                         <NoteCardContentStyledP>
-//                             TEXT: {props.noteEntry.textBody}
-//                         </NoteCardContentStyledP>
-//                     </NoteCardContentContainerStyledDiv>
-//                 </NoteCardContainerStyledDiv>
-//             </Link>
-//         </div> 
-//         )
-//     }
-// }
-
-
-
 
 export default NoteCard; 

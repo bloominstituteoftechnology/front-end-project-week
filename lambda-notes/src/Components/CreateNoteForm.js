@@ -57,5 +57,4 @@ const CreateNoteForm = props => {
 }
 
 
-
 export default CreateNoteForm;

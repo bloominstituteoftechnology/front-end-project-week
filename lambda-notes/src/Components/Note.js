@@ -23,7 +23,7 @@ class Note extends Component {
                         <button>edit</button>
                     </Link>
                     <br />
-
+ 
                     <Link to={`/`}>
                     <button onClick={(e) => this.props.deleteNoteEntry(e, this.props.match.match.params.id)}>
                         <Link to={`/`}>
@@ -34,9 +34,9 @@ class Note extends Component {
                 </div>
                 
                 <div>
-                    TITLE:{this.state.note.title}
+                   TITLE: {this.state.note.title}
                     <br />
-                    TEXT: {this.state.note.textBody}
+                   CONTENT:{this.state.note.textBody}
                 </div>
             </div>
         ) 
