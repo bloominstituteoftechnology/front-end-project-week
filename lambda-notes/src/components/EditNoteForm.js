@@ -54,7 +54,7 @@ class EditNoteForm extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    note: state.find((note) => note.id === props.id)  
+    note: state.notes.find((note) => note.id === props.id)  
   };
 };
  

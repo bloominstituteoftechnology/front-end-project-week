@@ -23,7 +23,7 @@ const NotesList = (props) => {
  
 const mapStateToProps = (state) => {
   return {
-    notes: state
+    notes: state.notes
   };
 };
 
