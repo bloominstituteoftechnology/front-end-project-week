@@ -7,32 +7,16 @@ class NoteForm extends Component {
     title: '',
     textBody: ''
   }
-  // inputChangeHandler = (e) => {
-  //   e.preventDefault();
-  //   this.setState({ [e.target.name]: e.target.value });
-  // }
+
   saveHandler = (e) => {
     e.preventDefault();
-    console.log('wtf');
     const title = this.state.title;
     const textBody = this.state.textBody;
     this.props.saveNote(title, textBody);
-    this.setState({ title: '', textBody: '' })
+    this.setState({ title: '', textBody: '' });
+    this.props.history.push('/')
   }
-  // createHandler = () => {
-  //   const title = this.state.title;
-  //   const textBody = this.state.textBody;
-  //   const note = {
-  //     title,
-  //     textBody,
-  //     id: Math.random()
-  //   }
-  //   this.props.saveNote(note);
-  //   this.setState({ 
-  //     title: '' ,
-  //     textBody: ''
-  //   });
-  // }
+  
   onTitleChange = (e) => {
     const title = e.target.value;
     this.setState({ title });

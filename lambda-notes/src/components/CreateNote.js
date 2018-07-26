@@ -8,7 +8,7 @@ const CreateNote = (props) => {
     <div>
       <Sidebar />
       <h3>Create New Note:</h3>
-      <NoteForm />
+      <NoteForm history={props.history} />
     </div>
   );
 }

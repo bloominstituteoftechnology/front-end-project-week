@@ -25,7 +25,7 @@ class EditNoteForm extends Component {
       textBody: this.state.textBody,
     }
     this.props.editNote(changedNote, this.props.id);
-    this.setState({ title: '', textBody: '' })
+    this.props.history.push('/');
   }
   render() { 
     console.log('EditForm', this.props)
