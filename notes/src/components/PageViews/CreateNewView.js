@@ -1,5 +1,6 @@
 import React from 'react';
 import './CreateNewView.css'
+import { Link } from 'react-router-dom';
 
 const CreateNewView = (props) => {
     return (
@@ -19,7 +20,9 @@ const CreateNewView = (props) => {
                         value={props.textBody}
                         onChange={props.changeTextBody}
                     />
-                <button onClick={props.addNewNote}>Save</button>
+                <Link to='/'>
+                    <button onClick={props.addNewNote}>Save</button>
+                </Link>
             </form>
         </div>
     );

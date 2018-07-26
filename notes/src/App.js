@@ -6,6 +6,7 @@ import ListView from './components/PageViews/ListView';
 import CreateNewView from './components/PageViews/CreateNewView';
 import EditView from './components/PageViews/EditView';
 import NoteView from './components/PageViews/NoteView';
+import DeleteModal from './components/PageViews/DeleteModal';
 import notesData from './notes-data';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
       notes: [],
       title: '',
       textBody: '',
+      delete: false,
     };
   }
 
@@ -42,6 +44,14 @@ class App extends Component {
     this.setState({ textBody: e.target.value})
   }
 
+  // deleteNote = () => {
+  //   this.state.notes.map((note, index) => {
+  //     if(this.state.match.params.id === note.id.toString()) {
+  //       this.
+  //     }
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
@@ -66,7 +76,6 @@ class App extends Component {
             />
           )}
         />
-        <Route path='/edit' component= {EditView} />
         <Route
           path='/view/:_id'
           render={props => (
@@ -77,6 +86,8 @@ class App extends Component {
             />
           )}
         />
+        <Route path='/edit' component= {EditView} />
+        <Route path='/delete' render={props => (<DeleteModal {...props}/> )} />
       </div>
     );
   }
