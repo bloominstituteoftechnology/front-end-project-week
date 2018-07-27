@@ -4,9 +4,9 @@ return (
 	);
 }
 
-export const cancelNote = (post) => {
+export const cancelNote = () => {
 return (
-	{type:'VIEWING',payload:post}
+	{type:'VIEWING'}
 	);
 }
 

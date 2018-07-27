@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   display:flex;
 }
 
@@ -36,17 +35,22 @@
 	display:flex;
 	width:800px;
 	flex-wrap:wrap;
-	margin-left:50px;
+	margin-left:20px;
 }
 
 .card {
 	margin-top:20px;
 	display:flex;
 	flex-direction:column;
-	width:33.3%;
+	width:31%;
+	border:1px solid #979797;
+	margin-left:2.3%;
 }
 
 .title{
+	width:70%;
 	font-size:20px;
+	padding-bottom:5px;
 	margin-bottom:10px;
+	border-bottom:1px solid #979797;
 }
