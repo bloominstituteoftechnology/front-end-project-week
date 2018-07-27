@@ -10,7 +10,7 @@ const List = (props) => {
 			{post.title}
 			</div>
 			<div className="content">
-			{post.content.length > 199 ? `${post.content.slice(0,199)}`+'...' : post.content}
+			{post.content.length > 199 ? `${post.content.slice(0,199)}...` : post.content}
 			</div>
 		</div>
 		

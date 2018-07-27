@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import List from './components/list';
 import Form from './components/form';
 import SideBar from './components/sideBar';
-import { newNote,cancelNote } from './actions/actions';
+import { newNote,cancelNote,changeTitle,changeContent } from './actions/actions';
 
 class App extends Component {
   render() {
@@ -13,7 +12,8 @@ class App extends Component {
       <div className="App">
 	  <SideBar adding={this.props.newNote} viewing={this.props.cancelNote} />
 	  {this.props.posting ? 
-	  <Form title={this.props.newPostTitle} content={this.props.newPostContent} />
+	  <Form title={this.props.newPostTitle} content={this.props.newPostContent} 
+	  changeTitle={this.props.changeTitle} changeContent={this.props.changeContent} />
 	  :
 	  <List props={this.props.posts} />
 	  }
@@ -31,4 +31,4 @@ return {
 	};
 };
 
-export default connect(stateToProps, { newNote,cancelNote })(App);
+export default connect(stateToProps, { newNote,cancelNote,changeTitle,changeContent })(App);

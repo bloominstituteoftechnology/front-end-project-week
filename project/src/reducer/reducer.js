@@ -33,7 +33,15 @@ switch (action.type){
 	case 'VIEWING':
 		return (
 		{...state,posting:false}
-		)
+		);
+	case 'UPDATE_TITLE':
+		return (
+		{...state,newPostTitle:action.payload}
+		);
+	case 'UPDATE_CONTENT':
+		return (
+		{...state,newPostContent:action.payload}
+		);
 default:
 	return state;
 }

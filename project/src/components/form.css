@@ -1,0 +1,19 @@
+.form {
+	display:flex;
+	flex-direction:column;
+	width:100%;
+	max-width:880px;
+	align-items:flex-start;
+	margin-left:10px;
+}
+
+textarea {
+	margin-top:25px;
+	border:1px solid #979797;
+	resize:none;
+}
+
+.form .content {
+	height:500px;
+	width:50%;
+}
