@@ -9,12 +9,18 @@ class NoteForm extends Component {
     textBody: ''
   };
 
+  componentDidMount() {
+    console.log('note form mounted?');
+    this.forceUpdate();
+  }
+
   handleNoteInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = () => {
     const note = { title: this.state.title, textBody: this.state.textBody };
+    console.log('note form');
     this.props.addNote(note);
     this.setState({ title: '', textBody: '' });
   };

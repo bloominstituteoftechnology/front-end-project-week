@@ -8,6 +8,9 @@ class SingleNote extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.forceUpdate();
+  }
   handleDeleteNote = () => {
     const { _id } = this.props.location.state._id;
     this.props.deleteNote(_id);
@@ -18,7 +21,7 @@ class SingleNote extends Component {
     return (
       <div className="single-note">
         <div className="edit-links">
-          <Link className="edit" to="/update">
+          <Link className="edit" to={{ pathname: '/update', _id }}>
             edit
           </Link>
           <Link className="edit" to="/" onClick={() => this.handleDeleteNote(_id)}>

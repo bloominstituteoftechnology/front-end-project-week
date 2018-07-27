@@ -18,6 +18,8 @@ class UpdateForm extends Component {
 
   handleUpdateSubmit = () => {
     const note = { editTitle: this.state.editTitle, editTextBody: this.state.editTextBody };
+    console.log(note);
+    console.log(this.props.location);
     this.props.updateNote(note);
     this.setState({ editTitle: '', editTextBody: '' });
   };
@@ -42,11 +44,11 @@ class UpdateForm extends Component {
           value={this.state.editTextBody}
           placeholder="edit textbody"
         />
-        <Link to="/">
-          <button className="save-button" onClick={() => this.handleUpdateSubmit()}>
-            Update
-          </button>
-        </Link>
+        {/* <Link to="/"> */}
+        <button className="save-button" onClick={() => this.handleUpdateSubmit()}>
+          Update
+        </button>
+        {/* </Link> */}
       </div>
     );
   }

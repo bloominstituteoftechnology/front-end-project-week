@@ -23,7 +23,6 @@ const fetchNotes = (dispatch) => {
 };
 
 export const gettingAllNotes = () => {
-  console.log('function invoked');
   return (dispatch) => {
     dispatch({ type: GETTING_NOTES });
     fetchNotes(dispatch);
@@ -74,11 +73,11 @@ export const deleteNote = (_id) => {
   };
 };
 
-export const updateNote = (_id) => {
+export const updateNote = (_id, note) => {
   return (dispatch) => {
     dispatch({ type: UPDATING_NOTE });
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${_id}`)
+      .put(`https://killer-notes.herokuapp.com/note/edit/${_id}`, note)
       .then((response) => {
         console.log(response);
         fetchNotes(dispatch);
