@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import List from './components/list';
 import Form from './components/form';
 import SideBar from './components/sideBar';
-import { newNote,cancelNote,changeTitle,changeContent,submitNote } from './actions/actions';
+import { newNote,cancelNote,changeTitle,changeContent,submitNote,viewNoteById } from './actions/actions';
 
 class App extends Component {
   render() {
@@ -16,9 +16,9 @@ class App extends Component {
 	  changeTitle={this.props.changeTitle} changeContent={this.props.changeContent}
 	  submitNote={this.props.submitNote}	/>
 	  :
-	  <List props={this.props.posts} />
+	  <List props={this.props.posts} viewing={this.props.viewing} viewNoteById={this.props.viewNoteById} />
 	  }
-	  </div>
+	 </div>
     );
   }
 }
@@ -28,8 +28,9 @@ return {
 	posts:state.posts,
 	newPostTitle:state.newPostTitle,
 	newPostContent:state.newPostContent,
-	posting:state.posting
+	posting:state.posting,
+	viewing:state.viewing
 	};
 };
 
-export default connect(stateToProps, { newNote,cancelNote,changeTitle,changeContent,submitNote })(App);
+export default connect(stateToProps, { newNote,cancelNote,changeTitle,changeContent,submitNote,viewNoteById })(App);

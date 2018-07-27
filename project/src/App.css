@@ -47,6 +47,10 @@
 	margin-left:2.3%;
 }
 
+.card:hover {
+	cursor:pointer;
+}
+
 .title{
 	width:70%;
 	font-size:20px;

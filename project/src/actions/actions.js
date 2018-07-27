@@ -6,7 +6,13 @@ return (
 
 export const cancelNote = () => {
 return (
-	{type:'VIEWING'}
+	{type:'VIEW_ALL'}
+	);
+}
+
+export const viewNoteById = (id) => {
+return (
+	{type:'VIEW_ONE',payload:id}
 	);
 }
 

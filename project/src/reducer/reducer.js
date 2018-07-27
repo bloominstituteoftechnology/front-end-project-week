@@ -4,35 +4,44 @@ const initial = {
 	posts: [
 	{
 	title:'test note',
-	content:ipsum
+	content:ipsum,
+	id:0
 	},
 	{
 	title:'another test',
-	content:ipsum
+	content:ipsum,
+	id:1
 	},
 	{
 	title:'last note of the row',
-	content:ipsum
+	content:ipsum,
+	id:2
 	},
 	{
 	title:'new row note',
-	content:ipsum
+	content:ipsum,
+	id:3
 	},
 	],
 	newPostTitle:'',
 	newPostContent:'',
-	posting:false
+	posting:false,
+	viewing:null
 };
 
 const reducer = (state=initial,action) => {
 switch (action.type){
 	case 'ADDING':
 		return (
-		{...state,posting:true}
+		{...state,posting:true,viewing:null}
 		);
-	case 'VIEWING':
+	case 'VIEW_ALL':
 		return (
-		{...state,posting:false}
+		{...state,posting:false,viewing:null}
+		);
+	case 'VIEW_ONE':
+		return (
+		{...state,viewing:action.payload}
 		);
 	case 'UPDATE_TITLE':
 		return (
@@ -45,7 +54,8 @@ switch (action.type){
 	case 'NEW_NOTE':
 		return (
 		{...state,newPostTitle:'',newPostContent:'',posting:false,
-		posts:[...state.posts,{title:action.payload.title,content:action.payload.content}]}
+		posts:[...state.posts,{title:action.payload.title,content:action.payload.content,
+		id:state.posts.length}]}
 		);
 	case 'ERROR':
 		return (
