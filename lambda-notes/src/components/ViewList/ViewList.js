@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Note from './Note';
 import { connect } from 'react-redux';
-import { getNotes } from '../../actions/index';
-import { Grid, Col, Row  } from 'react-bootstrap';
+import { fetchNotes } from '../../actions/index';
+// import { Grid, Col, Row  } from 'react-bootstrap';
 
 class ViewList extends Component {
 
-    componentDidMount = () => this.props.getNotes();
+    componentDidMount = () => this.props.fetchNotes();
 
     render = () => {
         const { notes, history } = this.props;
@@ -46,4 +46,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNotes })(ViewList);
+export default connect(mapStateToProps, { fetchNotes })(ViewList);

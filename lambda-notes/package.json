@@ -14,6 +14,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+    "sticky-sidebar": "^3.3.1",
     "thunk": "^0.0.1"
   },
   "scripts": {
