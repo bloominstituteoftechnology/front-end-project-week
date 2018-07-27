@@ -42,6 +42,15 @@ switch (action.type){
 		return (
 		{...state,newPostContent:action.payload}
 		);
+	case 'NEW_NOTE':
+		return (
+		{...state,newPostTitle:'',newPostContent:'',posting:false,
+		posts:[...state.posts,{title:action.payload.title,content:action.payload.content}]}
+		);
+	case 'ERROR':
+		return (
+		{...state,newPostTitle:'failed :('}
+		);
 default:
 	return state;
 }

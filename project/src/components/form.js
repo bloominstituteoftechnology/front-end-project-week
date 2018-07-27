@@ -11,7 +11,7 @@ return(
 	<textarea value={props.title} placeholder='Note Title' onChange={(e) => props.changeTitle(e.target.value)} />
 	<textarea value={props.content} placeholder='Note Content' className='content'
 	onChange={(e) => props.changeContent(e.target.value)} />
-	<div className="button Bform">
+	<div className="button Bform" onClick={() => props.submitNote({title:props.title,content:props.content})}>
 	submit!
 	</div>
 	</div>

@@ -21,3 +21,16 @@ return (
 {type:'UPDATE_CONTENT',payload:value}
 	);
 }
+
+export const submitNote = (value) => {
+if(value.title!=='' && value.content!==''){
+return (
+{type:'NEW_NOTE',payload:value}
+	);
+}
+else {
+return (
+{type:'ERROR'}
+);
+}
+}
