@@ -1,0 +1,25 @@
+form {
+    text-align: left;
+  }
+  
+  form h3 {
+    margin-bottom: 5%;
+  }
+  
+  form .title-input {
+    width: 70%;
+    vertical-align: center;
+    /* font-size: 1.6rem; */
+  }
+  
+  form .content-input {
+    height: 500px;
+    /* font-size: 1.6rem; */
+  }
+  
+  form .btn {
+    min-height: 62px;
+    font-size: 20px;
+    width: 30%;
+    font-size: 20px;
+  }

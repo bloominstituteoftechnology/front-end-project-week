@@ -1,5 +1,8 @@
 .App {
+  display: flex;
   text-align: center;
+  background: whitesmoke;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -23,6 +26,49 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  height: 100%;
+}
+
+h3 {
+  text-align: left;
+  padding: 8% 15px 0 15px;
+}
+
+.btn {
+  margin: 0 2px 1px 0;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+
+.modal-content {
+  text-align: center;
+  padding: 5% 8%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons .btn {
+  font-size: 2rem;
+  width: 45%;
+}
+
+.password-input.form-control {
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-top: 2%;
+  margin-right: 2px;
+  width: 40%;
 }

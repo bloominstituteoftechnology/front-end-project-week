@@ -1,0 +1,18 @@
+.note-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  #your-notes {
+    padding: 2% 15px 0 15px;
+  }
+  
+  .searchbar.form-control {
+    display: inline-block;
+    margin-top: 2%;
+    margin-right: 2px;
+    width: 40%;
+    padding-top: 0;
+  }
+ 
