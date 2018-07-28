@@ -59,3 +59,21 @@ return (
 );
 }
 }
+
+export const deleteNote = () => {
+return (
+{type:'DELETE'}
+	);
+}
+
+export const deleteCancel = () => {
+return (
+{type:'CANCEL_DELETE'}
+	);
+}
+
+export const deleteConfirm = () => {
+return (
+{type:'DELETE_CONFIRM'}
+	);
+}

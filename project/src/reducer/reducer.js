@@ -27,18 +27,19 @@ const initial = {
 	newPostContent:'',
 	posting:false,
 	viewing:null,
-	editing:false
+	editing:false,
+	deleting:false
 };
 
 const reducer = (state=initial,action) => {
 switch (action.type){
 	case 'ADDING':
 		return (
-		{...state,posting:true,viewing:null}
+		{...state,posting:true,viewing:null,deleting:false,editing:false}
 		);
 	case 'VIEW_ALL':
 		return (
-		{...state,posting:false,viewing:null}
+		{...state,posting:false,viewing:null,deleting:false}
 		);
 	case 'VIEW_ONE':
 		return (
@@ -61,11 +62,6 @@ switch (action.type){
 		newPostTitle:'',newPostContent:'',
 		posts:postCopy,
 		}
-		//this is where you need to work.
-		//currently will post "edits" as new notes.
-		//need to find some way to re-assign
-		//"state.posts[number]:action.payload"
-		//or something like that
 		);
 	case 'UPDATE_TITLE':
 		return (
@@ -81,9 +77,26 @@ switch (action.type){
 		posts:[...state.posts,{title:action.payload.title,content:action.payload.content,
 		id:(state.posts.length)}]}
 		);
+	case 'DELETE':
+		return (
+		{...state,deleting:true}
+		);
+	case 'CANCEL_DELETE':
+		return (
+		{...state,deleting:false}
+		);
+	case 'DELETE_CONFIRM':
+		let copy = state.posts.slice();
+		copy.splice(state.viewing,1);
+		for(let i=0;i<copy.length;i++){
+		copy[i].id = i;
+		}
+		return(
+		{...state,deleting:false,viewing:null,posts:copy}
+		);
 	case 'ERROR':
 		return (
-		{...state,newPostTitle:'failed :('}
+		{...state,newPostTitle:'error :('}
 		);
 default:
 	return state;

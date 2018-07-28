@@ -1,0 +1,45 @@
+.text {
+	color:#979797;
+	font-weight:700;
+}
+
+.select {
+	display:flex;
+	margin-top:30px;
+}
+
+.alertBox{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	border:1px solid #979797;
+	padding:20px;
+	position:absolute;
+	z-index:2;
+	background:#FFFFFF;
+	left:30%;
+	top:30%;
+}
+
+.confirm{
+	margin-right:20px;
+	background:red;
+}
+
+.deny{
+	background:#2BC1C4;
+}
+
+.selection{
+	color:white;
+	border:1px solid #979797;
+	width:150px;
+	height:40px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.selection:hover{
+	cursor:pointer;
+}

@@ -26,7 +26,7 @@ const List = (props) => {
 			<div className="edit" onClick={() => props.editNote(props.props[props.viewing].id)}>
 			edit
 			</div>
-			<div className="delete">
+			<div className="delete" onClick={() => props.deleteNote()}>
 			delete
 			</div>
 		</div>
@@ -37,7 +37,7 @@ const List = (props) => {
 			{props.props[props.viewing].content}
 		</div>
 	</div>
-		);	
+		);
 	}
 }
 
