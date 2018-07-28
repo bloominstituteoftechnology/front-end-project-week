@@ -4,6 +4,25 @@ return (
 	);
 }
 
+export const editNote = (id) => {
+return (
+	{type:'EDIT',payload:id}
+	);
+}
+
+export const submitEdit = (value) => {
+if(value.title!=='' && value.content!==''){
+return (
+{type:'EDIT_NOTE',payload:value}
+	);
+}
+else {
+return (
+{type:'ERROR'}
+);
+}	
+}
+
 export const cancelNote = () => {
 return (
 	{type:'VIEW_ALL'}

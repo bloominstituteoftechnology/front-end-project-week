@@ -26,7 +26,8 @@ const initial = {
 	newPostTitle:'',
 	newPostContent:'',
 	posting:false,
-	viewing:null
+	viewing:null,
+	editing:false
 };
 
 const reducer = (state=initial,action) => {
@@ -43,6 +44,29 @@ switch (action.type){
 		return (
 		{...state,viewing:action.payload}
 		);
+	case 'EDIT':
+		let onePost = state.posts.filter(post => post.id===action.payload);
+		return (
+		{...state,posting:true,editing:true,
+		newPostTitle:onePost[0].title,newPostContent:onePost[0].content}
+		);
+	case 'EDIT_NOTE':
+		let newPost=state.posts[state.viewing];
+		newPost.title=action.payload.title;
+		newPost.content=action.payload.content;
+		let postCopy = state.posts;
+		postCopy[state.viewing] = newPost;
+		return (
+		{...state,viewing:null,posting:false,editing:false,
+		newPostTitle:'',newPostContent:'',
+		posts:postCopy,
+		}
+		//this is where you need to work.
+		//currently will post "edits" as new notes.
+		//need to find some way to re-assign
+		//"state.posts[number]:action.payload"
+		//or something like that
+		);
 	case 'UPDATE_TITLE':
 		return (
 		{...state,newPostTitle:action.payload}
@@ -55,7 +79,7 @@ switch (action.type){
 		return (
 		{...state,newPostTitle:'',newPostContent:'',posting:false,
 		posts:[...state.posts,{title:action.payload.title,content:action.payload.content,
-		id:state.posts.length}]}
+		id:(state.posts.length)}]}
 		);
 	case 'ERROR':
 		return (

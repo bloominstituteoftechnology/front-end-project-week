@@ -22,11 +22,19 @@ const List = (props) => {
 	else{
 	return (
 	<div className="posts">
-		<div className="title">
-		{props.props[props.viewing].title}
+		<div className="options">
+			<div className="edit" onClick={() => props.editNote(props.props[props.viewing].id)}>
+			edit
+			</div>
+			<div className="delete">
+			delete
+			</div>
 		</div>
-		<div className="content">
-		{props.props[props.viewing].content}
+		<div className="title single">
+			{props.props[props.viewing].title}
+			</div>
+			<div className="content">
+			{props.props[props.viewing].content}
 		</div>
 	</div>
 		);	

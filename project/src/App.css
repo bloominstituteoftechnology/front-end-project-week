@@ -58,3 +58,27 @@
 	margin-bottom:10px;
 	border-bottom:1px solid #979797;
 }
+
+.single {
+	width:100%;
+}
+
+.edit {
+	margin-right:15px;
+}
+
+.delete:hover {
+	cursor:pointer;
+}
+
+.edit:hover {
+	cursor:pointer;
+}
+
+.options {
+	width:100%;
+	display:flex;
+	justify-content:flex-end;
+	color:#979797;
+	text-decoration:underline;
+}
