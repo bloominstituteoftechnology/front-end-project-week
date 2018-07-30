@@ -6,7 +6,6 @@
     "axios": "^0.18.0",
     "bootstrap": "3",
     "lodash": "^4.17.10",
-    "logger": "^0.0.1",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
@@ -14,8 +13,9 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "sticky-sidebar": "^3.3.1",
-    "thunk": "^0.0.1"
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sticky-sidebar": "^3.3.1"
   },
   "scripts": {
     "start": "react-scripts start",

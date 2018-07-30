@@ -10,26 +10,21 @@ import Sidebar from './components/Sidebar/Sidebar';
 import './App.css';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+
   render() {
 
     return (
       <div className="App">
-       {
-          document.location.href.slice(-1) === '/' ?
-          "" : <Sidebar />
-        }
-
-
-        <Route exact path='/notes' component={ViewList} />
-        <Route exact path='/Add-Note' component={AddNote} />
-        <Route exact path='/Edit-Note/:index' component={EditNote} />
-      
+        <Sidebar />
+        <Route exact path='/' component={ViewList} />
+        <Route path='/Add-Note' component={AddNote} />
+        <Route path='/Edit-Note/:index' component={EditNote} />
       </div>
     );
   }
-}
+ }
+ 
+
+
 
 //export default App;

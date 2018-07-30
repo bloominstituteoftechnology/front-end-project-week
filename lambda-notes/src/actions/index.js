@@ -44,8 +44,8 @@ export const addNote = note => {
 }
 
 //export const noteEdit = (note, id) => {
-  //  axios.put("https://killer-notes.herokuapp.com/note/edit/id", note);
-    //return dispatch => {
+  //axios.put("https://killer-notes.herokuapp.com/note/edit/id", note);
+   // return dispatch => {
       //  dispatch(getNotes());
     //}
 //} 

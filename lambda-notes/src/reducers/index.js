@@ -1,11 +1,17 @@
-import { GET_NOTES } from '../actions/index';
+import { SUCCESS, CREATE_NOTE } from '../actions/index';
+
+const initialState = {
+    notes: [],
+}
 
 
-export default (notes=[], action) => {
+export const notesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case GET_NOTES:
-        return action.payload.data;
+        case SUCCESS:
+            return {...state, notes:action.payload};
+        case CREATE_NOTE:
+            return {...state}// {...state}
         default:
-        return notes;
+            return state;
     }
 };

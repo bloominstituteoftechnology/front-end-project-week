@@ -16,7 +16,7 @@ class EditNote extends Component {
       const { title, text } = this.state;
       const { notes, match } = this.props;
       const note = notes[match.params.index];
-      this.props.noteEdit({
+      this.props.EditNote({
         title: title === '' ? note.title : title,
         text: text === '' ? note.text : text,
         completed: note.completed,
@@ -66,5 +66,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {noteEdit})(EditNote);
+export default connect(mapStateToProps, {EditNote})(EditNote);
 
