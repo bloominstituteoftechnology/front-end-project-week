@@ -8,8 +8,13 @@ import ViewNote from './components/ViewNote';
 import DeleteModal from './components/DeleteModal';
 
 class App extends Component {
+  componentWillMount() {
+    console.log('App cwm')
+  }
+  componentDidMount() {
+    console.log('App')
+  }
   render() {
-    console.log('log 1', this.props);
     return (
       <BrowserRouter>
         <div className="App">

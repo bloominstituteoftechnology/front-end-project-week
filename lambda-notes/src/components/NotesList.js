@@ -1,30 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Note from './Note';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
+import { getNotes } from '../actions/notesActions'
 
-const NotesList = (props) => {
-  console.log('log 2', props)
-  return ( 
-    <div>
-      <h3>Your Notes:</h3>
-      {
-        props.notes.map((note) => {
-          return (
-            <Link key={Math.random()} to={`/note/${note.id}`}>
-              <Note title={note.title} textBody={note.textBody} />
-            </Link>
-          );
-        })
-      }
-    </div>
-   );
+class NotesList extends Component {
+  
+  componentDidMount() {
+    this.props.getNotes();
+  }
+  render() {
+    console.log('NotesList', this.props)
+    return ( 
+      <div>
+        <h3>Your Notes:</h3>
+        {
+          this.props.notes.map((note) => {
+            return (
+              <Link key={Math.random()} to={`/note/${note.id}`}>
+                <Note title={note.title} textBody={note.textBody} />
+              </Link>
+            );
+          })
+        }
+      </div>
+     );
+  }  
 };
  
 const mapStateToProps = (state) => {
+  console.log('mstp',state);
   return {
     notes: state.notes
   };
 };
 
-export default connect(mapStateToProps)(NotesList);
+export default connect(mapStateToProps, {getNotes})(NotesList);
