@@ -12,12 +12,12 @@ class SingleNote extends Component {
     this.forceUpdate();
   }
   handleDeleteNote = () => {
-    const { _id } = this.props.location.state._id;
+    const { _id } = this.props.location.state;
     this.props.deleteNote(_id);
   };
 
   render() {
-    const { _id } = this.props.location.state._id;
+    const { _id } = this.props.location.state;
     return (
       <div className="single-note">
         <div className="edit-links">

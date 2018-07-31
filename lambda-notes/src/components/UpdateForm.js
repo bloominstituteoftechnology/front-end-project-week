@@ -44,11 +44,11 @@ class UpdateForm extends Component {
           value={this.state.editTextBody}
           placeholder="edit textbody"
         />
-        {/* <Link to="/"> */}
-        <button className="save-button" onClick={() => this.handleUpdateSubmit()}>
-          Update
-        </button>
-        {/* </Link> */}
+        <Link to="/">
+          <button className="save-button" onClick={() => this.handleUpdateSubmit()}>
+            Update
+          </button>
+        </Link>
       </div>
     );
   }
