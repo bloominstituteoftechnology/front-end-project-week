@@ -21,7 +21,7 @@ class SingleNote extends Component {
     return (
       <div className="single-note">
         <div className="edit-links">
-          <Link className="edit" to={{ pathname: '/update', _id }}>
+          <Link className="edit" to={{ pathname: '/update', state: this.props.location.state }}>
             edit
           </Link>
           <Link className="edit" to="/" onClick={() => this.handleDeleteNote(_id)}>

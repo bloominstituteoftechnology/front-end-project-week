@@ -5,7 +5,8 @@ import {
   ADDING_NOTE,
   ADDED_NOTE,
   DELETING_NOTE,
-  UPDATING_NOTE
+  UPDATING_NOTE,
+  NOTE_UPDATED
 } from '../actions';
 
 const initialState = {
@@ -41,6 +42,8 @@ export const noteReducer = (state = initialState, action) => {
       return { ...state, deletingNote: true };
     case UPDATING_NOTE:
       return { ...state, updatingNote: true };
+    // case NOTE_UPDATED:
+    //   return { ...state, note: action.payload };
     case ERROR:
       return { ...state, error: action.message };
     default:
