@@ -22,8 +22,10 @@ export const saveNote = (title, textBody) => {
     axios.post(`${URL}/create`, { title, textBody })
       .then(response => {
         console.log('SAVE', response);
-        dispatch({ type: 'SAVE_NOTE', 
-        note: {title: title, textBody: textBody} });
+        dispatch({
+          type: 'SAVE_NOTE', 
+          note: {title: title, textBody: textBody} 
+        });
       })
       .catch(err => {
         console.log('saveERR', err)
@@ -38,10 +40,23 @@ export const saveNote = (title, textBody) => {
 //   textBody
 // });
 
-export const deleteNote = (id) => ({
-  type: 'DELETE_NOTE',
-  id,
-});
+export const deleteNote = (id) => {
+  return dispatch => {
+    dispatch({ type: 'DELETEING_NOTE' });
+    axios.delete(`${URL}/delete/${id}`)
+      .then(response => {
+        dispatch({ type: 'DELETE_NOTE', id });    
+      })
+      .catch(err => {
+        dispatch({ type: 'ERROR', err});
+      });
+  };
+};
+
+// export const deleteNote = (id) => ({
+//   type: 'DELETE_NOTE',
+//   id,
+// });
 
 export const editNote = (changedNote, id) => ({
   type: 'EDIT_NOTE',

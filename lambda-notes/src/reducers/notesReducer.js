@@ -19,7 +19,11 @@ const notesReducer = (state = initialState, action) => {
     case 'SAVE_NOTE':
       return { ...state, notes: [...state.notes, {title: action.note.title, textBody: action.note.textBody}] };
     case 'DELETE_NOTE':
-      return state.notes.filter((note) => note.id !== action.id);
+      return { 
+        ...state,
+        notes: state.notes.filter((note) => note._id !== action.id)
+      }
+
     case 'EDIT_NOTE':
       return state.notes.map((note) => {
         if (note.id === action.id) {

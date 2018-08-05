@@ -29,7 +29,7 @@ class NotesList extends Component {
 };
  
 const mapStateToProps = (state) => {
-  console.log('mstp',state);
+  console.log('mstp',state.notes);
   return {
     notes: state.notes
   };
