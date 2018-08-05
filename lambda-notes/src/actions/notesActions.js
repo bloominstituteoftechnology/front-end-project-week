@@ -16,11 +16,27 @@ export const getNotes = () => {
   };
 };
 
-export const saveNote = (title, textBody) => ({
-  type: 'SAVE_NOTE',
-  title,
-  textBody
-});
+export const saveNote = (title, textBody) => {
+  return dispatch => {
+    dispatch({ type: 'SAVING_NOTE' });
+    axios.post(`${URL}/create`, { title, textBody })
+      .then(response => {
+        console.log('SAVE', response);
+        dispatch({ type: 'SAVE_NOTE', 
+        note: {title: title, textBody: textBody} });
+      })
+      .catch(err => {
+        console.log('saveERR', err)
+        dispatch({ type: 'ERROR', error: err });
+      });
+  };
+};
+
+// export const saveNote = (title, textBody) => ({
+//   type: 'SAVE_NOTE',
+//   title,
+//   textBody
+// });
 
 export const deleteNote = (id) => ({
   type: 'DELETE_NOTE',

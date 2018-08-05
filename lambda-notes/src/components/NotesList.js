@@ -17,7 +17,7 @@ class NotesList extends Component {
         {
           this.props.notes.map((note) => {
             return (
-              <Link key={Math.random()} to={`/note/${note.id}`}>
+              <Link key={Math.random()} to={`/note/${note._id}`}>
                 <Note title={note.title} textBody={note.textBody} />
               </Link>
             );

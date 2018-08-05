@@ -11,11 +11,13 @@ const initialState = {
 const notesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'GETTING_NOTES':
-      return { ...state, gettingNotes: true};
+      return { ...state, gettingNotes: true };
     case 'GET_NOTES':
-      return { ...state, notes: action.notes, gettingNotes: false};
+      return { ...state, notes: action.notes, gettingNotes: false };
+    case 'SAVING_NOTE':
+      return { ...state, savingNote: true }
     case 'SAVE_NOTE':
-      return [...state, { title: action.title, textBody: action.textBody}];
+      return { ...state, notes: [...state.notes, {title: action.note.title, textBody: action.note.textBody}] };
     case 'DELETE_NOTE':
       return state.notes.filter((note) => note.id !== action.id);
     case 'EDIT_NOTE':

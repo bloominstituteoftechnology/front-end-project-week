@@ -14,7 +14,7 @@ class NoteForm extends Component {
     const textBody = this.state.textBody;
     this.props.saveNote(title, textBody);
     
-    this.props.history.push('/')
+    //this.props.history.push('/')
   }
   
   onTitleChange = (e) => {
