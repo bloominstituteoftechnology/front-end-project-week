@@ -48,7 +48,7 @@ export const deleteNote = (id) => {
         dispatch({ type: 'DELETE_NOTE', id });    
       })
       .catch(err => {
-        dispatch({ type: 'ERROR', err});
+        dispatch({ type: 'ERROR', err });
       });
   };
 };
@@ -58,10 +58,23 @@ export const deleteNote = (id) => {
 //   id,
 // });
 
-export const editNote = (changedNote, id) => ({
-  type: 'EDIT_NOTE',
-  changedNote,
-  id
-});
+export const editNote = (changedNote, id) => {
+  return dispatch => {
+    dispatch({ type: 'EDITING_NOTE',});
+    axios.put(`${URL}/edit/${id}`)
+      .then(response => {
+        dispatch({ type: 'EDIT_NOTE', id, changedNote });
+      })
+      .catch(err => {
+        dispatch({ type: 'ERROR', err })
+      });
+  };
+};
+
+// export const editNote = (changedNote, id) => ({
+//   type: 'EDIT_NOTE',
+//   changedNote,
+//   id
+// });
 
 

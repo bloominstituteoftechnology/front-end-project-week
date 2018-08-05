@@ -17,24 +17,43 @@ const notesReducer = (state = initialState, action) => {
     case 'SAVING_NOTE':
       return { ...state, savingNote: true }
     case 'SAVE_NOTE':
-      return { ...state, notes: [...state.notes, {title: action.note.title, textBody: action.note.textBody}] };
+      return { 
+        ...state,
+        notes: [
+          ...state.notes, 
+          {title: action.note.title, textBody: action.note.textBody}
+        ],
+        savingNote: false, 
+      };
+    case 'DELETING_NOTE':
+      return  {
+        ...state, deletingNote: true
+      }
     case 'DELETE_NOTE':
       return { 
         ...state,
-        notes: state.notes.filter((note) => note._id !== action.id)
+        notes: state.notes.filter((note) => note._id !== action.id),
+        deletingNote: false,
       }
-
+    case 'EDITING_NOTE':
+      return {
+        ...state, editingNote: true
+      }
     case 'EDIT_NOTE':
-      return state.notes.map((note) => {
-        if (note.id === action.id) {
-          return {
-            ...note,
-            ...action.changedNote
-          };
-        } else {
-          return note;
-        }
-      });
+      return {
+        ...state,
+        notes: state.notes.map((note) => {
+          if (note._id === action.id) {
+            return {
+              ...note,
+              ...action.changedNote
+            };
+          } else {
+            return note;
+          }
+        }),
+        editingNote: false,
+      }
     case 'ERROR':
       return {
         ...state,
