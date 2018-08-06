@@ -61,8 +61,9 @@ export const deleteNote = (id) => {
 export const editNote = (changedNote, id) => {
   return dispatch => {
     dispatch({ type: 'EDITING_NOTE',});
-    axios.put(`${URL}/edit/${id}`)
+    axios.put(`${URL}/edit/${id}`, changedNote)
       .then(response => {
+        console.log('editNote', response);
         dispatch({ type: 'EDIT_NOTE', id, changedNote });
       })
       .catch(err => {
