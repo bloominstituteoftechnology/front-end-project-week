@@ -5,9 +5,10 @@ import NewNote from '../containers/NewNote'
 import SideNav from './SideNav'
 import NoteDetails from '../containers/NoteDetails'
 import NoMatch from './NoMatch'
+import Authentication from '../Auth/Auth'
 class App extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       search: ''
     }
@@ -19,12 +20,19 @@ class App extends Component {
   handleChange = (e) => {
     this.setState({ search: e.target.value })
   }
+  handleClear = () => {
+    this.setState({ search: '' })
+  }
 
   render () {
     console.log(this.state.search)
     return (
       <div className='App'>
-        <SideNav getTag={this.getTag} />
+        <SideNav
+          logOut={this.props.logOut}
+          getTag={this.getTag}
+          handleClear={this.handleClear}
+        />
         <Switch>
           <Route
             exact
@@ -34,6 +42,7 @@ class App extends Component {
                 {...props}
                 search={this.state.search}
                 handleChange={this.handleChange}
+                handleClear={this.handleClear}
               />
             )}
           />
@@ -46,4 +55,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default Authentication(App)

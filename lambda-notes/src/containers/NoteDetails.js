@@ -1,27 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteNote, editNote } from '../actions'
+import { deleteNote, editNote, getNote } from '../actions'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 class NoteDetails extends Component {
   constructor (props) {
     super(props)
-
+    this.props.getNote(this.props.match.params.id)
     this.state = {
       modal: false,
       editModal: false,
       isEditing: false,
-      title: '',
-      textBody: '',
-      tags: ''
-    }
-  }
-
-  componentDidMount () {
-    this.setState({
       title: this.props.note.title,
-      textBody: this.props.note.textBody
-    })
+      textBody: this.props.note.textBody,
+      tags: this.props.note.tags
+    }
   }
 
   toggle = () => {
@@ -85,26 +78,29 @@ class NoteDetails extends Component {
                     onSubmit={this.handleSubmit}
                     className='editForm d-flex flex-column'
                   >
-                    <label>Title:</label>
+                    <label style={{ fontWeight: 'bold' }}>Title:</label>
                     <input
                       className='edit-title'
                       type='text'
                       name='title'
                       value={this.state.title}
                       onChange={this.handleChange}
+                      style={{ padding: '10px' }}
                     />
-                    <label>
+                    <label style={{ fontWeight: 'bold' }}>
                       Add Tags: <i className='fas fa-tag' />
                     </label>
                     <input
-                      className='add tags'
+                      style={{ padding: '10px' }}
+                      className='edit-title'
                       type='text'
                       name='tags'
                       value={this.state.tags}
                       onChange={this.handleChange}
                     />
-                    <label>Note:</label>
+                    <label style={{ fontWeight: 'bold' }}>Note:</label>
                     <textarea
+                      style={{ padding: '10px' }}
                       className='edit-textBody'
                       type='text'
                       name='textBody'
@@ -173,4 +169,6 @@ const mapStateToProps = (state) => {
     note: state.note
   }
 }
-export default connect(mapStateToProps, { deleteNote, editNote })(NoteDetails)
+export default connect(mapStateToProps, { deleteNote, editNote, getNote })(
+  NoteDetails
+)

@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-const url = `https://killer-notes.herokuapp.com/note`
+const url = `http://localhost:8000/api/`
 export const GET_NOTES = 'GET_NOTES'
 export const FETCHING = 'FETCHING'
 export const ERROR = 'ERROR'
@@ -33,6 +32,7 @@ export const fetchNotes = () => {
       .then((res) => {
         const arr = res.data.map((note) => note.tags)
         let tags = [ ...new Set(flatten(arr)) ].filter((tag) => tag.length >= 2)
+        console.log('IN HERERE', tags)
         dispatch({ type: GET_TAGS, payload: tags })
         dispatch({ type: GET_NOTES, payload: res.data })
         dispatch({ type: FETCHING, payload: false })
@@ -50,7 +50,6 @@ export const getNote = (id) => {
         console.log(res.data)
         dispatch({ type: GETTING_NOTE, payload: false })
         dispatch({ type: GET_NOTE, payload: res.data })
-        dispatch({})
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
@@ -87,6 +86,7 @@ export const postNote = (note) => {
             let tags = [ ...new Set(flatten(arr)) ].filter(
               (tag) => tag.length >= 2
             )
+
             dispatch({ type: GET_TAGS, payload: tags })
             dispatch({ type: GET_NOTES, payload: res.data })
             dispatch({ type: POSTING, payload: false })

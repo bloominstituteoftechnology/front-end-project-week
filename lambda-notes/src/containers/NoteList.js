@@ -12,13 +12,11 @@ class NoteList extends Component {
   render () {
     const { search } = this.props
     const filteredNotes = this.props.notes.filter((note) => {
-      if (
+      return (
         note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         note.textBody.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         note.tags.join('').toLowerCase().indexOf(search.toLowerCase()) !== -1
-      ) {
-        return note
-      }
+      )
     })
 
     return (
@@ -33,6 +31,9 @@ class NoteList extends Component {
               value={this.props.search}
               onChange={this.props.handleChange}
             />
+            <div className='clear-Btn' onClick={this.props.handleClear}>
+              Clear
+            </div>
           </div>
           {this.props.api.fetching ? (
             <Loading />

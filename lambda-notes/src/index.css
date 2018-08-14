@@ -26,17 +26,16 @@ label {
   padding: 0.8em;
   overflow: hidden;
   box-shadow: 10px 5px 5px #e5e4e6;
+  transition: transform 300ms ease-in-out;
 }
 
 .myLink p {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .cardBody {
-  -webkit-line-clamp: 4;
+  overflow-wrap: break-word;
 }
 .myLink:hover {
   color: black;
@@ -157,10 +156,10 @@ label {
 .sideNav {
   background-color: #d3d2d3;
   min-height: 100vh;
-  min-width: 300px;
   display: flex;
   flex-flow: column;
   padding: 1em;
+  width: 380px;
 }
 
 .title-input {
@@ -242,7 +241,8 @@ label {
 }
 .notelist-header-div {
   Display: flex;
-  height: 90px;
+  height: 68px;
+  margin-bottom: 1em;
 }
 .note-header {
   font-size: 2rem;
@@ -260,20 +260,85 @@ label {
   cursor: pointer;
 }
 .fas {
-  margin-left: 8px;
+  margin-left: 3px;
 }
-@media (max-width: 1193px) {
+.search-div {
+  display: flex;
+  width: 100%;
+}
+.clear-Btn {
+  border: 1px solid black;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  margin-right: 1.3em;
+  height: 40px;
+}
+.clear-Btn:hover {
+  background-color: #97282e;
+}
+.edit-textBody {
+  min-height: 300px;
+}
+
+.edit-title {
+  height: 40px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.login {
+  margin-top: 200px;
+  height: 300px;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 200px;
+}
+.login-label {
+  margin-top: 5px;
+}
+.login-header {
+  font-size: 3rem;
+}
+.logout-Btn {
+  border: 2px solid;
+  text-align: center;
+  padding: 0.2em;
+}
+.logout-Btn:hover {
+  cursor: pointer;
+  background-color: #97282e;
+}
+@media (max-width: 1307px) {
   .note-header {
     display: none;
   }
 }
 
+@media (max-width: 1123px) {
+  .search-input {
+    width: 23rem;
+  }
+}
+
 @media (max-width: 908px) {
   .myLink {
-    width: 270px;
+    width: 240px;
+    transform: translate(10px, 0px);
   }
   .sideNav {
     min-width: 220px;
+  }
+  .search-input {
+    width: 19rem;
   }
 }
 
@@ -282,13 +347,15 @@ label {
     width: 21rem;
   }
   .myLink {
-    width: 240px;
+    width: 220px;
+    transform: translate(10px, 0px) rotate(0deg);
   }
 }
 
 @media (max-width: 750px) {
   .myLink {
-    width: 210px;
+    width: 220px;
+    transform: translate(10px, 0px) rotate(0deg);
   }
 }
 
@@ -297,16 +364,32 @@ label {
     display: flex;
     flex-direction: column;
   }
+
   .myLink {
-    width: 193px;
+    width: 185px;
+    margin-right: 5px;
+    transform: translate(10px, 0px) rotate(0deg);
   }
   .sideNav {
     min-height: 65vh;
+    width: 100%;
+  }
+  .notes {
+    justify-content: space-around;
+  }
+  .padding-container {
+    padding: 0.8em;
   }
   .lambda-logo {
     margin: 0 auto;
   }
   .sideNav-note-header {
     margin-left: 0.9em;
+  }
+}
+@media (max-width: 420px) {
+  .myLink {
+    width: 174px;
+    transform: translate(10px, 0px) rotate(0deg);
   }
 }
