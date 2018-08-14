@@ -4,7 +4,18 @@ This week you will be building a minimum viable product (MVP) for a note taking 
 
 You are to treat this week as if you are working at a company and the instructor is your client. The project managers will be your main support throughout the week.
 
-The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repository you should use as a creative guide.
+The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repository you should use as a creative guide.sdfgbdsfgbnsfgbdsfgbdsfgb
+sf
+gb
+dsfg
+ne
+fgn
+edfg
+bn
+dfg
+bn
+efg
+n
 
 ## Git Commits
 
