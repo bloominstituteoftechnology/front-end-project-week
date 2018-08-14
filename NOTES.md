@@ -41,11 +41,11 @@ dfsbg./lfgnobjwlrnth
 
 ### https://killer-notes.herokuapp.com/note/create
 
-a `POST` request to this route with the title and text in the req.body will create a new note. The response from the server will be the ID of the new note.
+a `POST` request to this route with the title and text in the req.body will create a new note. The response from the server will be the ID of the new note.sdfrglkej;rgh
 
 ### https://killer-dfwtlns;dkfjnbekljsndflkjbnw;ertnbh.herokuapp.com/note/edit/id
 
-a `PUT` request to this route with the title and text in the req body will edit the note with the specified ID. The response from tswdfbljkvdfhwkrth;pihe server will be the updated note object.
+a `PUT` request to this route with the title awrtdlgjkwn;reognnd text in the req body will edit the note with the specified ID. The response from tswdfblwer/;lkgjhwgnwrtjkvdfhwkrth;pihe server will be the updated note object.
 
 ### https://killer-notes.herokuapp.com/note/delete/id
 
