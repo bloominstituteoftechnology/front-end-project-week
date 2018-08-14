@@ -1,8 +1,26 @@
 require('dotenv').config()
 const server = require('express')()
-const Users = require('../../models').Users
 const jtw = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+var Sequelize = require('sequelize')
+
+var connection = new Sequelize('database', 'root', 'password', {
+  host: 'localhost:8000',
+  dialect: 'sqlite'
+})
+var Users = connection.define('Users', {
+  username: {
+    type: Sequelize.STRING,
+    unique: true
+  },
+  password: Sequelize.STRING
+})
+// connection.sync().then(() => {
+//   Users.create({
+//     username: 'Ari',
+//     password: 'password'
+//   })
+// })
 
 function getToken (user) {
   const userId = user.userId
@@ -13,6 +31,7 @@ function getToken (user) {
 
 function register (req, res, next) {
   let { password, username } = req.body
+  console.log(req.body)
   password = bcrypt.hashSync(password, 10)
   Users.create({
     username: username,

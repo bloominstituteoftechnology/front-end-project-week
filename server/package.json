@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
     "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0",
     "sqlite3": "^4.0.2"
   },
   "devDependencies": {
