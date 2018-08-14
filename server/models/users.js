@@ -3,7 +3,17 @@ module.exports = (sequelize, DataTypes) => {
   var Users = sequelize.define(
     'Users',
     {
-      username: DataTypes.STRING,
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          len: {
+            args: [ 4, 20 ],
+            msg: 'username must between 4 to 20 characters long'
+          }
+        }
+      },
       password: DataTypes.STRING
     },
     {}
