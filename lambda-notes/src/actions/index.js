@@ -58,7 +58,7 @@ export const getNote = (id) => {
 }
 
 export const deleteNote = (id) => {
-  const request = axios.delete(`${url}/delete/${id}`)
+  const request = axios.delete(`${url}/auth/delete/${id}`)
   return (dispatch) => {
     dispatch({ type: DELETING, payload: true })
     request

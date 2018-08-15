@@ -4,7 +4,7 @@ const jtw = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 var Sequelize = require('sequelize')
 
-var sequelize = new Sequelize('database', 'root', 'password', {
+var sequelize = new Sequelize('localhost_8000', 'root', 'password', {
   host: 'localhost:8000',
   dialect: 'sqlite'
 })
@@ -23,13 +23,13 @@ var Notes = sequelize.define('Notes', {
   },
   context: Sequelize.STRING
 })
-
+// sequelize.sync()
 Users.hasMany(Notes)
 Notes.belongsTo(Users)
-// CREATE NOTE
-// Notes.create({
-//   title: 'Still Shynin Still Strugglin',
-//   context: 'dirty ass kitchen'
+// // CREATE USER
+// Users.create({
+//   username: 'luis',
+//   password: 'password'
 // }).then((response) => {
 //   return response
 // })
@@ -129,6 +129,17 @@ const restricted = (req, res, next) => {
   }
 }
 
+function deleteNote (req, res, next) {
+  console.log(req.params)
+  Notes.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then((insertedNote) => {
+    res.status(200).json(insertedNote)
+  })
+}
+
 // const passport = require('passport')
 // const GoogleStrategy = require('passport-google-oauth20').Strategy
 // const keys = require('../../../keys')
@@ -162,4 +173,5 @@ server.post('/login', login)
 server.get('/notes', restricted, getNotes)
 server.get('/note/:id', getNote)
 server.post('/create', restricted, newNote)
+server.delete('/delete/:id', deleteNote)
 module.exports = server
