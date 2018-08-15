@@ -6,12 +6,12 @@ import Markdown from 'markdown-to-jsx'
 const NoteCard = (props) => {
   const note = props.note
   const handleDetails = () => {
-    props.getNote(note._id)
-    props.history.push(`/notes/${note._id}`)
+    props.getNote(note.id)
+    props.history.push(`/notes/${note.id}`)
   }
   return (
     // <Link key={note._id} className='myLink' to={`/notes/${note._id}`}>
-    <div key={note._id} className='myLink' onClick={() => handleDetails()}>
+    <div key={note.id} className='myLink' onClick={() => handleDetails()}>
       <div className='cardTitle'>
         {note.title.length > 15 ? (
           note.title.substr(0, 14) + ' ...'
@@ -21,14 +21,14 @@ const NoteCard = (props) => {
       </div>
       <div className='cardBody'>
         <Markdown>
-          {note.textBody.length > 100 ? (
-            note.textBody.substr(0, 99) + ' ...'
+          {note.context.length > 100 ? (
+            note.context.substr(0, 99) + ' ...'
           ) : (
-            note.textBody
+            note.context
           )}
         </Markdown>
       </div>
-      <div className='card-tags'>
+      {/* <div className='card-tags'>
         <div className=''>
           {note.tags.map((tag, index) => {
             console.log(note.tags)
@@ -40,7 +40,7 @@ const NoteCard = (props) => {
             )
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

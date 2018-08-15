@@ -7,8 +7,7 @@ class NewNote extends Component {
     super(props)
     this.state = {
       title: '',
-      tags: '',
-      textBody: ''
+      context: ''
     }
   }
 
@@ -17,12 +16,13 @@ class NewNote extends Component {
   }
 
   handleSubmit = (e) => {
-    const { title, textBody, tags } = this.state
-    const note = { title, textBody, tags }
-    let tagCopy = tags.split(',')
-    note.tags = tagCopy
-    this.props.postNote(note)
-    this.setState({ title: '', textBody: '', tags: '' })
+    const { title, context } = this.state
+    const note = { title, context }
+    // let tagCopy = tags.split(',')
+    // note.tags = tagCopy
+    const token = localStorage.getItem('token')
+    this.props.postNote(note, token)
+    this.setState({ title: '', context: '' })
     this.props.history.push('/')
   }
 
@@ -44,20 +44,20 @@ class NewNote extends Component {
             onChange={this.handleChange}
             required
           />
-          <input
+          {/* <input
             className='tag-input'
             type='text'
             name='tags'
             placeholder='add #tag'
             value={this.state.tags}
             onChange={this.handleChange}
-          />
+          /> */}
           <textarea
             className='textBody-input'
             type='text'
-            name='textBody'
+            name='context'
             placeholder='Note Content'
-            value={this.state.textBody}
+            value={this.state.context}
             onChange={this.handleChange}
             required
           />

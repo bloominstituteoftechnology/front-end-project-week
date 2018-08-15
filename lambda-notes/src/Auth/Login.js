@@ -1,61 +1,33 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-class Login extends React.Component {
-  constructor (props) {
-    super()
-    this.state = {
-      username: '',
-      password: ''
-    }
-  }
-  login = () => {
-    window.localStorage.setItem('username', this.state.username)
-    window.localStorage.setItem('password', this.state.password)
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-  render () {
-    return (
-      <div className='login-container'>
-        <div className='login'>
-          <div className='login-header'>Log In</div>
-          <form className='login-form' action='#' onSubmit={this.login}>
-            <label className='login-label' htmlFor='username'>
-              Email:
-            </label>
-            <input
-              type='email'
-              name='username'
-              id='username'
-              placeholder='Email'
-              required
-              autoComplete='off'
-              onChange={this.handleChange}
-              value={this.state.input}
-            />
-
-            <label className='login-label' htmlFor='password'>
-              Password:{' '}
-            </label>
-            <input
-              placeholder='Password'
-              type='password'
-              name='password'
-              value={this.state.input}
-              onChange={this.handleChange}
-              id='password'
-              required
-            />
-
-            <input type='submit' value='Login' />
-          </form>
-        </div>
-      </div>
-    )
-  }
+const Login = (props) => {
+  return (
+    <div>
+      <form type='submit' onSubmit={props.handleLogin}>
+        <input
+          placeholder='username'
+          type='text'
+          name='username'
+          onChange={props.logInput}
+          value={props.username}
+          className='comment-input'
+          required
+        />
+        <input
+          placeholder='Password'
+          type='password'
+          name='password'
+          onChange={props.logInput}
+          value={props.password}
+          className='comment-input'
+          required
+        />
+        <button type='submit'>Log in</button>
+      </form>
+      <Link to='/api/register'>Or Register</Link>
+    </div>
+  )
 }
+
 export default Login

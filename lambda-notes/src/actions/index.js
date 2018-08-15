@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url = `http://localhost:8000/api/`
+const url = `http://localhost:8000`
 export const GET_NOTES = 'GET_NOTES'
 export const FETCHING = 'FETCHING'
 export const ERROR = 'ERROR'
@@ -24,16 +24,18 @@ const flatten = function (arr, result = []) {
   return result
 }
 
-export const fetchNotes = () => {
-  const request = axios.get(`${url}/get/all`)
+export const fetchNotes = (token) => {
+  const request = axios.get(`${url}/auth/notes`, {
+    headers: {
+      authorization: token
+    }
+  })
   return (dispatch) => {
     dispatch({ type: FETCHING, payload: true })
     request
       .then((res) => {
-        const arr = res.data.map((note) => note.tags)
-        let tags = [ ...new Set(flatten(arr)) ].filter((tag) => tag.length >= 2)
-        console.log('IN HERERE', tags)
-        dispatch({ type: GET_TAGS, payload: tags })
+        console.log('IN HERERE', res)
+        dispatch({ type: GET_TAGS, payload: res })
         dispatch({ type: GET_NOTES, payload: res.data })
         dispatch({ type: FETCHING, payload: false })
       })
@@ -42,7 +44,7 @@ export const fetchNotes = () => {
 }
 
 export const getNote = (id) => {
-  const request = axios.get(`${url}/get/${id}`)
+  const request = axios.get(`${url}/auth/note/${id}`)
   return (dispatch) => {
     dispatch({ type: GETTING_NOTE, payload: true })
     request
@@ -73,8 +75,12 @@ export const deleteNote = (id) => {
   }
 }
 
-export const postNote = (note) => {
-  const request = axios.post(`${url}/create`, note)
+export const postNote = (note, token) => {
+  const request = axios.post(`${url}/auth/create`, note, {
+    headers: {
+      authorization: token
+    }
+  })
   return (dispatch) => {
     dispatch({ type: POSTING, payload: true })
     request

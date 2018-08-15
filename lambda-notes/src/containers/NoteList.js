@@ -6,16 +6,21 @@ import NoteCard from '../components/NoteCard'
 
 class NoteList extends Component {
   componentDidMount () {
-    this.props.fetchNotes()
+    const token = localStorage.getItem('token')
+    console.log('in mount', token)
+    console.log('IN CDM', token)
+    this.props.fetchNotes(token)
   }
 
   render () {
+    console.log(this.props.notes)
     const { search } = this.props
     const filteredNotes = this.props.notes.filter((note) => {
       return (
         note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        note.textBody.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        note.tags.join('').toLowerCase().indexOf(search.toLowerCase()) !== -1
+        note.context.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        // ||
+        // note.tags.join('').toLowerCase().indexOf(search.toLowerCase()) !== -1
       )
     })
 
@@ -42,7 +47,7 @@ class NoteList extends Component {
               {filteredNotes.map((note, index) => {
                 return (
                   <NoteCard
-                    key={note._id}
+                    key={note.id}
                     note={note}
                     index={index}
                     history={this.props.history}

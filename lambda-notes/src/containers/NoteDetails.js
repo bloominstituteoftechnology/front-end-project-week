@@ -12,8 +12,8 @@ class NoteDetails extends Component {
       editModal: false,
       isEditing: false,
       title: this.props.note.title,
-      textBody: this.props.note.textBody,
-      tags: this.props.note.tags
+      context: this.props.note.context
+      // tags: this.props.note.tags
     }
   }
 
@@ -41,10 +41,10 @@ class NoteDetails extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const { title, textBody, tags } = this.state
-    const note = { title, textBody, tags }
+    const { title, context, tags } = this.state
+    const note = { title, context, tags }
     this.props.editNote(this.props.match.params.id, note)
-    this.setState({ title, textBody })
+    this.setState({ title, context })
     this.editToggle()
   }
 
@@ -101,10 +101,10 @@ class NoteDetails extends Component {
                     <label style={{ fontWeight: 'bold' }}>Note:</label>
                     <textarea
                       style={{ padding: '10px' }}
-                      className='edit-textBody'
+                      className='edit-context'
                       type='text'
-                      name='textBody'
-                      value={this.state.textBody}
+                      name='context'
+                      value={this.state.context}
                       onChange={this.handleChange}
                     />
                   </form>
@@ -156,7 +156,7 @@ class NoteDetails extends Component {
           </div>
           <div onClick={this.editToggle} className='detail-div'>
             <h1 className='title-header'>{note.title}</h1>
-            <p className='noteBody'>{note.textBody}</p>
+            <p className='noteBody'>{note.context}</p>
             <div className='detail-tags fas fa-tags'>{note.tags}</div>
           </div>
         </div>

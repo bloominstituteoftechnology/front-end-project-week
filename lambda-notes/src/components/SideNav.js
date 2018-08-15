@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 class SideNav extends Component {
   render () {
-    let { tags } = this.props
+    // let { tags } = this.props
     return (
       <div className='sideNav'>
         <div className='logout-Btn' onClick={this.props.logOut}>
@@ -22,7 +22,7 @@ class SideNav extends Component {
         <Link className='sidenav-button' to='/notes/new'>
           + Create New Note
         </Link>
-        <ul>
+        {/* <ul>
           {tags.map((tag, index) => {
             return (
               <li
@@ -32,7 +32,7 @@ class SideNav extends Component {
               >{`${tag}`}</li>
             )
           })}
-        </ul>
+        </ul> */}
       </div>
     )
   }
