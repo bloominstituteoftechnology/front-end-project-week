@@ -3,13 +3,17 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class SideNav extends Component {
+  logout = () => {
+    localStorage.removeItem('token')
+    this.forceUpdate()
+  }
   render () {
     // let { tags } = this.props
     return (
       <div className='sideNav'>
-        <div className='logout-Btn' onClick={this.props.logOut}>
+        <Link className='logout-Btn' to='/' onClick={this.logout}>
           Log out
-        </div>
+        </Link>
         <Link className='lambda-logo' to='/'>
           <div onClick={() => this.props.handleClear()}>
             <h1 className='sideNav-header'>Lambda </h1>
