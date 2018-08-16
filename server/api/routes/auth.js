@@ -140,6 +140,12 @@ function deleteNote (req, res, next) {
   })
 }
 
+function updateNote (req, res, next) {
+  Notes.update(
+    { title: req.body.title },
+    { returning: true, where: { id: req.params.id } }
+  )
+}
 // const passport = require('passport')
 // const GoogleStrategy = require('passport-google-oauth20').Strategy
 // const keys = require('../../../keys')
@@ -174,4 +180,5 @@ server.get('/notes', restricted, getNotes)
 server.get('/note/:id', getNote)
 server.post('/create', restricted, newNote)
 server.delete('/delete/:id', deleteNote)
+server.put('/edit/:id', updateNote)
 module.exports = server

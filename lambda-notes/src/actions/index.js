@@ -105,7 +105,7 @@ export const postNote = (note, token) => {
 
 export const editNote = (id, note) => {
   // console.log('IN EDITNOTE', note)
-  const request = axios.put(`${url}/edit/${id}`, note)
+  const request = axios.put(`${url}/auth/edit/${id}`, note)
   return (dispatch) => {
     dispatch({ type: UPDATING, payload: true })
     request
