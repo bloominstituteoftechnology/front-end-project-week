@@ -142,7 +142,10 @@ function deleteNote (req, res, next) {
 
 function updateNote (req, res, next) {
   Notes.update(
-    { title: req.body.title },
+    {
+      title: req.body.title,
+      context: req.body.context
+    },
     { returning: true, where: { id: req.params.id } }
   )
 }

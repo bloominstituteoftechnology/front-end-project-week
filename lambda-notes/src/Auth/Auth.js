@@ -33,19 +33,6 @@ const Authentication = (App) =>
         .catch((err) => console.log(err))
     }
 
-    handleLogin = (e) => {
-      e.preventDefault()
-      const { username, password } = this.state
-      axios
-        .post('http://localhost:8000/auth/login', { username, password })
-        .then((res) => {
-          console.log(res)
-          localStorage.setItem('token', JSON.stringify(res.data.token))
-          this.setState({ username: '', password: '' })
-        })
-        .catch((err) => console.log(err))
-    }
-
     logInput = ({ target }) => {
       console.log('in here')
       const { name, value } = target
@@ -62,19 +49,7 @@ const Authentication = (App) =>
       } else {
         return (
           <div>
-            <Route
-              exact
-              path='/'
-              render={(props) => (
-                <Login
-                  {...props}
-                  username={this.state.username}
-                  password={this.state.password}
-                  logInput={this.logInput}
-                  handleLogin={this.handleLogin}
-                />
-              )}
-            />
+            <Route exact path='/' render={(props) => <Login {...props} />} />
             <Route
               path='/api/register'
               render={(props) => (
