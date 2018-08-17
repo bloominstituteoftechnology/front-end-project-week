@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchNotes } from "../actions";
 import NoteList from "../components/NoteList";
+import { StyledContainer } from '../styled-components/container-styles'; 
 
 class NoteListContainer extends React.Component {
   componentDidMount() {
@@ -10,13 +11,13 @@ class NoteListContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <StyledContainer>
         {this.props.fetchingNotes ? (
           <p> ur notes b coming </p>
         ) : (
           <NoteList notes={this.props.notes} />
         )}
-      </div>
+      </StyledContainer>
     );
   }
 }
