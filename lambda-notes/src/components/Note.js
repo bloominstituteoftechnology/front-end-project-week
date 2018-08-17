@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Note = ({ note }) => (
-  <Fragment>
+  <div>
     <h1>{note.title}</h1>
     <p>{note.textBody}</p>
-  </Fragment>
+  </div>
 );
 
 export default Note;

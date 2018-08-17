@@ -3,6 +3,8 @@ import axios from 'axios';
 export const FETCHING_DATA = 'FETCHING_DATA';
 export const DATA_SUCCESS = 'DATA_SUCCESS';
 export const DATA_ERROR = 'DATA_ERROR';
+export const ADD_NOTE = 'ADD_NOTE';
+export const ADDED_SUCCESS = 'ADDED_SUCCESS';
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_DATA });
@@ -16,3 +18,16 @@ export const fetchNotes = () => dispatch => {
       dispatch({type: DATA_ERROR, error: err})
     })
 } 
+
+export const addNote = note => dispatch => {
+  dispatch({ type: ADD_NOTE });
+  axios 
+    .post('https://killer-notes.herokuapp.com/note/create', note)
+    .then(response => {
+      dispatch({type: ADDED_SUCCESS})
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
