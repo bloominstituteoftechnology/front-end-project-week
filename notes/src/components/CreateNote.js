@@ -27,7 +27,7 @@ class CreateNote extends Component {
                         <Input onChange={this.handleInputChange} type='text' className='noteTitle mt-4' name='title' id='Title' placeholder='Note Title' />
                     </FormGroup>
                     <FormGroup>
-                    <Input onChange={this.handleInputChange} type='textarea' className='noteContent' name='content' id='Body' placeholder='Note Content' />
+                        <Input onChange={this.handleInputChange} type='textarea' className='noteContent' name='content' id='Body' placeholder='Note Content' />
                     </FormGroup>
                     <FormGroup>
                         <Link className='' to='/'>
@@ -35,7 +35,6 @@ class CreateNote extends Component {
                         </Link>
                     </FormGroup>
                 </Form>
-
             </div>
         )
     }

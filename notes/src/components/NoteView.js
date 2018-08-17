@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import { Row, Col, Button, Modal ModalBody } from 'reactstrap';
 
-const NoteView = () => {
+class NoteView extends Component {
+    state = {
+        modal: false
+    };
+
+    handleDelete = () => {
+        this.toggleModal();
+
+    }
     return (
         <div className='Full-Note'>
             <header>Note Title</header>
-            <div> 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat.
-            </div>
+            <div>{this.props.state.content}</div>
         </div>
     );
 }
