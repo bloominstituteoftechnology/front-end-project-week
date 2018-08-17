@@ -1,32 +1,32 @@
 import React from "react";
+import findNote from "../selectors";
 import { connect } from "react-redux";
-import { fetchNotes } from "../actions";
-import NoteList from "../components/NoteList";
+import Note from "../components/Note";
+import { getNote } from "../actions";
 
 class NoteContainer extends React.Component {
   componentDidMount() {
-    this.props.fetchNotes();
+    this.props.getNote(this.props.match.params.id);
   }
-
   render() {
     return (
       <div>
-        {this.props.fetchingNotes ? (
-          <p> ur notes b coming </p>
+        {this.props.isFetching ? (
+          <p> gettin dat note </p>
         ) : (
-          <NoteList notes={this.props.notes} />
+          <Note note={this.props.note} />
         )}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  notes: state.notesReducer.notes,
-  fetchingNotes: state.notesReducer.fetchingNotes,
+const mapStateToProps = (state, ownProps) => ({
+  note: findNote(state.notesReducer.notes, ownProps.match.params.id),
+  isFetching: state.notesReducer.fetchingNote,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchNotes }
+  { getNote }
 )(NoteContainer);

@@ -18,9 +18,7 @@ const NoteForm = ({ handleChange, handleSubmit, title, content }) => (
       placeholder="Note Content"
       required
     />
-    <Link to='/'>
-      <input type="submit" value="Submit"/>
-    </Link>
+    <input type="submit" value="Submit"/>
   </form>
 );
 

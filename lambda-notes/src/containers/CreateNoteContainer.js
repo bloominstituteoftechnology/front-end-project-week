@@ -15,8 +15,7 @@ class CreateNoteContainer extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
-    this.props.addNote(this.state)
+    this.props.addNote(this.state);
   }
 
   render() {
@@ -29,12 +28,19 @@ class CreateNoteContainer extends React.Component {
           title={this.state.title}
           content={this.state.textBody}
         />
+        {this.props.addingNote && <p>addin ur note...</p>}
+        {this.props.updated && <p>Note added!</p>}
       </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  updated: state.notesReducer.noteAddSuccess,
+  addingNote: state.notesReducer.addingNote
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   { addNote }
 )(CreateNoteContainer);
