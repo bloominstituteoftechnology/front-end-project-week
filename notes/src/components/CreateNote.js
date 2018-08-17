@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import CreateStyles from './CreateNote.css';
+import { Form, FormGroup, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
+// import CreateStyles from './CreateNote.css';
 
-const CreateNote = () => {
-    return (
-        <div className='Container'>
-            <h2>Create New Note:</h2>
-            <div className='Create-Container'>
-                <input className="Title-Input"
-                  type='text'
-                  placeholder="Note Title"
-                  name="title"
-                />
-                <input className="Content-Input"
-                  type='text'
-                  placeholder="Note Content"
-                  name="content"
-                />
-                <Button className='Save-Button'>Save</Button>
+class CreateNote extends Component {
+    state = {
+        title: '',
+        content: ''
+    };
+
+    handleInputChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    handleSubmit = () => {
+        this.props.createNote(this.state);
+        this.props.updateNote(this.state);
+    }
+
+    render() {
+        return (
+            <div className='body'>
+                <h1 className='sub-header'>Create New Note:</h1>
+                <Form>
+                    <FormGroup>
+                        <Input onChange={this.handleInputChange} type='text' className='noteTitle mt-4' name='title' id='Title' placeholder='Note Title' />
+                    </FormGroup>
+                    <FormGroup>
+                    <Input onChange={this.handleInputChange} type='textarea' className='noteContent' name='content' id='Body' placeholder='Note Content' />
+                    </FormGroup>
+                    <FormGroup>
+                        <Link className='' to='/'>
+                        <button onClick={this.handleSubmit} className='navButton_save mt-2'>Save</button>
+                        </Link>
+                    </FormGroup>
+                </Form>
+
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default CreateNote
+export default CreateNote;
