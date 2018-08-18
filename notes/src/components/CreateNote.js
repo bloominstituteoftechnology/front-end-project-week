@@ -14,8 +14,8 @@ class CreateNote extends Component {
     }
 
     handleSubmit = () => {
-        this.props.createNote(this.state);
-        this.props.updateNote(this.state);
+        this.props.state;
+        // this.props.state;
     }
 
     render() {
