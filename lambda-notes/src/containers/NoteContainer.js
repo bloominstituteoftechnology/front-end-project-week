@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import findNote from "../selectors";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import Note from "../components/Note";
 import { getNote } from "../actions";
+import { StyledContainer } from '../styled-components/container-styles';
 
 class NoteContainer extends React.Component {
   componentDidMount() {
@@ -10,13 +12,20 @@ class NoteContainer extends React.Component {
   }
   render() {
     return (
-      <div>
+      <StyledContainer>
         {this.props.isFetching ? (
           <p> gettin dat note </p>
         ) : (
+          <Fragment>
+          <div>
+            <Link to={`/edit/${this.props.match.params.id}`}>
+              Edit
+            </Link>
+          </div>
           <Note note={this.props.note} />
+          </Fragment>
         )}
-      </div>
+      </StyledContainer>
     );
   }
 }

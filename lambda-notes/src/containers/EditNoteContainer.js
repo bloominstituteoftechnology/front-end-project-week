@@ -1,8 +1,9 @@
-import React from "react";
+import React, {Fragment} from "react";
 import NoteForm from "../components/NoteForm";
 import findNote from "../selectors";
 import { connect } from "react-redux";
-import { getNote } from "../actions";
+import { getNote, editNote } from "../actions";
+import { StyledContainer } from '../styled-components/container-styles';
 
 class EditNoteContainer extends React.Component {
   state = {
@@ -12,15 +13,26 @@ class EditNoteContainer extends React.Component {
 
   componentDidMount() {
     this.props.getNote(this.props.match.params.id);
+    this.setState({title: this.props.note.title, textBody: this.props.note.textBody})
   }
+
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.title && this.state.textBody) {
+      this.props.editNote(this.props.note._id, this.state)
+    } 
+  }
+
   render() {
     return (
-      <div>
+      <StyledContainer>
+        {this.props.note &&
+        <Fragment>
         <h1>Edit Note:</h1>
         <NoteForm
           handleSubmit={this.handleSubmit}
@@ -28,7 +40,9 @@ class EditNoteContainer extends React.Component {
           title={this.state.title}
           content={this.state.textBody}
         />
-      </div>
+        </Fragment>}
+        
+      </StyledContainer>
     );
   }
 }
@@ -40,7 +54,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  { getNote }
+  { getNote, editNote }
 )(EditNoteContainer);
 
 

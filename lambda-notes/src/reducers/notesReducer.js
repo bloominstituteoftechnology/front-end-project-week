@@ -1,12 +1,15 @@
-import { FETCHING_DATA, DATA_SUCCESS, DATA_ERROR, GET_NOTE, ADD_NOTE, GET_NOTE_SUCCESS, ADDED_SUCCESS } from '../actions';
+import { FETCHING_DATA, DATA_SUCCESS, DATA_ERROR, GET_NOTE, ADD_NOTE, GET_NOTE_SUCCESS, ADDED_SUCCESS, EDIT_NOTE, EDIT_NOTE_SUCCESS } from '../actions';
 
 const initialState = {
   addingNote: false,
   fetchingNotes: false,
   noteAddSuccess: false,
   fetchingNote: false,
+  edittingNote: false,
+  noteEditSuccess: false,
   notes: [],
   error: null,
+  currentNote: null
 }
 
 export const notesReducer = (state = initialState, action) => {
@@ -22,7 +25,8 @@ export const notesReducer = (state = initialState, action) => {
         notes: [
           ...action.results
         ],
-        fetchingNotes: false
+        fetchingNotes: false,
+        noteAddSuccess: false
       };
     case DATA_ERROR:
       return {
@@ -39,7 +43,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         noteAddSuccess: true,
-        addingNote: false
+        addingNote: false,
       }
     case GET_NOTE:
       return {
@@ -49,7 +53,18 @@ export const notesReducer = (state = initialState, action) => {
     case GET_NOTE_SUCCESS:
       return {
         ...state,
-        fetchingNote: false
+        fetchingNote: false,
+      }
+    case EDIT_NOTE:
+      return {
+        ...state,
+        edittingNote: true,
+      }
+    case EDIT_NOTE_SUCCESS:
+      return {
+        ...state,
+        edittingNote: false,
+        noteEditSuccess: true,
       }
     default:
       return state;

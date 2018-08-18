@@ -2,6 +2,7 @@ import React from "react";
 import NoteForm from "../components/NoteForm";
 import { connect } from "react-redux";
 import { addNote } from "../actions";
+import { StyledContainer } from '../styled-components/container-styles'
 
 class CreateNoteContainer extends React.Component {
   state = {
@@ -9,19 +10,25 @@ class CreateNoteContainer extends React.Component {
     textBody: "",
   };
 
+  componentDidUpdate() {
+    if (this.props.updated) { 
+      this.props.history.push('/')
+    }
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.addNote(this.state);
   }
 
   render() {
     return (
-      <div>
-        <h1>Create New Note:</h1>
+      <StyledContainer>
+      <h1>Create New Note:</h1>
         <NoteForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
@@ -30,12 +37,12 @@ class CreateNoteContainer extends React.Component {
         />
         {this.props.addingNote && <p>addin ur note...</p>}
         {this.props.updated && <p>Note added!</p>}
-      </div>
+      </StyledContainer>
     );
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   updated: state.notesReducer.noteAddSuccess,
   addingNote: state.notesReducer.addingNote
 })

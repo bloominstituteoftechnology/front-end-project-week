@@ -7,6 +7,8 @@ export const ADD_NOTE = 'ADD_NOTE';
 export const ADDED_SUCCESS = 'ADDED_SUCCESS';
 export const GET_NOTE = 'GET_NOTE';
 export const GET_NOTE_SUCCESS = 'GET_NOTE_SUCCESS';
+export const EDIT_NOTE = 'EDIT_NOTE';
+export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 
 
 export const fetchNotes = () => dispatch => {
@@ -34,12 +36,21 @@ export const addNote = note => dispatch => {
     })
 }
 
-export const getNote = id => dispatch => {
+export const getNote = id => (dispatch) => {
   dispatch({ type: GET_NOTE });
   axios
     .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-    .then(response => {
+    .then(response => { 
       dispatch({type: GET_NOTE_SUCCESS, result: response.data})
+    })
+}
+
+export const editNote = (id, note) => dispatch => {
+  dispatch({ type: EDIT_NOTE });
+  axios 
+    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(response => {
+      dispatch({ type: EDIT_NOTE_SUCCESS, result: response.data })
     })
 }
 
