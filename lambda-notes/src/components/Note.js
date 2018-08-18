@@ -1,10 +1,15 @@
-import React from 'react';
-
+import React, { Fragment } from "react";
 
 const Note = ({ note }) => (
   <div>
-    <h1>{note.title}</h1>
-    <p>{note.textBody}</p>
+    {note ? (
+      <Fragment>
+        <h1>{note.title}</h1>
+        <p>{note.textBody}</p>
+      </Fragment>
+    ) : (
+      <p> loading note...</p>
+    )}
   </div>
 );
 

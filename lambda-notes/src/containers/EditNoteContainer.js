@@ -1,9 +1,9 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import NoteForm from "../components/NoteForm";
 import findNote from "../selectors";
 import { connect } from "react-redux";
 import { getNote, editNote } from "../actions";
-import { StyledContainer } from '../styled-components/container-styles';
+import { StyledContainer } from "../styled-components/container-styles";
 
 class EditNoteContainer extends React.Component {
   state = {
@@ -13,9 +13,17 @@ class EditNoteContainer extends React.Component {
 
   componentDidMount() {
     this.props.getNote(this.props.match.params.id);
-    this.setState({title: this.props.note.title, textBody: this.props.note.textBody})
+    this.setState({
+      title: this.props.note.title,
+      textBody: this.props.note.textBody,
+    });
   }
 
+  componentDidUpdate() {
+    if (this.props.noteEditSuccess) {
+      this.props.history.push(`/note/${this.props.match.params.id}`)
+    }
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -24,37 +32,38 @@ class EditNoteContainer extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.title && this.state.textBody) {
-      this.props.editNote(this.props.note._id, this.state)
-    } 
-  }
+      this.props.editNote(this.props.note._id, this.state);
+    }
+  };
 
   render() {
     return (
       <StyledContainer>
-        {this.props.note &&
-        <Fragment>
-        <h1>Edit Note:</h1>
-        <NoteForm
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          title={this.state.title}
-          content={this.state.textBody}
-        />
-        </Fragment>}
-        
+        {this.props.note && (
+          <Fragment>
+            <h1>Edit Note:</h1>
+            <NoteForm
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+              title={this.state.title}
+              content={this.state.textBody}
+            />
+          </Fragment>
+        )}
+        {this.props.note && <p>Editting note,,. </p>}
       </StyledContainer>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  note: findNote(state.notesReducer.notes, ownProps.match.params.id),
+const mapStateToProps = state => ({
+  note: state.notesReducer.currentNote,
   isFetching: state.notesReducer.fetchingNote,
+  edittingNote: state.notesReducer.edittingNote,
+  noteEditSuccess: state.notesReducer.noteEditSuccess,
 });
 
 export default connect(
   mapStateToProps,
   { getNote, editNote }
 )(EditNoteContainer);
-
-

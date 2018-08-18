@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 const NoteForm = ({ handleChange, handleSubmit, title, content }) => (
   <form onSubmit={handleSubmit}>

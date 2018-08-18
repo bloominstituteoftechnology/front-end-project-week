@@ -1,4 +1,4 @@
-import { FETCHING_DATA, DATA_SUCCESS, DATA_ERROR, GET_NOTE, ADD_NOTE, GET_NOTE_SUCCESS, ADDED_SUCCESS, EDIT_NOTE, EDIT_NOTE_SUCCESS } from '../actions';
+import { FETCHING_DATA, DATA_SUCCESS, DATA_ERROR, GET_NOTE, ADD_NOTE, GET_NOTE_SUCCESS, ADDED_SUCCESS, EDIT_NOTE, EDIT_NOTE_SUCCESS, DELETE_NOTE, NOTE_DELETED } from '../actions';
 
 const initialState = {
   addingNote: false,
@@ -7,6 +7,8 @@ const initialState = {
   fetchingNote: false,
   edittingNote: false,
   noteEditSuccess: false,
+  deletingNote: false,
+  noteDeleted: false,
   notes: [],
   error: null,
   currentNote: null
@@ -26,7 +28,10 @@ export const notesReducer = (state = initialState, action) => {
           ...action.results
         ],
         fetchingNotes: false,
-        noteAddSuccess: false
+        noteAddSuccess: false,
+        noteDeleted: false,
+        noteEditSuccess: false,
+        currentNote: null
       };
     case DATA_ERROR:
       return {
@@ -48,12 +53,14 @@ export const notesReducer = (state = initialState, action) => {
     case GET_NOTE:
       return {
         ...state,
-        fetchingNote: true
+        fetchingNote: true,
+        noteEditSuccess: false,
       }
     case GET_NOTE_SUCCESS:
       return {
         ...state,
         fetchingNote: false,
+        currentNote: action.result,
       }
     case EDIT_NOTE:
       return {
@@ -65,6 +72,17 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         edittingNote: false,
         noteEditSuccess: true,
+      }
+    case DELETE_NOTE:
+      return {
+        ...state,
+        deletingNote: true,
+      }
+    case NOTE_DELETED:
+      return {
+        ...state,
+        noteDeleted: true,
+        deletingNote: false
       }
     default:
       return state;
