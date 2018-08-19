@@ -1,3 +1,6 @@
+Trello Board for Lambda Notes Project
+https://trello.com/invite/b/7IrohdJM/adeb15c4a1df3190eb6530a69cc2f29b/lambda-notes-carey-baldwin
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
