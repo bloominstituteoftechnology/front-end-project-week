@@ -88,12 +88,12 @@ export const postNote = (note, token) => {
         dispatch({
           type: GET_NOTES,
           payload: axios.get(`${url}/get/all`).then((res) => {
-            const arr = res.data.map((note) => note.tags)
-            let tags = [ ...new Set(flatten(arr)) ].filter(
-              (tag) => tag.length >= 2
-            )
+            // const arr = res.data.map((note) => note.tags)
+            // let tags = [ ...new Set(flatten(arr)) ].filter(
+            //   (tag) => tag.length >= 2
+            // )
 
-            dispatch({ type: GET_TAGS, payload: tags })
+            // dispatch({ type: GET_TAGS, payload: tags })
             dispatch({ type: GET_NOTES, payload: res.data })
             dispatch({ type: POSTING, payload: false })
           })

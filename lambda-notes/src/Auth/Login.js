@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 class Login extends Component {
+  constructor () {
+    super()
+    this.state = {
+      hasRegistered: true
+    }
+  }
+
   renderField = (field) => {
     const { touched, error } = field.meta
     const className = `form-group ${touched && error ? 'has-danger' : ''}`
@@ -31,16 +37,46 @@ class Login extends Component {
       })
       .catch((err) => console.log(err))
   }
+  handleRegister = (values, cb) => {
+    console.log('METHOD')
+    axios
+      .post('http://localhost:8000/auth/register', values)
+      .then((response) => {
+        localStorage.setItem('token', JSON.stringify(response.data.token))
+        cb()
+      })
+      .catch((err) => console.log(err))
+  }
   onSubmit = (values) => {
-    this.handleLogin(values, () => {
-      this.props.history.push('/')
+    if (this.state.hasRegistered === false) {
+      this.handleRegister(values, () => {
+        this.props.history.push('/')
+      })
+    } else {
+      this.handleLogin(values, () => {
+        this.props.history.push('/')
+      })
+    }
+  }
+  handleSwitch = () => {
+    this.setState({
+      hasRegistered: false
     })
   }
   render () {
     const { handleSubmit } = this.props
+
     return (
       <div>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
+        <form
+          onSubmit={
+            this.state.hasRegistered ? (
+              handleSubmit(this.onSubmit)
+            ) : (
+              handleSubmit(this.onSubmit)
+            )
+          }
+        >
           <Field
             name='username'
             placeholder='username'
@@ -55,7 +91,7 @@ class Login extends Component {
           />
           <button type='submit'>Log in</button>
         </form>
-        <Link to='/api/register'>Or Register</Link>
+        <div onClick={this.handleSwitch}>Or Register</div>
       </div>
     )
   }

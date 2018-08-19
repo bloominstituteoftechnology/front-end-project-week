@@ -21,17 +21,34 @@ var Notes = sequelize.define('Notes', {
   title: {
     type: Sequelize.STRING
   },
-  context: Sequelize.STRING
+  context: Sequelize.STRING,
+  tags: Sequelize.BLOB
 })
-// sequelize.sync()
+
+let Tags = sequelize.define('Tags', {
+  value: Sequelize.BLOB
+})
 Users.hasMany(Notes)
 Notes.belongsTo(Users)
-// // CREATE USER
+Notes.hasMany(Tags)
+Tags.belongsTo(Notes)
+// sequelize.sync()
+
 // Users.create({
-//   username: 'luis',
+//   username: 'YungBruh',
 //   password: 'password'
-// }).then((response) => {
-//   return response
+// }).then((user) => {
+//   user
+//     .createNote({
+//       title: 'Teest1',
+//       context: 'thiss might work'
+//     })
+//     .then((note) => {
+//       note.createTag({
+//         value: 'heello'
+//       })
+//     })
+//     .then(() => console.log('worked...'))
 // })
 
 function getToken (user) {
@@ -97,11 +114,14 @@ function getNote (req, res, next) {
 
 function newNote (req, res, next) {
   const { userId } = req.token
-  const { title, context } = req.body
+  const { title, context, tags } = req.body
   Notes.create({
     title: title,
     context: context,
-    UserId: userId
+    UserId: userId,
+    tags: tags
+  }).then((note) => {
+    note.createTag({ value: tags })
   })
 }
 
