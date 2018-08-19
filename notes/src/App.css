@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+  background: #F3F3F3;
+  border-color: #979797;
+  font: Raleway Medium;
+  color: #4A4A4A;
+  height: 1024px;
+  display: flex;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.notes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.app-route {
+  max-width: 1024px;
+  width: 100%;
+}

@@ -1,0 +1,243 @@
+.notes-container {
+    width: 70%;
+    display: flex;
+    height: 99%;
+    padding: 10px auto;
+    font: Raleway Medium;
+    color: #4A4A4A;
+    flex-flow: column wrap;
+    justify-content: center;
+    position: relative;
+    left: 110px;
+    margin: 10px auto;
+}
+
+.notes-title {
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+    height: 30px;
+    width: 1024px;
+    flex-flow: row wrap;
+    position: relative;
+    left: 250px;
+    margin-bottom: 0px;
+}
+
+.notes-box {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    border: 1px solid grey;
+    width: 220px;
+    height: 220px;
+    font-size: 16px;
+    background: #F3F3F3;
+    font: Raleway Medium;
+    color: #4A4A4A;
+    margin: 10px auto;
+}
+    
+h2 {
+    font-size: 24px;
+    font-weight: 700px;
+    justify-content: center;
+    padding: 5px;
+    margin-right: 240px;
+    margin-top: 60px;
+    font: Roboto Bold;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    font: Roboto Bold;
+}
+
+.note-p {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    line-height: 24px;
+    margin: 10px auto;
+}
+
+.newnote-container {
+    height: 1024px;
+    background: #F3F3F3;
+    font: Raleway Medium;
+    margin-left: 250px;
+    margin-top: 50px;
+}
+
+.p-top {
+    padding-top: 30px;
+}
+.form-button {
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+    margin-top: 10px;
+    position: relative;
+    right: 70px;
+}
+
+.title-bar {
+    width: 70%;
+    height: 50px;
+    position: relative;
+    font-size: 14px;
+    right: 20px;
+}
+
+.note-contents {
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    font-size: 14px;
+    margin-left: 50px;
+}
+
+.edit-title {
+width: 70%;
+height: 50px;
+position: relative;
+font-size: 16px;
+right: 80px;
+}
+
+.edit-contents {
+    height: 300px;
+    width: 600px;
+    margin-top: 20px;
+    position: relative;
+    font-size: 16px;
+    margin-right: 80px;
+}
+
+.edit-button {
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+    margin-top: 10px;
+    position: relative;
+    right: 225px;
+}
+
+.viewnote-container {
+    height: 1024px;
+    background: #555;
+    font: Raleway Medium;
+    opacity: 0.7;
+
+}
+
+.viewnote-p {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    text-align: left;
+    width: 68%;
+    font-size: 18px;
+    margin-left: 270px;
+    margin-top: 10px;
+    line-height: 36px;
+}
+
+.view-header {
+    margin-left: 230px;
+    width: 200px;
+    font: Roboto Bold;
+    padding: 10px;
+}
+
+.edit-header {
+    font: Roboto Bold;
+    padding: 10px;
+    position: relative;
+    right: 170px;
+}
+
+.Modal {
+    position: absolute;
+    top: 150px;
+    left: 240px;
+    right: 340px;
+    bottom: 400px;
+    background-color: white;
+    width: 600px;
+    height: 200px;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    background-color: #D8D8D8;
+  }
+
+  .modal-text {
+      display: flex;
+      font: Railway Medium;
+      font-size: 18px;
+      line-height: 24px;
+      justify-content: center;
+      text-align: center;
+      margin-top: 40px;
+  }
+
+  .edit-delete {
+    margin-left: 600px;
+    margin-bottom: 0px;
+  }
+
+  .modal-row {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-top: 30px;
+  }
+
+  .modal-delete {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    background-color: red;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+    margin: 10px auto;
+  }
+
+  .modal-no {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin: 10px auto;
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 230px;
+    height: 50px;
+  }
+
+  .new-header {
+      margin-left: 50px;
+  }

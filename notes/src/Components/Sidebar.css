@@ -1,0 +1,32 @@
+.sidebar-container {
+    width: 22.5%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #D8D8D8;
+    font: Raleway Medium;
+    height: 100%;
+    float: left;
+    border: 1px solid grey;
+    position: fixed;
+}
+
+.title-header {
+    font-size: 40px;
+    font: Roboto Bold;
+    color: #4A4A4A;
+    width: 50%;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.sidebar-button {
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 87.5%;
+    height: 50px;
+    margin: 10px;
+}
