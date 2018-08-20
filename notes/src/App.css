@@ -2,34 +2,45 @@
   text-align: center;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .nav-bar{
+  padding-top: 20px;
   width: 25%;
   display: flex;
   flex-direction: column;
+  background: #D7D7D7;
 }
 
 .nav-bar button{
   padding: 20px;
-  margin: 20px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #24B8BD;
+  color: white;
 
 }
 
 .all-notes{
   width: 75%;
   display: flex;
+  flex-direction: column;
+  background-color: #F2F2F2;
+}
+
+
+.note-container{
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 40px;
 }
 
-.note-container{
-  width: 350px;
-}
-
 .note{
-  border: 1px solid black;
+  border: 2px solid #D7D7D7;
+  width: 300px;
   margin: 20px;
   padding: 20px;
+  background-color: white;
 }
