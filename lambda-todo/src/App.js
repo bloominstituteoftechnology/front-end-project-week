@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Nav from './Home/Nav Links/Nav'; 
+import Nav from './Nav Links/Nav'; 
 import NotesHolder from './Home/HomePage/NotesHolder'
 import NewNotePage from './New Note/NewNotePage';
 import {Route} from 'react-router-dom'; 
 
 
 class App extends Component {
-  constructor(){
-    super(); 
-    this.state={ 
 
-    }
-  }
   render() {
     return (
       <div className="App">
@@ -21,10 +16,10 @@ class App extends Component {
       </div>
       <div className="pages">
       <Route exact path="/" 
-      render={props => <NotesHolder {...props} notes={this.state.notes} />}
+      render={props => <NotesHolder {...props}/>}
       />
-      <Route exact path="/create-new" 
-      render={props => <NewNotePage {...props} notes={this.state.notes} />}
+      <Route path="/create-new" 
+      render={props => <NewNotePage {...props}/>}
       />
       </div>
       </div>

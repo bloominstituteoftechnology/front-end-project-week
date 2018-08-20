@@ -1,11 +1,22 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import './NotesHolder.css'; 
+import Note from './Notes/Note'
+import Notes from '../../Notes/NotesData'; 
+
 
 class NotesHolder extends Component{
+    constructor(){
+        super(); 
+        this.state={ 
+         notes: Notes
+        }
+      }
     render(){
         return(
             <div class="notes-holder">
-            <h1>Your Notes</h1>
+            <div className="note-card-section">
+             <Note note={this.state.notes} />
+            </div>
             </div>
         )
     }

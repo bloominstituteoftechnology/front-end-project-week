@@ -3,5 +3,19 @@
     border: 1px solid red; 
     height: 100%; 
     position: fixed; 
-    background: #FAFBFC
+    background: #FAFBFC;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+    
+}
+.note-card-section{
+    display: flex; 
+    flex: wrap; 
+    justify-content: space-evenly;
+    align-items: center; 
+    width: 560px; 
+    height: auto; 
+    border: 1px solid green; 
 }
