@@ -45,13 +45,32 @@ class NotesForm extends Component {
     title: '',
     textBody: '',
   };
+
+  handleChange = ({ target: { name, value } }) =>
+    this.setState({ [name]: value });
+
+  onFormSubmit = e => {
+    e.preventDefault();
+    this.props.onFormSubmit(this.state);
+    this.props.history.push('/');
+  };
+
   render() {
     return (
-      <form>
-        <StyledInput type="text" name="title" placeholder="Note Title" />
+      <form onSubmit={this.onFormSubmit}>
+        <StyledInput
+          onChange={this.handleChange}
+          value={this.state.title}
+          type="text"
+          name="title"
+          placeholder="Note Title"
+          autoComplete="off"
+        />
         <StyledTextarea
           value={this.state.textBody}
           placeholder="Note Content"
+          onChange={this.handleChange}
+          name="textBody"
         />
         <FormButton>Save</FormButton>
       </form>

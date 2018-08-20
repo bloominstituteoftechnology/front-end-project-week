@@ -22,3 +22,7 @@ export const Button = styled.button`
     outline-width: 2px;
   }
 `;
+
+export const SecondaryHeading = styled.h2`
+  margin-bottom: 2rem;
+`;
