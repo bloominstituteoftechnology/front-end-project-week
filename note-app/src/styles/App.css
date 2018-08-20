@@ -23,7 +23,8 @@
 }
 
 .side-bar {
-  max-width: 143px;
+  width: 143px;
+  max-width: 100%; 
   background: #D3D2D3;
   display: flex;
   flex-direction: column;
@@ -31,12 +32,15 @@
   align-items: center;
 }
 .btn-side-bar {
-  max-width: 124px;
+  width: 124px;
+  max-width: 100%; 
   color: white;
   background: #24B8BD;
   padding: 1px 0;
+  margin-bottom: 11px;
 }
 .application-title{
   padding-top : 13px;
   margin-bottom: 20px;
+  margin-left: 7px;
 }
