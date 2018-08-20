@@ -13,5 +13,8 @@
     "knex": "^0.15.2",
     "morgan": "^1.9.0",
     "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }
