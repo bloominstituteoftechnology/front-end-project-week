@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Tag from './Tag';
-
+import { MarkdownPreview } from "react-marked-markdown";
 
 class Note extends Component {
   render() {
@@ -13,7 +13,7 @@ class Note extends Component {
                         <CardBody>
                             <CardTitle>{this.props.title}</CardTitle>
                             <CardText>
-                                {this.props.content} 
+                                <MarkdownPreview value={this.props.content} />
                             </CardText>
                             <div className="tags">
                                 {this.props.tags.length > 0 ? this.props.tags.map(tag => <Tag key={tag} tagName={tag} />) : null}

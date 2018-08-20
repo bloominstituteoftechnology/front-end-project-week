@@ -18,6 +18,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
     padding: grid * 2,
     margin: `0 0 ${grid}px 0`,
+    borderRadius: `4px`,
 
     // change background colour if dragging
     background: isDragging ? "#636e72" : "transparent",
@@ -30,7 +31,8 @@ const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? "#b2bec3" : "#dfe6e9",
     padding: grid,
     width: `60%`,
-    margin: `1rem auto`
+    margin: `1rem auto`,
+    borderRadius: `4px`
 });
 
 class Notes extends Component {
