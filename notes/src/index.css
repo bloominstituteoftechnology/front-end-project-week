@@ -9,10 +9,13 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+textarea {
+  resize: none;
+}
 .App {
   margin: 0 auto;
   text-align: center;
 }
 .note {
-  margin-bottom: 50px;
+  margin: 30px 0 50px;
 }
