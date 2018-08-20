@@ -3,3 +3,29 @@
     border-right: 1px solid #ADAEAE;
     background-color: #D2D1D2;
 }
+
+.sidebar-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 86.36%;
+    margin: 15px 6.82% 0 6.82%;
+
+}
+
+.sidebar .sidebar-container h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #454646;
+}
+
+.sidebar .sidebar-container .btn {
+    width: 100%;
+    border: 1px solid #ADAEAE;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #3AB7BB;
+    color: white;
+    margin: 15px 0 5px 0;
+    padding: 10px 0;
+}

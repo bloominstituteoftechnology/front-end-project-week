@@ -1,0 +1,13 @@
+.list-view h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #454646;
+    margin-bottom: 25px;
+}
+
+.list-view .notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+}

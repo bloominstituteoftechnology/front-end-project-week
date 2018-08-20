@@ -1,4 +1,6 @@
 import React, { Component }from 'react';
+import { Link } from 'react-router-dom';
+import './newnote.css';
 
 class NewNote extends Component {
     constructor(props){
@@ -22,12 +24,12 @@ class NewNote extends Component {
 
     render(){
         return (
-            <div>
+            <div className="new-note-view">
                 <h2>Create New Note:</h2>
                 <form>
-                    <input name="title" placeholder="Note Title" onChange={this.editInput} />
-                    <input name="text" placeholder="Note Content" onChange={this.editInput}/>
-                    <button onClick={this.addNoteHandler}>Save</button>
+                    <input className="title-input" name="title" placeholder="Note Title" onChange={this.editInput} />
+                    <textarea name="text" placeholder="Note Content" onChange={this.editInput}></textarea>
+                    <Link className="btn" to="/" onClick={this.addNoteHandler}>Save</Link>
                 </form>
             </div>
         );

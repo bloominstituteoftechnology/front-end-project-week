@@ -9,7 +9,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [{
+        title: "A Note",
+        text: "Some text."
+      },
+    {
+      title: "Another Note",
+      text: "More text."
+    },
+    {
+      title: "One More Note",
+      text: "Even more text. lasjfpoaiejfaidj aoj oajfpaoisdj fpaiodj fpaiodjf paoijd fpaoidj fpioa dpfoija pdoifj paoidj fpaiodj fpai fpaior ej"
+    }
+  ]
     };
   }
 

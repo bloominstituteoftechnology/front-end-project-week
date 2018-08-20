@@ -5,9 +5,11 @@ import './sidebar.css';
 const Sidebar = () => {
     return (
         <div className="sidebar">
-            <h1>Lambda Notes</h1>
-            <Link to="/"><button>View Your Notes</button></Link>
-            <Link to="/new-note"><button>+ Create New Note</button></Link>
+            <div className="sidebar-container">
+                <h1>Lambda Notes</h1>
+                <Link className="btn" to="/">View Your Notes</Link>
+                <Link className="btn" to="/new-note">+ Create New Note</Link>
+            </div>
         </div>
     );
 };

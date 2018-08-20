@@ -1,12 +1,14 @@
 import React from 'react';
+import './noteitem.css';
 
-const Note = props => {
+const NoteItem = props => {
     return (
-        <div>
+        <div className="note-item">
             <h3>{props.title}</h3>
+            <hr />
             <p>{props.text}</p>
         </div>
     );
 }
 
-export default Note;
+export default NoteItem;

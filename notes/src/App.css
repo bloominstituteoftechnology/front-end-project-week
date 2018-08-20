@@ -49,6 +49,9 @@ table {
 
 
 /***************************************************/
+.App {
+	font-family: Roboto, sans-serif;
+}
 
 .container {
   display: flex;
@@ -61,4 +64,5 @@ table {
 .container .notes-view {
 	width: 75.17%;
 	background-color: #F1F1F2;
+	padding: 80px 3.5%;
 }

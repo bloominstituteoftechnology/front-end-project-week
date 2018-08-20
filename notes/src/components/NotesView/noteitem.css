@@ -1,0 +1,29 @@
+.note-item {
+    display: flex;
+    flex-wrap: wrap;
+    width: 24.5%;
+    border: 1px solid #ADAEAE;
+    background-color: white;
+    margin-bottom: 25px;
+    margin-right: 2.5%;
+    padding: 5px 3%;
+}
+
+.note-item h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.note-item hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: black;
+}
+
+.note-item p {
+    font-size: 1rem;
+    min-height: 100px;
+}
