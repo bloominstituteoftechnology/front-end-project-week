@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import Note from './components/Note';
-import Add from './components/Add';
+import {Route} from 'react-router-dom';
+import Notes from './components/notes';
 import './App.css';
-
 
 
 
@@ -38,7 +36,7 @@ class App extends Component {
           {
             id:5,
             title:"Rachel",
-            note:"My name is Rachel what's your's?"
+            note:"My name is Rachel what's yours?"
           }
         ],
         title: '',
@@ -50,16 +48,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Add
-          onChange={this.onChange} 
-          onSubmit={this.onSubmit} 
-          title={this.state.title} 
-          note={this.state.note} 
-        />
-     <div>
-          <h2>Your Notes:</h2>
-          </div>
-        </div>
+      <Route exact path="/" render={(props) => <Notes{...props} notes={this.state.notes}/>}/>
+       </div>
     );
   }
 }
