@@ -35,7 +35,7 @@ class SingleNote extends Component {
     }
 
     render() {
-        if (this.props.fetchingNote){
+        if (!this.props.fetchedNote){
             return(<div></div>)
         }
         return (
@@ -62,6 +62,7 @@ class SingleNote extends Component {
 const mapStateToProps = state => {
     return {
         fetchingNote: state.fetchingNotes,
+        fetchedNote: state.fetchedNote,
         note: state.note,
         error: state.error
     }
