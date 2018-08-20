@@ -1,61 +1,35 @@
-import React, { Component } from 'react';
-import '../App.css';
+import React from "react";
+import "../App.css";
 
-export default class AddNote extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: this.props.notes,
-      id: null,
-      title: "",
-      note: ""
-    };
-  }
+export default function AddNote(props) {
+  return (
+    <div className="form">
 
-  
-  inputHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+      <div className="form-title">Create New Note:</div>
 
-  onSaveHandler = e => {
-    e.preventDefault();
-    const newNote = this.state.notes.slice(); 
-    newNote.push({
-      id: this.state.id,
-      title: this.state.title,
-      note: this.state.note
-    });
-    this.setState({notes: newNote, id: null, title: "", note: "" });
-};
-
-  render() {
-    console.log('inputing', this.state.notes)
-    return (
-      <div className="form">
-        <div className="form-title">Create New Note:</div>
-
-        <div className="form-body">
-        <form onSubmit={this.onSaveHandler}>
-          <input
+      <div className="form-body">
+        <form onSubmit={props.onSaveHandler}>
+          <textarea
             type="text"
             className="form-inputtitle"
             name="title"
-            onChange={this.inputHandler}
+            onChange={props.inputHandler}
             placeholder="Note Title"
-            value={this.state.title}
+            value={props.title}
           />
-          <input
+          <textarea
             type="text"
             className="form-inputnote"
             name="note"
-            onChange={this.inputHandler}
+            onChange={props.inputHandler}
             placeholder="Note Content"
-            value={this.state.note}
+            value={props.note}
           />
+
           <button className="form-button">Save</button>
+        
         </form>
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
