@@ -1,51 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { notesData } from './notesData';
+import { NoteList } from './components/notesContainer';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          id: 0,
-          title: 'note 0',
-          note: this.ipsumNote
-        },
-        {
-          id: 1,
-          title: 'note 1',
-          note: this.ipsumNote
-        },
-        {
-          id: 2,
-          title: 'note 2',
-          note: this.ipsumNote
-        },
-        {
-          id: 3,
-          title: 'note 3',
-          note: this.ipsumNote
-        }
-      ]
+      notes: []
     }
   }
 
-  ipsumNote = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices nulla sit amet arcu tempus, non dapibus nibh tincidunt. Nam a ullamcorper arcu. Curabitur efficitur sem eget libero tincidunt, ac pharetra sem cursus.'
-
+  componentDidMount(){
+    this.setState({ 
+      notes: notesData,
+     })
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <div className="App-header">
           <h1 className="App-title">Lambda Notes</h1>
           <button>View Your Notes</button>
           <button>+ Create New Note</button>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        </div>
+        <div>
+          <NoteList notes={this.state.notes} />
+        </div>
       </div>
     );
   }
