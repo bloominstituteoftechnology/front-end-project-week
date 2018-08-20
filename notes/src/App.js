@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
-
-import NavBar from './components/NavBar';
+import { Route, Link } from 'react-router-dom';
+import NewNoteForm from './components/NewNoteForm';
 import NotesList from './components/NotesList'
 import './App.css';
 
@@ -15,16 +14,44 @@ import './App.css';
 
 class App extends Component {
 
-  render() {
-    return (
-      <div className="App">
-        <NavBar />
-
-        <NotesList />
-
-      </div>
-    );
+  constructor() {
+    super();
+    this.state = {
   }
 }
+
+  render() {
+    console.log('logging state in App',this.state);
+    return (
+      <div className = "app">
+        <div className = "nav-bar">
+            <h1 className = "nav-bar-header">
+                Lambda Notes
+            </h1>
+            <Link to ="/all">
+            <button className = "nav-button"> 
+                View Your Notes
+            </button>
+            </Link>
+            <Link to="/new">
+            <button className = "nav-button">
+                + Create New Note
+            </button>
+            </Link>
+        </div> 
+        <div className = "notes-container">
+            <Route
+            exact path = "/all"
+            component = {NotesList}     
+            />
+            <Route
+            exact path = "/new"
+            component = {NewNoteForm}
+            />
+        </div>  
+        </div>
+        )
+    }
+  }
 
 export default App;
