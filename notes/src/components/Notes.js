@@ -12,6 +12,7 @@ class Notes extends Component {
 
     componentDidMount = () => {
         this.props.fetchNotes();
+        setTimeout(() => this.initializeData(), 1000);
     }
 
     searchInput = (event) => {
@@ -21,7 +22,11 @@ class Notes extends Component {
         });
     }
 
-
+    initializeData = () => {
+        this.setState({
+            shownNotes: this.props.notes
+        })
+    }
 
     render() {
         if (this.props.fetchingNotes){
