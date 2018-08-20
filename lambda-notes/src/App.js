@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
-import axios from 'axios';
+import axios from "axios";
 
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
@@ -24,20 +24,22 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get('http://localhost:8000/api/notes')
-    .then((response) => {
-      this.setState({notes: response.data})
-    })
-    .catch(err => console.log(err));
+      .get("http://localhost:8000/api/notes")
+      .then(response => {
+        this.setState({ notes: response.data });
+      })
+      .catch(err => console.log(err));
   }
 
+  //METHODS
 
-//METHODS
-  
+handleSetData = (data) => {
+  this.setState({notes:data, deleting:false})
+}
+
   handleSetCurrent = note => {
     this.setState({ currentNote: note });
   };
-
 
   //Edit
   handleEditTitle = e => {
@@ -74,22 +76,19 @@ class App extends Component {
     this.setState({ notes, currentNote: {} });
   };
 
-
-
   //Delete
   toggleDeleting = () => {
     this.setState({ deleting: !this.state.deleting });
   };
 
-  handleDeleteNote = id => {
-    axios 
-    .delete(`http://localhost:8000/api/notes/${id}`)
-    .then(response => {
-      this.setState({notes: response.data})
-    })
-    .catch(err => {console.log(err)})
+  handleRefresh = () => {
+    axios
+      .get("http://localhost:8000/api/notes")
+      .then(response => {
+        this.setState({ notes: response.data });
+      })
+      .catch(err => console.log(err));
   };
-
 
   //Sort
   // handleSortAZ = () => {
@@ -114,7 +113,6 @@ class App extends Component {
   //   }
   // };
 
-
   render() {
     return (
       <div className="App">
@@ -123,9 +121,8 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => (
+          render={() => (
             <NotesList
-              {...props}
               notes={this.state.notes}
               // handleSortAZ={this.handleSortAZ}
               // handleSortZA={this.handleSortZA}
@@ -151,6 +148,7 @@ class App extends Component {
               {...props}
               title={this.state.title}
               content={this.state.content}
+              handleSetData={this.handleSetData}
             />
           )}
         />
@@ -166,6 +164,8 @@ class App extends Component {
               handleEditTitle={this.handleEditTitle}
               handleEditContent={this.handleEditContent}
               handleEditNote={this.handleEditNote}
+              handleSetData={this.handleSetData}
+
             />
           )}
         />
@@ -178,7 +178,9 @@ class App extends Component {
                 {...props}
                 toggleDeleting={this.toggleDeleting}
                 handleSetCurrent={this.handleSetCurrent}
-                handleDeleteNote={this.handleDeleteNote}
+                handleRefresh={this.handleRefresh}
+                handleSetData={this.handleSetData}
+
               />
             )}
           />

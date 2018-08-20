@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import "../App.css";
 
 class Note extends Component {
@@ -37,7 +38,7 @@ class Note extends Component {
   };
 
   render() {
-    return <div className="note-div">{this.props.notes.map(this.filterNotes)}</div>;
+    return <div className="note-div">{this.state.notes.map(this.filterNotes)}</div>;
   }
 }
 

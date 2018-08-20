@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
 
 class DeleteNote extends React.Component {
   constructor(props) {
@@ -12,10 +12,22 @@ class DeleteNote extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.handleSetCurrent(id);
+    this.setState({ id: id });
   }
 
-  deleteCompleted = () => {
-    this.props.handleDeleteNote(this.props.match.params.id);
+
+  handleDeleteNote = e => {
+    const id = this.state.id;
+    axios
+      .delete(`http://localhost:8000/api/notes/${id}`)
+      .then(response => {
+        this.props.history.push("/");
+        this.setState({ id: null });
+        this.handleRefresh();
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -27,21 +39,19 @@ class DeleteNote extends React.Component {
             Are you sure you want to delete this?
           </p>
           <div className="delete-message-buttons">
-          <Link className="delete-button-link"to="/">
             <div
               className="delete-button-delete"
-              onClick={this.deleteCompleted}
+              onClick={this.handleDeleteNote}
             >
               Delete
             </div>
-          </Link>
-          <div
-            type="button"
-            className="delete-button-no"
-            onClick={this.props.toggleDeleting}
-          >
-            No
-          </div>
+            <div
+              type="button"
+              className="delete-button-no"
+              onClick={this.props.toggleDeleting}
+            >
+              No
+            </div>
           </div>
         </div>
       </div>
