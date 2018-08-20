@@ -34,7 +34,7 @@ const rootReducer = (state = initialState, action) => {
 
     case DELETED:
       // have to update the array as server only sends 'success'
-      const newNotesArr = state.notes.filter(n => n._id !== action.payload);
+      const newNotesArr = state.notes.filter(n => n.id !== action.payload);
       return { ...state, deletingNote: false, notes: newNotesArr };
 
     case ADDING:
@@ -45,11 +45,10 @@ const rootReducer = (state = initialState, action) => {
       const newNoteID = action.payload.data.success;
       const newNoteResponse = JSON.parse(action.payload.config.data);
       const newNote = {
-        tags: [],
-        _id: newNoteID,
+        id: newNoteID,
+        u_id: 1,
         title: newNoteResponse.title,
-        textBody: newNoteResponse.textBody,
-        __v: 0,
+        content: newNoteResponse.content,
       };
       const notesArr = state.notes.slice();
       notesArr.push(newNote);
@@ -63,10 +62,10 @@ const rootReducer = (state = initialState, action) => {
 
     case EDITED:
       // get info from the payload
-      const editedNote = action.payload.data;
-      const editedId = editedNote._id;
+      const editedNote = action.payload.data.success;
+      const editedId = editedNote.id;
       // get rid of the unedited note
-      const newArr = state.notes.slice().filter(n => n._id !== editedId);
+      const newArr = state.notes.slice().filter(n => +n.id !== +editedId);
       // add in the edited note
       newArr.push(editedNote);
       return {

@@ -36,7 +36,7 @@ class Notes extends Component {
         <p>Your Notes:</p>
         <Container>
           {this.props.notes.map(note => (
-            <NoteCard key={note._id} note={note} />
+            <NoteCard key={note.id} note={note} />
           ))}
         </Container>
       </NotesDiv>

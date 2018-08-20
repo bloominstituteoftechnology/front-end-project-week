@@ -12,17 +12,15 @@ export const ADDED = 'ADDED';
 export const EXPORTING = 'EXPORING';
 export const ERROR = 'ERROR';
 
-const getAllURL = 'https://killer-notes.herokuapp.com/note/get/all';
-const deleteURL = 'https://killer-notes.herokuapp.com/note/delete/';
-const addURL = 'https://killer-notes.herokuapp.com/note/create';
-const editURL = 'https://killer-notes.herokuapp.com/note/edit/';
+const notesAPI = 'http://localhost:3007/api/notes/';
 
 export const fetchData = () => {
   return function(dispatch) {
     dispatch({ type: FETCHING });
     axios
-      .get(getAllURL)
+      .get(notesAPI)
       .then(response => {
+        console.log('RESPONSE.data', response.data);
         dispatch({ type: FETCHED, payload: response.data });
       })
       .catch(err => dispatch({ type: ERROR, payload: err }));
@@ -33,7 +31,7 @@ export const deleteNote = id => {
   return function(dispatch) {
     dispatch({ type: DELETING });
     axios
-      .delete(`${deleteURL}${id}`)
+      .delete(`${notesAPI}${id}`)
       .then(response => {
         dispatch({ type: DELETED, payload: id });
       })
@@ -44,11 +42,9 @@ export const deleteNote = id => {
 export const addNote = note => {
   return function(dispatch) {
     dispatch({ type: ADDING });
-    console.log('adding ', note);
     axios
-      .post(addURL, note)
+      .post(notesAPI, note)
       .then(response => {
-        console.log('ADD reponse', response);
         dispatch({ type: ADDED, payload: response });
       })
       .catch(err => dispatch({ type: ERROR, payload: err }));
@@ -59,7 +55,7 @@ export const editNote = (id, note) => {
   return function(dispatch) {
     dispatch({ type: EDITING });
     axios
-      .put(`${editURL}${id}`, note)
+      .put(`${notesAPI}${id}`, note)
       .then(response => {
         console.log('PUT reponse', response);
         dispatch({ type: EDITED, payload: response });

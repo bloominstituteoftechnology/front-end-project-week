@@ -53,7 +53,7 @@ class NoteView extends React.Component {
     this.state = {
       note: {
         title: '',
-        textBody: '',
+        content: '',
         id: '',
       },
       editing: false,
@@ -80,11 +80,11 @@ class NoteView extends React.Component {
     // only setState when we actually have data
     if (this.props.notes[0]) {
       // filter returns an array
-      const note = this.props.notes.filter(n => n._id === id);
+      const note = this.props.notes.filter(n => +n.id === +id);
       this.setState({
         title: note[0].title,
-        textBody: note[0].textBody,
-        id: note[0]._id,
+        content: note[0].content,
+        id: note[0].id,
       });
     }
 
@@ -98,18 +98,21 @@ class NoteView extends React.Component {
     const id = this.props.match.params.id;
     // only setState when we actually have data
     if (newProps.notes[0]) {
+      console.log('NOTES!!', newProps.notes);
+      console.log('NOTE ID', id);
       // filter returns an array
-      const note = newProps.notes.filter(n => n._id === id);
+      const note = newProps.notes.filter(n => +id === +n.id);
+      console.log('NOTE', note);
       this.setState({
         title: note[0].title,
-        textBody: note[0].textBody,
-        id: note[0]._id,
+        content: note[0].content,
+        id: note[0].id,
       });
     }
   }
 
   render() {
-    const { title, textBody, id } = this.state;
+    const { title, content, id } = this.state;
     const body = document.body;
     body.style.backgroundColor = this.state.modal
       ? 'rgb(100, 100, 100, .9)'
@@ -131,7 +134,7 @@ class NoteView extends React.Component {
         </Links>
         <SingleNote innerRef={this.div}>
           <h2>{title}</h2>
-          {textBody}
+          {content}
         </SingleNote>
       </NoteDiv>
     );

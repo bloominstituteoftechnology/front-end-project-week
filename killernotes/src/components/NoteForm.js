@@ -55,7 +55,7 @@ class NoteForm extends React.Component {
     this.input = React.createRef();
     this.state = {
       title: '',
-      textBody: '',
+      content: '',
       edit: false,
       id: '',
     };
@@ -68,11 +68,11 @@ class NoteForm extends React.Component {
     // only do if we're editing
     if (this.props.notes[0] && id) {
       // filter returns an array
-      const note = this.props.notes.filter(n => n._id === id);
+      const note = this.props.notes.filter(n => +n.id === +id);
       this.setState({
         title: note[0].title,
-        textBody: note[0].textBody,
-        id: note[0]._id,
+        content: note[0].content,
+        id: note[0].id,
       });
     }
 
@@ -106,10 +106,10 @@ class NoteForm extends React.Component {
     // build our new note
     const newNote = {
       title: this.state.title,
-      textBody: this.state.textBody,
+      content: this.state.content,
     };
     // clear the state
-    this.setState({ title: '', textBody: '' });
+    this.setState({ title: '', content: '' });
 
     // edit or add the note, as appropriate
     if (this.state.editing) {
@@ -138,8 +138,8 @@ class NoteForm extends React.Component {
         <BodyInput
           onChange={this.handleInputChange}
           placeholder="Note Content"
-          value={this.state.textBody}
-          name="textBody"
+          value={this.state.content}
+          name="content"
         />
         <br />
         <Button onClick={this.clicked}>

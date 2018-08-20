@@ -62,10 +62,7 @@ class SideBar extends React.Component {
     var updatedCSV = this.state.CSV;
     for (let i = 0; i < this.props.notes.length; i++) {
       updatedCSV +=
-        this.props.notes[i].title +
-        '%2C' +
-        this.props.notes[i].textBody +
-        '%0A';
+        this.props.notes[i].title + '%2C' + this.props.notes[i].content + '%0A';
     }
     this.setState({ CSV: updatedCSV });
   };
