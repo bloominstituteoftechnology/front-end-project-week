@@ -211,3 +211,7 @@ h1 {
   border: 1px solid grey;
   min-height: 100vh;
 }
+
+.modal {
+  z-index: 1000;
+}

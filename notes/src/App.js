@@ -23,7 +23,6 @@ class App extends Component {
 
   submitForm = (title, textBody) => {
     this.setState(function (prevState, props) {
-      console.log(prevState);
       return {
       notes: [...prevState.notes, {id: prevState.notes.length, title: title, textBody: textBody}]
     }});
@@ -32,14 +31,18 @@ class App extends Component {
 
   submitEditForm = (id, title, textBody) => {
     this.setState(function (prevState, props) {
-      console.log(prevState, title);
       return {
         notes: [...prevState.notes.slice(0, id), {id, title, textBody}, ...prevState.notes.slice(parseInt(id, 10)+1, prevState.notes.length)]
 
     }});
+  }
+
+  deleteNote = (id) => {
     // document.location.assign("/");
-    // this.componentDidMount();
-    // this.forceUpdate();
+    this.setState(function (prevState, props) {
+      return {
+        notes: [...prevState.notes.slice(0, id), ...prevState.notes.slice(parseInt(id, 10)+1, prevState.notes.length)]
+    }});
   }
 
   render() {
@@ -48,7 +51,7 @@ class App extends Component {
         <Sidebar />
         <Route exact path="/" render={props => (<NotesList {...props} notes={this.state.notes} />)} />
         <Route path="/create" render={props => (<CreateNote {...props} notes={this.state.notes} submit={this.submitForm} />)} />
-        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.state.notes} />)} />
+        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.state.notes} delete={this.deleteNote} />)} />
         <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} submitEdit={this.submitEditForm} />)} />
       </div>
     );
