@@ -2,12 +2,13 @@
 body {
     background: #F2F1F2;
     max-width: 1000px;
-    margin: auto;
-    box-shadow: 0px 0px 10px lightgray;  
+    margin: 0 auto;
 }
 
 .page {
     display: flex;
+    min-height: 100vh;
+    box-shadow: 0px 0px 10px lightgray;  
 }
 
 .menubar {
@@ -16,7 +17,6 @@ body {
     flex-direction: column;
     align-items: center;
     background: #D3D2D3;
-    height: 100vh;
     border-right: solid rgb(196, 196, 196) 1px;
 }
 
@@ -87,4 +87,5 @@ h2 {
     height: 100%;
     overflow-y: scroll;
     line-height: 150%;
+    white-space: pre-wrap;
 }

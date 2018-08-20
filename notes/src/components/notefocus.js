@@ -10,7 +10,7 @@ const NoteFocus = props => {
         <Link className="linkedit" to={`/notes/edit/${props.match.params.id}`}>
           <p onClick={() => props.editNote(props.match.params.id)}>edit</p>
         </Link>
-        <p>delete</p>
+        <Link to="/"><p onClick={()=> props.noteDelete(props.match.params.id)}>delete</p></Link>
       </div>
       <h1 className="focustitle">{note.title}</h1>
       <div className="notetxt">{note.text}</div>

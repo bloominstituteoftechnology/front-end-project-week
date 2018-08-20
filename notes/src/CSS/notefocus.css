@@ -14,6 +14,7 @@
 
 .notetxt {
     line-height: 200%;
+    white-space: pre-wrap;
 }
 
 .edit-del {

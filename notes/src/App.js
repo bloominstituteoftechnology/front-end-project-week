@@ -53,6 +53,13 @@ class App extends Component {
     this.setState({ notes: notesCopy });
   };
 
+  noteDelete = (id) => {
+    let notesCopy = this.state.notes.slice();
+    let notesLeft = notesCopy.filter(note => note.id != id)
+    console.log(notesLeft);
+    this.setState({notes:notesLeft})
+  }
+
   render() {
     return (
       <div className="page">
@@ -81,6 +88,7 @@ class App extends Component {
               {...props}
               editNote={this.editNote}
               notes={this.state.notes}
+              noteDelete={this.noteDelete}
             />
           )}
         />
