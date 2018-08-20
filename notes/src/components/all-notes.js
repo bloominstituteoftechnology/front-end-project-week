@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link, Route} from 'react-router-dom';
-
 import styled from 'styled-components';
 
 const AllNotesDiv = styled.div`
@@ -39,7 +38,6 @@ export default class AllNotes extends Component {
   }
 
   render() {
-    console.log(this.state.notes)
     return (
       <AllNotesDiv>
         <h4>Your Notes</h4>

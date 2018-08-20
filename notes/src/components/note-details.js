@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const NoteDetailsDiv = styled.div`
   display: flex;
   flex-direction: column;
-
 `;
 
 export default class NoteDetails extends Component {
@@ -17,9 +16,7 @@ export default class NoteDetails extends Component {
     }
   }
 
-
   render() {
-    console.log(this)
     return (
       <NoteDetailsDiv>
         <Link to={`/all-notes/${this.state.note.id}/edit`}>Edit</Link>
