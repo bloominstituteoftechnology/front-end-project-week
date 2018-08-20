@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link, Route} from 'react-router-dom';
 
 const List = styled.div`
     background: #F1F1F1;
@@ -17,10 +18,10 @@ const NoteOverview = styled.div`
 
 const SmallNote = styled.div`
     height: 250px;
+    width: 250px;
     border: 1px solid lightgray;
     text-align: left;
     background: white;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 2rem;
@@ -47,12 +48,19 @@ class ListView extends React.Component{
                                     gridTemplateColumns: 'repeat(3, 1fr)',
                                     gridGap: '10px',
                                     gridAutoRows: 'minMax(100px, auto)'}}>
-                    {this.props.notes.map((note, i) => {
+                    {this.props.notes.map(note => {
                         return(
-                            <SmallNote key={i}>
-                                <Title>{note.title}</Title>
-                                <Content>{note.content}</Content>
-                            </SmallNote>
+                            <div>
+                                <Link to={`/note/${note.id}`}
+                                    style={{ textDecoration: 'none',
+                                            color: 'black' }}
+                                >
+                                    <SmallNote key={note.id}>
+                                        <Title>{note.title}</Title>
+                                        <Content>{note.content}</Content>
+                                    </SmallNote>
+                                </Link>
+                            </div>
                         );
                     })}
                 </NoteOverview>

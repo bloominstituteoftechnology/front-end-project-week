@@ -8,19 +8,17 @@ const Col = styled.div`
     border: 1px solid lightgray;
     background: #D2D2D2;
     padding: 1rem;
-    top: 0;
 `
 const H1 = styled.h1`
     max-width: 200px;
+    font-size: 3rem;
 `
 
 const Button = styled.button`
     background: #2AB4AE;
     color: white;
     width: 280px;
-    padding: 0.5rem 1rem;
-    display: flex;
-    flex-direction: column;
+    padding: 1rem;
     font-size: 1rem;
     font-weight: 700;
     text-align: center;
