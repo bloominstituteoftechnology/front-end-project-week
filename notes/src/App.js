@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 
 import Notes from "./Components/Notes";
+import Note from "./Components/Note";
 
 import "./App.css";
 
@@ -59,6 +60,13 @@ class App extends Component {
 						<div>
 							<Notes notes={this.state.notes} />
 						</div>
+					)}
+				/>
+				<Route
+					exact
+					path="/notes/:id"
+					render={props => (
+						<Note match={props.match} notes={this.state.notes} />
 					)}
 				/>
 			</div>
