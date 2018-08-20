@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
 class DeleteNote extends React.Component {
     constructor(props) {
@@ -12,14 +13,14 @@ class DeleteNote extends React.Component {
         const id = this.props.match.params.id;
         this.setState({ id: id })
     }
-    deleteNote = () => {
+    deleteNote = (e) => {
         const id = this.state.id;
         axios
-            .delete(`http://localhost:3333/notes/${id}`)
+            .delete(`http://localhost:8000/notes/${id}`)
             .then(response => {
-                console.log('DELETE RESPONSE: ', response)
+                this.props.history.push('/')
                 this.setState({ id: null })
-                this.props.handleSetData(response.data)
+                this.props.handleRefresh()
             })
             .catch(err => {console.log(err)})
     }
@@ -40,4 +41,4 @@ class DeleteNote extends React.Component {
     }
 }
  
-export default DeleteNote;
+export default withRouter(DeleteNote);

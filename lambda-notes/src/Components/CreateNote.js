@@ -12,9 +12,8 @@ class CreateNote extends React.Component {
     addNote = () => {
         const newNote = ({ title: `${this.state.titleValue}`, content: `${this.state.contentValue}` });
         axios
-            .post('http://localhost:3333/notes', newNote)
+            .post('http://localhost:8000/notes', newNote)
             .then(response => {
-                console.log('POST RESPONSE: ', response)
                 this.setState({ titleValue: '', contentValue: '' })
                 this.props.handleSetData(response.data)
             })
