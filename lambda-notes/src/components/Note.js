@@ -38,30 +38,30 @@ class Note extends Component {
             <div className="Note-container">
                 <div className="Note-header">
                     <div className="Note-links">
-                    <Link to={`/edit/${this.props.note["_id"]}`}>
+                    <Link to={`/edit/${this.props.note["id"]}`}>
                         <p>edit</p>
                     </Link>
-                    <Link to={`/note/${this.props.note["_id"]}`} onClick={this.toggleDelete}>
+                    <Link to={`/note/${this.props.note["id"]}`} onClick={this.toggleDelete}>
                         <p>delete</p>
                     </Link>
                     </div>
                     <h2>{this.props.note.title}</h2>
                 </div>
                 <div className="Note-content">
-                    <p>{this.props.note.textBody}</p>
+                    <p>{this.props.note.content}</p>
                 </div>
                 <div className="Note-tag">
                     {this.props.tags ? <p>tags: {this.props.tags.map((tag, index) => <span key={index} id={index}>{`${tag}`}</span>)}</p> : ''}
                 </div>
                 {this.state.isSelected ? <NoteView note={this.props.note}/> : null}
-                {this.state.toggle ? <DeleteModal toggleDelete={this.toggleDelete} handleDelete={this.handleDelete} id={this.props.note["_id"]}/> : null}
+                {this.state.toggle ? <DeleteModal toggleDelete={this.toggleDelete} handleDelete={this.handleDelete} id={this.props.note["id"]}/> : null}
             </div>
         );
     }
 };
 
 const mapStateToProps = ({ notes }) => {
-    // console.log(notes);
+    console.log(notes);
     return {
         note: notes.note,
         tags: notes.note.tags

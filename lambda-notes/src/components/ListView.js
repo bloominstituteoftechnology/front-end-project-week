@@ -40,7 +40,7 @@ class ListView extends Component {
         if(this.state.sorted === false) this.toggleSorted();
         // console.log(this.state.sorted);
         const notes = this.state.notes;
-        notes.sort((a,b) => a['_id'] < b['_id']);
+        notes.sort((a,b) => a['id'] < b['id']);
         // console.log(notes); 
         this.setNotes(notes);
     };
@@ -49,7 +49,7 @@ class ListView extends Component {
         if(this.state.sorted === false) this.toggleSorted();
         // console.log(this.state.sorted);
         const notes = this.state.notes;
-        notes.sort((a,b) => a['_id'] >= b['_id']);
+        notes.sort((a,b) => a['id'] >= b['id']);
         // console.log(notes);
         this.setNotes(notes);
     };
@@ -84,7 +84,7 @@ class ListView extends Component {
     handleSearch = (e) => {
         console.log(this.state.filteredNotes);
         const notes = this.state.notes.filter(note => {
-            if(note.title.includes(e.target.value) || note.textBody.includes(e.target.value)) {
+            if(note.title.includes(e.target.value) || note.content.includes(e.target.value)) {
                 return note;
             } else {
                 return null;
@@ -99,9 +99,9 @@ class ListView extends Component {
         } else {
             this.state.notes.map((note, index) => {
                 return (
-                    <Link to={`/note/${note["_id"]}`}>
+                    <Link to={`/note/${note["id"]}`}>
                         <NoteDetails
-                            key={note["_id"]}
+                            key={note["id"]}
                             index={index}
                             note={note}
                         />
@@ -135,9 +135,9 @@ class ListView extends Component {
                     </div>
                     {this.props.notes.map((note, index) => {
                         return (
-                            <Link to={`/note/${note["_id"]}`}>
+                            <Link to={`/note/${note["id"]}`}>
                                 <NoteDetails
-                                    key={note["_id"]}
+                                    key={note["id"]}
                                     index={index}
                                     note={note}
                                 />
@@ -164,9 +164,9 @@ class ListView extends Component {
                     </div>
                     {this.state.filteredNotes.map((note, index) => {
                         return (
-                            <Link to={`/note/${note["_id"]}`}>
+                            <Link to={`/note/${note["id"]}`}>
                                 <NoteDetails
-                                    key={note["_id"]}
+                                    key={note["id"]}
                                     index={index}
                                     note={note}
                                 />
@@ -193,9 +193,9 @@ class ListView extends Component {
                     </div>
                     {this.state.notes.map((note, index) => {
                         return (
-                            <Link to={`/note/${note["_id"]}`}>
+                            <Link to={`/note/${note["id"]}`}>
                                 <NoteDetails
-                                    key={note["_id"]}
+                                    key={note["id"]}
                                     index={index}
                                     note={note}
                                 />

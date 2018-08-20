@@ -9,14 +9,14 @@ class CreateView extends Component {
         super(props);
         this.state = {
             title: '',
-            textBody: '',
+            content: '',
             tag: '',
             tags: []
         }
     }
 
     componentDidMount() {
-        this.setState({title: '', textBody: '', tag: '', tags: []});
+        this.setState({title: '', content: '', tag: '', tags: []});
     }
 
     handleChange = (e) => {
@@ -25,11 +25,11 @@ class CreateView extends Component {
 
     handleSubmit = () => {
         // e.preventDefault();
-        if(this.state.title === '' && this.state.textBody === '') return null;
+        if(this.state.title === '' && this.state.content === '') return null;
 
         const note = {
             title: this.state.title,
-            textBody: this.state.textBody,
+            content: this.state.content,
             tags: this.state.tags
         }
 
@@ -60,9 +60,9 @@ class CreateView extends Component {
                         onChange={this.handleChange}
                         />
                     <textarea
-                        name="textBody"
+                        name="content"
                         placeholder="Note Content"
-                        value={this.state.textBody}
+                        value={this.state.content}
                         onChange={this.handleChange}
                         />
                     <label>tags: {this.state.tags.length !== 0 ? (this.state.tags.map((tag) => <span>{`${tag} `}</span>)) : ``}</label>

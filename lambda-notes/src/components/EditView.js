@@ -12,7 +12,7 @@ class EditView extends Component {
             tags: [],
             tag: '',
             title: null,
-            textBody: null
+            content: null
         };
     }
 
@@ -20,7 +20,7 @@ class EditView extends Component {
         const id = this.props.match.params.id;
         // console.log(id);
         this.props.fetchNoteReq(id);
-        this.setState({title: this.props.note.title, textBody: this.props.note.textBody, toggle: false, tag: ''});
+        this.setState({title: this.props.note.title, content: this.props.note.content, toggle: false, tag: ''});
     }
 
     handleChange = (e) => {
@@ -28,12 +28,12 @@ class EditView extends Component {
     };
 
     handleUpdate = (e) => {
-        // if(this.state.title === '' && this.state.textBody === '') return null;
+        // if(this.state.title === '' && this.state.content === '') return null;
 
         const id = this.props.match.params.id;
         const note = {
             title: this.state.title,
-            textBody: this.state.textBody,
+            content: this.state.content,
             tags: this.state.tags
         }
 
@@ -78,9 +78,9 @@ class EditView extends Component {
                         onChange={this.handleChange}
                     />
                     <textarea
-                        name="textBody"
+                        name="content"
                         placeholder="Note Content"
-                        value={this.state.textBody === "" ? this.props.note.textBody : this.state.textBody}
+                        value={this.state.content === "" ? this.props.note.content : this.state.content}
                         onChange={this.handleChange}
                     />
                     <label>tags: {this.props.note ? this.props.tags.map((tag, index) => <span key={index} id={index} onClick={() => this.handleTagClick(index)}>{`${tag}`}</span>) : ``}</label>
