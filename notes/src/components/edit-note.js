@@ -5,11 +5,12 @@ import {Link} from 'react-router-dom';
 import EditForm from './edit-form.js';
 
 const EditNoteDiv = styled.div`
-  border: 1px solid green;
+  ${'' /* border: 1px solid green; */}
   display: flex;
   flex-direction: column;
   background-color: #F3F3F3;
   padding: 25px;
+  background-color: white;
   height: 100vh;
   .links {
     ${'' /* border: 1px solid blue; */}

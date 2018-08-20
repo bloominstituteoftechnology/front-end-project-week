@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const DeleteNoteDiv = styled.div`
-    border: 1px solid purple;
+    ${'' /* border: 1px solid purple; */}
     background: white;
     padding: 40px 100px;
     margin: 250px;
@@ -17,38 +17,50 @@ const DeleteNoteDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px solid gray;
     .inner-div {
-      border: 1px solid red;
+      ${'' /* border: 1px solid red; */}
       padding: 0 100px;
       width: 100%;
-    }
-    .delete-buttons {
-      border: 1px solid green;
-      width: 90%;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-
-      .button {
-        border: 1px solid blue;
-        padding: 5px;
-        width: 40%;
+      h4 {
+        ${'' /* border: 1px solid red; */}
+        text-align: center;
+        font-weight: normal;
+      }
+      .delete-buttons {
+        ${'' /* border: 1px solid green; */}
+        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        border: 1px solid lightgray;
-      }
-      #no {
-        background-color: #2AC0C4;
-      }
-      #delete {
-        background-color: red;
-      }
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: space-between;
+        .button {
+          ${'' /* border: 1px solid blue; */}
+          padding: 10px;
+          width: 80%;
+          margin: 0 20px
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          color: white;
+          font-weight: bold;
+          border: 1px solid lightgray;
+        }
+        #no {
+          background-color: #2AC0C4;
+        }
+        #delete {
+          background-color: red;
+        }
 
-  }
+    }
+    }
+
 
 `;
 

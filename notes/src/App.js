@@ -35,7 +35,7 @@ const AppDiv = styled.div`
         background-color: #2AC0C4;
         font-weight: bold;
         margin: 10px;
-        border: 1px solid lightgray;
+        border: 1px solid gray;
       }
     }
     .right-display{

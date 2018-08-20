@@ -76,7 +76,6 @@ export default class EditForm extends Component {
   }
 
   render() {
-    console.log(this)
     return (
         <EditFormDiv>
           <form onSubmit={this.sendToApp}>
