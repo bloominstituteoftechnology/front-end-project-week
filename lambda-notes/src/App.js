@@ -4,7 +4,7 @@ import './App.css';
 import { Button, H1, H2, H3 } from './components/StyledComponents';
 import SideBar from './components/SideBar';
 import { connect } from 'react-redux';
-import { fetchNotes } from './actions';
+import { fetchNotes, addNewNote } from './actions';
 import ListView from './components/ListView/ListView';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import NewNote from './components/CreateNote/NewNote';
@@ -20,9 +20,13 @@ class App extends Component {
         <div className="sideBar">
           <SideBar />
         </div>
-        <Route exact path="/"
-          render={props => <ListView {...this.props}/>}/>
-        <Route path="/newNote" render={NewNote} />
+        {this.props.notes ? 
+          <div><Route exact path="/"
+            render={props => <ListView {...this.props}/>}/>
+          <Route path="/newNote" 
+            render={props => <NewNote {...this.props}/>} /></div>
+            : <H1>Loading</H1>
+        }
       </div>
     );
   }
@@ -43,4 +47,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNotes })(App);
+export default connect(mapStateToProps, { fetchNotes, addNewNote })(App);

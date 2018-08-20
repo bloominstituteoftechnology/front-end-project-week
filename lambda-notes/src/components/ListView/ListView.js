@@ -5,7 +5,7 @@ import { ListViews, H2 } from '../StyledComponents';
 function List(props){
     return (
         <ListViews>
-            {props.notes.map(note => <Item {...note}/>)}
+            {props.notes.map(note => <Item key={note.id} {...note}/>)}
         </ListViews>
     )
 }
