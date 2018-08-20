@@ -1,23 +1,27 @@
 import React from 'react';
+import { Button, Input, Form, FormGroup } from 'reactstrap';
 
-const AddNote = props => (
-  <div>
-    <form onSubmit={props.onSubmit}>
-      <input
+const NoteForm = props => (
+  <Form onSubmit={props.onSubmit} className="note-form">
+    <FormGroup>
+      <Input
         name="title"
         placeholder="Note Title"
         onChange={props.onChange}
         value={props.title}
       />
-      <textarea
+    </FormGroup>
+    <FormGroup>
+      <Input
+        type="textarea"
         name="text"
         placeholder="Note Content"
         onChange={props.onChange}
         value={props.text}
       />
-      <button>{props.formText}</button>
-    </form>
-  </div>
+    </FormGroup>
+    <Button color="info">{props.formText}</Button>
+  </Form>
 );
 
-export default AddNote;
+export default NoteForm;

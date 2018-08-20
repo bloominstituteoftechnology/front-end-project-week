@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalBody } from 'reactstrap';
+import { Button, Modal, ModalBody, Row } from 'reactstrap';
 
 const DeleteModal = props => {
   return (
@@ -7,8 +7,10 @@ const DeleteModal = props => {
       <ModalBody>
         Are you sure you want to delete this?
       </ModalBody>
-      <Button color="danger" onClick={props.delete}>Delete</Button>{' '}
-      <Button color="info" onClick={props.toggle}>No</Button>
+      <Row>
+        <Button color="danger" onClick={props.delete}>Delete</Button>{' '}
+        <Button color="info" onClick={props.toggle}>No</Button>
+      </Row>
     </Modal>
   );
 }

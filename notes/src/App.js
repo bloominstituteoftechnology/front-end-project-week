@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
-import Modal from './components/Modal';
+import Modal from './components/DeleteModal';
 
 class App extends Component {
   dummyText = 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis.';
   state = {
     notes: [
       {
-        id: 0,
+        id: 2,
         title: 'Note title',
         text: this.dummyText
       },
@@ -19,13 +20,18 @@ class App extends Component {
         text: this.dummyText
       },
       {
-        id: 2,
+        id: 0,
         title: 'Note title',
         text: this.dummyText
       }
     ],
     title: '',
     text: '',
+    note: {
+      id: -1, 
+      title: 'Please return to the notes page.', 
+      text: 'You\'ve went and refreshed at the wrong time! C\'mon, dude!'
+    },
     modal: false,
     nextId: 3
   };
@@ -42,11 +48,11 @@ class App extends Component {
     e.preventDefault();
     const { notes, title, text, nextId } = this.state;
     this.setState({
-      notes: [...notes, {
+      notes: [{
         id: nextId,
         title,
         text
-      }],
+      }, ...notes],
       title: '',
       text: '',
       nextId: nextId + 1
@@ -81,79 +87,82 @@ class App extends Component {
     return (
       <div className="App">
         <div className="sidebar">
-          <Link to="/">View Your Notes</Link>
-          &emsp;
-          <Link to="/create">+ Create New Note</Link>
+          <h1>Lambda Notes</h1>
+          <Link to="/"><Button color="info">View Your Notes</Button></Link>
+          <Link to="/create"><Button color="info">+ Create New Note</Button></Link>
         </div>
-        <Route
-          path="/create"
-          render={() => (
-            <div>
-              <h2>Create New Note:</h2>
-              <NoteForm 
-                onChange={this.onChange} 
-                onSubmit={this.addNote} 
-                title={this.state.title} 
-                text={this.state.text} 
-                formText="Save"
+        <div className="main-content">
+          <Route
+            path="/create"
+            render={() => (
+              <div class="note-form-container">
+                <h2>Create New Note:</h2>
+                <NoteForm 
+                  onChange={this.onChange} 
+                  onSubmit={this.addNote} 
+                  title={this.state.title} 
+                  text={this.state.text} 
+                  formText="Save"
+                />
+              </div>
+            )}
+          />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div>
+                <h2>Your Notes:</h2>
+                <div className="notes">
+                  {this.state.notes.map(note => (
+                    <Link 
+                      key={note.id} 
+                      onClick={() => this.storeNote(note)} 
+                      to={`/notes/${note.id}`}
+                    >
+                      <Note note={note} />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          />
+          <Route
+            path="/notes/:id"
+            render={() => (
+              <div className="single-note-card">
+                <Link to="/notes/delete" onClick={this.toggle}>delete</Link>
+                <Link to="/edit">edit</Link>
+                <Note note={this.state.note} single={true} />
+              </div>
+            )}
+          />
+          <Route
+            path="/edit"
+            render={() => (
+              <div class="note-form-container">
+                <h2>Edit Note:</h2>
+                <NoteForm
+                  onChange={this.onChange} 
+                  onSubmit={this.editNote} 
+                  title={this.state.title} 
+                  text={this.state.text} 
+                  formText="Update"
+                />
+              </div>
+            )}
+          />
+          <Route
+            path="/notes/delete"
+            render={() => (
+              <Modal
+                toggle={this.toggle}
+                modal={this.state.modal}
+                delete={this.deleteNote}
               />
-            </div>
-          )}
-        />
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <div>
-              <h2>Your Notes:</h2>
-              {this.state.notes.map(note => (
-                <Link 
-                  key={note.id} 
-                  onClick={() => this.storeNote(note)} 
-                  to={`/notes/${note.id}`}
-                >
-                  <Note note={note} />
-                </Link>
-              ))}
-            </div>
-          )}
-        />
-        <Route
-          path="/notes/:id"
-          render={() => (
-            <div>
-              <Link to="/notes/edit">edit</Link>
-              &emsp;
-              <Link to="/notes/delete" onClick={this.toggle}>delete</Link>
-              <Note note={this.state.note} />
-            </div>
-          )}
-        />
-        <Route
-          path="/notes/edit"
-          render={() => (
-            <div>
-              <h2>Edit Note:</h2>
-              <NoteForm
-                onChange={this.onChange} 
-                onSubmit={this.editNote} 
-                title={this.state.title} 
-                text={this.state.text} 
-                formText="Update"
-              />
-            </div>
-          )}
-        />
-        <Route
-          path="/notes/delete"
-          render={() => (
-            <Modal
-              toggle={this.toggle}
-              modal={this.state.modal}
-              delete={this.deleteNote}
-            />
-          )}
-        />
+            )}
+          />
+        </div>
       </div>
     );
   }

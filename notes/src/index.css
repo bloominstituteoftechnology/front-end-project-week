@@ -1,27 +1,108 @@
 * {
   box-sizing: border-box;
 }
-/* html {
-  font-size: 62.5%;
-} */
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 a {
   text-decoration: none;
+  color: black;
 }
 textarea {
   resize: none;
 }
-.App {
-  margin: 0 auto;
-  text-align: center;
+hr {
+  border: 1px solid lightgray;
 }
-.sidebar {
-  margin-bottom: 30px;
+button {
+  width: 200px;
+  border: 1px solid gray;
+  border-radius: 0px;
+}
+.App {
+  text-align: center;
+  display: flex;
+}
+.main-content {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  padding: 3vh;
+  text-align: left;
+}
+.notes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .note {
-  margin: 30px 0 50px;
+  margin: 30px 10px 50px;
+  width: 300px;
+}
+.card {
+  border-radius: 2px;
+  border-width: 2px;
+  text-align: left;
+  height: 200px;
+}
+.single-note-card {
+  width: 100%;
+}
+.single-note-card .note {
+  width: 100%;
+  text-align: left;
+}
+.single-note-card a {
+  float: right;
+  margin-left: 10px;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100vh;
+  background: lightgray;
+  border-right: 1px solid gray;
+  padding: 20px 5px;
+}
+.sidebar h1 {
+  font-weight: bold;
+}
+.sidebar button {
+  margin: 20px 5px 10px;
+}
+.note-form-container {
+  width: 100%;
+  text-align: left;
+}
+.note-form-container h2 {
+  margin-bottom: 20px;
+}
+.note-form-container .note-form {
+  display: flex;
+  flex-direction: column;
+}
+.note-form-container .note-form input {
+  width: 50%;
+}
+.note-form-container .note-form textarea {
+  height: 300px;
+}
+.modal {
+  top: 200px;
+}
+.modal .modal-content {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 0;
+  padding: 15px 0 25px;
+}
+.modal .modal-content .row {
+  margin: 0 auto;
+}
+.modal .modal-content button {
+  margin: 5px 10px 20px;
 }
