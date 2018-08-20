@@ -4,8 +4,7 @@ import NoteViewOperations from '../../note-view/duck/operations';
 const updatingNote = Creators.updatingNote;
 const updatedNote = Creators.updatedNote;
 const updateNote = (id, noteObj) => {
-    console.log(noteObj);
-    const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, noteObj);
+    const promise = axios.put(`http://localhost:8001/api/notes/${id}`, noteObj);
     return dispatch => {
         dispatch(updatingNote());
         promise

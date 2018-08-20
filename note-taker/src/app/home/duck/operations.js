@@ -6,7 +6,7 @@ const receiveNotesAction = Creators.receiveNotes;
 
 
 const fetchNotes = () => {
-  const promise = axios.get("https://killer-notes.herokuapp.com/note/get/all");
+  const promise = axios.get("http://localhost:8001/api/notes");
   return dispatch => {
     dispatch(requestNotesAction());
     promise

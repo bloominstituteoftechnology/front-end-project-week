@@ -7,7 +7,7 @@ const deletingNote = Creators.deleteNote;
 const deleteNote = Creators.deleteNote;
 
 const fetchNote = (id) => {
-    const promise = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
+    const promise = axios.get(`http://localhost:8001/api/notes/${id}`);
     return dispatch => {
         dispatch(requestNote());
         promise
@@ -23,7 +23,7 @@ const fetchNote = (id) => {
 
 const noteDeletion = (id) => {
     console.log(id);
-    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
+    const promise = axios.delete(`http://localhost:8001/api/notes/${id}`);
     return dispatch => {
         dispatch(deletingNote());
         promise
