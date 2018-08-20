@@ -35,25 +35,28 @@ class ListView extends Component {
     render() {
         return (
             <div className="list-container">
-                this is list-container
-                <ul>
-          {this.state.noteList.map(note => {
-            return (
-              <NoteCard
-                tags={note.tags}
-                title={note.title}
-                textBody={note.textBody}
-              />
-            );
-          })}
-        </ul>
+                <h3 className="notes-title">Your Notes:</h3>
+                <div className="notes-top-container">
+                    <ul className="notes-container">
+                    {this.state.noteList.map(note => {
+                        return (
+                        <NoteCard
+                            tags={note.tags}
+                            title={note.title}
+                            textBody={note.textBody}
+                        />
+                        );
+                    })}
+                    </ul>                    
+                </div>
+ 
             </div>
         );
     }
 }
 
-ListView.defaultProps = {
-    noteList: [],
-};
+// ListView.defaultProps = {
+//     noteList: [],
+// };
 
 export default ListView;
