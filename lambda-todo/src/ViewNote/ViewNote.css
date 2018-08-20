@@ -3,5 +3,34 @@
     border: 1px solid black; 
     height: 100%; 
     position: fixed; 
-    background: #FAFBFC
+    background: #FAFBFC; 
+    display: flex; 
+    justify-content: center; 
+
+}
+.edit-delete{
+    display:flex; 
+    justify-content: flex-end; 
+}
+.ed{
+    text-decoration: none; 
+    color: black; 
+    margin: 10px; 
+}
+.note-container{
+    width: 500px; 
+    height: auto; 
+    border: 1px solid blue; 
+}
+.note-view-page{
+    font-size: 15px; 
+    margin: 10px; 
+}
+.note-title{
+    font-size: 25px; 
+    margin: 10px; 
+}
+.extended-content{
+    font-size: 15px; 
+    margin: 10px; 
 }
