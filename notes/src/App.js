@@ -18,7 +18,8 @@ class App extends Component {
         <div className='App'>
           <Route path='/' component={SideBar} />
           <Link to="/"></Link>
-          <ListView notes={this.state.notes} />
+          <Route exact path="/noteslist" render={(props) => <ListView {...props}
+                                                      notes={this.state.notes} />} />
         </div>
 
       </div>

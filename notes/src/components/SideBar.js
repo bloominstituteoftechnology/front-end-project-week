@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Col = styled.div`
     width: 300px;
@@ -27,8 +28,12 @@ class SideBar extends React.Component {
         return(
             <Col>
                 <H1>Lambda Notes</H1>
-                <Button>View Your Notes</Button>
-                <Button>+ Create New Note</Button>
+                <Link to="/noteslist" style={{ textDecoration: 'none' }}>
+                    <Button>View Your Notes</Button>
+                </Link>
+                <Link to="createnewnote" style={{ textDecoration: 'none' }}>
+                    <Button>+ Create New Note</Button>
+                </Link>
             </Col>
         );
     }
