@@ -2,12 +2,12 @@ import React from "react";
 import "./ViewNote.css";
 
 const ViewNote = props => {
-  const note = props.notes.find(note => note.id === props.match.params.id);
+  const notes = props.note.find(notes => notes.id === props.match.params.id);
   return (
     <div className="view-page">
       <div>View Note</div>
-      <div>{note.title}</div>
-      <p>{note.content}</p>
+      <div>{notes.title}</div>
+      <p>{notes.content}</p>
     </div>
   );
 };

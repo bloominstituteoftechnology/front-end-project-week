@@ -22,7 +22,7 @@ class NotesHolder extends Component {
           <Route
             exact
             path="/view-note/:id"
-            render={props => <ViewNote {...props} notes={this.state.notes} />}
+            render={props => <ViewNote {...props} note={this.state.notes} />}
           />
         </div>
       </div>
