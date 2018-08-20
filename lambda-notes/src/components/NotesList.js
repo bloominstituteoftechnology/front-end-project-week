@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Note from './Note';
+import {Link} from 'react-router-dom';
 
 const ListNotes = styled.div`
 
@@ -19,7 +20,7 @@ class NotesList extends Component {
     constructor(props){
         super(props);
         this.state = {
-            notes: [],
+            notes: []
         }
     }
 
@@ -32,27 +33,17 @@ class NotesList extends Component {
         })
     }
 
-    delete = (id) => {
-        axios.delete(`${URL}${id}`)
-        .then(response => {
-            this.setState({
-                notes: response.data
-            })
-        })
-        .then(response => {
-            console.log(response);
-        })
-    }
-
     render() {
         return (
             <ListNotes>
                 {this.state.notes.map(note => 
+                    <Link to={`/note/${note.id}`}>
                     <Note
                         key={note.id}
                         title={note.title}
                         content={note.content}
                     />
+                    </Link>
                 )}
             </ListNotes>
         );

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 
-const NoteView = styled.div`
+const NoteDisplay = styled.div`
 
     max-width: 200px;
     width: 100%;
@@ -15,13 +15,12 @@ class Note extends Component {
     render() {
 
         return ( 
-            <NoteView>
+            <NoteDisplay>
                 <h1>{this.props.title}</h1>
                 <div>
                     <p>{this.props.content}</p>
                 </div>
-                <button onClick={this.props.delete}>Delete</button>
-            </NoteView>
+            </NoteDisplay>
          );
     }
 }

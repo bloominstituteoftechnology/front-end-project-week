@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+
+
+const URL = './components/notes';
+
 
 class NewNote extends Component {
     constructor(props) {
@@ -11,6 +16,26 @@ class NewNote extends Component {
 
     change = (event) => {
         this.setState({ [event.target.name]: event.target.value});
+    }
+
+    addNote = event => {
+        event.preventDefault();
+        const newNote = {
+          title: this.state.title,
+          content: this.state.content
+        }
+        axios.post(URL, newNote) 
+          .then(response => {
+            console.log(response);
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.log(error);
+          })
+          this.setState({
+            title: '',
+            content: ''
+          });
     }
 
     render() { 
@@ -33,7 +58,7 @@ class NewNote extends Component {
                     onChange={this.change}
                 />
 
-                <button>Save</button>
+                <button type='submit' onClick={this.addNote}>Save</button>
             </form>
          );
     }
