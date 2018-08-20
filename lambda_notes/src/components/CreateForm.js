@@ -67,13 +67,9 @@ class AddForm extends React.Component {
     e.preventDefault();
     this.props.addNote({
       title: this.titleInput.value,
-      textBody: this.contentInput.value
+      content: this.contentInput.value
     })
     this.props.history.push('/');
-    console.log({
-      title: this.titleInput.value,
-      textBody: this.contentInput.value
-    })
   }
 
   render() {
