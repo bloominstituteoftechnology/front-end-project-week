@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { MainNav } from "./components/mainNav/MainNav";
 import { Notes } from "./components/noteList/Notes";
+import { IndividualNote } from "./components/noteList/IndividualNote";
 
 import "./css_styles/app.css";
 
@@ -72,6 +73,12 @@ class App extends Component {
           exact
           path={"/"}
           render={props => <Notes {...props} notes={this.state.notes} />}
+        />
+        <Route
+          path={"/:id"}
+          render={props => (
+            <IndividualNote {...props} notes={this.state.notes} />
+          )}
         />
       </div>
     );
