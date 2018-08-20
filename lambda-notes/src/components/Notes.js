@@ -15,7 +15,7 @@ const Notes = props => {
                             <Card style={{height: 100 + '%'}}>
                                 <CardBody>
                                     <CardTitle style={ { borderBottom: "1px solid black" }}>{note.title}</CardTitle>
-                                    <CardText>{note.text}</CardText>
+                                    <CardText className="block-with-text">{note.text}</CardText>
                                 </CardBody>
                             </Card>
                         </Link>
