@@ -6,7 +6,8 @@ class EditNote extends Component {
         super(props);
         this.state = {
             title: this.props.title,
-            content: this.props.content
+            content: this.props.content,
+            tags: this.props.tags
         }
     }
 
@@ -16,10 +17,12 @@ class EditNote extends Component {
 
     updateNote = event => {
         event.preventDefault();
+        let tagArray = this.state.tags.split(', ');
         let updatedNote = {
             id: this.props.id,
             title: this.state.title,
-            content: this.state.content
+            content: this.state.content,
+            tags: tagArray
         }
         this.props.updateNote(updatedNote);
         this.props.onCancel();
@@ -35,6 +38,10 @@ class EditNote extends Component {
                 <FormGroup>
                     <Label for="content">Updated Note</Label>
                     <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="tags">Tags</Label>
+                    <Input type="text" name="tags" id="tags" onChange={this.handleChange} value={this.state.tags} required></Input>
                 </FormGroup>
                 <Button color="primary">Update</Button>
                 <Button type="button" onClick={this.props.onCancel} color="danger">Cancel</Button>

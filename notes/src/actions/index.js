@@ -78,6 +78,7 @@ export const updateNote = note => {
         axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, {
             title: note.title,
             textBody: note.content,
+            tags: note.tags
         })
             .then(res => {
                 dispatch({ type: UPDATED_NOTES, payload: res.data })
