@@ -37,6 +37,12 @@ class App extends Component {
 		this.setState(prevState => ({ notes: [...prevState.notes, note] }));
 	};
 
+	handleDeleteNote = id => {
+		this.setState(prevState => ({
+			notes: prevState.notes.filter(note => note.id != id),
+		}));
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -76,7 +82,11 @@ class App extends Component {
 					exact
 					path="/notes/:id"
 					render={props => (
-						<Note match={props.match} notes={this.state.notes} />
+						<Note
+							match={props.match}
+							notes={this.state.notes}
+							onClick={this.handleDeleteNote}
+						/>
 					)}
 				/>
 			</div>
