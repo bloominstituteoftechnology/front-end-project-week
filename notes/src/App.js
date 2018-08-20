@@ -31,7 +31,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <div>
+        <div className="navbar">
+          <div className="navbar-title">Lambda Notes</div>
           <NavLink className="navlink" exact to="/">View Your Notes</NavLink>
           <NavLink className="navlink" to="/add-note">+ Add a Note</NavLink>
         </div>
