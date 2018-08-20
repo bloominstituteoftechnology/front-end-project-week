@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import NotesNav from './components/NotesNav';
 import Notes from './components/Notes';
+import NewNote from './components/NewNote';
 
 class App extends Component {
   constructor() {
@@ -13,24 +14,28 @@ class App extends Component {
         {
           id: 0,
           title: "Note 0",
-          text: "Lorem ipsum dolor sit amet."
+          content: "Lorem ipsum dolor sit amet."
         },
         {
           id: 1,
           title: "Note 1",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
         },
         {
           id: 2,
           title: "Note 2",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
         },
         {
           id: 3,
           title: "Note 3",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
         }
-      ]
+      ],
+      name: '',
+      age: '',
+      height: ''
+
     }
   }
   render() {
@@ -38,10 +43,14 @@ class App extends Component {
       <div className="App">
         <NotesNav />
         <div className="main">
-        <Route
-          path="/notes"
-          render={(props) => <Notes {...props} notes={this.state.notes} />}
-        />
+          <Route
+            path="/notes"
+            render={(props) => <Notes {...props} notes={this.state.notes} />}
+          />
+          <Route
+            path="/add"
+            render={(props) => <NewNote {...props} notes={this.state.notes} />}
+          />
         </div>
       </div>
     );

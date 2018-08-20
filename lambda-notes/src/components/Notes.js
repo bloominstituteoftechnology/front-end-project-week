@@ -7,15 +7,19 @@ import './Notes.css';
 const Notes = props => {
     return (
         <Container className="notes">
-            <Row style={{paddingLeft: 15 + 'px'}}><h2>Your Notes:</h2></Row>
+            <Row>
+                <Col>
+                    <h2>Your Notes:</h2>
+                </Col>
+            </Row>
             <Row >
                 {props.notes.map(note => (
-                    <Col style={{paddingTop: 30 + 'px'}} key={note.id} xs="12" sm="4">
+                    <Col style={{ paddingTop: 30 + 'px' }} key={note.id} xs="12" sm="4">
                         <Link to={`/notes/${note.id}`}>
-                            <Card style={{height: 100 + '%'}}>
+                            <Card style={{ height: 100 + '%' }}>
                                 <CardBody>
-                                    <CardTitle style={ { borderBottom: "1px solid black" }}>{note.title}</CardTitle>
-                                    <CardText className="block-with-text">{note.text}</CardText>
+                                    <CardTitle style={{ borderBottom: "1px solid black" }}>{note.title}</CardTitle>
+                                    <CardText className="block-with-text">{note.content}</CardText>
                                 </CardBody>
                             </Card>
                         </Link>
