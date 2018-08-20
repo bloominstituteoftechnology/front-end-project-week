@@ -31,7 +31,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
 
 ```markdown
-## Trello Set Up:
+## Trello Set Up: https://trello.com/b/taRAQk9J/lambda-notes-david-morales
 
 - [ ] Create a Trello account
 - [ ] Create a new board called "Lambda Notes - {Your Name}"
