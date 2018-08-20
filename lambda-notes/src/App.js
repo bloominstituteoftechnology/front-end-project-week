@@ -5,8 +5,9 @@ import './App.css';
 import NotesNav from './components/NotesNav';
 import Notes from './components/Notes';
 import NewNote from './components/NewNote';
+import Note from './components/Note';
 
-let noteID = 0;
+
 
 class App extends Component {
   constructor() {
@@ -56,12 +57,16 @@ class App extends Component {
         <NotesNav />
         <div className="main">
           <Route
-            path="/notes"
+            exact path="/notes"
             render={(props) => <Notes {...props} notes={this.state.notes} />}
           />
           <Route
-            path="/add"
+            exact path="/add"
             render={(props) => <NewNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
+          />
+          <Route
+            exact path="/notes/:id"
+            render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
           />
         </div>
       </div>
