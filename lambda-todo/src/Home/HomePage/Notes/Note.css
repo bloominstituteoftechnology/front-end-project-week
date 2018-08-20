@@ -1,5 +1,22 @@
 .note-card{
-    border: 1px solid yellow; 
-    width: 187px; 
-    height: auto; 
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-content: center; 
+}
+.card{
+    border: 1px solid black; 
+    width: 120px; 
+    height: 150;  
+    padding: 10px; 
+    margin: 10px; 
+    display: flex; 
+    flex-direction: column; 
+}
+h2{
+    font-size: 17px; 
+}
+p{
+    font-size: 12px; 
 }

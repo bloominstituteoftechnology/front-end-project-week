@@ -9,7 +9,7 @@ let Notes = [
   },
   {
     id: 2,
-    title: "Work Schedule",
+    title: "Groceries",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
     content:
@@ -41,7 +41,7 @@ let Notes = [
   },
   {
     id: 6,
-    title: "Around the House",
+    title: "House Work",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
     content:
