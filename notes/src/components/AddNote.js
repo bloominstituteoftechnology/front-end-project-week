@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import {Link} from 'react-router-dom';
-import "../App.css";
+import React, { Component } from 'react';
+import '../App.css';
 
 export default class AddNote extends Component {
   constructor(props) {
@@ -13,32 +12,33 @@ export default class AddNote extends Component {
     };
   }
 
-  inputHandler = e => {
-    this.setState({ [e.target.value]: e.target.name });
   
+  inputHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   onSaveHandler = e => {
     e.preventDefault();
-
-    const notes = {
+    const newNote = this.state.notes.slice(); 
+    newNote.push({
       id: this.state.id,
       title: this.state.title,
       note: this.state.note
-    };
-    this.setState({ notes: notes, id: 3, title: "", note: "" });
-  };
+    });
+    this.setState({notes: newNote, id: null, title: "", note: "" });
+};
 
   render() {
-    console.log('inputing', this.state.title)
+    console.log('inputing', this.state.notes)
     return (
       <div className="form">
         <div className="form-title">Create New Note:</div>
 
+        <div className="form-body">
         <form onSubmit={this.onSaveHandler}>
           <input
             type="text"
-            className="form-title"
+            className="form-inputtitle"
             name="title"
             onChange={this.inputHandler}
             placeholder="Note Title"
@@ -46,14 +46,15 @@ export default class AddNote extends Component {
           />
           <input
             type="text"
-            className="form-note"
+            className="form-inputnote"
             name="note"
             onChange={this.inputHandler}
             placeholder="Note Content"
             value={this.state.note}
           />
-          <button>Save</button>
+          <button className="form-button">Save</button>
         </form>
+        </div>
       </div>
     );
   }

@@ -7,6 +7,7 @@ export default class NotesView extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        notes: this.props.state,
     };
   }
 

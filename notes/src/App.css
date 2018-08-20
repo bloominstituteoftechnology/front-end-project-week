@@ -87,3 +87,60 @@
   padding: 10px;
   line-height: 25px;
 }
+
+/*------ FORM ------*/
+
+.form{
+  margin: 65px 15px;
+}
+
+
+.form .form-title{
+  margin-bottom: 25px;
+  font: #4A4A4A;
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 8px;
+}
+
+.form .form-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.form .form-inputtitle{
+  width: 400px;
+  margin: 10px;
+}
+
+.form .form-inputnote{
+  width: 90%;
+  height: 400px;
+  margin: 10px;
+  display: flex;
+  align-items: flex-start;
+  position: aboslute;
+}
+
+.form .form-inputnote::placeholder{
+
+  position: relative; 
+  bottom: 190px;
+}
+
+.form .form-button{
+  border: 1px solid orange; 
+  text-decoration: none;
+  background-color: #2BC1C4;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  height: 50px;
+  width: 200px;
+  margin-left: 10px;
+}
