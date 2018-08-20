@@ -22,17 +22,17 @@ var Notes = sequelize.define('Notes', {
     type: Sequelize.STRING
   },
   context: Sequelize.STRING,
-  tags: Sequelize.BLOB
+  tags: Sequelize.STRING
 })
 
 let Tags = sequelize.define('Tags', {
-  value: Sequelize.BLOB
+  value: Sequelize.STRING
 })
 Users.hasMany(Notes)
 Notes.belongsTo(Users)
 Notes.hasMany(Tags)
 Tags.belongsTo(Notes)
-// sequelize.sync()
+sequelize.sync()
 
 // Users.create({
 //   username: 'YungBruh',
@@ -103,7 +103,7 @@ function getNotes (req, res, next) {
     const notes = response.map((Notes) => Notes.dataValues).map((notes) => {
       return notes
     })
-    res.status(200).send(notes)
+    res.status(200).json(notes)
   })
 }
 function getNote (req, res, next) {

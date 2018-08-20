@@ -12,8 +12,8 @@ class NoteDetails extends Component {
       editModal: false,
       isEditing: false,
       title: this.props.note.title,
-      context: this.props.note.context
-      // tags: this.props.note.tags
+      context: this.props.note.context,
+      tags: this.props.note.tags
     }
   }
 
@@ -44,7 +44,7 @@ class NoteDetails extends Component {
     const { title, context, tags } = this.state
     const note = { title, context, tags }
     this.props.editNote(this.props.match.params.id, note)
-    this.setState({ title, context })
+    this.setState({ title, context, tags })
     this.editToggle()
   }
 
@@ -54,7 +54,7 @@ class NoteDetails extends Component {
 
   render () {
     const note = this.props.note
-    console.log(note)
+    console.log('in DETAILS', note)
     return (
       <div className='noteDetails-container'>
         <div className='noteDetails'>

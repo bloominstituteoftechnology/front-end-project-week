@@ -5,6 +5,7 @@ import Markdown from 'markdown-to-jsx'
 
 const NoteCard = (props) => {
   const note = props.note
+  console.log('IN NOTE CARD', note)
   const handleDetails = () => {
     props.getNote(note.id)
     props.history.push(`/notes/${note.id}`)
@@ -41,6 +42,10 @@ const NoteCard = (props) => {
           })}
         </div>
       </div> */}
+      <div className='fas fa-tags' key={note.tags + note.index}>
+        {' '}
+        {note.tags}
+      </div>
     </div>
   )
 }

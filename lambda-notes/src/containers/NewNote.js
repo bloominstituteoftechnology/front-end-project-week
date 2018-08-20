@@ -1,67 +1,62 @@
 import Markdown from 'markdown-to-jsx'
 import React, { Component } from 'react'
+import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { postNote } from '../actions'
+
 class NewNote extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      title: '',
-      tags: '',
-      context: ''
-    }
+  renderField = (field) => {
+    const { touched, error } = field.meta
+    const className = `form-group ${touched && error ? 'has-danger' : ''}`
+    return (
+      <div className={className}>
+        <input
+          className='form-control'
+          type={field.type}
+          placeholder={field.placeholder}
+          {...field.input}
+        />
+        <div className='text-help' style={{ color: 'red' }}>
+          {touched ? error : ''}
+        </div>
+      </div>
+    )
   }
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+  renderArea = (field) => {
+    return <textarea {...field.input} />
   }
 
-  handleSubmit = (e) => {
-    const { title, context, tags } = this.state
-    const note = { title, context, tags }
-    // let tagCopy = tags.split(',')
-    // note.tags = tagCopy
+  handlePost = (values) => {
     const token = localStorage.getItem('token')
-    this.props.postNote(note, token)
-    this.setState({ title: '', context: '', tags: '' })
+    this.props.postNote(values, token)
+
     this.props.history.push('/')
   }
 
+  onSubmit = (values) => {
+    this.handlePost(values)
+  }
+
   render () {
+    const { handleSubmit } = this.props
     return (
       <div className='newNote-container'>
         <Markdown>#Create New Note:</Markdown>
         <form
           className='newNote-form'
           type='submit'
-          onSubmit={this.handleSubmit}
+          onSubmit={handleSubmit(this.onSubmit)}
         >
-          <input
-            className='title-input'
-            type='text'
+          <Field
             name='title'
-            placeholder='Add title'
-            value={this.state.title}
-            onChange={this.handleChange}
-            required
-          />
-          <input
-            className='tag-input'
             type='text'
-            name='tags'
-            placeholder='add #tag'
-            value={this.state.tags}
-            onChange={this.handleChange}
+            placeholder='Add Title'
+            component={this.renderField}
           />
-          <textarea
-            className='context-input'
-            type='text'
-            name='context'
-            placeholder='Note Content'
-            value={this.state.context}
-            onChange={this.handleChange}
-            required
-          />
+          <Field name='tags' placeholder='add #' component={this.renderField} />
+
+          <Field name='context' component={this.renderArea} />
 
           <button className='save-Btn'>Save</button>
         </form>
@@ -70,4 +65,7 @@ class NewNote extends Component {
   }
 }
 
-export default connect(null, { postNote })(NewNote)
+export default reduxForm({
+  // validate,
+  form: 'newNoteForm'
+})(connect(null, { postNote })(NewNote))

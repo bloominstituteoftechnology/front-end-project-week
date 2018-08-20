@@ -34,8 +34,8 @@ export const fetchNotes = (token) => {
     dispatch({ type: FETCHING, payload: true })
     request
       .then((res) => {
-        console.log('IN HERERE', res)
-        dispatch({ type: GET_TAGS, payload: res })
+        console.log('IN HERERE', res.data)
+        // dispatch({ type: GET_TAGS, payload: res })
         dispatch({ type: GET_NOTES, payload: res.data })
         dispatch({ type: FETCHING, payload: false })
       })
@@ -85,19 +85,22 @@ export const postNote = (note, token) => {
     dispatch({ type: POSTING, payload: true })
     request
       .then((res) => {
+        console.log(res.data)
         dispatch({
           type: GET_NOTES,
-          payload: axios.get(`${url}/get/all`).then((res) => {
-            // const arr = res.data.map((note) => note.tags)
-            // let tags = [ ...new Set(flatten(arr)) ].filter(
-            //   (tag) => tag.length >= 2
-            // )
+          payload: res.data
+          //  axios.get(`${url}/get/all`).then((res) => {
+          //   // const arr = res.data.map((note) => note.tags)
+          //   // let tags = [ ...new Set(flatten(arr)) ].filter(
+          //   //   (tag) => tag.length >= 2
+          //   // )
 
-            // dispatch({ type: GET_TAGS, payload: tags })
-            dispatch({ type: GET_NOTES, payload: res.data })
-            dispatch({ type: POSTING, payload: false })
-          })
+          //   // dispatch({ type: GET_TAGS, payload: tags })
+          //   dispatch({ type: GET_NOTES, payload: res.data })
+          //   dispatch({ type: POSTING, payload: false })
+          // })
         })
+        // dispatch({ type: GET_TAGS, payload: res.data.tags })
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
