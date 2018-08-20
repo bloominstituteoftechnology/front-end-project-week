@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Row, Container } from 'reactstrap';
 
 import './Notes.css';
 
 const Notes = props => {
     return (
-        <div className="notes">
-            <h2>Your Notes:</h2>
-            {props.notes.map(note => (
-                <Link key={note.id} to={`/notes/${note.id}`}>
-                <h4>{note.title}</h4>
-                <p>{note.text}</p>
-                </Link>
-            ))}
-        </div>
+        <Container className="notes">
+            <Row><h2>Your Notes:</h2></Row>
+            <Row>
+                {props.notes.map(note => (
+                    <Link key={note.id} to={`/notes/${note.id}`}>
+                        <Card>
+                            <CardBody>
+                                <CardTitle>{note.title}</CardTitle>
+                                <CardText>{note.text}</CardText>
+                            </CardBody>
+                        </Card>
+                    </Link>
+                ))}
+            </Row>
+        </Container>
     );
 }
-
 
 export default Notes;

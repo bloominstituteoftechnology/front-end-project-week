@@ -4,4 +4,13 @@
 
 .notes h2 {
     font-weight: bolder;
+    padding-bottom: 20px;
+}
+
+.notes a {
+    color: black;
+}
+
+.notes a:hover{
+    text-decoration: none;
 }
