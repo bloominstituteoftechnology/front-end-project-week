@@ -11,15 +11,18 @@ class FullNote extends React.Component{
 
     render () {
         const title = this.props.ct;
-        const content = this.props.cc; 
+        const content = this.props.cc;
+        const index = this.props.index;  
         return (
-          <div>
+          <div className = "create-note-form ">
             <div className = "full-note-header">
               <h6>edit</h6>
               <h6>delete</h6>
             </div>
-            <h3>{title}</h3> 
-            <p>{content}</p>
+            <div className = "content-div">
+              <h3>{title}</h3> 
+              <p>{content}</p>
+            </div>
           </div>
         
         )

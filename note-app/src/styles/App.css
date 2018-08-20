@@ -39,6 +39,7 @@
 }
 .application-title{
   padding-top : 13px;
+  margin-top: 0;
   margin-bottom: 20px;
   margin-left: 7px;
 }
@@ -118,5 +119,13 @@
   margin-left: 355px;
 }
 .full-note-header h6 {
-  margin-left: 9px; 
+  margin-left: 9px;
+  text-decoration: underline; 
 }
+.full-note-header h6:hover {
+  cursor: pointer;
+}
+.content-div h3{
+  margin:0;
+  
+} 
