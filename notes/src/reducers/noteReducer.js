@@ -9,10 +9,10 @@ import{ GET_NOTE, GET_SUCCESS, GET_FAILURE,
     updatingNote: false,
     deletingNote: false,
     note: {
-        tags: note.tags,
-        title: note.title,
-        textBody: note.textBody,
-        id: note.id
+        tags: [],
+        title: '',
+        textBody: '',
+        id: null
     },
     errors: []
   }

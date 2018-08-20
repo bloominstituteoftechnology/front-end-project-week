@@ -1,5 +1,4 @@
 import React from 'react';
-import NotesList from '../containers/Note';
 import { Route, Link } from 'react-router-dom';
 
 const DelModal = (props) => {

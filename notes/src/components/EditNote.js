@@ -32,7 +32,7 @@ class EditNote extends React.Component {
 const mapStateToProps= (state) => {
     return (
         {
-            editNote: state.editNote
+            editNote: state.noteReducer.editNote
         }
     )
 }
