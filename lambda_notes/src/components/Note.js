@@ -30,9 +30,9 @@ const Note = props => {
         <Card>
             <h3>{props.note.title}</h3>
             <hr style={{ margin: 0 }} />
-            {props.note.textBody.length > 140
-                ? <Content>{props.note.textBody.substring(0, 140)} ...</Content>
-                : <Content>{props.note.textBody}</Content>
+            {props.note.content.length > 140
+                ? <Content>{props.note.content.substring(0, 140)} ...</Content>
+                : <Content>{props.note.content}</Content>
             }
         </Card>
     )

@@ -40,8 +40,8 @@ class NoteList extends React.Component {
                 <Notes>
                     {this.props.notes.map(note =>
                         <Link
-                            to={`/notes/${note._id}`}
-                            key={note._id}
+                            to={`/notes/${note.id}`}
+                            key={note.id}
                             style={{ textDecoration: 'none', color: 'black' }}
                         >
                             <Note note={note} />
