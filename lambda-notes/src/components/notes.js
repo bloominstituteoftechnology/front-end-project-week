@@ -9,7 +9,7 @@ const Notes = (props) => {
              {props.notes.map(note =>
              <div className="content">
              <h3>{note.title}</h3>
-             <p>{note.note}</p>
+             <p>{note.text}</p>
              </div>
             )}
              </div>

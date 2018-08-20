@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import {Route,Link} from 'react-router-dom';
+import Sidebar from './components/Sidebar';
 import Notes from './components/notes';
+import NewNoteForm from './components/NewNoteForm';
 import './App.css';
 
 
@@ -11,45 +13,76 @@ class App extends Component {
         {
             id:0,
             title: "Cats",
-            note:"Cats are so cute I mean seriously"
+            text:"Cats are so cute I mean seriously"
           },
           {
             id:1,
             title:"WWE Summer Smash",
-            note:"So happy Ronda won the match!"
+            text:"So happy Ronda won the match!"
           },
           {
             id:2,
             title:"Food",
-            note:"I like , pizza, icecream and sushi"
+            text:"I like , pizza, icecream and sushi"
           },
           {
             id:3,
             title:"Justice League",
-            note:"Wonder Woman, The Flash, Aquaman, Batman,Superman,Cyborg"
+            text:"Wonder Woman, The Flash, Aquaman, Batman,Superman,Cyborg"
           },
           {
             id:4,
             title:"CS12",
-            note:"CS12 rules, that is all"
+            text:"CS12 rules, that is all"
           },
           {
             id:5,
             title:"Rachel",
-            note:"My name is Rachel what's yours?"
+            text:"My name is Rachel what's yours?"
           }
         ],
         title: '',
-        note: ''
+        text: ''
      };
 
-    
-  
-  render() {
+     noteInput = event => {
+      this.setState({ [event.target.name]: event.target.value });
+    };
+
+    noteSubmit = () => {
+      let notes = this.state.notes.slice();
+      let id = this.state.id;
+      if (this.state.newtitle !== "" || this.state.newbody !== "") {
+        id++;
+        notes.push({
+          id: id,
+          title: this.state.newtitle,
+          text: this.state.newbody
+        });
+        this.setState({ notes, newtitle: "", newbody: "", id });
+      }
+    };
+
+
+     render() {
     return (
       <div className="App">
-      <Route exact path="/" render={(props) => <Notes{...props} notes={this.state.notes}/>}/>
-       </div>
+      <Sidebar />
+      <Route 
+      exact 
+      path="/" 
+      render={(props) => <Notes{...props} notes={this.state.notes}/>}/>
+      <Route path="/new-note" 
+      render={props => ( 
+      <NewNoteForm 
+      {...props} 
+      noteInput={this.noteInput}
+      noteSubmit={this.noteSubmit} 
+      /> 
+      )} 
+      />
+   
+    </div>
     );
   }
 }
