@@ -63,7 +63,6 @@ export const addNote = (newNote) => {
             type: ADDING,
         })
         request.then(response => {
-            console.log(" Adding RESPONSE", response);
             dispatch({type: ADDED})
         })
         .catch(err => {
@@ -73,18 +72,15 @@ export const addNote = (newNote) => {
   }
 
 export const deleteNote = (id) => {
-    console.log("Delete Note called!!!!!");
     const request = axios.delete(`${localDeleteURL}${id}`)
     return(dispatch) => {
         dispatch({
             type: DELETING
         })
         request.then(response => {
-            console.log("Deleted response", response)
             dispatch({type: DELETED})   
         })
         .catch(err => {
-            console.log(err);
             dispatch({type: ERROR, error: err.message})
         })
     }
@@ -116,7 +112,6 @@ export const searchNotes = (search) => {
             let results = response.data.filter(note => 
                 regex.test(note.textBody)
             )
-            console.log("RESUKTS!!", results);
             dispatch({type: FETCHED, payload: results})
         })
         .catch(err => {
