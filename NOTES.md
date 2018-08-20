@@ -10,7 +10,7 @@
   {
     "tags": ["tag", "otherTag"],
     "title": "Note Title",
-    "textBody": "Note Body",
+    "content": "Note Body",
   }
 ```
 

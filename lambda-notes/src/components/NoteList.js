@@ -31,12 +31,12 @@ class NoteList extends React.Component {
         note.title = note.title.slice(0, 12) + '...';
       }
       // trims regular case note body
-      if (note.textBody.length > 95) {
-        note.textBody = note.textBody.slice(0, 95) + '...';
+      if (note.content.length > 95) {
+        note.content = note.content.slice(0, 95) + '...';
       }
       // trims uppercase note body
-      if (note.textBody.length > 87 && note.textBody === note.textBody.toUpperCase()) {
-        note.textBody = note.textBody.slice(0, 87) + '...';
+      if (note.content.length > 87 && note.content === note.content.toUpperCase()) {
+        note.content = note.content.slice(0, 87) + '...';
       }
     });
 
@@ -46,15 +46,15 @@ class NoteList extends React.Component {
         return (
           <div className="note-preview-container" key={Math.random()}>
             <h3>{note.title}</h3>
-            <p>{note.textBody}</p>
+            <p>{note.content}</p>
           </div>
         )
       } else {
         return (
-          <Link to={`/notes/${note._id}`} key={Math.random()}>
+          <Link to={`/notes/${note.id}`} key={Math.random()}>
             <div className="note-preview-container no-drag">
               <h3>{note.title}</h3>
-              <p>{note.textBody}</p>
+              <p>{note.content}</p>
             </div>
           </Link>
         )

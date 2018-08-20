@@ -12,7 +12,7 @@ class Note extends React.Component {
     isEditing: false,
     modalIsOpen: false,
     title: "",
-    textBody: ""
+    content: ""
   }
 
   // sets note id to this.id
@@ -30,10 +30,10 @@ class Note extends React.Component {
     e.preventDefault();
     this.setState({ isEditing: true,
                     title: this.props.note.title,
-                    textBody: this.props.note.textBody });
+                    content: this.props.note.content });
   }
 
-  // adjusts state of title and textBody whenever there is new input
+  // adjusts state of title and content whenever there is new input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -41,10 +41,10 @@ class Note extends React.Component {
   // sends edited note to server, turns off edit mode, resets state with contents of new note
   handleEditSubmit = e => {
     e.preventDefault();
-    this.props.editNote({ id: this.id, title: this.state.title, textBody: this.state.textBody });
+    this.props.editNote({ id: this.id, title: this.state.title, content: this.state.content });
     this.setState({ isEditing: false,
                     title: this.props.note.title,
-                    textBody: this.props.note.textBody });
+                    content: this.props.note.content });
   }
 
   // activates delete modal
@@ -86,7 +86,7 @@ class Note extends React.Component {
       return (
         <Form type={"edit"}
               title={this.state.title}
-              textBody={this.state.textBody}
+              content={this.state.content}
               handleFormSubmit={this.handleEditSubmit}
               handleInputChange={this.handleInputChange}
         />
@@ -117,7 +117,7 @@ class Note extends React.Component {
         <h2>{this.props.note.title.length > 40 ?
              this.props.note.title.slice(0, 40) + '...' :
              this.props.note.title}</h2>
-        <div className="note-body">{this.props.note.textBody}</div>
+        <div className="note-body">{this.props.note.content}</div>
       </div>
     )
   }

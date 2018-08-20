@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const url = `https://killer-notes.herokuapp.com/note`;
+const url = `http://localhost:8000/api/notes`;
 
 export const getNotes = () => {
   return dispatch => {
     dispatch({ type: 'FETCHING_NOTES' });
     axios
-      .get(`${url}/get/all`)
+      .get(url)
       .then(response => {
         dispatch({ type: 'NOTES_FETCHED', payload: response.data });
       })
@@ -19,7 +19,7 @@ export const getNotes = () => {
 export const addNote = (newNote) => {
   return dispatch => {
     axios
-      .post(`${url}/create`, newNote)
+      .post(url, newNote)
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });
@@ -31,7 +31,7 @@ export const getNote = (id) => {
   return dispatch => {
     dispatch({ type: 'FETCHING_NOTE' });
     axios
-      .get(`${url}/get/${id}`)
+      .get(`${url}/${id}`)
       .then(response => {
         if (!response.data.name && !response.data.errorMessage) {
           dispatch({ type: 'NOTE_FETCHED', payload: response.data });
@@ -40,7 +40,7 @@ export const getNote = (id) => {
         }
       })
       .catch(error => {
-        dispatch({ type: 'ERROR', payload: error });
+        dispatch({ type: 'ERROR', type: 'NO_NOTE_FETCHED', payload: error });
       });
   }
 }
@@ -49,7 +49,7 @@ export const editNote = (editedNote) => {
   return dispatch => {
     dispatch({ type: 'EDITING_NOTE' });
     axios
-      .put(`${url}/edit/${editedNote.id}`, editedNote)
+      .put(`${url}/${editedNote.id}`, editedNote)
       .then(response => {
         dispatch({ type: 'NOTE_EDITED', payload: response.data });
       })
@@ -64,7 +64,7 @@ export const deleteNote = (id) => {
   return dispatch => {
     dispatch({ type: 'DELETING_NOTE' });
     axios
-      .delete(`${url}/delete/${id}`)
+      .delete(`${url}/${id}`)
       .then(response => {
         dispatch({ type: 'NOTE_DELETED' })
       })

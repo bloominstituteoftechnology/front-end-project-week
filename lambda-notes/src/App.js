@@ -14,7 +14,7 @@ class App extends Component {
     filteredNotes: [],
     searchPhrase: "",
     title: "",
-    textBody: ""
+    content: ""
   }
 
   // fetches all notes from server and passes them to store
@@ -22,7 +22,7 @@ class App extends Component {
     this.props.getNotes();
   }
 
-  // adjusts state of title and textBody whenever there is new input
+  // adjusts state of title and content whenever there is new input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -34,18 +34,18 @@ class App extends Component {
       const notes = this.props.notes.filter(note => {
         return (
           note.title.toLowerCase().includes(this.state.searchPhrase.toLowerCase()) ||
-          note.textBody.toLowerCase().includes(this.state.searchPhrase.toLowerCase())
+          note.content.toLowerCase().includes(this.state.searchPhrase.toLowerCase())
         )
       });
       this.setState({ filteredNotes: notes });
     }, 1);
   };
 
-  // sends current state of title and textBody to server, resets state, redirects to home page
+  // sends current state of title and content to server, resets state, redirects to home page
   handleFormSubmit = e => {
     e.preventDefault();
-    this.props.addNote({ title: this.state.title, textBody: this.state.textBody });
-    this.setState({ title: "", textBody: "" });
+    this.props.addNote({ title: this.state.title, content: this.state.content });
+    this.setState({ title: "", content: "" });
     if (!this.props.fetchingNotes) {
       this.props.history.push("/");
     }
@@ -68,7 +68,7 @@ class App extends Component {
           <Route path="/notes/add" render={ props =>
               <Form type={"new"}
                     title={this.state.title}
-                    textBody={this.state.textBody}
+                    content={this.state.content}
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
               />
