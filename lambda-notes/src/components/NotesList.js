@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
 import Note from './Note';
+
+const ListNotes = styled.div`
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+`
+
 
 
 const URL = 'https://raw.githubusercontent.com/DasGMA/front-end-project-week/master/lambda-notes/src/components/notes.json';
@@ -15,16 +25,28 @@ class NotesList extends Component {
 
     componentDidMount () {
         axios.get(URL)
-        .then(({data}) => {
+        .then(response => {
             this.setState({
-                notes: data
+                notes: response.data
             })
+        })
+    }
+
+    delete = (id) => {
+        axios.delete(`${URL}${id}`)
+        .then(response => {
+            this.setState({
+                notes: response.data
+            })
+        })
+        .then(response => {
+            console.log(response);
         })
     }
 
     render() {
         return (
-            <div className='notes-list'>
+            <ListNotes>
                 {this.state.notes.map(note => 
                     <Note
                         key={note.id}
@@ -32,7 +54,7 @@ class NotesList extends Component {
                         content={note.content}
                     />
                 )}
-            </div>
+            </ListNotes>
         );
 
     }
