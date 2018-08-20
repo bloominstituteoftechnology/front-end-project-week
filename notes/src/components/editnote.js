@@ -1,30 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../CSS/newnote.css";
 
-const NewNote = props => {
+const EditNote = props => {
   return (
     <div className="notes-container">
-      <h1 className="yournotes">Create New Note:</h1>
+      <h2>Edit Note:</h2>
       <div className="input">
         <input
           onChange={props.noteInput}
-          name="newtitle"
+          name="edittitle"
           className="input-title"
-          placeholder="Note Title"
+          defaultValue={props.edittitle}
         />
         <textarea
           onChange={props.noteInput}
-          name="newbody"
+          name="editbody"
           className="input-body"
-          placeholder="Note Content"
+          defaultValue={props.editbody}
         />
         <Link className="save" to="/">
-          <button onClick={props.noteSubmit}>Save</button>
+          <button onClick={() => props.submitEdit(props.match.params.id)}>
+            Save
+          </button>
         </Link>
       </div>
     </div>
   );
 };
 
-export default NewNote;
+export default EditNote;

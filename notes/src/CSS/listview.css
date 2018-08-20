@@ -58,7 +58,7 @@ h2 {
 }
 
 .note-title {
-    margin-top: 10%;
+    margin-top: 5%;
     padding-bottom: 5%;
     border-bottom: solid lightgray 2px;
     font-weight: bold;
@@ -86,4 +86,5 @@ h2 {
 .note-contents {
     height: 100%;
     overflow-y: scroll;
+    line-height: 150%;
 }
