@@ -3,7 +3,7 @@ import {Link, Route} from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
 
-import {AllNotes, NewNote, NoteDetails} from './components';
+import {AllNotes, NewNote, NoteDetails, EditNote} from './components';
 
 const AppDiv = styled.div`
   border: 1px solid red;
@@ -88,6 +88,10 @@ class App extends Component {
           <Route exact path="/all-notes/:noteId"  render={ (note) => {
               let single = this.getNoteDetails(note.match.params.noteId);
               return (<NoteDetails note={single} />)
+            }}></Route>
+          <Route exact path="/all-notes/:noteId/edit"  render={ (note) => {
+              let single = this.getNoteDetails(note.match.params.noteId);
+              return (<EditNote note={single} />)
             }}></Route>
 
         </div>
