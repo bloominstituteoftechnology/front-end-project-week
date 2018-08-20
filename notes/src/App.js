@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 import Note from './components/Note';
 import AddNote from './components/AddNote';
 
@@ -26,6 +27,10 @@ class App extends Component {
     text: ''
   };
 
+  storeNote = (note) => {
+    this.setState({ note });
+  };
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -47,13 +52,43 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* <Route
+          path="/create"
+          render={() => (
+            <AddNote 
+              onChange={this.onChange} 
+              onSubmit={this.onSubmit} 
+              title={this.state.title} 
+              text={this.state.text} 
+            />
+          )}
+        /> */}
         <AddNote 
           onChange={this.onChange} 
           onSubmit={this.onSubmit} 
           title={this.state.title} 
           text={this.state.text} 
         />
-        {this.state.notes.map(note => <Note note={note} key={note.id} />)}
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div>
+              <h2>Your Notes:</h2>
+              {this.state.notes.map(note => (
+                <Link onClick={() => this.storeNote(note)} to={`/notes/${note.id}`}>
+                  <Note note={note} key={note.id} />
+                </Link>
+              ))}
+            </div>
+          )}
+        />
+        <Route
+          path="/notes/:id"
+          render={() => (
+            <Note note={this.state.note} />
+          )}
+        />
       </div>
     );
   }
