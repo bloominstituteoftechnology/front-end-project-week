@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const List = styled.div`
     background: #F1F1F1;

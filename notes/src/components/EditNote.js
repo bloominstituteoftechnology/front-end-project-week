@@ -30,11 +30,11 @@ const Button = styled.button`
     text-align: center;
 `;
 
-class CreateNote extends React.Component{
+class EditNote extends React.Component{
     render(){
         return(
             <Body>
-                <h2>Create New Note:</h2>
+                <h2>Edit Note:</h2>
                 <InputTitle placeholder='Note Title'
                             name='title'
                             value={this.props.title}
@@ -45,10 +45,13 @@ class CreateNote extends React.Component{
                             value={this.props.content}
                             onChange={this.props.handleChange}
                 />
-                <Button onClick={this.props.addNote}>Save</Button>
+                <Button onClick={this.props.updateNote}
+                        id={this.props.match.params.id}>
+                    Update
+                </Button>
             </Body>
         );
     }
 }
 
-export default CreateNote;
+export default EditNote;

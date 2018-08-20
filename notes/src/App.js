@@ -6,6 +6,7 @@ import {notes} from './components/Notes';
 import ListView from './components/ListView';
 import CreateNew from './components/CreateNew';
 import Note from './components/NoteView';
+import EditNote from './components/EditNote';
 
 let id = 9;
 
@@ -32,7 +33,18 @@ class App extends Component {
     });
     this.setState({notes, title:'', content:'', id: ++id});
   }
+  updateNote = e => {
+    e.preventDefault();
+    let note = this.state.notes.slice(e.target.id, ++e.target.id)
+    let notes = this.state.notes.slice();
+  }
+  deleteNote = e => {
+    // let note = this.state.notes.splice(e.target.id, 1)
+    // this.setState({notes: note});
+    // window.location.assign('http://localhost:3000/noteslist')
+  }
   render() {
+    console.log(this.state.notes)
     return (
         <div className='App'>
           <Route path='/' component={SideBar} />
@@ -48,8 +60,18 @@ class App extends Component {
           />
           <Route exact path={`/note/:id`} 
                       render={(props) => <Note {...props}
-                                                notes={this.state.notes}/> }
-                      />
+                                                notes={this.state.notes}
+                                                deleteNote={this.deleteNote}
+                                          /> }
+          />
+          <Route exact path={`/note/:id/editnote`}
+                 render={(props) => <EditNote {...props} 
+                                    title={this.state.title}
+                                    content={this.state.content}
+                                    handleChange={this.handleChange}
+                                    updateNote={this.updateNote}
+                                    />}
+          />
         </div>
     );
   }

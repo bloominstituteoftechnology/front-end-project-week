@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import EditView from './EditView';
 
 const Body = styled.div`
     background: #F1F1F1;
@@ -64,8 +63,7 @@ class Note extends React.Component{
         return(
             <Body>
                 <EditDel>
-                    <Link to={`/note/${note.id}/editnote`} style={{color: 'darkgray'}}>edit   </Link>   
-                    <Route exact path={`/note/${note.id}/editnote`} render={(props) => <EditView {...props} /> }/>
+                    <Link to={`/note/${note.id}/editnote`} style={{color: 'darkgray'}}>edit</Link>   
                     <ResetButton onClick={this.toggle}>delete</ResetButton>
                         <Modal isOpen={this.state.modal}
                         autoFocus={this.state.default}
@@ -73,7 +71,7 @@ class Note extends React.Component{
                             <ModalHeader toggle={this.toggle} charCode="X"></ModalHeader>
                             <ModalBody>Are you sure you want to delete this?</ModalBody>
                             <ModalFooter>
-                                <Button color="danger">Delete</Button>
+                                <Button color="danger" id={note.id} onClick={this.props.deleteNote}>Delete</Button>
                                 <button style={{background: '#2AB4AE', color: 'white'}}>No</button>
                             </ModalFooter>
                         </Modal>
