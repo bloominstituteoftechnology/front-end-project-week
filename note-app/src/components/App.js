@@ -6,6 +6,7 @@ import CreateNote from './create-note';
 import EditNote from './edit-note';
 import ViewAllNotes from './notes';
 import FullNote from './FullNote';
+import DeleteModal from './delete-note';
 
 class App extends Component {
   constructor(props){
@@ -42,7 +43,8 @@ class App extends Component {
           {/* <CreateNote /> */}
           {/* <EditNote /> */}
           {/* <ViewAllNotes notes = {this.state.notes} click = {this.handleNoteSelect} /> */}
-          <FullNote ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex}/>
+          {/* <FullNote ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex}/> */}
+          <DeleteModal />
         </div>
         
       </div>

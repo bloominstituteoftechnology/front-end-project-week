@@ -44,8 +44,6 @@
   margin-left: 7px;
 }
 
-
-
 .main-container{
   display: flex; 
 }
@@ -53,10 +51,6 @@
 .main-container .changing-container {
   background: #F2F1F2;
 }
-
-
-
-
 
 .create-note-form {
   padding-Left: 15px;
@@ -129,3 +123,17 @@
   margin:0;
   
 } 
+
+.delete-question {
+  border: 1px solid black;
+  background: #FBFAFB;
+  width: 346px;
+  max-width: 100%;
+  height: 115px; 
+
+}
+
+.btn-delete {
+  background: #CA001A;
+  margin-right: 15px;
+}
