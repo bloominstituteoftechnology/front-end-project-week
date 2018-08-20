@@ -1,8 +1,8 @@
 .App {
   display: flex;
   border: 1px solid black;
-  max-width: 1000px;
-  height: 1000px;
+  max-width: 1500px;
+  height: 800px;
    margin: 0 auto;
 }
 

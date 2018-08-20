@@ -3,16 +3,32 @@ import styled from 'styled-components';
 
 
 const NoteCard = styled.div`
+display: flex; 
+flex-wrap: wrap; 
+flex-direction: row; 
+align-content: center; 
+justify-content: center; 
+
 `
 const Card = styled.div`
+border: 1px solid black;
+background-color: white; 
+width: 250px; 
+height: 150px;  
+flex-direction: column;
+padding: 10px; 
+margin: 20px; 
+display: flex;  
 `
 const Title = styled.div`
 `
 const Content = styled.div`
 `
 const H2= styled.h2`
+font-size: 20px; 
 `
 const P = styled.p`
+font-size: 13px; 
 `
 
 

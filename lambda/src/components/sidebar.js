@@ -8,7 +8,7 @@ const Title = styled.h1`
     width: 320px;
     border: 1px solid grey;
     text-align: left;
-    background: lightgrey;
+    background: darkgrey;
     padding: 1.5%;
 `
 
