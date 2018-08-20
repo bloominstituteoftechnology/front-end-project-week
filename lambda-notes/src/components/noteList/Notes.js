@@ -9,7 +9,7 @@ export const Notes = props => {
       <h2 className="landingTitle">Your Notes:</h2>
       <div className="noteListDiv">
         {props.notes.map(note => {
-          return <Note note={note} id={note.id} />;
+          return <Note note={note} id={note.id} key={note.id} />;
         })}
       </div>
     </div>

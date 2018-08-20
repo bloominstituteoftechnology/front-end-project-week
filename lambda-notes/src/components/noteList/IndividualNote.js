@@ -6,6 +6,12 @@ export const IndividualNote = props => {
   console.log("Individual Params Match", props.match);
   return (
     <div className="individualNote">
+      <Link to={`/edit/${props.match.params.id}`}>
+        <button>edit</button>
+      </Link>
+      {/* <Link to={"/delete/:id"}>
+        <button>delete</button>
+      </Link> */}
       <h2>{props.notes[props.match.params.id].title}</h2>
       <h2>{props.notes[props.match.params.id].description}</h2>
       <Link to={"/"}>Home</Link>
