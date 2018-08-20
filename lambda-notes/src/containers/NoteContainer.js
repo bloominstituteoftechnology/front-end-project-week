@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import findNote from "../selectors";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import Note from "../components/Note";

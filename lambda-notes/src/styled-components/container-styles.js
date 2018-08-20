@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
-  margin-left: 200px;
-  background=color: #f2f1f2;
+  margin-left: 212px;
+  background-color: #f2f1f2;
 `

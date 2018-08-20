@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import NoteForm from "../components/NoteForm";
-import findNote from "../selectors";
 import { connect } from "react-redux";
 import { getNote, editNote } from "../actions";
 import { StyledContainer } from "../styled-components/container-styles";

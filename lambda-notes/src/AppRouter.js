@@ -5,6 +5,21 @@ import NoteListContainer from "./containers/NoteListContainer";
 import EditNoteContainer from "./containers/EditNoteContainer";
 import CreateNoteContainer from "./containers/CreateNoteContainer";
 import NoteContainer from "./containers/NoteContainer";
+import { injectGlobal } from 'styled-components';
+
+injectGlobal` 
+  * {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #f2f1f2;
+  }
+`
 
 const AppRouter = () => (
   <Router>
