@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import axios from 'axios';
 import "./App.css";
 
 import NotesList from "./components/NotesList";
@@ -13,50 +14,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          title: "Note Title",
-          id: 0,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
-        {
-          title: "Clean the kitchen",
-          id: 1,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
-        {
-          title: "Take out the trash",
-          id: 2,
-          content:
-            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
-        {
-          title: "Walk the dog",
-          id: 3,
-          content:
-            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
-        {
-          title: "Code code code",
-          id: 4,
-          content:
-            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
-        {
-          title: "Do something else",
-          id: 5,
-          content:
-            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
-        {
-          title: "Play games",
-          id: 6,
-          content:
-            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        }
-      ],
+      notes: [],
       title: "",
       content: "",
       deleting: false,
@@ -64,24 +22,54 @@ class App extends Component {
     };
   }
 
+  componentWillMount() {
+    this.getData();
+  }
+
+  getData = () => {
+    axios
+      .get('http://localhost:8000/api/notes')
+      .then((response) => {
+        this.setState({notes: response.data})
+      })
+      .catch(err => console.log(err));
+  }
+
+//METHODS
+handleSetData = data => this.setState({ smurfs: data });
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+
+  
   handleSetCurrent = note => {
     this.setState({ currentNote: note });
   };
 
+
+
   //Add
   handleAddNote = e => {
-    const notes = this.state.notes.slice();
-    notes.push({
+    e.preventDefault();
+    const note = {
       title: this.state.title,
-      content: this.state.content,
-      id: Number(this.state.notes.length)
-    });
-    this.setState({ notes, title: "", content: "" });
+      content: this.state.content
+    }
+    axios
+    .post('http://localhost:8000/api/notes', note)
+    .then(response => {
+      this.handleSetData(response.data);
+      this.setState({
+        title: '',
+        content: ''
+      })
+    })
+    .catch(error => console.log(error));
   };
+
+
 
   //Edit
   handleEditTitle = e => {
@@ -118,6 +106,8 @@ class App extends Component {
     this.setState({ notes, currentNote: {} });
   };
 
+
+
   //Delete
   toggleDeleting = () => {
     this.setState({ deleting: !this.state.deleting });
@@ -129,28 +119,29 @@ class App extends Component {
     this.setState({ notes, currentNote: {}, deleting: !this.state.deleting });
   };
 
+
   //Sort
-  handleSortAZ = () => {
-    let notes = this.state.notes.slice();
-    notes.sort(this.compareTitles);
-    this.setState({ notes });
-  };
+  // handleSortAZ = () => {
+  //   let notes = this.state.notes.slice();
+  //   notes.sort(this.compareTitles);
+  //   this.setState({ notes });
+  // };
 
-  handleSortZA = () => {
-    let notes = this.state.notes.slice();
-    notes.sort(this.compareTitles).reverse();
-    this.setState({ notes });
-  }
+  // handleSortZA = () => {
+  //   let notes = this.state.notes.slice();
+  //   notes.sort(this.compareTitles).reverse();
+  //   this.setState({ notes });
+  // }
 
-  compareTitles = (a, b) => {
-    if (a.title.toUpperCase() < b.title.toUpperCase()) {
-      return -1;
-    } else if (a.title.toUpperCase() > b.title.toUpperCase()) {
-      return 1;
-    } else {
-      return 0;
-    }
-  };
+  // compareTitles = (a, b) => {
+  //   if (a.title.toUpperCase() < b.title.toUpperCase()) {
+  //     return -1;
+  //   } else if (a.title.toUpperCase() > b.title.toUpperCase()) {
+  //     return 1;
+  //   } else {
+  //     return 0;
+  //   }
+  // };
 
 
 
@@ -167,8 +158,8 @@ class App extends Component {
             <NotesList
               {...props}
               notes={this.state.notes}
-              handleSortAZ={this.handleSortAZ}
-              handleSortZA={this.handleSortZA}
+              // handleSortAZ={this.handleSortAZ}
+              // handleSortZA={this.handleSortZA}
             />
           )}
         />
