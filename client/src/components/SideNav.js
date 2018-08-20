@@ -9,7 +9,7 @@ const StyledSideNav = styled.div`
   width: 250px;
   background-color: #ddd;
   padding: 1.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0.5rem 0 1rem rgba(0, 0, 0, 0.13);
 `;
 
 const PrimaryHeading = styled.h1`
@@ -28,9 +28,14 @@ const BlockButton = styled.button`
   border: none;
   display: block;
   cursor: pointer;
+  transition: all 0.2s;
 
   &:not(:last-child) {
     margin-bottom: 1rem;
+  }
+
+  &:hover {
+    background-color: #4db6ac;
   }
 `;
 
