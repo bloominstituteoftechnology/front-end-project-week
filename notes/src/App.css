@@ -79,7 +79,6 @@ h1 {
   flex-flow: column wrap;
   width: 750px;
   border: 1px solid grey;
-  border-left: 0px;
   min-height: 100vh;
 }
 
@@ -87,6 +86,11 @@ h1 {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+}
+
+.notesInnerDiv a {
+  color: black;
+  text-decoration: none;
 }
 
 .notesListTitle {
@@ -135,13 +139,13 @@ h1 {
   min-height: 100vh;
 }
 
-.createForm {
+.createForm, .editForm {
   display: flex;
   flex-flow: column wrap;
   padding: 30px;
 }
 
-.createNoteTitle {
+.createNoteTitle, .editNoteTitle {
   padding-left: 30px;
   margin-top: 65px;
   font-size: 22px;
@@ -172,4 +176,38 @@ h1 {
 
 .saveButton {
   margin-top: 20px;
+}
+
+.singleNoteView {
+  display: flex;
+  flex-flow: column wrap;
+  width: 750px;
+  border: 1px solid grey;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.singleNoteTitle {
+  margin-top: 15px;
+}
+
+.singleNoteText {
+  line-height: 24px;
+}
+
+.singleLinks {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.singleLinks a:link, .singleLinks a:hover, .singleLinks a:active, .singleLinks a:visited {
+  color: black;
+}
+
+.editNote {
+  display: flex;
+  flex-flow: column wrap;
+  width: 750px;
+  border: 1px solid grey;
+  min-height: 100vh;
 }

@@ -3,6 +3,8 @@ import './App.css';
 import NotesList from './components/NotesList';
 import Sidebar from './components/Sidebar';
 import CreateNote from './components/CreateNote';
+import EditNote from './components/EditNote';
+import SingleNoteView from './components/SingleNoteView';
 import { Route } from 'react-router-dom';
 import notesArray from './components/NotesArray';
 
@@ -28,12 +30,26 @@ class App extends Component {
     this.forceUpdate();
   }
 
+  submitEditForm = (id, title, textBody) => {
+    this.setState(function (prevState, props) {
+      console.log(prevState, title);
+      return {
+        notes: [...prevState.notes.slice(0, id), {id, title, textBody}, ...prevState.notes.slice(parseInt(id, 10)+1, prevState.notes.length)]
+
+    }});
+    // document.location.assign("/");
+    // this.componentDidMount();
+    // this.forceUpdate();
+  }
+
   render() {
     return (
       <div className="App">
         <Sidebar />
         <Route exact path="/" render={props => (<NotesList {...props} notes={this.state.notes} />)} />
         <Route path="/create" render={props => (<CreateNote {...props} notes={this.state.notes} submit={this.submitForm} />)} />
+        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.state.notes} />)} />
+        <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} submitEdit={this.submitEditForm} />)} />
       </div>
     );
   }
