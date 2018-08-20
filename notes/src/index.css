@@ -19,6 +19,9 @@ textarea {
   margin: 0 auto;
   text-align: center;
 }
+.sidebar {
+  margin-bottom: 30px;
+}
 .note {
   margin: 30px 0 50px;
 }
