@@ -12,6 +12,7 @@ const Col = styled.div`
 const H1 = styled.h1`
     max-width: 200px;
     font-size: 3rem;
+    color: #3C3C3C;
 `
 
 const Button = styled.button`
@@ -28,7 +29,7 @@ class SideBar extends React.Component {
     render(){
         return(
             <Col>
-                <H1>Lambda Notes</H1>
+                <Link to="/" style={{ textDecoration: 'none' }}><H1>Lambda Notes</H1></Link>
                 <Link to="/noteslist" style={{ textDecoration: 'none' }}>
                     <Button>View Your Notes</Button>
                 </Link>

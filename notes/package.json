@@ -6,6 +6,7 @@
     "react": "^16.4.2",
     "react-content-grid": "^0.0.12",
     "react-dom": "^16.4.2",
+    "react-modal": "^3.5.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "reactstrap": "^6.4.0",
