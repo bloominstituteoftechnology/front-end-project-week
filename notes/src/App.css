@@ -1,28 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(238, 238, 238);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.sidebarContainer{
+  background-color:lightgray;
+  max-width: 14em;
+  min-width: 50px;
+  height: 100vh;
+  text-align: left;
+  padding: 15px 15px;
+  border-right:2px grey solid;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.sidebarTitle{
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #272727;
+  
 }
+.sidebarButton{
+  background: #34a7a7;
+  color:white;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border: 1.5px grey solid;
+  letter-spacing: 1px;
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
