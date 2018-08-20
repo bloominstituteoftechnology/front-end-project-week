@@ -22,23 +22,32 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get('http://localhost:3300/notes')
-    .then((response) => {
-      this.setState({ notes: response.data })
-    })
-    .catch(err => console.log(err));
-}
-  
+      .get('http://localhost:3300/notes')
+      .then((response) => {
+        this.setState({ notes: response.data })
+      })
+      .catch(err => console.log(err));
+  }
+
+  handleRefresh = () => {
+    axios
+      .get('http://localhost:3300/notes')
+      .then((response) => {
+        this.setState({ notes: response.data })
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div>
         <Switch>
-          <Route exact path='/' render={() => <ListView notes={this.state.notes}/>}/>
-          <Route exact path='/new' component={AddNote}/>
-          <Route path='/edit' component={EditNote}/>
-          <Route path='/note/:id' component={OneView}/>
+          <Route exact path='/' render={() => <ListView notes={this.state.notes} />} />
+          <Route exact path='/new' component={AddNote} />
+          <Route path='/edit' component={EditNote} />
+          <Route path='/note/:id' render={(props) => <OneView {...props} handleRefresh={this.handleRefresh}/> } />
         </Switch>
-       
+
       </div>
     );
   }

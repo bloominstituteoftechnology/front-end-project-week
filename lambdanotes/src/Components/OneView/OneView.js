@@ -42,8 +42,9 @@ class AddedNote extends Component {
     const id = this.state.id
     axios.delete(`http://localhost:3300/notes/${id}`)
       .then(response => {
-
+        this.props.history.push('/')
         this.setState({ notes: response.data, id: null })
+        this.props.handleRefresh()
       })
       .catch(err => {
         console.log(err);

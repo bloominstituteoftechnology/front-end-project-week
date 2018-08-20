@@ -9,11 +9,11 @@ import axios from 'axios';
 class ListView extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            notes:[]
-         }
+        
 
     }
+
+   
 
 
 
