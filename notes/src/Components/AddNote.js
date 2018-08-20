@@ -33,10 +33,10 @@ class AddNote extends React.Component {
 						onChange={this.handleInputChange}
 					/>
 					<textarea
-						name="text"
 						id="addNoteForm"
 						cols="30"
 						rows="10"
+						name="text"
 						placeholder="Note Content"
 						value={this.state.text}
 						onChange={this.handleInputChange}

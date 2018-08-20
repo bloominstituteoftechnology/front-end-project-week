@@ -43,6 +43,18 @@ class App extends Component {
 		}));
 	};
 
+	handleEditNote = edited => {
+		this.setState(prevState => ({
+			notes: prevState.notes.map(note => {
+				if (note.id == edited.id) {
+					return edited;
+				} else {
+					return note;
+				}
+			}),
+		}));
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -86,6 +98,7 @@ class App extends Component {
 							match={props.match}
 							notes={this.state.notes}
 							onClick={this.handleDeleteNote}
+							onSubmit={this.handleEditNote}
 						/>
 					)}
 				/>

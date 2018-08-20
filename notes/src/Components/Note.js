@@ -2,7 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Note extends React.Component {
-	state = { display: false };
+	state = {
+		display: false,
+		id: this.props.match.params.id,
+		title: "",
+		text: "",
+	};
+
+	handleInputChange = event => {
+		this.setState({ [event.target.name]: event.target.value });
+	};
+
 	render() {
 		const note = this.props.notes.find(
 			note => note.id == this.props.match.params.id,
@@ -21,6 +31,33 @@ class Note extends React.Component {
 						</button>
 					</Link>
 					<button>No</button>
+				</div>
+				<div>
+					<form
+						id="editNoteForm"
+						onSubmit={e => {
+							e.preventDefault();
+							this.props.onSubmit(this.state);
+						}}
+					>
+						<input
+							type="text"
+							placeholder="Note Title"
+							value={this.state.title}
+							name="title"
+							onChange={this.handleInputChange}
+						/>
+						<textarea
+							id="editNoteForm"
+							cols="30"
+							rows="10"
+							name="text"
+							placeholder="Note Content"
+							value={this.state.text}
+							onChange={this.handleInputChange}
+						/>
+						<button>Update</button>
+					</form>
 				</div>
 			</div>
 		);
