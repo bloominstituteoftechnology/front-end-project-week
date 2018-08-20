@@ -1,0 +1,50 @@
+.App {
+  background-color: #F2F1F2;
+}
+.notes-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 25%;
+  height: 110vh;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-right: 1px solid gray;
+}
+.sidebar a {
+  border: 1px solid gray;
+  height: 50px;
+  background-color: #32B7BD;
+  margin: 10px 0;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+}
+
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  padding: 50px 20px;
+}
+.notes-list h2 {
+  display: block;
+  width: 100%;
+}
+.notes-list a:hover {
+  text-decoration: none;
+}
+.note-card {
+  height: 250px;
+  width: 250px;
+  border: 1px solid gray;
+  background: white;
+  overflow: hidden;
+  margin: 15px 10px;
+  padding: 15px;
+  line-height: 1.5;
+  color: black;
+}
