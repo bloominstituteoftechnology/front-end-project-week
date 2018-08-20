@@ -14,9 +14,22 @@ class NewNote extends Component {
     }
     render() {
         return (
-            <div className="newnote-container">
-                this is new note
-            </div>
+        <div className="newnote-container">
+            <h3 className="newnote-title">Create New Note:</h3>
+            <form className="newnote-form">
+                <input 
+                    placeholder="Note Title" 
+                    type="text"
+                    className="note-title-input"
+                />
+                <input 
+                    placeholder="Note Content" 
+                    type="text"
+                    className="note-content-input"
+                />
+                <button>Save</button>
+            </form>
+        </div>
         );
     }
 }

@@ -34,6 +34,7 @@
     height: 195px;
     margin-bottom: 20px;
     background: white;
+    cursor: pointer;
 }
 
 .note-card h3 {
