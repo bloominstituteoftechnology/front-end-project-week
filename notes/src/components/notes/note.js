@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 const NoteContainer=styled.div`
 width: 30%;
 margin-right: 3%;
@@ -19,5 +20,9 @@ margin: 0 auto;
 height: 2px;
 background-color:#c6c6c6;
 `
-const Note=(props)=><NoteContainer><h3>{props.data.title}</h3><Rule/><p>{props.data.textBody}</p></NoteContainer>
+const Note=(props)=><NoteContainer>
+    <Link to={`/${props.data._id}`}>
+    <h3>{props.data.title}</h3><Rule/><p>{props.data.textBody}</p>
+    </Link>
+    </NoteContainer>
 export default Note;
