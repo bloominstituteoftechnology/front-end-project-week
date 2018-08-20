@@ -3,22 +3,22 @@ import styled from 'styled-components';
 
 const Col = styled.div`
     width: 300px;
-    border: 1px solid grey;
-    text-align: left;
-    background: lightgrey;
+    border: 1px solid lightgray;
+    background: #D2D2D2;
+    padding: 1rem;
 `
 const H1 = styled.h1`
+    max-width: 200px;
 `
 
 const Button = styled.button`
-    background: #57C6BB;
+    background: #2AB4AE;
     color: white;
+    width: 280px;
     padding: 0.5rem 1rem;
     display: flex;
     flex-direction: column;
     font-size: 1rem;
-    width: 280px;
-    position: center;
     text-align: center;
 `
 
