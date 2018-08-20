@@ -15,7 +15,7 @@ const AddNote = props => (
         onChange={props.onChange}
         value={props.text}
       />
-      <button>Save</button>
+      <button>{props.formText}</button>
     </form>
   </div>
 );

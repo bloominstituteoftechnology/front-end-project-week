@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import Note from './components/Note';
-import AddNote from './components/AddNote';
+import NoteForm from './components/NoteForm';
 
 class App extends Component {
   dummyText = 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis.';
@@ -35,7 +35,7 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  addNote = e => {
     e.preventDefault();
     const { notes, title, text } = this.state;
     this.setState({
@@ -49,25 +49,41 @@ class App extends Component {
     });
   };
 
+  editNote = e => {
+    e.preventDefault();
+    const { notes, title, text, note } = this.state;
+    this.setState({
+      notes: notes.map(n => n.id === note.id ? {...n, title, text} : n),
+      title: '',
+      text: ''
+    });
+  };
+
   render() {
     return (
       <div className="App">
+        <Link to="/">Home</Link>
         {/* <Route
           path="/create"
           render={() => (
-            <AddNote 
-              onChange={this.onChange} 
-              onSubmit={this.onSubmit} 
-              title={this.state.title} 
-              text={this.state.text} 
-            />
+            <div>
+              <h2>Create New Note:</h2>
+              <AddNote 
+                onChange={this.onChange} 
+                onSubmit={this.addNote} 
+                title={this.state.title} 
+                text={this.state.text} 
+              />
+            </div>
           )}
         /> */}
-        <AddNote 
+        <h2>Create New Note:</h2>
+        <NoteForm
           onChange={this.onChange} 
-          onSubmit={this.onSubmit} 
+          onSubmit={this.addNote} 
           title={this.state.title} 
           text={this.state.text} 
+          formText="Save"
         />
         <Route
           exact
@@ -76,8 +92,12 @@ class App extends Component {
             <div>
               <h2>Your Notes:</h2>
               {this.state.notes.map(note => (
-                <Link onClick={() => this.storeNote(note)} to={`/notes/${note.id}`}>
-                  <Note note={note} key={note.id} />
+                <Link 
+                  key={note.id} 
+                  onClick={() => this.storeNote(note)} 
+                  to={`/notes/${note.id}`}
+                >
+                  <Note note={note} />
                 </Link>
               ))}
             </div>
@@ -86,7 +106,25 @@ class App extends Component {
         <Route
           path="/notes/:id"
           render={() => (
-            <Note note={this.state.note} />
+            <div>
+              <Link to={`/notes/${this.state.note.id}/edit`}>edit</Link>
+              <Note note={this.state.note} />
+            </div>
+          )}
+        />
+        <Route
+          path="/notes/:id/edit"
+          render={() => (
+            <div>
+              <h2>Edit Note:</h2>
+              <NoteForm
+                onChange={this.onChange} 
+                onSubmit={this.editNote} 
+                title={this.state.title} 
+                text={this.state.text} 
+                formText="Update"
+              />
+            </div>
           )}
         />
       </div>
