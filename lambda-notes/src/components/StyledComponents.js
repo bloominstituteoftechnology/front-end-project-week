@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-    background: #2AC0C4;
+    background: ${props => props.delete ? 'red' : '#2AC0C4'};
     color: white;
     margin: ${props => props.submit ? '5px' : '1em'};
     padding: 0.25em 1em;
@@ -48,6 +48,11 @@ export const P = styled.p`
     font-family: 'Roboto', sans-serif;
 `
 
+export const UnderLinedP = P.extend`
+    text-decoration: underline
+    margin: 5px;
+`
+
 export const NoteItem = styled.div`
     border: 1px solid black;
     transition: 0.3s;
@@ -83,4 +88,9 @@ export const ContentInput = styled.textarea`
     margin: 5px;
     resize: none;
     outline: none;
+`
+
+export const NoteOptions = styled.div`
+    display: flex;
+    justify-content: flex-end
 `

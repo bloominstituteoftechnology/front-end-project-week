@@ -1,12 +1,19 @@
 import React from 'react' 
-import { H1 } from '../StyledComponents';
-
+import { H1, UnderLinedP, NoteOptions, Button } from '../StyledComponents';
+import { Link } from 'react-router-dom'
 class NoteView extends React.Component{
     state = {
         title: 'Note Title',
         content: 'Note Content',
-        id: null
+        id: null,
+        modal: false
     }
+
+    toggle = () => {
+        this.setState({
+          modal: !this.state.modal
+        });
+      }
 
     componentDidMount() {
         console.log(this.props)
@@ -23,10 +30,28 @@ class NoteView extends React.Component{
     render() {
         return (
             <div className="appView">
+                <NoteOptions>
+                    <UnderLinedP>edit</UnderLinedP>
+                    <UnderLinedP onClick={this.toggle}>delete</UnderLinedP>
+                </NoteOptions>
                 <div className="NoteView">
                     <H1>{this.state.title}</H1>
                     <p>{this.state.content}</p>
                 </div>
+                {this.state.modal 
+                    ? <div id="myModal" className="modal">
+                            <div className="modalData">
+                                <div className="modal-content">
+                                    <p>Are you sure you want to delete this?</p>
+                                </div>
+                                <div className="modal-options">
+                                        <Button delete>Delete</Button>
+                                        <Button>No</Button>
+                                </div>
+                            </div>
+                        </div> 
+                    : null
+                }
             </div>
         )
     }
