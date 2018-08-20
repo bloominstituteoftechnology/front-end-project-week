@@ -7,7 +7,7 @@ class Notes extends React.Component {
 		return (
 			<div>
 				{this.props.notes.map(note => (
-					<Link to={`/notes/${note.id}`}>
+					<Link key={note.id} to={`/notes/${note.id}`}>
 						<h4>{note.title}</h4>
 						<p>{note.text}</p>
 					</Link>
@@ -17,15 +17,3 @@ class Notes extends React.Component {
 	}
 }
 export default Notes;
-
-// const Notes = ({ notes }) => (
-// 	<div>
-// 		{notes.map(note => (
-// 			<Link to={`/notes/${note.id}`}>
-// 				<h4>{note.title}</h4>
-// 				<p>{note.text}</p>
-// 			</Link>
-// 		))}
-// 	</div>
-// );
-// export default Notes;

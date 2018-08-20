@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 
 import Notes from "./Components/Notes";
 import Note from "./Components/Note";
+import AddNote from "./Components/AddNote";
 
 import "./App.css";
 
@@ -31,6 +32,11 @@ class App extends Component {
 			},
 		],
 	};
+
+	handleAddNote = note => {
+		this.setState(prevState => ({ notes: [...prevState.notes, note] }));
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -51,7 +57,11 @@ class App extends Component {
 				<Route
 					exact
 					path="/add"
-					render={() => <div>This is the add notes page</div>}
+					render={() => (
+						<div>
+							<AddNote onSubmit={this.handleAddNote} />
+						</div>
+					)}
 				/>
 				<Route
 					exact
