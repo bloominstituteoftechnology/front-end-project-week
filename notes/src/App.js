@@ -17,7 +17,8 @@ class App extends Component {
       newbody: "",
       id: 5,
       edittitle: "",
-      editbody: ""
+      editbody: "",
+      deleting: false
     };
   }
 
@@ -53,17 +54,22 @@ class App extends Component {
     this.setState({ notes: notesCopy });
   };
 
-  noteDelete = (id) => {
+  deleteModal = () => {
+    let deleting = !this.state.deleting
+    this.setState({ deleting });
+  };
+
+  noteDelete = id => {
     let notesCopy = this.state.notes.slice();
-    let notesLeft = notesCopy.filter(note => note.id != id)
+    let notesLeft = notesCopy.filter(note => note.id != id);
     console.log(notesLeft);
-    this.setState({notes:notesLeft})
-  }
+    this.setState({ notes: notesLeft, deleting: false });
+  };
 
   render() {
     return (
       <div className="page">
-        <Menu />
+        <Menu deleting={this.state.deleting}/>
         <Route
           exact
           path="/"
@@ -89,6 +95,8 @@ class App extends Component {
               editNote={this.editNote}
               notes={this.state.notes}
               noteDelete={this.noteDelete}
+              deleteModal={this.deleteModal}
+              deleting={this.state.deleting}
             />
           )}
         />
