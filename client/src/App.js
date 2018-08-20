@@ -3,9 +3,14 @@ import SideNav from './components/SideNav';
 import styled from 'styled-components';
 import { Route } from 'react-router-dom';
 import ListView from './components/ListView';
+import NotesForm from './components/NotesForm';
 
 const MainContent = styled.div`
   padding: 4rem;
+`;
+
+const SecondaryHeading = styled.h2`
+  margin-bottom: 2rem;
 `;
 
 const textBody = `Lorem ipsum dolor sit amet, at essent consequat mediocritatem nam, sea an rebum graecis. His autem simul percipitur ne. Quod eirmod suavitate ne vix, sed eu detracto antiopam. Ad putent quaerendum scriptorem eos, est id principes consetetur. Ornatus nominavi vis te, at vel possit oportere argumentum. Semper evertitur pri id. Dolorum complectitur ad vim, at sea pertinax moderatius inciderint, reque etiam mel ei. In mea congue eripuit phaedrum, vix eros ignota eirmod ne. Vel lorem putent reprehendunt te. Usu ad debitis antiopam, mel aeque moderatius eu.
@@ -33,6 +38,17 @@ class App extends Component {
     ],
   };
 
+  createNote = data =>
+    this.setState(({ notes }) => ({
+      notes: [
+        ...notes,
+        {
+          id: notes.length,
+          ...data,
+        },
+      ],
+    }));
+
   render() {
     return (
       <div>
@@ -42,6 +58,16 @@ class App extends Component {
             exact
             path="/"
             render={() => <ListView notes={this.state.notes} />}
+          />
+          <Route
+            exact
+            path="/notes/new"
+            render={() => (
+              <div>
+                <SecondaryHeading>Create New Note</SecondaryHeading>
+                <NotesForm />
+              </div>
+            )}
           />
         </MainContent>
       </div>

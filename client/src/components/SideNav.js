@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Button } from '../styles';
 
 const StyledSideNav = styled.div`
   position: fixed;
@@ -17,25 +19,18 @@ const PrimaryHeading = styled.h1`
   margin-bottom: 2rem;
 `;
 
-const BlockButton = styled.button`
+const BlockButton = Button.extend`
   width: 100%;
-  padding: 1rem 0;
-  text-align: center;
-  font-size: inherit;
-  font-weight: bold;
-  color: #fafafa;
-  background-color: #26a69a;
-  border: none;
   display: block;
-  cursor: pointer;
-  transition: all 0.2s;
+`;
+
+const LinkWrapper = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
 
   &:not(:last-child) {
     margin-bottom: 1rem;
-  }
-
-  &:hover {
-    background-color: #4db6ac;
   }
 `;
 
@@ -46,9 +41,13 @@ const SideNav = () => {
         Lambda <br /> Notes
       </PrimaryHeading>
 
-      <BlockButton>View Your Notes</BlockButton>
+      <LinkWrapper to="/">
+        <BlockButton>View Your Notes</BlockButton>
+      </LinkWrapper>
 
-      <BlockButton>+ Create a new note</BlockButton>
+      <LinkWrapper to="/notes/new">
+        <BlockButton>+ Create a new note</BlockButton>
+      </LinkWrapper>
     </StyledSideNav>
   );
 };
