@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { handleSearch, fetchNotes } from '../actions';
 import '../styles/Search.css';
 
-const URL = 'https://killer-notes.herokuapp.com/note/get/';
+const URL = 'http://localhost:8000/api/notes/';
 
 class Search extends Component {
     state = {

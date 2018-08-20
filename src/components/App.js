@@ -16,8 +16,8 @@ const App = () => {
                 <Route path='/' component ={Menu} />
                 <Route exact path='/' component={NotesList} />
                 <Route path='/create-note' component={NewNote} />
-                <Route path='/note/:id' component={ViewNote} />
-                <Route path='/note/:id/delete' component={DeleteNote} />
+                <Route path='/notes/:id' component={ViewNote} />
+                <Route path='/notes/:id/delete' component={DeleteNote} />
                 <Route path='/edit/:id' component={EditNote} />
             </div>
         </Router>

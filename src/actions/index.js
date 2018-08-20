@@ -8,7 +8,7 @@ export const ERROR = 'ERROR';
 
 // fetches all notes
 export const fetchNotes = URL => {
-    const promise = axios.get(`${URL}all`);
+    const promise = axios.get(`${URL}`);
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise
@@ -23,7 +23,7 @@ export const fetchNotes = URL => {
 
 // fetches requested note for single note view
 export const fetchNote = (URL, id) => {
-    const promise = axios.get(`${URL}get/${id}`);
+    const promise = axios.get(`${URL}/${id}`);
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise
@@ -38,13 +38,14 @@ export const fetchNote = (URL, id) => {
 
 // post new note to server then routes to single note view
 export const createNote = (URL, note) => {
-    const promise = axios.post(`${URL}create`, note);
-    const path = '/note/';
+    const promise = axios.post(`${URL}`, note);
+    const path = '/notes/';
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise
             .then(response => {
-                const id = response.data.success;
+                console.log(response.data);
+                const id = response.data.id;
                 window.location.pathname = `${path}${id}`;
             })
             .catch(err => {
@@ -55,7 +56,7 @@ export const createNote = (URL, note) => {
 
 // deletes note and redirects to root path
 export const deleteNote = (URL, id) => {
-    const promise = axios.delete(`${URL}delete/${id}`);
+    const promise = axios.delete(`${URL}/${id}`);
     const path = '/';
     return dispatch => {
         promise
@@ -70,8 +71,8 @@ export const deleteNote = (URL, id) => {
 
 // edits note then routes to single note view
 export const editNote = (URL, id, note) => {
-    const promise = axios.put(`${URL}edit/${id}`, note);
-    const path = '/note/';
+    const promise = axios.put(`${URL}/${id}`, note);
+    const path = '/notes/';
     return dispatch => {
         promise
             .then(() => {

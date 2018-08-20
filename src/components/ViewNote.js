@@ -5,13 +5,14 @@
  import Tag from './Tag';
  import '../styles/ViewNote.css';
 
- const URL = 'https://killer-notes.herokuapp.com/note/';
+ const URL = 'http://localhost:8000/api/notes/';
 
  class ViewNote extends Component {
 
     // parses url path for note id then fetches note from server
      componentDidMount() {
         let id = window.location.pathname.split('/');
+        console.log(id);
         id = id[2];
         this.props.fetchNote(URL, id);
      }
@@ -25,8 +26,8 @@
                     <React.Fragment>
                         {this.props.singleNote.kind ? null : (
                             <div className='options'>
-                                <Link className='option-edit' to={`/edit/${this.props.singleNote._id}`}>edit</Link>
-                                <Link className='option-delete' to={`/note/${this.props.singleNote._id}/delete`}>delete</Link>
+                                <Link className='option-edit' to={`/edit/${this.props.singleNote.id}`}>edit</Link>
+                                <Link className='option-delete' to={`/notes/${this.props.singleNote.id}/delete`}>delete</Link>
                             </div>
                         )}
                     </React.Fragment>
@@ -47,7 +48,7 @@
                             ) : (
                                 <div className='single-note'>
                                     <p className='single-title'>{this.props.singleNote.title}</p>
-                                    <p className='single-body'>{this.props.singleNote.textBody}</p>
+                                    <p className='single-body'>{this.props.singleNote.content}</p>
                                     <React.Fragment>
                                         {this.props.singleNote.tags ? (
                                             <div className='tags'>

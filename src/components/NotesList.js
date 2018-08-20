@@ -6,7 +6,7 @@ import Note from './Note';
 import Search from './Search';
 import '../styles/NotesList.css';
 
-const URL = 'https://killer-notes.herokuapp.com/note/get/';
+const URL = 'http://localhost:8000/api/notes/';
 
 class NotesList extends Component {
     componentDidMount() {
@@ -39,8 +39,8 @@ class NotesList extends Component {
                                             <React.Fragment>
                                                 {this.props.searchedNotes.map(note => {
                                                     return (
-                                                        <Link className="note-link" to={'/note/' + note._id} key={note._id} >
-                                                            <Note title={note.title} body={note.textBody} tags={note.tags} />
+                                                        <Link className="note-link" to={'/notes/' + note.id} key={note.id} >
+                                                            <Note title={note.title} body={note.content} />
                                                         </Link>
                                                     )
                                                 })}
@@ -52,8 +52,8 @@ class NotesList extends Component {
                                 <React.Fragment>
                                     {this.props.notes.map(note => {
                                         return (
-                                            <Link className="note-link" to={'/note/' + note._id} key={note._id} >
-                                                <Note title={note.title} body={note.textBody} tags={note.tags} />
+                                            <Link className="note-link" to={'/notes/' + note.id} key={note.id} >
+                                                <Note title={note.title} body={note.content} />
                                             </Link>
                                         )
                                     })}

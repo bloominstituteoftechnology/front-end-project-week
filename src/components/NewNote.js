@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { createNote } from '../actions';
 import '../styles/NewNote.css';
 
-const URL = 'https://killer-notes.herokuapp.com/note/';
+const URL = 'http://localhost:8000/api/notes/';
 
 class NewNote extends Component {
     state = {
         title: '',
         body: '',
-        tags: '',
+        // tags: '',
     }
 
     handeInputChange = event => {
@@ -17,23 +17,23 @@ class NewNote extends Component {
     }
 
     handleCreateNote = URL => {
-        let tags = [];
+        // let tags = [];
         if(!this.state.title || !this.state.body) {
             return;
         }
-        else if (this.state.tags === '' || this.state.tags === ' ' || this.state.tags === [] || this.state.tags === [''] || this.state.tags === [' ']) {
-            tags = [];
-        }
-        else if (this.state.tags.constructor === Array) {
-            tags = this.state.tags;
-        }
-        else {
-            tags = this.state.tags.split(',');
-        }
+        // else if (this.state.tags === '' || this.state.tags === ' ' || this.state.tags === [] || this.state.tags === [''] || this.state.tags === [' ']) {
+        //     tags = [];
+        // }
+        // else if (this.state.tags.constructor === Array) {
+        //     tags = this.state.tags;
+        // }
+        // else {
+        //     tags = this.state.tags.split(',');
+        // }
         const note = {
             title: this.state.title,
-            textBody: this.state.body,
-            tags: tags,
+            content: this.state.body,
+            // tags: tags,
         }
         this.props.createNote(URL, note);
     }

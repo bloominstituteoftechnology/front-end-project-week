@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchNotes } from '../actions';
 import '../styles/Menu.css';
 
-const URL = 'https://killer-notes.herokuapp.com/note/get/';
+const URL = 'http://localhost:8000/api/notes/';
 
 const Menu = props => {
     return (
