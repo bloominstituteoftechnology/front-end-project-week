@@ -3,7 +3,7 @@ import {Link, Route} from 'react-router-dom';
 
 import './App.css';
 import styled from 'styled-components';
-import {AllNotes, NewNote} from './components';
+import {AllNotes, NewNote, NoteDetails} from './components';
 
 
 const AppDiv = styled.div`
@@ -65,7 +65,14 @@ class App extends Component {
     console.log(this.state.notes)
   }
 
+  getNoteDetails = (id) => {
+    console.log(id)
+    console.log(this.state.notes)
+    return (this.state.notes.find(note => {return note.id == id}))
+  }
+
   render() {
+
     return (
       <AppDiv>
         <div className="left-menu">
@@ -75,15 +82,29 @@ class App extends Component {
         </div>
         <div className="right-display">
 
-          <Route  path="/all-notes"  render={ () => {
+          <Route  exact path="/all-notes"  render={ () => {
             return (
               <AllNotes notes={this.state.notes} />
             )
           }}></Route>
 
-          <Route  path="/new-note"  render={ () => {
+          <Route  exact path="/new-note"  render={ () => {
             return (
               <NewNote newNote={this.newNote} notes={this.state.notes} />
+            )
+          }}></Route>
+          <Route exact path="/all-notes/:noteId"  render={ (note) => {
+            let single = this.getNoteDetails(note.match.params.noteId);
+
+            console.log(single);
+            // let single = this.state.notes.find(note => {
+            //   return (
+            //     note.title == note.match.params.noteTitle
+            //   )
+            // })
+            // console.log(single)
+            return (
+              <NoteDetails note={single} />
             )
           }}></Route>
 
