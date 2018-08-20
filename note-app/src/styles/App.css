@@ -19,9 +19,7 @@
   width: 578px;
   margin-top: 0;
   margin-bottom: 10px;
-
 }
-
 .side-bar {
   width: 143px;
   max-width: 100%; 
@@ -43,4 +41,14 @@
   padding-top : 13px;
   margin-bottom: 20px;
   margin-left: 7px;
+}
+
+
+
+.main-container{
+  display: flex; 
+}
+
+.main-container .changing-container {
+  background: #F2F1F2;
 }
