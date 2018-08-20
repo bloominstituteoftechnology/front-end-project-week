@@ -8,17 +8,21 @@ const Note = styled.div`
   height: 170px;
   padding: 5px 13px;
   line-height: 19px;
-  text-overflow: ellipsis;
   margin-bottom: 21px;
+  overflow: hidden;
 
   h5 {
     line-height: 1.8;
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   p {
     font-size: 11px;
     padding-top: 5px;
+    text-overflow: ellipsis;
   }
 `
 
