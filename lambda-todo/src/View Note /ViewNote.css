@@ -1,0 +1,7 @@
+.view-page{
+    width: 640px; 
+    border: 1px solid black; 
+    height: 100%; 
+    position: fixed; 
+    background: #FAFBFC
+}

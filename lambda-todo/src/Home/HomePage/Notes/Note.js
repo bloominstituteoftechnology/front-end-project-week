@@ -1,5 +1,6 @@
 import React from "react";
 import './Note.css'; 
+import { NavLink } from "react-router-dom";
 
 const Note = props => {
   return (
@@ -8,7 +9,7 @@ const Note = props => {
           return(
         <div key={item.id}>
           <div className="card">
-            <div className="title"><h2>{item.title}</h2></div>
+            <NavLink to={`/view-note/${item.id}`} className="title"><h2>{item.title}</h2></NavLink>
             <div className="content"><p>{item.cardcontent}</p></div>
           </div>
         </div>

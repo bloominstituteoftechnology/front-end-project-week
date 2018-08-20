@@ -4,7 +4,7 @@ import './NewNotePage.css';
 class NewNotePage extends Component{
     render(){
         return(
-            <div class="new-note">
+            <div className="new-note">
             <h1>Create New Note</h1>
             <div>
             </div>
