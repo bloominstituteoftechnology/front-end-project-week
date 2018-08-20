@@ -12,7 +12,9 @@ export const MainNav = props => {
         <Link to={"/"}>
           <button>View Your Notes</button>
         </Link>
-        <button>+Create New Note</button>
+        <Link to={"/create"}>
+          <button>+Create New Note</button>
+        </Link>
       </div>
     </div>
   );

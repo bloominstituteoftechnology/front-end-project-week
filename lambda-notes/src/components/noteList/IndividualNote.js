@@ -9,7 +9,7 @@ export const IndividualNote = props => {
       <Link to={`/edit/${props.match.params.id}`}>
         <button>edit</button>
       </Link>
-      {/* <Link to={"/delete/:id"}>
+      {/* <Link to={`/delete/${props.match.params.id}`}>
         <button>delete</button>
       </Link> */}
       <h2>{props.notes[props.match.params.id].title}</h2>

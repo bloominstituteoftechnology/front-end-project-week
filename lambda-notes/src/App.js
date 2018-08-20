@@ -4,8 +4,10 @@ import { MainNav } from "./components/mainNav/MainNav";
 import { Notes } from "./components/noteList/Notes";
 import { IndividualNote } from "./components/noteList/IndividualNote";
 import { EditNote } from "./components/modifyNote/EditNote";
+import { DeleteNote } from "./components/modifyNote/DeleteNote";
 
 import "./css_styles/app.css";
+import { CreateNote } from "./components/modifyNote/CreateNote";
 
 class App extends Component {
   constructor(props) {
@@ -81,10 +83,15 @@ class App extends Component {
             <IndividualNote {...props} notes={this.state.notes} />
           )}
         />
+        <Route path={"/create"} component={CreateNote} />
         <Route
           path={"/edit/:id"}
           render={props => <EditNote {...props} notes={this.state.notes} />}
         />
+        {/* <Route
+          path={"/delete/:id"}
+          render={props => <DeleteNote {...props} notes={this.state.notes} />}
+        /> */}
       </div>
     );
   }
