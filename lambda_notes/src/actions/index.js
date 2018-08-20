@@ -20,19 +20,19 @@ export const fetchNotes = () => {
     }
 }
 
-// export const fetchSingleNote = (id) => {
-//     return (dispatch) => {
-//         axios.get(`http://localhost:8000/api/notes/${id}`)
-//         .then(response => dispatch({
-//             type: types.FETCH_SINGLE_NOTE,
-//             payload: response.data
-//         }))
-//         .catch(err => dispatch({
-//             type: types.FETCH_ERROR,
-//             error: err
-//         }))
-//     }
-// }
+export const fetchSingleNote = (id) => {
+    return (dispatch) => {
+        axios.get(`http://localhost:8000/api/notes/${id}`)
+        .then(response => dispatch({
+            type: types.FETCH_SINGLE_NOTE,
+            payload: response.data
+        }))
+        .catch(err => dispatch({
+            type: types.FETCH_ERROR,
+            error: err
+        }))
+    }
+}
 
 // export const deleteNote = (id) => {
 //     const request = axios.delete(`http://localhost:8000/api/notes/${id}`)
