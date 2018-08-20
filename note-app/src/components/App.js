@@ -23,6 +23,13 @@ class App extends Component {
     }
   }
 
+  createNote = (noteObj) => {
+    console.log(noteObj)
+    const notes = this.state.notes.slice()
+    notes.push(noteObj)
+    this.setState({ notes })
+  }
+
   handleNoteSelect = (index) => {
     const select = this.state.notes[index];
     console.log("Selected", select)
@@ -31,6 +38,7 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state.notes)
     return (
       <div className="App">
         <div className="heading">
@@ -40,11 +48,11 @@ class App extends Component {
         <div className = "main-container">
           <SideBar />
           {/* <div classname = "changing-container">Test</div> */}
-          {/* <CreateNote /> */}
+          <CreateNote create = {this.createNote}/>
           {/* <EditNote /> */}
           {/* <ViewAllNotes notes = {this.state.notes} click = {this.handleNoteSelect} /> */}
           {/* <FullNote ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex}/> */}
-          <DeleteModal />
+          {/* <DeleteModal /> */}
         </div>
         
       </div>
