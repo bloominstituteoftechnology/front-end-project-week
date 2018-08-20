@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 import { addNote } from '../actions';
 import posed from 'react-pose';
 
-const config = {
-    enter: {opacity: 1, translateY: 0, transition: { duration: 1000 }, delayChildren: 200},
-    exit: {opacity: 0, translateY: 100},
-    initialPose: 'exit',
-}
+// Unused animation
+// const config = {
+//     enter: {opacity: 1, translateY: 0, transition: { duration: 1000 }, delayChildren: 200},
+//     exit: {opacity: 0, translateY: 100},
+//     initialPose: 'exit',
+// }
 
 const StyledNoteForm = styled(posed.div())`
     background: #F3F3F3;

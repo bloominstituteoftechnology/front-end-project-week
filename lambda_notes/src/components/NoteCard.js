@@ -12,7 +12,12 @@ const StyledNoteCard = styled.div`
     box-shadow: 5px 10px 50px #888888;
     width: 190px;
     height: 190px;
+    max-height: 190px;
     overflow: hidden;
+    &:before{
+        background:linear-gradient(transparent 150px, white);
+    }
+    
 `;
 
 const StyledTitle = styled.h4`
@@ -28,14 +33,14 @@ const StyledText = styled.p`
 class NoteCard extends Component {
 
     render(){
-        let { _id, title, textBody } = this.props.note
+        let { id, title, textBody } = this.props.note
         return(
-            <StyledNoteCard>
-                <Link to={`/notes/${_id}`}
+            <StyledNoteCard >
+                <Link to={`/notes/${id}` }
                     style={{ textDecoration: 'none', color: 'black' }}>
-                    <StyledTitle><Markdown options={{ forceBlock: true }}>{title}</Markdown></StyledTitle>
+                    <StyledTitle><Markdown options={{ forceBlock: true }}>{title}</Markdown></StyledTitle></Link>
                     <StyledText><Markdown options={{ forceBlock: true }}>{textBody}</Markdown></StyledText>
-                </Link>
+                
             </StyledNoteCard>
 
         );

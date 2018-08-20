@@ -8,7 +8,7 @@ import posed, { PoseGroup } from 'react-pose';
 const Card = posed.span({
     enter: {opacity: 1, translateY: 0, transition: { duration: 1000 }, delay: ({ i }) => i * 100},
     exit: {opacity: 0, translateY: 100},
-    draggable: true,
+    // draggable: true,     // Draggable is buggy
     // hovered: { scale: 1.5 },
 })
 
@@ -57,7 +57,7 @@ class NotesContainer extends Component {
                 <StyledNotes>
                     <PoseGroup animateOnMount>
                     {this.props.notes.map((note, i) => {
-                        return <StyledCard pose={'exit'} key={note._id} i={i} ><NoteCard note={note}key={note._id} />
+                        return <StyledCard pose={'exit'} key={note.id} i={i} ><NoteCard note={note}key={note.id} />
                                 </StyledCard>
                     })}
                     </PoseGroup>

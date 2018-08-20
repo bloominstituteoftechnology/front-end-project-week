@@ -14,14 +14,20 @@ export const ERROR = "ERROR";
 
 
 
-const url = "https://killer-notes.herokuapp.com/note/get/all";
-const singleURL = "https://killer-notes.herokuapp.com/note/get/";
-const postURL = "https://killer-notes.herokuapp.com/note/create";
-const deleteURL = "https://killer-notes.herokuapp.com/note/delete/";
-const editURL = "https://killer-notes.herokuapp.com/note/edit/";
+// const url = "https://killer-notes.herokuapp.com/note/get/all";
+// const singleURL = "https://killer-notes.herokuapp.com/note/get/";
+// const postURL = "https://killer-notes.herokuapp.com/note/create";
+// const deleteURL = "https://killer-notes.herokuapp.com/note/delete/";
+// const editURL = "https://killer-notes.herokuapp.com/note/edit/";
+
+const localURL = "http://localhost:3300/note/get/all"
+const localSingleURL = "http://localhost:3300/note/get/"
+const localPostURL = "http://localhost:3300/note/post/"
+const localDeleteURL = "http://localhost:3300/note/delete"
+const localEditURL = "http://localhost:3300/note/edit/"
 
 export const getNotes = () => {
-    const request = axios.get(url);
+    const request = axios.get(localURL);
     return(dispatch) => {
         dispatch({
             type: FETCHING,
@@ -36,7 +42,7 @@ export const getNotes = () => {
 }
 
 export const getNote = (id) => {
-    const request = axios.get(`${singleURL}${id}`);
+    const request = axios.get(`${localSingleURL}${id}`);
     return(dispatch) => {
         dispatch({
             type: FETCHINGNOTE,
@@ -51,7 +57,7 @@ export const getNote = (id) => {
 }
 
 export const addNote = (newNote) => {
-    const request = axios.post(postURL, newNote);
+    const request = axios.post(localPostURL, newNote);
     return(dispatch) => {
         dispatch({
             type: ADDING,
@@ -68,7 +74,7 @@ export const addNote = (newNote) => {
 
 export const deleteNote = (id) => {
     console.log("Delete Note called!!!!!");
-    const request = axios.delete(`${deleteURL}${id}`)
+    const request = axios.delete(`${localDeleteURL}${id}`)
     return(dispatch) => {
         dispatch({
             type: DELETING
@@ -85,7 +91,7 @@ export const deleteNote = (id) => {
 }
 
 export const editNote = (id, newNote) => {
-    const request = axios.put(`${editURL}${id}`, newNote);
+    const request = axios.put(`${localEditURL}${id}`, newNote);
     return(dispatch) => {
         dispatch({
             type: UPDATING,
@@ -100,13 +106,13 @@ export const editNote = (id, newNote) => {
 }
 
 export const searchNotes = (search) => {
-    const request = axios.get(url);
+    const request = axios.get(localURL);
     return(dispatch => {
         dispatch({
             type: FETCHING,
         })
         request.then(response => {
-            let regex = new RegExp(search);
+            let regex = new RegExp(search,['i']);
             let results = response.data.filter(note => 
                 regex.test(note.textBody)
             )

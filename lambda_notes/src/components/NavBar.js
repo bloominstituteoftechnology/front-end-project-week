@@ -43,6 +43,10 @@ const H5 = styled.h5`
     margin-bottom: 1%;
 `;
 
+const Input = styled.input`
+    width: 75%;
+`;
+
 class NavBar extends Component {
     constructor(){
         super();
@@ -71,7 +75,7 @@ class NavBar extends Component {
                     <Link to={'/create'}><StyledButton>Create New Note</StyledButton></Link>
                     <form onSubmit={this.searchNotes}>
                         <H5>Search</H5>
-                        <input type='text'
+                        <Input type='text'
                                 name='search'
                                 value={this.state.search}
                                 placeholder='Search Here'
