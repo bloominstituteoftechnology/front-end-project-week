@@ -55,8 +55,4 @@ class ListView extends Component {
     }
 }
 
-// ListView.defaultProps = {
-//     noteList: [],
-// };
-
 export default ListView;

@@ -1,9 +1,11 @@
 .list-container {
     width: 100%;
+    background: #E7E6E7;
+    height: 100%;
 }
 
 .list-container .notes-title {
-    margin: 7px 0 0;
+    margin: 55px 0 0;
     padding: 0 20px;
     height: 10%;
     display: flex;
@@ -11,15 +13,14 @@
 }
 
 .list-container .notes-top-container {
-    border: 1px solid blue;
     margin: 20px 20px 0;
 }
 
 .list-container .notes-top-container .notes-container {
-    border: 1px solid green;
     height: 90%;
     width: 100%;
-    background: white;
+    background: #E7E6E7;
+    border: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -28,9 +29,22 @@
 
 /*================= N O T E -C A R D    F I L E =============*/
 .note-card {
-    border: 1px solid red;
+    border: 1px solid #A6A6A6;
     width: 190px; 
     height: 195px;
     margin-bottom: 20px;
+    background: white;
+}
+
+.note-card h3 {
+    text-align: start;
+    margin: 10px 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #A6A6A6;
+}
+
+.note-card p {
+    text-align: justify;
+    margin: 0 15px;
 }
 
