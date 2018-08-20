@@ -1,0 +1,12 @@
+import React from 'react';
+
+const NoteBox = props => {
+  return(
+    <div className="note-box">
+      <div className="title">{props.title}</div>
+      <div className="text">{props.textBody}</div>
+    </div>
+  );
+}
+
+export default NoteBox;
