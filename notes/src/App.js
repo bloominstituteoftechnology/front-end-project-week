@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter, Route } from 'react-router-dom';
 import * as actions from './actions'
 import Notes from './components/Notes';
+import SingleNote from './components/SingleNote';
 
 class App extends Component {
   componentDidMount = () => {
@@ -14,9 +15,10 @@ class App extends Component {
     return (
       <div>
         <h3>Welcome to Lambda Notes</h3>
-        <Route path="/" render={props => (
+        <Route exact path="/" render={props => (
           <Notes {...props} notes={this.props.notes} />
         )} />
+        <Route path="/notes/:id" component={SingleNote} />
       </div>
     );
   }
