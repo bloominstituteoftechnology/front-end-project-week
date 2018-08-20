@@ -49,10 +49,21 @@ class App extends Component {
           id: 7,
           title: "Bake Tea",
           description: "Make tea for the cat"
+        },
+        {
+          id: 8,
+          title: "Bake Fish",
+          description: "Make fish for the cat"
+        },
+        {
+          id: 9,
+          title: "Bake Tacos",
+          description: "Make tacos for the cat"
         }
       ]
     };
   }
+
   render() {
     return (
       <div className="mainAppDiv">

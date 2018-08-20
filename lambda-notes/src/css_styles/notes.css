@@ -7,7 +7,8 @@
   font-size: 1.6rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* Don't know if I want to space evenly yet */
+  /* justify-content: space-evenly; */
   align-items: center;
 }
 
@@ -16,14 +17,21 @@
   margin-left: 220px;
 }
 
+.landingTitle {
+  margin: 5rem 7rem;
+}
+
 .noteDiv {
   color: white;
   background: red;
+  border: 1px solid white;
   margin: 1rem;
+  padding: 1rem;
   width: 150px;
   height: 150px;
 }
 
-.landingTitle {
-  margin: 5rem 7rem;
+.noteDescription {
+  padding-top: 0.5rem;
+  border-top: 1px solid white;
 }
