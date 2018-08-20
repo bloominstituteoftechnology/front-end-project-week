@@ -1,28 +1,81 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .App-title {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+.body {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.menu {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid black;
+  min-height: 100vh;
+  padding-top: 15px;
+  background-color: #d4d3d4;
+}
+
+.menu h1 {
+  text-align: left;
+  line-height: 34px;
+  padding-left: 12px;
+  font-size: 2.4rem;
+}
+
+.menu button {
+  margin: 10px 0;
+  height: 44px;
+  width: 86%;
+  border: 1px solid lightgrey;
+  background-color: #25b8bd;
+  color: white;
+}
+
+.notes-container {
+  width: 75%;
+  min-height: 100vh;
+  padding-top: 54px;
+  padding-left: 9px;
+}
+
+.notes-container h4 {
+  padding-left: 7px;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 5px;
+}
+
+.note {
+  width: 194px;
+  margin: 10px;
+  margin-bottom: 16px;
+  height: 200px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note h5 {
+  text-align: left;
+  width: 80%;
+  padding-left: 8px;
+  padding-top: 12px;
+  border-bottom: 1px solid grey;
+  padding-bottom: 4px;
+}
+
+.note p {
+  width: 75%;
+  text-align: left;
 }
