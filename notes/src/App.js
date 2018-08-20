@@ -3,25 +3,38 @@ import {Link, Route} from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
 
-import {AllNotes, NewNote, NoteDetails, EditNote} from './components';
+import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
 
 const AppDiv = styled.div`
-  border: 1px solid red;
-  display: flex;
-  flex-direction: row;
-  .left-menu {
-    border: 1px solid green;
-    width: 30%;
+
+    border: 1px solid red;
     display: flex;
-    flex-direction: column;
-  }
-  .right-display{
-    border: 1px solid blue;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
+    flex-direction: row;
+    z-index: 0;
+    .delete {
+      background: red;
+      width: 100vw;
+      height: 100vh;
+      background-color:rgba(1,1,1,0.5);
+      position: fixed;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left-menu {
+      border: 1px solid green;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+    }
+    .right-display{
+      border: 1px solid blue;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
 
 `;
 
@@ -29,6 +42,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      hideDetails: false,
       notes: [
         {
         id: 0,
@@ -67,35 +81,59 @@ class App extends Component {
     // 10 declares the number base
   }
 
+  hideDetails = () => {
+    this.setState({
+      hideDetails: true,
+    })
+  }
+
   render() {
     return (
-      <AppDiv>
-        <div className="left-menu">
-          <h1>Lambda Notes</h1>
-          <Link to="/all-notes">View Your Notes</Link>
-          <Link to="/new-note">+ Create New Note</Link>
-        </div>
 
-        <div className="right-display">
+        <AppDiv>
 
-          <Route  exact path="/all-notes"  render={ () => {
-              return (<AllNotes notes={this.state.notes} />)
-            }}></Route>
 
-          <Route  exact path="/new-note"  render={ () => {
-              return (<NewNote newNote={this.newNote} notes={this.state.notes} />)
-            }}></Route>
-          <Route exact path="/all-notes/:noteId"  render={ (note) => {
+
+          <div className="left-menu">
+            <h1>Lambda Notes</h1>
+            <Link to="/all-notes">View Your Notes</Link>
+            <Link to="/new-note">+ Create New Note</Link>
+          </div>
+
+          <div className="right-display">
+
+            <Route exact path="/all-notes"  render={ () => {
+                return (<AllNotes notes={this.state.notes} />)
+              }}></Route>
+
+            <Route exact path="/new-note"  render={ () => {
+                return (<NewNote newNote={this.newNote} notes={this.state.notes} />)
+              }}></Route>
+
+            <Route path="/all-notes/:noteId" render={ (note) => {
+                let single = this.getNoteDetails(note.match.params.noteId);
+                return (<NoteDetails  note={single} />)
+                //{...(this.state.hideDetails)? (return style={display:'none'}) : null}
+              }}></Route>
+
+            <Route exact path="/all-notes/:noteId/edit" render={ (note) => {
+                let single = this.getNoteDetails(note.match.params.noteId);
+                return (<EditNote note={single} />)
+              }}></Route>
+          </div>
+
+          <Route className="delete" path="/all-notes/:noteId/delete" render={ (note) => {
               let single = this.getNoteDetails(note.match.params.noteId);
-              return (<NoteDetails note={single} />)
-            }}></Route>
-          <Route exact path="/all-notes/:noteId/edit"  render={ (note) => {
-              let single = this.getNoteDetails(note.match.params.noteId);
-              return (<EditNote note={single} />)
+              return (<div>
+                  <DeleteNote note={single} />
+                  {/* <NoteDetails note={single} /> */}
+                </div>)
             }}></Route>
 
-        </div>
-      </AppDiv>
+        </AppDiv>
+
+
+
     );//return
   }//render
 }

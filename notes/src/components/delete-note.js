@@ -4,9 +4,22 @@ import NoteForm from './note-form';
 import styled from 'styled-components';
 
 const DeleteNoteDiv = styled.div`
+  border: 1px solid green;
+  background: white;
+  margin: 200px;
+  padding: 50px;
+  width: 1000px:
+  height: 100vh:
+  background: black;
+  ${'' /* opacity: .5; */}
+  z-index: 100;
+  position:fixed;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
 `;
 
 export default class DeleteNote extends Component {
@@ -17,16 +30,16 @@ export default class DeleteNote extends Component {
     }
   }
 
-
   render() {
     console.log(this)
     return (
-      <DeleteNote>
-        <a>edit</a>
-        <a>Delete</a>
-        <h4>{this.state.note.title}</h4>
-        <p>{this.state.note.body}</p>
-      </DeleteNote>
+      <DeleteNoteDiv>
+        <h4>Are you sure you want to delete this?</h4>
+        <div className='delete-buttons'>
+          <Link to="/all-notes">Delete</Link>
+          <Link to={`/all-notes/${this.state.note.id}`}>No</Link>
+        </div>
+      </DeleteNoteDiv>
     );
   }
 }
