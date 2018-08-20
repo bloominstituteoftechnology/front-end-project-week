@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const MainNav = props => {
   return (
@@ -6,7 +7,9 @@ export const MainNav = props => {
       <h1>Lambda</h1>
       <h1>Notes</h1>
       <div className="mainNavButtonsDiv">
-        <button>View Your Notes</button>
+        <Link to={"/"}>
+          <button>View Your Notes</button>
+        </Link>
         <button>+Create New Note</button>
       </div>
     </div>
