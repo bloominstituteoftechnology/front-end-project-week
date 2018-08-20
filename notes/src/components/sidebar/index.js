@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { withRouter } from 'react-router-dom';
 const SideBaR=styled.div`
 width: 25%;
 display: flex;
@@ -37,13 +37,24 @@ display: flex;
 align-items: center;
 justify-content: center;
 `
-const SideBar=(props)=>{
+class SideBar extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+    viewNotes=()=>{
+        this.props.history.push('/')
+    }
+    createNewNote=()=>{
+        this.props.history.push('/create');
+    }
+    render() {
     return(
         <SideBaR>
         <h1>Lambda<br/>Notes</h1>
-        <ViewButton onClick={props.viewNotes}>View Your Notes</ViewButton>
-        <CreateButton onClick={props.createNewNote}>+ Create New Note</CreateButton>
+        <ViewButton onClick={this.viewNotes}>View Your Notes</ViewButton>
+        <CreateButton onClick={this.createNewNote}>+ Create New Note</CreateButton>
         </SideBaR>
-    )
+        )
+    }
 }
-export default SideBar;
+export default withRouter(SideBar);
