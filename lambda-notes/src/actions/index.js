@@ -33,14 +33,14 @@ export const getNote = (id) => {
     axios
       .get(`${url}/${id}`)
       .then(response => {
-        if (!response.data.name && !response.data.errorMessage) {
-          dispatch({ type: 'NOTE_FETCHED', payload: response.data });
-        } else {
-          dispatch({ type: 'NO_NOTE_FETCHED' });
-        }
+        dispatch({ type: 'NOTE_FETCHED', payload: response.data });
       })
       .catch(error => {
-        dispatch({ type: 'ERROR', type: 'NO_NOTE_FETCHED', payload: error });
+        if (error.response.status === 404) {
+          dispatch({ type: 'NO_NOTE_FETCHED'});
+        } else {
+          dispatch({ type: 'ERROR', payload: error });
+        }
       });
   }
 }
