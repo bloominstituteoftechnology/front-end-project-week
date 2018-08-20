@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import SideBar from './side-bar';
 import CreateNote from './create-note';
+import EditNote from './edit-note';
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      notes: [] 
+      notes: [{title: "Test", content: "This is some content that is being created just to test this out. "}] 
     }
   }
   render() {
@@ -21,7 +22,9 @@ class App extends Component {
         <div className = "main-container">
           <SideBar />
           {/* <div classname = "changing-container">Test</div> */}
-          <CreateNote />
+          {/* <CreateNote /> */}
+          <EditNote />
+
         </div>
         
       </div>
