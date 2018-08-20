@@ -6,6 +6,8 @@ import {notes} from './components/Notes';
 import ListView from './components/ListView';
 import CreateNew from './components/CreateNew';
 
+let id = 9;
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -13,6 +15,7 @@ class App extends Component {
       notes: notes,
       title: '',
       content: '',
+      id: id,
     }
   }
   handleChange = e =>{
@@ -21,8 +24,12 @@ class App extends Component {
   addNote = e => {
     e.preventDefault();
     let notes = this.state.notes.slice();
-    notes.push({title: this.state.title, content: this.state.content});
-    this.setState({notes, title:'', content:''})
+    notes.push({
+        id: this.state.id,
+        title: this.state.title,
+        content: this.state.content,
+    });
+    this.setState({notes, title:'', content:'', id: ++id})
     console.log(this.state.notes);
   }
   render() {

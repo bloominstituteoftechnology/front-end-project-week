@@ -8,6 +8,7 @@ const Col = styled.div`
     border: 1px solid lightgray;
     background: #D2D2D2;
     padding: 1rem;
+    top: 0;
 `
 const H1 = styled.h1`
     max-width: 200px;
