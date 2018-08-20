@@ -35,6 +35,10 @@ button {
   margin: 1rem auto;
 }
 
+.home .note-container {
+  width: 100%;
+}
+
 .card-title {
   padding-bottom: 10px;
   border-bottom: 1px solid #b2bec3;
@@ -49,4 +53,10 @@ button {
   border-radius: 8px;
   width: 20%;
   margin: 0.2rem;
+}
+
+.search-bar {
+  text-align:center;
+  width: 60%;
+  margin: 1rem auto;
 }
