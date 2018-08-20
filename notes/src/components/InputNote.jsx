@@ -5,11 +5,11 @@ class CreateNote extends Component {
   render() {
     return (
       <div className="notesViewContainer">
-        <div className="viewTitle">Create New Note:</div>
+        <div className="viewTitle">{this.props.mode === 'ADD' ? 'Create New': 'Edit'} Note:</div>
         <form className='formLayout'id="createNoteForm" onSubmit={this.props.addNote}>
           <input type="text" className='notesubmit' placeholder="Note Title" />
           <textarea className='notesubmit'  form="createNoteForm" placeholder="Note Content" />
-          <button className='sidebarButton'>Save</button>
+          <button className='sidebarButton'>{this.props.mode === 'ADD' ? 'Save': 'Update'}</button>
         </form>
       </div>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Notesview from "./components/Notesview";
-import CreateNote from "./components/CreateNote";
+import CreateNote from "./components/InputNote";
 
 
 class App extends Component {
@@ -10,7 +10,8 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
-      nextID: 5
+      nextID: 5,
+      mode: 'ADD'
     };
   }
   componentDidMount = () => {
@@ -49,7 +50,7 @@ class App extends Component {
       <div className="App">
         <Sidebar />
         {/* <Notesview notes={this.state.notes}/> */}
-        <CreateNote />
+        {/* <CreateNote mode={this.state.mode} /> */}
       </div>
     );
   }
