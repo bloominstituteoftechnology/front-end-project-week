@@ -16,6 +16,7 @@ class NotesHolder extends Component {
     return (
       <div className="notes-holder">
         <div className="note-card-section">
+        <h1>Your Notes</h1>
           <Note note={this.state.notes} />
         </div>
         <div>

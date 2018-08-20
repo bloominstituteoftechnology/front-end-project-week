@@ -13,10 +13,15 @@
     margin: 10px; 
     display: flex; 
     flex-direction: column; 
+    background: white; 
 }
 .title{
     text-decoration: none;
     color: black; 
+}
+.line{
+    border: 1px solid black; 
+    width: 100px; 
 }
 h2{
     font-size: 17px; 
