@@ -7,16 +7,18 @@
   height: 100vh;
   font-family: 'Roboto', sans-serif;
   background: rgb(238, 238, 238);
+  display:flex;
 }
 
 .sidebarContainer{
   background-color:lightgray;
-  max-width: 14em;
-  min-width: 50px;
+  width: 20em;
+  
   height: 100vh;
   text-align: left;
   padding: 15px 15px;
   border-right:2px grey solid;
+  
 }
 .sidebarTitle{
   font-size: 35px;
@@ -35,6 +37,36 @@
   margin-bottom: 20px;
   border: 1.5px grey solid;
   letter-spacing: 1px;
+}
 
+.notesViewContainer{
+  padding: 4em 2em;
+  text-align: left;
+}
+.viewTitle{
+  font-size:24px;
+  font-weight:600;
 
+}
+.notecard{
+  background:white;
+  border: 2px lightgray solid;
+  padding: 1em;
+  text-align: left;
+  width: 10em;
+  height: 11em;
+  margin: 0 1em 1.5em 0
+}
+.cardTitle{
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.cardBody{
+  font-size: 14px;
+}
+.cardBox{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top:2em;
 }
