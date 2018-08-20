@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Note from './Note';
 import { Input } from 'reactstrap';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Link } from 'react-router-dom';
 
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -104,7 +105,9 @@ class Notes extends Component {
                                                     provided.draggableProps.style
                                                 )}
                                             >
-                                                <Note id={note._id} title={note.title} content={note.textBody} tags={note.tags} /> 
+                                                <Link to={`/notes/${note._id}`}>
+                                                    <Note id={note._id} title={note.title} content={note.textBody} tags={note.tags} /> 
+                                                </Link>
                                             </div>
                                         )}
                                     </Draggable>

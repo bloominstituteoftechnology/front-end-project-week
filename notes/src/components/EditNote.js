@@ -17,7 +17,12 @@ class EditNote extends Component {
 
     updateNote = event => {
         event.preventDefault();
-        let tagArray = this.state.tags.split(', ');
+        let tagArray = [];
+        if (Array.isArray(this.state.tags)) {
+            tagArray = this.state.tags;
+        } else {
+            tagArray = this.state.tags.split(' ').join('').split(',')
+        }
         let updatedNote = {
             id: this.props.id,
             title: this.state.title,

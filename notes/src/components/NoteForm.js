@@ -17,7 +17,12 @@ class NoteForm extends Component {
 
     addNote = event => {
         event.preventDefault();
-        let tagArray = this.state.tags.split(', ');
+        let tagArray = [];
+        if (Array.isArray(this.state.tags)){
+            tagArray = this.state.tags;
+        } else {
+            tagArray = this.state.tags.split(' ').join('').split(',')
+        }
         let newNote = {
             title: this.state.title,
             content: this.state.content,

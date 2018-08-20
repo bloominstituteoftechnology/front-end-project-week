@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import Tag from './Tag';
 import { MarkdownPreview } from "react-marked-markdown";
 
@@ -8,7 +7,7 @@ class Note extends Component {
   render() {
         return (       
             <div className="note-container">
-                <Link to={`/notes/${this.props.id}`}>
+                
                     <Card>
                         <CardBody>
                             <CardTitle>{this.props.title}</CardTitle>
@@ -20,7 +19,6 @@ class Note extends Component {
                             </div>
                         </CardBody>
                     </Card>
-                </Link>
             </div>
             
         )
