@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./NotesHolder.css";
 import Note from "./Notes/Note";
 import Notes from "../../Notes/NotesData";
-import ViewNote from "../../View Note /ViewNote"; 
+import ViewNote from "../../ViewNote/ViewNote"; 
 import {Route} from 'react-router-dom'; 
 
 class NotesHolder extends Component {
@@ -19,8 +19,8 @@ class NotesHolder extends Component {
           <Note note={this.state.notes} />
           </div>
           <div>
-          <Route path="/view-note/:id"
-          render={props=><ViewNote {...props} viewNote={this.state.notes}/>}/>
+          <Route exact path="/view-note/:id"
+          render={(props)=><ViewNote {...props} notes={this.state.notes}/>}/>
         </div>
       </div>
     );
