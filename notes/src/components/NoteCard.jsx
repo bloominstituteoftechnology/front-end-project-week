@@ -7,7 +7,7 @@ class NoteCard extends Component {
         <div className='cardTitle'>{this.props.title}</div>
         <hr/>
         <div className='cardBody'>
-        {this.props.body}
+        {(this.props.body.substring(0,156)) + (this.props.body.length >156 ? " ..":"") }
         </div>
         
       </div>

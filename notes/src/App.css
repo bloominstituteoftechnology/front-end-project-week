@@ -7,6 +7,7 @@
   font-family: "Roboto", sans-serif;
   background: rgb(238, 238, 238);
   display: flex;
+  
 }
 
 .sidebarContainer {
@@ -41,7 +42,8 @@
 .notesViewContainer {
   padding: 4em 2em;
   text-align: left;
-  width: 100%;
+  overflow: hidden;
+  
 }
 .viewTitle {
   font-size: 24px;
@@ -55,6 +57,7 @@
   width: 10em;
   height: 11em;
   margin: 0 1em 1.5em 0;
+  word-wrap:break-word;
 }
 .cardTitle {
   font-weight: bold;
@@ -106,6 +109,7 @@ textarea {
 }
 .viewBody {
   margin-top: 2em;
+  word-wrap:break-word;
 }
 .Modal {
   position: absolute;
