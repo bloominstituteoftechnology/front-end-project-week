@@ -5,3 +5,19 @@
     position: fixed; 
     background: #FAFBFC
 }
+.new-note-inputs{
+    display: flex; 
+    flex-direction: column; 
+
+}
+.title-input{
+    width: 250px; 
+    height: 30px; 
+    margin: 10px; 
+}
+.content-input{
+    width: 500px; 
+    height: 250px;
+    margin: 10px; 
+
+}
