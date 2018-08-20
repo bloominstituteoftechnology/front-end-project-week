@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchNote } from '../actions';
+import { fetchNote, deleteNote } from '../actions';
 import Note from './Note';
 
 class SingleNote extends Component {
@@ -10,10 +10,13 @@ class SingleNote extends Component {
     }
 
     render() {
-        console.log(this.props.note);
+        if (!this.props.noteFetched){
+            return(<div></div>)
+        }
         return (
             <div>
                 <Note title={this.props.note.title} content={this.props.note.textBody} />
+                <button onClick={() => this.props.deleteNote(this.props.match.params.id)}>X</button>
             </div>
         )
     }
@@ -28,4 +31,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchNote })(SingleNote))
+export default withRouter(connect(mapStateToProps, { fetchNote, deleteNote })(SingleNote))
