@@ -7,7 +7,7 @@ class Sidebar extends Component {
     <div className='sidebar'>
         <h1>Lambda<br />Notes</h1>
         <Link to={`/`}>View Your Notes</Link>
-        <Link to={`/create-new-note`}>+ Create New Note</Link>
+        <Link to="/create-new-note">+ Create New Note</Link>
     </div>
     );
   }
