@@ -4,16 +4,18 @@ import styled from 'styled-components';
 
 const SidebarWrapper = styled.div`
   height: 100%;
-  width: 191px;
+  width: 190px;
   position: fixed;
   top: 0;
   left: 0;
   background-color: #d3d2d3;
-  padding: 10px;
+  padding: 19px 11px;
   border-right: 1px solid #92a7a9;
 
   h1 {
     color: #414141;
+    font-size: 31px;
+    line-height: 26px;
   } 
 `
 const LinkWrapper = styled.div`
@@ -21,7 +23,7 @@ const LinkWrapper = styled.div`
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 16px;
 `
 
 const Button = styled.div`
@@ -33,6 +35,7 @@ const Button = styled.div`
   align-items: center;
   padding: 10px 0;
   margin: 7px 0;
+  font-size: 14px;
   border: 1px solid #92a7a9;
 `
 

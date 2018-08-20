@@ -13,6 +13,16 @@ const StyledModal = styled(Modal)`
   left:50%;
   transform: translate(-50%,-50%);
 `
+const StyledLink = styled.div`
+  text-decoration: underline;
+  padding: 5px;
+  font-weight: bold;
+  color: #414141;
+`
+const LinkWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
 
 class NoteContainer extends React.Component {
   state = {
@@ -44,13 +54,13 @@ class NoteContainer extends React.Component {
         ) : this.props.noteDeleted ?
           (<p> note deleted! </p> ) : (
           <Fragment>
-          <div>
+          <LinkWrapper>
             <Link to={`/edit/${this.props.match.params.id}`}>
-              Edit
-            </Link>
-            <StyledModal show={this.state.showingModal} handleClose={this.hideModal} handleDelete={() => this.props.deleteNote(this.props.match.params.id)} deleteNote={this.props.deletingNote} />
-            <div onClick={this.showModal}> Delete </div>
-          </div>
+              <StyledLink>edit</StyledLink>
+            </Link>   
+            <StyledLink onClick={this.showModal}> delete </StyledLink>
+          </LinkWrapper>
+          <StyledModal show={this.state.showingModal} handleClose={this.hideModal} handleDelete={() => this.props.deleteNote(this.props.match.params.id)} deleteNote={this.props.deletingNote} />
           <Note note={this.props.note} />
           </Fragment>
         )}

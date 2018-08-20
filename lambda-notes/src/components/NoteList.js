@@ -6,12 +6,11 @@ import styled from "styled-components";
 const NotesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: 24px;
 `;
 
 const NoteList = props => (
-  <div>
-    <h3>Your Notes:</h3>
     <NotesWrapper>
       {props.notes.map(note => (
         <Link key={note._id} to={`/note/${note._id}`}>
@@ -19,7 +18,6 @@ const NoteList = props => (
         </Link>
       ))}
     </NotesWrapper>
-  </div>
 );
 
 export default NoteList;

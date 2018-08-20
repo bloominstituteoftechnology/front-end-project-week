@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { fetchNotes } from "../actions";
 import NoteList from "../components/NoteList";
@@ -11,13 +11,16 @@ class NoteListContainer extends React.Component {
 
   render() {
     return (
-      <StyledContainer>
+      <Fragment>
         {this.props.fetchingNotes ? (
           <p> ur notes b coming </p>
         ) : (
+          <StyledContainer>
+          <h4>Your Notes:</h4>
           <NoteList notes={this.props.notes} />
+          </StyledContainer>
         )}
-      </StyledContainer>
+      </Fragment>
     );
   }
 }

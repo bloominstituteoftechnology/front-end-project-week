@@ -4,14 +4,28 @@ import styled from 'styled-components';
 const Note = styled.div`
   background-color: white;
   border: 1px solid black;
-  width: 170px;
+  width: 167px;
   height: 170px;
-  margin: 0 10px;
+  padding: 5px 13px;
+  line-height: 19px;
+  text-overflow: ellipsis;
+  margin-bottom: 21px;
+
+  h5 {
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 11px;
+    padding-top: 5px;
+  }
 `
 
 const NoteThumbnail = ({ note }) => (
   <Note>
-    <h4>{note.title}</h4>
+    <h5>{note.title}</h5>
+    <hr></hr>
     <p>{note.textBody}</p>
   </Note>
 )

@@ -1,12 +1,20 @@
-import React, { Fragment } from "react";
+import React from "react";
+import styled from 'styled-components';
+
+const StyledNote = styled.div`
+  h2{ 
+    color: #414141;
+    padding: 20px 0;
+  }
+`
 
 const Note = ({ note }) => (
   <div>
     {note ? (
-      <Fragment>
-        <h1>{note.title}</h1>
+      <StyledNote>
+        <h2>{note.title}</h2>
         <p>{note.textBody}</p>
-      </Fragment>
+      </StyledNote>
     ) : (
       <p> loading note...</p>
     )}
