@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './NewNoteForm.css';
+
 const NewNoteForm = () => {
 
     return (

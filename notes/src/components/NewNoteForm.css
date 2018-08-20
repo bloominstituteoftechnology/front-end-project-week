@@ -1,1 +1,26 @@
+.new-note-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form .note-title-input{
+    height: 40px;
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+}
+
+form .note-content-input{
+    height: 600px;
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+
+}
