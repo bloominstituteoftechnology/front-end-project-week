@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Notesview from "./components/Notesview";
+import CreateNote from "./components/CreateNote";
+
 
 class App extends Component {
   constructor(props) {
@@ -46,7 +48,8 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
-        <Notesview notes={this.state.notes}/>
+        {/* <Notesview notes={this.state.notes}/> */}
+        <CreateNote />
       </div>
     );
   }

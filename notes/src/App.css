@@ -32,16 +32,19 @@
   background: #34a7a7;
   color:white;
   text-align: center;
-  padding: 15px;
+  padding: 14px;
   font-weight: bold;
   margin-bottom: 20px;
   border: 1.5px grey solid;
   letter-spacing: 1px;
+  width: 12rem;
+  font-size: 16px
 }
 
 .notesViewContainer{
   padding: 4em 2em;
   text-align: left;
+   width: 100%;
 }
 .viewTitle{
   font-size:24px;
@@ -69,4 +72,28 @@
   display: flex;
   flex-wrap: wrap;
   margin-top:2em;
+}
+.formLayout{
+  display:flex;
+  flex-direction: column;
+  width: 93%;
+  margin-top: 2em;
+}
+.notesubmit{
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  border: 2px solid grey;
+  font-weight:bold;
+}
+input{
+  border:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  width: 60%;
+}
+textarea{
+  width: 100%;
+  height: 25em;
 }
