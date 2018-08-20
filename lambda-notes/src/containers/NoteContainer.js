@@ -10,13 +10,6 @@ import { StyledContainer } from '../styled-components/container-styles'
 const PageWrapper = StyledContainer.extend`
   margin-top: 9px;
 `
-
-const StyledModal = styled(Modal)`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
 const StyledLink = styled.div`
   text-decoration: underline;
   padding: 8px;
@@ -67,7 +60,7 @@ class NoteContainer extends React.Component {
               <StyledLink onClick={this.showModal}> delete </StyledLink>
             </LinkWrapper>
             <Note note={this.props.note} />
-            <StyledModal
+            <Modal
               show={this.state.showingModal}
               handleClose={this.hideModal}
               handleDelete={() =>
