@@ -11,7 +11,8 @@ class NoteForm extends React.Component {
 
   componentDidMount(){
     if(this.props.editing){
-      this.setState({title: this.props.title, textBody: this.props.textBody});
+      const note = this.props.getNote(this.props.match.params.id);
+      this.setState({title: note.title, textBody: note.textBody});
     }
   }
 
@@ -21,12 +22,22 @@ class NoteForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const newNote = {
-      title: this.state.title,
-      textBody: this.state.textBody
+    if(this.props.editing){
+      const updatedNote = {
+        title: this.state.title,
+        textBody: this.state.textBody,
+        id: Number(this.props.match.params.id)
+      };
+      this.props.updateNote(updatedNote);
+      this.props.history.push("/");
+    }else{
+      const newNote = {
+        title: this.state.title,
+        textBody: this.state.textBody
+      }
+      this.props.addNote(newNote);
+      this.props.history.push("/");
     }
-    this.props.addNote(newNote);
-    this.props.history.push("/");
   }
 
   render(){
