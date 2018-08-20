@@ -28,7 +28,7 @@ class CreateNoteContainer extends React.Component {
   render() {
     return (
       <StyledContainer>
-      <h1>Create New Note:</h1>
+      <h4>Create New Note:</h4>
         <NoteForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}

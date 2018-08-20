@@ -40,7 +40,7 @@ class EditNoteContainer extends React.Component {
       <StyledContainer>
         {this.props.note && (
           <Fragment>
-            <h2>Edit Note:</h2>
+            <h4>Edit Note:</h4>
             <NoteForm
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}

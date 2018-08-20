@@ -1,18 +1,23 @@
-import React from "react";
+import React, {Fragment} from "react";
 import styled from 'styled-components';
 
 const StyledNote = styled.div`
-  h2{ 
-    color: #414141;
-    padding: 20px 0;
+  h4 {
+    font-size: 17px;
+    padding-bottom: 27px;
   }
+
+  p {
+    font-size: 12px;
+  }
+
 `
 
 const Note = ({ note }) => (
   <div>
     {note ? (
       <StyledNote>
-        <h2>{note.title}</h2>
+        <h4>{note.title}</h4>
         <p>{note.textBody}</p>
       </StyledNote>
     ) : (
