@@ -6,6 +6,8 @@ import NotesNav from './components/NotesNav';
 import Notes from './components/Notes';
 import NewNote from './components/NewNote';
 
+let noteID = 0;
+
 class App extends Component {
   constructor() {
     super();
@@ -23,7 +25,7 @@ class App extends Component {
         },
         {
           id: 2,
-          title: "Note 2",
+          title: "Note 2 Has got a really reallly really really really long title",
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
         },
         {
@@ -32,12 +34,22 @@ class App extends Component {
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
         }
       ],
-      name: '',
-      age: '',
-      height: ''
-
+      title: '',
+      content: ''
     }
   }
+
+  addNote = event => {
+    event.preventDefault();
+    const notes = this.state.notes.slice();
+    notes.push({ content: this.state.content, title: this.state.title, id: Date.now() });
+    this.setState({ notes, title: '', content: '' });
+  }
+
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
     return (
       <div className="App">
@@ -49,7 +61,7 @@ class App extends Component {
           />
           <Route
             path="/add"
-            render={(props) => <NewNote {...props} notes={this.state.notes} />}
+            render={(props) => <NewNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
           />
         </div>
       </div>
