@@ -1,10 +1,7 @@
 import React from 'react';
-import NoteView from './NoteView';
+import Card from './Card';
 import styled from 'styled-components';
-
-const SecondaryHeading = styled.h2`
-  margin-bottom: 2rem;
-`;
+import { SecondaryHeading, LinkWrapper } from '../styles';
 
 const CardsContainer = styled.div`
   display: flex;
@@ -18,7 +15,9 @@ const ListView = ({ notes }) => {
       <SecondaryHeading>Your Notes:</SecondaryHeading>
       <CardsContainer>
         {notes.map(note => (
-          <NoteView note={note} key={note.id} />
+          <LinkWrapper to={`/notes/${note.id}`} key={note.id}>
+            <Card note={note} />
+          </LinkWrapper>
         ))}
       </CardsContainer>
     </div>

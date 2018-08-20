@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import ListView from './components/ListView';
 import NotesForm from './components/NotesForm';
 import { SecondaryHeading } from './styles';
+import NoteView from './components/NoteView';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -64,6 +65,17 @@ class App extends Component {
                 <SecondaryHeading>Create New Note</SecondaryHeading>
                 <NotesForm {...props} onFormSubmit={this.createNote} />
               </div>
+            )}
+          />
+          <Route
+            exact
+            path="/notes/:id"
+            render={props => (
+              <NoteView
+                note={this.state.notes.find(
+                  note => note.id == props.match.params.id,
+                )}
+              />
             )}
           />
         </MainContent>

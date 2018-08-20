@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Button = styled.button`
   padding: 1rem;
@@ -25,4 +26,14 @@ export const Button = styled.button`
 
 export const SecondaryHeading = styled.h2`
   margin-bottom: 2rem;
+`;
+
+export const LinkWrapper = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 `;
