@@ -6,7 +6,7 @@ const Menu = () => {
         <div className="menubar">
             <h1 className="lambda">Lambda Notes</h1>
             <Link className="link" to="/">View Your Notes</Link>
-            <div className="link">+ Create New Note</div>
+            <Link className="link" to="/new">+ Create New Note</Link>
         </div>
     )
 }

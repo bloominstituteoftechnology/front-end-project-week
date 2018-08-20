@@ -18,4 +18,4 @@ const Notes = (props) => {
     )
 }
 
-export default Notes
+export default Notes;
