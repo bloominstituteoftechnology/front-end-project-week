@@ -14,7 +14,7 @@ class NewNote extends Component {
     }
     render() {
         return (
-            <div className="list-container">
+            <div className="newnote-container">
                 this is new note
             </div>
         );

@@ -13,7 +13,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        This is app.js
         <SideMenu />
       </div>
     );

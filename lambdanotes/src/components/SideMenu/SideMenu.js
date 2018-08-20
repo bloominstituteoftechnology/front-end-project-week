@@ -19,12 +19,13 @@ class SideMenu extends Component {
             <div className="sidemenu-container">
                 <ul className="nav-bar">
                     <div className="nav-container">
+                        <h1 className="menu-title">Lambda<br/>Notes</h1>
                         <li><NavLink exact to="/" className="nav-text" activeClassName="active-component">View Your Notes</NavLink></li>
                         <li><NavLink to="/create-new-note/" className="nav-text" activeClassName="active-component">+ Create New Note</NavLink></li>
                     </div>     
                 </ul>
 
-                <Route exact path="/" component={ListView} />
+                <Route exact path="/" component={ListView} className="example"/>
                 <Route exact path="/create-new-note/" component={NewNote} />
             </div>
         );
