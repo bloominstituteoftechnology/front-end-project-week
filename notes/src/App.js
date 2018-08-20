@@ -96,7 +96,7 @@ class App extends Component {
   }
 
   newNote = (newNote) => {
-    console.log('editnote', newNote);
+    // console.log('editnote', newNote);
     let newArr = this.state.notes.slice();
     newArr.push(newNote)
     this.setState({
@@ -106,12 +106,12 @@ class App extends Component {
   }
 
   editNote = (noteEdit) => {
-    console.log('editnote', noteEdit.id);
+    // console.log('editnote', noteEdit.id);
     let newArr = this.state.notes.slice()
     let obj = newArr.filter(note => noteEdit.id === note.id)
-    console.log(obj)
+    // console.log(obj)
     let position = newArr.findIndex(note => note.id === noteEdit.id)
-    console.log(position)
+    // console.log(position)
     newArr[position] = noteEdit;
     this.setState({
       notes: newArr,
