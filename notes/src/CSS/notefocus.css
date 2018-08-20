@@ -1,0 +1,39 @@
+.focus {
+    box-sizing: border-box;
+    background: white;
+    padding: 2.5% 6% 2.5% 2.5%;
+    width: 80%;
+    height: 100vh;
+    position: relative;
+    color: #414141;
+}
+
+.focustitle {
+    margin-top: 5%;
+}
+
+.notetxt {
+    line-height: 200%;
+}
+
+.edit-del {
+    position: absolute;
+    right: 3%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    text-decoration: underline;
+    color: black;
+}
+
+.edit-del > p{
+    cursor: pointer;
+}
+
+.linkedit {
+    color: black;
+}
+
+
+

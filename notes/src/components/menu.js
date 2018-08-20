@@ -5,8 +5,8 @@ const Menu = () => {
     return(
         <div className="menubar">
             <h1 className="lambda">Lambda Notes</h1>
-            <Link className="link" to="/">View Your Notes</Link>
-            <Link className="link" to="/new">+ Create New Note</Link>
+            <Link className="menubtn" to="/">View Your Notes</Link>
+            <Link className="menubtn" to="/new">+ Create New Note</Link>
         </div>
     )
 }

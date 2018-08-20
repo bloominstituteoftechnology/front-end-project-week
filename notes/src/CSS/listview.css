@@ -1,6 +1,6 @@
 
 body {
-    background: rgb(235, 234, 234); 
+    background: #F2F1F2;
     max-width: 1000px;
     margin: auto;
     box-shadow: 0px 0px 10px lightgray;  
@@ -25,7 +25,7 @@ body {
     color: #414141;
 }
 
-.link {
+.menubtn {
     background: darkturquoise;
     border: solid rgb(172, 172, 172) 1px;
     font-size: 90%;
@@ -33,7 +33,7 @@ body {
     width: 80%;
     height: 40px;
     margin-bottom: 5%;
-    border-radius: 5px;
+    border-radius: 2px;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -71,11 +71,16 @@ h2 {
     background: white;
     border: solid lightgray 2px;
     box-sizing: border-box;
-    padding: 0 3% 3%;
+    padding: 0 10% 10%;
     margin: 1%;
     position: relative;
     border-radius: 3px;
-    box-shadow: 5px 5px 8px 1px lightgray;
+}
+
+.notelink {
+    text-decoration: none;
+    color: black;
+    margin: 2%;
 }
 
 .note-contents {
