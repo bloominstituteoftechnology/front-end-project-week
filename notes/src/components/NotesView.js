@@ -15,8 +15,10 @@ export default class NotesView extends Component {
     return (
       <div className="notesview">
         <div className="notesview-title">Your Notes:</div>
-
-        <NotesList className="notesview-cardgroup" notes={this.props.notes}/>
+        
+        <div className="noteslist-group">  
+            <NotesList  notes={this.props.notes}/>
+        </div>
       </div>
     );
   }

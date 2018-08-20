@@ -36,7 +36,7 @@ export default class App extends Component {
           <NavLink className="navlink" exact to="/">View Your Notes</NavLink>
           <NavLink className="navlink" to="/add-note">+ Add a Note</NavLink>
         </div>
-        <div>
+        <div className="notesbody">
           <Route exact path="/" render={props => <NotesView {...props} notes={this.state.notes}/>}/>
         </div>
       </div>
