@@ -139,3 +139,7 @@ textarea {
 .redButton{
   background-color:red !important;
 }
+a{
+  text-decoration: none;
+  color: black;
+}

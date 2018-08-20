@@ -4,15 +4,15 @@ import Sidebar from "./components/Sidebar";
 import Notesview from "./components/Notesview";
 import CreateNote from "./components/InputNote";
 import SingleNote from "./components/SingleNote";
-
+import { Route,Switch } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [{title:'',body:''}],
+      notes: [{ title: "", body: "" }],
       nextID: 5,
-      mode: 'ADD'
+      mode: "ADD"
     };
   }
   componentDidMount = () => {
@@ -36,7 +36,7 @@ class App extends Component {
         {
           title: "test4",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id:3
+          id: 3
         },
         {
           title: "test5",
@@ -50,9 +50,27 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
+        <Switch>
+        <Route exact
+          path="/"
+          render={props => <Notesview {...props} notes={this.state.notes} />}
+        />
+        <Route exact
+          path="/input"
+          render={props => <CreateNote {...props} mode={this.state.mode} />}
+        />
+        <Route exact
+          path="/input/:id"
+          render={props => <CreateNote {...props} notes={this.state.notes} />}
+        />
+        <Route exact
+          path="/:id"
+          render={props => <SingleNote {...props}notes={this.state.notes} />}
+        />
+        </Switch>
         {/* <Notesview notes={this.state.notes}/> */}
         {/* <CreateNote mode={this.state.mode} /> */}
-        <SingleNote title={this.state.notes[0].title} body={this.state.notes[0].body} />
+        {/* <SingleNote title={this.state.notes[0].title} body={this.state.notes[0].body} /> */}
       </div>
     );
   }

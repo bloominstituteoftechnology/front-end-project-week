@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import NoteCard from './NoteCard'
+import { Link } from "react-router-dom";
 class Notesview extends Component {
   notesLister = ()=>{
     return(
       <div className='cardBox'>
       {this.props.notes.map((e,i)=>{
-        return <NoteCard key={i} title={e.title} body={e.body} id={e.id}/>
+        return <Link key={i} to={`/${e.id}`}><NoteCard  title={e.title} body={e.body} id={e.id}/></Link>
       })}
       </div>
     )
