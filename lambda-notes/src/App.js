@@ -34,6 +34,21 @@ class App extends Component {
           id: 4,
           title: "Bake Steak",
           description: "Make steak for the cat"
+        },
+        {
+          id: 5,
+          title: "Bake Rice",
+          description: "Make rice for the cat"
+        },
+        {
+          id: 6,
+          title: "Bake Salad",
+          description: "Make salad for the cat"
+        },
+        {
+          id: 7,
+          title: "Bake Tea",
+          description: "Make tea for the cat"
         }
       ]
     };
