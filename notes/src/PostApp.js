@@ -11,9 +11,7 @@ import { connect } from "react-redux";
 
 class PostApp extends Component {
   componentDidMount() {
-    this.props.fetchNotes(
-      "https://killer-notes.herokuapp.com/note/get/all"
-    );
+    this.props.fetchNotes("http://localhost:8000/api/notes/");
   }
 
   render() {
@@ -26,11 +24,7 @@ class PostApp extends Component {
           <Route exact path="/" component={Notes} />
         </React.Fragment>
         <Route exact path="/create" component={Create} />
-        <Route
-          exact
-          path="/note/:id"
-          component={ViewNote}
-        />
+        <Route exact path="/note/:id" component={ViewNote} />
         <Route path="/edit" component={EditNote} />
       </div>
     );

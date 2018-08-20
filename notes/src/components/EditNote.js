@@ -21,9 +21,9 @@ class EditNote extends React.Component {
     let edited = {
       title: this.state.editedTitle,
       textBody: this.state.editedBody,
-      _id: this.props.singleNote._id
+      id: this.props.singleNote.id
     };
-    this.props.editNote(edited, this.props.singleNote._id);
+    this.props.editNote(edited, this.props.singleNote.id);
   };
 
   render() {

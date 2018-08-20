@@ -9,10 +9,7 @@ let home_path = "http://localhost:3000/";
 export const submitNewNote = newNote => {
   return function(dispatch) {
     axios
-      .post(
-        `https://killer-notes.herokuapp.com/note/create`,
-        newNote
-      )
+      .post(`http://localhost:8000/api/notes`, newNote)
       .then(({ data }) => {
         window.location.href = home_path;
       })
@@ -24,7 +21,7 @@ export const submitNewNote = newNote => {
 
 export const fetchSingleNote = (URL, id) => {
   console.log("at action, id is: ", id);
-  const promise = axios.get(`${URL}get/${id}`);
+  const promise = axios.get(`${URL}/${id}`);
   return dispatch => {
     dispatch({ type: FETCHING_NOTES });
     promise
@@ -46,14 +43,9 @@ export const fetchSingleNote = (URL, id) => {
 
 export const editNote = (edited, id) => {
   return function(dispatch) {
-    axios
-      .put(
-        `https://killer-notes.herokuapp.com/note/edit/${id}`,
-        edited
-      )
-      .then(({ data }) => {
-        window.location.href = home_path;
-      });
+    axios.put(`http://localhost:8000/api/notes/${id}`, edited).then(({ data }) => {
+      window.location.href = home_path;
+    });
   };
 };
 
@@ -61,9 +53,7 @@ export const deleteNote = id => {
   console.log("id is: ", id);
   return function(dispatch) {
     axios
-      .delete(
-        `https://killer-notes.herokuapp.com/note/delete/${id}`
-      )
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(({ data }) => {
         window.location.href = "http://localhost:3000/";
       })

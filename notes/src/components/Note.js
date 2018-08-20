@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 const Note = props => {
   return (
     <div className="ind-card">
-      <Link to={`/note/${props.note._id}`}>
+      <Link to={`/note/${props.note.id}`}>
         <Card>
           <CardTitle>{props.note.title}</CardTitle>
           <CardText>{props.note.textBody}</CardText>
