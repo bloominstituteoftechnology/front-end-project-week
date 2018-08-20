@@ -46,6 +46,7 @@ export const addNote = (note, history) => {
         axios.post('https://killer-notes.herokuapp.com/note/create', {
             title: note.title,
             textBody: note.content,
+            tags: note.tags
         })
             .then(res => {
                 dispatch({ type: SAVED_NOTES, payload: res.data })

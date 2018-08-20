@@ -39,3 +39,14 @@ button {
   padding-bottom: 10px;
   border-bottom: 1px solid #b2bec3;
 }
+
+.tags {
+  display: flex;
+}
+
+.tag {
+  border: 1px solid #b2bec3;
+  border-radius: 8px;
+  width: 20%;
+  margin: 0.2rem;
+}

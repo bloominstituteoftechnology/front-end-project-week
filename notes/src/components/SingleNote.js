@@ -40,7 +40,7 @@ class SingleNote extends Component {
         }
         return (
             <div>
-                <Note title={this.props.note.title} content={this.props.note.textBody} />
+                <Note title={this.props.note.title} content={this.props.note.textBody} tags={this.props.note.tags} />
                 <Button onClick={this.toggleUpdate} color="primary">Update</Button>
                 <Button onClick={this.toggleModal} color="danger">Delete</Button>
                 {this.state.updateActive !== false

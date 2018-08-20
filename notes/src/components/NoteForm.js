@@ -6,7 +6,8 @@ class NoteForm extends Component {
         super(props);
         this.state = {
             title: '',
-            content: ''
+            content: '',
+            tags: ''
         }
     }
 
@@ -16,14 +17,17 @@ class NoteForm extends Component {
 
     addNote = event => {
         event.preventDefault();
+        let tagArray = this.state.tags.split(', ');
         let newNote = {
             title: this.state.title,
-            content: this.state.content
+            content: this.state.content,
+            tags: tagArray
         }
         this.props.addNote(newNote, this.props.history);
         this.setState({
             title: '',
-            content: ''
+            content: '',
+            tags: ''
         })
     }
 
@@ -37,6 +41,10 @@ class NoteForm extends Component {
                 <FormGroup>
                     <Label for="content">Note</Label>
                     <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="tags">Tags</Label>
+                    <Input type="text" name="tags" id="tags" onChange={this.handleChange} value={this.state.tags} required></Input>
                 </FormGroup>
                 <Button>Add</Button>
             </Form>
