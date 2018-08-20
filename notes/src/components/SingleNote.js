@@ -4,6 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { fetchNote, deleteNote, updateNote } from '../actions';
 import Note from './Note';
 import EditNote from './EditNote';
+import { Button } from 'reactstrap';
 
 class SingleNote extends Component {
     constructor(props){
@@ -33,13 +34,12 @@ class SingleNote extends Component {
         return (
             <div>
                 <Note title={this.props.note.title} content={this.props.note.textBody} />
-                <button onClick={this.toggleUpdate}>Update</button>
-                <button onClick={this.deleteNote}>X</button>
+                <Button onClick={this.toggleUpdate} color="primary">Update</Button>
+                <Button onClick={this.deleteNote} color="danger">Delete</Button>
                 {this.state.updateActive !== false
                     ? <EditNote onCancel={this.toggleUpdate} title={this.props.note.title} content={this.props.note.textBody} updateNote={this.props.updateNote} id={this.props.match.params.id} />
                     : null
                 }
-                <Link to="/">Back</Link>
             </div>
         )
     }

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class NoteForm extends Component {
     constructor(props){
@@ -28,13 +29,20 @@ class NoteForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.addNote}>
-                <input type="text" name="title" onChange={this.handleChange} value={this.state.title} required></input>
-                <textarea name="content" onChange={this.handleChange} value={this.state.content} required></textarea>
-                <button>Add!</button>
-            </form>
+            <Form onSubmit={this.addNote} className="note-form">
+                <FormGroup>
+                    <Label for="title">Title</Label>
+                    <Input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="content">Note</Label>
+                    <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
+                </FormGroup>
+                <Button>Add</Button>
+            </Form>
         )
     }
 }
+
 
 export default NoteForm;

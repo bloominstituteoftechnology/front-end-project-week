@@ -23,7 +23,6 @@ class Notes extends Component {
                     </div>
                 )
             })}
-            <Link to="/notes/add">Add Note</Link>
         </div>
         )
     }

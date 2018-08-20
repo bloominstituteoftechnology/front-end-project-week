@@ -50,9 +50,7 @@ export const addNote = (note, history) => {
             .then(res => {
                 dispatch({ type: SAVED_NOTES, payload: res.data })
             })
-            .then(res => {
-                history.push('/');
-            })
+            .then(() => history.push('/'))
             .catch(err => {
                 dispatch({ type: ERROR, payload: err })
             })
@@ -66,9 +64,7 @@ export const deleteNote = (NoteId, history) => {
             .then(res => {
                 dispatch({ type: DELETED_NOTES })
             })
-            .then(res => {
-                history.push('/');
-            })
+            .then(() => history.push('/'))
             .catch(err => {
                 dispatch({ TYPE: ERROR, payload: err });
             })
