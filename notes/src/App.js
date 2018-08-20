@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
 
 const AppDiv = styled.div`
-
     border: 1px solid red;
     display: flex;
     flex-direction: row;
@@ -42,26 +41,26 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      hideDetails: false,
+      hideDetails: true,
       notes: [
         {
         id: 0,
-        title: "Note Title",
+        title: "Note Title 0",
         body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
         id: 1,
-        title: "Note Title",
+        title: "Note Title 1",
         body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
         id: 2,
-        title: "Note Title",
+        title: "Note Title 2",
         body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
         id: 3,
-        title: "Note Title",
+        title: "Note Title 3",
         body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
       ],
@@ -81,9 +80,15 @@ class App extends Component {
     // 10 declares the number base
   }
 
-  hideDetails = () => {
+  disableDelete = () => {
     this.setState({
-      hideDetails: true,
+      deleteEnabled: false,
+    })
+  }
+
+  enableDelete = () => {
+    this.setState({
+      deleteEnabled: true,
     })
   }
 
@@ -91,8 +96,6 @@ class App extends Component {
     return (
 
         <AppDiv>
-
-
 
           <div className="left-menu">
             <h1>Lambda Notes</h1>
@@ -110,25 +113,28 @@ class App extends Component {
                 return (<NewNote newNote={this.newNote} notes={this.state.notes} />)
               }}></Route>
 
-            <Route path="/all-notes/:noteId" render={ (note) => {
-                let single = this.getNoteDetails(note.match.params.noteId);
-                return (<NoteDetails  note={single} />)
-                //{...(this.state.hideDetails)? (return style={display:'none'}) : null}
-              }}></Route>
+            <Route path="/all-notes/:noteId" exact={!this.state.deleteEnabled} render={ (note) => {let single = this.getNoteDetails(note.match.params.noteId);
+                  return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
+                }}></Route>
 
             <Route exact path="/all-notes/:noteId/edit" render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
                 return (<EditNote note={single} />)
               }}></Route>
+
           </div>
 
-          <Route className="delete" path="/all-notes/:noteId/delete" render={ (note) => {
-              let single = this.getNoteDetails(note.match.params.noteId);
-              return (<div>
-                  <DeleteNote note={single} />
-                  {/* <NoteDetails note={single} /> */}
-                </div>)
-            }}></Route>
+          {(this.state.deleteEnabled) ? (<div className="delete">
+            <Route  path="/all-notes/:noteId/delete" render={ (note) => {
+                let single = this.getNoteDetails(note.match.params.noteId);
+                return (<div>
+                    <DeleteNote disableDelete={this.disableDelete} note={single} />
+                    {/* <NoteDetails note={single} /> */}
+                  </div>)
+              }}></Route>
+          </div>) : null}
+
+
 
         </AppDiv>
 

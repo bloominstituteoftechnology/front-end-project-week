@@ -18,8 +18,10 @@ export default class NoteDetails extends Component {
   render() {
     return (
       <NoteDetailsDiv>
-        <Link to={`/all-notes/${this.state.note.id}/edit`}>Edit</Link>
-        <Link to={`/all-notes/${this.state.note.id}/delete`}>Delete</Link>
+        <Link
+          to={`/all-notes/${this.state.note.id}/edit`}>Edit</Link>
+        <Link onClick={() => this.props.enableDelete()}
+          to={`/all-notes/${this.state.note.id}/delete`}>Delete</Link>
         <h4>{this.state.note.title}</h4>
         <p>{this.state.note.body}</p>
       </NoteDetailsDiv>
