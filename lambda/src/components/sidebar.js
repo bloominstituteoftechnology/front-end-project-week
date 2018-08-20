@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Title = styled.h1`
 `
@@ -30,8 +31,8 @@ const Title = styled.h1`
         return(
             <Bar>
                 <Title>Lambda Notes</Title>
-                <Button>View Your Notes</Button>
-                <Button>Create New Note</Button>
+                <Link to='./'><Button>View Your Notes</Button></Link>
+                <Link to='/new'><Button>Create New Note</Button></Link>
             </Bar>
         );
     }
