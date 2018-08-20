@@ -63,7 +63,8 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    return (this.state.notes.find(note => {return note.id == id}))
+    return (this.state.notes.find(note => {return note.id === parseInt(id, 10)}))
+    // 10 declares the number base
   }
 
   render() {

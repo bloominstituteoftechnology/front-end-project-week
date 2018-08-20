@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const AllNotesDiv = styled.div`
