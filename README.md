@@ -71,3 +71,5 @@ Once your MVP has been approved, you have been given a feature list that the cli
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
+
+TRELLO BOARD: https://trello.com/invite/b/d9gTS2il/0a0de3165266ae2a0d61daaeb43e5971/lambda-notes-jordan-massingill
