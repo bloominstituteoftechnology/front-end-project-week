@@ -3,8 +3,22 @@ import axios from 'axios';
 import Note from './note.js';
 import styled from 'styled-components';
 const NotesList=styled.div`
-width: 70%;
+width: 92.5%;
 display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-wrap: wrap;
+margin-left: 5%;
+`
+const NotesHeading=styled.h2`
+text-align: left;
+color:#424242
+margin-left: 5%;
+margin-top: 85px;
+`
+const NotesPage=styled.div`
+background-color:#ddd;
+width: 75%;
 `
 class Notes extends React.Component {
     constructor() {
@@ -18,9 +32,12 @@ class Notes extends React.Component {
     }
     render() {
         return(
+            <NotesPage>
+            <NotesHeading>Your Notes:</NotesHeading>
             <NotesList>
                 {this.state.notes.map((e,i)=><Note key={i} data={e}></Note>)}
             </NotesList>
+            </NotesPage>
         )
     }
 }
