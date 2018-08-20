@@ -5,21 +5,30 @@ import { connect } from 'react-redux';
 import {updateNote} from "../../Actions"
 import {Link} from 'react-router-dom';
 
+import axios from 'axios';
+
 
 class EditNote extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            index:0,
-            mounted:false
+            id: null,
+            notes: [],
         }
     }
 
     componentDidMount() {
-        this.setState({
-            index: this.props.location.state.index,
-            mounted: true,
-        })
+        const id = this.props.match.params.id
+        // this.setState({
+            // index: this.props.location.state.index,
+            // mounted: true,
+        // })
+        axios
+            .put(`http://localhost:3300/notes/${id}`)
+            .then((response) => {
+                this.setState({ notes: response.data, id: Number(id)})
+            })
+            .catch(err => console.log(err));
     }
 
     handleInputChange = event => {
@@ -40,7 +49,7 @@ class EditNote extends Component {
                     <div className = "sideBar_pop create">
                         <h1>Edit Note: </h1>
                         <input 
-                        defaultValue={this.props.notes.notes[this.state.index].title}
+                        defaultValue={this.state.id}
                         onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
                         <textarea 
                         defaultValue={this.props.notes.notes[this.state.index].note}
