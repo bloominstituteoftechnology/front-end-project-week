@@ -136,21 +136,23 @@ class App extends Component {
   }
 
   toggleDelete = () => {
-    this.setState({ remove: !this.state.remove})
+    this.setState({ remove: !this.state.remove })
   }
 
   render() {
     return (
       <StyledContainer>
-        <Route path="/" component={LambdaNav} />
+        <Route path="/" component={LambdaNav}/>
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
         <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} selected={this.state.selected} handleTitle={this.handleTitle} handleBody={this.handleBody} handleSelectNote={this.handleSelectNote} handleEditNote={this.handleEditNote} />)} />
         <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} toggleDelete={this.toggleDelete} />)} />
-        {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props}  handleSelectNote={this.handleSelectNote} handleDeleteNote={this.handleDeleteNote} />)} />) : null}
-</StyledContainer>
+        {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} handleDeleteNote={this.handleDeleteNote} />)} />) : null}
+      </StyledContainer>
     )
   }
-}
+} 
 
 export default App;
+
+

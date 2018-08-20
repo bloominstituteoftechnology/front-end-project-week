@@ -1,13 +1,50 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const modalStyle = styled.div`
+const Modal = styled.div`
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.6);
+`
+
+const ModalStyle = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
+  transform: translate(-20%, -70%);
+  width: 450px;
   max-width: 100%;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  height: 150px;
+`
+
+const YesButton = styled.button`
+    color: white;
+    background: red;
+    width: 150px;
+    border: 0;
+    height: 35px;
+    margin-left: 35px;
+`
+
+const NoButton = styled.button`
+    background: #2BC1C4;
+    width: 150px;
+    border: 0;
+    height: 35px;
+    margin-left: 35px;
+    color: white;
+`
+
+const Header = styled.h2`
+   margin-top: 40px;
+   margin-left: 100px;
+   font-size: 12px;
 `
 
 class LambdaDelete extends Component {
@@ -29,11 +66,13 @@ class LambdaDelete extends Component {
 
     render() {
         return (
-            <modalStyle>
-                <h2>Are you sure you want to delete this?</h2>
-                <button onClick={this.deleteNote}>Yes</button>
-                <button>No</button>
-            </modalStyle>
+            <Modal>
+            <ModalStyle>
+                <Header>Are you sure you want to delete this?</Header>
+                <YesButton onClick={this.deleteNote}>Yes</YesButton>
+                <NoButton>No</NoButton>
+            </ModalStyle>
+            </Modal>
         )
     }
 }

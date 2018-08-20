@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+const ButtonDelete = styled.button`
+    text-decoration: underline;
+    border: none;
+    background: none;
+    font-size: 20px;
+`
+const LinkDiv = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`
 
 class LambdaView extends Component {
     constructor(props) {
@@ -21,8 +32,10 @@ class LambdaView extends Component {
             return (
 
                 <div key={note.id}>
-                    <Link to={`/edit/${note.id}`} style={{ color: 'black', textDecoration: 'underline', marginRight: '10px' }}>Edit</Link>
-                    <buttonDelete onClick={this.props.toggleDelete}>Delete</buttonDelete>
+                    <LinkDiv>
+                    <Link to={`/edit/${note.id}`} style={{ color: 'black', marginRight: '10px' }}><ButtonDelete>Edit</ButtonDelete></Link>
+                    <ButtonDelete onClick={this.props.toggleDelete}>Delete</ButtonDelete>
+                    </LinkDiv>
                     <h1>{note.title}</h1>
                     <p>{note.body}</p>
                 </div>
