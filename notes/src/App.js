@@ -7,6 +7,8 @@ import ListView from './components/ListView';
 import CreateNew from './components/CreateNew';
 import Note from './components/NoteView';
 import EditNote from './components/EditNote';
+import {fetchNotes} from './actions/actions';
+import {connect} from 'react-redux';
 
 let id = 9;
 
@@ -43,6 +45,9 @@ class App extends Component {
     // this.setState({notes: note});
     // window.location.assign('http://localhost:3000/noteslist')
   }
+  componentDidMount(){
+    this.props.fetchNotes();
+  }
   render() {
     console.log(this.state.notes)
     return (
@@ -50,8 +55,8 @@ class App extends Component {
           <Route path='/' component={SideBar} />
           <Link to="/"></Link>
           <Route exact path="/noteslist" render={(props) => 
-            <ListView {...props} notes={this.state.notes} />} />
-          <Route exact path="/createnewnote" render={(props) => 
+            <ListView {...props} notes={this.props.notes} />} />
+          {/* <Route exact path="/createnewnote" render={(props) => 
             <CreateNew {...props} title={this.state.title}
                                   content={this.state.content}
                                   handleChange={this.handleChange}
@@ -71,10 +76,14 @@ class App extends Component {
                                     handleChange={this.handleChange}
                                     updateNote={this.updateNote}
                                     />}
-          />
+          /> */}
         </div>
     );
   }
 }
 
-export default App;
+export const mapStateToProps = state => ({
+  notes: state.notes,
+});
+
+export default connect(mapStateToProps, {fetchNotes})(App);

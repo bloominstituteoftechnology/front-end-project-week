@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchingNotes = 'FETCHING_NOTES';
-export const fetchedNotes = 'FETCHED_NOTES';
+export const FETCHING_NOTES = 'FETCHING_NOTES';
+export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const ERRORS = 'ERRORS';
 const url = "https://killer-notes.herokuapp.com/note";
 
