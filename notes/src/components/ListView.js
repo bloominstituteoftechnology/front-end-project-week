@@ -20,15 +20,21 @@ const SmallNote = styled.div`
     border: 1px solid lightgray;
     text-align: left;
     background: white;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 2rem;
+    margin: 0.5rem;
 `
 const Title = styled.div`
     font-weight: 800;
     border-bottom: 1px solid lightgray;
     padding: 0.5rem;
+    margin: 0.5rem 1rem;
 `
 const Content = styled.div`
-    padding: 0.5rem;    
+    padding: 0.5rem;
+    margin: 0.5rem 1rem;
     word-wrap: break-word;
 `
 

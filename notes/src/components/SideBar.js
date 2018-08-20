@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 const Col = styled.div`
     width: 300px;
+    height: 100vh;
     border: 1px solid lightgray;
     background: #D2D2D2;
     padding: 1rem;
@@ -20,6 +21,7 @@ const Button = styled.button`
     display: flex;
     flex-direction: column;
     font-size: 1rem;
+    font-weight: 700;
     text-align: center;
 `
 
