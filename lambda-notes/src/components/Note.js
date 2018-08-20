@@ -1,13 +1,14 @@
 import React from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 class Note extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             title: '',
-            body: '',
+            content: '',
             id: '',
             edit: false,
             modal: false,
@@ -16,11 +17,11 @@ class Note extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.note) {
-            const note = this.props.note;
+        if (this.props.notes) {
+            const note = this.props.notes;
             this.setState({
                 title: note.title,
-                body: note.body,
+                content: note.content,
                 id: note.id
              });
         } else {
@@ -28,17 +29,19 @@ class Note extends React.Component {
             this.fetchNote(id);
             this.setState({ list: false })
         }
-    }
 
-    fetchNote = (id) => {
+}
+
+    fetchNote(id) {
         id = parseInt(id, 10);
         const note = this.props.notes.filter(note => note.id === id)[0];
         this.setState({
             title: note.title,
-            body: note.body,
+            content: note.content,
             id: note.id
         })
     }
+
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
@@ -55,19 +58,20 @@ class Note extends React.Component {
         this.props.deleteNote(id);
     }
 
-    toggleModal() {
+    toggleModal = ()  => {
         this.setState({modal: !this.state.modal});
-    }
+    };
+
 
     render() {
-        const { title, body, id, edit, modal, list } = this.state;
+        const { title, content, id, edit, modal, list } = this.state;
         return (
              <div className="note-flex-props">
 
                 {list ? (
                     <div className="note-card">
                         <h3 className="title-name">{title}</h3>
-                        <div className="note-card-text-wrapper"><p className="note-card-text">{body}</p></div>
+                        <div className="note-card-text-wrapper"><p className="note-card-text">{content}</p></div>
                     </div>
 
                 ) : (<div>
@@ -76,8 +80,8 @@ class Note extends React.Component {
                             <h3>Edit Note:</h3>
                             <form>
                                 <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
-                                <input name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                                <button className="button" onClick={() => this.handleUpdate({title, body, id})}>Save</button>
+                                <input name="content" value={content} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
+                                <button className="button" onClick={() => this.handleUpdate({title, content, id})}>Save</button>
                             </form>
                         </div>
                     ) : (
@@ -87,7 +91,7 @@ class Note extends React.Component {
                                 <button onClick={() => this.toggleModal()}>Delete</button>
                             </div>
                             <h3>{title}</h3>
-                            <div>{body}</div>
+                            <div>{content}</div>
                         </div>
                     )}
                     {modal ? (

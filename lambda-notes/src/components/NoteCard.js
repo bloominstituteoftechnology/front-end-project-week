@@ -10,7 +10,7 @@ const NoteCard = (props) => {
             <Card body className="note-card">
                 <CardBody>
                     <CardTitle className="note-title">{props.note.title}</CardTitle>
-                    <CardText>{props.note.body}</CardText>
+                    <CardText>{props.note.content}</CardText>
                 </CardBody>
             </Card>
 

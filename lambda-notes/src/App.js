@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import './App.css';
 import { Route } from "react-router-dom";
 import NoteList from "./components/NoteList";
@@ -14,34 +14,23 @@ import Note from "./components/Note";
 class App extends Component {
   state = {
     notes: [
-      {
-        id: 0,
-        title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. '
-      },
-      {
-        id: 1,
-        title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
-      },
-      {
-        id: 2,
-        title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
-      },
-      {
-        id: 3,
-        title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
-      },
-      {
-        id: 4,
-        title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
-      },
-    ],
+        "title": '',
+        "content": ''
+        ],
     addTitle: '',
-    addBody: ''
+    addContent: ''
+  }
+
+  componentDidMount() {
+    axios
+    .get('http://localhost:3300/notes')
+    .then(response => {
+      console.log(response);
+      this.setState({notes: response.data});
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
   handleInputChange = event => {
     this.setState({[event.target.name]:event.target.value})
@@ -49,7 +38,7 @@ class App extends Component {
   handleAddNote = event => {
     event.preventDefault();
     const notes = this.state.notes.slice();
-    notes.push({id: this.state.notes.length, title: this.state.addTitle, body: this.state.addBody});
+    notes.push({id: this.state.notes.length, title: this.state.addTitle, content: this.state.addContent});
     this.setState({notes, addTitle: '', addBody: ''});
   }
   render() {
