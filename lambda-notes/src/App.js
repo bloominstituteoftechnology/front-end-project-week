@@ -64,11 +64,20 @@ class App extends Component {
           title: "Bake Tacos",
           description: "Make tacos for the cat"
         }
-      ]
+      ],
+      noteTitle: "",
+      noteDescription: ""
     };
   }
 
+  inputChangeHandler = event => {
+    console.log("InputChangeHandler", event.target.name);
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
+    console.log("noteTitle", this.state.noteTitle);
+    console.log("noteDescription", this.state.noteDescription);
     return (
       <div className="mainAppDiv">
         <Route path={"/"} component={MainNav} />
@@ -83,7 +92,18 @@ class App extends Component {
             <IndividualNote {...props} notes={this.state.notes} />
           )}
         />
-        <Route path={"/create"} component={CreateNote} />
+        <Route
+          path={"/create"}
+          render={props => (
+            <CreateNote
+              {...props}
+              notes={this.state.notes}
+              noteTitle={this.state.noteTitle}
+              noteDescription={this.state.noteDescription}
+              inputChangeHandler={this.inputChangeHandler}
+            />
+          )}
+        />
         <Route
           path={"/edit/:id"}
           render={props => <EditNote {...props} notes={this.state.notes} />}
