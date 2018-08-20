@@ -97,3 +97,17 @@ textarea{
   width: 100%;
   height: 25em;
 }
+.svButtonRow{
+  display:flex;
+  justify-content: flex-end;
+}
+.svButtonRow{
+  margin-top: -3em;
+  margin-bottom: 1em;
+}
+.svButtons{
+  margin: 5px;
+}
+.viewBody{
+  margin-top: 2em;
+}

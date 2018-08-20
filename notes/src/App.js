@@ -3,13 +3,14 @@ import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Notesview from "./components/Notesview";
 import CreateNote from "./components/InputNote";
+import SingleNote from "./components/SingleNote";
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
+      notes: [{title:'',body:''}],
       nextID: 5,
       mode: 'ADD'
     };
@@ -51,6 +52,7 @@ class App extends Component {
         <Sidebar />
         {/* <Notesview notes={this.state.notes}/> */}
         {/* <CreateNote mode={this.state.mode} /> */}
+        <SingleNote title={this.state.notes[0].title} body={this.state.notes[0].body} />
       </div>
     );
   }
