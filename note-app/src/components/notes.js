@@ -11,10 +11,9 @@ class ViewAllNotes extends Component {
     
     render() {
         const notes = this.props.notes; 
-        console.log(notes)
         return (
-            <div className = "create-note-form">
-              <h3>Your Notes:</h3>
+            <div className = "create-note-form view-notes">
+              <h3 className = "your-notes">Your Notes:</h3>
               {notes.map((note, i) => <Note key = {i} title ={note.title} content = {note.content}/>  )}
 
             </div>

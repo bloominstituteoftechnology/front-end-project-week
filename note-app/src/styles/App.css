@@ -83,6 +83,25 @@
 .individual-note {
   width: 124px;
   max-width: 100%;
-  height: 127px;
-  background: white; 
+  background: white;
+  margin-bottom: 14px;   
+}
+
+.view-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.note-hr {
+  padding-left: 10px;
+  padding-right: 12px; 
+}
+.your-notes {
+  width: 100%; 
+}
+.individual-title{
+  margin-left: 17px;
+}
+.individual-content {
+  line-height: 1.33;
 }

@@ -13,15 +13,13 @@ class Note extends React.Component {
         const title = this.props.title;
         const lengthPercentage = Math.floor(this.props.content.length * .05) 
         const partialContent = this.props.content.slice(0, lengthPercentage); 
-        console.log(this.props)
-        console.log(lengthPercentage)
         return (
 
             <div className = "individual-note">
-              <h2>{title}</h2>
+              <h2 className = "individual-title">{title}</h2>
               <br/>
-              <hr/>
-              <p>{partialContent}</p>
+              <hr className = "note-hr"/>
+              <p className ="individual-content">{partialContent}</p>
             </div>
         )
     }
