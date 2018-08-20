@@ -17,6 +17,7 @@ class App extends Component {
   }
   addNote = noteObj => {
     let prevNotes = this.state.notes.slice();
+    console.log(noteObj);
     const fullObj = {
       ...noteObj,
       id: this.state.nextID
@@ -37,6 +38,7 @@ class App extends Component {
       if (e.id === noteObj.id) {
         e.title = noteObj.title;
         e.body = noteObj.body;
+        e.tags = noteObj.tags;
         return e;
       } else {
         return e;
@@ -65,27 +67,32 @@ class App extends Component {
         {
           title: "test",
           body: "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ",
-          id: 0
+          id: 0,
+          tags:[]
         },
         {
           title: "test2",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 1
+          id: 1,
+          tags:[]
         },
         {
           title: "test3",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 2
+          id: 2,
+          tags:[]
         },
         {
           title: "test4",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 3
+          id: 3,
+          tags:[]
         },
         {
           title: "test5",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 4
+          id: 4,
+          tags:[]
         }
       ]
     });

@@ -43,6 +43,7 @@
   padding: 4em 2em;
   text-align: left;
   overflow: hidden;
+  width: 100%;
   
 }
 .viewTitle {
@@ -146,4 +147,28 @@ textarea {
 a{
   text-decoration: none;
   color: black;
+}
+
+
+.ReactTags__tagInputField{
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  border: 2px solid grey;
+  font-weight: bold;
+  margin-top:10px;
+}
+.ReactTags__tag{
+border: 2px grey solid;
+background: white;
+border-radius: 5px;
+margin: 5px;
+padding: 2px;
+}
+.ReactTags__tags{
+  margin:10px 0
+}
+.tagtitle{
+  font-weight: bold;
+  font-size: 18px;
 }
