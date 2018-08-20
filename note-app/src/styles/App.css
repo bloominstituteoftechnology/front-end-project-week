@@ -109,3 +109,14 @@
 .individual-content {
   line-height: 1.33;
 }
+
+.full-note-header {
+  display: flex; 
+  justify-content: flex-end;
+  align-content: right; 
+  
+  margin-left: 355px;
+}
+.full-note-header h6 {
+  margin-left: 9px; 
+}
