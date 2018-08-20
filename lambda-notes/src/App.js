@@ -3,6 +3,7 @@ import './App.css';
 import NotesContainer from './components/NotesContainer/NotesContainer';
 import Note from './components/NotesContainer/Note';
 import CreateNote from './components/NoteActions/CreateNote';
+import ViewNote from './components/NoteActions/ViewNote';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         {/*<NotesContainer />*/}
         {/*<Note />*/}
         {/*<CreateNote />*/}
+        <ViewNote />
       </div>
     );
   }
