@@ -1,13 +1,22 @@
 import React from "react";
 import "./Login.css";
+import firebase, { auth, provider } from "./firebase";
 
 class Login extends React.Component {
   constructor() {
     super();
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      user: null
     };
+  }
+  componentDidMount() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user });
+      }
+    });
   }
 
   addUsername = event => {
@@ -16,40 +25,43 @@ class Login extends React.Component {
   addPassword = event => {
     this.setState({ password: event.target.value });
   };
-  LoginButton = () => {
-    localStorage.setItem("username", this.state.username);
-    localStorage.setItem("password", this.state.password);
-    window.location.reload();
+  LoginButton = e => {
+    e.preventDefault();
+    auth.signInWithPopup(provider).then(result => {
+      const user = result.user;
+      localStorage.setItem("username", user.email);
+      localStorage.setItem("password", user.l);
+      window.location.reload();
+      this.setState({ user });
+    });
+  };
+  GoogleLogin = e => {
+    e.preventDefault();
+    auth.signInWithPopup(provider).then(result => {
+      const user = result.user;
+      localStorage.setItem("username", user.email);
+      localStorage.setItem("password", user.l);
+      window.location.reload();
+      this.setState({ user });
+    });
   };
 
   render() {
+    console.log("this.state.user is: ", this.state.user);
     return (
       <form className="login-page">
         <div className="login-card">
-          <a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
-            <div className="google-button">
-              SIGN UP WITH GOOGLE
-            </div>
-          </a>
+          <div className="google-button" onClick={this.GoogleLogin}>
+            SIGN IN WITH GOOGLE
+          </div>
+
           <p className="login-text">OR USE EMAIL</p>
-          <input
-            type="text"
-            onChange={this.addUsername}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            onChange={this.addPassword}
-            placeholder="Password"
-          />
+          <input type="text" onChange={this.addUsername} placeholder="Email" />
+          <input type="password" onChange={this.addPassword} placeholder="Password" />
           <p className="terms-conditions">
-            By clicking on Sign Up, you are agreeing to our{" "}
-            <a href="#">Terms & Conditions</a>
+            By clicking on Sign Up, you are agreeing to our <a href="#">Terms & Conditions</a>
           </p>
-          <button
-            className="login-button"
-            onClick={this.LoginButton}
-          >
+          <button className="login-button" onClick={this.LoginButton}>
             Log in
           </button>
         </div>

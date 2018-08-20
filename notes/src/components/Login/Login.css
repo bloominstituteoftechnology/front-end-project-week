@@ -63,7 +63,7 @@
   border: none;
   margin-bottom: 0;
   color: white;
-  padding-top: 13px;
+  padding-top: 10px;
   margin-top: 20px;
   text-align: center;
 }
@@ -71,6 +71,7 @@
 .login-card .google-button:hover {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 .login-text {
