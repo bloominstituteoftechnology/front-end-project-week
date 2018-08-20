@@ -1,3 +1,5 @@
+Trello account: https://trello.com/b/34NzCZxI/lambda-notes-luis-f-salazar
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
