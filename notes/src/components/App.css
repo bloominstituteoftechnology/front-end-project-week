@@ -19,6 +19,7 @@ a {
   height: 100vh;
   display: flex;
   background: #F2F1F2;
+  z-index: 1;
 }
 
 .app .nav-bar {
@@ -52,8 +53,8 @@ a {
 }
 
 .app .notes .notes-list a {
-  min-width: 125px;
-  min-height: 130px;
+  min-width: 200px;
+  min-height: 200px;
   width: 20%;
   height: 25%;
   margin: 10px;
@@ -91,4 +92,24 @@ a {
   justify-content: flex-end;
   margin-bottom: 15px;
   padding-right: 10px;
+}
+
+.modal-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-background .modal-body {
+  background: white;
+  z-index: 100;
+  width: 75%;
+  height: 500px;
 }
