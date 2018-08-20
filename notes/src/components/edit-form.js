@@ -2,9 +2,45 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-const NoteFormDiv = styled.div`
-  display: flex;
-  flex-direction: column;
+const EditFormDiv = styled.div`
+  form {
+    ${'' /* border: 1px solid blue; */}
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .input {
+      margin: 10px;
+      padding: 10px;
+      color: gray;
+    }
+    #title{
+      width: 30%;
+    }
+    #body{
+      height: 400px;
+      text-emphasis: wrap;
+      max-width: 90%;
+      font-family: 'Roberto';
+      line-height: 20px;
+
+    }
+    .menu-item{
+        ${'' /* border: 1px solid red; */}
+        width: 30%;
+        padding: 15px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #2AC0C4;
+        font-weight: bold;
+        border: 1px solid lightgray;
+      }
+  }
+
+
+
 `;
 
 export default class EditForm extends Component {
@@ -42,17 +78,17 @@ export default class EditForm extends Component {
   render() {
     console.log(this)
     return (
-        <NoteFormDiv>
+        <EditFormDiv>
           <form onSubmit={this.sendToApp}>
-            <input
+            <input className="input" id="title"
               onChange={this.inputHandler}
               name='title' value={this.state.title} placeholder="Note Title">{this.value}</input>
-            <input
+            <textarea className="input" id="body"
               name='body'
-              onChange={this.inputHandler} value={this.state.body} placeholder="Note Content">{this.value}</input>
-            <Link onClick={this.sendToApp} to="/all-notes">{this.props.button}</Link>
+              onChange={this.inputHandler} value={this.state.body} placeholder="Note Content">{this.value}</textarea>
+            <Link className="menu-item" onClick={this.sendToApp} to={`/all-notes/${this.state.id}`}>{this.props.button}</Link>
           </form>
-        </NoteFormDiv>
+        </EditFormDiv>
     );
   }
 }

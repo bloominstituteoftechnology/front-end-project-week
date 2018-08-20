@@ -6,10 +6,48 @@ import styled from 'styled-components';
 import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
 
 const AppDiv = styled.div`
-    border: 1px solid red;
+    ${'' /* border: 1px solid red; */}
     display: flex;
     flex-direction: row;
     z-index: 0;
+    height: 100vh;
+    .left-menu {
+      border: 1px solid lightgray;
+      background-color: #D7D7D7;
+      height: 100%;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1{
+        ${'' /* border: 1px solid green; */}
+        padding: 10px;
+        width: 80%;
+
+      }
+      .menu-item{
+        ${'' /* border: 1px solid red; */}
+        width: 70%;
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #2AC0C4;
+        font-weight: bold;
+        margin: 10px;
+        border: 1px solid lightgray;
+
+      }
+    }
+    .right-display{
+      ${'' /* border: 1px solid blue; */}
+      background-color: #F3F3F3;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+    }
     .delete {
       background: red;
       width: 100vw;
@@ -20,19 +58,6 @@ const AppDiv = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    .left-menu {
-      border: 1px solid green;
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-    }
-    .right-display{
-      border: 1px solid blue;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
     }
 
 `;
@@ -108,7 +133,7 @@ class App extends Component {
   editNote = (noteEdit) => {
     // console.log('editnote', noteEdit.id);
     let newArr = this.state.notes.slice()
-    let obj = newArr.filter(note => noteEdit.id === note.id)
+    // let obj = newArr.filter(note => noteEdit.id === note.id)
     // console.log(obj)
     let position = newArr.findIndex(note => note.id === noteEdit.id)
     // console.log(position)
@@ -118,11 +143,6 @@ class App extends Component {
       count: this.state.count + 1,
     })
 
-
-    // this.setState({
-    //   notes: newArr,
-    //   deleteEnabled: false,
-    // })
   }
 
   render() {
@@ -132,8 +152,8 @@ class App extends Component {
 
           <div className="left-menu">
             <h1>Lambda Notes</h1>
-            <Link to="/all-notes">View Your Notes</Link>
-            <Link to="/new-note">+ Create New Note</Link>
+            <Link className="menu-item" to="/all-notes">View Your Notes</Link>
+            <Link className="menu-item" to="/new-note">+ Create New Note</Link>
           </div>
 
           <div className="right-display">
