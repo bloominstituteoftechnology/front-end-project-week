@@ -1,3 +1,18 @@
+a {
+  text-decoration: none;
+}
+
+.btn {
+  min-width: 125px;
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #24B8BD;
+  color: white;
+  cursor: pointer;
+}
+
 .app {
   width: 100vw;
   height: 100vh;
@@ -10,6 +25,9 @@
   height: 100%;
   border-right: 1px solid gray;
   background: #D3D2D3;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px 0;
 }
 
 .app .notes {
