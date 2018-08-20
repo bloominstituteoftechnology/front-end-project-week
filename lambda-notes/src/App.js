@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import SideNav from './components/SideBar/SideNav';
+import NotesContainer from './components/NotesContainer/NotesContainer';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <SideNav />
-        
+        <NotesContainer />
       </div>
     );
   }
