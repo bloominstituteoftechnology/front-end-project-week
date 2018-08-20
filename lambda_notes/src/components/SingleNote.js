@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { fetchSingleNote } from '../actions';
-// import DeleteModal from './Delete';
+import DeleteModal from './Delete';
 
 const Content = styled.div`
     width: 666px;
@@ -52,7 +52,7 @@ class SingleNote extends React.Component {
     render() { 
         return (
             <Content>
-                {/* <DeleteModal id={this.props.note._id}/> */}
+                <DeleteModal id={this.props.note.id}/>
                 <Link to={`/edit/${this.props.note.id}`}>
                     <Text>edit</Text>
                 </Link>

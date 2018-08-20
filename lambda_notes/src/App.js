@@ -6,7 +6,7 @@ import NoteList from './components/NoteList';
 import SideBar from './components/SideBar';
 import SingleNote from './components/SingleNote';
 // import UpdateForm from './components/UpdateForm';
-// import CreateForm from './components/CreateForm';
+import CreateForm from './components/CreateForm';
 
 const APP = styled.div`
   display: flex;
@@ -25,8 +25,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={NoteList} />
             <Route path='/notes/:id' component={SingleNote} />
-            {/* <Route path='/edit/:id' component={UpdateForm} />
-            <Route path='/create' component={CreateForm} /> */}
+            {/* <Route path='/edit/:id' component={UpdateForm} /> */}
+            <Route path='/create' component={CreateForm} />
           </Switch>
         </APP>
       </Router>

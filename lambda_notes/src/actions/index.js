@@ -34,52 +34,54 @@ export const fetchSingleNote = (id) => {
     }
 }
 
-// export const deleteNote = (id) => {
-//     const request = axios.delete(`http://localhost:8000/api/notes/${id}`)
-//     return (dispatch) => {        
-//         request.then(res => {
-//             if (res.data.success) {
-//                 axios.get('http://localhost:8000/api/notes')
-//                 .then(res2 => dispatch({
-//                     type: types.DELETE_NOTE,
-//                     payload: res2.data
-//                 }))
-//                 .catch(err => dispatch({
-//                     type: types.FETCH_ERROR,
-//                     error: err
-//                 }))
-//             }
-//         })
-//         // .then(window.location.reload())
-//         .catch(err => dispatch({
-//             type: types.FETCH_ERROR,
-//             error: err
-//         }))
-//     }
-// }
+export const deleteNote = (id) => {
+    const request = axios.delete(`http://localhost:8000/api/notes/${id}`)
+    return (dispatch) => {        
+        request.then(res => {
+            console.log(res);
+            if (res) {
+                axios.get('http://localhost:8000/api/notes')
+                .then(res2 => dispatch({
+                    type: types.DELETE_NOTE,
+                    payload: res2.data
+                }))
+                .catch(err => dispatch({
+                    type: types.FETCH_ERROR,
+                    error: err
+                }))
+            }
+        })
+        // .then(window.location.reload())
+        .catch(err => dispatch({
+            type: types.FETCH_ERROR,
+            error: err
+        }))
+    }
+}
 
-// export const addNote = (note) => {
-//     const request = axios.post('https://killer-notes.herokuapp.com/note/create', note)
-//     return (dispatch) => {
-//         request.then(res => {
-//             if (res.data.success) {
-//                 axios.get('https://killer-notes.herokuapp.com/note/get/all')
-//                 .then(res2 => dispatch({
-//                     type: types.ADD_NOTE,
-//                     payload: res2.data
-//                 }))
-//                 .catch(err => dispatch({
-//                     type: types.FETCH_ERROR,
-//                     error: err
-//                 }))
-//             }
-//         })
-//         .catch(err => dispatch({
-//             type: types.FETCH_ERROR,
-//             error: err
-//         }))
-//     }
-// }
+export const addNote = (note) => {
+    const request = axios.post('http://localhost:8000/api/notes', note)
+    return (dispatch) => {
+        request.then(res => {
+            console.log(res);
+            if (res) {
+                axios.get('http://localhost:8000/api/notes')
+                .then(res2 => dispatch({
+                    type: types.ADD_NOTE,
+                    payload: res2.data
+                }))
+                .catch(err => dispatch({
+                    type: types.FETCH_ERROR,
+                    error: err
+                }))
+            }
+        })
+        .catch(err => dispatch({
+            type: types.FETCH_ERROR,
+            error: err
+        }))
+    }
+}
 
 // export const updateNote = (id, note) => {
 //     const request = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
