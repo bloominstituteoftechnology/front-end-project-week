@@ -3,7 +3,8 @@ import {Link, Route} from 'react-router-dom';
 
 import './App.css';
 import styled from 'styled-components';
-import {AllNotes} from './components/all-notes.js'
+import {AllNotes, NewNote} from './components';
+
 
 const AppDiv = styled.div`
   border: 1px solid red;
@@ -71,7 +72,7 @@ class App extends Component {
 
           <Route  path="/new-note"  render={ () => {
             return (
-              <AllNotes notes={this.state.notes} />
+              <NewNote notes={this.state.notes} />
             )
           }}></Route>
 

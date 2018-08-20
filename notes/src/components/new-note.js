@@ -9,7 +9,7 @@ const NewNoteDiv = styled.div`
 
 `;
 
-class NewNote extends Component {
+export default class NewNote extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -17,14 +17,11 @@ class NewNote extends Component {
     }
   }
   render() {
-    console.log(this.props)
     return (
       <NewNoteDiv>
         <h4>New Note</h4>
-        
+
       </NewNoteDiv>
     );
   }
 }
-
-export {NewNote};

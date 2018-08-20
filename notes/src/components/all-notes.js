@@ -30,7 +30,7 @@ const AllNotesDiv = styled.div`
   }
 `;
 
-class AllNotes extends Component {
+export default class AllNotes extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -55,5 +55,3 @@ class AllNotes extends Component {
     );
   }
 }
-
-export {AllNotes};
