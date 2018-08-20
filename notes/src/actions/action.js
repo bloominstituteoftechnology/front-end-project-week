@@ -53,7 +53,7 @@ export const deleteNote = id => {
   console.log("id is: ", id);
   return function(dispatch) {
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:8000/api/notes/${id}`)
       .then(({ data }) => {
         window.location.href = "http://localhost:3000/";
       })

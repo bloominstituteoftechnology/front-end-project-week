@@ -32,7 +32,7 @@ class ViewNote extends React.Component {
   deleteNote = event => {
     console.log("this.props:", this.props);
     event.preventDefault();
-    this.props.deleteNote(this.props.singleNote._id);
+    this.props.deleteNote(this.props.singleNote.id);
     this.props.history.push("/");
   };
   inputTodo = event => {
