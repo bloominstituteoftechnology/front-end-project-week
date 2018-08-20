@@ -8,16 +8,12 @@ import SingleNote from './components/SingleNote';
 import NoteForm from './components/NoteForm';
 
 class App extends Component {
-  componentDidMount = () => {
-    this.props.fetchNotes();
-  }
-
   render() {
     return (
       <div>
         <h3>Welcome to Lambda Notes</h3>
         <Route exact path="/" render={props => (
-          <Notes {...props} notes={this.props.notes} />
+          <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} />
         )} />
         <Route path="/notes/add" render={props => (
           <NoteForm {...props} addNote={this.props.addNote} />
@@ -33,14 +29,11 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     fetchingNotes: state.fetchingNotes,
-    notesFetched: state.notesFetched,
     fetchingNote: state.fetchingNotes,
-    noteFetched: state.notesFetched,
     notes: state.notes,
     note: state.note,
     error: state.error,
     updatingNote: state.updatingNote,
-    noteUpdated: state.noteUpdated,
   }
 }
 

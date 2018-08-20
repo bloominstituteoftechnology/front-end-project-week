@@ -23,11 +23,10 @@ class NoteForm extends Component {
         this.setState({
             title: '',
             content: ''
-        }, () => this.props.history.replace('/'))
+        })
     }
 
     render() {
-        console.log(this.props);
         return (
             <form onSubmit={this.addNote}>
                 <input type="text" name="title" onChange={this.handleChange} value={this.state.title} required></input>
