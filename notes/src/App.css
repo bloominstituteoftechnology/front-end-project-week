@@ -11,6 +11,7 @@ a {
 
 a:hover {
   color: #2d3436;
+  text-decoration: none;
 }
 
 button {
@@ -20,4 +21,21 @@ button {
 .note-form {
   width: 60%;
   margin: 1rem auto;
+  border: 1px solid #b2bec3;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.note-form label {
+  font-size: 24px;
+}
+
+.note-container {
+  width: 60%;
+  margin: 1rem auto;
+}
+
+.card-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b2bec3;
 }

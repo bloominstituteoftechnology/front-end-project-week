@@ -16,10 +16,10 @@ class App extends Component {
           <NavbarBrand>Lambda Notes</NavbarBrand>
           <Nav>
             <NavItem>
-              <NavLink> <Link to="/">View Notes</Link> </NavLink>
+              <NavLink tag={Link} to="/">View Notes</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink> <Link to="/note/add">New Note</Link> </NavLink>
+              <NavLink tag={Link} to="/note/add">New Note</NavLink> 
             </NavItem>
           </Nav>
         </Navbar>

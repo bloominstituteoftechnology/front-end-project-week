@@ -29,11 +29,11 @@ class EditNote extends Component {
         return (
             <Form onSubmit={this.updateNote} className="note-form">
                 <FormGroup>
-                    <Label for="title">Title</Label>
+                    <Label for="title">Updated Title</Label>
                     <Input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="content">Note</Label>
+                    <Label for="content">Updated Note</Label>
                     <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
                 </FormGroup>
                 <Button color="primary">Update</Button>

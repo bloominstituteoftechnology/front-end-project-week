@@ -4,7 +4,7 @@ import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 class Note extends Component {
   render() {
     return (
-      <div>
+      <div className="note-container">
         <Card>
             <CardBody>
                 <CardTitle>{this.props.title}</CardTitle>
