@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import '../styles/App.css';
+import SideBar from './side-bar';
 
 class App extends Component {
   render() {
@@ -9,6 +10,10 @@ class App extends Component {
         <div className="heading">
           <h3 className= "app-header">List View</h3>
           <hr/>
+        </div>
+        <div className = "main-container">
+          <SideBar />
+
         </div>
         
       </div>
