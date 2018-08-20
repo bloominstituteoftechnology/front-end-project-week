@@ -1,3 +1,5 @@
+TRELLO BOARD ADDRESS: https://trello.com/invite/b/jbmY2nfg/d83878e742bb48b70d9fe99c59a0945d/lambda-notes-adam-lee
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
