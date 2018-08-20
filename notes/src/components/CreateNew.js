@@ -42,7 +42,7 @@ class CreateNote extends React.Component{
                 />
                 <InputContent placeholder='Note Content' 
                             name='content'
-                            value={this.props.content}
+                            value={this.props.textBody}
                             onChange={this.props.handleChange}
                 />
                 <Button onClick={this.props.addNote}>Save</Button>

@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       notes: notes,
       title: '',
-      content: '',
+      texBody: '',
       id: id,
     }
   }
@@ -31,20 +31,20 @@ class App extends Component {
     notes.push({
         id: this.state.id,
         title: this.state.title,
-        content: this.state.content,
+        textBody: this.state.textBody,
     });
-    this.setState({notes, title:'', content:'', id: ++id});
+    this.setState({notes, title:'', textBody:'', id: ++id});
   }
-  updateNote = e => {
-    e.preventDefault();
-    let note = this.state.notes.slice(e.target.id, ++e.target.id)
-    let notes = this.state.notes.slice();
-  }
-  deleteNote = e => {
-    // let note = this.state.notes.splice(e.target.id, 1)
-    // this.setState({notes: note});
-    // window.location.assign('http://localhost:3000/noteslist')
-  }
+  // updateNote = e => {
+  //   e.preventDefault();
+  //   let note = this.state.notes.slice(e.target.id, ++e.target.id)
+  //   let notes = this.state.notes.slice();
+  // }
+  // deleteNote = e => {
+  //   // let note = this.state.notes.splice(e.target.id, 1)
+  //   // this.setState({notes: note});
+  //   // window.location.assign('http://localhost:3000/noteslist')
+  // }
   componentDidMount(){
     this.props.fetchNotes();
   }
@@ -56,14 +56,14 @@ class App extends Component {
           <Link to="/"></Link>
           <Route exact path="/noteslist" render={(props) => 
             <ListView {...props} notes={this.props.notes} />} />
-          {/* <Route exact path="/createnewnote" render={(props) => 
+          <Route exact path="/createnewnote" render={(props) => 
             <CreateNew {...props} title={this.state.title}
-                                  content={this.state.content}
+                                  textBody={this.state.textBody}
                                   handleChange={this.handleChange}
                                   addNote={this.addNote}                   
             />}
           />
-          <Route exact path={`/note/:id`} 
+          {/* <Route exact path={`/note/:id`} 
                       render={(props) => <Note {...props}
                                                 notes={this.state.notes}
                                                 deleteNote={this.deleteNote}

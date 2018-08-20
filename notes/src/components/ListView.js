@@ -57,7 +57,7 @@ class ListView extends React.Component{
                                 >
                                     <SmallNote key={note.id}>
                                         <Title>{note.title}</Title>
-                                        <Content>{note.content}</Content>
+                                        <Content>{note.textBody}</Content>
                                     </SmallNote>
                                 </Link>
                             </div>
