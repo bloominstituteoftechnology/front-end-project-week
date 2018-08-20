@@ -1,5 +1,22 @@
 .noteListDiv {
-  background: red;
+  background: blueviolet;
+  /* margin and width to offset the navbar */
+  margin-left: 200px;
+  /* min-width: 200px; */
+  /* top: 0;
+  right: 0; */
+
   color: white;
   font-size: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.noteDiv {
+  color: white;
+  background: red;
+  width: 100px;
+  height: 100px;
 }
