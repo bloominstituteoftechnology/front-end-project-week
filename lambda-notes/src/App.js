@@ -8,6 +8,7 @@ import { fetchNotes, addNewNote } from './actions';
 import ListView from './components/ListView/ListView';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import NewNote from './components/CreateNote/NewNote';
+import NoteView from './components/NoteView';
 
 class App extends Component {
   
@@ -24,7 +25,9 @@ class App extends Component {
           <div><Route exact path="/"
             render={props => <ListView {...this.props}/>}/>
           <Route path="/newNote" 
-            render={props => <NewNote {...this.props}/>} /></div>
+            render={props => <NewNote {...this.props}/>} />
+          <Route path="/notes/:id" 
+            render={props => <NoteView {...props} {...this.props} /> }/></div>
             : <H1>Loading</H1>
         }
       </div>
