@@ -12,13 +12,11 @@ function withNoteForm(WrappedBtn) {
     }
    
     componentDidMount() {
-      console.log(this.props);
       const title = this.props.title === undefined ? '' : this.props.title;
       const textBody = this.props.textBody === undefined ? '' : this.props.textBody;
       this.setState({ title: title, textBody: textBody})
     }
     componentWillReceiveProps(nextProps) {
-      console.log('nextProps');
       if(nextProps.title !== this.props.title && nextProps.textBody !== this.props.textBody) {
         this.setState({ title: nextProps.title, textBody: nextProps.textBody });
       }

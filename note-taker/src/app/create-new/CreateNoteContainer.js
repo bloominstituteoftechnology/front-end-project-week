@@ -3,7 +3,6 @@ import CreateNoteComponent from './CreateNoteComponent';
 import { createNewOperations } from './duck';
 
 const mapStateToProps = state => {
-    console.log(state);
     const { fetchingNotes } = state.createNew;
     return {
         fetchingNotes
@@ -11,7 +10,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    console.log(createNewOperations);
     const postNote = (notesObj) => {
         dispatch(createNewOperations.postNote(notesObj));
     }
