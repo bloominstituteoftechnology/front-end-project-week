@@ -26,3 +26,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.notesOuterDiv {
+  display: flex;
+  flex-flow: row wrap;
+  
+}
+
+.noteListBox {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  padding: 10px;
+}
