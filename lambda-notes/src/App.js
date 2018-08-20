@@ -6,6 +6,8 @@ import SideBar from './components/SideBar';
 import { connect } from 'react-redux';
 import { fetchNotes } from './actions';
 import ListView from './components/ListView/ListView';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import NewNote from './components/CreateNote/NewNote';
 
 class App extends Component {
   
@@ -18,13 +20,20 @@ class App extends Component {
         <div className="sideBar">
           <SideBar />
         </div>
-        <div className="appView">
-          <H2>Your Notes:</H2>
-          <ListView {...this.props}/>
-        </div>
+        <Route exact path="/"
+          render={props => <ListView {...this.props}/>}/>
+        <Route path="/newNote" render={NewNote} />
       </div>
     );
   }
+}
+
+function Home (){
+  return (
+    <div>
+      <H1>Hello</H1>
+    </div>
+  )
 }
 
 const mapStateToProps = state => {

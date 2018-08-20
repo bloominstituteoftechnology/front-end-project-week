@@ -34,14 +34,14 @@
 }
 
 .sideBar {
-  border: 1px black solid;
+  border-right: 1px black solid;
   height: 100%;
   width: 25%;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: aliceblue;
+  background-color: #D7D7D7;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -56,4 +56,10 @@
 
 body {
   background-color: #F3F3F3;
+}
+
+.newNote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

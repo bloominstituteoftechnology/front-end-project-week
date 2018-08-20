@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const Button = styled.button`
     background: #2AC0C4;
     color: white;
-    margin: 1em;
+    margin: ${props => props.submit ? '5px' : '1em'};
     padding: 0.25em 1em;
     border: 1px solid grey;
     font-size: 1em;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    width: 75%;
+    width: ${props => props.submit ? '25%' : '75%'};
     height: 40px;
 `
 
@@ -63,4 +63,24 @@ export const NoteTitle = styled.div`
 export const ListViews = styled.div`
     display: flex;
     justify-content: space-around;
+`
+
+export const TitleInput = styled.input`
+    width: 75%;
+    border-radius: 2px;
+    border-color: #DEDDDE;
+    background-color: #FFFEFF;
+    padding: 5px;
+    margin: 5px;
+`
+
+export const ContentInput = styled.textarea`
+    wdith: 100%;
+    border-radius: 2px;
+    border-color: #DEDDDE;
+    background-color: #FFFEFF;
+    padding: 5px;
+    margin: 5px;
+    resize: none;
+    outline: none;
 `
