@@ -1,39 +1,40 @@
-// 1. View
+// 1. View note
 export const VIEW_NOTE = "VIEW_NOTE";
-// dummy data for mvp
-export const viewNote = (noteArray) => ({
-  type: VIEW_NOTE,
-  payload: noteArray
-})
+export const viewNote = () => ({
+  type: VIEW_NOTE
+});
 
-// 2. Add
+// 2. Add note
 export const ADD_NOTE = "ADD_NOTE";
-
-export const addNote = () => ({
+export const addNote = (title, content) => ({
   type: ADD_NOTE,
   payload: {
     id: '',
-    title: '',
-    content: ''
+    title: title,
+    content: content
   }
-})
+});
 
-// 3. Edit 
+// 3. Edit note
 export const EDIT_NOTE = "EDIT_NOTE";
-
-export const editNote = () => ({
+export const editNote = (title, content) => ({
   type: EDIT_NOTE,
   payload: {
     id: '',
-    title: '',
-    content: ''
+    title: title,
+    content: content
   }
-})
+});
 
-// 4. Delete
-export const DELETE_NOTE = "DELETE_NOTE"
-
+// 4. Delete note
+export const DELETE_NOTE = "DELETE_NOTE";
 export const deleteNote = (id) => ({
   type: DELETE_NOTE,
   payload: id
-})
+});
+
+// 5. View List
+export const VIEW_LIST = "VIEW_LIST";
+export const viewList = () => ({
+  type: VIEW_LIST
+});

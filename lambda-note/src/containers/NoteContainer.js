@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Note from '../components/Note';
 import NoteNavigation from '../components/NoteNavigation';
-import { dummyNote } from '../dummy';
 
 const Container = styled.div`
   display: flex;
@@ -18,20 +17,21 @@ class NoteContainer extends Component {
   }
 
   componentDidMount () {
-    this.setState({ notes: dummyNote });
-    // this.setState({ notes: this.props.notes });
+     this.setState({ notes: this.props.notes });
   }
 
   render () {
-    const { viewNote, addNote, editNote, deleteNote, isView, isEditted, isDeleted, isAdded } = this.props;
+    const { viewList, viewNote, addNote, editNote, deleteNote, isView, isEditted, isDeleted, isAdded } = this.props;
     return (
       <Container>
         <NoteNavigation 
-          viewNote={viewNote} 
+          viewList={viewList} 
           addNote={addNote}
         />
         <Note 
           notes={this.state.notes}
+          viewNote={viewNote}
+          addNote={addNote}
           editNote={editNote}
           deleteNote={deleteNote}
           isView={isView}

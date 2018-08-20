@@ -24,7 +24,7 @@ function NoteNavigation (props) {
   return (
     <Navigation>
       <h1>Lambda Notes</h1>
-      <Button onClick={props.viewNote}>View Your Notes</Button>
+      <Button onClick={props.viewList}>View Your Notes</Button>
       <Button onClick={props.addNote}>+ Create New Note</Button>
     </Navigation>
   )
