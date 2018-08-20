@@ -1,0 +1,27 @@
+.Side-Nav{
+    border: 1px solid black; 
+    width: 240px; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    position: fixed; 
+    background: #F0F0F0
+}
+.nav-btn{
+    text-decoration: none; 
+    width: auto;  
+    height: auto;
+    padding: 10px; 
+    margin:10px; 
+    background: #00C5C7; 
+    display: flex; 
+    justify-content: center; 
+    align-content: center; 
+    color: white; 
+    border: 1px solid #545454; 
+
+}
+h1{
+    color: #545454;
+    margin: 15px; 
+}
