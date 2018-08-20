@@ -59,7 +59,6 @@ function withNoteForm(WrappedBtn) {
                 this.props.btnHandlers({
                   title: this.state.title,
                   textBody: this.state.textBody,
-                  tags: []
                 });
               }}>{this.props.btnText}</WrappedBtn>
           </Link>
