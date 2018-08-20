@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import Note from './Note';
+
+
+const URL = 'https://raw.githubusercontent.com/DasGMA/front-end-project-week/master/lambda-notes/src/components/notes.json';
 
 class NotesList extends Component {
     constructor(props){
@@ -10,17 +14,13 @@ class NotesList extends Component {
     }
 
     componentDidMount () {
-        fetch ('https://raw.githubusercontent.com/DasGMA/front-end-project-week/master/lambda-notes/src/components/notes.json#')
-          .then(response => response.json())
-          .then((data) => {
-            this.setState ({
-              notes: data
+        axios.get(URL)
+        .then(({data}) => {
+            this.setState({
+                notes: data
             })
-          })
-          .catch(error => {
-              console.log('There is a problem: ' , error)
-          })
-      }
+        })
+    }
 
     render() {
         return (
