@@ -36,7 +36,6 @@ const AppDiv = styled.div`
         font-weight: bold;
         margin: 10px;
         border: 1px solid lightgray;
-
       }
     }
     .right-display{
@@ -46,13 +45,12 @@ const AppDiv = styled.div`
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-
     }
     .delete {
-      background: red;
+      ${'' /* border: 1px solid red; */}
       width: 100vw;
       height: 100vh;
-      background-color:rgba(1,1,1,0.5);
+      background-color:rgba(215,215,215,0.5);
       position: fixed;
       z-index: 10;
       display: flex;
