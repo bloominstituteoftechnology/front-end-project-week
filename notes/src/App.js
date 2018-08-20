@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Route} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import NotesView from './components/NotesView';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [
+        {
+          id: 1,
+          title: "Note Title",
+          note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis"
+        },
+        {
+          id: 2,
+          title: "Note Title",
+          note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis"
+        },
+        {
+          id: 3,
+          title: "Note Title",
+          note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis"
+        }
+      ]
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app">
+        <div>
+          <NavLink className="navlink" exact to="/">View Your Notes</NavLink>
+          <NavLink className="navlink" to="/add-note">+ Add a Note</NavLink>
+        </div>
+        <div>
+          <Route exact path="/" render={props => <NotesView {...props} notes={this.state.notes}/>}/>
+        </div>
       </div>
     );
   }
 }
-
-export default App;
