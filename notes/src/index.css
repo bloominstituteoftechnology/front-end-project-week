@@ -6,6 +6,9 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
+h5 {
+  font-weight: bold;
+}
 a {
   text-decoration: none;
   color: black;
@@ -19,7 +22,7 @@ hr {
 button {
   width: 200px;
   border: 1px solid gray;
-  border-radius: 0px;
+  border-radius: 0px !important;
 }
 .App {
   text-align: center;
@@ -27,25 +30,23 @@ button {
 }
 .main-content {
   display: flex;
-  justify-content: center;
-  width: 90%;
+  width: 75%;
   padding: 3vh;
   text-align: left;
 }
 .notes {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
 }
 .note {
-  margin: 30px 10px 50px;
-  width: 300px;
+  margin: 30px 10px 0;
+  width: 250px;
 }
 .card {
   border-radius: 2px;
   border-width: 2px;
   text-align: left;
-  height: 200px;
+  height: 275px;
 }
 .single-note-card {
   width: 100%;
@@ -87,7 +88,12 @@ button {
 .note-form-container .note-form input {
   width: 50%;
 }
+.note-form-container .note-form input,
 .note-form-container .note-form textarea {
+  border-width: 2px;
+}
+.note-form-container .note-form textarea {
+  padding: 15px;
   height: 300px;
 }
 .modal {

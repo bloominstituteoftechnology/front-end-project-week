@@ -9,6 +9,8 @@ const NoteForm = props => (
         placeholder="Note Title"
         onChange={props.onChange}
         value={props.title}
+        pattern="^[\s\S]{1,50}$"
+        autoComplete="off"
       />
     </FormGroup>
     <FormGroup>

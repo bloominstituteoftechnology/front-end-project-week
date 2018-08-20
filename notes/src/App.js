@@ -6,23 +6,14 @@ import NoteForm from './components/NoteForm';
 import Modal from './components/DeleteModal';
 
 class App extends Component {
-  dummyText = 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis.';
   state = {
     notes: [
       {
-        id: 2,
-        title: 'Note title',
-        text: this.dummyText
-      },
-      {
-        id: 1,
-        title: 'Note title',
-        text: this.dummyText
-      },
-      {
         id: 0,
-        title: 'Note title',
-        text: this.dummyText
+        title: 'Welcome!',
+        text: `Please create a new note! Click for more information.
+          You can create a new note by clicking the create new note button to the left.
+          You can also edit and delete me by clicking on me and then using one of the handy controls at the top!`
       }
     ],
     title: '',
@@ -30,13 +21,14 @@ class App extends Component {
     note: {
       id: -1, 
       title: 'Please return to the notes page.', 
-      text: 'You\'ve went and refreshed at the wrong time! C\'mon, dude!'
+      text: 'You\'ve went and refreshed at the wrong time! Just view your notes to continue your lovely note experience.'
     },
     modal: false,
-    nextId: 3
+    nextId: 1
   };
 
-  storeNote = (note) => {
+  // for single note view
+  storeNote = note => {
     this.setState({ note });
   };
 
@@ -77,7 +69,7 @@ class App extends Component {
     });
   };
 
-  toggle = () => {
+  toggleModal = () => {
     this.setState({
       modal: !this.state.modal
     });
@@ -95,7 +87,7 @@ class App extends Component {
           <Route
             path="/create"
             render={() => (
-              <div class="note-form-container">
+              <div className="note-form-container">
                 <h2>Create New Note:</h2>
                 <NoteForm 
                   onChange={this.onChange} 
@@ -131,7 +123,7 @@ class App extends Component {
             path="/notes/:id"
             render={() => (
               <div className="single-note-card">
-                <Link to="/notes/delete" onClick={this.toggle}>delete</Link>
+                <Link to="/notes/delete" onClick={this.toggleModal}>delete</Link>
                 <Link to="/edit">edit</Link>
                 <Note note={this.state.note} single={true} />
               </div>
@@ -140,7 +132,7 @@ class App extends Component {
           <Route
             path="/edit"
             render={() => (
-              <div class="note-form-container">
+              <div className="note-form-container">
                 <h2>Edit Note:</h2>
                 <NoteForm
                   onChange={this.onChange} 
@@ -156,7 +148,7 @@ class App extends Component {
             path="/notes/delete"
             render={() => (
               <Modal
-                toggle={this.toggle}
+                toggle={this.toggleModal}
                 modal={this.state.modal}
                 delete={this.deleteNote}
               />

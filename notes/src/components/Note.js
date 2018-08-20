@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Card, CardBody, CardText } from 'reactstrap';
 
 const Note = (props) => {
   const { note } = props;
@@ -9,9 +9,10 @@ const Note = (props) => {
         ? (
           <Card>
             <CardBody>
-              <CardTitle>
-                {note.title} (id: {note.id})
-              </CardTitle>
+              <h5>
+                {note.title.slice(0, 20)} 
+                {note.title.length > 20 ? '...' : null}
+              </h5>
               <hr />
               <CardText>
                 {note.text.slice(0, 116)}
