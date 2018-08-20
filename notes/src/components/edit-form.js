@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const NoteFormDiv = styled.div`
@@ -6,18 +7,19 @@ const NoteFormDiv = styled.div`
   flex-direction: column;
 `;
 
-export default class NoteForm extends Component {
+export default class EditForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      title: '',
-      body: '',
-      id: '',
+      title: this.props.note.title,
+      body: this.props.note.body,
+      id: this.props.note.id,
+      count:  props.count,
     }
   }
 
   sendToApp = (e) => {
-    e.preventDefault();
+    console.log(this.props)
     if (this.props.button === "Create") {
       this.props.newNote(this.state);
     } else {
@@ -26,7 +28,7 @@ export default class NoteForm extends Component {
     this.setState({
       title: '',
       body: '',
-      id: ','
+
     })
   }
 
@@ -34,11 +36,11 @@ export default class NoteForm extends Component {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
-      id: Date(),
     })
   }
 
   render() {
+    console.log(this)
     return (
         <NoteFormDiv>
           <form onSubmit={this.sendToApp}>
@@ -48,7 +50,7 @@ export default class NoteForm extends Component {
             <input
               name='body'
               onChange={this.inputHandler} value={this.state.body} placeholder="Note Content">{this.value}</input>
-            <button>{this.props.button}</button>
+            <Link onClick={this.sendToApp} to="/all-notes">{this.props.button}</Link>
           </form>
         </NoteFormDiv>
     );

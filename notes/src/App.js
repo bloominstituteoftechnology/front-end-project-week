@@ -41,6 +41,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      count: 45,
       hideDetails: true,
       notes: [
         {
@@ -67,14 +68,7 @@ class App extends Component {
     }
   }
 
-  newNote = (newNote) => {
-    let newArr = this.state.notes.slice();
-    newArr.push(newNote)
-    this.setState({
-      notes: newArr,
-      count: 0,
-    })
-  }
+
 
   getNoteDetails = (id) => {
     return (this.state.notes.find(note => {return note.id === parseInt(id, 10)}))
@@ -101,6 +95,36 @@ class App extends Component {
     })
   }
 
+  newNote = (newNote) => {
+    console.log('editnote', newNote);
+    let newArr = this.state.notes.slice();
+    newArr.push(newNote)
+    this.setState({
+      notes: newArr,
+      count: this.state.count + 1,
+    })
+  }
+
+  editNote = (noteEdit) => {
+    console.log('editnote', noteEdit.id);
+    let newArr = this.state.notes.slice()
+    let obj = newArr.filter(note => noteEdit.id === note.id)
+    console.log(obj)
+    let position = newArr.findIndex(note => note.id === noteEdit.id)
+    console.log(position)
+    newArr[position] = noteEdit;
+    this.setState({
+      notes: newArr,
+      count: this.state.count + 1,
+    })
+
+
+    // this.setState({
+    //   notes: newArr,
+    //   deleteEnabled: false,
+    // })
+  }
+
   render() {
     return (
 
@@ -119,7 +143,7 @@ class App extends Component {
               }}></Route>
 
             <Route exact path="/new-note"  render={ () => {
-                return (<NewNote newNote={this.newNote} notes={this.state.notes} />)
+                return (<NewNote count={this.state.count} newNote={this.newNote} notes={this.state.notes} />)
               }}></Route>
 
             <Route path="/all-notes/:noteId" exact={!this.state.deleteEnabled} render={ (note) => {let single = this.getNoteDetails(note.match.params.noteId);
@@ -128,7 +152,7 @@ class App extends Component {
 
             <Route exact path="/all-notes/:noteId/edit" render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
-                return (<EditNote note={single} />)
+                return (<EditNote count={this.state.count} editNote={this.editNote} note={single} />)
               }}></Route>
 
           </div>

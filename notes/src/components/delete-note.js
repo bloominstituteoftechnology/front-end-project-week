@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link, Route} from 'react-router-dom';
-import NoteForm from './note-form';
 import styled from 'styled-components';
 
 const DeleteNoteDiv = styled.div`

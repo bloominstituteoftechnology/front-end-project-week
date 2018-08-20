@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
-import NoteForm from './note-form';
+import EditForm from './edit-form.js';
 
 const EditNoteDiv = styled.div`
   display: flex;
@@ -14,6 +14,7 @@ export default class EditNote extends Component {
     super(props);
     this.state = {
       note: props.note,
+      count: props.count
     }
   }
 
@@ -27,7 +28,7 @@ export default class EditNote extends Component {
         <Link to={`/all-notes/${this.state.note.id}`}>Back</Link>
         <h4>Edit Note</h4>
         <p>{this.state.note.title}</p>
-        <NoteForm button="Save" note={this.state.note}></NoteForm>
+        <EditForm button="Save" count={this.state.count} editNote={this.props.editNote} note={this.state.note}></EditForm>
       </EditNoteDiv>
     );
   }

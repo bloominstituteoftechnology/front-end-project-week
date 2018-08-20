@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NoteForm from './note-form';
+import NewForm from './new-form.js';
 import styled from 'styled-components';
 
 const NewNoteDiv = styled.div`
@@ -13,6 +13,7 @@ export default class NewNote extends Component {
     super(props);
     this.state = {
       notes: props.notes,
+      count: props.count
     }
   }
 
@@ -21,10 +22,11 @@ export default class NewNote extends Component {
   }
 
   render() {
+    console.log(this.props.count)
     return (
       <NewNoteDiv>
         <h4>New Note</h4>
-        <NoteForm button="Create" newNote={this.props.newNote}></NoteForm>
+        <NewForm button="Create" count={this.props.count} newNote={this.props.newNote}></NewForm>
       </NewNoteDiv>
     );
   }
