@@ -79,3 +79,10 @@
   margin-bottom: 8px; 
   text-align: top;
 }
+
+.individual-note {
+  width: 124px;
+  max-width: 100%;
+  height: 127px;
+  background: white; 
+}
