@@ -5,7 +5,7 @@ import SideNav from '../SideBar/SideNav';
 const Notes = styled.div `
 display: inline-flex;
 background: #f2f1f2;
-height: 100vh;
+height: 100%;
 width: 80%;
 `
 
