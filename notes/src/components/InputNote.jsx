@@ -14,7 +14,10 @@ class CreateNote extends Component {
     if (this.props.match.params.id) {
       const filtNote = this.props.notes.filter(e => {
         if (e.id === Number(this.props.match.params.id)) {
-          return e;
+          return true
+        }
+        else{
+          return false
         }
       });
       if (filtNote[0]) {
@@ -35,7 +38,10 @@ class CreateNote extends Component {
       if (this.props.match.params.id) {
         const filtNote = this.props.notes.filter(e => {
           if (e.id === Number(this.props.match.params.id)) {
-            return e;
+            return true
+          }
+          else{
+            return false
           }
         });
         if (filtNote[0]) {
@@ -48,6 +54,20 @@ class CreateNote extends Component {
       }
     }
   }
+  submit=(e)=>{
+    e.preventDefault();
+    this.state.mode === "ADD" ? this.props.add({
+      body: this.state.body,
+      title: this.state.title
+
+    }):this.props.edit({
+      body: this.state.body,
+      title: this.state.title,
+      id: Number(this.props.match.params.id)
+    })
+
+    this.props.history.push('/')
+  }
   render() {
     return (
       <div className="notesViewContainer">
@@ -57,7 +77,7 @@ class CreateNote extends Component {
         <form
           className="formLayout"
           id="createNoteForm"
-          onSubmit={this.props.addNote}
+          onSubmit={this.submit}
         >
           <input
             type="text"

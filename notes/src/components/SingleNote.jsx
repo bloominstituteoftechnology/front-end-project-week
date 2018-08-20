@@ -19,13 +19,22 @@ class SingleNote extends Component {
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   };
-  
+  delete =()=>{
+
+    
+    this.props.delete(Number(this.props.match.params.id))
+
+    this.props.history.push('/')
+
+  }
   componentDidMount  (){
     Modal.setAppElement("body");
     const filtNote= this.props.notes.filter(e =>{
       if (e.id === Number(this.props.match.params.id)){
-        return e
-        
+        return true
+      }
+      else{
+        return false
       }
     })
     if(filtNote[0]){
@@ -41,7 +50,10 @@ class SingleNote extends Component {
     if (this.props !== prevProps) {
       const filtNote= this.props.notes.filter(e =>{
         if (e.id === Number(this.props.match.params.id)){
-          return e
+          return true
+        }
+        else{
+          return false
         }
       })
       this.setState({
@@ -69,7 +81,7 @@ class SingleNote extends Component {
         >
           <div className="modalText">Are you sure you want to delete this?</div>
           <div className="modalButtonRow">
-            <div className="redButton sidebarButton">Delete</div>
+            <div onClick={this.delete} className="redButton sidebarButton">Delete</div>
             <div onClick={this.closeModal}className="sidebarButton">No</div>
           </div>
         </Modal>
