@@ -30,7 +30,7 @@ const NoteThumbnail = ({ note }) => (
   <Note>
     <h5>{note.title}</h5>
     <hr></hr>
-    <p>{note.textBody}</p>
+    <p>{note.textBody.length > 150 ? note.textBody.substr(0, 150) + '...' : note.textBody}</p>
   </Note>
 )
 
