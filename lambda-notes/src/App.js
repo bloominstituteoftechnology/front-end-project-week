@@ -13,7 +13,7 @@ class App extends Component {
         {
           id: 0,
           title: "Note 0",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+          text: "Lorem ipsum dolor sit amet."
         },
         {
           id: 1,
