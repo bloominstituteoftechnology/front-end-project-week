@@ -5,3 +5,7 @@
 .new-note h2 {
     font-weight: bolder;
 }
+
+.new-note .btn {
+    border-radius: 0;
+    }
