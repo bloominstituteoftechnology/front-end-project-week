@@ -4,40 +4,49 @@ import SideBar from '../SideBar/SideBar.js';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { newNote } from '../../Actions/index';
+import axios from 'axios';
 
 class ListView extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            notes:[]
+         }
+
     }
+
+
+
+
+
     render() { 
-        console.log('test', this.props.notes)
         return (  
             <div className = "body">
                 <SideBar/>
-                <div className = "sideBar_pop notes">
+                <div className = "sideBar_pop notes listview">
                     <div className = "list">
                         <h2>Your Notes:</h2>
                     </div>
 
                     <div>
-                        {this.props.notes.notes.length === 1 ? (
+                        
                             <h1>Make a note</h1>
-                        ) : (
+                    
                             <div className = "row">
-                                {this.props.notes.notes.map((note, index) => {
+                                {this.props.notes.map(note => {
                                 return (
-                                    
-                                        <Link to ={{pathname:`/note/${index}`, state: { index:index}
-                                        }}>
-                                            <h1 className="underline" key={index}>{note.title}</h1>
-                                            <p key={index}>{note.note}</p>
+                                    <div className="card">
+                                        <Link to ={`/note/${note.id}`
+                                        }>
+                                            <h1 className="underline">{note.title}</h1>
+                                            <p>{note.content}</p>
                                         </Link>
+                                    </div>
                                     
                                 )
                             })} 
                             </div>
-                        )}
+                        
                     </div>
                 </div>
             </div>
@@ -45,14 +54,12 @@ class ListView extends Component {
 }
 }
  
-const mapStateToProps = state => {
-    console.log('list', state)
-    return {
-        notes: state
-    }
-}
+// const mapStateToProps = state => {
+//     console.log('list', state)
+//     return {
+//         notes: state
+//     }
+// }
 
 
-export default connect (mapStateToProps, {
-    newNote,
-})(ListView);
+export default ListView

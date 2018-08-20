@@ -63,7 +63,6 @@ margin-top: 2%;
 
 .modalQuestion {
     font-size: 1.2rem;
-    margin-bottom: 8%;
 }
 
 .modal button {
@@ -73,9 +72,10 @@ margin-top: 2%;
     color: white;
     border: .5px solid #F3F3F3;
     font-size: 1.2rem;
-    margin-top:8%;
+    margin-top: 8%;
     text-decoration: none;
 }
+
 
 .modal button:hover {
     font-size: 1.5rem;

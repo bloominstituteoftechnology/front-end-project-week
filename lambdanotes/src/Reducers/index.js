@@ -1,4 +1,4 @@
-import {NEW_NOTE, DELETE_NOTE, UPDATE_NOTE} from '../Actions/index';
+import {DELETE_NOTE, UPDATE_NOTE} from '../Actions/index';
 
 const initialState = {
     notes: [
@@ -11,10 +11,10 @@ const initialState = {
 
 export const noteReducer = (state = initialState, action) => {
     switch(action.type) {
-        case NEW_NOTE: 
-            return Object.assign({}, state, {
-                notes: [...state.notes, action.payload]
-            } )
+        // case NEW_NOTE: 
+        //     return Object.assign({}, state, {
+        //         notes: [...state.notes, action.payload]
+        //     } )
 
         case DELETE_NOTE: {
             console.log('delete', state)

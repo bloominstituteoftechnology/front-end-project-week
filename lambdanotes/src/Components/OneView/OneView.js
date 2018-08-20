@@ -4,99 +4,141 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import './OneView.css';
 import { Link } from 'react-router-dom';
-import {deleteNote} from '../../Actions/index';
+
+import axios from 'axios';
+
 
 
 class AddedNote extends Component {
-    constructor() {
-        super();
-        this.state = {
-            index: 0,
-            mounted: false,
-            display: false,
-        }
-    }
-
-    display = () => {
-        this.setState({
-            display: !this.state.display
-        })
-    }
-
-    componentDidMount() {
-        this.setState({
-            index: this.props.location.state.index,
-            mounted: true,
-        })
-    }
-
-    render() {
-        return(
-            <div>
-                {this.state.mounted === false ? (
-                    <div className = "links">
-                            <p>Waiting...</p>
-                    </div>
-                ) : (
-                    <div>
-                        <div className={this.state.display===false ? (
-                            "none"
-                        ) : (
-                            "modal block"
-                        )}>
-                            <div className="modalQuestion">Are you sure you want to delete this?
-                            </div>
-                            
-                                <div className="modalButtons">
-                                    <Link to="/" >
-                                        <button style={backgroundstyle} onClick= {() => { this.display(); 
-                                        this.props.deleteNote(this.state.index)}}>Delete</button>
-                                    </Link>
-                                <button onClick={this.display}>No</button>
-                            </div>
-                        </div>
-                    
-                        <div className={this.state.display===false ? (
-                            "block"
-                        ) : (
-                            "modalLayover"
-                        )}>
-                            <div className="noteView">
-                                <SideBar/>
-                                <div className="sideBar_pop noteCard">
-                                    <div className = "links">
-                                        <Link to={{state:{
-                                            index:this.state.index},
-                                            pathname:`/edit/${this.state.index}`
-                                        }}>
-                                            edit
-                                        </Link>
-                                        <button onClick={this.display}>delete</button>
-                                    </div>
-                                    <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>
-                                    <p className="note">{this.props.notes.notes[this.state.index].note}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-            </div>
-        )
-    }
-}
-
-const backgroundstyle = {
-    backgroundColor: '#D0011B',
-}
-
-const mapStateToProps = state => {
-    console.log('AddedNote', state)
-    return {
-        notes: state
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: null,
+      notes: [],
     }
   }
 
-export default connect(mapStateToProps, {
-    deleteNote
-})(AddedNote);
+  // display = () => {
+  //     this.setState({
+  //         display: !this.state.display
+  //     })
+  // }
+
+  componentDidMount() {
+    const id = this.props.match.params.id
+    // this.setState(() => ({ id: Number(id), notes: this.props.notes }))
+
+    axios
+      .get(`http://localhost:3300/notes`)
+      .then((response) => {
+        this.setState({ notes: response.data, id: Number(id) })
+      })
+      .catch(err => console.log(err));
+
+
+  }
+
+  handleDelete = () => {
+    const id = this.state.id
+    axios.delete(`http://localhost:3300/notes/${id}`)
+      .then(response => {
+
+        this.setState({ notes: response.data, id: null })
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  filterNotes = (note) => {
+    if (note.id === this.state.id) {
+      return (
+        <div className='noteView' key={note.id}>
+         <SideBar />
+          <div className="sideBar_pop noteCard">
+            <div className='links'>
+              <Link to={`/note/${note.id}`} style={backgroundstyle} >edit</Link>
+              <Link to='/'><h1 onClick={this.handleDelete} className='btn'>delete</h1></Link>
+            </div>
+            <h1 className='title'>{note.title}</h1>
+            <p className='note'>{note.content}</p>
+          </div>
+        </div>
+      )
+    }
+  }
+
+
+  render() {
+    return (
+      <div className='single-note'>
+        {this.state.notes.map(this.filterNotes)}
+      </div>
+
+      // <div>
+      //   {this.state.mounted === false ? (
+      //     <div className="links">
+      //       <p>Waiting...</p>
+      //     </div>
+      //   ) : (
+      //       <div>
+      //         <div className={this.state.display === false ? (
+      //           "none"
+      //         ) : (
+      //             "modal block"
+      //           )}>
+      //           <div className="modalQuestion">Are you sure you want to delete this?
+      //                       </div>
+
+      //           <div className="modalButtons">
+      //             <Link to="/" >
+      //               <button style={backgroundstyle} onClick={() => {
+      //                 this.display();
+      //                 this.state.handleDelete(this.state.index)
+      //               }}>Delete</button>
+      //             </Link>
+      //             <button onClick={this.display}>No</button>
+      //           </div>
+      //         </div>
+
+      //         <div className={this.state.display === false ? (
+      //           "block"
+      //         ) : (
+      //             "modalLayover"
+      //           )}>
+  //     <div className="noteView">
+  //       <SideBar />
+  //       <div className="sideBar_pop noteCard">
+  //         <div className="links">
+  //           <Link to={{
+  //             state: {
+  //               index: this.state.index
+  //             },
+  //             pathname: `/edit/${this.state.index}`
+  //           }}>
+  //             edit
+  //                                       </Link>
+  //           <button onClick={this.display}>delete</button>
+  //         </div>
+  //         <h1 className="title">{this.state.notes[this.state.index].title}</h1>
+  //         <p className="note">{this.state.notes[this.state.index].notes}</p>
+  //       </div>
+  //     </div>
+  //             </div >
+  //           </div >
+  //         )
+  // }
+
+  //     </div>
+  //       )
+  // }
+    )}
+  }
+
+const backgroundstyle = {
+  backgroundColor: '#D0011B',
+}
+
+
+
+export default AddedNote;
