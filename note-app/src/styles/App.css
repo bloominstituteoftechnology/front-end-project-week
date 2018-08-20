@@ -87,6 +87,10 @@
   margin-bottom: 14px;   
 }
 
+.individual-note:hover {
+  cursor:pointer;
+}
+
 .view-notes {
   display: flex;
   flex-wrap: wrap;
