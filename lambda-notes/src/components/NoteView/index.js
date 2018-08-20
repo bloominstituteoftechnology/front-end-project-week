@@ -16,14 +16,13 @@ class NoteView extends React.Component{
       }
 
     componentDidMount() {
-        console.log(this.props)
         const id = this.props.match.params.id;
         const notes = this.props.notes[id]
         console.log(notes)
         this.setState({
             title: notes.title,
             content: notes.content,
-            id: notes.id
+            id: id
         })
       }
 
@@ -31,7 +30,7 @@ class NoteView extends React.Component{
         return (
             <div className="appView">
                 <NoteOptions>
-                    <UnderLinedP>edit</UnderLinedP>
+                    <Link to={`/notes/update/${this.state.id}`}><UnderLinedP>edit</UnderLinedP></Link>
                     <UnderLinedP onClick={this.toggle}>delete</UnderLinedP>
                 </NoteOptions>
                 <div className="NoteView">

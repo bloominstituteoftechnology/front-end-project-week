@@ -26,7 +26,9 @@ class App extends Component {
             render={props => <ListView {...this.props}/>}/>
           <Route path="/newNote" 
             render={props => <NewNote {...this.props}/>} />
-          <Route path="/notes/:id" 
+          <Route exact path="/notes/:id" 
+            render={props => <NoteView {...props} {...this.props} /> }/>
+          <Route path="/notes/update/:id" 
             render={props => <NoteView {...props} {...this.props} /> }/></div>
             : <H1>Loading</H1>
         }
