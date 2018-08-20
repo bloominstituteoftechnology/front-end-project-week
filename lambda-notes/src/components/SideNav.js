@@ -8,7 +8,8 @@ class SideNav extends Component {
     this.forceUpdate()
   }
   render () {
-    // let { tags } = this.props
+    let { tags } = this.props
+    console.log(this.props.tags)
     return (
       <div className='sideNav'>
         <Link className='logout-Btn' to='/' onClick={this.logout}>
@@ -26,7 +27,7 @@ class SideNav extends Component {
         <Link className='sidenav-button' to='/notes/new'>
           + Create New Note
         </Link>
-        {/* <ul>
+        <ul>
           {tags.map((tag, index) => {
             return (
               <li
@@ -36,7 +37,7 @@ class SideNav extends Component {
               >{`${tag}`}</li>
             )
           })}
-        </ul> */}
+        </ul>
       </div>
     )
   }

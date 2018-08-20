@@ -35,8 +35,10 @@ export const fetchNotes = (token) => {
     request
       .then((res) => {
         console.log('IN HERERE', res.data)
-        // dispatch({ type: GET_TAGS, payload: res })
         dispatch({ type: GET_NOTES, payload: res.data })
+        const tags = res.data.map((tags) => tags.tags)
+        console.log(tags)
+        dispatch({ type: GET_TAGS, payload: tags })
         dispatch({ type: FETCHING, payload: false })
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))

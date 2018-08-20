@@ -18,13 +18,13 @@ export const singleReducer = (state = {}, action) => {
   }
 }
 
-// export const tagsReducer = (state = [], action) => {
-//   switch (action.type) {
-//     case GET_TAGS:
-//       return action.payload
-//     case UPDATED_TAGS:
-//       return [ ...state, action.payload ]
-//     default:
-//       return state
-//   }
-// }
+export const tagsReducer = (state = [], action) => {
+  switch (action.type) {
+    case GET_TAGS:
+      return action.payload
+    case UPDATED_TAGS:
+      return [ ...state, action.payload ]
+    default:
+      return state
+  }
+}

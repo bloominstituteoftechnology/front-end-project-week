@@ -18,9 +18,8 @@ class NoteList extends Component {
     const filteredNotes = this.props.notes.filter((note) => {
       return (
         note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        note.context.toLowerCase().indexOf(search.toLowerCase()) !== -1
-        // ||
-        // note.tags.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        note.context.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        note.tags.toLowerCase().indexOf(search.toLowerCase()) !== -1
       )
     })
     // const filteredNotes = this.props.notes
