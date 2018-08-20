@@ -1,0 +1,13 @@
+[Settings]
+ID = "97906168-749c-4298-b926-5a0cd01f7d0e"
+
+# Settings in the [build] context are global and are applied to all contexts unless otherwise overridden by more specific contexts.  
+
+[build]
+  # This is the directory to change to before starting a build.
+  base    = "lambda-notes/"
+  # NOTE: This is where we will look for package.json/.nvmrc/etc, not root.
+  # This is the directory that you are publishing from (relative to root of your repo)
+  publish = "lambda-notes/build/"
+  # This will be your default build command
+  command = "yarn build"
