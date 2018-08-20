@@ -7,7 +7,7 @@ class Note extends Component {
     super(props);
     this.state = {
       id: null,
-      notes: props.notes
+      notes: []
     };
   }
 
@@ -15,6 +15,7 @@ class Note extends Component {
     const id = this.props.match.params.id;
     this.setState({ id: Number(id), notes: this.props.notes });
   }
+
 
   filterNotes = note => {
     if (note.id === this.state.id) {

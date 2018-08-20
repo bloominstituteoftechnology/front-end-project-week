@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import axios from 'axios';
 import "./App.css";
+import axios from 'axios';
 
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
@@ -22,53 +22,21 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
-    this.getData();
+  componentDidMount() {
+    axios
+    .get('http://localhost:8000/api/notes')
+    .then((response) => {
+      this.setState({notes: response.data})
+    })
+    .catch(err => console.log(err));
   }
 
-  getData = () => {
-    axios
-      .get('http://localhost:8000/api/notes')
-      .then((response) => {
-        this.setState({notes: response.data})
-      })
-      .catch(err => console.log(err));
-  }
 
 //METHODS
-handleSetData = data => this.setState({ smurfs: data });
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-
   
   handleSetCurrent = note => {
     this.setState({ currentNote: note });
   };
-
-
-
-  //Add
-  handleAddNote = e => {
-    e.preventDefault();
-    const note = {
-      title: this.state.title,
-      content: this.state.content
-    }
-    axios
-    .post('http://localhost:8000/api/notes', note)
-    .then(response => {
-      this.handleSetData(response.data);
-      this.setState({
-        title: '',
-        content: ''
-      })
-    })
-    .catch(error => console.log(error));
-  };
-
 
 
   //Edit
@@ -144,8 +112,6 @@ handleSetData = data => this.setState({ smurfs: data });
   // };
 
 
-
-
   render() {
     return (
       <div className="App">
@@ -182,8 +148,6 @@ handleSetData = data => this.setState({ smurfs: data });
               {...props}
               title={this.state.title}
               content={this.state.content}
-              handleAddNote={this.handleAddNote}
-              handleInputChange={this.handleInputChange}
             />
           )}
         />
