@@ -82,9 +82,12 @@ class App extends Component {
   };
 
   handleDeleteNote = id => {
-    let notes = this.state.notes.slice();
-    notes = notes.filter(note => note.id !== Number(id));
-    this.setState({ notes, currentNote: {}, deleting: !this.state.deleting });
+    axios 
+    .delete(`http://localhost:8000/api/notes/${id}`)
+    .then(response => {
+      this.setState({notes: response.data})
+    })
+    .catch(err => {console.log(err)})
   };
 
 
