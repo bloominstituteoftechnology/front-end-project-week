@@ -25,7 +25,7 @@ class EditNoteContainer extends React.Component {
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value.trim });
+    this.setState({ [e.target.name]: e.target.value.trim() });
   };
 
   handleSubmit = e => {
