@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import notesArray from './NotesArray';
 import Note from './Note';
 
 class NotesList extends Component {
@@ -7,12 +6,8 @@ class NotesList extends Component {
         super(props);
 
         this.state = {
-            notes: []
+            
         }
-    }
-
-    componentDidMount() {
-        this.setState({notes: notesArray})
     }
 
     render() {
@@ -20,7 +15,7 @@ class NotesList extends Component {
             <div className="notesOuterDiv">
                 <h2 className="notesListTitle">Your Notes:</h2>
                 <div className="notesInnerDiv">
-                {this.state.notes.map(note => <Note note={note} />)}
+                {this.props.notes.map(note => <Note note={note} />)}
                 </div>
             </div>
         )

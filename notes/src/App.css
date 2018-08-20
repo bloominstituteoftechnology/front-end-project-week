@@ -40,13 +40,16 @@ body {
 
 h1 {
   font-size: 36px;
+  margin-top: 10px;
+  line-height: 36px;
+  margin-left: 10px;
 }
 
 .sidebar {
   width: 250px;
   text-align: left;
   border: 1px solid grey;
-  height: 100vh;
+  height: auto;
   padding: 10px;
   background-color: #D3D2D3;
 }
@@ -57,12 +60,13 @@ h1 {
   padding: 10px;
   border: 1px solid darkgrey;
   margin: 6px;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 215px;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .button a:link, .button a:hover, .button a:visited, .button a:active {
@@ -76,6 +80,7 @@ h1 {
   width: 750px;
   border: 1px solid grey;
   border-left: 0px;
+  min-height: 100vh;
 }
 
 .notesInnerDiv {
@@ -91,12 +96,80 @@ h1 {
 
 .noteListBox {
   width: 220px;
-  height: 220px;
+  height: 225px;
   border: 1px solid black;
   padding: 10px;
   margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 230px;
+  text-align: left;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+.noteListBox:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.noteListBox:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}
+
+.noteListBox h4 {
+  margin: 0;
 }
 
 .createNote {
   width: 750px;
+  min-height: 100vh;
+}
+
+.createForm {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 30px;
+}
+
+.createNoteTitle {
+  padding-left: 30px;
+  margin-top: 65px;
+  font-size: 22px;
+}
+
+.createFormTitleInput {
+  width: 405px;
+  height: 48px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-top: -15px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.createFormTextInput {
+  width: 685px;
+  height: 390px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.saveButton {
+  margin-top: 20px;
 }
