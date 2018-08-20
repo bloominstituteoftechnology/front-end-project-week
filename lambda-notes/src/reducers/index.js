@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
 
         case NOTE_CREATED:
             let data = JSON.parse(action.payload.config.data);
-            data._id = action.payload.data.success;
+            data.id = action.payload.data.success;
 
             let createNote = state.notes.slice();
             createNote.push(data);
@@ -47,7 +47,7 @@ export default (state = initialState, action) => {
 
         case NOTE_EDITED:
             let updateNote = state.notes.slice().map(note => {
-                if (note._id === action.payload._id) {
+                if (note.id === action.payload.id) {
                     note = action.payload;
                     return note;
                 }
@@ -59,7 +59,7 @@ export default (state = initialState, action) => {
             return { ...state, deletingNote: true };
 
         case NOTE_DELETED:
-            let deleteNote = state.notes.slice().filter(note => note._id !== action.payload);
+            let deleteNote = state.notes.slice().filter(note => note.id !== action.payload);
             return { ...state, notes: deleteNote, deletingNote: false, noteDeleted: true };
 
         case SET_NULL:
@@ -73,7 +73,7 @@ export default (state = initialState, action) => {
             return { ...state, notes: setNotes };
 
         case ERROR:
-            return { ...state, error: action.payload };
+            return { ...state, error: action.payload, fetchingNote: false, fetchingNotes: false };
 
         default:
             return state;

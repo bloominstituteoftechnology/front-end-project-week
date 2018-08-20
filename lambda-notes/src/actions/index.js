@@ -21,7 +21,7 @@ export const SET_NOTES = 'SET_NOTES';
 export const ERROR = 'ERROR';
 
 export const getNotes = () => {
-    const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+    const promise = axios.get('http://localhost:8000/api/notes');
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise.then(response => dispatch({ type: NOTES_FETCHED, payload: response.data }))
@@ -30,7 +30,7 @@ export const getNotes = () => {
 }
 
 export const getNote = id => {
-    const promise = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
+    const promise = axios.get(`http://localhost:8000/api/notes/${id}`);
     return dispatch => {
         dispatch({ type: FETCHING_NOTE });
         promise.then(response => dispatch({ type: NOTE_FETCHED, payload: response.data }))
@@ -39,7 +39,7 @@ export const getNote = id => {
 }
 
 export const addNote = note => {
-    const promise = axios.post('https://killer-notes.herokuapp.com/note/create/', note);
+    const promise = axios.post('http://localhost:8000/api/notes', note);
     return dispatch => {
         dispatch({ type: CREATING_NOTE });
         promise.then(response => dispatch({ type: NOTE_CREATED, payload: response }))
@@ -48,7 +48,7 @@ export const addNote = note => {
 }
 
 export const editNote = note => {
-    const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note);
+    const promise = axios.put(`http://localhost:8000/api/notes/${note.id}`, note);
     return dispatch => {
         dispatch({ type: EDITING_NOTE });
         promise.then(response => dispatch({ type: NOTE_EDITED, payload: response.data }))
@@ -57,7 +57,7 @@ export const editNote = note => {
 }
 
 export const deleteNote = id => {
-    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
+    const promise = axios.delete(`http://localhost:8000/api/notes/${id}`);
     return dispatch => {
         dispatch({ type: DELETING_NOTE });
         promise.then(dispatch({ type: NOTE_DELETED, payload: id }))

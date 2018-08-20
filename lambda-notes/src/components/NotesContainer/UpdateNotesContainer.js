@@ -30,8 +30,8 @@ class UpdateNotesContainer extends React.Component {
                             <NotesForm
                                 history={this.props.history}
                                 title={this.props.note.title}
-                                content={this.props.note.textBody}
-                                id={this.props.note._id}
+                                content={this.props.note.content}
+                                id={this.props.note.id}
                                 tags={this.props.note.tags} />
                         </NotesCards>
 

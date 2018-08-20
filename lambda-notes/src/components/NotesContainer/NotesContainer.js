@@ -43,11 +43,11 @@ class NotesContainer extends React.Component {
     // Maps over all notes and passes them down to the NotesCard component
     render() {
         let notes = this.props.notes;
-        let search = this.state.searchString.toString().trim().toLowerCase().replace(/\\/g, "\\\\").replace(/[°*"§%()[\]{}=\\?´`'#<>|,;.:+_-]+/g, '');
+        let search = this.state.searchString;
 
         if (search.length > 0) {
             notes = notes.filter(note => note.title.toLowerCase().match(search)
-                || note.textBody.toLowerCase().match(search)
+                || note.content.toLowerCase().match(search)
                 || note.tags.filter(tag => tag.toLowerCase().match(search)).length > 0);
         }
 
@@ -67,7 +67,7 @@ class NotesContainer extends React.Component {
                 </MainNotesHeaderContainer>
 
                 <NotesCards>
-                    {notes.map((note, i) => <NotesCard key={note._id} note={note} index={i} moveCard={this.moveCard} />)}
+                    {notes.map((note, i) => <NotesCard key={note.id} note={note} index={i} moveCard={this.moveCard} />)}
                 </NotesCards>
 
             </NotesWrapper>

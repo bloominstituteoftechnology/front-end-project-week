@@ -6,7 +6,7 @@ import flow from 'lodash/flow';
 const cardSource = {
     beginDrag(props) {
         return {
-            id: props.note._id,
+            id: props.note.id,
             index: props.index,
         }
     },
@@ -37,13 +37,13 @@ const NotesCard = props => {
     // Displays each note to the screen
     return connectDragSource && connectDropTarget && connectDragSource(connectDropTarget(
         <div className='notes-card-wrapper' style={{ opacity }}>
-            <NotesCardLink to={`/notes/${note._id}`}>
+            <NotesCardLink to={`/notes/${note.id}`}>
 
                 <NotesCardContainer>
                     <NotesCardTitle>{note.title}</NotesCardTitle>
                     <NotesContent
                         className='note-paragraph'
-                        text={note.textBody}
+                        text={note.content}
                         maxLine='6'
                         ellipsis=' ...'
                         trimRight

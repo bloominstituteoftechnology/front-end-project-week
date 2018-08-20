@@ -41,25 +41,24 @@ class Note extends React.Component {
     addTag = () => {
         // Adds tag with push
         if (this.state.tag === '') return;
+        const note = { tags: this.props.note.tags, title: this.props.note.title, content: this.props.note.content, id: this.props.note.id }
 
-        const note = { tags: this.props.note.tags, title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
-        note.tags.push(this.state.tag);
-
+        note.tag = { tag: this.state.tag, note_id: this.props.note.id };
+        
         this.props.editNote(note);
         this.setState({ tag: '' });
     }
 
-    deleteTag = index => {
+    deleteTag = (index, tagId) => {
         // Deletes tag with splice
-        const note = { tags: this.props.note.tags, title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
+        const note = { tagId, title: this.props.note.title, content: this.props.note.content, id: this.props.note.id, tags: this.props.note.tags }
         note.tags.splice(index, 1);
-
         this.props.editNote(note);
     }
 
     deleteNote = () => {
         // Deletes note / Removes Modal / Takes back to notes
-        this.props.deleteNote(this.props.note._id);
+        this.props.deleteNote(this.props.note.id);
         this.toggleModal();
         this.props.history.push('/notes');
     }
@@ -99,7 +98,7 @@ class Note extends React.Component {
                         <ModalContainer modal={this.state.modal} deleteNote={this.deleteNote} toggleModal={this.toggleModal} />
 
                         <NoteLinksContainer>
-                            <NoteEditLink to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</NoteEditLink>
+                            <NoteEditLink to={this.props.note ? `/notes/${this.props.note.id}/edit` : null}>edit</NoteEditLink>
                             <NoteDeleteLink onClick={this.toggleModal}>delete</NoteDeleteLink>
                         </NoteLinksContainer>
 
@@ -110,7 +109,7 @@ class Note extends React.Component {
                             <HeaderTagsContainer>
                                 {/*Maps over tags and displays them on screen along with a close icon from font-awesome*/}
                                 {this.props.note.tags ? this.props.note.tags.map((tag, index) =>
-                                    <HeaderTags key={tag + index + Math.random()}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </HeaderTags>) : null}
+                                    <HeaderTags key={index + Math.random()}>{tag.tag}<i onClick={() => this.deleteTag(index, tag.id)} className="fas fa-times"></i> </HeaderTags>) : null}
 
                                 <HeaderTagForm onSubmit={event => event.preventDefault()}>
                                     <HeaderTagInput onChange={this.handleInput} value={this.state.tag} type='text' name='tag' placeholder='Add tag...' />
@@ -121,7 +120,7 @@ class Note extends React.Component {
 
                         </HeaderContainer>
 
-                        <NoteContent>{this.props.note.textBody}</NoteContent>
+                        <NoteContent>{this.props.note.content}</NoteContent>
 
                         <NoteCheckListForm onSubmit={event => event.preventDefault()}>
                             <h3>Checklist:</h3>
