@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Sidebar extends Component {
     constructor(props){
@@ -11,8 +12,10 @@ class Sidebar extends Component {
 
     render() {
         return (
-            <div>
-                
+            <div className="sidebar">
+                <h1>Lambda Notes</h1>
+                <div className="button"><Link to="/">View Your Notes</Link></div>
+                <div className="button"><Link to="/create">+ Create New Note</Link></div>
             </div>
         )
     }

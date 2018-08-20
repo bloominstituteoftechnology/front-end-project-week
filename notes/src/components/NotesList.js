@@ -7,14 +7,21 @@ class NotesList extends Component {
         super(props);
 
         this.state = {
-
+            notes: []
         }
+    }
+
+    componentDidMount() {
+        this.setState({notes: notesArray})
     }
 
     render() {
         return (
             <div className="notesOuterDiv">
-                {notesArray.map(note => <Note note={note} />)}
+                <h2 className="notesListTitle">Your Notes:</h2>
+                <div className="notesInnerDiv">
+                {this.state.notes.map(note => <Note note={note} />)}
+                </div>
             </div>
         )
     }

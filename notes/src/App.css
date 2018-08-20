@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .App-logo {
@@ -31,15 +33,70 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+.sidebar {
+  width: 250px;
+  text-align: left;
+  border: 1px solid grey;
+  height: 100vh;
+  padding: 10px;
+  background-color: #D3D2D3;
+}
+
+.button {
+  background-color: #25B8BD;
+  color: white;
+  padding: 10px;
+  border: 1px solid darkgrey;
+  margin: 6px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 215px;
+  font-size: 18px;
+}
+
+.button a:link, .button a:hover, .button a:visited, .button a:active {
+  text-decoration: none;
+  color: white;
+}
+
 .notesOuterDiv {
   display: flex;
+  flex-flow: column wrap;
+  width: 750px;
+  border: 1px solid grey;
+  border-left: 0px;
+}
+
+.notesInnerDiv {
+  display: flex;
   flex-flow: row wrap;
-  
+  justify-content: space-evenly;
+}
+
+.notesListTitle {
+  margin: 65px 0 30px 30px;
+  font-size: 22px;
 }
 
 .noteListBox {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border: 1px solid black;
   padding: 10px;
+  margin-bottom: 30px;
+}
+
+.createNote {
+  width: 750px;
 }
