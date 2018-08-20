@@ -54,6 +54,17 @@ class App extends Component {
       ],
     }
   }
+
+  newNote = (newNote) => {
+    console.log(newNote)
+    let newArr = this.state.notes.slice();
+    newArr.push(newNote)
+    this.setState({
+      notes: newArr
+    })
+    console.log(this.state.notes)
+  }
+
   render() {
     return (
       <AppDiv>
@@ -72,7 +83,7 @@ class App extends Component {
 
           <Route  path="/new-note"  render={ () => {
             return (
-              <NewNote notes={this.state.notes} />
+              <NewNote newNote={this.newNote} notes={this.state.notes} />
             )
           }}></Route>
 

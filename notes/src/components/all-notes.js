@@ -34,10 +34,11 @@ export default class AllNotes extends Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: props.notes,
+      notes: this.props.notes,
     }
   }
   render() {
+    console.log(this.state.notes)
     return (
       <AllNotesDiv>
         <h4>Your Notes</h4>
