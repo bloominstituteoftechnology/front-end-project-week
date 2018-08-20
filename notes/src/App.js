@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
 import NotesView from './components/NotesView';
+import AddNote from './components/AddNote';
 import './App.css';
 
 export default class App extends Component {
@@ -38,6 +39,7 @@ export default class App extends Component {
         </div>
         <div className="notesbody">
           <Route exact path="/" render={props => <NotesView {...props} notes={this.state.notes}/>}/>
+          <Route path="/add-note" render={props => <AddNote {...props} notes={this.state.notes}/>}/>
         </div>
       </div>
     );
