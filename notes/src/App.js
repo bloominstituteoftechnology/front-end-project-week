@@ -13,7 +13,7 @@ class App extends Component {
       <div>
         <h3>Welcome to Lambda Notes</h3>
         <Route exact path="/" render={props => (
-          <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} />
+          <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} fetchingNotes={this.props.fetchingNotes} />
         )} />
         <Route path="/notes/add" render={props => (
           <NoteForm {...props} addNote={this.props.addNote} />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { fetchNote, deleteNote, updateNote } from '../actions';
 import Note from './Note';
 import EditNote from './EditNote';
@@ -17,7 +17,13 @@ class SingleNote extends Component {
     }
 
     toggleUpdate = () => {
-        this.setState({updateActive: true});
+        this.setState((prevState) => { 
+            return {updateActive: !prevState.updateActive}
+        });
+    }
+
+    deleteNote = () => {
+        this.props.deleteNote(this.props.match.params.id, this.props.history)
     }
 
     render() {
@@ -28,11 +34,12 @@ class SingleNote extends Component {
             <div>
                 <Note title={this.props.note.title} content={this.props.note.textBody} />
                 <button onClick={this.toggleUpdate}>Update</button>
-                <button onClick={() => this.props.deleteNote(this.props.match.params.id)}>X</button>
+                <button onClick={this.deleteNote}>X</button>
                 {this.state.updateActive !== false
-                    ? <EditNote updateNote={this.props.updateNote} id={this.props.match.params.id} />
+                    ? <EditNote onCancel={this.toggleUpdate} title={this.props.note.title} content={this.props.note.textBody} updateNote={this.props.updateNote} id={this.props.match.params.id} />
                     : null
                 }
+                <Link to="/">Back</Link>
             </div>
         )
     }

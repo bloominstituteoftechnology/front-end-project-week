@@ -43,8 +43,7 @@ export const notesReducer = (state = initialState, action) => {
         case actionTypes.SAVED_NOTES:
             return {
                 ...state,
-                savingNotes: false,
-                notes: action.payload
+                savingNotes: false
             }
         case actionTypes.UPDATING_NOTES:
             return {
@@ -55,7 +54,7 @@ export const notesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 updatingNote: false,
-                notes: action.payload
+                note: action.payload
             }
         case actionTypes.DELETING_NOTES:
             return {
@@ -65,8 +64,7 @@ export const notesReducer = (state = initialState, action) => {
         case actionTypes.DELETED_NOTES:
             return {
                 ...state,
-                deletingNote: false,
-                notes: action.payload
+                deletingNote: false
             }
         case actionTypes.ERROR:
             return {

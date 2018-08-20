@@ -40,7 +40,7 @@ export const fetchNote = noteId => {
     }
 }
 
-export const addNote = note => {
+export const addNote = (note, history) => {
     return dispatch => {
         dispatch({ type: SAVING_NOTES });
         axios.post('https://killer-notes.herokuapp.com/note/create', {
@@ -50,18 +50,24 @@ export const addNote = note => {
             .then(res => {
                 dispatch({ type: SAVED_NOTES, payload: res.data })
             })
+            .then(res => {
+                history.push('/');
+            })
             .catch(err => {
                 dispatch({ type: ERROR, payload: err })
             })
     }
 }
 
-export const deleteNote = NoteId => {
+export const deleteNote = (NoteId, history) => {
     return dispatch => {
         dispatch({ type: DELETING_NOTES });
         axios.delete(`https://killer-notes.herokuapp.com/note/delete/${NoteId}`)
             .then(res => {
-                dispatch({ type: DELETED_NOTES, payload: res.data })
+                dispatch({ type: DELETED_NOTES })
+            })
+            .then(res => {
+                history.push('/');
             })
             .catch(err => {
                 dispatch({ TYPE: ERROR, payload: err });

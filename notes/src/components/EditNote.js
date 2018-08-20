@@ -4,8 +4,8 @@ class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            content: ''
+            title: this.props.title,
+            content: this.props.content
         }
     }
 
@@ -21,10 +21,6 @@ class EditNote extends Component {
             content: this.state.content
         }
         this.props.updateNote(updatedNote);
-        this.setState({
-            title: '',
-            content: ''
-        })
     }
 
     render() {
@@ -33,6 +29,7 @@ class EditNote extends Component {
                 <input type="text" name="title" onChange={this.handleChange} value={this.state.title} required></input>
                 <textarea name="content" onChange={this.handleChange} value={this.state.content} required></textarea>
                 <button>Update!</button>
+                <button onClick={this.props.onCancel}>Cancel</button>
             </form>
         )
     }

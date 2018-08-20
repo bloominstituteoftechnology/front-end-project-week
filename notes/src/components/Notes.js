@@ -9,6 +9,9 @@ class Notes extends Component {
     }
 
     render() {
+        if (this.props.fetchingNotes){
+            return (<div></div>)
+        }
         return (
         <div>
             {this.props.notes.map(note => {
