@@ -71,7 +71,8 @@ class App extends Component {
     let newArr = this.state.notes.slice();
     newArr.push(newNote)
     this.setState({
-      notes: newArr
+      notes: newArr,
+      count: 0,
     })
   }
 
@@ -92,6 +93,14 @@ class App extends Component {
     })
   }
 
+  deleteNote = (id) => {
+    let newArr = this.state.notes.slice().filter(note => note.id !== id);
+    this.setState({
+      notes: newArr,
+      deleteEnabled: false,
+    })
+  }
+
   render() {
     return (
 
@@ -105,7 +114,7 @@ class App extends Component {
 
           <div className="right-display">
 
-            <Route exact path="/all-notes"  render={ () => {
+            <Route exact path="/all-notes/"  render={ () => {
                 return (<AllNotes notes={this.state.notes} />)
               }}></Route>
 
@@ -128,7 +137,7 @@ class App extends Component {
             <Route  path="/all-notes/:noteId/delete" render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
                 return (<div>
-                    <DeleteNote disableDelete={this.disableDelete} note={single} />
+                    <DeleteNote deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={single} />
                     {/* <NoteDetails note={single} /> */}
                   </div>)
               }}></Route>

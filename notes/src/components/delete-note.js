@@ -30,14 +30,20 @@ export default class DeleteNote extends Component {
     }
   }
 
+  deleteHandler = (e) => {
+    this.props.deleteNote(this.state.note.id);
+  }
+
   render() {
     console.log(this)
     return (
       <DeleteNoteDiv>
         <h4>Are you sure you want to delete this?</h4>
         <div className='delete-buttons'>
-          <Link onClick={() => this.props.disableDelete()}  to="/all-notes">Delete</Link>
-          <Link onClick={() => this.props.disableDelete()}  to={`/all-notes/${this.state.note.id}`}>No</Link>
+          <Link
+            to="/all-notes/" onClick={this.deleteHandler}>Delete</Link>
+          <Link
+            onClick={() => this.props.disableDelete()}  to={`/all-notes/${this.state.note.id}`}>No</Link>
         </div>
       </DeleteNoteDiv>
     );
