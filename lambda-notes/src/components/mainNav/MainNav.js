@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "../../css_styles/mainNav.css";
+
 export const MainNav = props => {
   return (
     <div className="mainNavDiv">

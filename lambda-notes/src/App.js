@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { MainNav } from "./components/mainNav/MainNav";
 
-import "./css_styles/App.css";
+import "./css_styles/app.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>

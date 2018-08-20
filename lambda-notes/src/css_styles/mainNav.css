@@ -1,0 +1,16 @@
+.mainNavDiv {
+  text-align: start;
+  padding: 1rem;
+  background: teal;
+  color: white;
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.mainNavButtonsDiv button {
+  margin-bottom: 1rem;
+}
