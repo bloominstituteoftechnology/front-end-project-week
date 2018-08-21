@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 const NoteCard = styled.div`
 display: flex; 
@@ -39,7 +39,7 @@ const Note = props => {
           return(
         <div key={item.id}>
           <Card>
-            <Title><H2>{item.title}</H2></Title>
+          <Link to='/view'><Title><H2>{item.title}</H2></Title></Link>
             <Content><P>{item.content}</P></Content>
           </Card>
         </div>

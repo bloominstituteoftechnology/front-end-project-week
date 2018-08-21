@@ -8,6 +8,7 @@ import {notes} from './components/Notes';
 import EditView from './components/EditView';
 import SingleNote from './components/SingleNote';
 
+
 let id = 10;
 
 class App extends Component {
@@ -48,16 +49,9 @@ class App extends Component {
        <Route exact path="/new" render={props => <NewNote {...props}title={this.state.title}
        content={this.state.content}handleChange={this.handleChange}addNote={this.addNote} />}/>
 
-           <Route
-            exact
-            path="/view-note/:id"
-            render={props => <SingleNote {...props} notes={this.state.notes} />}
-          />
-          <Route
-            exact
-            path="/view-note/edit/:id"
-            render={props => <EditView {...props} notes={this.state.notes} />}
-          />
+       <Route exact path="/view" render={props => <SingleNote {...props} notes={this.state.notes} />}/>
+       
+       <Route exactpath="/view/edit" render={props => <EditView {...props} notes={this.state.notes} />} />
       </div>
     );
   }
