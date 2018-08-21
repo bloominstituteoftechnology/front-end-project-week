@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { SecondaryHeading } from '../styles';
+import { SecondaryHeading, Button } from '../styles';
 
 const NoteContainer = styled.div`
-  max-width: 75%;
+  max-width: 85rem;
 `;
 
 const TopBar = styled.div`
@@ -39,24 +39,101 @@ const ButtonLink = styled.button`
   background-color: transparent;
 `;
 
-const NoteView = ({ note: { id, title, textBody }, onDelete, history }) => {
-  return (
-    <NoteContainer>
-      <TopBar>
-        <NoteHeading>{title}</NoteHeading>
-        <StyledLink to={`/notes/${id}/edit`}>edit</StyledLink>
-        <ButtonLink
-          onClick={() => {
-            onDelete(id);
-            history.push('/');
-          }}
-        >
-          delete
-        </ButtonLink>
-      </TopBar>
-      <TextContent>{textBody}</TextContent>
-    </NoteContainer>
-  );
-};
+const ModalContainer = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Modal = styled.div`
+  text-align: center;
+  padding: 4rem 5rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+`;
+
+const ModalText = styled.p`
+  margin-bottom: 2rem;
+  line-height: 1.2;
+`;
+
+const DangerButton = Button.extend`
+  background-color: #f44336;
+
+  &:not(:last-child) {
+    margin: 0 1rem 0 0;
+  }
+
+  &:hover {
+    background-color: #d32f2f;
+  }
+`;
+
+const InfoButton = Button.extend`
+  background-color: #00bcd4;
+  margin: 0;
+
+  &:hover {
+    background-color: #0288d1;
+  }
+`;
+
+class NoteView extends React.Component {
+  state = {
+    showModal: false,
+  };
+
+  render() {
+    const {
+      note: { id, title, textBody },
+      onDelete,
+      history,
+    } = this.props;
+    return (
+      <NoteContainer>
+        <TopBar>
+          <NoteHeading>{title}</NoteHeading>
+          <StyledLink to={`/notes/${id}/edit`}>edit</StyledLink>
+          <ButtonLink
+            onClick={() => {
+              this.setState({ showModal: true });
+            }}
+          >
+            delete
+          </ButtonLink>
+        </TopBar>
+        <TextContent>{textBody}</TextContent>
+        {this.state.showModal && (
+          <ModalContainer>
+            <Modal>
+              <ModalText>
+                Are you sure you want to delete?
+                <br /> This action is irreversible
+              </ModalText>
+              <div>
+                <DangerButton
+                  onClick={() => {
+                    onDelete(id);
+                    history.push('/');
+                  }}
+                >
+                  Delete
+                </DangerButton>
+                <InfoButton onClick={() => this.setState({ showModal: false })}>
+                  Cancel
+                </InfoButton>
+              </div>
+            </Modal>
+          </ModalContainer>
+        )}
+      </NoteContainer>
+    );
+  }
+}
 
 export default NoteView;
