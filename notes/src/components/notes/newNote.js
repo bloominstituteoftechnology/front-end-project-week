@@ -11,7 +11,7 @@ const CreateNoteHeading=styled.h2`
 text-align: left;
 color:#424242
 margin-left: 5%;
-margin-top: 85px;
+margin-top: 70px;
 `
 const CreateNoteForm=styled.div`
 width: 92.5%;

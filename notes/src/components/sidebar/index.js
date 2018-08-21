@@ -9,12 +9,11 @@ justify-content: flex-start;
 text-align: left;
 background-color: #c6c6c6;
 min-height: 100vh;
-h1{
+`
+const SideBarHeading=styled.h1`
     color:#424242;
     font-weight: Bold;
-    font-size: 40px;
     margin-left: 10%;
-}
 `
 const ViewButton=styled.div`
 width: 80%;
@@ -38,9 +37,6 @@ align-items: center;
 justify-content: center;
 `
 class SideBar extends React.Component{
-    constructor(props) {
-        super(props);
-    }
     viewNotes=()=>{
         this.props.history.push('/notes')
     }
@@ -50,7 +46,7 @@ class SideBar extends React.Component{
     render() {
     return(
         <SideBaR>
-        <h1>Lambda<br/>Notes</h1>
+        <SideBarHeading>Lambda<br/>Notes</SideBarHeading>
         <ViewButton onClick={this.viewNotes}>View Your Notes</ViewButton>
         <CreateButton onClick={this.createNewNote}>+ Create New Note</CreateButton>
         </SideBaR>

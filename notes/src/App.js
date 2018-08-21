@@ -10,7 +10,9 @@ import './App.css';
 class App extends Component {
   
   componentDidMount(){
-    this.props.match.url==='/'?this.props.history.push('/notes'):null;
+    if (this.props.match.url==='/'){
+      this.props.history.push('/notes');
+    } 
   }
   
   render() {
