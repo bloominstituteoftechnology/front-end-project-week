@@ -41,10 +41,18 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
+  deleteNoteHandler = (id) => {
+    let dummyNotes = this.state.notes;
+    const selectedNote = dummyNotes.find(note => note.id.toString() === id);
+    const index = dummyNotes.indexOf(selectedNote);
+    dummyNotes.splice(index, 1);
+    this.setState({ notes: dummyNotes })
+  }
+
   addNewNoteHandler = (props) => {
     // event.preventDefault();
     console.log(this.props.match);
-    let dummyNotes = this.state.notes;
+    const dummyNotes = this.state.notes;
     const myNewNote = {
       id: this.state.number,
       title: this.state.newTitle,
@@ -62,7 +70,7 @@ class App extends Component {
           this.state.notes.length === 0 ? <h1>Add a note!</h1>
           : <Notes notes={this.state.notes} />
         } />
-        <Route path='/notes/:id' render={(props) => <NotePage {...props} notes={this.state.notes} title={this.state.newTitle} note={this.state.newNote} />} />
+        <Route path='/notes/:id' render={(props) => <NotePage {...props} notes={this.state.notes} delete={this.deleteNoteHandler} title={this.state.newTitle} note={this.state.newNote} />} />
         <Route path='/new-note' render={(props) => <NewNote {...props} addNote={this.addNewNoteHandler} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} />} />
       </div>
     );
