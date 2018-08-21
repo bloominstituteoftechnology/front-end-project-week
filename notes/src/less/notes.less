@@ -1,18 +1,29 @@
 .notes {
   display: flex;
   flex-wrap: wrap;
+
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .note {
-  margin: 30px 10px 0;
-  width: 250px;
+  margin: 30px 5px 0;
+  width: 225px;
 }
 
 .card {
   border-radius: 2px;
   border-width: 2px;
   text-align: left;
-  height: 275px;
+  height: 235px;
+  transition-duration: 400ms;
+
+  &:hover {
+    background: lighten(black, 35%);
+    color: white;
+  }
 }
 
 .single-note-card {
@@ -25,6 +36,7 @@
   
   a {
     float: right;
-    margin-left: 10px; 
+    margin-left: 10px;
+    text-decoration: underline;
   }
 }

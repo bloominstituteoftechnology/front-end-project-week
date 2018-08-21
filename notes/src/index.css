@@ -1,12 +1,18 @@
 * {
   box-sizing: border-box;
 }
+html,
+body,
+#root {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
-h5 {
+h5,
+h2 {
   font-weight: bold;
 }
 a {
@@ -19,34 +25,46 @@ textarea {
 hr {
   border: 1px solid lightgray;
 }
-button {
+.btn {
   width: 200px;
-  border: 1px solid gray;
+  height: 50px;
+  border: 1px solid black;
   border-radius: 0px !important;
+  font-weight: bold;
 }
 .App {
   text-align: center;
   display: flex;
+  height: 100%;
 }
 .main-content {
   display: flex;
   width: 75%;
-  padding: 3vh;
+  padding: 50px 15px;
   text-align: left;
 }
 .notes {
   display: flex;
   flex-wrap: wrap;
 }
+.notes a:hover {
+  text-decoration: none;
+  color: black;
+}
 .note {
-  margin: 30px 10px 0;
-  width: 250px;
+  margin: 30px 5px 0;
+  width: 225px;
 }
 .card {
   border-radius: 2px;
   border-width: 2px;
   text-align: left;
-  height: 275px;
+  height: 235px;
+  transition-duration: 400ms;
+}
+.card:hover {
+  background: #595959;
+  color: white;
 }
 .single-note-card {
   width: 100%;
@@ -58,18 +76,22 @@ button {
 .single-note-card a {
   float: right;
   margin-left: 10px;
+  text-decoration: underline;
 }
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  height: 100vh;
+  max-width: 300px;
+  min-width: 220px;
+  min-height: 100%;
   background: lightgray;
   border-right: 1px solid gray;
   padding: 20px 5px;
 }
 .sidebar h1 {
   font-weight: bold;
+  text-align: left;
+  margin: 0 10px;
 }
 .sidebar button {
   margin: 20px 5px 10px;
@@ -99,6 +121,9 @@ button {
 .modal {
   top: 200px;
 }
+.modal .modal-dialog {
+  max-width: 600px;
+}
 .modal .modal-content {
   text-align: center;
   display: flex;
@@ -106,9 +131,12 @@ button {
   border-radius: 0;
   padding: 15px 0 25px;
 }
+.modal .modal-content .modal-body {
+  margin-top: 10px;
+}
 .modal .modal-content .row {
   margin: 0 auto;
 }
 .modal .modal-content button {
-  margin: 5px 10px 20px;
+  margin: 20px 10px;
 }

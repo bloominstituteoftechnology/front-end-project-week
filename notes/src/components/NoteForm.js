@@ -20,6 +20,7 @@ const NoteForm = props => (
         placeholder="Note Content"
         onChange={props.onChange}
         value={props.text}
+        pattern="^[\s\S]{1,}$"
       />
     </FormGroup>
     <Button color="info">{props.formText}</Button>
