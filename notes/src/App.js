@@ -9,7 +9,21 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
+      notes: [{
+        id: 1,
+        title: "Note Title",
+        note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis1"
+      },
+      {
+        id: 2,
+        title: "Note Title",
+        note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis2"
+      },
+      {
+        id: 3,
+        title: "Note Title",
+        note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis3"
+      }],
       id: null,
       title: "",
       note: ""
@@ -22,18 +36,22 @@ export default class App extends Component {
 
   onSaveHandler = e => {
     e.preventDefault();
-    const newNote = this.state.notes.slice();
-    newNote.push({
+    const notes = this.state.notes.slice();
+    notes.push({
       id: this.state.id,
       title: this.state.title,
       note: this.state.note
     });
-    this.setState({ notes: newNote, id: null, title: "", note: "" });
+    console.log("notes copy", notes)
+    console.log("App State", this.state)
+    this.setState({notes: notes});
+    console.log("App State after", this.state)
   };
 
   render() {
-    console.log("App State", this.state);
+   
     return (
+      
       <div className="app">
         <div className="navbar">
           <div className="navbar-title">Lambda Notes</div>
@@ -45,21 +63,25 @@ export default class App extends Component {
           </NavLink>
         </div>
         <div className="notesbody">
+        
+        <Route
+            exact
+            path="/"
+            render={props => 
+              <NotesView 
+                {...props} 
+                notes={this.state.notes} />}
+          />
+      
           <Route
             path="/add-note"
-            render={props => (
+            render={props => 
               <AddNote
                 {...props}
                 inputHandler={this.inputHandler}
                 onSaveHandler={this.onSaveHandler}
               />
-            )}
-          />
-
-          <Route
-            exact
-            path="/"
-            render={props => <NotesView {...props} notes={this.state.notes} />}
+            }
           />
         </div>
       </div>

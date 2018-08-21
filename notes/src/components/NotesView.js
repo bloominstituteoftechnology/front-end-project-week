@@ -13,6 +13,7 @@ export default class NotesView extends Component {
 
   
   render() {
+      
     return (
       <div className="notesview">
         <div className="notesview-title">Your Notes:</div>
