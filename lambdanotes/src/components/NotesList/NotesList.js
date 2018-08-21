@@ -13,26 +13,27 @@ export default class NotesList extends Component {
 
   componentDidMount = () => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
-      .then(res => 
+      .get(`http://localhost:8000/api/notes/`)
+      .then(res => {
+        //console.log(res.data)
         this.setState({
-          notes: res.data
+          notes: res.data.notes
         })
-      )
+      })
   }
 
   render() {
     return (
       <div className="noteList-container">
-        <h3 class="header noteList-header">Your Notes:</h3>
+        <h3 className="header noteList-header">Your Notes:</h3>
         {this.state.notes.map(note =>
-          <div className="float-left mr-3 notes">
-          <Link to={`/note/${note._id}`} style={{ textDecoration: 'none' }}>
-            <div className="card border-secondary mb-3 note" key={note._id}>
+          <div className="float-left mr-3 notes" key={note.id}>
+          <Link to={`/note/${note.id}`} style={{ textDecoration: 'none' }}>
+            <div className="card border-secondary mb-3 note"> 
               <div className="card-body ">
                 <h5 className="card-title py-0">{note.title}</h5>
                 <hr className="line" />
-                <p className="card-text secondary">{note.textBody}</p>
+                <p className="card-text secondary">{note.message}</p>
               </div>
             </div>
           </Link>

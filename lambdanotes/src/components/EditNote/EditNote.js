@@ -13,19 +13,19 @@ export default class CreateNote extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+      .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`)
       .then(res => this.setState({ 
-        title: res.data.title,
-        message: res.data.textBody
+        title: res.data[0].title,
+        message: res.data[0].message
       }))
   }
 
   handleUpdate = (id) => {
     const URL = 'http://localhost:3000/'
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+      .put(`http://localhost:8000/api/notes/${id}`, {
         title: this.state.title,
-        textBody: this.state.message
+        message: this.state.message
       })
       .then(() => window.location.href = URL)
       //.then(response => console.log(response))

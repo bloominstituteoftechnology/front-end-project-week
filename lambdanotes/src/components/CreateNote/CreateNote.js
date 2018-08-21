@@ -14,9 +14,9 @@ export default class CreateNote extends Component {
   handleSubmit = () => {
     const URL = 'http://localhost:3000/'
     axios
-      .post(`https://killer-notes.herokuapp.com/note/create`, {
+      .post(`http://localhost:8000/api/notes`, {
         title: this.state.title,
-        textBody: this.state.message
+        message: this.state.message
       })
       //.then(response => console.log(response))
       .then(response => window.location.href = URL)

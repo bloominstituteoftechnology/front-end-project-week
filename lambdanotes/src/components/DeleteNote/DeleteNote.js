@@ -10,7 +10,7 @@ export default class DeleteNote extends Component {
   handleDelete = id => {
     const URL = 'http://localhost:3000/'
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:8000/api/notes/${id}`)
       .then(response => window.location.href = URL)
       .catch(error => console.log(error))
   }
@@ -18,7 +18,7 @@ export default class DeleteNote extends Component {
   render() {
     console.log('this.props', this.props)
     return (
-      <div className="modal fade container" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade container" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-body text-center">
