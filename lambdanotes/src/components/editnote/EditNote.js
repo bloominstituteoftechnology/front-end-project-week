@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class EditNote extends React.Component {
   constructor(props){
@@ -29,6 +30,16 @@ class EditNote extends React.Component {
   }
   onUpdateClick = (e) => {
     this.props.editNote(this.state.notes);
+    axios.put(`http://localhost:8000/api/notes/${this.state.notes[this.props.match.params.id].id}`, {
+      "title": this.state.notes[this.props.match.params.id].title,
+      "content": this.state.notes[this.props.match.params.id].content
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
   componentWillMount(){
     this.setState({
@@ -44,7 +55,7 @@ class EditNote extends React.Component {
         </h2>
         <form className="newnote-container">
           <input type="text" className="title-input" name="title" value={this.state.notes[this.props.match.params.id].title} onChange={this.onFormChange}></input>
-          <textarea rows="20" cols="50" className="body-input" name="body" value={this.state.notes[this.props.match.params.id].body} onChange={this.onFormChange}></textarea>
+          <textarea rows="20" cols="50" className="body-input" name="content" value={this.state.notes[this.props.match.params.id].content} onChange={this.onFormChange}></textarea>
           <Link to={"/"} style={{ textDecoration: 'none' }}>
             <button className="save-button" onClick={this.onUpdateClick}>Update</button>
           </Link>

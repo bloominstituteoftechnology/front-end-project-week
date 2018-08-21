@@ -26,7 +26,7 @@ class ViewNote extends React.Component {
           {this.props.notes[this.props.match.params.id].title}
         </h2>
         <div className="single-note">
-          {this.props.notes[this.props.match.params.id].body}
+          {this.props.notes[this.props.match.params.id].content}
         </div>
       </div>
     )

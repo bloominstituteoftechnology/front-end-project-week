@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import "./NewNote.css"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 class NewNote extends Component {
 constructor(){
   super();
   this.state = {
     title: "",
-    body: "",
-    id: 2,
+    content: "",
   }
   this.onFormChange = this.onFormChange.bind(this);
 }
@@ -16,8 +17,17 @@ this.setState({[event.target.name]: event.target.value})
 }
 onSaveClick = (e) => {
   this.props.addNote(this.state);
-  this.setState({id: this.state.id + 1});
-
+  // this.setState({id: this.state.id + 1});
+  axios.post('http://localhost:8000/api/notes', {
+    "title": this.state.title,
+    "content": this.state.content
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 }
 
   render() {
@@ -28,7 +38,7 @@ onSaveClick = (e) => {
         </h2>
         <form className="newnote-container">
           <input type="text" placeholder="Note Title" className="title-input" name="title" onChange={this.onFormChange}></input>
-          <textarea rows="20" cols="50" className="body-input" placeholder="Note Content" name="body" onChange={this.onFormChange}></textarea>
+          <textarea rows="20" cols="50" className="body-input" placeholder="Note Content" name="content" onChange={this.onFormChange}></textarea>
           <Link to={"/"} style={{ textDecoration: 'none' }}>
             <button className="save-button" onClick={this.onSaveClick}>Save</button>
           </Link>
