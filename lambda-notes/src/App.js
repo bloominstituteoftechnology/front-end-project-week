@@ -77,7 +77,21 @@ class App extends Component {
 
   submitNewNoteHandler = event => {
     event.preventDefault();
+    let newNotesArray = this.state.notes.slice();
+    // gets last item in note array
+    let lastIndex = this.state.notes.slice(-1)[0];
+    // get id from item and add 1 for new id
+    lastIndex = lastIndex.id + 1;
+    console.log(lastIndex, "LastIndex");
+    let newNote = {
+      id: lastIndex,
+      title: this.state.noteTitle,
+      description: this.state.noteDescription
+    };
+    newNotesArray.push(newNote);
+    console.log("NewNote", newNotesArray);
     console.log("Working Submit Handler");
+    this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
   };
 
   render() {
