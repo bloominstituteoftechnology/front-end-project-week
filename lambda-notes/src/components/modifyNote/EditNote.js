@@ -6,7 +6,7 @@ export const EditNote = props => {
   return (
     <div className="editNoteDiv">
       <h1>Edit Note:</h1>
-      <form>
+      <form onSubmit={props.modifyNoteHandler}>
         <input
           placeholder="Note Title"
           onChange={props.inputChangeHandler}

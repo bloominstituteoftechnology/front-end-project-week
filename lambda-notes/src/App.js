@@ -97,7 +97,12 @@ class App extends Component {
     // this.props.history.push("/");
   };
 
-  modifyNoteHandler = event => {};
+  modifyNoteHandler = event => {
+    event.preventDefault();
+    let newNotesArray = this.state.notes.slice();
+    let newModifiedArray = newNotesArray[1].title;
+    console.log("Modififed Note", newModifiedArray);
+  };
 
   render() {
     console.log("noteTitle", this.state.noteTitle);
@@ -137,6 +142,7 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               inputChangeHandler={this.inputChangeHandler}
+              modifyNoteHandler={this.modifyNoteHandler}
             />
           )}
         />
