@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+
 import DeleteNote from './DeleteNote'
 import './ViewCard.css'
+
+const URL = 'http://localhost:8000/api/notes';
 class ViewCard extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +20,7 @@ class ViewCard extends Component {
         this.fetchNote(id);
     }
 
-    componentWillReceiveProps(newProps) {
+    componentDidUpdate(newProps) {
         if (this.props.match.params.id !== newProps.match.params.id) {
             this.fetchNote(newProps.match.params.id);
         }
@@ -27,14 +31,12 @@ class ViewCard extends Component {
     }
 
     fetchNote = id => {
-        let newNote = null;
-        for (let i = 0; i < this.props.notes.length; i++) {
-            if (this.props.notes[i].id === parseInt(id, 10)) {
-                newNote = this.props.notes[i];
-            }
-        }
-        return this.setState({ note: newNote })
+        axios
+            .get(`${URL}/${id}`)
+            .then(response => this.setState({ note: response.data[0] }))
+            .catch(err => console.log(err))
     }
+
     onClose = () => {
         this.setState({ delete: false })
     }
