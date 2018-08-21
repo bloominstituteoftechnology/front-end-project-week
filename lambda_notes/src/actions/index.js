@@ -3,8 +3,11 @@ import axios from 'axios';
 //Declare action type const
 import * as types from './types';
 
+console.log(process.env.REACT_APP_API);
+
 export const fetchNotes = () => {
-    const request = axios.get('http://localhost:8000/api/notes')
+    const request = axios.get(`${process.env.REACT_APP_API}/api/notes` || 'http://localhost:8000/api/notes')
+    console.log(request)
     return (dispatch) => {
         dispatch({type: types.FETCHING_NOTES})
         request.then(response => dispatch({
@@ -23,7 +26,7 @@ export const fetchNotes = () => {
 
 export const fetchSingleNote = (id) => {
     return (dispatch) => {
-        axios.get(`http://localhost:8000/api/notes/${id}`)
+        axios.get(`${process.env.REACT_APP_API}/api/notes/${id}` || `http://localhost:8000/api/notes/${id}`)
         .then(response => dispatch({
             type: types.FETCH_SINGLE_NOTE,
             payload: response.data
@@ -36,11 +39,11 @@ export const fetchSingleNote = (id) => {
 }
 
 export const deleteNote = (id) => {
-    const request = axios.delete(`http://localhost:8000/api/notes/${id}`)
+    const request = axios.delete(`${process.env.REACT_APP_API}/api/notes/${id}` || `http://localhost:8000/api/notes/${id}`)
     return (dispatch) => {        
         request.then(res => {
             if (res) {
-                axios.get('http://localhost:8000/api/notes')
+                axios.get(`${process.env.REACT_APP_API}/api/notes` || 'http://localhost:8000/api/notes')
                 .then(res2 => dispatch({
                     type: types.DELETE_NOTE,
                     payload: res2.data
@@ -60,11 +63,11 @@ export const deleteNote = (id) => {
 }
 
 export const addNote = (note) => {
-    const request = axios.post('http://localhost:8000/api/notes', note)
+    const request = axios.post(`${process.env.REACT_APP_API}/api/notes` || 'http://localhost:8000/api/notes', note)
     return (dispatch) => {
         request.then(res => {
             if (res) {
-                axios.get('http://localhost:8000/api/notes')
+                axios.get(`${process.env.REACT_APP_API}/api/notes` || 'http://localhost:8000/api/notes')
                 .then(res2 => dispatch({
                     type: types.ADD_NOTE,
                     payload: res2.data
@@ -83,7 +86,7 @@ export const addNote = (note) => {
 }
 
 export const updateNote = (id, note) => {
-    const request = axios.put(`http://localhost:8000/api/notes/${id}`, note)
+    const request = axios.put(`${process.env.REACT_APP_API}/api/notes/${id}` || `http://localhost:8000/api/notes/${id}`, note)
     return (dispatch) => {
         request.then(res => dispatch({
             type: types.UPDATE_NOTE,
