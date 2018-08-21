@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import './NewNotePage.css'; 
 import {NavLink} from 'react-router-dom'; 
 
-class NewNotePage extends Component{
-    render(){
+const NewNotePage = props =>{
         return(
             <div className="new-note">
             <h1>Create New Note</h1>
@@ -12,18 +11,29 @@ class NewNotePage extends Component{
                 placeholder="Title"
                 type="text"
                 className="title-input"
+                onChange={props.handleInputChange}
+                value={props.value.title}
+                />
+                  <input
+                placeholder="Card Content"
+                type="text"
+                className="title-input"
+                onChange={props.handleInputChange}
+                value={props.value.cardcontent}
                 />
                 <input 
                 placeholder="Content"
                 type="text"
                 className="content-input"
+                onChange={props.handleInputChange}
+                value={props.value.content}
                 />
-                <NavLink className="nav-btn"to='/'>
+                <NavLink onClick={props.handleAddNote} className="nav-btn"to='/'>
                 Add New Note
                 </NavLink>
             </div>
             </div>
         )
     }
-}
+
 export default NewNotePage; 

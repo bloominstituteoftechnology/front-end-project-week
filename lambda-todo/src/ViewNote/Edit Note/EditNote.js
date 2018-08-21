@@ -1,5 +1,6 @@
 import React from 'react'; 
 import {NavLink} from 'react-router-dom'; 
+import './EditNote.css'; 
 
 const EditNote = props =>{
     const note = props.notes.find(note => `${note.id}` === props.match.params.id);
@@ -14,7 +15,6 @@ const EditNote = props =>{
             placeholder="Title"
             type="text"
             className="title-input"
-            value={note.title}
             />
             <input 
             placeholder="Content"

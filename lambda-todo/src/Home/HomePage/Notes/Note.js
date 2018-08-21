@@ -7,7 +7,7 @@ const Note = props => {
     <div className="note-card">
       {props.note.map(item => {
         return (
-          <div key={item.id}>
+          <div key={item.title}>
             <div className="card">
               <NavLink to={`/view-note/${item.id}`} className="title">
                 <h2>{item.title}</h2>

@@ -13,8 +13,23 @@ class App extends Component {
     super();
     this.state = {
       notes: Notes, 
-      deleting: false
+      deleting: false, 
+      title: '', 
+      content: '', 
     };
+  }
+  addNote = event =>{
+    event.preventDefault(); 
+    const notes = this.state.notes.slice();
+    notes.push(
+    {
+      title: this.state.title, 
+      content: this.state.content, 
+    }); 
+    this.setState({notes, title: '', content: ''})
+  }
+  inputChange= e =>{
+    this.setState({[e.target.name]: e.target.value })
   }
 
   deleteBox = () => {
@@ -39,7 +54,14 @@ class App extends Component {
           <Route exact path="/" render={props => <NotesHolder {...props}  notes={this.state.notes} />} />
           <Route
             path="/create-new"
-            render={props => <NewNotePage {...props} />}
+            render={props => 
+            <NewNotePage 
+            {...props} 
+            notes={this.state.notes} 
+            handleInputChange={this.inputChange}
+            handleAddNote={this.addNote}
+            value={this.state.notes}
+            />}
           />
            <Route
             exact
