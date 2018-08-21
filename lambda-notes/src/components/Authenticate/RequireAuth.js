@@ -7,10 +7,11 @@ import { checkToken } from '../../actions/auth';
 const RequireAuth = ComposedComponent =>
     class extends React.Component {
         componentDidMount() {
-            if (!this.props.authenticated) {
+            const token = localStorage.getItem('token');
+
+            if (!this.props.authenticated && !token) {
                 return this.props.history.push('/login');
             }
-            const token = localStorage.getItem('token');
             if (!token) {
                 return this.props.history.push('/login');
             }
