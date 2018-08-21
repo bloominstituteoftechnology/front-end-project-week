@@ -114,12 +114,11 @@ class ViewNote extends React.Component {
 /*Sends a put request to the server to edit the tag array*/
   handleTagEdit = id => {
     console.log("hte tags", this.state.tags); //tags will be inactive with current methods
-    const newTags = {tags: this.state.tags}
-    newTags.tags.push(this.state.tag);
-    axios.put(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`, newTags)
+    const newTag = {text: this.state.tag, note_id: id}
+    axios.post(`https://nameless-harbor-91626.herokuapp.com/create-tag`, newTag)
     .then(response => {
       console.log("axios response", response.data);
-      this.setState({tags: response.data.tags, tag:''})
+      this.setState({tags: response.data, tag:''})
     })
     .catch(err => {
       console.log("Tag Edit Error", err);
@@ -141,11 +140,10 @@ class ViewNote extends React.Component {
   deleteTag = (event) => {
     let newArray = this.state.tags.slice();
     newArray.splice(event.target.getAttribute('index'), 1);
-    const newArrayObject = {tags: newArray}
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, newArrayObject)
+    axios.delete(`https://nameless-harbor-91626.herokuapp.com/delete-tag/${this.props.id}`)
     .then(response => {
-      console.log("delete edit response", response.data);
-      this.setState({tags: response.data.tags})
+      console.log("delete response", response.data);
+      this.setState({tags: newArray});
     })
     .catch(err => {
       console.log("Tag Edit Error", err);
@@ -180,7 +178,7 @@ class ViewNote extends React.Component {
         <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : <MarkdownRenderer markdown={this.state.note.textBody} />) : "Loading..."}</p>
         <div className="tagContainer">
         {this.state.tags ? this.state.tags.map((tag, index) => {
-          return <span key={Math.random()} className="tagg">{tag.text}<span className="close" index={index} onClick={this.deleteTag}></span></span>
+          return <span key={Math.random()} className="tagg">{tag.text}<span className="close" id={tag.id} index={index} noteid={tag.note_id} onClick={this.deleteTag}></span></span>
         }) : "Loading..."}
         <form className="tagForm" onSubmit={this.handleTagSubmit}>
         <input className="mainInput" type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
