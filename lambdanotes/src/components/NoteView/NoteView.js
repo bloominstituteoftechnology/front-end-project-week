@@ -13,6 +13,10 @@ export default class NoteView extends Component {
     }
   }
 
+  componentWillMount = () => {
+    localStorage.token ? null : this.props.history.push('/login');
+  }
+
   componentDidMount() {
     axios
       .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`)
@@ -26,7 +30,7 @@ export default class NoteView extends Component {
     return (
       <div className="container">
         <div className="top-content float-right mt-0">
-          <Link to={`/edit-note/${this.props.match.params.id}`}><button type="button" class="btn btn-link text-dark underline">Edit</button></Link>
+          <Link to={`/edit-note/${this.props.match.params.id}`}><button type="button" className="btn btn-link text-dark underline">Edit</button></Link>
           <button type="button" className="btn btn-link text-dark underline" data-toggle="modal" data-target="#exampleModal">Delete</button>
           <DeleteNote id={this.props.match.params.id}/>
         </div>

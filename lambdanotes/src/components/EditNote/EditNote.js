@@ -11,6 +11,10 @@ export default class CreateNote extends Component {
     }
   }
 
+  componentWillMount = () => {
+    localStorage.token ? null : this.props.history.push('/login');
+  }
+
   componentDidMount() {
     axios
       .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`)

@@ -7,6 +7,10 @@ export default class DeleteNote extends Component {
     super(props)
   }
 
+  componentWillMount = () => {
+    localStorage.token ? null : this.props.history.push('/login');
+  }
+
   handleDelete = id => {
     const URL = 'http://localhost:3000/'
     axios

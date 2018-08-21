@@ -11,8 +11,12 @@ export default class CreateNote extends Component {
     }
   }
 
+  componentWillMount = () => {
+    localStorage.token ? null : this.props.history.push('/login');
+  }
+
   handleSubmit = () => {
-    const URL = 'http://localhost:3000/'
+    const URL = 'http://localhost:3000/';
     axios
       .post(`http://localhost:8000/api/notes`, {
         title: this.state.title,
@@ -31,7 +35,7 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <div class="form-group">
+      <div className="form-group">
         <h3 className="header mt-2">Create New Note:</h3>
         <input
           name='title'

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './index.css';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+axios.defaults.withCredentials = true;
+
 
 export default class NotesList extends Component {
   constructor(props) {
@@ -11,15 +13,26 @@ export default class NotesList extends Component {
     }
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
+    localStorage.token ? null : this.props.history.push('/login');
+  }
+  
+  componentWillMount = () => {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: {
+        Authorization: token
+      }
+    }
     axios
-      .get(`http://localhost:8000/api/notes/`)
+      .get(`http://localhost:8000/api/notes/`, requestOptions)
       .then(res => {
         //console.log(res.data)
         this.setState({
           notes: res.data.notes
         })
       })
+      .catch(err => this.props.history.push('/login'))
   }
 
   render() {
