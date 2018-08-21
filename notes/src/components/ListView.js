@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default class ListView extends Component {
   constructor() {
@@ -51,10 +52,12 @@ export default class ListView extends Component {
       <div>
         {this.state.notes.map(notes => {
           return (
-            <div key={notes.id}>
-              <div>{notes.title}</div>
-              <div>{notes.content}</div>
-            </div>
+            <Link key={notes._id} className="Notes" to={`/notes/${notes._id}`}>
+              <div key={notes.id}>
+                <div>{notes.title}</div>
+                <div>{notes.content}</div>
+              </div>
+            </Link>
           );
         })}
       </div>

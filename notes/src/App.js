@@ -4,6 +4,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import ListView from "./components/ListView";
 import CreateNote from "./components/CreateNote";
+import NoteView from "./components/NoteView";
 import Home from "./components/Home";
 import { Link, NavLink } from "react-router-dom";
 
@@ -31,6 +32,12 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/notes" component={ListView} />
         <Route exact path="/create" component={CreateNote} />
+        <Route
+          path="/notes/:id"
+          render={props => (
+            <NoteView {...props} />
+          )}
+        />
       </div>
     );
   }
