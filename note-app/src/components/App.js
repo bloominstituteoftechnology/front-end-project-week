@@ -31,7 +31,7 @@ class App extends Component {
     const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all')
     promise
     .then(response => {
-      console.log(response)
+      this.setState({notes:response.data})
     })
     .catch(error => {
       console.log(error)
@@ -65,7 +65,7 @@ class App extends Component {
 
 
   render() {
-    
+    console.log(this.state)
     return (
       <div className="App">
         <div className="heading">
