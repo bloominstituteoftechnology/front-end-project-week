@@ -1,6 +1,7 @@
 import React from 'react';
+import NavBar from './NavBar';
 import { editNote } from '../actions'; //takes in note as param
-import { connect } from 'net';
+import { connect } from 'react-redux';
 
 class EditNote extends React.Component {
     constructor(props){
@@ -17,10 +18,14 @@ class EditNote extends React.Component {
     render(){
         return(
             <div className="add-note">
-                <h3>Create New Note:</h3>
-                <form onSubmit={this.props.editNote}>
-                    <input onChange={this.handleFormInput} type="text" placeholder={`${this.props.title}`} id="title" />
-                    <input onChange={this.handleFormInput} type="text" placeholder={`${this.props.textBody}`} id="textBody" />
+                <NavBar />
+                <h3>Edit this Note:</h3>
+                <form onSubmit={(e)=>{
+                    e.preventDefault();
+                    this.props.editNote(this.state, this.props.note._id)}
+                }>
+                    <input onChange={this.handleFormInput} type="text" placeholder={`${this.props.note.title}`} id="title" />
+                    <input onChange={this.handleFormInput} type="text" placeholder={`${this.props.note.textBody}`} id="textBody" />
                     <button>Save</button>
                 </form>
 
@@ -32,7 +37,8 @@ class EditNote extends React.Component {
 const mapStateToProps= (state) => {
     return (
         {
-            editNote: state.noteReducer.editNote
+            editNote: state.noteReducer.editNote,
+            note: state.noteReducer.note
         }
     )
 }

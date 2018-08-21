@@ -1,6 +1,7 @@
 import React from 'react';
+import NavBar from '../components/NavBar';
 import { addNote } from '../actions'; //takes in note as param
-import { connect } from 'net';
+import { connect } from 'react-redux'; 
 
 class AddNote extends React.Component {
     constructor(){
@@ -17,8 +18,12 @@ class AddNote extends React.Component {
     render(){
         return(
             <div className="add-note">
+                <NavBar />
                 <h3>Create New Note:</h3>
-                <form onSubmit={this.props.addNote}>
+                <form onSubmit={(e)=>{
+                    e.preventDefault();
+                    this.props.addNote(this.state)}
+                }>
                     <input onChange={this.handleFormInput} type="text" placeholder="New Title" id="title" />
                     <input onChange={this.handleFormInput} type="text" placeholder="Note Content" id="textBody" />
                     <button>Save</button>
@@ -35,6 +40,6 @@ const mapStateToProps= (state) => {
             addNote: state.noteReducer.addNote
         }
     )
-}
+} 
 
 export default connect(mapStateToProps, { addNote })(AddNote);

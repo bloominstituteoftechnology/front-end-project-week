@@ -1,22 +1,36 @@
 import React from 'react';
-import DeleteModal from '../components/DeleteModal';
-import { Link, Route } from 'react-router-dom'; 
-import EditNote from '../components/EditNote';
+import { NavLink } from 'react-router-dom'; 
+import { connect } from 'react-redux';
+import { getNote } from '../actions';
+import NavBar from '../components/NavBar';
 
 
-const Note = (props)=> {
-    return(
-        <div className="Note">
-            <div className="edit-delete">
-                <Link to="/edit">edit</Link>
-                <Link to="/delete">delete</Link>
+ 
+class Note extends React.Component{
+    componentWillMount(){
+        this.props.getNote(this.props.match.params.id);
+    }
+    render(){
+        return(
+            <div className="Note">
+                <NavBar />
+                <div className="edit-delete">
+                    <NavLink to="/edit" params={this.props.match.params.id}>edit</NavLink>
+                    <NavLink to="/delete" params={this.props.match.params.id}>delete</NavLink>
+                </div>
+                <h2>{this.props.note.title}</h2>
+                <p>{this.props.note.textBody}</p>
             </div>
-            <h2>{props.title}</h2>
-            <p>{props.textBody}</p>
-            <Route path='/edit' render={(props)=> <EditNote {...props} /> }/>
-            <Route path='/delete' render={(props)=> <DeleteModal {...props} />} />
-        </div>
+        )
+    }
+}
+const mapStateToProps = (state) => {
+    return (
+        {
+            getNote: state.noteReducer.getNote,
+            note: state.noteReducer.note
+        }
     )
 }
 
-export default Note;
+export default connect(mapStateToProps, { getNote })(Note);

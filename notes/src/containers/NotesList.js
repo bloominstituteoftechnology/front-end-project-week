@@ -1,20 +1,23 @@
 import React from 'react';
 import NoteCard from '../components/NoteCard';
 import { getAllNotes } from '../actions';
-import { connect } from 'http2';
+import { connect } from 'react-redux';
 
-
+ 
 class NotesList extends React.Component {
-    onComponentDidMount(){
-        // this.props.getAllNotes();
+    componentDidMount(){
+        this.props.getAllNotes();
     }
     render(){
-        return(
-            <div className="NotesList">
-                <h2>Your Notes:</h2>
-                {this.props.notes.map(note=> <NoteCard key={note.id} params={note} />)}
-            </div>
-        )
+        if (this.props.notes){
+            return(
+                <div className="NotesList">
+                    <h2>Your Notes:</h2>
+                    {this.props.notes.map(note=> <NoteCard key={note._id} params={note} /> )}
+                </div>
+            )
+        } else return null;
+        
     }
 }
 
@@ -22,7 +25,7 @@ const mapStateToProps= (state)=> {
     return(
         {
             getAllNotes: state.loadReducer.getAllNotes,
-            notes: state.loadReducer.notes
+            notes: state.loadReducer.notes[0]
         }
     )
 }
