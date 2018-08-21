@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const NoteDisplay = styled.div`
@@ -10,19 +11,24 @@ const NoteDisplay = styled.div`
 
 `
 
-class Note extends Component {
+const Note = (props) => {
     
-    render() {
-
-        return ( 
+        return (
+            <Link to={`/note/${props.id}`}>
             <NoteDisplay>
-                <h1>{this.props.title}</h1>
+                <h1>{props.title}</h1>
                 <div>
-                    <p>{this.props.content}</p>
+                    <p>{props.content}</p>
                 </div>
             </NoteDisplay>
+            </Link>
          );
-    }
+    
+}
+
+Note.defaultProps = {
+    title: '',
+    content: ''
 }
  
 export default Note;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 
-const URL = 'http://localhost:5000/notes';
+const URL = 'http://localhost:5000/notes/';
 
 
 class EditNote extends Component {
@@ -15,8 +15,8 @@ class EditNote extends Component {
          }
     }
 
-    componentDidMount () {
-        const id = Number(this.props.match.params.id);
+componentDidMount () {
+    const id = Number(this.props.match.params.id);
         axios.get(URL)
         .then(response => {
             console.log(response);
@@ -41,12 +41,11 @@ class EditNote extends Component {
 
     update = (event) => {
         event.preventDefault();
-        const updatedNote ={
+        const updatedNote = {
             title: this.state.title,
             content: this.state.content
         }
-        console.log(this.state.id + 'update');
-        axios.put(`${URL}/${this.state.id}`, updatedNote)
+        axios.put(`${URL}${this.state.id}`, updatedNote)
         .then(response => {
             console.log(response);
             console.log(response.data);

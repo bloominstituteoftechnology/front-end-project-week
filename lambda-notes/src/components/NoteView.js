@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
-const URL = 'http://localhost:5000/notes';
+const URL = 'http://localhost:5000/notes/';
 
 class NoteView extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class NoteView extends Component {
         this.state = { 
             title: '',
             content: '',
-            id: 0
+            id: ''
             
          }
     }
@@ -33,24 +33,12 @@ class NoteView extends Component {
             })
     }
 
-    delete = (id) => {
-        axios.delete(`${URL}/${id}`)
-        .then(response => {
-            this.setState({
-                notes: response.data
-            })
-        })
-        .catch(error => {
-          console.log(error);
-        })
-    }
-
     render() {
         return ( 
             <div className="note-view">
                 <div className="buttons">
-                <Link to={`/edit-note/${this.state.id}`}> Edit </Link>
-                <Link to={'/notes'} onClick={this.delete}> Delete </Link>
+                <Link to={`/notes/${this.state.id}`}> Edit </Link>
+                <button onClick={() => this.props.delete(this.props.id)}>Delete</button>
                 </div>
                 <h1>{this.state.title}</h1>
                 <p>{this.state.content}</p>

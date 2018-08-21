@@ -28,6 +28,7 @@ class NewNote extends Component {
           .then(response => {
             console.log(response);
             console.log(response.data);
+            window.location = '/notes';
           })
           .catch(error => {
             console.log(error);
@@ -48,7 +49,7 @@ class NewNote extends Component {
                     name='title'
                     placeholder='Note title'
                     value={this.state.title}
-                    onChange={(event) => this.change(event)}
+                    onChange={this.change}
                 />
                 <textarea
                     type='text'
@@ -58,7 +59,7 @@ class NewNote extends Component {
                     onChange={this.change}
                 />
 
-                <button type='submit' onClick={this.addNote}>Save</button>
+                <button onClick={this.addNote}>Save</button>
             </form>
          );
     }

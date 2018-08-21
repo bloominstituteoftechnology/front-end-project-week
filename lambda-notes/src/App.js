@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import {Route} from 'react-router-dom';
 import styled from 'styled-components';
 import SideNav from './components/SideNav';
@@ -21,6 +22,7 @@ const Application = styled.div`
 
 `
 
+const URL = 'http://localhost:5000/notes/';
 
 class App extends Component {
   constructor(props){
@@ -30,15 +32,39 @@ class App extends Component {
     }
   }
 
+  componentDidMount () {
+    axios.get(URL)
+    .then(response => {
+        this.setState({
+            notes: response.data
+        })
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}
+
+delete = (id) => {
+  axios.delete(`${URL}${id}`)
+  .then(response => {
+      this.setState({
+          notes: response.data
+      })
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}
 
   render() {
     return (
       <Application>
-        <Route path='/' component= {SideNav} />
+        <SideNav />
         <Route path='/add-note' component={NewNote} />
-        <Route path='/edit-note' component={EditNote} />
-        <Route path='/notes' render={(props) => (
+        <Route exact path='/notes' render={(props) => (
           <NotesList {...props} notes={this.state.notes} />)} />
+        <Route path='/notes/:id' render={(props) => (
+          <EditNote {...props} notes={this.state.notes} />)} />
         <Route path='/note/:id' render={(props) => (
           <NoteView {...props}  notes={this.state.notes} />) } />
       </Application>
