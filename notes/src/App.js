@@ -5,6 +5,7 @@ import Notesview from "./components/Notesview";
 import CreateNote from "./components/InputNote";
 import SingleNote from "./components/SingleNote";
 import { Route, Switch } from "react-router-dom";
+import fileDownload from "js-file-download"
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +18,6 @@ class App extends Component {
   }
   addNote = noteObj => {
     let prevNotes = this.state.notes.slice();
-    console.log(noteObj);
     const fullObj = {
       ...noteObj,
       id: this.state.nextID
@@ -61,52 +61,68 @@ class App extends Component {
       notes: moddedArray
     });
   };
-  invertCheck = (itemID,checkName) =>{
+  invertCheck = (itemID, checkName) => {
     let prevNote = this.state.notes[itemID];
     prevNote.checklist.forEach(element => {
-      if(element.name===checkName){
-        element.checked = !element.checked
+      if (element.name === checkName) {
+        element.checked = !element.checked;
       }
     });
-  }
+  };
+  
+  jsonToCSV = () => {
+    //https://stackoverflow.com/questions/8847766/how-to-convert-json-to-csv-format-and-store-in-a-variable
+    const items = this.state.notes;
+    const replacer = (key, value) => (value === null ? "" : value); // specify how you want to handle null values here
+    const header = Object.keys(items[0]);
+    let csv = items.map(row =>
+      header
+        .map(fieldName => JSON.stringify(row[fieldName], replacer))
+        .join(",")
+    );
+    csv.unshift(header.join(","));
+    csv = csv.join("\r\n");
+
+    fileDownload(csv, 'data.csv')
+  };
   componentDidMount = () => {
     this.setState({
       notes: [
         {
           title: "test",
-          body: "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ",
+          body:
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ",
           id: 0,
-          tags:[],
-          checklist:[{checked:false, name:"AAAA"}]
+          tags: [],
+          checklist: [{ checked: false, name: "AAAA" }]
         },
         {
           title: "test2",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 1,
-          tags:[],
-          checklist:[]
+          tags: [],
+          checklist: []
         },
         {
           title: "test3",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 2,
-          tags:[],
-          checklist:[]
-
+          tags: [],
+          checklist: []
         },
         {
           title: "test4",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 3,
-          tags:[],
-          checklist:[]
+          tags: [],
+          checklist: []
         },
         {
           title: "test5",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 4,
-          tags:[],
-          checklist:[]
+          tags: [],
+          checklist: []
         }
       ]
     });
@@ -114,8 +130,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar />
-        <Switch className='switch'>
+        <Sidebar export ={this.jsonToCSV}/>
+        <Switch className="switch">
           <Route
             exact
             path="/input"
@@ -160,7 +176,6 @@ class App extends Component {
             render={props => <Notesview {...props} notes={this.state.notes} />}
           />
         </Switch>
-       
       </div>
     );
   }

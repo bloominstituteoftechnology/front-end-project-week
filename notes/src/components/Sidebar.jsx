@@ -7,6 +7,7 @@ class Sidebar extends Component {
         <div className='sidebarTitle'>Lambda<br/>Notes</div>
         <Link to={`/`}><div className='sidebarButton'>View Your Notes</div></Link>
         <Link to={`/input`}><div className='sidebarButton'>+ Create New Note</div></Link>
+       <div onClick={this.props.export} className='sidebarButton'>Export</div>
       </div>
     );
   }
