@@ -29,7 +29,7 @@ class NoteView extends Component {
                 </div>
                 <div className = "note-page">
                     <div className = "note-links">
-                        <Link to = "/:id/edit"><span>edit</span></Link>
+                        <Link to = {`/${this.props.match.params.id}/edit`}><span>edit</span></Link>
                         <span onClick={this.toggleModal}>delete</span>
                     </div>
                     <h2 className = "note-title">{this.props.notes[this.props.match.params.id].title}</h2>
