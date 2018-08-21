@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Route } from 'react-router-dom';
 import './App.css';
 import notes from './assets/init_notes';
 import NoteList from './components/NoteList.js';
+import HeadCtrls from './components/HeadCtrls.js';
+import NewNote from './components/NewNote.js';
 
 
 const AppContainer = styled.div`
@@ -29,6 +32,8 @@ class App extends Component {
   render() {
     return (
       <AppContainer>
+        <Route path="/addnote" component={NewNote} />
+        <HeadCtrls />
         <NoteList notes={this.state.notesArr} />
       </AppContainer>
     )
