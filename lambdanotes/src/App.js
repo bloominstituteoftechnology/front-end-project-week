@@ -12,9 +12,9 @@ class App extends Component {
     super();
     this.state = {
       notes: [{
-        id: 0,
+        id: 1,
         title: "Welcome to Lambda Notes!",
-        body: "Click Create New Note to start!"
+        content: "Click Create New Note to start!"
       }]
     }
     this.addNote = this.addNote.bind(this);
@@ -33,8 +33,8 @@ class App extends Component {
   componentDidMount() {
     axios.get(`http://localhost:8000/api/notes`)
       .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
+        const axiosNotes = res.data.Message;
+        this.setState( {notes: axiosNotes} );
       })
   }
 

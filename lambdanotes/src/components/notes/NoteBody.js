@@ -3,7 +3,7 @@ import "./Notes.css"
 
 const NoteBody = (props) => (
   <div className="note-body">
-    {props.body}
+    {props.content}
   </div>
 );
 

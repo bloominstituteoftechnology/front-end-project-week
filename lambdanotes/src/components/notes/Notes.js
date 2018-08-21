@@ -6,7 +6,7 @@ import NoteBody from "./NoteBody";
 const Notes = (props) => (
   <div className="note-box">
     <NoteTitle title={props.title}/>
-    <NoteBody body={props.body}/>
+    <NoteBody content={props.content}/>
   </div>
 );
 

@@ -14,7 +14,7 @@ class NoteContainer extends Component {
           {this.props.notes.map((note,index) => {
             return(
               <Link to={`/notes/${index}`} style={{ textDecoration: 'none' }} key={index}>
-                <Notes key={note.id} title={note.title} body={note.body}/>
+                <Notes key={note.id} title={note.title} content={note.content}/>
               </Link>
             )
           })}
