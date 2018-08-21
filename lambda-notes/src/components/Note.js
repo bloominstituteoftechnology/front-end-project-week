@@ -1,13 +1,12 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Note.css'
-
- const Note = props => {
+  const Note = props => {
     const note = props.notes.find(
          note => note.id === Number(props.match.params.id)
     );
-
-     return (
+      return (
         <div className="note">
         <Link to="/edit"><i class="fas fa-edit"></i></Link>
            <Link to="/delete"><i class="fas fa-trash-alt"></i></Link>
@@ -16,8 +15,4 @@ import './Note.css'
          </div>
      );
    ;}
-
-
-export default Note;
-
-
+ export default Note;

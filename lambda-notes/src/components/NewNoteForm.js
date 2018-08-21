@@ -21,19 +21,19 @@ const NewNoteForm = props => {
     //     this.setState({[event.target.name]: event.target.value});
     //   }
 
-
-    return(
-    <div className="new-note">
-     <h3 className="title">Create New Note:</h3>
-   <form className="form" onSubmit={props.addNote}>
-<input className="note-title" onChange={props.handleInputChange} type="text" name="title" placeholder="Title" />
-<input className="note-text"  onChange={props.handleInputChange} type="textbody" name="note" placeholder="Note" />
-<button>
-Add Note
-</button>
-</form>
-</div>
-);
+    console.log(props);
+    return (
+      <div className="new-note">
+        <h3 className="title">Create New Note:</h3>
+        <form className="form" onSubmit={props.addNote}>
+          <input className="note-title" onChange={props.handleInputChange} type="text" name="title" placeholder="Title" value={props.title} />
+          <input className="note-text"  onChange={props.handleInputChange} type="textbody" name="text" placeholder="Note" value={props.text}/>
+          <button>
+            Add Note
+          </button>
+        </form>
+      </div>
+    );
 };
 
 

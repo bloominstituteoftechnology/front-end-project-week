@@ -52,38 +52,29 @@ class App extends Component {
      addNote = event => {
        event.preventDefault();
        const notes = this.state.notes.slice();
-       notes.push({ text: this.state.note, title: this.state.title, id: Date.now() });
+       notes.push({ text: this.state.text, title: this.state.title, id: Date.now() });
        this.setState({ notes, title: '', text: '' });
      }
 
      handleInputChange = event => {
+       console.log(event.target.value);
        this.setState({[event.target.name]: event.target.value});
+       console.log(this.state.notes);
      }
 
 
 
      render() {
-    return (
-      <div className="App">
-      <Sidebar />
-      <Route
-      path="/"
-      render={(props) => <Notes {...props} notes={this.state.notes} />}
-      />
-
-          <Route
-            exact path="/add"
-            render={(props) => <NewNoteForm {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
-          />
-          <Route
-            exact path="/notes/:id"
-            render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
-          />
-
-        
-    </div>
-    );
-  }
+      //  console.log(this.state.notes);
+      return (
+          <div className="App">
+              <Sidebar />
+              <Route exact path="/"render={(props) => <Notes {...props} notes={this.state.notes} />} />
+              <Route  exact path="/create-new-note" render={(props) => <NewNoteForm {...props}  title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} />} />
+              <Route  exact path="/notes/:id" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text}  />}  />
+          </div>
+      );
+   }
 }
 
 export default App;
