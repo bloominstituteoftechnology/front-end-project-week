@@ -10,6 +10,7 @@ export default class LeftNav extends Component {
   handleLogout = () => {
     const URL = 'http://localhost:3000/';
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     window.location.href = URL;
   }
 
@@ -18,6 +19,7 @@ export default class LeftNav extends Component {
       <div className='container nav-container'>
         <div>
           <h1 className='nav-header'>Lambda Notes</h1>
+          {localStorage.username ? <p className="">Welcome back, {localStorage.username}</p> : null}
         </div>
         <div className='text-center'>
 
