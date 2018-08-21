@@ -2,7 +2,7 @@ import React from "react";
 
 class AddNote extends React.Component {
 	state = {
-		id: 4,
+		id: 12,
 		title: "",
 		text: "",
 	};

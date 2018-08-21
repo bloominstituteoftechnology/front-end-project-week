@@ -30,6 +30,46 @@ class App extends Component {
 				title: "FOURTH",
 				text: "Vegetable and mineral",
 			},
+			{
+				id: 4,
+				title: "FIFTH",
+				text: "I am the very model",
+			},
+			{
+				id: 5,
+				title: "SIXTH",
+				text: "of a modern major general",
+			},
+			{
+				id: 6,
+				title: "SEVENTH",
+				text: "I've information animal",
+			},
+			{
+				id: 7,
+				title: "EIGHTH",
+				text: "Vegetable and mineral",
+			},
+			{
+				id: 8,
+				title: "NINTH",
+				text: "I am the very model",
+			},
+			{
+				id: 9,
+				title: "TENTH",
+				text: "of a modern major general",
+			},
+			{
+				id: 10,
+				title: "ELEVENTH",
+				text: "I've information animal",
+			},
+			{
+				id: 11,
+				title: "TWELFTH",
+				text: "Vegetable and mineral",
+			},
 		],
 	};
 
@@ -58,7 +98,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<div className="sidebar">
+				<div className="Sidebar">
 					<h1>Lambda Notes</h1>
 					<Link to="/notes">
 						<p>View Your Notes</p>
@@ -74,21 +114,13 @@ class App extends Component {
 				/>
 				<Route
 					exact
-					path="/add"
-					render={() => (
-						<div>
-							<AddNote onSubmit={this.handleAddNote} />
-						</div>
-					)}
+					path="/notes"
+					render={() => <Notes notes={this.state.notes} />}
 				/>
 				<Route
 					exact
-					path="/notes"
-					render={() => (
-						<div>
-							<Notes notes={this.state.notes} />
-						</div>
-					)}
+					path="/add"
+					render={() => <AddNote onSubmit={this.handleAddNote} />}
 				/>
 				<Route
 					exact

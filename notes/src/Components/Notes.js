@@ -5,11 +5,13 @@ class Notes extends React.Component {
 	state = { display: false };
 	render() {
 		return (
-			<div>
+			<div className="NotesWrapper">
 				{this.props.notes.map(note => (
-					<Link key={note.id} to={`/notes/${note.id}`}>
-						<h4>{note.title}</h4>
-						<p>{note.text}</p>
+					<Link className="Notes" to={`/notes/${note.id}`}>
+						<div key={note.id}>
+							<h4 className="Notes__title">{note.title}</h4>
+							<p className="Notes__text">{note.text}</p>
+						</div>
 					</Link>
 				))}
 			</div>
