@@ -11,11 +11,9 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-<Provider> 
     <Router>
         <App /> 
-    </Router>
-</Provider>,
+    </Router>,
 document.getElementById('root'));
 
 registerServiceWorker();

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import './UpdateNote.js'
 
 import './NewNoteForm.css';
 
@@ -33,7 +34,7 @@ class NewNoteForm extends Component {
                 placeholder = "Note Content"
                 />
                 <Link to="/"> 
-                <button onClick = {this.handleAddNote}> 
+                <button onClick = {this.props.handleAddNote}> 
                    Add to Note List     
                 </button> 
                 </Link>

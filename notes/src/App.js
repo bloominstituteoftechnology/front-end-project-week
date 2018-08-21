@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
 import NewNoteForm from './components/NewNoteForm';
@@ -10,7 +10,7 @@ import DeleteNote from './components/DeleteNote';
 import './App.css';
 
 
-class App extends React.Component {
+class App extends Component {
 
   constructor() {
     super();

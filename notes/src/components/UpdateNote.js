@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './UpdateNote.css';
 
 class UpdateNote extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ render() {
         value = {this.props.selected.body}
         onChange = {this.props.handleBodyUpdate}
         />
-        <Link to = "/">
+        <Link to ="/">
         <button onClick = {this.handleUpdate}>
             Update
         </button>
