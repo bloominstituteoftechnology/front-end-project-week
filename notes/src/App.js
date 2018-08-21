@@ -6,7 +6,7 @@ import ListView from './components/ListView';
 import CreateNew from './components/CreateNew';
 import Note from './components/Note';
 // import EditNote from './components/EditNote';
-import {fetchNotes, fetchOneNote} from './actions/actions';
+import {fetchNotes, addNote} from './actions/actions';
 import {connect} from 'react-redux';
 
 
@@ -21,16 +21,11 @@ class App extends Component {
   handleChange = e =>{
     this.setState({[e.target.name]: e.target.value});
   }
-  // addNote = e => {
-  //   e.preventDefault();
-  //   let notes = this.state.notes.slice();
-  //   notes.push({
-  //       id: this.state.id,
-  //       title: this.state.title,
-  //       textBody: this.state.textBody,
-  //   });
-  //   this.setState({notes, title:'', textBody:'', id: ++id});
-  // }
+  addNote = e => {
+    e.preventDefault();
+    this.props.addNote(this.state.title, this.state.textBody);
+    this.setState({title:'', textBody:'',});
+  }
   // updateNote = e => {
   //   e.preventDefault();
   //   let note = this.state.notes.slice(e.target.id, ++e.target.id)
@@ -76,4 +71,4 @@ export const mapStateToProps = state => ({
   notes: state.notes,
 });
 
-export default connect(mapStateToProps, {fetchNotes, fetchOneNote})(App);
+export default connect(mapStateToProps, {fetchNotes, addNote})(App);

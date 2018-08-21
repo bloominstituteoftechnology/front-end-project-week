@@ -33,7 +33,7 @@ class SideBar extends React.Component {
                 <Link to="/get/all" style={{ textDecoration: 'none' }}>
                     <Button>View Your Notes</Button>
                 </Link>
-                <Link to="/create" style={{ textDecoration: 'none' }}>
+                <Link to="/note/create" style={{ textDecoration: 'none' }}>
                     <Button>+ Create New Note</Button>
                 </Link>
             </Col>

@@ -34,10 +34,18 @@ export const fetchOneNote = _id => {
     };
 }
 
-// export const addNote = (title, textBody, tags) => {
-//     return dispatch => {
-//         dispatch({type: ADDING_NOTE});
-//         axios
-//             .post(`${url}/create`)
-//     };
-// }
+export const addNote = (title, textBody, tags) => {
+    return dispatch => {
+        dispatch({type: ADDING_NOTE});
+        axios
+            .post(`${url}/create`, {
+                title: title,
+                textBody: textBody,
+                tags: tags,
+            })
+            .then( response => {
+                dispatch({type: ADDED_NOTE, payload: response.data})
+            })
+            .catch (err => {dispatch({type: ERRORS, payload: err})});
+    };
+}
