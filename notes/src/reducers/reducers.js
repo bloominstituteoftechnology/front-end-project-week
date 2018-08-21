@@ -29,15 +29,17 @@ const initialState = {
 export const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case FETCHING_NOTES:
-            return Object.assign({}, state, {
+            return {
+                  ...state,
                 fetchingNotes: true
-            })
+            }
         case FETCHED_NOTES:
-            return Object.assign({}, state, {
+            return {
+                 ...state,
                 fetchingNotes: false,
                 fetchedNotes: true,
                 notes: action.payload
-            })
+             }
         case FETCHING_ONE_NOTE:
             return Object.assign({}, state, {
                 fetchingOneNote: true,
@@ -81,15 +83,10 @@ export const rootReducer = (state = initialState, action) => {
         case ERRORS:
             return Object.assign({}, state, {
                 fetchingNotes: false,
-                fetchedNotes: false,
                 fetchingOneNote: false,
-                fetchedOneNote: false,
                 addingNote: false,
-                addedNote: false,
                 updatingNote: false,
-                updatedNote: false,
                 deletingNote: false,
-                deletedNote: false,
                 error: action.payload
             })
         default:

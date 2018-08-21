@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import SideBar from './components/SideBar';
-import {Route, Link} from 'react-router-dom';
+import {Route, Link, withRouter} from 'react-router-dom';
 import ListView from './components/ListView';
 import CreateNew from './components/CreateNew';
 import Note from './components/Note';
 import EditNote from './components/EditNote';
-import {fetchNotes, addNote, updateNote, deleteNote} from './actions/actions';
+import {fetchNotes, addNote, updateNote} from './actions/actions';
 import {connect} from 'react-redux';
 
 
@@ -25,42 +25,43 @@ class App extends Component {
     e.preventDefault();
     this.props.addNote(this.state.title, this.state.textBody);
     this.setState({title:'', textBody:'',});
+    window.location.reload();
   }
   updateNote = e => {
     e.preventDefault();
     this.props.updateNote(this.state.title, this.state.textBody, e.target.id);
     this.setState({title:'', textBody:'',});
+    window.location.reload();
   }
-  deleteNote = e => {
-    e.preventDefault();
-    this.props.deleteNote(e.target.id);
-  }
+
   componentDidMount(){
+    this.props.fetchNotes();
+  }
+  componentDidUpdate(){
     this.props.fetchNotes();
   }
   render(){
     return (
         <div className='App'>
-          <Route path='/' component={SideBar} />
           <Link to="/"></Link>
+          {/* ROUTES */}
+          <Route path='/' component={SideBar} />
           <Route exact path="/get/all" render={(props) => 
-            <ListView {...props} notes={this.props.notes} />} />
+                <ListView {...props} notes={this.props.notes} />}
+          />
           <Route exact path="/note/create" render={(props) => 
-            <CreateNew {...props} title={this.state.title}
+                <CreateNew {...props} title={this.state.title}
                                   textBody={this.state.textBody}
                                   handleChange={this.handleChange}
-                                  addNote={this.addNote}                   
-            />}
+                                  addNote={this.addNote} />}
           />
-          <Route exact path={`/note/:id`} render={(props) => <Note {...props} 
-                    deleteNote={this.deleteNote} />} />
-          <Route exact path={`/note/:id/editnote`}
-                 render={(props) => <EditNote {...props} 
-                                    title={this.state.title}
-                                    textBody={this.state.textBody}
-                                    handleChange={this.handleChange}
-                                    updateNote={this.updateNote}
-                                    />}
+          <Route exact path={`/note/:id`} component={Note} />
+          <Route exact path={`/note/:id/editnote`} render={(props) =>
+                <EditNote {...props} 
+                          title={this.state.title}
+                          textBody={this.state.textBody}
+                          handleChange={this.handleChange}
+                          updateNote={this.updateNote} />}
           />
         </div>
     );
@@ -71,8 +72,7 @@ export const mapStateToProps = state => ({
   notes: state.notes,
 });
 
-export default connect(mapStateToProps,
+export default withRouter(connect(mapStateToProps,
   {fetchNotes,
     addNote,
-    updateNote,
-    deleteNote})(App);
+    updateNote})(App));

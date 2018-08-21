@@ -20,7 +20,7 @@ export const fetchNotes = () => {
         axios
             .get(`${url}/get/all`)
             .then( response => {
-                dispatch({type: FETCHED_NOTES, payload: response.data})
+                dispatch({type: FETCHED_NOTES, payload: response.data});
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});
     }
@@ -75,7 +75,7 @@ export const deleteNote = _id => {
         axios
             .delete(`${url}/delete/${_id}`)
             .then(response => {
-                dispatch({type:DELETED_NOTE, payload: response.data});
+                dispatch({type: DELETED_NOTE, payload: response.data});
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});
     }

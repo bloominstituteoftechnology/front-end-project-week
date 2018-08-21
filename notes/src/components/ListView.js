@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom';
 
 const List = styled.div`
     background: #F1F1F1;
-    max-width: 900px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 1rem;
+    height: 100%;
 `;
 const NoteOverview = styled.div`
     display: flex;
@@ -53,8 +53,7 @@ class ListView extends React.Component{
                                 <Link to={`/note/${note._id}`}
                                     style={{ textDecoration: 'none',
                                             color: 'black' }}>
-                                    <SmallNote key={note._id}
-                                               onClick={this.props.getNote}>
+                                    <SmallNote key={note._id}>
                                         <Title>{note.title}</Title>
                                         <Content>{note.textBody}</Content>
                                     </SmallNote>
