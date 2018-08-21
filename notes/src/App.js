@@ -42,8 +42,12 @@ class App extends Component {
 
   noteSubmit = () => {
     axios.post('https://killer-notes.herokuapp.com/note/create', {title: this.state.newtitle, textBody: this.state.newbody})
-    .then(response => {
-      console.log(response.data)
+    .then(() => {
+      axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
     })
     .catch(error => {
       console.error('Server Error', error);
@@ -68,18 +72,30 @@ class App extends Component {
 
   editNote = id => {
     let notesCopy = this.state.notes.slice();
-    let editnote = notesCopy.find(note => note.id == id);
-    this.setState({ edittitle: editnote.title, editbody: editnote.text });
+    let editnote = notesCopy.find(note => note._id == id);
+    this.setState({ edittitle: editnote.title, editbody: editnote.textBody });
   };
 
   submitEdit = id => {
-    let notesCopy = this.state.notes.map(note =>Object.assign({}, note));
-    let editnote = notesCopy.find(note => note.id == id);
-    editnote.title = this.state.edittitle;
-    editnote.text = this.state.editbody;
-    if ((this.state.edittitle.trim() !== "" || this.state.editbody.trim() !== "")){
-      this.setState({notes: notesCopy})
-    }
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {title: this.state.edittitle, textBody: this.state.editbody})
+    .then (() => {
+      axios.get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      
+    })
+
+    //pre API code
+
+    // let notesCopy = this.state.notes.map(note =>Object.assign({}, note));
+    // let editnote = notesCopy.find(note => note.id == id);
+    // editnote.title = this.state.edittitle;
+    // editnote.text = this.state.editbody;
+    // if ((this.state.edittitle.trim() !== "" || this.state.editbody.trim() !== "")){
+    //   this.setState({notes: notesCopy})
+    // }
   };
 
   deleteModal = () => {
@@ -88,10 +104,19 @@ class App extends Component {
   };
 
   noteDelete = id => {
-    let notesCopy = this.state.notes.slice();
-    let notesLeft = notesCopy.filter(note => note.id != id);
-    console.log(notesLeft);
-    this.setState({ notes: notesLeft, deleting: false });
+    axios
+    .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then (() => {
+      axios.get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })});
+      this.setState({deleting: false})
+    //pre API code
+    // let notesCopy = this.state.notes.slice();
+    // let notesLeft = notesCopy.filter(note => note.id != id);
+    // console.log(notesLeft);
+    // this.setState({ notes: notesLeft, deleting: false });
   };
 
   origtheme = () => {

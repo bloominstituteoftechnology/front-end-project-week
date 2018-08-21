@@ -8,7 +8,6 @@ class NoteFocus extends React.Component {
     super(props);
     this.state = {
       note: {},
-      deleting: false,
     }
   }
 
