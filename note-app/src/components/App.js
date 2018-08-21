@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {BrowserRouter as Router} from 'react-router-dom'; 
 import {Route, Switch} from 'react-router-dom'; 
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {connect} from 'react-redux'; 
@@ -84,6 +85,7 @@ class App extends Component {
     console.log(this.props)
     
     return (
+    <Router>
       <div className="App">
         <div className="heading">
           <h3 className= "app-header"><br/></h3>
@@ -105,6 +107,7 @@ class App extends Component {
         )} />
           
         </div>
+    </Router>
     );
   }
 }
