@@ -95,7 +95,7 @@ class Note extends React.Component {
 								this.props.onSubmit(this.state._id, {
 									title: this.state.title,
 									textBody: this.state.textBody,
-									tags: this.state.tags,
+									tags: this.state.tags.split(","),
 								});
 								this.handleEditFlip();
 							}}
