@@ -6,7 +6,8 @@ export const NoteList = props => {
         <div className="notes-wrap" >
             <h3 className="your-header" >Your Notes:</h3>
             {props.notes.map(note => {
-            return (
+            return ( 
+                <Link to={`/notes/${note.id}`} >
               <div 
                 title={note.title}
                 text={note.text}
@@ -16,6 +17,7 @@ export const NoteList = props => {
                 <h4>{note.title}</h4>
                {note.text}
               </div>
+              </Link>
             );
           })}
         </div>

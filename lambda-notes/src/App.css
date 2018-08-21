@@ -9,7 +9,7 @@
   height: 80px;
 }
 
-.App-header {
+.Nav-bar {
   background-color: #222;
   width: 150px;
   padding: 20px;
@@ -35,6 +35,7 @@
 .notes-wrap {
   display: flex;
   flex-wrap: wrap;
+  text-decoration: none;
 }
 
 .note-wrap {
