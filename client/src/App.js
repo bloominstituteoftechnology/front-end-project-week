@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SideNav from './components/SideNav';
 import styled from 'styled-components';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import ListView from './components/ListView';
 import NotesForm from './components/NotesForm';
 import { SecondaryHeading } from './styles';
@@ -47,37 +47,65 @@ class App extends Component {
       ],
     }));
 
+  editNote = id => data =>
+    this.setState(({ notes }) => ({
+      notes: notes.map(
+        note =>
+          note.id === Number(id)
+            ? {
+                ...note,
+                ...data,
+              }
+            : note,
+      ),
+    }));
+
   render() {
     return (
       <div>
         <SideNav />
         <MainContent>
-          <Route
-            exact
-            path="/"
-            render={() => <ListView notes={this.state.notes} />}
-          />
-          <Route
-            exact
-            path="/notes/new"
-            render={props => (
-              <div>
-                <SecondaryHeading>Create New Note</SecondaryHeading>
-                <NotesForm {...props} onFormSubmit={this.createNote} />
-              </div>
-            )}
-          />
-          <Route
-            exact
-            path="/notes/:id"
-            render={props => (
-              <NoteView
-                note={this.state.notes.find(
-                  note => note.id == props.match.params.id,
-                )}
-              />
-            )}
-          />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => <ListView notes={this.state.notes} />}
+            />
+            <Route
+              exact
+              path="/notes/new"
+              render={props => (
+                <div>
+                  <SecondaryHeading>Create New Note</SecondaryHeading>
+                  <NotesForm {...props} onFormSubmit={this.createNote} />
+                </div>
+              )}
+            />
+            <Route
+              exact
+              path="/notes/:id/edit"
+              render={props => (
+                <div>
+                  <SecondaryHeading>Edit Post</SecondaryHeading>
+                  <NotesForm
+                    {...props}
+                    onFormSubmit={this.editNote(props.match.params.id)}
+                  />
+                </div>
+              )}
+            />
+            <Route
+              exact
+              path="/notes/:id"
+              render={props => (
+                <NoteView
+                  note={this.state.notes.find(
+                    note => note.id === Number(props.match.params.id),
+                  )}
+                />
+              )}
+            />
+          </Switch>
         </MainContent>
       </div>
     );

@@ -9,7 +9,7 @@ const StyledInput = styled.input`
   border: 1px solid #9e9e9e;
   display: block;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1.4rem;
   color: inherit;
   width: 60%;
   margin-bottom: 2rem;
@@ -25,7 +25,7 @@ const StyledTextarea = styled.textarea`
   background-color: #fff;
   border: 1px solid #9e9e9e;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1.4rem;
   color: inherit;
   width: 100%;
   height: 30rem;
@@ -45,6 +45,12 @@ class NotesForm extends Component {
     title: '',
     textBody: '',
   };
+
+  componentDidMount() {
+    if (this.props.preloadedState) {
+      this.setState(this.props.preloadedState);
+    }
+  }
 
   handleChange = ({ target: { name, value } }) =>
     this.setState({ [name]: value });
