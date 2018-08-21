@@ -20,8 +20,12 @@ class App extends Component {
       currentTitle: null,
       currentContent : null,
       currentIndex: null,
-      currentKey: null, 
+      currentKey: null,
+      currentTags: null,
+      currentVersion: null,
+      currentId: null, 
       nextId:null,
+      select: null, 
     }
   }
 
@@ -56,21 +60,26 @@ class App extends Component {
     })
   }
 
-  // createNote = (noteObj) => {
-  //   this.postNote(noteObj)
-  //   // const notes = this.state.notes.slice()
-  //   // notes.push(noteObj)
-  //   // this.setState({ notes })
-  // }
-
   handleNoteSelect = (index) => {
     const select = this.state.notes[index];
-    this.setState({currentTitle: select.title, currentContent: select.textBody, currentIndex: index, currentKey: select._id})
+    console.log(select)
+    this.setState({select: {title: select.title, textBody: select.textBody, index: index, _id: select._id,
+    tags: select.tags, __v: select.__v, _id: select._id}})
   }
   updateNote = (index, noteObj) => {
-    const notes = this.state.notes.slice()
-    notes[index] = noteObj
-    this.setState({ notes })
+    // const notes = this.state.notes.slice()
+    // notes[index] = noteObj
+    // this.setState({ notes })
+    const promise = axios.put(`http://localhost:8080/notes/${index}`, noteObj)
+    promise
+    .then(response => {
+      console.log(response.data)
+      this.setState({notes: [...this.state.notes, response.data]})
+    })
+    .catch(error => {
+      console.log(error) 
+    })
+
   }
 
   deleteNote  = (index) => {
@@ -96,9 +105,9 @@ class App extends Component {
               <Switch location = {location}>
                 <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
                 <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.postNote} idGenerator = {this.idGenerator} nextId = {this.state.nextId}/>} />
-                <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
+                <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} idGenerator = {this.idGenerator}/> } />
                 <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
-                <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
+                <Route path = '/:id' render = {props => <FullNote  {...props} select = {this.state.select} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
                 <Route render ={() => <div>Not Found</div> } /> 
               </Switch>
             </CSSTransition>

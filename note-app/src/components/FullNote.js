@@ -11,17 +11,19 @@ class FullNote extends React.Component{
     }
 
     render () {
-        const title = this.props.ct;
-        const content = this.props.cc;
-        const index = this.props.index;  
+        const title = this.props.select.title;
+        const content = this.props.select.textBody;
+        const index = this.props.select.index; 
+        const select = this.props.select;  
+        console.log(this.props)
         return (
           <div className="main-container">
             <SideBar />
             <div className = "create-note-form ">
               <div className = "full-note-header">
 
-                <Link to = {{pathname: `/${this.props.match.params.id}/edit-note`, state: { title, content, index}}}><h6>edit</h6></Link> 
-                <Link to = {{pathname: `/${this.props.match.params.id}/delete-note`, state: {title, content, index}}}><h6>delete</h6></Link>
+                <Link to = {{pathname: `/${this.props.match.params.id}/edit-note`, state: { select, title, content, index}}}><h6>edit</h6></Link> 
+                <Link to = {{pathname: `/${this.props.match.params.id}/delete-note`, state: { select, title, content, index}}}><h6>delete</h6></Link>
               </div>
               <div className = "content-div">
                 <h3>{title}</h3> 
