@@ -67,15 +67,17 @@ class App extends Component {
       ],
       noteTitle: "",
       noteDescription: "",
-      isOpen: false,
-      loading: false,
-      success: false
+      update: false
     };
   }
 
-  componentDidMount() {
-    this.setState({ notes: this.state.notes });
-  }
+  // componentDidUpdate() {
+  //   console.log("COMPONENT DID UPDATE", this.state);
+  //   if (this.state.update) {
+  //     this.setState({ notes: this.state.notes, update: false });
+  //   }
+  // }
+
   inputChangeHandler = event => {
     // console.log("InputChangeHandler", event.target.name);
     this.setState({ [event.target.name]: event.target.value });
@@ -115,12 +117,13 @@ class App extends Component {
   };
 
   deleteNoteHandler = iNumber => {
-    let newNotesArray = this.state.notes.slice();
-    console.log("DELETE HANDLER BEFORE", newNotesArray);
     let indexNumber = parseInt(iNumber, 10);
-    newNotesArray.splice(indexNumber, 1);
-    console.log("DELETE HANDLER AFTER", newNotesArray);
-    this.setState({ notes: newNotesArray });
+    let newNotesArray = this.state.notes.slice();
+    let removedItem = newNotesArray.splice(indexNumber, 1);
+    // newNotesArray = newNotesArray.splice(indexNumber, 1);
+    console.log("removedItem", removedItem);
+    console.log("newNotesArray", newNotesArray);
+    this.setState({ notes: newNotesArray, update: true });
   };
 
   render() {
@@ -170,10 +173,6 @@ class App extends Component {
             />
           )}
         />
-        {/* <Route
-          path={"/delete/:id"}
-          render={props => <DeleteNote {...props} notes={this.state.notes} />}
-        /> */}
       </div>
     );
   }

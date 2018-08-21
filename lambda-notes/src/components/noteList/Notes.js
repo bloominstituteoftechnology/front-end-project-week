@@ -4,6 +4,7 @@ import { Note } from "./Note";
 import "../../css_styles/notes.css";
 
 export const Notes = props => {
+  console.log("NOTES PROPS", props.notes.length);
   return (
     <div className="notesMainDiv">
       <h2 className="landingTitle">Your Notes:</h2>

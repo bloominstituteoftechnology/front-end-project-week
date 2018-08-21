@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Note = props => {
+  console.log("NOTE", props);
   return (
     <Link to={`/notes/${props.id}`} className="noteDiv">
       <h2>{props.note.title}</h2>

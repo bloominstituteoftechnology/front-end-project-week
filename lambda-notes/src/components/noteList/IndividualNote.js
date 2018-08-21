@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import DeleteNote from "../modifyNote/DeleteNote";
 export class IndividualNote extends Component {
   constructor(props) {
@@ -9,9 +9,16 @@ export class IndividualNote extends Component {
       match: props.match,
       isOpen: false,
       loading: false,
-      success: false
+      success: false,
+      redirect: false
     };
   }
+
+  // componentDidUpdate() {
+  //   if (this.state.redirect) {
+  //     this.setState({ notes: this.props.notes });
+  //   }
+  // }
 
   toggleModal = () => {
     this.setState({
@@ -32,22 +39,35 @@ export class IndividualNote extends Component {
     setTimeout(
       () =>
         this.setState({
-          isOpen: false
+          isOpen: false,
+          redirect: true
         }),
       3000
     );
   };
 
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
+  };
+
   render() {
-    console.log("Individual NOtes Props", this.props);
-    console.log("Individual Params Match", this);
+    console.log("Individual NOtes Props", this.props.notes);
+    console.log("Individual Params Match", this.state.redirect);
 
     return (
       <div className="individualNote">
+        {this.renderRedirect()}
         <Link to={`/edit/${this.state.match.params.id}`}>
           <button>edit</button>
         </Link>
-
         <button onClick={this.toggleModal}>Delete</button>
 
         <DeleteNote
