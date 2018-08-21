@@ -31,24 +31,33 @@ export default class EditNote extends Component {
   constructor(props){
     super(props);
     this.state = {
-      note: props.note,
+      note: {},
       count: props.count
     }
   }
 
-  sendToApp = () => {
-
+  componentDidMount(){
+    console.log(this)
+    console.log(this.props.note)
+    console.log(this.state)
+    if (this.props.note) {
+      this.setState({note: this.props.note})
+    };
   }
 
   render() {
     return (
-      <EditNoteDiv>
-        <div className="links">
-          <Link className="link" to={`/all-notes/${this.state.note.id}`}>back</Link>
-        </div>
-        <h4>Edit Note:</h4>
-        <EditForm button="Save" count={this.state.count} editNote={this.props.editNote} note={this.state.note}></EditForm>
-      </EditNoteDiv>
+      <div>
+        {(this.props.note) ?
+        (<EditNoteDiv>
+          <div className="links">
+            <Link className="link" to={`/all-notes/${this.state.note._id}`}>back</Link>
+          </div>
+          <h4>Edit Note:</h4>
+          <EditForm button="Save" count={this.state.count} editNote={this.props.editNote} note={this.state.note}></EditForm>
+        </EditNoteDiv>):
+        null}
+      </div>
     );
   }
 }

@@ -179,10 +179,13 @@ class App extends Component {
                 console.log(note.match.params.noteId)
                 console.log(single, "single")
                     return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
-                  }}></Route>
+              }}></Route>
 
-            <Route exact path="/all-notes/:noteId/edit" render={ (note) => {
+            <Route exact path="/all-notes/:noteId/edit"
+              render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
+                console.log(note.match.params.noteId)
+                console.log(single, "edit single")
                 return (<EditNote count={this.state.count} editNote={this.editNote} note={single} />)
               }}></Route>
 

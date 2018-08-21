@@ -58,10 +58,10 @@ export default class NoteDetails extends Component {
             <Link
               className="link"
               onClick={() => this.props.enableDelete()}
-              to={`/all-notes/${this.state.note.id}/delete`}>delete</Link>
+              to={`/all-notes/${this.state.note._id}/delete`}>delete</Link>
             <Link
               className="link"
-              to={`/all-notes/${this.state.note.id}/edit`}>edit</Link>
+              to={`/all-notes/${this.state.note._id}/edit`}>edit</Link>
             <Link
               className="link"
               to={`/all-notes/`}>back</Link>
