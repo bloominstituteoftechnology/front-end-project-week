@@ -44,14 +44,14 @@ class App extends Component {
      
       <SideBar/> 
 
-       <Route exact path="/" render={props => <NoteView {...props} notes={this.state.notes}/>}/>
+       <Route exact path='/' render={props => <NoteView {...props} notes={this.state.notes}/>}/>
 
-       <Route exact path="/new" render={props => <NewNote {...props}title={this.state.title}
+       <Route exact path='/new' render={props => <NewNote {...props}title={this.state.title}
        content={this.state.content}handleChange={this.handleChange}addNote={this.addNote} />}/>
 
-       <Route exact path="/view" render={props => <SingleNote {...props} notes={this.state.notes} />}/>
+       <Route exact path='/view/:id' render={props => <SingleNote {...props} notes={this.state.notes} />}/>
        
-       <Route exactpath="/view/edit" render={props => <EditView {...props} notes={this.state.notes} />} />
+       <Route exactpath='/view/edit/:id' render={props => <EditView {...props} notes={this.state.notes} />} />
       </div>
     );
   }

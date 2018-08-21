@@ -39,7 +39,7 @@ const Note = props => {
           return(
         <div key={item.id}>
           <Card>
-          <Link to='/view'><Title><H2>{item.title}</H2></Title></Link>
+          <Link to={`/view/${item.id}`}><Title><H2>{item.title}</H2></Title></Link>
             <Content><P>{item.content}</P></Content>
           </Card>
         </div>

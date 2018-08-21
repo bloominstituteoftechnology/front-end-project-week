@@ -3,19 +3,19 @@ import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 
 const View = styled.div`
-width: 640px; 
-border: 1px solid black; 
-height: 100%; 
-position: fixed; 
-background: #FAFBFC; 
-display: flex; 
-justify-content: center; 
+background: #F0F0F0;
+width: 820px;
+height: 775px;
+flex-direction: column;
+display: flex;
+padding: 1%;
 `
 
 const Container = styled.div`
-width: 500px; 
-height: auto; 
-border: 1px solid blue; 
+width: 700px;
+height: 500px;
+padding: 1%;
+margin: 2%;
 `
 
 const Edit = styled.div`
@@ -23,15 +23,12 @@ display:flex;
 justify-content: flex-end;
 `
 
-
-
 const ViewNote = styled.div`
 font-size: 15px; 
 margin: 10px; 
 `
 const NoteTitle = styled.div`
-font-size: 25px; 
-margin: 10px
+margin: 10px; 
 `
 const Content = styled.div`
 font-size: 15px; 
@@ -57,8 +54,8 @@ const SingleNote = props => {
     Delete
     </NavLink>
     </Edit>
-      <ViewNote>View Note</ViewNote>
-      <NoteTitle>{note.title}</NoteTitle>
+      
+      <NoteTitle><h2>{note.title}</h2></NoteTitle>
       <Content>{note.content}</Content>
       </Container>
     </View>
