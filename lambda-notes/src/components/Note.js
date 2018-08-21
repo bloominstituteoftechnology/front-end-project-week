@@ -19,8 +19,11 @@ const customStyles = {
 class Note extends Component {
   constructor(props) {
     super(props);
+    console.log("props", props)
+    
     this.state = {
-      note: null,
+      note: [],
+      id: 0,
       title: "",
       content: "",
       edit: false,
@@ -51,12 +54,8 @@ class Note extends Component {
     axios
       .get(`http://localhost:3500/notes/${id}`)
       .then(res => {
-        console.log(res.data);
-        this.setState({
-          note: res.data,
-          title: res.data.title,
-          content: res.data.content
-        });
+        this.setState({note: res.data[0]});
+        console.log("res.data", res.data);
       })
       .catch(err => {
         console.log(err);
@@ -80,6 +79,7 @@ class Note extends Component {
   };
 
   render() {
+    console.log("state", this.state)
     return this.state.deleted ? (
       <Redirect to="/notes" />
     ) : this.state.edit ? (
@@ -90,14 +90,14 @@ class Note extends Component {
         content={this.state.content}
       />
     ) : (
-      <div className="note">
+      <div key={this.props.match.params.id} className="note">
         <div className="editdeletebuttons">
           <a onClick={this.editNote}>edit</a>
           <a onClick={this.openModal}>delete</a>
         </div>
-        <h3 className="notetitle">{this.state.title}</h3>
+        <h3 className="notetitle">{this.state.note.title}</h3>
           <div className="notecontent">
-          <ReactMarkdown source={this.state.content}/>
+          <ReactMarkdown source={this.state.note.content}/>
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}

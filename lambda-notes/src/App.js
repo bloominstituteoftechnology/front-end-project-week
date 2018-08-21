@@ -13,7 +13,7 @@ class App extends Component {
         <Sidebar />
         <Route exact path="/" component={Notes}/>
         <Route exact path="/notes" component={Notes}/>
-        <Route path="/notes/:id" component={Note}/>
+        <Route path="/notes/:id" render={ (props) => <Note  {...props} note={this.props.note} />} />
         <Route path="/create" component={CreateNote}/>
         <Route path="/note/edit/:id" component={CreateNote}/>
       </div>

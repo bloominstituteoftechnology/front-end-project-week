@@ -43,13 +43,11 @@ class Notes extends Component {
             if (this.state.search === "") {
               return <NoteCard note={note} key={note.id} />;
             } else if (
-              note.content
+              note.textBody
                 .toLowerCase()
                 .includes(this.state.search.toLowerCase())
             ) {
               return <NoteCard note={note} key={note.id} />;
-            } else {
-              return <div>No results found...</div>;
             }
           })}
         </div>
