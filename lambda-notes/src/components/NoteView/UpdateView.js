@@ -28,9 +28,7 @@ class Note extends React.Component {
     }
 
     onSumbit = event => {
-        console.log('~~~~~~~~~~~CREATE NEW NOTE~~~~~~~~')
-        console.log(this.props)
-        this.props.addNewNote(this.state)
+        this.props.UpdateNotes(this.state.id)
     }
 
     render(){

@@ -4,7 +4,7 @@ import './App.css';
 import { Button, H1, H2, H3 } from './components/StyledComponents';
 import SideBar from './components/SideBar';
 import { connect } from 'react-redux';
-import { fetchNotes, addNewNote, fetchNote, deleteNote } from './actions';
+import { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes } from './actions';
 import ListView from './components/ListView/ListView';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import NewNote from './components/CreateNote/NewNote';
@@ -52,4 +52,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote })(App);
+export default connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes })(App);
