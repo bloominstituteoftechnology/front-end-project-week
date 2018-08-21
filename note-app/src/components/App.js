@@ -33,9 +33,10 @@ class App extends Component {
   }
 
   fetchNotes = () => {
-    const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    const promise = axios.get('http://localhost:8080/notes')
     promise
     .then(response => {
+      console.log(response)
       this.setState({notes:response.data})
     })
     .catch(error => {
