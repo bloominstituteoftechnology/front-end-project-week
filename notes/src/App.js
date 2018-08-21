@@ -47,11 +47,13 @@ class App extends Component {
   };
 
   submitEdit = id => {
-    let notesCopy = this.state.notes.slice();
+    let notesCopy = this.state.notes.map(note =>Object.assign({}, note));
     let editnote = notesCopy.find(note => note.id == id);
     editnote.title = this.state.edittitle;
     editnote.text = this.state.editbody;
-    this.setState({ notes: notesCopy });
+    if ((this.state.edittitle !== "" || this.state.editbody !== "")){
+      this.setState({notes: notesCopy})
+    }
   };
 
   deleteModal = () => {
