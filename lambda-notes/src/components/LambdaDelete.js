@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Modal = styled.div`
  position: fixed;
@@ -58,19 +59,27 @@ class LambdaDelete extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         this.props.handleSelectNote(id);
+        this.setState({ id: id});
     }
 
-    deleteNote = () => {
-        this.props.handleDeleteNote(this.props.match.params.id)
+    handleDeleteNote = e => {
+        const id = this.state.id;
+        axios.delete(`http://localhost:8000/notes/${id}`).then(res => {
+            this.props.history.push('/');
+            this.setState({id: null});
+            this.props.toggleDelete();
+            this.props.handleRefresh();
+        }).catch(err => console.log(err))
     }
+    
 
     render() {
         return (
             <Modal>
             <ModalStyle>
                 <Header>Are you sure you want to delete this?</Header>
-                <YesButton onClick={this.deleteNote}>Yes</YesButton>
-                <NoButton>No</NoButton>
+                <YesButton onClick={this.handleDeleteNote}>Yes</YesButton>
+                <NoButton onClick={this.props.toggleDelete}>No</NoButton>
             </ModalStyle>
             </Modal>
         )

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import styled from 'styled-components';
 
 const ButtonDelete = styled.button`
@@ -24,13 +23,12 @@ class LambdaView extends Component {
     }
 
     componentDidMount() {
-        axios.post('http://localhost:8000/notes/:id').then(res => {
-            this.setState({title: this.props.notes.title, content: this.props.notes.content})
-        }).catch(err => {
-            console.log(err)
-        })
         const id = this.props.match.params.id;
         this.setState({ id: Number(id), notes: this.props.note });
+    }
+
+    componentWillUnmount() {
+        this.mounted = false;
     }
 
     filterNotes = note => {
@@ -43,7 +41,7 @@ class LambdaView extends Component {
                     <ButtonDelete onClick={this.props.toggleDelete}>Delete</ButtonDelete>
                     </LinkDiv>
                     <h1>{note.title}</h1>
-                    <p>{note.body}</p>
+                    <p>{note.content}</p>
                 </div>
             )
         }

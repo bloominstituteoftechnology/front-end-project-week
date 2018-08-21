@@ -7,32 +7,61 @@ class LambdaEdit extends Component {
         super(props);
         this.state = {
             id: null,
-            notes: []
+            notes: {
+                id: null,
+                title: '',
+                content: ''
+            }
         }
     }
 
-    componentDidUpdate() {
-        axios.put('http://localhost:8000/notes/:id').then(res => {
-            console.log(res)
-            this.setState({title: this.state.notes.title, content: this.state.notes.content})
-        }).catch(err => {
-            console.log(err)
+    handleTitle = e => {
+        this.setState({
+          notes: {
+            id: this.state.notes.id,
+            title: e.target.value,
+            content: this.state.notes.content
+          }
         })
-        const id = this.props.match.params.id;
-        let note = this.props.notes.filter(note => note.id === Number(id));
-        this.props.handleSelectNote(note[0]);
+      }
+    
+      handleContent = e => {
+        this.setState({
+          isMounted: false,
+          notes: {
+            id: this.state.notes.id,
+            title: this.state.notes.title,
+            content: e.target.value
+          }
+        })
+      }
+      
+      handleEditNote = () => {
+        const id = this.state.id
+        const notes = {
+            id: null,
+            title: this.state.notes.title,
+            content: this.state.notes.content
+        }
+
+        axios.put(`http://localhost:8000/notes/${id}`, notes).then(res => {
+            console.log('before',res)
+            this.props.history.push('/');
+            this.setState({ id: null, notes: { id: null, title: '', content: ''}})
+            console.log('after', res)
+        }).catch(err => console.log(err))
+        
     }
 
-    handleUpdate = () => { this.props.handleEditNote(this.props.match.params.id) }
 
     render() {
         return (
             <div>
                 <h2>Edit Note:</h2>
                 <form>
-                    <input style={{ width: '500px', height: '30px', marginBottom: '15px' }} type="text" name="title" placeholder="Note Title" value={this.props.selected.title} onChange={this.props.handleTitle} /><br />
-                    <textarea style={{ width: '600px', height: '350px' }} type="text" name="content" placeholder="Note Content" value={this.props.selected.content} onChange={this.props.handleBody}/><br />
-                    <Link to="/" style={{textDecoration: 'none' , color: 'black'}}><button onClick={this.handleUpdate}>Update</button></Link>
+                    <input style={{ width: '500px', height: '30px', marginBottom: '15px' }} type="text" name="title" placeholder="Note Title" value={this.state.notes.title} onChange={this.handleTitle} /><br />
+                    <textarea style={{ width: '600px', height: '350px' }} type="text" name="content" placeholder="Note Content" value={this.state.notes.content} onChange={this.handleContent}/><br />
+                    <Link to="/" style={{textDecoration: 'none' , color: 'black'}}><button onClick={this.handleEditNote}>Update</button></Link>
                 </form>
             </div>
         )
