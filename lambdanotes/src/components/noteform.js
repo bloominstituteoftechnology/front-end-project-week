@@ -1,11 +1,12 @@
 import React from 'react';
 
-const NoteForm = () => {
+const NoteForm = (props) => {
+    console.log(props)
     return (  
         <form>
-            <input type="text" placeholder="Note Title"/>
-            <input type="text" placeholder="Note Content"/>
-            <Button>{}</Button>
+            <input type="text" placeholder="Note Title" onChange={props.handleTaskChange} value={props.notes.title}/>
+            <input type="text" placeholder="Note Content" onChange={props.handleTaskChange} value={props.notes.note}/>
+            <button>{props.btntext}</button>
         </form>
     );
 }

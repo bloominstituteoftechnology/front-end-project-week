@@ -14,7 +14,7 @@ const NavBar = () => {
         <NavbarAttrib className="Navbar-Container">
             <h1>Lambda Notes</h1>
             <Link to="/"><button>View Your Notes</button></Link>
-            <button>+ Create New Note</button>
+            <Link to="/form"><button>+ Create New Note</button></Link>
         </NavbarAttrib>
     );
 }
