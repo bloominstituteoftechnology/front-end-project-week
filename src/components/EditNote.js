@@ -65,10 +65,7 @@ class EditNote extends React.Component {
       .catch(err => console.log(err));
   };
 
-  // editCompleted = () => {
-  //   this.handleEditNote(this.props.match.params.id);
-  // };
-
+  
   render() {
     return (
       <div className="edit-note-div">
