@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
 
@@ -61,41 +62,78 @@ const Heading = styled.h2`
     letter-spacing: .8px;
 `;
 
+const Warning = styled.p`
+    align-text: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #E63946;
+    margin: auto;
+    transition-delay: 0.5s;
+    font-family: 'Lora', Serif;
+`;
+
 class AddForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isValid: true,
+      error: {}
+    }
+  }
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.addNote({
-      title: this.titleInput.value,
-      content: this.contentInput.value
-    })
-    this.props.history.push('/');
+    if (!(this.titleInput.value && this.contentInput.value)) {
+      this.setState({isValid: false})
+    } else {
+      this.props.addNote({
+        title: this.titleInput.value,
+        content: this.contentInput.value
+      })
+      this.setState({isValid: true})
+      this.props.history.push('/');
+    }
+
   }
 
   render() {
+    const warning = this.state.isValid
+      ? null
+      :
+      <Warning>
+        ERROR: Please provide both title and content for note.
+      </Warning>;
+
     return (
       <Content>
         <Heading>Create New Note: </Heading>
-        <Form onSubmit={this.submitHandler}>
-            <Input
-              placeholder="Note Title"
-              type="text"
-              name="title"
-              innerRef = {node => this.titleInput = node}
-            />
-            <TextArea
-              placeholder="Note Content"
-              type="text"
-              name="body"
-              cols="30"
-              rows="13"
-              innerRef = {node => this.contentInput = node}
-            />
-            <Button type='submit'>Save</Button>
-          </Form>
+        <Form>
+          <Input
+            placeholder="Note Title"
+            type="text"
+            name="title"
+            innerRef={node => this.titleInput = node}
+          />
+          <TextArea
+            placeholder="Note Content"
+            type="text"
+            name="body"
+            cols="30"
+            rows="13"
+            innerRef={node => this.contentInput = node}
+          />
+          <Button type='button' onClick={(e) => this.submitHandler(e)}>Save</Button>
+        </Form>
+        {warning}
       </Content>
     );
   }
 }
 
-export default connect(null, { addNote })(AddForm)
+const mapStateToProps = state => {
+  return {
+    error: state.error
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { addNote })(AddForm));

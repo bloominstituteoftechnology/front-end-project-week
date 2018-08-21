@@ -34,20 +34,23 @@ class NoteList extends React.Component {
     }
 
     render() {
+        const note = this.props.notes.length > 0 ?
+            <Notes>
+                {this.props.notes.map(note =>
+                    <Link
+                        to={`/notes/${note.id}`}
+                        key={note.id}
+                        style={{ textDecoration: 'none', color: 'black' }}
+                    >
+                        <Note note={note} />
+                    </Link>
+                )}
+            </Notes>
+            : null
         return (
             <Content>
                 <Header>Your Notes:</Header>
-                <Notes>
-                    {this.props.notes.map(note =>
-                        <Link
-                            to={`/notes/${note.id}`}
-                            key={note.id}
-                            style={{ textDecoration: 'none', color: 'black' }}
-                        >
-                            <Note note={note} />
-                        </Link>
-                    )}
-                </Notes>
+                {note}
             </Content>
         )
     }

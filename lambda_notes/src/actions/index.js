@@ -5,18 +5,19 @@ import * as types from './types';
 
 export const fetchNotes = () => {
     const request = axios.get('http://localhost:8000/api/notes')
-    console.log(request);
     return (dispatch) => {
         dispatch({type: types.FETCHING_NOTES})
-        console.log(request);
         request.then(response => dispatch({
             type: types.NOTES_FETCHED,
             payload: response.data
         }))
-        .catch(err => dispatch({
-            type: types.FETCH_ERROR,
-            error: err
-        }))
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: types.FETCH_ERROR,
+                error: err
+            })
+        })
     }
 }
 
@@ -38,7 +39,6 @@ export const deleteNote = (id) => {
     const request = axios.delete(`http://localhost:8000/api/notes/${id}`)
     return (dispatch) => {        
         request.then(res => {
-            console.log(res);
             if (res) {
                 axios.get('http://localhost:8000/api/notes')
                 .then(res2 => dispatch({
@@ -63,7 +63,6 @@ export const addNote = (note) => {
     const request = axios.post('http://localhost:8000/api/notes', note)
     return (dispatch) => {
         request.then(res => {
-            console.log(res);
             if (res) {
                 axios.get('http://localhost:8000/api/notes')
                 .then(res2 => dispatch({
