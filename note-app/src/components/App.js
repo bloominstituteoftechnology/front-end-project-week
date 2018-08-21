@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom'; 
-import {TransitionGroup, CSSTransition} from 'react-transition-group'
-import axios from 'axios'
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import {connect} from 'react-redux'; 
+import axios from 'axios';
 
 import '../styles/App.css';
 import CreateNote from './create-note';
@@ -9,6 +10,7 @@ import EditNote from './edit-note';
 import ViewAllNotes from './notes';
 import FullNote from './FullNote';
 import DeleteModal from './delete-note';
+import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote} from '../actions'; 
 
 
 
@@ -17,20 +19,13 @@ class App extends Component {
     super(props)
     this.state = {
       notes: [],
-      currentTitle: null,
-      currentContent : null,
-      currentIndex: null,
-      currentKey: null,
-      currentTags: null,
-      currentVersion: null,
-      currentId: null, 
       nextId:null,
       select: null, 
     }
   }
 
   componentDidMount () {
-    this.fetchNotes()
+    this.props.fetchingNotes()
   }
 
   idGenerator = () => {
@@ -38,14 +33,7 @@ class App extends Component {
   }
 
   fetchNotes = () => {
-    const promise = axios.get('http://localhost:8080/notes')
-    promise
-    .then(response => {
-      this.setState({notes:response.data, nextId:response.data.length})
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    console.log("fetching")
   }
 
   postNote = (noteobj) => {
@@ -61,7 +49,7 @@ class App extends Component {
   }
 
   handleNoteSelect = (index) => {
-    const select = this.state.notes[index];
+    const select = this.props.notes[index];
     console.log(select)
     this.setState({select: {title: select.title, textBody: select.textBody, index: index, _id: select._id,
     tags: select.tags, __v: select.__v, id: select.id}})
@@ -93,7 +81,8 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state)
+    console.log(this.props)
+    
     return (
       <div className="App">
         <div className="heading">
@@ -104,7 +93,7 @@ class App extends Component {
           <TransitionGroup>
             <CSSTransition timeout = {500} classNames = 'fade' key = {location.key}>
               <Switch location = {location}>
-                <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
+                <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.props.notes} click = {this.handleNoteSelect}/>} /> 
                 <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.postNote} idGenerator = {this.idGenerator} nextId = {this.state.nextId}/>} />
                 <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote}/> } />
                 <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
@@ -120,4 +109,19 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+ return { 
+    notes: state.notes,
+    addingNote: state.addingNote,
+    updatingNote: state.updatingNote,
+    deletingNote: state.deletingNote,
+    gettingNotes: state.gettingNotes, 
+    selecting: state.selecting, 
+    error: state.error,
+    select: state.select,
+    nextId: state.nextId,
+ }
+
+}
+
+export default connect(mapStateToProps, {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote})(App);

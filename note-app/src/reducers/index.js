@@ -29,15 +29,15 @@ const reducerNote = (state = initialState, action) => {
     case ADDING_NOTE:
       return {...state, addingNote: true}
     case ADDED_NOTE:
-      return {...state, addingNote: false, notes: [...notes, action.payload]}
+      return {...state, addingNote: false, notes: [...state.notes, action.payload]}
     case UPDATING_NOTE:
       return {...state, updatingNote: true}
     case UPDATED_NOTE:
-      return {...state, updatingNote: false, notes: [...notes, action.payload]}
+      return {...state, updatingNote: false, notes: [...state.notes, action.payload]}
     case DELETING_NOTE:
       return {...state, deletingNote: true}
     case DELETED_NOTE:
-      return {...state, deletingNote: false, notes: [...state, action.payload]}
+      return {...state, deletingNote: false, notes: [...state.notes, action.payload]}
     case SELECTING_NOTE:
       return {...state, selecting: true}
     case SELECTED_NOTE:
@@ -53,5 +53,6 @@ const reducerNote = (state = initialState, action) => {
   }
 
 }
+export default reducerNote; 
 
 

@@ -1,4 +1,4 @@
-import {GETTING_NOTES, ADDING_NOTE, UPDATING_NOTE, DELETING_NOTE, GOT_NOTES, ADDED_NOTE, UPDATED_NOTE, DELETED_NOTE} from '../reducers'
+import {GETTING_NOTES, ADDING_NOTE, UPDATING_NOTE, DELETING_NOTE, GOT_NOTES, ADDED_NOTE, UPDATED_NOTE, DELETED_NOTE , SELECTING_NOTE, SELECTED_NOTE, ERROR} from '../reducers'
 import {store} from '../index'
 import axios from 'axios' 
 
@@ -17,7 +17,7 @@ export const fetchingNotes = () => {
 }
 
 export const addingNote = note => {
-    const promise = axios.post('http://localhost:8080/notes', noteobj)
+    const promise = axios.post('http://localhost:8080/notes', note)
     return (dispatch) => {
       dispatch({type:ADDING_NOTE})
       promise.then( response => {
@@ -34,8 +34,10 @@ export const updatingNote = (id, note) => {
     return dispatch => {
       dispatch({type:UPDATING_NOTE})
       promise.then( response => {
+        
         dispatch({type: UPDATED_NOTE, payload:response.data})
         // may have to call on the fetcher 
+        //fetchingNotes()
       })
       .catch(error => {
           dispatch({type:ERROR, error})
@@ -45,18 +47,6 @@ export const updatingNote = (id, note) => {
     
 }
 
-deleteNote  = (index) => {
-    const promise = axios.delete(`http://localhost:8080/notes/${index}`)
-    promise
-    .then(response => {
-      console.log(response)
-      this.fetchNotes()
-    })
-    .catch(error => {
-      console.log(error, index) 
-    })
-
-  }
 
 export const deletingNote = id => {
     const promise = axios.delete(`http://localhost:8080/notes/${id}`)
@@ -65,9 +55,17 @@ export const deletingNote = id => {
         promise.then(response => {
             dispatch({type:DELETED_NOTE, payload: response.data})
         })
+        //fetchingNotes() 
         .catch(error => {
             dispatch({type:ERROR, error})
         })
         
+    }
+}
+
+export const selectingNote = (id, note) => {
+    return dispatch => {
+        dispatch({type:SELECTING_NOTE})
+        dispatch({type:SELECTED_NOTE, payload: note, index: id})
     }
 }
