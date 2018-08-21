@@ -12,7 +12,8 @@ class SingleNote extends Component {
       modalIsOpen: false,
       title: "",
       body: "",
-      tags: []
+      tags: [],
+      checklist: []
     };
   }
   openModal = () => {
@@ -38,7 +39,8 @@ class SingleNote extends Component {
       this.setState({
         title: filtNote[0].title,
         body: filtNote[0].body,
-        tags: filtNote[0].tags
+        tags: filtNote[0].tags,
+        checklist: filtNote[0].checklist
       });
     }
   }
@@ -55,7 +57,8 @@ class SingleNote extends Component {
       this.setState({
         title: filtNote[0].title,
         body: filtNote[0].body,
-        tags: filtNote[0].tags
+        tags: filtNote[0].tags,
+        checklist: filtNote[0].checklist
       });
     }
   }
@@ -71,16 +74,54 @@ class SingleNote extends Component {
           </div>
         </div>
         <div className="viewTitle">{this.state.title}</div>
-        <Markdown className="viewBody" source={this.state.body}/>
+        <Markdown className="viewBody" source={this.state.body} />
         <div className="viewBody">
-         {this.state.tags.length >0 ?(<div> <div className="tagtitle">Tags:</div>
-         <div className='tagArea'>
-          {this.state.tags.map((e,i) => {
-            return <div key={i} className="viewTag">{e}</div>;})
-          }
-          </div></div>):""
-        }
-          
+          {this.state.checklist.length > 0 ? (
+            <div>
+              {" "}
+              <div className="tagtitle">Checklist:</div>
+              <div className="checkboxArea">
+                {this.state.checklist.map((e, i) => {
+                  return (
+                    <div key={i} className="checkboxRow">
+                      <input
+                        defaultChecked={e.checked}
+                        type="checkbox"
+                        onClick={() =>
+                          this.props.invert(
+                            Number(this.props.match.params.id),
+                            e.name
+                          )
+                        }
+                      />
+                      {e.name}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="viewBody">
+          {this.state.tags.length > 0 ? (
+            <div>
+              {" "}
+              <div className="tagtitle">Tags:</div>
+              <div className="tagArea">
+                {this.state.tags.map((e, i) => {
+                  return (
+                    <div key={i} className="viewTag">
+                      {e}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -104,8 +145,7 @@ class SingleNote extends Component {
 }
 
 SingleNote.propTypes = {
-  notes: PropTypes.array,
-  
+  notes: PropTypes.array
 };
 
 export default SingleNote;

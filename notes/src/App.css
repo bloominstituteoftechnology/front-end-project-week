@@ -2,7 +2,7 @@
 
 .App {
   text-align: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   font-family: "Roboto", sans-serif;
   background: rgb(238, 238, 238);
@@ -91,7 +91,6 @@ input {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  width: 60%;
 }
 textarea {
   width: 100%;
@@ -171,4 +170,22 @@ padding: 2px;
 .tagtitle{
   font-weight: bold;
   font-size: 18px;
+}
+.checkListItem{
+  border: 2px solid grey;
+  border-radius: 5px;
+  background-color: white;
+  padding: 3px;
+  margin: 5px;
+  display: inline-block
+
+}
+
+.removeButton{
+  font-size: 14px;
+  vertical-align: 1px;
+  cursor: pointer;
+}
+.checkboxRow{
+  display:flex;
 }

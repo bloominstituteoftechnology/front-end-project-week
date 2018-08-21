@@ -61,6 +61,14 @@ class App extends Component {
       notes: moddedArray
     });
   };
+  invertCheck = (itemID,checkName) =>{
+    let prevNote = this.state.notes[itemID];
+    prevNote.checklist.forEach(element => {
+      if(element.name===checkName){
+        element.checked = !element.checked
+      }
+    });
+  }
   componentDidMount = () => {
     this.setState({
       notes: [
@@ -68,31 +76,37 @@ class App extends Component {
           title: "test",
           body: "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ",
           id: 0,
-          tags:[]
+          tags:[],
+          checklist:[{checked:false, name:"AAAA"}]
         },
         {
           title: "test2",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 1,
-          tags:[]
+          tags:[],
+          checklist:[]
         },
         {
           title: "test3",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 2,
-          tags:[]
+          tags:[],
+          checklist:[]
+
         },
         {
           title: "test4",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 3,
-          tags:[]
+          tags:[],
+          checklist:[]
         },
         {
           title: "test5",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           id: 4,
-          tags:[]
+          tags:[],
+          checklist:[]
         }
       ]
     });
@@ -132,6 +146,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 delete={this.deleteNote}
+                invert={this.invertCheck}
               />
             )}
           />

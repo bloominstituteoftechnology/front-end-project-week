@@ -14,9 +14,9 @@ class CreateNote extends Component {
       mode: "ADD",
       title: "",
       body: "",
-      tags: [
-       
-     ],
+      checklistAdd: "",
+      tags: [],
+      checklist: []
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
@@ -35,11 +35,38 @@ class CreateNote extends Component {
         this.setState({
           title: filtNote[0].title,
           body: filtNote[0].body,
-          mode: "EDIT"
+          mode: "EDIT",
+          tags: filtNote[0].tags,
+          checklist: filtNote[0].checklist,
         });
       }
     }
   }
+  addToChecklist = () => {
+    if (this.state.checklistAdd === "") {
+      return;
+    }
+    let prevChecklist = this.state.checklist;
+    const checkObj = { checked: false, name: this.state.checklistAdd };
+    prevChecklist.push(checkObj);
+    this.setState({
+      checklist: prevChecklist
+    });
+  };
+  removeFromChecklist = event => {
+    const prevChecklist = this.state.checklist;
+    let moddedChecklist = prevChecklist.filter(e => {
+      if (e.name !== event.target.id) {
+        return true;
+      }
+      else{
+        return false;
+      }
+    });
+    this.setState({
+      checklist: moddedChecklist
+    });
+  };
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -58,7 +85,9 @@ class CreateNote extends Component {
           this.setState({
             title: filtNote[0].title,
             body: filtNote[0].body,
-            mode: "EDIT"
+            mode: "EDIT",
+            tags: filtNote[0].tags,
+            checklist: filtNote[0].checklist,
           });
         }
       }
@@ -70,17 +99,19 @@ class CreateNote extends Component {
       ? this.props.add({
           body: this.state.body,
           title: this.state.title,
-          tags: this.state.tags.map((e)=>{
-            return e.text
-          })
+          tags: this.state.tags.map(e => {
+            return e.text;
+          }),
+          checklist: this.state.checklist
         })
       : this.props.edit({
           body: this.state.body,
           title: this.state.title,
           id: Number(this.props.match.params.id),
-          tags: this.state.tags.map((e)=>{
-            return e.text
-          })
+          tags: this.state.tags.map(e => {
+            return e.text;
+          }),
+          checklist: this.state.checklist
         });
 
     this.props.history.push("/");
@@ -106,6 +137,14 @@ class CreateNote extends Component {
     // re-render
     this.setState({ tags: newTags });
   }
+  handleKeyPress = event => {
+    if (event.key === "Enter") {
+      this.addToChecklist();
+      this.setState({
+        checklistAdd: ""
+      });
+    }
+  };
   render() {
     const { tags } = this.state;
 
@@ -115,8 +154,8 @@ class CreateNote extends Component {
           {this.state.mode === "ADD" ? "Create New" : "Edit"} Note:
         </div>
         <form className="formLayout" id="createNoteForm" onSubmit={this.submit}>
-          <input 
-          required
+          <input
+            required
             type="text"
             className="notesubmit"
             placeholder={this.state.mode === "ADD" ? "Note Title" : ""}
@@ -125,7 +164,7 @@ class CreateNote extends Component {
             onChange={this.handleInputChange}
           />
           <textarea
-          required
+            required
             className="notesubmit"
             form="createNoteForm"
             name="body"
@@ -136,7 +175,40 @@ class CreateNote extends Component {
           <button className="sidebarButton">
             {this.state.mode === "ADD" ? "Save" : "Update"}
           </button>
-          <div className='tagtitle'>Tags:</div>
+          
+        </form>
+        <div className="checklistContainer">
+          <div className="tagtitle">Checklist:</div>
+          <br />
+          <input
+            type="text"
+            className="notesubmit"
+            name="checklistAdd"
+            placeholder="Add Item to Checklist"
+            value={this.state.checklistAdd}
+            onChange={this.handleInputChange}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div className="checklistresults">
+            {this.state.checklist.map((e, i) => {
+              return (
+                <div key={i} className="checkListItem">
+                  {e.name}{" "}
+                  <span
+                    id={e.name}
+                    className="removeButton"
+                    onClick={this.removeFromChecklist}
+                  >
+                    x
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          
+        </div>
+        <br/>
+        <div className="tagtitle">Tags:</div>
           <ReactTags
             tags={tags}
             handleDelete={this.handleDelete}
@@ -145,7 +217,6 @@ class CreateNote extends Component {
             delimiters={delimiters}
             inline
           />
-        </form>
       </div>
     );
   }
