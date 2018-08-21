@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import {Route,NavLink} from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Notes from './components/notes';
+// import Note from './components/Note';
+// import NoteList from './NoteList';
+import NewNoteForm from './components/NewNoteForm';
 import './App.css';
 
 
 
 class App extends Component {
- state = {
+  constructor(){
+    super();
+    this.state = {
       notes: [
         {
             id:0,
@@ -43,6 +48,7 @@ class App extends Component {
         title: '',
         text: ''
      };
+    }
 
      addNote = event => {
        event.preventDefault();
@@ -65,10 +71,17 @@ class App extends Component {
       path="/"
       render={(props) => <Notes {...props} notes={this.state.notes} />}
       />
+
+      {/* <Route exact path ="/" component={NoteList} />
+      <Route path = "/notes/:id" render= { (props) => {
+      return(<Notes {...props}/>)
+      }} /> */}
       {/* <Route
       path="/"
       render={(props) => <NewNoteForm {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
-      /> */}
+      />  */}
+
+        
     </div>
     );
   }

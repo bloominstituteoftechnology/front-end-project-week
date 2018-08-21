@@ -9,6 +9,7 @@
     height: 10%;
     display: flex;
     align-items: flex-end;
+    color: gray;
 }
 
 .new-note .form input {

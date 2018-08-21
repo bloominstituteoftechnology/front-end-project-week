@@ -1,0 +1,43 @@
+.notes-page{
+    display: flex;
+ 
+}
+
+
+.notes-page .notes{
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+   
+}
+
+
+
+.notes-page .page-title{
+    /* margin: 55px 0 0; */
+    padding: 0 20px;
+    height: 10%;
+    display: flex;
+    align-items: flex-start;
+    color: gray;
+  }
+
+.notes-page .notes .text{
+box-sizing: border-box;
+border: 1px solid #A6A6A6;
+width: 200px;
+height:195px;
+padding: 5px;
+margin: 20px 20px 0;
+}
+
+
+.notes .text h3{
+    text-align: center;
+    margin: 10px 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #A6A6A6;
+}
+

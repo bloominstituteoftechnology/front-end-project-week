@@ -19,7 +19,7 @@ class Sidebar extends Component {
          <li><NavLink to="/create-new-note/" className="nav-text" activeClassName="active-component">+ Create New Note</NavLink></li>
          </div>
     </ul>
-   <Route exact path="/create-new-note/" component={NewNoteForm} />
+    <Route exact path="/create-new-note/" component={NewNoteForm} />
 </div>
         );
     }
