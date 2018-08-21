@@ -27,18 +27,18 @@ export const addNewNote = data => {
     return dispatch => {
         dispatch( {type: ADDING_NOTES })
         //Do the api calls here 
-        testNotes.push(data)
-        dispatch( {type: ADDED_NOTES, payload: {
-            ...data,
-            id: idCount++
-        }})
+        axios.post(`https://killer-notes.herokuapp.com/note/create`, data)
+            .then(res =>  dispatch( {type: ADDED_NOTES, payload: res.data.success}))
+            .catch(err => console.log(err))
     }
 }
 
 export const deleteNote = noteId => {
     return dispatch => {
         dispatch( {type: DELETING_NOTES })
-        dispatch( { type: DELETING_NOTES})
+        axios.post(`https://killer-notes.herokuapp.com/note/delete/id`)
+            .then(res => dispatch( { type: DELETED_NOTES}))
+            .catch(err => dispatch( {type: ERROR} ))
     }
 }
 
@@ -46,6 +46,8 @@ export const updateNotes = data => {
     return dispatch => {
         dispatch( {type: UPDATING_NOTES } )
         //Do the updated
-        dispatch( { type: UPDATED_NOTES } )
+        axios.put(`https://killer-notes.herokuapp.com/note/edit/${data._id}`, data)
+            .then(res => dispatch( { type: UPDATED_NOTES } ) )
+            .catch(err => dispatch( { type: ERROR } ))
     }
 }
