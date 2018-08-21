@@ -7,8 +7,9 @@ const db = require('./database/db')
 
 
 //MiddleWare
+app.use(express.json());
 app.use(helmet());
-app.use(logger());
+app.use(logger('dev'));
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -25,14 +26,26 @@ app.get('/api/notes', (req, res) => {
         })
 });
 
+app.get('/api/notes/:id', (req, res) => {
+    const { id } = req.params
+    db.getNotes(id)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error =>{
+            res.status(500).json({ error : error})
+        })
+});
+
 app.post('/api/notes', (req, res) => {
-    const { note, body } = req.body
-    const note = { note, body }
-    db.addNote( note ).first()
+    const { title, body } = req.body
+    const note = { title , body }
+    db.addNote( note )
         .then( responseId =>{
             if(responseId){
-                db.getNotes(response)
+                db.getNotes(responseId[0])
                     .then(responseData => {
+                        console.log(responseData)
                         res.status(200).json(responseData)
                     })
                     .catch(error =>{
@@ -47,17 +60,29 @@ app.post('/api/notes', (req, res) => {
     
 });
 app.put('/api/notes/:id', (req, res) => {
-    const { id } = req.param
+    const { id } = req.params
     const { title , body } = req.body
     const user = { title, body }
     db.editeNote(id, user)
         .then(response => {
-            res.status(500).json(response)
+            if(response){
+                db.getNotes( id )
+                    .then( responseData =>{
+                        res.status(200).json(responseData)
+                    })
+                    .catch( error =>{
+                        res.status(500).json({error : error })
+                    })
+            }
+            
+        })
+        .catch(error =>{
+            res.status(500).json({ error : error })
         })
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-    const { id } = req.param
+    const { id } = req.params
       db.deleteNote(id)
         .then( response => {
             res.status(200).json(response)
