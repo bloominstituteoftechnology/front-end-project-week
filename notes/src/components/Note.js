@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {fetchOneNote} from '../actions/actions';
-import {withRouter} from 'react-router-dom';
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Link, withRouter} from 'react-router-dom';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const Body = styled.div`
     background: #F1F1F1;
@@ -15,11 +15,11 @@ const Body = styled.div`
     font-family: Roboto;
 `;
 
-// const EditDel = styled.div`
-//     padding-top: 2rem;
-//     position: fixed;
-//     right: 24rem;
-// `
+const EditDel = styled.div`
+    padding-top: 2rem;
+    position: fixed;
+    right: 24rem;
+`
 const NoteTitle = styled.h1`
     font-weight: 800;
     color: #3C3C3C;
@@ -31,22 +31,22 @@ const NoteContent = styled.div`
     padding: 1rem;
 `
 
-// const ResetButton = styled.button`
-//     background: none repeat scroll 0 0 transparent;
-//     border: medium none;
-//     border-spacing: 0;
-//     color: #26589F;
-//     font-family: 'PT Sans Narrow',sans-serif;
-//     font-size: 16px;
-//     font-weight: normal;
-//     line-height: 1.42rem;
-//     list-style: none outside none;
-//     margin: 0;
-//     padding: 0;
-//     text-align: left;
-//     text-decoration: none;
-//     text-indent: 0;
-// `
+const ResetButton = styled.button`
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    border-spacing: 0;
+    color: #26589F;
+    font-family: 'PT Sans Narrow',sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.42rem;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+`
 class Note extends React.Component{
     constructor(props){
         super(props);
@@ -55,23 +55,21 @@ class Note extends React.Component{
             default: true
         }
     }
-    // toggle = () => {
-    //     this.setState({
-    //       modal: !this.state.modal
-    //     });
-    // }
+    toggle = () => {
+        this.setState({
+          modal: !this.state.modal
+        });
+    }
     componentDidMount(){
         this.props.fetchOneNote(this.props.match.params.id);
     }
     render(){
-        console.log(this.props.note)
-        // let note = this.props.notes.filter(note => note._id === this.props.match.params.id);
         return(
             <Body>
                 <NoteTitle>{this.props.note.title}</NoteTitle>
                 <NoteContent>{this.props.note.textBody}</NoteContent>
-                {/* <EditDel>
-                    <Link to={`/note/${note.id}/editnote`} style={{color: 'darkgray'}}>edit</Link>   
+                <EditDel>
+                    <Link to={`/note/${this.props.note._id}/editnote`} style={{color: 'darkgray'}}>edit</Link>   
                     <ResetButton onClick={this.toggle}>delete</ResetButton>
                         <Modal isOpen={this.state.modal}
                         autoFocus={this.state.default}
@@ -79,11 +77,11 @@ class Note extends React.Component{
                             <ModalHeader toggle={this.toggle} charCode="X"></ModalHeader>
                             <ModalBody>Are you sure you want to delete this?</ModalBody>
                             <ModalFooter>
-                                <Button color="danger" id={note.id} onClick={this.props.deleteNote}>Delete</Button>
+                                <Button color="danger" id={this.props.note._id} onClick={this.props.deleteNote}>Delete</Button>
                                 <button style={{background: '#2AB4AE', color: 'white'}}>No</button>
                             </ModalFooter>
                         </Modal>
-                </EditDel> */}
+                </EditDel>
             </Body>
         );
     }

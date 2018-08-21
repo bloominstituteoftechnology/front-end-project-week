@@ -5,8 +5,8 @@ import {Route, Link} from 'react-router-dom';
 import ListView from './components/ListView';
 import CreateNew from './components/CreateNew';
 import Note from './components/Note';
-// import EditNote from './components/EditNote';
-import {fetchNotes, addNote} from './actions/actions';
+import EditNote from './components/EditNote';
+import {fetchNotes, addNote, updateNote} from './actions/actions';
 import {connect} from 'react-redux';
 
 
@@ -15,7 +15,7 @@ class App extends Component {
     super(props);
     this.state = {
       title: '',
-      texBody: '',
+      textBody: '',
     }
   }
   handleChange = e =>{
@@ -26,11 +26,11 @@ class App extends Component {
     this.props.addNote(this.state.title, this.state.textBody);
     this.setState({title:'', textBody:'',});
   }
-  // updateNote = e => {
-  //   e.preventDefault();
-  //   let note = this.state.notes.slice(e.target.id, ++e.target.id)
-  //   let notes = this.state.notes.slice();
-  // }
+  updateNote = e => {
+    e.preventDefault();
+    this.props.updateNote(this.state.title, this.state.textBody, e.target.id);
+    this.setState({title:'', textBody:'',});
+  }
   // deleteNote = e => {
   //   // let note = this.state.notes.splice(e.target.id, 1)
   //   // this.setState({notes: note});
@@ -39,7 +39,8 @@ class App extends Component {
   componentDidMount(){
     this.props.fetchNotes();
   }
-  render() {
+  render(){
+    console.log(this.state)
     return (
         <div className='App'>
           <Route path='/' component={SideBar} />
@@ -54,14 +55,14 @@ class App extends Component {
             />}
           />
           <Route exact path={`/note/:id`} component={Note} />
-          {/* <Route exact path={`/note/:id/editnote`}
+          <Route exact path={`/note/:id/editnote`}
                  render={(props) => <EditNote {...props} 
                                     title={this.state.title}
-                                    content={this.state.content}
+                                    textBody={this.state.textBody}
                                     handleChange={this.handleChange}
                                     updateNote={this.updateNote}
                                     />}
-          /> */}
+          />
         </div>
     );
   }
@@ -71,4 +72,4 @@ export const mapStateToProps = state => ({
   notes: state.notes,
 });
 
-export default connect(mapStateToProps, {fetchNotes, addNote})(App);
+export default connect(mapStateToProps, {fetchNotes, addNote, updateNote})(App);

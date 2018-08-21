@@ -41,8 +41,8 @@ class EditNote extends React.Component{
                             onChange={this.props.handleChange}
                 />
                 <InputContent placeholder='Note Content' 
-                            name='content'
-                            value={this.props.content}
+                            name='textBody'
+                            value={this.props.textBody}
                             onChange={this.props.handleChange}
                 />
                 <Button onClick={this.props.updateNote}

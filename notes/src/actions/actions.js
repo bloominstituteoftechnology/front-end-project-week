@@ -6,6 +6,8 @@ export const FETCHING_ONE_NOTE = 'FETCHING_ONE_NOTE';
 export const FETCHED_ONE_NOTE = 'FETCHED_ONE_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
 export const ADDED_NOTE = 'ADDED_NOTE';
+export const UPDATING_NOTE = 'UPDATING_NOTE';
+export const UPDATED_NOTE = 'UPDATED NOTE';
 export const ERRORS = 'ERRORS';
 
 const url = "https://killer-notes.herokuapp.com/note";
@@ -44,8 +46,23 @@ export const addNote = (title, textBody, tags) => {
                 tags: tags,
             })
             .then( response => {
-                dispatch({type: ADDED_NOTE, payload: response.data})
+                dispatch({type: ADDED_NOTE, payload: response.data});
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});
     };
+}
+
+export const updateNote = (title, textBody, _id) => {
+    return dispatch => {
+        dispatch({type: UPDATING_NOTE});
+        axios  
+            .put(`${url}/edit/${_id}`, {
+                title: title,
+                textBody: textBody,
+            })
+            .then(response => {
+                dispatch({type:UPDATED_NOTE, payload: response.data});
+            })
+            .catch (err => {dispatch({type: ERRORS, payload: err})});
+    }
 }
