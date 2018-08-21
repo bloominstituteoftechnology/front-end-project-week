@@ -7,8 +7,6 @@ import {Route} from 'react-router-dom';
 import axios from 'axios';
 import ViewNote from './components/ViewNote';
 import Authenticate from './components/Authentication/Authenticate';
-import {fetchData} from './actions';
-import {connect} from 'react-redux';
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +20,14 @@ class App extends Component {
 
   /*Fetches data from the server once the App component mounts then passes it to the state to be displayed*/
   componentDidMount() {
-    console.log('props is', this.props.appProps);
-    this.props.appProps.fetchData('all');
+    axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState({notes: response.data})
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
 /*Exported function met to fetch API data for this state via a different component*/
