@@ -94,7 +94,7 @@ class Note extends React.Component {
 							<input
 								type="text"
 								placeholder="Note Title"
-								value={this.state.title}
+								defaultValue={note.title}
 								name="title"
 								autoComplete="off"
 								onChange={this.handleInputChange}
@@ -105,7 +105,7 @@ class Note extends React.Component {
 								rows="10"
 								name="textBody"
 								placeholder="Note Content"
-								value={this.state.text}
+								defaultValue={note.textBody}
 								onChange={this.handleInputChange}
 							/>
 							<button className="Button">Update</button>

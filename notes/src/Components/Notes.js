@@ -5,6 +5,7 @@ class Notes extends React.Component {
 	render() {
 		return (
 			<div className="NotesWrapper">
+				<h1 className="Notes__header">Your Notes:</h1>
 				{this.props.notes.map(note => (
 					<Link
 						key={note._id}
@@ -13,16 +14,16 @@ class Notes extends React.Component {
 					>
 						<div key={note._id}>
 							<h4 className="Notes__title">
-								{note.title.length > 14
-									? note.title.substring(0, 14) + "..."
+								{note.title.length > 20
+									? note.title.substring(0, 20) + "..."
 									: note.title}
 							</h4>
 							{note.tags.map(tag => (
 								<span className="Notes__tag">{tag}</span>
 							))}
 							<p className="Notes__text">
-								{note.textBody.length > 70
-									? note.textBody.substring(0, 70) + "..."
+								{note.textBody.length > 170
+									? note.textBody.substring(0, 170) + "..."
 									: note.textBody}
 							</p>
 						</div>
