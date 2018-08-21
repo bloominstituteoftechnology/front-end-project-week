@@ -5,6 +5,8 @@ class Notes extends React.Component {
 	state = { display: false };
 	render() {
 		return (
+        <div className='notes-container'>
+                <h2>Your Notes:</h2>
             <div className='notes-wrapper'>
 				{this.props.notes.map(note => (
 					<Link className='notes' to={`/notes/${note.id}`}>
@@ -15,6 +17,7 @@ class Notes extends React.Component {
 					</Link>
 				))}
 			</div>
+        </div>
 		);
 	}
 }

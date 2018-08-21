@@ -59,7 +59,7 @@ class Note extends React.Component {
 				>
 					<div className='note-delete-modal'>
 						<h4>Are you sure you want to delete this?</h4>
-						<div className='note-delete-prompt-buttons'>
+						<div className='note-delete-modal-buttons'>
 							<Link to='/notes'>
 								<button
 									className='button button-danger'
@@ -77,6 +77,7 @@ class Note extends React.Component {
 				</div>
 				{this.state.editDisplay ? (
 					<div className='add-note-wrapper'>
+                    <h2>Edit Note:</h2>
 						<form
 							className='add-note-form'
 							id='edit-note-form'

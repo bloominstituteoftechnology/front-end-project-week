@@ -35,11 +35,22 @@
 	outline: none;
 }
 
+.notes-container {
+    background-color: #f2f0f2;
+    width: 100%;
+}
+
+.notes-container h2 {
+    margin: 40px 0 10px 45px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
 .notes-wrapper {
 	display: flex;
 	align-content: flex-start;
 	flex-wrap: wrap;
-	padding: 2% 4%;
+	padding: 1% 4%;
 	width: 100%;
 	background-color: #f2f0f2;
 }
@@ -55,7 +66,6 @@
     margin: 10px;
     text-decoration: none;
 }
-
 
 .notes-title {
 	border-bottom: 1px solid black;
@@ -95,7 +105,7 @@
 }
 
 .add-note-form textarea {
-    padding: 10px;
+    padding: 20px;
     font-weight: bold;
     border-radius: 3px;
 }
@@ -113,7 +123,7 @@
 .note-edit-delete {
 	display: flex;
 	justify-content: flex-end;
-	margin: 20px;
+	margin: 10px 10px 0 0 ;
 }
 
 .note-edit-delete span:not(:last-child) {
@@ -138,14 +148,14 @@
 }
 
 .note-delete-modal {
-	background: #fff;
-	border: 2px solid darkgray;
+    background: #fff;
+	border: 2px solid black;
 	padding: 20px;
 	width: 53%;
 	text-align: center;
 }
 
-.note-delete-prompt-buttons {
+.note-delete-modal-buttons {
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -155,7 +165,6 @@
 }
 
 .note-content {
-	padding: 10px;
 	font-size: 1.1rem;
 	width: 80%;
 	margin: 0 auto;

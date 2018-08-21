@@ -17,7 +17,7 @@ class App extends Component {
 			},
 			{
 				id: 1,
-				title: 'None2',
+				title: 'Note2',
 				text: 'take out trash',
 			},
 			{
