@@ -10,7 +10,11 @@ class Notes extends React.Component {
 					<Link className="Notes" to={`/notes/${note.id}`}>
 						<div key={note.id}>
 							<h4 className="Notes__title">{note.title}</h4>
-							<p className="Notes__text">{note.text}</p>
+							<p className="Notes__text">
+								{note.text.length > 100
+									? note.text.substring(0, 100) + "..."
+									: note.text}
+							</p>
 						</div>
 					</Link>
 				))}
