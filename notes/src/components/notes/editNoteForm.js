@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {updateNote} from '../../actions';
 
 const CreateNotePage=styled.div`
 background-color:#ddd;
@@ -45,28 +46,18 @@ margin-top: 20px;
 border-radius: 3px;
 `
 class EditNoteForm extends React.Component{
-    
     constructor(props){
         super(props);
         this.state={
             title:'',
             content:'',
-            isMounted:false
         }
     }
     handleInputChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
     }
     componentDidMount() {
-        this.setState({ isMounted: true }, () => {
-            if (this.state.isMounted) {
-              this.setState({ isMounted: false });
-              axios.get(`https://killer-notes.herokuapp.com/note/get/${this.props.match.params.noteId}`)
-              .then(res=>this.setState({title:res.data.title,content:res.data.textBody}))
-              .catch(err=>console.log(err));
-              }
-            }
-        )
+        this.setState({title:this.props.note.title,content:this.props.note.textBody});
     }
     editNoteObj=()=>{
         const editedNote={
@@ -74,11 +65,8 @@ class EditNoteForm extends React.Component{
             textBody: this.state.content
         }
         this.setState({title:'',content:''});
-        axios.put(`https://killer-notes.herokuapp.com/note/edit/${this.props.match.params.noteId}`,editedNote)
-        .then(res=>this.props.history.push('/notes'))
-        .catch(err=>console.log(err));
+        this.props.updateNote(this.props.note._id,editedNote);
     }
-    
     render() {
         return(
             <CreateNotePage>
@@ -92,4 +80,9 @@ class EditNoteForm extends React.Component{
         )
     }
 }
-export default withRouter(EditNoteForm);
+const mapStateToProps=state=>{
+    return {
+        note:state.note
+    }
+}
+export default connect(mapStateToProps,{updateNote})(withRouter(EditNoteForm));

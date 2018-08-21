@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux';
+import {addNote} from '../../actions';
 
 const CreateNotePage=styled.div`
 background-color:#ddd;
@@ -62,7 +63,7 @@ class NewNote extends React.Component{
             textBody: this.state.content
         }
         this.setState({title:'',content:''});
-        axios.post('https://killer-notes.herokuapp.com/note/create',newNote).then(this.props.history.push('/')).catch(err=>console.log(err));
+        this.props.addNote(newNote);
     }
     }
     render() {
@@ -78,4 +79,9 @@ class NewNote extends React.Component{
         )
     }
 }
-export default withRouter(NewNote);
+const mapStateToProps=state=>{
+    return {
+        state
+    }
+}
+export default connect(mapStateToProps,{addNote})(withRouter(NewNote));

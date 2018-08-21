@@ -1,8 +1,10 @@
-import { Modal} from 'reactstrap';
+import {Modal} from 'reactstrap';
 import React from 'react';
 import styled from 'styled-components'
-import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {deleteNote} from '../../actions';
+
 const Span=styled.span`
 text-decoration: underline;
 font-weight: bold;
@@ -69,17 +71,11 @@ class DeleteModal extends React.Component{
             modal:false
         }
         this.toggle = this.toggle.bind(this);
-        this.delete=this.delete.bind(this);
     }
     toggle(){
         this.setState({
           modal: !this.state.modal
         });
-      }
-      delete(){
-        axios.delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.match.params.noteId}`)
-        .then(res=>this.props.history.push('/notes'))
-        .catch(err=>console.log(err));
       }
       render() {
           return(
@@ -90,7 +86,7 @@ class DeleteModal extends React.Component{
             <ModalInfo>
                 <ModalHeader>Are you sure you want to delete this?</ModalHeader>
                 <ButtonContainer>
-                <DeleteButton onClick={this.delete}>Delete</DeleteButton>
+                <DeleteButton onClick={()=>this.props.deleteNote(this.props.match.params.noteId)}>Delete</DeleteButton>
                 <NoButton onClick={this.toggle}>No</NoButton>
             </ButtonContainer>
             </ModalInfo>
@@ -100,4 +96,7 @@ class DeleteModal extends React.Component{
           )
       }
 }
-export default withRouter(DeleteModal);
+const mapStateToProps=state=>{
+    return state;
+}
+export default connect (mapStateToProps,{deleteNote})(withRouter(DeleteModal));

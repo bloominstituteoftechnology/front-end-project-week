@@ -1,7 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import Note from './note.js';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {getNotes} from '../../actions';
 const NotesList=styled.div`
 width: 92.5%;
 display: flex;
@@ -22,24 +23,24 @@ min-height: 100vh;
 width: 75%;
 `
 class Notes extends React.Component {
-    constructor() {
-        super();
-        this.state={
-            notes:[]
-        }
-    }
     componentDidMount() {
-        axios.get('https://killer-notes.herokuapp.com/note/get/all').then(res=>this.setState({notes:res.data})).catch(err=>console.log(err));
+        this.props.getNotes();
     }
     render() {
         return(
             <NotesPage>
             <NotesHeading>Your Notes:</NotesHeading>
             <NotesList>
-                {this.state.notes.map((e,i)=><Note key={i} data={e}></Note>)}
+        {!this.props.fetchingNotes?this.props.notes.map((e,i)=><Note key={i} data={e}></Note>):null}
             </NotesList>
             </NotesPage>
         )
     }
 }
-export default Notes;
+const mapStateToProps=state=>{
+    return{
+        notes:state.notes,
+        fetchingNotes:state.fetchingNotes
+    }
+}
+export default connect(mapStateToProps,{getNotes})(Notes);
