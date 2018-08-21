@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Nav.css";
 
-class Nav extends Component {
-  render() {
+const Nav = (props) =>{
+
     return (
       <div className="Side-Nav">
+          <div className={props.deleting ? "delete-menu": null}></div>
         <h1>Lambda Notes</h1>
         <NavLink className="nav-btn" to="/">
           View Your Notes
@@ -16,5 +17,5 @@ class Nav extends Component {
       </div>
     );
   }
-}
+
 export default Nav;

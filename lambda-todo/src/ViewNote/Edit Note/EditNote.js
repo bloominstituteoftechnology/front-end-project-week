@@ -14,6 +14,7 @@ const EditNote = props =>{
             placeholder="Title"
             type="text"
             className="title-input"
+            value={note.title}
             />
             <input 
             placeholder="Content"
@@ -21,7 +22,7 @@ const EditNote = props =>{
             className="content-input"
             />
             <NavLink className="nav-btn"to='/'>
-            Add New Note
+            Add Revisions
             </NavLink>
         </div>
         </div>

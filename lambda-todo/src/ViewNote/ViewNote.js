@@ -1,6 +1,6 @@
 import React from "react";
 import "./ViewNote.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 
 const ViewNote = props => {
@@ -12,13 +12,30 @@ const ViewNote = props => {
   return (
     <div className="view-page">
     <div className="note-container">
+    <div className={props.deleting ? "delete" : "hide-delete"}>
+        <div className="modal">
+          <p>Are you sure you want to delete this?</p>
+          <div className="btns">
+            <Link className="linkdel" to="/">
+              <div
+                onClick={() => props.deleteNote(props.match.params.id)}
+                className="deletebtn"
+              >
+                Delete
+              </div>
+            </Link>
+            <div onClick={props.deleteModal} className="nobtn">
+              No
+            </div>
+          </div>
+        </div>
+      </div>
     <div className="edit-delete">
       <NavLink className="ed" to={`/view-note/edit/${note.id}`}>
     Edit
     </NavLink>
-    <NavLink className="ed"  to={`/view-note/delete/${note.id}`}>
-    Delete
-    </NavLink>
+    <p className="ed" onClick={props.deleteBox}>delete</p>
+
     </div>
       <div className="note-view-page">View Note</div>
       <div className="note-title">{note.title}</div>
