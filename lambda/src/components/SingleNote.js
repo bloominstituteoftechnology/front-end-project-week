@@ -47,10 +47,10 @@ const SingleNote = props => {
     <View>
     <Container>
     <Edit>
-      <NavLink  to={`/view/edit${note.id}`}>
+      <NavLink  to={`/view/edit/${note.id}`}>
     Edit
     </NavLink>
-    <NavLink  to={`/view/delete${note.id}`}>
+    <NavLink  to={`/view/delete/${note.id}`}>
     Delete
     </NavLink>
     </Edit>

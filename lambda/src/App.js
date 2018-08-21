@@ -51,7 +51,7 @@ class App extends Component {
 
        <Route exact path='/view/:id' render={props => <SingleNote {...props} notes={this.state.notes} />}/>
        
-       <Route exactpath='/view/edit/:id' render={props => <EditView {...props} notes={this.state.notes} />} />
+       <Route exactpath='/view/edit:id' render={props => <EditView {...props} notes={this.state.notes} />} />
       </div>
     );
   }
