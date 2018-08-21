@@ -113,7 +113,7 @@ class ViewNote extends React.Component {
 
 /*Sends a put request to the server to edit the tag array*/
   handleTagEdit = id => {
-    console.log("hte tags", this.state.tags);
+    console.log("hte tags", this.state.tags); //tags will be inactive with current methods
     const newTags = {tags: this.state.tags}
     newTags.tags.push(this.state.tag);
     axios.put(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`, newTags)
@@ -180,7 +180,7 @@ class ViewNote extends React.Component {
         <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : <MarkdownRenderer markdown={this.state.note.textBody} />) : "Loading..."}</p>
         <div className="tagContainer">
         {this.state.tags ? this.state.tags.map((tag, index) => {
-          return <span key={Math.random()} className="tagg">{tag}<span className="close" index={index} onClick={this.deleteTag}></span></span>
+          return <span key={Math.random()} className="tagg">{tag.text}<span className="close" index={index} onClick={this.deleteTag}></span></span>
         }) : "Loading..."}
         <form className="tagForm" onSubmit={this.handleTagSubmit}>
         <input className="mainInput" type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
