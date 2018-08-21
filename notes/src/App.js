@@ -29,7 +29,7 @@ class App extends Component {
   noteSubmit = () => {
     let notes = this.state.notes.slice();
     let id = this.state.id;
-    if (this.state.newtitle !== "" || this.state.newbody !== "") {
+    if (this.state.newtitle.trim() !== "" || this.state.newbody.trim() !== "") {
       id++;
       notes.push({
         id: id,
@@ -51,7 +51,7 @@ class App extends Component {
     let editnote = notesCopy.find(note => note.id == id);
     editnote.title = this.state.edittitle;
     editnote.text = this.state.editbody;
-    if ((this.state.edittitle !== "" || this.state.editbody !== "")){
+    if ((this.state.edittitle.trim() !== "" || this.state.editbody.trim() !== "")){
       this.setState({notes: notesCopy})
     }
   };
