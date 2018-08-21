@@ -10,6 +10,7 @@ const NoteForm = props => (
         onChange={props.onChange}
         value={props.title}
         pattern="^[\s\S]{1,50}$"
+        title="Title should only contain up to 50 letters"
         autoComplete="off"
       />
     </FormGroup>
@@ -20,7 +21,6 @@ const NoteForm = props => (
         placeholder="Note Content"
         onChange={props.onChange}
         value={props.text}
-        pattern="^[\s\S]{1,}$"
       />
     </FormGroup>
     <Button color="info">{props.formText}</Button>

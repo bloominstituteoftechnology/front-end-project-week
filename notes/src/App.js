@@ -41,6 +41,7 @@ class App extends Component {
   addNote = e => {
     e.preventDefault();
     const { notes, title, text, nextId } = this.state;
+    if (title === '') return null;
     this.setState({
       notes: [{
         id: nextId,
@@ -56,6 +57,7 @@ class App extends Component {
   editNote = e => {
     e.preventDefault();
     const { notes, title, text, note } = this.state;
+    if (title === '') return null;
     this.setState({
       notes: notes.map(n => n.id === note.id ? {...n, title, text} : n),
       title: '',
@@ -70,7 +72,7 @@ class App extends Component {
     this.toggleModal();
     this.setState({
       notes: notes.filter(n => n.id !== note.id)
-    }, window.location="/");
+    }, () => window.location="/");
   };
 
   toggleModal = () => {
