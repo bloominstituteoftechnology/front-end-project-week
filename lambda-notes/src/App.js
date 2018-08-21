@@ -67,7 +67,9 @@ class App extends Component {
       ],
       noteTitle: "",
       noteDescription: "",
-      createNewNoteSubmitted: false
+      isOpen: false,
+      loading: false,
+      success: false
     };
   }
 
