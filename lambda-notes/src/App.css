@@ -133,4 +133,5 @@
   /* text-align: center; */
   margin: 11px 0;
   background-color: rgb(30, 167, 167);
+  cursor: pointer;
 }

@@ -29,6 +29,22 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  addNewNote = event => {
+    event.preventDefault();
+    const notes = this.state.notes.slice();
+    notes.push({ 
+      id: this.state.notes.length, 
+      title: this.state.title, 
+      text: this.state.text 
+    });
+    this.setState({ 
+      notes, 
+      id: '',
+      title: '',
+      text: '' 
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,7 +56,7 @@ class App extends Component {
         <div className="display-right" >
           <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
           <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} /> )} />
-          <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} /> ) } />
+          <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
         </div>
       </div>
     );

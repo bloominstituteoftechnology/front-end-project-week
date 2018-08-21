@@ -5,10 +5,10 @@ export const AddNote = props => {
     return (
         <div className="add-form-wrap" >
             <h3>Create New Note:</h3>
-            <form>
-                <input className="add-title-input" placeholder="Note Title" /> <br/>
-                <textarea className="add-text-input" placeholder="Note Content" />
-                <div className="save-btn" >Save</div>
+            <form onSubmit={props.addNewNote} >
+                <input className="add-title-input" placeholder="Note Title" name="title" onChange={props.handleInputChange} value={props.inputTitle} /> <br/>
+                <textarea className="add-text-input" placeholder="Note Content" name="text" onChange={props.handleInputChange} value={props.inputText} />
+                <div onClick={props.addNewNote} className="save-btn" >Save</div>
             </form>
         </div>
     )
