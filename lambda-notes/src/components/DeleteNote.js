@@ -23,12 +23,15 @@ class DeleteNote extends React.Component {
       .then(response => {
         this.props.history.push("/");
         this.setState({ id: null });
-        this.handleRefresh();
+        this.props.toggleDeleting();
+        this.props.handleRefresh();
       })
       .catch(err => {
         console.log(err);
       });
   };
+
+  
 
   render() {
     return (

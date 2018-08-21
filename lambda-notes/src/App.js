@@ -41,40 +41,7 @@ handleSetData = (data) => {
     this.setState({ currentNote: note });
   };
 
-  //Edit
-  handleEditTitle = e => {
-    this.setState({
-      currentNote: {
-        id: this.state.currentNote.id,
-        title: e.target.value,
-        content: this.state.currentNote.content
-      }
-    });
-  };
 
-  handleEditContent = e => {
-    this.setState({
-      currentNote: {
-        id: this.state.currentNote.id,
-        title: this.state.currentNote.title,
-        content: e.target.value
-      }
-    });
-  };
-
-  handleEditNote = id => {
-    const notes = this.state.notes.slice();
-    for (let i = 0; i < notes.length; i++) {
-      if (notes[i].id === Number(id)) {
-        notes[i] = {
-          id: this.state.currentNote.id,
-          title: this.state.currentNote.title,
-          content: this.state.currentNote.content
-        };
-      }
-    }
-    this.setState({ notes, currentNote: {} });
-  };
 
   //Delete
   toggleDeleting = () => {
@@ -91,27 +58,27 @@ handleSetData = (data) => {
   };
 
   //Sort
-  // handleSortAZ = () => {
-  //   let notes = this.state.notes.slice();
-  //   notes.sort(this.compareTitles);
-  //   this.setState({ notes });
-  // };
+  handleSortAZ = () => {
+    let notes = this.state.notes.slice();
+    notes.sort(this.compareTitles);
+    this.setState({ notes });
+  };
 
-  // handleSortZA = () => {
-  //   let notes = this.state.notes.slice();
-  //   notes.sort(this.compareTitles).reverse();
-  //   this.setState({ notes });
-  // }
+  handleSortZA = () => {
+    let notes = this.state.notes.slice();
+    notes.sort(this.compareTitles).reverse();
+    this.setState({ notes });
+  }
 
-  // compareTitles = (a, b) => {
-  //   if (a.title.toUpperCase() < b.title.toUpperCase()) {
-  //     return -1;
-  //   } else if (a.title.toUpperCase() > b.title.toUpperCase()) {
-  //     return 1;
-  //   } else {
-  //     return 0;
-  //   }
-  // };
+  compareTitles = (a, b) => {
+    if (a.title.toUpperCase() < b.title.toUpperCase()) {
+      return -1;
+    } else if (a.title.toUpperCase() > b.title.toUpperCase()) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
 
   render() {
     return (
@@ -124,8 +91,8 @@ handleSetData = (data) => {
           render={() => (
             <NotesList
               notes={this.state.notes}
-              // handleSortAZ={this.handleSortAZ}
-              // handleSortZA={this.handleSortZA}
+              handleSortAZ={this.handleSortAZ}
+              handleSortZA={this.handleSortZA}
             />
           )}
         />
@@ -159,12 +126,8 @@ handleSetData = (data) => {
             <EditNote
               {...props}
               notes={this.state.notes}
-              currentNote={this.state.currentNote}
-              handleSetCurrent={this.handleSetCurrent}
-              handleEditTitle={this.handleEditTitle}
-              handleEditContent={this.handleEditContent}
-              handleEditNote={this.handleEditNote}
               handleSetData={this.handleSetData}
+              handleRefresh={this.handleRefresh}
 
             />
           )}

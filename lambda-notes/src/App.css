@@ -261,7 +261,8 @@ background:white;
 display: flex;
 flex-direction: column;
 justify-content: center;
-margin-bottom: 350px;
+margin-bottom: 70%;
+margin-right: 25%;
 }
 .delete-message-question {
   display: block;
@@ -276,10 +277,6 @@ margin-bottom: 350px;
   justify-content: center;
 }
 
-.delete-button-link, .delete-button-link:link, .delete-button-link:hover, .delete-button-link:active, .delete-button-link:visited, .delete-button-link:focus {
-  text-decoration: none;
-  color: #ffffff;
-}
 .delete-button-delete {
   background: #D0021B;
   height: 35px;
@@ -291,6 +288,7 @@ margin-bottom: 350px;
   display:flex;
   align-items: center;
   justify-content: center;
+  color:#ffffff;
 }
 
 .delete-button-no {

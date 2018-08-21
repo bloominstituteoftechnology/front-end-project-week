@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class EditNote extends React.Component {
   constructor(props) {
@@ -12,13 +13,57 @@ class EditNote extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    let note = this.props.notes.filter(note => note.id === Number(id));
-    this.props.handleSetCurrent(note[0]);
+    axios
+      .get(`http://localhost:8000/api/notes`)
+      .then(response => {
+        const note = response.data.filter(note => note.id === Number(id));
+        const currentNote = note[0];
+        this.setState({ id: Number(id), notes: currentNote });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
-  editCompleted = () => {
-    this.props.handleEditNote(this.props.match.params.id);
+  //Edit
+  handleEditTitle = e => {
+    this.setState({
+      notes: {
+        id: this.state.notes.id,
+        title: e.target.value,
+        content: this.state.notes.content
+      }
+    });
   };
+
+  handleEditContent = e => {
+    this.setState({
+      notes: {
+        id: this.state.notes.id,
+        title: this.state.notes.title,
+        content: e.target.value
+      }
+    });
+  };
+
+  handleEditNote = () => {
+    const id = this.state.id;
+    axios
+      .put(`http://localhost:8000/api/notes/${id}`, {
+        title: this.state.notes.title,
+        content: this.state.notes.content
+      })
+      .then(response => {
+        this.props.history.push("/");
+        this.setState({ id: null, notes: [] });
+        this.props.handleRefresh();
+      })
+      .catch(err => console.log(err));
+  };
+
+  // editCompleted = () => {
+  //   this.handleEditNote(this.props.match.params.id);
+  // };
 
   render() {
     return (
@@ -28,22 +73,28 @@ class EditNote extends React.Component {
           <input
             className="edit-note"
             name="title"
-            size='40'
-            value={this.props.currentNote.title}
-            onChange={this.props.handleEditTitle}
+            size="40"
+            value={this.state.notes.title}
+            onChange={this.handleEditTitle}
           />
-          <br/> <br/>
+          <br /> <br />
           <textarea
             className="edit-note-content"
             type="text"
             cols="80"
             rows="10"
             name="content"
-            value={this.props.currentNote.content}
-            onChange={this.props.handleEditContent}
+            value={this.state.notes.content}
+            onChange={this.handleEditContent}
           />
-          <Link to='/'>
-          <div type='button' className="update-button" onClick={this.editCompleted}>Update</div>
+          <Link to="/">
+            <div
+              type="button"
+              className="update-button"
+              onClick={this.handleEditNote}
+            >
+              Update
+            </div>
           </Link>
         </form>
       </div>
