@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
+import Markdown from "react-markdown";
 
 class SingleNote extends Component {
   constructor() {
@@ -71,7 +72,7 @@ class SingleNote extends Component {
           </div>
         </div>
         <div className="viewTitle">{this.state.title}</div>
-        <div className="viewBody">{this.state.body}</div>
+        <Markdown className="viewBody" source={this.state.body}/>
         <div className="viewBody">
          {this.state.tags.length >0 ?(<div> <div className="tagtitle">Tags:</div>
          <div className='tagArea'>
