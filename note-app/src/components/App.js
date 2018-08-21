@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom'; 
+import {Route, Switch} from 'react-router-dom'; 
 
 import '../styles/App.css';
 import SideBar from './side-bar';
@@ -49,8 +49,12 @@ class App extends Component {
         <div className = "main-container">
           <SideBar />
           {/* <div classname = "changing-container">Test</div> */}
-           
-          <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
+          <Switch>
+            <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
+            <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
+            <Route path = '/:id/edit-note' render = {props => <EditNote {...props} /> } />
+            <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
+          </Switch>
           {/* <CreateNote create = {this.createNote}/> */}
           {/* <EditNote /> */}
           {/* <ViewAllNotes notes = {this.state.notes} click = {this.handleNoteSelect} /> */}

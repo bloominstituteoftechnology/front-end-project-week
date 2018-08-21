@@ -37,6 +37,10 @@
   padding: 1px 0;
   margin-bottom: 11px;
 }
+
+.btn-side-bar:hover {
+  cursor: pointer; 
+}
 .application-title{
   padding-top : 13px;
   margin-top: 0;
