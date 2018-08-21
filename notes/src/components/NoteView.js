@@ -15,8 +15,11 @@ class NoteView extends React.Component {
        console.log(this.props.allNotes);
        
        let thisNote = this.props.allNotes.find((note) => {
-           return (note.id === parseInt(this.props.match.params.id));
+           console.log(note.id === parseInt(this.props.match.params.id));
+           
+           return note.id === parseInt(this.props.match.params.id);
        });
+       console.log(thisNote);
        
        this.setState({
            title: thisNote.title,
