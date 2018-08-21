@@ -6,6 +6,7 @@ import NoteContainer from "./components/notes/NoteContainer";
 import ViewNote from "./components/viewnote/ViewNote";
 import EditNote from "./components/editnote/EditNote";
 import { Route } from "react-router-dom";
+import axios from 'axios';
 class App extends Component {
   constructor(){
     super();
@@ -28,6 +29,13 @@ class App extends Component {
   }
   deletenote(note){
     this.setState({notes: note})
+  }
+  componentDidMount() {
+    axios.get(`http://localhost:8000/api/notes`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
   }
 
   render() {
