@@ -7,7 +7,7 @@ class CreateNote extends Component {
         super(props)
         this.state = {
             title: '',
-            content: ''
+            textBody: ''
         }
     }
 
@@ -16,7 +16,7 @@ class CreateNote extends Component {
     }
 
     gatherCreation = () => {
-        const obj = {title: this.state.title, content: this.state.content}
+        const obj = {title: this.state.title, content: this.state.content, tags: []}
         this.setState({title: '', content: ''})
         this.props.create(obj);
     }
@@ -31,7 +31,7 @@ class CreateNote extends Component {
                 <h3>Create New Note:</h3>
                 <textarea onChange = {this.onChange} className = "input-title" type="text" placeholder = "Note Title" name ="title" value = {this.state.title}></textarea>
                 <br/>
-                <textarea onChange = {this.onChange} className = "input-content" type="text" placeholder = "Note Content" name ="content" value = {this.state.content}></textarea>
+                <textarea onChange = {this.onChange} className = "input-content" type="text" placeholder = "Note Content" name ="textBody" value = {this.state.content}></textarea>
                 <br/>
                 <button onClick = {this.gatherCreation} className = "btn-side-bar">Save</button>
               </div>

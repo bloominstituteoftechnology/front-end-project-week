@@ -19,12 +19,17 @@ class App extends Component {
       notes: [],
       currentTitle: null,
       currentContent : null,
-      currentIndex: null
+      currentIndex: null,
+      currentKey: null, 
     }
   }
 
   componentDidMount () {
     this.fetchNotes()
+  }
+
+  idGenerator = () => {
+    return '_' + Math.random().toString(36).substr(2, 9);
   }
 
   fetchNotes = () => {
@@ -38,16 +43,27 @@ class App extends Component {
     })
   }
 
-  createNote = (noteObj) => {
+  postNote = (noteobj) => {
+    const promise = axios.post('https://killer-notes.herokuapp.com/note/create', noteobj)
+    promise
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
 
-    const notes = this.state.notes.slice()
-    notes.push(noteObj)
-    this.setState({ notes })
+  createNote = (noteObj) => {
+    this.postNote(noteObj)
+    // const notes = this.state.notes.slice()
+    // notes.push(noteObj)
+    // this.setState({ notes })
   }
 
   handleNoteSelect = (index) => {
     const select = this.state.notes[index];
-    this.setState({currentTitle: select.title, currentContent: select.content, currentIndex: index})
+    this.setState({currentTitle: select.title, currentContent: select.textBody, currentIndex: index, currentKey: select._id})
   }
   updateNote = (index, noteObj) => {
     const notes = this.state.notes.slice()
