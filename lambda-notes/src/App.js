@@ -99,9 +99,14 @@ class App extends Component {
 
   modifyNoteHandler = event => {
     event.preventDefault();
+    // console.log("MODIFIEDNOTE EVENT", JSON.stringify(event.target[0]));
+    let noteNumber = event.target.attributes.getNamedItem("notenumber").value;
+    console.log("MODIFIEDNOTE EVENT", noteNumber);
+
     let newNotesArray = this.state.notes.slice();
-    let newModifiedArray = newNotesArray[1].title;
-    console.log("Modififed Note", newModifiedArray);
+    newNotesArray[1].title = "heyeheyeye";
+    // console.log("Modififed Note", newModifiedArray);
+    console.log("Modififed Note Array", newNotesArray);
   };
 
   render() {
