@@ -9,28 +9,52 @@ import AddNote from "./Components/AddNote";
 import "./App.css";
 
 const API_ALL = "https://killer-notes.herokuapp.com/note/get/all";
+const API_ADD = "https://killer-notes.herokuapp.com/note/create";
+const API_DELETE = "https://killer-notes.herokuapp.com/note/delete";
+const API_GET = "https://killer-notes.herokuapp.com/note/get/id";
 class App extends Component {
 	state = {
 		notes: [],
-		fetchingNotes: false,
+		loading: false,
 	};
 
 	componentDidMount() {
-		this.setState({ fetchingNotes: true });
+		this.setState({ loading: true });
 		axios.get(API_ALL).then(response => {
-			this.setState({ notes: response.data, fetchingNotes: false });
+			this.setState({ notes: response.data, loading: false });
 		});
 	}
 
 	handleAddNote = note => {
-		this.setState(prevState => ({ notes: [...prevState.notes, note] }));
+		this.setState({ loading: true });
+		axios.post(API_ADD, note).then(response => {
+			axios.get(`${API_GET}/${response.success}`).then(response => {
+				this.setState(prevState => ({
+					notes: [...prevState.notes, response.data],
+					loading: false,
+				}));
+			});
+		});
 	};
 
 	handleDeleteNote = id => {
-		this.setState(prevState => ({
-			notes: prevState.notes.filter(note => note.id != id),
-		}));
+		this.setState({ loading: true });
+		axios
+			.delete(`${API_DELETE}/${id}`)
+			.then(response =>
+				this.setState({ notes: response.data, loading: false }),
+			);
 	};
+
+	// handleAddNote = note => {
+	// 	this.setState(prevState => ({ notes: [...prevState.notes, note] }));
+	// };
+
+	// handleDeleteNote = id => {
+	// 	this.setState(prevState => ({
+	// 		notes: prevState.notes.filter(note => note.id != id),
+	// 	}));
+	// };
 
 	handleEditNote = edited => {
 		this.setState(prevState => ({

@@ -5,9 +5,9 @@ class Note extends React.Component {
 	state = {
 		editDisplay: false,
 		deleteDisplay: false,
-		id: this.props.match.params.id,
+		_id: this.props.match.params.id,
 		title: "",
-		text: "",
+		textBody: "",
 	};
 
 	handleInputChange = event => {

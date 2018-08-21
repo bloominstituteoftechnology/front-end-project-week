@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Notes extends React.Component {
-	state = { display: false };
 	render() {
 		return (
 			<div className="NotesWrapper">

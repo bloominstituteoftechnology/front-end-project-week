@@ -2,9 +2,9 @@ import React from "react";
 
 class AddNote extends React.Component {
 	state = {
-		id: 12,
+		tags: [],
 		title: "",
-		text: "",
+		textBody: "",
 	};
 
 	handleInputChange = event => {
@@ -20,9 +20,8 @@ class AddNote extends React.Component {
 						e.preventDefault();
 						this.props.onSubmit(this.state);
 						this.setState(prevState => ({
-							id: Date.now(),
 							title: "",
-							text: "",
+							textBody: "",
 						}));
 					}}
 				>
@@ -38,9 +37,9 @@ class AddNote extends React.Component {
 						id="addNoteForm"
 						cols="30"
 						rows="10"
-						name="text"
+						name="textBody"
 						placeholder="Note Content"
-						value={this.state.text}
+						value={this.state.textBody}
 						onChange={this.handleInputChange}
 					/>
 					<button className="Button">Save</button>
