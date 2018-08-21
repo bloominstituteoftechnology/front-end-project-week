@@ -19,6 +19,7 @@ class SingleNoteView extends Component {
 
     delete = (id) => {
         this.props.history.push('/');
+        this.forceUpdate();
         this.props.delete(id);
     };
 

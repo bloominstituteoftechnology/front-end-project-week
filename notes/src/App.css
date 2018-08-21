@@ -217,6 +217,10 @@ h1 {
   min-height: 100vh;
 }
 
+.CSV {
+  margin: 0 auto;
+}
+
 .btn-danger, .btn-info {
   width: 220px !important;
   border-radius: 0 !important;

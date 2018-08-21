@@ -20,7 +20,7 @@ class NotesList extends Component {
                 <div className="notesInnerDiv">
                 {this.props.notes.map(note => <Link to={`/notes/${note._id}`}><Note note={note} key={note._id} /></Link>)}
                 </div>
-                <CSVLink data={this.props.notes}>Download CSV of Notes</CSVLink>
+                <div className="CSV"><CSVLink data={this.props.notes}>Download CSV of Notes</CSVLink></div>
             </div>
         )
     }

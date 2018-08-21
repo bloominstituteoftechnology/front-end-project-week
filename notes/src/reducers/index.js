@@ -49,8 +49,7 @@ export default (state = initialState, action) => {
             console.log('note added');
             return Object.assign({}, state, {
                 addingNote: false,
-                noteAdded: true,
-                notes: [...action.payload]
+                noteAdded: true
             })
         case UPDATING_NOTE:
             console.log('updating note');
@@ -61,8 +60,7 @@ export default (state = initialState, action) => {
             console.log('note updated');
             return Object.assign({}, state, {
                 updatingNote: false,
-                noteUpdated: true,
-                notes: [...action.payload]
+                noteUpdated: true
             })
         case DELETING_NOTE:
             console.log('deleting note');
@@ -73,8 +71,7 @@ export default (state = initialState, action) => {
             console.log('note deleted');
             return Object.assign({}, state, {
                 deletingNote: false,
-                noteDeleted: true,
-                notes: [...action.payload]
+                noteDeleted: true
             })
         case SEARCHING:
             console.log('searching');

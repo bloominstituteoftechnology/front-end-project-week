@@ -42,7 +42,7 @@ class App extends Component {
 
     // }});
     this.props.updateNote(ident, tags, title, textBody);
-    this.props.history.push('/');
+    this.props.history.push('/');    
   }
 
   deleteNote = (ident) => {
