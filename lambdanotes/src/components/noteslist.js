@@ -11,9 +11,14 @@ const NotesListAttrib = styled.div`
     background: #F2F1F2;
     height: 100vh;
 `
+const NoteCartContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+
+`
 
 const NoteCard = styled.div`
-    width: 33%;
+    width: 200px;
     margin: 10px 5px;
     height: 200px;
     text-decoration: none;
@@ -36,15 +41,17 @@ const NotesList = (props) => {
     console.log(props)
     return (  
         <NotesListAttrib>
-            <h2>Your Notes:</h2>
-            <Link to={`/${props.notes.id}`}>
-                {props.notes.map(note => 
-                <NoteCard>
-                    <NoteTitle>{note.title}</NoteTitle>
-                    <Line/>
-                    <NoteContent>{note.note}</NoteContent>
-                </NoteCard>)}
-            </Link>
+            <h2>Your Notes:</h2>   
+            <NoteCartContainer>
+                {props.notes.map(note => <Link to={`/${note.id}`}>
+                    <NoteCard>
+                        <NoteTitle>{note.title}</NoteTitle>
+                        {console.log(note.title)}
+                        <Line/>
+                        <NoteContent>{note.note}</NoteContent>
+                    </NoteCard>
+                </Link>)}
+            </NoteCartContainer>                     
         </NotesListAttrib>
     );
 }
