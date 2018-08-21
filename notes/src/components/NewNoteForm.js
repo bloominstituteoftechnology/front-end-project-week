@@ -5,6 +5,8 @@ import './NewNoteForm.css';
 
 const NewNoteForm = props => {
 
+    
+
     return (
         <div className = "new-note-container">
             <form>

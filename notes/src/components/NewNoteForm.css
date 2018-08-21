@@ -19,9 +19,22 @@ form .note-title-input{
 }
 
 form .note-content-input{
-    height: 400px;
+    height: 300px;
     width: 80%;
     margin: 20px;
     padding: 20px;
     font-size: 15px;
+}
+
+form input::placeholder{
+    vertical-align: top;
+}
+
+
+button{
+    padding: 20px;
+    margin: 10px;
+    font-size: 15px;
+    background-color: #24B8BD;
+    color: white;
 }

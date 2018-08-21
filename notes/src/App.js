@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
+
+import NavBar from './components/NavBar';
 import NewNoteForm from './components/NewNoteForm';
-import NotesList from './components/NotesList'
+import NotesList from './components/NotesList';
+import NotesView from './components/NotesView';
 import './App.css';
 
 
-class App extends Component {
+class App extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       notes: [
         {
@@ -40,12 +43,9 @@ class App extends Component {
     
         },    
     ],
-    note: {
-    id: null,
-    tags: [],
     title: '',
     textBody: '',
-    }
+    selected: {}
  }
 }
 
@@ -64,52 +64,41 @@ handleAddNote = event => {
   this.setState({
     notes, 
     title: '', 
-    textBody: ''});
+    textBody: ''
+  });
+}
+
+handleSelectNote = id => {
+  this.setState({selected: this.state.notes[`${id}`]});
 }
 
   render() {
     console.log('logging state in App',this.state);
     return (
-      <div className = "app">
-        <div className = "nav-bar">
-            <h1 className = "nav-bar-header">
-                Lambda Notes
-            </h1>
-            <Link to ="/all">
-            <button className = "nav-button"> 
-                View Your Notes
-            </button>
-            </Link>
-            <Link to="/new">
-            <button className = "nav-button">
-                + Create New Note
-            </button>
-            </Link>
-        </div> 
-        <div className = "notes-container">
-            <Route
-            path = "/all"
-            render = {props => {
-              return(
-                <NotesList
-                notes = {this.state.notes}
-                />
-              )
-            }}
-            />
-
-            <Route
-            path = "/new"
-            render = {
-              props => 
-              <NewNoteForm 
-              addNote = {this.props.handleAddNote}
-            />
-            } 
-            />
-
-        </div>  
-        </div>
+      <div>
+        <Route path = "/" component={NavBar} />
+        <Route exact path = "/" render={props =>
+        (<NotesList {...props}
+        notes={this.state.notes} 
+        />
+      )}
+        />
+        <Route path = "/form" render={props =>
+        (<NewNoteForm {...props}
+          title={this.state.title}
+          textBody = {this.state.textBody}
+          handleAddNote = {this.handleAddNote}
+          handleChange = {this.handleChange}
+          />
+        )}
+          />
+          <Route path="/notes/:id" render={props =>
+          <NotesView {...props}
+          note={this.state.notes}
+          />
+        }
+          />
+      </div>
         )
     }
   }
