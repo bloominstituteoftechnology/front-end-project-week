@@ -42,8 +42,8 @@ class NoteForm extends React.Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="title">Create New Note: </label>
+      <form onSubmit={this.handleSubmit} className="note-form">
+        <label htmlFor="title"><strong>Create New Note: </strong></label>
         <input
           type="text"
           id="title"
@@ -52,8 +52,7 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
           value={this.state.title}
         />
-        <input
-          type="text"
+        <textarea
           id="textBody"
           placeholder="Note Content"
           onChange={this.handleChange}
