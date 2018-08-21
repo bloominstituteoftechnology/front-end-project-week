@@ -11,7 +11,7 @@ import "./App.css";
 const API_ALL = "https://killer-notes.herokuapp.com/note/get/all";
 const API_ADD = "https://killer-notes.herokuapp.com/note/create";
 const API_DELETE = "https://killer-notes.herokuapp.com/note/delete";
-const API_GET = "https://killer-notes.herokuapp.com/note/get/id";
+const API_GET = "https://killer-notes.herokuapp.com/note/get";
 class App extends Component {
 	state = {
 		notes: [],
@@ -28,7 +28,7 @@ class App extends Component {
 	handleAddNote = note => {
 		this.setState({ loading: true });
 		axios.post(API_ADD, note).then(response => {
-			axios.get(`${API_GET}/${response.success}`).then(response => {
+			axios.get(`${API_GET}/${response.data.success}`).then(response => {
 				this.setState(prevState => ({
 					notes: [...prevState.notes, response.data],
 					loading: false,
@@ -39,11 +39,9 @@ class App extends Component {
 
 	handleDeleteNote = id => {
 		this.setState({ loading: true });
-		axios
-			.delete(`${API_DELETE}/${id}`)
-			.then(response =>
-				this.setState({ notes: response.data, loading: false }),
-			);
+		axios.delete(`${API_DELETE}/${id}`).then(response => {
+			this.setState({ loading: false });
+		});
 	};
 
 	// handleAddNote = note => {

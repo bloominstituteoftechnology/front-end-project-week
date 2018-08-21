@@ -6,9 +6,17 @@ class Notes extends React.Component {
 		return (
 			<div className="NotesWrapper">
 				{this.props.notes.map(note => (
-					<Link className="Notes" to={`/notes/${note._id}`}>
+					<Link
+						key={note._id}
+						className="Notes"
+						to={`/notes/${note._id}`}
+					>
 						<div key={note._id}>
-							<h4 className="Notes__title">{note.title}</h4>
+							<h4 className="Notes__title">
+								{note.title.length > 14
+									? note.title.substring(0, 14) + "..."
+									: note.title}
+							</h4>
 							<p className="Notes__text">
 								{note.textBody.length > 100
 									? note.textBody.substring(0, 100) + "..."
