@@ -61,14 +61,20 @@ class DeleteNote extends Component {
       margin: "0 auto",
       padding: 30
     };
-
+    console.log("DELTE NOTE BUTTON", this.props);
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
           {this.props.children}
 
           <div className="footer">
-            <button onClick={this.props.onApprove}>Delete</button>
+            <button
+              onClick={() =>
+                this.props.onApprove() & this.props.deleteNoteHandler()
+              }
+            >
+              Delete
+            </button>
             <button onClick={this.props.onClose}>Cancel</button>
           </div>
         </div>

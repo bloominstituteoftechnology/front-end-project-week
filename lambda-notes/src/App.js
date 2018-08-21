@@ -111,6 +111,10 @@ class App extends Component {
     this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
   };
 
+  deleteNoteHandler = event => {
+    console.log("DELETE HANDLER IS WORKING");
+  };
+
   render() {
     console.log("noteTitle", this.state.noteTitle);
     console.log("noteDescription", this.state.noteDescription);
@@ -126,7 +130,11 @@ class App extends Component {
         <Route
           path={"/notes/:id"}
           render={props => (
-            <IndividualNote {...props} notes={this.state.notes} />
+            <IndividualNote
+              {...props}
+              notes={this.state.notes}
+              deleteNoteHandler={this.deleteNoteHandler}
+            />
           )}
         />
         <Route

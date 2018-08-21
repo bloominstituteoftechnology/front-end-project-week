@@ -39,8 +39,8 @@ export class IndividualNote extends Component {
   };
 
   render() {
-    console.log("Individual NOtes Props", this.state.notes);
-    console.log("Individual Params Match", this.state.match);
+    console.log("Individual NOtes Props", this.props);
+    console.log("Individual Params Match", this);
 
     return (
       <div className="individualNote">
@@ -54,6 +54,7 @@ export class IndividualNote extends Component {
           show={this.state.isOpen}
           onApprove={this.approveModal}
           onClose={this.toggleModal}
+          deleteNoteHandler={this.props.deleteNoteHandler}
         >
           {this.state.loading && "Loading..."}
           {this.state.success && "Success (make me green)"}
