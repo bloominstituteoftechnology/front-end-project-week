@@ -36,6 +36,9 @@ class App extends Component {
     console.log("Selected", select)
     this.setState({currentTitle: select.title, currentContent: select.content, currentIndex: index})
   }
+  updateNote = (index, noteObj) => {
+    console.log(index, noteObj)
+  }
 
 
   render() {
@@ -52,7 +55,7 @@ class App extends Component {
           <Switch>
             <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
             <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
-            <Route path = '/:id/edit-note' render = {props => <EditNote {...props} /> } />
+            <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
             <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
           </Switch>
           {/* <CreateNote create = {this.createNote}/> */}
