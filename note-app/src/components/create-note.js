@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import SideBar from './side-bar';
 
 
 class CreateNote extends Component {
@@ -24,7 +25,9 @@ class CreateNote extends Component {
 
         return (
 
-            <div className ="create-note-form">
+            <div className="main-container">
+              <SideBar />
+              <div className ="create-note-form">
                 <h3>Create New Note:</h3>
                 <textarea onChange = {this.onChange} className = "input-title" type="text" placeholder = "Note Title" name ="title" value = {this.state.title}></textarea>
                 <br/>
@@ -32,7 +35,8 @@ class CreateNote extends Component {
                 <br/>
                 <button onClick = {this.gatherCreation} className = "btn-side-bar">Save</button>
                 {/* Would like to fix the placeholder inside of the input-content also to the right margin is off by 11px */}
-            </div>
+              </div>
+           </div>
 
         )
     }

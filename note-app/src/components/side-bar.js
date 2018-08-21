@@ -12,6 +12,7 @@ class SideBar extends Component {
     }
 
     render(){
+        console.log(this.props)
         return (
             <div className ="side-bar">
                 <h1 className = "application-title">Lambda Notes</h1>

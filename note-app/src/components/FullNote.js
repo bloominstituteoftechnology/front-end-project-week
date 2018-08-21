@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom' 
+import SideBar from './side-bar';
 
 class FullNote extends React.Component{
     constructor(props){
@@ -14,15 +15,18 @@ class FullNote extends React.Component{
         const content = this.props.cc;
         const index = this.props.index;  
         return (
-          <div className = "create-note-form ">
-            <div className = "full-note-header">
+          <div className="main-container">
+            <SideBar />
+            <div className = "create-note-form ">
+              <div className = "full-note-header">
 
-              <Link to = {{pathname: `/${this.props.match.params.id}/edit-note`, state: { title, content, index}}}><h6>edit</h6></Link> 
-              <Link to = {{pathname: `/${this.props.match.params.id}/delete-note`, state: {title, content, index}}}><h6>delete</h6></Link>
-            </div>
-            <div className = "content-div">
-              <h3>{title}</h3> 
-              <p>{content}</p>
+                <Link to = {{pathname: `/${this.props.match.params.id}/edit-note`, state: { title, content, index}}}><h6>edit</h6></Link> 
+                <Link to = {{pathname: `/${this.props.match.params.id}/delete-note`, state: {title, content, index}}}><h6>delete</h6></Link>
+              </div>
+              <div className = "content-div">
+                <h3>{title}</h3> 
+                <p>{content}</p>
+              </div>
             </div>
           </div>
         

@@ -58,8 +58,8 @@ class App extends Component {
           <h3 className= "app-header">List View</h3>
           <hr/>
         </div>
-        <div className = "main-container">
-          <SideBar />
+        {/* <div className = "main-container"> */}
+          {/* <SideBar /> */}
           <Switch>
             <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
             <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
@@ -70,7 +70,7 @@ class App extends Component {
           
         </div>
         
-      </div>
+      // </div>
     );
   }
 }

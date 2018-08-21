@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom' 
+import SideBar from './side-bar';
 
 class EditNote extends Component {
     constructor(props){
@@ -26,14 +27,16 @@ class EditNote extends Component {
 
     render() {
         return (
-
-            <div className ="create-note-form">
+            <div className="main-container">
+              <SideBar />
+              <div className ="create-note-form">
                 <h3> Edit Note:</h3>
                 <textarea onChange = {this.onChange} className = "input-title" type="text" placeholder = "Note Title" name = 'title' value = {this.state.title}></textarea> 
                 <br/>
                 <textarea onChange = {this.onChange} className = "input-content" type="text" placeholder = "Note Content" name = 'content' value ={this.state.content}></textarea>
                 <br/>
                 <Link to = '/'><button onClick = {this.gatherInformation} className = "btn-side-bar">Update</button></Link>
+              </div>
             </div>
 
         )
