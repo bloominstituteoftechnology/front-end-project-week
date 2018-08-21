@@ -21,7 +21,7 @@ class CreateNote extends React.Component {
   saveNote = event => {
     const newNote = {title: this.state.title, textBody: this.state.content}
     event.preventDefault();
-    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
+    axios.post('https://nameless-harbor-91626.herokuapp.com/notes/', newNote)
     .then(response => {
       console.log(response);
       this.props.setData();

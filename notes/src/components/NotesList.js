@@ -67,7 +67,6 @@ class NotesList extends React.Component {
     returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.props.notes;
     let sortedNotes = returnedNotes.slice();
     let encodeUri = encodeURI(this.exportCSV(returnedNotes));
-    console.log(encodeUri);
     if (this.state.alphaSort) {
     returnedNotes = sortedNotes.sort((a,b) => {
       let firstName = a.title.toUpperCase();

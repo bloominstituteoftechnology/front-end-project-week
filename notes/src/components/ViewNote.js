@@ -23,6 +23,19 @@ class ViewNote extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
+/*Saves a note to the server*/
+  saveNote = event => {
+    const newNote = {title: this.state.title, textBody: this.state.content}
+    event.preventDefault();
+    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+      console.log("Error is:", err);
+    });
+  }
+
   componentDidMount() {
     this.fetchNote(this.props.match.params.id);
   }
@@ -35,7 +48,7 @@ class ViewNote extends React.Component {
 
 /*Will fetch just one note to be viewed upon clicking on a link to its route*/
   fetchNote = id => {
-    axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+    axios.get(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`)
     .then(response => {
       console.log("fetched Note", response.data);
       this.setState({note: response.data, tags: response.data.tags})
@@ -48,7 +61,7 @@ class ViewNote extends React.Component {
 /*Allows for the deleting of notes*/
   deleteNote = id => {
     console.log(id);
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`)
     .then(response => {
       console.log("Delete response", response.data);
       this.props.setData();
@@ -81,7 +94,7 @@ class ViewNote extends React.Component {
     }
     if (this.state.title.length > 0) newEdits.title = this.state.title;
     if (this.state.textBody.length > 0) newEdits.textBody = this.state.textBody;
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newEdits)
+    axios.put(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`, newEdits)
     .then(response => {
       console.log(response.data);
       this.setState({note: response.data, editingNote: false});
@@ -103,7 +116,7 @@ class ViewNote extends React.Component {
     console.log("hte tags", this.state.tags);
     const newTags = {tags: this.state.tags}
     newTags.tags.push(this.state.tag);
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newTags)
+    axios.put(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`, newTags)
     .then(response => {
       console.log("axios response", response.data);
       this.setState({tags: response.data.tags, tag:''})

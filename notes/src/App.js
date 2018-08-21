@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import NotesList from './components/NotesList';
 import CreateNote from './components/CreateNote';
@@ -12,17 +11,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [
-
-      ]
+      notes: []
     }
   }
 
   /*Fetches data from the server once the App component mounts then passes it to the state to be displayed*/
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://nameless-harbor-91626.herokuapp.com/notes/all')
       .then(response => {
+        console.log('HERE', response.data);
         this.setState({notes: response.data})
       })
       .catch(err => {
@@ -33,7 +31,7 @@ class App extends Component {
 /*Exported function met to fetch API data for this state via a different component*/
   setData = () => {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://nameless-harbor-91626.herokuapp.com/notes/all')
       .then(response => {
         this.setState({notes: response.data})
       })

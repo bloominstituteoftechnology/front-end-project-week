@@ -15,7 +15,7 @@ class NotesContainer extends React.Component {
     return (
       <div className="note-container">
         {this.props.notes.map(note => {
-          return <NavLink key={note['_id']} id="view-edit-linkz" to={`/notes/${note['_id']}`}><NoteTab key={note['_id']} note={note} /></NavLink>
+          return <NavLink key={note['id']} id="view-edit-linkz" to={`/notes/${note['id']}`}><NoteTab key={note['id']} note={note} /></NavLink>
         })
 
       }
