@@ -12,9 +12,18 @@ class App extends Component {
   constructor(){
     super(),
     this.state={
-        notes: notes
+        notes: notes,
+        newNote: '', 
+        newTitle: ''
     }
 }
+  handleChange = e => this.setState({[e.target.name]:e.target.value})
+  handleAddNote = () =>{
+    
+    let notes = this.state.notes.slice();
+    notes.push({id:this.state.notes.length, title:this.state.newTitle, note:this.state.newNote})
+    this.setState({notes: notes, newNote:'', newTitle:'' })
+  }
   render() {
     return (
       <div className="App">
@@ -23,7 +32,14 @@ class App extends Component {
           <Route exact path = '/' render = {props => <NoteList {...props} notes = {this.state.notes} />} />
           <Route exact path = '/:id' render = {props => <NoteView {...props} notes = {this.state.notes} />} />
           <Route exact path = '/:id/edit' render = {() => <EditNote />} />
-          <Route exact path = '/note/new' render = {() => <AddNote />} />
+          <Route exact path = '/note/new' render = {props =>
+            <AddNote {...props} 
+              handleChange = {this.handleChange} 
+              handleAddNote = {this.handleAddNote} 
+              note = {this.state.newNote}
+              title = {this.state.newTitle}
+            />} 
+          />
         </Switch>
       </div>
     );
