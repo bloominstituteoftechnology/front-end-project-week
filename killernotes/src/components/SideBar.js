@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { notEditing, exportNotes } from '../actions';
+import { notEditing } from '../actions';
+// import { notEditing, exportNotes } from '../actions';
 import styled from 'styled-components';
 
 const SideBarDiv = styled.div`

@@ -10,9 +10,10 @@ export const NOTEDITING = 'NOTEDITING';
 export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
 export const EXPORTING = 'EXPORING';
+export const CLEARERROR = 'CLEARERROR';
 export const ERROR = 'ERROR';
 
-const notesAPI = 'http://localhost:3007/api/notes/';
+const notesAPI = 'https://floating-sea-10752.herokuapp.com/api/notes/';
 
 export const fetchData = () => {
   return function(dispatch) {
@@ -20,7 +21,6 @@ export const fetchData = () => {
     axios
       .get(notesAPI)
       .then(response => {
-        console.log('RESPONSE.data', response.data);
         dispatch({ type: FETCHED, payload: response.data });
       })
       .catch(err => dispatch({ type: ERROR, payload: err }));
@@ -57,7 +57,6 @@ export const editNote = (id, note) => {
     axios
       .put(`${notesAPI}${id}`, note)
       .then(response => {
-        console.log('PUT reponse', response);
         dispatch({ type: EDITED, payload: response });
       })
       .catch(err => dispatch({ type: ERROR, payload: err }));
@@ -68,3 +67,5 @@ export const editing = () => ({ type: EDITING });
 export const notEditing = () => ({ type: NOTEDITING });
 
 export const exportNotes = () => ({ type: EXPORTING });
+
+export const clearError = () => ({ type: CLEARERROR });

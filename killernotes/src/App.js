@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { fetchData } from './actions';
+import { fetchData, clearError } from './actions';
 import SideBar from './components/SideBar';
 import Notes from './components/Notes';
 import NoteView from './components/NoteView';
@@ -14,6 +14,15 @@ const Error = styled.div`
   color: red;
   font-size: 30px;
   padding: 20px;
+  > * {
+    background-color: #2bc1c4;
+    color: #fff;
+    margin-top: -13px;
+    margin-left: 13px;
+    width: 193px;
+    height: 44px;
+    font-size: 16px;
+  }
 `;
 
 const Fetching = styled.h1`
@@ -25,6 +34,11 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchData();
   }
+
+  ClearError = () => {
+    this.props.clearError();
+    this.props.history.push('/');
+  };
 
   render() {
     return (
@@ -50,7 +64,12 @@ class App extends Component {
         <Route path="/note/:id" render={props => <NoteView {...props} />} />
         <Route path="/add" render={props => <NoteForm {...props} />} />
         <Route path="/edit/:id" render={props => <NoteForm {...props} />} />
-        {this.props.error ? <Error>{this.props.error}</Error> : null}
+        {this.props.error ? (
+          <Error>
+            {this.props.error} <br />
+            <button onClick={this.ClearError}>OK</button>
+          </Error>
+        ) : null}
       </div>
     );
   }
@@ -69,6 +88,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchData },
+    { fetchData, clearError },
   )(App),
 );

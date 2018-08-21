@@ -1,6 +1,6 @@
 /* prettier-ignore */
 import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING,
-   EDITED, EXPORTING} from '../actions';
+   EDITED, EXPORTING, CLEARERROR} from '../actions';
 
 const initialState = {
   fetchingNotes: false,
@@ -63,6 +63,7 @@ const rootReducer = (state = initialState, action) => {
     case EDITED:
       // get info from the payload
       const editedNote = action.payload.data.success;
+      console.log('EDITEDNOTE', editedNote);
       const editedId = editedNote.id;
       // get rid of the unedited note
       const newArr = state.notes.slice().filter(n => +n.id !== +editedId);
@@ -87,12 +88,27 @@ const rootReducer = (state = initialState, action) => {
         exporting: false,
       };
 
+    case CLEARERROR:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchedNotes: true,
+        deletingNote: false,
+        deletedNote: false,
+        editingNote: false,
+        editedNote: false,
+        addingNote: false,
+        addedNote: false,
+        exporting: false,
+        error: null,
+      };
+
     case ERROR:
       return {
         ...state,
         fetchingNotes: false,
         fetchedNotes: false,
-        error: action.payload.stack,
+        error: action.payload.response.data.error || action.payload.stack,
       };
 
     default:
