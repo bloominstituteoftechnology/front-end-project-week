@@ -20,7 +20,7 @@ export const ADDING_NOTE = 'ADDING_NOTE';
 export const NOTE_ADDED = 'NOTE_ADDED';
 
 export const addNote = (newNote) =>  {
-  console.log('addnote')
+  console.log('addnote', newNote)
   return function(dispatch){
     dispatch({type: ADDING_NOTE});
     axios.post('https://killer-notes.herokuapp.com/note/create', {
@@ -29,6 +29,21 @@ export const addNote = (newNote) =>  {
         "textBody": newNote.textBody
     }).then(res => {
       dispatch({type: NOTE_ADDED, payload: res});
+      dispatch(getNotes());
+    }).catch(err => {
+      dispatch({type: ERROR, payload: err})
+    })
+  }
+}
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const NOTE_DELETED = 'NOTE_DELETED';
+
+export const deleteNote = (id) =>  {
+
+  return function(dispatch){
+    dispatch({type: DELETING_NOTE});
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`).then(res => {
+      dispatch({type: NOTE_DELETED, payload: res});
       dispatch(getNotes());
     }).catch(err => {
       dispatch({type: ERROR, payload: err})

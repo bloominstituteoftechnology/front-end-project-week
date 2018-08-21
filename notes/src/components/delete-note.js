@@ -73,7 +73,8 @@ export default class DeleteNote extends Component {
   }
 
   deleteHandler = (e) => {
-    this.props.deleteNote(this.state.note.id);
+    this.props.deleteNote(this.state.note._id);
+    this.props.disableDelete();
   }
 
   render() {

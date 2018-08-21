@@ -1,6 +1,6 @@
 //reducers
 
-import { FETCHING_NOTES, NOTES_RECIEVED, ERROR, NOTE_ADDED, ADDING_NOTE } from '../actions';
+import { FETCHING_NOTES, NOTES_RECIEVED, ERROR, NOTE_ADDED, ADDING_NOTE, DELETING_NOTE, NOTE_DELETED } from '../actions';
 
 const initialState = {
   notes: [],
@@ -32,6 +32,16 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         addingNote: false,
         noteAdded: true,
+        status: action.payload,
+      })
+    case DELETING_NOTE:
+      return Object.assign({}, state, {
+        deletingNote: true,
+      })
+    case NOTE_DELETED:
+      return Object.assign({}, state, {
+        deletingNote: false,
+        noteDeleted: true,
         status: action.payload,
       })
     case ERROR:

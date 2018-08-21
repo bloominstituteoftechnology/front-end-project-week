@@ -7,7 +7,7 @@ import { withRouter } from 'react-router'
 
 import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
 
-import {getNotes, addNote} from './actions';
+import {getNotes, addNote, deleteNote} from './actions';
 
 const AppDiv = styled.div`
     ${'' /* border: 1px solid red; */}
@@ -124,11 +124,12 @@ class App extends Component {
   }
 
   deleteNote = (id) => {
-    let newArr = this.state.notes.slice().filter(note => note.id !== id);
-    this.setState({
-      notes: newArr,
-      deleteEnabled: false,
-    })
+    // let newArr = this.state.notes.slice().filter(note => note.id !== id);
+    // this.setState({
+    //   notes: newArr,
+    //   deleteEnabled: false,
+    // })
+    this.props.deleteNote(id);
   }
 
   newNote = (newNote) => {
@@ -216,7 +217,7 @@ const mapStateToProps = store => {
 }
 
 const mapDispatchToProps = {
-  getNotes, addNote
+  getNotes, addNote, deleteNote
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
