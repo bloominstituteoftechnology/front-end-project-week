@@ -5,7 +5,7 @@ a {
 .btn {
   max-width: 125px;
   min-height: 30px;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,12 +28,22 @@ a {
 
 .app .nav-bar {
   width: 25%;
+  max-width: 150px;
   height: 100%;
   border-right: 1px solid gray;
   background: #D3D2D3;
   display: flex;
   flex-direction: column;
   padding: 15px 10px 0;
+}
+.app .nav-bar .btn {
+  margin-bottom: 15px;
+}
+
+.app .nav-bar .app-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .app .notes {
@@ -53,7 +63,9 @@ a {
 
 .app .notes .notes-list p {
   width: 100%;
-  padding-left: 40px;
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .app .notes .notes-list a {
@@ -86,8 +98,13 @@ a {
 }
 
 .app .notes .note-page {
-  margin: 40px 20px 0;
+  margin: 0 20px 0;
   overflow-y: scroll;
+  max-width: 600px;
+}
+
+.app .notes .note-page .text{
+  line-height: 2;
 }
 
 .app .notes .note-page .links{
@@ -96,6 +113,23 @@ a {
   justify-content: flex-end;
   margin-bottom: 15px;
   padding-right: 10px;
+}
+
+.app .notes .note-page .links a{
+  text-decoration: underline;
+  color: black;
+  margin-right: 15px;
+}
+
+.app .notes .note-page .links .delete{
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
+.app .notes .note-page .title {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .note-form{
@@ -143,7 +177,29 @@ label {
 
 .modal-background .modal-body {
   background: white;
+  position: fixed;
+  top: 10%;
+  left: 30%;
   z-index: 100;
-  width: 75%;
-  height: 500px;
+  width: 500px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5%;
+}
+
+.modal-background .modal-body .delete-message {
+  width: 100%;
+  margin-left: 40px;
+}
+
+.modal-background .modal-body .btn{
+  max-width: 150px;
+  height: 40px;
+}
+
+.modal-background .modal-body .btn-delete {
+  margin-right: 25px;
 }

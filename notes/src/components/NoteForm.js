@@ -43,7 +43,7 @@ class NoteForm extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleSubmit} className="note-form">
-        <label htmlFor="title"><strong>Create New Note: </strong></label>
+        <label htmlFor="title">Create New Note: </label>
         <input
           type="text"
           id="title"

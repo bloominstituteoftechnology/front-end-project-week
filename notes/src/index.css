@@ -65,7 +65,12 @@ h1, h2, h3, h4, h5 {
 
 /* End of Reset */
 
+html {
+	font-size: 62.5%;
+}
+
 body {
+	font-size: 1.6rem;
   margin: 0;
   padding: 0;
   font-family: sans-serif;

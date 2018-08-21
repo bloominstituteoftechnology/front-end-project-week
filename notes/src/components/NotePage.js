@@ -6,12 +6,12 @@ const NotePage = props => {
   return(
     <div className="note-page">
       <div className="links">
-        <Link to={`/note/${note.id}/edit`}>Edit</Link>
+        <Link to={`/note/${note.id}/edit`}>edit</Link>
         <div
           className="delete"
           onClick={()=>props.toggle(props.match.params.id)}
         >
-          Delete
+          delete
         </div>
       </div>
       <div className="title">{note.title}</div>
