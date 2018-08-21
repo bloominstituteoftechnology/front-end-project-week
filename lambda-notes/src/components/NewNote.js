@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import {getNotes, addNote} from '../actions/actions';
 import styled from 'styled-components';
 
 const AddForm = styled.form`
@@ -41,10 +42,6 @@ const AddForm = styled.form`
 
 `
 
-
-const URL = 'http://localhost:5000/notes';
-
-
 class NewNote extends Component {
     constructor(props) {
         super(props);
@@ -58,29 +55,14 @@ class NewNote extends Component {
         this.setState({ [event.target.name]: event.target.value});
     }
 
-    addNote = event => {
-        event.preventDefault();
-        const newNote = {
-          title: this.state.title,
-          content: this.state.content
-        }
-        axios.post(URL, newNote) 
-          .then(response => {
-            console.log(response);
-            console.log(response.data);
-            window.location = '/notes';
-          })
-          .catch(error => {
-            console.log(error);
-          })
-          this.setState({
-            title: '',
-            content: ''
-          });
+    add = () => {
+        this.props.addNote(this.state);
+        this.props.getNotes();
     }
 
     render() { 
 
+        const {title, content} = this.state;
        
         return ( 
             <AddForm>
@@ -89,21 +71,21 @@ class NewNote extends Component {
                     type='text'
                     name='title'
                     placeholder='Note title'
-                    value={this.state.title}
-                    onChange={this.change}
+                    value={title}
+                    onChange={(event) => this.change(event)}
                 />
                 <textarea
                     type='text'
                     name='content'
                     placeholder='Note content'
-                    value={this.state.content}
-                    onChange={this.change}
+                    value={content}
+                    onChange={(event) => this.change(event)}
                 />
 
-                <button onClick={this.addNote}>Save</button>
+                <button onClick={() => this.add(this.state)}>Save</button>
             </AddForm>
          );
     }
 }
  
-export default NewNote;
+export default connect (null, {getNotes, addNote})(NewNote);

@@ -7,6 +7,7 @@ const ViewNote = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px;
+    width: 100%;
 
     > h1 {
         margin-top: 10px;

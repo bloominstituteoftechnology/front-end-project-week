@@ -17,23 +17,20 @@ class NotesList extends Component {
     render() {
         return (
             <ListNotes>
-                {this.props.notes.map(note => {
+
+                { this.props.notes.map(note => { 
                     return (
-                    <Note
-                        key={note.id}
-                        id={note.id}
-                        title={note.title}
-                        content={note.content}
-                    />
+                        <Note
+                            key={note.id}
+                            id={note.id}
+                            title={note.title}
+                            content={note.content}
+                        />
                     )
-                })}
+                }) }
             </ListNotes>
         );
     }
-}
-
-Note.defaultProps = {
-    notes: []
 }
 
 export default NotesList;

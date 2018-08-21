@@ -48,12 +48,6 @@ const Note = (props) => {
             </NoteDisplay>
             
          );
-    
-}
-
-Note.defaultProps = {
-    title: '',
-    content: ''
 }
  
 export default Note;
