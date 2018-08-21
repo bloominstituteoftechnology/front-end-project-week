@@ -97,6 +97,7 @@
 .AddNoteWrapper {
 	width: 100%;
 	background-color: #f2f0f2;
+	height: 100vh;
 }
 
 .AddNote__form {
@@ -172,6 +173,10 @@
 	margin: 0 auto;
 }
 
-.Note__content h3 {
-	margin-bottom: 30px;
+.Note__content-header {
+	margin-bottom: 5px;
+}
+
+.Note__content-text {
+	margin-top: 30px;
 }

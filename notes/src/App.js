@@ -92,8 +92,10 @@ class App extends Component {
 			<div className="App">
 				<div className="Sidebar">
 					<div className="Sidebar__header">
-						<h1>Lambda</h1>
-						<h1> Notes</h1>
+						<Link to="/">
+							<h1>Lambda</h1>
+							<h1> Notes</h1>
+						</Link>
 					</div>
 					<Link to="/notes">
 						<button className="Button">View Your Notes</button>
@@ -106,7 +108,7 @@ class App extends Component {
 				<Route
 					exact
 					path="/"
-					render={() => <div>This is the home page</div>}
+					render={() => <div>Under Construction</div>}
 				/>
 				<Route
 					exact

@@ -8,6 +8,7 @@ class Note extends React.Component {
 		_id: this.props.match.params.id,
 		title: "",
 		textBody: "",
+		tags: [],
 	};
 
 	handleInputChange = event => {
@@ -45,8 +46,15 @@ class Note extends React.Component {
 							</span>
 						</div>
 						<div className="Note__content">
-							<h3>{note.title}</h3>
-							<p>{note.textBody}</p>
+							<h3 className="Note__content-header">
+								{note.title}
+							</h3>
+							{note.tags.map(tag => (
+								<span className="Notes__tag">{tag}</span>
+							))}
+							<p className="Note__content-text">
+								{note.textBody}
+							</p>
 						</div>
 					</div>
 				)}
@@ -87,6 +95,7 @@ class Note extends React.Component {
 								this.props.onSubmit(this.state._id, {
 									title: this.state.title,
 									textBody: this.state.textBody,
+									tags: this.state.tags,
 								});
 								this.handleEditFlip();
 							}}
@@ -96,6 +105,14 @@ class Note extends React.Component {
 								placeholder="Note Title"
 								defaultValue={note.title}
 								name="title"
+								autoComplete="off"
+								onChange={this.handleInputChange}
+							/>
+							<input
+								type="text"
+								placeholder="Tags"
+								defaultValue={note.tags}
+								name="tags"
 								autoComplete="off"
 								onChange={this.handleInputChange}
 							/>
