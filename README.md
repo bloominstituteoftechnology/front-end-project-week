@@ -1,4 +1,4 @@
-trello: https://github.com/Jstoss/front-end-project-week.git
+trello: https://trello.com/b/Gfrsy852/lambda-notes-joseph-stossmeister
 
 # Front End Project Week
 
