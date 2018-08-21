@@ -12,8 +12,10 @@ it('contains a <SidebarContainer /> and <MainContentContainer />', () => {
     expect(sidebar.length).toBe(1);
     expect(mainContentContainer.length).toBe(1);
 });
-it('<MainContentContainer /> should have 4 <Route></Route>', () => {
+  it("<MainContentContainer></MainContentContainer> should have 4 <Route />", () => {
     const app = shallow(<App />);
+    const mainContentContainer = app.find(".main-content-container");
+    expect(mainContentContainer.find("Route").length).toBe(4);
   });
   it("checks every <Route /> to see if there is a path prop in <MainContentContainer></MainContentContainer>", () => {
     const app = shallow(<App />);
