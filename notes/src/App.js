@@ -39,8 +39,10 @@ class App extends Component {
 
 	handleDeleteNote = id => {
 		this.setState({ loading: true });
-		axios.delete(`${API_DELETE}/${id}`).then(response => {
-			this.setState({ loading: false });
+		axios.delete(`${API_DELETE}/${id}`).then(() => {
+			axios.get(API_ALL).then(response => {
+				this.setState({ notes: response.data, loading: false });
+			});
 		});
 	};
 
