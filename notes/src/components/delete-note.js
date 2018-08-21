@@ -60,8 +60,6 @@ const DeleteNoteDiv = styled.div`
 
     }
     }
-
-
 `;
 
 export default class DeleteNote extends Component {

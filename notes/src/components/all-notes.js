@@ -26,25 +26,50 @@ const AllNotesDiv = styled.div`
       margin-bottom: 15px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
       color: black;
-      h3{
-        ${'' /* border: 1px solid blue; */}
-        margin: 10px 10px 5px 10px;
-        width: 80%;
-        text-decoration: none;
-        border-bottom: 1px solid black;
+      .notTags{
+        ${'' /* border: 1px solid green; */}
+        width: 90%;
+        max-height: 150px;
+        overflow: auto;
+        margin: 2% 0;
+        h3{
+          ${'' /* border: 1px solid green; */}
+          margin: 10px 10px 5px 0;
+          text-decoration: none;
+          border-bottom: 1px solid black;
+        }
+        p {
+          ${'' /* border: 1px solid blue; */}
+          width: 95%;
+          height: 40%;
+          padding-bottom: 10px;
+          overflow: auto;
+          text-decoration: none;
+          margin: 0;
+          line-height: 23px;
+          font-size: 14px;
+          font: roboto;
+        }
       }
-      p {
-        ${'' /* border: 1px solid blue; */}
-        width: 80%;
-        height: 70%;
-        overflow: hidden;
-        text-decoration: none;
-        margin: 0;
-        line-height: 23px;
-        font-size: 14px;
-        font: roboto;
+
+      .tags {
+        ${'' /* border: 1px solid red; */}
+        display: flex;
+        flex-direction: row:
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 95%;
+        bottom: 0;
+        ${'' /* overflow: hidden; */}
+        div {
+          border: 1px solid lightgray;
+          margin: 2px;
+          padding: 4px;
+        }
       }
     }
   }
@@ -59,11 +84,9 @@ export default class AllNotes extends Component {
   }
 
   render() {
-    // console.log(this.props.notes)
     return (
       <AllNotesDiv>
         <h3>Your Notes:</h3>
-
         <div className="all-notes">
           {this.props.notes.map(note => {
             // let url = decodeURI(note.title)
@@ -71,11 +94,26 @@ export default class AllNotes extends Component {
             //how to do that?
             //------------------------------??----------------------
             return (
-              <Link className="note-link" key={note._id} to={`/all-notes/${note._id}`}>
-                <div className="note-preview">
-                  <h3>{note.title}</h3>
-                  <p>{note.textBody}</p>
-                </div>
+              <Link
+                className="note-link"
+                key={note._id}
+                to={`/all-notes/${note._id}`}>
+                  <div className="note-preview">
+
+                    <div className="notTags">
+                      <h3>{note.title}</h3>
+                      <p>{note.textBody}</p>
+                    </div>
+
+                    <div className="tags">
+                      {(note.tags.length > 0) ?
+                        note.tags.map(tag => {
+                              return (<div key={tag}>{tag}</div>)
+                            }
+                        ) :
+                        null}
+                    </div>
+                  </div>
               </Link>
             )
           })}

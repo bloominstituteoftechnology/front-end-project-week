@@ -1,5 +1,5 @@
 https://trello.com/b/udyN0SvX/lambda-notes-mike-kerbleski
-
+<!--
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -56,13 +56,13 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
 
-Once your MVP has been approved, you have been given a feature list that the client would love to have completed. Your goal would be to finish MVP as soon as you can and get working the list of features.
+Once your MVP has been approved, you have been given a feature list that the client would love to have completed. Your goal would be to finish MVP as soon as you can and get working the list of features. -->
 
 ## Extra Features:
 
-- [ ] Wire up your static React App to our Notes API.
+<!-- - [ ] Wire up your static React App to our Notes API.
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
-- [ ] Re-factor your code to include redux for your state-management
+- [ ] Re-factor your code to include redux for your state-management -->
 - [ ] Search functionality
 - [ ] Markdown support in notes
 - [ ] Sorting options in the list view

@@ -29,6 +29,20 @@ const NoteDetailsDiv = styled.div`
   p {
     line-height: 30px;
   }
+  .tags{
+    ${'' /* border: 1px solid lightgray; */}
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    div{
+      margin: 3px;
+      padding: 5px;
+    }
+    .tag {
+      border: 1px solid lightgray;
+    }
+  }
 `;
 
 class NoteDetails extends Component {
@@ -37,6 +51,7 @@ class NoteDetails extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         {(this.props.note) ?
@@ -59,6 +74,14 @@ class NoteDetails extends Component {
             </div>
             <h4>{this.props.note.title}</h4>
             <p>{this.props.note.textBody}</p>
+            <div className="tags">Tags:
+              {(this.props.note.tags.length > 0) ?
+                this.props.note.tags.map(tag => {
+                      return (<div className="tag">{tag}</div>)
+                    }
+                ) :
+                (<div className="noTags"> none </div>)}
+            </div>
           </NoteDetailsDiv>
         ) :
         null}
