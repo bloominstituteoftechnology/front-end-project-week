@@ -12,8 +12,7 @@ class App extends React.Component {
 
         <Route path='/register' component={RequireNotAuth(Register)} />
         <Route path='/login' component={RequireNotAuth(Login)} />
-
-        <NotesPage />
+        <Route path='/notes' component={NotesPage} />
 
       </React.Fragment>
     );

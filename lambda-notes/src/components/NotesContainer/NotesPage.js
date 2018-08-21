@@ -5,7 +5,6 @@ import UpdateNotesContainer from './UpdateNotesContainer';
 import SideBarContainer from '../SideBarContainer/SideBarContainer';
 import NotesContainer from './NotesContainer';
 import CreateNotesContainer from './CreateNotesContainer';
-import HomeContainer from '../HomeContainer/HomeContainer';
 import RequireAuth from '../Authenticate/RequireAuth';
 import { Route } from 'react-router-dom';
 import { getNotes, deleteNote, setNotes } from '../../actions';
@@ -31,16 +30,15 @@ class NotesPage extends Component {
                 {this.props.fetching ? <div>Fetching Notes</div> :
                     <React.Fragment>
 
-                        <Route path='/' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
-                        <Route exact path='/' component={RequireAuth(HomeContainer)} />
+                        <Route path='/notes' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
                         <Route exact path='/notes' render={props =>
                             <NotesContainer {...props}
                                 notes={this.props.notes}
                                 setNotes={this.props.setNotes}
                                 deleteNote={this.props.deleteNote} />} />
-                        <Route exact path='/notes/:id' component={RequireAuth(Note)} />
                         <Route path='/notes/:id/edit' component={RequireAuth(UpdateNotesContainer)} />
-                        <Route path='/create' component={RequireAuth(CreateNotesContainer)} />
+                        <Route path='/notes/create' component={RequireAuth(CreateNotesContainer)} />
+                        <Route path='/notes/view/:id' component={RequireAuth(Note)} />
 
                     </React.Fragment>
                 }

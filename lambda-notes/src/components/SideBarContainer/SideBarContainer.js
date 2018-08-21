@@ -9,7 +9,7 @@ const SideBarContainer = props => {
                 <SideBarContent>
                     <SideBarHeader onClick={() => props.history.push('/')} className='side-bar-header'>Lambda Notes</SideBarHeader>
                     <MainButtons onClick={() => props.history.push('/notes')} className='main-buttons'>View Your Notes</MainButtons>
-                    <MainButtons onClick={() => props.history.push('/create')} className='main-buttons'>+ Create New Note</MainButtons>
+                    <MainButtons onClick={() => props.history.push('/notes/create')} className='main-buttons'>+ Create New Note</MainButtons>
                     <MainButtons logout onClick={props.logout} className='logout-button'>Logout</MainButtons>
                 </SideBarContent>
             </SideBarWrapper>

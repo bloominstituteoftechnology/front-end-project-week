@@ -50,3 +50,26 @@ export const LoginButton = styled(Link)`
     text-decoration: none;
     font-size: 13px;
 `
+
+export const BottomLoginContent = styled.div`
+    max-width: 350px;
+    width: 100%;
+    padding: 8px 40px;
+    border: 1px solid #e6e6e6;
+    margin-top: 10px
+`
+
+export const BottomText = styled.div`
+    font-size: 14px;
+    color: #262626;
+    margin: 15px;
+    text-align: center;
+`
+
+export const SignUp = styled(Link)`
+    color: #3897f0;
+    &:hover {
+        text-decoration: none;
+        color: #3897f0;
+    }
+`

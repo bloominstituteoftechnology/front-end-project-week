@@ -37,7 +37,7 @@ const NotesCard = props => {
     // Displays each note to the screen
     return connectDragSource && connectDropTarget && connectDragSource(connectDropTarget(
         <div className='notes-card-wrapper' style={{ opacity }}>
-            <NotesCardLink to={`/notes/${note.id}`}>
+            <NotesCardLink to={`/notes/view/${note.id}`}>
 
                 <NotesCardContainer>
                     <NotesCardTitle>{note.title}</NotesCardTitle>

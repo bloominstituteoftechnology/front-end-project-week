@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginWrapper, LoginForm, LoginInput, LoginButton } from '../ReusableComponents/Login';
+import { LoginWrapper, LoginForm, LoginInput, LoginButton, BottomLoginContent, BottomText, SignUp } from '../ReusableComponents/Login';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/auth';
 
@@ -43,6 +43,7 @@ class Login extends React.Component {
         // Displays login form
         return (
             <LoginWrapper>
+
                 <LoginForm>
 
                     <h1>Lambda Notes</h1>
@@ -55,6 +56,16 @@ class Login extends React.Component {
                     </LoginButton>
 
                 </LoginForm>
+
+
+                <BottomLoginContent>
+
+                    <BottomText>
+                        Don't have an account? <SignUp to='/register'>Sign up</SignUp>
+                    </BottomText>
+
+                </BottomLoginContent>
+
             </LoginWrapper>
         );
     }
