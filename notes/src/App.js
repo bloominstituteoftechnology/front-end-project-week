@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import AddNote from "./components/AddNote";
 import NotesView from "./components/NotesView";
+import Note from './components/Note';
 import "./App.css";
 
 export default class App extends Component {
@@ -37,19 +38,29 @@ export default class App extends Component {
   onSaveHandler = e => {
     e.preventDefault();
     const notes = this.state.notes.slice();
+    
+    const rowLen = this.state.notes.length;
+    let id; 
+    this.state.notes.map((note, i) => {
+      if(rowLen === i + 1){
+        id = note.id + 1;
+        return id; 
+      } else return null;
+    })
+
     notes.push({
-      id: this.state.id,
+      id: id,
       title: this.state.title,
       note: this.state.note
     });
-    console.log("notes copy", notes)
-    console.log("App State", this.state)
-    this.setState({notes: notes});
-    console.log("App State after", this.state)
+
+    this.setState(()=>({notes: notes, id: null, title: '', note: ''}));
+
+
   };
 
   render() {
-   
+    console.log('this is new state with added', this.state.notes)
     return (
       
       <div className="app">
@@ -79,10 +90,18 @@ export default class App extends Component {
               <AddNote
                 {...props}
                 inputHandler={this.inputHandler}
-                onSaveHandler={this.onSaveHandler}
-              />
-            }
+                onSaveHandler={this.onSaveHandler} />}
           />
+
+          <Route
+            path="/note/:id"
+            render={props => 
+              <Note
+                {...props}
+                notes={this.state.notes} 
+                 />}
+          />
+          
         </div>
       </div>
     );
