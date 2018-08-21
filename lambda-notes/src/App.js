@@ -25,9 +25,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Nav-bar">
-          <h1 className="App-title">Lambda Notes</h1>
-          <Link to="/" ><button>View Your Notes</button></Link>
-          <Link to="" ><button>+ Create New Note</button></Link>
+          <h1 className="App-title">Lambda <br/> Notes</h1>
+          <Link to="/" ><div className="nav-button" >View Your Notes</div ></Link>
+          <Link to="" ><div className="nav-button" >+ Create New Note</div></Link>
         </div>
         <div className="display-right" >
           <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />

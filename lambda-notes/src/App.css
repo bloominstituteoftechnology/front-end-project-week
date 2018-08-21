@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+
 .App {
   text-align: center;
   display: flex;
   box-sizing: border-box;
+  background: lightgray;
+  font-family: "Roboto", sans-serif;
 }
 
 .App-logo {
@@ -10,13 +14,34 @@
 }
 
 .Nav-bar {
-  background-color: #222;
-  width: 150px;
+  background-color: rgb(156, 154, 154);
+  width: 200px;
   padding: 20px;
-  color: white;
+  color: #222;
   display: flex;
   flex-direction: column;
   height:800px;
+  text-align: left;
+}
+
+.Nav-bar .nav-button {
+  color: white;
+  border: 1px solid darkgrey;
+  width: 190px;
+  height: 40px;
+  /* display: flex; */
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+  /* padding-left: 11px; */
+  padding-top: 9px;
+  background-color: teal;
+  
+}
+
+.Nav-bar a {
+  text-decoration: none;
 }
 
 .App-title {
@@ -49,6 +74,13 @@
   text-overflow: ellipsis;
   white-space: wrap;
   display:block;
+  text-align: left;
+  background: white;
+}
+
+.notes-wrap a {
+  text-decoration: none;
+  color: #222;
 }
 
 .your-header {

@@ -8,15 +8,16 @@ export const NoteList = props => {
             {props.notes.map(note => {
             return ( 
                 <Link to={`/notes/${note.id}`} >
-              <div 
-                title={note.title}
-                text={note.text}
-                key={note.id}
-                className="note-wrap"
-              >
-                <h4>{note.title}</h4>
-               {note.text}
-              </div>
+                    <div 
+                        title={note.title}
+                        text={note.text}
+                        key={note.id}
+                        className="note-wrap"
+                    >
+                        <h3>{note.title}</h3>
+                        <hr/>
+                    {note.text}
+                    </div>
               </Link>
             );
           })}
