@@ -7,13 +7,28 @@ class EditNoteForm extends Component {
     description: ''
   }
 
+  handleOnChange = e => this.setState({[e.target.name]: e.target.value});
+
+  handleEditNote = (e) => {
+    e.preventDefault();
+    let content = {
+      id: parseInt(this.props.match.params.id, 10),
+      title: this.state.title,
+      description: this.state.description
+    }
+    this.props.editNote(content)
+    this.setState({title: '', description: ''})
+    this.props.history.goBack();
+  }
+
   render() {
-    let note = this.props.notes.filter(item => item.id === parseInt(this.props.match.params.id, 10));
-    console.log('edit',this.props)
-    console.log(note)
     return (
       <div>
-        <h1>Hello</h1>
+        <form action="submit" onSubmit={this.handleEditNote}>
+          <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange} />
+          <input type="text" name="description" value={this.state.description} onChange={this.handleOnChange} />
+          <button type="submit">edit</button>
+        </form>
       </div>
     );
   }

@@ -10,3 +10,16 @@ export const deleteNote = id => {
   }
 }
 
+export const editNote = content => {
+  return {
+    type: EDIT_NOTE,
+    payload: content
+  }
+}
+
+export const addNote = content => {
+  return {
+    type: ADD_NOTE,
+    payload: content
+  }
+}
