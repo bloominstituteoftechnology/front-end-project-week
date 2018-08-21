@@ -30,7 +30,7 @@ const EditForm = styled.form`
     > button {
         margin: 5px 0;
         width: 35%;
-        background: green;
+        background: #20B2AA;
         color: white;
         font-weight: bold;
         font-size: 1.4rem;

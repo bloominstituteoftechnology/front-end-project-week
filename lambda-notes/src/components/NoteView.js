@@ -19,6 +19,15 @@ const ViewNote = styled.div`
 
     }
 
+    > a {
+    > button {
+        background: #20B2AA;
+        border: 1px solid gray;
+        color: white;
+        width: 25%;
+        height: 35px;
+    }
+    }
 `
 
 const ButtonsContainer = styled.div`
@@ -31,6 +40,7 @@ const ButtonsContainer = styled.div`
         margin-left: 10px;
         cursor: pointer;
     }
+
 
 `
 

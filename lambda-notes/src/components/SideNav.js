@@ -16,18 +16,18 @@ const SideNavigation = styled.div`
     max-width: 25%;
     align-items: center;
     padding: 10px;
-    background: lightgray;
+    background: #C0C0C0;
 
     > a {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid black;
+        border: 1px solid gray;
         width: 100%;
         margin: 10px;
         height: 35px;
         text-decoration: none;
-        background: green;
+        background: #20B2AA;
         font-weight: bold;
         color: white;
         font-size: 1.4rem;
