@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import DeleteModal from './deleteModal.js';
-
+import {withRouter} from 'react-router-dom';
 const SingleNote=styled.div`
 background-color: #ddd;
 width: 100%;
@@ -59,7 +59,7 @@ class SingleNotePage extends React.Component{
         return(
             <SingleNote>
             <EDcontainer>
-            <Span>edit</Span>
+            <Span onClick={()=>this.props.history.push(`${this.props.match.params.noteId}/edit`)}>edit</Span>
             <DeleteModal/>
             </EDcontainer>
             <Note>
@@ -70,4 +70,4 @@ class SingleNotePage extends React.Component{
         )
     }
 }
-export default SingleNotePage;
+export default withRouter(SingleNotePage);
