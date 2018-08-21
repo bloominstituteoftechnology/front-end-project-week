@@ -4,7 +4,7 @@ import './App.css';
 import { Button, H1, H2, H3 } from './components/StyledComponents';
 import SideBar from './components/SideBar';
 import { connect } from 'react-redux';
-import { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search } from './actions';
+import { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search, sort } from './actions';
 import ListView from './components/ListView/ListView';
 import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
 import NewNote from './components/CreateNote/NewNote';
@@ -32,6 +32,10 @@ class App extends Component {
     this.props.fetchNotes()
   }
 
+  onSortClick = sortType => {
+    this.props.sort(sortType)
+  }
+
   
   render() {
     let notes = this.props.notes.slice()
@@ -46,7 +50,7 @@ class App extends Component {
         </div>
         {this.props.notes ? 
           <div><Route exact path="/"
-            render={props => <ListView notes={notes} {...props}/>}/>
+            render={props => <ListView notes={notes} sort={this.onSortClick}{...props}/>}/>
           <Route path="/newNote" 
             render={props => <NewNote {...this.props} {...props}/>} />
           <Route exact path="/notes/:id" 
@@ -77,4 +81,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search })(App))
+export default withRouter(connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search, sort })(App))

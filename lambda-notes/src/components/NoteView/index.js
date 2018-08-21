@@ -42,8 +42,7 @@ class NoteView extends React.Component{
     }
 
     onSumbit = event => {
-        console.log('~~~~~~~~~~~CREATE NEW NOTE~~~~~~~~')
-        console.log(this.props)
+
         this.props.updateNotes({
             _id: this.state.id,
             title: this.state.title,

@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, ADDING_NOTES, ADDED_NOTES, ERROR, FETCHING_NOTE, FETCHED_NOTE, UPDATING_NOTES, UPDATED_NOTES, SEARCH } from "../actions";
+import { FETCHING_NOTES, FETCHED_NOTES, ADDING_NOTES, ADDED_NOTES, ERROR, FETCHING_NOTE, FETCHED_NOTE, UPDATING_NOTES, UPDATED_NOTES, SEARCH, SORT_CHARACTERS, SORT_CONTENT } from "../actions";
 
 const initialState = {
     notes: [],
@@ -9,7 +9,8 @@ const initialState = {
     fetchingNote: true,
     fetchedNote: {},
     searchList: [],
-    searching: false
+    searching: false,
+    initialOrder: []
 }
 
 export const notesReducer = ( state = initialState, action) => {
@@ -23,7 +24,8 @@ export const notesReducer = ( state = initialState, action) => {
             return {
                 ...state,
                 fetchingNotes: false,
-                notes: action.payload
+                notes: action.payload,
+                initialOrder: action.payload
             }
         case SEARCH: 
             if (action.sString === '')
@@ -79,6 +81,20 @@ export const notesReducer = ( state = initialState, action) => {
                 ...state,
                 err: action.err
             }
+        case SORT_CHARACTERS:{
+            const notes = state.notes.slice().sort((a, b) => a.title[0] > b.title[0])
+            return {
+                ...state,
+                notes: notes
+            }
+        }
+        case SORT_CONTENT:
+            const notes = state.notes.slice().sort((a, b) => a.textBody.length > b.textBody.length )
+            return {
+                ...state,
+                notes: notes
+            }
+
         default:
             return state
     }
