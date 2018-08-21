@@ -44,7 +44,6 @@ class Note extends React.Component {
         const note = { tags: this.props.note.tags, title: this.props.note.title, content: this.props.note.content, id: this.props.note.id }
 
         note.tag = { tag: this.state.tag, note_id: this.props.note.id };
-        
         this.props.editNote(note);
         this.setState({ tag: '' });
     }

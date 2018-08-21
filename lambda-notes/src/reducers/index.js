@@ -34,12 +34,8 @@ export default (state = initialState, action) => {
             return { ...state, creatingNote: true };
 
         case NOTE_CREATED:
-            let data = JSON.parse(action.payload.config.data);
-            data.id = action.payload.data.success;
-
             let createNote = state.notes.slice();
-            createNote.push(data);
-
+            createNote.push(action.payload.data);
             return { ...state, notes: createNote, creatingNote: false, noteCreated: true };
 
         case EDITING_NOTE:
