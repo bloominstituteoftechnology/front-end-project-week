@@ -13,9 +13,9 @@ const StyledLink = styled(Link)`
 `;
 
 const NoteCard = props => {
-  const { title, content } = props.note;
+  const { title, content, id } = props.note;
   return (
-    <StyledLink to={`/notes/${props.note.id}`}>
+    <StyledLink to={`/notes/${id}`}>
       <div className="notecard">
         <div className="">
           <div>

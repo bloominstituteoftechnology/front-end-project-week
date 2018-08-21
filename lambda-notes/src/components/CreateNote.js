@@ -11,7 +11,7 @@ class CreateNote extends Component {
       edit: props.edit,
       note: props.note,
       title: props.title,
-      content: props.content,
+      textBody: props.textBody,
       submitted: false
     };
   }
@@ -23,7 +23,7 @@ class CreateNote extends Component {
   componentDidMount() {
     if (!this.state.edit) {
       console.log("creating new note");
-      this.setState({ title: "", content: "" });
+      this.setState({ title: "", textBody: "" });
     } else {
       console.log("updating note");
     }
@@ -31,15 +31,15 @@ class CreateNote extends Component {
 
   addNote = event => {
     event.preventDefault();
-    const { title, content } = this.state;
-    const newNote = { title, content };
+    const { title, textBody } = this.state;
+    const newNote = { title, textBody };
 
     if (this.state.edit) {
       const updatedNotes = Object.assign({}, newNote, {
         id: this.state.note.id
       });
       axios
-        .put(`http://localhost:3500/notes/${updatedNotes.id}`, updatedNotes)
+        .put(`http://localhost:4444/notes/${updatedNotes.id}`, updatedNotes)
         .then(res => {
           console.log(res.data);
           this.setState({ submitted: true });
@@ -49,10 +49,10 @@ class CreateNote extends Component {
         });
     } else {
       axios
-        .post("http://localhost:3500/notes", newNote)
+        .post("http://localhost:4444/notes", newNote)
         .then(res => {
           console.log(res.data);
-          this.setState({ title: "", content: "", submitted: true });
+          this.setState({ title: "", textBody: "", submitted: true });
         })
         .catch(err => {
           console.log(err);
@@ -79,9 +79,9 @@ class CreateNote extends Component {
             className="notecontent"
             type="textarea"
             onChange={this.handleInputChange}
-            name="content"
+            name="textBody"
             placeholder="Note content"
-            value={this.state.content}
+            value={this.state.textBody}
           />
 
           <button className="savebutton">Update</button>
