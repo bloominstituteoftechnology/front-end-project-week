@@ -40,21 +40,21 @@ class NewNote extends Component {
 
     render() { 
 
-        const {title, content} = this.state;
+       
         return ( 
             <form>
                 <input
                     type='text'
                     name='title'
                     placeholder='Note title'
-                    value={title}
+                    value={this.state.title}
                     onChange={(event) => this.change(event)}
                 />
                 <textarea
                     type='text'
                     name='content'
                     placeholder='Note content'
-                    value={content}
+                    value={this.state.content}
                     onChange={this.change}
                 />
 
