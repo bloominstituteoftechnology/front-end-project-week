@@ -1,0 +1,28 @@
+.modal-content {
+  width: 40rem;
+  margin-top: 14rem;
+  margin-right: 20rem;
+  border: 1px solid #4A4A4A;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #F3F3F3;
+  border-radius: 0;
+}
+
+.fade {
+  background-color: rgba(200, 200, 200, .6);
+}
+
+@media (max-width: 770px) {
+  .modal-content {
+    width: 100%;
+  }
+  .custom-button-red-modal {
+    width: 7rem;
+    padding-left: 2rem;
+  }
+  .custom-button-teal-modal {
+    width: 7rem;
+    padding-left: 2rem;
+  }
+}

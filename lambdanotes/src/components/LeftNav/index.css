@@ -1,0 +1,36 @@
+.nav-container {
+    padding: 1rem;
+    min-width: 220px;
+    height: 100vh;
+    background-color: #D8D8D8;
+    /* max-width: 20rem; */
+}
+
+.nav-header {
+    margin: 0;
+    font-weight: 600;
+    line-height: 35px;
+    margin-bottom: 2.5rem;
+    margin-top: .5rem;
+}
+
+@media (max-width: 770px) {
+    .nav-container {
+      height: 24vh;
+      padding: .7rem 1rem;
+    }
+    .nav-header {
+        font-weight: 600;
+        font-size: 30px;
+        margin: .8rem 1rem;
+        letter-spacing: 4px;
+    }
+    .custom-button-teal-nav {
+        width: 8.4rem;
+        float: left;
+        height: 3rem;
+        font-size: 13px;
+        padding: .5rem .5rem;;
+        margin-left: .7rem;
+    }
+  }

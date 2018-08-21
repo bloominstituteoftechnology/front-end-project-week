@@ -1,0 +1,54 @@
+.noteList-container {
+  width: 100%;
+}
+
+.note {
+  height: 17rem;
+  color: #4A4A4A;
+  font-size: 15px;
+  overflow: hidden;
+  width: 15rem;
+  text-decoration: none;
+  border: 2px solid 979797;
+  border-radius: 1px;
+}
+
+.line {
+  background-color: #4A4A4A;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+@media (max-width: 770px) {
+  .noteList-container {
+      width: 100%;
+      margin-top: -2rem;
+    }
+
+  .notes {
+    clear: left;
+    display: block;
+  }
+  .card {
+    margin-bottom: 1rem;
+    height: 7rem;
+  }
+
+  .card-title {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .card-text {
+    font-size: 12px;
+  }
+
+  .noteList-container {
+    color: #4A4A4A;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    font-size: 20px;
+  }
+}

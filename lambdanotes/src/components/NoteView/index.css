@@ -1,0 +1,14 @@
+.underline {
+  text-decoration: underline;
+}
+
+@media (max-width: 770px) {
+  .top-content {
+    float: right !important;
+    margin-left: 5rem;
+  }
+  .bottom-content h3 {
+    clear: both;
+    padding-top: 1rem !important;
+  }
+}
