@@ -79,10 +79,6 @@ class App extends Component {
   }
 
   deleteNote  = (index) => {
-    // let notes = this.state.notes.slice()
-    // const deleting = notes[index]
-    // notes = notes.filter(note => note.title !== deleting.title)
-    // this.setState({ notes })
     const promise = axios.delete(`http://localhost:8080/notes/${index}`)
     promise
     .then(response => {
@@ -110,9 +106,9 @@ class App extends Component {
               <Switch location = {location}>
                 <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
                 <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.postNote} idGenerator = {this.idGenerator} nextId = {this.state.nextId}/>} />
-                <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} idGenerator = {this.idGenerator}/> } />
+                <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote}/> } />
                 <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
-                <Route path = '/:id' render = {props => <FullNote  {...props} select = {this.state.select} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
+                <Route path = '/:id' render = {props => <FullNote  {...props} select = {this.state.select} /> } />
                 <Route render ={() => <div>Not Found</div> } /> 
               </Switch>
             </CSSTransition>

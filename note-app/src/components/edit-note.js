@@ -8,21 +8,19 @@ class EditNote extends Component {
         this.state = {
             title : '',
             content : '',
-            index : null
         }
     }
     componentDidMount () {
         const title = this.props.location.state.select.title;
         const content = this.props.location.state.select.textBody;
-        const index = this.props.location.state.select.index; 
-        this.setState({title,content, index})
+        this.setState({title,content})
     }
     onChange = event => {
         this.setState({[event.target.name]: event.target.value})
     }
     gatherInformation = () => {
         const obj = {...this.props.location.state.select.title, title:  this.state.title, textBody: this.state.content, __v: this.props.location.state.select.__v + 1}
-        this.props.update(this.state.index, obj)
+        this.props.update(this.props.location.state.select.id, obj)
     } 
 
     render() {

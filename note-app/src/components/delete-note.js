@@ -19,7 +19,6 @@ class DeleteModal extends React.Component {
               <SideBar name ={"deleting"}/>
               <div className = "create-note-form deleting-form">
                 <div className = "full-note-header deleting">
-
                   <h6>edit</h6> 
                   <h6>delete</h6>
                 </div>
