@@ -51,18 +51,7 @@ export default class NewForm extends Component {
   }
 
   sendToApp = (e) => {
-    console.log(this.props)
-    console.log(this.state)
     this.props.newNote(this.state)
-    // if (this.props.button === "Create") {
-    //   this.props.newNote(this.state);
-    // } else {
-    //   this.props.editNote(this.state);
-    // }
-    // this.setState({
-    //   title: '',
-    //   body: '',
-    // })
   }
 
   inputHandler = (e) => {
@@ -73,19 +62,32 @@ export default class NewForm extends Component {
   }
 
   render() {
-    // console.log(this.props)
     return (
-        <NewNoteDiv>
-          <form onSubmit={this.sendToApp}>
-            <input className="input" id="title"
-              onChange={this.inputHandler}
-              name='title' value={this.state.title} placeholder="Note Title">{this.value}</input>
-            <textarea className="input" id="textBody"
-              name='textBody'
-              onChange={this.inputHandler} value={this.state.textBody} placeholder="Note Content">{this.value}</textarea>
-            <Link className="menu-item" onClick={this.sendToApp} to="/all-notes">{this.props.button}</Link>
-          </form>
-        </NewNoteDiv>
+      <NewNoteDiv>
+        <form onSubmit={this.sendToApp}>
+          <input
+            className="input"
+            id="title"
+            onChange={this.inputHandler}
+            name='title'
+            value={this.state.title}
+            placeholder="Note Title"
+          >{this.value}</input>
+          <textarea
+            className="input"
+            id="textBody"
+            name='textBody'
+            onChange={this.inputHandler}
+            value={this.state.textBody}
+            placeholder="Note Content"
+          >{this.value}</textarea>
+          <Link
+            className="menu-item"
+            onClick={this.sendToApp}
+            to="/all-notes"
+          >{this.props.button}</Link>
+        </form>
+      </NewNoteDiv>
     );
   }
 }
