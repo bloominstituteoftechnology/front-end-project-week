@@ -13,10 +13,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 const store = createStore(NotesReducer); 
 
 ReactDOM.render( 
-    <Provider store = {store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>
+    
+        <Provider store = {store}>
+            <Router>
+                <App />  
+            </Router>
+        </Provider>
+    
     , document.getElementById('root'));
 
