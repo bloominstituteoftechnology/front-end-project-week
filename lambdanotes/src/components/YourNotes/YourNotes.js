@@ -13,9 +13,11 @@ import './YourNotes.css';
                         
                         <Note
                             title={note.title}
+                            key={note.id}
                             id={note.id}
                             content={note.content}
                             note={note}
+                            handleData={props.handleData}
                         />
                         
                     );

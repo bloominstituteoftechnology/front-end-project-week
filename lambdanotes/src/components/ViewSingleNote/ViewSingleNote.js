@@ -9,7 +9,7 @@ const ViewSingleNote= props => {
             <div className='spans'>
                 <span>edit</span>
                 <Link style={{ textDecoration: 'none', color:'black', marginTop:'30px' }} to= '/'>
-                <span onClick={() => props.deleteNote()} >delete</span>
+                <span onClick={() => props.deleteNote(props.location.state.id)} >delete</span>
                 </Link>
             </div>
             <div className='single-note'>
