@@ -27,10 +27,6 @@ class LambdaView extends Component {
         this.setState({ id: Number(id), notes: this.props.note });
     }
 
-    componentWillUnmount() {
-        this.mounted = false;
-    }
-
     filterNotes = note => {
         if (note.id === this.state.id) {
             return (

@@ -48,7 +48,6 @@ class LambdaEdit extends Component {
             console.log('before',res)
             this.props.history.push('/');
             this.setState({ id: null, notes: { id: null, title: '', content: ''}})
-            console.log('after', res)
         }).catch(err => console.log(err))
         
     }

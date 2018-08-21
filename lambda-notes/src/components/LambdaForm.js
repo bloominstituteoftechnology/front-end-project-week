@@ -34,7 +34,7 @@ class LambdaForm extends Component {
             title: '',
             content: ''        
         })
-        this.props.handleSetData(res.data);
+        this.props.history.push('/');
     }).catch(err => 
         console.log(err))
     }

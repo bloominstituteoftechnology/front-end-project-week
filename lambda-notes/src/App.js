@@ -44,14 +44,7 @@ class App extends Component {
 
   handleSetData = data => this.setState({ notes: data})
 
-  handleRefresh = () => {
-    axios
-      .get("http://localhost:8000/api/notes")
-      .then(response => {
-        this.setState({ notes: response.data });
-      })
-      .catch(err => console.log(err));
-  };
+
 
   handleSelectNote = note => {
     this.setState({ selected: note });
@@ -70,10 +63,10 @@ class App extends Component {
       <StyledContainer>
         <Route path="/" component={LambdaNav}/>
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
-        <Route path="/form" render={props => (<LambdaForm {...props} />)} />
+        <Route path="/form" render={props => (<LambdaForm {...props}  />)} />
         <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} handleSetData={this.handleSetData} />)} />
         <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} toggleDelete={this.toggleDelete} />)} />
-        {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleRefresh={this.handleRefresh} handleSelectNote={this.handleSelectNote} toggleDelete={this.toggleDelete} />)} />) : null}
+        {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} toggleDelete={this.toggleDelete} />)} />) : null}
       </StyledContainer>
     )
   }
