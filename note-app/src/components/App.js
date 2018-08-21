@@ -38,15 +38,16 @@ class App extends Component {
   }
 
   postNote = (noteobj) => {
-    const promise = axios.post('http://localhost:8080/notes', noteobj)
-    promise
-    .then(response => {
-      console.log(response.data)
-      this.setState({notes:[...this.state.notes, response.data], nextId: response.data.length})
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    // const promise = axios.post('http://localhost:8080/notes', noteobj)
+    // promise
+    // .then(response => {
+    //   console.log(response.data)
+    //   this.setState({notes:[...this.state.notes, response.data], nextId: response.data.length})
+    // })
+    // .catch(error => {
+    //   console.log(error)
+    // })
+    this.props.addingNote(noteobj)
   }
 
   handleNoteSelect = (index) => {
@@ -56,33 +57,37 @@ class App extends Component {
     tags: select.tags, __v: select.__v, id: select.id}})
   }
   updateNote = (index, noteObj) => {
-    const promise = axios.put(`http://localhost:8080/notes/${index}`, noteObj)
-    promise
-    .then(response => {
-      console.log(response)
-      this.fetchNotes()
-    })
-    .catch(error => {
-      console.log(error) 
-    })
+    // const promise = axios.put(`http://localhost:8080/notes/${index}`, noteObj)
+    // promise
+    // .then(response => {
+    //   console.log(response)
+    //   this.fetchNotes()
+    // })
+    // .catch(error => {
+    //   console.log(error) 
+    // })
+    this.props.updatingNote(index, noteObj)
+    this.props.fetchingNotes()
   }
 
   deleteNote  = (index) => {
-    const promise = axios.delete(`http://localhost:8080/notes/${index}`)
-    promise
-    .then(response => {
-      console.log(response)
-      this.fetchNotes()
-    })
-    .catch(error => {
-      console.log(error, index) 
-    })
+    // const promise = axios.delete(`http://localhost:8080/notes/${index}`)
+    // promise
+    // .then(response => {
+    //   console.log(response)
+    //   this.fetchNotes()
+    // })
+    // .catch(error => {
+    //   console.log(error, index) 
+    // })
+    this.props.deletingNote(index) 
 
   }
 
 
   render() {
     console.log(this.props)
+    
     
     return (
     <Router>

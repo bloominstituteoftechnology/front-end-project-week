@@ -33,7 +33,7 @@ const reducerNote = (state = initialState, action) => {
     case UPDATING_NOTE:
       return {...state, updatingNote: true}
     case UPDATED_NOTE:
-      return {...state, updatingNote: false, notes: [...state.notes, action.payload]}
+      return {...state, updatingNote: false, notes: state.notes.map(note => note.id === action.payload.id ? note = {id: action.payload.id, title: action.payload.title, textBody: action.payload.textBody, __v: action.payload.__v} : note = note )}
     case DELETING_NOTE:
       return {...state, deletingNote: true}
     case DELETED_NOTE:
