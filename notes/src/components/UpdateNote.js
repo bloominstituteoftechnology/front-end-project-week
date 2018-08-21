@@ -1,22 +1,51 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class updateForm extends Component {
+class UpdateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            updateTitle: '',
-            updateText: ''
+            id: null,
+            notes: []
         };
     }
 
-handleUpdate = event => {
-    this.setState({[event.target.name]: event.target.value });
+componentDidMount() {
+    const id = this.props.match.params.id;
+    let note = this.props.notes.filter(note => note.id===Number(id));
+    this.props.handleSelectNote(note[0]);
+}
+
+handleUpdate = () => {
+    this.props.handleUpdateNote(this.props.match.params.id)
 };
 
-
-
+render() {
+    return(
+    <div>
+        <h2> Edit Note</h2>
+    <form> 
+        <input 
+        type = "text" 
+        placeholder="Title"
+        value = {this.props.selected.title}
+        onChange = {this.props.handleTitleUpdate}
+        />
+        <textarea type = "text"
+        placeholder = "Content"
+        value = {this.props.selected.body}
+        onChange = {this.props.handleBodyUpdate}
+        />
+        <Link to = "/">
+        <button onClick = {this.handleUpdate}>
+            Update
+        </button>
+        </Link>
+    </form>
+    </div>
+    )
+}
 
 }
 
-export default updateForm; 
+export default UpdateNote; 

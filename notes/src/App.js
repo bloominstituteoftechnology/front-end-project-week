@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import NewNoteForm from './components/NewNoteForm';
 import NotesList from './components/NotesList';
 import NotesView from './components/NotesView';
+import UpdateNote from './components/UpdateNote';
 import './App.css';
 
 
@@ -45,7 +46,8 @@ class App extends React.Component {
     ],
     title: '',
     textBody: '',
-    selected: {}
+    selected: {},
+    remove: false
  }
 }
 
@@ -69,14 +71,50 @@ handleAddNote = event => {
 }
 
 handleSelectNote = id => {
-  this.setState({selected: this.state.notes[`${id}`]});
+  this.setState({selected: id});
 }
+
+handleTitleUpdate = event=>{
+  this.setState({
+    selected: {
+      id: this.state.selected.id,
+      title: event.target.value,
+      textBody: this.state.selected.textBody
+    }
+  })
+}
+
+handleBodyUpdate = event => {
+  this.setState({
+    selected: {
+      id: this.state.selected.id,
+      title: this.state.selected.title,
+      textBody: event.target.value
+    }
+  })
+}
+
+handleUpdateNote = id => {
+  const notes = this.state.notes.slice();
+  for (let i=0; i<notes.length; i++){
+    if (notes[i].id === Number(id)) {
+      notes[i] = {
+        id: this.state.selected.id,
+        title: this.state.selected.title,
+        textBody: this.state.selected.body
+      };
+    }
+  }
+  this.setState({ notes,selected: {} });
+}
+
 
   render() {
     console.log('logging state in App',this.state);
     return (
       <div>
         <Route path = "/" component={NavBar} />
+        
         <Route exact path = "/" render={props =>
         (<NotesList {...props}
         notes={this.state.notes} 
@@ -92,6 +130,18 @@ handleSelectNote = id => {
           />
         )}
           />
+
+          <Route path = "/edit/:id" render={props=>
+          (<UpdateNote {...props}
+          notes = {this.state.notes}
+          selected = {this.state.selected}
+          handleTitleUpdate = {this.handleTitleUpdate}
+          handleBodyUpdate = {this.handleBodyUpdate}
+          handleSelectNote = {this.handleSelectNote}
+          handleUpdateNote = {this.handleUpdateNote}
+          />)}
+          />
+
           <Route path="/notes/:id" render={props =>
           <NotesView {...props}
           note={this.state.notes}

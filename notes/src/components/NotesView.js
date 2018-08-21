@@ -5,7 +5,7 @@ class NotesView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id:null,
+            id: null,
             notes: this.props.notes
         };
     }
@@ -20,8 +20,16 @@ class NotesView extends Component {
         if(note.id === this.state.id) {
             return(
                 <div key={note.id}>
-                <Link to={`/notes/${note.id}`}>Edit</Link>
-                <Link to ={'/'}>Delete</Link>
+                <Link to={`/edit/${note.id}`}>
+                <button>
+                Edit
+                </button>
+                </Link>
+                <Link to ={'/'}>
+                <button>
+                Delete
+                </button>
+                </Link>
                 <h1>{note.title}</h1>
                 <p>{note.textBody}</p>
                 </div>

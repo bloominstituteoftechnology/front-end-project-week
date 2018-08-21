@@ -1,39 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 import './NewNoteForm.css';
 
-const NewNoteForm = props => {
+class NewNoteForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: null,
+            notes: []
+        };
+    }
 
-    
-
+    render(){
     return (
         <div className = "new-note-container">
             <form>
                 <h2> Create New Note:
                 </h2>
                 <input 
-                onChange = {props.handleChange} 
-                value = {props.title}
+                onChange = {this.handleChange} 
+                value = {this.title}
                 className = "note-title-input"
                 type="text"
                 placeholder="Note Title" 
                 />
-                <input
-                onChange = {props.handleChange} 
-                value = {props.textBody}
+                <textarea
+                onChange = {this.handleChange} 
+                value = {this.textBody}
                 className = "note-content-input"
                 type = "text"
                 placeholder = "Note Content"
                 />
                 <Link to="/all"> 
-                <button onClick = {props.handleAddNote}> 
+                <button onClick = {this.handleAddNote}> 
                    Add to Note List     
                 </button> 
                 </Link>
             </form> 
         </div> 
     )
+}
 }
 
 export default NewNoteForm;
