@@ -66,7 +66,7 @@ class App extends Component {
             <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
             <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
             <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
-            <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props}/>} />
+            <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect}/>} />
             <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
           </Switch>
           {/* <CreateNote create = {this.createNote}/> */}
