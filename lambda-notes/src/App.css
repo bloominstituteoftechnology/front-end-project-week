@@ -140,6 +140,42 @@ button a:visited {
   align-items: baseline;
 }
 
+.note-previews-header-container label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 140px;
+}
+
+.react-toggle .react-toggle-thumb {
+  border-color: #979797 !important;
+}
+
+.react-toggle .react-toggle-track {
+  background-color: #979797 !important;
+}
+
+.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #979797 !important;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: #2BC1C4 !important;
+}
+
+.react-toggle--checked .react-toggle-thumb {
+  border-color: #2BC1C4 !important;
+}
+
+.react-toggle--focus .react-toggle-thumb {
+  box-shadow: none !important;
+}
+
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #2BC1C4 !important;
+}
+
 .note-preview-container {
   width: 200px;
   height: 200px;

@@ -3,9 +3,8 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import DragSortableList from 'react-drag-sortable';
-import '@zendeskgarden/react-toggles/dist/styles.css';
-import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Toggle, Label } from '@zendeskgarden/react-toggles';
+import Toggle from 'react-toggle';
+import "react-toggle/style.css";
 
 class NoteList extends React.Component {
   state = {
@@ -72,14 +71,16 @@ class NoteList extends React.Component {
       <div className="main-container">
         <div className="note-previews-header-container">
           <h2>Your Notes:</h2>
-          <ThemeProvider>
-            <Toggle
-              checked={this.state.isSortable}
-              onChange={this.toggleSortable}
-            >
-              <Label>Sort Notes</Label>
-            </Toggle>
-          </ThemeProvider>
+            <label>
+              Sort notes
+              <Toggle
+                checked={this.state.isSortable}
+                onChange={this.toggleSortable}
+                icons={false}
+              >
+              </Toggle>
+            </label>
+
         </div>
           <div className="note-previews-container">
             <DragSortableList items={draggableNotes}
