@@ -8,6 +8,8 @@ export const ADDING_NOTE = 'ADDING_NOTE';
 export const ADDED_NOTE = 'ADDED_NOTE';
 export const UPDATING_NOTE = 'UPDATING_NOTE';
 export const UPDATED_NOTE = 'UPDATED NOTE';
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const DELETED_NOTE = 'DELETED_NOTE';
 export const ERRORS = 'ERRORS';
 
 const url = "https://killer-notes.herokuapp.com/note";
@@ -21,8 +23,8 @@ export const fetchNotes = () => {
                 dispatch({type: FETCHED_NOTES, payload: response.data})
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});
-    };
-}
+    }
+};
 
 export const fetchOneNote = _id => {
     return dispatch => {
@@ -62,6 +64,18 @@ export const updateNote = (title, textBody, _id) => {
             })
             .then(response => {
                 dispatch({type:UPDATED_NOTE, payload: response.data});
+            })
+            .catch (err => {dispatch({type: ERRORS, payload: err})});
+    }
+}
+
+export const deleteNote = _id => {
+    return dispatch => {
+        dispatch({type: DELETING_NOTE});
+        axios
+            .delete(`${url}/delete/${_id}`)
+            .then(response => {
+                dispatch({type:DELETED_NOTE, payload: response.data});
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});
     }

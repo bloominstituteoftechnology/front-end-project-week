@@ -77,7 +77,10 @@ class Note extends React.Component{
                             <ModalHeader toggle={this.toggle} charCode="X"></ModalHeader>
                             <ModalBody>Are you sure you want to delete this?</ModalBody>
                             <ModalFooter>
-                                <Button color="danger" id={this.props.note._id} onClick={this.props.deleteNote}>Delete</Button>
+                                <Button color="danger" id={this.props.note._id}
+                                                       onClick={this.props.deleteNote}>
+                                    Delete
+                                </Button>
                                 <button style={{background: '#2AB4AE', color: 'white'}}>No</button>
                             </ModalFooter>
                         </Modal>

@@ -6,6 +6,8 @@ import {FETCHING_NOTES,
         ADDED_NOTE,
         UPDATING_NOTE,
         UPDATED_NOTE,
+        DELETING_NOTE,
+        DELETED_NOTE,
         ERRORS} from '../actions/actions';
 
 const initialState = {
@@ -64,6 +66,16 @@ export const rootReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 updatingNote: false,
                 updatedNote: true,
+                notes: action.payload,
+            })
+        case DELETING_NOTE:
+            return Object.assign({}, state, {
+                deletingNote: true,
+            })
+        case DELETED_NOTE:
+            return Object.assign({}, state, {
+                deletingNote: false,
+                deletedNote: true,
                 notes: action.payload,
             })
         case ERRORS:
