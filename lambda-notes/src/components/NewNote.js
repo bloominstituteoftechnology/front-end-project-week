@@ -20,12 +20,16 @@ const NewNote = props => {
                 <Input onChange={props.handleInputChange} type="textarea" name="content" placeholder="Note Content" rows="15" style={{ marginTop: 15 + 'px' }} value={props.content}/>
                 <Row>
                     <Col sm="4">
-                        <Button onClick={props.addNote} color="info" style={{ marginTop: 15 + 'px' }} block>Save</Button>
+                        <Button onClick={props.addNote}  onMouseUp={() => props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} block>Save</Button>
                     </Col>
                 </Row>
             </Form>
         </Container>
     );
 }
+
+
+// onClick={(event) => { {props.addNote}; {props.history.push('/notes')};}}
+// onClick={(event) => { {props.addNote}; {props.history.goBack()};}}
 
 export default NewNote;
