@@ -7,6 +7,8 @@ const ListNotes = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background: lightgray;
+    padding-top: 40px;
 
 `
 

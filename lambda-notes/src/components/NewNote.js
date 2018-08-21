@@ -1,5 +1,45 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const AddForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background: lightgray;
+
+    > h1 {
+        margin: 20px 0;
+        font-weight: bold;
+    }
+
+    > input {
+        width: 50%;
+        height: 30px;
+        margin: 5px 0;
+        padding: 10px;
+    }
+
+    > textarea {
+        height: 300px;
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    > button {
+        margin: 5px 0;
+        width: 35%;
+        background: green;
+        color: white;
+        font-weight: bold;
+        font-size: 1.4rem;
+        height: 35px;
+        border: 1px solid gray;
+    }
+    
+
+`
 
 
 const URL = 'http://localhost:5000/notes';
@@ -43,7 +83,8 @@ class NewNote extends Component {
 
        
         return ( 
-            <form>
+            <AddForm>
+            <h1>Create New Note: </h1>
                 <input
                     type='text'
                     name='title'
@@ -60,7 +101,7 @@ class NewNote extends Component {
                 />
 
                 <button onClick={this.addNote}>Save</button>
-            </form>
+            </AddForm>
          );
     }
 }

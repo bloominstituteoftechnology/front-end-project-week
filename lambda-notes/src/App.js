@@ -16,10 +16,6 @@ const Application = styled.div`
   width: 100%;
   margin: 0 auto;
   display: flex;
-
-  border: 1px solid red;
-
-
 `
 
 const URL = 'http://localhost:5000/notes/';

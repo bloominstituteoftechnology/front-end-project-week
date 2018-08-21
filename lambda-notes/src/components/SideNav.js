@@ -11,9 +11,32 @@ const SideNavigation = styled.div`
     position: sticky;
     height: 100vh;
     top: 0;
-    border: 1px solid blue;
+    border-right: 1px solid darkgray;
     min-width: 25%;
+    max-width: 25%;
     align-items: center;
+    padding: 10px;
+    background: lightgray;
+
+    > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        width: 100%;
+        margin: 10px;
+        height: 35px;
+        text-decoration: none;
+        background: green;
+        font-weight: bold;
+        color: white;
+        font-size: 1.4rem;
+    }
+
+    > h1 {
+        font-weight: bold;
+        font-size: 3.4rem;
+    }
 
 
 `
@@ -21,6 +44,7 @@ const SideNavigation = styled.div`
 const SideNav = () => {
     return(
         <SideNavigation>
+            <h1>Lambda Notes</h1>
             <Link to='/notes'>View your notes</Link>
             <Link to='/add-note'>+ Create New Note</Link>
         </SideNavigation>

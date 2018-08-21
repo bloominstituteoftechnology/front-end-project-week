@@ -1,6 +1,38 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const ViewNote = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    > h1 {
+        margin-top: 10px;
+        font-weight: bold;
+
+    }
+    > p {
+        margin: 10px 0;
+        font-size: 1.2rem;
+
+    }
+
+`
+
+const ButtonsContainer = styled.div`
+
+        text-align: right;
+
+    > a {
+        text-decoration: underline;
+        color: black;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+`
 
 
 const URL = 'http://localhost:5000/notes/';
@@ -48,14 +80,15 @@ class NoteView extends Component {
 
     render() {
         return ( 
-            <div className="note-view">
-                <div className="buttons">
+            <ViewNote>
+                <ButtonsContainer>
                 <Link to={`/notes/${this.state.id}`}> Edit </Link>
-                <button onClick={() => this.delete(this.state.id)}>Delete</button>
-                </div>
+                <a onClick={() => this.delete(this.state.id)}>Delete</a>
+                </ButtonsContainer>
                 <h1>{this.state.title}</h1>
                 <p>{this.state.content}</p>
-            </div>
+                <Link to={`/notes`}><button>Back</button></Link>
+            </ViewNote>
          );
     }
 }
