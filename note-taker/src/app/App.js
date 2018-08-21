@@ -23,8 +23,8 @@ const MainContentContainer = styled.div`
 const App = () => {
   return (
     <AppContainer>
-      <SidebarContainer />
-      <MainContentContainer>
+      <SidebarContainer className = 'sidebar'/>
+      <MainContentContainer className = 'main-content-container'>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/create-new" component={CreateNoteContainer} />
         <Route exact path="/note/get/:id" component={NoteContainer} />
