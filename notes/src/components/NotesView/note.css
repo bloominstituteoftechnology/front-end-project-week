@@ -12,6 +12,10 @@
     margin-right: 15px;
 }
 
+.note .note-links a:hover {
+    cursor: pointer;
+}
+
 .note h2 {
     font-size: 1.4rem;
     font-weight: bold;

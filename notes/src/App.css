@@ -66,3 +66,67 @@ table {
 	background-color: #F1F1F2;
 	padding: 80px 0 80px 3.5%;
 }
+
+.delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #D7D7D7;
+    opacity: .9;
+}
+
+.delete-modal .modal-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    background-color: #FBFAFB;
+    border: 1px solid #767676;
+    padding: 25px;
+    z-index: 2;
+}
+
+.delete-modal .modal-box p {
+    text-align: center;
+    width: 100%;
+}
+
+.delete-modal .modal-box .modal-delete-btn {
+    width: 30%;
+    border: 1px solid #ADAEAE;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #C40023;
+    color: white;
+    margin: 15px 10px 5px 0;
+    padding: 10px 0;
+}
+
+.delete-modal .modal-box .modal-delete-btn:hover {
+    cursor: pointer;
+}
+
+.delete-modal .modal-box .modal-cancel-btn {
+    width: 30%;
+    border: 1px solid #ADAEAE;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #3AB7BB;
+    color: white;
+    margin: 15px 0 5px 10px;
+    padding: 10px 0;
+}
+
+.delete-modal .modal-box .modal-cancel-btn:hover {
+    cursor: pointer;
+}

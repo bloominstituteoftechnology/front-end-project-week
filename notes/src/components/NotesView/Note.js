@@ -1,19 +1,27 @@
-import React from 'react';
+import React , { Component }from 'react';
 import { Link } from 'react-router-dom';
 import './note.css';
 
-const Note = props => {
-    console.log(props);
-    return (
-        <div className="note">
-            <div className="note-links">
-                <Link to={`/${props.note.id}/edit`}>edit</Link>
-                <a className="delete-btn">delete</a>
+class Note extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            deleteToggle: false
+        }
+    }
+
+    render() {
+        return (
+            <div className="note">
+                <div className="note-links">
+                    <Link to={`/${this.props.note.id}/edit`}>edit</Link>
+                    <a className="delete-btn" onClick={() => this.props.deleteNote(this.props.note.id)}>delete</a>
+                </div>
+                <h2>{this.props.note.title}</h2>
+                <p>{this.props.note.text}</p>
             </div>
-            <h2>{props.note.title}</h2>
-            <p>{props.note.text}</p>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default Note;
