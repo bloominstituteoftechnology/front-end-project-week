@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {Route,Link} from 'react-router-dom';
+import {Route,NavLink} from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Notes from './components/notes';
-import NewNoteForm from './components/NewNoteForm';
 import './App.css';
 
 
@@ -45,43 +44,31 @@ class App extends Component {
         text: ''
      };
 
-     noteInput = event => {
-      this.setState({ [event.target.name]: event.target.value });
-    };
+     addNote = event => {
+       event.preventDefault();
+       const notes = this.state.notes.slice();
+       notes.push({ text: this.state.note, title: this.state.title, id: Date.now() });
+       this.setState({ notes, title: '', text: '' });
+     }
 
-    noteSubmit = () => {
-      let notes = this.state.notes.slice();
-      let id = this.state.id;
-      if (this.state.newtitle !== "" || this.state.newbody !== "") {
-        id++;
-        notes.push({
-          id: id,
-          title: this.state.newtitle,
-          text: this.state.newbody
-        });
-        this.setState({ notes, newtitle: "", newbody: "", id });
-      }
-    };
+     handleInputChange = event => {
+       this.setState({[event.target.name]: event.target.value});
+     }
+
 
 
      render() {
     return (
       <div className="App">
       <Sidebar />
-      <Route 
-      exact 
-      path="/" 
-      render={(props) => <Notes{...props} notes={this.state.notes}/>}/>
-      <Route path="/new-note" 
-      render={props => ( 
-      <NewNoteForm 
-      {...props} 
-      noteInput={this.noteInput}
-      noteSubmit={this.noteSubmit} 
-      /> 
-      )} 
+      <Route
+      path="/"
+      render={(props) => <Notes {...props} notes={this.state.notes} />}
       />
-   
+      {/* <Route
+      path="/"
+      render={(props) => <NewNoteForm {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
+      /> */}
     </div>
     );
   }
