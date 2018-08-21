@@ -68,6 +68,11 @@ class App extends Component {
     }, this.redirect);
   };
 
+  updateNoteInput = () => {
+    const { title, text } = this.state.note;
+    this.setState({ title, text });
+  };
+
   /* Modal methods */
 
   deleteNote = () => {
@@ -166,6 +171,8 @@ class App extends Component {
                   title={this.state.title} 
                   text={this.state.text} 
                   formText="Update"
+                  edit={true}
+                  update={this.updateNoteInput}
                 />
               </div>
             )}
