@@ -14,6 +14,10 @@ class NoteFocus extends React.Component {
   componentDidMount() {
     this.noteView(this.props.match.params._id);
   }
+
+  componentDidUpdate() {
+    this.noteView(this.props.match.params._id);
+  }
  
   noteView = (id) => {
     axios

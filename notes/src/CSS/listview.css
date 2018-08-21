@@ -151,6 +151,7 @@ h1, h2, h3 {
     height: 100%;
     overflow-y: scroll;
     line-height: 150%;
+    white-space: pre-wrap;
     
 }
 

@@ -44,7 +44,7 @@
 }
 
 .save {
-    width: 25%;
+    width: 45%;
 }
 
 /* themes */
@@ -57,4 +57,10 @@
 .saveblue> button {
     background: skyblue;
     border: solid rgb(90, 153, 205) 1px;
+}
+
+.editbtns {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
 }

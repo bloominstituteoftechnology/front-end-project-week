@@ -18,11 +18,18 @@ const EditNote = props => {
           className="input-body"
           defaultValue={props.editbody}
         />
-        <Link className={props.pink ? "save savepink": props.blue ? "save saveblue": "save"} to="/">
+        <div className="editbtns">
+        <Link className={props.pink ? "save savepink": props.blue ? "save saveblue": "save"} to={`/notes/${props.match.params.id}`}>
           <button onClick={() => props.submitEdit(props.match.params.id)}>
             Save
           </button>
         </Link>
+        <Link className={props.pink ? "save savepink": props.blue ? "save saveblue": "save"} to={`/notes/${props.match.params.id}`}>
+          <button>
+            Cancel
+          </button>
+        </Link>
+        </div>
       </div>
     </div>
   );

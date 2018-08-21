@@ -19,9 +19,14 @@ const NewNote = props => {
           className="input-body"
           placeholder="Note Content"
         />
+        <div className="editbtns">
         <Link className={props.pink ? "save savepink" : props.blue ? "save saveblue" : "save"} to="/">
           <button onClick={props.noteSubmit}>Save</button>
         </Link>
+        <Link className={props.pink ? "save savepink" : props.blue ? "save saveblue" : "save"} to="/">
+          <button>Cancel</button>
+        </Link>
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import NewNote from "./components/newnote";
 import NoteFocus from "./components/notefocus";
 import EditNote from "./components/editnote";
 import { Route } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import dummydata from "./dummydata";
 import "./CSS/listview.css";
 
@@ -22,40 +22,48 @@ class App extends Component {
       editbody: "",
       deleting: false,
       pink: false,
-      blue: false,
+      blue: false
     };
   }
 
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get("https://killer-notes.herokuapp.com/note/get/all")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
       .catch(error => {
-        console.error('Server Error', error);
+        console.error("Server Error", error);
       });
   }
+  componentDidUpdate() {
+    axios
+      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
+  }
+
+
   noteInput = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   noteSubmit = () => {
-    axios.post('https://killer-notes.herokuapp.com/note/create', {title: this.state.newtitle, textBody: this.state.newbody})
-    .then(() => {
-      axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
+    axios
+      .post("https://killer-notes.herokuapp.com/note/create", {
+        title: this.state.newtitle,
+        textBody: this.state.newbody
       })
-    })
-    .catch(error => {
-      console.error('Server Error', error);
-      console.log(this.state.notes)
-    });
-  
+      .catch(error => {
+        console.error("Server Error", error);
+        console.log(this.state.notes);
+      });
 
-  //pre API code
+    //pre API code
 
     // let notes = this.state.notes.slice();
     // let id = this.state.id;
@@ -78,14 +86,10 @@ class App extends Component {
 
   submitEdit = id => {
     axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {title: this.state.edittitle, textBody: this.state.editbody})
-    .then (() => {
-      axios.get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
+      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+        title: this.state.edittitle,
+        textBody: this.state.editbody
       })
-      
-    })
 
     //pre API code
 
@@ -99,19 +103,14 @@ class App extends Component {
   };
 
   deleteModal = () => {
-    let deleting = !this.state.deleting
+    let deleting = !this.state.deleting;
     this.setState({ deleting });
   };
 
   noteDelete = id => {
     axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-    .then (() => {
-      axios.get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })});
-      this.setState({deleting: false})
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    this.setState({ deleting: false });
     //pre API code
     // let notesCopy = this.state.notes.slice();
     // let notesLeft = notesCopy.filter(note => note.id != id);
@@ -120,21 +119,21 @@ class App extends Component {
   };
 
   origtheme = () => {
-    this.setState({pink: false, blue: false})
-  }
+    this.setState({ pink: false, blue: false });
+  };
 
- pinktheme = () => {
-    this.setState({pink: true, blue: false})
-  }
+  pinktheme = () => {
+    this.setState({ pink: true, blue: false });
+  };
 
   bluetheme = () => {
-    this.setState({blue: true, pink: false})
-  }
+    this.setState({ blue: true, pink: false });
+  };
 
   render() {
     return (
-      <div className={this.state.pink ? "page pagepink": this.state.blue ? "page pageblue" :"page"}>
-        <Menu 
+      <div className={this.state.pink ? "page pagepink" : this.state.blue ? "page pageblue" : "page"}>
+        <Menu
           deleting={this.state.deleting}
           pink={this.state.pink}
           blue={this.state.blue}
@@ -145,12 +144,14 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => 
-          <Notes {...props} 
-          notes={this.state.notes}
-          pink={this.state.pink} 
-          blue={this.state.blue}
-          />}
+          render={props => (
+            <Notes
+              {...props}
+              notes={this.state.notes}
+              pink={this.state.pink}
+              blue={this.state.blue}
+            />
+          )}
         />
         <Route
           exact
