@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom' 
 
 class FullNote extends React.Component{
     constructor(props){
@@ -16,7 +16,7 @@ class FullNote extends React.Component{
         return (
           <div className = "create-note-form ">
             <div className = "full-note-header">
-              <h6>edit</h6>
+              <Link to ='/:id/edit-note'><h6>edit</h6></Link>
               <h6>delete</h6>
             </div>
             <div className = "content-div">

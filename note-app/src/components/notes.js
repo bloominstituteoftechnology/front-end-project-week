@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Note from './Note';
 
 class ViewAllNotes extends Component {
@@ -14,7 +15,7 @@ class ViewAllNotes extends Component {
         return (
             <div className = "create-note-form view-notes">
               <h3 className = "your-notes">Your Notes:</h3>
-              {notes.map((note, i) => <Note key = {i} index = {i} title ={note.title} content = {note.content} click = {this.props.click}/> )}
+              {notes.map((note, i) => <Link to ={`/${note.title}`} key = {i}><Note key = {i} index = {i} title ={note.title} content = {note.content} click = {this.props.click}/></Link> )}
 
             </div>
         )
