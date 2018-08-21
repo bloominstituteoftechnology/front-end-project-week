@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import axios from 'axios';
 import styled from 'styled-components';
 import LambdaNav from './containers/LambdaNav';
 import LambdaNotes from './containers/LambdaNotes';
@@ -23,55 +23,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          title: "Note # 1",
-          id: 1,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 2",
-          id: 2,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 3",
-          id: 3,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 4",
-          id: 4,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 5",
-          id: 5,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 6",
-          id: 6,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 7",
-          id: 7,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 8",
-          id: 8,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-        {
-          title: "Note # 9",
-          id: 9,
-          body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
-        },
-      ],
+      notes: [],
       title: '',
-      body: '',
+      content: '',
       selected: {},
       remove: false
     }
@@ -79,15 +33,17 @@ class App extends Component {
 
   // Lambda View
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+  componentDidMount() {
+    axios.get('http://localhost:8000/notes').then(res => {
+      console.log('res', res)
+      this.setState({notes: res.data})
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
-  handleAddnote = e => {
-    const notes = this.state.notes.slice();
-    notes.push({ title: this.state.title, body: this.state.body, id: Date.now() });
-    this.setState({ notes, title: '', body: '' });
-  }
+  handleSetData = data => this.setState({ notes: data})
+
 
   handleSelectNote = id => {
     this.setState({ selected: id });
@@ -99,17 +55,17 @@ class App extends Component {
       selected: {
         id: this.state.selected.id,
         title: e.target.value,
-        content: this.state.selected.body
+        content: this.state.selected.content
       }
     })
   }
 
-  handleBody = e => {
+  handleContent = e => {
     this.setState({
       selected: {
         id: this.state.selected.id,
         title: this.state.selected.title,
-        body: e.target.value
+        content: e.target.value
       }
     })
   }
@@ -121,7 +77,7 @@ class App extends Component {
         notes[i] = {
           id: this.state.selected.id,
           title: this.state.selected.title,
-          content: this.state.selected.body
+          content: this.state.selected.content
         };
       }
     }
@@ -144,8 +100,8 @@ class App extends Component {
       <StyledContainer>
         <Route path="/" component={LambdaNav}/>
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
-        <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
-        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} selected={this.state.selected} handleTitle={this.handleTitle} handleBody={this.handleBody} handleSelectNote={this.handleSelectNote} handleEditNote={this.handleEditNote} />)} />
+        <Route path="/form" render={props => (<LambdaForm {...props} handleSetData={this.handleSetData} />)} />
+        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} selected={this.state.selected} handleTitle={this.handleTitle} handleContent={this.handleContent} handleSelectNote={this.handleSelectNote} handleEditNote={this.handleEditNote} />)} />
         <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} toggleDelete={this.toggleDelete} />)} />
         {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} handleDeleteNote={this.handleDeleteNote} />)} />) : null}
       </StyledContainer>

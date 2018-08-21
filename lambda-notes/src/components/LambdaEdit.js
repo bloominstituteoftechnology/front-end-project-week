@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class LambdaEdit extends Component {
     constructor(props) {
@@ -10,7 +11,13 @@ class LambdaEdit extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
+        axios.put('http://localhost:8000/notes/:id').then(res => {
+            console.log(res)
+            this.setState({title: this.state.notes.title, content: this.state.notes.content})
+        }).catch(err => {
+            console.log(err)
+        })
         const id = this.props.match.params.id;
         let note = this.props.notes.filter(note => note.id === Number(id));
         this.props.handleSelectNote(note[0]);
@@ -24,7 +31,7 @@ class LambdaEdit extends Component {
                 <h2>Edit Note:</h2>
                 <form>
                     <input style={{ width: '500px', height: '30px', marginBottom: '15px' }} type="text" name="title" placeholder="Note Title" value={this.props.selected.title} onChange={this.props.handleTitle} /><br />
-                    <textarea style={{ width: '600px', height: '350px' }} type="text" name="body" placeholder="Note Content" value={this.props.selected.body} onChange={this.props.handleBody}/><br />
+                    <textarea style={{ width: '600px', height: '350px' }} type="text" name="content" placeholder="Note Content" value={this.props.selected.content} onChange={this.props.handleBody}/><br />
                     <Link to="/" style={{textDecoration: 'none' , color: 'black'}}><button onClick={this.handleUpdate}>Update</button></Link>
                 </form>
             </div>

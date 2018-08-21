@@ -30,7 +30,7 @@ const LambdaNotes = (props) => {
                     <NotesContainer>
                         <Link to={`/notes/${note.id}`} style={{textDecoration: 'none', color: 'black'}}>
                             <HeaderStyle>{note.title}</HeaderStyle>
-                            <p>{note.body}</p>
+                            <p>{note.content}</p>
                         </Link>
                     </NotesContainer>
                 )
