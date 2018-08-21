@@ -4,6 +4,8 @@ const logger = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
 const db = require('./database/db')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
 
 
 //MiddleWare
@@ -126,16 +128,17 @@ function protected( req, res, next){
 }    
 
 app.post('/api/register', (req, res) => {
-    const { username, password , department } = req.body;
-    const user = { username, password, department }
+    const {first_name, last_name, email, username, password} = req.body;
+    const user = { first_name, last_name, email, username, password }
+    console.log(user)
     //Hasshing My Passowrd
     const hash = bcrypt.hashSync(user.password, 14 )
     user.password = hash 
     //Database Query 
-    db.addUser(user)
+    db.usersModel.addUser(user)
         .then( response => {
             if(response){
-                db.getUsers(response[0]).first()
+                db.usersModel.getUsers(response[0]).first()
                     .then( response => {
                         const token = generateToken(response)
                         res.status(200).json(token)
@@ -151,7 +154,7 @@ app.post('/api/register', (req, res) => {
 
 app.post('/api/login', (req, res) => {
     const credentials = req.body;
-    db.getUser(credentials.username).first()
+    db.usersModel.getUser(credentials.username).first()
         .then( response => {
             if(response && bcrypt.compareSync(credentials.password,response.password)){
                 const token = generateToken(response)
@@ -168,7 +171,7 @@ app.post('/api/login', (req, res) => {
 
 app.get('/api/users', protected,  (req, res) => {
     console.log('token', req.jwtToken)
-    db.getUsers()
+    db.usersModel.getUsers()
         .then( response => {
             console.log(response)
             res.status(200).json(response)

@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       users.string('last_name', 128).notNullable()
       users.string('email', 255).notNullable().unique()
       users.string('username', 128).notNullable().unique()
-      users.password('password', 128).notNullable()
+      users.string('password', 128).notNullable()
   })
 };
 
