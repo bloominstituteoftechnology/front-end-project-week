@@ -15,12 +15,12 @@ const NoteDescription = props => {
     return <h1>Loading</h1>
   } else {
     return (
-      <div>
+      <main>
         <h1>{note[0].title}</h1>
         <p>{note[0].description}</p>
         <button onClick={() => {handleDelete()}}>delete</button>
         <Link to={`/notes/${note[0].id}/edit`}>Edit</Link>
-      </div>
+      </main>
     );
   }
 }

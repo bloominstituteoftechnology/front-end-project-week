@@ -23,13 +23,13 @@ class EditNoteForm extends Component {
 
   render() {
     return (
-      <div>
+      <main>
         <form action="submit" onSubmit={this.handleEditNote}>
           <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange} />
           <input type="text" name="description" value={this.state.description} onChange={this.handleOnChange} />
           <button type="submit">edit</button>
         </form>
-      </div>
+      </main>
     );
   }
 }

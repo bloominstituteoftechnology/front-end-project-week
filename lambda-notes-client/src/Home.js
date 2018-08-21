@@ -15,10 +15,10 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <main>
         <h1>Welcome</h1>
         <NavLink to="/notes">Enter</NavLink>
-      </div>
+      </main>
     );
   }
 }

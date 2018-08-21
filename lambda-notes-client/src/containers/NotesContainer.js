@@ -7,7 +7,7 @@ import Note from '../components/notes/Note';
 class NotesContainer extends Component {
   render() {
     return (
-      <div>
+      <main>
         {
           this.props.notes.map((item, index) => <Note
             key={index}
@@ -17,7 +17,7 @@ class NotesContainer extends Component {
             deleteNote={this.deleteNote}
           />)
         }
-      </div>
+      </main>
     );
   }
 }

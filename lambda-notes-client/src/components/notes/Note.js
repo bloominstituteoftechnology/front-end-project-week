@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Note = props => {
   return (
-    <div>
+    <article>
       <Link to={`/notes/${props.id}`}>
         <div>
           {props.title}
@@ -14,7 +14,7 @@ const Note = props => {
           {props.description}
         </div>
       </Link>
-    </div>
+    </article>
   );
 }
 
