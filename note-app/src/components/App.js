@@ -73,7 +73,7 @@ class App extends Component {
     const promise = axios.put(`http://localhost:8080/notes/${index}`, noteObj)
     promise
     .then(response => {
-      console.log(response.data)
+      console.log(response)
       this.setState({notes: [...this.state.notes, response.data]})
     })
     .catch(error => {
