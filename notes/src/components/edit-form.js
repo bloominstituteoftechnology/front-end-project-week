@@ -18,7 +18,7 @@ const EditFormDiv = styled.div`
       width: 30%;
     }
     #body{
-      height: 400px;
+      height: 200px;
       text-emphasis: wrap;
       max-width: 90%;
       font-family: 'Roberto';
@@ -46,23 +46,24 @@ export default class EditForm extends Component {
     super(props);
     this.state = {
       title: this.props.note.title,
-      body: this.props.note.textBody,
-      id: this.props.note._id,
-      count:  props.count,
+      textBody: this.props.note.textBody,
+      _id: this.props.note._id,
     }
   }
 
   sendToApp = (e) => {
+    // e.preventDefault();
     console.log(this.props)
-    if (this.props.button === "Create") {
-      this.props.newNote(this.state);
-    } else {
-      this.props.editNote(this.state);
-    }
-    this.setState({
-      title: '',
-      body: '',
-    })
+    // if (this.props.button === "Create") {
+    //   this.props.newNote(this.state);
+    // } else {
+    //   this.props.editNote(this.state);
+    // }
+    // this.setState({
+    //   title: '',
+    //   body: '',
+    // })
+    this.props.editNote(this.state)
   }
 
   inputHandler = (e) => {
@@ -73,7 +74,7 @@ export default class EditForm extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.state)
     return (
         <EditFormDiv>
           <form onSubmit={this.sendToApp}>
@@ -81,9 +82,9 @@ export default class EditForm extends Component {
               onChange={this.inputHandler}
               name='title' value={this.state.title} placeholder="Note Title">{this.value}</input>
             <textarea className="input" id="body"
-              name='body'
-              onChange={this.inputHandler} value={this.state.body} placeholder="Note Content">{this.value}</textarea>
-            <Link className="menu-item" onClick={this.sendToApp} to={`/all-notes/${this.state.id}`}>{this.props.button}</Link>
+              name='textBody'
+              onChange={this.inputHandler} value={this.state.textBody} placeholder="Note Content">{this.value}</textarea>
+            <Link className="menu-item" onClick={this.sendToApp} to={`/all-notes/${this.state._id}`}>Save</Link>
           </form>
         </EditFormDiv>
     );

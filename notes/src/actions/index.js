@@ -50,3 +50,22 @@ export const deleteNote = (id) =>  {
     })
   }
 }
+export const EDITING_NOTE = 'EDITING_NOTE';
+export const NOTE_EDITED = 'NOTE_EDITED';
+
+export const editNote = (editedNote) =>  {
+  console.log(editedNote, 'editedNote')
+  return function(dispatch){
+    dispatch({type: EDITING_NOTE});
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${editedNote._id}`,
+      {"tags": ["tag", "otherTag"],
+      "title": editedNote.title,
+      "textBody": editedNote.textBody}
+    ).then(res => {
+      dispatch({type: NOTE_EDITED, payload: res});
+      dispatch(getNotes());
+    }).catch(err => {
+      dispatch({type: ERROR, payload: err})
+    })
+  }
+}

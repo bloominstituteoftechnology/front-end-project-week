@@ -8,7 +8,6 @@ const AllNotesDiv = styled.div`
   padding: 15px;
   h4 {
     border: 1px solid green;
-
   }
   .all-notes {
     display: flex;
@@ -60,7 +59,7 @@ export default class AllNotes extends Component {
   }
 
   render() {
-    console.log(this.props.notes)
+    // console.log(this.props.notes)
     return (
       <AllNotesDiv>
         <h3>Your Notes:</h3>

@@ -38,18 +38,18 @@ export default class NoteDetails extends Component {
   }
 
   componentDidMount(){
-    console.log(this)
-    console.log(this.props.note)
-    console.log(this.state)
+    // console.log(this)
+    // console.log(this.props.note)
+    // console.log(this.state)
     if (this.props.note) {
       this.setState({note: this.props.note})
     };
   }
 
   render() {
-    console.log(this)
-    console.log(this.props.note)
-    console.log(this.state)
+    // console.log(this)
+    // console.log(this.props.note)
+    // console.log(this.state)
     return (
       <div>
         {(this.props.note) ?

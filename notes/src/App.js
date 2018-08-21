@@ -7,7 +7,7 @@ import { withRouter } from 'react-router'
 
 import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
 
-import {getNotes, addNote, deleteNote} from './actions';
+import {getNotes, addNote, deleteNote, editNote} from './actions';
 
 const AppDiv = styled.div`
     ${'' /* border: 1px solid red; */}
@@ -146,13 +146,15 @@ class App extends Component {
   }
 
   editNote = (noteEdit) => {
-    let newArr = this.state.notes.slice()
-    let position = newArr.findIndex(note => note.id === noteEdit.id)
-    newArr[position] = noteEdit;
-    this.setState({
-      notes: newArr,
-      count: this.state.count + 1,
-    })
+    // let newArr = this.state.notes.slice()
+    // let position = newArr.findIndex(note => note.id === noteEdit.id)
+    // newArr[position] = noteEdit;
+    // this.setState({
+    //   notes: newArr,
+    //   count: this.state.count + 1,
+    // })
+      console.log(noteEdit)
+    this.props.editNote(noteEdit)
   }
 
   render() {
@@ -180,16 +182,16 @@ class App extends Component {
               exact={!this.state.deleteEnabled}
               render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
-                console.log(note.match.params.noteId)
-                console.log(single, "single")
+                // console.log(note.match.params.noteId)
+                // console.log(single, "single")
                     return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
               }}></Route>
 
             <Route exact path="/all-notes/:noteId/edit"
               render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
-                console.log(note.match.params.noteId)
-                console.log(single, "edit single")
+                // console.log(note.match.params.noteId)
+                // console.log(single, "edit single")
                 return (<EditNote count={this.state.count} editNote={this.editNote} note={single} />)
               }}></Route>
 
@@ -217,7 +219,10 @@ const mapStateToProps = store => {
 }
 
 const mapDispatchToProps = {
-  getNotes, addNote, deleteNote
+  getNotes,
+  addNote,
+  deleteNote,
+  editNote,
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
