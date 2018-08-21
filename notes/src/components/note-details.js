@@ -33,44 +33,50 @@ const NoteDetailsDiv = styled.div`
   }
 `;
 
-class NoteDetails extends Component {
+export default class NoteDetails extends Component {
   constructor(props){
     super(props);
     this.state = {
-      note: this.props.note,
+      note: {},
     }
   }
 
+  componentDidMount(){
+    console.log(this)
+    console.log(this.props.note)
+    console.log(this.state)
+    if (this.props.note) {
+      this.setState({note: this.props.note})
+    };
+  }
+
   render() {
+    console.log(this)
+    console.log(this.props.note)
     console.log(this.state)
     return (
-      <NoteDetailsDiv>
-        {/* <div className="links">
-          <Link
-            className="link"
-            onClick={() => this.props.enableDelete()}
-            to={`/all-notes/${this.state.note.id}/delete`}>delete</Link>
-          <Link
-            className="link"
-            to={`/all-notes/${this.state.note.id}/edit`}>edit</Link>
-          <Link
-            className="link"
-            to={`/all-notes/`}>back</Link>
-        </div>
+      <div>
+        {(this.props.note )?
+        (<NoteDetailsDiv>
+          <div className="links">
+            <Link
+              className="link"
+              onClick={() => this.props.enableDelete()}
+              to={`/all-notes/${this.state.note.id}/delete`}>delete</Link>
+            <Link
+              className="link"
+              to={`/all-notes/${this.state.note.id}/edit`}>edit</Link>
+            <Link
+              className="link"
+              to={`/all-notes/`}>back</Link>
+          </div>
 
-        <h4>{this.state.note.title}</h4>
-        <p>{this.state.note.body}</p> */}
-      </NoteDetailsDiv>
+          <h4>{this.state.note.title}</h4>
+          <p>{this.state.note.body}</p>
+        </NoteDetailsDiv>) :
+        null}
+      </div>
+
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {state: state};
-}
-
-const mapDispatchToProps = {
-  getNotes
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NoteDetails);

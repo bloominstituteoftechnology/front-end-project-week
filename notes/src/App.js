@@ -103,8 +103,11 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    console.log(this.state.notes.notes.find(note => {return note.id === parseInt(id, 10)}))
-    return (this.state.notes.find(note => {return note._id === parseInt(id, 10)}))
+    console.log(id)
+    console.log(this.props.state.notes)
+    console.log(this.props.state.notes.find(note => {return note._id == id}))
+    return (this.props.state.notes.find(note => {return note._id == id}))
+    // return (this.props.state.notes.find(note => {return note._id === parseInt(id, 10)}))
     // 10 declares the number base
   }
 
@@ -149,7 +152,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.state.notes);
+    // console.log(note.match.params.noteId);
     return (
         <AppDiv>
 
@@ -173,7 +176,9 @@ class App extends Component {
               exact={!this.state.deleteEnabled}
               render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
-                    return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
+                console.log(note.match.params.noteId)
+                console.log(single, "single")
+                    return (<NoteDetails enableDelete={this.enableDelete}  note={ single } />)
                   }}></Route>
 
             <Route exact path="/all-notes/:noteId/edit" render={ (note) => {
