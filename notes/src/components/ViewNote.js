@@ -140,7 +140,8 @@ class ViewNote extends React.Component {
   deleteTag = (event) => {
     let newArray = this.state.tags.slice();
     newArray.splice(event.target.getAttribute('index'), 1);
-    axios.delete(`https://nameless-harbor-91626.herokuapp.com/delete-tag/${this.props.id}`)
+    console.log(event.target.getAttribute('id'));
+    axios.delete(`https://nameless-harbor-91626.herokuapp.com/delete-tag/${event.target.getAttribute('id')}`)
     .then(response => {
       console.log("delete response", response.data);
       this.setState({tags: newArray});
