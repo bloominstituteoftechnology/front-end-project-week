@@ -130,6 +130,9 @@
 .deleting-form {
   position: relative;
 }
+.deleting {
+  opacity: .25;
+}
 
 .delete-question {
   border: 1px solid black;
@@ -138,7 +141,7 @@
   max-width: 100%;
   height: 115px; 
   z-index: 2;
-  top: 114px;
+  top: 144px;
   left: -10px;
   position: absolute;
 
