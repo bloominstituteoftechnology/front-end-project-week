@@ -11,7 +11,7 @@ export const NOTE_DELETED = 'NOTE_DELETED';
 export const ERROR = 'ERROR';
 
 export const addNote = (tags, title, textBody) => {
-    const promise = axios.post('https://killer-notes.herokuapp.com/note/create', {...tags, title, textBody});
+    const promise = axios.post('https://killer-notes.herokuapp.com/note/create', {tags, title, textBody});
     return dispatch => {
         dispatch({type: ADDING_NOTE});
         promise
@@ -41,7 +41,7 @@ export const getNotes = () => {
 }
 
 export const updateNote = (id, tags, title, textBody) => {
-    const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {...tags, title, textBody});
+    const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {tags, title, textBody});
     return dispatch => {
         dispatch({type: UPDATING_NOTE});
         promise

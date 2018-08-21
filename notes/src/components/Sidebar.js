@@ -14,7 +14,7 @@ class Sidebar extends Component {
         return (
             <div className="sidebar">
                 <h1>Lambda Notes</h1>
-                <div className="button"><Link to="/">View Your Notes</Link></div>
+                <div className="button"><Link to="/" onClick={() => this.forceUpdate()}>View Your Notes</Link></div>
                 <div className="button"><Link to="/create">+ Create New Note</Link></div>
             </div>
         )
