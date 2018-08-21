@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from '../App';
-
+import toJSON from 'enzyme-to-json';
 it('renders without crashing', () => {
   shallow(<App />);
 });
@@ -17,3 +17,8 @@ it('<MainContentContainer /> should have 4 <Route></Route>', () => {
     const mainContentContainer = app.find('.main-content-container');
     expect(mainContentContainer.find('Route').length).toBe(4);
 });
+
+it('matches the snapshot', () => {
+    const tree = shallow(<App />);
+    expect(toJSON(tree)).toMatchSnapshot();
+})

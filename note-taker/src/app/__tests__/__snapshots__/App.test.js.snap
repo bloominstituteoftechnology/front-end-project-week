@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<styled.div>
+  <Connect(SidebarComponent)
+    className="sidebar"
+  />
+  <styled.div
+    className="main-content-container"
+  >
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/create-new"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/note/get/:id"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/:id/edit-view"
+    />
+  </styled.div>
+</styled.div>
+`;
