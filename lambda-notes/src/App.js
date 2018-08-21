@@ -73,6 +73,9 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({ notes: this.state.notes });
+  }
   inputChangeHandler = event => {
     // console.log("InputChangeHandler", event.target.name);
     this.setState({ [event.target.name]: event.target.value });
@@ -117,7 +120,7 @@ class App extends Component {
     let indexNumber = parseInt(iNumber, 10);
     newNotesArray.splice(indexNumber, 1);
     console.log("DELETE HANDLER AFTER", newNotesArray);
-    // this.setState({ notes: newNotesArray });
+    this.setState({ notes: newNotesArray });
   };
 
   render() {
