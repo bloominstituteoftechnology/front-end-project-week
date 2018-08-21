@@ -1,7 +1,10 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Row, Col } from 'reactstrap';
+import { Route } from 'react-router-dom'
 
-class ModalExample extends React.Component {
+import './DeleteModal.css';
+
+class DeleteModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,19 +23,22 @@ class ModalExample extends React.Component {
     render() {
         return (
             <div>
-                <span style={{ color: "black" }} onClick={this.toggle}>delete</span>
-                <Modal centered={true} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader>Are you sure you want to delete this?</ModalHeader>
-                    <ModalBody>
-                        <Row>
-                            <Col> <Button color="danger" size="lg" block onClick={this.toggle}>Delete</Button></Col> {' '}
-                            <Col>  <Button color="info" size="lg" block onClick={this.toggle}>Cancel</Button> </Col>
-                        </Row>
-                    </ModalBody>
-                </Modal>
+                <Route render={({ history }) => (
+                    <div>
+                        <span className="delete-btn" onClick={this.toggle}>delete</span>
+                        <Modal centered={true} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                            <ModalHeader>Are you sure you want to delete this?</ModalHeader>
+                            <ModalBody>
+                                <Row>
+                                    <Col><Button color="danger" size="lg" block onClick={() => this.props.deleteNote(this.props.note)} onMouseUp={() => history.goBack()}> Delete</Button></Col> {' '}
+                                    <Col><Button color="info" size="lg" block onClick={this.toggle}>Cancel</Button> </Col>
+                                </Row>
+                            </ModalBody>
+                        </Modal>
+                    </div>)} />
             </div>
         );
     }
 }
 
-export default ModalExample;
+export default DeleteModal;

@@ -40,12 +40,30 @@ class App extends Component {
     }
   }
 
+  // setNotesData = data => this.setState({ notes: data })
+
   addNote = event => {
     event.preventDefault();
     const notes = this.state.notes.slice();
     notes.push({ content: this.state.content, title: this.state.title, id: Date.now() });
     this.setState({ notes, title: '', content: '' });
   }
+
+  deleteNote = note => {
+    console.log(note);
+    console.log(this)
+    console.log(this.state.notes);
+    let notes = this.state.notes;
+    console.log(notes);
+    for (let i = 0; i < notes.length; i++){
+      console.log(notes[i].id)
+      if(notes[i].id === note.id){
+        notes.splice(i, 1);
+      }
+    }
+    this.setState({notes: notes})
+  }
+
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -66,7 +84,7 @@ class App extends Component {
           />
           <Route
             exact path="/notes/:id"
-            render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
+            render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}
           />
         </div>
       </div>
