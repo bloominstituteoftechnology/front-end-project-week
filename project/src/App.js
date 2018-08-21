@@ -28,17 +28,24 @@ class App extends Component {
   }
 
   handleEditNote = () =>{
-    let newNotes = this.state.notes.map(note =>{
+    let notes = this.state.notes.map(note =>{
       if (note.id == this.state.selectedId)
        return Object.assign({}, note, {title:this.state.newTitle, note: this.state.newNote})
       return note
     });
     
-    this.setState({notes: newNotes, newNote:'', newTitle:''})
+    this.setState({notes: notes, newNote:'', newTitle:''})
   }
   
   handleId = id =>{
     this.setState({selectedId: id})
+  }
+
+  handleDelete = () => {
+    let notes = this.state.notes.filter(note =>{
+      return note.id !== this.state.selectedId
+    })
+    this.setState({notes: notes})
   }
 
   render() {console.log(this.state)
@@ -52,7 +59,12 @@ class App extends Component {
               notes = {this.state.notes} 
             />} 
           />
-          <Route exact path = '/:id' render = {props => <NoteView {...props} notes = {this.state.notes} />} />
+          <Route exact path = '/:id' render = {props =>
+            <NoteView {...props} 
+              notes = {this.state.notes} 
+              handleDelete = {this.handleDelete}
+            />} 
+          />
           <Route exact path = '/:id/edit' render = {() => 
             <EditNote 
               handleEditNote = {this.handleEditNote}

@@ -98,6 +98,7 @@ button {
   text-decoration: none;
   color: black;
   margin:0;  
+  width:220px;
 }
 
 .note-card {
@@ -219,14 +220,24 @@ span:hover{
   font-size: 24px;
 }
 
-.modal-btns{
+.modal-content .modal-btns{
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: -20px;  
 }
+.modal-content .modal-btns a:link, a:visited, a:hover, a:active{
+  margin: 0;
+  max-width: 270px;
+  width: 100%;
+  outline:0;
+}
 .delete-btn{
   background-color: red;
+  cursor: pointer;
+}
+.modal-btns button{
+  cursor: pointer;
 }
 
 
