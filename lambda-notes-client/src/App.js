@@ -6,9 +6,9 @@ import './App.css';
 
 import Home from './Home';
 import NotesContainer from './containers/NotesContainer';
-import AddNoteFormContainer from './containers/AddNoteFormContainer';
+import AddNoteForm from './components/forms/AddNoteForm';
 import NoteDescription from './components/notes/NoteDescription';
-import EditNoteFormContainer from './containers/EditNoteFormContainer';
+import EditNoteForm from './components/forms/EditNoteForm';
 
 
 class App extends Component {
@@ -28,18 +28,18 @@ class App extends Component {
         <div className="App">
           <header>
             <div>
-              <NavLink to="/">Lambda Notes</NavLink>
+              <NavLink exact strict to="/">Lambda Notes</NavLink>
             </div>
             <nav>
-              <NavLink to="/notes">View Your Notes</NavLink>
-              {this.state.atHome ? null : <NavLink to="/notes/add-note">+Create New Note</NavLink>}
+              <NavLink exact strict to="/notes">View Your Notes</NavLink>
+              {this.state.atHome ? null : <NavLink to="/notes/add-note/">+Create New Note</NavLink>}
             </nav>
           </header>
-          <Route exact path="/" render={props => <Home {...props} atHomeToggle={this.atHomeToggle} /> } />
-          <Route exact path="/notes" component={ NotesContainer } />
-          <Route path="/notes/add-note" component={ AddNoteFormContainer } />
-          <Route path="/notes/:note-name" render={props => <NoteDescription {...props} notes={this.props.notes} /> } />
-          <Route path="/notes/:note-name/edit" component={ EditNoteFormContainer } />
+          <Route exact strict path="/" render={props => <Home {...props} atHomeToggle={this.atHomeToggle} /> } />
+          <Route exact strict path="/notes" render={props => <NotesContainer {...props} /> } />
+          <Route path="/notes/add-note/" render={props => <AddNoteForm {...props} notes={this.props.notes} /> } />
+          <Route exact strict path="/notes/:id" render={props => <NoteDescription {...props} notes={this.props.notes} /> } />
+          <Route path="/notes/:id/edit" render={props => <EditNoteForm {...props} notes={this.props.notes} /> } />
         </div>
       </Router>
     );
