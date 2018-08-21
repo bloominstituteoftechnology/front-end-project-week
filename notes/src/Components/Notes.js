@@ -17,9 +17,12 @@ class Notes extends React.Component {
 									? note.title.substring(0, 14) + "..."
 									: note.title}
 							</h4>
+							{note.tags.map(tag => (
+								<span className="Notes__tag">{tag}</span>
+							))}
 							<p className="Notes__text">
-								{note.textBody.length > 100
-									? note.textBody.substring(0, 100) + "..."
+								{note.textBody.length > 70
+									? note.textBody.substring(0, 70) + "..."
 									: note.textBody}
 							</p>
 						</div>

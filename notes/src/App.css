@@ -60,7 +60,20 @@
 
 .Notes__title {
 	border-bottom: 1px solid black;
-	padding-bottom: 8px;
+	padding-bottom: 6px;
+	margin-bottom: 6px;
+}
+
+.Notes__tag {
+	font-size: 0.8rem;
+	color: white;
+	background-color: #e07d26;
+	padding: 4px 4px;
+	border-radius: 3px;
+}
+
+.Notes__tag:not(:last-child) {
+	margin-right: 4px;
 }
 
 .Notes__text {

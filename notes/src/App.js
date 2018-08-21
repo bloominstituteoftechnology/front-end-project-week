@@ -63,6 +63,8 @@ class App extends Component {
 		});
 	};
 
+	//**Local state methods - Obsolete */
+
 	// handleAddNote = note => {
 	// 	this.setState(prevState => ({ notes: [...prevState.notes, note] }));
 	// };
