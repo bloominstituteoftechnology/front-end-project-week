@@ -64,7 +64,7 @@
 }
 
 .note-wrap {
-  border: 1px solid black;
+  border: 1px solid gray;
   width: 200px;
   height: 222px;
   margin: 15px;
@@ -78,6 +78,10 @@
   background: white;
 }
 
+.note-wrap hr {
+  color: lightgray;
+}
+
 .notes-wrap a {
   text-decoration: none;
   color: #222;
@@ -86,6 +90,23 @@
 .your-header {
   margin-right: 80%;
   margin-left: 15px;
+}
+
+.view-links {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 21px;
+}
+
+.view-links a {
+  color: #222;
+  font-size: 15px;
+}
+
+.delete-link {
+  text-decoration: underline;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .single-view-title {

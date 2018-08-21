@@ -15,7 +15,8 @@ class App extends Component {
       notes: [],
       id: '',
       title: '',
-      text: ''
+      text: '',
+      showModal: false
     }
   }
 
@@ -45,6 +46,20 @@ class App extends Component {
     });
   }
 
+  deleteNote = id => {
+    // ev.preventDefault();
+    let notes = this.state.notes.slice();
+    notes = notes.filter(note => note.id !== id);
+    this.setState({ notes });
+  }
+
+  modalToggle = () => {
+    this.setState(function(prevState) {
+      return {showModal: !prevState.showModal}
+      })
+      this.forceUpdate();
+  }
+
   render() {
     return (
       <div className="App">
@@ -55,7 +70,7 @@ class App extends Component {
         </div>
         <div className="display-right" >
           <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
-          <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} /> )} />
+          <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} modalToggle={this.modalToggle} /> )} />
           <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
         </div>
       </div>
