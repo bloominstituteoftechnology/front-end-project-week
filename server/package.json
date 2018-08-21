@@ -6,6 +6,9 @@
   "author": "Sulaiman Sanusi",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "starts" : "nodemon index.js"
+  },
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
