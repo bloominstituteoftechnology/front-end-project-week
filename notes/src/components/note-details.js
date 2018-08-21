@@ -36,11 +36,7 @@ class NoteDetails extends Component {
     super(props);
   }
 
-  componentDidMount(){
-  }
-
   render() {
-    console.log(this.props)
     return (
       <div>
         {(this.props.note) ?
@@ -50,13 +46,16 @@ class NoteDetails extends Component {
               <Link
                 className="link"
                 onClick={() => this.props.enableDelete()}
-                to={`/all-notes/${this.props.note._id}/delete`}>delete</Link>
+                to={`/all-notes/${this.props.note._id}/delete`}
+              >delete</Link>
               <Link
                 className="link"
-                to={`/all-notes/${this.props.note._id}/edit`}>edit</Link>
+                to={`/all-notes/${this.props.note._id}/edit`}
+              >edit</Link>
               <Link
                 className="link"
-                to={`/all-notes/`}>back</Link>
+                to={`/all-notes/`}
+              >back</Link>
             </div>
             <h4>{this.props.note.title}</h4>
             <p>{this.props.note.textBody}</p>
@@ -64,7 +63,6 @@ class NoteDetails extends Component {
         ) :
         null}
       </div>
-
     );
   }
 }
