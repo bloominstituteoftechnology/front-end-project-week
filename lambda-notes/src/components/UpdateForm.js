@@ -7,8 +7,8 @@ class UpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editTitle: '',
-      editTextBody: ''
+      title: '',
+      textBody: ''
     };
   }
 
@@ -19,11 +19,11 @@ class UpdateForm extends Component {
   handleUpdateSubmit = () => {
     console.log('this is state', this.props.location.state);
     const { id } = this.props.location.state;
-    const editNote = { editTitle: this.state.editTitle, editTextBody: this.state.editTextBody };
+    const editNote = { title: this.state.title, textBody: this.state.textBody };
     // console.log(editNote);
     // console.log(this.props.location);
     this.props.updateNote(id, editNote);
-    this.setState({ editTitle: '', editTextBody: '' });
+    this.setState({ title: '', textBody: '' });
   };
 
   render() {
@@ -34,16 +34,16 @@ class UpdateForm extends Component {
           className="note-title"
           type="text"
           onChange={this.updateHandler}
-          name="editTitle"
-          value={this.state.editTitle}
+          name="title"
+          value={this.state.title}
           placeholder="edit title"
         />
         <input
           className="note-text"
           type="text"
           onChange={this.updateHandler}
-          name="editTextBody"
-          value={this.state.editTextBody}
+          name="textBody"
+          value={this.state.textBody}
           placeholder="edit textbody"
         />
         <Link to="/">

@@ -4,13 +4,6 @@ import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 
 class SingleNote extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    this.forceUpdate();
-  }
   handleDeleteNote = () => {
     const { id } = this.props.location.state;
     this.props.deleteNote(id);

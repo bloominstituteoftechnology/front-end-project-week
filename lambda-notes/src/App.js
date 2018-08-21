@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { connect } from 'react-redux';
+import SplitPane from 'react-split-pane';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import { gettingAllNotes, addNote } from './actions';
 import NoteForm from './components/NoteForm';
 import Notes from './components/Notes';
 import SingleNote from './components/SingleNote';
-import SplitPane from 'react-split-pane';
-import { Switch, Route, Link } from 'react-router-dom';
 import UpdateForm from './components/UpdateForm';
+import SideBar from './components/SideBar';
+import Loading from './components/Loading';
+import './App.css';
 
 class App extends Component {
   componentDidMount() {
@@ -23,31 +25,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SplitPane split="vertical" defaultSize={250}>
-          <div className="left">
-            <h1>Lambda Notes</h1>
-            <Link to="/">
-              <button className="sidebar-button">View Your Notes</button>
-            </Link>
-            <Link to="/new">
-              <button className="sidebar-button">+ Create New Note</button>
-            </Link>
-          </div>
-          <div className="right">
-            <Route
-              exact
-              path="/new"
-              render={(props) => <NoteForm addNote={this.props.addNote} />}
-            />
-            {this.props.gettingNotes ? (
-              <img src={logo} className="App-logo" alt="logo" />
-            ) : (
-              <Route exact path="/" render={(props) => <Notes notes={this.props.notes} />} />
-            )}
-            <Route path="/viewnote" component={SingleNote} />
-            <Route path="/update" component={UpdateForm} />
-          </div>
-        </SplitPane>
+        <BrowserRouter>
+          <SplitPane split="vertical" defaultSize={250}>
+            <SideBar />
+            <div className="right">
+              {this.props.gettingNotes ? (
+                <Route exact path="/" component={Loading} />
+              ) : (
+                <Route exact path="/" render={(props) => <Notes notes={this.props.notes} />} />
+              )}
+              <Route path="/new" render={(props) => <NoteForm addNote={this.props.addNote} />} />
+
+              <Route path="/viewnote" component={SingleNote} />
+              <Route path="/update" component={UpdateForm} />
+            </div>
+          </SplitPane>
+        </BrowserRouter>
       </div>
     );
   }

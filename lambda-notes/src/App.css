@@ -2,10 +2,16 @@
   text-align: center;
   background-color: #f3f3f3;
 } */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 200px;
 }
 
 .App-header {

@@ -16,7 +16,11 @@ export const ERROR = 'ERROR';
 const fetchNotes = (dispatch) => {
   return axios
     .get('http://localhost:5000/notes')
-    .then(({ data }) => dispatch({ type: GOT_NOTES, payload: data }))
+    .then(({ data }) => {
+      setTimeout(() => {
+        dispatch({ type: GOT_NOTES, payload: data });
+      }, 2000);
+    })
     .catch((error) => {
       dispatch({ type: ERROR, message: 'error fetching all notes' });
     });
@@ -82,9 +86,10 @@ export const updateNote = (id, editNote) => {
       .put(`http://localhost:5000/notes/${id}`, editNote)
       .then((response) => {
         console.log('this is the response', response);
-        dispatch({ type: NOTE_UPDATED, payload: response.data });
+        dispatch({ type: NOTE_UPDATED, payload: { id, ...response.data } });
       })
       .catch((error) => {
+        console.log(error);
         dispatch({ type: ERROR, message: 'error updating note' });
       });
   };
