@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {getNotes} from '../actions';
-
-
 
 const NoteDetailsDiv = styled.div`
   ${'' /* border: 1px solid green; */}
@@ -56,7 +52,7 @@ export default class NoteDetails extends Component {
     console.log(this.state)
     return (
       <div>
-        {(this.props.note )?
+        {(this.props.note) ?
         (<NoteDetailsDiv>
           <div className="links">
             <Link
@@ -72,7 +68,7 @@ export default class NoteDetails extends Component {
           </div>
 
           <h4>{this.state.note.title}</h4>
-          <p>{this.state.note.body}</p>
+          <p>{this.state.note.textBody}</p>
         </NoteDetailsDiv>) :
         null}
       </div>

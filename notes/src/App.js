@@ -178,7 +178,7 @@ class App extends Component {
                 let single = this.getNoteDetails(note.match.params.noteId);
                 console.log(note.match.params.noteId)
                 console.log(single, "single")
-                    return (<NoteDetails enableDelete={this.enableDelete}  note={ single } />)
+                    return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
                   }}></Route>
 
             <Route exact path="/all-notes/:noteId/edit" render={ (note) => {
