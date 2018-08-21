@@ -3,8 +3,10 @@ import './App.css';
 import Sidebar from './components/Sidebar';
 import NoteList from './components/NoteList';
 import { notes } from './data'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import NoteView from './components/NoteView'
+import EditNote from './components/EditNote'
+import AddNote from './components/AddNote'
 
 class App extends Component {
   constructor(){
@@ -16,9 +18,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path = '/' component = {Sidebar} />
-        <Route exact path = '/' render = {props => <NoteList {...props} notes = {this.state.notes} />} />
-        <Route exact path = '/:id' render = {props => <NoteView {...props} notes = {this.state.notes} />} />
+        <Sidebar />
+        <Switch>
+          <Route exact path = '/' render = {props => <NoteList {...props} notes = {this.state.notes} />} />
+          <Route exact path = '/:id' render = {props => <NoteView {...props} notes = {this.state.notes} />} />
+          <Route exact path = '/:id/edit' render = {() => <EditNote />} />
+          <Route exact path = '/note/new' render = {() => <AddNote />} />
+        </Switch>
       </div>
     );
   }
