@@ -2,10 +2,12 @@
   text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   min-height: 100vh;
 }
 
+.new-note-container{
+  width: 75%;
+}
 .nav-bar{
   padding-top: 20px;
   width: 25%;
@@ -24,7 +26,7 @@
 
 }
 
-.notes-container{
+.notes-list-container{
   width: 75%;
   display: flex;
   flex-direction: column;

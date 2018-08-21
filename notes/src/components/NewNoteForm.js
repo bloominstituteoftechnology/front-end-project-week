@@ -32,7 +32,7 @@ class NewNoteForm extends Component {
                 type = "text"
                 placeholder = "Note Content"
                 />
-                <Link to="/all"> 
+                <Link to="/"> 
                 <button onClick = {this.handleAddNote}> 
                    Add to Note List     
                 </button> 
