@@ -2,9 +2,9 @@ import React from "react";
 
 class AddNote extends React.Component {
 	state = {
-		tags: [],
 		title: "",
 		textBody: "",
+		tags: "",
 	};
 
 	handleInputChange = event => {
@@ -18,14 +18,20 @@ class AddNote extends React.Component {
 					id="addNoteForm"
 					onSubmit={e => {
 						e.preventDefault();
-						this.props.onSubmit(this.state);
+						this.props.onSubmit({
+							title: this.state.title,
+							textBody: this.state.textBody,
+							tags: this.state.tags.split(","),
+						});
 						this.setState(prevState => ({
 							title: "",
 							textBody: "",
+							tags: "",
 						}));
 					}}
 				>
 					<input
+						className="AddNote__form-title"
 						type="text"
 						placeholder="Note Title"
 						value={this.state.title}
@@ -33,6 +39,17 @@ class AddNote extends React.Component {
 						onChange={this.handleInputChange}
 						autoComplete="off"
 					/>
+					<input
+						type="text"
+						placeholder="Tags"
+						value={this.state.tags}
+						name="tags"
+						onChange={this.handleInputChange}
+						autoComplete="off"
+					/>
+					<span className="AddNote__form-tagInstructions">
+						Separate tags with a comma
+					</span>
 					<textarea
 						id="addNoteForm"
 						cols="30"

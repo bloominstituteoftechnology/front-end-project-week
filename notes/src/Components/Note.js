@@ -101,6 +101,7 @@ class Note extends React.Component {
 							}}
 						>
 							<input
+								className="AddNote__form-title"
 								type="text"
 								placeholder="Note Title"
 								defaultValue={note.title}
@@ -116,6 +117,9 @@ class Note extends React.Component {
 								autoComplete="off"
 								onChange={this.handleInputChange}
 							/>
+							<span className="AddNote__form-tagInstructions">
+								Separate tags with a comma
+							</span>
 							<textarea
 								id="editNoteForm"
 								cols="30"

@@ -106,7 +106,13 @@
 	margin: 20px;
 }
 
-.AddNote__form input {
+.AddNote__form-title {
+	margin-bottom: 20px;
+}
+
+.AddNote__form-tagInstructions {
+	color: gray;
+	font-size: 1.1rem;
 	margin-bottom: 20px;
 }
 
