@@ -64,29 +64,34 @@ class App extends Component {
     const select = this.state.notes[index];
     console.log(select)
     this.setState({select: {title: select.title, textBody: select.textBody, index: index, _id: select._id,
-    tags: select.tags, __v: select.__v, _id: select._id}})
+    tags: select.tags, __v: select.__v, id: select.id}})
   }
   updateNote = (index, noteObj) => {
-    // const notes = this.state.notes.slice()
-    // notes[index] = noteObj
-    // this.setState({ notes })
     const promise = axios.put(`http://localhost:8080/notes/${index}`, noteObj)
     promise
     .then(response => {
       console.log(response)
-      this.setState({notes: [...this.state.notes, response.data]})
+      this.fetchNotes()
     })
     .catch(error => {
       console.log(error) 
     })
-
   }
 
   deleteNote  = (index) => {
-    let notes = this.state.notes.slice()
-    const deleting = notes[index]
-    notes = notes.filter(note => note.title !== deleting.title)
-    this.setState({ notes })
+    // let notes = this.state.notes.slice()
+    // const deleting = notes[index]
+    // notes = notes.filter(note => note.title !== deleting.title)
+    // this.setState({ notes })
+    const promise = axios.delete(`http://localhost:8080/notes/${index}`)
+    promise
+    .then(response => {
+      console.log(response)
+      this.fetchNotes()
+    })
+    .catch(error => {
+      console.log(error, index) 
+    })
 
   }
 

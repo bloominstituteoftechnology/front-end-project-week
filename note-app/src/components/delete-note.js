@@ -8,12 +8,12 @@ class DeleteModal extends React.Component {
         this.props.select(index)
     }
     deleteNote = index => {
-        this.props.delete(index)
+        this.props.delete(this.props.location.state.select.id)
     }
     render() {
-        const title = this.props.location.state.title
-        const content = this.props.location.state.content
-        const index = this.props.location.state.index
+        const title = this.props.location.state.select.title
+        const content = this.props.location.state.select.textBody
+        const index = this.props.location.state.select.index
         return (
             <div className="main-container">
               <SideBar name ={"deleting"}/>
