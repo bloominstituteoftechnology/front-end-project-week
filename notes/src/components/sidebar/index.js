@@ -8,7 +8,7 @@ flex-direction: column;
 justify-content: flex-start;
 text-align: left;
 background-color: #c6c6c6;
-height: 100vh;
+min-height: 100vh;
 h1{
     color:#424242;
     font-weight: Bold;
@@ -42,7 +42,7 @@ class SideBar extends React.Component{
         super(props);
     }
     viewNotes=()=>{
-        this.props.history.push('/')
+        this.props.history.push('/notes')
     }
     createNewNote=()=>{
         this.props.history.push('/create');

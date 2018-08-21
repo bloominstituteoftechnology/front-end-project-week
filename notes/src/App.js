@@ -4,19 +4,26 @@ import Notes from './components/notes';
 import NewNote from './components/notes/newNote.js';
 import SingleNotePage from './components/notes/singleNotePage.js';
 import {Route} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
+  
+  componentDidMount(){
+    this.props.match.url==='/'?this.props.history.push('/notes'):null;
+  }
+  
   render() {
+    
     return (
       <div className="App">
        <SideBar/>
-       <Route exact path='/' component={Notes}/>
-       <Route path='/create' component={NewNote}/>
-       <Route path='/:noteId' component={SingleNotePage} />
+       <Route exact path='/notes' component={Notes}/>
+       <Route exact path='/create' component={NewNote}/>
+       <Route path='/notes/:noteId' component={SingleNotePage} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

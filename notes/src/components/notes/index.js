@@ -18,6 +18,7 @@ margin-top: 85px;
 `
 const NotesPage=styled.div`
 background-color:#ddd;
+min-height: 100vh;
 width: 75%;
 `
 class Notes extends React.Component {

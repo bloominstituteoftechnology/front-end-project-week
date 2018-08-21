@@ -12,6 +12,10 @@ text-align: left;
 h3,p{
     margin-left: 10%;
     margin-right: 10%;
+    color:#000;
+}
+a{
+    text-decoration: none;
 }
 `
 const Rule=styled.div`
@@ -21,7 +25,7 @@ height: 2px;
 background-color:#c6c6c6;
 `
 const Note=(props)=><NoteContainer>
-    <Link to={`/${props.data._id}`}>
+    <Link to={`/notes/${props.data._id}`}>
     <h3>{props.data.title}</h3><Rule/><p>{props.data.textBody}</p>
     </Link>
     </NoteContainer>
