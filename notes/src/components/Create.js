@@ -23,8 +23,8 @@ class Create extends React.Component {
     if (this.state.title && this.state.body) {
       let newComment = {
         title: this.state.title,
-        textBody: this.state.body
-        //tags: [this.state.tags]
+        textBody: this.state.body,
+        tags: [this.state.tags]
       };
       this.props.submitNewNote(newComment);
     } else {

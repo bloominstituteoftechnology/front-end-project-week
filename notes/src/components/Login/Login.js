@@ -14,7 +14,7 @@ class Login extends React.Component {
   componentDidMount() {
     auth.onAuthStateChanged(user => {
       if (user) {
-        this.setState({ user });
+        //this.setState({ user });
       }
     });
   }
@@ -32,7 +32,7 @@ class Login extends React.Component {
       localStorage.setItem("username", user.email);
       localStorage.setItem("password", user.l);
       window.location.reload();
-      this.setState({ user });
+      //this.setState({ user });
     });
   };
   GoogleLogin = e => {
@@ -42,7 +42,7 @@ class Login extends React.Component {
       localStorage.setItem("username", user.email);
       localStorage.setItem("password", user.l);
       window.location.reload();
-      this.setState({ user });
+      //this.setState({ user });
     });
   };
 

@@ -17,10 +17,8 @@ class ViewNote extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
   componentDidMount() {
-    console.log("ViewNote componentDidMount firing");
     let id = window.location.pathname.split("/");
     id = id[2];
-    console.log("id is: ", id);
     this.props.fetchSingleNote(URL, id);
   }
 
@@ -30,7 +28,6 @@ class ViewNote extends React.Component {
     });
   }
   deleteNote = event => {
-    console.log("this.props:", this.props);
     event.preventDefault();
     this.props.deleteNote(this.props.singleNote.id);
     this.props.history.push("/");
@@ -47,12 +44,7 @@ class ViewNote extends React.Component {
     });
   };
   render() {
-    /*console.log(
-      "this.props.singleNote.tag.length is: ",
-      this.props.singleNote.tag.length
-    );*/
-    console.log("this.props.singleNote is: ", this.props.singleNote);
-    console.log("ViewNote render is called");
+    console.log("this.props.singleNote.tags is: ", this.props.singleNote.tags);
     return (
       <div className="singleNote">
         <div className="singleNoteButtons">
@@ -83,18 +75,18 @@ class ViewNote extends React.Component {
             <h3>{this.props.singleNote.title}</h3>
             <p>{this.props.singleNote.textBody}</p>
 
-            {/* {this.props.singleNote.tags.length > 0 ? (
+            {this.props.singleNote.tags.length > 0 ? (
               <div className="tags">
                 Tags:{" "}
                 {this.props.singleNote.tags.map(tag => {
                   return (
                     <p key={Math.random()} className="tag">
-                      *{tag}
+                      *{tag.title}
                     </p>
                   );
                 })}
               </div>
-            ) : null} */}
+            ) : null}
             <hr className="hr" />
             <div className="checkList">
               <p>To Do List</p>
