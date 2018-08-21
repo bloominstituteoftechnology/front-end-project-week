@@ -7,7 +7,7 @@ import { withRouter } from 'react-router'
 
 import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
 
-import {getNotes} from './actions';
+import {getNotes, addNote} from './actions';
 
 const AppDiv = styled.div`
     ${'' /* border: 1px solid red; */}
@@ -103,9 +103,9 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    console.log(id)
-    console.log(this.props.state.notes)
-    console.log(this.props.state.notes.find(note => {return note._id == id}))
+    // console.log(id)
+    // console.log(this.props.state.notes)
+    // console.log(this.props.state.notes.find(note => {return note._id == id}))
     return (this.props.state.notes.find(note => {return note._id == id}))
     // return (this.props.state.notes.find(note => {return note._id === parseInt(id, 10)}))
     // 10 declares the number base
@@ -133,12 +133,15 @@ class App extends Component {
 
   newNote = (newNote) => {
     // console.log('editnote', newNote);
-    let newArr = this.state.notes.slice();
-    newArr.push(newNote)
-    this.setState({
-      notes: newArr,
-      count: this.state.count + 1,
-    })
+
+    // let newArr = this.state.notes.slice();
+    // newArr.push(newNote)
+    // this.setState({
+    //   notes: newArr,
+    //   count: this.state.count + 1,
+    // })
+    console.log(newNote)
+    this.props.addNote(newNote);
   }
 
   editNote = (noteEdit) => {
@@ -152,7 +155,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log(note.match.params.noteId);
+    console.log(this.props);
     return (
         <AppDiv>
 
@@ -213,7 +216,7 @@ const mapStateToProps = store => {
 }
 
 const mapDispatchToProps = {
-  getNotes
+  getNotes, addNote
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

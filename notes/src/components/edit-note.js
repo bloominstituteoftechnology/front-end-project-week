@@ -54,7 +54,7 @@ export default class EditNote extends Component {
             <Link className="link" to={`/all-notes/${this.state.note._id}`}>back</Link>
           </div>
           <h4>Edit Note:</h4>
-          <EditForm button="Save" count={this.state.count} editNote={this.props.editNote} note={this.state.note}></EditForm>
+          <EditForm button="Save" count={this.state.count} editNote={this.props.editNote} note={this.props.note}></EditForm>
         </EditNoteDiv>):
         null}
       </div>

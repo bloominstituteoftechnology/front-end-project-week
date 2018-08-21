@@ -19,13 +19,13 @@ export default class NewNote extends Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: props.notes,
-      count: props.count
+      // notes: props.notes,
+      // count: props.count
     }
   }
 
   render() {
-    console.log(this.props.count)
+    console.log(this.props)
     return (
       <NewNoteDiv>
         <h4>Create New Note:</h4>

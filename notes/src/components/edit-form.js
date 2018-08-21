@@ -39,8 +39,6 @@ const EditFormDiv = styled.div`
       }
   }
 
-
-
 `;
 
 export default class EditForm extends Component {
@@ -48,8 +46,8 @@ export default class EditForm extends Component {
     super(props);
     this.state = {
       title: this.props.note.title,
-      body: this.props.note.body,
-      id: this.props.note.id,
+      body: this.props.note.textBody,
+      id: this.props.note._id,
       count:  props.count,
     }
   }
@@ -64,7 +62,6 @@ export default class EditForm extends Component {
     this.setState({
       title: '',
       body: '',
-
     })
   }
 
@@ -76,6 +73,7 @@ export default class EditForm extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
         <EditFormDiv>
           <form onSubmit={this.sendToApp}>

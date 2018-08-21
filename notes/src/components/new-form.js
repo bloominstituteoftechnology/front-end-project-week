@@ -45,35 +45,35 @@ export default class NewForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      title: '',
-      body: '',
-      id: '',
-      count:  props.count,
+      title: "",
+      textBody: ""
     }
   }
 
   sendToApp = (e) => {
     console.log(this.props)
-    if (this.props.button === "Create") {
-      this.props.newNote(this.state);
-    } else {
-      this.props.editNote(this.state);
-    }
-    this.setState({
-      title: '',
-      body: '',
-    })
+    console.log(this.state)
+    this.props.newNote(this.state)
+    // if (this.props.button === "Create") {
+    //   this.props.newNote(this.state);
+    // } else {
+    //   this.props.editNote(this.state);
+    // }
+    // this.setState({
+    //   title: '',
+    //   body: '',
+    // })
   }
 
   inputHandler = (e) => {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
-      id: this.state.count,
     })
   }
 
   render() {
+    // console.log(this.props)
     return (
         <NewNoteDiv>
           <form onSubmit={this.sendToApp}>
