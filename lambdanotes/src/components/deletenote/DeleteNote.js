@@ -1,6 +1,7 @@
 import React from "react";
 import "./DeleteNote.css";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
  class DeleteNote extends React.Component {
    constructor(props){
@@ -14,6 +15,13 @@ import { Link } from 'react-router-dom';
      this.setState({notes: this.props.notes})
    }
    deleteIt(){
+     axios.delete(`http://localhost:8000/api/notes/${this.state.notes[this.props.arrayIndex].id}`)
+     .then(function (response) {
+       console.log(response);
+     })
+     .catch(function (error) {
+       console.log(error);
+     });
      var modal = document.querySelector(".delete-note");
      modal.style.display = "none";
      var currentNotes = this.state.notes;
