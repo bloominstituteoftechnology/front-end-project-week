@@ -44,7 +44,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => <ListView notes={this.state.notes} />} />
           <Route exact path='/new' component={AddNote} />
-          <Route path='/edit' component={EditNote} />
+          <Route path='/edit' render={(props) => <EditNote {...props} notes={this.state.notes} /> } />
           <Route path='/note/:id' render={(props) => <OneView {...props} handleRefresh={this.handleRefresh}/> } />
         </Switch>
 

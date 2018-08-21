@@ -14,6 +14,8 @@ class EditNote extends Component {
         this.state = {
             id: null,
             notes: [],
+            title:"",
+            content:"",
         }
     }
 
@@ -24,9 +26,10 @@ class EditNote extends Component {
             // mounted: true,
         // })
         axios
-            .put(`http://localhost:3300/notes/${id}`)
+            .get('http://localhost:3300/notes')
             .then((response) => {
-                this.setState({ notes: response.data, id: Number(id)})
+                const note = response.data.filter(note => note.id === Number(id)) 
+                this.setState({ notes: note[0], id: Number(id)})
             })
             .catch(err => console.log(err));
     }
@@ -52,10 +55,10 @@ class EditNote extends Component {
                         defaultValue={this.state.id}
                         onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
                         <textarea 
-                        defaultValue={this.props.notes.notes[this.state.index].note}
+                        defaultValue={this.props.notes}
                         onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
                         <Link to="/" style={noDecoration}><button onClick={() => 
-                        this.props.updateNote({title: this.state.title, note: this.state.note}, {index: this.state.index})}>Save</button>
+                        this.props.updateNote({title: this.state.title, content: this.state.content})}>Save</button>
                         </Link>
                     </div>
                 </div>
@@ -69,12 +72,6 @@ const noDecoration = {
     textDecoration: 'none'
 }
 
-const mapStateToProps = state => {
-    return {
-        notes: state
-    }
-  }
 
-export default connect(mapStateToProps, {
-    updateNote
-})(EditNote);
+
+export default EditNote;
