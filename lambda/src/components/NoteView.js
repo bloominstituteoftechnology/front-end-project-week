@@ -27,7 +27,7 @@ class NoteView extends Component {
     return (
       <NoteList>
         <CardContent>
-          <Note note={this.state.notes} />
+          <Note note={this.props.notes} />
         </CardContent>
       </NoteList>
     );
