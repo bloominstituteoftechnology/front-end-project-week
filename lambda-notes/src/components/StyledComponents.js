@@ -103,3 +103,19 @@ export const SearchInput = styled.input`
     padding: 0.25em 1em;
     margin: 1em;
 `
+
+export const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  
+`
+
+export const Tag = styled.p`
+    padding: 5px;
+    margin: 1em;
+    font-size: 0.5em;
+    font-family: 'Roboto', sans-serif;
+    background: ${props => props.color};
+    border-radius: 3px;
+`
+
