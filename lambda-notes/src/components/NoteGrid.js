@@ -112,7 +112,7 @@ export default class NoteGrid extends Component {
 
     // Converts visible notes into array of elements
     const noteElems = visibleNotes.map(note => (
-      <Link key={note['_id']} to={`/view/${note['_id']}`}>
+      <Link key={note['id']} to={`/view/${note['id']}`}>
         <NotePreview note={note} />
       </Link>
     ));

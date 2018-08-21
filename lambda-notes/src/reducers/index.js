@@ -7,12 +7,12 @@ const byIdReducer = (state = {}, action) => {
   case RECEIVE_NOTES:
     const { payload } = action;
     return payload.reduce(
-      (accum, note) => ({ ...accum, [note._id]: note }),
+      (accum, note) => ({ ...accum, [note.id]: note }),
       {}
     );
   case RECEIVE_NOTE: {
     const { payload: note } = action;
-    return { ...state, [note._id]: note };
+    return { ...state, [note.id]: note };
   }
   default:
     return state;
@@ -23,9 +23,9 @@ const allIdsReducer = (state = [], action) => {
   switch (action.type) {
   case RECEIVE_NOTES:
     const { payload } = action;
-    return payload.map(note => note._id);
+    return payload.map(note => note.id);
   case RECEIVE_NOTE: {
-    const { _id: id } = action.payload;
+    const { id: id } = action.payload;
     if (state.indexOf(id) === -1) {
       return [...state, id];
     }

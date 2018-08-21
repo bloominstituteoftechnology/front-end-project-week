@@ -42,7 +42,7 @@ const Tag = (props) => {
   const { id, tag, isDragging, connectDragSource, clickHandler=null } = props;
   return (
     <StyledTagSource
-      onClick={ () => clickHandler(tag) }
+      onClick={ clickHandler? (() => clickHandler(tag)) : null }
       id={id}
       innerRef={innerRef => connectDragSource(innerRef)}
       style={{

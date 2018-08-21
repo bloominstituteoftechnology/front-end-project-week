@@ -5,7 +5,7 @@ export const RECEIVE_NOTES = 'RECEIVE_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REARRANGE_NOTES = 'REARRANGE_NOTES';
 
-const url = 'https://killer-notes.herokuapp.com/note';
+const url = 'http://localhost:8000';
 
 export const fetchNotes = (cb) => dispatch => {
   return axios

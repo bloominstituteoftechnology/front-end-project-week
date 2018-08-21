@@ -40,7 +40,7 @@ export default {
   },
   dimensions: {
     main: {
-      width: '670px',
+      maxWidth: '670px',
       h1FontSize: '22px',
       borderWidth: '1px',
     },
@@ -66,7 +66,7 @@ export default {
       padding: ' 13px 18px',
       borderWidth: '1px',
       headingFontSize: '16px',
-      headingPadding: '0 0 6px 0',
+      headingPadding: '0 0 7px 0',
       textPadding: '10px 0 4px 0',
       textFontSize: '12px',
       textLineHeight: '2',

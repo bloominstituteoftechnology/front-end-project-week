@@ -41,14 +41,14 @@ const StyledNotePreview = styled.div`
 
 const noteSourceSpec = {
   beginDrag(props) {
-    return { noteId: props.note._id };
+    return { noteId: props.note.id };
   }
 };
 
 const noteTargetSpec = {
   drop(props, monitor) {
     const sourceId = monitor.getItem().noteId;
-    const dropId = props.note._id;
+    const dropId = props.note.id;
     props.reArrange(sourceId, dropId);
   }
 };
