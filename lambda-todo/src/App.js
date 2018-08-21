@@ -6,44 +6,45 @@ import NewNotePage from "./New Note/NewNotePage";
 import { Route } from "react-router-dom";
 import Notes from "./Notes/NotesData";
 import ViewNote from "./ViewNote/ViewNote";
-import EditNote from "./ViewNote/Edit Note/EditNote"
+import EditNote from "./ViewNote/Edit Note/EditNote";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: Notes, 
-      deleting: false, 
-      title: '', 
-      content: '', 
+      notes: Notes,
+      deleting: false,
+      title: "",
+      content: "",
+      cardcontent: ""
     };
   }
-  addNote = event =>{
-    event.preventDefault(); 
+  addNote = event => {
+    event.preventDefault();
     const notes = this.state.notes.slice();
-    notes.push(
-    {
-      title: this.state.title, 
-      content: this.state.content, 
-    }); 
-    this.setState({notes, title: '', content: ''})
-  }
-  inputChange= e =>{
-    this.setState({[e.target.name]: e.target.value })
-  }
+    notes.push({
+      title: this.state.title,
+      cardcontent: this.state.cardcontent, 
+      content: this.state.content
+    });
+    this.setState({ notes, title: "", content: "" });
+  };
+  inputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   deleteBox = () => {
-    let deleting = !this.state.deleting
+    let deleting = !this.state.deleting;
     this.setState({ deleting });
   };
 
-  deleteNote = (id) => {
+  deleteNote = id => {
     let copiedNote = this.state.notes.slice();
-    let notesLeft = copiedNote.filter(note => note.id != id)
+    let notesLeft = copiedNote.filter(note => note.id != id);
     console.log(notesLeft);
-     this.setState({ notes: notesLeft, deleting: false });
+    this.setState({ notes: notesLeft, deleting: false });
   };
-  
+
   render() {
     return (
       <div className="App">
@@ -51,27 +52,37 @@ class App extends Component {
           <Nav />
         </div>
         <div className="pages">
-          <Route exact path="/" render={props => <NotesHolder {...props}  notes={this.state.notes} />} />
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <NotesHolder {...props} notes={this.state.notes} />
+            )}
+          />
           <Route
             path="/create-new"
-            render={props => 
-            <NewNotePage 
-            {...props} 
-            notes={this.state.notes} 
-            handleInputChange={this.inputChange}
-            handleAddNote={this.addNote}
-            value={this.state.notes}
-            />}
+            render={props => (
+              <NewNotePage
+                {...props}
+                notes={this.state.notes}
+                handleInputChange={this.inputChange}
+                handleAddNote={this.addNote}
+                value={this.state.notes}
+              />
+            )}
           />
-           <Route
+          <Route
             exact
             path="/view-note/:id"
-            render={props => <ViewNote {...props}
-             notes={this.state.notes} 
-             deleteBox={this.deleteBox}
-             deleting={this.state.deleting}
-             deleteNote={this.deleteNote}
-             />}
+            render={props => (
+              <ViewNote
+                {...props}
+                notes={this.state.notes}
+                deleteBox={this.deleteBox}
+                deleting={this.state.deleting}
+                deleteNote={this.deleteNote}
+              />
+            )}
           />
           <Route
             path="/view-note/edit/:id"
