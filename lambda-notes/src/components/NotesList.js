@@ -14,7 +14,7 @@ const ListNotes = styled.div`
 
 
 
-const URL = 'https://raw.githubusercontent.com/DasGMA/front-end-project-week/master/lambda-notes/src/components/notes.json';
+const URL = 'http://localhost:5000/notes';
 
 class NotesList extends Component {
     constructor(props){
@@ -37,9 +37,8 @@ class NotesList extends Component {
         return (
             <ListNotes>
                 {this.state.notes.map(note => 
-                    <Link to={`/note/${note.id}`}>
+                    <Link to={`/note/${note.id}`} key={note.id}>
                     <Note
-                        key={note.id}
                         title={note.title}
                         content={note.content}
                     />

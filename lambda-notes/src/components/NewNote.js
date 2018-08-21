@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 
-const URL = './components/notes';
+const URL = 'http://localhost:5000/notes';
 
 
 class NewNote extends Component {

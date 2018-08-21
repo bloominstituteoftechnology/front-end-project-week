@@ -5,6 +5,8 @@ import SideNav from './components/SideNav';
 import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
 import NoteView from './components/NoteView';
+import EditNote from './components/EditNote';
+
 
 
 const Application = styled.div`
@@ -34,10 +36,11 @@ class App extends Component {
       <Application>
         <Route path='/' component= {SideNav} />
         <Route path='/add-note' component={NewNote} />
+        <Route path='/edit-note' component={EditNote} />
         <Route path='/notes' render={(props) => (
           <NotesList {...props} notes={this.state.notes} />)} />
         <Route path='/note/:id' render={(props) => (
-          <NoteView {...props}  notes={this.state.notes} />) } />  
+          <NoteView {...props}  notes={this.state.notes} />) } />
       </Application>
     );
   }

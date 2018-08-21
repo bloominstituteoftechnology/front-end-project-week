@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
-const URL = 'https://raw.githubusercontent.com/DasGMA/front-end-project-week/master/lambda-notes/src/components/notes.json';
+const URL = 'http://localhost:5000/notes';
 
 class NoteView extends Component {
     constructor(props) {
@@ -48,11 +48,12 @@ class NoteView extends Component {
     render() {
         return ( 
             <div className="note-view">
+                <div className="buttons">
+                <Link to={`/edit-note/${this.state.id}`}> Edit </Link>
+                <Link to={'/notes'} onClick={this.delete}> Delete </Link>
+                </div>
                 <h1>{this.state.title}</h1>
                 <p>{this.state.content}</p>
-                <Link to={`/notes/${this.state.id}`}><button> Edit </button></Link>
-                <Link to={'/notes'}><button onClick={this.delete}> Delete </button></Link>
-                
             </div>
          );
     }
