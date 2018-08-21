@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { editNote } from '../../actions/index';
 
 
+
 class EditNote extends Component {
     state = {
         note : {},
@@ -21,17 +22,14 @@ class EditNote extends Component {
         this.setState({ note, title : note.title, body : note.body })
     }
     handleInputChange = event =>{
-        event.preventDefault();
         this.setState({[event.target.name] : event.target.value } )
     }
 
-    handleUpdate = () =>{
-
+    handleUpdate = ( event ) =>{
+        event.preventDefault();
        let newNote = {...this.state.note, title : this.state.title, body : this.state.body }
-       console.log("NEW_NOTE",newNote)
        this.props.editNote(newNote)
-
-
+       this.props.history.goBack()
     }
     render() {
         return (

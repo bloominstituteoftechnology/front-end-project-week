@@ -10,14 +10,16 @@ class CreateNote extends Component{
     }
 
     handleInputChange = event =>{
-        event.preventDefault();
+        
         this.setState({[event.target.name] : event.target.value } )
     }
 
-    handleSubmit = () =>{
+    handleSubmit = ( event ) =>{
+        event.preventDefault();
         const { title , textBody } = this.state;
         this.props.addNote(title,textBody)
         this.setState({title:'', textBody : '' })
+        this.props.history.push('/')
     }
 
 
