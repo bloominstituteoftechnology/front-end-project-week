@@ -18,10 +18,10 @@ class UpdateForm extends Component {
 
   handleUpdateSubmit = () => {
     const { _id } = this.props.location.state;
-    const note = { editTitle: this.state.editTitle, editTextBody: this.state.editTextBody };
-    console.log(note);
+    const editNote = { editTitle: this.state.editTitle, editTextBody: this.state.editTextBody };
+    console.log(editNote);
     console.log(this.props.location);
-    this.props.updateNote(_id, note);
+    this.props.updateNote(_id, editNote);
     this.setState({ editTitle: '', editTextBody: '' });
   };
 

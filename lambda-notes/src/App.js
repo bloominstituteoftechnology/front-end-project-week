@@ -65,7 +65,7 @@ const mapStateToProps = (state) => {
     updatedNote: state.updatedNote,
     deletingNote: state.deletingNote,
     deletedNote: state.deletedNote,
-    error: state.note
+    error: state.error
   };
 };
 

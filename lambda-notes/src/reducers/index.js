@@ -36,14 +36,16 @@ export const noteReducer = (state = initialState, action) => {
       };
     case ADDING_NOTE:
       return { ...state, addingNote: true };
-    // case ADDED_NOTE:
-    //   return { ...state, notes: action.payload, addingNote: false };
+    case ADDED_NOTE:
+      return { ...state, notes: [...state.notes, action.payload], addingNote: false };
+    // creating a new array with an array literal
+    // spreading the existing notes from the state and adding our note from action.payload
     case DELETING_NOTE:
       return { ...state, deletingNote: true };
     case UPDATING_NOTE:
       return { ...state, updatingNote: true };
-    // case NOTE_UPDATED:
-    //   return { ...state, note: action.payload };
+    case NOTE_UPDATED:
+      return { ...state, notes: action.payload, updatingNote: false };
     case ERROR:
       return { ...state, error: action.message };
     default:
