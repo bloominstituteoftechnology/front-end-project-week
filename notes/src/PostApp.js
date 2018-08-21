@@ -8,6 +8,7 @@ import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
 import { fetchNotes } from "./actions/action";
 import { connect } from "react-redux";
+import Signup from "./components/Login/Signup.js";
 
 class PostApp extends Component {
   componentDidMount() {
@@ -26,6 +27,7 @@ class PostApp extends Component {
         <Route exact path="/create" component={Create} />
         <Route exact path="/note/:id" component={ViewNote} />
         <Route path="/edit" component={EditNote} />
+        <Route path="/register" component={Signup} />
       </div>
     );
   }

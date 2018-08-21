@@ -83,6 +83,16 @@
   padding-top: 15px;
 }
 
+.login-text .register-link {
+  cursor: pointer;
+  color: rgb(9, 9, 194);
+}
+
+.login-text .register-link:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
 .login-card .login-button {
   width: 100%;
   background-color: rgb(24, 185, 150);
