@@ -84,4 +84,60 @@
 .NoteWrapper {
 	width: 100%;
 	background-color: #f2f0f2;
+	position: relative;
+}
+
+.Note__editDelete {
+	display: flex;
+	justify-content: flex-end;
+	margin: 20px;
+}
+
+.Note__editDelete span:not(:last-child) {
+	margin-right: 20px;
+}
+
+.Note__delete--shown {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: gray;
+	opacity: 0.9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Note__delete--hidden {
+	display: none;
+}
+
+.Note__delete-prompt {
+	background: #fff;
+	border: 2px solid darkgray;
+	padding: 20px;
+	width: 53%;
+	text-align: center;
+}
+
+.Note__delete-prompt-buttons {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.Button--danger {
+	background: red;
+}
+
+.Note__content {
+	padding: 20px;
+	font-size: 1.3rem;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.Note__content h3 {
+	margin-bottom: 30px;
 }

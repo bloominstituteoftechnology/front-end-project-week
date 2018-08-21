@@ -20,6 +20,12 @@ class Note extends React.Component {
 		}));
 	};
 
+	handleDeleteFlip = () => {
+		this.setState(prevState => ({
+			deleteDisplay: !prevState.deleteDisplay,
+		}));
+	};
+
 	render() {
 		const note = this.props.notes.find(
 			note => note.id == this.props.match.params.id,
@@ -30,28 +36,51 @@ class Note extends React.Component {
 			<div className="NoteWrapper">
 				{this.state.editDisplay ? null : (
 					<div>
-						<div>
+						<div className="Note__editDelete">
 							<span onClick={() => this.handleEditFlip()}>
 								edit
 							</span>
-							<span>delete</span>
+							<span onClick={() => this.handleDeleteFlip()}>
+								delete
+							</span>
 						</div>
-						<h3>{note.title}</h3>
-						<p>{note.text}</p>
+						<div className="Note__content">
+							<h3>{note.title}</h3>
+							<p>{note.text}</p>
+						</div>
 					</div>
 				)}
-				<div>
-					<h4>Are you sure you want to delete this?</h4>
-					<Link to="/notes">
-						<button onClick={() => this.props.onClick(noteId)}>
-							Yes
-						</button>
-					</Link>
-					<button>No</button>
+				<div
+					className={
+						this.state.deleteDisplay
+							? "Note__delete--shown"
+							: "Note__delete--hidden"
+					}
+				>
+					<div className="Note__delete-prompt">
+						<h4>Are you sure you want to delete this?</h4>
+						<div className="Note__delete-prompt-buttons">
+							<Link to="/notes">
+								<button
+									className="Button Button--danger"
+									onClick={() => this.props.onClick(noteId)}
+								>
+									Yes
+								</button>
+							</Link>
+							<button
+								className="Button"
+								onClick={() => this.handleDeleteFlip()}
+							>
+								No
+							</button>
+						</div>
+					</div>
 				</div>
 				{this.state.editDisplay ? (
-					<div>
+					<div className="AddNoteWrapper">
 						<form
+							className="AddNote__form"
 							id="editNoteForm"
 							onSubmit={e => {
 								e.preventDefault();
@@ -75,7 +104,7 @@ class Note extends React.Component {
 								value={this.state.text}
 								onChange={this.handleInputChange}
 							/>
-							<button>Update</button>
+							<button className="Button">Update</button>
 						</form>
 					</div>
 				) : null}
