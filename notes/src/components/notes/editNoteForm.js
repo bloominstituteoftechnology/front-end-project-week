@@ -47,7 +47,6 @@ border-radius: 3px;
 class EditNoteForm extends React.Component{
     
     constructor(props){
-        console.log(props)
         super(props);
         this.state={
             title:'',
