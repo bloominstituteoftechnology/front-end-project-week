@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import {Link, Route} from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
+import {connect} from 'react-redux'
+import { withRouter } from 'react-router'
 
 import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
+
+import {getNotes} from './actions';
 
 const AppDiv = styled.div`
     ${'' /* border: 1px solid red; */}
@@ -64,7 +68,6 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      count: 45,
       hideDetails: true,
       notes: [
         {
@@ -91,8 +94,17 @@ class App extends Component {
     }
   }
 
+  componentDidMount = ()=> {
+    console.log(this.props)
+    this.props.getNotes();
+    this.setState({
+      notes: this.props.state.notes
+    })
+  }
+
   getNoteDetails = (id) => {
-    return (this.state.notes.find(note => {return note.id === parseInt(id, 10)}))
+    console.log(this.state.notes.notes.find(note => {return note.id === parseInt(id, 10)}))
+    return (this.state.notes.find(note => {return note._id === parseInt(id, 10)}))
     // 10 declares the number base
   }
 
@@ -137,6 +149,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.state.notes);
     return (
         <AppDiv>
 
@@ -149,16 +162,19 @@ class App extends Component {
           <div className="right-display">
 
             <Route exact path="/all-notes/"  render={ () => {
-                return (<AllNotes notes={this.state.notes} />)
+                return (<AllNotes notes={this.props.state.notes} />)
               }}></Route>
 
             <Route exact path="/new-note"  render={ () => {
                 return (<NewNote count={this.state.count} newNote={this.newNote} notes={this.state.notes} />)
               }}></Route>
 
-            <Route path="/all-notes/:noteId" exact={!this.state.deleteEnabled} render={ (note) => {let single = this.getNoteDetails(note.match.params.noteId);
-                  return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
-                }}></Route>
+            <Route path="/all-notes/:noteId"
+              exact={!this.state.deleteEnabled}
+              render={ (note) => {
+                let single = this.getNoteDetails(note.match.params.noteId);
+                    return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
+                  }}></Route>
 
             <Route exact path="/all-notes/:noteId/edit" render={ (note) => {
                 let single = this.getNoteDetails(note.match.params.noteId);
@@ -184,4 +200,12 @@ class App extends Component {
   }//render
 }
 
-export default App;
+const mapStateToProps = store => {
+  return {state: store};//state is really props & store is store
+}
+
+const mapDispatchToProps = {
+  getNotes
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

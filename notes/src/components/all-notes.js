@@ -60,21 +60,22 @@ export default class AllNotes extends Component {
   }
 
   render() {
+    console.log(this.props.notes)
     return (
       <AllNotesDiv>
         <h3>Your Notes:</h3>
 
         <div className="all-notes">
-          {this.state.notes.map(note => {
+          {this.props.notes.map(note => {
             // let url = decodeURI(note.title)
             // would be cool to use title instead
             //how to do that?
             //------------------------------??----------------------
             return (
-              <Link className="note-link" key={note.id} to={`/all-notes/${note.id}`}>
+              <Link className="note-link" key={note._id} to={`/all-notes/${note._id}`}>
                 <div className="note-preview">
                   <h3>{note.title}</h3>
-                  <p>{note.body}</p>
+                  <p>{note.textBody}</p>
                 </div>
               </Link>
             )

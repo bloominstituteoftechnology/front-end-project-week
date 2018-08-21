@@ -19,10 +19,10 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         fetchingNotes: false,
         notesRecieved: true,
-        note: action.payload,
+        notes: action.payload,
       })
     case ERROR:
-      return Object.assing({}, state, {
+      return Object.assign({}, state, {
         fetchingNotes: false,
         notesRecieved: false,
         error: true,

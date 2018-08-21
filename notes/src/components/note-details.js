@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {getNotes} from '../actions';
+
+
 
 const NoteDetailsDiv = styled.div`
   ${'' /* border: 1px solid green; */}
@@ -29,7 +33,7 @@ const NoteDetailsDiv = styled.div`
   }
 `;
 
-export default class NoteDetails extends Component {
+class NoteDetails extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -38,21 +42,35 @@ export default class NoteDetails extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <NoteDetailsDiv>
-        <div className="links">
+        {/* <div className="links">
+          <Link
+            className="link"
+            onClick={() => this.props.enableDelete()}
+            to={`/all-notes/${this.state.note.id}/delete`}>delete</Link>
           <Link
             className="link"
             to={`/all-notes/${this.state.note.id}/edit`}>edit</Link>
           <Link
             className="link"
-            onClick={() => this.props.enableDelete()}
-            to={`/all-notes/${this.state.note.id}/delete`}>delete</Link>
+            to={`/all-notes/`}>back</Link>
         </div>
 
         <h4>{this.state.note.title}</h4>
-        <p>{this.state.note.body}</p>
+        <p>{this.state.note.body}</p> */}
       </NoteDetailsDiv>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {state: state};
+}
+
+const mapDispatchToProps = {
+  getNotes
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteDetails);
