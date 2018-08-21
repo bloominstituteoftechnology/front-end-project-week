@@ -18,7 +18,6 @@ class NoteContainer extends Component {
         <NoteNavigation         
           viewList={viewList} 
           viewAddNote={viewAddNote}
-          addNote={addNote}
         />
         <Note 
           notes={notes}

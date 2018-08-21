@@ -54,11 +54,15 @@ function Note (props) {
           : <div></div>
       }
       { isAdded
-          ? <ModifyNote event={addNote} />
+          ? <ModifyNote 
+              isAdded={isAdded}
+              event={addNote} 
+            />
           : <div></div>
       }
       { isEditted
           ? <ModifyNote 
+              isAdded={isAdded}
               event={editNote} 
               selectedNoteId={selectedNoteId} 
             />
@@ -159,11 +163,11 @@ class ModifyNote extends Component{
   render () {
     return (
       <div>
-        <h3>{this.props.name} New Notes</h3>
+        <h3>{this.props.isAdded ? 'New Note: ' : 'Edit Note: '}</h3>
         <form onSubmit={this.handleOnSubmit}>
           <input onChange={this.handleOnChange} type="text" value={this.state.title} name="title" placeholder="Note Title" />
           <input onChange={this.handleOnChange} type="text" value={this.state.content} name="content" placeholder="Note Content" />
-          <button>{this.isAdded ? 'Save' : 'Update'}</button>
+          <button>{this.props.isAdded ? 'Save' : 'Update'}</button>
         </form>
         
       </div>
