@@ -30,17 +30,25 @@ const StyledTitle = styled.h4`
 const StyledText = styled.p`
     font: Raleway Medium;
 `;
+
+const StyledTags = styled.span`
+    justify-content: end
+`;
 class NoteCard extends Component {
 
     render(){
-        let { id, title, textBody } = this.props.note
+        let { id, title, textBody, tags } = this.props.note
         return(
             <StyledNoteCard >
                 <Link to={`/notes/${id}` }
                     style={{ textDecoration: 'none', color: 'black' }}>
-                    <StyledTitle><Markdown options={{ forceBlock: true }}>{title}</Markdown></StyledTitle></Link>
+                    <StyledTitle><Markdown options={{ forceBlock: true }}>{title}</Markdown></StyledTitle>
                     <StyledText><Markdown options={{ forceBlock: true }}>{textBody}</Markdown></StyledText>
-                
+                    {tags.length > 0 ? 
+                        (tags.map(tag => {
+                            return <StyledTags>&#9827; - {tag}</StyledTags>
+                        })) : null}
+                </Link>
             </StyledNoteCard>
 
         );

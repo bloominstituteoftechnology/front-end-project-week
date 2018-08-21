@@ -83,13 +83,11 @@ class NoteForm extends Component {
 
     addNote = (e) => {
         e.preventDefault();
-        console.log(Object.entries(this.state.tags));
         const newTags = Object.entries(this.state.tags).reduce((acc, entry) => {
             entry[1] === true ? acc.push(entry[0]) : null
             return acc;
         }, [])
-        console.log("NEWTAGS!", newTags);
-        const newNote = {tags: newTags, title: this.state.inputTitle, textBody: this.state.inputBody}
+        const newNote = {tags: newTags.join(','), title: this.state.inputTitle, textBody: this.state.inputBody}
         this.props.addNote(newNote);
         this.setState({inputTitle: '', inputBody: '', created: true});
     }

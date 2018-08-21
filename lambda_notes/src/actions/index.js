@@ -23,7 +23,7 @@ export const ERROR = "ERROR";
 const localURL = "http://localhost:3300/note/get/all"
 const localSingleURL = "http://localhost:3300/note/get/"
 const localPostURL = "http://localhost:3300/note/post/"
-const localDeleteURL = "http://localhost:3300/note/delete"
+const localDeleteURL = "http://localhost:3300/note/delete/"
 const localEditURL = "http://localhost:3300/note/edit/"
 
 export const getNotes = () => {
@@ -93,7 +93,7 @@ export const editNote = (id, newNote) => {
             type: UPDATING,
         })
         request.then(response => {
-            dispatch({type: DELETED})
+            dispatch({type: UPDATED})
         })
         .catch(err => {
             dispatch({type: ERROR, error: err.message})
