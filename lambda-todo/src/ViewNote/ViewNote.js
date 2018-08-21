@@ -15,17 +15,16 @@ const ViewNote = props => {
     <div className={props.deleting ? "delete" : "hide-delete"}>
         <div className="delete-box">
           <p>Are you sure you want to delete this?</p>
-          <div className="btns">
-            <Link className="linkdel" to="/">
+          <div>
+            <Link to="/">
               <div
                 onClick={() => props.deleteNote(props.match.params.id)}
-                className="deletebtn"
               >
                 Delete
               </div>
             </Link>
             <Link to={`/view-note/${note.id}`}>
-            <div onClick={props.deleteModal} className="nobtn">
+            <div onClick={props.deleteModal}>
               No
             </div>
             </Link>

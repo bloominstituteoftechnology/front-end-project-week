@@ -10,14 +10,6 @@
     border: solid 1px gray;
     color: gray;
 }
-.delete-menu {
-   
-    background: rgba(226, 226, 226, 0.699);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    display: flex;
-}
 .delete{
     z-index: 100;
     height: 100%;
