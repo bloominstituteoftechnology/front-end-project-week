@@ -17,7 +17,9 @@ class FullNote extends React.Component{
         return (
           <div className = "create-note-form ">
             <div className = "full-note-header">
-              <Link to = {`/${this.props.match.params.id}/edit-note`} ><h6>edit</h6></Link>
+              {/* <Link to = {`/${this.props.match.params.id}/edit-note`} ><h6>edit</h6></Link> */}
+
+              <Link to = {{pathname: `/${this.props.match.params.id}/edit-note`, state: { title, content, index}}}><h6>edit</h6></Link> 
               <h6>delete</h6>
             </div>
             <div className = "content-div">
