@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
 `;
 
 const NoteCard = props => {
-  const { title, textBody } = props.note;
+  const { title, content } = props.note;
   return (
     <StyledLink to={`/notes/${props.note.id}`}>
       <div className="notecard">
@@ -21,7 +21,7 @@ const NoteCard = props => {
           <div>
               <h2>{title.substring(0,25)}</h2>
             <hr/>
-            <p className="notecardbody"><ReactMarkdown source={textBody.substring(0,140)}/></p>
+            <p className="notecardbody"><ReactMarkdown source={content.substring(0,140)}/></p>
           </div>
         </div>
       </div>

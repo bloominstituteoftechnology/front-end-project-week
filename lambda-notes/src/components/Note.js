@@ -22,7 +22,7 @@ class Note extends Component {
     this.state = {
       note: null,
       title: "",
-      textBody: "",
+      content: "",
       edit: false,
       deleted: false,
       modalIsOpen: false
@@ -49,13 +49,13 @@ class Note extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
-      .get(`http://localhost:4444/notes/${id}`)
+      .get(`http://localhost:3500/notes/${id}`)
       .then(res => {
         console.log(res.data);
         this.setState({
           note: res.data,
           title: res.data.title,
-          textBody: res.data.textBody
+          content: res.data.content
         });
       })
       .catch(err => {
@@ -69,7 +69,7 @@ class Note extends Component {
 
   deleteNote = () => {
     axios
-      .delete(`http://localhost:4444/notes/${this.state.note.id}`)
+      .delete(`http://localhost:3500/notes/${this.state.note.id}`)
       .then(res => {
         console.log(res.data);
         this.setState({ deleted: true });
@@ -87,7 +87,7 @@ class Note extends Component {
         edit={true}
         note={this.state.note}
         title={this.state.title}
-        textBody={this.state.textBody}
+        content={this.state.content}
       />
     ) : (
       <div className="note">
@@ -97,7 +97,7 @@ class Note extends Component {
         </div>
         <h3 className="notetitle">{this.state.title}</h3>
           <div className="notecontent">
-          <ReactMarkdown source={this.state.textBody}/>
+          <ReactMarkdown source={this.state.content}/>
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}

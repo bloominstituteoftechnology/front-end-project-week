@@ -13,7 +13,7 @@ class Notes extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4444/notes")
+      .get("http://localhost:3500/notes")
       .then(res => {
         this.setState({ notes: res.data });
       })
@@ -43,7 +43,7 @@ class Notes extends Component {
             if (this.state.search === "") {
               return <NoteCard note={note} key={note.id} />;
             } else if (
-              note.textBody
+              note.content
                 .toLowerCase()
                 .includes(this.state.search.toLowerCase())
             ) {
