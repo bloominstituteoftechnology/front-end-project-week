@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
+import dummyData from '../dummy-data';
 import Sidebar from './Sidebar';
 import NotesList from './NotesList';
 import NotePage from './NotePage';
-import dummyData from '../dummy-data';
 import NewNote from './NewNote';
+import EditNote from './EditNote';
 
 class NotesContainer extends Component {
   constructor() {
@@ -27,10 +28,21 @@ class NotesContainer extends Component {
   addNewNote = (e) => {
     e.preventDefault();
     let copy = this.state.data.slice();
-    copy.push({ id: this.state.data.length+1, title: this.state.title, content: this.state.content})
-    console.log(copy);
+    copy.push({ id: this.state.data[this.state.data.length-1].id+1, title: this.state.title, content: this.state.content})
     this.setState({ data: copy });
-    //window.location.href = "http://localhost:3000/";
+  }
+
+  deleteNote = (id) => {
+    let filtered = this.state.data.filter(note => note.id !== id);
+    this.setState({ data: filtered });
+  }
+
+  editNote = (id) => {
+    id = parseInt(id, 10);
+    let copy = this.state.data.slice();
+    let i = copy.findIndex(note => note.id === id);
+    copy.splice( i, 1, { id: id, title: this.state.title, content: this.state.content} )
+    this.setState({ data: copy });
   }
 
   render() {
@@ -39,18 +51,21 @@ class NotesContainer extends Component {
         <Sidebar />
       <div className='main-content'>
         <Route
-            exact path="/"
-            render={(props) => <NotesList {...props} data={this.state.data} />}
-          />
-          <Route
-            exact path="/notes/:id"
-            render={(props) => <NotePage {...props} data={this.state.data} />}
+          exact path="/"
+          render={(props) => <NotesList {...props} data={this.state.data} />}
           />
         <Route
-            path="/create-new-note"
-            render={(props) => <NewNote {...props} handleChange={this.inputHandler} addNewNote={this.addNewNote} />}
+          path="/create-new-note"
+          render={(props) => <NewNote {...props} handleChange={this.inputHandler} addNewNote={this.addNewNote} />}
           />
-        {/* <Route path="/notes/:id/edit-note" component={Note} /> */}
+        <Route
+          exact path="/notes/:id"
+          render={(props) => <NotePage {...props} data={this.state.data} deleteNote={this.deleteNote} />}
+          />
+        <Route
+          path="/notes/:id/edit-note"
+          render={(props) => <EditNote {...props} handleChange={this.inputHandler} editNote={this.editNote} />}
+          />
         </div>
       </div>
     );

@@ -69,11 +69,23 @@ form {
   width: 100%;
   height: 450px;
   margin: 20px 0;
+  padding-top: 0;
 }
-form button {
+.save-button{
   width: 30%;
   height: 50px;
+  border: 1px solid gray;
   background-color: #32B7BD;
   color: white;
+  text-align: center;
+  line-height: 50px;
 }
+
+.note-options{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/*  */
 
