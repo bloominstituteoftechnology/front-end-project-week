@@ -6,6 +6,7 @@
   box-sizing: border-box;
   background: lightgray;
   font-family: "Roboto", sans-serif;
+  max-width: 900px;
 }
 
 .App-logo {
@@ -45,7 +46,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2.2em;
 }
 
 .App-intro {
@@ -86,4 +87,38 @@
 .your-header {
   margin-right: 80%;
   margin-left: 15px;
+}
+
+.single-view-title {
+  text-align: left;
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+.single-view-text {
+  text-align: left;
+  margin-right: 6%;
+  margin-left: 6%;
+}
+
+.add-title-input {
+  height: 33px;
+  width: 299px;
+  padding-left: 9px;
+}
+
+.add-text-input {
+  width: 600px;
+  height: 444px;
+  padding-left: 9px;
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.add-form-wrap {
+  text-align: left;
+  /* align-items: flex-start; */
+  /* display: flex; */
+  /* align-content: flex-start */
 }

@@ -5,6 +5,7 @@ import { notesData } from './notesData';
 import { NoteList } from './components/notesContainer';
 import Route from 'react-router-dom/Route';
 import { SingleView } from './components/noteView';
+import { AddNote } from './components/addNote';
 
 
 class App extends Component {
@@ -27,11 +28,12 @@ class App extends Component {
         <div className="Nav-bar">
           <h1 className="App-title">Lambda <br/> Notes</h1>
           <Link to="/" ><div className="nav-button" >View Your Notes</div ></Link>
-          <Link to="" ><div className="nav-button" >+ Create New Note</div></Link>
+          <Link to="/add" ><div className="nav-button" >+ Create New Note</div></Link>
         </div>
         <div className="display-right" >
           <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
           <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} /> )} />
+          <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} /> ) } />
         </div>
       </div>
     );
