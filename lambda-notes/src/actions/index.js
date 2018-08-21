@@ -1,4 +1,5 @@
 import { testNotes } from "../data";
+import axios from 'axios'
 
 export const FETCHING_NOTES = 'FETCHING_NOTES'
 export const FETCHED_NOTES = 'FETCHED_NOTES'
@@ -13,9 +14,11 @@ export const ERROR = 'ERROR'
 export const fetchNotes = () => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
-        // Do something 
-        const notes = testNotes
-        dispatch({ type: FETCHED_NOTES, payload: notes })
+        axios.get(`https://killer-notes.herokuapp.com/note/get/all`)
+            .then(({ data }) => {
+                dispatch({ type: FETCHED_NOTES, payload: data })
+            })
+            .catch(err => dispatch({ type: ERROR, err: err }))
     }
 }
 

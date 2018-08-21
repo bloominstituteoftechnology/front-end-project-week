@@ -1,23 +1,11 @@
-import { FETCHING_NOTES, FETCHED_NOTES, ADDING_NOTES, ADDED_NOTES } from "../actions";
+import { FETCHING_NOTES, FETCHED_NOTES, ADDING_NOTES, ADDED_NOTES, ERROR } from "../actions";
 
 const initialState = {
-    notes: [
-        {
-            title: 'Title 1',
-            content: 'Lorem ipsum'
-        },
-        {
-            title: 'Title 1',
-            content: 'Lorem ipsum'
-        },
-        {
-            title: 'Title 1',
-            content: 'Lorem ipsum'
-        }
-    ],
+    notes: [],
     fetchingNotes: true,
     addingNotes: false,
-    addedNotes: true
+    addedNotes: true,
+    err: null
 }
 
 export const notesReducer = ( state = initialState, action) => {
@@ -45,22 +33,12 @@ export const notesReducer = ( state = initialState, action) => {
                 addedNotes: true,
                 notes: state.notes.push(action.payload)
             }
+        case ERROR: 
+            return {
+                ...state,
+                err: action.err
+            }
         default:
             return state
     }
 }
-
-const testNotes = [
-    {
-        title: 'Title 1',
-        content: 'Lorem ipsum'
-    },
-    {
-        title: 'Title 1',
-        content: 'Lorem ipsum'
-    },
-    {
-        title: 'Title 1',
-        content: 'Lorem ipsum'
-    }
-]

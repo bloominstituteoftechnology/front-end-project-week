@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 function List(props){
     return (
         <ListViews>
-            {props.notes.map(note => <Link to={`/notes/${note.id}`}><Item key={note.id} {...note}/></Link>)}
+            {props.notes.map(note => <Item key={note._id} {...note}/>)}
         </ListViews>
     )
 }
@@ -14,6 +14,7 @@ function List(props){
 
 
 function ListView(props){
+    console.log(props)
     return (
         <div className="appView">
             <H2>Your Notes:</H2>

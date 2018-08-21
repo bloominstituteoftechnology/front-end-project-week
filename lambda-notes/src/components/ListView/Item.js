@@ -7,7 +7,7 @@ function Item (props){
             <NoteTitle>
                 <H4>{props.title}</H4>
             </NoteTitle>
-            <P>{props.content}</P>
+            <P>{props.textBody}</P>
         </NoteItem>
     )
 }
