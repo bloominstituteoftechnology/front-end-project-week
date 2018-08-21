@@ -43,8 +43,10 @@ class App extends Component {
     notes[index] = noteObj
     console.log(notes); 
     this.setState({ notes })
-    
+  }
 
+  deleteNote  = (index) => {
+    console.log("Deleting index ", index)
   }
 
 
@@ -64,6 +66,7 @@ class App extends Component {
             <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
             <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
             <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
+            <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props}/>} />
             <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
           </Switch>
           {/* <CreateNote create = {this.createNote}/> */}

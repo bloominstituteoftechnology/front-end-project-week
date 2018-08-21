@@ -20,7 +20,7 @@ class FullNote extends React.Component{
               {/* <Link to = {`/${this.props.match.params.id}/edit-note`} ><h6>edit</h6></Link> */}
 
               <Link to = {{pathname: `/${this.props.match.params.id}/edit-note`, state: { title, content, index}}}><h6>edit</h6></Link> 
-              <h6>delete</h6>
+              <Link to = {{pathname: `/${this.props.match.params.id}/delete-note`, state: {title, content, index}}}><h6>delete</h6></Link>
             </div>
             <div className = "content-div">
               <h3>{title}</h3> 
