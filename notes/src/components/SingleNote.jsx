@@ -23,7 +23,6 @@ class SingleNote extends Component {
   };
   delete = () => {
     this.props.delete(Number(this.props.match.params.id));
-
     this.props.history.push("/");
   };
   componentDidMount() {
@@ -104,6 +103,9 @@ class SingleNote extends Component {
   }
 }
 
-SingleNote.propTypes = {};
+SingleNote.propTypes = {
+  notes: PropTypes.array,
+  
+};
 
 export default SingleNote;
