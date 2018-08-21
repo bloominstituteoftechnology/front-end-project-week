@@ -87,6 +87,8 @@ export default class AllNotes extends Component {
     return (
       <AllNotesDiv>
         <h3>Your Notes:</h3>
+        {
+        }
         <div className="all-notes">
           {this.props.notes.map(note => {
             // let url = decodeURI(note.title)

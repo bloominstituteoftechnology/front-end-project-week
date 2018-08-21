@@ -46,9 +46,6 @@ const NoteDetailsDiv = styled.div`
 `;
 
 class NoteDetails extends Component {
-  constructor(props){
-    super(props);
-  }
 
   render() {
     console.log(this.props)

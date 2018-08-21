@@ -10,7 +10,8 @@ import {
     EditNote,
     DeleteNote,
     NewNote,
-    NoteDetails,  } from './components';
+    NoteDetails,
+     } from './components';
 
 import {
   addNote,
@@ -23,11 +24,11 @@ const AppDiv = styled.div`
     display: flex;
     flex-direction: row;
     z-index: 0;
-    height: 100vh;
+    height: 100%;
     .left-menu {
       border: 1px solid lightgray;
       background-color: #D7D7D7;
-      height: 100%;
+      height: 100vh;
       width: 30%;
       display: flex;
       flex-direction: column;
@@ -110,7 +111,7 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    return this.props.state.notes.find(note => {return note._id == id})
+    return this.props.state.notes.find(note => {return note._id === id})
   }
 
   disableDelete = () => {
@@ -145,10 +146,14 @@ class App extends Component {
             <h1>Lambda Notes</h1>
             <Link className="menu-item" to="/all-notes">View Your Notes</Link>
             <Link className="menu-item" to="/new-note">+ Create New Note</Link>
+            <Link className="menu-item" to="/new-note">1</Link>
+            <Link className="menu-item" to="/new-note">2</Link>
+            <Link className="menu-item" to="/new-note">3</Link>
+            <Link className="menu-item" to="/new-note">4</Link>
+
           </div>
 
           <div className="right-display">
-
             <Route
               exact
               path="/all-notes/"
