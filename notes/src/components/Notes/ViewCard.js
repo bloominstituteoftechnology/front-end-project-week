@@ -68,7 +68,7 @@ class ViewCard extends Component {
                 {this.state.note ?
                     <div>
                         <h2>{this.state.note.title}</h2>
-                        <p>{this.state.note.description}</p>
+                        <p>{this.state.note.content}</p>
                     </div>
                     :
                     <div>No Note</div>

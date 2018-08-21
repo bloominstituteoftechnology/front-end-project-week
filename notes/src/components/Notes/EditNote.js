@@ -12,7 +12,7 @@ class EditNote extends Component {
     }
     componentDidMount() {
         const { note } = this.props.location.state;
-        this.setState({ title: note.title, content: note.description, id: note.id })
+        this.setState({id: note.id, title: note.title, content: note.content })
     }
 
     handleChange = (e) => {
@@ -20,7 +20,7 @@ class EditNote extends Component {
     }
 
     onSubmit = (e) => {
-        const note = { id: this.state.id, title: this.state.title, description: this.state.content }
+        const note = {id: this.state.id, title: this.state.title, content: this.state.content }
         this.props.editNote(note);
     }
 

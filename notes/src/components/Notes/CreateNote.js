@@ -2,27 +2,20 @@ import React, { Component } from 'react';
 import './CreateNote.css'
 
 
-let id = 0;
 class CreateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: '',
             content: '',
-            id: id
         }
-    }
-
-    componentWillUnmount() {
-        id = this.state.id;
     }
 
     onSubmit = (e) => {
         e.preventDefault();
-        const note = { id: this.state.id, title: this.state.title, description: this.state.content };
-        // let id = this.state.id + 1;
+        const note = { title: this.state.title, content: this.state.content };
         this.props.createNote(note);
-        this.setState({ title: '', content: '', id: id })
+        this.setState({ title: '', content: '' })
     }
 
     handleChange = (e) => {

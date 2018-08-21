@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
+import axios from 'axios'
 import CreateNote from './components/Notes/CreateNote'
 import SidePanel from './components/SidePanel/SidePanel'
 import NoteContainer from './components/Notes/NoteContainer'
@@ -7,6 +8,8 @@ import ViewCard from './components/Notes/ViewCard'
 import EditNote from './components/Notes/EditNote'
 import Authentication from './components/Login/Authentication'
 import './App.css';
+
+const URL = 'http://localhost:8000/api/notes';
 
 class App extends Component {
     constructor() {
@@ -17,44 +20,39 @@ class App extends Component {
         };
     }
 
+    addData = () => {
+        axios
+            .get(URL)
+            .then(response => {
+                this.setState({ notes: response.data })
+            })
+            .catch(err => console.log(err))
+    }
+
     componentDidMount() {
-        let user = localStorage.getItem('user');
-        if (localStorage.getItem(`myNotes`)) {
-            console.log(`${user} Notes`)
-            let notes = JSON.parse((localStorage.getItem(`myNotes`)))
-            this.setState({ notes, user })
-        }
+        this.addData();
     }
 
     createNote = (note) => {
-        let notes = this.state.notes.slice();
-        note.id = notes.length + 1;
-        notes.push(note);
-        this.setState({ notes });
-        localStorage.setItem(`myNotes`, JSON.stringify(notes))
+        axios
+            .post(URL, note)
+            .then(() => this.addData())
+            .catch(err => console.log(err))
     }
 
     editNote = (note) => {
-        let notes = this.state.notes.slice();
-        for (let i = 0; i < notes.length; ++i)
-            if (notes[i].id === note.id) {
-                notes[i].title = note.title;
-                notes[i].description = note.description;
-            }
-        localStorage.setItem(`myNotes`, JSON.stringify(notes))
-        this.setState({ notes })
-
+        axios
+            .put(`${URL}/${note.id}`, note)
+            .then(() => this.addData())
+            .catch(err => console.log(err))
     }
+    
     deleteNote = (note) => {
-        let notes = this.state.notes.slice();
-        let newNotes = notes.filter(found => {
-            return found.id !== note.id;
-        })
-        localStorage.setItem(`myNotes`, JSON.stringify(newNotes))
-        this.setState({ notes: newNotes })
+        axios
+            .delete(`${URL}/${note.id}`)
+            .then(() => this.addData())
+            .catch(err => console.log(err))
     }
-
-
 
     render() {
         return (

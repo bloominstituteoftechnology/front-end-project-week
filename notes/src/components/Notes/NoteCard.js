@@ -10,7 +10,7 @@ const NoteCard = (props) => {
                         <Link key={note.id} to={`view/${note.id}`} style={{ textDecoration: 'none' }}>
                             <div className="card">
                                 <h3>{note.title}</h3>
-                                <p>{note.description}</p>
+                                <p>{note.content}</p>
                             </div>
                         </Link>
                     )
