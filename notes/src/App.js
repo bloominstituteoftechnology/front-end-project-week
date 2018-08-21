@@ -6,7 +6,7 @@ import notes from './assets/init_notes';
 import NoteList from './components/NoteList.js';
 import HeadCtrls from './components/HeadCtrls.js';
 import NewNote from './components/NewNote.js';
-
+import NoteView from './components/NoteView.js';
 
 const AppContainer = styled.div`
   width:405px;
@@ -36,8 +36,10 @@ class App extends Component {
     return (
       <AppContainer>
         <Route path="/addnote" render={props => { return <NewNote handleNewNote={this.handleNewNote}/>}} />
-        <HeadCtrls />
-        <NoteList notes={this.state.notesArr} />
+        <Route path="/noteView/:id" render={(props) => { return <NoteView {...props} allNotes={this.state.notesArr}/> }} />
+        <Route exact path="/" render={props => { return <HeadCtrls notes={this.state.notesArr}/> }} />
+        <Route exact path="/" render={props => { return <NoteList notes={this.state.notesArr} /> }} />
+        {/* <NoteList notes={this.state.notesArr} /> */}
       </AppContainer>
     )
   }

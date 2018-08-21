@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Note from './Note.js';
 
@@ -15,9 +16,13 @@ const NoteList = (props) => {
         <NoteListContainer>
             {
                 props.notes.map((note)=>{
-                    return <Note key={note.id} note={note} />
+                    return <Link to={`/noteView/${note.id}`}>
+                     <Note key={note.id} note={note} />
+                    </Link>
+                    
                 })
             }
+            
         </NoteListContainer>
     )
 };
