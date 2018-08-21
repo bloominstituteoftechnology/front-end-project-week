@@ -13,7 +13,7 @@ const NavBar = (props) => {
     return (  
         <NavbarAttrib className="Navbar-Container">
             <h1>Lambda Notes</h1>
-            <Link to="/"><button onClick={props.editto}>View Your Notes</button></Link>
+            <Link to="/"><button onClick={props.edittoggle}>View Your Notes</button></Link>
             <Link to="/form"><button>+ Create New Note</button></Link>
         </NavbarAttrib>
     );

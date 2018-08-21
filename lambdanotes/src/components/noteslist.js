@@ -38,15 +38,13 @@ const NoteContent = styled.p`
 `
 
 const NotesList = (props) => {
-    console.log(props)
     return (  
         <NotesListAttrib>
             <h2>Your Notes:</h2>   
             <NoteCartContainer>
-                {props.notes.map(note => <Link to={`/${note.id}`}>
-                    <NoteCard>
+                {props.notes.map(note => <Link to={`/note/${note.id}`} key={note.id}>
+                    <NoteCard key={note.id}>
                         <NoteTitle>{note.title}</NoteTitle>
-                        {console.log(note.title)}
                         <Line/>
                         <NoteContent>{note.note}</NoteContent>
                     </NoteCard>
