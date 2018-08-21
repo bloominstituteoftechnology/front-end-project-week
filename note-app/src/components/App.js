@@ -21,6 +21,7 @@ class App extends Component {
       currentContent : null,
       currentIndex: null,
       currentKey: null, 
+      nextId:null,
     }
   }
 
@@ -36,8 +37,7 @@ class App extends Component {
     const promise = axios.get('http://localhost:8080/notes')
     promise
     .then(response => {
-      console.log(response)
-      this.setState({notes:response.data})
+      this.setState({notes:response.data, nextId:response.data.length})
     })
     .catch(error => {
       console.log(error)
@@ -45,22 +45,23 @@ class App extends Component {
   }
 
   postNote = (noteobj) => {
-    const promise = axios.post('https://killer-notes.herokuapp.com/note/create', noteobj)
+    const promise = axios.post('http://localhost:8080/notes', noteobj)
     promise
     .then(response => {
-      console.log(response)
+      console.log(response.data)
+      this.setState({notes:[...this.state.notes, response.data], nextId: response.data.length})
     })
     .catch(error => {
       console.log(error)
     })
   }
 
-  createNote = (noteObj) => {
-    this.postNote(noteObj)
-    // const notes = this.state.notes.slice()
-    // notes.push(noteObj)
-    // this.setState({ notes })
-  }
+  // createNote = (noteObj) => {
+  //   this.postNote(noteObj)
+  //   // const notes = this.state.notes.slice()
+  //   // notes.push(noteObj)
+  //   // this.setState({ notes })
+  // }
 
   handleNoteSelect = (index) => {
     const select = this.state.notes[index];
@@ -94,7 +95,7 @@ class App extends Component {
             <CSSTransition timeout = {500} classNames = 'fade' key = {location.key}>
               <Switch location = {location}>
                 <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
-                <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
+                <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.postNote} idGenerator = {this.idGenerator} nextId = {this.state.nextId}/>} />
                 <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
                 <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
                 <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />

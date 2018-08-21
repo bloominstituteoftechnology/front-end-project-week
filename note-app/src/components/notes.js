@@ -13,6 +13,7 @@ class ViewAllNotes extends Component {
     
     render() {
         const notes = this.props.notes; 
+        console.log(notes)
         return (
             <div className = "main-container">
               <SideBar />
