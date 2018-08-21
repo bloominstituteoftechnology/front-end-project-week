@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, Form, Input, Row, Container, Col } from 'reactstrap';
 
-import './NewNote.css';
+import './EditNote.css';
 
-const NewNote = props => {
+const EditNote = props => {
     return (
-        <Container className="new-note">
+        <Container className="edit-note">
             <Row>
                 <Col>
-                    <h2>Create New Note:</h2>
+                    <h2>Edit Note:</h2>
                 </Col>
             </Row>
             <Form>
@@ -20,7 +20,7 @@ const NewNote = props => {
                 <Input onChange={props.handleInputChange} type="textarea" name="content" placeholder="Note Content" rows="15" style={{ marginTop: 15 + 'px' }} value={props.content}/>
                 <Row>
                     <Col sm="4">
-                        <Button onClick={props.addNote}  onMouseUp={() => props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} block>Save</Button>
+                        <Button onClick={props.addNote}  onMouseUp={() => props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} block>Edit</Button>
                     </Col>
                 </Row>
             </Form>
@@ -30,4 +30,4 @@ const NewNote = props => {
 
 
 
-export default NewNote;
+export default EditNote;

@@ -6,6 +6,8 @@ import NotesNav from './components/NotesNav';
 import Notes from './components/Notes';
 import NewNote from './components/NewNote';
 import Note from './components/Note';
+import EditNote from './components/EditNote';
+
 
 
 
@@ -50,18 +52,13 @@ class App extends Component {
   }
 
   deleteNote = note => {
-    console.log(note);
-    console.log(this)
-    console.log(this.state.notes);
-    let notes = this.state.notes;
-    console.log(notes);
-    for (let i = 0; i < notes.length; i++){
-      console.log(notes[i].id)
-      if(notes[i].id === note.id){
+    let notes = this.state.notes.slice();
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].id === note.id) {
         notes.splice(i, 1);
       }
     }
-    this.setState({notes: notes})
+    this.setState({ notes })
   }
 
 
@@ -85,6 +82,10 @@ class App extends Component {
           <Route
             exact path="/notes/:id"
             render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}
+          />
+          <Route
+            exact path="/edit"
+            render={(props) => <EditNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
           />
         </div>
       </div>
