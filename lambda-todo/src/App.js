@@ -16,18 +16,33 @@ class App extends Component {
       deleting: false,
       title: "",
       content: "",
-      cardcontent: ""
+      cardcontent: "",
+      id: null,
+      editContent: "",
+      editTitle: ""
     };
   }
-  addNote = event => {
-    event.preventDefault();
-    const notes = this.state.notes.slice();
-    notes.push({
-      title: this.state.title,
-      cardcontent: this.state.cardcontent, 
-      content: this.state.content
+  addNote = () => {
+    let newId = this.state.notes[this.state.notes.length - 1].id;
+    console.log(newId);
+    this.setState({ id: newId }, function() {
+      let notes = this.state.notes.slice();
+      let id = this.state.id;
+      if (
+        this.state.title !== "" ||
+        this.state.cardcontent !== "" ||
+        this.state.content !== ""
+      ) {
+        id++;
+        notes.push({
+          id: id,
+          title: this.state.title,
+          cardcontent: this.state.cardcontent,
+          content: this.state.content
+        });
+        this.setState({ notes, title: "", content: "", cardcontent: "", id });
+      }
     });
-    this.setState({ notes, title: "", content: "" });
   };
   inputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -43,6 +58,22 @@ class App extends Component {
     let notesLeft = copiedNote.filter(note => note.id != id);
     console.log(notesLeft);
     this.setState({ notes: notesLeft, deleting: false });
+  };
+  noteEdit = id => {
+    let copiedNote = this.state.notes.slice();
+    let noteedit = copiedNote.find(note => note.id === id);
+    this.setState({
+      titleEdit: noteedit.title,
+      contentEdit: copiedNote.content
+    });
+  };
+
+  revisions = id => {
+    let copiedNote = this.state.notes.slice();
+    let noteedit = copiedNote.find(note => note.id === id);
+    noteedit.title = this.state.titleEdit;
+    noteedit.content = this.state.contentEdit;
+    this.setState({ notes: copiedNote });
   };
 
   render() {
@@ -77,6 +108,7 @@ class App extends Component {
             render={props => (
               <ViewNote
                 {...props}
+                noteEdit={this.noteEdit}
                 notes={this.state.notes}
                 deleteBox={this.deleteBox}
                 deleting={this.state.deleting}
@@ -86,7 +118,15 @@ class App extends Component {
           />
           <Route
             path="/view-note/edit/:id"
-            render={props => <EditNote {...props} notes={this.state.notes} />}
+            render={props => 
+                <EditNote 
+                  {...props} 
+                  notes={this.state.notes} 
+                  handleInputChange={this.inputChange}
+                  titleEdit={this.state.titleEdit}
+                  contentEdit={this.state.contentEdit}
+                  revisions={this.revisions}
+                  />}
           />
         </div>
       </div>

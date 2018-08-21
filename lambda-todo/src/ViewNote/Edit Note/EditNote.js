@@ -3,10 +3,6 @@ import {NavLink} from 'react-router-dom';
 import './EditNote.css'; 
 
 const EditNote = props =>{
-    const note = props.notes.find(note => `${note.id}` === props.match.params.id);
-    if(!note ){
-        return null
-    }
     return(
         <div className="new-note">
         <h1>Edit Note</h1>
@@ -14,14 +10,20 @@ const EditNote = props =>{
             <input
             placeholder="Title"
             type="text"
+            name="titleEdit"
             className="title-input"
+            onChange={props.handleInputChange}
+            defaultValue={props.titleEdit}
             />
             <input 
             placeholder="Content"
             type="text"
+            name="contentEdit"
             className="content-input"
+            onChange={props.handleInputChange}
+            defaultValue={props.contentEdit}
             />
-            <NavLink className="nav-btn"to='/'>
+            <NavLink onClick={()=>props.revisions(props.match.params.id)} className="nav-btn"to='/'>
             Add Revisions
             </NavLink>
         </div>

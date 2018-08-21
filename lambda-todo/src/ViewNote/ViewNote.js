@@ -32,7 +32,7 @@ const ViewNote = props => {
         </div>
       </div>
     <div className="edit-delete">
-      <NavLink className="ed" to={`/view-note/edit/${note.id}`}>
+      <NavLink onClick={() => props.noteEdit(note.id)} className="ed" to={`/view-note/edit/${note.id}`}>
     Edit
     </NavLink>
     <NavLink to={`/view-note/${note.id}`} className="ed" onClick={props.deleteBox}>
