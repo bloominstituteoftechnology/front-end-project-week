@@ -16,7 +16,7 @@ class DeleteModal extends React.Component {
         const index = this.props.location.state.index
         return (
             <div className="main-container">
-              <SideBar/>
+              <SideBar name ={"deleting"}/>
               <div className = "create-note-form deleting-form">
                 <div className = "full-note-header deleting">
 
