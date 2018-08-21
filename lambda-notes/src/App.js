@@ -7,7 +7,7 @@ import NoteCard from "./components/NoteCard";
 import Navbar from "./components/Navbar";
 import NewNote from "./components/NewNote";
 import Note from "./components/Note";
-
+import EditNote from './components/EditNote';
 
 
 
@@ -32,23 +32,20 @@ class App extends Component {
       console.log(err);
     })
   }
-  handleInputChange = event => {
-    this.setState({[event.target.name]:event.target.value})
-  }
-  handleAddNote = event => {
-    event.preventDefault();
-    const notes = this.state.notes.slice();
-    notes.push({id: this.state.notes.length, title: this.state.addTitle, content: this.state.addContent});
-    this.setState({notes, addTitle: '', addBody: ''});
-  }
+
   render() {
     return (
       <div className="App">
         <Navbar />
         <Route exact path='/' render={props => <NoteList {...props} notes={this.state.notes} />}/>
-        <Route path='/Note/:id' render={props => <Note {...props} notes={this.state.notes} />} />
+        <Route path='/note/:id' render={(props) => (
+          <Note {...props}  notes={this.state.notes} />) } />
+        <Route path='/notes/:id' render={(props) => (
+          <EditNote {...props} notes={this.state.notes} />)} />
         <Route path='/NewNote' render={props =>
-          <NewNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} addTitle={this.state.addTitle} addBody={this.state.addBody}/>
+          <NewNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote}
+          handleInputChange={this.handleInputChange} addTitle={this.state.addTitle}
+          addBody={this.state.addBody}/>
         } />
       </div>
     );

@@ -1,17 +1,68 @@
-import React from 'react';
+import React, {Component} from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const AddNote = props => {
-  return (
-    <div>
-    <h2>Create New Note:</h2>
-    <form>
-      <input name='newTitle' type='text' value={props.title} onChange={props.handleInputChange} placeholder='Note Title'/>
-      <textarea name='newTextBody' type='text' value={props.body} onChange={props.handleInputChange} placeholder='Note Content'/>
-      <Link to={'/'}><div onClick={this.handleAddNote}>save</div></Link>
-      </form>
-    </div>
-  )
+const URL = 'http://localhost:3300/api/notes';
+
+
+class NewNote extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            content: ''
+         }
+    }
+
+    change = (event) => {
+        this.setState({ [event.target.name]: event.target.value});
+    }
+
+    addNote = event => {
+        event.preventDefault();
+        const newNote = {
+          title: this.state.title,
+          content: this.state.content
+        }
+        axios.post(URL, newNote)
+          .then(response => {
+            console.log(response);
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.log(error);
+          })
+          this.setState({
+            title: '',
+            content: ''
+          });
+    }
+
+    render() {
+
+        const {title, content} = this.state;
+        return (
+            <form>
+                <input
+                    type='text'
+                    name='title'
+                    placeholder='Note title'
+                    value={title}
+                    onChange={(event) => this.change(event)}
+                />
+                <textarea
+                    type='text'
+                    name='content'
+                    placeholder='Note content'
+                    value={content}
+                    onChange={this.change}
+                />
+
+                <button type='submit' onClick={this.addNote}> <Link to ='/'>Save</Link></button>
+
+            </form>
+         );
+    }
 }
 
-export default AddNote;
+export default NewNote;

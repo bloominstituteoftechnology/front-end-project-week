@@ -9,6 +9,7 @@ const NoteCard = (props) => {
         <Col sm="4">
             <Card body className="note-card">
                 <CardBody>
+                <h3>Note</h3>
                     <CardTitle className="note-title">{props.note.title}</CardTitle>
                     <CardText>{props.note.content}</CardText>
                 </CardBody>

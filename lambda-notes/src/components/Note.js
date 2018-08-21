@@ -1,115 +1,60 @@
-import React from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-class Note extends React.Component {
+
+const URL = 'http://localhost:3300/notes';
+
+class Note extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             title: '',
             content: '',
-            id: '',
-            edit: false,
-            modal: false,
-            list: true
-        }
+            id: 0
+
+         }
     }
 
     componentDidMount() {
-        if (this.props.notes) {
-            const note = this.props.notes;
+
+        let id = Number(this.props.match.params.id);
+        axios.get(URL)
+            .then(response => {
+                let match = response.data.find(note => note.id === id);
+                this.setState({
+                    title: match.title,
+                    content: match.content,
+                    id: match.id
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    delete = (id) => {
+        axios.delete(`${URL}/${id}`)
+        .then(response => {
             this.setState({
-                title: note.title,
-                content: note.content,
-                id: note.id
-             });
-        } else {
-            const id = this.props.match.params.id;
-            this.fetchNote(id);
-            this.setState({ list: false })
-        }
-
-}
-
-    fetchNote(id) {
-        id = parseInt(id, 10);
-        const note = this.props.notes.filter(note => note.id === id)[0];
-        this.setState({
-            title: note.title,
-            content: note.content,
-            id: note.id
+                notes: response.data
+            })
+        })
+        .catch(error => {
+          console.log(error);
         })
     }
 
-
-    handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-    }
-
-    handleUpdate = (e, note) => {
-        e.preventDefault();
-        this.props.updateNote(note);
-        this.setState({edit: false})
-    }
-
-    handleDelete = (id) => {
-        this.toggleModal();
-        this.props.deleteNote(id);
-    }
-
-    toggleModal = ()  => {
-        this.setState({modal: !this.state.modal});
-    };
-
-
     render() {
-        const { title, content, id, edit, modal, list } = this.state;
         return (
-             <div className="note-flex-props">
+            <div className="note-view">
+                <h1>{this.state.title}</h1>
+                <p>{this.state.content}</p>
+                <Link to={`/notes/${this.state.id}`}><button> Edit </button></Link>
+                <Link to={'/'}><button onClick={this.delete}> Delete </button></Link>
 
-                {list ? (
-                    <div className="note-card">
-                        <h3 className="title-name">{title}</h3>
-                        <div className="note-card-text-wrapper"><p className="note-card-text">{content}</p></div>
-                    </div>
-
-                ) : (<div>
-                    {edit ? (
-                       <div className="note-form">
-                            <h3>Edit Note:</h3>
-                            <form>
-                                <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
-                                <input name="content" value={content} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                                <button className="button" onClick={() => this.handleUpdate({title, content, id})}>Save</button>
-                            </form>
-                        </div>
-                    ) : (
-                        <div>
-                            <div className="edit-delete-button">
-                                <button onClick={() => this.setState({edit: true})}>Edit</button>
-                                <button onClick={() => this.toggleModal()}>Delete</button>
-                            </div>
-                            <h3>{title}</h3>
-                            <div>{content}</div>
-                        </div>
-                    )}
-                    {modal ? (
-                        <Modal isOpen={modal} className={this.props.className}>
-                          <ModalHeader>Modal title</ModalHeader>
-                          <ModalBody>
-                            Are you sure you want to delete this?
-                          </ModalBody>
-                          <ModalFooter>
-                            <Link to="/" onClick={() => this.handleDelete(id)}>Delete</Link>
-                            <button onClick={() => this.toggleModal()}>Cancel</button>
-                          </ModalFooter>
-                        </Modal>
-                    ) : (null)}
-                    </div>
-                )}
             </div>
-        );
+         );
     }
 }
 
