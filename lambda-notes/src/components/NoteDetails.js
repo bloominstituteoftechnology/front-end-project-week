@@ -18,10 +18,10 @@ class NoteDetails extends Component {
   getNote() {
     let noteId = this.props.match.params.id;
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
+      .get(`http://localhost:3300/${noteId}`)
       .then(response => {
-        this.setState({ details: response.data }, () => {
-          console.log(this.state);
+        this.setState({ details: response.data[0] }, () => {
+          console.log(this.state.details.title);
         });
       })
       .catch(err => console.log(err));
@@ -31,9 +31,10 @@ class NoteDetails extends Component {
     let noteId = this.state.details._id;
 
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+      .delete(`http://localhost:3300/${noteId}`)
       .then(response => {
         this.props.history.push("/");
+        console.log(noteId);
       })
       .catch(err => console.log(err));
   };

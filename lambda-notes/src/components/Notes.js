@@ -2,16 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Note from "./Note";
 import { Link } from "react-router-dom";
-import {
-  Container,
-  Card,
-  Button,
-  CardTitle,
-  CardText,
-  Row,
-  Col
-} from "reactstrap";
-import SidebarNav from "./SidebarNav";
+import { Row, Col } from "reactstrap";
+// import SidebarNav from "./SidebarNav";
 import "../App.css";
 
 class Notes extends Component {
@@ -28,7 +20,7 @@ class Notes extends Component {
 
   getNotes() {
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:3300/all")
       .then(response => {
         this.setState({ notes: response.data }, () => {});
       })
@@ -38,8 +30,8 @@ class Notes extends Component {
   render() {
     const noteItems = this.state.notes.map((note, i) => {
       return (
-        <Col xs="3">
-          <Note key={note._id} note={note} />
+        <Col key={i} xs="3">
+          <Note key={i} note={note} />
         </Col>
       );
     });

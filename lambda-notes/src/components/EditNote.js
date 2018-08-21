@@ -20,7 +20,7 @@ class EditNote extends Component {
     let noteId = this.props.match.params.id;
 
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
+      .get(`http://localhost:3300/${noteId}`)
       .then(response => {
         this.setState({
           title: this.state.title,
@@ -35,7 +35,7 @@ class EditNote extends Component {
     const URL = "http://localhost:3000/";
     let noteId = this.props.match.params.id;
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`, {
+      .put(`http://localhost:3300/${noteId}`, {
         title: this.state.title,
         textBody: this.state.textBody
       })
@@ -45,6 +45,7 @@ class EditNote extends Component {
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    e.preventDefault();
   };
 
   render() {

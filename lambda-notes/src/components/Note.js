@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Card, Button, CardTitle, CardText, Row, Col } from "reactstrap";
+import { Card, Button, CardTitle, CardText } from "reactstrap";
 
 class Note extends Component {
   constructor(props) {
@@ -28,10 +28,10 @@ class Note extends Component {
 
 export default Note;
 
-{
-  /* <li>
-        <Link to={`/note/${this.state.note._id}`}>
-          {this.state.note.textBody}
-        </Link>
-      </li> */
-}
+// {
+//   /* <li>
+//         <Link to={`/note/${this.state.note._id}`}>
+//           {this.state.note.textBody}
+//         </Link>
+//       </li> */
+// }

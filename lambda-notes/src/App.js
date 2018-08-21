@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import Main from "./components/Main";
-import SidebarNav from "./components/SidebarNav";
-import { Nav, NavItem, NavLink } from "reactstrap";
+// import SidebarNav from "./components/SidebarNav";
+// import { Nav, NavItem, NavLink } from "reactstrap";
 
 const App = () => (
   <div className="container">
