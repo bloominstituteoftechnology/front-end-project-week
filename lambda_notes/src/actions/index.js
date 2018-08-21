@@ -82,16 +82,16 @@ export const addNote = (note) => {
     }
 }
 
-// export const updateNote = (id, note) => {
-//     const request = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
-//     return (dispatch) => {
-//         request.then(res => dispatch({
-//             type: types.UPDATE_NOTE,
-//             payload: res.data
-//         }))
-//         .catch(err => dispatch({
-//             type: types.FETCH_ERROR,
-//             error: err
-//         }))
-//     }
-// }
+export const updateNote = (id, note) => {
+    const request = axios.put(`http://localhost:8000/api/notes/${id}`, note)
+    return (dispatch) => {
+        request.then(res => dispatch({
+            type: types.UPDATE_NOTE,
+            payload: res.data
+        }))
+        .catch(err => dispatch({
+            type: types.FETCH_ERROR,
+            error: err
+        }))
+    }
+}

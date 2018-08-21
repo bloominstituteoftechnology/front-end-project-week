@@ -18,8 +18,8 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, { notes: action.payload, error: {} });
         case (types.ADD_NOTE):
             return Object.assign({}, state, { notes: action.payload, error: {} });
-        // case (types.UPDATE_NOTE):
-        //     return Object.assign({}, state, { note: action.payload, error: {} });
+        case (types.UPDATE_NOTE):
+            return Object.assign({}, state, { note: action.payload, error: {} });
         case (types.FETCH_ERROR):
             return Object.assign({}, state, { error: action.error.response });
         default:

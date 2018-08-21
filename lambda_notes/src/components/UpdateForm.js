@@ -62,63 +62,69 @@ const Heading = styled.h2`
     letter-spacing: .8px;
 `;
 
+const Warning = styled.p`
+    align-text: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #E63946;
+    margin: auto;
+    transition-delay: 0.5s;
+    font-family: 'Lora', Serif;
+`;
+
 class UpdateForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isValid: true
+    }
+  }
 
   submitHandler = e => {
     e.preventDefault();
     const id = this.props.match.params.id;
-    this.props.updateNote(id, {
-      title: this.editTitle.value,
-      textBody: this.editContent.value
-    })
-    this.props.history.push(`/notes/${id}`);
-    console.log({
-      title: this.editTitle.value,
-      textBody: this.editContent.value
-    });
+
+    if (!(this.editTitle.value && this.editContent.value)) {
+      this.setState({ isValid: false })
+    } else {
+      this.props.updateNote(id, {
+        title: this.editTitle.value,
+        content: this.editContent.value
+      })
+      this.props.history.push(`/notes/${id}`);
+    }
+
   }
 
   render() {
+    const warning = this.state.isValid
+      ? null
+      :
+      <Warning>
+        ERROR: Please provide both title and content for note.
+      </Warning>;
+
     return (
       <Content>
         <Heading>Edit Note: </Heading>
         <Form onSubmit={this.submitHandler}>
-            <Input
-              placeholder="Note Title"
-              type="text"
-              name="title"
-              innerRef = {node => this.editTitle = node}
-            />
-            <TextArea
-              placeholder="Note Content"
-              type="text"
-              name="body"
-              cols="30"
-              rows="13"
-              innerRef = {node => this.editContent = node}
-            />
-            <Button type='submit'>Update</Button>
-          </Form>
-        {/* <Form onSubmit={this.submitHandler}>
-          <FormGroup>
-            <Label>Edit Note:</Label>
-          </FormGroup>
-          <FormGroup>
-            <Input
-              placeholder="Note Title"
-              type="text"
-              name="title"
-              innerRef={node => this.titleInput = node} />
-          </FormGroup>
-          <FormGroup>
-            <Input
-              placeholder="Note Content"
-              type="textarea"
-              name="body"
-              innerRef={node => this.contentInput = node} />
-          </FormGroup>
+          <Input
+            placeholder="Note Title"
+            type="text"
+            name="title"
+            innerRef={node => this.editTitle = node}
+          />
+          <TextArea
+            placeholder="Note Content"
+            type="text"
+            name="body"
+            cols="30"
+            rows="13"
+            innerRef={node => this.editContent = node}
+          />
           <Button type='submit'>Update</Button>
-        </Form> */}
+        </Form>
+        {warning}
       </Content>
     );
   }
