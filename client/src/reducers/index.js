@@ -4,6 +4,9 @@ import {
   fetchNotesSuccess,
   fetchNotesRequest,
   fetchNotesFailure,
+  fetchOneRequest,
+  fetchOneSuccess,
+  fetchOneFailure,
 } from '../actions';
 
 const notes = handleActions(
@@ -13,15 +16,28 @@ const notes = handleActions(
   [],
 );
 
+const currentNote = handleActions(
+  {
+    [fetchOneSuccess]: (_, { payload }) => payload,
+  },
+  {},
+);
+
 const isFetching = handleActions(
   {
-    [fetchNotesRequest]: () => true,
-    [combineActions(fetchNotesSuccess, fetchNotesFailure)]: () => false,
+    [combineActions(fetchNotesRequest, fetchOneRequest)]: () => true,
+    [combineActions(
+      fetchNotesSuccess,
+      fetchNotesFailure,
+      fetchOneSuccess,
+      fetchOneFailure,
+    )]: () => false,
   },
   false,
 );
 
 export default combineReducers({
   notes,
+  currentNote,
   isFetching,
 });

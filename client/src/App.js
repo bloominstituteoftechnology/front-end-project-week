@@ -7,6 +7,7 @@ import NotesForm from './components/NotesForm';
 import { SecondaryHeading } from './styles';
 import NoteView from './components/NoteView';
 import ListContainer from './containers/ListContainer';
+import NoteContainer from './containers/NoteContainer';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -104,15 +105,16 @@ class App extends Component {
             <Route
               exact
               path="/notes/:id"
-              render={props => (
-                <NoteView
-                  note={this.state.notes.find(
-                    note => note.id === Number(props.match.params.id),
-                  )}
-                  onDelete={this.deleteNote}
-                  {...props}
-                />
-              )}
+              // render={props => (
+              //   <NoteView
+              //     note={this.state.notes.find(
+              //       note => note.id === Number(props.match.params.id),
+              //     )}
+              //     onDelete={this.deleteNote}
+              //     {...props}
+              //   />
+              // )}
+              component={NoteContainer}
             />
           </Switch>
         </MainContent>

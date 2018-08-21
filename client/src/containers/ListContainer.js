@@ -22,6 +22,6 @@ class ListContainer extends Component {
 }
 
 export default connect(
-  state => ({ ...state }),
+  ({ notes, isFetching }) => ({ notes, isFetching }),
   { fetchNotes },
 )(ListContainer);

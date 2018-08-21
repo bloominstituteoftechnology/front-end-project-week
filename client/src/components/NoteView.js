@@ -10,10 +10,12 @@ const NoteContainer = styled.div`
 const TopBar = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 3rem;
 `;
 
 const NoteHeading = SecondaryHeading.extend`
   flex: 1;
+  margin: 0;
 `;
 
 const TextContent = styled.div`
