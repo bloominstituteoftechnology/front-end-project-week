@@ -8,5 +8,23 @@ export const dummyNote = [
     id: 1,
     title: '2',
     content: 'Eius laborum, magnam, amet veniam minus fuga commodi quia nulla architecto ipsa facere sunt ab. Voluptas, quasi aliquam, ducimus officia sit, fuga dolor tenetur earum consequuntur corporis adipisci reiciendis ea!'
+  },
+  {
+
+  },
+  {
+
+  },
+  {
+
+  },
+  {
+    
+  },
+  {
+
+  },
+  {
+    
   }
 ]

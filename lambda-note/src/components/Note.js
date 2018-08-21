@@ -4,12 +4,68 @@ import styled from 'styled-components';
 const NoteDiv = styled.div`
   display: flex;
   width: 780px;
-  justify-content: center;
+  justify-content: flex-start;
 `
 const NoteListDiv = styled.div`
   display: flex;
-  max-width: 500px;
-`
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 10px 40px;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;
+
+const IndividualNoteDiv = styled.div`
+  display: flex;
+  align-items: flex-start;
+  width: 25%;
+  height: 200px;
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid lightgray;
+  overflow: auto;
+
+  p {
+    border-top: 1px solid lightgray;
+    text-align: start;
+    line-height: 30px;
+    font-size: 12px;
+  }
+
+  h3 {
+    margin: 0;
+  }
+`;
+
+const ExpandedIndividualNoteDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10px 40px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    button {
+      border: none;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+
+  div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+  }
+`;
 
 const Popup = styled.div`
   position: fixed;
@@ -21,7 +77,7 @@ const Popup = styled.div`
   bottom: 0;
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
-`
+`;
 
 const InnerPopup = styled.div`
   position: absolute;
@@ -31,7 +87,53 @@ const InnerPopup = styled.div`
   bottom: 25%;
   margin: auto;
   background: white;
+  height: 200px;
+
+  p {
+    margin-top: 60px;
+  }
+`;
+
+const ModifyNoteDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 10px 40px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+`;
+
+
+const TextInput = styled.input`
+  width: 400px;
+  height: 30px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
 `
+
+const ContentInput = styled.textarea`
+  width: 600px;
+  height: 400px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+  line-height:40px;
+`
+
+const Button = styled.button`
+  width: 180px;
+  height: 40px;
+  padding: 0.25em 1em;
+  background: #0ABAB5;
+  color: white;
+  font-weight: bold;
+  border: 1px solid gray;
+  margin-right: 10px;
+`;
 
 function Note (props) {
   const { notes, viewNote, viewList, viewDeleteNote, viewEditNote, selectedNoteId, addNote, editNote, deleteNote, isAdded, isView, isDeleted, isEditted } = props;
@@ -83,27 +185,29 @@ function Note (props) {
 
 function NoteList (props) {
   return (
-    <div>
-      <h3>Your Notes</h3>
-      <NoteListDiv>
-      {props.notes.map(note => {
-        return (
-          <div key={note.id} onClick={() => props.viewNote(note.id)}>
-            <h3>{note.title}</h3>
-            <p>{note.content}</p>
-          </div>
-          )
-      })}
+    <NoteListDiv>
+      <h3>Your Notes: </h3>
+      <div>
+        {props.notes.map(note => {
+          return (
+            <IndividualNoteDiv key={note.id} onClick={() => props.viewNote(note.id)}>
+              <h3>{note.title}</h3>
+              <p>{note.content}</p>
+            </IndividualNoteDiv>
+            )
+        })}
+      </div>
     </NoteListDiv>
-    </div>
   )
 }
 
 function IndividualNote (props) {
   return (
-    <div>
-      <button onClick={props.viewEditNote}>edit</button>
-      <button onClick={props.viewDeleteNote}>delete</button>
+    <ExpandedIndividualNoteDiv>
+      <div>
+        <button onClick={props.viewEditNote}>edit</button>
+        <button onClick={props.viewDeleteNote}>delete</button>   
+      </div>
       { props.notes.filter(note => note.id === props.selectedNoteId)
                    .map(note => {
                      return (
@@ -114,7 +218,7 @@ function IndividualNote (props) {
                      )
                    }) 
       }
-    </div>
+    </ExpandedIndividualNoteDiv>
 
   )
 }
@@ -123,15 +227,17 @@ function DeletePopup (props) {
   return (
     <Popup>
       <InnerPopup>
-        <h3>Are you sure you want to delete this note?</h3>
-        <button 
+        <p>Are you sure you want to delete this note?</p>
+        <Button 
           onClick={() => {
             props.deleteNote(props.selectedNoteId);
             props.viewList();
-        }}>
+          }}
+          style={{background: "red"}}
+        >
           Delete
-        </button>
-        <button onClick={() => props.viewNote(props.selectedNoteId)}>No</button>
+        </Button>
+        <Button onClick={() => props.viewNote(props.selectedNoteId)}>No</Button>
       </InnerPopup>
     </Popup>
   );
@@ -162,15 +268,14 @@ class ModifyNote extends Component{
 
   render () {
     return (
-      <div>
+      <ModifyNoteDiv>
         <h3>{this.props.isAdded ? 'New Note: ' : 'Edit Note: '}</h3>
         <form onSubmit={this.handleOnSubmit}>
-          <input onChange={this.handleOnChange} type="text" value={this.state.title} name="title" placeholder="Note Title" />
-          <input onChange={this.handleOnChange} type="text" value={this.state.content} name="content" placeholder="Note Content" />
-          <button>{this.props.isAdded ? 'Save' : 'Update'}</button>
+          <TextInput onChange={this.handleOnChange} type="text" value={this.state.title} name="title" placeholder="Note Title" />
+          <ContentInput onChange={this.handleOnChange} type="text" value={this.state.content} name="content" placeholder="Note Content" />
+          <Button>{this.props.isAdded ? 'Save' : 'Update'}</Button>
         </form>
-        
-      </div>
+      </ModifyNoteDiv>
     )
   }
 }

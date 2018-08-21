@@ -9,7 +9,6 @@ const Container = styled.div`
 `;
 
 class NoteContainer extends Component {
-
   render () {
     const { viewList, viewNote, viewAddNote, viewEditNote, viewDeleteNote, addNote, editNote, deleteNote, isView, isEditted, isDeleted, isAdded} = this.props;
     const { selectedNoteId, notes } = this.props;
