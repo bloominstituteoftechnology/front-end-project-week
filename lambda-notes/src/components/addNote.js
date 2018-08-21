@@ -7,7 +7,8 @@ export const AddNote = props => {
             <h3>Create New Note:</h3>
             <form>
                 <input className="add-title-input" placeholder="Note Title" /> <br/>
-                <input className="add-text-input" placeholder="Note Content" />
+                <textarea className="add-text-input" placeholder="Note Content" />
+                <div className="save-btn" >Save</div>
             </form>
         </div>
     )

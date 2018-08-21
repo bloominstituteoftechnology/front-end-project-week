@@ -12,7 +12,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      id: '',
+      title: '',
+      text: ''
     }
   }
 
@@ -21,6 +24,10 @@ class App extends Component {
       notes: notesData,
      })
   }
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   render() {
     return (
