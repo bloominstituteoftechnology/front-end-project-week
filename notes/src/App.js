@@ -12,6 +12,7 @@ const API_ALL = "https://killer-notes.herokuapp.com/note/get/all";
 const API_ADD = "https://killer-notes.herokuapp.com/note/create";
 const API_DELETE = "https://killer-notes.herokuapp.com/note/delete";
 const API_GET = "https://killer-notes.herokuapp.com/note/get";
+const API_PUT = "https://killer-notes.herokuapp.com/note/edit";
 class App extends Component {
 	state = {
 		notes: [],
@@ -46,6 +47,22 @@ class App extends Component {
 		});
 	};
 
+	handleEditNote = (id, edited) => {
+		this.setState({ loading: true });
+		axios.put(`${API_PUT}/${id}`, edited).then(response => {
+			this.setState(prevState => ({
+				notes: prevState.notes.map(note => {
+					if (note._id == response.data._id) {
+						return response.data;
+					} else {
+						return note;
+					}
+				}),
+				loading: false,
+			}));
+		});
+	};
+
 	// handleAddNote = note => {
 	// 	this.setState(prevState => ({ notes: [...prevState.notes, note] }));
 	// };
@@ -56,17 +73,17 @@ class App extends Component {
 	// 	}));
 	// };
 
-	handleEditNote = edited => {
-		this.setState(prevState => ({
-			notes: prevState.notes.map(note => {
-				if (note.id == edited.id) {
-					return edited;
-				} else {
-					return note;
-				}
-			}),
-		}));
-	};
+	// handleEditNote = edited => {
+	// 	this.setState(prevState => ({
+	// 		notes: prevState.notes.map(note => {
+	// 			if (note.id == edited.id) {
+	// 				return edited;
+	// 			} else {
+	// 				return note;
+	// 			}
+	// 		}),
+	// 	}));
+	// };
 
 	render() {
 		return (

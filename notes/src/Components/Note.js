@@ -84,7 +84,10 @@ class Note extends React.Component {
 							id="editNoteForm"
 							onSubmit={e => {
 								e.preventDefault();
-								this.props.onSubmit(this.state);
+								this.props.onSubmit(this.state._id, {
+									title: this.state.title,
+									textBody: this.state.textBody,
+								});
 								this.handleEditFlip();
 							}}
 						>
@@ -100,7 +103,7 @@ class Note extends React.Component {
 								id="editNoteForm"
 								cols="30"
 								rows="10"
-								name="text"
+								name="textBody"
 								placeholder="Note Content"
 								value={this.state.text}
 								onChange={this.handleInputChange}
