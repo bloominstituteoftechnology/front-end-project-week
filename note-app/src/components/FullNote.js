@@ -15,7 +15,6 @@ class FullNote extends React.Component{
         const content = this.props.select.textBody;
         const index = this.props.select.index; 
         const select = this.props.select;  
-        console.log(this.props)
         return (
           <div className="main-container">
             <SideBar />

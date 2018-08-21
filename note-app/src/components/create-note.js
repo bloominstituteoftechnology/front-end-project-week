@@ -21,8 +21,7 @@ class CreateNote extends Component {
 
     gatherCreation = () => {
         const id = this.props.idGenerator()
-        const obj = {id: this.props.nextId, tags: [], title: this.state.title, textBody: this.state.textBody, __v: 0, _id: id }
-        console.log(obj)
+        const obj = {id, tags: [], title: this.state.title, textBody: this.state.textBody, __v: 0}
         this.setState({title: '', textBody: ''})
         this.props.create(obj);
     }
