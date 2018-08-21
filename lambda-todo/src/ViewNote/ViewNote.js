@@ -13,7 +13,7 @@ const ViewNote = props => {
     <div className="view-page">
     <div className="note-container">
     <div className={props.deleting ? "delete" : "hide-delete"}>
-        <div className="modal">
+        <div className="delete-box">
           <p>Are you sure you want to delete this?</p>
           <div className="btns">
             <Link className="linkdel" to="/">
@@ -24,9 +24,11 @@ const ViewNote = props => {
                 Delete
               </div>
             </Link>
+            <Link to={`/view-note/${note.id}`}>
             <div onClick={props.deleteModal} className="nobtn">
               No
             </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -35,7 +37,6 @@ const ViewNote = props => {
     Edit
     </NavLink>
     <p className="ed" onClick={props.deleteBox}>delete</p>
-
     </div>
       <div className="note-view-page">View Note</div>
       <div className="note-title">{note.title}</div>

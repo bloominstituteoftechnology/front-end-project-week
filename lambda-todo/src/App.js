@@ -25,7 +25,7 @@ class App extends Component {
 
   deleteNote = (id) => {
     let copiedNote = this.state.notes.slice();
-    let notesLeft = copiedNote.filter(note => note.id !== id)
+    let notesLeft = copiedNote.filter(note => note.id != id)
     console.log(notesLeft);
      this.setState({ notes: notesLeft, deleting: false });
   };
