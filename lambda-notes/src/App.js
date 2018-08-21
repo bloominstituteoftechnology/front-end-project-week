@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 
-import Notes from "./Components/Notes";
-import Note from "./Components/Note";
-import AddNote from "./Components/AddNote";
+import Notes from "./components/Notes";
+import Note from "./components/Note";
+import AddNote from "./components/AddNote";
 
 import "./App.css";
 
@@ -12,64 +12,18 @@ class App extends Component {
 		notes: [
 			{
 				id: 0,
-				title: "FIRST",
-				text: "I am the very model",
+				title: 'Note1',
+				text: 'Go for a run',
 			},
 			{
 				id: 1,
-				title: "SECOND",
-				text: "of a modern major general",
+				title: 'None2',
+				text: 'take out trash',
 			},
 			{
 				id: 2,
-				title: "THIRD",
-				text: "I've information animal",
-			},
-			{
-				id: 3,
-				title: "FOURTH",
-				text: "Vegetable and mineral",
-			},
-			{
-				id: 4,
-				title: "FIFTH",
-				text:
-					"All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. ",
-			},
-			{
-				id: 5,
-				title: "SIXTH",
-				text: "of a modern major general",
-			},
-			{
-				id: 6,
-				title: "SEVENTH",
-				text: "I've information animal",
-			},
-			{
-				id: 7,
-				title: "EIGHTH",
-				text: "Vegetable and mineral",
-			},
-			{
-				id: 8,
-				title: "NINTH",
-				text: "I am the very model",
-			},
-			{
-				id: 9,
-				title: "TENTH",
-				text: "of a modern major general",
-			},
-			{
-				id: 10,
-				title: "ELEVENTH",
-				text: "I've information animal",
-			},
-			{
-				id: 11,
-				title: "TWELFTH",
-				text: "Vegetable and mineral",
+				title: 'Note3',
+				text: 'finish sprint',
 			},
 		],
 	};
@@ -98,38 +52,37 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
-				<div className="Sidebar">
-					<div className="Sidebar__header">
-						<h1>Lambda</h1>
-						<h1> Notes</h1>
+			<div className='App'>
+				<div className='Sidebar'>
+					<div className='Sidebar-header'>
+						<h1>Lambda Notes</h1>
 					</div>
-					<Link to="/notes">
-						<button className="Button">View Your Notes</button>
+					<Link to='/notes'>
+						<button className='button'>View Your Notes</button>
 					</Link>
 
-					<Link to="/add">
-						<button className="Button">+ Create New Note</button>
+					<Link to='/add'>
+						<button className='button'>+ Create New Note</button>
 					</Link>
 				</div>
 				<Route
 					exact
-					path="/"
+					path='/'
 					render={() => <div>This is the home page</div>}
 				/>
 				<Route
 					exact
-					path="/notes"
+					path='/notes'
 					render={() => <Notes notes={this.state.notes} />}
 				/>
 				<Route
 					exact
-					path="/add"
+					path='/add'
 					render={() => <AddNote onSubmit={this.handleAddNote} />}
 				/>
 				<Route
 					exact
-					path="/notes/:id"
+					path='/notes/:id'
 					render={props => (
 						<Note
 							match={props.match}

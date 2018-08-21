@@ -6,8 +6,8 @@ class Note extends React.Component {
 		editDisplay: false,
 		deleteDisplay: false,
 		id: this.props.match.params.id,
-		title: "",
-		text: "",
+		title: '',
+		text: '',
 	};
 
 	handleInputChange = event => {
@@ -33,10 +33,10 @@ class Note extends React.Component {
 		const noteId = this.props.match.params.id;
 
 		return (
-			<div className="NoteWrapper">
+			<div className='note-wrapper'>
 				{this.state.editDisplay ? null : (
 					<div>
-						<div className="Note__editDelete">
+						<div className='note-edit-delete'>
 							<span onClick={() => this.handleEditFlip()}>
 								edit
 							</span>
@@ -44,7 +44,7 @@ class Note extends React.Component {
 								delete
 							</span>
 						</div>
-						<div className="Note__content">
+						<div className='note-content'>
 							<h3>{note.title}</h3>
 							<p>{note.text}</p>
 						</div>
@@ -53,35 +53,33 @@ class Note extends React.Component {
 				<div
 					className={
 						this.state.deleteDisplay
-							? "Note__delete--shown"
-							: "Note__delete--hidden"
+							? 'note-delete-shown'
+							: 'note-delete-hidden'
 					}
 				>
-					<div className="Note__delete-prompt">
+					<div className='note-delete-modal'>
 						<h4>Are you sure you want to delete this?</h4>
-						<div className="Note__delete-prompt-buttons">
-							<Link to="/notes">
+						<div className='note-delete-prompt-buttons'>
+							<Link to='/notes'>
 								<button
-									className="Button Button--danger"
-									onClick={() => this.props.onClick(noteId)}
-								>
+									className='button button-danger'
+									onClick={() => this.props.onClick(noteId)}>
 									Yes
 								</button>
 							</Link>
 							<button
-								className="Button"
-								onClick={() => this.handleDeleteFlip()}
-							>
+								className='button'
+								onClick={() => this.handleDeleteFlip()}>
 								No
 							</button>
 						</div>
 					</div>
 				</div>
 				{this.state.editDisplay ? (
-					<div className="AddNoteWrapper">
+					<div className='add-note-wrapper'>
 						<form
-							className="AddNote__form"
-							id="editNoteForm"
+							className='add-note-form'
+							id='edit-note-form'
 							onSubmit={e => {
 								e.preventDefault();
 								this.props.onSubmit(this.state);
@@ -89,23 +87,23 @@ class Note extends React.Component {
 							}}
 						>
 							<input
-								type="text"
-								placeholder="Note Title"
+								type='text'
+								placeholder='Note Title'
 								value={this.state.title}
-								name="title"
-								autoComplete="off"
+								name='title'
+								autoComplete='off'
 								onChange={this.handleInputChange}
 							/>
 							<textarea
-								id="editNoteForm"
-								cols="30"
-								rows="10"
-								name="text"
-								placeholder="Note Content"
+								id='editNoteForm'
+								cols='80'
+								rows='50'
+								name='text'
+								placeholder='Note Content'
 								value={this.state.text}
 								onChange={this.handleInputChange}
 							/>
-							<button className="Button">Update</button>
+							<button className='button'>Update</button>
 						</form>
 					</div>
 				) : null}

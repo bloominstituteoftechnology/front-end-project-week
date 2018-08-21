@@ -1,52 +1,54 @@
-import React from 'react';
+import React from "react";
 
 class AddNote extends React.Component {
-    state={
-        id: 2,
-        title: '',
-        text: '',
-    }
+	state = {
+		id: 12,
+		title: '',
+		text: '',
+	};
 
-    handleInputChange = e => {
-        this.setState({ [e.target.name] : e.target.value });
-    };
-
-    render() {
-        return(
-            <div className='AddNoteWrapper'>
-                <form 
-                    className='AddNote-form'
-                    id='addNote'
-                    onSubmit={e => {
-                        e.preventDefault();
-                        this.props.onSubmit(this.state);
-                        this.setState(prevState => ({
-                            id: Date.now(),
-                            title: '',
-                            text: '',
-                        }));
-                    }}
-                >
-                    <input 
-                        type="text"
-                        placeholder='Title'
-                        value={this.state.title}
-                        name='title'
-                        onChange={this.handleInputChange}
-                    />
-                    <textarea 
-                        name="" 
-                        id="" 
-                        cols="30" 
-                        rows="10"
-                        placeholder='Content'
-                        onChange={this.handleInputChange}
-                        >{this.state.text}</textarea>
-                    <button>Save</button>
-                </form>
-            </div>
-        );
-    }
+	handleInputChange = event => {
+		this.setState({ [event.target.name]: event.target.value });
+	};
+	render() {
+		return (
+			<div className='add-note-wrapper'>
+            <h2>Create New Note:</h2>
+				<form
+					className="add-note-form"
+					id='add-note-form'
+					onSubmit={e => {
+						e.preventDefault();
+						this.props.onSubmit(this.state);
+						this.setState(prevState => ({
+							id: Date.now(),
+							title: '',
+							text: '',
+						}));
+					}}
+				>
+					<input
+						type='text'
+						placeholder='Note Title'
+						value={this.state.title}
+						name='title'
+						onChange={this.handleInputChange}
+						autoComplete='off'
+					/>
+					<textarea
+						id='add-note-form'
+						cols='120'
+						rows='40'
+						name='text'
+						placeholder='Note Content'
+						value={this.state.text}
+						onChange={this.handleInputChange}
+					/>
+					<button className='button'>Save</button>
+				</form>
+			</div>
+		);
+	}
 }
 
 export default AddNote;

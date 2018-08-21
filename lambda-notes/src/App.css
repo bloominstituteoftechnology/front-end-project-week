@@ -3,7 +3,7 @@
 }
 
 .Sidebar {
-	background-color: #ccc;
+	background-color: #D3D2D3;
 	border: 1px solid darkgray;
 	height: 100vh;
 	width: 300px;
@@ -13,28 +13,29 @@
 	align-items: center;
 }
 
-.Sidebar__header {
-	align-self: flex-start;
-	margin-left: 26px;
-	margin-top: 15px;
+.Sidebar-header {
+    align-self: flex-start;
+    padding: 5px 40px 0 10px ;
+    font-size: 1.3rem;
 }
 
-.Button {
+.button {
 	width: 200px;
 	height: 40px;
 	background-color: #00b6bb;
 	color: white;
 	text-align: center;
-	margin-top: 20px;
+    margin-top: 20px;
+    font-size: .8rem;
 }
 
-.Button:hover,
-.Button:focus {
+.button:hover,
+.button:focus {
 	background: #077074;
 	outline: none;
 }
 
-.NotesWrapper {
+.notes-wrapper {
 	display: flex;
 	align-content: flex-start;
 	flex-wrap: wrap;
@@ -43,67 +44,83 @@
 	background-color: #f2f0f2;
 }
 
-.Notes {
+.notes {
 	border: 1px solid black;
 	background-color: #fff;
 	width: 150px;
 	height: 150px;
 	padding: 8px;
 	word-wrap: break-word;
-	overflow: hidden;
+    overflow: hidden;
+    margin: 10px;
+    text-decoration: none;
 }
 
-.Notes:not(:last-child) {
-	margin-right: 3%;
-	margin-bottom: 3%;
-}
 
-.Notes__title {
+.notes-title {
 	border-bottom: 1px solid black;
-	padding-bottom: 8px;
+    padding-bottom: 8px;
+    color: black;
 }
 
-.Notes__text {
+.notes-text {
 	margin-top: 8px;
-	font-size: 1.3rem;
+    font-size: 1rem;
+    color: black;
 }
 
-.AddNoteWrapper {
+.add-note-wrapper {
 	width: 100%;
-	background-color: #f2f0f2;
+    background-color: #f2f0f2;
 }
 
-.AddNote-form {
+.add-note-wrapper h2 {
+    margin: 20px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.add-note-form {
 	display: flex;
 	flex-direction: column;
 	margin: 20px;
 }
 
-.AddNote-form input {
-	margin-bottom: 20px;
+.add-note-form input {
+    padding: 10px;
+    width: 55%;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 3px;
 }
 
-.AddNote-form button {
-	margin-top: 20px;
+.add-note-form textarea {
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 3px;
 }
 
-.NoteWrapper {
+.add-note-form button {
+    margin-top: 20px;
+}
+
+.note-wrapper {
 	width: 100%;
 	background-color: #f2f0f2;
 	position: relative;
 }
 
-.Note__editDelete {
+.note-edit-delete {
 	display: flex;
 	justify-content: flex-end;
 	margin: 20px;
 }
 
-.Note__editDelete span:not(:last-child) {
+.note-edit-delete span:not(:last-child) {
 	margin-right: 20px;
 }
 
-.Note__delete--shown {
+.note-delete-shown {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -116,11 +133,11 @@
 	align-items: center;
 }
 
-.Note__delete--hidden {
+.note-delete-hidden {
 	display: none;
 }
 
-.Note__delete-prompt {
+.note-delete-modal {
 	background: #fff;
 	border: 2px solid darkgray;
 	padding: 20px;
@@ -128,18 +145,18 @@
 	text-align: center;
 }
 
-.Note__delete-prompt-buttons {
+.note-delete-prompt-buttons {
 	display: flex;
 	justify-content: space-evenly;
 }
 
-.Button--danger {
+.button-danger {
 	background: red;
 }
 
-.Note__content {
-	padding: 20px;
-	font-size: 1.3rem;
+.note-content {
+	padding: 10px;
+	font-size: 1.1rem;
 	width: 80%;
 	margin: 0 auto;
 }
