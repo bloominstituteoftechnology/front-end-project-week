@@ -14,8 +14,13 @@ it('contains a <SidebarContainer /> and <MainContentContainer />', () => {
 });
 it('<MainContentContainer /> should have 4 <Route></Route>', () => {
     const app = shallow(<App />);
-    const mainContentContainer = app.find('.main-content-container');
-    expect(mainContentContainer.find('Route').length).toBe(4);
+  });
+  it("checks every <Route /> to see if there is a path prop in <MainContentContainer></MainContentContainer>", () => {
+    const app = shallow(<App />);
+    const mainContentContainer = app.find(".main-content-container");
+    mainContentContainer.find("Route").forEach(route => {
+      expect(route.prop("path")).toBeDefined();
+    });
 });
 
 it('matches the snapshot', () => {
