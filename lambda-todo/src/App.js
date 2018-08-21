@@ -18,8 +18,8 @@ class App extends Component {
       content: "",
       cardcontent: "",
       id: null,
-      editContent: "",
-      editTitle: ""
+      contentEdit: "",
+      titleEdit: ""
     };
   }
   addNote = () => {
@@ -64,7 +64,7 @@ class App extends Component {
     let noteedit = copiedNote.find(note => note.id == id);
     this.setState({
       titleEdit: noteedit.title,
-      contentEdit: copiedNote.content
+      contentEdit: noteedit.content
     });
   };
 

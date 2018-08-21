@@ -24,7 +24,7 @@ const NewNotePage = props => {
           value={props.value.cardcontent}
           name="cardcontent"
         />
-        <input
+        <textarea
           placeholder="Content"
           type="text"
           className="content-input"
