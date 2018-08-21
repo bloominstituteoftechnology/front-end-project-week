@@ -74,7 +74,7 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     searchText: state.searchText,
-    filteredNotes: state.notes.filter(note => note.title.includes(state.searchText) || note.textBody.includes(state.searchText))
+    filteredNotes: state.notes.filter(note => note.title.toLowerCase().includes(state.searchText.toLowerCase()) || note.textBody.toLowerCase().includes(state.searchText.toLowerCase()))
   }
 }
 
