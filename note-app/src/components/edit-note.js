@@ -34,7 +34,7 @@ class EditNote extends Component {
                 <br/>
                 <input onChange = {this.onChange} className = "input-content" type="text" placeholder = "Note Content" name = 'content' value ={this.state.content}/>
                 <br/>
-                <Link to = {`/${this.props.match.params.id}`}><button onClick = {this.gatherInformation} className = "btn-side-bar">Update</button></Link>
+                <Link to = '/'><button onClick = {this.gatherInformation} className = "btn-side-bar">Update</button></Link>
                 {/* Would like to fix the placeholder inside of the input-content also to the right margin is off by 11px */}
             </div>
 

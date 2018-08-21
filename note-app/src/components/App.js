@@ -38,6 +38,11 @@ class App extends Component {
   }
   updateNote = (index, noteObj) => {
     console.log(index, noteObj)
+    const notes = this.state.notes.slice()
+    console.log(notes)
+    notes[index] = noteObj
+    console.log(notes); 
+    this.setState({ notes })
     
 
   }
