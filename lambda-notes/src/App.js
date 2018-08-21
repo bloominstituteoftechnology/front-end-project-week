@@ -4,10 +4,10 @@ import { MainNav } from "./components/mainNav/MainNav";
 import { Notes } from "./components/noteList/Notes";
 import { IndividualNote } from "./components/noteList/IndividualNote";
 import { EditNote } from "./components/modifyNote/EditNote";
-import { DeleteNote } from "./components/modifyNote/DeleteNote";
+import { CreateNote } from "./components/modifyNote/CreateNote";
+// import { DeleteNote } from "./components/modifyNote/DeleteNote";
 
 import "./css_styles/app.css";
-import { CreateNote } from "./components/modifyNote/CreateNote";
 
 class App extends Component {
   constructor(props) {
@@ -71,8 +71,13 @@ class App extends Component {
   }
 
   inputChangeHandler = event => {
-    console.log("InputChangeHandler", event.target.name);
+    // console.log("InputChangeHandler", event.target.name);
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  submitNewNoteHandler = event => {
+    event.preventDefault();
+    console.log("Working Submit Handler");
   };
 
   render() {
@@ -101,6 +106,7 @@ class App extends Component {
               noteTitle={this.state.noteTitle}
               noteDescription={this.state.noteDescription}
               inputChangeHandler={this.inputChangeHandler}
+              submitNewNoteHandler={this.submitNewNoteHandler}
             />
           )}
         />
