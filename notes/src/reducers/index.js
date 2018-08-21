@@ -7,6 +7,7 @@ import {
     NOTE_UPDATED,
     DELETING_NOTE,
     NOTE_DELETED,
+    SEARCHING,
     ERROR
 } from '../actions';
 
@@ -20,6 +21,8 @@ const initialState = {
     noteUpdated: false,
     deletingNote: false,
     noteDeleted: false,
+    searching: false,
+    searchText: '',
     error: null
 }
 
@@ -72,6 +75,12 @@ export default (state = initialState, action) => {
                 deletingNote: false,
                 noteDeleted: true,
                 notes: [...action.payload]
+            })
+        case SEARCHING:
+            console.log('searching');
+            return Object.assign({}, state, {
+                searching: true,
+                searchText: action.payload
             })
         case ERROR:
             console.log('error', action.payload);

@@ -8,6 +8,7 @@ export const UPDATING_NOTE = 'UPDATING_NOTE';
 export const NOTE_UPDATED = 'NOTE_UPDATED';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
+export const SEARCHING = 'SEARCHING';
 export const ERROR = 'ERROR';
 
 export const addNote = (tags, title, textBody) => {
@@ -67,5 +68,11 @@ export const deleteNote = (id) => {
                 console.log('error', err);
                 dispatch({type: ERROR, payload: err})
             })
+    }
+}
+
+export const searching = (text) => {
+    return dispatch => {
+        dispatch({type: SEARCHING, payload: text})
     }
 }

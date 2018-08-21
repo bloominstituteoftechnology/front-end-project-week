@@ -8,7 +8,7 @@ import SingleNoteView from './components/SingleNoteView';
 import { Route } from 'react-router-dom';
 import notesArray from './components/NotesArray';
 import { connect } from 'react-redux';
-import { getNotes, addNote, updateNote, deleteNote } from './actions';
+import { getNotes, addNote, updateNote, deleteNote, searching } from './actions';
 import { withRouter } from 'react-router';
 
 class App extends Component {
@@ -23,6 +23,7 @@ class App extends Component {
   componentDidMount() {
     // this.setState({notes: notesArray})
     this.props.getNotes();
+    // this.setState({notes: this.props.notes})
   }
 
   submitForm = (tags, title, textBody) => {
@@ -42,7 +43,6 @@ class App extends Component {
     // }});
     this.props.updateNote(ident, tags, title, textBody);
     this.props.history.push('/');
-    this.forceUpdate();
   }
 
   deleteNote = (ident) => {
@@ -53,14 +53,18 @@ class App extends Component {
     this.props.deleteNote(ident);
   }
 
+  filterData = (event) => {
+    this.props.searching(event.target.value);
+  }
+
   render() {
     return (
       <div className="App">
         <Sidebar />
-        <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.notes} />)} />
-        <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.notes} submit={this.submitForm} />)} />
-        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.notes} delete={this.deleteNote} />)} />
-        <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.notes} submitEdit={this.submitEditForm} />)} />
+        <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.filteredNotes} filter={this.filterData} />)} />
+        <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.filteredNotes} submit={this.submitForm} />)} />
+        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes} delete={this.deleteNote} />)} />
+        <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.filteredNotes} submitEdit={this.submitEditForm} />)} />
       </div>
     );
   }
@@ -68,8 +72,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    searchText: state.searchText,
+    filteredNotes: state.notes.filter(note => note.title.includes(state.searchText) || note.textBody.includes(state.searchText))
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, addNote, updateNote, deleteNote })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, addNote, updateNote, deleteNote, searching })(App));
