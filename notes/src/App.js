@@ -5,9 +5,18 @@ import styled from 'styled-components';
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router'
 
-import {AllNotes, NewNote, NoteDetails, EditNote, DeleteNote} from './components';
+import {
+    AllNotes,
+    EditNote,
+    DeleteNote,
+    NewNote,
+    NoteDetails,  } from './components';
 
-import {getNotes, addNote, deleteNote, editNote} from './actions';
+import {
+  addNote,
+  deleteNote,
+  editNote,
+  getNotes, } from './actions';
 
 const AppDiv = styled.div`
     ${'' /* border: 1px solid red; */}
@@ -61,7 +70,6 @@ const AppDiv = styled.div`
       justify-content: center;
       align-items: center;
     }
-
 `;
 
 class App extends Component {
@@ -103,12 +111,7 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    // console.log(id)
-    // console.log(this.props.state.notes)
-    // console.log(this.props.state.notes.find(note => {return note._id == id}))
-    return (this.props.state.notes.find(note => {return note._id == id}))
-    // return (this.props.state.notes.find(note => {return note._id === parseInt(id, 10)}))
-    // 10 declares the number base
+    return this.props.state.notes.find(note => {return note._id == id})
   }
 
   disableDelete = () => {
@@ -124,41 +127,18 @@ class App extends Component {
   }
 
   deleteNote = (id) => {
-    // let newArr = this.state.notes.slice().filter(note => note.id !== id);
-    // this.setState({
-    //   notes: newArr,
-    //   deleteEnabled: false,
-    // })
     this.props.deleteNote(id);
   }
 
   newNote = (newNote) => {
-    // console.log('editnote', newNote);
-
-    // let newArr = this.state.notes.slice();
-    // newArr.push(newNote)
-    // this.setState({
-    //   notes: newArr,
-    //   count: this.state.count + 1,
-    // })
-    console.log(newNote)
     this.props.addNote(newNote);
   }
 
   editNote = (noteEdit) => {
-    // let newArr = this.state.notes.slice()
-    // let position = newArr.findIndex(note => note.id === noteEdit.id)
-    // newArr[position] = noteEdit;
-    // this.setState({
-    //   notes: newArr,
-    //   count: this.state.count + 1,
-    // })
-      console.log(noteEdit)
     this.props.editNote(noteEdit)
   }
 
   render() {
-    console.log(this.props);
     return (
         <AppDiv>
 
@@ -170,44 +150,66 @@ class App extends Component {
 
           <div className="right-display">
 
-            <Route exact path="/all-notes/"  render={ () => {
-                return (<AllNotes notes={this.props.state.notes} />)
-              }}></Route>
+            <Route
+              exact
+              path="/all-notes/"
+              render={ () => {
+                return (
+                  <AllNotes notes={this.props.state.notes} />
+                )
+              }}
+            ></Route>
 
-            <Route exact path="/new-note"  render={ () => {
-                return (<NewNote count={this.state.count} newNote={this.newNote} notes={this.state.notes} />)
-              }}></Route>
+            <Route
+              exact
+              path="/new-note"
+              render={ () => {
+                return (
+                  <NewNote
+                    count={this.state.count} newNote={this.newNote} notes={this.state.notes} />
+                )
+              }}
+            ></Route>
 
-            <Route path="/all-notes/:noteId"
+            <Route
               exact={!this.state.deleteEnabled}
+              path="/all-notes/:noteId"
               render={ (note) => {
-                let single = this.getNoteDetails(note.match.params.noteId);
-                // console.log(note.match.params.noteId)
-                // console.log(single, "single")
-                    return (<NoteDetails enableDelete={this.enableDelete}  note={single} />)
+                return (
+                  <NoteDetails
+                    enableDelete={this.enableDelete}  note={this.getNoteDetails(note.match.params.noteId)} />
+                )
               }}></Route>
 
-            <Route exact path="/all-notes/:noteId/edit"
+            <Route
+              exact
+              path="/all-notes/:noteId/edit"
               render={ (note) => {
-                let single = this.getNoteDetails(note.match.params.noteId);
-                // console.log(note.match.params.noteId)
-                // console.log(single, "edit single")
-                return (<EditNote count={this.state.count} editNote={this.editNote} note={single} />)
-              }}></Route>
+                return (
+                  <EditNote
+                    count={this.state.count}
+                    editNote={this.editNote} note={this.getNoteDetails(note.match.params.noteId)} />
+                )
+              }}
+            ></Route>
 
           </div>
 
           {(this.state.deleteEnabled) ?
              (<div className="delete">
-                <Route  path="/all-notes/:noteId/delete" render={ (note) => {
-                    let single = this.getNoteDetails(note.match.params.noteId);
-                    return (<div>
-                        <DeleteNote deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={single} />
-                        {/* <NoteDetails note={single} /> */}
-                      </div>)
-                  }}></Route>
+                <Route
+                  path="/all-notes/:noteId/delete"
+                  render={ (note) => {
+                    return (
+                      <div>
+                        <DeleteNote
+                          deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
+                      </div>
+                    )
+                  }}
+                ></Route>
               </div>) :
-               null}
+          null}
 
         </AppDiv>
     );//return
