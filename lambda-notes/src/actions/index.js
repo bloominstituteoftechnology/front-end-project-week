@@ -11,6 +11,7 @@ export const DELETING_NOTES = 'DELETING_NOTES'
 export const DELETED_NOTES = 'DELETED_NOTES'
 export const UPDATING_NOTES = 'UPDATING_NOTES'
 export const UPDATED_NOTES = 'UPDATED_NOTES'
+export const SEARCH = 'SEARCH'
 export const ERROR = 'ERROR'
 
 export const fetchNotes = () => {
@@ -37,7 +38,7 @@ export const addNewNote = data => {
         dispatch( {type: ADDING_NOTES })
         //Do the api calls here 
         axios.post(`https://killer-notes.herokuapp.com/note/create`, data)
-            .then(res =>  dispatch( {type: ADDED_NOTES, payload: res.data.success}))
+            .then(res =>  dispatch( {type: ADDED_NOTES, id: res.data.success, payload: data}))
             .catch(err => console.log(err))
     }
 }
@@ -58,5 +59,11 @@ export const updateNotes = data => {
         axios.put(`https://killer-notes.herokuapp.com/note/edit/${data._id}`, data)
             .then(res => dispatch( { type: UPDATED_NOTES } ) )
             .catch(err => dispatch( { type: ERROR } ))
+    }
+}
+
+export const search = sString => {
+    return dispatch => {
+        dispatch( {type: SEARCH, sString })
     }
 }

@@ -94,3 +94,12 @@ export const NoteOptions = styled.div`
     display: flex;
     justify-content: flex-end
 `
+
+export const SearchInput = styled.input`
+    font-family: 'Roboto', sans-serif;
+    height: 40px;
+    width: 75%;
+    font-size: 1em;
+    padding: 0.25em 1em;
+    margin: 1em;
+`

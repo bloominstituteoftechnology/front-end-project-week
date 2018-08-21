@@ -4,28 +4,51 @@ import './App.css';
 import { Button, H1, H2, H3 } from './components/StyledComponents';
 import SideBar from './components/SideBar';
 import { connect } from 'react-redux';
-import { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes } from './actions';
+import { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search } from './actions';
 import ListView from './components/ListView/ListView';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
 import NewNote from './components/CreateNote/NewNote';
 import NoteView from './components/NoteView';
 
 class App extends Component {
-  
+  state = {
+    listNotes: [],
+  }
+
+  searchInputChange = event => {
+    const sString = event.target.value
+    this.props.search(sString)
+  }
+
+  searchNotes = (notes, sString) => {
+    if (sString === '') 
+      return notes
+    else 
+      return notes.filter(note => note.title === sString)
+      
+  }
+
   componentDidMount(){
     this.props.fetchNotes()
   }
+
+  
   render() {
+    let notes = this.props.notes.slice()
+    if (this.props.searching){
+      notes = this.props.searchList.slice()
+    }
+    
     return (
       <div className="App">
         <div className="sideBar">
-          <SideBar />
+          <SideBar onSearchChange={this.searchInputChange}/>
         </div>
         {this.props.notes ? 
           <div><Route exact path="/"
-            render={props => <ListView {...this.props} {...props}/>}/>
+            render={props => <ListView notes={notes} {...props}/>}/>
           <Route path="/newNote" 
-            render={props => <NewNote {...this.props}/>} />
+            render={props => <NewNote {...this.props} {...props}/>} />
           <Route exact path="/notes/:id" 
             render={props => <NoteView {...props} {...this.props} /> }/>
           <Route path="/notes/update/:id" 
@@ -48,8 +71,10 @@ function Home (){
 const mapStateToProps = state => {
   return {
     notes: state.notes,
-    fetchingNotes: state.fetchingNotes
+    fetchingNotes: state.fetchingNotes,
+    searching: state.searching,
+    searchList: state.searchList
   }
 }
 
-export default connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes })(App);
+export default withRouter(connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search })(App))
