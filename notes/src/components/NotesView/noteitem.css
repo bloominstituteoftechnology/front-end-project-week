@@ -1,14 +1,20 @@
-.note-item {
+.note-item-link {
     display: flex;
     flex-wrap: wrap;
-    width: 24.5%;
+    width: 23.8%;
+    min-height: 150px;
     border: 1px solid #ADAEAE;
     background-color: white;
     margin-bottom: 25px;
     margin-right: 2.5%;
     padding: 5px 3%;
+    text-decoration: none;
+    color: black;
 }
 
+.note-item {
+    width: 100%;
+}
 .note-item h3 {
     font-size: 1.1rem;
     font-weight: bold;
@@ -26,4 +32,5 @@
 .note-item p {
     font-size: 1rem;
     min-height: 100px;
+    line-height: 1.5;
 }

@@ -1,11 +1,12 @@
-import React, { Component }from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './newnote.css';
+import './edit.css';
 
-class NewNote extends Component {
-    constructor(props){
+class Edit extends Component {
+    constructor(props) {
         super(props);
         this.state = {
+            id: props.id,
             title: "",
             text: ""
         }
@@ -16,22 +17,22 @@ class NewNote extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    addNoteHandler = e => {
-        this.props.addNote(this.state);
+    updateNoteHandler = e => {
+        this.props.updateNote(this.state);
     }
-
-    render(){
+    
+    render () {
         return (
-            <div className="new-note-view">
-                <h2>Create New Note:</h2>
+            <div className="edit-note-view">
+                <h2>Edit Note:</h2>
                 <form>
                     <input className="title-input" name="title" placeholder="Note Title" onChange={this.editInput} />
                     <textarea name="text" placeholder="Note Content" rows="21" onChange={this.editInput}></textarea>
-                    <Link className="btn" to="/" onClick={this.addNoteHandler}>Save</Link>
+                    <Link className="btn" to="/" onClick={this.updateNoteHandler}>Update</Link>
                 </form>
             </div>
         );
     }
 }
 
-export default NewNote;
+export default Edit;

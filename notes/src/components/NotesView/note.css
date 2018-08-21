@@ -1,0 +1,25 @@
+.note .note-links {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3.5%;
+}
+
+.note .note-links a {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #454646;
+    margin-right: 15px;
+}
+
+.note h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #454646;
+    margin-bottom: 25px;
+}
+
+.note p {
+    line-height: 1.5;
+    margin-right: 3.5%;
+}

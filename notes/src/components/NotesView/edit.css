@@ -1,17 +1,17 @@
 
-.new-note-view h2 {
+.edit-note-view h2 {
     font-size: 1.4rem;
     font-weight: bold;
     color: #454646;
     margin-bottom: 25px;
 }
 
-.new-note-view form {
+.edit-note-view form {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
-.new-note-view input {
+.edit-note-view input {
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -21,7 +21,7 @@
     box-sizing: border-box;
 }
 
-.new-note-view textarea {
+.edit-note-view textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 3.5% 8px 0;
@@ -31,7 +31,7 @@
     box-sizing: border-box;
 }
 
-.new-note-view .btn {
+.edit-note-view .btn {
     width: 30%;
     border: 1px solid #ADAEAE;
     text-align: center;
