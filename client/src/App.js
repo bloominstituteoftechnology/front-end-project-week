@@ -51,13 +51,18 @@ class App extends Component {
     this.setState(({ notes }) => ({
       notes: notes.map(
         note =>
-          note.id === Number(id)
+          note.id === id
             ? {
                 ...note,
                 ...data,
               }
             : note,
       ),
+    }));
+
+  deleteNote = id =>
+    this.setState(({ notes }) => ({
+      notes: notes.filter(note => note.id !== id),
     }));
 
   render() {
@@ -89,7 +94,7 @@ class App extends Component {
                   <SecondaryHeading>Edit Post</SecondaryHeading>
                   <NotesForm
                     {...props}
-                    onFormSubmit={this.editNote(props.match.params.id)}
+                    onFormSubmit={this.editNote(Number(props.match.params.id))}
                   />
                 </div>
               )}
@@ -102,6 +107,8 @@ class App extends Component {
                   note={this.state.notes.find(
                     note => note.id === Number(props.match.params.id),
                   )}
+                  onDelete={this.deleteNote}
+                  {...props}
                 />
               )}
             />
