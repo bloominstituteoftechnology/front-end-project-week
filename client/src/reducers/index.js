@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { handleActions, combineActions } from 'redux-actions';
+import { handleAction, handleActions, combineActions } from 'redux-actions';
 import {
   fetchNotesSuccess,
   fetchNotesRequest,
@@ -7,11 +7,15 @@ import {
   fetchOneRequest,
   fetchOneSuccess,
   fetchOneFailure,
+  addNoteRequest,
+  addNoteSuccess,
+  addNoteFailure,
 } from '../actions';
 
 const notes = handleActions(
   {
     [fetchNotesSuccess]: (_, { payload }) => payload,
+    [addNoteSuccess]: (state, { payload }) => [...state, payload],
   },
   [],
 );
@@ -36,8 +40,24 @@ const isFetching = handleActions(
   false,
 );
 
+const isAdding = handleActions(
+  {
+    [addNoteRequest]: () => true,
+    [combineActions(addNoteSuccess, addNoteFailure)]: () => false,
+  },
+  false,
+);
+
+const addError = handleAction(
+  addNoteFailure,
+  (_, { payload }) => payload,
+  null,
+);
+
 export default combineReducers({
   notes,
   currentNote,
   isFetching,
+  isAdding,
+  addError,
 });

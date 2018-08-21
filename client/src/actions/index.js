@@ -10,6 +10,12 @@ export const {
   fetchOneRequest,
   fetchOneSuccess,
   fetchOneFailure,
+  addNoteRequest,
+  addNoteSuccess,
+  addNoteFailure,
+  editNoteRequest,
+  editNoteSuccess,
+  editNoteFailure,
 } = createActions(
   'FETCH_NOTES_REQUEST',
   'FETCH_NOTES_SUCCESS',
@@ -17,6 +23,12 @@ export const {
   'FETCH_ONE_REQUEST',
   'FETCH_ONE_SUCCESS',
   'FETCH_ONE_FAILURE',
+  'ADD_NOTE_REQUEST',
+  'ADD_NOTE_SUCCESS',
+  'ADD_NOTE_FAILURE',
+  'EDIT_NOTE_REQUEST',
+  'EDIT_NOTE_SUCCESS',
+  'EDIT_NOTE_FAILURE',
 );
 
 export const fetchNotes = () => async dispatch => {
@@ -37,5 +49,15 @@ export const fetchOne = id => async dispatch => {
     dispatch(fetchOneSuccess(response.data));
   } catch (err) {
     dispatch(fetchOneFailure(err));
+  }
+};
+
+export const addNote = data => async dispatch => {
+  dispatch(addNoteRequest());
+  try {
+    let response = await axios.post(`${API_URL}/create`, data);
+    dispatch(addNoteSuccess({ _id: response.data.success, ...data }));
+  } catch (err) {
+    dispatch(addNoteFailure(err));
   }
 };

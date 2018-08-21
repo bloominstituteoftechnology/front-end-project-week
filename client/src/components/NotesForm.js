@@ -58,7 +58,6 @@ class NotesForm extends Component {
   onFormSubmit = e => {
     e.preventDefault();
     this.props.onFormSubmit(this.state);
-    this.props.history.push('/');
   };
 
   render() {

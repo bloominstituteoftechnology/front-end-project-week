@@ -8,6 +8,7 @@ import { SecondaryHeading } from './styles';
 import NoteView from './components/NoteView';
 import ListContainer from './containers/ListContainer';
 import NoteContainer from './containers/NoteContainer';
+import AddNoteContainer from './containers/AddNoteContainer';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -82,12 +83,13 @@ class App extends Component {
             <Route
               exact
               path="/notes/new"
-              render={props => (
-                <div>
-                  <SecondaryHeading>Create New Note</SecondaryHeading>
-                  <NotesForm {...props} onFormSubmit={this.createNote} />
-                </div>
-              )}
+              // render={props => (
+              //   <div>
+              //     <SecondaryHeading>Create New Note</SecondaryHeading>
+              //     <NotesForm {...props} onFormSubmit={this.createNote} />
+              //   </div>
+              // )}
+              component={AddNoteContainer}
             />
             <Route
               exact
