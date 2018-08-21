@@ -217,6 +217,35 @@ h1 {
   min-height: 100vh;
 }
 
-.modal {
-  z-index: 1000;
+.btn-danger, .btn-info {
+  width: 220px !important;
+  border-radius: 0 !important;
+}
+
+.btn-info {
+  background-color: #25B8BD !important;
+  padding-left: 10px !important;
+}
+
+.modal-footer {
+  display: flex !important;
+  justify-content: center !important;
+  padding-bottom: 40px !important;
+}
+
+.modal-header {
+  display: none !important;
+}
+
+.modal-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  margin: 190px auto 0 -50px !important;
+  width: 600px !important;
+  border-radius: 0 !important;
+  height: 200px !important;
 }
