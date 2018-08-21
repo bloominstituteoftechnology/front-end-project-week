@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Note from './Note';
 import { Link } from 'react-router-dom';
+import { CSVLink, CSVDownload } from 'react-csv';
 
 class NotesList extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class NotesList extends Component {
                 <div className="notesInnerDiv">
                 {this.props.notes.map(note => <Link to={`/notes/${note._id}`}><Note note={note} key={note._id} /></Link>)}
                 </div>
+                <CSVLink data={this.props.notes}>Download CSV of Notes</CSVLink>
             </div>
         )
     }
