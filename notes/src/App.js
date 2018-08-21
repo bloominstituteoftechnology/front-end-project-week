@@ -13,8 +13,8 @@ class App extends Component {
         id: 0,
         title: 'Welcome!',
         text: `Please create a new note! Click for more information.
-          You can create a new note by clicking the create new note button to the left.
-          You can also edit and delete me by clicking on me and then using one of the handy controls at the top!`
+        You can create a new note by clicking the create new note button to the left.
+        You can also edit and delete me by clicking on me and then using one of the handy controls at the top!`
       }
     ],
     title: '',

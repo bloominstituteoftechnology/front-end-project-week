@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, CardText } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 import ReactMarkDown from 'react-markdown';
 
 const Note = (props) => {
@@ -15,9 +15,7 @@ const Note = (props) => {
                 <ReactMarkDown source={title.slice(0, 17).trim() + (title.length > 17 ? '...' : '')} />
               </h5>
               <hr />
-              <CardText>
-                <ReactMarkDown source={text.slice(0, 116).trim() + ((text.length > 116) ? '...' : '')} />
-              </CardText>
+              <ReactMarkDown source={text.slice(0, 116).trim() + ((text.length > 116) ? '...' : '')} />
             </CardBody>
           </Card>
         )
