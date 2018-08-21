@@ -13,7 +13,7 @@ const Authenticate = App =>
 
         componentDidMount() {
             // Sets state to logged in if we have username and password in local storage
-            if (localStorage.getItem('username') && localStorage.getItem('password')) {
+            if (localStorage.getItem('token') ) {
                 this.setState({ loggedIn: true });
             } else {
                 this.setState({ loggedIn: false });

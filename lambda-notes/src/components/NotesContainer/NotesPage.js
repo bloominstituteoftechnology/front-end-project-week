@@ -19,9 +19,7 @@ class NotesPage extends Component {
 
     logoutButton = () => {
         // Removes username / password from local storage then refreshes page
-        localStorage.removeItem('username');
-        localStorage.removeItem('password');
-
+        localStorage.removeItem('token');
         window.location.reload();
     }
 

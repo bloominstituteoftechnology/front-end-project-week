@@ -1,5 +1,6 @@
 import React from 'react';
 import { LoginWrapper, LoginForm, LoginInput, LoginButton } from '../ReusableComponents/Login';
+import axios from 'axios';
 
 class Login extends React.Component {
     constructor() {
@@ -31,10 +32,15 @@ class Login extends React.Component {
             return;
         }
 
-        localStorage.setItem('username', this.state.username);
-        localStorage.setItem('password', this.state.password);
+        const user = { username: this.state.username, password: this.state.password }
 
-        window.location.reload();
+        axios
+            .post('http://localhost:8000/api/users/login', user)
+            .then(response => {
+                localStorage.setItem('token', response.data);
+                window.location.reload();
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
