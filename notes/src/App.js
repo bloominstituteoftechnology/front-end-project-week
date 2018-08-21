@@ -29,7 +29,8 @@ class App extends Component {
       notes: [],
       newTitle: '',
       newNote: '',
-      number: myNotes.length
+      number: myNotes.length,
+      modal: false
     }
   }
 
@@ -46,7 +47,7 @@ class App extends Component {
     const selectedNote = dummyNotes.find(note => note.id.toString() === id);
     const index = dummyNotes.indexOf(selectedNote);
     dummyNotes.splice(index, 1);
-    this.setState({ notes: dummyNotes })
+    this.setState({ notes: dummyNotes, modal: false })
   }
 
   addNewNoteHandler = (props) => {
@@ -62,6 +63,30 @@ class App extends Component {
     this.setState({ notes: dummyNotes, newTitle: '', newNote: '', number: myNewNote.id++ });
   }
 
+  beginEditNoteHandler = (id) => {
+    const dummyNotes = this.state.notes;
+    let selectedNote = dummyNotes.find(note => note.id.toString() === id);
+    const index = dummyNotes.indexOf(selectedNote);
+    selectedNote.editing = !selectedNote.editing;
+    dummyNotes[index] = selectedNote;
+    this.setState({ newTitle: selectedNote.title, newNote: selectedNote.note, notes: dummyNotes })
+  }
+
+  submitEditedNote = (id) => {
+    const dummyNotes = this.state.notes;
+    let selectedNote = dummyNotes.find(note => note.id.toString() === id);
+    selectedNote.title = this.state.newTitle;
+    selectedNote.note = this.state.newNote;
+    selectedNote.editing = false;
+    const index = dummyNotes.indexOf(selectedNote);
+    dummyNotes[index] = selectedNote;
+    this.setState({ newTitle: '', newNote: '', notes: dummyNotes });
+  }
+
+  toggle = () => {
+    this.setState({ modal: !this.state.modal })
+  }
+
   render() {
     return (
       <div className="App">
@@ -70,7 +95,7 @@ class App extends Component {
           this.state.notes.length === 0 ? <h1>Add a note!</h1>
           : <Notes notes={this.state.notes} />
         } />
-        <Route path='/notes/:id' render={(props) => <NotePage {...props} notes={this.state.notes} delete={this.deleteNoteHandler} title={this.state.newTitle} note={this.state.newNote} />} />
+        <Route path='/notes/:id' render={(props) => <NotePage {...props} editComplete={this.submitEditedNote} editStart={this.beginEditNoteHandler} change={this.onChangeHandler} notes={this.state.notes} delete={this.deleteNoteHandler} title={this.state.newTitle} note={this.state.newNote} toggle={this.toggle} modal={this.state.modal} />} />
         <Route path='/new-note' render={(props) => <NewNote {...props} addNote={this.addNewNoteHandler} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} />} />
       </div>
     );
