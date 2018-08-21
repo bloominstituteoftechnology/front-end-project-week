@@ -1,9 +1,8 @@
 import React from 'react';
 import { LoginWrapper, LoginForm, LoginInput, LoginButton } from '../ReusableComponents/Login';
-import { connect } from 'react-redux';
-import { signIn } from '../../actions/auth';
+import axios from 'axios';
 
-class Login extends React.Component {
+class Register extends React.Component {
     constructor() {
         super();
 
@@ -18,8 +17,7 @@ class Login extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    loginButton = event => {
-        event.preventDefault();
+    loginButton = () => {
         // Checks username / password fields are empty / adds username / password to local storage
         if (this.state.username === '' && this.state.password === '') {
             alert('You need to enter a username and password!');
@@ -36,14 +34,20 @@ class Login extends React.Component {
 
         const user = { username: this.state.username, password: this.state.password }
 
-        this.props.signIn(user);
+        axios
+            .post('http://localhost:8000/api/users/login', user)
+            .then(response => {
+                localStorage.setItem('token', response.data);
+                window.location.reload();
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
         // Displays login form
         return (
             <LoginWrapper>
-                <LoginForm>
+                <LoginForm onSubmit={event => event.preventDefault()}>
 
                     <h1>Lambda Notes</h1>
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
@@ -60,8 +64,4 @@ class Login extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return { authenticated: state.auth.signedIn };
-}
-
-export default connect(mapStateToProps, { signIn })(Login);
+export default Register;

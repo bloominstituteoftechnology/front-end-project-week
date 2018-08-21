@@ -5,6 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import NotesTrash from './NotesTrash';
 import ModalContainer from '../ModalContainer/ModalContainer';
+import RequireAuth from '../Authenticate/RequireAuth';
 
 class NotesContainer extends React.Component {
     constructor(props) {
@@ -76,4 +77,4 @@ class NotesContainer extends React.Component {
 
 }
 
-export default DragDropContext(HTML5Backend)(NotesContainer);
+export default RequireAuth(DragDropContext(HTML5Backend)(NotesContainer));

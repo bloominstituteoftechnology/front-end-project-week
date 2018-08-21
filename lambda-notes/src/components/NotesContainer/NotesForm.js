@@ -54,8 +54,8 @@ class NotesForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes,
-        fetching: state.fetchingNotes
+        notes: state.notes.notes,
+        fetching: state.notes.fetchingNotes
     }
 }
 

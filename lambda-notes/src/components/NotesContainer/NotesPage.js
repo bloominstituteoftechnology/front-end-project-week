@@ -6,6 +6,7 @@ import SideBarContainer from '../SideBarContainer/SideBarContainer';
 import NotesContainer from './NotesContainer';
 import CreateNotesContainer from './CreateNotesContainer';
 import HomeContainer from '../HomeContainer/HomeContainer';
+import RequireAuth from '../Authenticate/RequireAuth';
 import { Route } from 'react-router-dom';
 import { getNotes, deleteNote, setNotes } from '../../actions';
 import { connect } from 'react-redux';
@@ -31,15 +32,15 @@ class NotesPage extends Component {
                     <React.Fragment>
 
                         <Route path='/' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
-                        <Route exact path='/' component={HomeContainer} />
+                        <Route exact path='/' component={RequireAuth(HomeContainer)} />
                         <Route exact path='/notes' render={props =>
                             <NotesContainer {...props}
                                 notes={this.props.notes}
                                 setNotes={this.props.setNotes}
                                 deleteNote={this.props.deleteNote} />} />
-                        <Route exact path='/notes/:id' component={Note} />
-                        <Route path='/notes/:id/edit' component={UpdateNotesContainer} />
-                        <Route path='/create' component={CreateNotesContainer} />
+                        <Route exact path='/notes/:id' component={RequireAuth(Note)} />
+                        <Route path='/notes/:id/edit' component={RequireAuth(UpdateNotesContainer)} />
+                        <Route path='/create' component={RequireAuth(CreateNotesContainer)} />
 
                     </React.Fragment>
                 }
@@ -51,8 +52,8 @@ class NotesPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes,
-        fetching: state.fetchingNotes
+        notes: state.notes.notes,
+        fetching: state.notes.fetchingNotes
     }
 }
 // Authenticate used to check if user is logged in / withRouter used so redux knows that it changed routes'
