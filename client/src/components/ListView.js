@@ -15,7 +15,7 @@ const ListView = ({ notes }) => {
       <SecondaryHeading>Your Notes:</SecondaryHeading>
       <CardsContainer>
         {notes.map(note => (
-          <LinkWrapper to={`/notes/${note.id}`} key={note.id}>
+          <LinkWrapper to={`/notes/${note._id}`} key={note._id}>
             <Card note={note} />
           </LinkWrapper>
         ))}

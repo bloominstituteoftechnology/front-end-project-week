@@ -90,7 +90,7 @@ class NoteView extends React.Component {
 
   render() {
     const {
-      note: { id, title, textBody },
+      note: { _id: id, title, textBody },
       onDelete,
       history,
     } = this.props;

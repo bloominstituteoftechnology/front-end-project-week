@@ -6,6 +6,7 @@ import ListView from './components/ListView';
 import NotesForm from './components/NotesForm';
 import { SecondaryHeading } from './styles';
 import NoteView from './components/NoteView';
+import ListContainer from './containers/ListContainer';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -74,7 +75,8 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <ListView notes={this.state.notes} />}
+              // render={() => <ListView notes={this.state.notes} />}
+              component={ListContainer}
             />
             <Route
               exact
