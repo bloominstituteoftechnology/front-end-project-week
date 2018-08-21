@@ -9,6 +9,7 @@ import {
 
 import ListView from '../ListView/ListView';
 import NewNote from '../NewNote/NewNote';
+import NoteView from '../NoteView/NoteView';
 
 class SideMenu extends Component {
     constructor() {
@@ -21,12 +22,13 @@ class SideMenu extends Component {
                     <div className="nav-container">
                         <h1 className="menu-title">Lambda<br/>Notes</h1>
                         <li><NavLink exact to="/" className="nav-text" activeClassName="active-component">View Your Notes</NavLink></li>
-                        <li><NavLink to="/create-new-note/" className="nav-text" activeClassName="active-component">+ Create New Note</NavLink></li>
+                        <li><NavLink exact to="/create-new-note/" className="nav-text" activeClassName="active-component">+ Create New Note</NavLink></li>
                     </div>     
                 </ul>
 
                 <Route exact path="/" component={ListView} className="example"/>
-                <Route exact path="/create-new-note/" component={NewNote} />
+                <Route path="/create-new-note/" component={NewNote} />
+                <Route path="/:title/" component={NoteView} />
             </div>
         );
     }
