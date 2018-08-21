@@ -19,6 +19,10 @@ a {
   text-decoration: none;
   color: black;
 }
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
 textarea {
   resize: none;
 }
@@ -61,6 +65,7 @@ hr {
   text-align: left;
   height: 235px;
   transition-duration: 400ms;
+  overflow: hidden;
 }
 .card:hover {
   background: #595959;
@@ -94,7 +99,7 @@ hr {
   margin: 0 10px;
 }
 .sidebar button {
-  margin: 20px 5px 10px;
+  margin: 20px auto 10px;
 }
 .note-form-container {
   width: 100%;

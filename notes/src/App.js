@@ -27,6 +27,9 @@ class App extends Component {
     nextId: 1
   };
 
+  // back to notes page
+  redirect = () => window.location='/';
+
   // for single note view
   storeNote = note => {
     this.setState({ note });
@@ -51,7 +54,7 @@ class App extends Component {
       title: '',
       text: '',
       nextId: nextId + 1
-    });
+    }, this.redirect);
   };
 
   editNote = e => {
@@ -62,7 +65,7 @@ class App extends Component {
       notes: notes.map(n => n.id === note.id ? {...n, title, text} : n),
       title: '',
       text: ''
-    });
+    }, this.redirect);
   };
 
   /* Modal methods */
@@ -72,7 +75,7 @@ class App extends Component {
     this.toggleModal();
     this.setState({
       notes: notes.filter(n => n.id !== note.id)
-    }, () => window.location="/");
+    }, this.redirect);
   };
 
   toggleModal = () => {
@@ -104,6 +107,7 @@ class App extends Component {
           <h1>Lambda Notes</h1>
           <Link to="/"><Button color="info">View Your Notes</Button></Link>
           <Link to="/create"><Button color="info">+ Create New Note</Button></Link>
+          <Route exact path="/" render={() => <Button color="info">CSV placeholder</Button>} />
         </div>
         <div className="main-content">
           <Route
