@@ -9,15 +9,16 @@ class Note extends React.Component {
     }
 
     componentDidMount() {
+        console.log('You are in update')
         console.log(this.props)
         const id = this.props.match.params.id;
-        const notes = this.props.notes[id]
-        console.log(notes)
-        this.setState({
-            title: notes.title,
-            content: notes.content,
-            id: id
-        })
+        // const notes = this.props.notes[
+        // console.log(notes)
+        // this.setState({
+        //     title: notes.title,
+        //     content: notes.content,
+        //     id: id
+        // })
     }
 
     onInputChnage = event => {

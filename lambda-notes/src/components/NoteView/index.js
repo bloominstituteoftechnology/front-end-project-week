@@ -1,5 +1,5 @@
 import React from 'react' 
-import { H1, UnderLinedP, NoteOptions, Button } from '../StyledComponents';
+import { H1, UnderLinedP, NoteOptions, Button, TitleInput, ContentInput } from '../StyledComponents';
 import { Link } from 'react-router-dom'
 class NoteView extends React.Component{
     state = {
@@ -7,7 +7,8 @@ class NoteView extends React.Component{
         title: 'Note Title',
         content: 'Note Content',
         id: null,
-        modal: false
+        modal: false,
+        update: false
     }
 
     toggle = () => {
@@ -29,6 +30,27 @@ class NoteView extends React.Component{
         this.props.history.push('/')
     }
 
+    onEdit = () => {
+        this.setState({update: true})
+    }
+
+    onInputChnage = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    onSumbit = event => {
+        console.log('~~~~~~~~~~~CREATE NEW NOTE~~~~~~~~')
+        console.log(this.props)
+        this.props.addNewNote({
+            _id: this.state.id,
+            title: this.state.title,
+            textBody: this.state.content
+        })
+        this.setState({update: false})
+    }
+
     render() {
         if (!this.state.notesAdded){
             if (this.props.notes.length > 0){
@@ -40,11 +62,21 @@ class NoteView extends React.Component{
                 })
             }
             return (<div className="appView">Loading..</div>)
+        } else if (this.state.update){
+            return (
+                <div className="appView">
+                    <div className="newNote">
+                        <TitleInput onChange={ this.onInputChnage } type="text" name="title" placeholder="Note Title" value={this.state.title}/>
+                        <ContentInput onChange={ this.onInputChnage }  type="text" name="content" rows="40" col="5"placeholder="Note Content" wrap="soft" value={this.state.content}/>
+                        <Button onClick={this.onSumbit} submit>Submit</Button>
+                    </div>
+                </div>
+            )
         }else {
             return (
                 <div className="appView">
                     <NoteOptions>
-                        <Link to={`/notes/update/${this.state.id}`}><UnderLinedP>edit</UnderLinedP></Link>
+                        <UnderLinedP onClick={this.onEdit}>edit</UnderLinedP>
                         <UnderLinedP onClick={this.toggle}>delete</UnderLinedP>
                     </NoteOptions>
                     <div className="NoteView">
