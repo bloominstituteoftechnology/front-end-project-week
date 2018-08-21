@@ -25,14 +25,17 @@ class App extends Component {
     this.setState({notesArr: notes});
   }
 
-  handleNewNote = () => {
-
+  handleNewNote = (input) => {
+    input.id = input.title;
+    let notes = this.state.notesArr.slice();
+    notes.push(input);
+    this.setState({ notesArr: notes })
   }
 
   render() {
     return (
       <AppContainer>
-        <Route path="/addnote" component={NewNote} />
+        <Route path="/addnote" render={props => { return <NewNote handleNewNote={this.handleNewNote}/>}} />
         <HeadCtrls />
         <NoteList notes={this.state.notesArr} />
       </AppContainer>

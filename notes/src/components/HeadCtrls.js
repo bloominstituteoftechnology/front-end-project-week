@@ -25,7 +25,7 @@ const HeadCtrls = (props) => {
         <HeadCtrlsContainer>
             <h3>NoteNote</h3>
             <Link to="/addnote">
-                <h1 class="add-btn">+</h1>
+                <h1 className="add-btn">+</h1>
             </Link>
             {/* <Route path="/addnote" component={NewNote} /> */}
         </HeadCtrlsContainer>

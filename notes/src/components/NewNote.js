@@ -28,6 +28,10 @@ class NewNote extends React.Component {
         }
     }
 
+    saveNote = () => {
+        this.props.handleNewNote(this.state)
+    }
+
     handleInput = (e) => {
         console.log("what e EES", e.target.name);
         this.setState({
@@ -35,13 +39,21 @@ class NewNote extends React.Component {
         })
     }
 
+
+
     render(){
         console.log(this.state.title);
         return (
-        <NewNoteContainer>
-                <input class="note-input title" type="text" name="title" placeholder="title" onChange={this.handleInput}/>
+        <NewNoteContainer >
+                <input className="note-input title" type="text" name="title" placeholder="title" onChange={this.handleInput}/>
             {/* <input type="text" name="note" placeholder="note"/> */}
-                <textarea class="note-input note-area" rows="6" cols="33" name="note" placeholder="note" onChange={this.handleInput}></textarea>
+                <textarea className="note-input note-area" rows="6" cols="33" name="note" placeholder="note" onChange={this.handleInput}></textarea>
+                <button onClick={this.saveNote}>
+                    <Link to="/">save.</Link>
+                </button>
+                <button>
+                    <Link to="/">cancel.</Link>
+                </button>
         </NewNoteContainer>
         )
     }
