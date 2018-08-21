@@ -21,8 +21,8 @@ export default class Login extends Component {
         password: this.state.password
       })
       .then(response => {
-        localStorage.setItem('token', response.data.token)
-        localStorage.setItem('username', response.data.username)
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', response.data.username);
         this.props.history.push('/');
       }) 
       .catch(err => this.setState({ denied: true }));

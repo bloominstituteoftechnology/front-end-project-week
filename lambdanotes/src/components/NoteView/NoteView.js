@@ -17,13 +17,24 @@ export default class NoteView extends Component {
     localStorage.token ? null : this.props.history.push('/login');
   }
 
-  componentDidMount() {
+  componentWillMount = () => {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username')
+    const requestOptions = {
+      headers: {
+        Authorization: token,
+        username
+      }
+    }
     axios
-      .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`)
-      .then(res => this.setState({ 
-        title: res.data[0].title,
-        message: res.data[0].message
-      }))
+      .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`, requestOptions)
+      .then(res => {
+        this.setState({
+          title: res.data[0].title,
+          message: res.data[0].message
+        })
+      })
+      .catch(err => this.props.history.push('/login'))
   }
 
   render() {

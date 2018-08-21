@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
-
 export default class Register extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +21,8 @@ export default class Register extends Component {
         password: this.state.password
       })
       .then(response => {
-        console.log('response', response)
-        localStorage.setItem('token', response.data)
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', response.data.username);
         this.props.history.push('/');
       })
       .catch(err => this.setState({ denied: true }));

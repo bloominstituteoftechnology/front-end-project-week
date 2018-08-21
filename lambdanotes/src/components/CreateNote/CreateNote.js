@@ -17,10 +17,12 @@ export default class CreateNote extends Component {
 
   handleSubmit = () => {
     const URL = 'http://localhost:3000/';
+    const username = localStorage.getItem('username');
     axios
       .post(`http://localhost:8000/api/notes`, {
         title: this.state.title,
-        message: this.state.message
+        message: this.state.message,
+        username,
       })
       //.then(response => console.log(response))
       .then(response => window.location.href = URL)

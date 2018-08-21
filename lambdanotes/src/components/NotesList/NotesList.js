@@ -16,12 +16,14 @@ export default class NotesList extends Component {
   componentWillMount = () => {
     localStorage.token ? null : this.props.history.push('/login');
   }
-  
+
   componentWillMount = () => {
     const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username')
     const requestOptions = {
       headers: {
-        Authorization: token
+        Authorization: token,
+        username
       }
     }
     axios
