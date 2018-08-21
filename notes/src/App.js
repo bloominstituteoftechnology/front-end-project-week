@@ -58,10 +58,6 @@ class App extends Component {
   }
 
   render() {
-    for(let i = 0; i < this.state.notes.length; i++) {
-      console.log(this.state.notes[i].id);
-    }
-
     return (
       <div className="App">
         <div className="container">
@@ -69,15 +65,15 @@ class App extends Component {
           <div className="notes-view">
             <Route exact path="/" render={routeProps => <ListView {...routeProps} notes={this.state.notes} />} />
             <Route exact path="/new-note" render={routeProps => <NewNote {...routeProps} addNote={this.addNote}/>}/>
-            <Route exact path="/:id" render={({match}) => <Note note={this.state.notes[match.params.id]} deleteNote={this.deleteToggleHandler} />}/>
-            <Route exact path="/:id/edit" render={({match}) => <Edit id={match.params.id} updateNote={this.updateNote}/>}/>
+            <Route exact path="/note/:id" render={({match}) => <Note note={this.state.notes[match.params.id]} deleteNote={this.deleteToggleHandler} />}/>
+            <Route path="/note/:id/edit" render={({match}) => <Edit id={match.params.id} updateNote={this.updateNote}/>}/>
           </div>
           
           <div className="delete-modal" style={this.state.deleteModalToggle ? {display:"block"} : {display: "none"}}>
             <div className="modal-box">
               <p>Are you sure you want to delete this?</p>
               <Link className="modal-delete-btn" to="/" onClick={this.deleteNote}>Delete</Link>
-              <div className="modal-cancel-btn"onClick={this.deleteToggleHandler}>No</div>  
+              <div className="modal-cancel-btn" onClick={this.deleteToggleHandler}>No</div>  
             </div>
           </div>
         </div>

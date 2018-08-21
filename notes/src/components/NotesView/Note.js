@@ -11,10 +11,11 @@ class Note extends Component {
     }
 
     render() {
+        console.log("Note: " + this.props.note);
         return (
             <div className="note">
                 <div className="note-links">
-                    <Link to={`/${this.props.note.id}/edit`}>edit</Link>
+                    <Link to={`/note/${this.props.note.id}/edit`}>edit</Link>
                     <a className="delete-btn" onClick={() => this.props.deleteNote(this.props.note.id)}>delete</a>
                 </div>
                 <h2>{this.props.note.title}</h2>

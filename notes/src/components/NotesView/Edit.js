@@ -13,7 +13,6 @@ class Edit extends Component {
     }
 
     editInput = e => {
- 
         this.setState({[e.target.name]: e.target.value});
     }
 

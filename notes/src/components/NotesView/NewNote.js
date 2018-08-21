@@ -21,6 +21,7 @@ class NewNote extends Component {
     }
 
     render(){
+        console.log("New Note Page rendered");
         return (
             <div className="new-note-view">
                 <h2>Create New Note:</h2>
