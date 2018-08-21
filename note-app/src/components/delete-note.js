@@ -10,7 +10,6 @@ class DeleteModal extends React.Component {
         this.props.delete(index)
     }
     render() {
-        console.log(this.props)
         const title = this.props.location.state.title
         const content = this.props.location.state.content
         const index = this.props.location.state.index
@@ -18,7 +17,6 @@ class DeleteModal extends React.Component {
 
             <div className = "create-note-form deleting-form">
                 <div className = "full-note-header deleting">
-                {/* <Link to = {`/${this.props.match.params.id}/edit-note`} ><h6>edit</h6></Link> */}
 
                 <h6>edit</h6> 
                 <h6>delete</h6>

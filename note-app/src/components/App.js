@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   createNote = (noteObj) => {
-    console.log(noteObj)
+
     const notes = this.state.notes.slice()
     notes.push(noteObj)
     this.setState({ notes })
@@ -33,23 +33,17 @@ class App extends Component {
 
   handleNoteSelect = (index) => {
     const select = this.state.notes[index];
-    console.log("Selected", select)
     this.setState({currentTitle: select.title, currentContent: select.content, currentIndex: index})
   }
   updateNote = (index, noteObj) => {
-    console.log(index, noteObj)
     const notes = this.state.notes.slice()
-    console.log(notes)
     notes[index] = noteObj
-    console.log(notes); 
     this.setState({ notes })
   }
 
   deleteNote  = (index) => {
-    console.log("Deleting index ", index)
     let notes = this.state.notes.slice()
     const deleting = notes[index]
-    console.log(deleting)
     notes = notes.filter(note => note.title !== deleting.title)
     this.setState({ notes })
 
@@ -57,7 +51,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.notes)
     
     return (
       <div className="App">
@@ -67,7 +60,6 @@ class App extends Component {
         </div>
         <div className = "main-container">
           <SideBar />
-          {/* <div classname = "changing-container">Test</div> */}
           <Switch>
             <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
             <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
@@ -75,11 +67,7 @@ class App extends Component {
             <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
             <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
           </Switch>
-          {/* <CreateNote create = {this.createNote}/> */}
-          {/* <EditNote /> */}
-          {/* <ViewAllNotes notes = {this.state.notes} click = {this.handleNoteSelect} /> */}
-          {/* <FullNote ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex}/> */}
-          {/* <DeleteModal /> */}
+          
         </div>
         
       </div>
