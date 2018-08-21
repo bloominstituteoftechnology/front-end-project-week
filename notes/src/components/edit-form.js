@@ -38,7 +38,6 @@ const EditFormDiv = styled.div`
         border: 1px solid lightgray;
       }
   }
-
 `;
 
 export default class EditForm extends Component {
@@ -52,17 +51,6 @@ export default class EditForm extends Component {
   }
 
   sendToApp = (e) => {
-    // e.preventDefault();
-    console.log(this.props)
-    // if (this.props.button === "Create") {
-    //   this.props.newNote(this.state);
-    // } else {
-    //   this.props.editNote(this.state);
-    // }
-    // this.setState({
-    //   title: '',
-    //   body: '',
-    // })
     this.props.editNote(this.state)
   }
 
@@ -74,19 +62,36 @@ export default class EditForm extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
-        <EditFormDiv>
-          <form onSubmit={this.sendToApp}>
-            <input className="input" id="title"
-              onChange={this.inputHandler}
-              name='title' value={this.state.title} placeholder="Note Title">{this.value}</input>
-            <textarea className="input" id="body"
-              name='textBody'
-              onChange={this.inputHandler} value={this.state.textBody} placeholder="Note Content">{this.value}</textarea>
-            <Link className="menu-item" onClick={this.sendToApp} to={`/all-notes/${this.state._id}`}>Save</Link>
-          </form>
-        </EditFormDiv>
+      <EditFormDiv>
+        <form onSubmit={this.sendToApp}>
+
+          <input
+            className="input"
+            id="title"
+            onChange={this.inputHandler}
+            name='title'
+            value={this.state.title}
+            placeholder="Note Title"
+          >{this.value}</input>
+
+          <textarea
+            className="input"
+            id="body"
+            name='textBody'
+            onChange={this.inputHandler}
+            value={this.state.textBody}
+            placeholder="Note Content"
+          >{this.value}</textarea>
+
+          <Link
+            className="menu-item"
+            onClick={this.sendToApp}
+            to={`/all-notes/${this.state._id}`}
+          >Save</Link>
+
+        </form>
+      </EditFormDiv>
     );
   }
 }

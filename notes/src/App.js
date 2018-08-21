@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {Link, Route} from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
-import {connect} from 'react-redux'
-import { withRouter } from 'react-router'
+import {connect} from 'react-redux';
+import { withRouter } from 'react-router';
 
 import {
     AllNotes,
@@ -103,7 +103,6 @@ class App extends Component {
   }
 
   componentDidMount = ()=> {
-    console.log(this.props)
     this.props.getNotes();
     this.setState({
       notes: this.props.state.notes

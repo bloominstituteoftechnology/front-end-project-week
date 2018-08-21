@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import { withRouter } from 'react-router';
 
 const NoteDetailsDiv = styled.div`
   ${'' /* border: 1px solid green; */}
@@ -29,50 +31,50 @@ const NoteDetailsDiv = styled.div`
   }
 `;
 
-export default class NoteDetails extends Component {
+class NoteDetails extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      note: {},
-    }
   }
 
   componentDidMount(){
-    // console.log(this)
-    // console.log(this.props.note)
-    // console.log(this.state)
-    if (this.props.note) {
-      this.setState({note: this.props.note})
-    };
   }
 
   render() {
-    // console.log(this)
-    // console.log(this.props.note)
-    // console.log(this.state)
+    console.log(this.props)
     return (
       <div>
         {(this.props.note) ?
-        (<NoteDetailsDiv>
-          <div className="links">
-            <Link
-              className="link"
-              onClick={() => this.props.enableDelete()}
-              to={`/all-notes/${this.state.note._id}/delete`}>delete</Link>
-            <Link
-              className="link"
-              to={`/all-notes/${this.state.note._id}/edit`}>edit</Link>
-            <Link
-              className="link"
-              to={`/all-notes/`}>back</Link>
-          </div>
-
-          <h4>{this.state.note.title}</h4>
-          <p>{this.state.note.textBody}</p>
-        </NoteDetailsDiv>) :
+          (
+            <NoteDetailsDiv>
+            <div className="links">
+              <Link
+                className="link"
+                onClick={() => this.props.enableDelete()}
+                to={`/all-notes/${this.props.note._id}/delete`}>delete</Link>
+              <Link
+                className="link"
+                to={`/all-notes/${this.props.note._id}/edit`}>edit</Link>
+              <Link
+                className="link"
+                to={`/all-notes/`}>back</Link>
+            </div>
+            <h4>{this.props.note.title}</h4>
+            <p>{this.props.note.textBody}</p>
+          </NoteDetailsDiv>
+        ) :
         null}
       </div>
 
     );
   }
 }
+
+const mapStateToProps = store => {
+  return {state: store};//state is really props & store is store
+}
+
+const mapDispatchToProps = {
+
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NoteDetails));
