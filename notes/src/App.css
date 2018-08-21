@@ -13,6 +13,12 @@
 	align-items: center;
 }
 
+.Sidebar__header {
+	align-self: flex-start;
+	margin-left: 26px;
+	margin-top: 15px;
+}
+
 .Button {
 	width: 200px;
 	height: 40px;

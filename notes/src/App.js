@@ -100,8 +100,10 @@ class App extends Component {
 		return (
 			<div className="App">
 				<div className="Sidebar">
-					<h1>Lambda Notes</h1>
-
+					<div className="Sidebar__header">
+						<h1>Lambda</h1>
+						<h1> Notes</h1>
+					</div>
 					<Link to="/notes">
 						<button className="Button">View Your Notes</button>
 					</Link>

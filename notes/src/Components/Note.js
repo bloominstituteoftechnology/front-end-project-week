@@ -93,6 +93,7 @@ class Note extends React.Component {
 								placeholder="Note Title"
 								value={this.state.title}
 								name="title"
+								autoComplete="off"
 								onChange={this.handleInputChange}
 							/>
 							<textarea

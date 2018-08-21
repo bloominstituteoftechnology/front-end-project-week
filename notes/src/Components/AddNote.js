@@ -32,6 +32,7 @@ class AddNote extends React.Component {
 						value={this.state.title}
 						name="title"
 						onChange={this.handleInputChange}
+						autoComplete="off"
 					/>
 					<textarea
 						id="addNoteForm"
