@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom'; 
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
 
 import '../styles/App.css';
-import SideBar from './side-bar';
 import CreateNote from './create-note';
 import EditNote from './edit-note';
 import ViewAllNotes from './notes';
 import FullNote from './FullNote';
 import DeleteModal from './delete-note';
+
+
 
 class App extends Component {
   constructor(props){
@@ -55,22 +57,25 @@ class App extends Component {
     return (
       <div className="App">
         <div className="heading">
-          <h3 className= "app-header"></h3>
+          <h3 className= "app-header"><br/></h3>
           <hr/>
         </div>
-        {/* <div className = "main-container"> */}
-          {/* <SideBar /> */}
-          <Switch>
-            <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
-            <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
-            <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
-            <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
-            <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
-          </Switch>
+        <Route render={({location}) => (
+          <TransitionGroup>
+            <CSSTransition timeout = {500} classNames = 'fade' key = {location.key}>
+              <Switch location = {location}>
+                <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
+                <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
+                <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
+                <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
+                <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
+                <Route render ={() => <div>Not Found</div> } /> 
+              </Switch>
+            </CSSTransition>
+         </TransitionGroup>
+        )} />
           
         </div>
-        
-      // </div>
     );
   }
 }

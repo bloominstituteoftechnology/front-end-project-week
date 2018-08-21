@@ -6,6 +6,10 @@
   padding-left: 8px;
   padding-right: 8px; 
 }
+.App a {
+  text-decoration: none;
+  color: black;
+}
 .heading {
   max-width: 578px;
   line-height: 0;
@@ -159,4 +163,23 @@
 
 input {
   word-wrap: normal;
+}
+
+/* For Transistions of the pages */
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1; 
+  transition: opacity 500ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
 }
