@@ -7,7 +7,11 @@ class EditNote extends React.Component {
     super(props);
     this.state = {
       id: null,
-      notes: []
+      notes: {
+        id: null, 
+        title: '',
+        content:''
+      },
     };
   }
 
@@ -55,7 +59,7 @@ class EditNote extends React.Component {
       })
       .then(response => {
         this.props.history.push("/");
-        this.setState({ id: null, notes: [] });
+        this.setState({ id: null, notes: {id:null, title:'', content:''} });
         this.props.handleRefresh();
       })
       .catch(err => console.log(err));
