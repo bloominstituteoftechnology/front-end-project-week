@@ -30,10 +30,10 @@ class SideBar extends React.Component {
         return(
             <Col>
                 <Link to="/" style={{ textDecoration: 'none' }}><H1>Lambda Notes</H1></Link>
-                <Link to="/noteslist" style={{ textDecoration: 'none' }}>
+                <Link to="/get/all" style={{ textDecoration: 'none' }}>
                     <Button>View Your Notes</Button>
                 </Link>
-                <Link to="createnewnote" style={{ textDecoration: 'none' }}>
+                <Link to="/create" style={{ textDecoration: 'none' }}>
                     <Button>+ Create New Note</Button>
                 </Link>
             </Col>

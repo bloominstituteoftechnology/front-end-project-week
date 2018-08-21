@@ -8,14 +8,13 @@ const List = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
-`
+`;
 const NoteOverview = styled.div`
     display: flex;
     background: #F1F1F1;
     max-width: 900px;
     justfiy-content: space-around;
-`
-
+`;
 const SmallNote = styled.div`
     height: 250px;
     width: 250px;
@@ -26,18 +25,18 @@ const SmallNote = styled.div`
     text-overflow: ellipsis;
     line-height: 2rem;
     margin: 0.5rem;
-`
+`;
 const Title = styled.div`
     font-weight: 800;
     border-bottom: 1px solid lightgray;
     padding: 0.5rem;
     margin: 0.5rem 1rem;
-`
+`;
 const Content = styled.div`
     padding: 0.5rem;
     margin: 0.5rem 1rem;
     word-wrap: break-word;
-`
+`;
 
 class ListView extends React.Component{
     render(){
@@ -51,11 +50,11 @@ class ListView extends React.Component{
                     {this.props.notes.map(note => {
                         return(
                             <div>
-                                <Link to={`/note/${note.id}`}
+                                <Link to={`/note/${note._id}`}
                                     style={{ textDecoration: 'none',
-                                            color: 'black' }}
-                                >
-                                    <SmallNote key={note.id}>
+                                            color: 'black' }}>
+                                    <SmallNote key={note._id}
+                                               onClick={this.props.getNote}>
                                         <Title>{note.title}</Title>
                                         <Content>{note.textBody}</Content>
                                     </SmallNote>
