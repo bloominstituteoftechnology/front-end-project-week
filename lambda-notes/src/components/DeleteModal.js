@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
+import { Link } from "react-router-dom";
 
 class DeleteModal extends React.Component {
   constructor(props) {
@@ -20,12 +21,14 @@ class DeleteModal extends React.Component {
   render() {
     return (
       <div>
-        <p onClick={this.toggle}>delete</p>
+        <p className="delete-option" onClick={this.toggle}>delete</p>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
+        <div className="delete-modal">
           <h3>Are you sure you want to delete this?</h3>
           <div>
-            <button onClick={() => {this.props.deleteNote(this.props.id)}}>Delete</button>
-            <button onClick={this.toggle}>No</button>
+            <button className="delete" onClick={() => {this.props.deleteNote(this.props.id)}}><Link to={`/`}>Delete</Link></button>
+            <button className="cancel" onClick={this.toggle}>No</button>
+          </div>
           </div>
         </Modal>
       </div>

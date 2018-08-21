@@ -7,6 +7,7 @@
   width: 75%;
   padding: 50px 30px;
 }
+
 /* sidebar */
 .sidebar {
   width: 25%;
@@ -16,6 +17,10 @@
   padding: 15px;
   border-right: 1px solid gray;
 }
+.sidebar h1 {
+  font-weight: bold;
+  color: #484A4E
+}
 .sidebar a {
   border: 1px solid gray;
   height: 50px;
@@ -24,7 +29,9 @@
   color: white;
   text-align: center;
   line-height: 50px;
+  font-size: 20px;
 }
+
 /* list view */
 .notes-list {
   display: flex;
@@ -33,6 +40,7 @@
 .notes-list h2 {
   display: block;
   width: 100%;
+  color: #484A4E;
 }
 .notes-list a:hover {
   text-decoration: none;
@@ -44,19 +52,30 @@
   background: white;
   overflow: hidden;
   margin: 15px 10px;
-  padding: 15px;
+  padding: 20px;
   line-height: 1.5;
   color: black;
 }
+.note-card h4 {
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+.note-card p {
+  line-height: 1.65
+}
+
 /* page view */
 .note-page {
   height: 100vh;
 }
-/* add new note */
-.new-note {
+
+/* inputs */
+.input-page {
   height: 100vh;
 }
-/* inputs */
+.input-page h3 {
+  color: #484A4E;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -76,16 +95,61 @@ form {
   height: 50px;
   border: 1px solid gray;
   background-color: #32B7BD;
-  color: white;
   text-align: center;
   line-height: 50px;
 }
+.save-button a {
+  color: white;
+}
 
+/* page view options */
 .note-options{
   display: flex;
   justify-content: flex-end;
 }
+.note-options a{
+  text-decoration: underline;
+  color: gray;
+}
+.delete-option {
+  padding: 0 10px;
+  color: gray;
+  text-decoration: underline;
+}
+.delete-option:hover {
+  cursor: pointer;
+}
 
-
-/*  */
+/* Modal */
+.delete-modal{
+  border: 1px solid gray;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.delete-modal h3{
+  font-size: 20px;
+  color: gray;
+}
+.delete-modal button {
+  height: 40px;
+  width: 200px;
+  margin: 0 10px;
+}
+.delete-modal .delete {
+  background-color: red;
+}
+.delete-modal .delete a {
+  color: white;
+}
+.delete-modal .delete a:hover {
+  text-decoration: none;
+  cursor: default;
+}
+.delete-modal .cancel {
+  color: white;
+  background-color: #32B7BD;
+}
 
