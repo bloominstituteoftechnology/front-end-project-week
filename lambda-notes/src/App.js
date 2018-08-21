@@ -99,19 +99,20 @@ class App extends Component {
 
   modifyNoteHandler = event => {
     event.preventDefault();
-    // console.log("MODIFIEDNOTE EVENT", JSON.stringify(event.target[0]));
-    let noteNumber = event.target.attributes.getNamedItem("notenumber").value;
-    console.log("MODIFIEDNOTE EVENT", noteNumber);
-
     let newNotesArray = this.state.notes.slice();
-    newNotesArray[1].title = "heyeheyeye";
+    let noteNumber = event.target.attributes.getNamedItem("notenumber").value;
+
+    newNotesArray[noteNumber].title = this.state.noteTitle;
+    newNotesArray[noteNumber].description = this.state.noteDescription;
     // console.log("Modififed Note", newModifiedArray);
     console.log("Modififed Note Array", newNotesArray);
+    this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
   };
 
   render() {
     console.log("noteTitle", this.state.noteTitle);
     console.log("noteDescription", this.state.noteDescription);
+    console.log("noteDescription", this.state.notes);
     return (
       <div className="mainAppDiv">
         <Route path={"/"} component={MainNav} />
