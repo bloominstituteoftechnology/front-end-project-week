@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {Route,NavLink} from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Notes from './components/notes';
-// import Note from './components/Note';
-// import NoteList from './NoteList';
+import Notes from './components/Notes';
+import Note from './components/Note';
 import NewNoteForm from './components/NewNoteForm';
 import './App.css';
 
@@ -72,14 +71,14 @@ class App extends Component {
       render={(props) => <Notes {...props} notes={this.state.notes} />}
       />
 
-      {/* <Route exact path ="/" component={NoteList} />
-      <Route path = "/notes/:id" render= { (props) => {
-      return(<Notes {...props}/>)
-      }} /> */}
-      {/* <Route
-      path="/"
-      render={(props) => <NewNoteForm {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
-      />  */}
+          <Route
+            exact path="/add"
+            render={(props) => <NewNoteForm {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
+          />
+          <Route
+            exact path="/notes/:id"
+            render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
+          />
 
         
     </div>
