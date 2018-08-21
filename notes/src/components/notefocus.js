@@ -1,39 +1,65 @@
 import React from "react";
 import "../CSS/notefocus.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const NoteFocus = props => {
-  const note = props.notes.find(note => note.id == props.match.params.id);
+class NoteFocus extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      note: {},
+      deleting: false,
+    }
+  }
+
+  componentDidMount() {
+    this.noteView(this.props.match.params._id);
+  }
+ 
+  noteView = (id) => {
+    axios
+  .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+  .then(response => {
+    this.setState(() => ({note: response.data}))
+  })
+  .catch(error => {
+    console.error('Server Error', error);
+  });
+  }
+
+ render(){
+   console.log(this.state.note)
   return (
     <div className="focus">
-      <div className={props.deleting ? "delete" : "hide-delete"}>
+      <div className={this.props.deleting ? "delete" : "hide-delete"}>
         <div className="modal">
           <p>Are you sure you want to delete this?</p>
           <div className="btns">
             <Link className="linkdel" to="/">
               <div
-                onClick={() => props.noteDelete(props.match.params.id)}
+                onClick={() => this.props.noteDelete(this.props.match.params._id)}
                 className="deletebtn"
               >
                 Delete
               </div>
             </Link>
-            <div onClick={props.deleteModal} className="nobtn">
+            <div onClick={this.props.deleteModal} className="nobtn">
               No
             </div>
           </div>
         </div>
       </div>
       <div className="edit-del">
-        <Link className="linkedit" to={`/notes/edit/${props.match.params.id}`}>
-          <p onClick={() => props.editNote(props.match.params.id)}>edit</p>
+        <Link className="linkedit" to={`/notes/edit/${this.props.match.params._id}`}>
+          <p onClick={() => this.props.editNote(this.props.match.params._id)}>edit</p>
         </Link>
-        <p onClick={props.deleteModal}>delete</p>
+        <p onClick={this.props.deleteModal}>delete</p>
       </div>
-      <h1 className="focustitle">{note.title}</h1>
-      <div className="notetxt">{note.text}</div>
+      <h1 className="focustitle">{this.state.note.title}</h1>
+      <div className="notetxt">{this.state.note.textBody}</div>
     </div>
   );
+}
 };
 
 export default NoteFocus;

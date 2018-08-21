@@ -3,7 +3,14 @@ body {
     background: #F2F1F2;
     max-width: 1000px;
     margin: 0 auto;
+    font-family: georgia;
 }
+
+h1, h2, h3 {
+    color: #414141;
+    font-family: 'Pacifico', cursive;
+}
+
 
 .page {
     display: flex;
@@ -20,10 +27,13 @@ body {
     border-right: solid rgb(196, 196, 196) 1px;
 }
 
+
 .menubar > h1 {
     margin: 10% 10% 8%;
-    color: #414141;
+    font-size: 210%;
 }
+
+
 
 .menubtn {
     background: darkturquoise;
@@ -36,21 +46,71 @@ body {
     border-radius: 2px;
     text-decoration: none;
     display: flex;
+    border-radius: 5px;
     align-items: center;
     justify-content: center;
 }
 
+/* themes */
+
+.theme {
+    width: 80%;
+}
+
+.themebtn{
+    background: darkturquoise;
+    border: solid rgb(172, 172, 172) 1px;
+    font-size: 75%;
+    color: white;
+    width: 35%;
+    height: 20px;
+    margin-bottom: 5%;
+    text-decoration: none;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.themebtnpink{
+    background: rgb(233, 146, 175);
+    border: solid rgb(206, 97, 133) 1px;
+}
+.themebtnblue{
+    background: skyblue;
+    border: solid rgb(90, 153, 205) 1px;
+}
+.menubtnpink{
+    background: rgb(233, 146, 175);
+    border: solid rgb(206, 97, 133) 1px;
+}
+
+.menubtnblue{
+    background: skyblue;
+    border: solid rgb(90, 153, 205) 1px;
+}
+.menubarpink {
+    background: rgba(216, 112, 147, 0.897);
+}
+.menubarblue {
+    background: rgba(72, 167, 231, 0.5);
+}
+.pagepink {
+    background: pink;
+}
+
+.pageblue {
+    background: skyblue;
+}
+
 .notes-container {
     box-sizing: border-box;
-    background: #F2F1F2;
     padding: 2.5%;
     width: 80%;
     height: 100%;
 }
 
-h2 {
-    color: #414141;
-}
 
 .notes {
     display: flex;
@@ -62,6 +122,9 @@ h2 {
     padding-bottom: 5%;
     border-bottom: solid lightgray 2px;
     font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: inherit;
 }
 
 
@@ -69,12 +132,13 @@ h2 {
     width: 200px;
     height: 200px;
     background: white;
-    border: solid lightgray 2px;
+    color: rgba(0, 0, 0, 0.801);
     box-sizing: border-box;
     padding: 0 10% 10%;
     margin: 1%;
     position: relative;
-    border-radius: 3px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .notelink {
@@ -87,5 +151,6 @@ h2 {
     height: 100%;
     overflow-y: scroll;
     line-height: 150%;
-    white-space: pre-wrap;
+    
 }
+

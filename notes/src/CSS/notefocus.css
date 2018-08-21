@@ -1,13 +1,12 @@
 .focus {
     box-sizing: border-box;
     background: white;
-    padding: 2.5% 6% 2.5% 2.5%;
+    padding: 5% 7% 2.5% 7%;
     width: 80%;
     height: 100vh;
     position: relative;
     color: #414141;
 }
-
 .focustitle {
     margin-top: 5%;
 }
@@ -37,7 +36,6 @@
 }
 
 .delete {
-    z-index: 100;
     background: rgba(226, 226, 226, 0.699);
     height: 100%;
     width: 100%;

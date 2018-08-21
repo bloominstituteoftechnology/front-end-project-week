@@ -5,7 +5,7 @@ import "../CSS/newnote.css";
 const NewNote = props => {
   return (
     <div className="notes-container">
-      <h1 className="yournotes">Create New Note:</h1>
+      <h1>Create New Note:</h1>
       <div className="input">
         <input
           onChange={props.noteInput}
@@ -19,7 +19,7 @@ const NewNote = props => {
           className="input-body"
           placeholder="Note Content"
         />
-        <Link className="save" to="/">
+        <Link className={props.pink ? "save savepink" : props.blue ? "save saveblue" : "save"} to="/">
           <button onClick={props.noteSubmit}>Save</button>
         </Link>
       </div>

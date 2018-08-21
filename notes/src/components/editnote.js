@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const EditNote = props => {
   return (
     <div className="notes-container">
-      <h2>Edit Note:</h2>
+      <h1>Edit Note:</h1>
       <div className="input">
         <input
           onChange={props.noteInput}
@@ -18,7 +18,7 @@ const EditNote = props => {
           className="input-body"
           defaultValue={props.editbody}
         />
-        <Link className="save" to="/">
+        <Link className={props.pink ? "save savepink": props.blue ? "save saveblue": "save"} to="/">
           <button onClick={() => props.submitEdit(props.match.params.id)}>
             Save
           </button>
