@@ -5,16 +5,36 @@ import {withRouter} from 'react-router-dom'
 class NoteView extends Component {
     constructor(props){
         super(props)
+        this.state={
+            modal:false
+        }
     }
+
+    toggleModal = () =>{
+        this.setState({modal: !this.state.modal})
+    }
+
     render(){
         return(
-            <div className = "note-page">
-                <div className = "note-links">
-                    <Link to = "/:id/edit"><span>edit</span></Link>
-                    <Link to = "/edit"><span>delete</span></Link>
+            
+            <div className = "note-page-wrap" >
+                <div className={this.state.modal ? "modal display" : "modal"}>                
+                    <div className="modal-content">                        
+                        <p>Are you sure you want to delete this?</p>
+                        <div className="modal-btns">
+                            <button className="delete-btn">Delete</button>
+                            <button onClick={this.toggleModal}>No</button>
+                        </div>
+                    </div>
                 </div>
-                <h2 className = "note-title">{this.props.notes[this.props.match.params.id].title}</h2>
-                <p className = "note-content">{this.props.notes[this.props.match.params.id].note}</p>
+                <div className = "note-page">
+                    <div className = "note-links">
+                        <Link to = "/:id/edit"><span>edit</span></Link>
+                        <span onClick={this.toggleModal}>delete</span>
+                    </div>
+                    <h2 className = "note-title">{this.props.notes[this.props.match.params.id].title}</h2>
+                    <p className = "note-content">{this.props.notes[this.props.match.params.id].note}</p>
+                </div>
             </div>
         )
     }
