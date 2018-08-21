@@ -15,7 +15,7 @@ class ViewAllNotes extends Component {
         return (
             <div className = "create-note-form view-notes">
               <h3 className = "your-notes">Your Notes:</h3>
-              {notes.map((note, i) => <Link to ={`/${note.title}`} key = {i}><Note key = {i} index = {i} title ={note.title} content = {note.content} click = {this.props.click}/></Link> )}
+              {notes.map((note, i) => <Link to ={`/${note.title.split(' ').join('')}`} key = {i}><Note key = {i} index = {i} title ={note.title} content = {note.content} click = {this.props.click}/></Link> )}
 
             </div>
         )

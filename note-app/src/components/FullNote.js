@@ -10,13 +10,14 @@ class FullNote extends React.Component{
     }
 
     render () {
+        console.log(this.props)
         const title = this.props.ct;
         const content = this.props.cc;
         const index = this.props.index;  
         return (
           <div className = "create-note-form ">
             <div className = "full-note-header">
-              <Link to ='/:id/edit-note'><h6>edit</h6></Link>
+              <Link to = {`/${this.props.match.params.id}/edit-note`} ><h6>edit</h6></Link>
               <h6>delete</h6>
             </div>
             <div className = "content-div">
