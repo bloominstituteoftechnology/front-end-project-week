@@ -113,6 +113,11 @@ h1 {
   padding-right: 1em;
 }
 
+.noteListBox h4:hover, .noteListBox p:hover, .notesInnerDiv a:hover{
+  text-decoration: none !important;
+  color: black !important;
+}
+
 .noteListBox:before {
   content: '...';
   position: absolute;

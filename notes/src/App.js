@@ -37,13 +37,6 @@ class App extends Component {
     }});
   }
 
-  // deleteNote = (id) => {
-  //   this.setState(function (prevState, props) {
-  //     return {
-  //       notes: [...prevState.notes.slice(0, id), ...prevState.notes.slice(id +1, prevState.notes.length)]
-  //   }});
-  // }
-
   deleteNote = (ident) => {
     this.setState(function (prevState, props) {
       return {
