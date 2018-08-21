@@ -44,18 +44,6 @@ class App extends Component {
     })
 }
 
-delete = (id) => {
-  axios.delete(`${URL}${id}`)
-  .then(response => {
-      this.setState({
-          notes: response.data
-      })
-  })
-  .catch(error => {
-    console.log(error);
-  })
-}
-
   render() {
     return (
       <Application>

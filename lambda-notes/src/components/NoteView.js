@@ -33,12 +33,25 @@ class NoteView extends Component {
             })
     }
 
+    delete = (id) => {
+        axios.delete(`${URL}${id}`)
+        .then(response => {
+            this.setState({
+                notes: response.data
+            })
+            window.location = '/notes';
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      }
+
     render() {
         return ( 
             <div className="note-view">
                 <div className="buttons">
                 <Link to={`/notes/${this.state.id}`}> Edit </Link>
-                <button onClick={() => this.props.delete(this.props.id)}>Delete</button>
+                <button onClick={() => this.delete(this.state.id)}>Delete</button>
                 </div>
                 <h1>{this.state.title}</h1>
                 <p>{this.state.content}</p>
