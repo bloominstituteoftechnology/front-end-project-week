@@ -20,7 +20,7 @@ const CreateNote = () => {
         autoComplete='off'
         />
         <br />
-        <textarea  cols="100" rows="20" placeholder='New Content'></textarea>
+        <textarea  cols="100" rows="20" placeholder='New Content' />
         
         </Create> );
 }

@@ -10,7 +10,10 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      notes: [],
+      notes: [{
+        noteName: 'Note Title',
+        noteText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
+      }],
       noteName: '',
       noteText: '',
     }
@@ -33,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NotesContainer />
+        <NotesContainer note={this.state.notes} />
 
       </div>
     );

@@ -13,10 +13,11 @@ width: 100%;
 `
 
 
-const NotesContainer = () => {
+const NotesContainer = (props) => {
+    console.log(props)
     return ( <Notes>
         <Route path='/' component={SideNav} />
-        <Note />
+        <Note note={props.note} />
 
         
         </Notes> );
