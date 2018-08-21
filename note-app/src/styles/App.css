@@ -142,3 +142,7 @@
   margin-right: 15px;
   margin-left: 43px;
 }
+
+input {
+  word-wrap: normal;
+}

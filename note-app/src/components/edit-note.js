@@ -25,14 +25,13 @@ class EditNote extends Component {
     } 
 
     render() {
-        console.log(this.props)
         return (
 
             <div className ="create-note-form">
                 <h3> Edit Note:</h3>
-                <input onChange = {this.onChange} className = "input-title" type="text" placeholder = "Note Title" name = 'title' value = {this.state.title}/> 
+                <textarea onChange = {this.onChange} className = "input-title" type="text" placeholder = "Note Title" name = 'title' value = {this.state.title}></textarea> 
                 <br/>
-                <input onChange = {this.onChange} className = "input-content" type="text" placeholder = "Note Content" name = 'content' value ={this.state.content}/>
+                <textarea onChange = {this.onChange} className = "input-content" type="text" placeholder = "Note Content" name = 'content' value ={this.state.content}></textarea>
                 <br/>
                 <Link to = '/'><button onClick = {this.gatherInformation} className = "btn-side-bar">Update</button></Link>
                 {/* Would like to fix the placeholder inside of the input-content also to the right margin is off by 11px */}
