@@ -9,28 +9,24 @@ const Container = styled.div`
 `;
 
 class NoteContainer extends Component {
-  constructor () {
-    super();
-    this.state = {
-      notes: []
-    }
-  }
-
-  componentDidMount () {
-     this.setState({ notes: this.props.notes });
-  }
 
   render () {
-    const { viewList, viewNote, addNote, editNote, deleteNote, isView, isEditted, isDeleted, isAdded } = this.props;
+    const { viewList, viewNote, viewAddNote, viewEditNote, viewDeleteNote, addNote, editNote, deleteNote, isView, isEditted, isDeleted, isAdded} = this.props;
+    const { selectedNoteId, notes } = this.props;
     return (
       <Container>
-        <NoteNavigation 
+        <NoteNavigation         
           viewList={viewList} 
+          viewAddNote={viewAddNote}
           addNote={addNote}
         />
         <Note 
-          notes={this.state.notes}
+          notes={notes}
+          selectedNoteId={selectedNoteId}
+          viewList={viewList}
           viewNote={viewNote}
+          viewEditNote={viewEditNote}
+          viewDeleteNote={viewDeleteNote}
           addNote={addNote}
           editNote={editNote}
           deleteNote={deleteNote}

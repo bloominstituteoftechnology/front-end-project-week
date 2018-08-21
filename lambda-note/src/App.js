@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NoteContainer from './containers/NoteContainer';
 
 import { connect } from 'react-redux';
-import { viewList, viewNote, addNote, editNote, deleteNote } from './actions';
+import { viewList, viewNote, viewAddNote, viewEditNote, viewDeleteNote, addNote, editNote, deleteNote } from './actions';
 
 import './App.css';
 
@@ -20,5 +20,5 @@ const mapStateToProps = state => ({ ...state });
 
 export default connect(
   mapStateToProps,
-  { viewList, viewNote, addNote, editNote, deleteNote }
+  { viewList, viewNote, viewAddNote, viewEditNote, viewDeleteNote, addNote, editNote, deleteNote }
 )(App);
