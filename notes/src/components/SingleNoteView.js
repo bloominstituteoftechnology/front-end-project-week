@@ -18,27 +18,31 @@ class SingleNoteView extends Component {
         })
     }
 
+    delete = (id) => {
+        this.props.history.push('/');
+        this.props.delete(id);
+    };
+
     render() {
-        let realIndex = this.props.notes.findIndex(note => note.id === parseInt(this.props.match.params.id, 10));
-        console.log('realIndex on SNV', realIndex);
+        let foundNote = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id, 10));
         if(this.props.notes.length > 0) {
         return (
             <div>
                 <div className="singleNoteView">
                     <div className="singleLinks">
-                        <Link to={`/notes/${realIndex}/edit`}>edit</Link>
+                        <Link to={`/notes/${foundNote.id}/edit`}>edit</Link>
                         &nbsp;<Button color="link" onClick={this.modalToggle}>delete</Button>
                         <Modal isOpen={this.state.modal} toggle={this.modalToggle} className={this.props.className}>
                             <ModalHeader toggle={this.modalToggle}></ModalHeader>
                             <ModalBody>Are you sure you want to delete this?</ModalBody>
                             <ModalFooter>
-                                <Button color="danger" onClick={() => this.props.delete(realIndex)}>Delete</Button>
+                                <Button color="danger" onClick={() => this.delete(foundNote.id)}>Delete</Button>
                                 <Button color="info" onClick={this.modalToggle}>No</Button>
                             </ModalFooter>
                         </Modal>
                     </div>
-                    <h2 className="singleNoteTitle">{this.props.notes[this.props.match.params.id].title}</h2>
-                    <p className="singleNoteText">{this.props.notes[this.props.match.params.id].textBody}</p>
+                    <h2 className="singleNoteTitle">{foundNote.title}</h2>
+                    <p className="singleNoteText">{foundNote.textBody}</p>
                 </div>
             </div>
         )

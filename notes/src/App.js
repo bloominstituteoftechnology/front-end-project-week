@@ -29,20 +29,26 @@ class App extends Component {
     this.forceUpdate();
   }
 
-  submitEditForm = (id, title, textBody) => {
+  submitEditForm = (ident, title, textBody) => {
     this.setState(function (prevState, props) {
       return {
-        notes: [...prevState.notes.slice(0, id), {id, title, textBody}, ...prevState.notes.slice(parseInt(id, 10)+1, prevState.notes.length)]
+        notes: prevState.notes.map(note => ident === note.id ? {id: ident, title, textBody} : note)
 
     }});
   }
 
+  // deleteNote = (id) => {
+  //   this.setState(function (prevState, props) {
+  //     return {
+  //       notes: [...prevState.notes.slice(0, id), ...prevState.notes.slice(id +1, prevState.notes.length)]
+  //   }});
+  // }
+
   deleteNote = (ident) => {
     this.setState(function (prevState, props) {
       return {
-        notes: [...prevState.notes.slice(0, ident), ...prevState.notes.slice(ident +1, prevState.notes.length)]
-    }});
-    this.state.notes.forEach((note, index) => this.setState({[note.id]: index}));
+        notes: prevState.notes.filter(note => note.id !== ident)
+    }})
   }
 
   render() {

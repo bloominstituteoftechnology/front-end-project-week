@@ -8,7 +8,7 @@ class EditNote extends Component {
         this.state = {
             title: '',
             textBody: '',
-            realIndex: 0
+            foundNote: ''
         }
     }
 
@@ -20,7 +20,7 @@ class EditNote extends Component {
         if(this.props.notes.length > 0) {
         this.setState(function (prevState, props) {
         return {
-            realIndex: this.props.notes.findIndex(note => note.id === parseInt(this.props.match.params.id, 10)),
+            foundNote: this.props.notes.find(note => note.id === parseInt(this.props.match.params.id, 10))
         }}, () => {
             this.afterCDM();
         })
@@ -30,8 +30,8 @@ class EditNote extends Component {
     afterCDM = () => {
         this.setState(function (prevState, props) {
             return {
-                title: this.props.notes[this.props.match.params.id].title,
-                textBody: this.props.notes[this.props.match.params.id].textBody
+                title: this.state.foundNote.title,
+                textBody: this.state.foundNote.textBody
             }})
     }
 
@@ -42,9 +42,9 @@ class EditNote extends Component {
         return (
             <div className="editNote">
                 <h2 className="editNoteTitle">Edit Note:</h2>
-                <form className="editForm" onSubmit={(event) => {event.preventDefault(); this.props.submitEdit(this.props.match.params.id, this.state.title, this.state.textBody)}} >
-                    <input type="text" name="title" className="createFormTitleInput" placeholder={this.props.notes[this.props.match.params.id].title} value={this.state.title} onChange={this.changeHandler} />
-                    <textarea type="text" name="textBody" className="createFormTextInput" placeholder={this.props.notes[this.props.match.params.id].textBody} value={this.state.textBody} onChange={this.changeHandler} />
+                <form className="editForm" onSubmit={(event) => {event.preventDefault(); this.props.submitEdit(this.state.foundNote.id, this.state.title, this.state.textBody)}} >
+                    <input type="text" name="title" className="createFormTitleInput" placeholder={this.state.foundNote.title} value={this.state.title} onChange={this.changeHandler} />
+                    <textarea type="text" name="textBody" className="createFormTextInput" placeholder={this.state.foundNote.textBody} value={this.state.textBody} onChange={this.changeHandler} />
                     <button className="button saveButton" type="submit">Save</button>
                 </form>
             </div>
