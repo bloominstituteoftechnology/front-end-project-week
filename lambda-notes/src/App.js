@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import Menu from './Menu';
 import Notes from './Notes';
 import AddNote from './AddNote';
+import Note from './Note';
 
 class App extends Component {
   constructor(props) {
@@ -75,6 +76,7 @@ class App extends Component {
           <Route path='/' component={ Menu } />
           <Route exact path='/' render={props => <Notes {...props} notes={this.state.notes} />} />
           <Route path='/add' render={props => <AddNote {...props} state={this.state} changeHandler={this.changeHandler} submitHandler={this.submitHandler} />} />
+          <Route path='/view/:id' render={props => <Note {...props} notes={this.state.notes} />} />
         </div>
       </div>
     );

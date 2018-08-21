@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Notes = props => {
   return (
@@ -8,8 +9,10 @@ const Notes = props => {
         {props.notes.map(note => {
           return (
             <div className='note' key={note.id}>
-              <h5>{note.title}</h5>
-              <p>{note.text}</p>
+              <Link to={`/view/${note.id}`}>
+                <h5>{note.title}</h5>
+                <p>{note.text}</p>
+              </Link>
             </div>
           );
         })}

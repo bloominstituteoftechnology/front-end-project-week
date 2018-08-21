@@ -71,9 +71,6 @@
   margin-bottom: 16px;
   height: 200px;
   border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: white;
   word-wrap: normal;
 }
@@ -90,6 +87,22 @@
 .note p {
   width: 75%;
   text-align: left;
+}
+
+.note a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: inherit;
 }
 
 .add-note {
@@ -126,4 +139,27 @@
 .text {
   height: 350px;
   margin-bottom: 13px;
+}
+
+.note-view {
+  width: 75%;
+  min-height: 100vh;
+  padding: 13px 37px 0 27px;
+}
+
+.note-links {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.note-links a, p {
+  color: inherit;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+
+.note-content p {
+  text-decoration: none;
+  margin: 26px 0 0 0;
 }
