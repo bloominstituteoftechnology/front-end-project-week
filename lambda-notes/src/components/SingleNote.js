@@ -12,22 +12,22 @@ class SingleNote extends Component {
     this.forceUpdate();
   }
   handleDeleteNote = () => {
-    const { _id } = this.props.location.state;
-    this.props.deleteNote(_id);
+    const { id } = this.props.location.state;
+    this.props.deleteNote(id);
   };
 
   render() {
-    const { _id } = this.props.location.state;
+    const { id } = this.props.location.state;
     return (
       <div className="single-note">
         <div className="edit-links">
           <Link
             className="edit"
-            to={{ pathname: `/update/${_id}`, state: this.props.location.state }}
+            to={{ pathname: `/update/${id}`, state: this.props.location.state }}
           >
             edit
           </Link>
-          <Link className="edit" to="/" onClick={() => this.handleDeleteNote(_id)}>
+          <Link className="edit" to="/" onClick={() => this.handleDeleteNote(id)}>
             delete
           </Link>
         </div>
@@ -40,7 +40,5 @@ class SingleNote extends Component {
 
 export default connect(
   null,
-  {
-    deleteNote
-  }
+  { deleteNote }
 )(SingleNote);

@@ -28,12 +28,7 @@ export const noteReducer = (state = initialState, action) => {
     case GETTING_NOTES:
       return { ...state, gettingNotes: true };
     case GOT_NOTES:
-      return {
-        ...state,
-        gettingNotes: false,
-        notes: action.payload,
-        error: null
-      };
+      return { ...state, gettingNotes: false, notes: action.payload, error: null };
     case ADDING_NOTE:
       return { ...state, addingNote: true };
     case ADDED_NOTE:
@@ -45,7 +40,17 @@ export const noteReducer = (state = initialState, action) => {
     case UPDATING_NOTE:
       return { ...state, updatingNote: true };
     case NOTE_UPDATED:
-      return { ...state, notes: action.payload, updatingNote: false };
+      return {
+        ...state,
+        notes: state.notes.map((note) => {
+          if (note.id === action.id) {
+            return { ...note, ...action.editNote };
+          } else {
+            return note;
+          }
+        }),
+        updatingNote: false
+      };
     case ERROR:
       return { ...state, error: action.message };
     default:

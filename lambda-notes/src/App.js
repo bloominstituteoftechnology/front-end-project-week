@@ -16,8 +16,8 @@ class App extends Component {
   }
 
   handleDeleteNote = () => {
-    const { _id } = this.props.selectedNote;
-    this.props.deleteNote(_id);
+    const { id } = this.props.selectedNote;
+    this.props.deleteNote(id);
   };
 
   render() {

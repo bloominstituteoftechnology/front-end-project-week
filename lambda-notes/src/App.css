@@ -104,7 +104,8 @@ h2 {
 }
 
 .single-note {
-  width: 800px;
+  /* width: 800px; */
+  width: 80%;
 }
 
 .note-title {

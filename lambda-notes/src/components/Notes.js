@@ -10,7 +10,7 @@ class Notes extends Component {
           {this.props.notes.map((note) => (
             <Link
               className="cards"
-              to={{ pathname: `viewnote/${note._id}`, state: note }}
+              to={{ pathname: `viewnote/${note.id}`, state: note }}
               key={Math.random()}
             >
               {/* passing state down with the link to the route on App.js */}

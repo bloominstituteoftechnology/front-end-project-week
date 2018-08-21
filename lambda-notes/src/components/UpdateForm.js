@@ -17,11 +17,12 @@ class UpdateForm extends Component {
   };
 
   handleUpdateSubmit = () => {
-    const { _id } = this.props.location.state;
+    console.log('this is state', this.props.location.state);
+    const { id } = this.props.location.state;
     const editNote = { editTitle: this.state.editTitle, editTextBody: this.state.editTextBody };
-    console.log(editNote);
-    console.log(this.props.location);
-    this.props.updateNote(_id, editNote);
+    // console.log(editNote);
+    // console.log(this.props.location);
+    this.props.updateNote(id, editNote);
     this.setState({ editTitle: '', editTextBody: '' });
   };
 
@@ -57,7 +58,5 @@ class UpdateForm extends Component {
 
 export default connect(
   null,
-  {
-    updateNote
-  }
+  { updateNote }
 )(UpdateForm);

@@ -15,7 +15,7 @@ export const ERROR = 'ERROR';
 //middleware (another thunk) use for all action creators
 const fetchNotes = (dispatch) => {
   return axios
-    .get('https://killer-notes.herokuapp.com/note/get/all')
+    .get('http://localhost:5000/notes')
     .then(({ data }) => dispatch({ type: GOT_NOTES, payload: data }))
     .catch((error) => {
       dispatch({ type: ERROR, message: 'error fetching all notes' });
@@ -29,11 +29,11 @@ export const gettingAllNotes = () => {
   };
 };
 
-export const gettingSingleNote = (_id) => {
+export const gettingSingleNote = (id) => {
   return (dispatch) => {
     dispatch({ type: GETTING_NOTES });
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${_id}`)
+      .get(`http://localhost:5000/notes/${id}`)
       .then(({ data }) => dispatch({ type: GOT_NOTES, payload: data }))
       .catch((error) => {
         dispatch({ type: ERROR, message: 'error getting note' });
@@ -45,11 +45,11 @@ export const addNote = (note) => {
   return (dispatch) => {
     dispatch({ type: ADDING_NOTE });
     axios
-      .post('https://killer-notes.herokuapp.com/note/create', note)
+      .post('http://localhost:5000/notes', note)
       .then((response) => {
         console.log(response);
         // fetchNotes(dispatch);
-        dispatch({ type: ADDED_NOTE, payload: { ...note, _id: response.data.success } });
+        dispatch({ type: ADDED_NOTE, payload: { ...note, id: response.data.success } });
         // creating new note object
       })
       .catch((error) => {
@@ -60,11 +60,11 @@ export const addNote = (note) => {
 // refetch with fetchNotes because payload: data may or not be what you expect
 
 //sends a response status
-export const deleteNote = (_id) => {
+export const deleteNote = (id) => {
   return (dispatch) => {
     dispatch({ type: DELETING_NOTE });
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
+      .delete(`http://localhost:5000/notes/${id}`)
       .then((response) => {
         console.log(response);
         fetchNotes(dispatch);
@@ -75,14 +75,14 @@ export const deleteNote = (_id) => {
   };
 };
 
-export const updateNote = (_id, editNote) => {
+export const updateNote = (id, editNote) => {
   return (dispatch) => {
     dispatch({ type: UPDATING_NOTE });
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${_id}`, editNote)
+      .put(`http://localhost:5000/notes/${id}`, editNote)
       .then((response) => {
-        console.log(response);
-        dispatch({ type: NOTE_UPDATED, payload: { editNote } });
+        console.log('this is the response', response);
+        dispatch({ type: NOTE_UPDATED, payload: response.data });
       })
       .catch((error) => {
         dispatch({ type: ERROR, message: 'error updating note' });
