@@ -37,12 +37,12 @@ class App extends Component {
     }});
   }
 
-  deleteNote = (id) => {
-    // document.location.assign("/");
+  deleteNote = (ident) => {
     this.setState(function (prevState, props) {
       return {
-        notes: [...prevState.notes.slice(0, id), ...prevState.notes.slice(parseInt(id, 10)+1, prevState.notes.length)]
+        notes: [...prevState.notes.slice(0, ident), ...prevState.notes.slice(ident +1, prevState.notes.length)]
     }});
+    this.state.notes.forEach((note, index) => this.setState({[note.id]: index}));
   }
 
   render() {

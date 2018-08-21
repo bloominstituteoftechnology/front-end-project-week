@@ -7,7 +7,8 @@ class EditNote extends Component {
 
         this.state = {
             title: '',
-            textBody: ''
+            textBody: '',
+            realIndex: 0
         }
     }
 
@@ -17,15 +18,27 @@ class EditNote extends Component {
 
     componentDidMount() {
         if(this.props.notes.length > 0) {
-        this.setState({
-            title: this.props.notes[this.props.match.params.id].title,
-            textBody: this.props.notes[this.props.match.params.id].textBody
+        this.setState(function (prevState, props) {
+        return {
+            realIndex: this.props.notes.findIndex(note => note.id === parseInt(this.props.match.params.id, 10)),
+        }}, () => {
+            this.afterCDM();
         })
     }
     }
 
+    afterCDM = () => {
+        this.setState(function (prevState, props) {
+            return {
+                title: this.props.notes[this.props.match.params.id].title,
+                textBody: this.props.notes[this.props.match.params.id].textBody
+            }})
+    }
+
     render() {
+        
         if(this.props.notes.length > 0) {
+            console.log('realIndex on Edit', this.state.realIndex)
         return (
             <div className="editNote">
                 <h2 className="editNoteTitle">Edit Note:</h2>

@@ -19,18 +19,20 @@ class SingleNoteView extends Component {
     }
 
     render() {
+        let realIndex = this.props.notes.findIndex(note => note.id === parseInt(this.props.match.params.id, 10));
+        console.log('realIndex on SNV', realIndex);
         if(this.props.notes.length > 0) {
         return (
             <div>
                 <div className="singleNoteView">
                     <div className="singleLinks">
-                        <Link to={`/notes/${this.props.match.params.id}/edit`}>edit</Link>
+                        <Link to={`/notes/${realIndex}/edit`}>edit</Link>
                         &nbsp;<Button color="link" onClick={this.modalToggle}>delete</Button>
                         <Modal isOpen={this.state.modal} toggle={this.modalToggle} className={this.props.className}>
                             <ModalHeader toggle={this.modalToggle}></ModalHeader>
                             <ModalBody>Are you sure you want to delete this?</ModalBody>
                             <ModalFooter>
-                                <Button color="danger" onClick={() => this.props.delete(this.props.match.params.id)}>Delete</Button>
+                                <Button color="danger" onClick={() => this.props.delete(realIndex)}>Delete</Button>
                                 <Button color="info" onClick={this.modalToggle}>No</Button>
                             </ModalFooter>
                         </Modal>
