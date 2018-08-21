@@ -4,4 +4,21 @@ import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import {reducer} from  './reducers';
+
+const store = createStore( reducer,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+   applyMiddleware(thunk, logger)
+);
+
+ReactDOM.render(
+<Provider store={store}>
+  <Router>
+    <App />
+  </Router>
+</Provider>
+  , document.getElementById('root'));

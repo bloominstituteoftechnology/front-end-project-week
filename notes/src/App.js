@@ -91,8 +91,6 @@ class App extends Component {
     }
   }
 
-
-
   getNoteDetails = (id) => {
     return (this.state.notes.find(note => {return note.id === parseInt(id, 10)}))
     // 10 declares the number base
@@ -129,23 +127,17 @@ class App extends Component {
   }
 
   editNote = (noteEdit) => {
-    // console.log('editnote', noteEdit.id);
     let newArr = this.state.notes.slice()
-    // let obj = newArr.filter(note => noteEdit.id === note.id)
-    // console.log(obj)
     let position = newArr.findIndex(note => note.id === noteEdit.id)
-    // console.log(position)
     newArr[position] = noteEdit;
     this.setState({
       notes: newArr,
       count: this.state.count + 1,
     })
-
   }
 
   render() {
     return (
-
         <AppDiv>
 
           <div className="left-menu">
@@ -175,22 +167,19 @@ class App extends Component {
 
           </div>
 
-          {(this.state.deleteEnabled) ? (<div className="delete">
-            <Route  path="/all-notes/:noteId/delete" render={ (note) => {
-                let single = this.getNoteDetails(note.match.params.noteId);
-                return (<div>
-                    <DeleteNote deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={single} />
-                    {/* <NoteDetails note={single} /> */}
-                  </div>)
-              }}></Route>
-          </div>) : null}
-
-
+          {(this.state.deleteEnabled) ?
+             (<div className="delete">
+                <Route  path="/all-notes/:noteId/delete" render={ (note) => {
+                    let single = this.getNoteDetails(note.match.params.noteId);
+                    return (<div>
+                        <DeleteNote deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={single} />
+                        {/* <NoteDetails note={single} /> */}
+                      </div>)
+                  }}></Route>
+              </div>) :
+               null}
 
         </AppDiv>
-
-
-
     );//return
   }//render
 }

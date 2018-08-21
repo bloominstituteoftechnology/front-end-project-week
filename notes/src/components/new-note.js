@@ -3,7 +3,7 @@ import NewForm from './new-form.js';
 import styled from 'styled-components';
 
 const NewNoteDiv = styled.div`
-  border: 1px solid green;
+  ${'' /* border: 1px solid green; */}
   display: flex;
   flex-direction: column;
   background-color: #F3F3F3;
