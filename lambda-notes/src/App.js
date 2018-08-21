@@ -34,7 +34,8 @@ class App extends Component {
     event.preventDefault();
     const notes = this.state.notes.slice();
     notes.push({ 
-      id: this.state.notes.length, 
+      id: Number(Date.now().toString().slice(-2)), 
+      // id: this.state.notes.length,
       title: this.state.title, 
       text: this.state.text 
     });
@@ -70,7 +71,7 @@ class App extends Component {
         </div>
         <div className="display-right" >
           <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
-          <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} modalToggle={this.modalToggle} /> )} />
+          <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} modalToggle={this.modalToggle} showModal={this.state.showModal} deleteNote={this.deleteNote} /> )} />
           <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
         </div>
       </div>

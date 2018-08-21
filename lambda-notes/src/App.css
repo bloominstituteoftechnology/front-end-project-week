@@ -115,6 +115,37 @@
   margin-right: 6%;
 }
 
+.modal-btn-no {
+  color: white;
+  border: 1px solid darkgrey;
+  width: 190px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 11px 0;
+  background-color: rgb(30, 167, 167);
+  cursor: pointer;
+}
+
+.modal-btn-delete {
+  color: white;
+  border: 1px solid darkgrey;
+  width: 190px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 11px 0;
+  background-color: red;
+  cursor: pointer;
+}
+
+.modal-content {
+  border: 1px solid lightgray;
+  background: white;
+}
+
 .single-view-text {
   text-align: left;
   margin-right: 6%;
@@ -151,8 +182,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
   margin: 11px 0;
   background-color: rgb(30, 167, 167);
   cursor: pointer;
+}
+
+.add-form a {
+  text-decoration: none;
 }
