@@ -32,6 +32,8 @@ class App extends Component {
     this.setState({ note });
   };
 
+  /* Form methods */
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -61,18 +63,36 @@ class App extends Component {
     });
   };
 
+  /* Modal methods */
+
   deleteNote = () => {
     const { notes, note } = this.state;
-    this.toggle();
+    this.toggleModal();
     this.setState({
       notes: notes.filter(n => n.id !== note.id)
-    });
+    }, window.location="/");
   };
 
   toggleModal = () => {
     this.setState({
       modal: !this.state.modal
     });
+  }
+
+  /* Lifecycle methods */
+
+  componentWillMount() {
+    localStorage.getItem('notes') &&
+    localStorage.getItem('nextId') &&
+    this.setState({
+      notes: JSON.parse(localStorage.getItem('notes')),
+      nextId: JSON.parse(localStorage.getItem('nextId'))
+    });
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('notes', JSON.stringify(nextState.notes));
+    localStorage.setItem('nextId', JSON.stringify(nextState.nextId));
   }
 
   render() {
