@@ -55,6 +55,7 @@ export class IndividualNote extends Component {
           onApprove={this.approveModal}
           onClose={this.toggleModal}
           deleteNoteHandler={this.props.deleteNoteHandler}
+          deleteNumber={this.state.match.params.id}
         >
           {this.state.loading && "Loading..."}
           {this.state.success && "Success (make me green)"}

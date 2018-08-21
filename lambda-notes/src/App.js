@@ -111,8 +111,13 @@ class App extends Component {
     this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
   };
 
-  deleteNoteHandler = event => {
-    console.log("DELETE HANDLER IS WORKING");
+  deleteNoteHandler = iNumber => {
+    let newNotesArray = this.state.notes.slice();
+    console.log("DELETE HANDLER BEFORE", newNotesArray);
+    let indexNumber = parseInt(iNumber, 10);
+    newNotesArray.splice(indexNumber, 1);
+    console.log("DELETE HANDLER AFTER", newNotesArray);
+    // this.setState({ notes: newNotesArray });
   };
 
   render() {
