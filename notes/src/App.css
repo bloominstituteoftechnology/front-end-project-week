@@ -97,6 +97,7 @@
 	display: flex;
 	justify-content: flex-end;
 	margin: 20px;
+	cursor: pointer;
 }
 
 .Note__editDelete span:not(:last-child) {

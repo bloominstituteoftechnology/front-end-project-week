@@ -28,7 +28,7 @@ class Note extends React.Component {
 
 	render() {
 		const note = this.props.notes.find(
-			note => note.id == this.props.match.params.id,
+			note => note._id == this.props.match.params.id,
 		);
 		const noteId = this.props.match.params.id;
 
@@ -46,7 +46,7 @@ class Note extends React.Component {
 						</div>
 						<div className="Note__content">
 							<h3>{note.title}</h3>
-							<p>{note.text}</p>
+							<p>{note.textBody}</p>
 						</div>
 					</div>
 				)}

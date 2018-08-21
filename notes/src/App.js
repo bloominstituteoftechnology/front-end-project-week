@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
+import axios from "axios";
 
 import Notes from "./Components/Notes";
 import Note from "./Components/Note";
@@ -7,72 +8,19 @@ import AddNote from "./Components/AddNote";
 
 import "./App.css";
 
+const API_ALL = "https://killer-notes.herokuapp.com/note/get/all";
 class App extends Component {
 	state = {
-		notes: [
-			{
-				id: 0,
-				title: "FIRST",
-				text: "I am the very model",
-			},
-			{
-				id: 1,
-				title: "SECOND",
-				text: "of a modern major general",
-			},
-			{
-				id: 2,
-				title: "THIRD",
-				text: "I've information animal",
-			},
-			{
-				id: 3,
-				title: "FOURTH",
-				text: "Vegetable and mineral",
-			},
-			{
-				id: 4,
-				title: "FIFTH",
-				text:
-					"All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. ",
-			},
-			{
-				id: 5,
-				title: "SIXTH",
-				text: "of a modern major general",
-			},
-			{
-				id: 6,
-				title: "SEVENTH",
-				text: "I've information animal",
-			},
-			{
-				id: 7,
-				title: "EIGHTH",
-				text: "Vegetable and mineral",
-			},
-			{
-				id: 8,
-				title: "NINTH",
-				text: "I am the very model",
-			},
-			{
-				id: 9,
-				title: "TENTH",
-				text: "of a modern major general",
-			},
-			{
-				id: 10,
-				title: "ELEVENTH",
-				text: "I've information animal",
-			},
-			{
-				id: 11,
-				title: "TWELFTH",
-				text: "Vegetable and mineral",
-			},
-		],
+		notes: [],
+		fetchingNotes: false,
 	};
+
+	componentDidMount() {
+		this.setState({ fetchingNotes: true });
+		axios.get(API_ALL).then(response => {
+			this.setState({ notes: response.data, fetchingNotes: false });
+		});
+	}
 
 	handleAddNote = note => {
 		this.setState(prevState => ({ notes: [...prevState.notes, note] }));
