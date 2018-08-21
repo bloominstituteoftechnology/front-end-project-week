@@ -3,6 +3,8 @@ import axios from 'axios'
 
 export const FETCHING_NOTES = 'FETCHING_NOTES'
 export const FETCHED_NOTES = 'FETCHED_NOTES'
+export const FETCHING_NOTE = 'FETCHING_NOTE'
+export const FETCHED_NOTE  = 'FETCHED_NOTE'
 export const ADDING_NOTES = 'ADDING_NOTES'
 export const ADDED_NOTES = 'ADDED_NOTES'
 export const DELETING_NOTES = 'DELETING_NOTES'
@@ -22,7 +24,14 @@ export const fetchNotes = () => {
     }
 }
 
-let idCount = 3
+export const fetchNote = id => {
+    return dispatch => {
+        dispatch({ type: FETCHING_NOTE })
+        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+            .then(res => dispatch({ type: FETCHED_NOTE, payload: res.data}))
+            .catch(err => dispatch({type: err}))
+    }
+}
 export const addNewNote = data => {
     return dispatch => {
         dispatch( {type: ADDING_NOTES })
@@ -36,9 +45,9 @@ export const addNewNote = data => {
 export const deleteNote = noteId => {
     return dispatch => {
         dispatch( {type: DELETING_NOTES })
-        axios.post(`https://killer-notes.herokuapp.com/note/delete/id`)
+        axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
             .then(res => dispatch( { type: DELETED_NOTES}))
-            .catch(err => dispatch( {type: ERROR} ))
+            .catch(err => dispatch( {type: ERROR, err: err} ))
     }
 }
 
