@@ -35,7 +35,9 @@ const ViewNote = props => {
       <NavLink className="ed" to={`/view-note/edit/${note.id}`}>
     Edit
     </NavLink>
-    <p className="ed" onClick={props.deleteBox}>delete</p>
+    <NavLink to={`/view-note/${note.id}`} className="ed" onClick={props.deleteBox}>
+    Delete
+    </NavLink>
     </div>
       <div className="note-view-page">View Note</div>
       <div className="note-title">{note.title}</div>

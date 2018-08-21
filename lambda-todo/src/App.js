@@ -7,7 +7,6 @@ import { Route } from "react-router-dom";
 import Notes from "./Notes/NotesData";
 import ViewNote from "./ViewNote/ViewNote";
 import EditNote from "./ViewNote/Edit Note/EditNote"
-import DeleteNote from "./ViewNote/Delete Note/DeleteNote";
 
 class App extends Component {
   constructor() {
@@ -55,10 +54,6 @@ class App extends Component {
           <Route
             path="/view-note/edit/:id"
             render={props => <EditNote {...props} notes={this.state.notes} />}
-          />
-           <Route
-            path="/view-note/:id"
-            render={props => <DeleteNote {...props} notes={this.state.notes} />}
           />
         </div>
       </div>
