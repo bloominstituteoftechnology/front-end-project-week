@@ -33,7 +33,6 @@ class NewNote extends React.Component {
     }
 
     handleInput = (e) => {
-        console.log("what e EES", e.target.name);
         this.setState({
             [e.target.name] : e.target.value
         })

@@ -7,31 +7,30 @@ class NoteView extends React.Component {
        super(props);
        this.state={
         title: '',
-        note: ''
+        note: '',
+        id:null,
        }
    }
 
    componentDidMount(){
-       console.log(this.props.allNotes);
-       
        let thisNote = this.props.allNotes.find((note) => {
-           console.log(note.id === parseInt(this.props.match.params.id));
-           
            return note.id === parseInt(this.props.match.params.id);
        });
-       console.log(thisNote);
        
        this.setState({
            title: thisNote.title,
            note: thisNote.note,
+           id: thisNote.id,
        })
    }
 
-     
-
+   handleDelete = () => {
+       this.props.delete(this.state.id);
+   }
 
     render(){
         return (<div>
+            <Link to="/"> <div className="delete" onClick={this.handleDelete}>delete.</div></Link>
             <h3>TITLE: {this.state.title}</h3>
             <p>{this.state.note}</p>
         </div>)
@@ -40,6 +39,3 @@ class NoteView extends React.Component {
 }
 
 export default NoteView;
-
-
-// this note { id: 1, title: "quis nostrud", note: "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " } 
