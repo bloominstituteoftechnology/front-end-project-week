@@ -37,9 +37,6 @@ export default class EditNote extends Component {
   }
 
   componentDidMount(){
-    console.log(this)
-    console.log(this.props.note)
-    console.log(this.state)
     if (this.props.note) {
       this.setState({note: this.props.note})
     };

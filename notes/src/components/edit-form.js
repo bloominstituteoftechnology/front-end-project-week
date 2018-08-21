@@ -18,12 +18,11 @@ const EditFormDiv = styled.div`
       width: 30%;
     }
     #body{
-      height: 200px;
+      height: 100px;
       text-emphasis: wrap;
       max-width: 90%;
       font-family: 'Roberto';
       line-height: 20px;
-
     }
     .menu-item{
         ${'' /* border: 1px solid red; */}
@@ -44,9 +43,11 @@ export default class EditForm extends Component {
   constructor(props){
     super(props);
     this.state = {
+      tags: this.props.note.tags,
       title: this.props.note.title,
       textBody: this.props.note.textBody,
       _id: this.props.note._id,
+      newTag: '',
     }
   }
 
@@ -58,6 +59,16 @@ export default class EditForm extends Component {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
+    })
+  }
+
+  addTag = (e) => {
+    e.preventDefault();
+    let thing = this.state.tags.slice();
+    thing.push(this.state.newTag)
+    this.setState({
+      newTag: '',
+      tags: thing,
     })
   }
 
@@ -83,6 +94,19 @@ export default class EditForm extends Component {
             value={this.state.textBody}
             placeholder="Note Content"
           >{this.value}</textarea>
+
+
+          <input
+            onSubmit={this.addTag}
+            className="input"
+            onChange={this.inputHandler}
+            value={this.state.newTag}
+            id="tag"
+            name='newTag'
+            placeholder={`${this.state.tags}`}
+          >{this.value}</input>
+          <button onClick={this.addTag}>add tag</button>
+
 
           <Link
             className="menu-item"

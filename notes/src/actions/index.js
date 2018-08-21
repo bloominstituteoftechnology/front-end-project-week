@@ -58,7 +58,7 @@ export const editNote = (editedNote) =>  {
   return function(dispatch){
     dispatch({type: EDITING_NOTE});
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${editedNote._id}`,
-      {"tags": ["tag", "otherTag"],
+      {"tags": editedNote.tags,
       "title": editedNote.title,
       "textBody": editedNote.textBody}
     ).then(res => {
