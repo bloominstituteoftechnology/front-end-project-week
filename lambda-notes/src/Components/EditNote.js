@@ -11,9 +11,8 @@ class EditNote extends React.Component {
     }
     componentDidMount() {
         const id = this.props.match.params.id;
-        axios.get(`http://localhost:3333/notes/`)
+        axios.get(`http://localhost:8000/notes`)
             .then(response => {
-                console.log('ONE GET: ', response)
                 const note = response.data.filter(note => note.id === Number(id))
                 const currentNote = note[0]
                 this.setState({ id: Number(id), notes: currentNote })
@@ -22,11 +21,11 @@ class EditNote extends React.Component {
     }
     editNote = () => {
         const id = this.state.id;
-        axios.put(`http://localhost:3333/notes/${id}`, { title: this.state.notes.title, content: this.state.notes.content })
+        axios.put(`http://localhost:8000/notes/${id}`, { title: this.state.notes.title, content: this.state.notes.content })
             .then(response => {
-                console.log('PUT RESPONSE: ', response)
+                this.props.history.push('/')
                 this.setState({ id: null, note: [] })
-                this.props.handleSetData(response.data)
+                this.props.handleRefresh()
             })
             .catch(err => {console.log(err)})
     }
@@ -51,11 +50,11 @@ class EditNote extends React.Component {
                     value={this.state.notes.content}
                     onChange={this.handleEditContent}
                 />
-                <a href='/'>
+                {/* <a href='/'> */}
                     <div onClick={this.editNote} className="custom-button">
                         Update
                     </div>
-                </a>
+                {/* </a> */}
             </form>
         );    
     }

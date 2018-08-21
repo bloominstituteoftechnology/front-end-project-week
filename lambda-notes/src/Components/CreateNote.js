@@ -15,7 +15,7 @@ class CreateNote extends React.Component {
             .post('http://localhost:8000/notes', newNote)
             .then(response => {
                 this.setState({ titleValue: '', contentValue: '' })
-                this.props.handleSetData(response.data)
+                this.props.handleRefresh()
             })
             .catch(err => {console.log(err)})
     }

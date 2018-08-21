@@ -21,6 +21,7 @@ class DeleteNote extends React.Component {
                 this.props.history.push('/')
                 this.setState({ id: null })
                 this.props.handleRefresh()
+                this.props.toggleDeleting()
             })
             .catch(err => {console.log(err)})
     }

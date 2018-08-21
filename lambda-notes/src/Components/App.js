@@ -16,7 +16,6 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      currentNote: {},
       deleting: false,
       loggedIn: true
     }
@@ -26,7 +25,6 @@ class App extends Component {
     axios
       .get('http://localhost:8000/notes')
       .then(response => {
-        console.log('GET RESPONSE: ', response)
         this.setState({ notes: response.data })
       })
       .catch(err => {console.log(err)})
@@ -63,10 +61,10 @@ class App extends Component {
       <div className="App">
         <Banner />
         <Route exact path='/' render={() => <ListView notes={this.state.notes} sortAz={this.sortAz} sortZa={this.sortZa} />} />
-        <Route path='/create' render={() => <CreateNote contentValue={this.state.contentValue} titleValue={this.state.titleValue} handleSetData={this.handleSetData} />} />
+        <Route path='/create' render={() => <CreateNote handleRefresh={this.handleRefresh} />} />
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} toggleDeleting={this.toggleDeleting} />} />
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} currentNote={this.state.currentNote} handleSetData={this.handleSetData} handleEditNote={this.handleEditNote} handleEditTitle={this.state.handleEditTitle} handleEditContent={this.state.handleEditContent} handleSetCurrent={this.handleSetCurrent} />} />
-        {this.state.deleting ? (<Route path='/view/:id' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleSetData={this.handleSetData} handleRefresh={this.handleRefresh} />)}/>) : null}
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} handleRefresh={this.handleRefresh} />} />
+        {this.state.deleting ? (<Route path='/view/:id' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleRefresh={this.handleRefresh} />)}/>) : null}
         {this.state.loggedIn ? null : (<Route path='/' render={props => (<LoginForm {...props} toggleLogin={this.toggleLogin} />)}/>)}
       </div>  
     );
