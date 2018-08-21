@@ -15,12 +15,13 @@ form .note-title-input{
     width: 80%;
     margin: 20px;
     padding: 20px;
+    font-size: 15px;
 }
 
 form .note-content-input{
-    height: 600px;
+    height: 400px;
     width: 80%;
     margin: 20px;
     padding: 20px;
-
+    font-size: 15px;
 }

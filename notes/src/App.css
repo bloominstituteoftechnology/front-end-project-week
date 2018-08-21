@@ -30,10 +30,13 @@
 }
 
 .your-notes{
-  display: flex;
-  flex: start;
+  text-align: left;
   padding-top: 40px;
   padding-left: 20px;
+}
+
+h1{
+  text-align: left;
 }
 
 .note-container{
