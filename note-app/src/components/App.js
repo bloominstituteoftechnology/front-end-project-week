@@ -47,6 +47,12 @@ class App extends Component {
 
   deleteNote  = (index) => {
     console.log("Deleting index ", index)
+    let notes = this.state.notes.slice()
+    const deleting = notes[index]
+    console.log(deleting)
+    notes = notes.filter(note => note.title !== deleting.title)
+    this.setState({ notes })
+
   }
 
 
@@ -66,7 +72,7 @@ class App extends Component {
             <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.state.notes} click = {this.handleNoteSelect}/>} /> 
             <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.createNote}/>} />
             <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote} /> } />
-            <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect}/>} />
+            <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
             <Route path = '/:id' render = {props => <FullNote  {...props} ct = {this.state.currentTitle} cc = {this.state.currentContent} index = {this.state.currentIndex} /> } />
           </Switch>
           {/* <CreateNote create = {this.createNote}/> */}

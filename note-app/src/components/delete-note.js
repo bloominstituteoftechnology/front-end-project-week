@@ -3,8 +3,11 @@ import {Link} from 'react-router-dom'
 
 class DeleteModal extends React.Component {
 
-    passIndexUpToState = (index) => {
+    passIndexUpToState = index => {
         this.props.select(index)
+    }
+    deleteNote = index => {
+        this.props.delete(index)
     }
     render() {
         console.log(this.props)
@@ -26,7 +29,7 @@ class DeleteModal extends React.Component {
                 </div>
                 <div className ="delete-question">
                     <h6>Are you sure you want to delete this?</h6>
-                    <button className = "btn-side-bar btn-delete">Delete</button>
+                    <Link to = "/"><button onClick = {() => this.deleteNote(index)} className = "btn-side-bar btn-delete">Delete</button></Link>
                     <Link to = {`/${this.props.match.params.id}`}><button onClick = {() => this.passIndexUpToState(index)} className = "btn-side-bar">No</button></Link>
                 </div>
             </div>
