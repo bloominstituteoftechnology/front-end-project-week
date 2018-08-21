@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const CreateNote = props => {
+  console.log("CreateNote Props", props.createNewNoteSubmitted);
   console.log("CreateNote Props", props);
-  // console.log("CreateNote Props", props.noteTitle);
+
   return (
     <div className="createNoteDiv">
       <form onSubmit={props.submitNewNoteHandler}>

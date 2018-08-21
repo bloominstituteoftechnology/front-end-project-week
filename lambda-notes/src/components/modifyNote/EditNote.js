@@ -7,8 +7,16 @@ export const EditNote = props => {
     <div className="editNoteDiv">
       <h1>Edit Note:</h1>
       <form>
-        <input placeholder="Note Title" />
-        <input placeholder="Note Content" />
+        <input
+          placeholder="Note Title"
+          onChange={props.inputChangeHandler}
+          name="noteTitle"
+        />
+        <input
+          placeholder="Note Content"
+          onChange={props.inputChangeHandler}
+          name="noteDescription"
+        />
         <button>Update</button>
       </form>
       <Link to={"/"}>

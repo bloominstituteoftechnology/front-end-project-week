@@ -66,7 +66,8 @@ class App extends Component {
         }
       ],
       noteTitle: "",
-      noteDescription: ""
+      noteDescription: "",
+      createNewNoteSubmitted: false
     };
   }
 
@@ -77,6 +78,7 @@ class App extends Component {
 
   submitNewNoteHandler = event => {
     event.preventDefault();
+    console.log("Working Submit Handler", this.props);
     let newNotesArray = this.state.notes.slice();
     // gets last item in note array
     let lastIndex = this.state.notes.slice(-1)[0];
@@ -90,9 +92,12 @@ class App extends Component {
     };
     newNotesArray.push(newNote);
     console.log("NewNote", newNotesArray);
-    console.log("Working Submit Handler");
     this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
+    // console.log("HISTORY", this.props);
+    // this.props.history.push("/");
   };
+
+  modifyNoteHandler = event => {};
 
   render() {
     console.log("noteTitle", this.state.noteTitle);
@@ -116,17 +121,24 @@ class App extends Component {
           render={props => (
             <CreateNote
               {...props}
-              notes={this.state.notes}
-              noteTitle={this.state.noteTitle}
-              noteDescription={this.state.noteDescription}
+              // notes={this.state.notes}
+              // noteTitle={this.state.noteTitle}
+              // noteDescription={this.state.noteDescription}
               inputChangeHandler={this.inputChangeHandler}
               submitNewNoteHandler={this.submitNewNoteHandler}
+              // createNewNoteSubmitted={this.state.createNewNoteSubmitted}
             />
           )}
         />
         <Route
           path={"/edit/:id"}
-          render={props => <EditNote {...props} notes={this.state.notes} />}
+          render={props => (
+            <EditNote
+              {...props}
+              notes={this.state.notes}
+              inputChangeHandler={this.inputChangeHandler}
+            />
+          )}
         />
         {/* <Route
           path={"/delete/:id"}
