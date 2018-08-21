@@ -14,7 +14,22 @@
     margin: 0 10px;
   }
 
-  button {
+  a:hover {
+    text-decoration: none;
+  }
+
+  .btn {
     margin: 20px auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a:not([href]) {
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+    }
   }
 }

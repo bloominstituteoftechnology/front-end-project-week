@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { CSVLink } from 'react-csv';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import Modal from './components/DeleteModal';
@@ -25,14 +26,6 @@ class App extends Component {
     },
     modal: false,
     nextId: 1
-  };
-
-  // back to notes page
-  redirect = () => window.location='/';
-
-  // for single note view
-  storeNote = note => {
-    this.setState({ note });
   };
 
   /* Form methods */
@@ -89,6 +82,21 @@ class App extends Component {
     });
   }
 
+  /* Misc. methods */
+
+  redirect = () => window.location='/'; // back to notes page
+
+  storeNote = note => { // for single note view
+    this.setState({ note });
+  };
+
+  formatForCSV = () => {
+    return this.state.notes.map(note => {
+      const { title, text } = note;
+      return { title, text };
+    });
+  };
+
   /* Lifecycle methods */
 
   componentWillMount() {
@@ -112,7 +120,20 @@ class App extends Component {
           <h1>Lambda Notes</h1>
           <Link to="/"><Button color="info">View Your Notes</Button></Link>
           <Link to="/create"><Button color="info">+ Create New Note</Button></Link>
-          <Route exact path="/" render={() => <Button color="info">CSV placeholder</Button>} />
+          <Route 
+            exact 
+            path="/" 
+            render={() => (
+              <Button 
+                data={this.formatForCSV()} 
+                filename={"notes.csv"}
+                color="info"
+                tag={CSVLink}
+              >
+                Export To CSV
+              </Button>
+            )} 
+          />
         </div>
         <div className="main-content">
           <Route

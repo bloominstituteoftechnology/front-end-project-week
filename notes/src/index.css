@@ -98,8 +98,20 @@ hr {
   text-align: left;
   margin: 0 10px;
 }
-.sidebar button {
+.sidebar a:hover {
+  text-decoration: none;
+}
+.sidebar .btn {
   margin: 20px auto 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar a:not([href]) {
+  color: #fff;
+}
+.sidebar a:not([href]):hover {
+  color: #fff;
 }
 .note-form-container {
   width: 100%;

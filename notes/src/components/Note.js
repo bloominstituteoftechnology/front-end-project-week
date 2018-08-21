@@ -12,18 +12,20 @@ const Note = (props) => {
           <Card>
             <CardBody>
               <h5>
-                <ReactMarkDown source={title.slice(0, 17) + (title.length > 17 ? '...' : '')} />
+                <ReactMarkDown source={title.slice(0, 17).trim() + (title.length > 17 ? '...' : '')} />
               </h5>
               <hr />
               <CardText>
-                <ReactMarkDown source={text.slice(0, 116) + ((text.length > 116) ? '...' : '')} />
+                <ReactMarkDown source={text.slice(0, 116).trim() + ((text.length > 116) ? '...' : '')} />
               </CardText>
             </CardBody>
           </Card>
         )
         : (
           <div>
-            <h2><ReactMarkDown source={title} /></h2>
+            <h2>
+              <ReactMarkDown source={title} />
+            </h2>
             <br />
             <ReactMarkDown source={text} />
           </div>
