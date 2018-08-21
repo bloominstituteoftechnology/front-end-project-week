@@ -33,7 +33,7 @@ class NoteFocus extends React.Component {
  render(){
    console.log(this.state.note)
   return (
-    <div className="focus">
+    <div className={this.props.pink? "focus focuspink" : this.props.blue? "focus focusblue" : "focus"}>
       <div className={this.props.deleting ? "delete" : "hide-delete"}>
         <div className="modal">
           <p>Are you sure you want to delete this?</p>

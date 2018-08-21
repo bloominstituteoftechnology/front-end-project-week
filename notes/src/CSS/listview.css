@@ -91,17 +91,20 @@ h1, h2, h3 {
     border: solid rgb(90, 153, 205) 1px;
 }
 .menubarpink {
-    background: rgba(216, 112, 147, 0.897);
+    background-image: linear-gradient(to right, palevioletred,rgb(228, 150, 176));
+    border-right: dotted 1px gray;
+    /* background: rgba(216, 112, 147, 0.897); */
 }
 .menubarblue {
     background: rgba(72, 167, 231, 0.5);
+    border-right: solid 1px gray;
 }
 .pagepink {
-    background: pink;
+    background-image: linear-gradient(to right, palevioletred, pink, rgba(255, 255, 0, 0.575));
 }
 
 .pageblue {
-    background: skyblue;
+    background-image: linear-gradient(to right, white, rgba(72, 167, 231, 0.5));
 }
 
 .notes-container {

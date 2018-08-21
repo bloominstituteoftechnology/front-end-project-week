@@ -9,6 +9,7 @@ const Notes = props => {
         {props.notes.map(note => (
           <Link className="notelink" to={`/notes/${note._id}`}>
             <div className="note">
+            <div></div>
               <div className="note-contents">
                 <p className="note-title">{note.title}</p>
                 <p className="note-text">{note.textBody}</p>

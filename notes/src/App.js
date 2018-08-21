@@ -6,7 +6,6 @@ import NoteFocus from "./components/notefocus";
 import EditNote from "./components/editnote";
 import { Route } from "react-router-dom";
 import axios from "axios";
-import dummydata from "./dummydata";
 import "./CSS/listview.css";
 
 class App extends Component {
@@ -178,6 +177,8 @@ class App extends Component {
               noteDelete={this.noteDelete}
               deleteModal={this.deleteModal}
               deleting={this.state.deleting}
+              pink={this.state.pink}
+              blue={this.state.blue}
             />
           )}
         />
