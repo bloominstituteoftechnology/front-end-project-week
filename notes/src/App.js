@@ -33,7 +33,8 @@ class App extends Component {
 			{
 				id: 4,
 				title: "FIFTH",
-				text: "I am the very model",
+				text:
+					"All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. ",
 			},
 			{
 				id: 5,
@@ -100,11 +101,13 @@ class App extends Component {
 			<div className="App">
 				<div className="Sidebar">
 					<h1>Lambda Notes</h1>
+
 					<Link to="/notes">
-						<p>View Your Notes</p>
+						<button className="Button">View Your Notes</button>
 					</Link>
+
 					<Link to="/add">
-						<p>+ Create New Note</p>
+						<button className="Button">+ Create New Note</button>
 					</Link>
 				</div>
 				<Route

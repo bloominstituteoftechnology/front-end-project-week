@@ -3,22 +3,43 @@
 }
 
 .Sidebar {
-	background-color: #aaa;
+	background-color: #ccc;
+	border: 1px solid darkgray;
 	height: 100vh;
 	width: 300px;
-	margin-right: 40px;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	align-items: center;
+}
+
+.Button {
+	width: 200px;
+	height: 40px;
+	background-color: #00b6bb;
+	color: white;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.Button:hover,
+.Button:focus {
+	background: #077074;
+	outline: none;
 }
 
 .NotesWrapper {
 	display: flex;
 	align-content: flex-start;
 	flex-wrap: wrap;
-	margin: 2% 0;
+	padding: 2% 4%;
 	width: 100%;
+	background-color: #f2f0f2;
 }
 
 .Notes {
 	border: 1px solid black;
+	background-color: #fff;
 	width: 150px;
 	height: 150px;
 	padding: 8px;
@@ -39,4 +60,28 @@
 .Notes__text {
 	margin-top: 8px;
 	font-size: 1.3rem;
+}
+
+.AddNoteWrapper {
+	width: 100%;
+	background-color: #f2f0f2;
+}
+
+.AddNote__form {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+
+.AddNote__form input {
+	margin-bottom: 20px;
+}
+
+.AddNote__form button {
+	margin-top: 20px;
+}
+
+.NoteWrapper {
+	width: 100%;
+	background-color: #f2f0f2;
 }

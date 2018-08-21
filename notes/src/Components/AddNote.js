@@ -12,8 +12,9 @@ class AddNote extends React.Component {
 	};
 	render() {
 		return (
-			<div>
+			<div className="AddNoteWrapper">
 				<form
+					className="AddNote__form"
 					id="addNoteForm"
 					onSubmit={e => {
 						e.preventDefault();
@@ -41,7 +42,7 @@ class AddNote extends React.Component {
 						value={this.state.text}
 						onChange={this.handleInputChange}
 					/>
-					<button>Save</button>
+					<button className="Button">Save</button>
 				</form>
 			</div>
 		);

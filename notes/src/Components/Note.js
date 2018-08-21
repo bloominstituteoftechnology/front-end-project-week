@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 class Note extends React.Component {
 	state = {
-		display: false,
+		editDisplay: false,
+		deleteDisplay: false,
 		id: this.props.match.params.id,
 		title: "",
 		text: "",
@@ -13,6 +14,12 @@ class Note extends React.Component {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 
+	handleEditFlip = () => {
+		this.setState(prevState => ({
+			editDisplay: !prevState.editDisplay,
+		}));
+	};
+
 	render() {
 		const note = this.props.notes.find(
 			note => note.id == this.props.match.params.id,
@@ -20,9 +27,19 @@ class Note extends React.Component {
 		const noteId = this.props.match.params.id;
 
 		return (
-			<div>
-				<h4>{note.title}</h4>
-				<p>{note.text}</p>
+			<div className="NoteWrapper">
+				{this.state.editDisplay ? null : (
+					<div>
+						<div>
+							<span onClick={() => this.handleEditFlip()}>
+								edit
+							</span>
+							<span>delete</span>
+						</div>
+						<h3>{note.title}</h3>
+						<p>{note.text}</p>
+					</div>
+				)}
 				<div>
 					<h4>Are you sure you want to delete this?</h4>
 					<Link to="/notes">
@@ -32,33 +49,36 @@ class Note extends React.Component {
 					</Link>
 					<button>No</button>
 				</div>
-				<div>
-					<form
-						id="editNoteForm"
-						onSubmit={e => {
-							e.preventDefault();
-							this.props.onSubmit(this.state);
-						}}
-					>
-						<input
-							type="text"
-							placeholder="Note Title"
-							value={this.state.title}
-							name="title"
-							onChange={this.handleInputChange}
-						/>
-						<textarea
+				{this.state.editDisplay ? (
+					<div>
+						<form
 							id="editNoteForm"
-							cols="30"
-							rows="10"
-							name="text"
-							placeholder="Note Content"
-							value={this.state.text}
-							onChange={this.handleInputChange}
-						/>
-						<button>Update</button>
-					</form>
-				</div>
+							onSubmit={e => {
+								e.preventDefault();
+								this.props.onSubmit(this.state);
+								this.handleEditFlip();
+							}}
+						>
+							<input
+								type="text"
+								placeholder="Note Title"
+								value={this.state.title}
+								name="title"
+								onChange={this.handleInputChange}
+							/>
+							<textarea
+								id="editNoteForm"
+								cols="30"
+								rows="10"
+								name="text"
+								placeholder="Note Content"
+								value={this.state.text}
+								onChange={this.handleInputChange}
+							/>
+							<button>Update</button>
+						</form>
+					</div>
+				) : null}
 			</div>
 		);
 	}
