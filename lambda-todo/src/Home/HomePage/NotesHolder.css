@@ -1,7 +1,5 @@
 .notes-holder{
-    width: 640px; 
-    height: 100%; 
-    position: fixed; 
+    width: 640px;  
     background: #FAFBFC;
     display: flex;
     justify-content: center; 

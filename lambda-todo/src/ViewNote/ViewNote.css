@@ -1,6 +1,5 @@
 .view-page{
     width: 640px; 
-    border: 1px solid black; 
     height: 100%; 
     position: fixed; 
     background: #FAFBFC; 
@@ -20,7 +19,6 @@
 .note-container{
     width: 500px; 
     height: auto; 
-    border: 1px solid blue; 
 }
 .note-view-page{
     font-size: 15px; 
@@ -57,4 +55,22 @@
 }
 .hide-delete{
     display: none
+}
+.btn{
+    text-decoration: none; 
+    color: white;
+}
+.delete-btn{
+    border: 1px solid black; 
+    padding: 10px 40px; 
+    margin: 10px;
+    text-decoration: none; 
+    background: #ff4800
+}
+.no-btn{
+    border: 1px solid black;
+    padding: 10px 40px; 
+    margin: 10px;
+    text-decoration: none; 
+    background: #00C5C7
 }

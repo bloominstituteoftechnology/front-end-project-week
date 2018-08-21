@@ -16,14 +16,6 @@ const NewNotePage = props => {
           value={props.value.title}
           name="title"
         />
-        <input
-          placeholder="Card Content"
-          type="text"
-          className="title-input"
-          onChange={props.handleInputChange}
-          value={props.value.cardcontent}
-          name="cardcontent"
-        />
         <textarea
           placeholder="Content"
           type="text"

@@ -14,7 +14,7 @@ const Note = props => {
               </NavLink>
               <div className="line"></div>
               <div className="content">
-                <p>{item.cardcontent}</p>
+                <p>{item.content}</p>
               </div>
             </div>
           </div>
