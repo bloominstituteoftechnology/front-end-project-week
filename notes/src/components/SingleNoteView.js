@@ -42,6 +42,7 @@ class SingleNoteView extends Component {
                     </div>
                     <h2 className="singleNoteTitle">{foundNote.title}</h2>
                     <p className="singleNoteText">{foundNote.textBody}</p>
+                    <p className="singleNoteTags">Tags: {foundNote.tags}</p>
                 </div>
             </div>
         )
