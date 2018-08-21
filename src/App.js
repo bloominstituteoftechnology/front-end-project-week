@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import axios from "axios";
 import ListView from "./components/views/listview";
 import CreateNote from "./components/views/createnote";
 import NoteView from "./components/views/noteview";
@@ -38,10 +39,16 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   let notes = this.state.notes.slice();
-  //   this.setState({ notes: });
-  // }
+  componentDidMount() {
+    axios
+      .get("http://localhost:9000/notes")
+      .then(response => {
+        this.setState({ notes: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   editNoteHandler = e => {
     console.log(e);
@@ -50,13 +57,33 @@ class App extends Component {
 
   handleSubmitNote = () => {
     // const notes = this.state.notes.slice();
-    let notes = this.state.notes;
-    notes.push({
-      id: this.state.notes.length,
+    // let notes = this.state.notes;
+    // notes.push({
+    //   id: this.state.notes.length,
+    //   title: this.state.title,
+    //   textBody: this.state.textBody
+    // });
+    // this.setState({ notes, title: "", textBody: "" });
+    const note = {
       title: this.state.title,
       textBody: this.state.textBody
-    });
-    this.setState({ notes, title: "", textBody: "" });
+    };
+    axios
+      .post("http://localhost:9000/notes", note)
+      .then(response => {
+        console.log("response", response);
+        this.setState(
+          {
+            notesData: response.data,
+            title: "",
+            textBody: ""
+          },
+          this.componentDidMount()
+        );
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   selectHandler = note => {
@@ -72,21 +99,54 @@ class App extends Component {
   };
 
   editSubmitHandler = () => {
+    // let editNote = this.state.selected;
+    // editNote.title = this.state.title;
+    // editNote.textBody = this.state.textBody;
+    // this.setState({
+    //   title: editNote.title,
+    //   textBody: editNote.textBody
+    // });
+    // return editNote;
     let editNote = this.state.selected;
     editNote.title = this.state.title;
     editNote.textBody = this.state.textBody;
-    this.setState({
-      title: editNote.title,
-      textBody: editNote.textBody
-    });
-    return editNote;
+    axios
+      .put(`http://localhost:9000/notes/${this.state.selected.id}`, editNote)
+      .then(response => {
+        this.setState(
+          {
+            title: "",
+            textBody: ""
+          },
+          this.componentDidMount()
+        );
+        return editNote;
+      });
   };
 
   submitDelete = () => {
+    // let notes = this.state.notes.slice();
+    // notes = notes.filter(filtered => filtered.id !== this.state.selected.id);
+    // this.setState({ notes: notes });
     let notes = this.state.notes.slice();
-    notes = notes.filter(filtered => filtered.id !== this.state.selected.id);
-    console.log(notes, "notes");
-    this.setState({ notes: notes });
+    let note = notes.filter(filtered => filtered.id === this.state.selected.id);
+    console.log(note, "notes");
+    axios
+      .delete(`http://localhost:9000/notes/${this.state.selected.id}`)
+      .then(response => {
+        console.log(response, "response");
+        this.setState(
+          {
+            notesData: response.data,
+            title: "",
+            textBody: ""
+          },
+          this.componentDidMount()
+        );
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   filterSearch = event => {
