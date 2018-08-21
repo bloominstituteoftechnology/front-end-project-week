@@ -61,7 +61,7 @@ class App extends Component {
   };
   noteEdit = id => {
     let copiedNote = this.state.notes.slice();
-    let noteedit = copiedNote.find(note => note.id === id);
+    let noteedit = copiedNote.find(note => note.id == id);
     this.setState({
       titleEdit: noteedit.title,
       contentEdit: copiedNote.content
@@ -70,7 +70,7 @@ class App extends Component {
 
   revisions = id => {
     let copiedNote = this.state.notes.slice();
-    let noteedit = copiedNote.find(note => note.id === id);
+    let noteedit = copiedNote.find(note => note.id == id);
     noteedit.title = this.state.titleEdit;
     noteedit.content = this.state.contentEdit;
     this.setState({ notes: copiedNote });
