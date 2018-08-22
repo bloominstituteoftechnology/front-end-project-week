@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url = `http://localhost:8000`
+const url = `https://shyne-notes.herokuapp.com/`
 export const GET_NOTES = 'GET_NOTES'
 export const FETCHING = 'FETCHING'
 export const ERROR = 'ERROR'
