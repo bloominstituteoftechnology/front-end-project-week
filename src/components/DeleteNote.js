@@ -19,7 +19,7 @@ class DeleteNote extends React.Component {
   handleDeleteNote = e => {
     const id = this.state.id;
     axios
-      .delete(`http://localhost:8000/api/notes/${id}`)
+      .delete(`${process.env.REACT_APP_API}/api/notes${id}`)
       .then(response => {
         this.props.history.push("/");
         this.setState({ id: null });

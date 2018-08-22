@@ -21,7 +21,7 @@ class NoteForm extends Component {
       content: this.state.content
     };
     axios
-      .post("http://localhost:8000/api/notes", note)
+      .post(`${process.env.REACT_APP_API}/api/notes`, note)
       .then(response => {
         this.setState({
           title: "",

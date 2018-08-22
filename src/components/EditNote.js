@@ -18,7 +18,7 @@ class EditNote extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
-      .get(`http://localhost:8000/api/notes`)
+      .get(`${process.env.REACT_APP_API}/api/notes`)
       .then(response => {
         const note = response.data.filter(note => note.id === Number(id));
         const currentNote = note[0];
@@ -53,7 +53,7 @@ class EditNote extends React.Component {
   handleEditNote = () => {
     const id = this.state.id;
     axios
-      .put(`http://localhost:8000/api/notes/${id}`, {
+      .put(`${process.env.REACT_APP_API}/api/notes/${id}`, {
         title: this.state.notes.title,
         content: this.state.notes.content
       })
