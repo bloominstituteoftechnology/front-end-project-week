@@ -4,24 +4,24 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {updateNote} from '../../actions';
 
-const CreateNotePage=styled.div`
+const EditNotePage=styled.div`
 background-color:#ddd;
 width: 75%;
 `
-const CreateNoteHeading=styled.h2`
+const EditNoteHeading=styled.h2`
 text-align: left;
 color:#424242
 margin-left: 5%;
 margin-top: 70px;
 `
-const CreateNoteForm=styled.div`
+const EditNoteForm=styled.div`
 width: 92.5%;
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
 margin-left: 5%;
 `
-const CreateNoteButton=styled.div`
+const EditNoteButton=styled.div`
 width: 30%;
 margin-top: 20px;
 height: 40px;
@@ -31,7 +31,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 `
-const CreateNoteInput=styled.input`
+const EditNoteInput=styled.input`
 width: 55%;
 height: 30px;
 border-radius: 4px;
@@ -39,7 +39,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 `
-const CreateNoteTextArea=styled.textarea`
+const EditNoteTextArea=styled.textarea`
 height: 400px;
 width: 96%;
 margin-top: 20px;
@@ -75,14 +75,14 @@ class EditNoteForm extends React.Component{
     }
     render() {
         return(
-            <CreateNotePage>
-                <CreateNoteHeading>Create New Note:</CreateNoteHeading>
-                <CreateNoteForm>
-                <CreateNoteInput name='title' type='text' placeholder='Note Title' value={this.state.title} onChange={this.handleInputChange}/>
-                <CreateNoteTextArea name='content' type='text' placeholder='Note Content' value={this.state.content} onChange={this.handleInputChange}/>
-                <CreateNoteButton onClick={this.editNoteObj}>Save</CreateNoteButton>
-                </CreateNoteForm>
-            </CreateNotePage>
+            <EditNotePage>
+                <EditNoteHeading>Create New Note:</EditNoteHeading>
+                <EditNoteForm>
+                <EditNoteInput name='title' type='text' placeholder='Note Title' value={this.state.title} onChange={this.handleInputChange}/>
+                <EditNoteTextArea name='content' type='text' placeholder='Note Content' value={this.state.content} onChange={this.handleInputChange}/>
+                <EditNoteButton onClick={this.editNoteObj}>Save</EditNoteButton>
+                </EditNoteForm>
+            </EditNotePage>
         )
     }
 }
