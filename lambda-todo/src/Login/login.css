@@ -13,4 +13,39 @@
     font-size: 35px; 
     margin: 15px; 
     padding: 15px; 
+    border: 2px solid white; 
+    border-radius: 10px; 
+    
+}
+.login-container{
+    border: 2px solid white; 
+    padding: 15px; 
+    border-radius: 15px; 
+}
+.login-box{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 15px; 
+    border: 2px solid white; 
+    border-radius: 10px; 
+}
+.login-box.is-visible {
+	display: block;
+	max-height: 999em;
+}
+.login-input{
+    width: 200px; 
+    height: 25px; 
+    margin: 10px; 
+    border: none; 
+    font-size: 12px;
+}
+.login-btn{
+    width: 100px; 
+    height: 30px; 
+    margin: 10px; 
+    border: none;
+    font-size: 12px; 
 }

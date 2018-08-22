@@ -20,13 +20,13 @@ class Login extends Component {
   render() {
     return (
       <div className="login-page">
+      <div className="login-container">
       <h1 className="login-title">Lambda Notes</h1>
-        <div className="login-box">
-          <form>
+          <form className="login-box">
             <input
               type="text"
               name="username"
-              placeholder="username"
+              placeholder="                      username"
               onChange={this.handleLoginInput}
               value={this.state.username}
               className="login-input"
@@ -34,7 +34,7 @@ class Login extends Component {
             <input
               type="text"
               name="password"
-              placeholder="password"
+              placeholder="                      password"
               onChange={this.handleLoginInput}
               value={this.state.password}
               className="login-input"
