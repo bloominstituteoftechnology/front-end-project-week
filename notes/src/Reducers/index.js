@@ -27,9 +27,9 @@ const rootReducer = (state = initialState, action) => {
     case SAVING_NOTE:
       return Object.assign({}, state, {saveInProgress: true, saved: false})
     case EDIT_NOTE:
-       let updatedNotes = [...state.notes].map(note => (note.id == action.payload.id) ? {id: action.payload.id, title: action.payload.title, content: action.payload.content} : note)
-       console.log(Object.assign({}, state, {notes:updatedNotes}));
-       return Object.assign({}, state, {saveInProgress: false, saved:false});
+       let updatedNotes = [...state.notes].map(note => (note.id == action.payload.id) ? {id: action.payload.id, note_title: action.payload.note_title, text_body: action.payload.text_body} : note)
+      
+       return Object.assign({}, state, {notes:updatedNotes}, {saveInProgress: false, saved:false});
     case ADDING_NOTE:
   
        return (Object.assign({}, state, {saveInProgress: false, saved:false}))

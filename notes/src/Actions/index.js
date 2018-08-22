@@ -71,15 +71,15 @@ export const addNote = (e, note, history) => {
 }
 
 export const editNotes = (e, savedNote, history) => {
-    console.log('updating note...');
+    console.log('updating note...', savedNote);
     return (dispatch) => {
        dispatch({type: SAVING_NOTE});
         dispatch(()=>{
-         database.ref('notes/'+savedNote.id).set({
-         title: savedNote.title,
-         id: savedNote.id,
-         content: savedNote.content
-     })});
+         axios.put(`http://localhost:8000/api/notes/${savedNote.id}`, savedNote)
+         .then(response => {
+           console.log('axios updated!', response)
+         })
+    });
        setTimeout(()=>{dispatch({type: SAVED})}, 2000);
        setTimeout(()=>{dispatch({type: EDIT_NOTE, payload: savedNote})}, 4000);
     setTimeout(()=>{history.push('/')}, 3200)
