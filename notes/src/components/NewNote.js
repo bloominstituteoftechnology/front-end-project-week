@@ -25,9 +25,12 @@ class NewNote extends React.Component {
         this.state = {
             title: '',
             note: '',
+            id: null,
         }
+        console.log(props.notes.length);
+        
     }
-
+    
     saveNote = () => {
         this.props.handleNewNote(this.state)
     }
@@ -45,7 +48,6 @@ class NewNote extends React.Component {
         return (
         <NewNoteContainer >
                 <input className="note-input title" type="text" name="title" placeholder="title" onChange={this.handleInput}/>
-            {/* <input type="text" name="note" placeholder="note"/> */}
                 <textarea className="note-input note-area" rows="6" cols="33" name="note" placeholder="note" onChange={this.handleInput}></textarea>
                 <button onClick={this.saveNote}>
                     <Link to="/">save.</Link>

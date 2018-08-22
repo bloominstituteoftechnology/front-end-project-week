@@ -7,11 +7,13 @@ import NoteList from './components/NoteList.js';
 import HeadCtrls from './components/HeadCtrls.js';
 import NewNote from './components/NewNote.js';
 import NoteView from './components/NoteView.js';
+import EditNote from './components/EditView.js';
 
 const AppContainer = styled.div`
   width:405px;
   margin:0 auto;
 `;
+
 class App extends Component {
 
   constructor(props){
@@ -30,6 +32,13 @@ class App extends Component {
       return (it === note.id);
     })
     return item;
+  }
+
+  findNoteIndex = (noteId, arr) => {
+    let index = arr.findIndex((el, i)=>{
+      return el.id === noteId;
+    })
+    return index;
   }
 
   newArrByFilter = (arr, id) => {
@@ -51,11 +60,21 @@ class App extends Component {
     this.setState({ notesArr: notes });
   }
 
+  handleEditNote = (note) => {
+    let index = this.findNoteIndex(note.id, this.state.notesArr);
+    let notes = this.state.notesArr.slice();
+    notes[index] = note;
+    this.setState({
+      notesArr: notes,
+    })
+  }
+
   render() {
     return (
       <AppContainer>
-        <Route path="/addnote" render={props => { return <NewNote handleNewNote={this.handleNewNote}/>}} />
-        <Route path="/noteView/:id" render={(props) => { return <NoteView {...props} allNotes={this.state.notesArr} delete={this.handleDeleteNote}/> }} />
+        <Route path="/addnote" render = { props => { return <NewNote handleNewNote={this.handleNewNote} notes={this.state.notesArr}/>}} />
+        <Route path="/editnote/:id" render={(props) => { return <EditNote {...props} handleEditNote={this.handleEditNote} notes={this.state.notesArr} /> }} />
+        <Route path="/noteView/:id" render={(props) => { return <NoteView {...props} allNotes={this.state.notesArr} delete={this.handleDeleteNote} edit={this.handleEditNote} /> }} />
         <Route exact path="/" render={props => { return <HeadCtrls notes={this.state.notesArr}/> }} />
         <Route exact path="/" render={props => { return <NoteList notes={this.state.notesArr} /> }} />
       </AppContainer>

@@ -8,3 +8,9 @@
 .note-input .note-area {
     height:400px;
 }
+
+.edit-delete-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}

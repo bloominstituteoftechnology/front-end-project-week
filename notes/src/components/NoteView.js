@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import './newNote.css';
 
 class NoteView extends React.Component {
    constructor(props){
@@ -24,16 +25,26 @@ class NoteView extends React.Component {
        })
    }
 
+   handleEdit = () => {
+    this.props.edit(this.state.id);
+   }
+
    handleDelete = () => {
        this.props.delete(this.state.id);
    }
 
     render(){
-        return (<div>
-            <Link to="/"> <div className="delete" onClick={this.handleDelete}>delete.</div></Link>
+        return (
+        <div>
+            <div className="v">
+                    <Link to={`/editnote/${this.state.id}`}> <div className="edit" onClick={this.handleEdit}>edit.</div></Link>
+                <Link to="/"> <div className="delete" onClick={this.handleDelete}>delete.</div></Link>
+            </div>
+ 
             <h3>TITLE: {this.state.title}</h3>
             <p>{this.state.note}</p>
-        </div>)
+        </div>
+        )
     }
    
 }
