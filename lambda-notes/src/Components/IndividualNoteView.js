@@ -49,15 +49,17 @@ class IndividualNoteView extends Component{
         }
 
         return (
-            <div key = {this.props.currentNote.id} className= "note">
+            <div key = {this.props.currentNote.id} className= "note-individual">
                 <div style = {modalShowStyle} className = "modal">
                     <p> Are you sure you want to delete this? </p>
                     <Link to = "/" onClick = {this.deleteNoteHandler}> Delete</Link>
                     <button onClick = {this.cancelDeleteHandler}> No </button>
                 </div>
-                <button onClick = {this.showModalHandler}> Delete </button>
-                <button>Edit</button>
-                <h2>{this.props.currentNote.title}</h2>
+                <div className = "buttons">
+                    <div className = "delete-button" onClick = {this.showModalHandler}> Delete </div>
+                    <div className = "edit-button" >Edit</div>
+                </div>
+                <h2 className = "individual-note-title">{this.props.currentNote.title}</h2>
                 <p>{this.props.currentNote.content}</p>
             </div>
         )

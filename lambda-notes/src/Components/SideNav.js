@@ -5,8 +5,8 @@ const SideNav = () => {
     return (
         <div className = "side-nav">
             <h1>Lambda Notes</h1>
-            <Link to ="/" className = "view-notes-button">View Your Notes</Link>
-            <Link to = "/new" className = "create-note-button"> + Create New Note</Link>
+            <Link to ="/" className = " button view-notes-button">View Your Notes</Link>
+            <Link to = "/new" className = " button create-note-button"> + Create New Note</Link>
         </div>
     )
 }

@@ -1,28 +1,95 @@
 .App {
-  text-align: center;
+  display: flex; 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.side-nav {
+  display: flex; 
+  flex-direction: column; 
+  padding-left: 1%;
+  background-color: #D3D3D3;
+  height: 100vh; 
+  padding-right: 1%; 
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.routes {
+  background-color: #F2F1F2;
+  width: 100%; 
+  padding-left: 3%; 
+  padding-top: 40px; 
+}
+ 
+h2 {
+  font-size: 20px; 
+  font-weight: bold; 
 }
 
-.App-title {
-  font-size: 1.5em;
+.allNotes {
+  display: flex; 
+  flex-wrap: wrap; 
+  margin-top: 20px; 
 }
 
-.App-intro {
-  font-size: large;
+.note {
+  width: 25%; 
+  margin-right: 4%;
+  margin-bottom: 20px;  
+  padding: 1% 2%;
+  background-color: white; 
+  height: 250px;
+  border: 1px solid lightgrey; 
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.note a {
+  text-decoration: none; 
+  color: black; 
+}
+
+.button {
+  padding: 13px 20px; 
+  background-color: #24B8BD; 
+  margin: 10px 0px; 
+  width: 180px; 
+  text-align: center; 
+  color: white; 
+  text-decoration: none; 
+  font-weight: bold; 
+  border: 1px solid grey; 
+}
+
+.form{
+  display: flex; 
+  flex-direction: column; 
+  width: 85%; 
+  margin-top: 20px; 
+}
+
+.form-data {
+  margin-bottom: 20px; 
+}
+
+h3 {
+  font-size: 20px; 
+  font-weight: bold; 
+}
+
+.note-individual {
+  display: flex; 
+  flex-direction: column; 
+}
+
+.buttons {
+  display: flex; 
+  justify-content: flex-end; 
+  margin-right: 5%; 
+}
+
+.delete-button, .edit-button {
+  padding: 15px; 
+  font-weight: bold; 
+  text-decoration: underline; 
+  cursor: pointer; 
+}
+
+.individual-note-title {
+  margin-bottom: 20px; 
 }

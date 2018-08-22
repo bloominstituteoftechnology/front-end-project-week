@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; 
 import { addNote } from '../actions'; 
 import { connect } from 'react-redux'; 
+import {FormGroup, FormControl} from 'react-bootstrap'; 
 
 
 class CreateNoteView extends Component {
@@ -32,10 +33,14 @@ class CreateNoteView extends Component {
     render(){
         return (
             <div className = "create-note-view">
+            <FormGroup >
                 <h2>Create New Note:</h2>
-                <input name = 'title'  onChange = {this.handleChangeHandler} type = "text" placeholder = "Note Title"/>
-                <textarea onChange = {this.handleChangeHandler} name = "content" rows= "20"  placeholder = "Note Content"></textarea>
-                <Link onClick = {this.submitNoteHandler} to = "/">Save</Link>
+                <div className = "form">
+                    <FormControl className = "form-data" name = 'title'  onChange = {this.handleChangeHandler} type = "text" placeholder = "Note Title"/>
+                    <FormControl className  = "form-data" onChange = {this.handleChangeHandler} name = "content"  componentClass="textarea" rows = "15" placeholder = "Note Content" />
+                </div>
+                <Link className  = "button" onClick = {this.submitNoteHandler} to = "/">Save</Link>
+                </FormGroup>
             </div>
         )
     }

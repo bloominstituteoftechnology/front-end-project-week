@@ -17,16 +17,20 @@ class NotesListView extends React.Component {
         return (
             <div className = "notes-list-view">
                 <h2>Your Notes:</h2>
-                {this.props.notes.map(note => {
-                    return(
-                        <Link key = {note.id} to = {`/notes/${note.id}`}>
-                        <div  className = "note">
-                            <h3>{note.title}</h3>
-                            <p>{note.content}</p>
-                         </div>
-                         </Link>
-                    )
-                })}
+                <div className = "allNotes">
+                    {this.props.notes.map(note => {
+                        return(
+                            <div  className = "note">
+                                <Link key = {note.id} to = {`/notes/${note.id}`}>
+                                
+                                    <h3>{note.title}</h3>
+                                    <hr />
+                                    <p>{note.content}</p>
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         )
     }
