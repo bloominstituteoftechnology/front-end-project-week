@@ -20,7 +20,7 @@ class Notes extends Component {
 
   getNotes() {
     axios
-      .get("http://localhost:3300/all")
+      .get("https://back-end-project-week-lambda.herokuapp.com/all")
       .then(response => {
         this.setState({ notes: response.data }, () => {});
       })
