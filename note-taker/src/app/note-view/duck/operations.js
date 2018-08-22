@@ -23,7 +23,6 @@ const fetchNote = (id) => {
 }
 
 const noteDeletion = (id) => {
-    console.log(id);
     const promise = axios.delete(`https://lambda-note-taker.herokuapp.com/api/notes/${id}`);
     return dispatch => {
         dispatch(deletingNote());
