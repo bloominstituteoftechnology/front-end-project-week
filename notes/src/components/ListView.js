@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import Draggable from 'react-draggable';
 
 const List = styled.div`
     background: #F1F1F1;
@@ -36,33 +37,37 @@ const Content = styled.div`
     padding: 0.5rem;
     margin: 0.5rem 1rem;
     word-wrap: break-word;
+    width: 100%;
 `;
 
 class ListView extends React.Component{
     render(){
         return(
-            <List>
-                <h2>Your Notes:</h2>
-                <NoteOverview style={{display: 'grid',
-                                    gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gridGap: '10px',
-                                    gridAutoRows: 'minMax(100px, auto)'}}>
-                    {this.props.notes.map(note => {
-                        return(
-                            <div>
-                                <Link to={`/note/${note._id}`}
-                                    style={{ textDecoration: 'none',
-                                            color: 'black' }}>
-                                    <SmallNote key={note._id}>
-                                        <Title>{note.title}</Title>
-                                        <Content>{note.textBody}</Content>
-                                    </SmallNote>
-                                </Link>
-                            </div>
-                        );
-                    })}
-                </NoteOverview>
-            </List>
+            <div>
+                <List>
+                    <h2>Your Notes:</h2>
+                    <NoteOverview style={{display: 'grid',
+                                        gridTemplateColumns: 'repeat(3, 1fr)',
+                                        gridGap: '10px',
+                                        gridAutoRows: 'minMax(100px, auto)'}}>
+                        {this.props.notes.map(note => {
+                            return(
+                                
+                                <Draggable>      
+                                        <SmallNote key={note._id}>
+                                            <Title>{note.title}</Title>
+                                            <Link to={`/note/${note._id}`}
+                                                  style={{ textDecoration: 'none',
+                                                           color: 'black' }}>
+                                                <Content>{note.textBody}</Content>
+                                            </Link>
+                                        </SmallNote>
+                                </Draggable>
+                            );
+                        })}
+                    </NoteOverview>
+                </List>
+            </div>
         );
     }
 

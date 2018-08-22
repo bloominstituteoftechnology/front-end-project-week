@@ -8,6 +8,7 @@
     "react": "^16.4.2",
     "react-content-grid": "^0.0.12",
     "react-dom": "^16.4.2",
+    "react-draggable": "^3.0.5",
     "react-logger": "^1.1.0",
     "react-modal": "^3.5.1",
     "react-redux": "^5.0.7",

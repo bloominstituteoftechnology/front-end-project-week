@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import SideBar from './components/SideBar';
 import {Switch, Route, Link, withRouter} from 'react-router-dom';
+import SearchBar from './components/SearchBar';
 import ListView from './components/ListView';
 import CreateNote from './components/CreateNote';
 import Note from './components/Note';
 import EditNote from './components/EditNote';
+import FilteredNotes from './components/FilteredNotes';
 import {fetchNotes, addNote, updateNote} from './actions/actions';
 import {connect} from 'react-redux';
 
@@ -15,22 +17,38 @@ class App extends Component {
     this.state = {
       title: '',
       textBody: '',
+      searchTitle: [],
+      searchResultByTitle: [],
     }
   }
   handleChange = e =>{
     this.setState({[e.target.name]: e.target.value});
   }
+  filter = e => {
+      e.preventDefault();
+      let result = this.state.searchTitle;
+      if (result.length === 0){
+        return null;
+      }
+      let filtered = this.props.notes.filter(note => note.title.toLowerCase().includes(result));
+      this.setState({searchResultByTitle : filtered});
+      if(this.state.searchResultByTitle.length === 0){
+        return null;
+      }
+      this.props.fetchNotes(this.state.searchResultByTitle);
+      window.location.href="/get/filteredNotes";
+    }
   addNote = e => {
     e.preventDefault();
     this.props.addNote(this.state.title, this.state.textBody);
     this.setState({title:'', textBody:'',});
-    // this.props.history.push('/get/all');
     window.location.href='/get/all';
   }
   updateNote = e => {
     e.preventDefault();
     this.props.updateNote(this.state.title, this.state.textBody, e.target.id);
     this.setState({title:'', textBody:'',});
+    window.location.href='/get/all';
   }
   componentDidMount(){
     this.props.fetchNotes();
@@ -42,8 +60,18 @@ class App extends Component {
           {/* ROUTES */}
           <Route path='/' component={SideBar} />
           <Route exact path="/get/all" render={(props) => 
-              <ListView {...props} notes={this.props.notes} />}
+            <div>
+                <SearchBar {...props}
+                        searchTitle={this.state.searchTitle}
+                        handleChange={this.handleChange}
+                        filter={this.filter}/>  
+                <ListView {...props}
+                          notes={this.props.notes} />
+            </div> }
           />
+          <Route exact path="/get/filteredNotes" render={(props) => 
+                <FilteredNotes {...props}
+                          filtered={this.state.searchResultByTitle} />} />
           <Switch>
             <Route exact path="/note/create" render={(props) => 
                 <CreateNote {...props} 
