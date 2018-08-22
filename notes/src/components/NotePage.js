@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { MarkdownPreview } from 'react-marked-markdown';
 import { connect } from 'react-redux';
 import { fetchPost, confirmDelete } from '../actions';
 
@@ -25,7 +26,7 @@ class NotePage extends Component{
               </div>
             </div>
             <div className="title">{this.props.note.title}</div>
-            <div className="text">{this.props.note.textBody}</div>
+            <MarkdownPreview value={this.props.note.textBody} />
           </div>
         ) }
       </React.Fragment>
