@@ -7,4 +7,8 @@
 }
  .note p {
     padding-top: 30px;
+    font-family: 'SchoolCursiveRegular'; 
+    font-weight: normal; 
+    font-style: normal;
+    font-size: 25px;
 }

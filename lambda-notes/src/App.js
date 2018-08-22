@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import Notes from './components/Notes';
 import Note from './components/Note';
 import NewNoteForm from './components/NewNoteForm';
+import EditNote from './components/EditNote';
 import './App.css';
 
 
@@ -30,8 +31,8 @@ class App extends Component {
           },
           {
             id:3,
-            title:"Justice League",
-            text:"Wonder Woman, The Flash, Aquaman, Batman,Superman,Cyborg"
+            title:"Hey!",
+            text:"Whatsup"
           },
           {
             id:4,
@@ -63,6 +64,19 @@ class App extends Component {
      }
 
 
+     deleteNote = note => {
+      let notes = this.state.notes.slice();
+      for (let i = 0; i < notes.length; i++) {
+        if (notes[i].id === note.id) {
+          notes.splice(i, 1);
+        }
+      }
+      this.setState({ notes })
+    }
+
+
+
+
 
      render() {
       //  console.log(this.state.notes);
@@ -72,7 +86,10 @@ class App extends Component {
               <Route exact path="/"render={(props) => <Notes {...props} notes={this.state.notes} />} />
               <Route  exact path="/create-new-note" render={(props) => <NewNoteForm {...props}  title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} />} />
               <Route  exact path="/notes/:id" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text}  />}  />
-          </div>
+              <Route  exact path="/edit" render={(props) => <EditNote {...props} title={this.state.title} text={this.state.text} editNote={this.editNote} handleInputChange={this.handleInputChange} />} />
+              {/* <Route  exact path="/notes/:id" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}/> */}
+              <Route  exact path="/notes" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}/>
+        </div>
       );
    }
 }

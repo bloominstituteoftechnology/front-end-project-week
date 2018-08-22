@@ -12,7 +12,6 @@ class Sidebar extends Component {
         <div className="nav">
         <h1 className="title">Lambda Notes</h1>
         <li><NavLink exact to="/" className="nav-text" activeClassName="active-component">View Your Notes</NavLink></li>
-         &emsp;
          <li><NavLink to="/create-new-note/" className="nav-text" activeClassName="active-component">+ Create New Note</NavLink></li>
          </div>
             </ul>

@@ -31,6 +31,8 @@ width: 200px;
 height:195px;
 padding: 5px;
 margin: 20px 20px 0;
+color: black;
+font-weight:bold;
 }
 
 
@@ -39,5 +41,12 @@ margin: 20px 20px 0;
     margin: 10px 15px;
     padding-bottom: 5px;
     border-bottom: 2px solid #A6A6A6;
+}
+
+.notes .text p{
+    font-family: 'SchoolCursiveRegular'; 
+    font-weight: normal; 
+    font-style: normal;
+    font-size: 20px;
 }
 
