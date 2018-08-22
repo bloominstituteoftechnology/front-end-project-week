@@ -38,7 +38,7 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {
                 fetchingNotes: false,
                 notesFetched: true,
-                notes: [...state.notes, ...action.payload]
+                notes: [...action.payload]
             })
         case ADDING_NOTE:
             console.log('adding note');

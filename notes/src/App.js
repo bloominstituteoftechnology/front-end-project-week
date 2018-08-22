@@ -23,7 +23,7 @@ class App extends Component {
   componentDidMount() {
     // this.setState({notes: notesArray})
     this.props.getNotes();
-    // this.setState({notes: this.props.notes})
+    this.setState({notes: this.props.notes})
   }
 
   submitForm = (tags, title, textBody) => {
@@ -31,7 +31,7 @@ class App extends Component {
     //   return {
     //   notes: [...prevState.notes, {id: prevState.notes.length, title: title, textBody: textBody}]
     // }});
-    // this.forceUpdate();
+    
     this.props.addNote(tags, title, textBody);
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
 
     // }});
     this.props.updateNote(ident, tags, title, textBody);
-    this.props.history.push('/');    
+    this.props.history.push('/'); 
   }
 
   deleteNote = (ident) => {

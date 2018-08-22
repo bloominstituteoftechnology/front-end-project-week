@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import ReactMarkdown from 'react-markdown';
 
 class SingleNoteView extends Component {
     constructor(props) {
@@ -41,8 +42,8 @@ class SingleNoteView extends Component {
                             </ModalFooter>
                         </Modal>
                     </div>
-                    <h2 className="singleNoteTitle">{foundNote.title}</h2>
-                    <p className="singleNoteText">{foundNote.textBody}</p>
+                    <h2 className="singleNoteTitle"><ReactMarkdown source={foundNote.title} /></h2>
+                    <p className="singleNoteText"><ReactMarkdown source={foundNote.textBody} /></p>
                     <p className="singleNoteTags">Tags: {foundNote.tags}</p>
                 </div>
             </div>
