@@ -37,7 +37,8 @@ class Notes extends React.Component {
     inputChange=(e)=>{
         this.setState({[e.target.name]:e.target.value},()=>{
             let filteredNotes=this.props.notes.slice();
-            filteredNotes=filteredNotes.filter(e=>e.textBody.includes(this.state.filterparam)||e.title.includes(this.state.filterparam));
+            const filterparam=this.state.filterparam.toLowerCase();
+            filteredNotes=filteredNotes.filter(e=>e.textBody.toLowerCase().includes(filterparam)||e.title.toLowerCase().includes(filterparam));
             return this.setState({filteredNotes:filteredNotes},()=>console.log(this.state.filteredNotes));
         });
     }
