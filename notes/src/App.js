@@ -16,54 +16,72 @@ class App extends Component {
         {
           id: 1,
           title: "hi",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 2,
           title: "these",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 3,
           title: "are",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 4,
           title: "my",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 5,
           title: "notes",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 6,
           title: "lorem!",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 7,
           title: "ipsum!",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 8,
           title: "conan!",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         },
         {
           id: 9,
           title: "dimsum!",
-          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+          content:
+            "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
         }
       ]
     };
   }
 
+  addNewNote = () => {
+    const notes = this.state.notes;
+    // event.preventDefault();
+    notes.slice().push({
+      id: this.state.notes.id,
+      title: this.state.notes.title,
+      text: this.state.notes.text
+    });
+    this.setState({ notes: notes });
+  };
 
-  
   render() {
     return (
       <div className="App">
@@ -90,7 +108,17 @@ class App extends Component {
           path="/notes"
           render={props => <ListView {...props} notes={this.state.notes} />}
         />
-        <Route exact path="/create" component={CreateNote} />
+        <Route
+          exact
+          path="/create"
+          render={props => (
+            <CreateNote
+              {...props}
+              notes={this.state.notes}
+              makeNote={this.addNewNote}
+            />
+          )}
+        />
         <Route
           path="/notes/:id"
           render={props => <NoteView {...props} note={this.state.notes} />}

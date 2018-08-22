@@ -21,3 +21,26 @@
 .home-page {
     width: 75%;
 }
+
+.createNote-container{
+  width: 75%;
+}
+
+.CreateNote-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-input {
+  width: 60%;
+}
+
+.content-input {
+  width: 98%;
+  height: 400px;
+}
+
+.save-button {
+  width: 30%
+}
