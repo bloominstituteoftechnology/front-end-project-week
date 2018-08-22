@@ -74,14 +74,19 @@ class Note extends React.Component{
                         <ModalBody style={{textAlign: 'center'}}>
                             Are you sure you want to delete this?
                         </ModalBody>
-                        <ModalFooter>
+                        <ModalFooter style={{height:'100px'}}>
                             <Button color="danger"
                                     onClick={() => {this.props.deleteNote(this.props.match.params.id);
-                                                    this.toggle();}}>
+                                                    this.toggle();
+                                                    window.location.href="/get/all"}}
+                                    style={{position: 'absolute', left:100}}>
                                 Delete
                             </Button>
                             <Button onClick={this.toggle} 
-                                    style={{background: '#2AB4AE', color: 'white'}}>
+                                    style={{background: '#2AB4AE',
+                                            color: 'white',
+                                            position: 'absolute',
+                                            right: 100}}>
                                 No
                             </Button>
                         </ModalFooter>
