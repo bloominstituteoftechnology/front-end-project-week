@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginWrapper, LoginForm, LoginInput, LoginButton, BottomLoginContent, BottomText, SignUp } from '../ReusableComponents/Login';
+import { LoginWrapper, LoginForm, LoginInput, LoginButton, BottomLoginContent, BottomText, SignUp, InvalidCredentials } from '../ReusableComponents/Login';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/auth';
 
@@ -55,6 +55,8 @@ class Login extends React.Component {
                         Log In
                     </LoginButton>
 
+                    {this.props.invalidCredentials ? <InvalidCredentials>{this.props.invalidCredentials}</InvalidCredentials> : null}
+
                 </LoginForm>
 
 
@@ -72,7 +74,10 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { authenticated: state.auth.signedIn };
+    return {
+        authenticated: state.auth.signedIn,
+        invalidCredentials: state.auth.invalidCredentials
+    };
 }
 
 export default connect(mapStateToProps, { signIn })(Login);

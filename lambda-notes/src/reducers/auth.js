@@ -6,6 +6,7 @@ const initialState = {
     signingUp: false,
     signedUp: false,
     checkingToken: false,
+    invalidCredentials: null,
     error: null
 }
 
@@ -33,7 +34,16 @@ export default (state = initialState, action) => {
             return { ...state, signedIn: false };
 
         case ERROR:
-            return { ...state, error: action.payload, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+            switch (action.payload.response.data.error) {
+                case "The username you entered doesn't belong to an account.":
+                    return { ...state, error: action.payload, invalidCredentials: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+
+                case 'Invalid password':
+                    return { ...state, error: action.payload, invalidCredentials: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+
+                default:
+                    return { ...state, error: action.payload, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+            }
 
         default:
             return state

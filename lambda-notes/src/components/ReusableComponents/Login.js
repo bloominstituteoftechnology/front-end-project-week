@@ -81,3 +81,12 @@ export const SignIn = styled(Link)`
         color: #3897f0;
     }
 `
+
+export const InvalidCredentials = styled.p`
+    color: rgb(237, 73, 86);
+    line-height: 18px;
+    font-size: 13px;
+    margin-top: 18px;
+    margin-bottom: 0;
+    max-width: 214px;
+`
