@@ -8,7 +8,7 @@ import {
 const NoteCard = props => {
   return (
     <div className="note-card">
-      <Link exact to={props.title}> <h3>{props.title}</h3></Link>
+      <Link to={`/note-view/${props.title}`}> <h3>{props.title}</h3></Link>
       <p>{props.textBody}</p>
     </div>
   );

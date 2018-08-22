@@ -44,6 +44,8 @@ class ListView extends Component {
                             tags={note.tags}
                             title={note.title}
                             textBody={note.textBody}
+                            key={note.title + note.textBody}
+                            id={note.id}
                         />
                         );
                     })}
