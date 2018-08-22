@@ -23,7 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8000/notes')
+      .get('https://thawing-dawn-77220.herokuapp.com/notes')
       .then(response => {
         this.setState({ notes: response.data })
       })
@@ -49,7 +49,7 @@ class App extends Component {
   }
   handleRefresh = () => {
     axios
-      .get('http://localhost:8000/notes')
+      .get('https://thawing-dawn-77220.herokuapp.com/notes')
       .then(response => {
         this.setState({ notes: response.data })
       })
