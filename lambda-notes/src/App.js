@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route,NavLink} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Notes from './components/Notes';
 import Note from './components/Note';
