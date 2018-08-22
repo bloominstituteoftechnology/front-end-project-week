@@ -37,6 +37,7 @@ const MainContainer = styled("div")`
       font-size: 4.5rem;
       font-weight: bold;
       line-height: 43px;
+      color: #4A494A;
     }
 
     nav {
