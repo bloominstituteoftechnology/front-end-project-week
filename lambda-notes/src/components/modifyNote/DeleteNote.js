@@ -38,7 +38,6 @@ class DeleteNote extends Component {
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
           {this.props.children}
-
           <div>
             <button
               // onClick={() =>
