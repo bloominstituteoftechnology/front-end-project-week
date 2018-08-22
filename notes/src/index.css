@@ -1,10 +1,12 @@
 * {
   box-sizing: border-box;
 }
-html,
+html {
+  min-height: 100%;
+}
 body,
 #root {
-  height: 100%;
+  min-height: 100vh;
 }
 body {
   margin: 0;
@@ -39,7 +41,7 @@ hr {
 .App {
   text-align: center;
   display: flex;
-  height: 100%;
+  min-height: 100vh;
 }
 .main-content {
   display: flex;
@@ -80,6 +82,10 @@ hr {
 .card:hover {
   background: #595959;
   color: white;
+}
+.card h5 {
+  height: 24px;
+  overflow: hidden;
 }
 .single-note-card {
   width: 100%;

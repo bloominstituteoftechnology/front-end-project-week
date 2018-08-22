@@ -1,7 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-
 const SortDropdown = ({ dropdown, toggle, sortByLatest, sortByOldest, sortAlphabetically }) => {
   return (
     <Dropdown isOpen={dropdown} toggle={toggle} className="dropdown">
