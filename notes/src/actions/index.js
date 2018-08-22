@@ -18,6 +18,7 @@ export const addNote = (tags, title, textBody) => {
         promise
             .then(response => {
                 dispatch({type: NOTE_ADDED, payload: response.data})
+                dispatch(getNotes());
             })
             .catch(err => {
                 console.log('error', err);
@@ -48,6 +49,7 @@ export const updateNote = (id, tags, title, textBody) => {
         promise
             .then(response => {
                 dispatch({type: NOTE_UPDATED, payload: response.data})
+                dispatch(getNotes());
             })
             .catch(err => {
                 console.log('error', err);
@@ -63,6 +65,7 @@ export const deleteNote = (id) => {
         promise
             .then(response => {
                 dispatch({type: NOTE_DELETED, payload: response.data})
+                dispatch(getNotes());
             })
             .catch(err => {
                 console.log('error', err);
