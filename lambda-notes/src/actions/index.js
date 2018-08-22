@@ -17,11 +17,25 @@ export const getNotes = () => {
   }
 }
 
+export const silentUpdate = () => {
+  return dispatch => {
+    axios
+      .get(notesUrl)
+      .then(response => {
+        dispatch({ type: 'NOTES_FETCHED', payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: 'ERROR', payload: error });
+      });
+  }
+}
+
 export const updateNoteOrdering = (updatedNoteOrdering) => {
   console.log("redux: ", updatedNoteOrdering);
   return dispatch => {
     axios
       .put(`${usersUrl}/ordering`, updatedNoteOrdering)
+      .then(() => silentUpdate()(dispatch))
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });
       });

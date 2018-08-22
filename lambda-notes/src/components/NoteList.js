@@ -20,7 +20,7 @@ class NoteList extends React.Component {
   onSort = (sortedList) => {
     console.log(sortedList);
     const updatedNoteOrdering = JSON.stringify(sortedList.map(note => {
-      return Number(note.rank);
+      return Number(note._id);
     }));
     this.props.updateNoteOrdering({ noteOrdering: updatedNoteOrdering });
   }
@@ -51,24 +51,22 @@ class NoteList extends React.Component {
 
     // creates array of draggable or non-draggable notes, depending on isSortable
     const draggableNotes = notes.map(note => {
-      if (this.state.isSortable) {
-        return (
+      const jsx = (this.state.isSortable) ?
+        (
           <div className="note-preview-container" key={Math.random()}>
             <h3>{note.title}</h3>
             <p>{note.content}</p>
           </div>
-        )
-      } else {
-        return (
+        ) : (
           <Link to={`/notes/${note.id}`} key={Math.random()}>
             <div className="note-preview-container no-drag">
               <h3>{note.title}</h3>
               <p>{note.content}</p>
             </div>
           </Link>
-        )
-      }
-    }).map(jsx => ({ content: jsx }));
+        );
+      return { content: jsx, _id: note.id }
+    })
 
     // returns loading component if notes aren't fetched
     if (this.props.fetchingNotes) {
