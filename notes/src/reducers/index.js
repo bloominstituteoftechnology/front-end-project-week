@@ -4,7 +4,7 @@ import { FETCHING_POSTS, POSTS_FETCHED, ERROR,
 
 const initialState = {
   posts: [],
-  selectedPost: {},
+  selectedPost: null,
   isFetchingPost: false,
   isFetchingPosts: false,
   showingModal: false,

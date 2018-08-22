@@ -3,8 +3,8 @@ a {
 }
 
 .btn {
-  max-width: 125px;
-  min-height: 30px;
+  max-width: 300px;
+  min-height: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -12,6 +12,7 @@ a {
   background: #24B8BD;
   color: white;
   cursor: pointer;
+  font-size: 1.8rem;
 }
 
 .btn-delete {
@@ -29,7 +30,7 @@ a {
 
 .app .nav-bar {
   width: 25%;
-  max-width: 150px;
+  max-width: 300px;
   height: 100%;
   border-right: 1px solid gray;
   background: #D3D2D3;
@@ -37,6 +38,7 @@ a {
   flex-direction: column;
   padding: 15px 10px 0;
 }
+
 .app .nav-bar .btn {
   margin-bottom: 15px;
 }
@@ -58,12 +60,14 @@ a {
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .app .notes .notes-list p {
   width: 100%;
+  height: 2.2rem;
   padding-left: 30px;
   font-weight: bold;
   font-size: 2rem;

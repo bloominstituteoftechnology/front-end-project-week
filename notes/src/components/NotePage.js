@@ -9,27 +9,40 @@ class NotePage extends Component{
     this.props.fetchPost(this.props.match.params.id);
   }
 
+  renderPicker(){
+    if(this.props.isFetching){
+      return <div>Loading...</div>
+    } else if(!this.props.note || this.props.note.name){
+      return(
+        <React.Fragment>
+          <h1>NOTE NOT FOUND</h1>
+          <Link to="/"><button className="btn">Return to Note List</button></Link>
+        </React.Fragment>
+      )
+    } else{
+      return(
+        <React.Fragment>
+          <div className="links">
+            <Link to={`/note/${this.props.match.params.id}/edit`}>edit</Link>
+            <div
+              className="delete"
+              onClick={this.props.confirmDelete}
+            >
+              delete
+            </div>
+          </div>
+          <div className="title">{this.props.note.title}</div>
+          <MarkdownPreview value={this.props.note.textBody} />
+        </React.Fragment>
+      )
+    }
+  }
+
   render(){
     return(
-      <React.Fragment>
-        { this.props.isFetching ? (
-          <div>Loading...</div>
-        ):(
-          <div className="note-page">
-            <div className="links">
-              <Link to={`/note/${this.props.match.params.id}/edit`}>edit</Link>
-              <div
-                className="delete"
-                onClick={this.props.confirmDelete}
-              >
-                delete
-              </div>
-            </div>
-            <div className="title">{this.props.note.title}</div>
-            <MarkdownPreview value={this.props.note.textBody} />
-          </div>
-        ) }
-      </React.Fragment>
+      <div className="note-page">
+        { this.renderPicker()}
+      </div>
   )}
 }
 
