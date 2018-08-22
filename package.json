@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "react-csv": "^1.0.14",
+    "react-modal": "^3.5.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"

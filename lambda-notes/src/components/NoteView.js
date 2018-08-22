@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import DeleteModal from './DeleteModal';
 
 
 const ViewNote = styled.div`
@@ -95,7 +96,7 @@ class NoteView extends Component {
             <ViewNote>
                 <ButtonsContainer>
                 <Link to={`/edit-note/${this.state.id}`}> Edit </Link>
-                <a onClick={() => this.delete(this.state.id)}>Delete</a>
+                <DeleteModal delete={() => this.delete(this.state.id)}/>
                 </ButtonsContainer>
                 <h1>{this.state.title}</h1>
                 <p>{this.state.content}</p>
