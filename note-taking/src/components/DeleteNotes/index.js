@@ -1,5 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 
-const DeleteNotes = () => {};
+class DeleteNotes extends Component {
+    state = {
+        notes: {}
+    }
+
+    render() {
+        return (
+        <div>
+            Delete
+        </div>
+        );
+    }
+};
 
 export default DeleteNotes;

@@ -2,28 +2,28 @@ import React from "react";
 import { Component } from "react";
 import NotesList from "../NotesList";
 import CreateNotes from "../CreateNotes";
+import Axios from 'axios';
 
 class Notes extends Component {
   state = {
     notes: [
-      {
-        id: 0,
-        notetitle: "test",
-        notebody: "ing"
-      },
-      {
-        id: 1,
-        notetitle: "test",
-        notebody: "ing"
-      },
-      {
-        id: 2,
-        notetitle: "test",
-        notebody: "ing"
-      }
     ],
     note: ""
   };
+
+  handleSetData = data => this.setState({ notes: data });
+
+  componentDidMount() {
+    Axios
+      .get("http://localhost:8000/api/notes")
+      .then(response => {
+        console.log("GET RESPONSE: ", response);
+        this.setState({notes: response.data});
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   changeNote = e => this.setState({ [e.target.name]: e.target.value });
 
