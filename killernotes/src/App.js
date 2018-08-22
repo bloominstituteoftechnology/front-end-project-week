@@ -46,7 +46,16 @@ class App extends Component {
     return (
       <div>
         <Route path="/" component={SideBar} />
-        <Route path="/" render={props => <Login {...props} />} />
+        <Route
+          path="/"
+          render={props =>
+            this.props.loggedIn ? (
+              <Fetching>Welcome {this.props.username}!</Fetching>
+            ) : (
+              <Login {...props} />
+            )
+          }
+        />
         <Route
           exact
           path="/notes"
@@ -60,7 +69,11 @@ class App extends Component {
           exact
           path="/notes"
           render={() =>
-            this.props.fetched ? <Notes notes={this.props.notes} /> : 'working'
+            this.props.fetched && this.props.loggedIn ? (
+              <Notes notes={this.props.notes} />
+            ) : (
+              <Fetching>Not logged in</Fetching>
+            )
           }
         />
         {/* ...props sends match, location, history, etc */}

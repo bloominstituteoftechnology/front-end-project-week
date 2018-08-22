@@ -22,7 +22,8 @@ const LoginForm = styled.form`
   }
 `;
 
-const loginAPI = 'http://localhost:3007/api/login';
+const loginAPI = 'https://floating-sea-10752.herokuapp.com/api/login/';
+// const loginAPI = 'http://localhost:3007/api/login/';
 
 class Login extends React.Component {
   constructor() {
@@ -64,15 +65,15 @@ class Login extends React.Component {
       })
       .catch(err => {
         console.error('axios err:', err);
-        // if (err.response.data.error.includes('Unauthorized')) {
-        //   this.setState({
-        //     error: 'There is an error with your credentials',
-        //     username: '',
-        //     password: '',
-        //   });
-        // } else {
-        //   this.setState({ error: err.response.data.error });
-        // }
+        if (err.response.data.error.includes('Unauthorized')) {
+          this.setState({
+            error: 'There is an error with your credentials',
+            username: '',
+            password: '',
+          });
+        } else {
+          this.setState({ error: err.response.data.error });
+        }
         this.toggle();
       });
     this.setState({ username: '', password: '' });

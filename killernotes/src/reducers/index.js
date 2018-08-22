@@ -1,6 +1,6 @@
 /* prettier-ignore */
 import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING,
-   EDITED, EXPORTING, CLEARERROR, LOGGEDIN} from '../actions';
+   EDITED, EXPORTING, CLEARERROR, LOGGEDIN, NOTLOGGEDIN} from '../actions';
 
 const initialState = {
   loggedIn: false,
@@ -93,6 +93,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         exporting: false,
+      };
+
+    case NOTLOGGEDIN:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchedNotes: false,
       };
 
     case CLEARERROR:

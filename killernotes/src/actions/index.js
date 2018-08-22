@@ -12,20 +12,32 @@ export const ADDED = 'ADDED';
 export const EXPORTING = 'EXPORING';
 export const LOGGEDIN = 'LOGGEDIN';
 export const CLEARERROR = 'CLEARERROR';
+export const NOTLOGGEDIN = 'NOTLOGGEDIN';
 export const ERROR = 'ERROR';
 
 const notesAPI = 'https://floating-sea-10752.herokuapp.com/api/notes/';
+// const notesAPI = 'http://localhost:3007/api/notes';
 // const registerAPI = 'http://localhost:3007/api/register/';
 
 export const fetchData = () => {
+  const token = localStorage.getItem('jwt');
+  const requestOptions = {
+    headers: { Authorization: token },
+  };
   return function(dispatch) {
     dispatch({ type: FETCHING });
     axios
-      .get(notesAPI)
+      .get(notesAPI, requestOptions)
       .then(response => {
         dispatch({ type: FETCHED, payload: response.data });
       })
-      .catch(err => dispatch({ type: ERROR, payload: err }));
+      .catch(err => {
+        alert('You must be logged in to continue... Redirecting');
+        // setTimeout(() => {
+        //   this.props.history.push('/login');
+        // }, 500);
+        dispatch({ type: NOTLOGGEDIN, payload: err });
+      });
   };
 };
 
