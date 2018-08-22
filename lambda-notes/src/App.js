@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Link } from "react-router-dom";
 import { MainNav } from "./components/mainNav/MainNav";
-import { Notes } from "./components/noteList/Notes";
+import Notes from "./components/noteList/Notes";
 import { IndividualNote } from "./components/noteList/IndividualNote";
 import { EditNote } from "./components/modifyNote/EditNote";
 import { CreateNote } from "./components/modifyNote/CreateNote";
@@ -150,7 +150,26 @@ class App extends Component {
           <Route
             exact
             path={"/"}
-            render={props => <Notes {...props} notes={this.state.notes} />}
+            // render={props => <Notes {...props} notes={this.state.notes} />}
+            render={props => {
+              return (
+                <div className="notesMainDiv">
+                  <h2 className="landingTitle">Your Notes:</h2>
+                  <div className="noteListDiv">
+                    {this.state.notes.map(note => {
+                      return (
+                        <Link to={`/notes/${note.id}`} className="noteDiv">
+                          <h2>{note.title}</h2>
+                          <div className="noteDescription">
+                            <p>{note.description}</p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            }}
           />
           <Route
             path={"/notes/:id"}
