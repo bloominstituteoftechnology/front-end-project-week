@@ -18,6 +18,7 @@ import two from '../images/trash.jpg';
 import three from '../images/notepad.png';
 import four from '../images/search.jpg';
 import five from '../images/rhyme.jpg';
+import Search from './Search';
 
 class App extends Component {
   constructor(props){
@@ -104,7 +105,7 @@ class App extends Component {
     <Router>
       <div className="App">
         <div className="heading">
-          <h3 className= "app-header"> {/* <input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> */}</h3>
+          <h3 className= "app-header"></h3>
           <div className = "scene">
             {this.state.images.map(image => <div key = {image.alt} className ="carousel-cell">
               <img /*onMouseOver ={this.imgHover}*/ onClick = {this.imgClick} className = {image.className} src={image.src} alt={image.alt}/>
@@ -122,6 +123,7 @@ class App extends Component {
                 <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.props.notes} click = {this.handleNoteSelect}/>} /> 
                 <Route path = '/rhyme-book' render = {props => <Rhyme /> } />
                 <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.postNote} idGenerator = {this.idGenerator} nextId = {this.state.nextId}/>} />
+                <Route path = '/search' render = {props => <Search {...props} notes = {this.props.notes}/> } />
                 <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote}/> } />
                 <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
                 <Route path = '/:id' render = {props => <FullNote  {...props} select = {this.state.select} /> } />

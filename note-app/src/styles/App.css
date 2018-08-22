@@ -10,6 +10,9 @@
   text-decoration: none;
   color: black;
 }
+.side-bar a:hover {
+  box-shadow: 10px 5px 5px #24B8BD;
+}
 .heading {
   max-width: 578px;
   line-height: 0;
@@ -249,4 +252,13 @@ input {
 } 
 .menu-options {
   max-width: 50px;
+}
+
+.title-search {
+  text-decoration: underline; 
+}
+
+.fa-times-circle:hover{
+  /* searching */
+  cursor:pointer;
 }

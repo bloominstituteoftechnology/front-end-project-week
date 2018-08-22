@@ -29,6 +29,7 @@ class SideBar extends Component {
                 <Link to = "/"><button className="btn-side-bar">View Your Notes</button></Link>
                 <Link to="create-note"> <button className="btn-side-bar">+ Create New Note</button> </Link>
                 <Link to='rhyme-book'> <button className ="btn-side-bar">Rhyme Book</button></Link>
+                <Link to='search'> <button className ="btn-side-bar">Search</button></Link>
             </div>
         )
 
