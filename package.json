@@ -1,24 +1,19 @@
 {
-  "name": "front-end-project-week",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "lambda-notes",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "bootstrap": "^4.1.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "jquery": "^3.3.1",
-    "nodemon": "^1.14.11",
-    "popper.js": "^1.14.3",
-    "react-markdown": "^3.3.4",
-    "react-modal": "^3.5.1",
-    "react-transition-group": "^2.4.0",
-    "reactstrap": "^6.3.0"
+    "axios": "^0.18.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
