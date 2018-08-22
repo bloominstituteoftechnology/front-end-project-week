@@ -5,11 +5,29 @@ import { Link } from 'react-router-dom';
 
 
 const Note = props => {
+    
+  function shortenDesc (desc) {
+    // max length 115chars
+    let arr = [];
+    let newArr = [];
+    let result = '';
+
+    arr = desc.split('');
+    
+    for (let i = 0; i < 115; i++) {
+      newArr.push(arr[i])
+    }
+
+    result = newArr.join('') + '...';
+
+    return result;
+  }
+
   return (
     <Link className="article-note__linked" to={`/notes/${props.id}`}>
       <h3>{props.title}</h3>
       <hr className="underline" />
-      <p>{props.description}</p>
+      <p>{shortenDesc(props.description)}</p>
     </Link>
   );
 }
