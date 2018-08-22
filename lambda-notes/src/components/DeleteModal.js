@@ -26,7 +26,7 @@ class DeleteModal extends React.Component {
         <div className="delete-modal">
           <h3>Are you sure you want to delete this?</h3>
           <div>
-            <button className="delete" onClick={() => {this.props.deleteNote(this.props.id)}}><Link to={`/`}>Delete</Link></button>
+            <button className="delete"><Link onMouseDown={() => {this.props.deleteNote(this.props.id)}} to={`/`}>Delete</Link></button>
             <button className="cancel" onClick={this.toggle}>No</button>
           </div>
           </div>

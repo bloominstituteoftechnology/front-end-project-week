@@ -8,7 +8,7 @@ const EditNote = props => {
             <h3>Edit Note:</h3>
             <input className="title" onChange={props.handleChange} type="text" name="title" value={props.title} placeholder="Note Title" />
             <textarea className="content" onChange={props.handleChange} type="text" name="content" value={props.content} placeholder="Note Content" />
-            <div className="save-button" onClick={() => {props.editNote(props.match.params.id)}}><Link to={`/`}>Save</Link></div>
+            <Link className="save-button" onMouseDown={() => {props.editNote(props.match.params.id)}} to={`/`}>Save</Link>
             </form>
         </div>
         );

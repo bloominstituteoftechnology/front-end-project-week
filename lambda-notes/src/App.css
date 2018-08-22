@@ -97,8 +97,9 @@ form {
   background-color: #32B7BD;
   text-align: center;
   line-height: 50px;
+  color: white;
 }
-.save-button a {
+.save-button:hover {
   color: white;
 }
 
@@ -138,10 +139,10 @@ form {
   width: 200px;
   margin: 0 10px;
 }
-.delete-modal .delete {
+.delete-modal .delete{
   background-color: red;
 }
-.delete-modal .delete a {
+.delete-modal .delete a{
   color: white;
 }
 .delete-modal .delete a:hover {

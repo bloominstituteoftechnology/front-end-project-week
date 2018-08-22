@@ -1,49 +1,37 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
-import dummyData from '../dummy-data';
+import {Route, withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchData, addNewNote } from "../actions";
+
 import Sidebar from './Sidebar';
 import NotesList from './NotesList';
 import NotePage from './NotePage';
 import NewNote from './NewNote';
-import EditNote from './EditNote';
 
 class NotesContainer extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
       title: "",
       content: ""
     }
   }
 
   componentDidMount() {
-    this.setState({ data: dummyData})
+    this.props.fetchData();
   }
 
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addNewNote = (e) => {
-    e.preventDefault();
-    let copy = this.state.data.slice();
-    copy.push({ id: this.state.data[this.state.data.length-1].id+1, title: this.state.title, content: this.state.content})
-    this.setState({ data: copy });
-  }
-
-  deleteNote = (id) => {
-    let filtered = this.state.data.filter(note => note.id !== id);
-    this.setState({ data: filtered });
-  }
-
-  editNote = (id) => {
-    id = parseInt(id, 10);
-    let copy = this.state.data.slice();
-    let i = copy.findIndex(note => note.id === id);
-    copy.splice( i, 1, { id: id, title: this.state.title, content: this.state.content} )
-    this.setState({ data: copy });
-  }
+  addNewNote = () => {
+    this.props.addNewNote(this.state.title, this.state.content);
+    this.setState({
+      title: "",
+      content: ""
+    });
+  };
 
   render() {
     return (
@@ -52,7 +40,7 @@ class NotesContainer extends Component {
       <div className='main-content'>
         <Route
           exact path="/"
-          render={(props) => <NotesList {...props} data={this.state.data} />}
+          render={(props) => <NotesList {...props} data={this.props.data} />}
           />
         <Route
           path="/create-new-note"
@@ -60,11 +48,7 @@ class NotesContainer extends Component {
           />
         <Route
           exact path="/notes/:id"
-          render={(props) => <NotePage {...props} data={this.state.data} deleteNote={this.deleteNote} />}
-          />
-        <Route
-          path="/notes/:id/edit-note"
-          render={(props) => <EditNote {...props} handleChange={this.inputHandler} editNote={this.editNote} />}
+          render={(props) => <NotePage {...props}  />}
           />
         </div>
       </div>
@@ -72,4 +56,16 @@ class NotesContainer extends Component {
   }
 }
 
-export default NotesContainer;
+const mapStateToProps = state => {
+  return {
+    data: state.notes
+  }
+}
+
+export default withRouter(
+  connect(mapStateToProps, {
+    fetchData,
+    addNewNote
+  })(NotesContainer)
+);
+
