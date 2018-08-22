@@ -20,6 +20,8 @@ const MainContainer = styled("div")`
   height: auto;
   margin: auto;
   position: relative;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 
   .main-header {
     width: 25%;
@@ -63,7 +65,8 @@ const MainContainer = styled("div")`
 
 class App extends Component {
   state = {
-    atHome: false
+    atHome: false,
+    isModalOpen: false
   }
 
   atHomeToggle = () => {
@@ -72,8 +75,14 @@ class App extends Component {
     })
   }
 
+  handleModal = () => {
+    this.setState(prevState => {
+      return {isModalOpen: !prevState.isModalOpen}
+    });
+  }
+
   deleteNote = (id) => {
-    this.props.deleteNoteHandler(id);
+    this.props.deleteNoteHandler(id)
   }
 
   editNote = (content) => {
@@ -100,7 +109,14 @@ class App extends Component {
           <Route exact strict path="/" render={props => <Home {...props} atHomeToggle={this.atHomeToggle} /> } />
           <Route exact strict path="/notes" render={props => <NotesContainer {...props} /> } />
           <Route path="/notes/add-note/" render={props => <AddNoteForm {...props} notes={this.props.notes} addNote={this.addNote} /> } />
-          <Route exact strict path="/notes/:id" render={props => <NoteDescription {...props} notes={this.props.notes} deleteNote={this.deleteNote} /> } />
+          <Route exact strict path="/notes/:id" 
+            render={props => <NoteDescription 
+              {...props} 
+              notes={this.props.notes}
+              handleModal={this.handleModal}
+              isModalOpen={this.state.isModalOpen}
+              deleteNote={this.deleteNote}
+            /> } />
           <Route path="/notes/:id/edit" render={props => <EditNoteForm {...props} notes={this.props.notes} editNote={this.editNote} /> } />
         </MainContainer>
       </Router>

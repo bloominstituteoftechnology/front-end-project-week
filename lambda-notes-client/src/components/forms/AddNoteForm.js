@@ -23,14 +23,25 @@ const Main = styled("main")`
         margin-top: 40px;
         padding: 19px;
         width: 59%;
+        &::placeholder {
+          color: rgba(0,0,0,.7);
+          font-size: 1.6rem;
+          font-family: sans-serif;
+        }
       }
     }
     .desc-input-container {
       textarea {
         margin-top: 19px;
-        padding: 28px;
+        padding: 27px 27px 27px 29px;
         width: 100%;
         height: 468px;
+        resize: none;
+        &::placeholder {
+          color: rgba(0,0,0,.7);
+          font-size: 1.6rem;
+          font-family: sans-serif;
+        }
       }
     }
 

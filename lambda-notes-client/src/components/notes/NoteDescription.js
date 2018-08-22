@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from "react-emotion";
 
+import DeleteModal from '../modals/DeleteModal';
+
 
 const Main = styled("main")`
   margin-left: 25%;
@@ -43,24 +45,35 @@ const NoteDescription = props => {
 
   let note = props.notes.filter(item => item.id === parseInt(props.match.params.id, 10));
 
-  const handleDelete = () => {
-    props.history.goBack();
-    props.deleteNote(note[0].id)
-  }
-
+  //Handle Errors
   if (note.length === 0) {
-    return <h1>Loading</h1>
+    return <h1>Loading...</h1>
   } else {
     return (
       <Main>
-        <header className="links-header">      
+
+        {/*Body - handles modal*/}
+        <header className="links-header">
           <Link className="link" to={`/notes/${note[0].id}/edit`}>edit</Link>
-          <a className="link" onClick={() => {handleDelete()}}>delete</a>
+          <a className="link" onClick={props.handleModal}>delete</a>
         </header>
         <article>
           <h2>{note[0].title}</h2>
           <p>{note[0].description}</p>
         </article>
+
+        {/*Modal - handles delete*/}
+        {props.isModalOpen ?
+          <DeleteModal
+            history={props.history}
+            id={note[0].id}
+            deleteNote={props.deleteNote}
+            handleModal={props.handleModal}
+          />
+          :
+          null
+        }
+
       </Main>
     );
   }
