@@ -28,12 +28,6 @@ class App extends Component {
         this.setState({ notes: response.data })
       })
       .catch(err => {console.log(err)})
-    // axios
-    //   .get('https://thawing-dawn-77220.herokuapp.com/notes')
-    //   .then(response => {
-    //     this.setState({ notes: response.data })
-    //   })
-    //   .catch(err => {console.log(err)})
   }
   handleSetData = data => {this.setState({ notes: data, deleting: false })}
   toggleDeleting = () => {this.setState({ deleting: !this.state.deleting })}
@@ -55,7 +49,7 @@ class App extends Component {
   }
   handleRefresh = () => {
     axios
-      .get('https://thawing-dawn-77220.herokuapp.com/notes')
+      .get(`${process.env.REACT_APP_API}/notes`)
       .then(response => {
         this.setState({ notes: response.data })
       })

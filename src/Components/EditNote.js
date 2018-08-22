@@ -15,7 +15,7 @@ class EditNote extends React.Component {
     }
     componentDidMount() {
         const id = this.props.match.params.id;
-        axios.get(`http://localhost:8000/notes`)
+        axios.get(`${process.env.REACT_APP_API}/notes`)
             .then(response => {
                 const note = response.data.filter(note => note.id === Number(id))
                 const currentNote = note[0]
@@ -25,7 +25,7 @@ class EditNote extends React.Component {
     }
     editNote = () => {
         const id = this.props.match.params.id;
-        axios.put(`http://localhost:8000/notes/${id}`, { title: this.state.notes.title, content: this.state.notes.content })
+        axios.put(`${process.env.REACT_APP_API}/notes/${id}`, { title: this.state.notes.title, content: this.state.notes.content })
             .then(response => {
                 this.props.history.push('/')
                 this.setState({ id: null, note: {id: null, title: '', content: ''} })
