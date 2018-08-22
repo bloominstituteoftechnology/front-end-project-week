@@ -72,7 +72,7 @@ class SideBar extends React.Component {
     return (
       <SideBarDiv>
         <Text>Lambda Notes</Text>
-        <Link to="/">
+        <Link to="/notes">
           <ViewButton>View Your Notes</ViewButton>
         </Link>
         <Link to="/add">

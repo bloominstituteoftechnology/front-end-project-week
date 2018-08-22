@@ -1,8 +1,11 @@
 /* prettier-ignore */
 import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING,
-   EDITED, EXPORTING, CLEARERROR} from '../actions';
+   EDITED, EXPORTING, CLEARERROR, LOGGEDIN} from '../actions';
 
 const initialState = {
+  loggedIn: false,
+  username: '',
+  userId: null,
   fetchingNotes: false,
   fetchedNotes: false,
   deletingNote: false,
@@ -20,6 +23,11 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING:
       return { ...state, fetchingNotes: true };
+
+    case LOGGEDIN:
+      const username = action.payload.username;
+      const userId = action.payload.id;
+      return { ...state, loggedIn: true, username, userId };
 
     case FETCHED:
       return {
@@ -63,7 +71,6 @@ const rootReducer = (state = initialState, action) => {
     case EDITED:
       // get info from the payload
       const editedNote = action.payload.data.success;
-      console.log('EDITEDNOTE', editedNote);
       const editedId = editedNote.id;
       // get rid of the unedited note
       const newArr = state.notes.slice().filter(n => +n.id !== +editedId);

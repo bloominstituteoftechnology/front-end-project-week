@@ -118,8 +118,8 @@ class NoteForm extends React.Component {
       this.props.addNote(newNote);
     }
 
-    // go home after
-    this.props.history.push('/');
+    // go to notes after
+    this.props.history.push('/notes');
   };
 
   render() {

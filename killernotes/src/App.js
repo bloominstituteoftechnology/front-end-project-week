@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { fetchData, clearError } from './actions';
 import SideBar from './components/SideBar';
+import Login from './components/Login';
+// import SignUp from './components/SignUp';
 import Notes from './components/Notes';
 import NoteView from './components/NoteView';
 import NoteForm from './components/NoteForm';
@@ -14,7 +16,7 @@ const Error = styled.div`
   color: red;
   font-size: 30px;
   padding: 20px;
-  > * {
+  > button {
     background-color: #2bc1c4;
     color: #fff;
     margin-top: -13px;
@@ -37,16 +39,17 @@ class App extends Component {
 
   ClearError = () => {
     this.props.clearError();
-    this.props.history.push('/');
+    this.props.history.push('/notes');
   };
 
   render() {
     return (
       <div>
         <Route path="/" component={SideBar} />
+        <Route path="/" render={props => <Login {...props} />} />
         <Route
           exact
-          path="/"
+          path="/notes"
           render={() =>
             this.props.fetching ? (
               <Fetching>Fetching your notes...</Fetching>
@@ -55,7 +58,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/"
+          path="/notes"
           render={() =>
             this.props.fetched ? <Notes notes={this.props.notes} /> : 'working'
           }
@@ -81,6 +84,8 @@ const mapStateToProps = state => {
     fetching: state.fetchingNotes,
     fetched: state.fetchedNotes,
     error: state.error,
+    loggedIn: state.loggedIn,
+    username: state.username,
   };
 };
 

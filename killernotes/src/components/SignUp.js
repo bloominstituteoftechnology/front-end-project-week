@@ -1,30 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { loggedIn } from '../actions';
-import styled from 'styled-components';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const LoginForm = styled.form`
-  background-color: #f3f3f3;
-  padding-left: 18px;
-  margin-left: 233px;
-  margin-right: 20px;
-  margin-top: 16px;
-  word-break: break-all;
-  border: 1px solid rgb(151, 151, 151);
-  width: 646px;
-  > p {
-    margin-top: 55px;
-    font-size: 22px;
-    font-family: roboto;
-    margin-left: 22px;
-  }
-`;
-
-const loginAPI = 'http://localhost:3007/api/login';
-
-class Login extends React.Component {
+class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -43,39 +21,35 @@ class Login extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // the login endpoint wants a user object {username, password}
-    const user = {
-      username: this.state.username,
-      password: this.state.password,
-    };
+    // the signup endpoint wants a user object {username, password}
+    const { username, password } = this.state;
+    const USER = { username, password };
     axios
-      .post(`${loginAPI}`, user)
+      .post('http://localhost:3000/api/register', USER)
       .then(res => {
         // we're sent a JWT token
-        const token = res.data.jwt;
-        const username = res.data.username;
-        const userId = res.data.id;
+        const { token, username, userId } = res.data;
         // stash it for later use
         localStorage.setItem('jwt', token);
         localStorage.setItem('username', username);
-        localStorage.setItem('userId', userId);
-        this.props.loggedIn(username, userId);
+        localStorage.setItem('id', userId);
+        this.setState({ username: '', password: '' });
         this.props.history.push('/notes');
       })
       .catch(err => {
-        console.error('axios err:', err);
-        // if (err.response.data.error.includes('Unauthorized')) {
-        //   this.setState({
-        //     error: 'There is an error with your credentials',
-        //     username: '',
-        //     password: '',
-        //   });
-        // } else {
-        //   this.setState({ error: err.response.data.error });
-        // }
+        if (err.response.data.includes('UNIQUE')) {
+          this.setState({
+            error: 'That user already exists. Please choose another.',
+            username: '',
+            password: '',
+          });
+        } else {
+          this.setState({ error: err.response.data.error });
+        }
         this.toggle();
+        // console.error('axios err:', err);
+        console.log('ERR?', err.response.data);
       });
-    this.setState({ username: '', password: '' });
   };
 
   handleInput = e => {
@@ -85,7 +59,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <LoginForm onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           Username:
           <input
@@ -107,7 +81,7 @@ class Login extends React.Component {
           />
         </div>
         <div>
-          <button type="submit">Login</button>
+          <button type="submit">Register</button>
         </div>
         <div>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -120,19 +94,9 @@ class Login extends React.Component {
             </ModalFooter>
           </Modal>
         </div>
-      </LoginForm>
+      </form>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes,
-    edit: state.editingNote,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { loggedIn },
-)(Login);
+export default SignUp;

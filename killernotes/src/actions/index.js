@@ -10,10 +10,12 @@ export const NOTEDITING = 'NOTEDITING';
 export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
 export const EXPORTING = 'EXPORING';
+export const LOGGEDIN = 'LOGGEDIN';
 export const CLEARERROR = 'CLEARERROR';
 export const ERROR = 'ERROR';
 
 const notesAPI = 'https://floating-sea-10752.herokuapp.com/api/notes/';
+// const registerAPI = 'http://localhost:3007/api/register/';
 
 export const fetchData = () => {
   return function(dispatch) {
@@ -63,9 +65,15 @@ export const editNote = (id, note) => {
   };
 };
 
+export const loggedIn = (username, id) => {
+  const user = { username, id };
+  return function(dispatch) {
+    dispatch({ type: LOGGEDIN, payload: user });
+  };
+};
+
 export const editing = () => ({ type: EDITING });
 export const notEditing = () => ({ type: NOTEDITING });
 
 export const exportNotes = () => ({ type: EXPORTING });
-
 export const clearError = () => ({ type: CLEARERROR });
