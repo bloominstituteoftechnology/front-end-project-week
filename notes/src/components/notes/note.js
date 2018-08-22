@@ -9,10 +9,22 @@ border: 1px solid #ddd;
 height: 200px;
 margin-bottom: 20px;
 text-align: left;
+
 h3,p{
     margin-left: 10%;
     margin-right: 10%;
     color:#000;
+    word-wrap: break-word;
+}
+h3{
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
+}
+p{
+    font-size: 16px;
 }
 a{
     text-decoration: none;
@@ -26,7 +38,10 @@ background-color:#c6c6c6;
 `
 const Note=(props)=><NoteContainer>
     <Link to={`/notes/${props.data._id}`}>
-    <h3>{props.data.title}</h3><Rule/><p>{props.data.textBody}</p>
+    <h3>{props.data.title}</h3><Rule/>
+    {props.data.textBody.length<100?
+    <p>{props.data.textBody}</p>:
+    <p>{`${props.data.textBody.slice(0,100)}...`}</p>}
     </Link>
     </NoteContainer>
 export default Note;

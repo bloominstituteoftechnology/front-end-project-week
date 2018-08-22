@@ -15,7 +15,7 @@ const NotesHeading=styled.h2`
 text-align: left;
 color:#424242
 margin-left: 5%;
-margin-top: 19px;
+margin-top: 18px;
 `
 const NotesPage=styled.div`
 background-color:#ddd;
