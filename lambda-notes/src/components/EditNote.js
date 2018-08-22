@@ -37,29 +37,6 @@ class EditNote extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
       };
 
-    // handleEdit = (event) => {
-    //     event.preventDefault();
-    //     let noteID = this.props.match.params.id;
-    //     const note = this.state.notes.find(
-    //         note => note.id === Number(noteID)
-    //     );
-    //     this.props.editNote(note);
-    //   }
-
-    //   Object.assign({}, state, {
-    //     addedSmurf: true,
-    //     addingSmurf: false,
-    //     smurfs: action.payload
-    //   });
-
-    // setNotesData = data => this.setState({ notes: data })
-
-    // addNote = event => {
-    //   event.preventDefault();
-    //   const notes = this.state.notes.slice();
-    //   notes.push({ content: this.state.content, title: this.state.title, id: Date.now() });
-    //   this.setState({ notes, title: '', content: '' });
-    // }
 
     render() {
         return (

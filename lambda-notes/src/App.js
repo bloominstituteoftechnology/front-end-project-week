@@ -73,18 +73,27 @@ class App extends Component {
     this.setState({ notes })
   }
 
+  // onNoteUpdate = note => {
+  //   let notes = this.state.notes.slice();
+  //   for (let i = 0; i < notes.length; i++) {
+  //     if (notes[i].id === note.id) {
+  //       notes.splice(i, 1);
+  //     }
+  //   }
+  //   notes.push(note)
+  //   this.setState({ notes })
+  // }
+
+
   onNoteUpdate = note => {
     let notes = this.state.notes.slice();
     for (let i = 0; i < notes.length; i++) {
       if (notes[i].id === note.id) {
-        notes.splice(i, 1);
+        notes[i] = note
       }
     }
-    notes.push(note)
     this.setState({ notes })
   }
-
-  // if (notes[i].id === this.isEdit) 
 
 
 
@@ -98,13 +107,7 @@ class App extends Component {
     this.onNoteUpdate(updatedNote);
   }
 
-  // editNote = note => {
-  //   this.setState({
-  //     title: note.title,
-  //     content: note.content,
-  //     isEdit: note.id
-  //   })
-  // }
+
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
