@@ -1,3 +1,3 @@
 const fs = require('fs');
 
-fs.writeFileSync('./build/.env', `SERVER=${process.env.SERVER}\n`);
+fs.writeFileSync('./.env', `SERVER=${process.env.SERVER}\n`);
