@@ -7,7 +7,6 @@ import NoteCard from '../components/NoteCard'
 class NoteList extends Component {
   componentDidMount () {
     const token = localStorage.getItem('token')
-    console.log('in mount', token)
     console.log('IN CDM', token)
     this.props.fetchNotes(token)
   }
