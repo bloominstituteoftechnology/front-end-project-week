@@ -1,10 +1,14 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import NoteCard from './NoteCard'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { fetchNotes } from '../actions'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 class NoteList extends Component {
-    constructor(props){
-        super(props)        
+    
+    componentDidMount(){console.log('mount')
+        this.props.fetchNotes()
     }
     render(){
         return(
@@ -12,11 +16,10 @@ class NoteList extends Component {
                 <h2 className = "note-title">Your Notes:</h2>
                 <div className = "note-list">
                     {this.props.notes.map(note =>
-                        <Link to = {`/${note.id}`} onClick = {()=>this.props.handleId(note.id)}><NoteCard
+                        <Link to = {`/${note.id}`} onClick = {()=>this.props.selectId(note.id)}><NoteCard
                             key = {note.id}
                             title = {note.title}
-                            note = {note.note}
-                            id ={note.id}                            
+                            note = {note.note}                                                        
                         />
                         </Link>
                     )}
@@ -26,4 +29,10 @@ class NoteList extends Component {
     }
 } 
 
-export default NoteList
+const mapStatetoProps = (state) => {
+    return{        
+        notes: state.notes
+    }
+}
+
+export default withRouter(connect(mapStatetoProps, { fetchNotes })(NoteList))

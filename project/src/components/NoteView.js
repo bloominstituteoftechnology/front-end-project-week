@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { deleteNote } from '../actions'
+import { connect } from 'react-redux';
 
 class NoteView extends Component {
     constructor(props){
@@ -14,6 +16,10 @@ class NoteView extends Component {
         this.setState({modal: !this.state.modal})
     }
 
+    handleDelete = () =>{
+        this.props.deleteNote(this.props.id)
+    }
+
     render(){
         return(
             
@@ -23,7 +29,7 @@ class NoteView extends Component {
                         <p>Are you sure you want to delete this?</p>
                         <div className="modal-btns">
                             <Link to = '/'>
-                                <button className="delete-btn" onClick = {this.props.handleDelete}>Delete</button>
+                                <button className="delete-btn" onClick = {this.handleDelete}>Delete</button>
                             </Link>                            
                             <button onClick={this.toggleModal}>No</button>
                         </div>
@@ -34,12 +40,19 @@ class NoteView extends Component {
                         <Link to = {`/${this.props.match.params.id}/edit`}><span>edit</span></Link>
                         <span onClick={this.toggleModal}>delete</span>
                     </div>
-                    <h2 className = "note-title">{this.props.notes[this.props.match.params.id].title}</h2>
-                    <p className = "note-content">{this.props.notes[this.props.match.params.id].note}</p>
+                    <h2 className = "note-title">{this.props.notes[this.props.id].title}</h2>
+                    <p className = "note-content">{this.props.notes[this.props.id].note}</p>
                 </div>
             </div>
         )
     }
 } 
 
-export default withRouter(NoteView) 
+const mapStatetoProps = (state) => {
+    return{
+        id: state.selectedId,
+        notes: state.notes
+    }
+}
+
+export default connect(mapStatetoProps, { deleteNote })(NoteView) 
