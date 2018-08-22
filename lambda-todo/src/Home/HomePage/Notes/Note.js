@@ -13,9 +13,9 @@ const Note = props => {
                 <h2>{item.title}</h2>
               </NavLink>
               <div className="tag-container">
-                  <p className="tags">Tags: {item.tags}</p>
-                </div>
-              <div className="line"></div>
+                <p className="tags">Tags: {item.tags}</p>
+              </div>
+              <div className="line" />
               <div className="content">
                 <p>{item.content}</p>
               </div>

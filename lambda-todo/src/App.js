@@ -7,7 +7,7 @@ import { Route } from "react-router-dom";
 import Notes from "./Notes/NotesData";
 import ViewNote from "./ViewNote/ViewNote";
 import EditNote from "./ViewNote/Edit Note/EditNote";
-import Authenticate from "./Login/Authenticate"; 
+import Authenticate from "./Login/Authenticate";
 
 class App extends Component {
   constructor(App) {
@@ -20,11 +20,12 @@ class App extends Component {
       tags: "",
       id: null,
       contentEdit: "",
-      tagsEdit: "", 
-      titleEdit: "", 
-      completed: false, 
+      tagsEdit: "",
+      titleEdit: "",
+      completed: false
     };
   }
+
   addNote = () => {
     let newId = this.state.notes[this.state.notes.length - 1].id;
     console.log(newId);
@@ -36,17 +37,20 @@ class App extends Component {
         this.state.cardcontent !== "" ||
         this.state.content !== ""
       ) {
-        id++;
+        id++; //increasing the id as the user creates more notes in the app.
+        //below pushing the data to the notes data.
         notes.push({
           id: id,
           title: this.state.title,
-          cardcontent: this.state.cardcontent,
+          tags: this.state.tags,
           content: this.state.content
         });
         this.setState({ notes, title: "", content: "", cardcontent: "", id });
       }
     });
   };
+  //inputChange just allows for a change to happen in the input section, it will take that value
+  //and pass it on to the submit.
   inputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -67,8 +71,8 @@ class App extends Component {
     let noteedit = copiedNote.find(note => note.id == id);
     this.setState({
       titleEdit: noteedit.title,
-      contentEdit: noteedit.content, 
-      tagsEdit: noteedit.tags, 
+      contentEdit: noteedit.content,
+      tagsEdit: noteedit.tags
     });
   };
 
@@ -77,18 +81,18 @@ class App extends Component {
     let noteedit = copiedNote.find(note => note.id == id);
     noteedit.title = this.state.titleEdit;
     noteedit.content = this.state.contentEdit;
-    noteedit.tags = this.state.tagsEdit
+    noteedit.tags = this.state.tagsEdit;
     this.setState({ notes: copiedNote });
   };
-  complete = () =>{
-    let completed = !this.state.completed; 
-    this.setState({completed})
-  }
-  completeNote = id =>{
-    let copiedNote = this.state.notes.slice(); 
+  complete = () => {
+    let completed = !this.state.completed;
+    this.setState({ completed });
+  };
+  completeNote = id => {
+    let copiedNote = this.state.notes.slice();
     let noteComplete = copiedNote.filter(note => note.id !== id);
-    this.setState({notes: noteComplete, completed: false}) 
-  }
+    this.setState({ notes: noteComplete, completed: false });
+  };
 
   render() {
     return (
@@ -102,12 +106,12 @@ class App extends Component {
             path="/"
             render={props => (
               <NotesHolder
-               {...props}
-                notes={this.state.notes} 
+                {...props}
+                notes={this.state.notes}
                 complete={this.complete}
                 completed={this.state.completed}
                 value={this.state.completed}
-                />
+              />
             )}
           />
           <Route
@@ -138,16 +142,17 @@ class App extends Component {
           />
           <Route
             path="/view-note/edit/:id"
-            render={props => 
-                <EditNote 
-                  {...props} 
-                  notes={this.state.notes} 
-                  handleInputChange={this.inputChange}
-                  titleEdit={this.state.titleEdit}
-                  contentEdit={this.state.contentEdit}
-                  tagsEdit={this.state.tagsEdit}
-                  revisions={this.revisions}
-                  />}
+            render={props => (
+              <EditNote
+                {...props}
+                notes={this.state.notes}
+                handleInputChange={this.inputChange}
+                titleEdit={this.state.titleEdit}
+                contentEdit={this.state.contentEdit}
+                tagsEdit={this.state.tagsEdit}
+                revisions={this.revisions}
+              />
+            )}
           />
         </div>
       </div>

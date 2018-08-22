@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './login.css'
+import "./login.css";
 
 class Login extends Component {
   constructor(props) {
@@ -20,8 +20,8 @@ class Login extends Component {
   render() {
     return (
       <div className="login-page">
-      <div className="login-container">
-      <h1 className="login-title">Lambda Notes</h1>
+        <div className="login-container">
+          <h1 className="login-title">Lambda Notes</h1>
           <form className="login-box">
             <input
               type="text"
@@ -48,4 +48,4 @@ class Login extends Component {
     );
   }
 }
-export default Login; 
+export default Login;

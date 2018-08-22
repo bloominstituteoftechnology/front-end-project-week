@@ -5,7 +5,6 @@ import "./Nav.css";
 const Nav = props => {
   return (
     <div className="Side-Nav">
-      <div className={props.deleting ? "delete-menu" : null} />
       <h1>Lambda Notes</h1>
       <NavLink className="nav-btn" to="/">
         View Your Notes
