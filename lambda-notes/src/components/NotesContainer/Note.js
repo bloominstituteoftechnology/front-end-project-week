@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Route, NavLink, Link} from 'react-router-dom';
+import ViewNote from '../NoteActions/ViewNote';
 
 const NoteContainer = styled.div`
 
@@ -26,13 +27,12 @@ const Note = (props) => {
     return (<NoteContainer className='col'>
 
         {props.note.map((note, index) => {
-            return <NavLink to="/view"><Notes key={index}>
+            return <NavLink to={`/view/${props.note.id}`}><Notes key={index}>
                 <NoteName>{note.noteName}</NoteName>
                 <hr />
                 <NoteText>{note.noteText}</NoteText>
             </Notes></NavLink>
         })}
-
     </NoteContainer>);
 }
 

@@ -21,7 +21,7 @@ const NotesContainer = (props) => {
     <Route path='/' render={routerProps => <SideNav {...routerProps} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
     <Route exact path='/' render={routerProps => <Note {...routerProps} note={props.note} />} />
     <Route exact path='/create' render={routerProps => <CreateNote {...routerProps} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
-    <Route exact path='/view' render={routerProps => <ViewNote {...routerProps} />} />
+    <Route path='/view/:id' render={routerProps => <ViewNote {...routerProps} />} />
         </Notes> );
 }
  

@@ -35,12 +35,19 @@ class App extends Component {
     e.preventDefault()
     const notes = this.state.notes.splice()
     ++this.state.id
-    this.state.notes.push({
+    notes.push({
       noteName: this.state.noteName,
       noteText: this.state.noteText,
       id: this.state.id
     })
-    this.setState({noteName: '', noteText: ''})
+    this.setState({noteName: '', noteText: '', notes: notes})
+  }
+
+  deleteNote = e => {
+    e.preventDefault()
+    let notes = this.state.notes.splice().JSON
+    notes = notes.filter(note => !note.id)
+    this.setState({notes: notes})
   }
 
 
