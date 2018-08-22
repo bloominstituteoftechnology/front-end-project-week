@@ -8,11 +8,6 @@ class NotesListView extends React.Component {
     }
 
 
-    componentDidMount(){
-        this.setState({
-            notes: this.props.notes
-        })
-    }
     render(){
         return (
             <div className = "notes-list-view">
