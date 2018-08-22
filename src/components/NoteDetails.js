@@ -18,7 +18,7 @@ class NoteDetails extends Component {
   getNote() {
     let noteId = this.props.match.params.id;
     axios
-      .get(`http://localhost:3300/${noteId}`)
+      .get(`https://back-end-project-week-lambda.herokuapp.com/${noteId}`)
       .then(response => {
         this.setState({ details: response.data[0] }, () => {
           console.log(this.state.details.title);
