@@ -9,7 +9,6 @@ import EditView from './components/EditView';
 import SingleNote from './components/SingleNote';
 
 
-let id = 10;
 
 class App extends Component {
   constructor(props){
@@ -18,7 +17,7 @@ class App extends Component {
       notes:notes,
       title: '',
       content: '',
-      id: id,
+      id: null,
       contentEdit: '',
       titleEdit: '',
       
@@ -40,17 +39,17 @@ class App extends Component {
     }
     noteEdit = id => {
       let copiedNote = this.state.notes.slice();
-      let NoteChange = copiedNote.find(note => note.id == id);
+      let noteChange = copiedNote.find(note => note.id == id);
       this.setState({
-        titleEdit: NoteChange.title,
-        contentEdit: NoteChange.content
+        titleEdit: noteChange.title,
+        contentEdit: noteChange.content,
       });
     };
     edited = id => {
       let copiedNote = this.state.notes.slice();
-      let NoteChange = copiedNote.find(note => note.id == id);
-      NoteChange.title = this.state.titleEdit;
-      NoteChange.content = this.state.contentEdit;
+      let noteChange = copiedNote.find(note => note.id == id);
+      noteChange.title = this.state.titleEdit;
+      noteChange.content = this.state.contentEdit;
       this.setState({ notes: copiedNote });
     };
   
@@ -66,9 +65,11 @@ class App extends Component {
        <Route exact path='/new' render={props => <NewNote {...props}title={this.state.title}
        content={this.state.content}handleChange={this.handleChange}addNote={this.addNote} />}/>
 
-       <Route exact path='/view/:id' render={props => <SingleNote {...props} notes={this.state.notes} />}/>
+       <Route exact path='/view/:id' render={props => <SingleNote {...props} notes={this.state.notes} handleChange={this.handleChange}noteEdit={this.noteEdit}
+       edited={this.edited}/>}/>
        
        <Route exact path='/view/edit/:id' render={props => <EditView {...props} notes={this.state.notes}handleChange={this.handleChange}
+        
         titleEdit={this.state.titleEdit}
         contentEdit={this.state.contentEdit}
         edited={this.edited} />} />

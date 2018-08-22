@@ -12,6 +12,7 @@ padding: 1%;
 `
 
 const Container = styled.div`
+backgr
 width: 700px;
 height: 500px;
 padding: 1%;
@@ -23,10 +24,6 @@ display:flex;
 justify-content: flex-end;
 `
 
-const ViewNote = styled.div`
-font-size: 15px; 
-margin: 10px; 
-`
 const NoteTitle = styled.div`
 margin: 10px; 
 `
@@ -47,7 +44,7 @@ const SingleNote = props => {
     <View>
     <Container>
     <Edit>
-      <NavLink  to={`/view/edit/${note.id}`}>
+      <NavLink  onClick={() => props.noteEdit(note.id)}  to={`/view/edit/${note.id}`}>
     Edit
     </NavLink>
     <NavLink  to={`/view/delete/${note.id}`}>
