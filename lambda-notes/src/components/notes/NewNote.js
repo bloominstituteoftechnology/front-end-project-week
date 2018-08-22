@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class NewNote extends Component {
   constructor(props) {
@@ -14,7 +15,10 @@ class NewNote extends Component {
     return (
       <div>
         <h2>New Note:</h2>
-        <form className="newNoteForm">
+        <form
+          className="newNoteForm"
+          onSubmit={this.props.submitNewNoteHandler}
+        >
           <input
             placehold="Note Title"
             name="title"
@@ -27,6 +31,7 @@ class NewNote extends Component {
           />
           <button>Update</button>
         </form>
+        <Link to="/">Home</Link>
       </div>
     );
   }

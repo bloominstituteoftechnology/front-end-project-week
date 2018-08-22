@@ -24,9 +24,23 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  submitNewNoteHandler = event => {
+    event.preventDefault();
+    let notesCopy = this.state.notes.slice();
+    let lastIndex = this.state.notes.slice(-1)[0];
+    lastIndex = lastIndex.id + 1;
+    let newNote = {
+      id: lastIndex,
+      title: "Note 2",
+      description:
+        "Bender, being God isn't easy. If you do too much, people get dependent on you, and if you do nothing, they lose hope."
+    };
+    notesCopy.push(newNote);
+    this.setState({ notes: notesCopy, title: "", description: "" });
+  };
   render() {
-    console.log("this.state.notes", this.state.title);
-    console.log("this.state.notes", this.state.description);
+    console.log("thisnotes", this.state.notes);
+    console.log("this.state.notes");
     if (this.state.loadedData === false) {
       return (
         <div>
@@ -48,6 +62,7 @@ class App extends Component {
               <NewNote
                 {...props}
                 inputChangeHandler={this.inputChangeHandler}
+                submitNewNoteHandler={this.submitNewNoteHandler}
               />
             )}
           />
