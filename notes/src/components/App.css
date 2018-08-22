@@ -100,7 +100,7 @@ a {
 }
 
 .app .notes .note-page {
-  margin: 0 20px 0;
+  margin: 50px 20px 0;
   overflow-y: scroll;
   max-width: 600px;
 }
@@ -182,10 +182,10 @@ label {
   background: white;
   position: fixed;
   top: 10%;
-  left: 30%;
+  left: 25%;
   z-index: 100;
   width: 500px;
-  height: 250px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +195,7 @@ label {
 
 .modal-background .modal-body .delete-message {
   width: 100%;
-  margin-left: 40px;
+  text-align: center;
 }
 
 .modal-background .modal-body .btn{
