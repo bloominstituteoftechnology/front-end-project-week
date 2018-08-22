@@ -11,7 +11,7 @@ class NewNote extends Component {
   render() {
     return (
       <div>
-        <h2>Edit Note:</h2>
+        <h2>New Note:</h2>
         <form className="newNoteForm">
           <input placehold="Note Title" />
           <input placehold="Note Content" />
