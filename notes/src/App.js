@@ -109,14 +109,22 @@ class App extends Component {
       const aStr = /[A-Za-z]+/.exec(a.title),
         bStr = /[A-Za-z]+/.exec(b.title);
       if (aStr && bStr) {
-        return aStr[0].localeCompare(bStr);
+        for (let i= 0; i < aStr.length && i < bStr.length; i++) {
+          if (aStr[i] !== bStr[i]) {
+            return aStr[i].localeCompare(bStr[i]);
+          }
+        }
+      } else if (aStr) {
+        return -1;
+      } else if (bStr) {
+        return 1;
       } else {
         return a - b;
       }
     };
     this.toggleDropdown();
     this.setState({
-      notes: this.state.notes.sort(sortCb)
+      notes: this.state.notes.sort().sort(sortCb)
     });
   };
 
