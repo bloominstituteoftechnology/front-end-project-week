@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 
 const Notes = props => {
+  const headers = [
+    {label: 'ID', key: 'id'},
+    {label: 'Title', key: 'title'},
+    {label: 'Content', key: 'text'}
+  ]
   return (
     <div className='notes-container'>
       <h4>Your Notes:</h4>
@@ -21,6 +27,7 @@ const Notes = props => {
           );
         })}
       </div>
+      <CSVLink data={props.notes} headers={headers}>Download Notes in CSV Format</CSVLink>
     </div>
   );
 }
