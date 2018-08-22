@@ -8,7 +8,7 @@ const Navigation = styled.div`
   width: 250px;
   border-right: 1px solid #999999;
   background: lightgray;
-  height: 200vh;
+  height: 400vh;
 
   h1 {
     color: #333333;

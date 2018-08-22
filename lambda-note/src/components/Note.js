@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 const NoteDiv = styled.div`
   display: flex;
@@ -19,10 +20,11 @@ const NoteListDiv = styled.div`
     flex-wrap: wrap;
   }
 
-  input {
+  input, button {
     align-self: flex-end;
     width: 200px;
     margin-right: 50px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -33,8 +35,7 @@ const IndividualNoteDiv = styled.div`
   width: 25%;
   height: 200px;
   padding: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin: 10px;
   border: 1px solid lightgray;
   overflow-y: auto;
   overflow-x: hidden;
@@ -211,6 +212,13 @@ function Note (props) {
 class NoteList extends Component {
   constructor () {
     super();
+    this.state = {
+      notes: []
+    }
+  }
+
+  componentDidMount () {
+    this.setState({ notes: this.props.notes });
   }
 
   handleOnChange = (e) => {
@@ -221,16 +229,76 @@ class NoteList extends Component {
     }
   }
 
+  swapNotes = (from, to) => {
+    let notes = this.state.notes.slice();
+    let fromId = from.id;
+    let toId = to.id;
+    let fromNoteIndex = notes.map((note, index) => {
+                              if (note._id === fromId) {
+                                return index;
+                              }})
+                              .filter(index => {
+                                return Number(index) === index;
+                              })[0];
+    let toNoteIndex = notes.map((note, index) => {
+                        if (note._id === toId) {
+                          return index;
+                        }})
+                        .filter(index => {
+                          return Number(index) === index;
+                        })[0];
+
+    const forSwap = notes[fromNoteIndex];
+    notes[fromNoteIndex] = notes[toNoteIndex];
+    notes[toNoteIndex] = forSwap;
+    console.log(notes)
+    this.setState({ notes: notes });
+  };
+
+  handleOnDragStart = (e) => {
+    let fromBox = JSON.stringify({ id: e.target.id });
+    e.dataTransfer.setData("dragContent", fromBox)
+  }
+
+  handleOnDrop = (e) => {
+    e.preventDefault();
+    let fromBox = JSON.parse(e.dataTransfer.getData("dragContent"));
+    let toBox = { id: e.target.id };
+
+    if (e.target.id) {
+      this.swapNotes(fromBox, toBox);
+      e.dataTransfer.clearData()
+    }
+  }
+
+  handleOnDropOver = (e) => {
+    e.preventDefault();
+  }
+
+  handleOnDragEnd = (e) => {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <NoteListDiv>
-        <SearchBar handleOnChange={this.handleOnChange}/>
+        <CSV notes={this.state.notes} />
+        <SearchBar handleOnChange={this.handleOnChange} />
         <h3>Your Notes: </h3>
         { this.props.isSearched
             ? <div>
                 { this.props.filteredNotes.map(note => {
                     return (
-                      <IndividualNoteDiv key={note._id} onClick={() => this.props.viewNote(note._id)}>
+                      <IndividualNoteDiv 
+                        key={note._id} 
+                        onClick={() => this.props.viewNote(note._id)}
+                        id={note._id} 
+                        draggable="true" 
+                        onDrop={this.handleOnDrop} 
+                        onDragStart={this.handleOnDragStart} 
+                        onDragEnd={this.handleOnDragEnd}
+                        onDragOver={this.handleOnDropOver} 
+                      >
                         <h3>{note.title}</h3><br/>
                         <p>{note.textBody}</p><br/>
                         <div>{note.tags}</div>
@@ -239,11 +307,20 @@ class NoteList extends Component {
                 })}
               </div>
             : <div>
-                { this.props.notes.map(note => {
+                { this.state.notes.map(note => {
                     return (
-                      <IndividualNoteDiv key={note._id} onClick={() => this.props.viewNote(note._id)}>
+                      <IndividualNoteDiv 
+                      key={note._id} 
+                      onClick={() => this.props.viewNote(note._id)}
+                      id={note._id} 
+                      draggable="true" 
+                      onDrop={this.handleOnDrop} 
+                      onDragStart={this.handleOnDragStart}
+                      onDragEnd={this.handleOnDragEnd} 
+                      onDragOver={this.handleOnDropOver} 
+                    >
                         <h3>{note.title}</h3><br/>
-                        <p>{note.textBody}</p><br/>
+                        <ReactMarkdown source={note.textBody} /><br/>
                         <div>{note.tags}</div>
                       </IndividualNoteDiv>
                       )
@@ -255,24 +332,56 @@ class NoteList extends Component {
   }
 }
 
+class CSV extends Component {
+  exportCSV = (items) => {
+    let csv;
+
+    for (let row = 0; row < items.length; row++){
+      let keysAmount = Object.keys(items[row]).length
+      let keysCounter = 0
+  
+      if (row === 0){
+         for (let key in items[row]) {
+             csv += key + (keysCounter+1 < keysAmount ? ',' : '\r\n' )
+             keysCounter++
+         }
+      } else {
+         for (let key in items[row]) {
+             csv += items[row][key] + (keysCounter+1 < keysAmount ? ',' : '\r\n' )
+             keysCounter++
+         }
+      }
+      keysCounter = 0
+    }
+
+    console.log(csv);
+    return csv;
+  }
+
+  render () {
+    return (
+      <Button onClick={() => this.exportCSV(this.props.notes)}>Export Notes In CSV</Button>
+    )
+  }
+}
+
 function SearchBar (props) {
   return <TextInput onChange={props.handleOnChange} type="text" name="search" placeholder="Search" />
 }
 
 function IndividualNote (props) {
-  return (
-    <ExpandedIndividualNoteDiv>
-      <div>
-        <button onClick={props.viewEditNote}>edit</button>
-        <button onClick={props.viewDeleteNote}>delete</button>   
-      </div>
-      <div>
-        <h3>{props.selectedNote.title}</h3>
-        <p>{props.selectedNote.textBody}</p>
-      </div>                      
-    </ExpandedIndividualNoteDiv>
-
-  )
+    return (
+      <ExpandedIndividualNoteDiv>
+        <div>
+          <button onClick={props.viewEditNote}>edit</button>
+          <button onClick={props.viewDeleteNote}>delete</button>   
+        </div>
+        <div>
+          <h3>{props.selectedNote.title}</h3>
+          <ReactMarkdown source={props.selectedNote.textBody} />
+        </div>                      
+      </ExpandedIndividualNoteDiv>
+    )
 }
 
 function DeletePopup (props) {
