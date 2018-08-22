@@ -13,26 +13,26 @@ export const UPDATED = "UPDATED";
 export const ERROR = "ERROR";
 
 
-
+// Original, Lambda created Server
 // const url = "https://killer-notes.herokuapp.com/note/get/all";
 // const singleURL = "https://killer-notes.herokuapp.com/note/get/";
 // const postURL = "https://killer-notes.herokuapp.com/note/create";
 // const deleteURL = "https://killer-notes.herokuapp.com/note/delete/";
 // const editURL = "https://killer-notes.herokuapp.com/note/edit/";
 
-// const localURL = "http://localhost:3300/note/get/all"
-// const localSingleURL = "http://localhost:3300/note/get/"
-// const localPostURL = "http://localhost:3300/note/post/"
-// const localDeleteURL = "http://localhost:3300/note/delete/"
-// const localEditURL = "http://localhost:3300/note/edit/"
+// Local server
+const url = "http://localhost:3300/note/get/all"
+const singleURL = "http://localhost:3300/note/get/"
+const postURL = "http://localhost:3300/note/post/"
+const deleteURL = "http://localhost:3300/note/delete/"
+const editURL = "http://localhost:3300/note/edit/"
 
 // Personally deployed Heroku app
-
-const url = "https://frozen-hollows-95090.herokuapp.com/note/get/all";
-const singleURL = "https://frozen-hollows-95090.herokuapp.com/note/get/";
-const postURL = "https://frozen-hollows-95090.herokuapp.com/note/create";
-const deleteURL = "https://frozen-hollows-95090.herokuapp.com/note/delete/";
-const editURL = "https://frozen-hollows-95090.herokuapp.com/note/edit/";
+// const url = "https://frozen-hollows-95090.herokuapp.com/note/get/all";
+// const singleURL = "https://frozen-hollows-95090.herokuapp.com/note/get/";
+// const postURL = "https://frozen-hollows-95090.herokuapp.com/note/create";
+// const deleteURL = "https://frozen-hollows-95090.herokuapp.com/note/delete/";
+// const editURL = "https://frozen-hollows-95090.herokuapp.com/note/edit/";
 
 
 export const getNotes = () => {
