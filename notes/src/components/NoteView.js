@@ -43,6 +43,7 @@ class NoteView extends React.Component {
  
             <h3>TITLE: {this.state.title}</h3>
             <p>{this.state.note}</p>
+            <img src={require('../assets/sartre.jpg')}/>
         </div>
         )
     }

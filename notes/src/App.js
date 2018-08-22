@@ -19,23 +19,25 @@ class App extends Component {
     super(props);
     this.state = {
       notesArr: [],
-      setStorage: false,
+      storageSet: false,
     }
   }
 
   componentDidMount(){
-    let storage = localStorage.getItem('notes');
-    
-    let setStorage = localStorage.getItem('setStorage');
-    console.log(typeof null);
-    if ( setStorage !== null ){
-      this.setState({
-        notesArr: JSON.parse(storage),
-      })
-    } else {
-      this.setState({ notesArr: notes, setStorage: true });
-      this.setToStorage();
-    }
+    this.setState({notesArr: notes})
+    // let storage = localStorage.getItem('notes');
+    // let setStorage = localStorage.getItem('setStorage');
+
+    // if(storage === 'undefined'){
+    //   this.setState({ notesArr: notes });
+    //   this.setToStorage(this.state.notesArr);
+    // } else {
+    //   console.log(storage);
+    //   let storage = localStorage.getItem('notes');
+    //   this.setState({
+    //     notesArr: JSON.parse(storage),
+    //   })
+    // }
   }
 
   matchSelectNoteToArray = (it) => {
@@ -52,16 +54,19 @@ class App extends Component {
     return index;
   }
 
+  // removes specified item ("id") from array and returns new array
   newArrByFilter = (arr, id) => {
-    return arr.filter((elem)=>{
+    let sarr = arr.slice();
+    return sarr.filter((elem)=>{
       return elem.id !== id
     })
   }
 
   handleDeleteNote = (del) => {
-   let newArr = this.newArrByFilter(this.state.notesArr, del);
-    console.log(newArr);
+    let notes = this.state.notesArr.slice();
+   let newArr = this.newArrByFilter(notes, del);
     this.setState({ notesArr: newArr});
+    console.log(this.state.notesArr);
   }
 
   handleNewNote = (input) => {
@@ -80,15 +85,17 @@ class App extends Component {
     })
   }
 
-  setToStorage = () => {
-    localStorage.setItem('notes', JSON.stringify(this.state.notesArr));
+  setToStorage = (arr) => {
+    console.log(this.state.notesArr);
+    localStorage.clear();
+    localStorage.setItem('notes', JSON.stringify(arr));
     localStorage.setItem('setStorage', 'true');
   }
 
   render() {
-    if(this.state.setStorage === true){
-      this.setToStorage();
-    }
+
+      // this.setToStorage(this.state.notesArr);
+    
     return (
       <AppContainer>
         <Route path="/addnote" render = { props => { return <NewNote handleNewNote={this.handleNewNote} notes={this.state.notesArr}/>}} />
