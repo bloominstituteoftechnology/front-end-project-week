@@ -14,6 +14,10 @@ export default class Login extends Component {
     }
   }
 
+  componentWillMount = () => {
+    localStorage.token ? null : this.props.history.push('/login');
+  }
+
   handleSubmit = () => {
     axios
       .post(`http://localhost:8000/api/login`, {

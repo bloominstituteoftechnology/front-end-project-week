@@ -11,6 +11,10 @@ export default class CreateNote extends Component {
     }
   }
 
+  componentWillMount = () => {
+    localStorage.token ? null : this.props.history.push('/login');
+  }
+
   handleSubmit = () => {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');

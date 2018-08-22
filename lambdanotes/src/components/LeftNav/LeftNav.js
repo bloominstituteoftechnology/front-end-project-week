@@ -31,7 +31,7 @@ export default class LeftNav extends Component {
             <button type='button' className="btn-block custom-button-teal-nav text-white">+ Create New Note</button>
           </Link>
 
-          {localStorage.token ? <button type='button' onClick={() => this.handleLogout()} handleLogout={() => this.handleLogout} className="btn btn-danger mr-2">Logout</button> : null}
+          {localStorage.token ? <button type='button' onClick={() => this.handleLogout()} className="btn btn-danger mr-2">Logout</button> : null}
 
         </div>
       </div>

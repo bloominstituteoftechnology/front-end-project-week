@@ -16,7 +16,7 @@ export default class MainContent extends Component {
           <Route path='/' exact component={NotesList} />
           <Route path='/note/:id' exact component={NoteView} />
           <Route path='/create-note' exact component={CreateNote} />
-          <Route path='/edit-note/:id' exact component={EditNote} />
+          <Route path='/edit-note/:id' exact component={EditNote} /> 
           <Route path ="/login" exact component={Login}/>
           <Route path="/register" exact component={Register}/>
         </Switch>
