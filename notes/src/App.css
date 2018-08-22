@@ -52,6 +52,12 @@
 .Notes__tabNav {
 	width: 100%;
 	margin-bottom: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.Notes__tabNav a {
+	margin-bottom: 10px;
 }
 
 .Notes {
@@ -83,19 +89,18 @@
 }
 
 .Notes__tag {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	color: white;
 	background-color: #e07d26;
 	padding: 4px 4px;
 	border-radius: 3px;
 }
-.Notes__tag:not(:last-child) {
-	margin-right: 4px;
-}
 
 .Notes__tag--sort {
-	font-size: 1rem;
+	font-size: 1.3rem;
 	background-color: #00b6bb;
+	margin-right: 6px;
+	margin-bottom: 6px;
 }
 
 .Notes__tag:not(:last-child) {
@@ -105,6 +110,10 @@
 .Notes__text {
 	margin-top: 8px;
 	font-size: 1.3rem;
+}
+
+.FilteredNotesWrapper {
+	height: 100vh;
 }
 
 .AddNoteWrapper {

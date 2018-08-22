@@ -13,7 +13,7 @@ class FilteredNotes extends React.Component {
 	}
 	render() {
 		return (
-			<div className="NotesWrapper">
+			<div className="NotesWrapper FilteredNotesWrapper">
 				<h1 className="Notes__header">Your Notes:</h1>
 				{this.state.notes &&
 					this.state.notes.map(note => <NoteCard note={note} />)}
