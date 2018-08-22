@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Link } from 'react-router-dom';
 import axios from 'axios';
-
+import '../App.css';
+import logo from './lambda-logo.png';
 
 class Login extends Component {
         state = {
@@ -37,11 +38,13 @@ class Login extends Component {
 
   render() {
   	return(
-  	       <div>
-  	       	<h1 className="login">Login</h1>
-  	       	<form onSubmit={this.submitHandler}>
-                <div>
-                   <input
+  	       <div className="login-container">
+           <img className="homepage-logo-img" src={logo} />
+  	       	<h1 className="login-header">Login</h1>
+            <div className="form-container">
+  	       	<form lassName="login-form-container" onSubmit={this.submitHandler}>
+                <div className="login-form">
+                   <input className="login-form-namebox1"
                     name='name'
                     value={this.state.name}
                     onChange={this.inputChangeHandler}
@@ -49,7 +52,7 @@ class Login extends Component {
                     />
                 </div>
                 <div>
-                    <input
+                    <input className="login-form-namebox1"
                     name='password'
                     value={this.state.password}
                     onChange={this.inputChangeHandler}
@@ -59,11 +62,12 @@ class Login extends Component {
 
                 <div>
 
-                    <Link to="/notes" ><button type="submit"> Login</button></Link>
+                    <Link to="/notes" className="login-button" ><button type="submit"> Login</button></Link>
 
                 </div>
 
             </form>
+            </div>
   	       </div>
   	)
 	};
