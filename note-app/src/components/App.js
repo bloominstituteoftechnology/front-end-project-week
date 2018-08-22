@@ -23,6 +23,7 @@ class App extends Component {
     this.state = {
       search: '',
       select: null,
+      images: [two,three, one]
     }
   }
 
@@ -76,6 +77,7 @@ class App extends Component {
               <img className ="carousel-img" src={one} alt="Note Pad image"/>
             </div>
           </div>
+          <button className = "btn-side-bar">Previous</button><button className = "btn-side-bar">Next</button>
           <hr/>
         </div>
         <Route render={({location}) => (
