@@ -44,7 +44,7 @@ export const fetchSingleNote = (URL, id) => {
 export const editNote = (edited, id) => {
   return function(dispatch) {
     axios.put(`${process.env.REACT_APP_API}/notes/${id}`, edited).then(({ data }) => {
-      window.location.href = home_path;
+      window.location.href = "/";
     });
   };
 };
