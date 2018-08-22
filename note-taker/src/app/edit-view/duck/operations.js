@@ -9,7 +9,6 @@ const updateNote = (id, noteObj) => {
         dispatch(updatingNote());
         promise
         .then(response => {
-            console.log("updated response:",response);
             dispatch(updatedNote(response.data))
         }).then(() => {
             dispatch(NoteViewOperations.fetchNote(id));
