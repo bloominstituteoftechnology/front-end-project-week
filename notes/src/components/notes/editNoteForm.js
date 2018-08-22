@@ -51,6 +51,7 @@ class EditNoteForm extends React.Component{
         this.state={
             title:'',
             content:'',
+            id:''
         }
     }
     handleInputChange=(e)=>{
@@ -58,11 +59,11 @@ class EditNoteForm extends React.Component{
     }
     componentDidMount() {
         localStorage.setItem('location',this.props.location.pathname);
-        if (this.props.note.title!==undefined && this.props.note.textBody!==undefined) {
-            this.setState({title:this.props.note.title,content:this.props.note.textBody},()=>localStorage.setItem('note',JSON.stringify(this.props.note)));
+        if (this.props.note.title && this.props.note.textBody) {
+            this.setState({title:this.props.note.title,content:this.props.note.textBody,id:this.props.note._id},()=>localStorage.setItem('note',JSON.stringify(this.props.note)));
         } else {
             const note=JSON.parse(localStorage.getItem('note'));
-            this.setState({title:note.title,content:note.textBody});
+            this.setState({title:note.title,content:note.textBody,id:note._id});
         }
     }
     editNoteObj=()=>{
@@ -70,7 +71,7 @@ class EditNoteForm extends React.Component{
             title:this.state.title,
             textBody: this.state.content
         }
-        this.props.updateNote(this.props.note._id,editedNote,this.props.history);
+        this.props.updateNote(this.state.id,editedNote,this.props.history);
     }
     render() {
         return(
