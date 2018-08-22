@@ -72,13 +72,19 @@
   color: #2BC1C4;
   font-size: .75rem;
   text-align: center;
-  margin-left: 3px;
-  padding: 3px 4px;
+  margin-left: .3rem;
+  padding: .25rem .25rem;
   cursor: pointer;
 }
 .list-header .sort-btn:hover {
   background: #2BC1C4;
   color: #FFFFFF;
+}
+.list-header input {
+  border: 2px solid #979797;
+  font-size: .9rem;
+  margin-left: .3rem;
+  padding: .1rem .25rem;
 }
 .note-list {
   display: flex;
