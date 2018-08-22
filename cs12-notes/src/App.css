@@ -1,28 +1,33 @@
-.App {
-  text-align: center;
+.container {
+background-image: url('https://picsum.photos/g/800/800/?random');
+margin: auto;
+max-width: 800px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.App_Top {
+  display: flex;
+  background: black;
   color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
-.App-title {
-  font-size: 1.5em;
+.App_Bottom {
+  color: black;
 }
 
-.App-intro {
-  font-size: large;
+.App_Top-Button {
+  width: 48%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.DisplayNotes_Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.DisplayNotes-Card {
+  max-width: 25%;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: white;
 }
