@@ -19,11 +19,10 @@ class NoteView extends React.Component {
     }
     
      render() {
-        const {title, textBody} = this.state.note;
         return (
             <div>
-                <h2>{title}</h2>
-                <p>{textBody}</p>
+                <h2>{this.state.note.title}</h2>
+                <p>{this.state.note.textBody}</p>
             </div>
         );
     }

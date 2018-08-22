@@ -37,7 +37,20 @@ class SideMenu extends Component {
                     textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
                 }
             ],
+            title:'',
+            textBody: '',
         }
+    }
+
+    addNote = event => {
+        event.preventDefault();
+        const notes = this.state.notes.slice();
+        notes.push({ textBody: this.state.textBody, title: this.state.title, id: Date.now() });
+        this.setState({ notes, title: '', textBody: '' });
+    }
+
+    handleInputChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
     }
     
     render() {
@@ -52,7 +65,7 @@ class SideMenu extends Component {
                 </ul>
 
                 <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />}/>
-                <Route exact path="/create-new-note/" component={NewNote} />
+                <Route exact path="/create-new-note/" render={(props) => <NewNote {...props} notes={this.state.notes} addNote={this.addNote} handleInputChange={this.handleInputChange}/>}/>
                 <Route path="/note-view/:id" render={(props) => <NoteView {...props} notes={this.state.notes} />}/>
             </div>
         );
