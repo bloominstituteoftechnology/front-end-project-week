@@ -18,7 +18,7 @@ export const notesReducer=(state=initialState,action)=>{
         case FETCHINGNOTE:
             return Object.assign({},state,{fetchingNote:true})
         case FETCHEDNOTE:
-            return Object.assign({},state,{fetchedNote:false,note:action.payload})
+            return Object.assign({},state,{fetchingNote:false,note:action.payload})
         case ERROR: 
             return Object.assign({},state,
             {smurfs: [],

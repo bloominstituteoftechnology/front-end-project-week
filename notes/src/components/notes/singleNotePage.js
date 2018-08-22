@@ -10,8 +10,15 @@ width: 100%;
 text-align: left;
 `
 const Note=styled.div`
-background-color:#ddd;
-width: 75%;
+width: 95%;
+overflow-wrap: break-word;
+word-wrap: break-word;
+-ms-word-break: break-all;
+word-break: break-word;
+-ms-hyphens: auto;
+-moz-hyphens: auto;
+-webkit-hyphens: auto;
+hyphens: auto;
 `
 const NoteHeading=styled.h2`
 margin-left: 5%;
@@ -42,6 +49,7 @@ class SingleNotePage extends React.Component{
         this.props.getSingleNote(this.props.match.params.noteId);
     }
     render(){
+        if(!this.props.fetchingNote){
         return(
             <SingleNote>
             <EDcontainer>
@@ -54,12 +62,15 @@ class SingleNotePage extends React.Component{
             </Note>
             </SingleNote>
         )
-    }
+    } else {
+    return <SingleNote/>
+}
+}
 }
 const mapStateToProps=state=>{
     return{
         note:state.note,
-        fetchingNotes:state.fetchingNote
+        fetchingNote:state.fetchingNote
     }
 }
 export default connect(mapStateToProps,{getSingleNote})(withRouter(SingleNotePage));

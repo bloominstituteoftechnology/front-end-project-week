@@ -53,7 +53,7 @@ class Notes extends React.Component {
         if (!this.props.fetchingNotes) {
         return(
             <NotesPage>
-                <NoteFilter type='text' name='filterParam' value={this.state.value} onChange={this.inputChange}/>
+                <NoteFilter type='text' name='filterParam' placeholder='Enter search term' value={this.state.value} onChange={this.inputChange}/>
                 <NotesHeading>Your Notes:</NotesHeading>
                 <NotesList>
                     {this.state.filterParam.length===0?
