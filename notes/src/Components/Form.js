@@ -2,7 +2,7 @@ import React from "react";
 
 const Form = props => {
 	return (
-		<div className="AddNoteWrapper">
+		<div>
 			<form
 				className="AddNote__form"
 				id="editNoteForm"
@@ -18,6 +18,7 @@ const Form = props => {
 					onChange={props.handleInputChange}
 				/>
 				<input
+					className="AddNote__form-tags"
 					type="text"
 					placeholder="Tags"
 					value={props.tags}
@@ -29,6 +30,7 @@ const Form = props => {
 					Separate tags with a comma
 				</span>
 				<textarea
+					className="AddNote__form-textarea"
 					id="editNoteForm"
 					cols="30"
 					rows="10"

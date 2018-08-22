@@ -52,6 +52,14 @@
 	margin-bottom: 20px;
 }
 
+.Notes__header-search {
+	margin-bottom: 20px;
+	border: 1px solid gray;
+	border-radius: 3px;
+	padding: 6px;
+	outline: none;
+}
+
 .Notes__tabNav {
 	width: 100%;
 	margin-bottom: 20px;
@@ -141,14 +149,39 @@
 	height: 100vh;
 }
 
+.AddNote__header {
+	width: 100%;
+	color: #212121;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-top: 40px;
+}
+
 .AddNote__form {
 	display: flex;
 	flex-direction: column;
 	margin: 20px;
+	width: 60%;
 }
 
 .AddNote__form-title {
 	margin-bottom: 20px;
+	padding: 5px;
+	border: 1px solid gray;
+	border-radius: 3px;
+	outline: none;
+}
+.AddNote__form-tags {
+	padding: 5px;
+	border: 1px solid gray;
+	border-radius: 3px;
+	outline: none;
+}
+.AddNote__form-textarea {
+	padding: 5px;
+	border: 1px solid gray;
+	border-radius: 3px;
+	outline: none;
 }
 
 .AddNote__form-tagInstructions {
@@ -172,7 +205,19 @@
 	display: flex;
 	justify-content: flex-end;
 	margin: 20px;
+	text-decoration: underline;
+}
+
+.Note__editDelete span {
 	cursor: pointer;
+	padding: 6px;
+	transition: background 250ms ease-in-out, transform 150ms ease;
+}
+.Note__editDelete span:hover {
+	color: white;
+	background-color: #e07d26;
+	text-decoration: none;
+	border-radius: 2px;
 }
 
 .Note__editDelete span:not(:last-child) {
@@ -185,8 +230,8 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background: gray;
-	opacity: 0.9;
+	background-color: rgb(128, 128, 128, 0.9);
+	/* opacity: 0.9; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -199,32 +244,44 @@
 
 .Note__delete-prompt {
 	background: #fff;
-	border: 2px solid darkgray;
+	border: 1px solid #212121;
 	padding: 20px;
-	width: 53%;
+	height: 200px;
+	width: 40%;
 	text-align: center;
 }
 
 .Note__delete-prompt-buttons {
 	display: flex;
 	justify-content: space-evenly;
+	margin-top: 70px;
 }
 
 .Button--danger {
 	background: red;
 }
 
+.Button--danger:hover {
+	background: rgb(153, 0, 0);
+}
+
 .Note__content {
 	padding: 20px;
 	font-size: 1.3rem;
-	width: 80%;
-	margin: 0 auto;
+	width: 60%;
+	margin: 70px 20px;
+	background-color: #fafafa;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+		0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .Note__content-header {
 	margin-bottom: 5px;
+	color: #212121;
+	font-size: 2rem;
 }
 
 .Note__content-text {
 	margin-top: 30px;
+	color: #212121;
 }

@@ -31,14 +31,17 @@ class AddNote extends React.Component {
 	};
 	render() {
 		return (
-			<Form
-				handleInputChange={this.handleInputChange}
-				onSubmit={this.onSubmit}
-				title={this.state.title}
-				textBody={this.state.textBody}
-				tags={this.state.tags}
-				label="Save"
-			/>
+			<div className="AddNoteWrapper">
+				<h3 className="AddNote__header">Create New Note:</h3>
+				<Form
+					handleInputChange={this.handleInputChange}
+					onSubmit={this.onSubmit}
+					title={this.state.title}
+					textBody={this.state.textBody}
+					tags={this.state.tags}
+					label="Save"
+				/>
+			</div>
 		);
 	}
 }

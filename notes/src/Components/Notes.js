@@ -31,9 +31,3 @@ class Notes extends React.Component {
 	}
 }
 export default Notes;
-
-{
-	/* {this.props.notes.map(note => (
-	<NoteCard note={note} />
-))} */
-}

@@ -39,14 +39,17 @@ class EditNote extends React.Component {
 
 	render() {
 		return (
-			<Form
-				textBody={this.state.textBody}
-				tags={this.state.tags}
-				title={this.state.title}
-				onSubmit={this.onSubmit}
-				handleInputChange={this.handleInputChange}
-				label="Update"
-			/>
+			<div className="AddNoteWrapper">
+				<h3 className="AddNote__header">Edit Note:</h3>
+				<Form
+					textBody={this.state.textBody}
+					tags={this.state.tags}
+					title={this.state.title}
+					onSubmit={this.onSubmit}
+					handleInputChange={this.handleInputChange}
+					label="Update"
+				/>
+			</div>
 		);
 	}
 }
