@@ -35,6 +35,7 @@ export const addNote = (newNote) =>  {
     })
   }
 }
+
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
 
