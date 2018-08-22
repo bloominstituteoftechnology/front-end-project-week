@@ -1,23 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { cancelDelete, deletePost, fetchPosts } from '../actions';
 
 class DeleteModal extends React.Component{
-  constructor(props){
-    super(props);
-    this.rootSelector = document.getElementById("root-modal");
-    this.container = document.createElement("div");
-  }
-
-  componentDidMount() {
-    this.rootSelector.appendChild(this.container);
-  }
-
-  componentWillUnmount(){
-    this.rootSelector.removeChild(this.container)
+  deleteAndRedirect(){
+    this.props.deletePost(this.props.id);
+    this.props.fetchPosts();
+    this.props.history.push('/');
   }
 
   render() {
-    return ReactDOM.createPortal(
+    return (
       <div className="modal-background">
         <div className="modal-body">
           <div className="delete-message">
@@ -25,20 +19,26 @@ class DeleteModal extends React.Component{
           </div>
           <div
             className="btn btn-delete"
-            onClick={this.props.deleteNote}
+            onClick={()=>this.deleteAndRedirect()}
           >
             Delete
           </div>
           <div
             className="btn"
-            onClick={this.props.cancelDelete}
+            onClick={()=>this.props.cancelDelete()}
           >
             No
           </div>
         </div>
       </div>
-        , this.rootSelector);
+    );
   }
 }
 
-export default DeleteModal;
+const mapStateToProps = state => {
+  return {
+    id: state.selectedPost._id
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { cancelDelete, deletePost, fetchPosts })(DeleteModal));

@@ -1,23 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchPost, confirmDelete } from '../actions';
 
-const NotePage = props => {
-  const note = props.getNote(props.match.params.id);
-  return(
-    <div className="note-page">
-      <div className="links">
-        <Link to={`/note/${note.id}/edit`}>edit</Link>
-        <div
-          className="delete"
-          onClick={()=>props.toggle(props.match.params.id)}
-        >
-          delete
-        </div>
-      </div>
-      <div className="title">{note.title}</div>
-      <div className="text">{note.textBody}</div>
-    </div>
-  );
+class NotePage extends Component{
+  componentWillMount(){
+    this.props.fetchPost(this.props.match.params.id);
+  }
+
+  render(){
+    return(
+      <React.Fragment>
+        { this.props.isFetching ? (
+          <div>Loading...</div>
+        ):(
+          <div className="note-page">
+            <div className="links">
+              <Link to={`/note/${this.props.match.params.id}/edit`}>edit</Link>
+              <div
+                className="delete"
+                onClick={this.props.confirmDelete}
+              >
+                delete
+              </div>
+            </div>
+            <div className="title">{this.props.note.title}</div>
+            <div className="text">{this.props.note.textBody}</div>
+          </div>
+        ) }
+      </React.Fragment>
+  )}
 }
 
-export default NotePage;
+const mapStateToProps = state => {
+  return {
+    note: state.selectedPost,
+    isFetching: state.isFetchingPost
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { fetchPost, confirmDelete })(NotePage));

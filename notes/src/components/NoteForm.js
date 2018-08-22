@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { createPost, editPost, fetchPosts } from '../actions';
 
 class NoteForm extends React.Component {
   constructor(){
@@ -10,10 +13,11 @@ class NoteForm extends React.Component {
   }
 
   componentDidMount(){
-    if(this.props.editing){
-      const note = this.props.getNote(this.props.match.params.id);
+    if(this.props.match.params.id){
+      const note = this.props.selectedPost;
       this.setState({title: note.title, textBody: note.textBody});
     }
+    console.log(this.props);
   }
 
   handleChange = event => {
@@ -22,21 +26,22 @@ class NoteForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if(this.props.editing){
+    if(this.props.match.params.id){
       const updatedNote = {
         title: this.state.title,
-        textBody: this.state.textBody,
-        id: Number(this.props.match.params.id)
+        textBody: this.state.textBody
       };
-      this.props.updateNote(updatedNote);
-      this.props.history.push("/");
-    }else{
+      this.props.editPost(this.props.match.params.id, updatedNote);
+      this.props.fetchPosts();
+      this.props.history.push('/');
+    } else {
       const newNote = {
         title: this.state.title,
         textBody: this.state.textBody
-      }
-      this.props.addNote(newNote);
-      this.props.history.push("/");
+      };
+      this.props.createPost(newNote);
+      this.props.fetchPosts();
+      this.props.history.push('/');
     }
   }
 
@@ -65,4 +70,11 @@ class NoteForm extends React.Component {
   }
 }
 
-export default NoteForm;
+const mapStateToProps = state => {
+  return {
+    isEditing: state.isEditing,
+    selectedPost: state.selectedPost
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { createPost, editPost, fetchPosts })(NoteForm));

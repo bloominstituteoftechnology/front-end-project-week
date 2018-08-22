@@ -95,6 +95,7 @@ a {
   margin: 10px;
   height: 66%;
   overflow-y: hidden;
+  white-space: pre-wrap;
 }
 
 .app .notes .note-page {
@@ -105,6 +106,7 @@ a {
 
 .app .notes .note-page .text{
   line-height: 2;
+  white-space: pre-wrap;
 }
 
 .app .notes .note-page .links{
