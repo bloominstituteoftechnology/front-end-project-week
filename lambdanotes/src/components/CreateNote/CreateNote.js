@@ -11,22 +11,24 @@ export default class CreateNote extends Component {
     }
   }
 
-  componentWillMount = () => {
-    localStorage.token ? null : this.props.history.push('/login');
-  }
-
   handleSubmit = () => {
-    const URL = 'http://localhost:3000/';
+    const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
+    const requestOptions = {
+      headers: {
+        Authorization: token,
+        username
+      }
+    }
+    const URL = 'http://localhost:3000/';
     axios
-      .post(`http://localhost:8000/api/notes`, {
+      .post(`http://localhost:8000/api/notes/`, {
         title: this.state.title,
         message: this.state.message,
-        username,
-      })
-      //.then(response => console.log(response))
-      .then(response => window.location.href = URL)
-      .catch(error => console.log(error));
+        username
+      }, requestOptions)
+      .then(() => window.location.href = URL)
+      .catch(err => this.props.history.push('/login'))
   }
 
   handleChange = e => {

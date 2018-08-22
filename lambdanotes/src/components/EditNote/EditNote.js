@@ -11,29 +11,42 @@ export default class CreateNote extends Component {
     }
   }
 
-  componentWillMount = () => {
-    localStorage.token ? null : this.props.history.push('/login');
-  }
-
   componentDidMount() {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
+    const requestOptions = {
+      headers: {
+        Authorization: token,
+        username
+      }
+    }
     axios
-      .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`)
+      .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`, requestOptions)
       .then(res => this.setState({ 
         title: res.data[0].title,
         message: res.data[0].message
       }))
+      .catch(err => this.props.history.push('/login'))
   }
 
   handleUpdate = (id) => {
-    const URL = 'http://localhost:3000/'
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
+    const requestOptions = {
+      headers: {
+        Authorization: token,
+        username
+      }
+    }
+    const URL = 'http://localhost:3000/';
     axios
       .put(`http://localhost:8000/api/notes/${id}`, {
         title: this.state.title,
-        message: this.state.message
-      })
+        message: this.state.message,
+        username
+      }, requestOptions)
       .then(() => window.location.href = URL)
-      //.then(response => console.log(response))
-      .catch(error => console.log(error));
+      .catch(err => this.props.history.push('/login'))
   }
 
   handleChange = e => {
@@ -43,7 +56,6 @@ export default class CreateNote extends Component {
   }
 
   render() {
-    //console.log('edit', this.state.note)
     return (
       <div class="form-group">
         <h3 className="header mt-2">Edit Note:</h3>

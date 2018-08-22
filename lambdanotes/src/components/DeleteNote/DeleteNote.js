@@ -7,17 +7,22 @@ export default class DeleteNote extends Component {
     super(props)
   }
 
-  componentWillMount = () => {
-    localStorage.token ? null : this.props.history.push('/login');
-  }
-
   handleDelete = id => {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username')
+    const requestOptions = {
+      headers: {
+        Authorization: token,
+        username
+      }
+    }
     const URL = 'http://localhost:3000/'
     axios
-      .delete(`http://localhost:8000/api/notes/${id}`)
+      .delete(`http://localhost:8000/api/notes/${id}`, requestOptions)
       .then(response => window.location.href = URL)
-      .catch(error => console.log(error))
+      .catch(err => this.props.history.push('/login'))
   }
+  
 
   render() {
     console.log('this.props', this.props)
