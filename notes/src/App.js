@@ -10,20 +10,28 @@ import notesArray from './components/NotesArray';
 import { connect } from 'react-redux';
 import { getNotes, addNote, updateNote, deleteNote, searching } from './actions';
 import { withRouter } from 'react-router';
+import Authenticate from './components/Authenticate';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      notes: []
+      notes: [],
+      loggedIn: false
     }
   }
 
   componentDidMount() {
     // this.setState({notes: notesArray})
     this.props.getNotes();
-    this.setState({notes: this.props.notes})
+    // this.setState({notes: this.props.notes})
+    let username = localStorage.getItem('username');  
+    if (username) {
+      this.setState(function() {
+        return {loggedIn: true}
+      })
+    }
   }
 
   submitForm = (tags, title, textBody) => {
@@ -57,7 +65,12 @@ class App extends Component {
     this.props.searching(event.target.value);
   }
 
+  handleLogin = (user) => {
+    localStorage.setItem('username', user);
+  }
+
   render() {
+    if (this.state.loggedIn) {
     return (
       <div className="App">
         <Sidebar />
@@ -67,6 +80,11 @@ class App extends Component {
         <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.filteredNotes} submitEdit={this.submitEditForm} />)} />
       </div>
     );
+    } else {
+      return (
+        <AuthenticatedApp handleLogin={this.handleLogin} />
+      )
+    }
   }
 }
 
@@ -77,5 +95,7 @@ const mapStateToProps = state => {
     filteredNotes: state.notes.filter(note => note.title.toLowerCase().includes(state.searchText.toLowerCase()) || note.textBody.toLowerCase().includes(state.searchText.toLowerCase()))
   }
 }
+
+const AuthenticatedApp = Authenticate(App);
 
 export default withRouter(connect(mapStateToProps, { getNotes, addNote, updateNote, deleteNote, searching })(App));
