@@ -25,7 +25,8 @@ class Notesview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
+      searchMode:'title'
     };
   }
 
@@ -91,6 +92,71 @@ class Notesview extends Component {
         break;
     }
   };
+  changeSearch=(e)=>{
+    this.setState({searchMode: e.target.value });
+  }
+  handleInputChange = event => {
+    let filtArray;
+    switch (this.state.searchMode) {
+      case "title":
+       filtArray= this.props.notes.filter(e=>{
+        if(e.title.includes(event.target.value)){
+          return e
+        }
+      })
+        break;
+        case "body":
+        filtArray= this.props.notes.filter(e=>{
+          if(e.body.includes(event.target.value)){
+            return e
+          }
+          else{
+            return
+          }
+        })
+        break;
+        case "tags":
+        filtArray= this.props.notes.filter(e=>{
+          let found = false;
+          e.tags.forEach(element => {
+            if (element.includes(event.target.value)){
+              found = true;
+              return
+            }
+          });
+          if(found){
+            return e
+          }      
+        })
+        break;
+        case "all":
+        filtArray= this.props.notes.filter(e=>{
+          let found = false;
+          e.tags.forEach(element => {
+            if (element.includes(event.target.value)){
+              found = true;
+              return
+            }
+          });
+          if(found){
+            return e
+          }
+          else{
+            if(e.body.includes(event.target.value) ||e.title.includes(event.target.value)){
+              return e
+            }
+            else{
+              return
+            }
+          }      
+        })
+        break;
+      default:
+        break;
+    }
+    
+    this.setState({items: filtArray });
+  };
   render() {
     return (
       <div className="notesViewContainer">
@@ -103,13 +169,20 @@ class Notesview extends Component {
             <option value="timenew">Newest First</option>
             <option value="timeold">Oldest First</option>
           </select>
+          <div className='searchContainer'><input name='search'placeholder='Search' onChange={this.handleInputChange}type='text'/>  <select onChange={this.changeSearch}>
+            <option value="title">Title</option>
+            <option value="body">Body</option>
+            <option value="tags">Tags</option>
+            <option value="all">All</option>
+          </select></div>
         </div>
-        <SortableList
+        {(this.props.notes)?
+          <SortableList
           distance={1}
           axis="xy"
           items={this.state.items}
           onSortEnd={this.onSortEnd}
-        />
+        />:''}
       </div>
     );
   }

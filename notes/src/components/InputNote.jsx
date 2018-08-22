@@ -68,7 +68,9 @@ class CreateNote extends Component {
     });
   };
   handleInputChange = e => {
+
     this.setState({ [e.target.name]: e.target.value });
+
   };
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):

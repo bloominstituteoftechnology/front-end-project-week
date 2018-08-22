@@ -8,16 +8,17 @@ import { Route, Switch } from "react-router-dom";
 import fileDownload from "js-file-download";
 
 class App extends Component {
+  // what a note object looks like { title: "", body: "", id: -1, checklist: [], tags: [] }
   constructor(props) {
     super(props);
     this.state = {
-      notes: [{ title: "", body: "", id: -1, checklist: [], tags: [] }],
-      nextID: 5,
+      notes: [],
+      nextID: 0,
       mode: "ADD",
     };
   }
   addNote = noteObj => {
-    let prevNotes = this.state.notes.slice();
+    let prevNotes = [...this.state.notes];
     const fullObj = {
       ...noteObj,
       id: this.state.nextID
@@ -99,13 +100,23 @@ class App extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     if (this.state.notes !== prevState.notes) {
       localStorage.setItem("notes", JSON.stringify(this.state.notes));
+      localStorage.setItem("nextID", JSON.stringify(this.state.nextID));
     }
   };
   componentDidMount = () => {
-    const lsNotes = JSON.parse(localStorage.getItem("notes"));
-    this.setState({
-      notes: lsNotes
-    });
+    if(localStorage.getItem("nextID") !==null){
+      const lsID = JSON.parse(localStorage.getItem("nextID"));
+      const lsNotes = JSON.parse(localStorage.getItem("notes"));
+      this.setState({
+        notes: lsNotes,
+        nextID: lsID
+      });
+    }
+    else{
+      localStorage.setItem("notes", "[]");
+      localStorage.setItem("nextID", 0);
+    }
+   
   };
   render() {
     return (
