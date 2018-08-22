@@ -7,7 +7,11 @@ export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REARRANGE_NOTES = 'REARRANGE_NOTES';
 export const RECEIVE_TAGS = 'RECEIVE_TAGS';
 
+<<<<<<< HEAD
 dotenv.config();
+=======
+env.config();
+>>>>>>> parent of c287784... remove env config call
 const url = process.env.SERVER || 'http://localhost:8000';
 
 export const fetchNotes = (cb) => dispatch => {
