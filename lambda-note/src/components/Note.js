@@ -4,37 +4,50 @@ import styled from 'styled-components';
 const NoteDiv = styled.div`
   display: flex;
   width: 780px;
+  max-width: 870px;
   justify-content: flex-start;
 `
 const NoteListDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  max-width: 100%;
   margin: 10px 40px;
 
   div {
     display: flex;
     flex-wrap: wrap;
   }
+
+  input {
+    align-self: flex-end;
+    width: 200px;
+    margin-right: 50px;
+  }
 `;
 
 const IndividualNoteDiv = styled.div`
-  display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  max-width: 250px;
   width: 25%;
   height: 200px;
   padding: 10px;
   margin-right: 20px;
   margin-bottom: 20px;
   border: 1px solid lightgray;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis
 
   p {
     border-top: 1px solid lightgray;
     text-align: start;
     line-height: 30px;
     font-size: 12px;
+    text-overflow: ellipsis
   }
 
   h3 {
@@ -46,6 +59,11 @@ const ExpandedIndividualNoteDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px 40px;
+  width: 780px;
+  max-width: 870px;
+  word-wrap: break-word;
+  white-space: pre-line;
+  text-overflow: ellipsis
 
   div {
     display: flex;
@@ -136,20 +154,25 @@ const Button = styled.button`
 `;
 
 function Note (props) {
-  const { notes, viewNote, viewList, viewDeleteNote, viewEditNote, selectedNoteId, addNote, editNote, deleteNote, isAdded, isView, isDeleted, isEditted } = props;
-  const listMode = !isAdded && !isView && !isDeleted && !isEditted;
+  const { notes, filteredNotes, alert, fetchNote, viewNote, viewDeleteNote, viewEditNote, selectedNote, addNote, editNote, deleteNote, noSearch, searchNote, isFetched, isAdded, isView, isDeleted, isEditted, isSearched } = props;
 
   return (
     <NoteDiv>
-      { listMode
-          ? <NoteList notes={notes} viewNote={viewNote} />
+      { isFetched
+          ? <NoteList 
+              notes={notes} 
+              filteredNotes={filteredNotes}
+              viewNote={viewNote} 
+              isSearched={isSearched}
+              noSearch={noSearch}
+              searchNote={searchNote}
+            />
           : <div></div>
       }
       {
         isView
           ? <IndividualNote 
-              notes={notes} 
-              selectedNoteId={selectedNoteId} 
+              selectedNote={selectedNote} 
               viewEditNote={viewEditNote} 
               viewDeleteNote={viewDeleteNote} 
             />  
@@ -159,6 +182,7 @@ function Note (props) {
           ? <ModifyNote 
               isAdded={isAdded}
               event={addNote} 
+              selectedNote={selectedNote} 
             />
           : <div></div>
       }
@@ -166,15 +190,16 @@ function Note (props) {
           ? <ModifyNote 
               isAdded={isAdded}
               event={editNote} 
-              selectedNoteId={selectedNoteId} 
+              selectedNote={selectedNote} 
             />
           : <div></div>
       }
       { isDeleted
           ? <DeletePopup 
-              selectedNoteId={selectedNoteId}
-              viewList={viewList}
+              selectedNote={selectedNote}
+              fetchNote={fetchNote}
               viewNote={viewNote} 
+              alert={alert}
               deleteNote={deleteNote}
             />
           : <div></div>
@@ -183,22 +208,55 @@ function Note (props) {
   )
 }
 
-function NoteList (props) {
-  return (
-    <NoteListDiv>
-      <h3>Your Notes: </h3>
-      <div>
-        {props.notes.map(note => {
-          return (
-            <IndividualNoteDiv key={note.id} onClick={() => props.viewNote(note.id)}>
-              <h3>{note.title}</h3>
-              <p>{note.content}</p>
-            </IndividualNoteDiv>
-            )
-        })}
-      </div>
-    </NoteListDiv>
-  )
+class NoteList extends Component {
+  constructor () {
+    super();
+  }
+
+  handleOnChange = (e) => {
+    this.props.searchNote(e.target.value);
+
+    if (e.target.value === '') {
+      this.props.noSearch();
+    }
+  }
+
+  render() {
+    return (
+      <NoteListDiv>
+        <SearchBar handleOnChange={this.handleOnChange}/>
+        <h3>Your Notes: </h3>
+        { this.props.isSearched
+            ? <div>
+                { this.props.filteredNotes.map(note => {
+                    return (
+                      <IndividualNoteDiv key={note._id} onClick={() => this.props.viewNote(note._id)}>
+                        <h3>{note.title}</h3><br/>
+                        <p>{note.textBody}</p><br/>
+                        <div>{note.tags}</div>
+                      </IndividualNoteDiv>
+                      )
+                })}
+              </div>
+            : <div>
+                { this.props.notes.map(note => {
+                    return (
+                      <IndividualNoteDiv key={note._id} onClick={() => this.props.viewNote(note._id)}>
+                        <h3>{note.title}</h3><br/>
+                        <p>{note.textBody}</p><br/>
+                        <div>{note.tags}</div>
+                      </IndividualNoteDiv>
+                      )
+                })}
+              </div>
+        }
+      </NoteListDiv>
+    )
+  }
+}
+
+function SearchBar (props) {
+  return <TextInput onChange={props.handleOnChange} type="text" name="search" placeholder="Search" />
 }
 
 function IndividualNote (props) {
@@ -208,16 +266,10 @@ function IndividualNote (props) {
         <button onClick={props.viewEditNote}>edit</button>
         <button onClick={props.viewDeleteNote}>delete</button>   
       </div>
-      { props.notes.filter(note => note.id === props.selectedNoteId)
-                   .map(note => {
-                     return (
-                       <div>
-                        <h3>{note.title}</h3>
-                        <p>{note.content}</p>
-                       </div>                      
-                     )
-                   }) 
-      }
+      <div>
+        <h3>{props.selectedNote.title}</h3>
+        <p>{props.selectedNote.textBody}</p>
+      </div>                      
     </ExpandedIndividualNoteDiv>
 
   )
@@ -227,17 +279,24 @@ function DeletePopup (props) {
   return (
     <Popup>
       <InnerPopup>
-        <p>Are you sure you want to delete this note?</p>
-        <Button 
-          onClick={() => {
-            props.deleteNote(props.selectedNoteId);
-            props.viewList();
-          }}
-          style={{background: "red"}}
-        >
-          Delete
-        </Button>
-        <Button onClick={() => props.viewNote(props.selectedNoteId)}>No</Button>
+         { props.alert !== ''
+            ? <div>
+                <p>{props.alert}</p>
+                <Button onClick={props.fetchNote}>Back</Button>
+              </div>
+            : <div>
+                <p>Are you sure you want to delete this note?</p>
+                <Button 
+                  onClick={() => {
+                    props.deleteNote(props.selectedNote._id);
+                  }}
+                  style={{background: "red"}}
+                >
+                  Delete
+                </Button>
+                <Button onClick={() => props.viewNote(props.selectedNote._id)}>No</Button>
+              </div>
+         } 
       </InnerPopup>
     </Popup>
   );
@@ -259,7 +318,7 @@ class ModifyNote extends Component{
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    this.props.event(this.state.title, this.state.content, this.props.selectedNoteId);
+    this.props.event(this.state.title, this.state.content, this.props.selectedNote._id);
     this.setState({
       title: '',
       content: ''

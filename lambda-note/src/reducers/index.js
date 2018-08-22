@@ -1,31 +1,41 @@
-import { VIEW_LIST, VIEW_NOTE, ADD_NOTE, EDIT_NOTE, DELETE_NOTE, VIEW_ADDNOTE, VIEW_DELETENOTE, VIEW_EDITNOTE } from '../actions';
-import { dummyNote } from '../dummy';
+import { FETCHING_NOTE, VIEW_NOTE, ADD_NOTE, EDIT_NOTE, DELETE_NOTE, VIEW_ADDNOTE, VIEW_DELETENOTE, VIEW_EDITNOTE, SEARCH_NOTE, NO_SEARCH } from '../actions';
 
 const initialState = {
-  notes: [...dummyNote],
-  selectedNoteId: null,
+  notes: [],
+  filteredNotes: [],
+  selectedNote: {},
+  isFetched: false,
   isView: false,
+  isSearched: false,
   isAdded: false,
   isEditted: false,
-  isDeleted: false
+  isDeleted: false,
+  error: null,
+  alert: ''
 };
 
 export default (state = initialState, action) => {
   console.log('state: ', state.notes)
   switch (action.type) {
-    case VIEW_LIST:
+    case FETCHING_NOTE:
       return {
         ...state, 
+        notes: action.payload,
+        alert: '',
+        isFetched: true,
         isView: false,
+        isSearched: false,
         isAdded: false,
         isEditted: false,
         isDeleted: false
-      }
+      };
     case VIEW_NOTE:
       return { 
         ...state,
-        selectedNoteId: action.payload,
+        selectedNote: action.payload,
+        isFetched: false,
         isView: true,
+        isSearched: false,
         isAdded: false,
         isEditted: false,
         isDeleted: false
@@ -33,24 +43,30 @@ export default (state = initialState, action) => {
     case VIEW_ADDNOTE:
       return {
         ...state,
+        isFetched: false,
         isView: false, 
         isAdded: true,
+        isSearched: false,
         isEditted: false,
         isDeleted: false
       };
     case VIEW_EDITNOTE:
       return {
         ...state,
+        isFetched: false,
         isView: false, 
         isAdded: false,
+        isSearched: false,
         isEditted: true,
         isDeleted: false
       }
     case VIEW_DELETENOTE:
       return {
         ...state,
+        isFetched: false,
         isView: false, 
         isAdded: false,
+        isSearched: false,
         isEditted: false,
         isDeleted: true
       }
@@ -62,12 +78,38 @@ export default (state = initialState, action) => {
     case EDIT_NOTE:
       return { 
         ...state,
-        notes: [ ...state.notes.filter(note => note.id !== action.payload.id), action.payload ]
+        notes: [ ...state.notes.map(note => {
+          if (note._id === action.payload._id) {
+            return action.payload 
+          }
+          return note;
+        })]
       };
     case DELETE_NOTE:
       return {
         ...state,
-        notes: [ ...state.notes.filter(note => note.id !== action.payload) ]
+        alert: action.payload.success,
+        isFetched: false,
+        isView: false, 
+        isSearched: false,
+        isAdded: false,
+        isEditted: false,
+        isDeleted: true
+      };
+    case SEARCH_NOTE:
+      return {
+        ...state,
+        isSearched: true,
+        filteredNotes: [ ...state.notes.filter(note => {
+          if (note.textBody.search(action.payload) !== -1 || note.title.search(action.payload) !== -1) {
+            return note;
+          }
+        })]
+      }
+    case NO_SEARCH:
+      return {
+        ...state,
+        isSearched: false
       }
     default:
       return state;

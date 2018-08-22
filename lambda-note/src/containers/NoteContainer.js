@@ -9,29 +9,45 @@ const Container = styled.div`
 `;
 
 class NoteContainer extends Component {
+  constructor () {
+    super();
+    this.state = {
+    }
+  }
+
+  componentDidMount () {
+    this.props.fetchNote();
+  }
+
   render () {
-    const { viewList, viewNote, viewAddNote, viewEditNote, viewDeleteNote, addNote, editNote, deleteNote, isView, isEditted, isDeleted, isAdded} = this.props;
-    const { selectedNoteId, notes } = this.props;
+    const { fetchNote, viewNote, viewAddNote, viewEditNote, viewDeleteNote, addNote, editNote, deleteNote, searchNote, noSearch, isFetched, isView, isEditted, isDeleted, isAdded, isSearched} = this.props;
+    const { selectedNote, notes, filteredNotes, alert } = this.props;
     return (
       <Container>
         <NoteNavigation         
-          viewList={viewList} 
+          fetchNote={fetchNote} 
           viewAddNote={viewAddNote}
         />
-        <Note 
+        <Note  
           notes={notes}
-          selectedNoteId={selectedNoteId}
-          viewList={viewList}
+          filteredNotes={filteredNotes}
+          alert={alert}
+          selectedNote={selectedNote}
+          fetchNote={fetchNote}
           viewNote={viewNote}
           viewEditNote={viewEditNote}
           viewDeleteNote={viewDeleteNote}
           addNote={addNote}
           editNote={editNote}
           deleteNote={deleteNote}
+          searchNote={searchNote}
+          noSearch={noSearch}
+          isFetched={isFetched}
           isView={isView}
           isAdded={isAdded}
           isEditted={isEditted}
           isDeleted={isDeleted}
+          isSearched={isSearched}
         />
       </Container>
     )
