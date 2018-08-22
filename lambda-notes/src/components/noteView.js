@@ -9,11 +9,13 @@ export const SingleView = props => {
         return (
             <div>
                 { props.showModal && (
-                <div>
+                <div className="modal-wrap" >
                     <div className="modal-content" >
                         <h3>Are you sure you want to delete this?</h3>
-                        <Link to=""> <div className="modal-btn-delete" onClick={() => props.deleteNote(denoted.id)}  >Delete</div ></Link>
-                        <div className="modal-btn-no" onClick={() => props.modalToggle()} >No</div >
+                        <div className="modal-btn-wrap" >
+                            <Link to=""> <div className="modal-btn-delete" onClick={() => props.deleteNote(denoted.id)}  >Delete</div ></Link>
+                            <div className="modal-btn-no" onClick={() => props.modalToggle()} >No</div >
+                        </div>
                     </div>
                 </div> )}
                 <div className="view-links" >

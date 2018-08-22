@@ -47,10 +47,10 @@
   text-decoration: none;
 }
 
-.App-title {
+ .App-title {
   font-size: 2.2em;
 }
-
+/*
 .App-intro {
   font-size: large;
 }
@@ -58,7 +58,7 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
 
 .notes-wrap {
   display: flex;
@@ -129,6 +129,7 @@
   margin: 11px 0;
   background-color: rgb(30, 167, 167);
   cursor: pointer;
+  margin-left: 18px;
 }
 
 .modal-btn-delete {
@@ -144,9 +145,40 @@
   cursor: pointer;
 }
 
+.modal-content a {
+  text-decoration: none;
+}
+
 .modal-content {
   border: 1px solid lightgray;
   background: white;
+  width: 595px;
+  height: 160px;
+  opacity: 1;
+  z-index: 10;
+  padding-top: 20px;
+  /* margin-left: 15px; */
+}
+
+.modal-btn-wrap{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  
+}
+
+.modal-wrap {
+  /* display: none; */
+  position: absolute;
+  left: 1px;
+  width: 79%;
+  height: 100%;
+  background-color: lightgray;
+  opacity: .78;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .single-view-text {
@@ -186,9 +218,6 @@
 .add-form-wrap {
   text-align: left;
   padding-left: 3%;
-  /* align-items: flex-start; */
-  /* display: flex; */
-  /* align-content: flex-start */
 }
 
 .save-btn {
@@ -206,4 +235,8 @@
 
 .add-form a {
   text-decoration: none;
+}
+
+.display-right {
+  width: 100%;
 }
