@@ -11,7 +11,7 @@ export const submitNewNote = newNote => {
     axios
       .post(`${process.env.REACT_APP_API}/notes`, newNote)
       .then(({ data }) => {
-        window.location.href = home_path;
+        window.location.href = "/";
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
@@ -55,7 +55,7 @@ export const deleteNote = id => {
     axios
       .delete(`${process.env.REACT_APP_API}/notes/${id}`)
       .then(({ data }) => {
-        window.location.href = "http://localhost:3000/";
+        window.location.href = "/";
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
