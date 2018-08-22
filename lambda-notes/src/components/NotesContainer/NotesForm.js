@@ -32,7 +32,7 @@ class NotesForm extends React.Component {
 
     editNote = () => {
         // Updates a note if title / content fields aren't empty / Pushes back to single note page / Sets state to empty strings
-        const note = { tags: this.props.tags, title: this.state.title, content: this.state.content, id: this.props.id }
+        const note = { tags: this.props.tags, title: this.state.title, content: this.state.content, sort_id: this.props.sort_id, id: this.props.id }
 
         if (this.state.title === '' || this.state.content === '') return;
         this.props.editNote(note);

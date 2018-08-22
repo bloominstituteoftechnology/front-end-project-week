@@ -25,7 +25,6 @@ const cardTarget = {
 
         // Time to actually perform the action
         props.moveCard(dragIndex, hoverIndex);
-
         monitor.getItem().index = hoverIndex;
     },
 }

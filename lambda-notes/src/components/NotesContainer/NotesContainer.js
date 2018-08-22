@@ -23,8 +23,21 @@ class NotesContainer extends React.Component {
     }
 
     moveCard = (dragIndex, hoverIndex) => {
-        const dragCard = this.props.notes[dragIndex]
+        const dragCard = this.props.notes[dragIndex];
+
+        const note1 = this.props.notes[dragIndex];
+        const note2 = this.props.notes[hoverIndex];
+
         this.props.setNotes(dragIndex, hoverIndex, dragCard);
+
+        let noteId1 = note1.sort_id;
+        let noteId2 = note2.sort_id;
+
+        note1.sort_id = noteId2;
+        note2.sort_id = noteId1;
+
+        this.props.editNote(note1);
+        this.props.editNote(note2);
     }
 
     deleteNote = () => {
@@ -45,6 +58,8 @@ class NotesContainer extends React.Component {
     render() {
         let notes = this.props.notes;
         let search = this.state.searchString;
+
+        console.log(notes);
 
         if (search.length > 0) {
             notes = notes.filter(note => note.title.toLowerCase().match(search)

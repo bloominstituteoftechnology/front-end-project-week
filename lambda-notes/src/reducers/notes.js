@@ -41,7 +41,7 @@ export default (state = initialState, action) => {
         case EDITING_NOTE:
             return { ...state, editingNote: true };
 
-        case NOTE_EDITED:
+        case NOTE_EDITED:  
             let updateNote = state.notes.slice().map(note => {
                 if (note.id === action.payload.id) {
                     note = action.payload;
@@ -65,7 +65,6 @@ export default (state = initialState, action) => {
             let setNotes = state.notes.slice();
             setNotes.splice(action.payload.dragIndex, 1);
             setNotes.splice(action.payload.hoverIndex, 0, action.payload.dragCard);
-
             return { ...state, notes: setNotes };
 
         case ERROR:

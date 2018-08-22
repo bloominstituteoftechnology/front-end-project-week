@@ -7,7 +7,6 @@ import { checkToken, setSignIn } from '../../actions/auth';
 const RequireAuth = ComposedComponent =>
     class extends React.Component {
         componentDidMount() {
-            console.log('test');
             const token = localStorage.getItem('token');
             if (token) {
                 return this.props.checkToken(token);
