@@ -24,7 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8000/api/notes")
+      .get(`${process.env.REACT_APP_API}/notes`)
       .then(response => {
         this.setState({ notes: response.data });
       })
