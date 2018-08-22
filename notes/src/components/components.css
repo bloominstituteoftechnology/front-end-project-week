@@ -7,16 +7,17 @@
 }
 
 .notes-container {
+    width: 75%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.ListView-header {
-  display: block;
-}
-
 .notes-container > h1 {
   flex: 0 0 100%;
+}
+
+.home-page {
+    width: 75%;
 }
