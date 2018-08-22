@@ -90,6 +90,14 @@ export const ContentInput = styled.textarea`
     outline: none;
 `
 
+export const TagInput = styled.input`
+    widht: 100%;
+    border-radius: 2px;
+    border-color: #DEDDDE;
+    padding: 5px;
+    margin: 5px;
+`
+
 export const NoteOptions = styled.div`
     display: flex;
     justify-content: flex-end
