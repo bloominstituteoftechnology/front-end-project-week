@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import '../Delete.css'
 
 
 const View = styled.div`
@@ -36,7 +36,7 @@ margin: 10px;
 `
 const DeleteBox = styled.div`
 margin-top: 20%;
-margin-left: 3%;
+margin-left: 50%;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -78,7 +78,7 @@ const SingleNote = props => {
       <NavLink  onClick={() => props.noteEdit(note.id)}  to={`/view/edit/${note.id}`}>
     Edit
     </NavLink>
-    <NavLink  to={`/view-note/${note.id}`} className="ed" onClick={props.deleteBox}>
+    <NavLink  to={`/view/${note.id}`} className="ed" onClick={props.deleteBox}>
     Delete
     </NavLink>
     </Edit>
