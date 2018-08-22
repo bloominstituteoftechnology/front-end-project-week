@@ -7,7 +7,7 @@ const postCompleted = Creators.postCompleted;
 const fetchNotes = HomeOperations.fetchNotes;
 
 const postNote = (noteObj) => {
-    const promise = axios.post('http://localhost:8001/api/notes', noteObj);
+    const promise = axios.post('https://lambda-note-taker.herokuapp.com/api/notes', noteObj);
     return dispatch => {
         dispatch(requestPost());
         promise

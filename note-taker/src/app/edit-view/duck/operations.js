@@ -4,7 +4,7 @@ import NoteViewOperations from '../../note-view/duck/operations';
 const updatingNote = Creators.updatingNote;
 const updatedNote = Creators.updatedNote;
 const updateNote = (id, noteObj) => {
-    const promise = axios.put(`http://localhost:8001/api/notes/${id}`, noteObj);
+    const promise = axios.put(`https://lambda-note-taker.herokuapp.com/api/notes/${id}`, noteObj);
     return dispatch => {
         dispatch(updatingNote());
         promise

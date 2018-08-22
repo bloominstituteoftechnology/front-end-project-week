@@ -8,7 +8,7 @@ const deletingNote = Creators.deleteNote;
 const deleteNote = Creators.deleteNote;
 const fetchAllNotes = HomeOperations.fetchNotes;
 const fetchNote = (id) => {
-    const promise = axios.get(`http://localhost:8001/api/notes/${id}`);
+    const promise = axios.get(`https://lambda-note-taker.herokuapp.com/api/notes/${id}`);
     return dispatch => {
         dispatch(requestNote());
         promise
@@ -24,7 +24,7 @@ const fetchNote = (id) => {
 
 const noteDeletion = (id) => {
     console.log(id);
-    const promise = axios.delete(`http://localhost:8001/api/notes/${id}`);
+    const promise = axios.delete(`https://lambda-note-taker.herokuapp.com/api/notes/${id}`);
     return dispatch => {
         dispatch(deletingNote());
         promise
