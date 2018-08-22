@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import SideBar from './components/SideBar';
-import {Route, Link, withRouter} from 'react-router-dom';
+import {Switch, Route, Link, withRouter} from 'react-router-dom';
 import ListView from './components/ListView';
 import CreateNote from './components/CreateNote';
 import Note from './components/Note';
 import EditNote from './components/EditNote';
 import {fetchNotes, addNote, updateNote} from './actions/actions';
 import {connect} from 'react-redux';
-
 
 class App extends Component {
   constructor(props){
@@ -25,7 +24,8 @@ class App extends Component {
     e.preventDefault();
     this.props.addNote(this.state.title, this.state.textBody);
     this.setState({title:'', textBody:'',});
-    window.location.reload();
+    // this.props.history.push('/get/all');
+    window.location.href='/get/all';
   }
   updateNote = e => {
     e.preventDefault();
@@ -44,23 +44,25 @@ class App extends Component {
           <Route exact path="/get/all" render={(props) => 
               <ListView {...props} notes={this.props.notes} />}
           />
-          <Route exact path={`/note/:id`} render={(props) => <Note {...props} /> }/>
-          <Route exact path={`/note/:id/editnote`} render={(props) =>
-              <EditNote {...props} 
-                          title={this.state.title}
-                          textBody={this.state.textBody}
-                          handleChange={this.handleChange}
-                          updateNote={this.updateNote}
-                          oldTitle={this.props.note.title}
-                          oldTextBody={this.props.note.textBody} />}
-          />
-          <Route exact path="/note/create" render={(props) => 
-              <CreateNote {...props} 
-                          title={this.state.title}
-                          textBody={this.state.textBody}
-                          handleChange={this.handleChange}
-                          addNote={this.addNote} />}
-          />
+          <Switch>
+            <Route exact path="/note/create" render={(props) => 
+                <CreateNote {...props} 
+                            title={this.state.title}
+                            textBody={this.state.textBody}
+                            handleChange={this.handleChange}
+                            addNote={this.addNote} />}
+            />
+            <Route path="/note/:id/editnote" render={(props) =>
+                <EditNote {...props} 
+                            title={this.state.title}
+                            textBody={this.state.textBody}
+                            handleChange={this.handleChange}
+                            updateNote={this.updateNote}
+                            oldTitle={this.props.note.title}
+                            oldTextBody={this.props.note.textBody} />}
+            />
+            <Route path="/note/:id" component={Note} />
+          </Switch>
         </div>
     );
   }

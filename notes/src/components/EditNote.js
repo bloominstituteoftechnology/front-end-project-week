@@ -9,15 +9,15 @@ const Body = styled.div`
     flex-direction: column;
     padding: 1rem;
 `;
-const InputTitle = styled.input`
-    width: 400px;
-    padding: 0.5rem;
+const InputTitle = styled.textarea`
+    width: 500px;
+    padding: 1rem;
     margin: 1rem 0;
 `;
-const InputContent = styled.input`
+const InputContent = styled.textarea`
     width: 700px;
     height: 500px;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 1rem 0;
 `;
 const Button = styled.button`

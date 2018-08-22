@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {fetchOneNote, deleteNote, updateNote} from '../actions/actions';
+import {fetchOneNote, deleteNote} from '../actions/actions';
 import {Link, withRouter} from 'react-router-dom';
 import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -24,12 +24,12 @@ const EditDel = styled.div`
 const NoteTitle = styled.h1`
     font-weight: 800;
     color: #3C3C3C;
-    padding: 1rem;
+    padding: 2rem;
 `;
 const NoteContent = styled.div`
     line-height: 2rem;
     line-spacing: 1rem;
-    padding: 1rem;
+    padding: 2rem;
 `;
 class Note extends React.Component{
     constructor(props){
@@ -37,8 +37,6 @@ class Note extends React.Component{
         this.state = {
             modal: false,
             default: true,
-            title: '',
-            textBody: '',
         }
         this.toggle = this.toggle.bind(this);
     }
@@ -55,7 +53,7 @@ class Note extends React.Component{
             <Row noGutters={true}>
                 <Body>
                     <EditDel>
-                        <Link to={`/note/${this.props.note._id}/editnote`}
+                        <Link to={{pathname: `/note/${this.props.note._id}/editnote`}}
                             style={{color: 'darkgray'}}>
                             edit
                         </Link>
@@ -102,5 +100,4 @@ export const mapStateToProps = state => ({
 
 export default withRouter(connect(mapStateToProps, 
     {fetchOneNote,
-     deleteNote,
-     updateNote})(Note));
+     deleteNote})(Note));

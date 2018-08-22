@@ -8,6 +8,7 @@ const List = styled.div`
     flex-direction: column;
     padding: 1rem;
     height: 100%;
+    width: 900px;
 `;
 const NoteOverview = styled.div`
     display: flex;
@@ -22,7 +23,6 @@ const SmallNote = styled.div`
     text-align: left;
     background: white;
     overflow: hidden;
-    text-overflow: ellipsis;
     line-height: 2rem;
     margin: 0.5rem;
 `;

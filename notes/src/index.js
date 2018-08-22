@@ -11,7 +11,7 @@ import {rootReducer} from './reducers/reducers';
 
 const store = createStore(rootReducer, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunk));
+    applyMiddleware(logger,thunk));
 
 ReactDOM.render(<Provider store={store}>
                     <Router>

@@ -76,6 +76,7 @@ export const deleteNote = _id => {
         axios
             .delete(`${url}/delete/${_id}`)
             .then(response => {
+                console.log(response);
                 dispatch({type: DELETED_NOTE, payload: response.data});
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
 
 const Body = styled.div`
     background: #F1F1F1;
@@ -46,9 +45,7 @@ class CreateNote extends React.Component{
                             value={this.props.textBody}
                             onChange={this.props.handleChange}
                 />
-                <Link to="/get/all">
-                    <Button onClick={this.props.addNote}>Save</Button>
-                </Link>
+                <Button onClick={this.props.addNote}>Save</Button>
             </Body>
         );
     }
