@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Note = props => {
-  console.log("Note Component Notes", props.note);
+  // console.log("Note Component Notes", props.note);
   return (
     <Link to={`/notes/${props.id}`} className="noteDiv">
       <h2>{props.note.title}</h2>

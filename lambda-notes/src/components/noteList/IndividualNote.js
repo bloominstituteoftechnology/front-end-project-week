@@ -15,12 +15,12 @@ export class IndividualNote extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    console.log("COMPONENT DDID MOUNT ON INDIVIDUAL", this.props);
-    if (this.props.notes !== prevProps.notes) {
-      this.setState({ notes: this.props.notes });
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   console.log("COMPONENT DDID MOUNT ON INDIVIDUAL", this.props);
+  //   if (this.props.notes !== prevProps.notes) {
+  //     this.setState({ notes: this.props.notes });
+  //   }
+  // }
 
   toggleModal = () => {
     this.setState({
@@ -62,7 +62,7 @@ export class IndividualNote extends Component {
 
   render() {
     // console.log("Individual NOtes Props", this.props.notes);
-    console.log("Individual Params Match", this.state.match);
+    // console.log("Individual Params Match", this.state.match);
 
     return (
       <div className="individualNote">

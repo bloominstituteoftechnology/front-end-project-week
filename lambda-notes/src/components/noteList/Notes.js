@@ -4,7 +4,7 @@ import { Note } from "./Note";
 import "../../css_styles/notes.css";
 
 export const Notes = props => {
-  console.log("Notes Component Notes", props.notes);
+  // console.log("Notes Component Notes", props.notes);
   // const initialLinks = props.notes;
   return (
     <div className="notesMainDiv">

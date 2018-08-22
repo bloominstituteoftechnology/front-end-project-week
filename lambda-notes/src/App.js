@@ -6,6 +6,7 @@ import { IndividualNote } from "./components/noteList/IndividualNote";
 import { EditNote } from "./components/modifyNote/EditNote";
 import { CreateNote } from "./components/modifyNote/CreateNote";
 // import { DeleteNote } from "./components/modifyNote/DeleteNote";
+// import notes from "./components/data/noteData";
 
 import "./css_styles/app.css";
 
@@ -69,14 +70,18 @@ class App extends Component {
       noteDescription: "",
       update: false
     };
+    // this.deleteNoteHandler = this.deleteNoteHandler.bind(this);
   }
 
-  componentDidUpdate(prevProps) {
-    console.log("COMPONENT DDID MOUNT ON INDIVIDUAL", this.state);
-    if (this.props.notes !== prevProps.notes) {
-      this.setState({ notes: this.props.notes });
-    }
-  }
+  // componentDidMount() {
+  //   this.setState({});
+  // }
+  // componentDidUpdate(prevProps) {
+  //   console.log("COMPONENT DDID MOUNT ON INDIVIDUAL", this.state);
+  //   if (this.props.notes !== prevProps.notes) {
+  //     this.setState({ notes: this.props.notes });
+  //   }
+  // }
 
   inputChangeHandler = event => {
     // console.log("InputChangeHandler", event.target.name);
@@ -116,22 +121,28 @@ class App extends Component {
     this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
   };
 
-  deleteNoteHandler = iNumber => {
+  deleteNoteHandler = event => {
+    let iNumber = parseInt(event.props.deleteNumber, 10);
     console.log("INDEX NUMBER DELETE HANDLER", iNumber);
-    let indexNumber = parseInt(iNumber, 10);
-    let newNotesArray = this.state.notes.slice();
+    let newList = this.state.notes.filter(note => {
+      console.log(note.id);
+      return note.id !== iNumber;
+    });
+    console.log("DELETE HANDLER n", newList);
+    this.setState({ notes: newList });
+
+    // let indexNumber = parseInt(iNumber, 10);
+    // let newNotesArray = this.state.notes.slice();
+    // newNotesArray = newNotesArray.filter(note => note.id !== indexNumber);
+
+    // below stay commented out, just dif way to do filter above
     // newNotesArray.splice(indexNumber, 1);
-    // console.log("FIRING!!!!!!", newNotesArray[0].id, indexNumber);
-    newNotesArray = newNotesArray.filter(note => note.id !== indexNumber);
-    console.log("DELETEHANDLER", this.props);
-    // newNotesArray = newNotesArray.splice(indexNumber, 1);
-    // console.log("removedItem", removedItem);
-    // console.log("newNotesArray", newNotesArray);
-    this.setState({ notes: newNotesArray, update: true });
+
+    // this.setState({ notes: newNotesArray, update: true });
   };
 
   render() {
-    console.log("Main App Notes", this.state.notes);
+    // console.log("Main App Notes", this.state.notes);
     return (
       <div className="mainAppDiv">
         <Route path={"/"} component={MainNav} />

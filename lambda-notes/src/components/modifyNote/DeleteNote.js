@@ -33,7 +33,7 @@ class DeleteNote extends Component {
       margin: "0 auto",
       padding: 30
     };
-    console.log("DELETE NOTE BUTTON", this.props);
+    // console.log("DELETE NOTE BUTTON", this.props);
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
@@ -41,9 +41,13 @@ class DeleteNote extends Component {
 
           <div>
             <button
+              // onClick={() =>
+              //   this.props.deleteNoteHandler(this.props.deleteNumber) &
+              //   this.props.onApprove()
+              // }
+
               onClick={() =>
-                this.props.deleteNoteHandler(this.props.deleteNumber) &
-                this.props.onApprove()
+                this.props.deleteNoteHandler(this) & this.props.onApprove()
               }
             >
               Deleteinside
