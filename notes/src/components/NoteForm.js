@@ -3,9 +3,7 @@ import { Button, Input, Form, FormGroup } from 'reactstrap';
 
 class NoteForm extends React.Component {
   componentDidMount() {
-    if (this.props.edit) {
-      this.props.update();
-    }
+    this.props.update();
   }
   
   render() {

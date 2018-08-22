@@ -12,9 +12,7 @@ class App extends Component {
       {
         id: 0,
         title: 'Welcome!',
-        text: `Please create a new note! Click for more information.
-        You can create a new note by clicking the create new note button to the left.
-        You can also edit and delete me by clicking on me and then using one of the handy controls at the top!`
+        text: `Please create a new note! Click for more information. You can create a new note by clicking the create new note button to the left. You can also edit and delete me by clicking on me and then using one of the handy controls at the top!`
       }
     ],
     title: '',
@@ -61,9 +59,13 @@ class App extends Component {
     }, this.redirect);
   };
 
-  updateNoteInput = () => {
+  updateEditInput = () => {
     const { title, text } = this.state.note;
     this.setState({ title, text });
+  };
+
+  updateCreateInput = () => {
+    this.setState({ title: '', text: '' });
   };
 
   /* Modal methods */
@@ -126,7 +128,7 @@ class App extends Component {
             render={() => (
               <Button 
                 data={this.formatForCSV()} 
-                filename={"notes.csv"}
+                filename="notes.csv"
                 color="info"
                 tag={CSVLink}
               >
@@ -147,6 +149,7 @@ class App extends Component {
                   title={this.state.title} 
                   text={this.state.text} 
                   formText="Save"
+                  update={this.updateCreateInput}
                 />
               </div>
             )}
@@ -192,8 +195,7 @@ class App extends Component {
                   title={this.state.title} 
                   text={this.state.text} 
                   formText="Update"
-                  edit={true}
-                  update={this.updateNoteInput}
+                  update={this.updateEditInput}
                 />
               </div>
             )}

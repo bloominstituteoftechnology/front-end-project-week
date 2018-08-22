@@ -15,7 +15,7 @@ const Note = (props) => {
                 <ReactMarkDown source={title.slice(0, 17).trim() + (title.length > 17 ? '...' : '')} />
               </h5>
               <hr />
-              <ReactMarkDown source={text.slice(0, 116).trim() + ((text.length > 116) ? '...' : '')} />
+              <ReactMarkDown source={text.slice(0, 103).trim() + ((text.length > 103) ? '...' : '')} />
             </CardBody>
           </Card>
         )
