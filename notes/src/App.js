@@ -20,6 +20,7 @@ class App extends Component {
       edittitle: "",
       editbody: "",
       deleting: false,
+      tagging: false,
       pink: false,
       blue: false
     };
@@ -77,6 +78,15 @@ class App extends Component {
     // }
   };
 
+
+  // addTag = (id) => {
+  //   console.log(this.state.tag);
+  //   axios
+  //   .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+  //     tags: this.state.tag
+  //   })
+  // }
+
   editNote = id => {
     let notesCopy = this.state.notes.slice();
     let editnote = notesCopy.find(note => note._id == id);
@@ -105,6 +115,11 @@ class App extends Component {
     let deleting = !this.state.deleting;
     this.setState({ deleting });
   };
+
+  closeModal = () => {
+    this.setState({tagging: !this.state.tagging})
+    console.log(this.state.tagging)
+  }
 
   noteDelete = id => {
     axios
@@ -147,6 +162,7 @@ class App extends Component {
             <Notes
               {...props}
               notes={this.state.notes}
+              noteInput={this.noteInput}
               pink={this.state.pink}
               blue={this.state.blue}
             />

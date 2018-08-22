@@ -1,6 +1,5 @@
 
 body {
-    background: #F2F1F2;
     max-width: 1000px;
     margin: 0 auto;
     font-family: georgia;
@@ -121,13 +120,19 @@ h1, h2, h3 {
 }
 
 .note-title {
-    margin-top: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     padding-bottom: 5%;
     border-bottom: solid lightgray 2px;
     font-weight: bold;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow-x: inherit;
+    overflow-x: hidden;
+}
+
+.note-text {
+    height: 99px;
+    overflow-y: scroll;
 }
 
 
@@ -137,24 +142,73 @@ h1, h2, h3 {
     background: white;
     color: rgba(0, 0, 0, 0.801);
     box-sizing: border-box;
-    padding: 0 10% 10%;
-    margin: 1%;
+    padding: 0 2.5% 10%;
+    margin: 2%;
     position: relative;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+
 }
 
 .notelink {
     text-decoration: none;
     color: black;
-    margin: 2%;
 }
 
 .note-contents {
-    height: 100%;
-    overflow-y: scroll;
     line-height: 150%;
     white-space: pre-wrap;
-    
+}
+
+.tags {
+    display: flex;
+    height: 26px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.tag {
+    box-sizing: border-box;
+    font-size: 70%;
+    margin-top: 6%;
+    margin-right: 3%;
+    background: rgb(192, 255, 245);
+    padding: .5% 1%;
+    border-radius: 3px;
+    border: 1px solid rgba(128, 128, 128, 0.479);
+}
+
+.tagx {
+    display: flex;
+}
+
+.tagx > i {
+    padding-top: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.fa-plus-circle {
+    margin-top: 6%;
+    margin-left: auto;
+    font-size: 70%;
+    cursor: pointer;
+}
+
+.tagModal {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left:0;
+    background: rgba(255, 192, 203, 0.863);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
 }
 

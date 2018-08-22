@@ -15,9 +15,9 @@ class NoteFocus extends React.Component {
     this.noteView(this.props.match.params._id);
   }
 
-  componentDidUpdate() {
-    this.noteView(this.props.match.params._id);
-  }
+  // componentDidUpdate() {
+  //   this.noteView(this.props.match.params._id);
+  // }
  
   noteView = (id) => {
     axios
@@ -31,7 +31,6 @@ class NoteFocus extends React.Component {
   }
 
  render(){
-   console.log(this.state.note)
   return (
     <div className={this.props.pink? "focus focuspink" : this.props.blue? "focus focusblue" : "focus"}>
       <div className={this.props.deleting ? "delete" : "hide-delete"}>
