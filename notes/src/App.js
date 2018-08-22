@@ -70,7 +70,7 @@ class App extends Component {
       note: this.state.newNote,
     };
     dummyNotes.push(myNewNote);
-    this.setState({ notes: dummyNotes, newTitle: '', newNote: '', number: myNewNote.id++ });
+    this.setState({ notes: dummyNotes, newTitle: '', newNote: '', number: myNewNote.id + 1 });
   }
 
   beginEditNoteHandler = (id) => {

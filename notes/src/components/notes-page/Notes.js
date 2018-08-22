@@ -17,14 +17,15 @@ const NotesContainer = styled.div `
 `;
 
 const H3 = styled.h3 `
-  margin-bottom: 30px;
-  align-self: start;
+  margin: 20px 0;
+  text-align: left;
+  padding-left: 20px;
 `;
 
 export const Notes = (props) => {
   return (
     <OuterNotesContainer>
-      <h3>Your Notes:</h3>
+      <H3>Your Notes:</H3>
       <NotesContainer>
         {props.notes.map(note =>
           <NoteCard key={note.id} note={note} />
