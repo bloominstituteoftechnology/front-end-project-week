@@ -13,11 +13,15 @@ class AddNote extends React.Component {
 	};
 
 	onSubmit = e => {
+		let tags = [];
+		if (this.state.tags) {
+			tags = this.state.tags.split(",");
+		}
 		e.preventDefault();
 		this.props.onSubmit({
 			title: this.state.title,
 			textBody: this.state.textBody,
-			tags: this.state.tags.split(","),
+			tags: tags,
 		});
 		this.setState({
 			title: "",
@@ -33,6 +37,7 @@ class AddNote extends React.Component {
 				title={this.state.title}
 				textBody={this.state.textBody}
 				tags={this.state.tags}
+				label="Save"
 			/>
 		);
 	}

@@ -37,7 +37,7 @@ const Form = props => {
 					value={props.textBody}
 					onChange={props.handleInputChange}
 				/>
-				<button className="Button">Update</button>
+				<button className="Button">{props.label}</button>
 			</form>
 		</div>
 	);

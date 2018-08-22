@@ -6,7 +6,7 @@ class EditNote extends React.Component {
 	state = {
 		title: "",
 		textBody: "",
-		tags: [],
+		tags: "",
 	};
 
 	componentDidMount() {
@@ -23,10 +23,20 @@ class EditNote extends React.Component {
 
 	onSubmit = e => {
 		e.preventDefault();
+		let tags = [];
+		console.log(typeof this.state.tags, "ln26");
+		if (typeof this.state.tags == "object") {
+			console.log("izzz not a string");
+			tags = this.state.tags;
+		} else if (this.state.tags) {
+			tags = this.state.tags.split(",");
+		}
+		console.log(tags);
+
 		this.props.onSubmit({
 			title: this.state.title,
 			textBody: this.state.textBody,
-			tags: this.state.tags.split(","),
+			tags: tags,
 		});
 	};
 
@@ -38,6 +48,7 @@ class EditNote extends React.Component {
 				title={this.state.title}
 				onSubmit={this.onSubmit}
 				handleInputChange={this.handleInputChange}
+				label="Update"
 			/>
 		);
 	}
