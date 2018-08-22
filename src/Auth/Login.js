@@ -141,8 +141,10 @@ class Login extends Component {
   }
 
   handleLogin = (values, cb) => {
+    const url = `https://shyne-notes.herokuapp.com`
+
     axios
-      .post('http://localhost:8000/auth/login', values)
+      .post(`${url}/auth/login`, values)
       .then((res) => {
         localStorage.setItem('token', JSON.stringify(res.data.token))
         cb()
@@ -153,9 +155,11 @@ class Login extends Component {
       })
   }
   handleRegister = (values, cb) => {
+    const url = `https://shyne-notes.herokuapp.com`
+
     console.log('METHOD')
     axios
-      .post('http://localhost:8000/auth/register', values)
+      .post(`${url}/auth/register`, values)
       .then((response) => {
         localStorage.setItem('token', JSON.stringify(response.data.token))
         cb()
