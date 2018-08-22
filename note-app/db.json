@@ -2,7 +2,7 @@
   "notes": [
     {
       "title": "New note being added in.",
-      "textBody": "This note will feature tags. I will then display the tags of the note at the button of the note in bold. ",
+      "textBody": "This note will feature tags. I will then display the tags of the note at the button of the note in bold. 😍",
       "index": 0,
       "tags": [
         "JavaScript",
@@ -20,7 +20,7 @@
         "8:09",
         "8:11"
       ],
-      "__v": 13,
+      "__v": 15,
       "id": "_tgczt60os"
     }
   ]

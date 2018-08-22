@@ -68,3 +68,7 @@ export const selectingNote = (id, note) => {
         dispatch({type:SELECTED_NOTE, payload: note, index: id})
     }
 }
+
+export const searchingNotes = searchTerm => {
+    console.log(searchTerm)
+}

@@ -11,7 +11,7 @@ import EditNote from './edit-note';
 import ViewAllNotes from './notes';
 import FullNote from './FullNote';
 import DeleteModal from './delete-note';
-import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote} from '../actions'; 
+import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote,searchingNotes} from '../actions'; 
 
 
 class App extends Component {
@@ -45,7 +45,6 @@ class App extends Component {
   updateNote = (index, noteObj) => {
     console.log(noteObj)
     this.props.updatingNote(index, noteObj)
-    // this.props.fetchingNotes()
   }
 
   deleteNote  = (index) => {
@@ -63,6 +62,17 @@ class App extends Component {
       <div className="App">
         <div className="heading">
           <h3 className= "app-header"><input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> </h3>
+          <div className = "scene">
+            <div className = "carousel-cell">
+              <img src="../images/trash.jpg" alt="trash of notes img"/>  
+            </div>
+            <div className = "carousel-cell">
+              <img src="../images/createNote.png" alt="Create Note image"/>
+            </div>
+            <div className = "carousel-cell">
+              <img src="../images/notepad.png" alt="Note Pad image"/>
+            </div>
+          </div>
           <hr/>
         </div>
         <Route render={({location}) => (
