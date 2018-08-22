@@ -16,6 +16,7 @@ class NotesList extends React.Component {
 /*CLick function that enables the user to logout of the page*/
   handleLogout = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
     window.location.reload();
   }
 

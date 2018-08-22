@@ -1,12 +1,14 @@
 import React from 'react';
 import '../../App.css';
+import axios from 'axios';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      unAuthenticated: false
     }
   }
 
@@ -15,10 +17,24 @@ class Login extends React.Component {
   }
 
   handleLogin = e => {
+    e.preventDefault();
     console.log('Login Handled');
-    const user = this.state.username;
-    localStorage.setItem('user', user);
-    window.location.reload();
+    const username = this.state.username;
+    const password = this.state.password;
+    console.log(username, password);
+    axios
+      .post('https://nameless-harbor-91626.herokuapp.com/login', {username, password})
+      .then(response => {
+        localStorage.setItem('user', username);
+        localStorage.setItem('token', response.data.token);
+        window.location.reload();
+      }).catch(err => {
+        this.setState({unAuthenticated: true});
+        console.log(`String Error: ${err} and variable error:`, err);
+      })
+
+
+
   }
 
   render() {

@@ -133,6 +133,7 @@ class ViewNote extends React.Component {
 /*Allows the user to logout of the app*/
   handleLogout = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
     window.location.reload();
   }
 

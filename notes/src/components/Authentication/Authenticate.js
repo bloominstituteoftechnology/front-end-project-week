@@ -12,16 +12,13 @@ const Authenticate = App =>
 
 /* Component displays only if localStorage contains a certain value */
     componentDidMount() {
-      if (!localStorage.getItem('user')) {
-        this.setState({loggedIn: false});
-      } else {
-        this.setState({loggedIn: true});
-      }
-    }
+      if (localStorage.getItem('token')) this.setState({
+       loggedIn: true
+     });
+   }
 
     render() {
-      if (this.state.loggedIn) return <App />;
-      return <Login />;
+        return (this.state.loggedIn ? <App /> : <Login />);
     }
   }
 
