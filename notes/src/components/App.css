@@ -24,6 +24,7 @@ a {
   display: flex;
   background: #F2F1F2;
   z-index: 1;
+  overflow-y: hidden;
 }
 
 .app .nav-bar {
@@ -50,7 +51,7 @@ a {
   width: 75%;
   height: 100%;
   overflow-y: scroll;
-  padding: 40px 20px 0;
+  padding: 0 20px;
 }
 
 .app .notes .notes-list {
@@ -204,4 +205,24 @@ label {
 
 .modal-background .modal-body .btn-delete {
   margin-right: 25px;
+}
+
+table{
+  width: 50%;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+td{
+  text-align: center;
+}
+
+td:not(:last-child){
+  border-right: 1px solid black;
+}
+
+tr:nth-child(even) {
+  background-color: #e4e4e4;
 }
