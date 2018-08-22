@@ -5,13 +5,48 @@ export const initialState = {
   notes: [
     {
       id: 1,
-      title: 'Hello Note',
-      description: 'This is the description of the note that I am going to make'
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
     },
     {
       id: 2,
-      title: 'Hello Noteeee',
-      description: 'This is the description of the note that I am going to make'
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
+    },
+    {
+      id: 3,
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
+    },
+    {
+      id: 4,
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
+    },
+    {
+      id: 5,
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
+    },
+    {
+      id: 6,
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
+    },
+    {
+      id: 7,
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
+    },
+    {
+      id: 8,
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
+    },
+    {
+      id: 9,
+      title: 'Note Title',
+      description: 'Morbi pellentesque esuismod vnenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur millis cha cha cha'
     },
   ]
 }

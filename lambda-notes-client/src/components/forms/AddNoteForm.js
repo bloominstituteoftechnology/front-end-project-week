@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
+import styled from "react-emotion";
 
+
+const Main = styled("main")`
+  margin-left: 25%;
+  background-color: red;
+  width: 75%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 class AddNoteForm extends Component {
   state = {
@@ -22,13 +34,13 @@ class AddNoteForm extends Component {
 
   render() {
     return (
-      <main>
+      <Main>
         <form action="submit" onSubmit={this.handleAddNote}>
           <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange} />
           <input type="text" name="description" value={this.state.description} onChange={this.handleOnChange} />
           <button type="submit">edit</button>
         </form>
-      </main>
+      </Main>
     );
   }
 }

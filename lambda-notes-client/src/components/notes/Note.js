@@ -1,20 +1,16 @@
 import React from 'react';
+import '../../index.css';
 
 import { Link } from 'react-router-dom';
 
 
 const Note = props => {
   return (
-    <article>
-      <Link to={`/notes/${props.id}`}>
-        <div>
-          {props.title}
-        </div>
-        <div>
-          {props.description}
-        </div>
-      </Link>
-    </article>
+    <Link className="article-note__linked" to={`/notes/${props.id}`}>
+      <h3>{props.title}</h3>
+      <hr className="underline" />
+      <p>{props.description}</p>
+    </Link>
   );
 }
 
