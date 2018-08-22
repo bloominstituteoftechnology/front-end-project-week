@@ -1,29 +1,27 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
 
-export default class CreateNote extends Component {
+export default class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  handleCreateClick = event => {
+  handleEditClick = event => {
     event.preventDefault();
-    this.props.makeNote(event);
+    this.props.editNote(event);
     this.props.history.push("/notes");
   };
 
-
+  
   handleTextInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
-    console.log("createProps", this.props);
     return (
-      <div className="createNote-container">
-        <div className="CreateNote-form">
-          <h1>Create a note:</h1>
+      <div className="editNote-container">
+        <div className="editNote-form">
+          <h1>Edit a note:</h1>
           <input
             className="title-input"
             type="text"
@@ -42,7 +40,7 @@ export default class CreateNote extends Component {
             value={this.props.content}
           />
 
-          <button className="save-button" onClick={this.handleCreateClick}>
+          <button className="save-button" onClick={this.handleEditClick}>
             Save
           </button>
         </div>

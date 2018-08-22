@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import ListView from "./components/ListView";
 import CreateNote from "./components/CreateNote";
 import NoteView from "./components/NoteView";
 import Home from "./components/Home";
-import { Link, NavLink } from "react-router-dom";
+import EditView from "./components/EditView";
 
 class App extends Component {
   constructor() {
@@ -79,12 +79,22 @@ class App extends Component {
     const notes = this.state.notes.slice();
     // event.preventDefault();
     notes.push({
-      id: notes.length+1,
+      id: notes.length + 1,
       title: this.state.title,
       content: this.state.content
     });
     this.setState({ notes });
   };
+
+  // editNote = () => {
+  //   const notes = this.state.notes.slice();
+  //   notes.map({
+  //     id: notes.length + 1,
+  //     title: this.state.title,
+  //     content: this.state.content
+  //   });
+  //   this.setState({ notes });
+  // };
 
   render() {
     return (
@@ -102,7 +112,7 @@ class App extends Component {
           </li>
           <li>
             <NavLink exact activeClassName="activeNavButton" to="/create">
-              Create Notes
+              Create a Note
             </NavLink>
           </li>
         </ul>
@@ -120,13 +130,16 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               makeNote={this.addNewNote}
-              handleInput={this.handleTextInput}
             />
           )}
         />
         <Route
           path="/notes/:id"
           render={props => <NoteView {...props} note={this.state.notes} />}
+        />
+        <Route
+           path="/edit"
+          render={props => <EditView {...props} editNote={this.editNote} />}
         />
       </div>
     );
