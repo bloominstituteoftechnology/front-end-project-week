@@ -1,6 +1,7 @@
 .App {
   width: 100%;
   margin: 0 auto;
+  background-color: #f2f1f2;
 }
 
 .App-title {
@@ -87,6 +88,8 @@
 .note p {
   width: 75%;
   text-align: left;
+  text-decoration: none;
+  word-wrap: break-word;
 }
 
 .note a {
@@ -144,7 +147,7 @@
 .note-view {
   width: 75%;
   min-height: 100vh;
-  padding: 13px 37px 0 27px;
+  padding: 13px 37px 50px 27px;
 }
 
 .note-links {
@@ -159,7 +162,41 @@
   margin-left: 5px;
 }
 
+.note-links p {
+  cursor: pointer;
+}
+
 .note-content p {
   text-decoration: none;
   margin: 26px 0 0 0;
+}
+
+.edit-note {
+  width: 75%;
+  min-height: 100vh;
+  padding-top: 52px;
+  padding-left: 27px;
+}
+
+.edit-note form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 27px;
+}
+
+.edit-note input {
+  margin-bottom: 16px;
+}
+
+.edit-note textarea {
+  margin-bottom: 11px;
+  width: 95%;
+}
+
+.edit-note button {
+  width: 30%;
+  height: 41px;
+  border: 1px solid lightgrey;
+  background-color: #25b8bd;
+  color: white;
 }
