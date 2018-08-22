@@ -5,22 +5,26 @@ import { Link } from 'react-router-dom';
 
 
 const Note = props => {
-    
+
   function shortenDesc (desc) {
     // max length 115chars
     let arr = [];
     let newArr = [];
     let result = '';
 
-    arr = desc.split('');
-    
-    for (let i = 0; i < 115; i++) {
-      newArr.push(arr[i])
+    if (desc.length > 115) {
+
+      arr = desc.split('');
+      for (let i = 0; i < 115; i++) {
+        newArr.push(arr[i])
+      }
+      result = newArr.join('') + '...';
+      return result;
+
+    } else {
+
+      return desc;
     }
-
-    result = newArr.join('') + '...';
-
-    return result;
   }
 
   return (
