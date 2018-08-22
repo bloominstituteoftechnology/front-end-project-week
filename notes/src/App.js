@@ -5,6 +5,8 @@ import axios from "axios";
 import Notes from "./Components/Notes";
 import Note from "./Components/Note";
 import AddNote from "./Components/AddNote";
+import Sidebar from "./Components/Sidebar";
+import Tags from "./Components/Tags";
 
 import "./App.css";
 
@@ -63,48 +65,10 @@ class App extends Component {
 		});
 	};
 
-	//**Local state methods - Obsolete */
-
-	// handleAddNote = note => {
-	// 	this.setState(prevState => ({ notes: [...prevState.notes, note] }));
-	// };
-
-	// handleDeleteNote = id => {
-	// 	this.setState(prevState => ({
-	// 		notes: prevState.notes.filter(note => note.id != id),
-	// 	}));
-	// };
-
-	// handleEditNote = edited => {
-	// 	this.setState(prevState => ({
-	// 		notes: prevState.notes.map(note => {
-	// 			if (note.id == edited.id) {
-	// 				return edited;
-	// 			} else {
-	// 				return note;
-	// 			}
-	// 		}),
-	// 	}));
-	// };
-
 	render() {
 		return (
 			<div className="App">
-				<div className="Sidebar">
-					<div className="Sidebar__header">
-						<Link to="/">
-							<h1>Lambda</h1>
-							<h1> Notes</h1>
-						</Link>
-					</div>
-					<Link to="/notes">
-						<button className="Button">View Your Notes</button>
-					</Link>
-
-					<Link to="/add">
-						<button className="Button">+ Create New Note</button>
-					</Link>
-				</div>
+				<Sidebar />
 				<Route
 					exact
 					path="/"

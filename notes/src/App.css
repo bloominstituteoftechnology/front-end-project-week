@@ -49,6 +49,11 @@
 	margin-bottom: 20px;
 }
 
+.Notes__tabNav {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
 .Notes {
 	border: 1px solid lightgray;
 	background-color: #fafafa;
@@ -84,9 +89,17 @@
 	padding: 4px 4px;
 	border-radius: 3px;
 }
-
 .Notes__tag:not(:last-child) {
 	margin-right: 4px;
+}
+
+.Notes__tag--sort {
+	font-size: 1rem;
+	background-color: #00b6bb;
+}
+
+.Notes__tag:not(:last-child) {
+	margin-right: 8px;
 }
 
 .Notes__text {
