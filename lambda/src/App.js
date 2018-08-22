@@ -19,6 +19,8 @@ class App extends Component {
       title: '',
       content: '',
       id: id,
+      contentEdit: '',
+      titleEdit: '',
       
     }} 
      handleChange = e =>{
@@ -36,6 +38,21 @@ class App extends Component {
       this.setState({notes, title:'', content:''})
       console.log(this.state.notes);
     }
+    noteEdit = id => {
+      let copiedNote = this.state.notes.slice();
+      let NoteChange = copiedNote.find(note => note.id == id);
+      this.setState({
+        titleEdit: NoteChange.title,
+        contentEdit: NoteChange.content
+      });
+    };
+    edited = id => {
+      let copiedNote = this.state.notes.slice();
+      let NoteChange = copiedNote.find(note => note.id == id);
+      NoteChange.title = this.state.titleEdit;
+      NoteChange.content = this.state.contentEdit;
+      this.setState({ notes: copiedNote });
+    };
   
    
   render() {
@@ -51,7 +68,10 @@ class App extends Component {
 
        <Route exact path='/view/:id' render={props => <SingleNote {...props} notes={this.state.notes} />}/>
        
-       <Route exactpath='/view/edit:id' render={props => <EditView {...props} notes={this.state.notes} />} />
+       <Route exact path='/view/edit/:id' render={props => <EditView {...props} notes={this.state.notes}handleChange={this.handleChange}
+        titleEdit={this.state.titleEdit}
+        contentEdit={this.state.contentEdit}
+        edited={this.edited} />} />
       </div>
     );
   }

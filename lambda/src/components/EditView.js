@@ -3,7 +3,25 @@ import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
 
-
+const Container = styled.div`
+background: #F0F0F0;
+width: 820px;
+height: 775px;
+flex-direction: column;
+display: flex;
+padding: 1%;
+`;
+const Title = styled.input`
+width: 400px;
+padding: 1%;
+margin: 2%;
+`;
+const Content = styled.input`
+width: 700px;
+height: 500px;
+padding: 1%;
+margin: 2%;
+`;
 
 
 
@@ -13,24 +31,28 @@ import styled from 'styled-components';
         return null
     }
     return(
-        <div className="new-note">
+        <Container>
         <h1>Edit Note</h1>
-        <div className="new-note-inputs">
-            <input
+        
+            <Title
             placeholder="Title"
             type="text"
             className="title-input"
+            onChange={props.handleChange}
+            defaultValue={props.titleEdit}
             />
-            <input 
+            <Content 
             placeholder="Content"
             type="text"
             className="content-input"
+            onChange={props.handleChange}
+            defaultValue={props.contentEdit}
             />
-            <NavLink className="nav-btn"to='/'>
+            <NavLink onClick={()=>props.edited(props.match.params.id)} to='/'>
             Add New Note
             </NavLink>
-        </div>
-        </div>
+        
+        </Container>
     )
 }
 export default EditView; 
