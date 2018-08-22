@@ -6,6 +6,7 @@ import NotesList from './components/noteslist';
 import { Route, Link } from "react-router-dom";
 import Note from './components/note';
 import NoteForm from './components/noteform';
+import NoteFormEdit from './components/noteformedit';
 import styled from 'styled-components';
 import { runInThisContext } from 'vm';
 
@@ -17,32 +18,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        // {title: '1st Note',
-        // note: 'See. We take the corner of the brush and let it play back-and-forth. It\'s a very cold picture, I may have to go get my coat. It’s about to freeze me to death. If you hypnotize it, it will go away.',
-        // id: 1,
-        // edittoggle: false
-        // },
-        // {title: '2nd Note',
-        // note: 'See. We take the corner of the brush and let it play back-and-forth. It\'s a very cold picture, I may have to go get my coat. It’s about to freeze me to death. If you hypnotize it, it will go away.',
-        // id: 2,
-        // edittoggle: false
-        // }
-      ],      
+      notes: [],      
       note: '',
       title: '',
       id: null,
-      edittoggle: null,
-      count: 1,
+      edittoggle: false,
       Redirect: false
     }
   }
 
-  // componentDidMount() {
-  //   this.setState({Redirect: false})
-  // }
-
-  handleTaskChange = event => {
+  handleNoteChange = event => {
     this.setState({[event.target.name]: event.target.value })
   };
 
@@ -54,33 +39,25 @@ class App extends Component {
         {
           title: this.state.title,
           note: this.state.note,
-          id: Date.now()
+          id: Date.now(),
+          edittoggle: this.state.edittoggle
         }
       );
       this.setState({ notes: arr, count: this.state.count++, Redirect: true },() => {
         this.setState({Redirect: false})
       }
       )}
-  }
+    }
 
-  editHandler = event => {
-    event.preventDefault();
-    this.setState({ title: this.state.title, note: this.state.note})
-  }
+    deleteHandler = event => {
+      event.preventDefault();
+      let notes = this.state.slice();
+      notes = notes.filter(item => !item.id)
+      this.setState({ notes });
+    }
 
-  deleteHandler = event => {
-    event.preventDefault();
-    let notes = this.state.slice();
-    notes = notes.filter(item => !item.id)
-    this.setState({ notes });
-  }
-
-  editToggle = () => {
-    this.setState({})
-  }
-
-  render() {
-    console.log(this.state)
+   render() {
+    console.log(this.state.notes)
     return (
       <Container className="App">
         <NavBar />
@@ -89,10 +66,10 @@ class App extends Component {
           <NotesList {...props} notes={this.state.notes} />
         )}/>
         <Route exact path="/note/:id" render={props => (
-          <Note {...props} notes={this.state.notes} />
+          <Note {...props} notes={this.state.notes} handleNoteChange={this.handleNoteChange} addHandler={this.addHandler} Redirect={this.state.Redirect}/>
         )}/>
         <Route path="/form" render={props => (
-          <NoteForm {...props} notes={this.state.notes} btntext="Save" handleTaskChange={this.handleTaskChange} addHandler={this.addHandler} Redirect={this.state.Redirect}/>
+          <NoteForm {...props} notes={this.state.notes} handleNoteChange={this.handleNoteChange} addHandler={this.addHandler} Redirect={this.state.Redirect}/>
         )}/>
       </Container>
     );

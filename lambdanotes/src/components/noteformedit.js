@@ -1,7 +1,8 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 
-const NoteForm = (props) => {
+const NoteFormEdit = (props) => {
+    console. log(props)
     return (  
         <React.Fragment>
             {props.Redirect ? <Redirect to={'/'}/> : 
@@ -15,4 +16,4 @@ const NoteForm = (props) => {
     );
 }
  
-export default NoteForm;
+export default NoteFormEdit;
