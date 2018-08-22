@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AllNotes from "./components/notes/AllNotes";
+import NewNote from "./components/notes/NewNote";
 import { noteData } from "./components/data/noteData";
 import "./App.css";
 
@@ -33,9 +34,8 @@ class App extends Component {
             path="/"
             render={props => <AllNotes {...props} notes={this.state.notes} />}
           />
-          {/* <Route path="/new-note" component={NewNote} />
-          <Route path="/notes/:id" component={SingleNote} /> */}
-          Hey
+          <Route path="/new-note" component={NewNote} />
+          {/* <Route path="/notes/:id" component={SingleNote} /> */}
         </div>
       </Router>
     );
