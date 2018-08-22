@@ -63,26 +63,12 @@ const NotePreviewDiv = styled.div`
 
 export default class NotePreview extends Component {
 
-  drag_handler(e) {
-   console.log("Drag");
-   e.target.style.color = "red"
-  }
-
-  dragstart_handler(e) {
-    console.log("dragStart");
-    e.dataTransfer.setData("text", e.target.id);
-   }
-
   render() {
     // console.log(this.props)
     const { note, index, key } = this.props;
-
+    console.log(this.props)
     return (
-            <NotePreviewDiv
-              draggable
-              onDrag={this.drag_handler}
-              onDragStart={this.dragstart_handler}
-              >
+            <NotePreviewDiv>
               <Link
                 key={key}
                 index={index}

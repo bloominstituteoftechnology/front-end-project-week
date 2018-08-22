@@ -42,6 +42,7 @@ export default class AllNotes extends Component {
             //------------------------------??----------------------
             return (
               <NotePreview
+                onDrop={this.props.onDrop}
                 key={index}
                 index={index}
                 note={note}

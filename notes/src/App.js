@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Redirect} from 'react-router-dom';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router';
+
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 import {
     AllNotes,
@@ -49,6 +52,7 @@ const AppDiv = styled.div`
 class App extends Component {
   constructor(){
     super();
+    this.handleDrop = this.handleDrop.bind(this);
     this.state = {
       hideDetails: true,
       notes: [
@@ -108,6 +112,10 @@ class App extends Component {
     this.props.editNote(noteEdit)
   }
 
+  handleDrop(id){
+    console.log('handleDrop, id: ', id)
+  }
+
   render() {
     const notesArr = this.props.state.notes;
     console.log(notesArr)
@@ -116,14 +124,14 @@ class App extends Component {
 
           <LeftMenu />
 
-
+          <Redirect from="/" to="/all-notes/" />
           <div className="right-display">
             <Route
               exact
               path="/all-notes/"
               render={ () => {
                 return (
-                  <AllNotes notes={this.props.state.notes} />
+                  <AllNotes onDrop={this.handleDrop} notes={this.props.state.notes} />
                 )
               }}
             ></Route>
@@ -194,5 +202,4 @@ const mapDispatchToProps = {
   deleteNote,
   editNote,
 }
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+ export default DragDropContext(HTML5Backend)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));

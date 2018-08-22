@@ -54,16 +54,6 @@ class LeftMenu extends Component {
     })
   }
 
-  drop_handler(e) {
-    console.log("Drop", e.currentTarget);
-    e.currentTarget.style.background = "lightyellow";
-  }
-
-  dragover_handler(e) {
-    console.log("dragOver");
-    e.preventDefault();
-  }
-
   download = () => {
     console.log("download clicked", this.props.state.notes)
   }
@@ -82,10 +72,10 @@ class LeftMenu extends Component {
     return (
       <LeftMenuDiv>
         <h1>Lambda Notes</h1>
-        <Link draggable className="menu-item" to="/all-notes">View Your Notes</Link>
+        <Link draggable className="menu-item" to="/all-notes/">View Your Notes</Link>
         <Link className="menu-item" to="/new-note">+ Create New Note</Link>
         <div className="menu-item" onClick={this.download} >Download CSV</div>
-        {this.props.location.pathname === "/all-notes" ?
+        {this.props.location.pathname === "/all-notes/" ?
           <Link onDrop={this.drop_handler} onDragOver={this.dragover_handler} className="menu-item red" onClick={this.delete} to="/deleted-notes">Delete Item</Link> :
           null}
 
