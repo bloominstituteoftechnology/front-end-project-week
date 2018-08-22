@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import DragSortableList from 'react-drag-sortable';
 import Toggle from 'react-toggle';
 import "react-toggle/style.css";
+import { updateNoteOrdering } from '../actions';
 
 class NoteList extends React.Component {
   state = {
@@ -15,9 +17,16 @@ class NoteList extends React.Component {
     this.setState({ isSortable: e.target.checked })
   }
 
+  onSort = (sortedList) => {
+    const updatedNoteOrdering = JSON.stringify(sortedList.map(note => {
+      return Number(note.id);
+    }));
+    this.props.updateNoteOrdering(updatedNoteOrdering);
+  }
+
   render() {
     // reverses note array
-    let notes = this.props.notes.slice().reverse();
+    let notes = this.props.notes;
 
     // if notes are not yet loaded into store, return loading icon
     notes.forEach(note => {
@@ -84,6 +93,7 @@ class NoteList extends React.Component {
         </div>
           <div className="note-previews-container">
             <DragSortableList items={draggableNotes}
+                              onSort={this.onSort}
                               type="grid"/>
           </div>
       </div>
@@ -95,4 +105,8 @@ NoteList.defaultProps = {
   notes: []
 };
 
-export default NoteList;
+const mapStateToProps = (state) => {
+  return {}
+}
+
+export default connect(mapStateToProps, { updateNoteOrdering })(NoteList);

@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-const url = `http://localhost:8000/api/notes`;
+const usersUrl = `http://localhost:8000/api/users`;
+const notesUrl = `http://localhost:8000/api/notes`;
 
 export const getNotes = () => {
   return dispatch => {
     dispatch({ type: 'FETCHING_NOTES' });
     axios
-      .get(url)
+      .get(notesUrl)
       .then(response => {
         dispatch({ type: 'NOTES_FETCHED', payload: response.data });
       })
@@ -16,10 +17,20 @@ export const getNotes = () => {
   }
 }
 
+export const updateNoteOrdering = (updatedNoteOrdering) => {
+  return dispatch => {
+    axios
+      .put(usersUrl, updatedNoteOrdering)
+      .catch(error => {
+        dispatch({ type: 'ERROR', payload: error });
+      });
+  }
+}
+
 export const addNote = (newNote) => {
   return dispatch => {
     axios
-      .post(url, newNote)
+      .post(notesUrl, newNote)
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });
@@ -31,7 +42,7 @@ export const getNote = (id) => {
   return dispatch => {
     dispatch({ type: 'FETCHING_NOTE' });
     axios
-      .get(`${url}/${id}`)
+      .get(`${notesUrl}/${id}`)
       .then(response => {
         dispatch({ type: 'NOTE_FETCHED', payload: response.data });
       })
@@ -49,7 +60,7 @@ export const editNote = (editedNote) => {
   return dispatch => {
     dispatch({ type: 'EDITING_NOTE' });
     axios
-      .put(`${url}/${editedNote.id}`, editedNote)
+      .put(`${notesUrl}/${editedNote.id}`, editedNote)
       .then(response => {
         dispatch({ type: 'NOTE_EDITED', payload: response.data });
       })
@@ -64,7 +75,7 @@ export const deleteNote = (id) => {
   return dispatch => {
     dispatch({ type: 'DELETING_NOTE' });
     axios
-      .delete(`${url}/${id}`)
+      .delete(`${notesUrl}/${id}`)
       .then(response => {
         dispatch({ type: 'NOTE_DELETED' })
       })
