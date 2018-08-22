@@ -72,11 +72,10 @@ export default class NoteForm extends Component {
     super(props);
     const { note } = props;
     const { title, textBody, tags } = note;
-    const tagObjs = tags.map(tagName=>this.makeTagObjFromName(tagName));
     this.state = {
       title,
       textBody,
-      tags: tagObjs,
+      tags,
       tagInput: '',
     };
     this.inputTitle = React.createRef();
