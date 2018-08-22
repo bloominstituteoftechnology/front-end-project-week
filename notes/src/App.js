@@ -123,6 +123,7 @@ export default class App extends Component {
             + Add a Note
           </NavLink>
         </div>
+        
         <div className="notesbody">
 
           <Route

@@ -9,7 +9,7 @@
 .navbar{
   border: 1px solid yellow;
   background-color: #D8D8D8;
-  width: 290px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,16 +40,26 @@
   width: 90%;
 }
 
+
+/*------ NOTES BODY ------*/
+
+
 .notesbody{
+  border: 5px solid orange;
   background-color: #F3F3F3;
-  width: 100%;
+  width: 670px;
 }
 
 .notesview{
-  margin: 65px 15px;
+  border: 5px solid orange;
+  margin: 45px 15px;
+  display: flex;
+  flex-wrap: wrap;
+
 }
 
 .notesview .notesview-title{
+  
   margin-bottom: 25px;
   font: #4A4A4A;
   font-size: 20px;
@@ -58,8 +68,10 @@
 }
 
 .notesview .noteslist-group{
+  border: 5px solid steelblue;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .notecard{
@@ -68,9 +80,14 @@
   flex-direction: column;
   background-color: white;
   height: 190px;
-  width: 175px;
-  margin: 8px;
+  width: 165px;
+  margin: 2px 0px 20px 0px ;
   padding: 0 10px;
+
+}
+
+.notesview .noteslist-group Link{
+  text-decoration: none;
 }
 
 .notecard .notecard-title{
@@ -79,6 +96,8 @@
   font-weight: 700;
   padding: 10px;
   height: 15px;
+  color: black;
+
 }
 
 .notecard .notecard-note{
@@ -86,6 +105,7 @@
   font-weight: 700;
   padding: 10px;
   line-height: 25px;
+  color: black;
 }
 
 /*------ FORM ------*/

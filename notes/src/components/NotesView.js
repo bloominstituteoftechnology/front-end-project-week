@@ -16,7 +16,7 @@ export default class NotesView extends Component {
       
     return (
       <div className="notesview">
-        <div className="notesview-title">Your Notes:</div>
+        <div className="notesview-title"> Your Notes:</div>
         
         <div className="noteslist-group">  
             <NotesList  notes={this.state.notes}/>

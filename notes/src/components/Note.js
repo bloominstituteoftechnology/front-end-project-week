@@ -45,7 +45,7 @@ export default class Note extends Component {
     return (
       <div className="notecard">
 
-        <Link to={`/edit/${this.props.match.params.id}`}>
+        <Link className="link-style" to={`/edit/${this.props.match.params.id}`}>
           <div>edit</div>
         </Link>
 
