@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const EditNote = props => {
-  console.log("EditNote Props", props);
+  // console.log("EditNote Props", props);
   let noteNumber = props.match.params.id;
   return (
     <div className="editNoteDiv">

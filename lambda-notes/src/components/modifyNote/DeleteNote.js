@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class DeleteNote extends Component {
+  // constructor() {
+  //   super();
+  //   this.deleteHandler = this.props.
+  // }
   render() {
     // Render nothing if the "show" prop is false
     if (!this.props.show) {
@@ -27,7 +31,7 @@ class DeleteNote extends Component {
       margin: "0 auto",
       padding: 30
     };
-    console.log("DELETE NOTE BUTTON", this.props);
+    // console.log("DELETE NOTE BUTTON", this.props);
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
@@ -35,12 +39,16 @@ class DeleteNote extends Component {
 
           <div className="footer">
             <button
+              // onClick={() =>
+              //   this.props.deleteNoteHandler(this.props.deleteNumber) &
+              //   this.props.onApprove()
+              // }
               onClick={() =>
-                this.props.onApprove() &
-                this.props.deleteNoteHandler(this.props.deleteNumber)
+                this.props.deleteNoteHandler(this.props.deleteNumber) &
+                this.props.onApprove()
               }
             >
-              Delete
+              Deleteinside
             </button>
             <button onClick={this.props.onClose}>Cancel</button>
           </div>

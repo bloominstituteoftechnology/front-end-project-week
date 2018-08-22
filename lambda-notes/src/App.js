@@ -71,12 +71,12 @@ class App extends Component {
     };
   }
 
-  // componentDidUpdate() {
-  //   console.log("COMPONENT DID UPDATE", this.state);
-  //   if (this.state.update) {
-  //     this.setState({ notes: this.state.notes, update: false });
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    console.log("COMPONENT DDID MOUNT ON INDIVIDUAL", this.state);
+    if (this.props.notes !== prevProps.notes) {
+      this.setState({ notes: this.props.notes });
+    }
+  }
 
   inputChangeHandler = event => {
     // console.log("InputChangeHandler", event.target.name);
@@ -85,20 +85,20 @@ class App extends Component {
 
   submitNewNoteHandler = event => {
     event.preventDefault();
-    console.log("Working Submit Handler", this.props);
+    // console.log("Working Submit Handler", this.props);
     let newNotesArray = this.state.notes.slice();
     // gets last item in note array
     let lastIndex = this.state.notes.slice(-1)[0];
     // get id from item and add 1 for new id
     lastIndex = lastIndex.id + 1;
-    console.log(lastIndex, "LastIndex");
+    // console.log(lastIndex, "LastIndex");
     let newNote = {
       id: lastIndex,
       title: this.state.noteTitle,
       description: this.state.noteDescription
     };
     newNotesArray.push(newNote);
-    console.log("NewNote", newNotesArray);
+    // console.log("NewNote", newNotesArray);
     this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
     // console.log("HISTORY", this.props);
     // this.props.history.push("/");
@@ -112,24 +112,26 @@ class App extends Component {
     newNotesArray[noteNumber].title = this.state.noteTitle;
     newNotesArray[noteNumber].description = this.state.noteDescription;
     // console.log("Modififed Note", newModifiedArray);
-    console.log("Modififed Note Array", newNotesArray);
+    // console.log("Modififed Note Array", newNotesArray);
     this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
   };
 
   deleteNoteHandler = iNumber => {
+    console.log("INDEX NUMBER DELETE HANDLER", iNumber);
     let indexNumber = parseInt(iNumber, 10);
     let newNotesArray = this.state.notes.slice();
-    let removedItem = newNotesArray.splice(indexNumber, 1);
+    // newNotesArray.splice(indexNumber, 1);
+    // console.log("FIRING!!!!!!", newNotesArray[0].id, indexNumber);
+    newNotesArray = newNotesArray.filter(note => note.id !== indexNumber);
+    console.log("DELETEHANDLER", this.props);
     // newNotesArray = newNotesArray.splice(indexNumber, 1);
-    console.log("removedItem", removedItem);
-    console.log("newNotesArray", newNotesArray);
+    // console.log("removedItem", removedItem);
+    // console.log("newNotesArray", newNotesArray);
     this.setState({ notes: newNotesArray, update: true });
   };
 
   render() {
-    console.log("noteTitle", this.state.noteTitle);
-    console.log("noteDescription", this.state.noteDescription);
-    console.log("noteDescription", this.state.notes);
+    console.log("Main App Notes", this.state.notes);
     return (
       <div className="mainAppDiv">
         <Route path={"/"} component={MainNav} />

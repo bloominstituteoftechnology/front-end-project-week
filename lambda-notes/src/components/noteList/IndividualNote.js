@@ -4,6 +4,7 @@ import DeleteNote from "../modifyNote/DeleteNote";
 export class IndividualNote extends Component {
   constructor(props) {
     super(props);
+    console.log("TESTING PROPS", props);
     this.state = {
       notes: props.notes,
       match: props.match,
@@ -14,11 +15,12 @@ export class IndividualNote extends Component {
     };
   }
 
-  // componentDidUpdate() {
-  //   if (this.state.redirect) {
-  //     this.setState({ notes: this.props.notes });
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    console.log("COMPONENT DDID MOUNT ON INDIVIDUAL", this.props);
+    if (this.props.notes !== prevProps.notes) {
+      this.setState({ notes: this.props.notes });
+    }
+  }
 
   toggleModal = () => {
     this.setState({
@@ -59,8 +61,8 @@ export class IndividualNote extends Component {
   };
 
   render() {
-    console.log("Individual NOtes Props", this.props.notes);
-    console.log("Individual Params Match", this.state.redirect);
+    // console.log("Individual NOtes Props", this.props.notes);
+    console.log("Individual Params Match", this.state.match);
 
     return (
       <div className="individualNote">
