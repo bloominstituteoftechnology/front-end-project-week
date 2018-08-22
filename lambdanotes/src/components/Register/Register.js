@@ -13,11 +13,7 @@ export default class Register extends Component {
       denied: false
     }
   }
-
-  componentWillMount = () => {
-    localStorage.token ? null : this.props.history.push('/login');
-  }
-
+  
   handleSubmit = () => {
     axios
       .post(`http://localhost:8000/api/register`, {
