@@ -11,20 +11,18 @@ import './App.css';
 class App extends Component {
   
   componentDidMount(){
-    if (this.props.match.url==='/'){
-      this.props.history.push('/notes');
-    } 
+    const location=localStorage.getItem('location');
+    location?this.props.history.push(location):this.props.history.push('/notes');
   }
   
   render() {
-    
     return (
       <div className="App">
        <SideBar/>
        <Route exact path='/notes' component={Notes}/>
        <Route exact path='/create' component={NewNote}/>
        <Route exact path='/notes/:noteId' component={SingleNotePage} />
-       <Route path='/notes/:noteId/edit' component={EditNoteForm}/>
+       <Route exact path='/notes/:noteId/edit' component={EditNoteForm}/>
       </div>
     );
   }

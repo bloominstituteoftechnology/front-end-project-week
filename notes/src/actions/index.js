@@ -11,7 +11,6 @@ export const DELETEDNOTE='DELETEDNOTE';
 export const UPDATINGNOTE='UPDATINGNOTE';
 export const UPDATEDNOTE='UPDATEDNOTE';
 
-
 export const getNotes=()=>{
   const request=axios.get('https://killer-notes.herokuapp.com/note/get/all');
   return function (dispatch){
@@ -28,27 +27,27 @@ export const getSingleNote=(id)=>{
         .catch(err=>dispatch({type:'ERROR',payload:err}));
       }
 }
-export const addNote=(newNote)=>{
+export const addNote=(newNote,history)=>{
   const request=axios.post('https://killer-notes.herokuapp.com/note/create',newNote);
   return function (dispatch){
     dispatch({type:'ADDINGNOTE'});
-    request.then(data=>{dispatch({type:'ADDEDNOTE'})})
+    request.then(data=>{dispatch({type:'ADDEDNOTE'});history.push('/notes')})
     .catch(err=>dispatch({type:'ERROR',payload:err}));
 }
 }
-export const deleteNote=(id)=>{
+export const deleteNote=(id,history)=>{
   const request= axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
   return function (dispatch) {
     dispatch({type:'DELETINGNOTE'});
-    request.then(data=>{dispatch({type:'DELETEDNOTE'})})
+    request.then(data=>{dispatch({type:'DELETEDNOTE'});history.push('/notes')})
     .catch(err=>dispatch({type:'ERROR',payload:err}));
   }
 }
-export const updateNote=(id,editedNote)=>{
+export const updateNote=(id,editedNote,history)=>{
   const request=axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`,editedNote)
   return function (dispatch) {
     dispatch({type:'UPDATINGNOTE'});
-    request.then(data=>{dispatch({type:'UPDATEDNOTE'})})
+    request.then(data=>{dispatch({type:'UPDATEDNOTE'});history.push('/notes')})
     .catch(err=>dispatch({type:'ERROR',payload:err}));
   }
 }

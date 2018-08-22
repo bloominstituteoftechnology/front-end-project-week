@@ -38,6 +38,7 @@ font-weight: bold;
 class SingleNotePage extends React.Component{
     
     componentDidMount() {
+        localStorage.setItem('location',this.props.location.pathname);
         this.props.getSingleNote(this.props.match.params.noteId);
     }
     render(){

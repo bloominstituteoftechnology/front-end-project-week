@@ -57,6 +57,7 @@ class EditNoteForm extends React.Component{
         this.setState({[e.target.name]:e.target.value});
     }
     componentDidMount() {
+        localStorage.setItem('location',this.props.location.pathname);
         this.setState({title:this.props.note.title,content:this.props.note.textBody});
     }
     editNoteObj=()=>{
@@ -64,8 +65,7 @@ class EditNoteForm extends React.Component{
             title:this.state.title,
             textBody: this.state.content
         }
-        this.setState({title:'',content:''});
-        this.props.updateNote(this.props.note._id,editedNote);
+        this.props.updateNote(this.props.note._id,editedNote,this.props.history);
     }
     render() {
         return(

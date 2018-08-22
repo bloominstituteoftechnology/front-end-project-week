@@ -86,7 +86,7 @@ class DeleteModal extends React.Component{
             <ModalInfo>
                 <ModalHeader>Are you sure you want to delete this?</ModalHeader>
                 <ButtonContainer>
-                <DeleteButton onClick={()=>this.props.deleteNote(this.props.match.params.noteId)}>Delete</DeleteButton>
+                <DeleteButton onClick={()=>this.props.deleteNote(this.props.match.params.noteId,this.props.history)}>Delete</DeleteButton>
                 <NoButton onClick={this.toggle}>No</NoButton>
             </ButtonContainer>
             </ModalInfo>

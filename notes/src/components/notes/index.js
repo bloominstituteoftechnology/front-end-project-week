@@ -24,6 +24,7 @@ width: 75%;
 `
 class Notes extends React.Component {
     componentDidMount() {
+        localStorage.setItem('location',this.props.location.pathname);
         this.props.getNotes();
     }
     render() {
