@@ -24,7 +24,9 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      searchedNotes: [],
+      search: ''
     }
   }
 
@@ -32,12 +34,21 @@ class App extends Component {
     axios.get(URL)
     .then(response => {
         this.setState({
-            notes: response.data
+            notes: response.data,
+            searchedNotes: response.data
         })
     })
     .catch(error => {
       console.log(error);
     })
+}
+
+handleSearch = (event) => {
+  this.setState ({
+    search: event.target.value,
+    notes: this.state.searchedNotes.filter((note) => 
+      new RegExp(event.target.value, "i").exec(note.title))
+  });
 }
 
   render() {
@@ -46,11 +57,12 @@ class App extends Component {
         <SideNav />
         <Route path='/add-note' component={NewNote} />
         <Route exact path='/notes' render={(props) => (
-          <NotesList {...props} notes={this.state.notes} />)} />
-        <Route path='/notes/:id' render={(props) => (
-          <EditNote {...props} notes={this.state.notes} />)} />
+          <NotesList {...props} notes={this.state.notes} 
+          search={this.state.search} handleSearch={this.handleSearch}/>)} />
+        <Route path='/edit-note/:id' render={(props) => (
+          <EditNote {...props} note={this.state.note} />)} />
         <Route path='/note/:id' render={(props) => (
-          <NoteView {...props}  notes={this.state.notes} />) } />
+          <NoteView {...props}  note={this.state.note} />) } />
       </Application>
     );
   }

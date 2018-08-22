@@ -5,8 +5,7 @@ import styled from 'styled-components';
 
 const NoteDisplay = styled.div`
 
-    max-width: 150px;
-    width: 100%;
+    max-width: 30%;
     margin: 10px;
     overflow: hidden;
     height: 200px;
@@ -48,6 +47,7 @@ const Note = (props) => {
             </NoteDisplay>
             
          );
+    
 }
  
 export default Note;

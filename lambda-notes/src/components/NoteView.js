@@ -51,11 +51,10 @@ const URL = 'http://localhost:5000/notes/';
 class NoteView extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
+            id: '',
             title: '',
-            content: '',
-            id: ''
-            
+            content: ''            
          }
     }
 
@@ -93,7 +92,7 @@ class NoteView extends Component {
         return ( 
             <ViewNote>
                 <ButtonsContainer>
-                <Link to={`/notes/${this.state.id}`}> Edit </Link>
+                <Link to={`/edit-note/${this.state.id}`}> Edit </Link>
                 <a onClick={() => this.delete(this.state.id)}>Delete</a>
                 </ButtonsContainer>
                 <h1>{this.state.title}</h1>

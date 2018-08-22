@@ -56,10 +56,11 @@ class NewNote extends Component {
     }
 
     add = () => {
-        this.props.addNote(this.state);
+        if (this.state.title.length > 0 && this.state.content.length > 0) {
+            this.props.addNote(this.state);
+            }
         this.props.getNotes();
     }
-
     render() { 
 
         const {title, content} = this.state;
@@ -87,5 +88,7 @@ class NewNote extends Component {
          );
     }
 }
+
+
  
 export default connect (null, {getNotes, addNote})(NewNote);

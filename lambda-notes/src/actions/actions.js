@@ -6,6 +6,8 @@ export const ERROR = 'ERROR';
 export const NOTE_SAVED = 'NOTE_SAVED';
 export const NOTE_DELETED = 'NOTE_DELETED';
 export const NOTE_UPDATED = 'NOTE_UPDATED';
+export const GETTING_NOTE = 'GETTING_NOTE';
+export const GOT_NOTE = 'GOT_NOTE';
 
 const URL = 'http://localhost:5000/notes/';
 
@@ -17,6 +19,26 @@ export const getNotes = () => {
             .then(response => {
                 dispatch({
                     type: GOT_NOTES,
+                    payload: response.data
+                });
+            })
+            .catch(error => {
+                dispatch({
+                    type: ERROR,
+                    payload: error
+                });
+            });
+    };
+};
+
+export const getNote = (id) => {
+    const data = axios.get(`${URL}${id}`);
+    return (dispatch) => {
+        dispatch({type: GETTING_NOTE});
+        data
+            .then(response => {
+                dispatch({
+                    type: GOT_NOTE,
                     payload: response.data
                 });
             })

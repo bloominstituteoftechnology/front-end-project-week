@@ -37,7 +37,6 @@ const EditForm = styled.form`
         height: 35px;
         border: 1px solid gray;
     }
-    
 
 `
 

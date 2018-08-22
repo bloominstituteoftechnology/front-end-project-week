@@ -5,6 +5,8 @@ const initialState = [
     {
     gettingNotes: false,
     gotNotes: false,
+    gettingNote: false,
+    gotNote: false,
     noteSaved: false,
     savingNote: false,
     updatingNote: false,
@@ -12,6 +14,7 @@ const initialState = [
     deletingNote: false,
     noteDeleted: false,
     notes: [],
+    note: [],
     error: null
     }
 ];
@@ -31,6 +34,20 @@ export const Reducer = (state = initialState, action) => {
             gotNotes: true,
             gettingNotes: false,
             notes: [...action.payload]
+        };
+
+        case actionTypes.GETTING_NOTE:
+        return {
+            ...state,
+            gettingNote: true
+        };
+
+        case actionTypes.GOT_NOTE:
+        return {
+            ...state,
+            gotNote: true,
+            gettingNote: false,
+            note: [...action.payload]
         };
 
         case actionTypes.ERROR:
