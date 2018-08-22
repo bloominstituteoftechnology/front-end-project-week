@@ -14,10 +14,10 @@ const H1 = styled.h1`
     font-size: 3rem;
     color: #3C3C3C;
 `;
-const Button = styled.button`
+const CustomButton = styled.button`
     background: #2AB4AE;
     color: white;
-    width: 280px;
+    width: 250px;
     padding: 1rem;
     font-size: 1rem;
     font-weight: 700;
@@ -28,12 +28,14 @@ class SideBar extends React.Component {
     render(){
         return(
             <Col>
-                <Link to="/" style={{ textDecoration: 'none' }}><H1>Lambda Notes</H1></Link>
                 <Link to="/get/all" style={{ textDecoration: 'none' }}>
-                    <Button>View Your Notes</Button>
+                    <H1>Lambda Notes</H1>
+                </Link>
+                <Link to="/get/all" style={{ textDecoration: 'none' }}>
+                    <CustomButton>View Your Notes</CustomButton>
                 </Link>
                 <Link to="/note/create" style={{ textDecoration: 'none' }}>
-                    <Button>+ Create New Note</Button>
+                    <CustomButton>+ Create New Note</CustomButton>
                 </Link>
             </Col>
         );

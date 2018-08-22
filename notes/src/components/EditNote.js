@@ -35,12 +35,12 @@ class EditNote extends React.Component{
         return(
             <Body>
                 <h2>Edit Note:</h2>
-                <InputTitle placeholder='Note Title'
+                <InputTitle placeholder={this.props.oldTitle}
                             name='title'
                             value={this.props.title}
                             onChange={this.props.handleChange}
                 />
-                <InputContent placeholder='Note Content' 
+                <InputContent placeholder={this.props.oldTextBody}
                             name='textBody'
                             value={this.props.textBody}
                             onChange={this.props.handleChange}

@@ -3,7 +3,7 @@ import './App.css';
 import SideBar from './components/SideBar';
 import {Route, Link, withRouter} from 'react-router-dom';
 import ListView from './components/ListView';
-import CreateNew from './components/CreateNew';
+import CreateNote from './components/CreateNote';
 import Note from './components/Note';
 import EditNote from './components/EditNote';
 import {fetchNotes, addNote, updateNote} from './actions/actions';
@@ -31,13 +31,8 @@ class App extends Component {
     e.preventDefault();
     this.props.updateNote(this.state.title, this.state.textBody, e.target.id);
     this.setState({title:'', textBody:'',});
-    window.location.reload();
   }
-
   componentDidMount(){
-    this.props.fetchNotes();
-  }
-  componentDidUpdate(){
     this.props.fetchNotes();
   }
   render(){
@@ -47,21 +42,24 @@ class App extends Component {
           {/* ROUTES */}
           <Route path='/' component={SideBar} />
           <Route exact path="/get/all" render={(props) => 
-                <ListView {...props} notes={this.props.notes} />}
+              <ListView {...props} notes={this.props.notes} />}
           />
-          <Route exact path="/note/create" render={(props) => 
-                <CreateNew {...props} title={this.state.title}
-                                  textBody={this.state.textBody}
-                                  handleChange={this.handleChange}
-                                  addNote={this.addNote} />}
-          />
-          <Route exact path={`/note/:id`} component={Note} />
+          <Route exact path={`/note/:id`} render={(props) => <Note {...props} /> }/>
           <Route exact path={`/note/:id/editnote`} render={(props) =>
-                <EditNote {...props} 
+              <EditNote {...props} 
                           title={this.state.title}
                           textBody={this.state.textBody}
                           handleChange={this.handleChange}
-                          updateNote={this.updateNote} />}
+                          updateNote={this.updateNote}
+                          oldTitle={this.props.note.title}
+                          oldTextBody={this.props.note.textBody} />}
+          />
+          <Route exact path="/note/create" render={(props) => 
+              <CreateNote {...props} 
+                          title={this.state.title}
+                          textBody={this.state.textBody}
+                          handleChange={this.handleChange}
+                          addNote={this.addNote} />}
           />
         </div>
     );
@@ -70,6 +68,7 @@ class App extends Component {
 
 export const mapStateToProps = state => ({
   notes: state.notes,
+  note: state.note,
 });
 
 export default withRouter(connect(mapStateToProps,
