@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { Route, BrowserRouter as Router, Link } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Link,
+  Redirect
+} from "react-router-dom";
 import { MainNav } from "./components/mainNav/MainNav";
+import DeleteNote from "./components/modifyNote/DeleteNote";
 import Notes from "./components/noteList/Notes";
 import { IndividualNote } from "./components/noteList/IndividualNote";
 import { EditNote } from "./components/modifyNote/EditNote";
@@ -68,7 +74,11 @@ class App extends Component {
       ],
       noteTitle: "",
       noteDescription: "",
-      update: false
+      update: false,
+      isOpen: false,
+      loading: false,
+      success: false,
+      redirect: false
     };
     // this.deleteNoteHandler = this.deleteNoteHandler.bind(this);
   }
@@ -82,6 +92,44 @@ class App extends Component {
   //     this.setState({ notes: this.props.notes });
   //   }
   // }
+
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
+
+  approveModal = () => {
+    this.setState({ loading: true });
+    setTimeout(
+      () =>
+        this.setState({
+          loading: false,
+          success: true
+        }),
+      1000
+    );
+    setTimeout(
+      () =>
+        this.setState({
+          isOpen: false,
+          redirect: true
+        }),
+      3000
+    );
+  };
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
+  };
 
   inputChangeHandler = event => {
     // console.log("InputChangeHandler", event.target.name);
@@ -142,7 +190,8 @@ class App extends Component {
   };
 
   render() {
-    // console.log("Main App Notes", this.state.notes);
+    // console.log("Main App Notes", this.state.match.params);
+    // const { id } = this.state.match.params;
     return (
       <Router>
         <div className="mainAppDiv">
@@ -157,6 +206,7 @@ class App extends Component {
                   <h2 className="landingTitle">Your Notes:</h2>
                   <div className="noteListDiv">
                     {this.state.notes.map(note => {
+                      console.log("Note.id", note.id);
                       return (
                         <Link to={`/notes/${note.id}`} className="noteDiv">
                           <h2>{note.title}</h2>
@@ -171,7 +221,7 @@ class App extends Component {
               );
             }}
           />
-          <Route
+          {/* <Route
             path={"/notes/:id"}
             render={props => (
               <IndividualNote
@@ -180,6 +230,40 @@ class App extends Component {
                 deleteNoteHandler={this.deleteNoteHandler}
               />
             )}
+          /> */}
+          <Route
+            path={"/notes/:id"}
+            render={props => {
+              const { id } = props.match.params.id;
+              return (
+                <div className="individualNote">
+                  {this.renderRedirect()}
+                  <Link to={`/edit/${id}`}>
+                    <button>edit</button>
+                  </Link>
+                  <button onClick={this.toggleModal}>Delete</button>
+
+                  <DeleteNote
+                    show={this.state.isOpen}
+                    onApprove={this.approveModal}
+                    onClose={this.toggleModal}
+                    deleteNoteHandler={this.deleteNoteHandler}
+                    deleteNumber={id}
+                    notes={this.state.notes}
+                  >
+                    {this.state.loading && "Loading..."}
+                    {this.state.success && "Success (make me green)"}
+                    {!this.state.success &&
+                      !this.state.loading &&
+                      "Here's some text for the modal"}
+                  </DeleteNote>
+
+                  {/* <h2>{this.state.notes[id].title}</h2>
+                  <h2>{this.state.notes[id].description}</h2> */}
+                  <Link to={"/"}>Home</Link>
+                </div>
+              );
+            }}
           />
           <Route
             path={"/create"}
