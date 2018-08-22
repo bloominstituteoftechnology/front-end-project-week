@@ -41,7 +41,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:9000/notes")
+      .get("https://protected-cliffs-25818.herokuapp.com/notes")
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -69,7 +69,7 @@ class App extends Component {
       textBody: this.state.textBody
     };
     axios
-      .post("http://localhost:9000/notes", note)
+      .post("https://protected-cliffs-25818.herokuapp.com/notes", note)
       .then(response => {
         console.log("response", response);
         this.setState(
@@ -110,16 +110,19 @@ class App extends Component {
     let editNote = this.state.selected;
     editNote.title = this.state.title;
     editNote.textBody = this.state.textBody;
+    console.log(editNote, "editnote");
     axios
-      .put(`http://localhost:9000/notes/${this.state.selected.id}`, editNote)
+      .put(
+        `https://protected-cliffs-25818.herokuapp.com/notes/${
+          this.state.selected.id
+        }`,
+        editNote
+      )
       .then(response => {
-        this.setState(
-          {
-            title: "",
-            textBody: ""
-          },
-          this.componentDidMount()
-        );
+        this.setState({
+          title: "",
+          textBody: ""
+        });
         return editNote;
       });
   };
@@ -132,7 +135,11 @@ class App extends Component {
     let note = notes.filter(filtered => filtered.id === this.state.selected.id);
     console.log(note, "notes");
     axios
-      .delete(`http://localhost:9000/notes/${this.state.selected.id}`)
+      .delete(
+        `https://protected-cliffs-25818.herokuapp.com/notes/${
+          this.state.selected.id
+        }`
+      )
       .then(response => {
         console.log(response, "response");
         this.setState(
