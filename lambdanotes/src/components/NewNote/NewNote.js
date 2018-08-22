@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import './NewNote.css';
 import axios from 'axios';
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    NavLink
-  } from "react-router-dom";
-
 class NewNote extends Component {
     constructor(props) {
         super(props);

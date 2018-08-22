@@ -1,9 +1,11 @@
 import React from 'react';
 import './ListView.css';
 import {
-  BrowserRouter as Router,
-  Link,
-} from "react-router-dom";
+    BrowserRouter as Router,
+    Route,
+    Link,
+    NavLink
+  } from "react-router-dom";
 
 const NoteCard = props => {
   return (

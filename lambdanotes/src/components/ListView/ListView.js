@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './ListView.css';
-
 import {
     BrowserRouter as Router,
     Route,
@@ -12,8 +11,8 @@ import {
 import NoteCard from './NoteCard';
 
 class ListView extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             noteList: [],
         };
@@ -45,7 +44,6 @@ class ListView extends Component {
                             title={note.title}
                             textBody={note.textBody}
                             key={note.title + note.textBody}
-                            id={note.id}
                         />
                         );
                     })}
