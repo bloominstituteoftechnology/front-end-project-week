@@ -31,9 +31,8 @@ class App extends Component {
     lastIndex = lastIndex.id + 1;
     let newNote = {
       id: lastIndex,
-      title: "Note 2",
-      description:
-        "Bender, being God isn't easy. If you do too much, people get dependent on you, and if you do nothing, they lose hope."
+      title: this.state.title,
+      description: this.state.description
     };
     notesCopy.push(newNote);
     this.setState({ notes: notesCopy, title: "", description: "" });
