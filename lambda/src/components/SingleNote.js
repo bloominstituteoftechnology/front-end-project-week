@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+
 
 const View = styled.div`
 background: #F0F0F0;
@@ -31,6 +34,18 @@ const Content = styled.div`
 font-size: 15px; 
 margin: 10px; 
 `
+const DeleteBox = styled.div`
+margin-top: 20%;
+margin-left: 3%;
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 175px;
+width: 500px;
+background: white;
+border: solid 1px gray;
+color: gray;
+`
 
 
 
@@ -43,11 +58,27 @@ const SingleNote = props => {
   return (
     <View>
     <Container>
+    <div className={props.deleting ? "delete" : "hide-delete"}>
+        <DeleteBox>
+          <p>Are you sure you want to delete this?</p>
+          <div>
+            <Link to="/">
+              <div
+                onClick={() => props.deleteNote(props.match.params.id)}>
+                Delete
+              </div>
+            </Link>
+            <div onClick={props.deleteModal}>
+              No
+            </div>
+          </div>
+        </DeleteBox>
+      </div>
     <Edit>
       <NavLink  onClick={() => props.noteEdit(note.id)}  to={`/view/edit/${note.id}`}>
     Edit
     </NavLink>
-    <NavLink  to={`/view/delete/${note.id}`}>
+    <NavLink  to={`/view-note/${note.id}`} className="ed" onClick={props.deleteBox}>
     Delete
     </NavLink>
     </Edit>
