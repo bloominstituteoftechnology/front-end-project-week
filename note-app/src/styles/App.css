@@ -219,10 +219,10 @@ input {
   transform: rotateY(0deg);
 }
 .carousel-cell:nth-child(2){
-  transform: rotateY(40deg);
+  transform: rotateY(50deg);
 }
 .carousel-cell:nth-child(3){
-  transform: rotateY(80deg);
+  transform: rotateY(100deg);
 }
 
 

@@ -23,7 +23,12 @@ class App extends Component {
     this.state = {
       search: '',
       select: null,
-      images: [two,three, one]
+      images: 
+      [
+        {alt: "trash of notes img", src: two},
+        {alt: "Create Note image", src: three},
+        {alt:"Note Pad image", src: one}
+      ]
     }
   }
 
@@ -61,6 +66,24 @@ class App extends Component {
   imgClick = event => {
     console.log(event.target)
   }
+  imgHover = event => {
+    this.state.images.forEach((img, i) => img.src === event.target.src ? console.log(event.target.src, i): false)
+
+  }
+  nextClick = () => {
+    console.log("clicked")
+    const images = this.state.images.slice()
+    const last = images.pop()
+    images.unshift(last)
+    this.setState({images})
+  }
+  previousClick = () => {
+    console.log("previous")
+    const images = this.state.images.slice()
+    const first = images.shift()
+    images.push(first)
+    this.setState({images})
+  }
 
   render() {
     console.log(this.props)
@@ -70,17 +93,11 @@ class App extends Component {
         <div className="heading">
           <h3 className= "app-header"><input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> </h3>
           <div className = "scene">
-            <div className = "carousel-cell">
-              <img onClick = {this.imgClick} className ="carousel-img" src={two} alt="trash of notes img"/>  
-            </div>
-            <div className = "carousel-cell">
-              <img onClick = {this.imgClick} className ="carousel-img" src={three} alt="Create Note image"/>
-            </div>
-            <div className = "carousel-cell">
-              <img onClick = {this.imgClick} className ="carousel-img" src={one} alt="Note Pad image"/>
-            </div>
+            {this.state.images.map(image => <div key = {image.alt} className ="carousel-cell">
+              <img /*onMouseOver ={this.imgHover}*/ onClick = {this.imgClick} className = "carousel-img" src={image.src} alt={image.alt}/>
+            </div>)}
           </div>
-          <button className = "btn-side-bar">Previous</button><button className = "btn-side-bar">Next</button>
+          <button onClick = {this.previousClick} className = "btn-side-bar">Previous</button><button onClick = {this.nextClick} className = "btn-side-bar">Next</button>
           <hr/>
         </div>
         <Route render={({location}) => (
