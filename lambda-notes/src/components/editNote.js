@@ -28,8 +28,8 @@ class EditNote extends Component {
                 <form className="add-form" >
                     <input className="edit-title-input" name="title" onChange={this.handleInputChange} value={this.state.title} /> <br/>
                     <textarea className="edit-text-input" name="text" onChange={this.handleInputChange} value={this.state.text} />
-                    <div className="save-btn" /* onClick={this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text)} */ >Save</div>
-                </form>
+                    <div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text)}}  >Save</div>
+                </form> {/* */}
             </div>
         )  
     } else return (<div>I've got a worse feeling about this...</div>)
