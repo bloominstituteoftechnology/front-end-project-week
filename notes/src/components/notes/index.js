@@ -15,19 +15,26 @@ const NotesHeading=styled.h2`
 text-align: left;
 color:#424242
 margin-left: 5%;
-margin-top: 70px;
+margin-top: 19px;
 `
 const NotesPage=styled.div`
 background-color:#ddd;
 min-height: 100vh;
 width: 75%;
 `
+const NoteFilter=styled.input`
+height: 20px;
+margin: 0 auto;
+margin-top: 25px;
+margin-right: 1%;
+width: 255px;
+`
 class Notes extends React.Component {
     constructor(props) {
         super(props);
         this.state={
             filteredNotes:'',
-            filterparam:''
+            filterParam:''
         }
     }
     componentDidMount() {
@@ -37,32 +44,31 @@ class Notes extends React.Component {
     inputChange=(e)=>{
         this.setState({[e.target.name]:e.target.value},()=>{
             let filteredNotes=this.props.notes.slice();
-            const filterparam=this.state.filterparam.toLowerCase();
-            filteredNotes=filteredNotes.filter(e=>e.textBody.toLowerCase().includes(filterparam)||e.title.toLowerCase().includes(filterparam));
-            return this.setState({filteredNotes:filteredNotes},()=>console.log(this.state.filteredNotes));
+            const filterParam=this.state.filterParam.toLowerCase();
+            filteredNotes=filteredNotes.filter(e=>e.textBody.toLowerCase().includes(filterParam)||e.title.toLowerCase().includes(filterParam));
+            return this.setState({filteredNotes:filteredNotes});
         });
     }
     render() {
         if (!this.props.fetchingNotes) {
         return(
             <NotesPage>
-                <input type='text' name='filterparam' value={this.state.value} onChange={this.inputChange}/>
+                <NoteFilter type='text' name='filterParam' value={this.state.value} onChange={this.inputChange}/>
                 <NotesHeading>Your Notes:</NotesHeading>
                 <NotesList>
-                    {this.state.filterparam.length===0?
+                    {this.state.filterParam.length===0?
                     this.props.notes.map((e,i)=><Note key={i} data={e}></Note>):
                     this.state.filteredNotes?this.state.filteredNotes.map((e,i)=><Note key={i} data={e}></Note>):null
                         }
                 </NotesList>
             </NotesPage>
         )
+    } else {
+        return (
+            <div></div>
+        );
+        }
     }
- else {
-    return (
-        <div></div>
-    );
-}
-}
 }
 const mapStateToProps=state=>{
     return{
