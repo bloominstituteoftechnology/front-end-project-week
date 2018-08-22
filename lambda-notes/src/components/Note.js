@@ -11,6 +11,7 @@ import DeleteModal from './DeleteModal'
         this.state = {
             notes: props.notes,
             note: {}
+          
         };
     }
      componentDidMount() {
@@ -21,6 +22,8 @@ import DeleteModal from './DeleteModal'
         if (!note) return;
         this.setState({note});
     }
+
+ 
 
 
      render() {

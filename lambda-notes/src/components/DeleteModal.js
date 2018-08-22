@@ -19,6 +19,9 @@ import { Route } from 'react-router-dom'
             modal: !this.state.modal
         });
     }
+
+
+
      render() {
         return (
             <div>
