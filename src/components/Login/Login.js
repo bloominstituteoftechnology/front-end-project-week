@@ -61,6 +61,7 @@ class Login extends React.Component {
       const user = result.user;
       localStorage.setItem("username", user.email);
       localStorage.setItem("password", user.l);
+      window.location.reload();
       //this.setState({ user });
     });
   };
