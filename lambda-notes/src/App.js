@@ -24,7 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get('http://localhost:3300/notes')
+    .get('https://dakine-lambdanotes-api.herokuapp.com/notes')
     .then(response => {
       console.log(response);
       this.setState({notes: response.data});

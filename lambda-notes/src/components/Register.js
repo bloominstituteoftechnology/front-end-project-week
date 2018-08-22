@@ -16,7 +16,7 @@ class Register extends React.Component {
 
       newUser = () => {
         const user = this.state.user;
-        axios.post('http://localhost:3300/register', user)
+        axios.post('https://dakine-lambdanotes-api.herokuapp.com/register', user)
         .then(response => {
           // console.log(response);
           const token = response.data;

@@ -20,7 +20,7 @@ class Login extends Component {
    submitHandler = event => {
    			event.preventDefault();
 
-   			axios.post('http://localhost:3300/api/login', this.state)
+   			axios.post('https://dakine-lambdanotes-api.herokuapp.com/login', this.state)
    			 .then(res => {
             console.log('data', res.data);
             const token = res.data;

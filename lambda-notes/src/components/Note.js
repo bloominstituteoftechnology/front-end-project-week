@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-const URL = 'http://localhost:3300/notes';
+const URL = 'https://dakine-lambdanotes-api.herokuapp.com/notes';
 
 class Note extends Component {
     constructor(props) {

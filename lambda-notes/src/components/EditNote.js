@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const URL = 'http://localhost:3300/notes/';
+const URL = 'https://dakine-lambdanotes-api.herokuapp.com/notes/';
 
 
 class EditNote extends Component {
