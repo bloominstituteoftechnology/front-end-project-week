@@ -13,7 +13,7 @@ class Notes extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3500/notes")
+      .get("https://mysterious-inlet-80205.herokuapp.com/notes")
       .then(res => {
         this.setState({ notes: res.data });
       })

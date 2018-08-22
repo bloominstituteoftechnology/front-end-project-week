@@ -52,7 +52,7 @@ class Note extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
-      .get(`http://localhost:3500/notes/${id}`)
+      .get(`https://mysterious-inlet-80205.herokuapp.com/notes/${id}`)
       .then(res => {
         this.setState({note: res.data[0]});
         console.log("res.data", res.data);
@@ -64,11 +64,21 @@ class Note extends Component {
 
   editNote = () => {
     this.setState({ edit: true });
+    const id = this.props.match.params.id;
+    axios
+      .get(`https://mysterious-inlet-80205.herokuapp.com/notes/${id}`)
+      .then(res => {
+        this.setState({note: res.data[0]});
+        console.log("res.data", res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   deleteNote = () => {
     axios
-      .delete(`http://localhost:3500/notes/${this.state.note.id}`)
+      .delete(`https://mysterious-inlet-80205.herokuapp.com/notes/${this.state.note.id}`)
       .then(res => {
         console.log(res.data);
         this.setState({ deleted: true });
@@ -86,8 +96,8 @@ class Note extends Component {
       <CreateNote
         edit={true}
         note={this.state.note}
-        title={this.state.title}
-        content={this.state.content}
+        title={this.state.note.title}
+        content={this.state.note.content}
       />
     ) : (
       <div key={this.props.match.params.id} className="note">
