@@ -1,0 +1,234 @@
+.container {
+  display: flex;
+}
+
+.card {
+  padding: 10px;
+  width: 250px;
+  height: 300px;
+  color: black;
+  overflow: hidden;
+}
+
+.createNoteTitle {
+  margin: 10px 20px;
+}
+
+.createNoteComment {
+  height: 300px;
+  margin: 10px 20px;
+}
+
+/* Menu Styling */
+.menu {
+  width: 20%;
+  background-color: #d8d8d8;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+}
+
+.menu button {
+  background-color: #2bc1c4;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  width: 190px;
+}
+
+/* Home Page Notes Styling */
+.notesList {
+  background-color: #f3f3f3;
+  padding-top: 60px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  margin-left: 250px;
+  width: 80%;
+  height: 300vh;
+  background-image: cover;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ind-card {
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.ind-card a:hover {
+  text-decoration: none;
+}
+
+.card-title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.452);
+}
+
+.notesSearch {
+  position: absolute;
+  right: 120px;
+  top: 60px;
+}
+
+.notesSearch input {
+  width: 220px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  height: 40px;
+  padding-left: 10px;
+}
+
+/* Single Note View Styling */
+.singleNoteBody {
+  margin-left: 300px;
+}
+
+.singleNoteBody {
+  margin-top: 50px;
+  line-height: 1.9rem;
+}
+
+.singleNoteBody p {
+  margin-top: 20px;
+}
+
+.singleNoteButtons {
+  text-align: right;
+  position: fixed;
+  right: 40px;
+  top: 20px;
+
+  display: flex;
+}
+
+.singleNoteButtons a {
+  text-decoration: underline;
+  margin-right: 20px;
+  color: black;
+}
+
+.singleNoteButtons .delete-button {
+  text-decoration: underline;
+}
+
+.singleNoteButtons .delete-button:hover {
+  cursor: pointer;
+}
+
+.tags {
+  margin-bottom: 0;
+  position: fixed;
+  bottom: 20px;
+  font-size: 15px;
+  right: 50px;
+}
+
+.singleNote .tag {
+  margin-top: 0;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+/* Edit/Create Note View */
+.editNote,
+.createNote {
+  background-color: #f3f3f3;
+  padding-top: 50px;
+  width: 80%;
+  padding-left: 14px;
+  margin-left: 250px;
+  height: 100vh;
+}
+
+.editNote h4,
+.createNote h4 {
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+
+.editNote textarea,
+.createNote textarea {
+  width: 830px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding-left: 25px;
+  padding-top: 20px;
+}
+
+.editNote input,
+.createNote input {
+  width: 830px;
+  height: 50px;
+  padding-left: 25px;
+}
+
+.editNote button,
+.createNote button {
+  background-color: #2bc1c4;
+  width: 230px;
+  border-radius: 0;
+  height: 47px;
+  margin-left: 20px;
+}
+
+/* Modal Styling */
+.modal {
+  top: 300px;
+}
+
+.modal-content {
+  height: 175px;
+  width: 70%;
+}
+.modal-content .modal-body {
+  font-size: 23px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.modal-content .modal-footer {
+  border-top: none;
+}
+
+.modal-content .modal-footer button:first-child {
+  background-color: #d0021b;
+  width: 225px;
+  height: 50px;
+  border-radius: 0;
+}
+
+.modal-content .modal-footer button:last-child {
+  background-color: #2bc1c4;
+  width: 225px;
+  height: 50px;
+  border-radius: 0;
+}
+
+.logout-button {
+  position: absolute;
+  right: 130px;
+  top: 10px;
+  text-decoration: underline;
+}
+
+.logout-button:hover {
+  cursor: pointer;
+}
+
+.checkList {
+}
+.checkList input {
+  position: fixed;
+  bottom: 30px;
+  width: 400px;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid #dddcdc;
+  padding-left: 10px;
+}
+
+.hr {
+  width: 100%;
+}
