@@ -61,7 +61,6 @@ class Login extends React.Component {
       const user = result.user;
       localStorage.setItem("username", user.email);
       localStorage.setItem("password", user.l);
-      window.location.reload();
       //this.setState({ user });
     });
   };
@@ -78,7 +77,7 @@ class Login extends React.Component {
       password: this.state.password
     };
     axios
-      .post("http://localhost:8000/api/users/register", newUser)
+      .post(`${process.env.REACT_APP_API}/users/register`, newUser)
       .then(response => {
         this.setState({ register: !this.state.register, username: "", password: "" });
       })
