@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "rapidapi-connect": "0.0.6",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
@@ -12,7 +13,8 @@
     "react-transition-group": "^2.4.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rhyme": "0.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

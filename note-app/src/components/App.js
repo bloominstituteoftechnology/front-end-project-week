@@ -15,7 +15,8 @@ import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote,sea
 import one from '../images/createNote.png';
 import two from '../images/trash.jpg';
 import three from '../images/notepad.png';
-
+import four from '../images/search.jpg';
+import Rhyme from './Rhyme';
 
 class App extends Component {
   constructor(props){
@@ -27,7 +28,8 @@ class App extends Component {
       [
         {alt: "trash of notes img", src: two},
         {alt: "Create Note image", src: three},
-        {alt:"Note Pad image", src: one}
+        {alt:"Note Pad image", src: one},
+        {alt:"search icon", src: four}
       ]
     }
   }
@@ -75,6 +77,7 @@ class App extends Component {
     const images = this.state.images.slice()
     const last = images.pop()
     images.unshift(last)
+    console.log(images)
     this.setState({images})
   }
   previousClick = () => {
@@ -82,6 +85,7 @@ class App extends Component {
     const images = this.state.images.slice()
     const first = images.shift()
     images.push(first)
+    console.log(images)
     this.setState({images})
   }
 
@@ -105,6 +109,7 @@ class App extends Component {
             <CSSTransition timeout = {500} classNames = 'fade' key = {location.key}>
               <Switch location = {location}>
                 <Route exact path ='/' render = {props => <ViewAllNotes {...props} notes = {this.props.notes} click = {this.handleNoteSelect}/>} /> 
+                <Route path = '/rhyme-book' render = {props => <Rhyme /> } />
                 <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.postNote} idGenerator = {this.idGenerator} nextId = {this.state.nextId}/>} />
                 <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote}/> } />
                 <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />

@@ -192,21 +192,25 @@ input {
   width: 0%; 
 }
 .carousel-img{
-  max-width: 70px;
-  max-height: 70px;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .scene {
-  width: 210px;
+  width: 500px;
   height: 140px;
   position: relative;
   perspective: 1000px;
+  border: 1px solid black;
 }
 .carousel {
   width: 100%;
   height: 100%;
   position: absolute;
   transform-style: prserve-3d;
+  display: flex;
+  justify-content: center;
+  border: 1px sold blue;
 }
 .carousel-cell{
   position: absolute;
@@ -219,10 +223,13 @@ input {
   transform: rotateY(0deg);
 }
 .carousel-cell:nth-child(2){
-  transform: rotateY(50deg);
+  transform: rotateY(90deg);
 }
 .carousel-cell:nth-child(3){
-  transform: rotateY(100deg);
+  transform: rotateY(180deg);
+}
+.carousel-cell:nth-child(3){
+  transform: rotateY(270deg);
 }
 
 
