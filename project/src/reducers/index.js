@@ -3,7 +3,9 @@ import { FETCH_NOTE, FETCHED_NOTE, ADD_NOTE, ADDED_NOTE, EDIT_NOTE, EDITED_NOTE,
 const initialState = {
     notes: '',
     fetchingNotes: false,
-    addingNotes: false,
+    fetchedNotes: false,
+    addingNote: false,
+    addedNote: false,
     editingNote: false,
     deletingNote: false,    
     selectedId: null
@@ -23,30 +25,37 @@ export const noteReducer = (state = initialState, action) =>{
             return(
                 {
                     ...state,
-                    fetchingNotes: false,                    
+                    fetchingNotes: false,    
+                    fetchedNotes: true                
                 }
             )                
-        case ADD_NOTE:
-            return(
+        case ADD_NOTE:            
+            return(                
                 {
                     ...state,
-                    addingNotes: true,
-                    notes: action.payload
+                    addingNote: true,
+                    notes: state.notes.concat(action.payload)
                 }
             )
         case ADDED_NOTE:
             return(
                 {
                     ...state,
-                    addingNotes: false,                    
+                    addingNote: false,
+                    addedNote: true,                    
                 }
             ) 
         case EDIT_NOTE:
-            return(
+            return(                
                 {
                     ...state,
                     editingNote: true,
-                    notes: action.payload
+                    notes: state.notes.map(note=>
+                        (note.id === state.selectedId)
+                        ?action.payload
+                        :note
+                    ) 
+                    
                 }
             )
         case EDITED_NOTE:
@@ -61,7 +70,6 @@ export const noteReducer = (state = initialState, action) =>{
                 {
                     ...state,
                     deletingNote: true,
-                    notes: action.payload
                 }
             )
         case DELETED_NOTE:

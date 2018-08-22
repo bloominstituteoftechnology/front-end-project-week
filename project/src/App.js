@@ -8,11 +8,9 @@ import EditNote from './components/EditNote'
 import AddNote from './components/AddNote'
 
 class App extends Component {
-  componentDidMount(){console.log('mount')
-        this.props.fetchNotes()
-    }
+  
  
-  render() {console.log(this.props)
+  render() {
     return (
       <div className="App">
         <Sidebar />

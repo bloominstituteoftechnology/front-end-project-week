@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
 import { deleteNote } from '../actions'
 import { connect } from 'react-redux';
 
@@ -17,7 +16,8 @@ class NoteView extends Component {
     }
 
     handleDelete = () =>{
-        this.props.deleteNote(this.props.id)
+        this.props.deleteNote(this.props.id);
+        this.forceUpdate();
     }
 
     render(){
@@ -28,8 +28,8 @@ class NoteView extends Component {
                     <div className="modal-content">                        
                         <p>Are you sure you want to delete this?</p>
                         <div className="modal-btns">
-                            <Link to = '/'>
-                                <button className="delete-btn" onClick = {this.handleDelete}>Delete</button>
+                            <Link to = '/' onClick = {this.handleDelete}>
+                                <button className="delete-btn" >Delete</button>
                             </Link>                            
                             <button onClick={this.toggleModal}>No</button>
                         </div>
@@ -37,11 +37,11 @@ class NoteView extends Component {
                 </div>
                 <div className = "note-page">
                     <div className = "note-links">
-                        <Link to = {`/${this.props.match.params.id}/edit`}><span>edit</span></Link>
+                        <Link to = {`/${this.props.id}/edit`}><span>edit</span></Link>
                         <span onClick={this.toggleModal}>delete</span>
                     </div>
-                    <h2 className = "note-title">{this.props.notes[this.props.id].title}</h2>
-                    <p className = "note-content">{this.props.notes[this.props.id].note}</p>
+                    <h2 className = "note-title">{this.props.notes[this.props.notes.findIndex(n => n.id===this.props.id)].title}</h2>
+                    <p className = "note-content">{this.props.notes[this.props.notes.findIndex(n => n.id===this.props.id)].note}</p>
                 </div>
             </div>
         )
