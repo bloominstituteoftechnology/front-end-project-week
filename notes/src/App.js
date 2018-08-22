@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import Fuse from 'fuse.js';
 import Sidebar from './components/Sidebar';
 import Note from './components/Note';
-import NoteForm from './components/NoteForm';
+import NoteFormContainer from './components/NoteFormContainer';
 import Modal from './components/DeleteModal';
 import Dropdown from './components/SortDropdown';
 
@@ -106,10 +106,10 @@ class App extends Component {
 
   sortAlphabetically = () => {
     const sortCb = (a, b) => {
-      const aStr = /[A-Za-z]+/.exec(a.title),
-        bStr = /[A-Za-z]+/.exec(b.title);
+      const aStr = /[A-Za-z]+/.exec(a.title.slice(0, 20)),
+        bStr = /[A-Za-z]+/.exec(b.title.slice(0, 20));
       if (aStr && bStr) {
-        for (let i= 0; i < aStr.length && i < bStr.length; i++) {
+        for (let i = 0; i < aStr.length && i < bStr.length; i++) {
           if (aStr[i] !== bStr[i]) {
             return aStr[i].localeCompare(bStr[i]);
           }
@@ -122,6 +122,7 @@ class App extends Component {
         return a - b;
       }
     };
+
     this.toggleDropdown();
     this.setState({
       notes: this.state.notes.sort().sort(sortCb)
@@ -151,7 +152,6 @@ class App extends Component {
       };
       filteredNotes = new Fuse(this.state.notes, options).search(e.target.value);
     }
-
     this.setState({ filteredNotes });
   };
 
@@ -162,8 +162,7 @@ class App extends Component {
   };
 
   formatForCSV = () => {
-    return this.state.notes.map(note => {
-      const { title, text } = note;
+    return this.state.notes.map(({ title, text }) => {
       return { title, text };
     });
   };
@@ -193,17 +192,15 @@ class App extends Component {
           <Route
             path="/create"
             render={() => (
-              <div className="note-form-container">
-                <h2>Create New Note:</h2>
-                <NoteForm 
-                  onChange={this.onChange} 
-                  onSubmit={this.addNote} 
-                  title={this.state.title} 
-                  text={this.state.text} 
-                  formText="Save"
-                  update={this.updateCreateInput}
-                />
-              </div>
+              <NoteFormContainer 
+                onChange={this.onChange} 
+                onSubmit={this.addNote} 
+                title={this.state.title} 
+                text={this.state.text}
+                update={this.updateCreateInput}
+                formText="Save"
+                formTitle="Create New Note:"
+              />
             )}
           />
           <Route
@@ -213,7 +210,13 @@ class App extends Component {
               <div className="notes-container">
                 <h2>Your Notes:</h2>
                 <div className="notes-list-controls">
-                  <input name="search" onChange={this.search} className="search-input" placeholder="Search..." />
+                  <input 
+                    name="search" 
+                    onChange={this.search} 
+                    className="search-input" 
+                    placeholder="Search..." 
+                    autoComplete="off"
+                  />
                   <Dropdown 
                     toggle={this.toggleDropdown} 
                     dropdown={this.state.dropdown} 
@@ -242,24 +245,22 @@ class App extends Component {
               <div className="single-note-card">
                 <Link to="/notes/delete" onClick={this.toggleModal}>delete</Link>
                 <Link to="/edit">edit</Link>
-                <Note note={this.state.note} single={true} />
+                <Note note={this.state.note} view="single" />
               </div>
             )}
           />
           <Route
             path="/edit"
             render={() => (
-              <div className="note-form-container">
-                <h2>Edit Note:</h2>
-                <NoteForm
-                  onChange={this.onChange} 
-                  onSubmit={this.editNote} 
-                  title={this.state.title} 
-                  text={this.state.text} 
-                  formText="Update"
-                  update={this.updateEditInput}
-                />
-              </div>
+              <NoteFormContainer 
+                onChange={this.onChange} 
+                onSubmit={this.editNote} 
+                title={this.state.title} 
+                text={this.state.text} 
+                update={this.updateEditInput}
+                formText="Update"
+                formTitle="Edit Note:"
+              />
             )}
           />
           <Route

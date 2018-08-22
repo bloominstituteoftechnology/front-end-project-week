@@ -2,16 +2,16 @@ import React from 'react';
 import { Card, CardBody } from 'reactstrap';
 import ReactMarkDown from 'react-markdown';
 
-const Note = ({ note, single }) => {
+const Note = ({ note, view }) => {
   const { title, text } = note;
   return (
     <div className="note">
-      {single == null 
+      {view !== 'single' 
         ? (
           <Card>
             <CardBody>
               <h5>
-                <ReactMarkDown source={title.slice(0, 17).trim() + (title.length > 17 ? '...' : '')} />
+                <ReactMarkDown source={title} />
               </h5>
               <hr />
               <ReactMarkDown source={text.slice(0, 103).trim() + ((text.length > 103) ? '...' : '')} />
