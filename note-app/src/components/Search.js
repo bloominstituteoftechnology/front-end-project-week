@@ -20,7 +20,6 @@ class Search extends React.Component {
     }
 
     handleSearch = () => {
-        console.log('clicked')
         const searchTerm = this.state.search.slice()
         const searches = this.state.searches.slice()
         if(searchTerm.length){
@@ -29,57 +28,31 @@ class Search extends React.Component {
         const results = this.props.notes
         const display = []
         searches.forEach(searchTerm => {
-            console.log(searchTerm)
             results.forEach(result => {
-                console.log(result)
             if(result.tags.includes(searchTerm) || result.title.includes(searchTerm) || result.textBody.includes(searchTerm)){
                 if(!display.includes(result.title)){
                 display.push(result.title)
-                console.log("pushed it")
                 }
               }
             })
         })
-        console.log(display)
-        console.log(this.state.search)
-        console.log(this.state.dataIn)
         this.setState({results: display, search:'', dataIn: true, searches})
         
     }
 
     handleKeywordClick = event => {
-        console.log(event.target.innerHTML)
         let searches = this.state.searches.slice();
         searches = searches.filter(search => search !== event.target.innerHTML) 
-        console.log(searches)
         this.setState({ searches })
-        console.log("after delete")
         return setTimeout(() => {this.handleSearch()},300)
     }
-    selecting = (note) =>{
-        console.log(this.props)
-        let select = this.props.notes.filter(nt => nt.title === note)
-        console.log(select[0])
-        select= select[0]
-        // this.props.history.push({
-        //     pathname: `/search/${note}`,
-        //     search: '?query=abc',
-        //     state: { select: select }
-        // })
-        // return <Link to = {{pathname: `/search/${note}`,
-        // search: '?query=abc',
-        // state: { select: select }}}></Link>
-    }
-
 
     render(){
-        console.log(this.state.search)
         let notes = []
         if(this.state.dataIn === true){
             notes = this.state.results.slice()
         }
         const searches = this.state.searches.slice()
-        console.log(notes)
         return (
             <div className="main-container">
               <SideBar />
