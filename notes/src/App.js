@@ -6,7 +6,7 @@ import Notes from "./Components/Notes";
 import Note from "./Components/Note";
 import AddNote from "./Components/AddNote";
 import Sidebar from "./Components/Sidebar";
-import Tags from "./Components/Tags";
+import FilteredNotes from "./Components/FilteredNotes";
 
 import "./App.css";
 
@@ -79,6 +79,14 @@ class App extends Component {
 					path="/notes"
 					render={() => <Notes notes={this.state.notes} />}
 				/>
+				<Route
+					exact
+					path="/tags/:tag"
+					render={props => (
+						<FilteredNotes {...props} notes={this.state.notes} />
+					)}
+				/>
+
 				<Route
 					exact
 					path="/add"
