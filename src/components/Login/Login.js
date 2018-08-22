@@ -36,7 +36,7 @@ class Login extends React.Component {
     const loginUser = { username: this.state.username, password: this.state.password };
     console.log("loginUser is: ", loginUser);
     axios
-      .post("http://localhost:8000/api/users/login", loginUser)
+      .post(`${process.env.REACT_APP_API}/users/login`, loginUser)
       .then(response => {
         localStorage.setItem("username", this.state.username);
         localStorage.setItem("password", this.state.password);

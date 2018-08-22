@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import { deleteNote, fetchSingleNote } from "../actions/action";
 
-const URL = "http://localhost:8000/api/notes/";
+const URL = `${process.env.REACT_APP_API}/notes/`;
 
 class ViewNote extends React.Component {
   constructor(props) {

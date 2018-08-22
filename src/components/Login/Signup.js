@@ -19,7 +19,7 @@ class Signup extends React.Component {
       password: this.state.password
     };
     axios
-      .post("http://localhost:8000/api/register", newUser)
+      .post(`${process.env.REACT_APP_API}/api/register`, newUser)
       .then(response => {
         this.props.history.push("/");
       })

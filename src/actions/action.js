@@ -9,7 +9,7 @@ let home_path = "http://localhost:3000/";
 export const submitNewNote = newNote => {
   return function(dispatch) {
     axios
-      .post(`http://localhost:8000/api/notes`, newNote)
+      .post(`${process.env.REACT_APP_API}/notes`, newNote)
       .then(({ data }) => {
         window.location.href = home_path;
       })
@@ -43,7 +43,7 @@ export const fetchSingleNote = (URL, id) => {
 
 export const editNote = (edited, id) => {
   return function(dispatch) {
-    axios.put(`http://localhost:8000/api/notes/${id}`, edited).then(({ data }) => {
+    axios.put(`${process.env.REACT_APP_API}/notes/${id}`, edited).then(({ data }) => {
       window.location.href = home_path;
     });
   };
@@ -53,7 +53,7 @@ export const deleteNote = id => {
   console.log("id is: ", id);
   return function(dispatch) {
     axios
-      .delete(`http://localhost:8000/api/notes/${id}`)
+      .delete(`${process.env.REACT_APP_API}/notes/${id}`)
       .then(({ data }) => {
         window.location.href = "http://localhost:3000/";
       })

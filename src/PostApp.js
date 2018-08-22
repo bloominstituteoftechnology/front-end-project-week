@@ -12,7 +12,7 @@ import Signup from "./components/Login/Signup.js";
 
 class PostApp extends Component {
   componentDidMount() {
-    this.props.fetchNotes("http://localhost:8000/api/notes/");
+    this.props.fetchNotes(`${process.env.REACT_APP_API}/notes/`);
   }
 
   render() {
