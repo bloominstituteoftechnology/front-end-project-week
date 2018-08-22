@@ -46,7 +46,8 @@ class DeleteNote extends Component {
               // }
 
               onClick={() =>
-                this.props.deleteNoteHandler(this) & this.props.onApprove()
+                this.props.deleteNoteHandler(this.props.deleteNumber) &
+                this.props.onApprove()
               }
             >
               Deleteinside

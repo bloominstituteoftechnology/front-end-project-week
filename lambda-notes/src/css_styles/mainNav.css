@@ -16,6 +16,7 @@
 .mainNavButtonsDiv button {
   margin: 1rem 0;
   padding: 1rem;
+  width: 240px;
   background: #2ac0c4;
   color: white;
   font-size: 1.5rem;

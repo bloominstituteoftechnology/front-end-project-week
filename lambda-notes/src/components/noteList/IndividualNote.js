@@ -63,11 +63,11 @@ export class IndividualNote extends Component {
   render() {
     // console.log("Individual NOtes Props", this.props.notes);
     // console.log("Individual Params Match", this.state.match);
-
+    const { id } = this.state.match.params;
     return (
       <div className="individualNote">
         {this.renderRedirect()}
-        <Link to={`/edit/${this.state.match.params.id}`}>
+        <Link to={`/edit/${id}`}>
           <button>edit</button>
         </Link>
         <button onClick={this.toggleModal}>Delete</button>
@@ -77,7 +77,7 @@ export class IndividualNote extends Component {
           onApprove={this.approveModal}
           onClose={this.toggleModal}
           deleteNoteHandler={this.props.deleteNoteHandler}
-          deleteNumber={this.state.match.params.id}
+          deleteNumber={id}
           notes={this.state.notes}
         >
           {this.state.loading && "Loading..."}
@@ -87,8 +87,8 @@ export class IndividualNote extends Component {
             "Here's some text for the modal"}
         </DeleteNote>
 
-        <h2>{this.state.notes[this.state.match.params.id].title}</h2>
-        <h2>{this.state.notes[this.state.match.params.id].description}</h2>
+        <h2>{this.state.notes[id].title}</h2>
+        <h2>{this.state.notes[id].description}</h2>
         <Link to={"/"}>Home</Link>
       </div>
     );

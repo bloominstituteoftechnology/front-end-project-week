@@ -1,8 +1,6 @@
 .noteListDiv {
-  background: blueviolet;
   /* margin and width to offset the navbar */
-
-  padding: 4rem;
+  margin-left: 4rem;
   color: white;
   font-size: 1.6rem;
   display: flex;
@@ -14,27 +12,37 @@
 
 .notesMainDiv {
   text-align: start;
-  margin-left: 220px;
+  margin-left: 250px;
 }
 
 .landingTitle {
-  margin: 5rem 7rem;
+  margin: 5rem 0 1rem 5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .noteDiv {
-  color: white;
-  background: red;
-  border: 1px solid white;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #000000;
   margin: 1rem;
   padding: 1rem;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   text-decoration: none;
+}
+
+.noteDiv h2 {
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+}
+.noteDiv p {
+  padding-top: 0.5rem;
 }
 
 .noteDescription {
   padding-top: 0.5rem;
-  border-top: 1px solid white;
+  border-top: 1px solid #000000;
 }
 
 .individualNote {

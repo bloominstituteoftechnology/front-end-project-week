@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import { MainNav } from "./components/mainNav/MainNav";
 import { Notes } from "./components/noteList/Notes";
 import { IndividualNote } from "./components/noteList/IndividualNote";
@@ -121,14 +121,14 @@ class App extends Component {
     this.setState({ notes: newNotesArray, noteTitle: "", noteDescription: "" });
   };
 
-  deleteNoteHandler = event => {
-    let iNumber = parseInt(event.props.deleteNumber, 10);
-    console.log("INDEX NUMBER DELETE HANDLER", iNumber);
+  deleteNoteHandler = idNumber => {
+    idNumber = parseInt(idNumber, 10);
+    console.log("INDEX NUMBER DELETE HANDLER", idNumber, typeof idNumber);
     let newList = this.state.notes.filter(note => {
       console.log(note.id);
-      return note.id !== iNumber;
+      return note.id !== idNumber;
     });
-    console.log("DELETE HANDLER n", newList);
+    console.log("DELETE HANDLER", newList);
     this.setState({ notes: newList });
 
     // let indexNumber = parseInt(iNumber, 10);
@@ -144,49 +144,51 @@ class App extends Component {
   render() {
     // console.log("Main App Notes", this.state.notes);
     return (
-      <div className="mainAppDiv">
-        <Route path={"/"} component={MainNav} />
-        <Route
-          exact
-          path={"/"}
-          render={props => <Notes {...props} notes={this.state.notes} />}
-        />
-        <Route
-          path={"/notes/:id"}
-          render={props => (
-            <IndividualNote
-              {...props}
-              notes={this.state.notes}
-              deleteNoteHandler={this.deleteNoteHandler}
-            />
-          )}
-        />
-        <Route
-          path={"/create"}
-          render={props => (
-            <CreateNote
-              {...props}
-              // notes={this.state.notes}
-              // noteTitle={this.state.noteTitle}
-              // noteDescription={this.state.noteDescription}
-              inputChangeHandler={this.inputChangeHandler}
-              submitNewNoteHandler={this.submitNewNoteHandler}
-              // createNewNoteSubmitted={this.state.createNewNoteSubmitted}
-            />
-          )}
-        />
-        <Route
-          path={"/edit/:id"}
-          render={props => (
-            <EditNote
-              {...props}
-              notes={this.state.notes}
-              inputChangeHandler={this.inputChangeHandler}
-              modifyNoteHandler={this.modifyNoteHandler}
-            />
-          )}
-        />
-      </div>
+      <Router>
+        <div className="mainAppDiv">
+          <Route path={"/"} component={MainNav} />
+          <Route
+            exact
+            path={"/"}
+            render={props => <Notes {...props} notes={this.state.notes} />}
+          />
+          <Route
+            path={"/notes/:id"}
+            render={props => (
+              <IndividualNote
+                {...props}
+                notes={this.state.notes}
+                deleteNoteHandler={this.deleteNoteHandler}
+              />
+            )}
+          />
+          <Route
+            path={"/create"}
+            render={props => (
+              <CreateNote
+                {...props}
+                // notes={this.state.notes}
+                // noteTitle={this.state.noteTitle}
+                // noteDescription={this.state.noteDescription}
+                inputChangeHandler={this.inputChangeHandler}
+                submitNewNoteHandler={this.submitNewNoteHandler}
+                // createNewNoteSubmitted={this.state.createNewNoteSubmitted}
+              />
+            )}
+          />
+          <Route
+            path={"/edit/:id"}
+            render={props => (
+              <EditNote
+                {...props}
+                notes={this.state.notes}
+                inputChangeHandler={this.inputChangeHandler}
+                modifyNoteHandler={this.modifyNoteHandler}
+              />
+            )}
+          />
+        </div>
+      </Router>
     );
   }
 }
