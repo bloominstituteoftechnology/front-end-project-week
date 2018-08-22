@@ -10,7 +10,8 @@ class Rhyme extends React.Component{
         super(props)
         this.state = {
             word: '',
-            rhymes: []
+            rhymes: [],
+            rhymeWord: ''
         }
     }
 
@@ -19,25 +20,19 @@ class Rhyme extends React.Component{
 
     }
     handleSearch = () => {
-        console.log("clicking")
         const url = 'https://api.datamuse.com/words?'
         const queryParams = 'rel_rhy=';
-        const wordToSearch = this.state.word.slice() 
-        const endPoint = url+queryParams+wordToSearch;
-        console.log(endPoint)
+        const rhymeWord = this.state.word.slice() 
+        const endPoint = url+queryParams+rhymeWord;
         const promise = axios.get(endPoint)
         promise.then(response => {
-            console.log(response.data)
             const rhymes = response.data
-            this.setState({rhymes, word: ''})
+            this.setState({rhymes, word: '', rhymeWord })
         })
         .catch(error => {
             console.log(error)
         })
     }
-
-    
-
 
     render() {
         const allRhymes = this.state.rhymes.slice() 
@@ -45,7 +40,6 @@ class Rhyme extends React.Component{
         if (allRhymes.length){
           allRhymes.forEach(rhyme => rhymes.push(rhyme.word) )
           rhymes = rhymes.join(',  ')
-          console.log(rhymes)
         }
 
         return (
@@ -53,8 +47,8 @@ class Rhyme extends React.Component{
                 <SideBar /> 
                 <div className = "create-note-form">
                   <input onChange = {this.handleChange} type="text" name ='word' value ={this.state.word}/>
-                  <button onClick = {this.handleSearch} className = "btn-side-bar">Search</button>
-                  <h3>Rhyme : syllables</h3>
+                  <button onClick = {this.handleSearch} className = "btn-side-bar">Rhyme</button>
+                  <h3>Rhyme : {this.state.rhymeWord}</h3>
                   {<p>{rhymes}</p> }
                 </div>
                 

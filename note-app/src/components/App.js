@@ -11,12 +11,13 @@ import EditNote from './edit-note';
 import ViewAllNotes from './notes';
 import FullNote from './FullNote';
 import DeleteModal from './delete-note';
+import Rhyme from './Rhyme';
 import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote,searchingNotes} from '../actions'; 
 import one from '../images/createNote.png';
 import two from '../images/trash.jpg';
 import three from '../images/notepad.png';
 import four from '../images/search.jpg';
-import Rhyme from './Rhyme';
+import five from '../images/rhyme.jpg';
 
 class App extends Component {
   constructor(props){
@@ -26,16 +27,21 @@ class App extends Component {
       select: null,
       images: 
       [
-        {alt: "trash of notes img", src: two},
-        {alt: "Create Note image", src: three},
-        {alt:"Note Pad image", src: one},
-        {alt:"search icon", src: four}
+        {alt: "trash of notes img", src: two, className: "carousel-img"},
+        {alt:"search icon", src: four,className: "carousel-img"},
+        {alt:"rhyme", src: five,className: "carousel-img"},
+        {alt: "Create Note image", src: one, className: "carousel-img"},
+        {alt:"Note Pad image", src: three,className: "carousel-img"}
       ]
     }
   }
 
   componentDidMount () {
     this.props.fetchingNotes()
+    const images = this.state.images.slice()
+    const imageLength = images.length -1; 
+    images.map((image,i) => i === imageLength ? image.className = "carousel-img active-img" : image.className = "carousel-img nonactive-img")
+    this.setState({images})
   }
 
   idGenerator = () => {
@@ -73,35 +79,40 @@ class App extends Component {
 
   }
   nextClick = () => {
-    console.log("clicked")
     const images = this.state.images.slice()
     const last = images.pop()
     images.unshift(last)
+    console.log(images[images.length-1])
     console.log(images)
+    const imageLength = images.length -1; 
+    images.map((image,i) => i === imageLength ? image.className = "carousel-img active-img" : image.className = "carousel-img nonactive-img")
     this.setState({images})
   }
   previousClick = () => {
-    console.log("previous")
-    const images = this.state.images.slice()
+    let images = this.state.images.slice()
     const first = images.shift()
     images.push(first)
     console.log(images)
+    console.log(images[images.length-1])
+    const imageLength = images.length -1; 
+    images.map((image,i) => i === imageLength ? image.className = "carousel-img active-img" : image.className = "carousel-img nonactive-img")
     this.setState({images})
   }
 
   render() {
-    console.log(this.props)
     return (
     <Router>
       <div className="App">
         <div className="heading">
-          <h3 className= "app-header"><input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> </h3>
+          <h3 className= "app-header"> {/* <input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> */}</h3>
           <div className = "scene">
             {this.state.images.map(image => <div key = {image.alt} className ="carousel-cell">
-              <img /*onMouseOver ={this.imgHover}*/ onClick = {this.imgClick} className = "carousel-img" src={image.src} alt={image.alt}/>
+              <img /*onMouseOver ={this.imgHover}*/ onClick = {this.imgClick} className = {image.className} src={image.src} alt={image.alt}/>
             </div>)}
           </div>
-          <button onClick = {this.previousClick} className = "btn-side-bar">Previous</button><button onClick = {this.nextClick} className = "btn-side-bar">Next</button>
+          <div className ="btns"><button onClick = {this.previousClick} className = "btn-side-bar menu-options"><i className="fas fa-backward"></i></button><button onClick = {this.nextClick} className = "btn-side-bar menu-options"><i className="fas fa-forward"></i></button></div>
+          <br/>
+          <br/>
           <hr/>
         </div>
         <Route render={({location}) => (

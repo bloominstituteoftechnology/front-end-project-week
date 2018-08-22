@@ -192,25 +192,24 @@ input {
   width: 0%; 
 }
 .carousel-img{
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .scene {
-  width: 500px;
+  width: 210px;
   height: 140px;
   position: relative;
   perspective: 1000px;
-  border: 1px solid black;
+  margin: 0 auto;
 }
 .carousel {
   width: 100%;
   height: 100%;
   position: absolute;
-  transform-style: prserve-3d;
-  display: flex;
-  justify-content: center;
-  border: 1px sold blue;
+  transform-style: perserve-3d;
+  transform: translateZ(-31px) rotateY(-20deg)
+  
 }
 .carousel-cell{
   position: absolute;
@@ -220,16 +219,34 @@ input {
   top:10px; 
 }
 .carousel-cell:nth-child(1){
-  transform: rotateY(0deg);
+  transform: rotateY(0deg) translateZ(131px);
+
 }
 .carousel-cell:nth-child(2){
-  transform: rotateY(90deg);
+  transform: rotateY(17deg) translateZ(131px);
 }
 .carousel-cell:nth-child(3){
-  transform: rotateY(180deg);
+  transform: rotateY(34) translateZ(131px);
 }
 .carousel-cell:nth-child(3){
-  transform: rotateY(270deg);
+  transform: rotateY(51deg) translateZ(131px);
 }
-
-
+.carousel-cell:nth-child(4){
+  transform: rotateY(68deg) translateZ(131px);
+}
+.active-img {
+  box-shadow: -10px 5px 5px #24B8BD;
+  border: 1px solid #D3D2D3; 
+}
+.active-img:hover {
+  cursor:pointer;
+}
+.nonactive-img {
+  opacity: .20;
+}
+.btns {
+  margin-left: 80px;
+} 
+.menu-options {
+  max-width: 50px;
+}
