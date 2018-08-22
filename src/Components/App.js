@@ -23,11 +23,17 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://thawing-dawn-77220.herokuapp.com/notes')
+      .get(`${process.env.REACT_APP_API}`)
       .then(response => {
-        this.setState({ notes: response.data })
+        this.setState({ test: response })
       })
       .catch(err => {console.log(err)})
+    // axios
+    //   .get('https://thawing-dawn-77220.herokuapp.com/notes')
+    //   .then(response => {
+    //     this.setState({ notes: response.data })
+    //   })
+    //   .catch(err => {console.log(err)})
   }
   handleSetData = data => {this.setState({ notes: data, deleting: false })}
   toggleDeleting = () => {this.setState({ deleting: !this.state.deleting })}
