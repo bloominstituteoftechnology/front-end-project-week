@@ -26,7 +26,8 @@ class NotesContainer extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addNewNote = () => {
+  addNewNote = (e) => {
+    e.preventDefault();
     this.props.addNewNote(this.state.title, this.state.content);
     this.setState({
       title: "",
@@ -35,12 +36,12 @@ class NotesContainer extends Component {
   };
 
   editNote = (id) => {
-    id = parseInt(id, 10);
-    let copy = this.state.data.slice();
-    let i = copy.findIndex(note => note.id === id);
-    copy.splice( i, 1, { id: id, title: this.state.title, content: this.state.content} )
-    this.setState({ data: copy });
-    }
+    this.props.editNote(this.state.title, this.state.content, id);
+    this.setState({
+      title: "",
+      content: ""
+    });
+  }
 
   render() {
     return (

@@ -69,8 +69,7 @@ const notesReducer = ( state = initialState, action) => {
       case NOTE_EDITED:
       return Object.assign({}, state, {
         updatingNote: false,
-        noteUpdated: true,
-        notes: action.payload
+        noteUpdated: true
       });
     default:
       return state;

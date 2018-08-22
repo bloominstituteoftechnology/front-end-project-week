@@ -1,6 +1,5 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
-import { Link } from "react-router-dom";
 
 class DeleteModal extends React.Component {
   constructor(props) {

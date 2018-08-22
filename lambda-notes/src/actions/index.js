@@ -49,10 +49,11 @@ export const addNewNote = (title, content) => {
       textBody: content
       })
       .then(response => {
-          //console.log(response);
-          //console.log(response.data);
-          dispatch({ type: NOTE_ADDED, payload: response });
+          dispatch({ type: NOTE_ADDED, payload: response.data });
       })
+      .then(() => {
+        window.location.replace("/");
+        })
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
       })
@@ -84,9 +85,12 @@ export const editNote = (title, content, id) => {
         title: title,
         textBody: content
           })
-      .then(response => {
-          dispatch({ type: NOTE_EDITED, payload: response.data });
+      .then(() => {
+          dispatch({ type: NOTE_EDITED });
       })
+      .then(() => {
+        window.location.replace("/");
+    })
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
       })

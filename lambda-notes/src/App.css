@@ -101,6 +101,7 @@ form {
 }
 .save-button:hover {
   color: white;
+  cursor: pointer;
 }
 
 /* page view options */
@@ -143,10 +144,6 @@ form {
   background-color: red;
   color: white;
 }
-/* .delete-modal .delete a:hover {
-  text-decoration: none;
-  cursor: default;
-} */
 .delete-modal .cancel {
   color: white;
   background-color: #32B7BD;
