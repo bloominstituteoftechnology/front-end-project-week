@@ -32,7 +32,7 @@ class EditNote extends Component {
                 <form className="add-form" >
                     <input className="edit-title-input" name="title" onChange={this.handleInputChange} value={this.state.title} /> <br/>
                     <textarea className="edit-text-input" name="text" onChange={this.handleInputChange} value={this.state.text} />
-                    <Link to={`/notes/${denoted.id}`} ><div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text); this.props.history.push(`/notes/${denoted.id}`); }}  >Save</div></Link>
+                    <Link to={`/notes/${denoted.id}`} ><div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text); this.props.history.push(`/notes/${denoted.id}`); }}  >Update</div></Link>
                 </form> {/* */}
             </div>
         )  

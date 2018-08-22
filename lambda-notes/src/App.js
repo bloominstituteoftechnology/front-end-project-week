@@ -49,7 +49,7 @@ class App extends Component {
   }
 
   editNoteSubmit = (noteID, title, text) => {
-    this.setState(function (prevState, props) {
+    this.setState(function (prevState) {
       return {
         notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, text} : note )
       }
