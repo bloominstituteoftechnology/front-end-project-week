@@ -1,16 +1,32 @@
 import React from 'react';
 import './NoteView.css';
-import axios from 'axios';
 
-const NoteView = props => {
+class NoteView extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            notes: props.notes,
+            note: {}
+        };
+        console.log("NoteView", props);
+    }
+    
+    componentDidMount() {
+        const note = this.state.notes.find(note => note.id == this.props.match.params.id);
+        console.log("note", note)
+        if (!note) return;
+        this.setState({note});
+    }
+    
+     render() {
+        const {title, textBody} = this.state.note;
+        return (
+            <div>
+                <h2>{title}</h2>
+                <p>{textBody}</p>
+            </div>
+        );
+    }
+};
 
-    return (
-        <div className="list-container">
-            <h3 className="note-title">Individual Note</h3>
-            <p>content</p>
-        </div>
-    )
-
-}
-
-export default NoteView;
+ export default NoteView; 

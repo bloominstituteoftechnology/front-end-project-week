@@ -9,11 +9,35 @@ import {
 
 import ListView from '../ListView/ListView';
 import NewNote from '../NewNote/NewNote';
-import NewView from '../NoteView/NoteView';
+import NoteView from '../NoteView/NoteView';
 
 class SideMenu extends Component {
     constructor() {
         super();
+        this.state = {
+            notes: [
+                {
+                    id: 0,
+                    title: "Note 0",
+                    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+                },
+                {
+                    id: 1,
+                    title: "Note 1",
+                    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+                },
+                {
+                    id: 2,
+                    title: "Note 2",
+                    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+                },
+                {
+                    id: 3,
+                    title: "Note 3",
+                    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+                }
+            ],
+        }
     }
     
     render() {
@@ -27,9 +51,9 @@ class SideMenu extends Component {
                     </div>     
                 </ul>
 
-                <Route exact path="/" component={ListView} className="example"/>
+                <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />}/>
                 <Route exact path="/create-new-note/" component={NewNote} />
-                <Route path="/note-view/:title/" component={NewView} />
+                <Route path="/note-view/:id" render={(props) => <NoteView {...props} notes={this.state.notes} />}/>
             </div>
         );
     }
