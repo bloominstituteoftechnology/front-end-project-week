@@ -8,26 +8,43 @@ class EditNote extends React.Component {
         super(props);
         this.state = {
             notes: props.notes,
-            note: {}
+            note: {},
+            title: '',
+            content: ''
         }
     }
-    // componentDidMount() {
-    //     let noteID = this.props.match.params.id;
-    //     const note = this.state.notes.find(
-    //         note => note.id === Number(noteID)
-    //     );
-    //     if (!note) return;
-    //     this.setState({ note });
-    // }Í
-
-    handleEdit = (event) => {
-        event.preventDefault();
+    componentDidMount() {
         let noteID = this.props.match.params.id;
         const note = this.state.notes.find(
             note => note.id === Number(noteID)
         );
-        this.props.editNote(note);
+        if (!note) return;
+        this.setState({ note });
+    }Í
+
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const updatedNote = {
+          id: this.state.note.id,
+          title: this.state.title,
+          content: this.state.content
+        }
+        this.props.onNoteUpdate(updatedNote);
       }
+
+      handleInputChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+      };
+
+    // handleEdit = (event) => {
+    //     event.preventDefault();
+    //     let noteID = this.props.match.params.id;
+    //     const note = this.state.notes.find(
+    //         note => note.id === Number(noteID)
+    //     );
+    //     this.props.editNote(note);
+    //   }
 
     //   Object.assign({}, state, {
     //     addedSmurf: true,
@@ -55,13 +72,13 @@ class EditNote extends React.Component {
                 <Form>
                     <Row>
                         <Col sm="7">
-                            <Input onChange={this.props.handleInputChange} type="text" name="title" placeholder="Note Title" style={{ marginTop: 30 + 'px' }} value={this.props.title} />
+                            <Input onChange={this.handleInputChange} type="text" name="title" placeholder="Note Title" style={{ marginTop: 30 + 'px' }} value={this.state.title} />
                         </Col>
                     </Row>
-                    <Input onChange={this.props.handleInputChange} type="textarea" name="content" placeholder="Note Content" rows="15" style={{ marginTop: 15 + 'px' }} value={this.props.content} />
+                    <Input onChange={this.handleInputChange} type="textarea" name="content" placeholder="Note Content" rows="15" style={{ marginTop: 15 + 'px' }} value={this.state.content} />
                     <Row>
                         <Col sm="4">
-                            <Button onClick={this.handleEdit} onMouseUp={() => this.props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} block>Update</Button>
+                            <Button onClick={this.handleSubmit} onMouseUp={() => this.props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} block>Update</Button>
                         </Col>
                     </Row>
                 </Form>

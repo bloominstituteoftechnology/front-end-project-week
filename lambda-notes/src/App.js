@@ -73,14 +73,38 @@ class App extends Component {
     this.setState({ notes })
   }
 
-  editNote = note => {
-    this.setState({
-      title: note.title,
-      content: note.content,
-      isEdit: note.id
-    })
+  onNoteUpdate = note => {
+    let notes = this.state.notes.slice();
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].id === note.id) {
+        notes.splice(i, 1);
+      }
+    }
+    notes.push(note)
+    this.setState({ notes })
   }
 
+  // if (notes[i].id === this.isEdit) 
+
+
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const updatedNote = {
+      id: this.state.isEdit,
+      title: this.state.title,
+      content: this.state.content
+    }
+    this.onNoteUpdate(updatedNote);
+  }
+
+  // editNote = note => {
+  //   this.setState({
+  //     title: note.title,
+  //     content: note.content,
+  //     isEdit: note.id
+  //   })
+  // }
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -105,7 +129,7 @@ class App extends Component {
           />
           <Route
             exact path="/notes/:id/edit"
-            render={(props) => <EditNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} setNotesData={this.setNotesData} editNote={this.editNote} {...this.state}/>}
+            render={(props) => <EditNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} onNoteUpdate={this.onNoteUpdate} setNotesData={this.setNotesData} editNote={this.editNote} {...this.state}/>}
           />
         </div>
       </div>
