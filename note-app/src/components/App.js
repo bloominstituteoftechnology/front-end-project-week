@@ -12,6 +12,9 @@ import ViewAllNotes from './notes';
 import FullNote from './FullNote';
 import DeleteModal from './delete-note';
 import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote,searchingNotes} from '../actions'; 
+import one from '../images/createNote.png';
+import two from '../images/trash.jpg';
+import three from '../images/notepad.png';
 
 
 class App extends Component {
@@ -64,13 +67,13 @@ class App extends Component {
           <h3 className= "app-header"><input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> </h3>
           <div className = "scene">
             <div className = "carousel-cell">
-              <img src="../images/trash.jpg" alt="trash of notes img"/>  
+              <img className ="carousel-img" src={two} alt="trash of notes img"/>  
             </div>
             <div className = "carousel-cell">
-              <img src="../images/createNote.png" alt="Create Note image"/>
+              <img className ="carousel-img" src={three} alt="Create Note image"/>
             </div>
             <div className = "carousel-cell">
-              <img src="../images/notepad.png" alt="Note Pad image"/>
+              <img className ="carousel-img" src={one} alt="Note Pad image"/>
             </div>
           </div>
           <hr/>
