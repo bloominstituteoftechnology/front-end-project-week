@@ -7,7 +7,11 @@ export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REARRANGE_NOTES = 'REARRANGE_NOTES';
 export const RECEIVE_TAGS = 'RECEIVE_TAGS';
 
+<<<<<<< HEAD
 const url = process.env.SERVER || 'http://localhost:8000';
+=======
+const url = 'http://localhost:8000';
+>>>>>>> parent of 5ff900f... add env server address support
 
 export const fetchNotes = (cb) => dispatch => {
   return axios
