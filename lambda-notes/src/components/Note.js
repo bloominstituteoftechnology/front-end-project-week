@@ -63,8 +63,8 @@ class Note extends Component {
 const mapStateToProps = ({ notes }) => {
     console.log(notes);
     return {
-        note: notes.note,
-        tags: notes.note.tags
+        note: notes.note[0],
+        tags: notes.note[0].tags
     };
 }
 
