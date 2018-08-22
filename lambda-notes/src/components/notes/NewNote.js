@@ -10,13 +10,7 @@ class NewNote extends Component {
     };
   }
 
-  inputChangeHandler = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
   render() {
-    console.log("TITLE", this.state.title);
-    console.log("DESCRIPTION", this.state.description);
     return (
       <div>
         <h2>New Note:</h2>
@@ -24,12 +18,12 @@ class NewNote extends Component {
           <input
             placehold="Note Title"
             name="title"
-            onChange={this.inputChangeHandler}
+            onChange={this.props.inputChangeHandler}
           />
           <input
             placehold="Note Content"
             name="description"
-            onChange={this.inputChangeHandler}
+            onChange={this.props.inputChangeHandler}
           />
           <button>Update</button>
         </form>

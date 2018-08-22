@@ -11,15 +11,22 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      loadedData: false
+      loadedData: false,
+      title: "",
+      description: ""
     };
   }
   componentDidMount() {
     this.setState({ notes: noteData, loadedData: true });
   }
 
+  inputChangeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
-    console.log("this.state.notes", this.state.notes);
+    console.log("this.state.notes", this.state.title);
+    console.log("this.state.notes", this.state.description);
     if (this.state.loadedData === false) {
       return (
         <div>
@@ -35,7 +42,15 @@ class App extends Component {
             path="/"
             render={props => <AllNotes {...props} notes={this.state.notes} />}
           />
-          <Route path="/new-note" component={NewNote} />
+          <Route
+            path="/new-note"
+            render={props => (
+              <NewNote
+                {...props}
+                inputChangeHandler={this.inputChangeHandler}
+              />
+            )}
+          />
           <Route path="/notes/:id" component={SingleNote} />
         </div>
       </Router>
