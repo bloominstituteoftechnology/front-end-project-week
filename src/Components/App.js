@@ -23,9 +23,9 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get(`${process.env.REACT_APP_API}`)
+      .get(`${process.env.REACT_APP_API}/notes`)
       .then(response => {
-        this.setState({ test: response })
+        this.setState({ notes: response.data })
       })
       .catch(err => {console.log(err)})
     // axios
