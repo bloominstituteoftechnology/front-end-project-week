@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Route} from 'react-router-dom';
-import './App.css';
+import {Route} from 'react-router-dom';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router';
@@ -11,6 +10,7 @@ import {
     DeleteNote,
     NewNote,
     NoteDetails,
+    LeftMenu,
      } from './components';
 
 import {
@@ -25,33 +25,6 @@ const AppDiv = styled.div`
     flex-direction: row;
     z-index: 0;
     height: 100%;
-    .left-menu {
-      border: 1px solid lightgray;
-      background-color: #D7D7D7;
-      height: 100vh;
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      h1{
-        ${'' /* border: 1px solid green; */}
-        padding: 10px;
-        width: 80%;
-
-      }
-      .menu-item{
-        ${'' /* border: 1px solid red; */}
-        width: 70%;
-        padding: 15px;
-        text-align: center;
-        text-decoration: none;
-        color: white;
-        background-color: #2AC0C4;
-        font-weight: bold;
-        margin: 10px;
-        border: 1px solid gray;
-      }
-    }
     .right-display{
       ${'' /* border: 1px solid blue; */}
       background-color: #F3F3F3;
@@ -105,9 +78,6 @@ class App extends Component {
 
   componentDidMount = ()=> {
     this.props.getNotes();
-    this.setState({
-      notes: this.props.state.notes
-    })
   }
 
   getNoteDetails = (id) => {
@@ -139,19 +109,13 @@ class App extends Component {
   }
 
   render() {
+    const notesArr = this.props.state.notes;
+    console.log(notesArr)
     return (
         <AppDiv>
 
-          <div className="left-menu">
-            <h1>Lambda Notes</h1>
-            <Link className="menu-item" to="/all-notes">View Your Notes</Link>
-            <Link className="menu-item" to="/new-note">+ Create New Note</Link>
-            <Link className="menu-item" to="/new-note">1</Link>
-            <Link className="menu-item" to="/new-note">2</Link>
-            <Link className="menu-item" to="/new-note">3</Link>
-            <Link className="menu-item" to="/new-note">4</Link>
+          <LeftMenu />
 
-          </div>
 
           <div className="right-display">
             <Route

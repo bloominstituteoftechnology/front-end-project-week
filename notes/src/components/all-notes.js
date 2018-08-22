@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import NotePreview from './note-preview.js';
 
@@ -35,8 +34,6 @@ export default class AllNotes extends Component {
     return (
       <AllNotesDiv>
         <h3>Your Notes:</h3>
-        {
-        }
         <div className="all-notes">
           {this.props.notes.map((note, index) => {
             // let url = decodeURI(note.title)
@@ -45,6 +42,7 @@ export default class AllNotes extends Component {
             //------------------------------??----------------------
             return (
               <NotePreview
+                key={index}
                 index={index}
                 note={note}
               />)

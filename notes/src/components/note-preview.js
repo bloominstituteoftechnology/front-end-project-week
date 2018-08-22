@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import { withRouter } from 'react-router';
-import { findDOMNode } from 'react-dom';
 
 const NotePreviewDiv = styled.div`
   .note-preview {
@@ -66,20 +63,34 @@ const NotePreviewDiv = styled.div`
 
 export default class NotePreview extends Component {
 
+  drag_handler(e) {
+   console.log("Drag");
+   e.target.style.color = "red"
+  }
+
+  dragstart_handler(e) {
+    console.log("dragStart");
+    e.dataTransfer.setData("text", e.target.id);
+   }
+
   render() {
-    console.log(this.props)
-    const { note, index } = this.props;
+    // console.log(this.props)
+    const { note, index, key } = this.props;
 
     return (
-
-            <NotePreviewDiv>
+            <NotePreviewDiv
+              draggable
+              onDrag={this.drag_handler}
+              onDragStart={this.dragstart_handler}
+              >
               <Link
+                key={key}
                 index={index}
                 className="note-link"
                 _id={note._id}
-                to={`/all-notes/${note._id}`}
-                >
-                  <div className="note-preview">
+                to={`/all-notes/${note._id}`}>
+
+                  <div key={index} className="note-preview">
 
                     <div className="notTags">
                       <h3>{note.title}</h3>
