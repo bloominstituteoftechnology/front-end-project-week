@@ -16,6 +16,14 @@ const NewNotePage = props => {
           value={props.value.title}
           name="title"
         />
+         <input
+          placeholder="Tags"
+          type="text"
+          className="title-input"
+          onChange={props.handleInputChange}
+          value={props.value.tags}
+          name="tags"
+        />
         <textarea
           placeholder="Content"
           type="text"

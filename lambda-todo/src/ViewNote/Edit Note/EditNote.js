@@ -15,6 +15,14 @@ const EditNote = props =>{
             onChange={props.handleInputChange}
             defaultValue={props.titleEdit}
             />
+            <input
+            placeholder="Tags"
+            type="text"
+            name="tagsEdit"
+            className="title-input"
+            onChange={props.handleInputChange}
+            defaultValue={props.tagsEdit}
+            />
             <textarea 
             placeholder="Content"
             type="text"

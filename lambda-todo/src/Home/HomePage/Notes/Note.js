@@ -12,6 +12,9 @@ const Note = props => {
               <NavLink to={`/view-note/${item.id}`} className="title">
                 <h2>{item.title}</h2>
               </NavLink>
+              <div className="tag-container">
+                  <p className="tags">Tags: {item.tags}</p>
+                </div>
               <div className="line"></div>
               <div className="content">
                 <p>{item.content}</p>

@@ -1,6 +1,7 @@
 let Notes = [
   {
     id: 1,
+    tags: ["Beach", "Swimming"],
     title: "Summer Plans",
     cardcontent: 
        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -9,6 +10,7 @@ let Notes = [
   },
   {
     id: 2,
+    tags:["Healthy", "Budget"], 
     title: "Groceries",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -17,6 +19,7 @@ let Notes = [
   },
   {
     id: 3,
+    tags: ["Horror-Movies", "Fun", "Popcorn"],
     title: "Movie Night",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -25,6 +28,7 @@ let Notes = [
   },
   {
     id: 4,
+    tags: ["money", "frugal"],
     title: "Budget",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -33,6 +37,7 @@ let Notes = [
   },
   {
     id: 5,
+    tags: ["side-hustle"],
     title: "Side Jobs",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -41,6 +46,7 @@ let Notes = [
   },
   {
     id: 6,
+    tags: ["house", "cleaning"],
     title: "House Work",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -49,6 +55,7 @@ let Notes = [
   },
   {
     id: 7,
+    tags: ["yard"],
     title: "Garden Work",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -57,6 +64,7 @@ let Notes = [
   },
   {
     id: 8,
+    tags: ["Study", "JavaScript", "React"],
     title: "Coding Notes",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
@@ -65,6 +73,7 @@ let Notes = [
   },
   {
     id: 9,
+    tags: ["Dogs", "Bags", "Park"],
     title: "Walk the Dog",
     cardcontent: 
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",

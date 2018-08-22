@@ -17,10 +17,12 @@ class App extends Component {
       deleting: false,
       title: "",
       content: "",
-      cardcontent: "",
+      tags: "",
       id: null,
       contentEdit: "",
-      titleEdit: ""
+      tagsEdit: "", 
+      titleEdit: "", 
+      completed: false, 
     };
   }
   addNote = () => {
@@ -65,7 +67,8 @@ class App extends Component {
     let noteedit = copiedNote.find(note => note.id == id);
     this.setState({
       titleEdit: noteedit.title,
-      contentEdit: noteedit.content
+      contentEdit: noteedit.content, 
+      tagsEdit: noteedit.tags, 
     });
   };
 
@@ -74,8 +77,18 @@ class App extends Component {
     let noteedit = copiedNote.find(note => note.id == id);
     noteedit.title = this.state.titleEdit;
     noteedit.content = this.state.contentEdit;
+    noteedit.tags = this.state.tagsEdit
     this.setState({ notes: copiedNote });
   };
+  complete = () =>{
+    let completed = !this.state.completed; 
+    this.setState({completed})
+  }
+  completeNote = id =>{
+    let copiedNote = this.state.notes.slice(); 
+    let noteComplete = copiedNote.filter(note => note.id !== id);
+    this.setState({notes: noteComplete, completed: false}) 
+  }
 
   render() {
     return (
@@ -88,7 +101,13 @@ class App extends Component {
             exact
             path="/"
             render={props => (
-              <NotesHolder {...props} notes={this.state.notes} />
+              <NotesHolder
+               {...props}
+                notes={this.state.notes} 
+                complete={this.complete}
+                completed={this.state.completed}
+                value={this.state.completed}
+                />
             )}
           />
           <Route
@@ -126,6 +145,7 @@ class App extends Component {
                   handleInputChange={this.inputChange}
                   titleEdit={this.state.titleEdit}
                   contentEdit={this.state.contentEdit}
+                  tagsEdit={this.state.tagsEdit}
                   revisions={this.revisions}
                   />}
           />

@@ -41,7 +41,7 @@ const ViewNote = props => {
       <div className="note-title">{note.title}</div>
       <p className="extended-content">{note.content}</p>
       </div>
-    </div>
+      </div>
   );
 };
 export default ViewNote;
