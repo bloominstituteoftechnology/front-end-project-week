@@ -60,8 +60,8 @@ class LambdaDelete extends Component {
         const id = this.props.match.params.id;
         axios.delete(`http://localhost:8000/notes/${id}`).then(res => {
             this.setState({id: null});
-            this.props.history.push('/');
             this.props.toggleDelete();
+            this.props.history.push('/');
         }).catch(err => console.log(err))
     }
     

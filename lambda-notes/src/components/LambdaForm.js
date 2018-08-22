@@ -17,7 +17,15 @@ class LambdaForm extends Component {
         };
     }
 
+    componentDidMount()  {
+        this.setState({ title: '', content: ''});
+    }
 
+    componentWillUnmount () {
+        localStorage.setItem('title', this.state.title);
+        localStorage.setItem('content', this.state.content);
+    }
+     
 
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
@@ -28,12 +36,14 @@ class LambdaForm extends Component {
             title: this.state.title,
             content: this.state.content
     };
-    
+
+    this.setState({
+        title: '',
+        content: ''        
+    })
+
     axios.post("http://localhost:8000/notes", note).then(res => {
-        this.setState({
-            title: '',
-            content: ''        
-        })
+       
         this.props.history.push('/');
     }).catch(err => 
         console.log(err))

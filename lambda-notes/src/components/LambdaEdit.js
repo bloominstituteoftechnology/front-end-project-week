@@ -42,10 +42,11 @@ class LambdaEdit extends Component {
             content: this.state.notes.content
         }
 
+        this.setState({ id: null, notes: { id: null, title: '', content: ''}})
+
         axios.put(`http://localhost:8000/notes/${id}`, notes).then(res => {
             console.log('before',res)
             this.props.history.push('/');
-            this.setState({ id: null, notes: { id: null, title: '', content: ''}})
         }).catch(err => console.log(err))
         
     }

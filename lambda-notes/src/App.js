@@ -24,16 +24,12 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      title: '',
-      content: '',
       selected: {},
       remove: false
     }
   }
 
-  // Lambda View
-
-  componentDidMount() {
+  componentDidMount() { 
     axios.get('http://localhost:8000/notes').then(res => {
       console.log('res', res)
       this.setState({notes: res.data})
@@ -42,13 +38,10 @@ class App extends Component {
     })
   }
 
-  handleSetData = data => this.setState({ notes: data})
-
-
-
   handleSelectNote = note => {
     this.setState({ selected: note });
   }
+
 
   //Lambda Delete
   
@@ -62,7 +55,7 @@ class App extends Component {
         <Route path="/" component={LambdaNav}/>
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props}  />)} />
-        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} handleRefresh={this.handleRefresh} notes={this.state.notes} handleSetData={this.handleSetData} />)} />
+        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} handleRefresh={this.handleRefresh} notes={this.state.notes} />)} />
         <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} toggleDelete={this.toggleDelete} />)} />
         {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} toggleDelete={this.toggleDelete} />)} />) : null}
       </StyledContainer>
