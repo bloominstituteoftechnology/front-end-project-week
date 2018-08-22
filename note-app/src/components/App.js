@@ -58,6 +58,9 @@ class App extends Component {
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value})
   }
+  imgClick = event => {
+    console.log(event.target)
+  }
 
   render() {
     console.log(this.props)
@@ -68,13 +71,13 @@ class App extends Component {
           <h3 className= "app-header"><input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> </h3>
           <div className = "scene">
             <div className = "carousel-cell">
-              <img className ="carousel-img" src={two} alt="trash of notes img"/>  
+              <img onClick = {this.imgClick} className ="carousel-img" src={two} alt="trash of notes img"/>  
             </div>
             <div className = "carousel-cell">
-              <img className ="carousel-img" src={three} alt="Create Note image"/>
+              <img onClick = {this.imgClick} className ="carousel-img" src={three} alt="Create Note image"/>
             </div>
             <div className = "carousel-cell">
-              <img className ="carousel-img" src={one} alt="Note Pad image"/>
+              <img onClick = {this.imgClick} className ="carousel-img" src={one} alt="Note Pad image"/>
             </div>
           </div>
           <button className = "btn-side-bar">Previous</button><button className = "btn-side-bar">Next</button>
