@@ -9,6 +9,7 @@ import ListView from './components/ListView/ListView';
 import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
 import NewNote from './components/CreateNote/NewNote';
 import NoteView from './components/NoteView';
+import Authenticate from './Authentication ';
 
 class App extends Component {
   state = {
@@ -81,4 +82,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search, sort })(App))
+export default Authenticate(withRouter(connect(mapStateToProps, { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search, sort })(App)))
