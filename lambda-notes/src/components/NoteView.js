@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
+
 const ViewNote = styled.div`
     display: flex;
     flex-direction: column;
@@ -54,7 +55,7 @@ class NoteView extends Component {
         this.state = {
             id: '',
             title: '',
-            content: ''            
+            content: ''         
          }
     }
 
@@ -89,6 +90,7 @@ class NoteView extends Component {
       }
 
     render() {
+        
         return ( 
             <ViewNote>
                 <ButtonsContainer>

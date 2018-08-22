@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const NoteDisplay = styled.div`
 
-    max-width: 30%;
+    width: 30%;
     margin: 10px;
     overflow: hidden;
     height: 200px;

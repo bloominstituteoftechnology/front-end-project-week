@@ -9,16 +9,13 @@ const SearchBar = styled.div`
     align-items: center;
     background: #36454F;
     height: 50px;
-    left: 0;
-    right: 0;
-    top: 0;
     
     > input {
         width: 50%;
         padding: 5px;
         height: 30px;
+        font-size: 1.6rem;
     }
-
 `
 const Search = (props) => {
     return(

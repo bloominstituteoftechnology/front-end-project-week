@@ -13,11 +13,11 @@ const ListNotes = styled.div`
 const ListView = styled.div`
     width: 100%;
     background: #DCDCDC;
-    padding: 20px;
 
     > h1 {
         font-weight: bold;
         font-size: 2.4rem;
+        margin: 10px;
     }
 
 `

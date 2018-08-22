@@ -10,6 +10,7 @@ import EditNote from './components/EditNote';
 
 
 
+
 const Application = styled.div`
 
   max-width: 1024px;
@@ -54,7 +55,7 @@ handleSearch = (event) => {
   render() {
     return (
       <Application>
-        <SideNav />
+        <SideNav {...this.props} notes={this.state.notes}/>
         <Route path='/add-note' component={NewNote} />
         <Route exact path='/notes' render={(props) => (
           <NotesList {...props} notes={this.state.notes} 
