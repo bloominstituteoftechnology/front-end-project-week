@@ -18,10 +18,11 @@ class NoteList extends React.Component {
   }
 
   onSort = (sortedList) => {
+    console.log(sortedList);
     const updatedNoteOrdering = JSON.stringify(sortedList.map(note => {
-      return Number(note.id);
+      return Number(note.rank);
     }));
-    this.props.updateNoteOrdering(updatedNoteOrdering);
+    this.props.updateNoteOrdering({ noteOrdering: updatedNoteOrdering });
   }
 
   render() {

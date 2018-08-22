@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const usersUrl = `http://localhost:8000/api/users`;
+const usersUrl = `http://localhost:8000/api`;
 const notesUrl = `http://localhost:8000/api/notes`;
 
 export const getNotes = () => {
@@ -18,9 +18,10 @@ export const getNotes = () => {
 }
 
 export const updateNoteOrdering = (updatedNoteOrdering) => {
+  console.log("redux: ", updatedNoteOrdering);
   return dispatch => {
     axios
-      .put(usersUrl, updatedNoteOrdering)
+      .put(`${usersUrl}/ordering`, updatedNoteOrdering)
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });
       });
