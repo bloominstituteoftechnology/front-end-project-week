@@ -1,0 +1,166 @@
+/* Index styles */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #F3F3F3;
+}
+
+/* App styles */
+
+.App {
+  text-align: left;
+  font: 'Raleway' Medium;
+  color: #4A4A4A;
+}
+
+/* 
+
+Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: solid 1px #979797;
+
+*/
+
+/* Sidebar styles */
+
+.sidebar {
+  height: 100%;
+  width: 26.5vw;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #D8D8D8;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.navlinks {
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+align-items: flex-start;
+padding-left: 2.3vw;
+font-weight: bold;
+}
+
+/* Notes styles */
+
+.notesheading {
+  margin-left: 29vw;
+  margin-top: 10vh;
+}
+
+.notes {
+  margin-left: 26.5vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Notecard styles */
+
+.notecard {
+  margin: 10px;
+  border: solid 1px #979797;
+  width: 21.7vw;
+  background: white;
+  padding: 10px 20px 0 20px;
+  box-sizing: border-box;
+  min-height: 220px;
+  
+}
+
+.notecardbody {
+  font-weight: lighter;
+  line-height: 24px;
+}
+
+/* Create note Styles */
+
+.createnote {
+  margin-top: 10vh;
+  margin-left: 26.5vw;
+  margin-right: 50px;
+}
+
+input::placeholder {
+  font-size: 18px;
+  color: grey;
+}
+
+input {
+  font-size: 18px;
+  color: grey;
+}
+
+ .createheading {
+   margin-left: 20px;
+   color: #505050
+ }
+
+.notetitle {
+  height: 70px;
+  width: 38.5vw;
+  margin: 0 20px 20px 20px;
+}
+
+.notecontent {
+  height: 445px;
+  width: 68.8vw;
+  margin: 0 20px 20px 20px;
+}
+
+.savebutton {
+  color: white;    
+text-decoration: none;
+background-color: #2BC1C4; 
+border: solid 1px #979797;
+width: 21.7vw;
+height: 40px;
+text-align: center;
+margin-left: 20px;
+font-size: 1.4em;
+}
+
+/* Note styles */
+
+.note {
+  margin: 70px 14vw 10vw 28vw;
+  line-height: 24px;
+}
+
+.notetitle {
+  color: #505050;
+  font-size: 24px;
+}
+
+
+.editdeletebuttons {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+}
+
+.editdeletebuttons a {
+  margin: 0px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Search styles */
+
+.searchbar {
+  margin-left: 26.5vw;
+}
