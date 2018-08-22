@@ -1,5 +1,7 @@
 import React from 'react';
 import SideBar from './side-bar'
+import {Link, Route} from 'react-router-dom'
+import SearchFullNote from './SearchFullNote'
 
 class Search extends React.Component {
     constructor(props){
@@ -8,7 +10,8 @@ class Search extends React.Component {
             search: '',
             results: [],
             searches:[],
-            dataIn: false
+            dataIn: false,
+            select: null 
         }
     }
 
@@ -34,7 +37,7 @@ class Search extends React.Component {
                 display.push(result.title)
                 console.log("pushed it")
                 }
-                }
+              }
             })
         })
         console.log(display)
@@ -53,6 +56,20 @@ class Search extends React.Component {
         console.log("after delete")
         return setTimeout(() => {this.handleSearch()},300)
     }
+    selecting = (note) =>{
+        console.log(this.props)
+        let select = this.props.notes.filter(nt => nt.title === note)
+        console.log(select[0])
+        select= select[0]
+        // this.props.history.push({
+        //     pathname: `/search/${note}`,
+        //     search: '?query=abc',
+        //     state: { select: select }
+        // })
+        // return <Link to = {{pathname: `/search/${note}`,
+        // search: '?query=abc',
+        // state: { select: select }}}></Link>
+    }
 
 
     render(){
@@ -66,14 +83,16 @@ class Search extends React.Component {
         return (
             <div className="main-container">
               <SideBar />
-              <div className="searching-form">
+              <div className="create-note-form searching-form">
                   
                   <input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search"/> <button onClick ={this.handleSearch} className ="btn-side-bar">Search</button>
                   <div className = "keywords">
                     <h5>keywords: </h5>
                     {searches.map((search,i)=> <i onClick ={this.handleKeywordClick} key ={i} className="far fa-times-circle">{search}</i>)}
                   </div>
-                  {notes.map((note,i) => <div className = "title-search" key={i}>{note}</div>)}
+                {notes.map((note,i) => <Link to = {{pathname:`/search/${note}`, state: this.props.notes.filter(nt => nt.title === note)[0]}} key ={note}><div className = "title-search" key={i}>{note}</div></Link>)}
+                  <Route path = {`/search/:id`} render = {props => <SearchFullNote  {...props} /> } />
+
               </div>
             </div>
         )

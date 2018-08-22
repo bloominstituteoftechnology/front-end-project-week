@@ -12,6 +12,7 @@
 }
 .side-bar a:hover {
   box-shadow: 10px 5px 5px #24B8BD;
+  z-index: 1
 }
 .heading {
   max-width: 578px;
@@ -256,6 +257,10 @@ input {
 
 .title-search {
   text-decoration: underline; 
+  margin-bottom: 10px;
+}
+.title-search:hover {
+  cursor:pointer;
 }
 
 .fa-times-circle:hover{
