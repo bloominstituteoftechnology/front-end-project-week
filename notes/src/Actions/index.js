@@ -13,20 +13,38 @@ export const THEME_SWITCH = 'THEME_SWITCH';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DONE_SAVING = 'DONE_SAVING';
 
+//firebase action to get notes
+// export const getNotes = () => {
+//  return dispatch => {
+//      dispatch(()=> {
+//     let notesRef = firebase.database().ref('notes');
+//     notesRef.on('value', snapshot => {
+//       // console.log(snapshot.val())
+//       let dataArray = Object.values(snapshot.val());
+//      console.log('snapshot', [snapshot.val()]);
+//      console.log('dataArray', dataArray);
+//      dispatch({type: GET_NOTES, payload: dataArray})
+//     })
+//      })
+//  }
+// }
 
 export const getNotes = () => {
- return dispatch => {
-     dispatch(()=> {
-    let notesRef = firebase.database().ref('notes');
-    notesRef.on('value', snapshot => {
-      // console.log(snapshot.val())
-      let dataArray = Object.values(snapshot.val());
-     console.log('snapshot', [snapshot.val()]);
-     console.log('dataArray', dataArray);
-     dispatch({type: GET_NOTES, payload: dataArray})
+  return dispatch => {
+    dispatch(() => {
+      axios
+      .get('http://localhost:8000/api/notes')
+      .then(response =>{
+       const dataArray = response.data;
+       console.log('data response', response.data)
+       dispatch({
+         type: GET_NOTES,
+         payload: dataArray
+       })
+      })
+
     })
-     })
- }
+  }
 }
 
 export const addNote = (e, note, history) => {
