@@ -47,9 +47,16 @@ hr {
   padding: 50px 15px;
   text-align: left;
 }
+.notes-container {
+  width: 100%;
+}
+.notes-container h2 {
+  display: inline-block;
+}
 .notes {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 .notes a:hover {
   text-decoration: none;
@@ -156,4 +163,13 @@ hr {
 }
 .modal .modal-content button {
   margin: 20px 10px;
+}
+.dropdown {
+  float: right;
+}
+.dropdown .dropdown-menu {
+  width: 100%;
+}
+.dropdown .dropdown-menu .dropdown-item {
+  cursor: pointer;
 }

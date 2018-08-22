@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import { CSVLink } from 'react-csv';
+import Sidebar from './components/Sidebar';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import Modal from './components/DeleteModal';
+import Dropdown from './components/SortDropdown';
 
 class App extends Component {
   state = {
@@ -23,6 +24,7 @@ class App extends Component {
       text: 'You\'ve went and refreshed at the wrong time! Just view your notes to continue your lovely note experience.'
     },
     modal: false,
+    dropdown: false,
     nextId: 1
   };
 
@@ -68,7 +70,7 @@ class App extends Component {
     this.setState({ title: '', text: '' });
   };
 
-  /* Modal methods */
+  /* Modal/delete methods */
 
   deleteNote = () => {
     const { notes, note } = this.state;
@@ -83,6 +85,46 @@ class App extends Component {
       modal: !this.state.modal
     });
   }
+
+  /* Dropdown/sort methods */
+
+  sortByLatest = () => {
+    const sortCb = (a, b) => b.id - a.id;
+    this.toggleDropdown();
+    this.setState({
+      notes: this.state.notes.slice().sort(sortCb)
+    });
+  };
+
+  sortByOldest = () => {
+    const sortCb = (a, b) => a.id - b.id;
+    this.toggleDropdown();
+    this.setState({
+      notes: this.state.notes.slice().sort(sortCb)
+    });
+  };
+
+  sortAlphabetically = () => {
+    const sortCb = (a, b) => {
+      const aStr = /[A-Za-z]+/.exec(a.title),
+        bStr = /[A-Za-z]+/.exec(b.title);
+      if (aStr && bStr) {
+        return aStr[0].localeCompare(bStr);
+      } else {
+        return a - b;
+      }
+    };
+    this.toggleDropdown();
+    this.setState({
+      notes: this.state.notes.sort(sortCb)
+    });
+  };
+
+  toggleDropdown = () => {
+    this.setState({
+      dropdown: !this.state.dropdown
+    });
+  };
 
   /* Misc. methods */
 
@@ -118,25 +160,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="sidebar">
-          <h1>Lambda Notes</h1>
-          <Link to="/"><Button color="info">View Your Notes</Button></Link>
-          <Link to="/create"><Button color="info">+ Create New Note</Button></Link>
-          <Route 
-            exact 
-            path="/" 
-            render={() => (
-              <Button 
-                data={this.formatForCSV()} 
-                filename="notes.csv"
-                color="info"
-                tag={CSVLink}
-              >
-                Export To CSV
-              </Button>
-            )} 
-          />
-        </div>
+        <Sidebar formatForCSV={this.formatForCSV} />
         <div className="main-content">
           <Route
             path="/create"
@@ -158,8 +182,15 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <div>
+              <div className="notes-container">
                 <h2>Your Notes:</h2>
+                <Dropdown 
+                  toggle={this.toggleDropdown} 
+                  dropdown={this.state.dropdown} 
+                  sortByLatest={this.sortByLatest}
+                  sortByOldest={this.sortByOldest}
+                  sortAlphabetically={this.sortAlphabetically}
+                />
                 <div className="notes">
                   {this.state.notes.map(note => (
                     <Link 
