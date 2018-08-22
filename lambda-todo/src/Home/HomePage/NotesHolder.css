@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center; 
     align-items: center; 
-    overflow: scroll; 
 }
 .note-card-section{
     width: 560px; 

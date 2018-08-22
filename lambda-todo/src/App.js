@@ -7,10 +7,11 @@ import { Route } from "react-router-dom";
 import Notes from "./Notes/NotesData";
 import ViewNote from "./ViewNote/ViewNote";
 import EditNote from "./ViewNote/Edit Note/EditNote";
+import Authenticate from "./Login/Authenticate"; 
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(App) {
+    super(App);
     this.state = {
       notes: Notes,
       deleting: false,
@@ -134,4 +135,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App);
