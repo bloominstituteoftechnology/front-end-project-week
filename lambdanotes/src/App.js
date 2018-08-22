@@ -28,7 +28,9 @@ class App extends Component {
   }
 
   handleNoteChange = event => {
+    console.log('HandleNoteChange', event.target.value)
     this.setState({[event.target.name]: event.target.value })
+    console.log('AppState',this.state)
   };
 
   addHandler = event => {
@@ -49,19 +51,10 @@ class App extends Component {
       )}
     }
 
-    deleteHandler = event => {
-      event.preventDefault();
-      let notes = this.state.slice();
-      notes = notes.filter(item => !item.id)
-      this.setState({ notes });
-    }
-
    render() {
-    console.log(this.state.notes)
     return (
       <Container className="App">
-        <NavBar />
-        {/* <Route path="/" component={NavBar} /> */}
+        <Route path="/" component={NavBar} />
         <Route exact path="/" render={props => (
           <NotesList {...props} notes={this.state.notes} />
         )}/>
@@ -70,6 +63,9 @@ class App extends Component {
         )}/>
         <Route path="/form" render={props => (
           <NoteForm {...props} notes={this.state.notes} handleNoteChange={this.handleNoteChange} addHandler={this.addHandler} Redirect={this.state.Redirect}/>
+        )}/>
+        <Route path="/note/:id/edit" render={props => (
+          <NoteFormEdit {...props} notes={this.state.notes} handleNoteChange={this.handleNoteChange} addHandler={this.addHandler} Redirect={this.state.Redirect}/>
         )}/>
       </Container>
     );

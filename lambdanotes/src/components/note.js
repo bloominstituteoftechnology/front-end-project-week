@@ -2,32 +2,41 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import { Card, CardText, CardBody, CardTitle} from 'reactstrap';
 import NoteFormEdit from './noteformedit';
+import DeleteModal from './deletemodal';
+import { Button } from 'reactstrap';
 
 class Note extends Component {
     state = {
         title: '',
         note: '',
         id: null,
-        edittoggle: false
+        edittoggle: false,
+        inputTitle: '',
+        inputNote: ''
     }
         
     componentDidMount() {
-        const note = this.props.notes.filter(note => { 
-            console.log(this.props)
+        const note = this.props.notes.find(note => { 
+            // console.log(note.title)
             return note.id.toString() === this.props.match.params.id
         })
-        console.log(note[0])
+        console.log(note.title)
         this.setState({
-            title: note[0].title,
-            note: note[0].note,
-            id: note[0].id,
-            edittoggle: note[0].edittoggle
-        })
+            title: note.title,
+            note: note.note,
+            id: note.id,
+            edittoggle: false
+        })        
+        console.log('Did Mount', this.state)
     }
 
     editHandler = event => {
         event.preventDefault();
-        this.setState({ title: this.props.title, note: this.props.note})
+        this.setState({
+            title: this.state.inputTitle,
+            note: this.state.inputNote,
+            edittoggle: false
+        })
       }
 
     editToggle = () => {
@@ -35,33 +44,23 @@ class Note extends Component {
         this.setState({ edittoggle: !edit})
       }
 
-      
-    deleteHandler = event => {
-        event.preventDefault();
-        let notes = this.props.notes.slice();
-        notes = notes.filter(item => !item.id)
-        this.setState({ notes });
-      }
+    handleEditChange = event => {
+    this.setState({[event.target.name]: event.target.value })
+    };
 
     render() {
         console.log(this.props)
         console.log(this.state)
         return (  
             <div>
-                {this.state.edittoggle === false ?
-                    <div>
-                        <button onClick={this.editToggle}>edit</button>                
-                        <button onClick={this.deleteHandler}>delete</button>
-                        <Card>
-                        <CardBody>
-                            <CardTitle>{this.state.title}</CardTitle>
-                            <CardText>{this.state.note}</CardText>
-                        </CardBody>
-                    </Card>  
-                    </div>                    
-                    :
-                    <NoteFormEdit notes={this.state} handleNoteChange={this.props.handleNoteChange} addHandler={this.props.addHandler} Redirect={this.props.Redirect}/>
-                }                          
+                <Link to={`/note/${this.state.id}/edit`}><Button color="info">EDIT</Button></Link>
+                <DeleteModal />
+                <Card>
+                    <CardBody>
+                        <CardTitle>{this.state.title}</CardTitle>
+                        <CardText>{this.state.note}</CardText>
+                    </CardBody>
+                </Card>                          
             </div>            
         );
     }
