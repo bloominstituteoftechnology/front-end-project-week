@@ -10,7 +10,7 @@ const NoteListContainer = styled.div`
 `;
 
 const NoteList = (props) => {
-    // console.log(props);
+    console.log(props);
     
     return (
         <NoteListContainer>

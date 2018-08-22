@@ -54,7 +54,6 @@ class EditNote extends React.Component {
     }
 
 
-
     render() {
         console.log(this.state.title);
         return (

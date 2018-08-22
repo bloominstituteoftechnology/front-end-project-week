@@ -15,16 +15,27 @@ const AppContainer = styled.div`
 `;
 
 class App extends Component {
-
   constructor(props){
     super(props);
     this.state = {
       notesArr: [],
+      setStorage: false,
     }
   }
 
   componentDidMount(){
-    this.setState({notesArr: notes});
+    let storage = localStorage.getItem('notes');
+    
+    let setStorage = localStorage.getItem('setStorage');
+    console.log(typeof null);
+    if ( setStorage !== null ){
+      this.setState({
+        notesArr: JSON.parse(storage),
+      })
+    } else {
+      this.setState({ notesArr: notes, setStorage: true });
+      this.setToStorage();
+    }
   }
 
   matchSelectNoteToArray = (it) => {
@@ -69,7 +80,15 @@ class App extends Component {
     })
   }
 
+  setToStorage = () => {
+    localStorage.setItem('notes', JSON.stringify(this.state.notesArr));
+    localStorage.setItem('setStorage', 'true');
+  }
+
   render() {
+    if(this.state.setStorage === true){
+      this.setToStorage();
+    }
     return (
       <AppContainer>
         <Route path="/addnote" render = { props => { return <NewNote handleNewNote={this.handleNewNote} notes={this.state.notesArr}/>}} />
