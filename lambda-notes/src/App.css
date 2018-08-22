@@ -2,6 +2,7 @@
   background: #0f3254;
 
 }
+
 .App {
   /* text-align: center; */
    display: flex;
@@ -54,6 +55,17 @@
   font-size: 12px;
   background: lightblue;
 }
+
+/****EDIT FORM*******/
+.edit-form {
+  border: 1px solid black;
+}
+.edit-form-container {
+  width: 400px;
+}
+
+
+
 .notes-container {
   display: flex;
   flex-flow: row wrap;
@@ -120,6 +132,9 @@
 	justify-content: flex-end;
   background: teal;
 }
+.edit-note-title {
+  width: 400px;
+}
 
 /***New Note******/
 .new-note-container {
@@ -150,6 +165,41 @@
   margin-right: 132px;
   margin-bottom: 10px;
 }
+
+/***HOMEPAGE******/
+.homepage-logo-img {
+  margin-left: 170px;
+  margin-top: 40px;
+}
+
+.homepage-header {
+  margin-left: 70px;
+}
+
+.homepage-content {
+  margin-left: 200px;
+  width: 500px;
+
+
+}
+.homepage-content-a {
+  margin-left: 60px;
+  font-size: 15px;
+  width: 500px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-button {
+
+  margin-left: 180px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+.home-button {
+  margin-top: 30px;
+}
+
 
 
 /***NAVBAR******/

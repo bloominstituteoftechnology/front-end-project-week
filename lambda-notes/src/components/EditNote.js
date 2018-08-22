@@ -49,7 +49,7 @@ componentDidMount () {
         .then(response => {
             console.log(response);
             console.log(response.data);
-            window.location = '/';
+            window.location = '/notes';
         })
         .catch(error => {
             console.log(error);
@@ -59,7 +59,16 @@ componentDidMount () {
     render() {
 
         return (
-            <form>
+                <div className="new-note-container">
+                 <div className="new-note">
+                <h1 className="new-note-header">Edit Your Note:</h1>
+                </div>
+ <div className="new-note-button">
+                <button type='submit' onClick={this.update}> <Link to ='/notes' lassName="new-note-button">Save</Link></button>
+</div>
+            <div className="edit-note-form-container">
+            <form className="edit-form-container" >
+                <div className="new-note-title">
                 <input
                     type='text'
                     name='title'
@@ -67,16 +76,21 @@ componentDidMount () {
                     value={this.state.title}
                     onChange={this.change}
                 />
-                <textarea
+                </div>
+                <div>
+                <textarea className="new-note-content"
                     type='text'
                     name='content'
                     placeholder='Note content'
                     value={this.state.content}
                     onChange={this.change}
                 />
+                </div>
 
-            <button type='submit' onClick={this.update}><Link to='/'>Save</Link></button>
+           {/* <button type='submit' onClick={this.update}><Link to='/notes'>Save</Link></button>*/}
             </form>
+            </div>
+            </div>
          );
     }
 }

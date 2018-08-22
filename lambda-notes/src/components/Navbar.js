@@ -9,17 +9,20 @@ const Navbar = (props) => {
         <div className= "nav-container">
             <Nav vertical className="nav-section">
 						<div>
-            	<img className="logo-img" src={logo} />
+            	<Link to ='/'><img className="logo-img" src={logo} /></Link>
             </div>
             <h1>Lambda Notes</h1>
 	            <NavItem>
 	            	<div className="nav-button">
-		            	<Link to="/" className="button-link">View Your Notes</Link>
+		            	<Link to="/notes" className="button-link">View Your Notes</Link>
 		            	</div>
 	            </NavItem>
 	            <NavItem>
 	             <div className="nav-button">
 	            	<Link to="/NewNote" className="button-link">+ Create New Note</Link>
+	            	</div>
+	            	<div className="nav-button">
+	            	<Link to="/" className="button-link">Log Out</Link>
 	            	</div>
 	            </NavItem>
             </Nav>

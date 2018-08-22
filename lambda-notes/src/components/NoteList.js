@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import '../App.css';
 
 const NoteList = props => {
+
+
+
     return (
         <div className="notelist-container">
 	        <div className="notelist-title">
+
 	        <h4 >Your Lambda Notes:</h4>
 	        </div>
         <div className="notes-notelist">
@@ -21,6 +25,7 @@ const NoteList = props => {
             </div>
         </div>
     );
+
 }
 
 export default NoteList;

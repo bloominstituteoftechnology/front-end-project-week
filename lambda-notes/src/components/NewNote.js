@@ -44,10 +44,11 @@ class NewNote extends Component {
         return (
                 <div className="new-note-container">
                 <div className="new-note">
+
                 <h1 className="new-note-header">Create a New Note:</h1>
                 </div>
             <div className="new-note-button">
-                <button type='submit' onClick={this.addNote}> <Link to ='/' lassName="new-note-button">Save</Link></button>
+                <button type='submit' onClick={this.addNote}> <Link to ='/notes' lassName="new-note-button">Save</Link></button>
 </div>
                 <div className="new-note-form-container">
             <form>

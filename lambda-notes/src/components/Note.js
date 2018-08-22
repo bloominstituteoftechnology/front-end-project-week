@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 const URL = 'http://localhost:3300/notes';
 
 class Note extends Component {
@@ -39,7 +40,7 @@ class Note extends Component {
             this.setState({
                 notes: response.data
             })
-            window.location = '/';
+            window.location = '/notes';
         })
         .catch(error => {
           console.log(error);
@@ -49,11 +50,13 @@ class Note extends Component {
     render() {
         return (
         <div>
+
             <div>
                 <h1 className="notetitle">Your Notes:</h1>
+
             </div>
             <div>
-                <Link to={`/notes/${this.state.id}`}><button className="note-button"> Edit </button></Link>
+                <Link to={`/editnote/${this.state.id}`}><button className="note-button"> Edit </button></Link>
                <button className="note-button" onClick={this.delete}> Delete </button>
                </div>
 
@@ -63,7 +66,8 @@ class Note extends Component {
             </div>
      </div>
          );
-    }
+    };
+
 }
 
 export default Note;

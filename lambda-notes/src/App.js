@@ -8,8 +8,9 @@ import Navbar from "./components/Navbar";
 import NewNote from "./components/NewNote";
 import Note from "./components/Note";
 import EditNote from './components/EditNote';
-
-
+import HomePage from './components/HomePage';
+import Login from './components/Login';
+import Register from './components/Register';
 
 class App extends Component {
   state = {
@@ -37,10 +38,13 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <Route exact path='/' render={props => <NoteList {...props} notes={this.state.notes} />}/>
+        <Route exact path='/' component={HomePage} />
+         <Route path='/login' component={ Login } />
+         <Route path='/register' component={ Register }/>
+        <Route path='/notes' render={props => <NoteList {...props} notes={this.state.notes} />}/>
         <Route path='/note/:id' render={(props) => (
           <Note {...props}  notes={this.state.notes} />) } />
-        <Route path='/notes/:id' render={(props) => (
+        <Route path='/editnote/:id' render={(props) => (
           <EditNote {...props} notes={this.state.notes} />)} />
         <Route path='/NewNote' render={props =>
           <NewNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote}
@@ -49,7 +53,9 @@ class App extends Component {
         } />
       </div>
     );
-  }
+
+  };
+
 }
 
 export default App;
