@@ -21,6 +21,8 @@ import DeleteModal from './DeleteModal'
         if (!note) return;
         this.setState({note});
     }
+
+
      render() {
         const {title, text} = this.state.note;
         return (

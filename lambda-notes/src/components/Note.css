@@ -4,6 +4,9 @@
  .note h2 {
     font-weight: bolder;
     padding-top: 40px;
+    font-family: 'SinkinSans100Thin'; 
+    font-weight: bold; 
+    font-style: normal;
 }
  .note p {
     padding-top: 30px;

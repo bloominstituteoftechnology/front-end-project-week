@@ -87,7 +87,6 @@ class App extends Component {
               <Route  exact path="/create-new-note" render={(props) => <NewNoteForm {...props}  title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} />} />
               <Route  exact path="/notes/:id" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text}  />}  />
               <Route  exact path="/edit" render={(props) => <EditNote {...props} title={this.state.title} text={this.state.text} editNote={this.editNote} handleInputChange={this.handleInputChange} />} />
-              {/* <Route  exact path="/notes/:id" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}/> */}
               <Route  exact path="/notes" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}/>
         </div>
       );

@@ -41,12 +41,15 @@ font-weight:bold;
     margin: 10px 15px;
     padding-bottom: 5px;
     border-bottom: 2px solid #A6A6A6;
+    font-family: 'SinkinSans100Thin'; 
+    font-weight: bold; 
+    font-style: normal;
 }
 
 .notes .text p{
     font-family: 'SchoolCursiveRegular'; 
     font-weight: normal; 
     font-style: normal;
-    font-size: 20px;
+    font-size: 25px;
 }
 
