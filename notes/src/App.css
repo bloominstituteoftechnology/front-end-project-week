@@ -59,6 +59,7 @@
   height: 11em;
   margin: 0 1em 1.5em 0;
   word-wrap:break-word;
+  overflow:hidden;
 }
 .cardTitle {
   font-weight: bold;

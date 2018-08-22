@@ -156,6 +156,7 @@ class CreateNote extends Component {
         <form className="formLayout" id="createNoteForm" onSubmit={this.submit}>
           <input
             required
+            maxLength="50"
             type="text"
             className="notesubmit"
             placeholder={this.state.mode === "ADD" ? "Note Title" : ""}

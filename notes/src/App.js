@@ -62,12 +62,20 @@ class App extends Component {
     });
   };
   invertCheck = (itemID, checkName) => {
-    let prevNote = this.state.notes[itemID];
-    prevNote.checklist.forEach(element => {
+    let prevNote = this.state.notes.slice();
+    let changedcheck = prevNote[itemID].checklist.map(element => {
       if (element.name === checkName) {
         element.checked = !element.checked;
+        return element
+      }
+      else{
+        return element;
       }
     });
+    prevNote[itemID].checklist = changedcheck;
+    this.setState({
+      notes:prevNote
+    })
   };
   
   jsonToCSV = () => {
@@ -85,46 +93,16 @@ class App extends Component {
 
     fileDownload(csv, 'data.csv')
   };
+  componentDidUpdate=(prevProps, prevState)=>{
+    if (this.state.notes !== prevState.notes) {
+
+      localStorage.setItem('notes',JSON.stringify(this.state.notes))
+    }
+  }
   componentDidMount = () => {
+    const lsNotes = JSON.parse(localStorage.getItem('notes'))
     this.setState({
-      notes: [
-        {
-          title: "test",
-          body:
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ",
-          id: 0,
-          tags: [],
-          checklist: [{ checked: false, name: "AAAA" }]
-        },
-        {
-          title: "test2",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 1,
-          tags: [],
-          checklist: []
-        },
-        {
-          title: "test3",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 2,
-          tags: [],
-          checklist: []
-        },
-        {
-          title: "test4",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 3,
-          tags: [],
-          checklist: []
-        },
-        {
-          title: "test5",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          id: 4,
-          tags: [],
-          checklist: []
-        }
-      ]
+      notes: lsNotes
     });
   };
   render() {
