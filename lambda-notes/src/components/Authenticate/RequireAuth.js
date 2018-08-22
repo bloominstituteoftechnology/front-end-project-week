@@ -2,20 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
-import { checkToken } from '../../actions/auth';
+import { checkToken, setSignIn } from '../../actions/auth';
 
 const RequireAuth = ComposedComponent =>
     class extends React.Component {
         componentDidMount() {
+            console.log('test');
             const token = localStorage.getItem('token');
-
-            if (!this.props.authenticated && !token) {
-                return this.props.history.push('/login');
+            if (token) {
+                return this.props.checkToken(token);
             }
-            if (!token) {
-                return this.props.history.push('/login');
-            }
-            this.props.checkToken(token);
+            this.props.setSignIn();
+            this.props.history.push('/login');
         }
 
         render() {
@@ -33,6 +31,6 @@ const mapStateToProps = state => {
 }
 
 export default compose(
-    connect(mapStateToProps, { checkToken }),
+    connect(mapStateToProps, { checkToken, setSignIn }),
     RequireAuth
 );

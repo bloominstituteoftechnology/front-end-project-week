@@ -1,6 +1,7 @@
 import React from 'react';
-import { LoginWrapper, LoginForm, LoginInput, LoginButton } from '../ReusableComponents/Login';
-import axios from 'axios';
+import { LoginWrapper, LoginForm, LoginInput, LoginButton, BottomLoginContent, BottomText, SignIn } from '../ReusableComponents/Login';
+import { connect } from 'react-redux';
+import { signUp } from '../../actions/auth';
 
 class Register extends React.Component {
     constructor() {
@@ -17,8 +18,9 @@ class Register extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    loginButton = () => {
+    loginButton = event => {
         // Checks username / password fields are empty / adds username / password to local storage
+        event.preventDefault();
         if (this.state.username === '' && this.state.password === '') {
             alert('You need to enter a username and password!');
             return;
@@ -34,34 +36,39 @@ class Register extends React.Component {
 
         const user = { username: this.state.username, password: this.state.password }
 
-        axios
-            .post('http://localhost:8000/api/users/login', user)
-            .then(response => {
-                localStorage.setItem('token', response.data);
-                window.location.reload();
-            })
-            .catch(err => console.log(err));
+        this.props.signUp(user);
     }
 
     render() {
         // Displays login form
         return (
             <LoginWrapper>
-                <LoginForm onSubmit={event => event.preventDefault()}>
 
-                    <h1>Lambda Notes</h1>
+                <LoginForm>
+
+                    <h1>Sign Up</h1>
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
-                    <LoginButton to='/'
-                        onClick={this.loginButton}
-                        style={this.state.username.length > 0 || this.state.password.length > 0 ? { background: '#2BC1C4' } : { opacity: 0.3 }}>
-                        Log In
-                    </LoginButton>
+                    <LoginButton to='/notes' onClick={this.loginButton}>Sign Up</LoginButton>
 
                 </LoginForm>
+
+                <BottomLoginContent>
+
+                    <BottomText>
+                        Have an account? <SignIn to='/login'>Sign In</SignIn>
+                    </BottomText>
+
+                </BottomLoginContent>
+
             </LoginWrapper>
         );
     }
 }
 
-export default Register;
+const mapStateToProps = state => {
+    return { authenticated: state.auth.signedIn };
+
+}
+
+export default connect(mapStateToProps, { signUp })(Register);

@@ -73,3 +73,11 @@ export const SignUp = styled(Link)`
         color: #3897f0;
     }
 `
+
+export const SignIn = styled(Link)`
+    color: #3897f0;
+    &:hover {
+        text-decoration: none;
+        color: #3897f0;
+    }
+`

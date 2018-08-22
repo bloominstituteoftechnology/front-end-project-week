@@ -34,9 +34,9 @@ class Login extends React.Component {
             return;
         }
 
-        const user = { username: this.state.username, password: this.state.password }
+        const credentials = { username: this.state.username, password: this.state.password }
 
-        this.props.signIn(user);
+        this.props.signIn(credentials);
     }
 
     render() {
@@ -49,7 +49,7 @@ class Login extends React.Component {
                     <h1>Lambda Notes</h1>
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
-                    <LoginButton to='/'
+                    <LoginButton to='/notes'
                         onClick={this.loginButton}
                         style={this.state.username.length > 0 || this.state.password.length > 0 ? { background: '#2BC1C4' } : { opacity: 0.3 }}>
                         Log In
