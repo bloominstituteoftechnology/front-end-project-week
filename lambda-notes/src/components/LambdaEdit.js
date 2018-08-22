@@ -27,7 +27,6 @@ class LambdaEdit extends Component {
     
       handleContent = e => {
         this.setState({
-          isMounted: false,
           notes: {
             id: this.state.notes.id,
             title: this.state.notes.title,
@@ -37,9 +36,8 @@ class LambdaEdit extends Component {
       }
       
       handleEditNote = () => {
-        const id = this.state.id
+        const id = this.props.match.params.id
         const notes = {
-            id: null,
             title: this.state.notes.title,
             content: this.state.notes.content
         }

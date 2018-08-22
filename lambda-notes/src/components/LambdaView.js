@@ -22,7 +22,7 @@ class LambdaView extends Component {
         };
     }
 
-    componentDidMount() {
+    componentDidMount () {
         const id = this.props.match.params.id;
         this.setState({ id: Number(id), notes: this.props.note });
     }

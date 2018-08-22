@@ -50,8 +50,6 @@ class App extends Component {
     this.setState({ selected: note });
   }
 
-
-
   //Lambda Delete
   
   toggleDelete = () => {
@@ -64,7 +62,7 @@ class App extends Component {
         <Route path="/" component={LambdaNav}/>
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props}  />)} />
-        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} handleSetData={this.handleSetData} />)} />
+        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} handleRefresh={this.handleRefresh} notes={this.state.notes} handleSetData={this.handleSetData} />)} />
         <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} toggleDelete={this.toggleDelete} />)} />
         {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} toggleDelete={this.toggleDelete} />)} />) : null}
       </StyledContainer>
