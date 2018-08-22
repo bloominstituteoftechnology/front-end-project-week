@@ -5,15 +5,15 @@ import Notesview from "./components/Notesview";
 import CreateNote from "./components/InputNote";
 import SingleNote from "./components/SingleNote";
 import { Route, Switch } from "react-router-dom";
-import fileDownload from "js-file-download"
+import fileDownload from "js-file-download";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [{ title: "", body: "" }],
+      notes: [{ title: "", body: "", id: -1, checklist: [], tags: [] }],
       nextID: 5,
-      mode: "ADD"
+      mode: "ADD",
     };
   }
   addNote = noteObj => {
@@ -66,18 +66,21 @@ class App extends Component {
     let changedcheck = prevNote[itemID].checklist.map(element => {
       if (element.name === checkName) {
         element.checked = !element.checked;
-        return element
-      }
-      else{
+        return element;
+      } else {
         return element;
       }
     });
     prevNote[itemID].checklist = changedcheck;
     this.setState({
-      notes:prevNote
-    })
+      notes: prevNote
+    });
   };
-  
+  changeOrder = (newOrderProp)=>{
+    this.setState({
+      notes: newOrderProp
+    })
+  }
   jsonToCSV = () => {
     //https://stackoverflow.com/questions/8847766/how-to-convert-json-to-csv-format-and-store-in-a-variable
     const items = this.state.notes;
@@ -91,16 +94,15 @@ class App extends Component {
     csv.unshift(header.join(","));
     csv = csv.join("\r\n");
 
-    fileDownload(csv, 'data.csv')
+    fileDownload(csv, "data.csv");
   };
-  componentDidUpdate=(prevProps, prevState)=>{
+  componentDidUpdate = (prevProps, prevState) => {
     if (this.state.notes !== prevState.notes) {
-
-      localStorage.setItem('notes',JSON.stringify(this.state.notes))
+      localStorage.setItem("notes", JSON.stringify(this.state.notes));
     }
-  }
+  };
   componentDidMount = () => {
-    const lsNotes = JSON.parse(localStorage.getItem('notes'))
+    const lsNotes = JSON.parse(localStorage.getItem("notes"));
     this.setState({
       notes: lsNotes
     });
@@ -108,7 +110,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar export ={this.jsonToCSV}/>
+        <Sidebar export={this.jsonToCSV} />
         <Switch className="switch">
           <Route
             exact
@@ -144,14 +146,10 @@ class App extends Component {
               />
             )}
           />
-          <Route
-            exact
-            path="/"
-            render={props => <Notesview {...props} notes={this.state.notes} />}
-          />
+         
           <Route
             path="/"
-            render={props => <Notesview {...props} notes={this.state.notes} />}
+            render={props => <Notesview {...props} notes={this.state.notes} changeStateOrder={this.changeOrder} />}
           />
         </Switch>
       </div>
