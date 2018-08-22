@@ -75,6 +75,21 @@ class App extends Component {
     }
 
 
+    editNote = note => {
+      // event.preventDefault();
+      const notes = this.state.notes.slice();
+      for (let i=0; i < notes.length; i++){
+        if(notes[i].id === note.id) {
+          console.log(note.id);
+        notes[i].title = this.state.title; 
+        // console.log(this.state.title);
+        notes[i].text = this.state.text;
+        }
+      }
+      this.setState({ notes });
+    }
+
+
 
 
 
@@ -83,11 +98,45 @@ class App extends Component {
       return (
           <div className="App">
               <Sidebar />
-              <Route exact path="/"render={(props) => <Notes {...props} notes={this.state.notes} />} />
-              <Route  exact path="/create-new-note" render={(props) => <NewNoteForm {...props}  title={this.state.title} text={this.state.text} addNote={this.addNote} handleInputChange={this.handleInputChange} />} />
-              <Route  exact path="/notes/:id" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text} deleteNote={this.deleteNote}  />}  />
-              <Route  exact path="/edit" render={(props) => <EditNote {...props} title={this.state.title} text={this.state.text} editNote={this.editNote} handleInputChange={this.handleInputChange} />} />
-              <Route  exact path="/notes" render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} text={this.state.text}  handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}/>
+              <Route 
+                exact path="/"
+                render={(props) => <Notes {...props} notes={this.state.notes}/>} 
+              />
+              <Route  
+                exact path="/create-new-note" 
+                render={(props) => <NewNoteForm {...props} 
+                          title={this.state.title} 
+                          text={this.state.text} 
+                          addNote={this.addNote} 
+                          handleInputChange={this.handleInputChange} />} 
+              />
+              <Route  
+                exact path="/notes/:id" 
+                render={(props) => <Note {...props} 
+                          notes={this.state.notes} 
+                          title={this.state.title} 
+                          text={this.state.text} 
+                          deleteNote={this.deleteNote}  
+                          editNote={this.editNote} />}  
+              />
+              <Route  
+                exact path="/edit" 
+                render={(props) => <EditNote {...props} 
+                        notes={this.state.notes} 
+                        title={this.state.title} 
+                        text={this.state.text}  
+                        handleInputChange={this.handleInputChange} 
+                        editNote={this.editNote}/>} 
+              />
+              <Route 
+                exact path="/notes" 
+                render={(props) => <Note {...props} 
+                        notes={this.state.notes} 
+                        title={this.state.title} 
+                        text={this.state.text}  
+                        handleInputChange={this.handleInputChange} 
+                        deleteNote={this.deleteNote} />}
+              />
         </div>
       );
    }
