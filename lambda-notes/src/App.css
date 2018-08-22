@@ -141,14 +141,12 @@ form {
 }
 .delete-modal .delete{
   background-color: red;
-}
-.delete-modal .delete a{
   color: white;
 }
-.delete-modal .delete a:hover {
+/* .delete-modal .delete a:hover {
   text-decoration: none;
   cursor: default;
-}
+} */
 .delete-modal .cancel {
   color: white;
   background-color: #32B7BD;

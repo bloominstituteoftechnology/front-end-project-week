@@ -60,8 +60,7 @@ const notesReducer = ( state = initialState, action) => {
       case NOTE_DELETED:
       return Object.assign({}, state, {
         deletingNote: false,
-        noteDeleted: true,
-        notes: action.payload
+        noteDeleted: true
       });
       case EDIT_NOTE:
       return Object.assign({}, state, {

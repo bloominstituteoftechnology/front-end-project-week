@@ -18,7 +18,6 @@ export const fetchData = () => {
       axios
       .get(`https://killer-notes.herokuapp.com/note/get/all`)
       .then(response => {
-        //console.log(response);
           dispatch({ type: DATA_FETCHED, payload: response.data });
       })
       .catch(error => {
@@ -33,7 +32,6 @@ export const fetchNote = (id) => {
         axios
         .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
         .then(response => {
-          //console.log(response);
             dispatch({ type: NOTE_FETCHED, payload: response.data });
         })
         .catch(error => {
@@ -51,7 +49,9 @@ export const addNewNote = (title, content) => {
       textBody: content
       })
       .then(response => {
-          dispatch({ type: NOTE_ADDED, payload: response.data[response.data.length - 1] });
+          //console.log(response);
+          //console.log(response.data);
+          dispatch({ type: NOTE_ADDED, payload: response });
       })
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
@@ -64,11 +64,11 @@ export const deleteNote = id => {
       dispatch({ type: DELETE_NOTE });
       axios
      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-          dispatch({ type: NOTE_DELETED, payload: response.data });
+      .then(() => {
+          dispatch({ type: NOTE_DELETED });
       })
       .then(() => {
-        window.location.reload(true);
+        window.location.replace("/");
     })
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
