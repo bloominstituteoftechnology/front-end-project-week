@@ -40,6 +40,7 @@ margin: 2%;
             className="title-input"
             onChange={props.handleChange}
             defaultValue={props.titleEdit}
+            name='titleEdit'
             />
             <Content 
             placeholder="Content"
@@ -47,6 +48,7 @@ margin: 2%;
             className="content-input"
             onChange={props.handleChange}
             defaultValue={props.contentEdit}
+            name= 'contentEdit'
             />
             <NavLink onClick={()=>props.edited(props.match.params.id)} to='/'>
             Add New Note

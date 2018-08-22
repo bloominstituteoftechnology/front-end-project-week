@@ -65,7 +65,7 @@ class App extends Component {
        <Route exact path='/new' render={props => <NewNote {...props}title={this.state.title}
        content={this.state.content}handleChange={this.handleChange}addNote={this.addNote} />}/>
 
-       <Route exact path='/view/:id' render={props => <SingleNote {...props} notes={this.state.notes} handleChange={this.handleChange}noteEdit={this.noteEdit}
+       <Route exact path='/view/:id' render={props => <SingleNote {...props} notes={this.state.notes} noteEdit={this.noteEdit}
        edited={this.edited}/>}/>
        
        <Route exact path='/view/edit/:id' render={props => <EditView {...props} notes={this.state.notes}handleChange={this.handleChange}
