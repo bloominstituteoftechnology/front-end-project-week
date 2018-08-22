@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Notes from './components/Notes';
@@ -12,39 +13,21 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          id: 0,
-          title: 'Lorem Ipsum',
-          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-        },
-        {
-          id: 1,
-          title: 'Lorem Ipsum',
-          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-        },
-        {
-          id: 2,
-          title: 'Lorem Ipsum',
-          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-        },
-        {
-          id: 3,
-          title: 'Lorem Ipsum',
-          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-        },
-        {
-          id: 4,
-          title: 'Lorem Ipsum',
-          textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lacus nec elit tempus, eu ornare diam laoreet. Vestibulum sodales purus quis metus suscipit, a varius massa condimentum.'
-        },
-      ],
+      notes: [],
       newTitle: '',
       newTextBody: '',
       deleting: false,
       currentNote: {}
     }
   }
+  componentDidMount() {
+  axios
+    .get(`${process.env.REACT_APP_API}/api/notes`)
+    .then(response => {
+      this.setState({ notes: response.data })
+    })
+    .catch(err => {console.log(err)})
+}
   handleInputChange = event => {
     this.setState({[event.target.name]:event.target.value})
   }
@@ -52,32 +35,39 @@ class App extends Component {
     this.setState({ currentNote: note })
   }
   handleAddNote = event => {
-    let notes = this.state.notes.slice();
-    notes.push({id: this.state.notes.length, title: this.state.newTitle, textBody: this.state.newTextBody});
-    this.setState({notes, newTitle: '', newTextBody: ''});
+    const newNote = ({ title: `${this.state.newTitle}`, content: `${this.state.newTextBody}` });
+    axios
+        .post(`${process.env.REACT_APP_API}/api/notes`, newNote)
+        .then(response => {
+            this.setState({ newTitle: '', newTextBody: '' })
+        })
+        .catch(err => {console.log(err)})
   }
   handleDeleteNote = id => {
-    let notes = this.state.notes.slice();
-    notes = notes.filter(note => note.id !== Number(id))
-    this.setState({notes, currentNote: {}, deleting: !this.state.deleting})
+        const id = this.state.id;
+        axios
+            .delete(`${process.env.REACT_APP_API}/api/notes/${id}`)
+            .then(response => {
+                this.props.history.push('/')
+                this.setState({ id: null, deleting: !this.state.deleting })
+            })
+            .catch(err => {console.log(err)})
   }
-  handleSetCurrent = note => {
-   this.setState({ currentNote: note })
-   }
   handleEditTitle = event => {
     this.setState({currentNote: {id: this.state.currentNote.id, title: event.target.value, textBody: this.state.currentNote.textBody}})
   }
   handleEditTextBody = event => {
-  this.setState({currentNote: {id: this.state.currentNote.id, title: this.state.currentNote.title, textBody: event.target.value}})
-}
+    this.setState({currentNote: {id: this.state.currentNote.id, title: this.state.currentNote.title, textBody: event.target.value}})
+  }
   handleEditNote = id => {
-    const notes = this.state.notes.slice();
-    for(let i = 0; i < notes.length; i++) {
-      if(notes[i].id === Number(id)) {
-        notes[i] = { id: this.state.currentNote.id, title: this.state.currentNote.title, textBody: this.state.currentNote.textBody}
-      }
-    }
-    this.setState({notes, currentNote: {}});
+    const id = this.props.match.params.id;
+    axios
+    .put(`${process.env.REACT_APP_API}/api/notes/${id}`, { title: this.state.currentNote.title, content: this.state.currentNote.textBody })
+    .then(response => {
+        this.props.history.push('/')
+        this.setState({ id: null, note: [] })
+    })
+    .catch(err => {console.log(err)})
   }
   render() {
     return (

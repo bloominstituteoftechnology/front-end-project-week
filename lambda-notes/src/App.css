@@ -3,6 +3,7 @@
   font-family: 'Raleway', sans-serif;
   color: #4A4A4A;
   background-color: #F3F3F3;
+  height: 100%;
 
 }
 .app .navigation {
@@ -11,7 +12,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  height: 1000px;
+  height: 1500px;
 }
 .app .navigation h1 {
   font-size: 52px;
@@ -69,9 +70,9 @@
 .content .notes ul .note {
   border:2px #979797 solid;
   margin-bottom: 40px;
-  margin-right: 100px;
+  margin-right: 60px;
   background-color: white;
-  width: 280px;
+  width: 20%;
   height: 300px;
 }
 .content .notes ul .note .note-text {
@@ -158,6 +159,10 @@
   justify-content: space-around;
   font-weight: bold;
   text-decoration: underline;
+  color: black;
+}
+.content .note-view .edit-delete a {
+  color: #4A4A4A;
 }
 .content .note-view .text {
   margin-left: 40px;
