@@ -35,8 +35,8 @@ class App extends Component {
     event.preventDefault();
     const notes = this.state.notes.slice();
     notes.push({ 
-      // id: Number(Date.now().toString().slice(-2)), 
-      id: this.state.notes.length,
+      id: Number(Date.now().toString().slice(-2)), 
+      // id: this.state.notes.length,
       title: this.state.title, 
       text: this.state.text 
     });
@@ -46,6 +46,14 @@ class App extends Component {
       title: '',
       text: '' 
     });
+  }
+
+  editNoteSubmit = (noteID, title, text) => {
+    this.setState(function (prevState, props) {
+      return {
+        notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, text} : note )
+      }
+    } );
   }
 
   deleteNote = id => {
@@ -74,7 +82,7 @@ class App extends Component {
           <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
           <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} modalToggle={this.modalToggle} showModal={this.state.showModal} deleteNote={this.deleteNote} /> )} />
           <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
-          <Route exact path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} />)}  />
+          <Route exact path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} editNoteSubmit={this.editNoteSubmit} />)}  />
         </div>
       </div>
     );

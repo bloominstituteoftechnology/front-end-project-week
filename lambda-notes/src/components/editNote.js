@@ -6,7 +6,7 @@ class EditNote extends Component {
         this.state = {
             title: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).title,
             text: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).text,
-
+            id: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).id
         }
     }
     
@@ -17,8 +17,10 @@ class EditNote extends Component {
 
     render() {
 
-    let denoted = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id, 10));
-    console.log(this.props);
+    // let denoted = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id, 10));
+    // onClick={this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text)}
+
+    console.log(this.state.id);
     if(this.props.notes.length > 0) {
         return (
             <div className="add-form-wrap" >
@@ -26,10 +28,10 @@ class EditNote extends Component {
                 <form className="add-form" >
                     <input className="edit-title-input" name="title" onChange={this.handleInputChange} value={this.state.title} /> <br/>
                     <textarea className="edit-text-input" name="text" onChange={this.handleInputChange} value={this.state.text} />
-                    <div className="save-btn" >Save</div>
+                    <div className="save-btn" /* onClick={this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text)} */ >Save</div>
                 </form>
             </div>
-        )
+        )  
     } else return (<div>I've got a worse feeling about this...</div>)
 }
 }
