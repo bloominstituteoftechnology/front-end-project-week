@@ -1,4 +1,5 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 
 export const START_FETCH = 'START_FETCH';
 export const RECEIVE_NOTES = 'RECEIVE_NOTES';
@@ -6,6 +7,7 @@ export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REARRANGE_NOTES = 'REARRANGE_NOTES';
 export const RECEIVE_TAGS = 'RECEIVE_TAGS';
 
+dotenv.config();
 const url = process.env.SERVER || 'http://localhost:8000';
 
 export const fetchNotes = (cb) => dispatch => {
