@@ -71,7 +71,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Sidebar />
-				<Route exact path="/" render={() => <Markdown />} />
+				<Route exact path="/" />
 				<Route
 					exact
 					path="/notes"
