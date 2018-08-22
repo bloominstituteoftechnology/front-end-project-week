@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchTags } from './../actions/index';
 import TagSearchBox from './TagSearchBox';
 import NotePreview from './NotePreview';
 
@@ -54,7 +56,7 @@ const StyledNoteGrid = styled.div`
   }
 `;
 
-export default class NoteGrid extends Component {
+class NoteGrid extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,6 +65,10 @@ export default class NoteGrid extends Component {
     };
     this.updateInput = this.updateInput.bind(this);
     this.updateTagQuery = this.updateTagQuery.bind(this);
+  }
+  
+  componentDidMount() {
+    this.props.fetchTags();
   }
 
   updateInput(event) {
@@ -160,7 +166,7 @@ export default class NoteGrid extends Component {
               className="tagSearchBox"
               tagClick={this.updateTagQuery}
               query={this.state.searchInput}
-              notes={this.props.notes}
+              tags={this.props.tags}
             />
           )}
         </div>
@@ -169,3 +175,10 @@ export default class NoteGrid extends Component {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  const { allTags: tags } = state;
+  return {...ownProps, tags}; 
+}
+
+export default connect(mapStateToProps, { fetchTags })(NoteGrid);

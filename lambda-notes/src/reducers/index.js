@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { RECEIVE_NOTES, RECEIVE_NOTE, REARRANGE_NOTES, } from '../actions/index.js';
+import {
+  RECEIVE_NOTES,
+  RECEIVE_NOTE,
+  REARRANGE_NOTES,
+  RECEIVE_TAGS
+} from '../actions/index.js';
 
 const byIdReducer = (state = {}, action) => {
   switch (action.type) {
@@ -25,7 +30,7 @@ const allIdsReducer = (state = [], action) => {
     const { payload } = action;
     return payload.map(note => note.id);
   case RECEIVE_NOTE: {
-    const { id: id } = action.payload;
+    const { id } = action.payload;
     if (state.indexOf(id) === -1) {
       return [...state, id];
     }
@@ -35,18 +40,33 @@ const allIdsReducer = (state = [], action) => {
     const { sourceId, dropId } = action.payload;
 
     // Remove source id from allIds array
-    let newArr = state.filter( id => id !== sourceId );
+    let newArr = state.filter(id => id !== sourceId);
 
     // Place source id after target id in allIds array.
     const targetIndex = state.findIndex(id => id === dropId);
-    return [...newArr.slice(0, targetIndex), sourceId, ...newArr.slice(targetIndex)];
+    return [
+      ...newArr.slice(0, targetIndex),
+      sourceId,
+      ...newArr.slice(targetIndex)
+    ];
   }
   default:
     return state;
   }
 };
 
-export default combineReducers({ byId: byIdReducer, allIds: allIdsReducer });
+const allTagsReducer = (state = [], action) => {
+  switch (action.type) {
+  case RECEIVE_TAGS: {
+    const { payload } = action;
+    return payload;
+  }
+  default:
+    return state;
+  }
+};
+
+export default combineReducers({ byId: byIdReducer, allIds: allIdsReducer, allTags: allTagsReducer });
 
 export const getAllNotes = state => state.allIds.map(id => state.byId[id]);
 export const getAllIds = state => state.allIds;

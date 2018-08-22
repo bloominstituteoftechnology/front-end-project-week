@@ -4,6 +4,7 @@ export const START_FETCH = 'START_FETCH';
 export const RECEIVE_NOTES = 'RECEIVE_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REARRANGE_NOTES = 'REARRANGE_NOTES';
+export const RECEIVE_TAGS = 'RECEIVE_TAGS';
 
 const url = 'http://localhost:8000';
 
@@ -70,10 +71,22 @@ export const deleteNote = (id, cb) => dispatch => {
     });
 };
 
+export const fetchTags = (cb) => dispatch => {
+  return axios
+    .get(`${url}/tags`)
+    .then((res) => {
+      const { data } = res;
+      dispatch({ type: RECEIVE_TAGS, payload: data });
+    })
+    .then(() => {
+      if (cb) cb();
+    })
+    .catch(err => console.log(err));
+}
+
 export const reArrange = (sourceId, dropId) => {
   return {
     type: REARRANGE_NOTES,
     payload: {sourceId, dropId},
   };
 };
-
