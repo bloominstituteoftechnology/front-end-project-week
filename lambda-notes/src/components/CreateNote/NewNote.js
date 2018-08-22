@@ -1,11 +1,13 @@
 import React from 'react' 
-import { H2, TitleInput, ContentInput, Button, TagInput } from '../StyledComponents';
+import { H2, TitleInput, ContentInput, Button, TagInput, H1 } from '../StyledComponents';
+import { Route, Redirect } from 'react-router'
 
 class Note extends React.Component {
     state = {
         title: '',
         textBody: '',
-        tags: ''
+        tags: '',
+        created: false 
     }
 
     onInputChnage = event => {
@@ -17,12 +19,19 @@ class Note extends React.Component {
     onSumbit = event => {
         console.log(this.state.tags.split(','))
         this.props.addNewNote({
-            ...this.state,
+            title: this.state.title,
+            textBody: this.state.textBody,
             tags: this.state.tags.split(','),
+        })
+        this.setState({
+            created: true
         })
     }
 
     render(){
+        if (this.state.toDashboard)
+            return (<H1>Notes Added...</H1>)
+            
         return (
             <div className="newNote">
                 <TitleInput onChange={ this.onInputChnage } type="text" name="title" placeholder="Note Title"/>

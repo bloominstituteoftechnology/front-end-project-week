@@ -11,6 +11,7 @@ import NewNote from './components/CreateNote/NewNote';
 import NoteView from './components/NoteView';
 import Authenticate from './Authentication ';
 import { convertArrToCSV } from './util/csvUtil';
+import { testNotes } from './data';
 
 class App extends Component {
   state = {
@@ -40,32 +41,29 @@ class App extends Component {
 
   
   render() {
-    let notes = this.props.notes.slice()
-    if (this.props.searching){
-      notes = this.props.searchList.slice()
-      console.log('~~~~~~~~~~~~~~')
-      console.log(convertArrToCSV(notes))
-    }
-    
-    return (
-      <div className="App">
-        <div className="sideBar">
-          <SideBar onSearchChange={this.searchInputChange}/>
+      let notes = this.props.notes
+      if (this.props.searching)
+        notes = this.props.searchList.slice()
+      
+      return (
+        <div className="App">
+          <div className="sideBar">
+            <SideBar onSearchChange={this.searchInputChange}/>
+          </div>
+          {this.props.notes ? 
+            <div><Route exact path="/"
+              render={props => <ListView notes={notes} sort={this.onSortClick}{...props}/>}/>
+            <Route path="/newNote" 
+              render={props => <NewNote {...this.props} {...props}/>} />
+            <Route exact path="/notes/:id" 
+              render={props => <NoteView {...props} {...this.props} /> }/>
+            <Route path="/notes/update/:id" 
+              render={props => <NoteView {...props} {...this.props} /> }/></div>
+              : <H1>Loading</H1>
+          }
         </div>
-        {this.props.notes ? 
-          <div><Route exact path="/"
-            render={props => <ListView notes={notes} sort={this.onSortClick}{...props}/>}/>
-          <Route path="/newNote" 
-            render={props => <NewNote {...this.props} {...props}/>} />
-          <Route exact path="/notes/:id" 
-            render={props => <NoteView {...props} {...this.props} /> }/>
-          <Route path="/notes/update/:id" 
-            render={props => <NoteView {...props} {...this.props} /> }/></div>
-            : <H1>Loading</H1>
-        }
-      </div>
-    );
-  }
+      );
+    }
 }
 
 function Home (){

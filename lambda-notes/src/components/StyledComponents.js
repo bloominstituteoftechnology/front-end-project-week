@@ -54,6 +54,7 @@ export const UnderLinedP = P.extend`
 `
 
 export const NoteItem = styled.div`
+    background: #FFFFFF;
     border: 1px solid black;
     transition: 0.3s;
     width: 25%;
@@ -71,30 +72,35 @@ export const ListViews = styled.div`
 `
 
 export const TitleInput = styled.input`
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
     width: 75%;
+    background-color: #FFFFFF;
+    border: 1px solid #DEDDDE;
     border-radius: 2px;
-    border-color: #DEDDDE;
-    background-color: #FFFEFF;
-    padding: 5px;
+    padding: 0.25em 1em;
     margin: 5px;
 `
 
 export const ContentInput = styled.textarea`
-    wdith: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    background-color: #FFFFFF;
+    border: 1px solid #DEDDDE;
     border-radius: 2px;
-    border-color: #DEDDDE;
-    background-color: #FFFEFF;
-    padding: 5px;
+    padding: 0.25em 1em;
     margin: 5px;
     resize: none;
     outline: none;
 `
 
 export const TagInput = styled.input`
-    widht: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    background-color: #FFFFFF;
+    border: 1px solid #DEDDDE;
     border-radius: 2px;
-    border-color: #DEDDDE;
-    padding: 5px;
+    padding: 0.25em 1em;
     margin: 5px;
 `
 
