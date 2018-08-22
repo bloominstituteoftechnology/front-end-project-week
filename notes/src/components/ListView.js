@@ -31,13 +31,14 @@ const Title = styled.div`
     font-weight: 800;
     border-bottom: 1px solid lightgray;
     padding: 0.5rem;
-    margin: 0.5rem 1rem;
+    background: lightgray;
 `;
 const Content = styled.div`
     padding: 0.5rem;
     margin: 0.5rem 1rem;
     word-wrap: break-word;
     width: 100%;
+    height: 100%;
 `;
 
 class ListView extends React.Component{
