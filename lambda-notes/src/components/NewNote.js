@@ -42,7 +42,16 @@ class NewNote extends Component {
 
         const {title, content} = this.state;
         return (
+                <div className="new-note-container">
+                <div className="new-note">
+                <h1 className="new-note-header">Create a New Note:</h1>
+                </div>
+            <div className="new-note-button">
+                <button type='submit' onClick={this.addNote}> <Link to ='/' lassName="new-note-button">Save</Link></button>
+</div>
+                <div className="new-note-form-container">
             <form>
+            <div className="new-note-title">
                 <input
                     type='text'
                     name='title'
@@ -50,17 +59,19 @@ class NewNote extends Component {
                     value={title}
                     onChange={(event) => this.change(event)}
                 />
-                <textarea
+                </div>
+                <div className="new-note-content-wrapper">
+                <textarea  className="new-note-content"
                     type='text'
                     name='content'
                     placeholder='Note content'
                     value={content}
                     onChange={this.change}
                 />
-
-                <button type='submit' onClick={this.addNote}> <Link to ='/'>Save</Link></button>
-
+                </div>
             </form>
+            </div>
+            </div>
          );
     }
 }

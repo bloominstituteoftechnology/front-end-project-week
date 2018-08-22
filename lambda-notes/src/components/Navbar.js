@@ -10,12 +10,12 @@ const Navbar = (props) => {
             <h1>Lambda Notes</h1>
 	            <NavItem>
 	            	<div className="nav-button">
-		            	<Link to="/">View Your Notes</Link>
+		            	<Link to="/" className="button-link">View Your Notes</Link>
 		            	</div>
 	            </NavItem>
 	            <NavItem>
 	             <div className="nav-button">
-	            	<Link to="/NewNote">+ Create New Note</Link>
+	            	<Link to="/NewNote" className="button-link">+ Create New Note</Link>
 	            	</div>
 	            </NavItem>
             </Nav>

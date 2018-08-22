@@ -1,5 +1,6 @@
 #root {
-  background: black;
+  background: #0f3254;
+
 }
 .App {
   /* text-align: center; */
@@ -11,10 +12,48 @@
   border: 1px solid #979797;
   font-family: 'Raleway', sans-serif;
   background: white;
-
-
+  text-decoration: none;
 }
 
+/****SingleCard*******/
+.notetitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.note-content {
+  margin-top: -500px;
+  margin-left: 40px;
+}
+.note-view {
+  text-decoration: none;
+  font-size: 10px;
+  width: 600px;
+  padding-left: 50px;
+  margin-left: 20px;
+  height: 500px;
+  background: #EAEBED;
+
+}
+.notes-title {
+  font-size: 25px;
+  margin-top: 50px;
+  width: 500px;
+  border-bottom: 1px solid black;
+  padding-top: 30px;
+}
+
+.notes-content {
+  margin-top: 30px;
+}
+
+.note-button {
+  float: right;
+  font-size: 12px;
+  background: lightblue;
+}
 .notes-container {
   display: flex;
   flex-flow: row wrap;
@@ -24,6 +63,7 @@
   width: 100%;
   max-width: 660px;
   background: #F3F3F3;
+  text-decoration: none;
 }
 
 .title-name {
@@ -31,22 +71,46 @@
 }
 .note-card {
 	display: flex;
-flex-flow: row wrap;
+  flex-flow: row wrap;
 	font-size: 10px;
   margin: 15px 0;
-  height: 300px;
-  width: 500px;
+  height: 150px;
+  width: 200px;
   text-decoration: none;
+  margin-top: 30px;
+
 }
 
-.note-title {
+.notecard-title {
   color: red;
-   text-decoration: none;
+  border-bottom: 2px solid black;
+  font-size: 14px;
 }
+/***NoteList******/
+.notelist-title {
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.notes-notelist {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  text-decoration: none;
+  background: #cedfd9;
+  height: 900px;
+  padding-bottom: 50px;
+}
+
+.notelist-container {
+  background: #cedfd9;
+}
+
 .note-card-text {
 	margin-left: 60px;
-    text-decoration: none;
+
 }
+
 
 .note-card-text-wrapper {
   border: 1px solid black;
@@ -56,22 +120,63 @@ flex-flow: row wrap;
 	justify-content: flex-end;
   background: teal;
 }
-.nav-container {
-  width: 30%;
-  background-color: #D8D8D8;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #979797;
-  height: 900px;
+
+/***New Note******/
+.new-note-container {
+
+  width: 700px;
+  background: #cedfd9;
 }
 
-.nav-button{
-	background: white;
+.new-note-header {
+  margin-left: 20px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.new-note-title {
+  margin-left: 50px;
+  width: 400px;
+}
+
+.new-note-content {
+  margin-left: 50px;
+  width: 500px;
+  height: 500px;
+}
+
+.new-note-button {
+  float: right;
+  margin-right: 132px;
+  margin-bottom: 10px;
+}
+
+
+/***NAVBAR******/
+.nav-container {
+  width: 30%;
+  background-color: #b2bfc4;
+  display: flex;
+  flex-direction: column;
+  border-right: 8px solid #979797;
+  height: 900px;
+  text-align: center;
+  width: 200px;
+}
+
+.button-link{
+  color: gray;
+  text-decoration: none;
+}
+
+.nav-button {
+	background: #fff;
 	border: 1px solid gray;
-	width: 200px;
-	height: 70px;
+	width: 150px;
+	height: 30px;
 	text-align: center;
   margin-left: 20px;
+  margin-right: 10px;
   margin-top: 10px;
-  text-align: center;
+  justify-content: center;
 }

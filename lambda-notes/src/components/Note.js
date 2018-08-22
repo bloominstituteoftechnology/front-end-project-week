@@ -34,11 +34,12 @@ class Note extends Component {
     }
 
     delete = (id) => {
-        axios.delete(`${URL}/${id}`)
+        axios.delete(`${URL}/${this.state.id}`)
         .then(response => {
             this.setState({
                 notes: response.data
             })
+            window.location = '/';
         })
         .catch(error => {
           console.log(error);
@@ -47,13 +48,20 @@ class Note extends Component {
 
     render() {
         return (
-            <div className="note-view">
-                <h1>{this.state.title}</h1>
-                <p>{this.state.content}</p>
-                <Link to={`/notes/${this.state.id}`}><button> Edit </button></Link>
-                <Link to={'/'}><button onClick={this.delete}> Delete </button></Link>
-
+        <div>
+            <div>
+                <h1 className="notetitle">Your Notes:</h1>
             </div>
+            <div>
+                <Link to={`/notes/${this.state.id}`}><button className="note-button"> Edit </button></Link>
+               <button className="note-button" onClick={this.delete}> Delete </button>
+               </div>
+
+            <div className="note-view">
+                    <h1 className="notes-title">{this.state.title}</h1>
+                     <p className="notes-content">{this.state.content}</p>
+            </div>
+     </div>
          );
     }
 }
