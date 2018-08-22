@@ -1,19 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AllNotes from "./components/notes/AllNotes";
+import { noteData } from "./components/data/noteData";
+import "./App.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [],
+      loadedData: false
+    };
+  }
+  componentDidMount() {
+    this.setState({ notes: noteData, loadedData: true });
+  }
+
   render() {
+    console.log("this.state.notes", this.state.notes);
+    if (this.state.loadedData === false) {
+      return (
+        <div>
+          <p>Loading please wait</p>
+        </div>
+      );
+    }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div className="App">
+          <Route
+            exact
+            path="/"
+            render={props => <AllNotes {...props} notes={this.state.notes} />}
+          />
+          {/* <Route path="/new-note" component={NewNote} />
+          <Route path="/notes/:id" component={SingleNote} /> */}
+          Hey
+        </div>
+      </Router>
     );
   }
 }
