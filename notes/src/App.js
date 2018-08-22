@@ -71,15 +71,19 @@ class App extends Component {
     };
   }
 
+  handleTextInput = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   addNewNote = () => {
-    const notes = this.state.notes;
+    const notes = this.state.notes.slice();
     // event.preventDefault();
-    notes.slice().push({
-      id: this.state.notes.id,
-      title: this.state.notes.title,
-      text: this.state.notes.text
+    notes.push({
+      id: notes.length+1,
+      title: this.state.title,
+      content: this.state.content
     });
-    this.setState({ notes: notes });
+    this.setState({ notes });
   };
 
   render() {
@@ -116,6 +120,7 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               makeNote={this.addNewNote}
+              handleInput={this.handleTextInput}
             />
           )}
         />

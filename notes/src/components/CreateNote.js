@@ -7,8 +7,10 @@ export default class CreateNote extends Component {
     this.state = {};
   }
 
-  handleTextInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleClick = event => {
+    event.preventDefault();
+    this.props.makeNote(event);
+    this.props.history.push("/notes");
   };
 
   render() {
@@ -16,11 +18,11 @@ export default class CreateNote extends Component {
     return (
       <div className="createNote-container">
         <div className="CreateNote-form">
-          <hi>Create a note:</hi>
+          <h1>Create a note:</h1>
           <input
             className="title-input"
             type="text"
-            onChange={this.handleTextInput}
+            onChange={this.props.handleInput}
             placeholder="Note title"
             name="title"
             value={this.props.title}
@@ -29,13 +31,13 @@ export default class CreateNote extends Component {
           <input
             className="content-input"
             type="text"
-            onChange={this.handleTextInput}
+            onChange={this.props.handleInput}
             placeholder="Note content"
             name="content"
             value={this.props.content}
           />
 
-          <button className="save-button" onClick={this.props.makeNote}>
+          <button className="save-button" onClick={this.handleClick}>
             Save
           </button>
         </div>
