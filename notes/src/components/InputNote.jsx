@@ -155,6 +155,7 @@ class CreateNote extends Component {
         <div className="viewTitle">
           {this.state.mode === "ADD" ? "Create New" : "Edit"} Note:
         </div>
+        <br/>
         <form className="formLayout" id="createNoteForm" onSubmit={this.submit}>
           <input
             required
@@ -166,6 +167,7 @@ class CreateNote extends Component {
             value={this.state.title}
             onChange={this.handleInputChange}
           />
+           <br/>
           <textarea
             required
             className="notesubmit"
@@ -175,6 +177,7 @@ class CreateNote extends Component {
             value={this.state.body}
             onChange={this.handleInputChange}
           />
+           <br/>
           <button className="sidebarButton">
             {this.state.mode === "ADD" ? "Save" : "Update"}
           </button>

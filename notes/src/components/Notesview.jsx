@@ -169,7 +169,7 @@ class Notesview extends Component {
             <option value="timenew">Newest First</option>
             <option value="timeold">Oldest First</option>
           </select>
-          <div className='searchContainer'><input name='search'placeholder='Search' onChange={this.handleInputChange}type='text'/>  <select onChange={this.changeSearch}>
+          <div className='searchContainer'><input className=' lowerSelect notesubmit' name='search'placeholder='Search' onChange={this.handleInputChange}type='text'/>  <select className='' onChange={this.changeSearch}>
             <option value="title">Title</option>
             <option value="body">Body</option>
             <option value="tags">Tags</option>

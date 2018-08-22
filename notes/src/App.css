@@ -7,7 +7,7 @@
   font-family: "Roboto", sans-serif;
   background: rgb(238, 238, 238);
   display: flex;
-  max-width: 70%;
+  max-width: 1000px;
   
 }
 
@@ -82,7 +82,6 @@
   margin-top: 2em;
 }
 .notesubmit {
-  margin-bottom: 1em;
   padding: 1em;
   border-radius: 5px;
   border: 2px solid grey;
@@ -190,4 +189,22 @@ padding: 2px;
 }
 .checkboxRow{
   display:flex;
+}
+
+.searchContainer{
+  margin-top: 10px;
+  display:flex;
+}
+
+select{
+  background: white;
+  border: 2px grey solid;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: .4em;
+
+
+}
+.lowerSelect{
+  margin-right: 15px;
 }
