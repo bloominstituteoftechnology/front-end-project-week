@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class NotesView extends Component {
+class NoteView extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,16 +20,16 @@ class NotesView extends Component {
         if(note.id === this.state.id) {
             return(
                 <div key={note.id}>
-                <Link to={`/edit/${note.id}`}>
+                <Link to={`/edit/${note._id}`}>
                 <button>
                 Edit
                 </button>
                 </Link>
-                <Link to ={'/'}>
-                <button>
+
+                <button onClick={this.props.toggleDeleteNote}>
                 Delete
                 </button>
-                </Link>
+
                 <h1>{note.title}</h1>
                 <p>{note.textBody}</p>
                 </div>
@@ -45,4 +45,4 @@ class NotesView extends Component {
     }
 }
 
-export default NotesView;
+export default NoteView;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './DeleteNote.css'
 
 class DeleteNote extends Component {
@@ -10,31 +11,26 @@ class DeleteNote extends Component {
         }
     }
 
-componentDidMount() {
+handleDeleteNote = event => {
     const id = this.props.match.params.id;
-    this.props.handleSelectNote(id);
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+        this.setState({id: null});
+        this.props.toggleDelete();
+        this.props.history.push('/');
+    })
+    .catch(err => console.log(err))
 }
 
-deleteNote = () => {
-    this.props.handleDeleteNote(this.props.match.params.id)
-}
+
 
     render() {
         return (
                 <div className = "delete-note-container">
                 <div className = 'delete-note'>
-                    <h3> Are you sure you want to delete this?
-                    </h3>
-                    <Link to = "/notes/:id">
-                    <h3 onClick = {this.deleteNote}>
-                        Delete 
-                    </h3>   
-                    </Link>
-                    <Link to ="/edit/:id">
-                    <h3 onClick = {this.props.handleDelete}>
-                        No
-                    </h3> 
-                    </Link>
+                    <h2> Are you sure you want to delete this?</h2>
+                    <button onClick = {this.handleDeleteNote}> Yes </button>
+                    <button onClick = {this.props.toggleDeleteNote}> No </button>
                 </div>
                 </div>
         )

@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavBar from './components/NavBar';
 import NewNoteForm from './components/NewNoteForm';
 import NotesList from './components/NotesList';
-import NotesView from './components/NotesView';
+import NoteView from './components/NoteView';
 import UpdateNote from './components/UpdateNote';
 import DeleteNote from './components/DeleteNote';
 import './App.css';
@@ -32,68 +32,15 @@ componentDidMount(){
 }
 
 
-handleChange = event => {
-  this.setState({ [event.target.name]: event.target.value})
+
+handleSelectNote = note => {
+  this.setState({selected: note});
 }
 
 
-handleAddNote = event => {
-  const notes = this.state.notes.slice();
-  notes.push({
-    title: this.state.title, 
-    textBody: this.state.textBody, 
-    id: Date.now() });
-  this.setState({
-    notes, 
-    title: '', 
-    textBody: ''
-  });
+toggleDeleteNote = () => {
+  this.setState({ remove: !this.state.remove })
 }
-
-handleSelectNote = id => {
-  this.setState({selected: id});
-}
-
-handleTitleUpdate = event => {
-  this.setState({
-    selected: {
-      id: this.state.selected.id,
-      title: event.target.value,
-      textBody: this.state.selected.textBody
-    }
-  })
-}
-
-handleBodyUpdate = event => {
-  this.setState({
-    selected: {
-      id: this.state.selected.id,
-      title: this.state.selected.title,
-      textBody: event.target.value
-    }
-  })
-}
-
-handleUpdateNote = id => {
-  let notes = this.state.notes.slice();
-  for (let i=0; i<notes.length; i++){
-    if (notes[i].id === Number(id)) {
-      notes[i] = {
-        id: this.state.selected.id,
-        title: this.state.selected.title,
-        textBody: this.state.selected.textBody
-      };
-    }
-  }
-  this.setState({ notes,selected: {} });
-}
-
-handleDeleteNote = id => {
-  let notes = this.state.notes.slice();
-  notes = notes.filter(note => note.id !== Number(id));
-  this.setState({notes, selected: {}, remove: !this.state.remove })
-}
-
 
   render() {
     console.log('logging state in App',this.state);
@@ -101,7 +48,7 @@ handleDeleteNote = id => {
       <div className = "app">
         <Route path = "/" component={NavBar} />
         
-        <Route exact path = "/" render={props =>
+        <Route exact path = "/all" render={props =>
         (<NotesList {...props}
         notes={this.state.notes} 
         />
@@ -117,7 +64,7 @@ handleDeleteNote = id => {
           )}
           />
 
-          <Route path = "/edit/:id" render={props=>
+          <Route path = "/edit/id" render={props=>
           (<UpdateNote {...props}
           notes = {this.state.notes}
           selected = {this.state.selected}
@@ -129,21 +76,21 @@ handleDeleteNote = id => {
           )}
           />
 
-          <Route path="/notes/:id" render={props =>
-          (<NotesView {...props}
-          note={this.state.notes}
+          <Route path="/notes/id" render={props =>
+          (<NoteView {...props}
+          note={this.state.note}
           />
           )}
           />
 
-          <Route path = "/notes/:id" render = {props=>
+          {this.state.remove ? (<Route path = "/notes/id" render = {props=>
           (<DeleteNote {...props}
           handleSelectNote = {this.handleSelectNote}
-          handleDeleteNote = {this.handleDeleteNote} 
+          toggleDeleteNote = {this.toggleDeleteNote} 
           />
           )}
-          />  
-
+        />):null  
+        }
           
           
       </div>

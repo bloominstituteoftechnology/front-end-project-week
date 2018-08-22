@@ -1,17 +1,38 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-import Note from './DeleteNote';
-import dummyData from '../dummyData'
 
-const NotesList = props => {
+
+class NotesList extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            notes: []
+        }
+    }
+
+
+componentDidMount() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    .then(response => {
+        this.setState({notes: response.data})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+render() {
+
     return(
         <div className = "notes-list-container">
-        {props.notes.map(note=>{
+        {this.state.notes.map(note=>{
             return(
                 <div className = "note-container">
                 <div className = "note">
-                <Link to={`/notes/${note.id}`}>
+                <Link to={`/notes/${note._id}`}>
                 <h1>{note.title}</h1>
                 <p>{note.textBody}</p>
                 </Link>
@@ -21,6 +42,7 @@ const NotesList = props => {
         })}
         </div>
     )
+}
 }
 
 export default NotesList;
