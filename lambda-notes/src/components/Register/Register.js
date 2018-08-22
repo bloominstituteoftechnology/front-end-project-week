@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginWrapper, LoginForm, LoginInput, LoginButton, BottomLoginContent, BottomText, SignIn } from '../ReusableComponents/Login';
+import { LoginWrapper, LoginForm, LoginInput, LoginButton, BottomLoginContent, BottomText, SignIn, InvalidCredentials } from '../ReusableComponents/Login';
 import { connect } from 'react-redux';
 import { signUp } from '../../actions/auth';
 
@@ -51,6 +51,8 @@ class Register extends React.Component {
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
                     <LoginButton to='/notes' onClick={this.loginButton}>Sign Up</LoginButton>
 
+                    {this.props.userExists ? <InvalidCredentials>{this.props.userExists}</InvalidCredentials> : null}
+
                 </LoginForm>
 
                 <BottomLoginContent>
@@ -67,7 +69,10 @@ class Register extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { authenticated: state.auth.signedIn };
+    return {
+        authenticated: state.auth.signedIn,
+        userExists: state.auth.userExists
+    };
 
 }
 

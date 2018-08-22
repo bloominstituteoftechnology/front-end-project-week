@@ -89,4 +89,5 @@ export const InvalidCredentials = styled.p`
     margin-top: 18px;
     margin-bottom: 0;
     max-width: 214px;
+    text-align: center;
 `
