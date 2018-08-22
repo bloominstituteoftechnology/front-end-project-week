@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import AddNote from './components/AddNote';
-import NotesView from './components/NotesView';
-import Note from './components/Note';
-import Edit from './components/Edit';
-import './App.css';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import AddNote from "./components/AddNote";
+import NotesView from "./components/NotesView";
+import Note from "./components/Note";
+import Edit from "./components/Edit";
+import "./App.css";
 
 export default class App extends Component {
   constructor() {
@@ -29,21 +29,31 @@ export default class App extends Component {
           title: "Note Title",
           note:
             "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis3"
+        },
+        {
+          id: 4,
+          title: "Note Title",
+          note:
+            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis1"
+        },
+        {
+          id: 5,
+          title: "Note Title",
+          note:
+            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis2"
+        },
+        {
+          id: 6,
+          title: "Note Title",
+          note:
+            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phassellus diam metus, blandit ac purus a, efficitur mollis3"
         }
       ],
       id: null,
       title: "",
-      note: "",
-      editId: null
+      note: ""
     };
   }
-
-  onComponentDidMount (){
-    if(this.state.match.params.id === undefined){
-      this.setState({editId: null})
-    }else return this.setState({editId: this.state.match.params.id}); 
-    
-    }
 
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -73,24 +83,35 @@ export default class App extends Component {
 
   inputHandlerUpdate = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
-  onUpdateHandler = e => {
+  onUpdateHandler = (e, id) => {
     e.preventDefault();
 
-    const edit = this.state.notes.slice(); 
- 
-    edit.splice(this.state.editId, 1, {
-      id: this.state.editId,
-      title: this.state.title, 
+    const edit = this.state.notes.slice();
+
+    edit.splice(id - 1, 1, {
+      id: id,
+      title: this.state.title,
       note: this.state.note
     });
-    console.log('edit', edit);
-    this.setState(() => ({notes: edit, id: null, title: "", note: ""}));
+
+    this.setState(() => ({ notes: edit, id: null, title: "", note: "" }));
+  };
+
+  deleteHandler = (e, id) => {
+    e.preventDefault();
+
+    const deleted = this.state.notes.slice();
+
+    deleted.splice(id - 1, 1);
+
+    this.setState(() => ({ notes: deleted, id: null, title: "", note: "" }));
   }
+ 
+  
 
   render() {
-    console.log('inputhandlers', this.state.title);
     return (
       <div className="app">
         <div className="navbar">
@@ -103,10 +124,14 @@ export default class App extends Component {
           </NavLink>
         </div>
         <div className="notesbody">
+
           <Route
             exact
             path="/"
-            render={props => <NotesView {...props} notes={this.state.notes} />}
+            render={props => 
+              <NotesView 
+                {...props} 
+                notes={this.state.notes} />}
           />
 
           <Route
@@ -122,7 +147,11 @@ export default class App extends Component {
 
           <Route
             path="/note/:id"
-            render={props => <Note {...props} notes={this.state.notes} />}
+            render={props => 
+              <Note 
+                {...props} 
+                notes={this.state.notes}
+                deleteHandler={this.deleteHandler} />}
           />
 
           <Route

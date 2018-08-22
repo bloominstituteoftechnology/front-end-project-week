@@ -1,51 +1,75 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import '../App.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 export default class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note:{},
+      note: {},
       notes: this.props.notes,
-      editId: null,
-      addId: null
-    }
-  }     
+      openModal: false
+    };
+  }
   componentDidMount() {
-    // console.log('looking for match params', this.props.match.params.id)
-    
-     
     let searchID;
-
-    if(this.props.id){
-      searchID = this.props.id;     
-    } else if(this.props.match.params.id === !undefined){
-      this.setState({addId: this.props.match.params.id })
+    if (this.props.id) {
+      searchID = this.props.id;
     } else {
-      searchID = this.state.addId
+      searchID = this.props.match.params.id;
     }
-  
-    const foundNote = this.state.notes.find(note => note.id === Number(searchID))
-  
-    if(!foundNote) return;
-    this.setState(() => ({note: foundNote}));
 
+    const foundNote = this.state.notes.find(
+      note => note.id === Number(searchID)
+    );
 
+    if (!foundNote) return;
+    this.setState(() => ({ note: foundNote }));
   }
 
+  openModalHandler = e => {
+    this.setState({openModal: true})
+  }
 
-  render(){
+  closeModalHandler = e => {
+    this.setState({openModal: false})
+  }
 
-  return (
-    <div className="notecard">
+  deleteDelayer = () =>{
+    setTimeout(() => {
+      this.props.history.push('/')
+     }, 250) 
+  }
 
-      <Link to={`/edit/${this.state.editId}`}><div>edit</div></Link>
+  render() {
+    return (
+      <div className="notecard">
 
-      <div className="notecard-title">{this.state.note.title}</div>
+        <Link to={`/edit/${this.props.match.params.id}`}>
+          <div>edit</div>
+        </Link>
 
-      <div className="notecard-note">{this.state.note.note}</div>
-    </div>
+        <div className="myButton" onClick={this.openModalHandler}>delete</div>
+
+        <div className={`${(this.state.openModal) ? "modal" : "modal-nodisplay"}`}>
+          <div className="modal-content">
+            <p>Are you sure you want to delete this?</p>
+            
+            <div className="form-button-group">
+            
+              <div onClick={this.deleteDelayer}>
+            <button className="form-button" onClick={(e) => this.props.deleteHandler(e, this.props.match.params.id)}>Delete</button>
+              </div>
+            
+            <button className="form-button" onClick={this.closeModalHandler}>No</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="notecard-title">{this.state.note.title}</div>
+
+        <div className="notecard-note">{this.state.note.note}</div>
+      </div>
     );
   }
 }

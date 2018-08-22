@@ -1,14 +1,22 @@
 import React from 'react';
 import '../App.css'
 
-export default function Edit(props) {
+
+export default function Edit(props){
+
+    const linkHome = () =>{
+       setTimeout(() => {
+        props.history.push('/')
+       }, 250) 
+      }
+    
     return (
         <div className="form">
     
           <div className="form-title">Edit Note:</div>
     
           <div className="form-body">
-            <form onSubmit={props.onUpdateHandler}>
+            <form onSubmit={(e) => props.onUpdateHandler(e, props.match.params.id)}>
               <textarea
                 type="text"
                 className="form-inputtitle"
@@ -26,11 +34,14 @@ export default function Edit(props) {
                 value={props.note}
               />
     
-              <button className="form-button">Update</button>
+              <button className="form-button" onClick={linkHome}>Update</button>
             
             </form>
           </div>
         </div>
     );
-  }
+}
 
+
+
+  
