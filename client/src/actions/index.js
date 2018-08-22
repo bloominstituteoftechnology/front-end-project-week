@@ -61,3 +61,13 @@ export const addNote = data => async dispatch => {
     dispatch(addNoteFailure(err));
   }
 };
+
+export const editNote = (id, data) => async dispatch => {
+  dispatch(editNoteRequest());
+  try {
+    let response = await axios.put(`${API_URL}/edit/${id}`, data);
+    dispatch(editNoteSuccess(response.data));
+  } catch (err) {
+    dispatch(editNoteFailure(err));
+  }
+};

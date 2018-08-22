@@ -17,16 +17,14 @@ class AddNoteContaier extends Component {
   };
 
   render() {
-    const { isAdding, addError } = this.props;
+    const { isAdding, error } = this.props;
 
     if (isAdding) {
       return <div>Adding note...</div>;
     }
 
-    if (addError) {
-      return (
-        <div>Something went wrong, please try again {addError.message}</div>
-      );
+    if (error) {
+      return <div>Something went wrong, please try again {error.message}</div>;
     }
 
     if (this.state.requested) {
@@ -43,6 +41,6 @@ class AddNoteContaier extends Component {
 }
 
 export default connect(
-  ({ isAdding, addError }) => ({ isAdding, addError }),
+  ({ isAdding, error }) => ({ isAdding, error }),
   { addNote },
 )(AddNoteContaier);

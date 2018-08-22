@@ -10,12 +10,17 @@ import {
   addNoteRequest,
   addNoteSuccess,
   addNoteFailure,
+  editNoteRequest,
+  editNoteSuccess,
+  editNoteFailure,
 } from '../actions';
 
 const notes = handleActions(
   {
     [fetchNotesSuccess]: (_, { payload }) => payload,
     [addNoteSuccess]: (state, { payload }) => [...state, payload],
+    [editNoteSuccess]: (state, { payload }) =>
+      state.map(note => (note._id === payload._id ? payload : note)),
   },
   [],
 );
@@ -48,8 +53,16 @@ const isAdding = handleActions(
   false,
 );
 
-const addError = handleAction(
-  addNoteFailure,
+const isEditing = handleActions(
+  {
+    [editNoteRequest]: () => true,
+    [combineActions(editNoteSuccess, editNoteFailure)]: () => false,
+  },
+  false,
+);
+
+const error = handleAction(
+  combineActions(addNoteFailure, editNoteFailure),
   (_, { payload }) => payload,
   null,
 );
@@ -59,5 +72,6 @@ export default combineReducers({
   currentNote,
   isFetching,
   isAdding,
-  addError,
+  isEditing,
+  error,
 });

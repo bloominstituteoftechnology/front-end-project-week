@@ -9,6 +9,7 @@ import NoteView from './components/NoteView';
 import ListContainer from './containers/ListContainer';
 import NoteContainer from './containers/NoteContainer';
 import AddNoteContainer from './containers/AddNoteContainer';
+import EditNoteContainer from './containers/EditNoteContainer';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -94,15 +95,16 @@ class App extends Component {
             <Route
               exact
               path="/notes/:id/edit"
-              render={props => (
-                <div>
-                  <SecondaryHeading>Edit Post</SecondaryHeading>
-                  <NotesForm
-                    {...props}
-                    onFormSubmit={this.editNote(Number(props.match.params.id))}
-                  />
-                </div>
-              )}
+              // render={props => (
+              //   <div>
+              //     <SecondaryHeading>Edit Post</SecondaryHeading>
+              //     <NotesForm
+              //       {...props}
+              //       onFormSubmit={this.editNote(Number(props.match.params.id))}
+              //     />
+              //   </div>
+              // )}
+              component={EditNoteContainer}
             />
             <Route
               exact

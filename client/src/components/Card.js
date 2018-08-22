@@ -19,6 +19,8 @@ const CardTitle = styled.h3`
 
 const CardBody = styled.div`
   font-family: 'Raleway', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Card = ({ note: { id, title, textBody } }) => {
