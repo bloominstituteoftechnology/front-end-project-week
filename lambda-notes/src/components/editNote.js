@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {  Link } from "react-router-dom";
 
 class EditNote extends Component {
     constructor(props) {
@@ -10,16 +11,19 @@ class EditNote extends Component {
         }
     }
     
-
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+    // handleClick = (event) => {
+    //     event.preventDefault();
+    //     props.addNewNote(event);
+    //     props.history.push("/");
+    // }
+
     render() {
-
-    // let denoted = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id, 10));
-    // onClick={this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text)}
-
+    let denoted = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id, 10));
+    
     console.log(this.state.id);
     if(this.props.notes.length > 0) {
         return (
@@ -28,7 +32,7 @@ class EditNote extends Component {
                 <form className="add-form" >
                     <input className="edit-title-input" name="title" onChange={this.handleInputChange} value={this.state.title} /> <br/>
                     <textarea className="edit-text-input" name="text" onChange={this.handleInputChange} value={this.state.text} />
-                    <div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text)}}  >Save</div>
+                    <Link to={`/notes/${denoted.id}`} ><div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text); this.props.history.push(`/notes/${denoted.id}`); }}  >Save</div></Link>
                 </form> {/* */}
             </div>
         )  
