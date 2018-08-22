@@ -1,28 +1,213 @@
+#root {
+  width: 1020px;
+  height: 100vh;
+  border: 1px solid black;
+}
 .App {
   text-align: center;
+  display: flex;
+  color: black;
+  text-decoration: none;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.NavBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 20vw;
+  border: 1px solid green;
+  background-color: lightgray;
+}
+.NavBar .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  height: 40px;
+  width: 180px;
+  background-color: teal;
+  margin: 3% auto;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.NotesList h2 {
+  align-self: flex-start;
+}
+.NotesList div{
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.note-card {
+  display: block;
+  margin: 2%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.note-card h3 {
+  width: 100%;
+  height: 20%;
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+.note-card p {
+  margin: 3% auto 0;
 }
 
-.App-title {
-  font-size: 1.5em;
+.Note {
+  margin-left: 240px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.App-intro {
-  font-size: large;
+.Note .NavBar {
+  display: inline-flex;
+  align-items: center;
+  width: 240px;
+  position: absolute;
+  left: 0;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Note .NavBar h1 {
+  margin-left: 30px;
+}
+
+.Note .edit-delete {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.Note .link {
+  margin: 1% 2%;
+}
+
+.Note .display-note {
+  margin-top: 20px;
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Note .display-note h2 {
+  width: 100%;
+  margin: 0 20px;
+}
+
+.Note .display-note p {
+  width: 100%;
+  margin: 60px 20px;
+}
+
+.add-note {
+  margin-left: 240px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-note .NavBar {
+  display: inline-flex;
+  align-items: center;
+  width: 240px;
+  position: absolute;
+  left: 0;
+}
+.add-note .NavBar h1 {
+  margin-left: 30px;
+}
+
+.add-note h3 {
+  width: 100%;
+  margin: 60px 20px 40px;
+}
+
+.add-note #title {
+  width: 70%;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.add-note #textBody {
+  width: 100%;
+  height: 600px;
+  margin-left: 20px;
+}
+
+.add-note button {
+  width: 30%;
+  height: 40px;
+  margin-left: 20px;
+  background-color: teal;
+}
+
+.edit-note {
+  margin-left: 240px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-note .NavBar {
+  display: inline-flex;
+  align-items: center;
+  width: 240px;
+  position: absolute;
+  left: 0;
+}
+.edit-note .NavBar h1 {
+  margin-left: 30px;
+}
+
+.edit-note h3 {
+  width: 100%;
+  margin: 60px 20px 40px;
+}
+
+.edit-note #title {
+  width: 70%;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.edit-note #textBody {
+  width: 100%;
+  height: 600px;
+  margin-left: 20px;
+}
+
+.edit-note button {
+  width: 30%;
+  height: 40px;
+  margin-left: 20px;
+  background-color: teal;
+}
+
+.delete-modal {
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  border: 1px solid black;
+  top: 30%;
+  left: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.delete-modal p {
+  width: 100%;
+  margin: 0 20%;
+}
+.delete-modal button{
+  width: 48%;
+  height: 30px;
+  background-color: teal;
+}
+.delete-modal .delete {
+  background-color: red;
 }

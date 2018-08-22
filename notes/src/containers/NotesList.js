@@ -13,7 +13,9 @@ class NotesList extends React.Component {
             return(
                 <div className="NotesList">
                     <h2>Your Notes:</h2>
-                    {this.props.notes.map(note=> <NoteCard key={note._id} params={note} /> )}
+                    <div>
+                        {this.props.notes.map(note=> <NoteCard key={note._id} params={note} /> )}
+                    </div>                   
                 </div>
             )
         } else return null;

@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
-import { editNote } from '../actions'; //takes in note as param
+import { editNote } from '../actions'; 
 import { connect } from 'react-redux';
 
 class EditNote extends React.Component {
@@ -17,7 +17,7 @@ class EditNote extends React.Component {
     }
     render(){
         return(
-            <div className="add-note">
+            <div className="edit-note">
                 <NavBar />
                 <h3>Edit this Note:</h3>
                 <form onSubmit={(e)=>{
