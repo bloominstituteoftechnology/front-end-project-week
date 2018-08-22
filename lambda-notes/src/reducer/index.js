@@ -24,7 +24,8 @@ export const NotesReducer = (state = initialState, action) => {
     switch(action.type){
         case('ADD_NOTE'):
         return { 
-            notes: [...state.notes, action.payload]
+            notes: [...state.notes, action.payload],
+            currentNote: note
         }
         case('GET_NOTE'):
         let note; 
@@ -35,7 +36,13 @@ export const NotesReducer = (state = initialState, action) => {
             }
         return {
             currentNote: note, 
-            notes: [...state.notes]
+            notes: [...state.notes, note]
+        }
+        case('DELETE_NOTE'): 
+        let updatedNotes = state.notes.filter(note => note.id !== action.payload); 
+        return{
+            notes: updatedNotes, 
+            currentNote: note
         }
         default: 
         return state; 

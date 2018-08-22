@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 class NotesListView extends React.Component {
     constructor(){
         super();
-        this.state = {
-            notes: []
-        } 
     }
 
 
@@ -20,7 +17,7 @@ class NotesListView extends React.Component {
         return (
             <div className = "notes-list-view">
                 <h2>Your Notes:</h2>
-                {this.state.notes.map(note => {
+                {this.props.notes.map(note => {
                     return(
                         <Link key = {note.id} to = {`/notes/${note.id}`}>
                         <div  className = "note">

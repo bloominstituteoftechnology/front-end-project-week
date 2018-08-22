@@ -21,7 +21,7 @@ class CreateNoteView extends Component {
 
     submitNoteHandler = (event) => {
         const newNote = {
-            id: new Date(), 
+            id: this.props.notes.length + 1, 
             title: this.state.title, 
             content: this.state.content
         }
@@ -42,4 +42,10 @@ class CreateNoteView extends Component {
     
 }
 
-export default connect(null, {addNote} )(CreateNoteView); 
+const mapStateToProps = (state) => {
+    return {
+        notes: state.notes
+    }
+}
+
+export default connect(mapStateToProps, {addNote})(CreateNoteView); 
