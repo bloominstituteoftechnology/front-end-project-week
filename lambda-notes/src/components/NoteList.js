@@ -11,7 +11,7 @@ const NoteList = props => {
         <div className="notelist-container">
 	        <div className="notelist-title">
 
-	        <h4 >Your Lambda Notes:</h4>
+	        <h4>Lambda Notes:</h4>
 	        </div>
         <div className="notes-notelist">
             {props.notes.map(note => {

@@ -3,6 +3,7 @@ import { Container, Row, Card, CardBody, CardTitle, CardText, Col } from 'reacts
 import '../App.css';
 
 
+
 const NoteCard = (props) => {
 
   return (
