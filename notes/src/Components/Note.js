@@ -1,18 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+
+import EditNote from "./EditNote";
+import DeleteModal from "./DeleteModal";
 
 class Note extends React.Component {
 	state = {
 		editDisplay: false,
 		deleteDisplay: false,
 		_id: this.props.match.params.id,
-		title: "",
-		textBody: "",
-		tags: [],
-	};
-
-	handleInputChange = event => {
-		this.setState({ [event.target.name]: event.target.value });
 	};
 
 	handleEditFlip = () => {
@@ -27,6 +23,11 @@ class Note extends React.Component {
 		}));
 	};
 
+	onSubmit = object => {
+		this.props.onSubmit(this.state._id, object);
+		this.handleEditFlip();
+	};
+
 	render() {
 		const note = this.props.notes.find(
 			note => note._id == this.props.match.params.id,
@@ -35,7 +36,9 @@ class Note extends React.Component {
 
 		return (
 			<div className="NoteWrapper">
-				{this.state.editDisplay ? null : (
+				{this.state.editDisplay ? (
+					<EditNote note={note} onSubmit={this.onSubmit} />
+				) : (
 					<div>
 						<div className="Note__editDelete">
 							<span onClick={() => this.handleEditFlip()}>
@@ -52,87 +55,18 @@ class Note extends React.Component {
 							{note.tags.map(tag => (
 								<span className="Notes__tag">{tag}</span>
 							))}
-							<p className="Note__content-text">
-								{note.textBody}
-							</p>
+							<ReactMarkdown
+								source={note.textBody}
+								className="Note__content-text"
+							/>
 						</div>
 					</div>
 				)}
-				<div
-					className={
-						this.state.deleteDisplay
-							? "Note__delete--shown"
-							: "Note__delete--hidden"
-					}
-				>
-					<div className="Note__delete-prompt">
-						<h4>Are you sure you want to delete this?</h4>
-						<div className="Note__delete-prompt-buttons">
-							<Link to="/notes">
-								<button
-									className="Button Button--danger"
-									onClick={() => this.props.onClick(noteId)}
-								>
-									Yes
-								</button>
-							</Link>
-							<button
-								className="Button"
-								onClick={() => this.handleDeleteFlip()}
-							>
-								No
-							</button>
-						</div>
-					</div>
-				</div>
-				{this.state.editDisplay ? (
-					<div className="AddNoteWrapper">
-						<form
-							className="AddNote__form"
-							id="editNoteForm"
-							onSubmit={e => {
-								e.preventDefault();
-								this.props.onSubmit(this.state._id, {
-									title: this.state.title,
-									textBody: this.state.textBody,
-									tags: this.state.tags.split(","),
-								});
-								this.handleEditFlip();
-							}}
-						>
-							<input
-								className="AddNote__form-title"
-								type="text"
-								placeholder="Note Title"
-								defaultValue={note.title}
-								name="title"
-								autoComplete="off"
-								onChange={this.handleInputChange}
-							/>
-							<input
-								type="text"
-								placeholder="Tags"
-								defaultValue={note.tags}
-								name="tags"
-								autoComplete="off"
-								onChange={this.handleInputChange}
-							/>
-							<span className="AddNote__form-tagInstructions">
-								Separate tags with a comma
-							</span>
-							<textarea
-								id="editNoteForm"
-								cols="30"
-								rows="10"
-								name="textBody"
-								placeholder="Note Content"
-								defaultValue={note.textBody}
-								onChange={this.handleInputChange}
-							/>
-							<button className="Button">Update</button>
-						</form>
-					</div>
-				) : null}
+				<DeleteModal
+					deleteDisplay={this.state.deleteDisplay}
+					onClose={() => this.handleDeleteFlip()}
+					onDelete={() => this.props.onDelete(noteId)}
+				/>
 			</div>
 		);
 	}

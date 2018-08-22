@@ -1,12 +1,21 @@
 import React from "react";
+
 import Form from "./Form";
 
-class AddNote extends React.Component {
+class EditNote extends React.Component {
 	state = {
 		title: "",
 		textBody: "",
-		tags: "",
+		tags: [],
 	};
+
+	componentDidMount() {
+		this.setState({
+			title: this.props.note.title,
+			textBody: this.props.note.textBody,
+			tags: this.props.note.tags,
+		});
+	}
 
 	handleInputChange = event => {
 		this.setState({ [event.target.name]: event.target.value });
@@ -19,23 +28,19 @@ class AddNote extends React.Component {
 			textBody: this.state.textBody,
 			tags: this.state.tags.split(","),
 		});
-		this.setState({
-			title: "",
-			textBody: "",
-			tags: "",
-		});
 	};
+
 	render() {
 		return (
 			<Form
-				handleInputChange={this.handleInputChange}
-				onSubmit={this.onSubmit}
-				title={this.state.title}
 				textBody={this.state.textBody}
 				tags={this.state.tags}
+				title={this.state.title}
+				onSubmit={this.onSubmit}
+				handleInputChange={this.handleInputChange}
 			/>
 		);
 	}
 }
 
-export default AddNote;
+export default EditNote;

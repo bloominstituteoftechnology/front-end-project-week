@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from "axios";
 
 import Notes from "./Components/Notes";
@@ -7,6 +7,7 @@ import Note from "./Components/Note";
 import AddNote from "./Components/AddNote";
 import Sidebar from "./Components/Sidebar";
 import FilteredNotes from "./Components/FilteredNotes";
+import Markdown from "./Components/Markdown";
 
 import "./App.css";
 
@@ -50,6 +51,7 @@ class App extends Component {
 	};
 
 	handleEditNote = (id, edited) => {
+		console.log("we made it");
 		this.setState({ loading: true });
 		axios.put(`${API_PUT}/${id}`, edited).then(response => {
 			this.setState(prevState => ({
@@ -69,11 +71,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Sidebar />
-				<Route
-					exact
-					path="/"
-					render={() => <div>Under Construction</div>}
-				/>
+				<Route exact path="/" render={() => <Markdown />} />
 				<Route
 					exact
 					path="/notes"
@@ -97,9 +95,9 @@ class App extends Component {
 					path="/notes/:id"
 					render={props => (
 						<Note
-							match={props.match}
+							{...props}
 							notes={this.state.notes}
-							onClick={this.handleDeleteNote}
+							onDelete={this.handleDeleteNote}
 							onSubmit={this.handleEditNote}
 						/>
 					)}

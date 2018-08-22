@@ -15,6 +15,10 @@ class FilteredNotes extends React.Component {
 		return (
 			<div className="NotesWrapper FilteredNotesWrapper">
 				<h1 className="Notes__header">Your Notes:</h1>
+				<h2 className="FilteredNotes__header">
+					<span className="FilteredNotes__span">Tag:</span>{" "}
+					{this.props.match.params.tag}
+				</h2>
 				{this.state.notes &&
 					this.state.notes.map(note => <NoteCard note={note} />)}
 			</div>

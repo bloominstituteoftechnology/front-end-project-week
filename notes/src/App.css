@@ -10,6 +10,8 @@
 	flex-direction: column;
 	align-content: flex-start;
 	align-items: center;
+	z-index: 1;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .Sidebar__header {
@@ -39,6 +41,7 @@
 	align-content: flex-start;
 	flex-wrap: wrap;
 	padding: 2% 4%;
+	height: 200vh;
 	width: 100%;
 	background-color: #f2f0f2;
 }
@@ -98,9 +101,14 @@
 
 .Notes__tag--sort {
 	font-size: 1.3rem;
-	background-color: #00b6bb;
+	background-color: #585858;
 	margin-right: 6px;
 	margin-bottom: 6px;
+	transition: background 250ms ease-in-out, transform 150ms ease;
+}
+
+.Notes__tag--sort:hover {
+	background-color: #e07d26;
 }
 
 .Notes__tag:not(:last-child) {
@@ -114,6 +122,17 @@
 
 .FilteredNotesWrapper {
 	height: 100vh;
+}
+
+.FilteredNotes__header {
+	color: #e07d26;
+	text-decoration: underline;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.FilteredNotes__span {
+	color: #706e6e;
 }
 
 .AddNoteWrapper {
@@ -171,6 +190,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 2;
 }
 
 .Note__delete--hidden {
