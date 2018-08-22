@@ -12,6 +12,10 @@ import { getNotes, addNote, updateNote, deleteNote, searching } from './actions'
 import { withRouter } from 'react-router';
 import Authenticate from './components/Authenticate';
 
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+import { compose } from 'redux';
+
 class App extends Component {
   constructor() {
     super();
@@ -98,4 +102,8 @@ const mapStateToProps = state => {
 
 const AuthenticatedApp = Authenticate(App);
 
-export default withRouter(connect(mapStateToProps, { getNotes, addNote, updateNote, deleteNote, searching })(App));
+export default compose (
+  withRouter,
+  connect(mapStateToProps, { getNotes, addNote, updateNote, deleteNote, searching }),
+  DragDropContext(HTML5Backend)
+)(App);
