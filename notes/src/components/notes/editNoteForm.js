@@ -14,7 +14,7 @@ color:#424242
 margin-left: 5%;
 margin-top: 70px;
 `
-const EditNoteForm=styled.div`
+const EditnoteForm=styled.div`
 width: 92.5%;
 display: flex;
 flex-direction: column;
@@ -77,11 +77,11 @@ class EditNoteForm extends React.Component{
         return(
             <EditNotePage>
                 <EditNoteHeading>Create New Note:</EditNoteHeading>
-                <EditNoteForm>
+                <EditnoteForm>
                 <EditNoteInput name='title' type='text' placeholder='Note Title' value={this.state.title} onChange={this.handleInputChange}/>
                 <EditNoteTextArea name='content' type='text' placeholder='Note Content' value={this.state.content} onChange={this.handleInputChange}/>
                 <EditNoteButton onClick={this.editNoteObj}>Save</EditNoteButton>
-                </EditNoteForm>
+                </EditnoteForm>
             </EditNotePage>
         )
     }
