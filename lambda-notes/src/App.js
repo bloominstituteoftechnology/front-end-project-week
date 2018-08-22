@@ -16,53 +16,53 @@ class App extends Component {
       notes: [
         {
           id: 0,
-          title: "Bake Bread",
-          description: "Make bread for the cat"
+          title: "Note 0",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 1,
-          title: "Bake Cookies",
-          description: "Make cookies for the cat"
+          title: "Note 1",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 2,
-          title: "Bake Lasagna",
-          description: "Make lasagna for the cat"
+          title: "Note 2",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 3,
-          title: "Bake Mac",
-          description: "Make mac for the cat"
+          title: "Note 3",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 4,
-          title: "Bake Steak",
-          description: "Make steak for the cat"
+          title: "Note 4",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 5,
-          title: "Bake Rice",
-          description: "Make rice for the cat"
+          title: "Note 5",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 6,
-          title: "Bake Salad",
-          description: "Make salad for the cat"
+          title: "Note 6",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 7,
-          title: "Bake Tea",
-          description: "Make tea for the cat"
+          title: "Note 7",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 8,
-          title: "Bake Fish",
-          description: "Make fish for the cat"
+          title: "Note 8",
+          description: "We have a fantastic little sky! There it is."
         },
         {
           id: 9,
-          title: "Bake Tacos",
-          description: "Make tacos for the cat"
+          title: "Note 9",
+          description: "We have a fantastic little sky! There it is."
         }
       ],
       noteTitle: "",
