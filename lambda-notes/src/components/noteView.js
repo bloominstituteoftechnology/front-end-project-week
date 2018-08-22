@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  } from 'react';
 import {  Link } from "react-router-dom";
 
 
@@ -17,7 +17,7 @@ export const SingleView = props => {
                     </div>
                 </div> )}
                 <div className="view-links" >
-                    <Link to="" >edit</Link> {/* {`/notes/${this.props.match.params.id}/edit`} */}
+                    <Link to={`/notes/${denoted.id}/edit`} >edit</Link> {/* {`/notes/${this.props.match.params.id}/edit`} */}
                     &nbsp; &nbsp;
                     <div className="delete-link" onClick={() => props.modalToggle()} >delete</div>
                 </div>

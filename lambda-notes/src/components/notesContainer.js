@@ -7,7 +7,7 @@ export const NoteList = props => {
             <h3 className="your-header" >Your Notes:</h3>
             {props.notes.map(note => {
             return ( 
-                <Link to={`/notes/${note.id}`} >
+                <Link to={`/notes/${note.id}`} key={note.id} >
                     <div 
                         title={note.title}
                         text={note.text}

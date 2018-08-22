@@ -6,6 +6,7 @@ import { NoteList } from './components/notesContainer';
 import Route from 'react-router-dom/Route';
 import { SingleView } from './components/noteView';
 import { AddNote } from './components/addNote';
+import  EditNote  from './components/editNote';
 
 
 class App extends Component {
@@ -73,6 +74,7 @@ class App extends Component {
           <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
           <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} modalToggle={this.modalToggle} showModal={this.state.showModal} deleteNote={this.deleteNote} /> )} />
           <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
+          <Route exact path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} />)}  />
         </div>
       </div>
     );
