@@ -37,7 +37,6 @@ export const fetchNotes = (token) => {
         console.log('IN HERERE', res.data)
         dispatch({ type: GET_NOTES, payload: res.data })
         const tags = res.data.map((tags) => tags.tags)
-        console.log(tags)
         dispatch({ type: GET_TAGS, payload: tags })
         dispatch({ type: FETCHING, payload: false })
       })
@@ -45,7 +44,7 @@ export const fetchNotes = (token) => {
   }
 }
 
-export const getNote = (id) => {
+export const getNote = (id, cb) => {
   const request = axios.get(`${url}/auth/note/${id}`)
   return (dispatch) => {
     dispatch({ type: GETTING_NOTE, payload: true })
@@ -54,6 +53,7 @@ export const getNote = (id) => {
         console.log(res.data)
         dispatch({ type: GETTING_NOTE, payload: false })
         dispatch({ type: GET_NOTE, payload: res.data })
+        cb()
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
@@ -68,9 +68,7 @@ export const deleteNote = (id) => {
         dispatch({ type: DELETING, payload: false })
         dispatch({
           type: GET_NOTES,
-          payload: axios.get(`${url}/get/all`).then((res) => {
-            dispatch({ type: GET_NOTES, payload: res.data })
-          })
+          payload: res.data
         })
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
@@ -91,16 +89,6 @@ export const postNote = (note, token) => {
         dispatch({
           type: GET_NOTES,
           payload: res.data
-          //  axios.get(`${url}/get/all`).then((res) => {
-          //   // const arr = res.data.map((note) => note.tags)
-          //   // let tags = [ ...new Set(flatten(arr)) ].filter(
-          //   //   (tag) => tag.length >= 2
-          //   // )
-
-          //   // dispatch({ type: GET_TAGS, payload: tags })
-          //   dispatch({ type: GET_NOTES, payload: res.data })
-          //   dispatch({ type: POSTING, payload: false })
-          // })
         })
         // dispatch({ type: GET_TAGS, payload: res.data.tags })
       })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteNote, editNote, getNote } from '../actions'
+import { deleteNote, editNote, getNote, postNote } from '../actions'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 class NoteDetails extends Component {
@@ -11,10 +11,15 @@ class NoteDetails extends Component {
       modal: false,
       editModal: false,
       isEditing: false,
+      note: this.props.note,
       title: this.props.note.title,
       context: this.props.note.context,
       tags: this.props.note.tags
     }
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ note: nextProps.note })
   }
 
   toggle = () => {
@@ -25,8 +30,7 @@ class NoteDetails extends Component {
 
   editToggle = () => {
     this.setState({
-      editModal: !this.state.editModal,
-      isEditing: true
+      editModal: !this.state.editModal
     })
   }
 
@@ -36,6 +40,7 @@ class NoteDetails extends Component {
   }
 
   handleChange = (e) => {
+    console.log('inhere', e.target.value)
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -51,10 +56,28 @@ class NoteDetails extends Component {
   handleEdit = () => {
     this.setState({ isEditing: true })
   }
+  handleUpdate = () => {
+    this.setState({ title: this.props.note.title })
+  }
+  handleClone = (e) => {
+    e.preventDefault()
+    const { title, context, tags } = this.state
+    const note = { title, context, tags }
+    const token = localStorage.getItem('token')
+    this.props.postNote(note, token)
+    this.setState({ title, context, tags })
+  }
 
   render () {
-    const note = this.props.note
-    console.log('in DETAILS', note)
+    if (!this.state.note || !this.props.note) {
+      return <div>Loading...</div>
+    }
+    const tags = this.props.note.tags
+    if (!tags) {
+      return <div>Loading...</div>
+    }
+
+    console.log('tags', tags)
     return (
       <div className='noteDetails-container'>
         <div className='noteDetails'>
@@ -153,22 +176,34 @@ class NoteDetails extends Component {
               </Modal>
             </div>
             {/* end of delete modal */}
+            <div className='clone-btn' onClick={this.handleClone}>
+              Duplicate
+            </div>
           </div>
           <div onClick={this.editToggle} className='detail-div'>
-            <h1 className='title-header'>{note.title}</h1>
-            <p className='noteBody'>{note.context}</p>
-            <div className='detail-tags fas fa-tags'>{note.tags}</div>
+            <h1 className='title-header'>{this.props.note.title}</h1>
+            <p className='noteBody'>{this.props.note.context}</p>
+            {tags.map((tag, index) => {
+              return (
+                <div className='fas fa-tags' key={tag + index}>
+                  {tag}
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
     )
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ note }) => {
   return {
-    note: state.note
+    note
   }
 }
-export default connect(mapStateToProps, { deleteNote, editNote, getNote })(
-  NoteDetails
-)
+export default connect(mapStateToProps, {
+  deleteNote,
+  editNote,
+  getNote,
+  postNote
+})(NoteDetails)

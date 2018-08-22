@@ -5,11 +5,26 @@ import { Link } from 'react-router-dom'
 class SideNav extends Component {
   logout = () => {
     localStorage.removeItem('token')
-    this.forceUpdate()
   }
+
   render () {
     let { tags } = this.props
-    console.log(this.props.tags)
+    console.log('IN SIDENAV TAGS', tags)
+    const flatten = function (arr, result = []) {
+      for (let i = 0, length = arr.length; i < length; i++) {
+        const value = arr[i]
+        if (Array.isArray(value)) {
+          flatten(value, result)
+        } else {
+          result.push(value)
+        }
+      }
+      return result
+    }
+    let filteredTags = [ ...new Set(flatten(tags)) ].filter(
+      (tag) => tag.length >= 1
+    )
+    console.log(filteredTags)
     return (
       <div className='sideNav'>
         <Link className='logout-Btn' to='/' onClick={this.logout}>
@@ -28,7 +43,7 @@ class SideNav extends Component {
           + Create New Note
         </Link>
         <ul>
-          {tags.map((tag, index) => {
+          {filteredTags.map((tag, index) => {
             return (
               <li
                 onClick={() => this.props.getTag(`${tag}`)}

@@ -7,11 +7,11 @@ const NoteCard = (props) => {
   const note = props.note
   console.log('IN NOTE CARD', note)
   const handleDetails = () => {
-    props.getNote(note.id)
-    props.history.push(`/notes/${note.id}`)
+    props.getNote(note.id, () => {
+      props.history.push(`/notes/${note.id}`)
+    })
   }
   return (
-    // <Link key={note._id} className='myLink' to={`/notes/${note._id}`}>
     <div key={note.id} className='myLink' onClick={() => handleDetails()}>
       <div className='cardTitle'>
         {note.title.length > 15 ? (
@@ -29,7 +29,7 @@ const NoteCard = (props) => {
           )}
         </Markdown>
       </div>
-      {/* <div className='card-tags'>
+      <div className='card-tags'>
         <div className=''>
           {note.tags.map((tag, index) => {
             console.log(note.tags)
@@ -41,10 +41,6 @@ const NoteCard = (props) => {
             )
           })}
         </div>
-      </div> */}
-      <div className='fas fa-tags' key={note.tags + note.index}>
-        {' '}
-        {note.tags}
       </div>
     </div>
   )

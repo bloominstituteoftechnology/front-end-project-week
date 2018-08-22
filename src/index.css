@@ -12,7 +12,31 @@ body {
 label {
   margin-bottom: 0px !important;
 }
-
+.snow {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+}
+.Auth-container {
+  background: #061928;
+}
+.form-container {
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  background: #094574;
+  width: 550px;
+  height: 250px;
+  padding: 5px 25px;
+}
+.form-btn {
+  display: inline-block;
+  border: 1px solid black;
+  color: #744600;
+}
+.form-btn:hover {
+  cursor: pointer;
+}
 .myLink {
   text-decoration: none;
   color: black;
@@ -75,13 +99,10 @@ label {
 }
 
 .no-match {
-  background-color: #f2f1f2;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  position: absolute;
+  top: 200px;
+  left: 400px;
+  color: white;
 }
 
 .noteList-header {
@@ -186,7 +207,9 @@ label {
   background-color: #f2f1f2;
   padding: 1em;
 }
-
+.credentials-msg {
+  color: red;
+}
 .newNote-header {
   margin-top: 2em;
 }

@@ -12,7 +12,7 @@ export const notesReducer = (state = [], action) => {
 export const singleReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_NOTE:
-      return action.payload
+      return { ...action.payload }
     default:
       return state
   }
