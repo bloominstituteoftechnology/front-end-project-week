@@ -1,5 +1,5 @@
 import React from 'react';
-// import Tag from './Tag';
+import Tag from './Tag';
 import '../styles/Note.css';
 
 // returns to NotesList how to display each note

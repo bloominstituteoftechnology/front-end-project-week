@@ -51,9 +51,10 @@ class NotesList extends Component {
                             ) : (
                                 <React.Fragment>
                                     {this.props.notes.map(note => {
+                                      console.log(note);
                                         return (
                                             <Link className="note-link" to={'/notes/' + note.id} key={note.id} >
-                                                <Note title={note.title} body={note.content} />
+                                                <Note title={note.title} body={note.content} tags={note.tags} />
                                             </Link>
                                         )
                                     })}

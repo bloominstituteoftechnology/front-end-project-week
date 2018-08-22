@@ -49,7 +49,7 @@
                                 <div className='single-note'>
                                     <p className='single-title'>{this.props.singleNote.title}</p>
                                     <p className='single-body'>{this.props.singleNote.content}</p>
-                                    <React.Fragment>
+                                    {/* <React.Fragment>
                                         {this.props.singleNote.tags ? (
                                             <div className='tags'>
                                                 <p className='tagger'>Tags: </p>
@@ -58,7 +58,7 @@
                                                 })}
                                             </div>
                                         ) : null}
-                                    </React.Fragment>
+                                    </React.Fragment> */}
                                 </div>
                             )}
                         </React.Fragment>
