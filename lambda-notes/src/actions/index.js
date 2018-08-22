@@ -8,7 +8,7 @@ export const ERROR = 'ERROR';
 export const CREATE_NOTE = 'CREATE_NOTE';
 
 export const fetchNotes = () => {
-    const getNotes = axios.get("https://killer-notes.herokuapp.com/note/get/all");
+    const getNotes = axios.get("http://localhost:5000/notes/get");
     return dispatch => {
         dispatch({ type: FETCH_NOTES });
         getNotes
@@ -29,7 +29,7 @@ export const fetchNotes = () => {
     };
 
 export const addNote = note => {
- const createNote = axios.post("https://killer-notes.herokuapp.com/note/create", note);
+ const createNote = axios.post("http://localhost:5000/notes/create", note);
   return  dispatch => {
     dispatch({ type: CREATE_NOTE})
     createNote
@@ -44,14 +44,14 @@ export const addNote = note => {
 }
 
 //export const noteEdit = (note, id) => {
-  //axios.put("https://killer-notes.herokuapp.com/note/edit/id", note);
+  //axios.put(`http://localhost:5000/notes/edit/${id}`, note);
    // return dispatch => {
       //  dispatch(getNotes());
     //}
 //} 
 
 //export const deleteNote = id => {
-  //  axios.delete("https://killer-notes.herokuapp.com/note/delete/id");
+  //  axios.delete(`https://localhost:5000/notes/delete/${id}`);
     //return dispatch => {
       //  dispatch(getNotes());
     //}

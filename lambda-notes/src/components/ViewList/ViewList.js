@@ -22,7 +22,11 @@ class ViewList extends Component {
                                 return (
                                     <Note
                                         key={note._id}
-                                        note={note} />
+                                        id={_id}
+                                        note={note}
+                                        title={title}
+                                        text={text} 
+                                        completed={completed} />
                                 );
                             }
                             )
@@ -36,7 +40,7 @@ class ViewList extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes
+        notes: state.notesReducer
     }
 }
 
