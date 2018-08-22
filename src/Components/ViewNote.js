@@ -15,7 +15,7 @@ class ViewNote extends React.Component {
         this.setState(() => ({ id: Number(id), notes: this.props.notes }))
     }
     handleClone = () => {
-        const copyNote = this.state.notes.slice();
+        const copyNote = ({ title: `${this.state.titleValue}`, content: `${this.state.contentValue}` });
         axios
             .post(`${process.env.REACT_APP_API}/notes`, copyNote)
             .then(response => {
@@ -30,7 +30,7 @@ class ViewNote extends React.Component {
             return (
                 <div key={note.id}>
                     <div className='note-header'>
-                        <h1 onClick={this.handleClone} className='btn'>Copy</h1>
+                        <h1 onClick={this.handleClone} className='btn'>copy</h1>
                         <Link to={`/edit/${note.id}`} className='btn'>edit</Link>
                         <h1 onClick={this.props.toggleDeleting} className='btn'>delete</h1>
                     </div>
