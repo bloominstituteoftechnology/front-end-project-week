@@ -27,3 +27,17 @@
     line-height: 1.5;
     margin-right: 3.5%;
 }
+
+.note .tags {
+    margin-top: 25px;
+}
+.note .tags span {
+    border: 1px solid #454646;
+    border-radius: 10px;
+    margin-right: 2%;
+    padding: 3px;
+    font-size: .8rem;
+    font-weight: bold;
+    background-color: gray;
+    color: white;
+}

@@ -7,13 +7,19 @@ class NewNote extends Component {
         super(props);
         this.state = {
             title: "",
-            text: ""
+            text: "",
+            tags: ""
         }
     }
 
     editInput = e => {
  
         this.setState({[e.target.name]: e.target.value});
+    }
+
+    editTags = e => {
+        let tags = e.target.value.split(",");
+        this.setState({[e.target.name]: tags});
     }
 
     addNoteHandler = e => {
@@ -28,6 +34,7 @@ class NewNote extends Component {
                 <form>
                     <input className="title-input" name="title" placeholder="Note Title" onChange={this.editInput} />
                     <textarea name="text" placeholder="Note Content" rows="21" onChange={this.editInput}></textarea>
+                    <input className="tag-input" name="tags" placeholder="Note Tags (Separated by ',')" onChange={this.editTags}/>
                     <Link className="btn" to="/" onClick={this.addNoteHandler}>Save</Link>
                 </form>
             </div>

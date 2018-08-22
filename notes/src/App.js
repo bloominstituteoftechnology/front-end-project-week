@@ -15,17 +15,20 @@ class App extends Component {
         {
           id: 0,
           title: "A Note",
-          text: "Some text."
+          text: "Some text.",
+          tags: ["productivity"]
         },
         { 
           id: 1,
           title: "Another Note",
-          text: "More text."
+          text: "More text.",
+          tags: ["productivity", "utilities"]
         },
         {
           id: 2,
           title: "One More Note",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget mollis nisl. Etiam leo dui, dignissim vitae tellus a, aliquet ullamcorper nulla. Nam ultricies, erat et dignissim convallis, erat sapien mollis nisi, in consequat magna nulla vitae mauris. Vivamus pellentesque, neque at ullamcorper rutrum, urna mauris bibendum arcu, consequat luctus nisl lorem id diam. Vivamus quis dapibus sem. Maecenas in lectus odio. Sed semper finibus enim nec fermentum. Praesent aliquam eget sapien nec vulputate. Aliquam scelerisque est non lorem vestibulum, vitae maximus libero consectetur"
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget mollis nisl.",
+          tags: ["personal", "goals", "todo"]
         }
       ],
 

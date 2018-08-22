@@ -20,6 +20,7 @@ class Note extends Component {
                 </div>
                 <h2>{this.props.note.title}</h2>
                 <p>{this.props.note.text}</p>
+                <div className="tags"> Tags: {this.props.note.tags.map((tag,index) => <span key={index}>{tag}</span>)}</div>
             </div>
         );
     }
