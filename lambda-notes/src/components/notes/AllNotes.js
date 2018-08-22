@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 
 class AllNotes extends Component {
   constructor(props) {
@@ -13,10 +14,10 @@ class AllNotes extends Component {
       <Fragment>
         {this.state.allNotes.map(note => {
           return (
-            <div className="noteCard" key={note.id}>
+            <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
               <p>{note.title}</p>
               <p>{note.description}</p>
-            </div>
+            </Link>
           );
         })}
       </Fragment>
