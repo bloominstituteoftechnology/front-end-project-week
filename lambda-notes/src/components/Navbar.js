@@ -2,11 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Nav, NavItem, NavLink, Button } from 'reactstrap';
 import '../App.css';
+import logo from './lambda-logo.png';
 
 const Navbar = (props) => {
     return (
         <div className= "nav-container">
             <Nav vertical className="nav-section">
+						<div>
+            	<img className="logo-img" src={logo} />
+            </div>
             <h1>Lambda Notes</h1>
 	            <NavItem>
 	            	<div className="nav-button">

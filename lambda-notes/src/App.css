@@ -29,7 +29,7 @@
 }
 .note-view {
   text-decoration: none;
-  font-size: 10px;
+  font-size: 15px;
   width: 600px;
   padding-left: 50px;
   margin-left: 20px;
@@ -162,6 +162,11 @@
   height: 900px;
   text-align: center;
   width: 200px;
+}
+
+.logo-img {
+  width: 180px;
+  height: 70px;
 }
 
 .button-link{
