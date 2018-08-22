@@ -75,6 +75,10 @@
   height: 25px;
   margin-bottom: 8px;
 }
+.input-tags {
+  width: 395px;
+  max-width: 100%;
+}
 .input-content {
   width: 395px;
   max-width: 100%;
@@ -183,3 +187,4 @@ input {
   opacity: 0;
   transition: opacity 500ms ease-out;
 }
+

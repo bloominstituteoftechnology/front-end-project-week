@@ -1,6 +1,7 @@
 import {GETTING_NOTES, ADDING_NOTE, UPDATING_NOTE, DELETING_NOTE, GOT_NOTES, ADDED_NOTE, UPDATED_NOTE, DELETED_NOTE , SELECTING_NOTE, SELECTED_NOTE, ERROR} from '../reducers'
 import {store} from '../index'
 import axios from 'axios' 
+import { bindActionCreators } from '../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
 
 
 export const fetchingNotes = () => {
@@ -38,14 +39,11 @@ export const updatingNote = (id, note) => {
         console.log(response)
         dispatch({type: UPDATED_NOTE, payload:response.data})
         // may have to call on the fetcher 
-        
       })
       .catch(error => {
           dispatch({type:ERROR, error})
       })
     }
-    
-    
 }
 
 
@@ -55,13 +53,12 @@ export const deletingNote = id => {
         dispatch({type:DELETING_NOTE})
         promise.then(response => {
             console.log(response)
-            dispatch({type:DELETED_NOTE})
+            dispatch({type:DELETED_NOTE, payload: id})
             fetchingNotes()
         })
         .catch(error => {
             dispatch({type:ERROR, error})
-        })
-        
+        }) 
     }
 }
 

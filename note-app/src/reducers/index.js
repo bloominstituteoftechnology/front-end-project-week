@@ -8,7 +8,6 @@ export const GETTING_NOTES = 'GETTING_NOTES';
 export const GOT_NOTES = 'GOT_NOTES';
 export const SELECTING_NOTE = 'SELECTING_NOTE';
 export const SELECTED_NOTE = 'SELECTED_NOTE'; 
-// export const SELECTED_NOTE = 'SELECTED_NOTE'; 
 export const ERROR = 'ERROR'; 
 
 const initialState = {
@@ -33,11 +32,11 @@ const reducerNote = (state = initialState, action) => {
     case UPDATING_NOTE:
       return {...state, updatingNote: true}
     case UPDATED_NOTE:
-      return {...state, updatingNote: false, notes: state.notes.map(note => note.id === action.payload.id ? note = {id: action.payload.id, title: action.payload.title, textBody: action.payload.textBody, __v: action.payload.__v} : note = note )}
+      return {...state, updatingNote: false, notes: state.notes.map(note => note.id === action.payload.id ? note = {id: action.payload.id, title: action.payload.title, textBody: action.payload.textBody, __v: action.payload.__v, tags: action.payload.tags} : note = note )}
     case DELETING_NOTE:
       return {...state, deletingNote: true}
     case DELETED_NOTE:
-      return {...state, deletingNote: false, notes: [...state.notes, action.payload]}
+      return {...state, deletingNote: false, notes: state.notes.filter(note => note.id !== action.payload)}
     case SELECTING_NOTE:
       return {...state, selecting: true}
     case SELECTED_NOTE:

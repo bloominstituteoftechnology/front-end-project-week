@@ -14,7 +14,8 @@ class FullNote extends React.Component{
         const title = this.props.select.title;
         const content = this.props.select.textBody;
         const index = this.props.select.index; 
-        const select = this.props.select;  
+        const select = this.props.select;
+        const tags = this.props.select.tags  
         return (
           <div className="main-container">
             <SideBar />
@@ -27,6 +28,11 @@ class FullNote extends React.Component{
               <div className = "content-div">
                 <h3>{title}</h3> 
                 <p>{content}</p>
+                <br/>
+                <br/>
+                <br/>
+                <h5>Note Tags:</h5>
+                {tags.map((tag, i) => <span key={i}>{tag}  </span>)}
               </div>
             </div>
           </div>

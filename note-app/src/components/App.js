@@ -14,14 +14,12 @@ import DeleteModal from './delete-note';
 import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote} from '../actions'; 
 
 
-
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      notes: [],
-      nextId:null,
-      select: null, 
+      search: '',
+      select: null,
     }
   }
 
@@ -33,20 +31,7 @@ class App extends Component {
     return '_' + Math.random().toString(36).substr(2, 9);
   }
 
-  fetchNotes = () => {
-    console.log("fetching")
-  }
-
   postNote = (noteobj) => {
-    // const promise = axios.post('http://localhost:8080/notes', noteobj)
-    // promise
-    // .then(response => {
-    //   console.log(response.data)
-    //   this.setState({notes:[...this.state.notes, response.data], nextId: response.data.length})
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    // })
     this.props.addingNote(noteobj)
   }
 
@@ -56,44 +41,28 @@ class App extends Component {
     this.setState({select: {title: select.title, textBody: select.textBody, index: index, _id: select._id,
     tags: select.tags, __v: select.__v, id: select.id}})
   }
+
   updateNote = (index, noteObj) => {
-    // const promise = axios.put(`http://localhost:8080/notes/${index}`, noteObj)
-    // promise
-    // .then(response => {
-    //   console.log(response)
-    //   this.fetchNotes()
-    // })
-    // .catch(error => {
-    //   console.log(error) 
-    // })
+    console.log(noteObj)
     this.props.updatingNote(index, noteObj)
-    this.props.fetchingNotes()
+    // this.props.fetchingNotes()
   }
 
   deleteNote  = (index) => {
-    // const promise = axios.delete(`http://localhost:8080/notes/${index}`)
-    // promise
-    // .then(response => {
-    //   console.log(response)
-    //   this.fetchNotes()
-    // })
-    // .catch(error => {
-    //   console.log(error, index) 
-    // })
     this.props.deletingNote(index) 
-
   }
 
+  handleChange = event => {
+    this.setState({[event.target.name]: event.target.value})
+  }
 
   render() {
     console.log(this.props)
-    
-    
     return (
     <Router>
       <div className="App">
         <div className="heading">
-          <h3 className= "app-header"><br/></h3>
+          <h3 className= "app-header"><input onChange = {this.handleChange} value = {this.state.search} type="text" placeholder ="&#x1F50D;Search" name = "search" value = {this.state.value}/> <button className ="btn-side-bar">Search</button> </h3>
           <hr/>
         </div>
         <Route render={({location}) => (
@@ -129,7 +98,6 @@ const mapStateToProps = state => {
     select: state.select,
     nextId: state.nextId,
  }
-
 }
 
 export default connect(mapStateToProps, {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote})(App);

@@ -1,3 +1,27 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "title": "New note being added in.",
+      "textBody": "This note will feature tags. I will then display the tags of the note at the button of the note in bold. ",
+      "index": 0,
+      "tags": [
+        "JavaScript",
+        "Web",
+        "Development",
+        "software",
+        "engineer",
+        "add",
+        "on",
+        "some",
+        "more",
+        "python",
+        "ruby",
+        "8:05",
+        "8:09",
+        "8:11"
+      ],
+      "__v": 13,
+      "id": "_tgczt60os"
+    }
+  ]
 }
