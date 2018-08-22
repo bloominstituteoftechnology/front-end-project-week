@@ -54,6 +54,7 @@ export const initialState = {
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case DELETE_NOTE:
       let newState = state.notes.filter(item => item.id !== action.payload)
     return Object.assign({}, state, { notes: newState });
@@ -74,6 +75,7 @@ export const rootReducer = (state = initialState, action) => {
       let newNote = { ...action.payload, id: id };
       newNotes.push(newNote);
     return Object.assign({}, state, { notes: newNotes });
+    
     default:
       return state;
   }

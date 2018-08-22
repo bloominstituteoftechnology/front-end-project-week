@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from "react-emotion";
-
 import './index.css';
 
 import { deleteNote, editNote, addNote } from './store/actions'; 
@@ -12,6 +11,7 @@ import NotesContainer from './containers/NotesContainer';
 import AddNoteForm from './components/forms/AddNoteForm';
 import NoteDescription from './components/notes/NoteDescription';
 import EditNoteForm from './components/forms/EditNoteForm';
+
 
 const MainContainer = styled("div")`
   background-color: #F3F3F3;
@@ -63,15 +63,17 @@ const MainContainer = styled("div")`
   }
 `
 
+
+{/*Handles - Routing, passing initial state, modal ~&&~ delete, edit, add notes*/}
 class App extends Component {
   state = {
-    atHome: false,
+    atNotesPage: false,
     isModalOpen: false
   }
 
-  atHomeToggle = () => {
+  atNotesPageToggle = () => {
     this.setState(prevState => {
-      return { atHome: !prevState.atHome }
+      return { atNotesPage: !prevState.atNotesPage }
     })
   }
 
@@ -103,26 +105,52 @@ class App extends Component {
             </div>
             <nav>
               <NavLink className="link" exact strict to="/notes">View Your Notes</NavLink>
-              {this.state.atHome ? null : <NavLink className="link" to="/notes/add-note/">+Create New Note</NavLink>}
+              {this.state.atNotesPage ? <NavLink className="link" to="/notes/add-note/">+Create New Note</NavLink> : null}
             </nav>
           </header>
-          <Route exact strict path="/" render={props => <Home {...props} atHomeToggle={this.atHomeToggle} /> } />
-          <Route exact strict path="/notes" render={props => <NotesContainer {...props} /> } />
-          <Route path="/notes/add-note/" render={props => <AddNoteForm {...props} notes={this.props.notes} addNote={this.addNote} /> } />
-          <Route exact strict path="/notes/:id" 
-            render={props => <NoteDescription 
-              {...props} 
+
+          {/* Routes */}
+          <Route exact strict path="/" component={ Home } />
+
+          <Route exact strict path="/notes"
+            render={props => <NotesContainer
+              {...props}
+              atNotesPageToggle={this.atNotesPageToggle}
+            /> }
+          />
+
+          <Route path="/notes/add-note/"
+            render={props => <AddNoteForm
+              {...props}
+              notes={this.props.notes}
+              addNote={this.addNote}
+            /> }
+          />
+
+          <Route exact strict path="/notes/:id"
+            render={props => <NoteDescription
+              {...props}
               notes={this.props.notes}
               handleModal={this.handleModal}
               isModalOpen={this.state.isModalOpen}
               deleteNote={this.deleteNote}
-            /> } />
-          <Route path="/notes/:id/edit" render={props => <EditNoteForm {...props} notes={this.props.notes} editNote={this.editNote} /> } />
+            /> }
+          />
+
+          <Route path="/notes/:id/edit"
+            render={props => <EditNoteForm
+              {...props}
+              notes={this.props.notes}
+              editNote={this.editNote}
+            /> }
+          />
+
         </MainContainer>
       </Router>
     );
   }
 }
+
 
 const mapStateToProps = state => ({
   notes: state.notes

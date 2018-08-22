@@ -41,6 +41,7 @@ const Main = styled("main")`
   }
 `;
 
+
 const NoteDescription = props => {
 
   let note = props.notes.filter(item => item.id === parseInt(props.match.params.id, 10));

@@ -62,6 +62,7 @@ const Main = styled("main")`
   }
 `;
 
+
 class AddNoteForm extends Component {
   state = {
     title: '',

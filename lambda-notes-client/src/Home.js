@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from "react-emotion";
 
 import { NavLink } from 'react-router-dom';
+
 
 const Main = styled("div")`
   margin-left: 25%;
@@ -33,24 +34,14 @@ const Main = styled("div")`
   }
 `;
 
-class Home extends Component {
 
-  componentDidMount() {
-    this.props.atHomeToggle()
-  }
-
-  componentWillUnmount() {
-    this.props.atHomeToggle()
-  }
-
-  render() {
-    return (
-      <Main>
-        <h1>Welcome</h1>
-        <NavLink className="enter-link" to="/notes">Enter</NavLink>
-      </Main>
-    );
-  }
+const Home = () => {
+  return (
+    <Main>
+      <h1>Welcome</h1>
+      <NavLink className="enter-link" to="/notes">Enter</NavLink>
+    </Main>
+  );
 }
 
 export default Home;

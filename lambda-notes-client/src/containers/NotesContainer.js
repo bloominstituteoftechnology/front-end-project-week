@@ -4,6 +4,7 @@ import styled from "react-emotion";
 
 import Note from '../components/notes/Note';
 
+
 const Container = styled("div")`
   margin-left: 25%;
   width: 75%;
@@ -26,7 +27,17 @@ const Main = styled("main")`
   margin-top: 20px;
 `;
 
+
 class NotesContainer extends Component {
+
+  componentDidMount() {
+    this.props.atNotesPageToggle()
+  }
+
+  componentWillUnmount() {
+    this.props.atNotesPageToggle()
+  }
+
   render() {
     return (
       <Container>
