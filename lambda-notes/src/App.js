@@ -38,11 +38,23 @@ class App extends Component {
         }
       ],
       title: '',
-      content: ''
+      content: '',
+      isEdit: 0
     }
   }
 
-  // setNotesData = data => this.setState({ notes: data })
+  setNotesData = data => this.setState({ notes: data })
+
+  // editNote = (event) => {
+  //   event.preventDefault();
+  //   const notes = this.state.notes.slice();
+  //   for (let i = 0; i < notes.length; i++) {
+  //     if (notes[i].id === note.id) {
+  //       console.log(notes[i])
+  //     }
+  //   }
+  //   this.setState({ notes })
+  // }
 
   addNote = event => {
     event.preventDefault();
@@ -59,6 +71,14 @@ class App extends Component {
       }
     }
     this.setState({ notes })
+  }
+
+  editNote = note => {
+    this.setState({
+      title: note.title,
+      content: note.content,
+      isEdit: note.id
+    })
   }
 
 
@@ -84,8 +104,8 @@ class App extends Component {
             render={(props) => <Note {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} deleteNote={this.deleteNote} />}
           />
           <Route
-            exact path="/edit"
-            render={(props) => <EditNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} />}
+            exact path="/notes/:id/edit"
+            render={(props) => <EditNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} setNotesData={this.setNotesData} editNote={this.editNote} {...this.state}/>}
           />
         </div>
       </div>

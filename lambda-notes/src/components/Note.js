@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { Row, Container, Col } from 'reactstrap';
 import DeleteModal from './DeleteModal'
+import EditNote from './EditNote';
 
 import './Note.css';
 
@@ -22,20 +23,20 @@ class Note extends React.Component {
             note => note.id === Number(noteID)
         );
         if (!note) return;
-        this.setState({note});
+        this.setState({ note });
     }
 
     render() {
-        const {title, content} = this.state.note;
+        const { title, content,id } = this.state.note;
         return (
             <Container className="note">
                 <Row noGutters>
                     <Col xs="10"></Col>
                     <Col xs="1">
-                        <Link style={{ color: "black" }} to="/edit">edit</Link>
+                        <Link style={{ color: "black" }} to={`/notes/${id}/edit`}>edit</Link>
                     </Col>
                     <Col xs="1">
-                        <DeleteModal note={this.state.note} deleteNote ={this.props.deleteNote}/>
+                        <DeleteModal note={this.state.note} deleteNote={this.props.deleteNote} />
                     </Col>
                 </Row>
                 <Row>
