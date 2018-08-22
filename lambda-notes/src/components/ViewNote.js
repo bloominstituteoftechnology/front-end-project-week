@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MarkdownText from './MarkdownText';
-import shortid from 'shortid';
 import { getNoteById } from '../reducers/index';
 import { fetchNoteById } from '../actions/index';
 import TagDisplay from './TagDisplay';
@@ -44,17 +43,9 @@ class ViewNote extends Component {
     this.props.fetchNoteById(id);
   }
 
-  makeTagObjFromName(name) {
-    return {name, id: shortid.generate()};
-  }
-
   render() {
     const { id } = this.props.match.params;
     const { textBody, title, tags } = this.props.note;
-    const tagObjs = tags.map(tagName=>this.makeTagObjFromName(tagName));
-    
-
-
 
     return (
       <StyledViewNote>
@@ -65,7 +56,7 @@ class ViewNote extends Component {
         <div className="note">
           <h1>{title}</h1>
           <MarkdownText mdText={textBody} />
-          <TagDisplay tags={tagObjs} writable={false} />
+          <TagDisplay tags={tags} writable={false} />
         </div>
       </StyledViewNote>
     );
