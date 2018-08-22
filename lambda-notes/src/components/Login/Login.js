@@ -6,7 +6,7 @@ function Login (props){
     return (
         <div className="login">
             <input type="text" placeholder="Enter your userName" onChange={f.userName}/>
-            <input type="passweord" placeholder="Enter your password" onChange={f.password}/>
+            <input type="password" placeholder="Enter your password" onChange={f.password}/>
             <button onClick={f.loginUser}>Login</button>
         </div>
     )

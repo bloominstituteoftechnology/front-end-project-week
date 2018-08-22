@@ -2,6 +2,7 @@ import React from 'react'
 import Item from './Item';
 import { ListViews, H2, ListOptions, UnderLinedP, H3 } from '../StyledComponents';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { downloadCSV } from '../../util/csvUtil';
 
 function List(props){
     return (
@@ -20,6 +21,11 @@ function onClick (id, history ){
 function ListView(props){
     return (
         <div className="appView">
+            <a href='#' 
+            onclick={ downloadCSV({
+                filename: 'notesData.csv',
+                notesData: props.notes
+            }) }>Download CSV</a>
             <ListOptions>
                 <H3>Sort by </H3>
                 <UnderLinedP onClick={() => props.sort('CHARACTERS') }>Characters</UnderLinedP>

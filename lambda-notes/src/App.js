@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-d
 import NewNote from './components/CreateNote/NewNote';
 import NoteView from './components/NoteView';
 import Authenticate from './Authentication ';
+import { convertArrToCSV } from './util/csvUtil';
 
 class App extends Component {
   state = {
@@ -42,6 +43,8 @@ class App extends Component {
     let notes = this.props.notes.slice()
     if (this.props.searching){
       notes = this.props.searchList.slice()
+      console.log('~~~~~~~~~~~~~~')
+      console.log(convertArrToCSV(notes))
     }
     
     return (
