@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import './DeleteNote.css'
 
 class DeleteNote extends Component {
     constructor(props) {
@@ -20,10 +21,11 @@ deleteNote = () => {
 
     render() {
         return (
-                <div>
+                <div className = "delete-note-container">
+                <div className = 'delete-note'>
                     <h3> Are you sure you want to delete this?
                     </h3>
-                    <Link to = "/">
+                    <Link to = "/notes/:id">
                     <h3 onClick = {this.deleteNote}>
                         Delete 
                     </h3>   
@@ -33,6 +35,7 @@ deleteNote = () => {
                         No
                     </h3> 
                     </Link>
+                </div>
                 </div>
         )
     }
