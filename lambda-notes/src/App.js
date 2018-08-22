@@ -34,8 +34,8 @@ class App extends Component {
     event.preventDefault();
     const notes = this.state.notes.slice();
     notes.push({ 
-      id: Number(Date.now().toString().slice(-2)), 
-      // id: this.state.notes.length,
+      // id: Number(Date.now().toString().slice(-2)), 
+      id: this.state.notes.length,
       title: this.state.title, 
       text: this.state.text 
     });
@@ -51,7 +51,7 @@ class App extends Component {
     // ev.preventDefault();
     let notes = this.state.notes.slice();
     notes = notes.filter(note => note.id !== id);
-    this.setState({ notes });
+    this.setState({ notes, id: '', title: '', text: ''  });
   }
 
   modalToggle = () => {
