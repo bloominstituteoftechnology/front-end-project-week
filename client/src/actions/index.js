@@ -16,6 +16,9 @@ export const {
   editNoteRequest,
   editNoteSuccess,
   editNoteFailure,
+  deleteNoteRequest,
+  deleteNoteSuccess,
+  deleteNoteFailure,
 } = createActions(
   'FETCH_NOTES_REQUEST',
   'FETCH_NOTES_SUCCESS',
@@ -29,6 +32,9 @@ export const {
   'EDIT_NOTE_REQUEST',
   'EDIT_NOTE_SUCCESS',
   'EDIT_NOTE_FAILURE',
+  'DELETE_NOTE_REQUEST',
+  'DELETE_NOTE_SUCCESS',
+  'DELETE_NOTE_FAILURE',
 );
 
 export const fetchNotes = () => async dispatch => {
@@ -69,5 +75,15 @@ export const editNote = (id, data) => async dispatch => {
     dispatch(editNoteSuccess(response.data));
   } catch (err) {
     dispatch(editNoteFailure(err));
+  }
+};
+
+export const deleteNote = id => async dispatch => {
+  dispatch(deleteNoteRequest());
+  try {
+    await axios.delete(`${API_URL}/delete/${id}`);
+    dispatch(deleteNoteSuccess());
+  } catch (err) {
+    dispatch(deleteNoteFailure());
   }
 };

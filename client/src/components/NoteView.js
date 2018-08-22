@@ -94,7 +94,6 @@ class NoteView extends React.Component {
     const {
       note: { _id: id, title, textBody },
       onDelete,
-      history,
     } = this.props;
     return (
       <NoteContainer>
@@ -118,14 +117,7 @@ class NoteView extends React.Component {
                 <br /> This action is irreversible
               </ModalText>
               <div>
-                <DangerButton
-                  onClick={() => {
-                    onDelete(id);
-                    history.push('/');
-                  }}
-                >
-                  Delete
-                </DangerButton>
+                <DangerButton onClick={onDelete}>Delete</DangerButton>
                 <InfoButton onClick={() => this.setState({ showModal: false })}>
                   Cancel
                 </InfoButton>

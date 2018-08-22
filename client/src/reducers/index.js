@@ -13,6 +13,9 @@ import {
   editNoteRequest,
   editNoteSuccess,
   editNoteFailure,
+  deleteNoteRequest,
+  deleteNoteSuccess,
+  deleteNoteFailure,
 } from '../actions';
 
 const notes = handleActions(
@@ -61,8 +64,16 @@ const isEditing = handleActions(
   false,
 );
 
+const isDeleting = handleActions(
+  {
+    [deleteNoteRequest]: () => true,
+    [combineActions(deleteNoteSuccess, deleteNoteFailure)]: () => false,
+  },
+  false,
+);
+
 const error = handleAction(
-  combineActions(addNoteFailure, editNoteFailure),
+  combineActions(addNoteFailure, editNoteFailure, deleteNoteFailure),
   (_, { payload }) => payload,
   null,
 );
@@ -73,5 +84,6 @@ export default combineReducers({
   isFetching,
   isAdding,
   isEditing,
+  isDeleting,
   error,
 });
