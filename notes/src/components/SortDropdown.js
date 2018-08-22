@@ -11,7 +11,7 @@ const SortDropdown = ({ dropdown, toggle, sortByLatest, sortByOldest, sortAlphab
       <DropdownMenu>
         <DropdownItem header>Options</DropdownItem>
         <DropdownItem divider />
-        <DropdownItem onClick={sortByLatest}>Latest</DropdownItem>
+        <DropdownItem onClick={sortByLatest}>Latest (default)</DropdownItem>
         <DropdownItem onClick={sortByOldest}>Oldest</DropdownItem>
         <DropdownItem onClick={sortAlphabetically}>A-Z (by title)</DropdownItem>
       </DropdownMenu>

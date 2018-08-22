@@ -1,15 +1,15 @@
 import React from 'react';
 import { Button, Modal, ModalBody, Row } from 'reactstrap';
 
-const DeleteModal = props => {
+const DeleteModal = ({ modal, toggle, del }) => {
   return (
-    <Modal isOpen={props.modal} toggle={props.toggle}>
+    <Modal isOpen={modal} toggle={toggle}>
       <ModalBody>
         Are you sure you want to delete this?
       </ModalBody>
       <Row>
-        <Button color="danger" onClick={props.delete}>Delete</Button>{' '}
-        <Button color="info" onClick={props.toggle}>No</Button>
+        <Button color="danger" onClick={del}>Delete</Button>{' '}
+        <Button color="info" onClick={toggle}>No</Button>
       </Row>
     </Modal>
   );

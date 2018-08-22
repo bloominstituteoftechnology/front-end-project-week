@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import Fuse from 'fuse.js';
 import Sidebar from './components/Sidebar';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
@@ -136,6 +136,25 @@ class App extends Component {
 
   /* Misc. methods */
 
+  search = e => {
+    let filteredNotes;
+    if (e.target.value === '') filteredNotes = null;
+    else {
+      const options = {
+        shouldSort: true,
+        threshold: 0.6,
+        location: 0,
+        distance: 100,
+        maxPatternLength: 32,
+        minMatchCharLength: 1,
+        keys: [ "title", "text" ]
+      };
+      filteredNotes = new Fuse(this.state.notes, options).search(e.target.value);
+    }
+
+    this.setState({ filteredNotes });
+  };
+
   redirect = () => window.location='/'; // back to notes page
 
   storeNote = note => { // for single note view
@@ -166,6 +185,7 @@ class App extends Component {
   }
 
   render() {
+    const notes = (this.state.filteredNotes ? this.state.filteredNotes : this.state.notes);
     return (
       <div className="App">
         <Sidebar formatForCSV={this.formatForCSV} />
@@ -192,15 +212,18 @@ class App extends Component {
             render={() => (
               <div className="notes-container">
                 <h2>Your Notes:</h2>
-                <Dropdown 
-                  toggle={this.toggleDropdown} 
-                  dropdown={this.state.dropdown} 
-                  sortByLatest={this.sortByLatest}
-                  sortByOldest={this.sortByOldest}
-                  sortAlphabetically={this.sortAlphabetically}
-                />
+                <div className="notes-list-controls">
+                  <input name="search" onChange={this.search} className="search-input" placeholder="Search..." />
+                  <Dropdown 
+                    toggle={this.toggleDropdown} 
+                    dropdown={this.state.dropdown} 
+                    sortByLatest={this.sortByLatest}
+                    sortByOldest={this.sortByOldest}
+                    sortAlphabetically={this.sortAlphabetically}
+                  />
+                </div>
                 <div className="notes">
-                  {this.state.notes.map(note => (
+                  {notes.map(note => (
                     <Link 
                       key={note.id} 
                       onClick={() => this.storeNote(note)} 
@@ -245,7 +268,7 @@ class App extends Component {
               <Modal
                 toggle={this.toggleModal}
                 modal={this.state.modal}
-                delete={this.deleteNote}
+                del={this.deleteNote}
               />
             )}
           />

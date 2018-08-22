@@ -2,9 +2,8 @@ import React from 'react';
 import { Card, CardBody } from 'reactstrap';
 import ReactMarkDown from 'react-markdown';
 
-const Note = (props) => {
-  const { note, single } = props,
-    { title, text } = note;
+const Note = ({ note, single }) => {
+  const { title, text } = note;
   return (
     <div className="note">
       {single == null 

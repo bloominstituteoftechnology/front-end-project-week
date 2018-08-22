@@ -53,6 +53,9 @@ hr {
 .notes-container h2 {
   display: inline-block;
 }
+.notes-container .notes-list-controls {
+  float: right;
+}
 .notes {
   display: flex;
   flex-wrap: wrap;
@@ -172,4 +175,9 @@ hr {
 }
 .dropdown .dropdown-menu .dropdown-item {
   cursor: pointer;
+}
+.search-input {
+  float: left;
+  margin-right: 20px;
+  padding: 12px 10px;
 }
