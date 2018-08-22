@@ -9,6 +9,61 @@ import Home from "./components/Home";
 import { Link, NavLink } from "react-router-dom";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [
+        {
+          id: 1,
+          title: "hi",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 2,
+          title: "these",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 3,
+          title: "are",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 4,
+          title: "my",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 5,
+          title: "notes",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 6,
+          title: "lorem!",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 7,
+          title: "ipsum!",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 8,
+          title: "conan!",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        },
+        {
+          id: 9,
+          title: "dimsum!",
+          content: "Lorem ipsum donair pizza. Mauris egastas egad asdf fakedata. Morbi pellenthesque a bunch of latin words."
+        }
+      ]
+    };
+  }
+
+
+  
   render() {
     return (
       <div className="App">
@@ -30,13 +85,15 @@ class App extends Component {
           </li>
         </ul>
         <Route exact path="/" component={Home} />
-        <Route exact path="/notes" component={ListView} />
+        <Route
+          exact
+          path="/notes"
+          render={props => <ListView {...props} notes={this.state.notes} />}
+        />
         <Route exact path="/create" component={CreateNote} />
         <Route
           path="/notes/:id"
-          render={props => (
-            <NoteView {...props} />
-          )}
+          render={props => <NoteView {...props} note={this.state.notes} />}
         />
       </div>
     );

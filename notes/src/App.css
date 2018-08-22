@@ -1,5 +1,17 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .App {
+  height: 100%;
   text-align: center;
+  background: lightgray;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
@@ -25,4 +37,14 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.side-bar {
+  /* position: absolute; */
+  height: 100vh;
+  width: 25%;
+  border: 1px solid black;
+  background: #4DEDDD;
+  display: block;
+  margin: 0 12px 0 0;
 }

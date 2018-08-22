@@ -1,0 +1,22 @@
+.single-cards {
+  width: 150px;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px;
+  background: white;
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ListView-header {
+  display: block;
+}
+
+.notes-container > h1 {
+  flex: 0 0 100%;
+}

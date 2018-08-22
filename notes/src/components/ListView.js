@@ -1,61 +1,22 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
+import { Card, CardTitle, CardText } from "reactstrap";
+import "./components.css";
 
 export default class ListView extends Component {
-  constructor() {
-    super();
-    this.state = {
-      notes: [
-        {
-          title: "1",
-          content: "im a note"
-        },
-        {
-          title: "2",
-          content: "im a note too"
-        },
-        {
-          title: "3",
-          content: "im a note too"
-        },
-        {
-          title: "4",
-          content: "im a note too"
-        },
-        {
-          title: "5",
-          content: "im a note too"
-        },
-        {
-          title: "6",
-          content: "im a note too"
-        },
-        {
-          title: "7",
-          content: "im a note too"
-        },
-        {
-          title: "8",
-          content: "im a note too"
-        },
-        {
-          title: "9",
-          content: "im a note too"
-        }
-      ]
-    };
-  }
-
   render() {
     return (
-      <div>
-        {this.state.notes.map(notes => {
+      <div className="notes-container">
+        <h1 className="ListView-header">My shitty notes:</h1>
+        {this.props.notes.map(notes => {
           return (
-            <Link key={notes._id} className="Notes" to={`/notes/${notes._id}`}>
-              <div key={notes.id}>
-                <div>{notes.title}</div>
-                <div>{notes.content}</div>
+            <Link key={notes.id} className="Notes" to={`/notes/${notes.id}`}>
+              <div className="notes-cards" key={notes.id}>
+                <Card className="single-cards">
+                  <CardTitle>{notes.title}</CardTitle>
+                  <CardText>{notes.content}</CardText>
+                </Card>
               </div>
             </Link>
           );
