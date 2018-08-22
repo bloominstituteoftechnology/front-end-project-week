@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
 class DeleteNote extends Component {
-  // constructor() {
-  //   super();
-  //   this.deleteHandler = this.props.
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: props.notes
+    };
+  }
   render() {
     // Render nothing if the "show" prop is false
     if (!this.props.show) {
@@ -31,18 +33,14 @@ class DeleteNote extends Component {
       margin: "0 auto",
       padding: 30
     };
-    // console.log("DELETE NOTE BUTTON", this.props);
+    console.log("DELETE NOTE BUTTON", this.props);
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
           {this.props.children}
 
-          <div className="footer">
+          <div>
             <button
-              // onClick={() =>
-              //   this.props.deleteNoteHandler(this.props.deleteNumber) &
-              //   this.props.onApprove()
-              // }
               onClick={() =>
                 this.props.deleteNoteHandler(this.props.deleteNumber) &
                 this.props.onApprove()
