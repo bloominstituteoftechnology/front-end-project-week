@@ -9,12 +9,12 @@ const Body = styled.div`
     flex-direction: column;
     padding: 1rem;
 `;
-const InputTitle = styled.input`
+const InputTitle = styled.textarea`
     width: 400px;
     padding: 0.5rem;
     margin: 1rem 0;
 `;
-const InputContent = styled.input`
+const InputContent = styled.textarea`
     width: 700px;
     height: 500px;
     padding: 0.5rem;
@@ -41,9 +41,9 @@ class CreateNote extends React.Component{
                             onChange={this.props.handleChange}
                 />
                 <InputContent placeholder='Note Content' 
-                            name='textBody'
-                            value={this.props.textBody}
-                            onChange={this.props.handleChange}
+                        name='textBody'
+                        value={this.props.textBody}
+                        onChange={this.props.handleChange}
                 />
                 <Button onClick={this.props.addNote}>Save</Button>
             </Body>

@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {fetchOneNote, deleteNote} from '../actions/actions';
 import {Link, withRouter} from 'react-router-dom';
 import { Row, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+const ReactMarkdown = require('react-markdown');
 
 const Body = styled.div`
     background: #F1F1F1;
@@ -92,7 +93,7 @@ class Note extends React.Component{
                         </ModalFooter>
                     </Modal>
                     <NoteTitle>{this.props.note.title}</NoteTitle>
-                    <NoteContent>{this.props.note.textBody}</NoteContent>
+                    <NoteContent><ReactMarkdown source={this.props.note.textBody} /></NoteContent>
                 </Body>
             </Row>
         );

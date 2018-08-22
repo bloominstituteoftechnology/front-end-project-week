@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import Draggable from 'react-draggable';
+const ReactMarkdown = require('react-markdown');
 
 const List = styled.div`
     background: #F1F1F1;
@@ -60,7 +61,7 @@ class ListView extends React.Component{
                                             <Link to={`/note/${note._id}`}
                                                   style={{ textDecoration: 'none',
                                                            color: 'black' }}>
-                                                <Content>{note.textBody}</Content>
+                                                <Content><ReactMarkdown source={note.textBody} /></Content>
                                             </Link>
                                         </SmallNote>
                                 </Draggable>
