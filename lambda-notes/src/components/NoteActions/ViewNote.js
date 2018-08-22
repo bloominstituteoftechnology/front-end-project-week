@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const View = styled.div `
+background: #f2f1f2;
+height: 100vh;
+height: 100%;
 
 `
 
@@ -22,7 +25,7 @@ const NoteText = styled.p `
 `
 
 const ViewNote = () => {
-    return ( <View>
+    return ( <View className='col'>
         
         <Actions><Button>delete</Button><Button>edit</Button></Actions>
 

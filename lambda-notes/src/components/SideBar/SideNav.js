@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Route, NavLink, Link} from 'react-router-dom';
 
 const Side = styled.div `
 background: #d3d2d3;
@@ -23,12 +24,12 @@ margin-top: 15%;
 
 
 const SideNav = () => {
-    return ( <Side>
+    return ( <Side className='col-2'>
         
         <Header> Lambda <br /> Notes</Header>
-        <Button>View Your Notes</Button>
+        <NavLink to="/"><Button>View Your Notes</Button></NavLink>
         <br />
-        <Button>+ Create New Notes</Button>
+        <NavLink to="/create"><Button>+ Create New Notes</Button></NavLink>
         
         </Side> );
 }
