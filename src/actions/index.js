@@ -6,7 +6,8 @@ export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REARRANGE_NOTES = 'REARRANGE_NOTES';
 export const RECEIVE_TAGS = 'RECEIVE_TAGS';
 
-const url = 'http://localhost:8000';
+env.config();
+const url = process.env.SERVER || 'http://localhost:8000';
 
 export const fetchNotes = (cb) => dispatch => {
   return axios
