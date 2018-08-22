@@ -6,7 +6,7 @@ width: 30%;
 margin-right: 3%;
 background-color: white;
 border: 1px solid #ddd;
-height: 200px;
+height: 220px;
 margin-bottom: 20px;
 text-align: left;
 
