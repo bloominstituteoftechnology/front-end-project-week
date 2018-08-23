@@ -1,4 +1,5 @@
 import axios from 'axios';
+require('dotenv').config();
 export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const FETCHED_ONE = 'FETCHED_ONE';
@@ -11,8 +12,7 @@ export const UPDATED = 'UPDATED';
 export const ERROR = 'ERROR';
 
 // const URL = 'https://killer-notes.herokuapp.com/note';
-// const URL = 'http://localhost:8000/notes';
-const URL = 'https://immense-beach-63523.herokuapp.com/notes';
+const URL = 'http://localhost:9000/notes';
 
 export const fetchReq = () => {
     return (dispatch) => {
