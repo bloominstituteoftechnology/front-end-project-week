@@ -38,7 +38,7 @@ export default class Login extends Component {
     return (
       <div className="App">
         {this.state.denied ? <h4 className="text-center text-danger">That username or password was not found.</h4> : null}
-        <div className="form-group container w-50">
+        <div className="form-group container w-50 login">
           <h3 className="header mt-2">Login</h3>
           <input
             name='username'

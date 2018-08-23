@@ -35,6 +35,7 @@ body {
   text-decoration: none;
   border-radius: 1px;
   border-color: #979797;
+  cursor: pointer;
 }
 
 .custom-button-red {
@@ -46,6 +47,7 @@ body {
   text-decoration: none;
   border-radius: 1px;
   border-color: #979797;
+  cursor: pointer;
 }
 
 .custom-button-teal-modal {
@@ -57,6 +59,7 @@ body {
   text-decoration: none;
   border-radius: 1px;
   border-color: #979797;
+  cursor: pointer;
 }
 
 .custom-button-red-modal {
@@ -68,6 +71,7 @@ body {
   text-decoration: none;
   border-radius: 1px;
   border-color: #979797;
+  cursor: pointer;
 }
 
 .custom-button-teal-nav {
@@ -79,6 +83,7 @@ body {
   text-decoration: none;
   border-radius: 1px;
   border-color: #979797;
+   cursor: pointer;
 }
 
 .custom-button-red-nav {
@@ -90,4 +95,5 @@ body {
   text-decoration: none;
   border-radius: 1px;
   border-color: #979797;
+  cursor: pointer;
 }

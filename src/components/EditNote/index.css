@@ -1,0 +1,6 @@
+@media (max-width: 770px) {
+  .edit {
+    width: 83% !important;
+    margin: 0 auto;
+  }
+}

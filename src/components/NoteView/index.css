@@ -5,10 +5,19 @@
 @media (max-width: 770px) {
   .top-content {
     float: right !important;
-    margin-left: 5rem;
+    margin-left: 0;
   }
   .bottom-content h3 {
     clear: both;
     padding-top: 1rem !important;
+  }
+  .notesList {
+    margin: 0;
+    text-justify: initial;
+  }
+  .main-container {
+    width: 330px;
+    margin: 0;
+    padding: 0;
   }
 }

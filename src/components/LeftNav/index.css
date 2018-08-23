@@ -16,14 +16,15 @@
 
 @media (max-width: 770px) {
     .nav-container {
-      height: 24vh;
+      height: 28vh;
       padding: .7rem 1rem;
     }
     .nav-header {
         font-weight: 600;
         font-size: 30px;
         margin: .8rem 1rem;
-        letter-spacing: 4px;
+        margin-left: .3em;
+        letter-spacing: 1px;
     }
     .custom-button-teal-nav {
         width: 8.4rem;
@@ -33,4 +34,19 @@
         padding: .5rem .5rem;;
         margin-left: .7rem;
     }
+    .custom-button-red-nav {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 4rem;
+        height: 2rem;
+        margin: 0;
+        font-size: 13px;
+        padding: .4rem .5rem;
+        margin-left: .7rem;
+      }
+    
+      .greeting {
+          margin-left: .5em;
+      }
   }

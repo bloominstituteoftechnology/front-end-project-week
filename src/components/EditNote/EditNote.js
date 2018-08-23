@@ -60,7 +60,7 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <div className="form-group">
+      <div className="form-group edit">
         <h3 className="header mt-2">Edit Note:</h3>
         <input
           name='title'

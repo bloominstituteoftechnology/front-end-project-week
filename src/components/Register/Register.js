@@ -38,7 +38,7 @@ export default class Register extends Component {
     return (
       <div className="App">
         {this.state.denied ? <h4 className="text-center text-danger">Both username and password are required</h4> : null}
-        <div className="form-group container w-50">
+        <div className="form-group container w-50 register">
           <h3 className="header mt-2">Register</h3>
           <input
             name='username'

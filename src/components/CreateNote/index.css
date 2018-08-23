@@ -9,4 +9,8 @@
     height: 200px;
     font-size: 10px;
   }
+  .create-note {
+    width: 83% !important;
+    margin: 0 auto;
+  }
 }

@@ -19,7 +19,7 @@ export default class LeftNav extends Component {
       <div className='container nav-container'>
         <div>
           <h1 className='nav-header'>Lambda Notes</h1>
-          { localStorage.username ? <h5>Welcome back, {localStorage.username}. </h5> : null }
+          { localStorage.username ? <h5 className="greeting">Welcome back, {localStorage.username}. </h5> : null }
         </div>
         <div className='text-center'>
 
