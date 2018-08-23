@@ -60,7 +60,7 @@ export const editNote = (note, history) => {
         dispatch({ type: EDITING_NOTE });
         promise.then(response => {
             if (history) {
-                history.push(`/${note.id}`);
+                history.push(`/notes/view/${note.id}`);
             }
             dispatch({ type: NOTE_EDITED, payload: response.data })
         })
