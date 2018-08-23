@@ -26,7 +26,7 @@ class EditNote extends Component {
         const id = this.props.match.params.id
         
         axios
-            .get(`${process.env.REACT_APP_API}`)
+            .get(`${process.env.REACT_APP_API}/notes`)
             .then((response) => {
                 const note = response.data.filter(note => note.id === Number(id)) 
                 this.setState({ notes: note[0], id: Number(id)})
@@ -37,7 +37,7 @@ class EditNote extends Component {
     updateNote = () => {
         const id = this.state.id;
         axios 
-            .put(`${process.env.REACT_APP_API}/${id}`, {
+            .put(`${process.env.REACT_APP_API}/notes/${id}`, {
                 title: this.state.notes.title,
                 content: this.state.notes.content
             })
