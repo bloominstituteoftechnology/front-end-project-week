@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { editNote } from '../actions'
 import { connect } from 'react-redux';
 
