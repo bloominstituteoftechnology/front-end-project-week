@@ -14,7 +14,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
-require('dotenv').config();
+// require('dotenv').config();
 
 const Appcont = styled.div`
 display: flex;
