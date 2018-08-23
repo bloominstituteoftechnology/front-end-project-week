@@ -20,7 +20,9 @@ class FilteredNotes extends React.Component {
 					{this.props.match.params.tag}
 				</h2>
 				{this.state.notes &&
-					this.state.notes.map(note => <NoteCard note={note} />)}
+					this.state.notes.map(note => (
+						<NoteCard key={note.id} note={note} />
+					))}
 			</div>
 		);
 	}

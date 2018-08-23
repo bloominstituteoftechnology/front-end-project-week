@@ -7,6 +7,7 @@ import Note from "./Components/Note";
 import AddNote from "./Components/AddNote";
 import Sidebar from "./Components/Sidebar";
 import FilteredNotes from "./Components/FilteredNotes";
+import DragDrop from "./Components/DragDrop";
 
 import "./App.css";
 
@@ -70,7 +71,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Sidebar />
-				<Route exact path="/" />
+				<Route exact path="/" render={() => <DragDrop />} />
 				<Route
 					exact
 					path="/notes"

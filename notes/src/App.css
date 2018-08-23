@@ -37,11 +37,11 @@
 }
 
 .NotesWrapper {
-	display: flex;
+	display: flex; /* these flex rules might not be needed, see .Notes__wip */
 	align-content: flex-start;
 	flex-wrap: wrap;
 	padding: 2% 4%;
-	height: 200vh;
+	height: 300vh;
 	width: 100%;
 	background-color: #f2f0f2;
 }
@@ -71,11 +71,17 @@
 	margin-bottom: 10px;
 }
 
+.Notes__wip {
+	display: flex;
+	align-content: flex-start;
+	flex-wrap: wrap;
+}
+
 .Notes {
 	border: 1px solid lightgray;
 	background-color: #fafafa;
-	width: 190px;
-	height: 190px;
+	width: 230px;
+	height: 280px;
 	padding: 8px;
 	word-wrap: break-word;
 	overflow: hidden;
@@ -286,6 +292,8 @@
 	color: #212121;
 }
 
-.knight {
-	font-size: 7rem;
+.Notes__completed {
+	height: 200px;
+	width: 200px;
+	border: 1px solid red;
 }

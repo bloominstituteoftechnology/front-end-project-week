@@ -5,10 +5,55 @@ import NoteCard from "./NoteCard";
 import Tags from "./Tags";
 
 class Notes extends React.Component {
-	state = { searchTerm: "" };
+	state = {
+		searchTerm: "",
+		notes: this.props.notes,
+	};
+
+	onDragStart = (event, id) => {
+		console.log(id);
+		event.dataTransfer.setData("id", id);
+	};
+
+	onDragOver = event => {
+		event.preventDefault();
+	};
+
+	onDrop = (ev, cat) => {
+		let id = ev.dataTransfer.getData("id");
+		console.log(id);
+		console.log(cat);
+		let notes = this.props.notes.filter(note => {
+			if (note._id == id) {
+				note.category = cat;
+				console.log(note);
+			}
+			return note;
+		});
+		this.setState({
+			...this.state,
+			notes,
+		});
+	};
 
 	handleSearchInput = searchTerm => this.setState({ searchTerm });
 	render() {
+		let notes = {
+			wip: [],
+			complete: [],
+		};
+
+		this.props.notes.forEach(note => {
+			if (note.category) {
+				notes[note.category].push(
+					<NoteCard onDragStart={this.onDragStart} note={note} />,
+				);
+			} else {
+				notes.wip.push(note);
+			}
+			console.log(notes);
+		});
+
 		return (
 			<div className="NotesWrapper">
 				<h1 className="Notes__header">Your Notes:</h1>
@@ -19,13 +64,28 @@ class Notes extends React.Component {
 					onChange={e => this.handleSearchInput(e.target.value)}
 				/>
 				<Tags notes={this.props.notes} />
-				{this.props.notes
-					.filter(note =>
-						fuzzysearch(this.state.searchTerm, note.title),
-					)
-					.map(note => (
-						<NoteCard note={note} />
-					))}
+				<div
+					onDragOver={e => this.onDragOver(e)}
+					className="Notes__wip"
+				>
+					{this.props.notes
+						.filter(note =>
+							fuzzysearch(this.state.searchTerm, note.title),
+						)
+						.map(note => (
+							<NoteCard
+								onDragStart={this.onDragStart}
+								note={note}
+							/>
+						))}
+				</div>
+				<div
+					className="Notes__completed"
+					onDragOver={e => this.onDragOver(e)}
+					onDrop={e => this.onDrop(e, "complete")}
+				>
+					{notes.complete}
+				</div>
 			</div>
 		);
 	}
