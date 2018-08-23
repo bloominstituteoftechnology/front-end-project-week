@@ -18,8 +18,7 @@ class App extends Component {
       notes: [],
       deleting: false,
       loggedIn: true,
-      searchVal: '',
-      filteredNotes: []
+      searchVal: ''
     }
   }
 
@@ -27,7 +26,7 @@ class App extends Component {
     axios
       .get(`${process.env.REACT_APP_API}/notes`)
       .then(response => {
-        this.setState({ notes: response.data, filteredNotes: response.data })
+        this.setState({ notes: response.data })
       })
       .catch(err => {console.log(err)})
   }
@@ -57,19 +56,14 @@ class App extends Component {
       .catch(err => {console.log(err)})
   }
   handleSearch = (e) => {
-    // this.setState({ searchVal: e.target.value })
-    const searchVal = e.target.value
-    const filteredNotes = this.state.notes.filter(note => {
-      return note.title.includes(searchVal)
-    })
-    this.setState({ filteredNotes, searchVal })
+    this.setState({ searchVal: e.target.value })
   }
 
   render() {
     return (
       <div className="App">
         <Banner />
-        <Route exact path='/' render={() => <ListView notes={this.state.filteredNotes} sortAz={this.sortAz} sortZa={this.sortZa} handleSearch={this.handleSearch} searchVal={this.state.searchVal} />} />
+        <Route exact path='/' render={() => <ListView notes={this.state.notes.filter(note => note.title.includes(this.state.searchVal))} sortAz={this.sortAz} sortZa={this.sortZa} handleSearch={this.handleSearch} searchVal={this.state.searchVal} />} />
         <Route path='/create' render={() => <CreateNote handleRefresh={this.handleRefresh} />} />
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} toggleDeleting={this.toggleDeleting} handleRefresh={this.handleRefresh} />} />
         <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} handleRefresh={this.handleRefresh} />} />
