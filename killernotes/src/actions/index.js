@@ -15,11 +15,13 @@ export const CLEARERROR = 'CLEARERROR';
 export const NOTLOGGEDIN = 'NOTLOGGEDIN';
 export const ERROR = 'ERROR';
 
-const notesAPI = 'https://floating-sea-10752.herokuapp.com/api/notes/';
-// const notesAPI = 'http://localhost:3007/api/notes';
+// const notesAPI = 'https://floating-sea-10752.herokuapp.com/api/notes/';
+// const usersAPI = 'https://floating-sea-10752.herokuapp.com/api/users/';
+const usersAPI = 'http://localhost:3007/api/users/';
+const notesAPI = 'http://localhost:3007/api/notes/';
 // const registerAPI = 'http://localhost:3007/api/register/';
 
-export const fetchData = () => {
+export const fetchData = id => {
   const token = localStorage.getItem('jwt');
   const requestOptions = {
     headers: { Authorization: token },
@@ -27,12 +29,12 @@ export const fetchData = () => {
   return function(dispatch) {
     dispatch({ type: FETCHING });
     axios
-      .get(notesAPI, requestOptions)
+      .get(`${usersAPI}${id}`, requestOptions)
       .then(response => {
         dispatch({ type: FETCHED, payload: response.data });
       })
       .catch(err => {
-        alert('You must be logged in to continue... Redirecting');
+        alert('You must be logged in to continue...');
         // setTimeout(() => {
         //   this.props.history.push('/login');
         // }, 500);
@@ -42,10 +44,14 @@ export const fetchData = () => {
 };
 
 export const deleteNote = id => {
+  const token = localStorage.getItem('jwt');
+  const requestOptions = {
+    headers: { Authorization: token },
+  };
   return function(dispatch) {
     dispatch({ type: DELETING });
     axios
-      .delete(`${notesAPI}${id}`)
+      .delete(`${notesAPI}${id}`, requestOptions)
       .then(response => {
         dispatch({ type: DELETED, payload: id });
       })
@@ -53,11 +59,19 @@ export const deleteNote = id => {
   };
 };
 
-export const addNote = note => {
+export const addNote = (userId, note) => {
+  // needed for credentials with anything other than `get` (?)
+  axios.defaults.withCredentials = true;
+
+  const token = localStorage.getItem('jwt');
+  const requestOptions = {
+    headers: { Authorization: token },
+  };
+
   return function(dispatch) {
     dispatch({ type: ADDING });
     axios
-      .post(notesAPI, note)
+      .post(`${notesAPI}${userId}`, note, requestOptions)
       .then(response => {
         dispatch({ type: ADDED, payload: response });
       })
@@ -66,10 +80,16 @@ export const addNote = note => {
 };
 
 export const editNote = (id, note) => {
+  axios.defaults.withCredentials = true;
+
+  const token = localStorage.getItem('jwt');
+  const requestOptions = {
+    headers: { Authorization: token },
+  };
   return function(dispatch) {
     dispatch({ type: EDITING });
     axios
-      .put(`${notesAPI}${id}`, note)
+      .put(`${notesAPI}${id}`, note, requestOptions)
       .then(response => {
         dispatch({ type: EDITED, payload: response });
       })

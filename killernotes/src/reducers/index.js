@@ -30,6 +30,8 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, loggedIn: true, username, userId };
 
     case FETCHED:
+      console.log('ACTION FETCHED', action.payload);
+      // if (action.payload === 'none')
       return {
         ...state,
         notes: action.payload,

@@ -33,8 +33,12 @@ const Fetching = styled.h1`
 `;
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchData();
+  componentDidMount() {}
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.userId !== prevProps.userId) {
+      this.props.fetchData(this.props.userId);
+    }
   }
 
   ClearError = () => {
@@ -99,6 +103,7 @@ const mapStateToProps = state => {
     error: state.error,
     loggedIn: state.loggedIn,
     username: state.username,
+    userId: state.userId,
   };
 };
 

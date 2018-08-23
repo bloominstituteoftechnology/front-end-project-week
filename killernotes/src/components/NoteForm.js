@@ -115,7 +115,7 @@ class NoteForm extends React.Component {
     if (this.state.editing) {
       this.props.editNote(this.state.id, newNote);
     } else {
-      this.props.addNote(newNote);
+      this.props.addNote(this.props.userId, newNote);
     }
 
     // go to notes after
@@ -154,6 +154,7 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     edit: state.editingNote,
+    userId: state.userId,
   };
 };
 
