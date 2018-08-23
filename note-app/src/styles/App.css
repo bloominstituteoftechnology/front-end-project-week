@@ -35,7 +35,7 @@
 }
 
 .side-bar {
-  width: 143px;
+  width: 154px;
   max-width: 100%;
   background: #D3D2D3;
   display: flex;
@@ -51,6 +51,7 @@
   background: #24B8BD;
   padding: 1px 0;
   margin-bottom: 11px;
+  margin-left: 8px;
 }
 
 .btn-side-bar:hover {
@@ -276,7 +277,7 @@ input {
 }
 
 .btns {
-  margin-left: 80px;
+  margin-left: 60px;
 }
 
 .menu-options {

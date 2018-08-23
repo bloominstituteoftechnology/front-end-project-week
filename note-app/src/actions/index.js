@@ -86,11 +86,11 @@ export const selectingNote = (id, note) => {
 
 export const greatToLeast = () => {
   return dispatch => {
-    dispatch({ SORT_GREATEST });
+    dispatch({ type: SORT_GREATEST });
   };
 };
 export const leastToGreat = () => {
   return dispatch => {
-    dispatch({ SORT_LEAST });
+    dispatch({ type: SORT_LEAST });
   };
 };

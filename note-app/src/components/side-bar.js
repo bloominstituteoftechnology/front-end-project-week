@@ -69,8 +69,8 @@ class SideBar extends Component {
         >
           <button className="btn-side-bar">Download Notes To CSV</button>
         </CSVLink>
-        <button className="btn-side-bar">Sort Great to Least</button>
-        <button className="btn-side-bar">Sort Least to Great</button>
+        <button onClick = {this.props.greatToLeast} className="btn-side-bar">Sort Great to Least</button>
+        <button onClick = {this.props.leastToGreat} className="btn-side-bar">Sort Least to Great</button>
       </div>
     );
   }

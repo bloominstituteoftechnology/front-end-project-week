@@ -22,7 +22,6 @@ class EditNote extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   gatherInformation = () => {
-    console.log(this.props);
     let tags = [];
     if (typeof this.state.tags !== "object") {
       tags = this.state.tags.split(/[ ,]+/).length
@@ -39,9 +38,8 @@ class EditNote extends Component {
       textBody: this.state.content,
       __v: this.props.location.state.select.__v + 1
     };
-    
+
     this.props.update(this.props.location.state.select.id, obj);
-    
   };
 
   render() {
