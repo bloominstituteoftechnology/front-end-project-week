@@ -25,10 +25,8 @@
   color: #222;
   display: flex;
   flex-direction: column;
-  /* height: 100vh; */
   min-height: 100%;
   text-align: left;
-  /* flex-grow: 2; */
 }
 
 .Nav-bar .nav-button {
@@ -57,13 +55,14 @@
   display: flex;
   flex-wrap: wrap;
   text-decoration: none;
+  padding-left: 19px;
 }
 
 .note-wrap {
   border: 1px solid rgb(203, 203, 203);
   width: 172px;
   height: 182px;
-  margin: 10px;
+  margin: 10px 7px;
   padding: 0 12px;
   padding-bottom: 15px;
   overflow: hidden;
@@ -76,6 +75,11 @@
 
 .note-wrap hr {
   color: rgb(203, 203, 203);
+}
+
+.list-title {
+  margin-bottom: 0;
+  margin-top: 9px;
 }
 
 .notes-wrap a {
@@ -163,7 +167,6 @@
   width: 70%;
   height: 100%;
   background-color: rgba(203,203,203, 0.85);
-  /* opacity: .78; */
   z-index: 9;
   display: flex;
   justify-content: center;
