@@ -14,7 +14,8 @@ class App extends Component {
       notes: [],
       loadedData: false,
       title: "",
-      description: ""
+      description: "",
+      isOpen: false
     };
   }
   componentDidMount() {
@@ -47,15 +48,21 @@ class App extends Component {
       10
     );
     let notesCopy = this.state.notes.slice();
-    console.log("EDITNOTEHANDLER", notesCopy);
     notesCopy[noteNumberToEdit].title = this.state.title;
     notesCopy[noteNumberToEdit].description = this.state.description;
-    console.log("EDITNOTEHANDLER", notesCopy);
     this.setState({ notes: notesCopy, title: "", description: "" });
   };
   // end new note and modify note handlers
 
+  // delete note handlers and modal
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
+
   render() {
+    console.log("isOpen", this.state.isOpen);
     if (this.state.loadedData === false) {
       return (
         <div>
@@ -83,7 +90,13 @@ class App extends Component {
           />
           <Route
             path="/notes/:id"
-            render={props => <SingleNote {...props} notes={this.state.notes} />}
+            render={props => (
+              <SingleNote
+                {...props}
+                notes={this.state.notes}
+                toggleModal={this.toggleModal}
+              />
+            )}
           />
           <Route
             path="/edit-note/:id"

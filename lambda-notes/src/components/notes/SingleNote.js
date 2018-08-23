@@ -12,13 +12,13 @@ class SingleNote extends Component {
 
   render() {
     const id = parseInt(this.props.match.params.id, 10);
-    console.log("Single Note ID", id);
     return (
       <div className="singleNoteDiv">
         <SideBar />
         <Link to={`/edit-note/${id}`} key={id}>
           <button className="editButton">Edit</button>
         </Link>
+        <button onClick={this.props.toggleModal}>Delete</button>
         <h2>{this.state.allNotes[id].title}</h2>
         <h2>{this.state.allNotes[id].description}</h2>
         <Link to="/">Home</Link>
