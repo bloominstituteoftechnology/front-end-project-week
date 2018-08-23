@@ -18,13 +18,11 @@ export default class DeleteNote extends Component {
     }
     axios
       .delete(`${process.env.REACT_APP_API}/api/notes/${id}`, requestOptions)
-      .then(response => this.props.history.push('/'))
+      .then(() => this.props.history.push('/'))
       .catch(err => this.props.history.push('/login'))
   }
-  
 
   render() {
-    console.log('this.props', this.props)
     return (
       <div className="modal fade container" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import LeftNav from './components/LeftNav/LeftNav';
 import MainContent from './components/MainContent/MainContent';
 import './index.css';
+import { Route } from 'react-router-dom';
+
 
 class App extends Component {
   render() {

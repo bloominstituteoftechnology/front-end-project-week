@@ -11,7 +11,7 @@ import { Route, Switch } from 'react-router-dom';
 export default class MainContent extends Component {
   render() {
     return (
-      <div className="main-container">
+      <div className="main-container container">
         <Switch>
           <Route path='/' exact component={NotesList} />
           <Route path='/note/:id' exact component={NoteView} />

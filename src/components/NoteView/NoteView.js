@@ -43,9 +43,9 @@ export default class NoteView extends Component {
         <div className="top-content float-right mt-0">
           <Link to={`/edit-note/${this.props.match.params.id}`}><button type="button" className="btn btn-link text-dark underline">Edit</button></Link>
           <button type="button" className="btn btn-link text-dark underline" data-toggle="modal" data-target="#exampleModal">Delete</button>
-          <DeleteNote id={this.props.match.params.id}/>
+          <DeleteNote id={this.props.match.params.id} {...this.props}/>
         </div>
-        <div class="bottom-content">
+        <div className="bottom-content">
           <h3 className='header'>{this.state.title}</h3>
           <p className='notesList'>{this.state.message}</p>
         </div>
