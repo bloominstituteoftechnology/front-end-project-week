@@ -5,6 +5,8 @@ import Notes from "./components/Notes";
 import Note from "./components/Note";
 import AddNote from "./components/AddNote";
 
+import { downloadCSV } from "./components/CSV";
+
 import "./App.css";
 
 class App extends Component {
@@ -24,7 +26,22 @@ class App extends Component {
 				id: 2,
 				title: 'Note3',
 				text: 'finish sprint',
-			},
+      },
+      {
+				id: 3,
+				title: 'demo',
+				text: 'this is another note',
+      },
+      {
+				id: 4,
+				title: 'demooo',
+				text: 'more notess',
+      },
+      {
+				id: 5,
+				title: 'another 1',
+				text: 'have u had enough notes yet',
+			}
 		],
 	};
 

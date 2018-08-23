@@ -10,8 +10,6 @@ class Notes extends React.Component {
 		return (
         <div className='notes-container'>
                 <h2>Your Notes:</h2>
-            <a href='#' onClick={ downloadCSV({filename: 'notesData.csv', notesData: this.props.notes})}>Download CSV</a>
-            
             <div className='notes-wrapper'>
 				{this.props.notes.map(note => (
                     <Link className='notes' to={`/notes/${note.id}`}>
@@ -22,6 +20,8 @@ class Notes extends React.Component {
 					</Link>
                 ))}
 			</div>
+                <a href='#' onClick={ downloadCSV({filename: 'notesData.csv', notesData: this.props.notes})}>Download CSV</a>
+                
         </div>
 		);
 	}
