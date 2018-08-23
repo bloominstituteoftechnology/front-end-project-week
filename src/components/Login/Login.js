@@ -51,8 +51,8 @@ class Login extends React.Component {
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
                     <LoginButton to='/notes'
                         onClick={this.loginButton}
-                        style={this.state.username.length > 0 || this.state.password.length > 0 ? { background: '#2BC1C4' } : { opacity: 0.3 }}>
-                        Log In
+                        style={(this.state.username.length > 0 || this.state.password.length > 0) && !this.props.signingIn ? { background: '#2BC1C4' } : { opacity: 0.3 }}>
+                        {this.props.signingIn ? <i class="fa fa-spinner fa-spin"></i> : 'Log In'}
                     </LoginButton>
 
                     {this.props.invalidCredentials ? <InvalidCredentials>{this.props.invalidCredentials}</InvalidCredentials> : null}
@@ -68,7 +68,7 @@ class Login extends React.Component {
 
                 </BottomLoginContent>
 
-            </LoginWrapper>
+            </LoginWrapper >
         );
     }
 }
@@ -76,7 +76,8 @@ class Login extends React.Component {
 const mapStateToProps = state => {
     return {
         authenticated: state.auth.signedIn,
-        invalidCredentials: state.auth.invalidCredentials
+        invalidCredentials: state.auth.invalidCredentials,
+        signingIn: state.auth.signingIn
     };
 }
 

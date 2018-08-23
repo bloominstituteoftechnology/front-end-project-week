@@ -49,7 +49,11 @@ class Register extends React.Component {
                     <h1>Sign Up</h1>
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
                     <LoginInput className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
-                    <LoginButton to='/notes' onClick={this.loginButton}>Sign Up</LoginButton>
+                    <LoginButton to='/notes'
+                        onClick={this.loginButton}
+                        style={this.props.signingUp ? { opacity: 0.3 } : { background: '#2BC1C4' }}>
+                        {this.props.signingUp ? <i class="fa fa-spinner fa-spin"></i> : 'Sign Up'}
+                    </LoginButton>
 
                     {this.props.userExists ? <InvalidCredentials>{this.props.userExists}</InvalidCredentials> : null}
 
@@ -71,7 +75,8 @@ class Register extends React.Component {
 const mapStateToProps = state => {
     return {
         authenticated: state.auth.signedIn,
-        userExists: state.auth.userExists
+        userExists: state.auth.userExists,
+        signingUp: state.auth.signingUp
     };
 
 }
