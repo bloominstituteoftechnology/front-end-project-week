@@ -1,6 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { SideBar } from "../sidebar/SideBar";
+
+import "../../css/allnotes.css";
 
 class AllNotes extends Component {
   constructor(props) {
@@ -17,17 +19,22 @@ class AllNotes extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div className="mainNotesPageDiv">
         <SideBar />
-        {this.state.allNotes.map(note => {
-          return (
-            <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
-              <p>{note.title}</p>
-              <p>{note.description}</p>
-            </Link>
-          );
-        })}
-      </Fragment>
+        <div className="allNotesDiv">
+          <h2 className="yourNotesTitle">Your Notes:</h2>
+          {this.state.allNotes.map(note => {
+            return (
+              <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
+                <h2>{note.title}</h2>
+                <div className="noteDescription">
+                  <p>{note.description}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     );
   }
 }

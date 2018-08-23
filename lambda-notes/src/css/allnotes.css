@@ -1,0 +1,46 @@
+.mainNotesDiv {
+  text-align: start;
+  margin-left: 250px;
+}
+
+.allNotesDiv {
+  /* margin and width to offset the navbar */
+  margin-left: 4rem;
+  color: white;
+  font-size: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* Don't know if I want to space evenly yet */
+  /* justify-content: space-evenly; */
+  align-items: center;
+}
+
+.yourNotesTitle {
+  margin: 5rem 0 1rem 5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.noteCard {
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #000000;
+  margin: 1rem;
+  padding: 1rem;
+  width: 180px;
+  height: 180px;
+  text-decoration: none;
+}
+
+.noteCard h2 {
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+}
+.noteCard p {
+  padding-top: 0.5rem;
+}
+
+.noteDescription {
+  padding-top: 0.5rem;
+  border-top: 1px solid #000000;
+}

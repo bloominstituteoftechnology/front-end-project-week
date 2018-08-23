@@ -6,6 +6,7 @@ import EditNote from "./components/notes/EditNote";
 import SingleNote from "./components/notes/SingleNote";
 import { noteData } from "./components/data/noteData";
 import "./App.css";
+import "./css/reset.css";
 
 class App extends Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class App extends Component {
     }
     return (
       <Router>
-        <div className="App">
+        <div className="mainAppDiv">
           <Route
             exact
             path="/"
