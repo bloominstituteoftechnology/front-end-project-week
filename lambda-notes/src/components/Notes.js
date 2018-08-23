@@ -16,7 +16,7 @@ const Notes = props => {
                 {props.notes.map(note => (
                     <Col style={{ paddingTop: 30 + 'px', paddingBottom: 30 + 'px' }} key={note.id} xs="12" sm="4">
                         <Link to={`/notes/${note.id}`}>
-                            <Card style={{ height: 200 + 'px'}}>
+                            <Card style={{ height: 200 + 'px' }}>
                                 <CardBody>
                                     <CardTitle className="text-truncate" style={{ borderBottom: "1px solid black" }}>{note.title}</CardTitle>
                                     <CardText className="block-with-text">{note.content}</CardText>
