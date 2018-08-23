@@ -39,6 +39,7 @@ class CreateNote extends React.Component {
   }
 
   render() {
+    console.log('Create note location', this.props.location);
     return (
     <div className="note-list">
       <div className="list-sidebar">

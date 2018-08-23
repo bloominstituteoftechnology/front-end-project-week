@@ -18,6 +18,7 @@ const Authenticate = App =>
    }
 
     render() {
+      console.log('Auth location', this.props.location);
         return (this.state.loggedIn ? <App /> : <Login />);
     }
   }

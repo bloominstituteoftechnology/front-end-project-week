@@ -40,17 +40,14 @@ class App extends Component {
       })
   }
 
-/*Test code probably needs to be delted*/
-  handleCreate() {
-    console.log("Happy happy fun day");
-  }
   render() {
+    console.log('App location', this.props.location);
     return (
       <div className="App">
         <Route exact path='/' component={props => <NotesList {...props}
           notes={this.state.notes} />} />
         <Route exact path="/create" component={props => <CreateNote {...props}
-        handleCreate={this.handleCreate} setData={this.setData} />} />
+        setData={this.setData} />} />
         <Route exact path="/notes/:id" component={props => <ViewNote {...props}
         setData={this.setData} />} />
       </div>
@@ -59,3 +56,4 @@ class App extends Component {
 }
 
 export default Authenticate(App);
+// export default App;
