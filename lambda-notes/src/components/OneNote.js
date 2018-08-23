@@ -24,8 +24,12 @@ const List = styled.div`
         super(props);
         this.state = {
             notes:props.notes,
-            id: null
+            note:props.note,
+            id: null,
+            deleteNote: props.deleteNote,
+            editNote: props.editNote
         }
+        
     }
 componentDidMount () {
     const id = this.props.match.params.id;
@@ -45,13 +49,17 @@ filterNotes = note => {
 
 
 render(){
-
+const oneNote = this.props.notes.map(this.filterNotes);
+const del = this.state.deleteNote;
+const edit = this.state.editNote;
+ const id = this.props.match.params.id;
+//  onClick={() =>edit(id)}
     return (
         <Onecont>
-        {this.props.notes.map(this.filterNotes)}
-        <button> <Link to="/edit">edit</Link>
+        {oneNote}
+        <button > <Link to={`/edit/${id}`}>edit</Link>
             </button>
-            <button> <Link to="/delete">delete</Link>
+            <button onClick={() =>del(id)}> <Link to="/delete">delete</Link>
              </button>
         </Onecont>
     )

@@ -51,8 +51,8 @@ text-decoration: none;
 // const Notebod = styled.div`
 // display: flex;
 //     justify-content: space-around;
-    
-   
+
+
 // `;
 // const SmallNote = styled.div`
 
@@ -63,45 +63,45 @@ text-decoration: none;
 // `;
 
 
- const CreateNote = props => {
-     return(
+const CreateNote = props => {
+    return (
         <form>
-     <Createcont>
-         <div>Create New Note:</div>
-         <Createbod>
-             
-        <Notetitle
-        //   className="input"
-        onChange={props.handleNoteChange}
-        type="text"
-        name="notetitle"
-        value={props.notetitle}
-        //   value={props.value}
-           placeholder="Note Title"
-           
-        />
-        <Notecontent
-        //   className="input"
-        onChange={props.handleNoteChange}
-        type="text"
-          name="notebod"
-          value={props.notebod}
-        //    value={props.value}
-           placeholder="Note Content"
-           
-        />
-        <Button  
-        onClick={props.handleAddNote} ><StyledLink to="/">
-          Save</StyledLink>
-        </Button>
-        
-        
-      
-      </Createbod>
-     </Createcont>
-     </form>
-     );
- };
- 
-<StyledLink to="/">View Your Notes</StyledLink> 
+            <Createcont>
+                <div>Create New Note:</div>
+                <Createbod>
+
+                    <Notetitle
+                        //   className="input"
+                        onChange={props.handleNoteChange}
+                        type="text"
+                        name="notetitle"
+                        value={props.notetitle}
+                        //   value={props.value}z
+                        placeholder="Note Title"
+
+                    />
+                    <Notecontent
+                        //   className="input"
+                        onChange={props.handleNoteChange}
+                        type="text"
+                        name="notebod"
+                        value={props.notebod}
+                        //    value={props.value}
+                        placeholder="Note Content"
+
+                    />
+                    <Button
+                        onClick={props.handleAddNote} ><StyledLink to="/">
+                            Save</StyledLink>
+                    </Button>
+
+
+
+                </Createbod>
+            </Createcont>
+        </form>
+    );
+};
+
+<StyledLink to="/">View Your Notes</StyledLink>
 export default CreateNote;

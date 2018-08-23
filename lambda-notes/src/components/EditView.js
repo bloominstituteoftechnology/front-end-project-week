@@ -10,11 +10,13 @@ const List = styled.div`
     display: flex;
 `;
 
- const EditView = () => (
+ const EditView = (props) => (
     <List > 
     {/* <SideBar /> */}
     <div>
-        <Edit />
+        <Edit notes={props.notes} note={props.note} notetitle={props.notetitle} notebod={props.notebod}
+         id={props.id}
+        handleNoteChange={props.changeNote} editNote={props.editNote} />
         </div>
         </List>);
 

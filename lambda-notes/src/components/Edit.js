@@ -1,5 +1,8 @@
-import React from "react";
+// import React from "react";
 import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from "axios";
 
 const Createcont = styled.div`
 
@@ -43,36 +46,77 @@ background-color: #2BC1C4;
 width: 185px;
 height: 35px;
 `;
+const StyledLink = styled(Link)`
+text-decoration: none;
+  color: white;
+  
+`;
 
 
- const Edit = () => (
-     <Createcont>
-         <div>Edit Note:</div>
-         <Createbod>
- 
-        <Notetitle
-        //   className="input"
-        //   value={this.state.notetitle}
-        //   name="notetitle"
-           type="text"
-           placeholder="Note Title"
-        //   onChange={this.handleInputChange}
-        />
-        <Notecontent
-        //   className="input"
-        //   value={this.state.notebody}
-        //   name="notebody"
-           type="text"
-           placeholder="Note Content"
-        //   onChange={this.handleInputChange}
-        />
-        <Button onClick={() => this.handleAddNote()} type="button">
-          Update
-        </Button>
-      
-      </Createbod>
-     </Createcont>
- )
- ;
+// const Edit = props => {
+    class Edit extends Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                notes:props.notes,
+                note:props.note,
+                id: null,
+                editNote: props.editNote,
+                handleNoteChange:props.handleNoteChange
+            }
+            
+        }
+    componentDidMount () {
+        const id = this.props.match.params.id;
+        this.setState({id:Number(id),notes:this.props.notes})
+    }
+   
+    filterNotes = note => {
+        if (note.id===this.state.id) {
+            return(
+                <div key={note.id}>
+                <p>{note.notetitle}</p>
+                <p>{note.notebod}</p>
+                </div>
+            )
+        }
+    }
+    render(){
+        const oneNote = this.props.notes.map(this.filterNotes);
+        // const id = this.props.match.params.id;
+        const edit = this.state.editNote;
+        const id = this.props.match.params.id;
+    return (
+        <Createcont>
+            
+            <div>Edit Note:</div>
+            <Createbod>
+
+                <Notetitle
+                    onChange={this.state.handleNoteChange}
+                    type="text"
+                    name="notetitle"
+                    value={this.state.notetitle}
+
+                    placeholder="Note Title"
+                />
+                <Notecontent
+                    onChange={this.state.handleNoteChange}
+                    type="text"
+                    name="notebod"
+                    value={this.state.notebod}
+
+                    placeholder="Note Content"
+                />
+                <Button
+                    onClick={() =>edit(id)} ><StyledLink to="/">
+                        Update</StyledLink>
+                </Button>
+
+            </Createbod>
+        </Createcont>
+    )
+}}
+    ;
 
 export default Edit

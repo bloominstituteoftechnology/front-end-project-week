@@ -24,6 +24,7 @@ const SmallNote = styled.div`
     height:190px;
     width:190px;
     border: solid 1px #979797
+    margin-bottom: 15px;
 `;
 const StyledLink = styled(Link)`
 text-decoration: none;
