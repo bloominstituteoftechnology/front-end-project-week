@@ -4,8 +4,7 @@
 }
 
 .list-container .notes-title {
-    margin: 10px 0 0;
-    padding: 0 20px 20px;
+    padding: 80px 20px 20px;
     height: 10%;
     display: flex;
     align-items: flex-end;
@@ -42,10 +41,12 @@
     padding-bottom: 5px;
     border-bottom: 2px solid #A6A6A6;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .note-card p {
     text-align: justify;
     margin: 0 15px;
+    font-size: 12px;
 }
 

@@ -14,7 +14,7 @@ const NoteViewContainer = styled.div`
 const LinksContainer = styled.div`
     display: flex;
     justify-content: flex-end;
-    padding: 15px 40px;
+    padding: 10px 40px;
 `;
 
 const Title = styled.h2`
