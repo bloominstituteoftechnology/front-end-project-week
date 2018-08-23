@@ -13,9 +13,10 @@ class NoteView extends Component {
     
     componentDidMount() {
         const id = this.props.match.params.id;
+        console.log('id match',this.props.match.params)
         this.setState({ id: Number(id), notes: this.state.notes})
 
-        axios.get('https://killer-notes.herokuapp.com/note/get/id')
+        axios.get(`https://killer-notes.herokuapp.com/note/get/id`)
         .then(response => {
             this.setState({note: response.data})
         })
@@ -28,7 +29,7 @@ class NoteView extends Component {
         if(note.id === this.state.id) {
             return(
                 <div key = {note.id}>
-                <Link to={`/edit/${note._id}`}>
+                <Link to={`/edit/${note.id}`}>
                 <button>
                 Edit
                 </button>

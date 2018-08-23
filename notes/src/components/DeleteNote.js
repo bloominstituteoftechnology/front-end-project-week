@@ -11,6 +11,7 @@ class DeleteNote extends Component {
     }
 
 handleDeleteNote = event => {
+    event.preventDefault();
     const id = this.props.match.params.id;
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {

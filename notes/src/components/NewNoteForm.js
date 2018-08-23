@@ -5,7 +5,6 @@ import './UpdateNote.js'
 import './NewNoteForm.css';
 
 
-
 class NewNoteForm extends Component {
     constructor(props) {
         super(props);
@@ -16,25 +15,23 @@ class NewNoteForm extends Component {
         };
     }
 
-componentDidMount() {
-    this.setState({
-        title: '', 
-        textBody: ''
-    });
-}
-
-componentWillUnmount () {
-    localStorage.setItem('title', this.state.title);
-    localStorage.setItem('textBody', this.state.textBody);
-}
+// componentDidMount() {
+//     this.setState({
+//         title: '', 
+//         textBody: ''
+//     });
+// }
 
 
 handleChange = event => {
     this.setState({ [event.target.name]: event.target.value})
   };
   
+handleSubmit = data => this.setState({notes: data});
+
   
 handleAddNote = event => {
+    event.preventDefault()
       const note = {
           title: this.state.title,
           textBody: this.state.textBody
@@ -43,39 +40,46 @@ handleAddNote = event => {
       axios
       .post("https://killer-notes.herokuapp.com/note/create", note)
       .then(response => {
-          console.log(response);
+          console.log('logging response in post method', response);
+          this.handleSubmit(response.data)
           this.setState({
             title: '',
             textBody: ''
         })
-          console.log(this.props.history)
-          this.props.history.notes.push('/');
+        //     console.log('logging state in post attempt',this.state)
+        //   console.log('logging history', this.props.history)
+        //   this.props.history.push('/', this.state);
       })
       .catch(err =>
-    console.log(err))
+    console.log(err));
+
+    this.setState({
+        title: '',
+        textBody: ''
+    });
   }
 
     render(){
     return (
         <div className = "new-note-container">
-            <form>
+            <form onSubmit = {this.handleAddNote}>
                 <h2> Create New Note:
                 </h2>
                 <input 
                 onChange = {this.handleChange} 
-                value = {this.title}
+                value = {this.state.title}
                 className = "note-title-input"
                 type="text"
                 placeholder="Note Title" 
                 />
                 <textarea
                 onChange = {this.handleChange} 
-                value = {this.textBody}
+                value = {this.state.textBody}
                 className = "note-content-input"
                 type = "text"
                 placeholder = "Note Content"
                 />
-                <Link to="/all"> 
+                <Link to="/"> 
                 <button onClick = {this.handleAddNote}> 
                    Add to Note List     
                 </button> 

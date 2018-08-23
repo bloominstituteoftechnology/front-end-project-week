@@ -49,8 +49,9 @@ handleChange = event => {
   };
   
   
-handleAddNote = () => {
+handleAddNote = event => {
     console.log(this.state)
+    event.preventDefault();
       let newNotes = this.state.notes.slice();
         newNotes.push({
         title: this.state.title,
