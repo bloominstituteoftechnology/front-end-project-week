@@ -46,7 +46,7 @@ class Note extends Component {
             <StyledNote>
                     {this.props.currentNote ? (
                         <StyledButtons>
-                            <StyledLink to={`/edit/${this.state.id}`}>edit</StyledLink>
+                            <StyledLink to={`/notes/edit/${this.state.id}`}>edit</StyledLink>
                             <StyledLink to={`/notes/${this.state.id}/delete`}>delete</StyledLink>
                         </StyledButtons>
                     ) : null}

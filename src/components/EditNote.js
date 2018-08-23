@@ -98,7 +98,7 @@ class EditNote extends Component {
     render(){
         //Returns us home after an edit
         if(this.state.edited){
-            return <Redirect to='/' />;
+            return <Redirect to='/notes' />;
         }
         return (
             <StyledEditNote>

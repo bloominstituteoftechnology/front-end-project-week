@@ -95,7 +95,7 @@ class NoteForm extends Component {
 
     render(){
         if(this.state.created){
-            return <Redirect to='/' />
+            return <Redirect to='/notes' />
         }
         return (
             <StyledNoteForm>

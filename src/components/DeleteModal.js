@@ -49,13 +49,12 @@ const StyledLink = styled(Link)`
 `;
 
 const DeleteModal = (props) => {
-    console.log("ID!!!!!", props.match.params.id);
     return (
         <StyledModal>
             <StyledInnerBox>
                 <p>Are you sure you want to delete this?</p>
                 <StyledButtons>
-                    <StyledLink to={'/'}
+                    <StyledLink to={'/notes'}
                         onClick={() => props.deleteNote(props.match.params.id)}
                         style={{background: '#D0021B'}} >Delete</StyledLink>
                     <StyledLink to={`/notes/${props.match.params.id}`} 
