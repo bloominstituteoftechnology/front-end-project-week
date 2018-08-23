@@ -16,48 +16,78 @@ export const ERROR = 'ERROR';
 const fetchNotes = (dispatch) => {
   return axios
     .get('https://sumi-notes.netlify.com/notes')
-    .then(({ data }) => {
+    .then(({
+      data
+    }) => {
       setTimeout(() => {
-        dispatch({ type: GOT_NOTES, payload: data });
+        dispatch({
+          type: GOT_NOTES,
+          payload: data
+        });
       }, 2000);
     })
     .catch((error) => {
-      dispatch({ type: ERROR, message: 'error fetching all notes' });
+      dispatch({
+        type: ERROR,
+        message: 'error fetching all notes'
+      });
     });
 };
 
 export const gettingAllNotes = () => {
   return (dispatch) => {
-    dispatch({ type: GETTING_NOTES });
+    dispatch({
+      type: GETTING_NOTES
+    });
     fetchNotes(dispatch);
   };
 };
 
 export const gettingSingleNote = (id) => {
   return (dispatch) => {
-    dispatch({ type: GETTING_NOTES });
+    dispatch({
+      type: GETTING_NOTES
+    });
     axios
       .get(`https://sumi-notes.netlify.com/notes/${id}`)
-      .then(({ data }) => dispatch({ type: GOT_NOTES, payload: data }))
+      .then(({
+        data
+      }) => dispatch({
+        type: GOT_NOTES,
+        payload: data
+      }))
       .catch((error) => {
-        dispatch({ type: ERROR, message: 'error getting note' });
+        dispatch({
+          type: ERROR,
+          message: 'error getting note'
+        });
       });
   };
 };
 
 export const addNote = (note) => {
   return (dispatch) => {
-    dispatch({ type: ADDING_NOTE });
+    dispatch({
+      type: ADDING_NOTE
+    });
     axios
-      .post('http://localhost:5000/notes', note)
+      .post('https://sumi-notes.netlify.com/notes', note)
       .then((response) => {
         console.log(response);
         // fetchNotes(dispatch);
-        dispatch({ type: ADDED_NOTE, payload: { ...note, id: response.data.success } });
+        dispatch({
+          type: ADDED_NOTE,
+          payload: { ...note,
+            id: response.data.success
+          }
+        });
         // creating new note object
       })
       .catch((error) => {
-        dispatch({ type: ERROR, message: 'error adding note' });
+        dispatch({
+          type: ERROR,
+          message: 'error adding note'
+        });
       });
   };
 };
@@ -66,7 +96,9 @@ export const addNote = (note) => {
 //sends a response status
 export const deleteNote = (id) => {
   return (dispatch) => {
-    dispatch({ type: DELETING_NOTE });
+    dispatch({
+      type: DELETING_NOTE
+    });
     axios
       .delete(`http://localhost:5000/notes/${id}`)
       .then((response) => {
@@ -74,23 +106,37 @@ export const deleteNote = (id) => {
         fetchNotes(dispatch);
       })
       .catch((error) => {
-        dispatch({ type: ERROR, message: 'error deleting note' });
+        dispatch({
+          type: ERROR,
+          message: 'error deleting note'
+        });
       });
   };
 };
 
 export const updateNote = (id, editNote) => {
   return (dispatch) => {
-    dispatch({ type: UPDATING_NOTE });
+    dispatch({
+      type: UPDATING_NOTE
+    });
     axios
       .put(`http://localhost:5000/notes/${id}`, editNote)
       .then((response) => {
         console.log('this is the response', response);
-        dispatch({ type: NOTE_UPDATED, payload: { id, ...response.data } });
+        dispatch({
+          type: NOTE_UPDATED,
+          payload: {
+            id,
+            ...response.data
+          }
+        });
       })
       .catch((error) => {
         console.log(error);
-        dispatch({ type: ERROR, message: 'error updating note' });
+        dispatch({
+          type: ERROR,
+          message: 'error updating note'
+        });
       });
   };
 };
