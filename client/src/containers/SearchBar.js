@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { updateSearchTerm } from '../actions';
 
 const InputWrapper = styled.div`
-  margin: 4rem 0;
+  margin-bottom: 3rem;
   max-width: 88rem;
   width: 75%;
 `;

@@ -19,7 +19,6 @@ export const {
   deleteNoteRequest,
   deleteNoteSuccess,
   deleteNoteFailure,
-  updateSearchTerm,
 } = createActions(
   'FETCH_NOTES_REQUEST',
   'FETCH_NOTES_SUCCESS',
@@ -36,8 +35,13 @@ export const {
   'DELETE_NOTE_REQUEST',
   'DELETE_NOTE_SUCCESS',
   'DELETE_NOTE_FAILURE',
-  'UPDATE_SEARCH_TERM',
 );
+
+export const {
+  updateSearchTerm,
+  sortAscending,
+  sortDescending,
+} = createActions('UPDATE_SEARCH_TERM', 'SORT_ASCENDING', 'SORT_DESCENDING');
 
 export const fetchNotes = () => async dispatch => {
   dispatch(fetchNotesRequest());

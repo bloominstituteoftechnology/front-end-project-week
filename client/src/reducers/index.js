@@ -17,6 +17,8 @@ import {
   deleteNoteSuccess,
   deleteNoteFailure,
   updateSearchTerm,
+  sortAscending,
+  sortDescending,
 } from '../actions';
 
 const notes = handleActions(
@@ -25,6 +27,20 @@ const notes = handleActions(
     [addNoteSuccess]: (state, { payload }) => [...state, payload],
     [editNoteSuccess]: (state, { payload }) =>
       state.map(note => (note._id === payload._id ? payload : note)),
+    [sortAscending]: (state, _) =>
+      state
+        .slice()
+        .sort((note1, note2) =>
+          note1.title.toLowerCase().localeCompare(note2.title.toLowerCase()),
+        ),
+    [sortDescending]: (state, _) =>
+      state
+        .slice()
+        .sort(
+          (note1, note2) =>
+            note1.title.toLowerCase().localeCompare(note2.title.toLowerCase()) *
+            -1,
+        ),
   },
   [],
 );

@@ -7,6 +7,7 @@ import NoteContainer from './containers/NoteContainer';
 import AddNoteContainer from './containers/AddNoteContainer';
 import EditNoteContainer from './containers/EditNoteContainer';
 import SearchBar from './containers/SearchBar';
+import SortingOptions from './containers/SortingOptions';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -25,6 +26,7 @@ class App extends Component {
               render={() => (
                 <React.Fragment>
                   <SearchBar />
+                  <SortingOptions />
                   <ListContainer />
                 </React.Fragment>
               )}
