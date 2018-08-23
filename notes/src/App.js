@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { withRouter, Route, Link } from 'react-router-dom';
+import { withRouter, Route, Link, Switch } from 'react-router-dom';
 import * as actions from './actions'
 import Notes from './components/Notes';
 import SingleNote from './components/SingleNote';
@@ -19,19 +19,21 @@ class App extends Component {
               <NavLink tag={Link} to="/">View Your Notes</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to="/note/add">+ Create New Note</NavLink> 
+              <NavLink tag={Link} to="/notes/add">+ Create New Note</NavLink> 
             </NavItem>
           </Nav>
         </Navbar>
         <Route exact path="/" render={props => (
           <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} fetchingNotes={this.props.fetchingNotes} />
         )} />
-        <Route path="/note/add" render={props => (
-          <NoteForm {...props} addNote={this.props.addNote} />
-        )} />
-        <Route path="/notes/:id" render={props => (
-          <SingleNote {...props} note={this.props.note} />
-        )}  />
+        <Switch>
+          <Route path="/notes/add" render={props => (
+            <NoteForm {...props} addNote={this.props.addNote} />
+          )} />
+          <Route path="/notes/:id" render={props => (
+            <SingleNote {...props} note={this.props.note} />
+          )}  />
+        </Switch>
       </div>
     );
   }
