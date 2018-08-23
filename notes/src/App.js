@@ -123,18 +123,9 @@ class App extends Component {
       }
       return comparison;
     }
-
     newArr.sort(compare)
-
     console.log(newArr)
     this.props.sortNote(newArr)
-  }
-
-  convertToHtml = (x) => {
-    var converter = new showdown.Converter();
-    let text = x;
-    let html = converter.makeHtml(text);
-    return html;
   }
 
   render() {
