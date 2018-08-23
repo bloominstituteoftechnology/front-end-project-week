@@ -28,42 +28,27 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.setState({notes: notesArray})
     this.props.getNotes();
-    // this.setState({notes: this.props.notes})
-    this.setState({sorted: this.props.filteredNotes})
+    
     let username = localStorage.getItem('username');  
     if (username) {
       this.setState(function() {
-        return {loggedIn: true}
+        return {loggedIn: true, sorted: this.props.filteredNotes}
       })
     }
+
   }
 
   submitForm = (tags, title, textBody) => {
-    // this.setState(function (prevState, props) {
-    //   return {
-    //   notes: [...prevState.notes, {id: prevState.notes.length, title: title, textBody: textBody}]
-    // }});
-    
     this.props.addNote(tags, title, textBody);
   }
 
   submitEditForm = (ident, tags, title, textBody) => {
-    // this.setState(function (prevState, props) {
-    //   return {
-    //     notes: prevState.notes.map(note => ident === note.id ? {id: ident, title, textBody} : note)
-
-    // }});
     this.props.updateNote(ident, tags, title, textBody);
     this.props.history.push('/'); 
   }
 
   deleteNote = (ident) => {
-    // this.setState(function (prevState, props) {
-    //   return {
-    //     notes: prevState.notes.filter(note => note.id !== ident)
-    // }})
     this.props.deleteNote(ident);
   }
 
@@ -76,31 +61,33 @@ class App extends Component {
   }
 
   sortList = (button) => {
-    if (button === 1) {
+    if (button === 0) {
+      this.setState({sorted: this.props.notes})
+    } else if (button === 1) {
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTitlesNormal)})
     } else if (button === 2) {
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTitlesReversed)})
     } else if (button === 3) {
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTextNormal)})
-    } else {
+    } else if (button === 4){
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTextReversed)})
     }
   }
 
   sortCompareTitlesNormal = (a, b) => {
-    if (a.title < b.title) {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
       return -1;
-    } else if (a.title > b.title) {
+    } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
       return 1;
     } else {
       return 0;
     }
   }
 
-  sortCompareTitlesReverse = (a, b) => {
-    if (a.title < b.title) {
+  sortCompareTitlesReversed = (a, b) => {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
       return 1;
-    } else if (a.title > b.title) {
+    } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
       return -1;
     } else {
       return 0;
@@ -108,19 +95,19 @@ class App extends Component {
   }
 
   sortCompareTextNormal = (a, b) => {
-    if (a.textBody < b.textBody) {
+    if (a.textBody.toLowerCase() < b.textBody.toLowerCase()) {
       return -1;
-    } else if (a.textBody > b.textBody) {
+    } else if (a.textBody.toLowerCase() > b.textBody.toLowerCase()) {
       return 1;
     } else {
       return 0;
     }
   }
 
-  sortCompareTextReverse = (a, b) => {
-    if (a.textBody < b.textBody) {
+  sortCompareTextReversed = (a, b) => {
+    if (a.textBody.toLowerCase() < b.textBody.toLowerCase()) {
       return 1;
-    } else if (a.textBody > b.textBody) {
+    } else if (a.textBody.toLowerCase() > b.textBody.toLowerCase()) {
       return -1;
     } else {
       return 0;
@@ -133,10 +120,10 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
-        <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.filteredNotes||this.state.sorted} filter={this.filterData} sortList={this.sortList} />)} />
-        <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.filteredNotes||this.state.sorted} submit={this.submitForm} />)} />
-        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes||this.state.sorted} delete={this.deleteNote} />)} />
-        <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.filteredNotes||this.state.sorted} submitEdit={this.submitEditForm} />)} />
+        <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.filteredNotes} filter={this.filterData} sortList={this.sortList} />)} />
+        <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.filteredNotes} submit={this.submitForm} />)} />
+        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes} delete={this.deleteNote} />)} />
+        <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.filteredNotes} submitEdit={this.submitEditForm} />)} />
       </div>
     );
     } else {
