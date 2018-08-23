@@ -23,7 +23,7 @@ export const ERROR = "ERROR";
 // Local server
 // const url = "http://localhost:3300/note/get/all"
 // const singleURL = "http://localhost:3300/note/get/"
-// const postURL = "http://localhost:3300/note/post/"
+// const postURL = "http://localhost:3300/note/create/"
 // const deleteURL = "http://localhost:3300/note/delete/"
 // const editURL = "http://localhost:3300/note/edit/"
 
@@ -119,7 +119,7 @@ export const searchNotes = (search) => {
         request.then(response => {
             let regex = new RegExp(search,['i']);
             let results = response.data.filter(note => 
-                regex.test(note.textBody)
+                (regex.test(note.textBody) || regex.test(note.title))
             )
             dispatch({type: FETCHED, payload: results})
         })
