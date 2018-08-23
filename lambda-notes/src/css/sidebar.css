@@ -7,7 +7,7 @@
   font-size: 2rem;
   font-weight: bold;
   height: 100%;
-  width: 250px;
+  width: 260px;
   z-index: 1;
   top: 0;
   left: 0;
@@ -17,7 +17,7 @@
 .mainNavButtonsDiv button {
   margin: 1rem 0;
   padding: 1rem;
-  width: 240px;
+  width: 250px;
   background: #2ac0c4;
   color: white;
   font-size: 1.5rem;

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import "../../css/newnote.css";
+
 class NewNote extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,7 @@ class NewNote extends Component {
 
   render() {
     return (
-      <div>
+      <div className="newNoteMainDiv">
         <h2>New Note:</h2>
         <form
           className="newNoteForm"
@@ -21,15 +23,16 @@ class NewNote extends Component {
             placehold="Note Title"
             name="title"
             onChange={this.props.inputChangeHandler}
+            className="inputTitle"
           />
           <input
             placehold="Note Content"
             name="description"
             onChange={this.props.inputChangeHandler}
+            className="inputDescription"
           />
           <button>Save</button>
         </form>
-        <Link to="/">Home</Link>
       </div>
     );
   }
