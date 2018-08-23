@@ -253,3 +253,13 @@ h1 {
   border-radius: 0 !important;
   height: 200px !important;
 }
+
+.sort-btn {
+  width: 15%;
+  height: 2em;
+}
+
+.sorting {
+  display: flex;
+  flex-flow: row nowrap;
+}

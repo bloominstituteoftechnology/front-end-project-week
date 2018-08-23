@@ -58,11 +58,27 @@ class NotesList extends Component {
         return connectDropTarget(
             <div className="notesOuterDiv">
                 <input type="text" name="searchText" onChange={this.props.filter} placeholder="Search titles and text"/>
+                
+                <div className="sorting"> 
+                Sort by:&nbsp;
+                <button className="sort-btn" onClick={() => this.props.sortList(0)}>Unsorted</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(1)}>Title A-Z</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(2)}>Title Z-A</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(3)}>Text A-Z</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(4)}>Text Z-A</button>
+                </div>
+
                 <h2 className="notesListTitle">Your Notes:</h2>
                 <div className="notesInnerDiv">
                 {this.props.notes.map(note => <Link to={`/notes/${note._id}`}><Note note={note} key={note._id} /></Link>)}
                 </div>
                 <div className="CSV"><CSVLink data={this.props.notes}>Download CSV of Notes</CSVLink></div>
+            
+            <div className="Cell">
+                {isOver && canDrop && <div class='green' />}
+                {!isOver && canDrop && <div class='yellow' />}
+                {isOver && !canDrop && <div class='red' />}
+            </div>
             </div>
         )
     }

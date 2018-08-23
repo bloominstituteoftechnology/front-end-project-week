@@ -6,7 +6,7 @@ import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
 import SingleNoteView from './components/SingleNoteView';
 import { Route } from 'react-router-dom';
-import notesArray from './components/NotesArray';
+// import notesArray from './components/NotesArray';
 import { connect } from 'react-redux';
 import { getNotes, addNote, updateNote, deleteNote, searching } from './actions';
 import { withRouter } from 'react-router';
@@ -22,7 +22,8 @@ class App extends Component {
 
     this.state = {
       notes: [],
-      loggedIn: false
+      loggedIn: false,
+      sorted: []
     }
   }
 
@@ -30,6 +31,7 @@ class App extends Component {
     // this.setState({notes: notesArray})
     this.props.getNotes();
     // this.setState({notes: this.props.notes})
+    this.setState({sorted: this.props.filteredNotes})
     let username = localStorage.getItem('username');  
     if (username) {
       this.setState(function() {
@@ -73,15 +75,68 @@ class App extends Component {
     localStorage.setItem('username', user);
   }
 
+  sortList = (button) => {
+    if (button === 1) {
+      this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTitlesNormal)})
+    } else if (button === 2) {
+      this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTitlesReversed)})
+    } else if (button === 3) {
+      this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTextNormal)})
+    } else {
+      this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTextReversed)})
+    }
+  }
+
+  sortCompareTitlesNormal = (a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    } else if (a.title > b.title) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  sortCompareTitlesReverse = (a, b) => {
+    if (a.title < b.title) {
+      return 1;
+    } else if (a.title > b.title) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+
+  sortCompareTextNormal = (a, b) => {
+    if (a.textBody < b.textBody) {
+      return -1;
+    } else if (a.textBody > b.textBody) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  sortCompareTextReverse = (a, b) => {
+    if (a.textBody < b.textBody) {
+      return 1;
+    } else if (a.textBody > b.textBody) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+
   render() {
+    // let sorted = this.props.filteredNotes.sort(this.sortCompareTitlesNormal);
     if (this.state.loggedIn) {
     return (
       <div className="App">
         <Sidebar />
-        <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.filteredNotes} filter={this.filterData} />)} />
-        <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.filteredNotes} submit={this.submitForm} />)} />
-        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes} delete={this.deleteNote} />)} />
-        <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.filteredNotes} submitEdit={this.submitEditForm} />)} />
+        <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.filteredNotes||this.state.sorted} filter={this.filterData} sortList={this.sortList} />)} />
+        <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.filteredNotes||this.state.sorted} submit={this.submitForm} />)} />
+        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes||this.state.sorted} delete={this.deleteNote} />)} />
+        <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.filteredNotes||this.state.sorted} submitEdit={this.submitEditForm} />)} />
       </div>
     );
     } else {
@@ -96,7 +151,7 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     searchText: state.searchText,
-    filteredNotes: state.notes.filter(note => note.title.toLowerCase().includes(state.searchText.toLowerCase()) || note.textBody.toLowerCase().includes(state.searchText.toLowerCase()))
+    filteredNotes: state.notes.filter(note => note.title.toLowerCase().includes(state.searchText.toLowerCase()) || note.textBody.toLowerCase().includes(state.searchText.toLowerCase())) 
   }
 }
 
