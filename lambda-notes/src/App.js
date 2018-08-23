@@ -38,8 +38,13 @@ class App extends Component {
   submitNewNoteHandler = event => {
     event.preventDefault();
     let notesCopy = this.state.notes.slice();
-    let lastIndex = this.state.notes.slice(-1)[0];
-    lastIndex = lastIndex.id + 1;
+    let lastIndex = 0;
+    if (notesCopy.length <= 0) {
+      lastIndex = 0;
+    } else {
+      lastIndex = this.state.notes.slice(-1)[0];
+      lastIndex = lastIndex.id + 1;
+    }
     let newNote = {
       id: lastIndex,
       title: this.state.title,
