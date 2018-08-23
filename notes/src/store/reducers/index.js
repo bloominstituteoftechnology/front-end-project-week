@@ -40,6 +40,7 @@ export const notesReducer = (state = initialState, action) => {
       });
     case NOTE_FETCHED:
       return Object.assign({}, state, {
+        ...state,
         fetchingNote: false,
         noteFetched: true,
         note: action.payload

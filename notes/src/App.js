@@ -103,8 +103,7 @@ class App extends Component {
       <AppContainer className="App">
         <MenuBar loadPage={this.props.loadPage} addNewNote={this.props.addNote} />
         {this.props.fetchingNotes ? <h2>{this.props.message}</h2> : null}
-        {this.props.notes.length === 0 ? <h1>Add a note!</h1>
-          : <Notes notes={this.props.notes} noteView={this.props.singleNoteView} />}
+        {this.props.notes.length === 0 ? <h1>Add a note!</h1> : <Notes notes={this.props.notes} noteView={this.props.singleNoteView} />}
         {this.props.fetchingNote ? <h2>{this.props.message}</h2> : null}
         {this.props.noteFetched ? <NotePage {...this.props} editComplete={this.props.saveEditedNote} editStart={this.props.editNote} id={this.props.id} change={this.onChangeHandler} notes={this.props.notes} delete={this.props.deleteNote} title={this.props.newTitle} note={this.props.newNote} toggle={this.toggle} modal={this.state.modal} editing={this.props.editingNote} /> : null}
         {this.props.addingNote ? <NewNote {...this.props} addNote={this.props.saveNewNote} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} /> : null}
@@ -128,9 +127,10 @@ const mapStateToProps = state => ({
   noteDeleted: state.noteDeleted,
   addingNote: state.addingNote,
   notes: state.notes,
-  newTitle: state.newTitle,
-  newNote: state.newNote,
-  message: state.message
+  error: state.error,
+  message: state.message,
+  note: state.note,
+  id: state.id,
 });
 
 export default connect(mapStateToProps, { loadPage, singleNoteView, editNote, saveNewNote, saveEditedNote, deleteNote, addNote })(App);

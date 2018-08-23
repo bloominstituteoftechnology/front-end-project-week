@@ -7,6 +7,7 @@ const NoteDiv = styled.div `
 `;
 
 export const Note = (props) => {
+  console.log(props.note);
   return (
     <NoteDiv>
       <div>
@@ -23,7 +24,7 @@ export const Note = (props) => {
          </ModalFooter>
        </Modal>
       <h3>{props.note.title}</h3>
-      <p>{props.note.note}</p>
+      <p>{props.note.textBody}</p>
     </NoteDiv>
   )
 }

@@ -4,6 +4,7 @@ import { EditNote } from '../edit-note-page/EditNote';
 
 export const NotePage = (props) => {
   console.log(props.notes);
+  console.log(props.id);
   const note1 = props.notes.find(note => note._id === props.id);
   console.log(note1);
   return (

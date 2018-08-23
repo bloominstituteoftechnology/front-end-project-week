@@ -28,7 +28,7 @@ export const Notes = (props) => {
       <H3>Your Notes:</H3>
       <NotesContainer>
         {props.notes.map(note =>
-          <NoteCard key={note.id} note={note} noteView={props.noteView} />
+          <NoteCard key={note._id} note={note} noteView={props.noteView} />
         )}
       </NotesContainer>
     </OuterNotesContainer>

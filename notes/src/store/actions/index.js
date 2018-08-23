@@ -13,6 +13,9 @@ export const loadPage = () => {
       dispatch({type: NOTES_FETCHED, payload: response.data})
     }
   })
+  .catch(error => {
+    dispatch({type: ERROR, message: 'Oops! We couldn\'t retrieve your notes :('})
+  })
   }
 };
 
@@ -26,7 +29,13 @@ export const singleNoteView = (id) => {
     } else {
       dispatch({type: NOTE_FETCHED, payload: response})
     }
-  })}
+  })
+  .catch(error => {
+    dispatch.catch(error => {
+      dispatch({type: ERROR, message: 'Oops! We couldn\'t retrieve your note :('})
+    })
+  })
+}
 }
 
 export const editNote = (note) => {
@@ -41,7 +50,6 @@ export const saveNewNote = (note) => {
     axios.post('https://killer-notes.herokuapp.com/note/create', note)
     .then(response => {
       dispatch({type: NOTE_SAVED, payload: response, message: `Your note was saved with the following id number: ${response}. Taking you home...`});
-      setTimeout(() => {loadPage(), 1500});
     })
   }
 }
@@ -52,7 +60,6 @@ export const saveEditedNote = (note) => {
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
     .then(response => {
       dispatch({type: NOTE_SAVED, payload: response, message: `Changes to your note \"${response.title}\" have been saved! Taking you home...`});
-      setTimeout(() => {loadPage(), 1500});
     })
   }
 }
