@@ -43,7 +43,7 @@ class SingleNote extends Component {
     // let title = newList.title;
     // let description = newList.description;
 
-    console.log("ID", this.state.id);
+    console.log("ID", this.state.note[0].description);
     // if statement to show modal
     if (!this.props.show) {
       return (
@@ -53,8 +53,8 @@ class SingleNote extends Component {
             <button className="editButton">Edit</button>
           </Link>
           <button onClick={this.props.toggleModal}>Delete</button>
-          <h2>{this.state.note.title}</h2>
-          <h2>{this.state.note.description}</h2>
+          <h2>{this.state.note[0].title}</h2>
+          <h2>{this.state.note[0].description}</h2>
           <Link to="/">Home</Link>
         </div>
       );
@@ -85,8 +85,8 @@ class SingleNote extends Component {
             </div>
           </div>
 
-          <h2>{this.state.note.title}</h2>
-          <h2>{this.state.note.description}</h2>
+          <h2>{this.state.note[0].title}</h2>
+          <h2>{this.state.note[0].description}</h2>
           <Link to="/">Home</Link>
         </div>
       );
