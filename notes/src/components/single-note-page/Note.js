@@ -10,7 +10,7 @@ export const Note = (props) => {
   return (
     <NoteDiv>
       <div>
-        <button onClick={()=> {props.editStart(props.id)}}>Edit</button><button onClick={props.toggle}>Delete</button>
+        <button onClick={()=> {props.editStart(props.note)}}>Edit</button><button onClick={props.toggle}>Delete</button>
       </div>
       <Modal isOpen={props.modal} toggle={props.toggle} backdrop={props.modal}>
          <ModalHeader toggle={props.toggle}>Delete Note?</ModalHeader>
@@ -18,7 +18,7 @@ export const Note = (props) => {
            If you click "yes" this note will be permanently deleted.
          </ModalBody>
          <ModalFooter>
-           <Button color="primary" onClick={() => {props.delete(props.id); props.history.push('/'); props.toggle}}>Yes</Button>{' '}
+           <Button color="primary" onClick={() => {props.delete(props.note);  props.toggle}}>Yes</Button>{' '}
            <Button color="secondary" onClick={props.toggle}>Cancel</Button>
          </ModalFooter>
        </Modal>

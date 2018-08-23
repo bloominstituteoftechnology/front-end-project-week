@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MenuBarContainer = styled.div `
@@ -25,24 +24,14 @@ const MenuBarButton = styled.button `
   }
 `;
 
-const MenuLink = styled(Link) `
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-
-  &:hover {
-    text-decoration: none;
-  }
-`;
 
 export const MenuBar = (props) => {
   return (
     <MenuBarContainer>
       <h1>Lambda<br/>
       Notes</h1>
-      <MenuLink to='/'><MenuBarButton>View Your Notes</MenuBarButton></MenuLink>
-      <MenuLink to='/new-note'><MenuBarButton>+ Create New Note</MenuBarButton></MenuLink>
+      <MenuBarButton onClick={() => props.loadPage()}>View Your Notes</MenuBarButton>
+      <MenuBarButton onClick={() => props.addNewNote()}>+ Create New Note</MenuBarButton>
     </MenuBarContainer>
   )
 }

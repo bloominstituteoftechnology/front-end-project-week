@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Col } from 'reactstrap';
 
@@ -10,22 +9,17 @@ const NoteCardContainer = styled(Col) `
   padding-bottom: 5px;
 `;
 
-const NoteCardLink = styled(Link) `
-  text-decoration: none;
-  color: black;
-
-  p {
-    font-size: 15px;
-  }
+const P = styled.p `
+  font-size: 15px;
 `;
 
 export const NoteCard = (props) => {
   return (
       <NoteCardContainer xs='3'>
-        <NoteCardLink to={`/notes/${props.note.id}`}>
+        <div onClick={props.noteView(props.note.id)}>
           <h4>{props.note.title}</h4>
-          <p>{props.note.note.substring(0, 70)}...</p>
-        </NoteCardLink>
+          <P>{props.note.textBody.substring(0, 70)}...</P>
+        </div>
       </NoteCardContainer>
   )
 }
