@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Note extends React.Component {
-	state = {
+	state={
 		editDisplay: false,
 		deleteDisplay: false,
 		id: this.props.match.params.id,

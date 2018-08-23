@@ -1,7 +1,7 @@
 import React from "react";
 
 class AddNote extends React.Component {
-	state = {
+	state={
 		id: 12,
 		title: '',
 		text: '',
@@ -9,7 +9,8 @@ class AddNote extends React.Component {
 
 	handleInputChange = event => {
 		this.setState({ [event.target.name]: event.target.value });
-	};
+    };
+    
 	render() {
 		return (
 			<div className='add-note-wrapper'>

@@ -8,7 +8,7 @@ import AddNote from "./components/AddNote";
 import "./App.css";
 
 class App extends Component {
-	state = {
+	state={
 		notes: [
 			{
 				id: 0,
