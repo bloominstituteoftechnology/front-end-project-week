@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-//import moment from 'moment';
+import moment from 'moment';
 
 import SideBar from "./side-bar";
 
@@ -20,6 +20,7 @@ class CreateNote extends Component {
 
   gatherCreation = () => {
     const id = this.props.idGenerator();
+    const time = moment(Date.now())
     const tags = this.state.tags.split(/[ ,]+/).length
       ? this.state.tags.split(/[ ,]+/)
       : [];
@@ -28,7 +29,9 @@ class CreateNote extends Component {
       tags,
       title: this.state.title,
       textBody: this.state.textBody,
-      __v: 0
+      __v: 0,
+      time,
+      length: this.state.textBody.length
     };
     this.setState({ title: "", textBody: "", tags: "" });
     this.props.create(obj);

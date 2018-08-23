@@ -8,6 +8,8 @@ export const GETTING_NOTES = "GETTING_NOTES";
 export const GOT_NOTES = "GOT_NOTES";
 export const SELECTING_NOTE = "SELECTING_NOTE";
 export const SELECTED_NOTE = "SELECTED_NOTE";
+export const SORT_GREATEST = "SORT_GREATEST";
+export const SORT_LEAST = "SORT_LEAST";
 export const ERROR = "ERROR";
 
 const initialState = {
@@ -46,7 +48,9 @@ const reducerNote = (state = initialState, action) => {
                   title: action.payload.title,
                   textBody: action.payload.textBody,
                   __v: action.payload.__v,
-                  tags: action.payload.tags
+                  tags: action.payload.tags,
+                  time: action.payload.time,
+                  length: action.payload.textBody.length
                 })
               : (note = note)
         )
@@ -67,6 +71,16 @@ const reducerNote = (state = initialState, action) => {
       return { ...state, gettingNotes: true };
     case GOT_NOTES:
       return { ...state, gettingNotes: false, notes: action.payload };
+    case SORT_GREATEST:
+      state.sort((a, b) => {
+        return a.length < b.length;
+      });
+      return state;
+    case SORT_LEAST:
+      state.sort((a, b) => {
+        return a.length > b.length;
+      });
+      return state;
     case ERROR:
       return {
         ...state,

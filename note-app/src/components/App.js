@@ -16,7 +16,9 @@ import {
   addingNote,
   updatingNote,
   deletingNote,
-  selectingNote
+  selectingNote,
+  greatToLeast,
+  leastToGreat
 } from "../actions";
 import one from "../images/createNote.png";
 import two from "../images/trash.jpg";
@@ -154,14 +156,6 @@ class App extends Component {
     this.setState({ images });
   };
 
-  // handleDownload = () => {
-  //   const notes = JSON.stringify(this.props.notes)
-  //   console.log(notes)
-  //   const toCsv = Papa.unparse(notes)
-  //   return
-
-  // }
-
   render() {
     return (
       <Router>
@@ -297,5 +291,13 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote }
+  {
+    fetchingNotes,
+    addingNote,
+    updatingNote,
+    deletingNote,
+    selectingNote,
+    greatToLeast,
+    leastToGreat
+  }
 )(App);

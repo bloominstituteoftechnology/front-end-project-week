@@ -9,6 +9,8 @@ import {
   DELETED_NOTE,
   SELECTING_NOTE,
   SELECTED_NOTE,
+  SORT_GREATEST,
+  SORT_LEAST,
   ERROR
 } from "../reducers";
 
@@ -82,6 +84,13 @@ export const selectingNote = (id, note) => {
   };
 };
 
-export const searchingNotes = searchTerm => {
-  console.log(searchTerm);
+export const greatToLeast = () => {
+  return dispatch => {
+    dispatch({ SORT_GREATEST });
+  };
+};
+export const leastToGreat = () => {
+  return dispatch => {
+    dispatch({ SORT_LEAST });
+  };
 };

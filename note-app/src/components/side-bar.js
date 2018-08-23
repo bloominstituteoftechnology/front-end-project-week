@@ -3,11 +3,21 @@ import { Link } from "react-router-dom";
 import { CSVLink } from "react-csv";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import { greatToLeast, leastToGreat } from "../actions";
 
 class SideBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      loading: false,
+      notes: [],
+      dummy: "You did not create any notes."
+    };
+  }
+
+  componentDidMount() {
+    const notes = this.props.notes;
+    this.setState({ loading: true, notes });
   }
 
   render() {
@@ -28,7 +38,6 @@ class SideBar extends Component {
         </div>
       );
     }
-
     return (
       <div className="side-bar">
         <h1 className="application-title">Lambda Notes</h1>
@@ -51,9 +60,17 @@ class SideBar extends Component {
           {" "}
           <button className="btn-side-bar">Trash</button>
         </Link>
-        <CSVLink data={this.props.notes}>
+        <CSVLink
+          data={
+            this.props.notes.length && !this.props.notes.includes(undefined)
+              ? this.props.notes
+              : this.state.dummy
+          }
+        >
           <button className="btn-side-bar">Download Notes To CSV</button>
         </CSVLink>
+        <button className="btn-side-bar">Sort Great to Least</button>
+        <button className="btn-side-bar">Sort Least to Great</button>
       </div>
     );
   }
@@ -73,4 +90,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(withRouter(SideBar));
+export default connect(
+  mapStateToProps,
+  { greatToLeast, leastToGreat }
+)(withRouter(SideBar));
