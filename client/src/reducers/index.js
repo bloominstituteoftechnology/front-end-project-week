@@ -16,6 +16,7 @@ import {
   deleteNoteRequest,
   deleteNoteSuccess,
   deleteNoteFailure,
+  updateSearchTerm,
 } from '../actions';
 
 const notes = handleActions(
@@ -73,10 +74,18 @@ const isDeleting = handleActions(
 );
 
 const error = handleAction(
-  combineActions(addNoteFailure, editNoteFailure, deleteNoteFailure),
+  combineActions(
+    fetchNotesFailure,
+    fetchOneFailure,
+    addNoteFailure,
+    editNoteFailure,
+    deleteNoteFailure,
+  ),
   (_, { payload }) => payload,
   null,
 );
+
+const term = handleAction(updateSearchTerm, (_, { payload }) => payload, '');
 
 export default combineReducers({
   notes,
@@ -86,4 +95,5 @@ export default combineReducers({
   isEditing,
   isDeleting,
   error,
+  term,
 });

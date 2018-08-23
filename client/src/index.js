@@ -27,6 +27,15 @@ injectGlobal`
     color: #434343;
     margin-left: 250px; /* taking into account the sidenav */
   }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    border: 1px solid #434343;
+    padding: 1rem;
+  }
 `;
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
