@@ -43,7 +43,7 @@ class Signin extends Component {
                 const token = res.data
 
                 localStorage.setItem('jwt', token)
-                this.props.history.push('/users')
+                this.props.history.push('/notes')
             })
             .catch(err => {
                 this.setState({userName: '', password: '', error: err.response.data.error})
