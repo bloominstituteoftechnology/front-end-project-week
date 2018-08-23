@@ -25,3 +25,7 @@
   border: 1px solid #8b9c9d;
   cursor: pointer;
 }
+
+.mainNavButtonsDiv button:hover {
+  background: #50cbce;
+}
