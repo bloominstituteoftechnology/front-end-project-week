@@ -5,20 +5,6 @@ import axios from 'axios';
 class EditNote extends React.Component {
   constructor(props){
     super();
-    this.state = {
-      notes: [
-        {
-          id: "",
-          title: "",
-          body: ""
-        },
-        {
-          id: "",
-          title: "",
-          body: ""
-        }
-      ]
-    }
     this.onFormChange = this.onFormChange.bind(this);
   }
   onFormChange = event => {
@@ -30,6 +16,8 @@ class EditNote extends React.Component {
   }
   onUpdateClick = (e) => {
     this.props.editNote(this.state.notes);
+    console.log(this.state.notes);
+    console.log(this.props.match.params.id)
     axios.put(`http://localhost:8000/api/notes/${this.state.notes[this.props.match.params.id].id}`, {
       "title": this.state.notes[this.props.match.params.id].title,
       "content": this.state.notes[this.props.match.params.id].content

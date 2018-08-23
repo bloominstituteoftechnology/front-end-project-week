@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Notes from "./Notes"
 import { Link } from 'react-router-dom';
 import "./Notes.css";
 
 class NoteContainer extends Component {
+  componentDidMount() {
+    axios.get(`http://localhost:8000/api/notes`)
+      .then(res => {
+        const axiosNotes = res.data.Message;
+        this.setState( {notes: axiosNotes} );
+      })
+  }
   render(){
     return(
       <main>
