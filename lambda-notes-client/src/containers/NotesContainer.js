@@ -44,7 +44,7 @@ const Container = styled("div")`
         font-size: 2.3rem;
         font-weight: bold;
         color: red;
-        text-shadow: .5px .5px .5px rgba(255, 0, 0, .3);
+        text-shadow: .5px .5px .5px rgba(255, 0, 0, .1);
         margin-left: 10px;
         
         &:hover {
