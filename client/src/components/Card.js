@@ -1,20 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import { Button, LinkWrapper } from '../styles';
 
 const StyledCard = styled.div`
   padding: 3rem;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
   background-color: #fafafa;
-  width: 30rem;
-  height: 30rem;
+  width: 32rem;
+  height: 32rem;
+  display: flex;
+  flex-direction: column;
   margin: 1.5rem;
 `;
 
 const HideOverflow = styled.div`
-  margin: 0;
+  margin-bottom: 1rem;
   padding: 0;
-  height: 100%; /* important to have a fixed dimension on its immediate parent */
+  flex-basis: 100%; /* important to have a fixed dimension on its immediate parent */
   overflow: hidden;
 `;
 
@@ -31,7 +34,7 @@ const CardBody = styled.div`
   text-overflow: ellipsis;
 `;
 
-const Card = ({ note: { id, title, textBody } }) => {
+const Card = ({ note: { _id, title, textBody } }) => {
   return (
     <StyledCard>
       <HideOverflow>
@@ -40,6 +43,9 @@ const Card = ({ note: { id, title, textBody } }) => {
           <ReactMarkdown source={textBody.substr(0, 250)} />
         </CardBody>
       </HideOverflow>
+      <LinkWrapper to={`/notes/${_id}`} key={_id}>
+        <Button>View</Button>
+      </LinkWrapper>
     </StyledCard>
   );
 };
