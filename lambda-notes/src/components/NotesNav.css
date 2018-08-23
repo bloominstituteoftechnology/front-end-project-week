@@ -14,10 +14,12 @@
 .sidenav h1 {
     padding-left: 16px;
     font-weight: bolder;
+    line-height: .9;
 }
 
 .sidenav .btn {
 border-radius: 0;
+margin-top: 10px;
 }
 
 .sidenav a {
