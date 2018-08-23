@@ -12,8 +12,8 @@ const NewNoteForm = props => {
       <div className="new-note">
         <h3 className="title">Create New Note:</h3>
         <form className="form" onSubmit={props.addNote}>
-          <input className="note-title" onChange={props.handleInputChange} type="text" name="title" placeholder="Title" value={props.title} />
-          <input className="note-text"  onChange={props.handleInputChange} type="textbody" name="text" placeholder="Note" value={props.text}/>
+          <textarea className="note-title" onChange={props.handleInputChange} type="text" name="title" placeholder="Title" value={props.title} />
+          <textarea className="note-text"  onChange={props.handleInputChange} type="text" name="text" placeholder="Note" value={props.text}/>
           <button>
             Add Note
           </button>

@@ -52,6 +52,10 @@ class App extends Component {
 
 
 
+
+
+
+
      addNote = event => {
        event.preventDefault();
        const notes = this.state.notes.slice();
@@ -92,28 +96,13 @@ class App extends Component {
       this.setState({[event.target.name]: event.target.value});
      };
 
-    //  componentWillMount(){
-    //   if (localStorage.getItem('notes')){
-    //     let json = localStorage.getItem('notes')
-    //     // JSON.PARSE(json)
-    //     this.setState({notes:  JSON.parse(json)})
-    //   }
-    //  }
 
-    //  componentWillUpdate(nextProps ,nextState){
-    //    localStorage.setItem('notes',JSON.stringify(nextState.notes))
-    //  }
-
-    
-
-
-
-
-
-     render() {
+      render() {
       //  console.log(this.state.notes);
       return (
           <div className="App">
+               
+        
               <Sidebar />
               <Route 
                 exact path="/"

@@ -12,30 +12,31 @@
     color: gray;
 }
 
-.new-note .form input {
+.new-note .form textarea {
     display: flex;
     justify-content: center;
-    padding: 15px;
+    padding: 15px; 
     border-radius: 3px;
     margin: 0 25px 20px;
 }
 
 .new-note .form .note-title {
-    width: 50%;
+    width: 200px;
+    height:45px;
 }
 
 .new-note .form .note-text {
-    width: 88%;
+    width: 70%;
     height: 310px;
-    vertical-align: text-top;
-}
+    text-align: start;
+
+  }
 
 button {
    background: #00B9BC;
    border: 1px solid #A6A6A6;
    padding: 10px 0;
-   /* margin: 18px; */
-   width: 190px;
+    width: 190px;
    font-weight: bold;
    font-size: 15px;
 }
