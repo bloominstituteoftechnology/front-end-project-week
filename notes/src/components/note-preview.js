@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { DragSource } from 'react-dnd';
 
 const NotePreviewDiv = styled.div`
   .note-preview {
@@ -58,41 +59,113 @@ const NotePreviewDiv = styled.div`
     }
   }
 `;
+// const { note, index, key } = this.props;
+const NotePreview = (props) => (
+
+  props.connectDragSource(
+    <div className="startObject">
+      <NotePreviewDiv >
+        <Link
+          key={props.key}
+          index={props.index}
+          className="note-link"
+          _id={props.note._id}
+          to={`/all-notes/${props.note._id}`}>
+
+            <div key={props.index} className="note-preview">
+
+              <div className="notTags">
+                <h3>{props.note.title}</h3>
+                <p>{props.note.textBody}</p>
+              </div>
+
+              <div className="tags">
+                {(props.note.tags.length > 0) ?
+                  props.note.tags.map(tag => {
+                        return (<div key={tag}>{tag}</div>)
+                      }
+                  ) :
+                  null}
+              </div>
+            </div>
+        </Link>
+      </NotePreviewDiv>
+    </div>
+
+  )
+)
+
+const sourceObj = {
+  beginDrag(props) {
+    console.log("beginDrag", props)
+    const { _id } = props.note; //this return just 'green'
+    console.log(_id);
+    return ({
+      _id
+    });
+  },
+  //endDrag is called when dropped on a target
+  endDrag(props, monitor) {
+    console.log("endDrag", "props", props, "monitor", monitor.getDropResult())
+    if (!monitor.didDrop()) {
+      console.log('!didDrop')
+      return;
+    }
+    // const { onDrop } = props;
+    console.log(monitor.getItem());
+    const  { _id }  = monitor.getItem(); //returns just 'blue'
+    // console.log(props.color) // also returns just 'blue'
+    console.log(monitor.getDropResult());
+    const { shape } = monitor.getDropResult();//gets props from the target
+    console.log(_id)
+    props.onDrop( _id );//onDrop supplied by parent which attaches the color and shape to the props
+  },
+};
+
+const collect = (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging(),
+});
+
+
+export default DragSource('item', sourceObj, collect)(NotePreview)
 
 
 
-export default class NotePreview extends Component {
 
-  render() {
-    // console.log(this.props)
-    const { note, index, key } = this.props;
-    console.log(this.props)
-    return (
-            <NotePreviewDiv>
-              <Link
-                key={key}
-                index={index}
-                className="note-link"
-                _id={note._id}
-                to={`/all-notes/${note._id}`}>
-
-                  <div key={index} className="note-preview">
-
-                    <div className="notTags">
-                      <h3>{note.title}</h3>
-                      <p>{note.textBody}</p>
-                    </div>
-
-                    <div className="tags">
-                      {(note.tags.length > 0) ?
-                        note.tags.map(tag => {
-                              return (<div key={tag}>{tag}</div>)
-                            }
-                        ) :
-                        null}
-                    </div>
-                  </div>
-              </Link>
-            </NotePreviewDiv>)
-}
-}
+//old way if
+// export default class NotePreview extends Component {
+//
+//   render() {
+//     // console.log(this.props)
+//     const { note, index, key } = this.props;
+//
+//     return (
+//             <NotePreviewDiv>
+//               <Link
+//                 key={key}
+//                 index={index}
+//                 className="note-link"
+//                 _id={note._id}
+//                 to={`/all-notes/${note._id}`}>
+//
+//                   <div key={index} className="note-preview">
+//
+//                     <div className="notTags">
+//                       <h3>{note.title}</h3>
+//                       <p>{note.textBody}</p>
+//                     </div>
+//
+//                     <div className="tags">
+//                       {(note.tags.length > 0) ?
+//                         note.tags.map(tag => {
+//                               return (<div key={tag}>{tag}</div>)
+//                             }
+//                         ) :
+//                         null}
+//                     </div>
+//                   </div>
+//               </Link>
+//             </NotePreviewDiv>)
+// }
+// }

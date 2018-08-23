@@ -113,18 +113,22 @@ class App extends Component {
   }
 
   handleDrop(id){
-    console.log('handleDrop, id: ', id)
+    console.log('handleDrop, id: ', id);
+    //will delete from actions when hooked up
+    //and add object to deleted page
+    this.props.deleteNote(id)
   }
 
   render() {
     const notesArr = this.props.state.notes;
-    console.log(notesArr)
+
     return (
         <AppDiv>
 
           <LeftMenu />
 
-          <Redirect from="/" to="/all-notes/" />
+          {/* {this.props.location.pathname === "/all-notes/" ? null : <Redirect from="/" to="/all-notes/" />  } */}
+
           <div className="right-display">
             <Route
               exact
