@@ -107,7 +107,7 @@ class NoteGrid extends Component {
 
         // Performs tag search using regex if indicated
         for (let i = 0; i < note.tags.length; i++) {
-          if (escapedRegEx.test(note.tags[i])) {
+          if (escapedRegEx.test(note.tags[i].name)) {
             return [...accum, note];
           }
         }
