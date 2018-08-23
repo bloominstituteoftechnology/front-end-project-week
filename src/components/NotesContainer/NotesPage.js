@@ -19,22 +19,20 @@ class NotesPage extends Component {
         return (
             <div className="App">
 
-                {this.props.fetching ? <div>Fetching Notes</div> :
-                    <React.Fragment>
+                <React.Fragment>
 
-                        <Route path='/notes' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
-                        <Route exact path='/notes' render={props =>
-                            <NotesContainer {...props}
-                                notes={this.props.notes}
-                                setNotes={this.props.setNotes}
-                                setOrder={this.props.setOrder}
-                                deleteNote={this.props.deleteNote} />} />
-                        <Route path='/notes/:id/edit' component={RequireAuth(UpdateNotesContainer)} />
-                        <Route path='/notes/create' component={RequireAuth(CreateNotesContainer)} />
-                        <Route path='/notes/view/:id' component={RequireAuth(Note)} />
+                    <Route path='/notes' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
+                    <Route exact path='/notes' render={props =>
+                        <NotesContainer {...props}
+                            notes={this.props.notes}
+                            setNotes={this.props.setNotes}
+                            setOrder={this.props.setOrder}
+                            deleteNote={this.props.deleteNote} />} />
+                    <Route path='/notes/:id/edit' component={RequireAuth(UpdateNotesContainer)} />
+                    <Route path='/notes/create' component={RequireAuth(CreateNotesContainer)} />
+                    <Route path='/notes/view/:id' component={RequireAuth(Note)} />
 
-                    </React.Fragment>
-                }
+                </React.Fragment>
 
             </div>
         );

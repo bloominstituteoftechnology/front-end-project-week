@@ -52,7 +52,7 @@ class Login extends React.Component {
                     <LoginButton to='/notes'
                         onClick={this.loginButton}
                         style={(this.state.username.length > 0 || this.state.password.length > 0) && !this.props.signingIn ? { background: '#2BC1C4' } : { opacity: 0.3 }}>
-                        {this.props.signingIn ? <i class="fa fa-spinner fa-spin"></i> : 'Log In'}
+                        {this.props.signingIn ? <i className="fa fa-spinner fa-spin"></i> : 'Log In'}
                     </LoginButton>
 
                     {this.props.invalidCredentials ? <InvalidCredentials>{this.props.invalidCredentials}</InvalidCredentials> : null}

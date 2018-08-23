@@ -90,6 +90,7 @@ class Note extends React.Component {
         // Displays single note / Modal
         return (
             <React.Fragment>
+          
                 {this.props.fetching ? <div>Loading info...</div> :
                     <NotesWrapper>
 

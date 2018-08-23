@@ -52,7 +52,7 @@ class Register extends React.Component {
                     <LoginButton to='/notes'
                         onClick={this.loginButton}
                         style={this.props.signingUp ? { opacity: 0.3 } : { background: '#2BC1C4' }}>
-                        {this.props.signingUp ? <i class="fa fa-spinner fa-spin"></i> : 'Sign Up'}
+                        {this.props.signingUp ? <i className="fa fa-spinner fa-spin"></i> : 'Sign Up'}
                     </LoginButton>
 
                     {this.props.userExists ? <InvalidCredentials>{this.props.userExists}</InvalidCredentials> : null}
