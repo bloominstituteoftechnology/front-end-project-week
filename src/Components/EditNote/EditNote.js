@@ -74,7 +74,9 @@ class EditNote extends Component {
                 <div className="body">
                 <SideBar/>
                     <div className = "sideBar_pop create">
+                    <div className='edit'>
                         <h1>Edit Note: </h1>
+                    </div>
                         <input 
                         value={this.state.notes.title}
                         onChange={this.handleTitleChange} type="text" placeholder="Note Title" name="title"/>

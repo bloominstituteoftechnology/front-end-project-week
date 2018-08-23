@@ -55,3 +55,7 @@ input:last-of-type {
     height: 7.7vh;
     cursor: pointer;
 }
+
+.edit {
+    border:1px solid black;
+}
