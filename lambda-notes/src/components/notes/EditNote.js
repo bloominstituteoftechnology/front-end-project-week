@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import "../../css/editnote.css";
+
 class EditNote extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ class EditNote extends Component {
     const idNumber = parseInt(this.props.match.params.id, 10);
 
     return (
-      <div>
+      <div className="editNoteMainDiv">
         <h2>Edit Note:</h2>
         <form
           className="editNoteForm"
@@ -25,15 +27,16 @@ class EditNote extends Component {
             placehold="Note Title"
             name="title"
             onChange={this.props.inputChangeHandler}
+            className="inputTitle"
           />
           <input
             placehold="Note Content"
             name="description"
             onChange={this.props.inputChangeHandler}
+            className="inputDescription"
           />
           <button>Update</button>
         </form>
-        <Link to="/">Home</Link>
       </div>
     );
   }

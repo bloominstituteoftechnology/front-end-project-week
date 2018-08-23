@@ -31,6 +31,9 @@
   font-weight: bold;
   text-decoration: underline;
 }
+.singleNoteDiv button:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
 
 .buttonsSingleNoteDiv {
   text-align: end;
@@ -38,11 +41,11 @@
 
 .singleNoteTextDiv h2 {
   padding: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
 .singleNoteTextDiv h4 {
   padding: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
