@@ -8,6 +8,7 @@ class NoteFocus extends React.Component {
     super(props);
     this.state = {
       note: {},
+      notePrev: {},
     }
   }
 
@@ -15,9 +16,15 @@ class NoteFocus extends React.Component {
     this.noteView(this.props.match.params._id);
   }
 
-  // componentDidUpdate() {
-  //   this.noteView(this.props.match.params._id);
-  // }
+  componentDidUpdate() {
+    axios
+    .get(`https://killer-notes.herokuapp.com/note/get/${this.props.match.params._id}`)
+    .then(response => {
+      if (JSON.stringify(this.state.note)!==JSON.stringify(response.data)){
+      this.setState({ note: response.data });}
+    })
+    console.log("update")
+  }
  
   noteView = (id) => {
     axios

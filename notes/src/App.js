@@ -21,7 +21,7 @@ class App extends Component {
       editbody: "",
       deleting: false,
       tagging: false,
-      pink: false,
+      pink: true,
       blue: false
     };
   }
@@ -36,17 +36,17 @@ class App extends Component {
         console.error("Server Error", error);
       });
   }
+
+
   componentDidUpdate() {
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(error => {
-        console.error("Server Error", error);
-      });
+    .get("https://killer-notes.herokuapp.com/note/get/all")
+    .then(response => {
+      if (JSON.stringify(this.state.notes)!==JSON.stringify(response.data)){
+      this.setState({ notes: response.data });}
+    })
+    console.log("update")
   }
-
 
   noteInput = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -62,7 +62,7 @@ class App extends Component {
         console.error("Server Error", error);
         console.log(this.state.notes);
       });
-
+   
     //pre API code
 
     // let notes = this.state.notes.slice();
@@ -77,7 +77,6 @@ class App extends Component {
     //   this.setState({ notes, newtitle: "", newbody: "", id });
     // }
   };
-
 
   // addTag = (id) => {
   //   console.log(this.state.tag);
@@ -94,11 +93,10 @@ class App extends Component {
   };
 
   submitEdit = id => {
-    axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
-        title: this.state.edittitle,
-        textBody: this.state.editbody
-      })
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+      title: this.state.edittitle,
+      textBody: this.state.editbody
+    });
 
     //pre API code
 
@@ -117,13 +115,12 @@ class App extends Component {
   };
 
   closeModal = () => {
-    this.setState({tagging: !this.state.tagging})
-    console.log(this.state.tagging)
-  }
+    this.setState({ tagging: !this.state.tagging });
+    console.log(this.state.tagging);
+  };
 
   noteDelete = id => {
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
     this.setState({ deleting: false });
     //pre API code
     // let notesCopy = this.state.notes.slice();
@@ -146,7 +143,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className={this.state.pink ? "page pagepink" : this.state.blue ? "page pageblue" : "page"}>
+      <div
+        className={
+          this.state.pink
+            ? "page pagepink"
+            : this.state.blue
+              ? "page pageblue"
+              : "page"
+        }
+      >
         <Menu
           deleting={this.state.deleting}
           pink={this.state.pink}

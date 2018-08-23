@@ -163,34 +163,41 @@ h1, h2, h3 {
 
 .tags {
     display: flex;
-    height: 26px;
     width: 100%;
     justify-content: flex-start;
+    margin-top: 8px;
 }
 
-.tag {
+.tagx {
     box-sizing: border-box;
+  
     font-size: 70%;
-    margin-top: 6%;
-    margin-right: 3%;
+    /* margin-top: ;
+    margin-right: 3%; */
     background: rgb(192, 255, 245);
-    padding: .5% 1%;
     border-radius: 3px;
     border: 1px solid rgba(128, 128, 128, 0.479);
 }
 
 .tagx {
     display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 .tagx > i {
-    padding-top: 2px;
-    padding-left: 5px;
+    padding-top: 2.5px;
+    /* padding-left: 5px; */
     cursor: pointer;
+    margin-left: 5px;
+    margin-right: 2px;
+}
+
+.tagx > p {
+    margin: 0;
 }
 
 .fa-plus-circle {
-    margin-top: 6%;
     margin-left: auto;
     font-size: 70%;
     cursor: pointer;
@@ -199,6 +206,7 @@ h1, h2, h3 {
 .tagModal {
     height: 200px;
     width: 200px;
+    border-radius: 5px;
     position: absolute;
     left:0;
     background: rgba(255, 192, 203, 0.863);
@@ -206,6 +214,18 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.tagModal > button {
+    border-radius: 5px;
+    margin-top: 5%;
+}
+
+.tagModal > input {
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 20px;
+    margin-top: 3%;
 }
 
 .hide{
