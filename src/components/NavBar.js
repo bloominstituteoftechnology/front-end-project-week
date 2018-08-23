@@ -72,7 +72,7 @@ class NavBar extends Component {
                 <StyledButtonLinks>
                     <h3>Lambda Notes</h3>
                     <Link to={'/notes'}><StyledButton onClick={this.props.getNotes}>View Your Notes</StyledButton></Link>
-                    <Link to={'/notes/create'}><StyledButton>Create New Note</StyledButton></Link>
+                    <Link to={'/notes/note/create'}><StyledButton>Create New Note</StyledButton></Link>
                     <form onSubmit={this.searchNotes}>
                         <H5>Search</H5>
                         <Input type='text'

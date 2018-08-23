@@ -53,7 +53,7 @@ class App extends Component {
         <Route path='/notes' component={NavBar} />
         <Route exact path='/notes' component={NotesContainer} />
         <Route exact path='/notes/:id' render={props => <Note {...props} />} />
-        <Route path='/notes/create' render={props => <NoteForm {...props} />} />
+        <Route path='/notes/note/create' render={props => <NoteForm {...props} />} />
         <Route exact path='/notes/:id/delete' render={props => <DeleteModal {...props} /> } />
         <Route path='/notes/edit/:id' render={props => <EditNote {...props} /> } />
       </StyledApp>
