@@ -30,7 +30,7 @@ class ViewList extends Component {
                                         // key={note._id}
                                         id={id}
                                         index={index}
-                                        note={notes}
+                                        note={note}
                                         title={title}
                                         text={text} 
                                         completed={completed}
@@ -49,7 +49,7 @@ class ViewList extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notesReducer
+        notes: state.notes
     }
 }
 

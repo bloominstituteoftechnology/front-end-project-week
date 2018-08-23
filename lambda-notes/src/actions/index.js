@@ -11,7 +11,7 @@ export const EDIT_NOTE = 'EDIT_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 
 export const fetchNotes = () => {
-    const getNotes = axios.get("http://localhost:5000/notes/get");
+    const getNotes = axios.get("http://localhost:5000");
     return dispatch => {
         dispatch({ type: FETCH_NOTES });
         getNotes
@@ -46,15 +46,16 @@ export const addNote = note => {
   }
 }
 
-export const noteEdit = (note, id) => {
-  axios.put(`http://localhost:5000/notes/edit/${id}`, note);
-    return dispatch => {
-       dispatch({ type: EDIT_NOTE })
-       EditNote
-       .then(response => {
-         
-       } 
-    }
+ export const noteEdit = (note, id) => {
+//   axios.put(`http://localhost:5000/notes/edit/${id}`, note);
+//     return dispatch => {
+//        dispatch({ type: EDIT_NOTE })
+//        EditNote
+//        .then(response => {
+//          console.log(response.data);
+//          dispatch(fetchNotes());
+//        } 
+//       }
 } 
 
 export const deleteNote = id => {
