@@ -68,9 +68,11 @@ const SingleNote = props => {
                 Delete
               </div>
             </Link>
-            <div onClick={props.deleteModal}>
+            <Link to = {`/view/${note.id}`}>
+            <div onClick={props.deleteNote}>
               No
             </div>
+            </Link>
           </div>
         </DeleteBox>
       </div>
@@ -78,7 +80,7 @@ const SingleNote = props => {
       <NavLink  onClick={() => props.noteEdit(note.id)}  to={`/view/edit/${note.id}`}>
     Edit
     </NavLink>
-    <NavLink  to={`/view/${note.id}`} className="ed" onClick={props.deleteBox}>
+    <NavLink  to={`/view/${note.id}`} onClick={props.deleteBox}>
     Delete
     </NavLink>
     </Edit>

@@ -20,6 +20,7 @@ class App extends Component {
       id: null,
       contentEdit: '',
       titleEdit: '',
+      deleting: false,
       
     }} 
      handleChange = e =>{
@@ -58,7 +59,7 @@ class App extends Component {
     };
      deleteNote = (id) => {
       let copiedNote = this.state.notes.slice();
-      let notesLeft = copiedNote.filter(note => note.id !== id)
+      let notesLeft = copiedNote.filter(note => note.id != id)
       console.log(notesLeft);
        this.setState({ notes: notesLeft, deleting: false });
     };
@@ -77,7 +78,6 @@ class App extends Component {
        <Route exact path='/view/:id' render={props => <SingleNote {...props} 
        notes={this.state.notes} 
        noteEdit={this.noteEdit}
-       edited={this.edited}
        deleteBox={this.deleteBox}
        deleting={this.state.deleting}
        deleteNote={this.deleteNote}
