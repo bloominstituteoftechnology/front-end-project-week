@@ -1,5 +1,6 @@
 body {
+  display: flex;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  /* font-family: "Comic Sans MS", cursive, sans-serif; */
 }
