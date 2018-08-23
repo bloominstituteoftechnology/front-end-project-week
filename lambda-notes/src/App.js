@@ -8,9 +8,6 @@ import NewNote from './components/NewNote';
 import Note from './components/Note';
 import EditNote from './components/EditNote';
 
-
-
-
 class App extends Component {
   constructor() {
     super();
@@ -39,22 +36,8 @@ class App extends Component {
       ],
       title: '',
       content: '',
-      isEdit: 0
     }
   }
-
-  setNotesData = data => this.setState({ notes: data })
-
-  // editNote = (event) => {
-  //   event.preventDefault();
-  //   const notes = this.state.notes.slice();
-  //   for (let i = 0; i < notes.length; i++) {
-  //     if (notes[i].id === note.id) {
-  //       console.log(notes[i])
-  //     }
-  //   }
-  //   this.setState({ notes })
-  // }
 
   addNote = event => {
     event.preventDefault();
@@ -73,19 +56,7 @@ class App extends Component {
     this.setState({ notes })
   }
 
-  // onNoteUpdate = note => {
-  //   let notes = this.state.notes.slice();
-  //   for (let i = 0; i < notes.length; i++) {
-  //     if (notes[i].id === note.id) {
-  //       notes.splice(i, 1);
-  //     }
-  //   }
-  //   notes.push(note)
-  //   this.setState({ notes })
-  // }
-
-
-  onNoteUpdate = note => {
+  editNote = note => {
     let notes = this.state.notes.slice();
     for (let i = 0; i < notes.length; i++) {
       if (notes[i].id === note.id) {
@@ -94,20 +65,6 @@ class App extends Component {
     }
     this.setState({ notes })
   }
-
-
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const updatedNote = {
-      id: this.state.isEdit,
-      title: this.state.title,
-      content: this.state.content
-    }
-    this.onNoteUpdate(updatedNote);
-  }
-
-
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -132,7 +89,7 @@ class App extends Component {
           />
           <Route
             exact path="/notes/:id/edit"
-            render={(props) => <EditNote {...props} notes={this.state.notes} title={this.state.title} content={this.state.content} addNote={this.addNote} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} onNoteUpdate={this.onNoteUpdate} setNotesData={this.setNotesData} editNote={this.editNote} {...this.state}/>}
+            render={(props) => <EditNote {...props} notes={this.state.notes} editNote={this.editNote} />}
           />
         </div>
       </div>

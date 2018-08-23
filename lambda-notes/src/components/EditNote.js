@@ -30,7 +30,7 @@ class EditNote extends React.Component {
           title: this.state.title,
           content: this.state.content
         }
-        this.props.onNoteUpdate(updatedNote);
+        this.props.editNote(updatedNote);
       }
 
       handleInputChange = event => {

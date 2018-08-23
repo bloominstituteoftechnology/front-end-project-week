@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Row, Container, Col } from 'reactstrap';
-import DeleteModal from './DeleteModal'
-import EditNote from './EditNote';
 
 import './Note.css';
-
+import DeleteModal from './DeleteModal'
 
 
 class Note extends React.Component {
@@ -27,7 +25,7 @@ class Note extends React.Component {
     }
 
     render() {
-        const { title, content,id } = this.state.note;
+        const { title, content, id } = this.state.note;
         return (
             <Container className="note">
                 <Row noGutters>
