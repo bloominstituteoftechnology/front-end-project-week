@@ -7,7 +7,7 @@ const List = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    height: 100%;
+    height: 100vh;
     width: 900px;
 `;
 const NoteOverview = styled.div`

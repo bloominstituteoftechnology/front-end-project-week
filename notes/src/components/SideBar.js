@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import {Container} from 'reactstrap';
 
-const Col = styled.div`
-    width: 25%;
-    height: 100vh;
-    border: 1px solid lightgray;
-    background: #D2D2D2;
-    padding: 1rem;
-`;
+// const Col = styled.div`
+//     width: 25%;
+//     height: 100vh;
+//     border: 1px solid lightgray;
+//     background: #D2D2D2;
+//     padding: 1rem;
+// `;
 const H1 = styled.h1`
     max-width: 200px;
     font-size: 3rem;
@@ -27,7 +28,10 @@ const CustomButton = styled.button`
 class SideBar extends React.Component {
     render(){
         return(
-            <Col>
+            <Container fluid={true} style={{
+                                    border: '1px solid lightgray',
+                                    background:' #D2D2D2',
+                                    padding: '1rem'}}>
                 <Link to="/get/all" style={{ textDecoration: 'none' }}>
                     <H1>Lambda Notes</H1>
                 </Link>
@@ -37,7 +41,7 @@ class SideBar extends React.Component {
                 <Link to="/note/create" style={{ textDecoration: 'none' }}>
                     <CustomButton>+ Create New Note</CustomButton>
                 </Link>
-            </Col>
+            </Container>
         );
     }
 }
