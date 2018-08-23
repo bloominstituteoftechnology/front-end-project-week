@@ -27,7 +27,7 @@ export default class NoteView extends Component {
       }
     }
     axios
-      .get(`${process.env.REACT_APP_API}/api/notes/${this.props.match.params.id}`, requestOptions)
+      .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`, requestOptions)
       .then(res => {
         this.setState({
           title: res.data[0].title,

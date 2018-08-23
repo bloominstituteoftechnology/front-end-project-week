@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-//axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 export default class NotesList extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class NotesList extends Component {
       }
     }
     axios
-      .get(`${process.env.REACT_APP_API}/api/notes/`, requestOptions)
+      .get('http://localhost:8000/api/notes/', requestOptions)
       .then(res => {
         //console.log(res.data)
         this.setState({

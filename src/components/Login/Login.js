@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './index.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-//axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 export default class Login extends Component {
   constructor(props) {
@@ -16,11 +16,12 @@ export default class Login extends Component {
 
   handleSubmit = () => {
     axios
-      .post(`${process.env.REACT_APP_API}/api/login`, {
+      .post('http://localhost:8000/api/login', {
         username: this.state.username,
         password: this.state.password
       })
       .then(response => {
+        console.log(response.data);
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('username', response.data.username);
         this.props.history.push('/');
