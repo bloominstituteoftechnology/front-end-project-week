@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, CardTitle, CardText, Row, Container, Col } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Row, Container, Col, Input } from 'reactstrap';
 
 import './Notes.css';
+
+const searchingFor = term => {
+    return function (x) {
+      return x.content.toLowerCase().includes(term.toLowerCase()) || !term;
+    }
+  }
+
 
 const Notes = props => {
     return (
@@ -11,9 +18,12 @@ const Notes = props => {
                 <Col>
                     <h2>Your Notes:</h2>
                 </Col>
+                <Col>
+                    <Input onChange={props.searchHandler} type="text" name="search" placeholder="Search Notes" style={{ marginTop: 30 + 'px', border: "2px solid lightgray" }} value={props.term} />
+                </Col>
             </Row>
             <Row >
-                {props.notes.map(note => (
+                {props.notes.filter(searchingFor(props.term)).map(note => (
                     <Col style={{ paddingTop: 30 + 'px', paddingBottom: 30 + 'px' }} key={note.id} xs="12" sm="4">
                         <Link to={`/notes/${note.id}`}>
                             <Card style={{ height: 200 + 'px' }}>

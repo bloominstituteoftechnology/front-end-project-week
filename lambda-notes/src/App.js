@@ -8,6 +8,7 @@ import NewNote from './components/NewNote';
 import Note from './components/Note';
 import EditNote from './components/EditNote';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -36,6 +37,7 @@ class App extends Component {
       ],
       title: '',
       content: '',
+      term: '',
     }
   }
 
@@ -66,6 +68,10 @@ class App extends Component {
     this.setState({ notes })
   }
 
+  searchHandler = event => {
+    this.setState({ term: event.target.value })
+  }
+
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -77,7 +83,7 @@ class App extends Component {
         <div className="main">
           <Route
             exact path="/notes"
-            render={(props) => <Notes {...props} notes={this.state.notes} />}
+            render={(props) => <Notes {...props} notes={this.state.notes} searchHandler={this.searchHandler} term={this.state.term}/>}
           />
           <Route
             exact path="/add"
