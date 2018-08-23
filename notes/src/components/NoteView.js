@@ -7,11 +7,14 @@ class NoteView extends Component {
         super(props);
         this.state = {
             id: null,
-            notes: this.props.notes
+            notes: []
         };
     }
     
     componentDidMount() {
+        const id = this.props.match.params.id;
+        this.setState({ id: Number(id), notes: this.state.notes})
+
         axios.get('https://killer-notes.herokuapp.com/note/get/id')
         .then(response => {
             this.setState({note: response.data})

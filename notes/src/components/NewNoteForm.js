@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './UpdateNote.js'
 import './NewNoteForm.css';
 
+
+
 class NewNoteForm extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
         this.state = {
            title: '',
            textBody: ''
@@ -15,11 +17,9 @@ class NewNoteForm extends Component {
     }
 
 componentDidMount() {
-    const title = this.props.title ===undefined ? '': this.props.title;
-    const textBody = this.props.textBody === undefined ? '': this.props.textBody;
     this.setState({
-        title: title, 
-        textBody: textBody
+        title: '', 
+        textBody: ''
     });
 }
 
@@ -34,23 +34,22 @@ handleChange = event => {
   };
   
   
-handleAddNote = () => {
+handleAddNote = event => {
       const note = {
           title: this.state.title,
           textBody: this.state.textBody
       };
       
-      this.setState({
-          title: '',
-          textBody: ''
-      })
-
-      
       axios
       .post("https://killer-notes.herokuapp.com/note/create", note)
       .then(response => {
           console.log(response);
-          this.props.history.push('/all');
+          this.setState({
+            title: '',
+            textBody: ''
+        })
+          console.log(this.props.history)
+          this.props.history.notes.push('/');
       })
       .catch(err =>
     console.log(err))
@@ -64,14 +63,14 @@ handleAddNote = () => {
                 </h2>
                 <input 
                 onChange = {this.handleChange} 
-                value = {this.state.title}
+                value = {this.title}
                 className = "note-title-input"
                 type="text"
                 placeholder="Note Title" 
                 />
                 <textarea
                 onChange = {this.handleChange} 
-                value = {this.state.textBody}
+                value = {this.textBody}
                 className = "note-content-input"
                 type = "text"
                 placeholder = "Note Content"

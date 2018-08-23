@@ -7,6 +7,7 @@ import NotesList from './components/NotesList';
 import NoteView from './components/NoteView';
 import UpdateNote from './components/UpdateNote';
 import DeleteNote from './components/DeleteNote';
+import BasicNoteForm from './components/BasicNoteForm';
 import './App.css';
 
 const dummyData = [
@@ -41,22 +42,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: dummyData,
+      notes: [],
       selected: {},
       remove: false
    }
 }
 
-// componentDidMount(){
-//   axios.get('https://killer-notes.herokuapp.com/note/get/all')
-//   .then(response =>{
-//     console.log(response)
-//     this.setState({notes: response.data})
-//   })
-//   .catch(err => {
-//     console.log(err)
-//   })
-// }
+componentDidMount(){
+  axios.get('https://killer-notes.herokuapp.com/note/get/all')
+  .then(response =>{
+    console.log(response)
+    this.setState({notes: response.data})
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
 
 
 
@@ -82,11 +83,14 @@ toggleDeleteNote = () => {
         )}
         />
 
+{/* replace BasicNoteForm (interacts with local data) with NewNoteForm (uses post method) */}
+
         <Route path = "/form" render={props =>
         (<NewNoteForm {...props}
-          />
+          notes = {this.state.notes}/>
           )}
           />
+
 
           <Route path = "/edit/:id" render={props=>
           (<UpdateNote {...props}    

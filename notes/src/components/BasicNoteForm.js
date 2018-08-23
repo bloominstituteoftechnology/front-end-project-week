@@ -1,6 +1,9 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
+import './UpdateNote.js'
+import './NewNoteForm.css';
 
 const dummyData = [
     {
@@ -29,49 +32,70 @@ const dummyData = [
      },
   ]
 
-class NotesList extends Component {
-
+class BasicNoteForm extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        console.log(this.props)
         this.state = {
-            notes: []
-        }
+            notes: dummyData,
+           title: '',
+           textBody: ''
+        };
     }
 
 
-componentDidMount() {
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => {
-        this.setState({notes: response.data})
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
+handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value})
+  };
+  
+  
+handleAddNote = () => {
+    console.log(this.state)
+      let newNotes = this.state.notes.slice();
+        newNotes.push({
+        title: this.state.title,
+        textBody: this.state.textBody,
+        id: Date.now()
+    });
+      
+      this.setState({
+          notes: newNotes,
+          title: '',
+          textBody: ''
+      })
+      console.log(this.state)
+  }
 
-render() {
+  render() {
 
-    return(
-        <div className = "notes-list-container">
-        {this.props.notes.map(note => {
-            console.log(this.state);
-            console.log(this.state.notes);
-            console.log(this.state.note);
-            return(
-                <div className = "note-container">
-                <div className = "note">
-                <Link to={`/notes/${note._id}`}
-                key = {note.id}>
-                <h1>{note.title}</h1>
-                <p>{note.textBody}</p>
+    return (
+        <div className = "new-note-container">
+            <form>
+                <h2> Create New Note:
+                </h2>
+                <input 
+                onChange = {this.handleChange} 
+                value = {this.title}
+                className = "note-title-input"
+                type="text"
+                placeholder="Note Title" 
+                />
+                <textarea
+                onChange = {this.handleChange} 
+                value = {this.textBody}
+                className = "note-content-input"
+                type = "text"
+                placeholder = "Note Content"
+                />
+                <Link to="/all"> 
+                <button onClick = {this.state.handleAddNote}> 
+                   Add to Note List     
+                </button> 
                 </Link>
-                </div>
-                </div>
-            )
-        })}
-        </div>
+            </form> 
+        </div> 
     )
 }
 }
 
-export default NotesList;
+export default BasicNoteForm;
