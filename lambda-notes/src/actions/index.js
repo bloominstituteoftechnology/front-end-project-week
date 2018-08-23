@@ -1,4 +1,5 @@
 import axios from 'axios';
+import EditNote from '../components/EditNote/EditNote';
 
 
 
@@ -6,6 +7,8 @@ export const FETCH_NOTES = 'FETCH_NOTES';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 export const CREATE_NOTE = 'CREATE_NOTE';
+export const EDIT_NOTE = 'EDIT_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 
 export const fetchNotes = () => {
     const getNotes = axios.get("http://localhost:5000/notes/get");
@@ -43,18 +46,22 @@ export const addNote = note => {
   }
 }
 
-//export const noteEdit = (note, id) => {
-  //axios.put(`http://localhost:5000/notes/edit/${id}`, note);
-   // return dispatch => {
-      //  dispatch(getNotes());
-    //}
-//} 
+export const noteEdit = (note, id) => {
+  axios.put(`http://localhost:5000/notes/edit/${id}`, note);
+    return dispatch => {
+       dispatch({ type: EDIT_NOTE })
+       EditNote
+       .then(response => {
+         
+       } 
+    }
+} 
 
-//export const deleteNote = id => {
-  //  axios.delete(`https://localhost:5000/notes/delete/${id}`);
-    //return dispatch => {
-      //  dispatch(getNotes());
-    //}
-//}
+export const deleteNote = id => {
+   axios.delete(`https://localhost:5000/notes/delete/${id}`);
+    return dispatch => {
+      dispatch(fetchNotes());
+    }
+}
 
 

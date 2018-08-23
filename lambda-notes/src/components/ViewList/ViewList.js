@@ -6,10 +6,16 @@ import { fetchNotes } from '../../actions/index';
 
 class ViewList extends Component {
 
+    shouldComponentUpdate = nextProps => {
+        if(nextProps.notes !== this.props.notes) 
+        return true;
+        else return false;
+    }
+
     componentDidMount = () => this.props.fetchNotes();
 
     render = () => {
-        const { notes, history } = this.props;
+        const { notes } = this.props;
         return (
             <div className="page view-list">
                 <div>
@@ -18,18 +24,21 @@ class ViewList extends Component {
                     <div className="notes">
                         {
                             notes.map((note, index) => {
-                                const { _id, title, text, completed } = note;
+                                const { id, title, text, completed, } = note;
                                 return (
                                     <Note
-                                        key={note._id}
-                                        id={_id}
-                                        note={note}
+                                        // key={note._id}
+                                        id={id}
+                                        index={index}
+                                        note={notes}
                                         title={title}
                                         text={text} 
-                                        completed={completed} />
+                                        completed={completed}
+                                       // history={history}
+                                         />
                                 );
                             }
-                            )
+                          )
                         }
                     </div>
                 </div>
