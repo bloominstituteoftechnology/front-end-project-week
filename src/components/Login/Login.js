@@ -47,8 +47,8 @@ class Login extends React.Component {
                 <LoginForm>
 
                     <h1>Lambda Notes</h1>
-                    <LoginInput className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
-                    <LoginInput className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
+                    <LoginInput className='login-input' autoComplete='off' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
+                    <LoginInput className='login-input' autoComplete='off' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
                     <LoginButton to='/notes'
                         onClick={this.loginButton}
                         style={(this.state.username.length > 0 || this.state.password.length > 0) && !this.props.signingIn ? { background: '#2BC1C4' } : { opacity: 0.3 }}>
