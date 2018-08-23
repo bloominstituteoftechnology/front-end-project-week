@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+
 const NoteContainer=styled.div`
 width: 30%;
 margin-right: 3%;
@@ -38,10 +40,11 @@ background-color:#c6c6c6;
 `
 const Note=(props)=><NoteContainer>
     <Link to={`/notes/${props.data._id}`}>
-    <h3>{props.data.title}</h3><Rule/>
+    <h3>{props.data.title}</h3>
+    <Rule/>
     {props.data.textBody.length<100?
-    <p>{props.data.textBody}</p>:
-    <p>{`${props.data.textBody.slice(0,100)}...`}</p>}
+    <ReactMarkdown source={props.data.textBody}/>:
+    <ReactMarkdown source={props.data.textBody.slice(0,100)+'...'}/>}
     </Link>
     </NoteContainer>
 export default Note;

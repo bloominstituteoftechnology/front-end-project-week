@@ -4,6 +4,8 @@ import DeleteModal from './deleteModal.js';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getSingleNote} from '../../actions';
+import ReactMarkdown from 'react-markdown';
+
 const SingleNote=styled.div`
 background-color: #ddd;
 width: 100%;
@@ -57,8 +59,8 @@ class SingleNotePage extends React.Component{
             <DeleteModal/>
             </EDcontainer>
             <Note>
-            <NoteHeading>{this.props.note.title}</NoteHeading>
-            <NoteInfo>{this.props.note.textBody}</NoteInfo>
+            <NoteHeading><ReactMarkdown source={this.props.note.title}/></NoteHeading>
+            <NoteInfo><ReactMarkdown source={this.props.note.textBody}/></NoteInfo>
             </Note>
             </SingleNote>
         )

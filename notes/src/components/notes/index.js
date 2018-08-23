@@ -65,7 +65,7 @@ class Notes extends React.Component {
         )
     } else {
         return (
-            <div></div>
+            <NotesPage/>
         );
         }
     }
