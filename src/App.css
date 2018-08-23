@@ -125,6 +125,10 @@ h2 {
   width: 100%;
 }
 
+.notes-text {
+  overflow: auto;
+}
+
 .edit-links {
   display: flex;
   justify-content: flex-end;

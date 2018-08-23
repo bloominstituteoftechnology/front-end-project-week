@@ -16,7 +16,7 @@ class Notes extends Component {
               {/* passing state down with the link to the route on App.js */}
               <div>
                 <h3>{note.title}</h3>
-                <div>{note.textBody}</div>
+                <div className="notes-text">{note.textBody}</div>
               </div>
             </Link>
           ))}
