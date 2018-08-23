@@ -1,6 +1,6 @@
 //reducers
 
-import { FETCHING_NOTES, NOTES_RECIEVED, ERROR, NOTE_ADDED, ADDING_NOTE, DELETING_NOTE, NOTE_DELETED, EDITING_NOTE, NOTE_EDITED, SORT_NOTE } from '../actions';
+import { FETCHING_NOTES, NOTES_RECIEVED, ERROR, NOTE_ADDED, ADDING_NOTE, DELETING_NOTE, NOTE_DELETED, EDITING_NOTE, NOTE_EDITED, SORT_NOTE, MARKDOWN_NOTES } from '../actions';
 
 const initialState = {
   notes: [],
@@ -68,6 +68,12 @@ export const reducer = (state = initialState, action) => {
         customSort: true,
         notes: action.payload,
       })
+    case MARKDOWN_NOTES:
+      return Object.assign({}, state, {
+        arrayMarkedDown: true,
+        notes: action.payload,
+      })
+
     default:
       return state;
   }

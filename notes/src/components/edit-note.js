@@ -10,7 +10,7 @@ const EditNoteDiv = styled.div`
   flex-direction: column;
   background-color: #F3F3F3;
   padding: 25px;
-  background-color: white;
+  ${'' /* background-color: white; */}
   height: 100vh;
   .links {
     ${'' /* border: 1px solid blue; */}

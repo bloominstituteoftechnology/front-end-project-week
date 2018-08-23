@@ -9,6 +9,7 @@ export const getNotes = () =>  {
   return function(dispatch){
     dispatch({type: FETCHING_NOTES});
     axios.get('https://killer-notes.herokuapp.com/note/get/all').then(res => {
+
       dispatch({type: NOTES_RECIEVED, payload: res.data})
     }).catch(err => {
       dispatch({type: ERROR, payload: err})
@@ -59,9 +60,9 @@ export const editNote = (editedNote) =>  {
   return function(dispatch){
     dispatch({type: EDITING_NOTE});
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${editedNote._id}`,
-      {"tags": editedNote.tags,
-      "title": editedNote.title,
-      "textBody": editedNote.textBody}
+      { "tags": editedNote.tags,
+        "title": editedNote.title,
+        "textBody": editedNote.textBody}
     ).then(res => {
       dispatch({type: NOTE_EDITED, payload: res});
       dispatch(getNotes());
@@ -76,5 +77,20 @@ export const SORT_NOTE = 'SORT_NOTE';
 export const sortNote = (newlySortedArray) => {
   return function(dispatch){
     dispatch({type: SORT_NOTE, payload: newlySortedArray});
+  }
+}
+
+export const MARKDOWN_NOTES = 'MARKDOWN_NOTES';
+
+export const markdownNotes = (markedDownArray) => {
+  // let newArr = markedDownArray.map(note => {
+  //   var text = note.textBody,
+  //   target = textBody,
+  //   converter = new showdown.Converter(),
+  //   html = converter.makeHtml(text)
+  //   note.textBody = text
+  // })
+  return function(dispatch){
+    dispatch({type: MARKDOWN_NOTES, payload: markedDownArray});
   }
 }

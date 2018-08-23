@@ -44,8 +44,8 @@ export default class AllNotes extends Component {
 
 
   render(props) {
-    console.log(this.props)
-    console.log(this.state.notes)
+    // console.log(this.props)
+    // console.log(this.state.notes)
 
 
     return (

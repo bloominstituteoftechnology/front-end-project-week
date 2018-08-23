@@ -49,8 +49,9 @@ const NotePreviewDiv = styled.div`
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: flex-end;
-      width: 95%;
+      width: 90%;
       bottom: 0;
+      overflow: hidden;
       ${'' /* overflow: hidden; */}
       div {
         border: 1px solid lightgray;
@@ -60,6 +61,11 @@ const NotePreviewDiv = styled.div`
     }
   }
 `;
+
+
+
+
+
 // const { note, index, key } = this.props;
 const NotePreview = (props) => (
 

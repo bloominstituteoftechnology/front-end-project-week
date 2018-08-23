@@ -41,7 +41,7 @@ const LeftMenuDiv = styled.div`
 export default class LeftMenu extends Component {
 
   render(props){
-    console.log(this)
+    // console.log(this)
 
     return (
       <LeftMenuDiv>

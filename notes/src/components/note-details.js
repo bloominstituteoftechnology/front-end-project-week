@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router';
+import showdown from 'showdown';
+import ReactMarkdown from 'react-markdown';
+
 
 const NoteDetailsDiv = styled.div`
   ${'' /* border: 1px solid green; */}
@@ -25,6 +28,7 @@ const NoteDetailsDiv = styled.div`
     h4 {
       font-weight: bold;
       margin-bottom: 10px;
+      text-decoration: underline;
     }
     p {
       line-height: 30px;
@@ -84,7 +88,7 @@ class NoteDetails extends Component {
             </div>
             <div className="noteDetails">
               <h4>{this.props.note.title}</h4>
-              <p>{this.props.note.textBody}</p>
+              <p>{<ReactMarkdown>{this.props.note.textBody}</ReactMarkdown>}</p>
               <div className="tags">Tags:
                 {(this.props.note.tags.length > 0) ?
                   this.props.note.tags.map(tag => {

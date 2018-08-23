@@ -6,6 +6,8 @@ import { withRouter } from 'react-router';
 
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import showdown from 'showdown';
+
 
 import {
   AllNotes,
@@ -20,7 +22,8 @@ import {
   deleteNote,
   editNote,
   getNotes,
-  sortNote, } from './actions';
+  sortNote,
+  markdownNotes } from './actions';
 
 class App extends Component {
   constructor(){
@@ -31,11 +34,14 @@ class App extends Component {
     }
   }
 
-  componentDidMount = ()=> {
+  componentDidMount = () => {
     this.props.getNotes();
-    this.setState({
-      notes: this.props.getNotes(),
-    })
+    // var promise1 = new Promise(res =>  {
+    //   res(this.props.getNotes())
+    // })
+    // promise1.then( () => {
+    //   console.log(this.props.state.notes)
+    // })
   }
 
   getNoteDetails = (id) => {
@@ -124,6 +130,12 @@ class App extends Component {
     this.props.sortNote(newArr)
   }
 
+  convertToHtml = (x) => {
+    var converter = new showdown.Converter();
+    let text = x;
+    let html = converter.makeHtml(text);
+    return html;
+  }
 
   render() {
     return (
@@ -211,6 +223,7 @@ const mapDispatchToProps = {
   deleteNote,
   editNote,
   sortNote,
+  markdownNotes,
 }
  export default DragDropContext(HTML5Backend)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));
 
