@@ -62,7 +62,7 @@ class App extends Component {
 
   sortList = (button) => {
     if (button === 0) {
-      this.setState({sorted: this.props.notes})
+      this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareDefault)})
     } else if (button === 1) {
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTitlesNormal)})
     } else if (button === 2) {
@@ -71,6 +71,16 @@ class App extends Component {
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTextNormal)})
     } else if (button === 4){
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareTextReversed)})
+    }
+  }
+
+  sortCompareDefault = (a, b) => {
+    if (a._id < b._id) {
+      return -1;
+    } else if (a._id > b._id) {
+      return 1;
+    } else {
+      return 0;
     }
   }
 
