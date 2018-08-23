@@ -16,7 +16,7 @@ export const NoteList = props => {
                     >
                         <h4 className="list-title" >{note.title}</h4>
                         <hr/>
-                    {note.text}
+                        <p className="list-text" >{note.text}</p>
                     </div>
               </Link>
             );

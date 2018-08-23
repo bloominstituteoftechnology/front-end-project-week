@@ -36,7 +36,6 @@ class App extends Component {
     const notes = this.state.notes.slice();
     notes.push({ 
       id: Number(Date.now().toString().slice(-2)), 
-      // id: this.state.notes.length,
       title: this.state.title, 
       text: this.state.text 
     });
