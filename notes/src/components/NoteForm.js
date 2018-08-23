@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 class NoteForm extends Component {
     constructor(props){
@@ -38,21 +38,21 @@ class NoteForm extends Component {
 
     render() {
         return (
-            <Form onSubmit={this.addNote} className="note-form">
-                <FormGroup>
-                    <Label for="title">Title</Label>
-                    <Input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="content">Note</Label>
-                    <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="tags">Tags</Label>
-                    <Input type="text" name="tags" id="tags" onChange={this.handleChange} value={this.state.tags} required></Input>
-                </FormGroup>
-                <Button>Add</Button>
-            </Form>
+            <div className="form-container">
+                <h3>Create New Note:</h3>
+                <Form onSubmit={this.addNote} className="note-form">
+                    <FormGroup>
+                        <Input type="text" placeholder="Note Title" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Input type="textarea" placeholder="Note Content" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Input type="text" placeholder="Note Tags" name="tags" id="tags" onChange={this.handleChange} value={this.state.tags} required></Input>
+                    </FormGroup>
+                    <Button className="teal-button">Add</Button>
+                </Form>
+            </div>
         )
     }
 }

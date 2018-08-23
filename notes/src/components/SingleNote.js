@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchNote, deleteNote, updateNote } from '../actions';
-import Note from './Note';
 import EditNote from './EditNote';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { MarkdownPreview } from "react-marked-markdown";
+import Tag from './Tag';
 
 class SingleNote extends Component {
     constructor(props){
@@ -39,10 +40,18 @@ class SingleNote extends Component {
             return(<div></div>)
         }
         return (
-            <div>
-                <Note title={this.props.note.title} content={this.props.note.textBody} tags={this.props.note.tags} />
-                <Button onClick={this.toggleUpdate} color="primary">Update</Button>
-                <Button onClick={this.toggleModal} color="danger">Delete</Button>
+            <div className="single-note-view">
+                <div className="header">
+                    <a onClick={this.toggleUpdate}>edit</a>
+                    <a onClick={this.toggleModal}>delete</a>
+                </div>
+                <div className="note-content">
+                    <h3>{this.props.note.title}</h3>
+                    <MarkdownPreview value={this.props.note.textBody} />
+                    <div className="tags">
+                        {this.props.note.tags.length > 0 ? this.props.note.tags.map(tag => <Tag key={tag} tagName={tag} />) : null}
+                    </div>
+                </div>
                 {this.state.updateActive !== false
                     ? <EditNote onCancel={this.toggleUpdate} title={this.props.note.title} content={this.props.note.textBody} tags={this.props.note.tags} updateNote={this.props.updateNote} id={this.props.match.params.id} />
                     : null
@@ -50,8 +59,8 @@ class SingleNote extends Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Are you sure you want to delete this note?</ModalHeader>
                     <ModalBody>
-                        <Button color="danger" onClick={this.deleteNote}>Delete</Button>{' '}
-                        <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+                        <Button className="wide" color="danger" onClick={this.deleteNote}>Delete</Button>{' '}
+                        <Button className="teal-button" onClick={this.toggleModal}>Cancel</Button>
                     </ModalBody>
                 </Modal>
             </div>

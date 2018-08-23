@@ -12,14 +12,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar color="light">
-          <NavbarBrand>Lambda Notes</NavbarBrand>
+        <Navbar>
+          <NavbarBrand>Lambda<br /> Notes</NavbarBrand>
           <Nav>
             <NavItem>
-              <NavLink tag={Link} to="/">View Notes</NavLink>
+              <NavLink tag={Link} to="/">View Your Notes</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to="/note/add">New Note</NavLink> 
+              <NavLink tag={Link} to="/note/add">+ Create New Note</NavLink> 
             </NavItem>
           </Nav>
         </Navbar>

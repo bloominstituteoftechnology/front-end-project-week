@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 class EditNote extends Component {
     constructor(props) {
@@ -37,18 +37,15 @@ class EditNote extends Component {
         return (
             <Form onSubmit={this.updateNote} className="note-form">
                 <FormGroup>
-                    <Label for="title">Updated Title</Label>
-                    <Input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
+                    <Input type="text" placeholder="Note Title" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="content">Updated Note</Label>
-                    <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
+                    <Input type="textarea" placeholder="Note Content" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="tags">Tags</Label>
-                    <Input type="text" name="tags" id="tags" onChange={this.handleChange} value={this.state.tags} required></Input>
+                    <Input type="text" placeholder="Note Tags" name="tags" id="tags" onChange={this.handleChange} value={this.state.tags} required></Input>
                 </FormGroup>
-                <Button color="primary">Update</Button>
+                <Button className="teal-button">Update</Button>
                 <Button type="button" onClick={this.props.onCancel} color="danger">Cancel</Button>
             </Form>
         )

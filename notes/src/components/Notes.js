@@ -29,9 +29,9 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 });
 
 const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? "#b2bec3" : "#dfe6e9",
+    background: isDraggingOver ? "#b2bec3" : "transparent",
     padding: grid,
-    width: `60%`,
+    width: `100%`,
     margin: `1rem auto`,
     borderRadius: `4px`
 });
@@ -86,6 +86,7 @@ class Notes extends Component {
         return (
             <div className="home">
                 <Input type="text" onChange={this.searchInput} placeholder="Search" className="search-bar"/>
+                <h3>Your Notes:</h3>
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <Droppable droppableId="droppable" className="note-container">
                         {(provided, snapshot) => (
