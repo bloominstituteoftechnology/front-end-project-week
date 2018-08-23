@@ -63,7 +63,10 @@ const NotePreviewDiv = styled.div`
 const NotePreview = (props) => (
 
   props.connectDragSource(
-    <div className="startObject">
+    <div className="startObject"
+      style={{
+        opacity: props.isDragging ? 0 : 1,
+      }}>
       <NotePreviewDiv >
         <Link
           key={props.key}
@@ -98,10 +101,10 @@ const NotePreview = (props) => (
 const sourceObj = {
   beginDrag(props) {
     console.log("beginDrag", props)
-    const { _id } = props.note; //this return just 'green'
-    console.log(_id);
+    const { _id, index } = props.note; //this return just 'green'
+    console.log(_id, index);
     return ({
-      _id
+      _id, index
     });
   },
   //endDrag is called when dropped on a target
@@ -113,18 +116,21 @@ const sourceObj = {
     }
     // const { onDrop } = props;
     console.log(monitor.getItem());
-    const  { _id }  = monitor.getItem(); //returns just 'blue'
+    const  { _id, index }  = monitor.getItem(); //returns just 'blue'
     // console.log(props.color) // also returns just 'blue'
     console.log(monitor.getDropResult());
     const { shape } = monitor.getDropResult();//gets props from the target
     console.log(_id)
-    props.onDrop( _id );//onDrop supplied by parent which attaches the color and shape to the props
+    props.onDrop( _id, index );//onDrop supplied by parent which attaches the color and shape to the props
   },
 };
+
+
 
 const collect = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
+  isFoobar: true,
 });
 
 

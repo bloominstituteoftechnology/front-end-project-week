@@ -8,7 +8,14 @@ const DeleteTarget = (props) => (
     //highlighted - what happens when source is dragged
     // props on target - in this case it is the type of shape props.shape
   props.connectDropTarget(
-    <div className="menu-item red">
+    <div
+      className={"menu-item"}
+      style={{
+        height: props.highlighted ? "200px" : null,
+        background: props.highlighted ? "red" : null,
+      }}
+
+      >
       Drag to Delete
     </div>
   )
