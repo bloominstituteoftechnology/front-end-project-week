@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
-
-
+import {CSVLink} from 'react-csv'; 
+import {withRouter} from 'react-router'; 
+import {connect} from 'react-redux';
 
 class SideBar extends Component {
     constructor(props){
@@ -12,7 +13,6 @@ class SideBar extends Component {
     }
 
     render(){
-
         if (this.props.name){
             return (
                 <div className ="side-bar">
@@ -31,10 +31,25 @@ class SideBar extends Component {
                 <Link to='/rhyme-book'> <button className ="btn-side-bar">Rhyme Book</button></Link>
                 <Link to='/search'> <button className ="btn-side-bar">Search</button></Link>
                 <Link to="/trash"> <button className ="btn-side-bar">Trash</button></Link>
+                <CSVLink data ={this.props.notes}><button className ="btn-side-bar">Download Notes To CSV</button></CSVLink>
             </div>
         )
 
     }
 }
 
-export default SideBar
+const mapStateToProps = state => {
+    return { 
+       notes: state.notes,
+       addingNote: state.addingNote,
+       updatingNote: state.updatingNote,
+       deletingNote: state.deletingNote,
+       gettingNotes: state.gettingNotes, 
+       selecting: state.selecting, 
+       error: state.error,
+       select: state.select,
+       nextId: state.nextId,
+    }
+   }
+
+export default connect(mapStateToProps)(withRouter(SideBar))

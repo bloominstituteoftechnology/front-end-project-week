@@ -21,6 +21,8 @@ import five from '../images/rhyme.jpg';
 import Search from './Search';
 import Trash from './Trash';
 
+
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -56,14 +58,13 @@ class App extends Component {
 
   handleNoteSelect = (index) => {
     const select = this.props.notes[index];
-    console.log(select)
     this.setState({select: {title: select.title, textBody: select.textBody, index: index, _id: select._id,
     tags: select.tags, __v: select.__v, id: select.id}})
   }
 
   updateNote = (index, noteObj) => {
-    console.log(noteObj)
     this.props.updatingNote(index, noteObj)
+
   }
 
   deleteNote  = (index) => {
@@ -73,9 +74,7 @@ class App extends Component {
   handleChange = event => {
     this.setState({[event.target.name]: event.target.value})
   }
-  imgClick = event => {
-    console.log(event.target)
-  }
+  
   imgHover = event => {
     this.state.images.forEach((img, i) => img.src === event.target.src ? console.log(event.target.src, i): false)
 
@@ -84,8 +83,6 @@ class App extends Component {
     const images = this.state.images.slice()
     const last = images.pop()
     images.unshift(last)
-    console.log(images[images.length-1])
-    console.log(images)
     const imageLength = images.length -1; 
     images.map((image,i) => i === imageLength ? image.className = "carousel-img active-img" : image.className = "carousel-img nonactive-img")
     this.setState({images})
@@ -94,12 +91,21 @@ class App extends Component {
     let images = this.state.images.slice()
     const first = images.shift()
     images.push(first)
-    console.log(images)
-    console.log(images[images.length-1])
+    
     const imageLength = images.length -1; 
     images.map((image,i) => i === imageLength ? image.className = "carousel-img active-img" : image.className = "carousel-img nonactive-img")
     this.setState({images})
   }
+
+  // handleDownload = () => {
+  //   const notes = JSON.stringify(this.props.notes)
+  //   console.log(notes)
+  //   const toCsv = Papa.unparse(notes)
+  //   return 
+
+    
+  // }
+
   render() {
     return (
     <Router>

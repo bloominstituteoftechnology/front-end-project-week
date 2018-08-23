@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@shopify/draggable": "^1.0.0-beta.7",
     "axios": "^0.18.0",
+    "papaparse": "^4.6.0",
     "rapidapi-connect": "0.0.6",
     "react": "^16.4.2",
+    "react-csv": "^1.0.14",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
