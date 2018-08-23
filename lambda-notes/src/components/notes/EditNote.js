@@ -10,12 +10,16 @@ class EditNote extends Component {
   }
 
   render() {
+    const idNumber = parseInt(this.props.match.params.id, 10);
+    console.log("EDIT FORM", this.props);
+
     return (
       <div>
         <h2>Edit Note:</h2>
         <form
           className="editNoteForm"
-          onSubmit={this.props.submitNewNoteHandler}
+          onSubmit={this.props.editNewNoteHandler}
+          notenumber={idNumber}
         >
           <input
             placehold="Note Title"

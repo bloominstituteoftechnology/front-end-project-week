@@ -39,6 +39,20 @@ class App extends Component {
     notesCopy.push(newNote);
     this.setState({ notes: notesCopy, title: "", description: "" });
   };
+
+  editNewNoteHandler = event => {
+    event.preventDefault();
+    let noteNumberToEdit = parseInt(
+      event.target.attributes.getNamedItem("notenumber").value,
+      10
+    );
+    let notesCopy = this.state.notes.slice();
+    console.log("EDITNOTEHANDLER", notesCopy);
+    notesCopy[noteNumberToEdit].title = this.state.title;
+    notesCopy[noteNumberToEdit].description = this.state.description;
+    console.log("EDITNOTEHANDLER", notesCopy);
+    this.setState({ notes: notesCopy, title: "", description: "" });
+  };
   // end new note and modify note handlers
 
   render() {
@@ -73,7 +87,14 @@ class App extends Component {
           />
           <Route
             path="/edit-note/:id"
-            render={props => <EditNote {...props} notes={this.state.notes} />}
+            render={props => (
+              <EditNote
+                {...props}
+                notes={this.state.notes}
+                inputChangeHandler={this.inputChangeHandler}
+                editNewNoteHandler={this.editNewNoteHandler}
+              />
+            )}
           />
         </div>
       </Router>
