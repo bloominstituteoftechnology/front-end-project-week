@@ -16,14 +16,14 @@ onFormChange = event => {
 this.setState({[event.target.name]: event.target.value})
 }
 onSaveClick = (e) => {
-  this.props.addNote(this.state);
   // this.setState({id: this.state.id + 1});
   axios.post('http://localhost:8000/api/notes', {
     "title": this.state.title,
     "content": this.state.content
   })
-  .then(function (response) {
+  .then((response) => {
     console.log(response);
+    this.props.addNote(this.state);
   })
   .catch(function (error) {
     console.log(error);

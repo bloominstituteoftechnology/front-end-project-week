@@ -23,12 +23,22 @@ class App extends Component {
   }
   addNote(note) {
     this.state.notes.push(note);
+    axios.get(`http://localhost:8000/api/notes`)
+      .then(res => {
+        const axiosNotes = res.data.Message;
+        this.setState( {notes: axiosNotes} );
+      })
   }
   editNote(note){
     this.setState({notes: note})
   }
   deletenote(note){
     this.setState({notes: note})
+    axios.get(`http://localhost:8000/api/notes`)
+      .then(res => {
+        const axiosNotes = res.data.Message;
+        this.setState( {notes: axiosNotes} );
+      })
   }
   componentDidMount() {
     axios.get(`http://localhost:8000/api/notes`)
