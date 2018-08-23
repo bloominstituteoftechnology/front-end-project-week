@@ -24,6 +24,8 @@ const NotesListAttrib = styled.div`
     width: 75%;
     background: #F2F1F2;
     height: 100vh;
+    border: 2px solid #56aaad; 
+    border-left: 0;
 `
 const NoteCardContainer = styled.div`
     display: flex;

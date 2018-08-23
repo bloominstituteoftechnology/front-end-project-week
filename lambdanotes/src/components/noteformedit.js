@@ -27,7 +27,7 @@ const NoteInput = styled.textarea`
     padding-left: 10px;
     width: 90%;
     margin: 10px 30px;
-    vertical-align: top;
+    padding-top: 5px;
 `
 
 const FormAttrib = styled.form`

@@ -8,6 +8,8 @@ import styled from 'styled-components';
 const NoteAttrib = styled.div`
     background: #F2F1F2;
     width: 75%;
+    border: 2px solid #56aaad; 
+    border-left: 0;
 `
 
 const NoteButtons = styled.div`

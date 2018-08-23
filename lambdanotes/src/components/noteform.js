@@ -7,6 +7,8 @@ const FormContainer = styled.div`
     width: 75%;
     background: #F2F1F2;
     height: 100vh;
+    border: 2px solid #56aaad; 
+    border-left: 0;
 `
 
 const FormMessage = styled.h4`
@@ -34,8 +36,7 @@ const NoteInput = styled.textarea`
     padding-left: 10px;
     width: 90%;
     margin: 10px 30px;
-    vertical-align: top;
-    padding-bottom: 375px;
+    padding-top: 5px;
 `
 
 const FormAttrib = styled.form`
