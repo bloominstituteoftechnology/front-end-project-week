@@ -15,10 +15,8 @@ export const ERROR = 'ERROR';
 //middleware (another thunk) use for all action creators
 const fetchNotes = (dispatch) => {
   return axios
-    .get('https://sumi-notes.netlify.com/notes')
-    .then(({
-      data
-    }) => {
+    .get('https://sumi-notes.netlify.com/')
+    .then(({ data }) => {
       setTimeout(() => {
         dispatch({
           type: GOT_NOTES,
@@ -49,13 +47,13 @@ export const gettingSingleNote = (id) => {
       type: GETTING_NOTES
     });
     axios
-      .get(`https://sumi-notes.netlify.com/notes/${id}`)
-      .then(({
-        data
-      }) => dispatch({
-        type: GOT_NOTES,
-        payload: data
-      }))
+      .get(`https://sumi-notes.netlify.com/${id}`)
+      .then(({ data }) =>
+        dispatch({
+          type: GOT_NOTES,
+          payload: data
+        })
+      )
       .catch((error) => {
         dispatch({
           type: ERROR,
@@ -71,13 +69,14 @@ export const addNote = (note) => {
       type: ADDING_NOTE
     });
     axios
-      .post('https://sumi-notes.netlify.com/notes', note)
+      .post('https://sumi-notes.netlify.com/', note)
       .then((response) => {
         console.log(response);
         // fetchNotes(dispatch);
         dispatch({
           type: ADDED_NOTE,
-          payload: { ...note,
+          payload: {
+            ...note,
             id: response.data.success
           }
         });
@@ -100,16 +99,13 @@ export const deleteNote = (id) => {
       type: DELETING_NOTE
     });
     axios
-      .delete(`http://localhost:5000/notes/${id}`)
+      .delete(`https://sumi-notes.netlify.com/${id}`)
       .then((response) => {
         console.log(response);
         fetchNotes(dispatch);
       })
       .catch((error) => {
-        dispatch({
-          type: ERROR,
-          message: 'error deleting note'
-        });
+        dispatch({ type: ERROR, message: 'error deleting note' });
       });
   };
 };
@@ -120,23 +116,14 @@ export const updateNote = (id, editNote) => {
       type: UPDATING_NOTE
     });
     axios
-      .put(`http://localhost:5000/notes/${id}`, editNote)
+      .put(`https://sumi-notes.netlify.com/${id}`, editNote)
       .then((response) => {
         console.log('this is the response', response);
-        dispatch({
-          type: NOTE_UPDATED,
-          payload: {
-            id,
-            ...response.data
-          }
-        });
+        dispatch({ type: NOTE_UPDATED, payload: { id, ...response.data } });
       })
       .catch((error) => {
         console.log(error);
-        dispatch({
-          type: ERROR,
-          message: 'error updating note'
-        });
+        dispatch({ type: ERROR, message: 'error updating note' });
       });
   };
 };
