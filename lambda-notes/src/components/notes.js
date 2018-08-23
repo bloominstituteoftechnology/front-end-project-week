@@ -7,7 +7,7 @@ import './Notes.css'
 const Notes = props => {
     return (
         <div className="notes-page">
-             <h2 className="page-title">Your Notes:</h2>
+          <h2 className="page-title">Your Notes:</h2>
         
              <div className="notes">
             {props.notes.map(note => (

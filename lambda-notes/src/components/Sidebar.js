@@ -10,9 +10,9 @@ class Sidebar extends Component {
         <div className="sidebar-container">
             <ul className="nav-bar">
         <div className="nav">
-        <h1 className="title">Lambda Notes</h1>
-        <li><NavLink exact to="/" className="nav-text" activeClassName="active-component">View Your Notes</NavLink></li>
-         <li><NavLink to="/create-new-note/" className="nav-text" activeClassName="active-component">+ Create New Note</NavLink></li>
+       <h1 className="title">Lambda Notes</h1>
+       <NavLink exact to="/" className="nav-text" activeClassName="active-component"><li><i class="far fa-sticky-note"></i> View Your Notes</li> </NavLink>
+        <NavLink to="/create-new-note/" className="nav-text" activeClassName="active-component"> <li><i class="fas fa-pencil-alt"></i> Create New Note</li></NavLink>
          </div>
             </ul>
     </div>

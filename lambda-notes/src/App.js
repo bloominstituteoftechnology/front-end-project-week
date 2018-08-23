@@ -43,6 +43,11 @@ class App extends Component {
             id:5,
             title:"Rachel",
             text:"My name is Rachel what's yours?"
+          },
+          {
+            id:6,
+            title:"Say Cheese",
+            text:"CHEEESE!"
           }
         ],
         title: '',

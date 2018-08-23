@@ -24,6 +24,7 @@
     margin: 15px;
     line-height: 32px;
     font-weight: bold;
+    font-family: 'Roboto Slab', serif;
 }
 
 
@@ -37,13 +38,14 @@
     background-color: #00B9BC;
     color:white;
     text-decoration: none;
+    font-family: 'Roboto Slab', serif;
 }
 
 
-.sidebar-container .nav-bar .nav li:hover {
+/* .sidebar-container .nav-bar .nav li:hover {
     background-color: rgb(3, 142, 145);
     text-decoration: none;
-}
+} */
  .sidebar-container .nav-bar .nav li {
     text-decoration: none;
     padding: 10px 20px;
@@ -51,6 +53,6 @@
     font-weight: bold;
     font-size: 15px;
 }
- .sidebar-container .nav-bar .nav li .active-component {
-    color: rgb(1, 48, 49);
-}
+ /* .sidebar-container .nav-bar .nav li .active-component {
+    color: rgb(1, 48, 49); */
+/* } */

@@ -32,8 +32,8 @@ import { Route } from 'react-router-dom'
                             <ModalHeader centered={true}>Are you sure you want to delete this?</ModalHeader>
                             <ModalBody>
                                 <Row>
-                                    <Col><Button color="danger" size="lg" block onClick={() => {this.props.deleteNote(this.props.note)}} onMouseUp={() => history.goBack()}> Delete</Button></Col> {' '}
-                                    <Col><Button color="info" size="lg" block onClick={this.toggle}>No</Button> </Col>
+                                    <Col><Button color="danger" size="lg" block onClick={() => {this.props.deleteNote(this.props.note)}} onMouseUp={() => history.goBack()}>Yes</Button></Col> {' '}
+                                    <Col><Button color="success" size="lg" block onClick={this.toggle}>No</Button> </Col>
                                 </Row>
                             </ModalBody>
                         </Modal>
