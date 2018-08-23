@@ -51,7 +51,7 @@ class NoteView extends React.Component {
             <NoteViewContainer>
                 <LinksContainer>
                     <Link to={`note-view/${this.state.note.id}/edit`} className="link">edit</Link>
-                    <DeleteModal>delete</DeleteModal>
+                    <DeleteModal note={this.state.note} deleteNote={this.props.deleteNote}>delete</DeleteModal>
                 </LinksContainer>
                 <div className="body-container">
                     <Title>{this.state.note.title}</Title>

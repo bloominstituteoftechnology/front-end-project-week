@@ -1,0 +1,16 @@
+.toggle-button {
+    padding: 1px 8px !important;
+}
+
+.modal-text {
+    text-align: center !important;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center !important;
+}
+
+.modal-footer  .custom-button {
+    width: 150px;
+}
