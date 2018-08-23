@@ -1,7 +1,15 @@
 .title {
   position: relative;
+  left: 25%;
+  top: 5rem;
+}
+
+.register {
+  position: relative;
   left: 30%;
   top: 10rem;
+  max-width: 35%;
+  margin-bottom: 2rem;
 }
 
 .login {
@@ -9,4 +17,5 @@
   left: 30%;
   top: 10rem;
   max-width: 35%;
+  margin-bottom: 2rem;
 }
