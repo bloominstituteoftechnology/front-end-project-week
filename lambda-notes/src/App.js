@@ -7,6 +7,7 @@ import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
+import Authenticate from './components/Authenticate/Authenticate';
 
 
 
@@ -41,7 +42,7 @@ class App extends Component {
     })
     .catch(error => {
       console.log(error);
-    })
+    });
 }
 
 handleSearch = (event) => {
@@ -55,6 +56,7 @@ handleSearch = (event) => {
   render() {
     return (
       <Application>
+        
         <SideNav {...this.props} notes={this.state.notes}/>
         <Route path='/add-note' component={NewNote} />
         <Route exact path='/notes' render={(props) => (
@@ -64,9 +66,10 @@ handleSearch = (event) => {
           <EditNote {...props} note={this.state.note} />)} />
         <Route path='/note/:id' render={(props) => (
           <NoteView {...props}  note={this.state.note} />) } />
+          
       </Application>
     );
   }
 }
 
-export default App;
+export default Authenticate(App);

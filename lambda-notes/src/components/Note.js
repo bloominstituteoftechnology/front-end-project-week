@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { MarkdownPreview } from 'react-marked-markdown';
 
 
 const NoteDisplay = styled.div`
@@ -42,7 +43,9 @@ const Note = (props) => {
             <NoteDisplay>
             <Link  to={`/note/${props.id}`}>
                 <h1>{props.title}</h1>
-                <p>{props.content}</p>
+                <p>
+                    <MarkdownPreview value={props.content} />
+                </p>
                 </Link>
             </NoteDisplay>
             

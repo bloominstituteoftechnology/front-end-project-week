@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import DeleteModal from './DeleteModal';
+import { MarkdownPreview } from 'react-marked-markdown';
 
 
 const ViewNote = styled.div`
@@ -10,6 +11,7 @@ const ViewNote = styled.div`
     flex-direction: column;
     padding: 20px;
     width: 100%;
+    background: #DCDCDC;
 
     > h1 {
         margin-top: 10px;
@@ -35,16 +37,15 @@ const ViewNote = styled.div`
 
 const ButtonsContainer = styled.div`
 
-        text-align: right;
+        display: flex;
+        justify-content: flex-end;
 
     > a {
         text-decoration: underline;
         color: black;
-        margin-left: 10px;
+        margin: 0 10px;
         cursor: pointer;
     }
-
-
 `
 
 
@@ -96,10 +97,10 @@ class NoteView extends Component {
             <ViewNote>
                 <ButtonsContainer>
                 <Link to={`/edit-note/${this.state.id}`}> Edit </Link>
-                <DeleteModal delete={() => this.delete(this.state.id)}/>
+                <DeleteModal delete={() => this.delete(this.state.id)} title={this.state.title}/>
                 </ButtonsContainer>
                 <h1>{this.state.title}</h1>
-                <p>{this.state.content}</p>
+                <p><MarkdownPreview value={this.state.content} /></p>
                 <Link to={`/notes`}><button>Back</button></Link>
             </ViewNote>
          );
