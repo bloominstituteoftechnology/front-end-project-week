@@ -19,7 +19,7 @@ export const fetchReq = () => {
         // axios.get(`${URL}/get/all`)
         axios.get(`${URL}`)
         .then(({data}) => {
-            // console.log(data);
+            console.log(data);
             dispatch({type: FETCHED, payload: data});
         })
         .catch((err) => {

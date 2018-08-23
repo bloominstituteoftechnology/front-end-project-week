@@ -51,7 +51,7 @@ class Note extends Component {
                     <p>{this.props.note.content}</p>
                 </div>
                 <div className="Note-tag">
-                    {this.props.tags ? <p>tags: {this.props.tags.map((tag, index) => <span key={index} id={index}>{`${tag}`}</span>)}</p> : ''}
+                    {this.props.tags !== undefined ? <p>tags: {this.props.tags.map((tag, index) => <span key={index} id={index}>{`${tag}`}</span>)}</p> : ''}
                 </div>
                 {this.state.isSelected ? <NoteView note={this.props.note}/> : null}
                 {this.state.toggle ? <DeleteModal toggleDelete={this.toggleDelete} handleDelete={this.handleDelete} id={this.props.note["id"]}/> : null}
@@ -63,8 +63,8 @@ class Note extends Component {
 const mapStateToProps = ({ notes }) => {
     console.log(notes);
     return {
-        note: notes.note[0],
-        tags: notes.note[0].tags
+        note: notes.note,
+        tags: notes.note.tags
     };
 }
 

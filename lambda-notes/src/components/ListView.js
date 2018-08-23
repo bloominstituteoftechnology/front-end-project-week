@@ -218,7 +218,7 @@ function NoteDetails({ note }) {
 };
 
 const mapStateToProps = ({ notes }) => {
-    // console.log(notes);
+    console.log(notes);
     return {
         notes: notes.notes
     };
