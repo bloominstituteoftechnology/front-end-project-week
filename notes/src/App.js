@@ -6,6 +6,7 @@ import {Route} from 'react-router-dom';
 import axios from 'axios';
 import ViewNote from './components/ViewNote';
 import Authenticate from './components/Authentication/Authenticate';
+import Register from './components/Register';
 
 class App extends Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class App extends Component {
         setData={this.setData} />} />
         <Route exact path="/notes/:id" component={props => <ViewNote {...props}
         setData={this.setData} />} />
+        <Route exact path="/signup" component={Register} />
       </div>
     );
   }

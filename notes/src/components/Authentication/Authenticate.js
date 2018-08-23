@@ -22,5 +22,5 @@ const Authenticate = App =>
         return (this.state.loggedIn ? <App /> : <Login />);
     }
   }
-
+//This should only exist in the registration page version
 export default Authenticate;

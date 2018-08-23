@@ -30,7 +30,7 @@ class Register extends React.Component {
   }
 
   render() {
-    console.log(this.props.location);
+    console.log('register location', this.props.location);
     return (
       <div>
         <form className="login">
