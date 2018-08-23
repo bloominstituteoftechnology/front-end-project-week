@@ -71,8 +71,18 @@
   text-decoration: none;
 }
 
+.modal button:hover {
+  color: white;
+  background: #dc4659;
+}
+
 .modal button:nth-child(even) {
   background: #2ac0c4;
+}
+
+.modal button:nth-child(even):hover {
+  color: white;
+  background: #7fd9db;
 }
 
 .modal h4 {
@@ -81,10 +91,4 @@
   margin-bottom: 1rem;
 }
 
-/* .modalButtonsDiv {
-  margin-top: 7rem;
-  display: flex;
-  justify-content: space-evenly;
-  background: red;
-} */
 /* end modal */
