@@ -18,7 +18,7 @@ const Notes = props => {
                         <Link to={`/notes/${note.id}`}>
                             <Card style={{ height: 200 + 'px' }}>
                                 <CardBody>
-                                    <CardTitle className="text-truncate" style={{ borderBottom: "1px solid black" }}>{note.title}</CardTitle>
+                                    <CardTitle className="text-truncate" style={{ borderBottom: "2px solid lightgray" }}>{note.title}</CardTitle>
                                     <CardText className="block-with-text">{note.content}</CardText>
                                 </CardBody>
                             </Card>

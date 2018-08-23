@@ -14,10 +14,10 @@ const NewNote = props => {
             <Form>
                 <Row>
                     <Col sm="7">
-                        <Input onChange={props.handleInputChange} type="text" name="title" placeholder="Note Title" style={{ marginTop: 30 + 'px' }} value={props.title} />
+                        <Input onChange={props.handleInputChange} type="text" name="title" placeholder="Note Title" style={{ marginTop: 30 + 'px', border: "2px solid lightgray" }} value={props.title} />
                     </Col>
                 </Row>
-                <Input onChange={props.handleInputChange} type="textarea" name="content" placeholder="Note Content" rows="15" style={{ marginTop: 15 + 'px' }} value={props.content} />
+                <Input onChange={props.handleInputChange} type="textarea" name="content" placeholder="Note Content" rows="15" style={{ marginTop: 15 + 'px' , border: "2px solid lightgray"}} value={props.content} />
                 <Row>
                     <Col sm="4">
                         <Button onClick={props.addNote} onMouseUp={() => props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} block>Save</Button>

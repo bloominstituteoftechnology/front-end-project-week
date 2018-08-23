@@ -38,7 +38,7 @@ class Note extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col xs="10">
                         <h2>{title}</h2>
                     </Col>
                 </Row>

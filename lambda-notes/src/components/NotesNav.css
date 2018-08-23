@@ -5,9 +5,10 @@
     z-index: 1; 
     top: 0; 
     left: 0;
-    background-color: gray; 
+    background-color: #D7D7D7; 
     overflow-x: hidden; 
     padding-top: 20px;
+    border-right: 2px solid gray; 
 }
 
 .sidenav h1 {

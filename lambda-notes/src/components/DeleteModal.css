@@ -1,4 +1,6 @@
-
+.btn {
+    border-radius: 0;
+}
 
 .delete-btn {
     color: black;

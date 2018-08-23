@@ -7,7 +7,7 @@ import './NotesNav.css';
 const NotesNav = () => {
   return (
     <div className="sidenav">
-      <h1><b>Lambda Notes</b></h1>
+      <h1>Lambda Notes</h1>
       <Link to="/notes"><Button color="info" size="lg" block>View Your Notes</Button></Link>
       <Link to="/add"><Button color="info" size="lg" block>+ Create New Note</Button></Link>
     </div>
