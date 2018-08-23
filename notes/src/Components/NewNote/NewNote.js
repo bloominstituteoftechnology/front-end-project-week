@@ -46,8 +46,8 @@ class NewNote extends Component {
     constructor(props) {
         super(props);
         this.state={
-            title: '',
-            content: '',
+            note_title: '',
+            text_body: '',
             contentEditable: true,
             toNotes: false,
         }
@@ -74,8 +74,8 @@ class NewNote extends Component {
     render() {
         let note = {
         
-            title: this.state.title,
-            content: this.state.content
+            note_title: this.state.note_title,
+            text_body: this.state.text_body
         }
         let history = this.props.history;
 
@@ -92,13 +92,13 @@ class NewNote extends Component {
                 
                 {this.state.contentEditable? 
                 <React.Fragment>
-                <DashedStyleHeader name='title' onChange={this.onChange} defaultValue='Title...'/>
-                <DashedStyleTextArea name='content' value={this.state.content} onChange={this.onChange}> 
+                <DashedStyleHeader name='note_title' onChange={this.onChange} defaultValue='Title...'/>
+                <DashedStyleTextArea name='text_body' value={this.state.text_body} onChange={this.onChange}> 
                 </DashedStyleTextArea> <SaveButton onClick={(e)=>{this.props.addNote(e, note, history )}}>Save</SaveButton></React.Fragment>
                : 
                <React.Fragment>
                   <SolidStyleHeader defaultValue='Title...' onDoubleClick={this.editContent}/>
-                 <SolidStyleTextArea name='content' value={this.state.content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
+                 <SolidStyleTextArea name='text_body' value={this.state.text_body} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
                 </SolidStyleTextArea> <SaveButton onClick={addNote}>Save</SaveButton>
                 </React.Fragment>}
 

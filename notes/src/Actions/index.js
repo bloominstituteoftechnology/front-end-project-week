@@ -47,27 +47,60 @@ export const getNotes = () => {
   }
 }
 
+//firebase add note function
+// export const addNote = (e, note, history) => {
+//     console.log('adding note...');
+//     console.log(history);
+//     e.preventDefault();
+    
+//      return (dispatch) => {
+//      dispatch({type: SAVING_NOTE})
+//      dispatch(()=>{
+//          let id = Date.now();
+//          database.ref('notes/'+id).set({
+//          title: note.title,
+//          id: id,
+//          content: note.content
+//      })});
+//      setTimeout(()=>{dispatch({type: SAVED})}, 1000);
+//      setTimeout(()=>{dispatch({type: DONE_SAVING})}, 2000);
+//      setTimeout(()=>{history.push('/')}, 2000)
+//     } 
+    
+// }
+
 export const addNote = (e, note, history) => {
-    console.log('adding note...');
-    console.log(history);
-    e.preventDefault();
-    
-     return (dispatch) => {
-     dispatch({type: SAVING_NOTE})
-     dispatch(()=>{
-         let id = Date.now();
-         database.ref('notes/'+id).set({
-         title: note.title,
-         id: id,
-         content: note.content
-     })});
-     setTimeout(()=>{dispatch({type: SAVED})}, 1000);
-     setTimeout(()=>{dispatch({type: DONE_SAVING})}, 2000);
-     setTimeout(()=>{history.push('/')}, 2000)
-    
-    }
-   
-    
+  console.log('adding note...', note);
+  console.log(history);
+  e.preventDefault();
+
+  return (dispatch) => {
+    dispatch({
+      type: SAVING_NOTE
+    })
+    dispatch(() => {
+      axios
+      .post('http://localhost:8000/api/notes', note)
+      .then(response => {
+        console.log('axios add note', response);
+      })
+
+    });
+    setTimeout(() => {
+      dispatch({
+        type: SAVED
+      })
+    }, 1000);
+    setTimeout(() => {
+      dispatch({
+        type: DONE_SAVING
+      })
+    }, 2000);
+    setTimeout(() => {
+      history.push('/')
+    }, 2000)
+  }
+
 }
 
 export const editNotes = (e, savedNote, history) => {
@@ -83,7 +116,7 @@ export const editNotes = (e, savedNote, history) => {
        setTimeout(()=>{dispatch({type: SAVED})}, 2000);
        setTimeout(()=>{dispatch({type: EDIT_NOTE, payload: savedNote})}, 4000);
     setTimeout(()=>{history.push('/')}, 3200)
-    }
+}
 }
 
 export const themeSwitch = (nightVision) => {

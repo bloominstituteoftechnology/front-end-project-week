@@ -10,7 +10,6 @@ import UserMiniCard from './Components/User/UserMiniCard';
 import NewNote from './Components/NewNote/NewNote';
 import {withRouter} from 'react-router-dom';
 import FullSizeNote from './Components/FullSizeNote/FullSizeNote';
-import ThemeSwitch from 'react-theme-switch';
 import {CSVLink} from 'react-csv';
 import DeleteModal from './Components/DeleteModal/DeleteModal';
 import firebase from './firebase';
@@ -74,8 +73,8 @@ super(props)
     return (
   
       <Main>   
-      <TopBar> {this.state.isLoggedIn? <UserMiniCard newUser ={this.state.currentUser}/> : <button name='google' className="loginBtn loginBtn--google" onClick={(e)=>{this.SignIn(e)}}>Login with Google</button>} <LinkBar>  <CSVLink data={this.props.notes}> <DownloadButton> <i className="fas fa-download"></i></DownloadButton></CSVLink><ThemeSwitch/></LinkBar> </TopBar>
-       <MiddleSection theme={this.props.theme}> 
+      <TopBar> {this.state.isLoggedIn? <UserMiniCard newUser ={this.state.currentUser}/> : <button name='google' className="loginBtn loginBtn--google" onClick={(e)=>{this.SignIn(e)}}>Login with Google</button>} <LinkBar>  <CSVLink data={this.props.notes}> <DownloadButton> <i className="fas fa-download"></i></DownloadButton></CSVLink></LinkBar> </TopBar>
+       <MiddleSection> 
    
       <Sidebar>
       <Header>Lambda Notes</Header>

@@ -31,7 +31,6 @@ const rootReducer = (state = initialState, action) => {
       
        return Object.assign({}, state, {notes:updatedNotes}, {saveInProgress: false, saved:false});
     case ADDING_NOTE:
-  
        return (Object.assign({}, state, {saveInProgress: false, saved:false}))
     default:
         return state;
