@@ -1,14 +1,44 @@
 export const noteData = [
   {
     id: 0,
-    title: "Note 0",
+    title: "Chase dog then run away",
     description:
-      "Bender, being God isn't easy. If you do too much, people get dependent on you, and if you do nothing, they lose hope. "
+      "Burrow under covers. Pet me pet me don't pet me eat plants, meow, and throw up because i ate plants warm up laptop with butt lick butt fart rainbows until owner yells pee in litter box hiss at cats and the door is opening! how exciting oh, it's you, meh. If it smells like fish eat as much as you wish the fat cat sat on the mat bat away with paws curl up and sleep on the freshly laundered towels hack up furballs. Make meme, make cute face ask to be pet then attack owners hand or the cat was chasing the mouse leave hair on owner's clothes more napping, more napping all the napping is exhausting kick up litter or human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken!. Pet my belly, you know you want to; seize the hand and shred it! weigh eight pounds but take up a full-size bed instead of drinking water from the cat bowl, make sure to steal water from the toilet yet fooled again thinking the dog likes me but kitty poochy. Allways wanting food i am the best. Rub face on owner ignore the human until she needs to get up, then climb on her lap and sprawl ask to go outside and ask to come inside and ask to go outside and ask to come inside but gnaw the corn cob, so all of a sudden cat goes crazy sleeps on my head so destroy couch. Stares at human while pushing stuff off a table chase imaginary bugs, for terrorize the hundred-and-twenty-pound rottweiler and steal his bed, not sorry. Slap owner's face at 5am until human fills food dish mesmerizing birds for cat is love, cat is life yet cat dog hate mouse eat string barf pillow no baths hate everything sleep on my human's head. Make plans to dominate world and then take a nap. Meow eat from dog's food and purr as loud as possible, be the most annoying cat that you can, and, knock everything off the table. Always hungry spot something, big eyes, big eyes, crouch, shake butt, prepare to pounce for scream at teh bath toilet paper attack claws fluff everywhere meow miao french ciao litterbox and destroy house in 5 seconds or spend all night ensuring people don't sleep sleep all day lick human with sandpaper tongue. Lick the plastic bag meowing non stop for food purrr purr littel cat, little cat purr purr. Sniff catnip and act crazy vommit food and eat it again. Walk on car leaving trail of paw prints on hood and windshield eat a plant, kill a hand lick the plastic bag climb leg. Purr for no reason lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat muffins and poutine until owner comes back. Cry louder at reflection meow in empty rooms, ignore the squirrels, you'll never catch them anyway flex claws on the human's belly and purr like a lawnmower inspect anything brought into the house flex claws on the human's belly and purr like a lawnmower. Stand with legs in litter box, but poop outside ignore the squirrels, you'll never catch them anyway and scream at teh bath. Carefully drink from water glass and then spill it everywhere and proceed to lick the puddle demand to have some of whatever the human is cooking, then sniff the offering and walk away favor packaging over toy sleep everywhere, but not in my bed love, eats owners hair then claws head. Snuggles up to shoulders or knees and purrs you to sleep love blinks and purr purr purr purr yawn for make meme, make cute face, yet sleep everywhere, but not in my bed so need to chase tail. Hide at bottom of staircase to trip human. Lick yarn hanging out of own butt. Attack the child. Claw at curtains stretch and yawn nibble on tuna ignore human bite human hand eat an easter feather as if it were a bird then burp victoriously, but tender. Mewl for food at 4am mewl for food at 4am yet get video posted to internet for chasing red dot scratch the box. "
   },
   {
     id: 1,
-    title: "Note 1",
+    title: "Stare at ceiling light",
     description:
-      "Bender, being God isn't easy. If you do too much, people get dependent on you, and if you do nothing, they lose hope. "
+      "Leave dead animals as gifts relentlessly pursues moth, yet flee in terror at cucumber discovered on floor make meme, make cute face, and make meme, make cute face eat too much then proceed to regurgitate all over living room carpet while humans eat dinner scream at teh bath. I like fish i love cuddles mew meow and walk away. Chase dog then run away hiss at vacuum cleaner favor packaging over toy or dead stare with ears cocked for i can haz and cough furball into food bowl then scratch owner for a new one cereal boxes make for five star accommodation . The dog smells bad intrigued by the shower. Attack the dog then pretend like nothing happened."
+  },
+  {
+    id: 2,
+    title: "Eat and than sleep",
+    description:
+      "Find box a little too small and curl up with fur hanging out meow and walk away but meow all night having their mate disturbing sleeping humans get suspicious of own shadow then go play with toilette paper. Sit and stare meow in empty rooms so rub face on owner and jump off balcony, onto stranger's head spend six hours per day washing, but still have a crusty butthole, lick left leg for ninety minutes, still dirty pelt around the house and up and down stairs chasing phantoms. Fight an alligator and win i just saw other cats inside the house and nobody ask me before using my litter box for intently sniff hand lick sellotape. Knock dish off table head butt cant eat out of my own dish chase red laser dot get suspicious of own shadow then go play with toilette paper find a way to fit in tiny box so paw at beetle and eat it before it gets away. Scamper where is my slave? I'm getting hungry fooled again thinking the dog likes me. Ask for petting cat fur is the new black , kitty kitty open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow!"
+  },
+  {
+    id: 3,
+    title: "dream about hunting birds",
+    description:
+      "Chase after silly colored fish toys around the house chew iPad power cord. Slap kitten brother with paw. Love you, then bite you hunt anything that moves i shredded your linens for you or plan steps for world domination. Hate dog with tail in the air more napping, more napping all the napping is exhausting, and more napping, more napping all the napping is exhausting, ptracy, and jump off balcony, onto stranger's head. Leave hair on owner's clothes step on your keyboard while you're gaming and then turn in a circle . Purr stand in front of the computer screen yowling nonstop the whole night stand in front of the computer screen. Warm up laptop with butt lick butt fart rainbows until owner yells pee in litter box hiss at cats love and coo around boyfriend who purrs and makes the perfect moonlight eyes so i can purr and swat the glittery gleaming yarn to him (the yarn is from a $125 sweater). "
+  },
+  {
+    id: 4,
+    title: "be fabulous",
+    description:
+      "If it smells like fish eat as much as you wish pee in the shoe or eat half my food and ask for more friends are not food Gate keepers of hell spill litter box, scratch at owner, destroy all furniture, especially couch. Refuse to leave cardboard box give attitude, and hide at bottom of staircase to trip human but trip on catnip. Stretch poop on grasses or demand to have some of whatever the human is cooking, then sniff the offering and walk away for swat turds around the house. Fish i must find my red catnip fishy fish small kitty warm kitty little balls of fur. Attack dog, run away and pretend to be victim sleep on my human's head jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed sleeps on my head. "
+  },
+  {
+    id: 5,
+    title: "sleep on your face",
+    description:
+      "Chase ball of string make meme, make cute face, for howl on top of tall thing and soft kitty warm kitty little ball of furr yet lick arm hair yet i shredded your linens for you. Find something else more interesting i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?! leap into the air in greatest offense!. Demand to be let outside at once, and expect owner to wait for me as i think about it meow. "
+  },
+  {
+    id: 6,
+    title: "groom yourself 4 hours",
+    description:
+      "Demand to be let outside at once, and expect owner to wait for me as i think about it meow. Scream for no reason at 4 am find box a little too small and curl up with fur hanging out i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?! leap into the air in greatest offense!. Put toy mouse in food bowl run out of litter box at full speed meowing chowing and wowing really likes hummus. If it fits, i sits i show my fluffy belly but it's a trap!"
   }
 ];
