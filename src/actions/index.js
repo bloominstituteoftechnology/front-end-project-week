@@ -47,18 +47,10 @@ export const gettingSingleNote = (id) => {
       type: GETTING_NOTES
     });
     axios
-      .get(`https://sumi-notes.netlify.com/${id}`)
-      .then(({ data }) =>
-        dispatch({
-          type: GOT_NOTES,
-          payload: data
-        })
-      )
+      .get(`https://suminotes-api.herokuapp.com/${id}`)
+      .then(({ data }) => dispatch({ type: GOT_NOTES, payload: data }))
       .catch((error) => {
-        dispatch({
-          type: ERROR,
-          message: 'error getting note'
-        });
+        dispatch({ type: ERROR, message: 'error getting note' });
       });
   };
 };
@@ -69,24 +61,15 @@ export const addNote = (note) => {
       type: ADDING_NOTE
     });
     axios
-      .post('https://sumi-notes.netlify.com/', note)
+      .post('https://suminotes-api.herokuapp.com/', note)
       .then((response) => {
         console.log(response);
         // fetchNotes(dispatch);
-        dispatch({
-          type: ADDED_NOTE,
-          payload: {
-            ...note,
-            id: response.data.success
-          }
-        });
+        dispatch({ type: ADDED_NOTE, payload: { ...note, id: response.data.success } });
         // creating new note object
       })
       .catch((error) => {
-        dispatch({
-          type: ERROR,
-          message: 'error adding note'
-        });
+        dispatch({ type: ERROR, message: 'error adding note' });
       });
   };
 };
@@ -99,7 +82,7 @@ export const deleteNote = (id) => {
       type: DELETING_NOTE
     });
     axios
-      .delete(`https://sumi-notes.netlify.com/${id}`)
+      .delete(`https://suminotes-api.herokuapp.com/${id}`)
       .then((response) => {
         console.log(response);
         fetchNotes(dispatch);
@@ -116,7 +99,7 @@ export const updateNote = (id, editNote) => {
       type: UPDATING_NOTE
     });
     axios
-      .put(`https://sumi-notes.netlify.com/${id}`, editNote)
+      .put(`https://suminotes-api.herokuapp.com/${id}`, editNote)
       .then((response) => {
         console.log('this is the response', response);
         dispatch({ type: NOTE_UPDATED, payload: { id, ...response.data } });
