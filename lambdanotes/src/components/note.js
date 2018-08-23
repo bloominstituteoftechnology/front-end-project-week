@@ -11,29 +11,30 @@ class Note extends Component {
         note: '',
         id: null,
         edittoggle: false,
-        inputTitle: '',
-        inputNote: ''
+        Redirect: false
     }
-        
+   
     componentDidMount() {
-        const note = this.props.notes.find(note => {
+        const note = this.props.notes.filter(note => {
             return note.id.toString() === this.props.match.params.id
         })
+        console.log(note[0])
         this.setState({
-            title: note.title,
-            note: note.note,
-            id: note.id,
+            title: note[0].title,
+            note: note[0].note,
+            id: note[0].id,
             edittoggle: false
-        })        
-        console.log('Did Mount', this.state)
+        })
     }
 
     editHandler = event => {
         event.preventDefault();
         this.setState({
-            title: this.state.inputTitle,
-            note: this.state.inputNote,
-            edittoggle: false
+            title: this.state.title,
+            note: this.state.note,
+            edittoggle: false,
+            Redirect: true },() => {
+                this.setState({Redirect: false})
         })
       }
 
@@ -59,15 +60,22 @@ class Note extends Component {
         console.log(this.state)
         return (  
             <div>
-                <Link to={`/note/${this.state.id}/edit`} ><Button color="info">EDIT</Button></Link>
-                <DeleteModal {...this.props} deleteHandler={this.props.deleteHandler} history={this.props.history}/>
-                <Card>
-                    <CardBody>
-                        <CardTitle>{this.state.title}</CardTitle>
-                        <CardText>{this.state.note}</CardText>
-                    </CardBody>
-                </Card>                          
-            </div>            
+                {this.state.edittoggle === false ?
+                    <div>
+                        <Button color="info" onClick={this.editToggle}>EDIT</Button>
+                        <DeleteModal {...this.props} deleteHandler={this.props.deleteHandler} history={this.props.history}/>
+                        <Card>
+                            <CardBody>
+                                <CardTitle>{this.state.title}</CardTitle>
+                                <CardText>{this.state.note}</CardText>
+                            </CardBody>
+                        </Card>
+                    </div>
+                    :
+                    <NoteFormEdit notes={this.state} handleEditChange={this.handleEditChange} editHandler={this.editHandler} editToggle={this.editToggle} Redirect={this.props.Redirect}/>
+            }
+                
+            </div>
         );
     }
     
