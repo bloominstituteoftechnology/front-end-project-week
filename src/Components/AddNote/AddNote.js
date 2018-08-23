@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SideBar from '../SideBar/SideBar.js';
 import './AddNote.css';
 import { connect } from 'react-redux';
+import {Links} from 'react-router-dom';
 
 import axios from 'axios'
 
@@ -26,6 +27,7 @@ class AddNote extends Component {
             this.setState({notes: response.data})
             this.props.handleRefresh();
             this.props.history.push('/');
+            alert('Your note has been added');
           })
     
           .catch(error => console.log(error));
