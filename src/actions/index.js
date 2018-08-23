@@ -11,6 +11,7 @@ export const fetchNotes = URL => {
     const promise = axios.get(`${URL}`);
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
+        axios.defaults.withCredentials = true;
         promise
             .then(response => {
                 dispatch({ type: FETCHED_NOTES, payload: response.data });

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { handleSearch, fetchNotes } from '../actions';
 import '../styles/Search.css';
 
-const URL = 'http://localhost:8000/api/notes/';
+const URL = 'https://m4rkl3y-notes.herokuapp.com/api/notes/';
 
 class Search extends Component {
     state = {
@@ -23,7 +23,7 @@ class Search extends Component {
 
     handleSearchInput = () => {
         const notes = this.props.notes.filter(note => {
-            if(note.title.toUpperCase().includes(this.state.search.toUpperCase()) || note.textBody.toUpperCase().includes(this.state.search.toUpperCase())|| note.tags.includes(this.state.search) || note._id.toUpperCase().includes(this.state.search.toUpperCase())){
+            if(note.title.toUpperCase().includes(this.state.search.toUpperCase()) || note.content.toUpperCase().includes(this.state.search.toUpperCase())){
                 return note;
             }
         });
@@ -33,7 +33,7 @@ class Search extends Component {
     render() {
         return (
             <form className='search-container' autoComplete='off'>
-                <input name='search' className='search' value={this.state.search} placeholder='Search Notes by Title, Content, Tags or ID' onChange={this.handleInputChange} autoComplete='off' />
+                <input name='search' className='search' value={this.state.search} placeholder='Search Notes by Title or Content' onChange={this.handleInputChange} autoComplete='off' />
             </form>
         )
     }

@@ -6,7 +6,7 @@ import Note from './Note';
 import Search from './Search';
 import '../styles/NotesList.css';
 
-const URL = 'http://localhost:8000/api/notes/';
+const URL = 'https://m4rkl3y-notes.herokuapp.com/api/notes/';
 
 class NotesList extends Component {
     componentDidMount() {

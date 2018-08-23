@@ -5,7 +5,7 @@
  import Tag from './Tag';
  import '../styles/ViewNote.css';
 
- const URL = 'http://localhost:8000/api/notes/';
+ const URL = 'https://m4rkl3y-notes.herokuapp.com/api/notes/';
 
  class ViewNote extends Component {
 

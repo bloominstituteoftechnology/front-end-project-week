@@ -76,7 +76,7 @@ class EditNote extends Component {
                             <div className='edit-form'>
                                 <input name='title' className='title' value={this.state.title} onChange={this.handeInputChange} />
                                 <textarea name='body' className='body' value={this.state.body} onChange={this.handeInputChange}></textarea>
-                                <input name='tags' className='tags' placeholder='Tags' value={this.state.tags} onChange={this.handeInputChange} />
+                                {/* <input name='tags' className='tags' placeholder='Tags' value={this.state.tags} onChange={this.handeInputChange} /> */}
                                 <button className='update-btn' type='submit' onClick={() => this.handleInputSubmit(this.props.singleNote.id)}>Update</button>
                             </div>
                         </div>
