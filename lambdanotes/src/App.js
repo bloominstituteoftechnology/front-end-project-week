@@ -28,9 +28,7 @@ class App extends Component {
   }
 
   handleNoteChange = event => {
-    console.log('HandleNoteChange', event.target.value)
     this.setState({[event.target.name]: event.target.value })
-    console.log('AppState',this.state)
   };
 
   addHandler = event => {
@@ -59,10 +57,6 @@ class App extends Component {
       let notes = this.state.notes.filter(item => item.id != id)
       this.setState({ notes });
     }
-
-    // editSubmit(mynote) = event => {
-    //   this.setState({myNote: mynote})
-    // }
 
    render() {
      console.log(this.state.notes)

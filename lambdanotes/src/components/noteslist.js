@@ -5,16 +5,30 @@ import { Card, CardText, CardBody, CardTitle} from 'reactstrap';
 
 import Note from './note';
 
+const NoteTextContainer = styled.div`
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+
+const NoteListText = styled.h4`
+    color: #414141;
+    text-align: left;
+    margin: 30px 5%;
+`
+const NoteListMessage = styled.h4`
+    color: #414141;
+`
+
 const NotesListAttrib = styled.div`
     width: 75%;
-    margin-right: 10px;
     background: #F2F1F2;
     height: 100vh;
 `
 const NoteCartContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-
 `
 
 const NoteCard = styled.div`
@@ -23,6 +37,9 @@ const NoteCard = styled.div`
     height: 200px;
     text-decoration: none;
     border: 1px solid black;
+    border-radius: 2px;
+    background: white;
+    box-shadow: 3px 3px 5px darkslategray;
 `
 
 const Line = styled.hr`
@@ -31,25 +48,35 @@ const Line = styled.hr`
 
 const NoteTitle = styled.h3`
     text-decoration: none;
+    color: black;
 `
 
 const NoteContent = styled.p`
     text-decoration: none;
+    color: black;
 `
 
 const NotesList = (props) => {
     return (  
         <NotesListAttrib>
-            <h2>Your Notes:</h2>   
-            <NoteCartContainer>
-                {props.notes.map(note => <Link to={`/note/${note.id}`} key={note.id}>
-                    <NoteCard key={note.id}>
-                        <NoteTitle>{note.title}</NoteTitle>
-                        <Line/>
-                        <NoteContent>{note.note}</NoteContent>
-                    </NoteCard>
-                </Link>)}
-            </NoteCartContainer>                     
+            <NoteListText>Your Notes:</NoteListText>   
+            {props.notes.length === 0 ? 
+                <NoteTextContainer>
+                    <NoteListMessage>No notes are available...</NoteListMessage>  
+                    <NoteListMessage>Please create a new note.</NoteListMessage>
+                </NoteTextContainer>
+                 
+                :
+                <NoteCartContainer>
+                    {props.notes.map(note => <Link to={`/note/${note.id}`} key={note.id}>
+                        <NoteCard key={note.id}>
+                            <NoteTitle>{note.title}</NoteTitle>
+                            <Line/>
+                            <NoteContent>{note.note}</NoteContent>
+                        </NoteCard>
+                    </Link>)}
+                </NoteCartContainer>  
+            }                               
         </NotesListAttrib>
     );
 }

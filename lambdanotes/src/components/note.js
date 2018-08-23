@@ -18,7 +18,6 @@ class Note extends Component {
         const note = this.props.notes.filter(note => {
             return note.id.toString() === this.props.match.params.id
         })
-        console.log(note[0])
         this.setState({
             title: note[0].title,
             note: note[0].note,
@@ -43,21 +42,11 @@ class Note extends Component {
         this.setState({ edittoggle: !edit})
       }
 
-    // editSetup = (id) => {
-    //     const arr = props.notes;
-    //     let singleNote = arr.find(note => note.id.toString() === id);
-    //     this.setState({inputTitle: singleNote.title, inputNote: singleNote.note})
-    // }
-
-
-
     handleEditChange = event => {
     this.setState({[event.target.name]: event.target.value })
     };
 
     render() {
-        console.log(this.props)
-        console.log(this.state)
         return (  
             <div>
                 {this.state.edittoggle === false ?

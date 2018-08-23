@@ -21,7 +21,6 @@ class DeleteModal extends React.Component {
 
 
   render() {
-      console.log(this.props)
     return (
       <div>
          <Button color="info" onClick={this.toggle}>DELETE</Button>
