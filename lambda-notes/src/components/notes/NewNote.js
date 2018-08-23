@@ -5,7 +5,7 @@ class NewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allNotes: props.notes
+      allNotes: this.props.notes
     };
   }
 

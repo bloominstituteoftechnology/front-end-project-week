@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 class EditNote extends Component {
   constructor(props) {
     super(props);
+    console.log("EDIT NOTE", this.props.notes);
     this.state = {
-      allNotes: props.notes
+      allNotes: this.props.notes
     };
   }
 

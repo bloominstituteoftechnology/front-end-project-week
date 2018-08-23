@@ -8,8 +8,8 @@ import { noteData } from "./components/data/noteData";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: [],
       loadedData: false,
@@ -17,10 +17,20 @@ class App extends Component {
       description: "",
       isOpen: false
     };
+    // this.deleteNoteHandler = this.deleteNoteHandler.bind(this);
   }
   componentDidMount() {
     this.setState({ notes: noteData, loadedData: true });
   }
+
+  // not receiving any props
+  // componentDidUpdate(prevProps) {
+  //   console.log("PREVPROPS APP", prevProps);
+  //   console.log("CURRENTPROPS APP", this.props);
+  //   if (this.props !== prevProps.notes) {
+  //     console.log("NOT MATCHING");
+  //   }
+  // }
 
   // new note and modify note handlers
   inputChangeHandler = event => {
@@ -61,6 +71,29 @@ class App extends Component {
     });
   };
 
+  deleteNoteHandler = event => {
+    console.log("event", event);
+    let noteNumberToAvoid = parseInt(
+      event.target.attributes.getNamedItem("deletenotenumber").value,
+      10
+    );
+    let notesCopy = this.state.notes.slice();
+    console.log("DELETE NOTE HANDLER", noteNumberToAvoid);
+    console.log("DELETE NOTE HANDLER", notesCopy);
+    notesCopy = notesCopy.filter(note => {
+      console.log(note);
+      return note.id !== noteNumberToAvoid;
+    });
+    console.log("DELETE NOTE HANDLER", notesCopy);
+    this.setState({ notes: notesCopy });
+
+    // Same as above, just uses different way
+    // console.log("DELETE NOTE HANDLER", event);
+    // this.setState({
+    //   notes: this.state.notes.filter(note => note.id !== event)
+    // });
+  };
+
   render() {
     console.log("isOpen", this.state.isOpen);
     if (this.state.loadedData === false) {
@@ -96,6 +129,7 @@ class App extends Component {
                 notes={this.state.notes}
                 toggleModal={this.toggleModal}
                 show={this.state.isOpen}
+                deleteNoteHandler={this.deleteNoteHandler}
               />
             )}
           />
