@@ -71,11 +71,13 @@ class Note extends React.Component{
                             autoFocus={this.state.default}
                             centered={this.state.default}
                             fade={this.state.default}>
-                        <ModalHeader toggle={this.toggle} charCode="X" />
-                        <ModalBody style={{textAlign: 'center'}}>
+                        <ModalHeader toggle={this.toggle}
+                                     charCode="X"
+                                     style={{border: 'none'}} />
+                        <ModalBody style={{textAlign: 'center', border: 'none'}}>
                             Are you sure you want to delete this?
                         </ModalBody>
-                        <ModalFooter style={{height:'100px'}}>
+                        <ModalFooter style={{height:'100px', border: 'none'}}>
                             <Button color="danger"
                                     onClick={() => {this.props.deleteNote(this.props.match.params.id);
                                                     this.toggle(); }}

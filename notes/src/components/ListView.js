@@ -64,7 +64,9 @@ class ListView extends React.Component{
                                         <Link to={`/note/${note._id}`}
                                                 style={{ textDecoration: 'none',
                                                         color: 'black' }}>
-                                            <Content><ReactMarkdown source={note.textBody} /></Content>
+                                            <Content>
+                                                <ReactMarkdown source={note.textBody} />
+                                            </Content>
                                         </Link>
                                     </SmallNote>
                                 </Draggable>

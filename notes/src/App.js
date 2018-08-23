@@ -44,16 +44,13 @@ class App extends Component {
     }
   addNote = e => {
     e.preventDefault();
-    let note = {title: this.state.title, textBody: this.state.textBody};
-    this.props.addNote(note);
+    this.props.addNote(this.state.title, this.state.textBody);
     this.setState({title:'', textBody:'',});
-    window.location.href="/get/all";
+    window.location.reload();
   }
   updateNote = e => {
     e.preventDefault();
-    this.props.updateNote(`${this.props.note.title} ${this.state.title}`,
-                        `${this.props.note.textBody} ${this.state.textBody}`,
-                          e.target.id);
+    this.props.updateNote(this.state.title,this.state.textBody, e.target.id);
     this.setState({title:'', textBody:'',});
     // window.location.href='/get/all';
   }

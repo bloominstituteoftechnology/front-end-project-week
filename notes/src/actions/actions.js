@@ -47,14 +47,13 @@ export const fetchOneNote = _id => {
 //     }
 // }
 
-export const addNote = note => {
+export const addNote = (title, textBody) => {
     return dispatch => {
         dispatch({type: ADDING_NOTE});
         axios
             .post(`${url}/create`, {
-                title: note.title,
-                textBody: note.textBody,
-                tags: note.tags,
+                title: title,
+                textBody: textBody,
             })
             .then(response => {
                 dispatch({type: ADDED_NOTE, payload: response.config.data});

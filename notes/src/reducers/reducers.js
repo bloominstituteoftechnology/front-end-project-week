@@ -59,12 +59,11 @@ export const rootReducer = (state = initialState, action) => {
                 addingNote: true,
             }
         case ADDED_NOTE:
-            return {
-                ...state,
+            return Object.assign({}, state,{
                 addingNote: false,
                 addedNote: true,
                 notes: [...state.notes, action.payload],
-            }
+            })
         case UPDATING_NOTE:
             return Object.assign({}, state, {
                 updatingNote: true,
