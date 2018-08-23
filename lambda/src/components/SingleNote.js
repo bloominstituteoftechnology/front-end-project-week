@@ -7,7 +7,7 @@ import '../Delete.css'
 
 const View = styled.div`
 background: #F0F0F0;
-width: 820px;
+width: 917px;
 height: 775px;
 flex-direction: column;
 display: flex;
@@ -77,10 +77,10 @@ const SingleNote = props => {
         </DeleteBox>
       </div>
     <Edit>
-      <NavLink  onClick={() => props.noteEdit(note.id)}  to={`/view/edit/${note.id}`}>
+      <NavLink  onClick={() => props.noteEdit(note.id)}  to={`/view/edit/${note.id}`} style={{'text-decoration': 'none'}}>
     Edit
     </NavLink>
-    <NavLink  to={`/view/${note.id}`} onClick={props.deleteBox}>
+    <NavLink  to={`/view/${note.id}`} onClick={props.deleteBox} style={{'text-decoration': 'none'}}>
     Delete
     </NavLink>
     </Edit>

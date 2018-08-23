@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 background: #F0F0F0;
-width: 820px;
+width: 917px;
 height: 775px;
 flex-direction: column;
 display: flex;
@@ -21,6 +21,19 @@ width: 700px;
 height: 500px;
 padding: 1%;
 margin: 2%;
+`;
+const Button = styled.button`
+background: #1E90FF;
+color: white;
+display: flex;
+font-size: 1.5rem;
+width: 200px;
+padding: 1%;
+text-align: center;
+position: center;
+flex-direction: column;
+cursor: pointer;
+textDecoration: none;
 `;
 
 
@@ -50,8 +63,9 @@ margin: 2%;
             defaultValue={props.contentEdit}
             name= 'contentEdit'
             />
-            <NavLink onClick={()=>props.edited(props.match.params.id)} to='/'>
-            Add New Note
+            <NavLink onClick={()=>props.edited(props.match.params.id)} to='/'
+            style={{'text-decoration': 'none'}}>
+            <Button>Add New Note</Button>
             </NavLink>
         
         </Container>

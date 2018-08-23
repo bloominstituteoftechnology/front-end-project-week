@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
  const Container = styled.div`
     background: #F0F0F0;
-    width: 820px;
+    width: 917px;
     height: 775px;
     flex-direction: column;
     display: flex;
@@ -21,7 +21,7 @@ const Content = styled.input`
     margin: 2%;
 `;
 const Button = styled.button`
-    background: darkblue;
+    background: #1E90FF;
     color: white;
     font-size: 1rem;
     font-weight: 700;
