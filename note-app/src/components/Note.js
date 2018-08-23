@@ -8,20 +8,21 @@ const IndividualNote = styled.div`
   margin-bottom: 14px;
   cursor: move;
 `;
+let dragSrc = null; 
 
 class Note extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dragSrc: null
-    };
+      
+    }
   }
+
   handleDragStart = event => {
     event.target.style.opacity = ".35";
 
-    const dragSrc = event.target;
-    this.setState({ dragSrc });
-    event.target.dataTransfer.effectAllowed = "move";
+    dragSrc = event.target;
+    
     event.dataTransfer.setData("text/html", event.target.innerHTML);
   };
   handleDragOver = event => {
@@ -42,14 +43,14 @@ class Note extends React.Component {
     if (event.stopPropagation) {
       event.stopPropagation();
     }
-    if (this.state.dragSrc !== event.target) {
-      this.state.dragSrc.innerHTML = event.target.innerHTML;
+    if (dragSrc !== event.target) {
+      dragSrc.innerHTML = event.target.innerHTML;
       event.target.innerHTML = event.dataTransfer.getData("text/html");
     }
     return false;
   };
-  handleDragEnd = event => {
-    const columns = document.querySelectorAll(".columns");
+  handleDragEnd = () => {
+    const columns = document.querySelectorAll(".column");
     columns.forEach(column => {
       column.classList.remove("over");
       column.style.opacity = 1;

@@ -11,12 +11,25 @@
       "__v": 0
     },
     {
-      "id": "_41kyytuhs",
+      "id": "_ylgcsgffu",
       "tags": [
-        "draggable"
+        "project",
+        "week",
+        "lambda",
+        ""
       ],
-      "title": "New Note ",
-      "textBody": "Testing out the Drag and Drop feature. I would like to see if I can get this to work. ",
+      "title": "Creating Another Note",
+      "textBody": "🤣😂😊❤😍😁🙌🤦‍♀️🤦‍♂️🎶😎🤔😆😃👀🤷‍♂️👌😘😘😘😘 just getting more notes put on the page. Coding is awesome. Project Week is almost complete. ",
+      "__v": 0
+    },
+    {
+      "id": "_6lqopwy3w",
+      "tags": [
+        "drag",
+        "drop"
+      ],
+      "title": "I want three total spots",
+      "textBody": "So this will allow me to have three total spots to choose from. \n\nHopefully this allows me to to work on the drag and drop feature of the application. ",
       "__v": 0
     }
   ]
