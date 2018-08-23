@@ -64,16 +64,16 @@ const MainContainer = styled("div")`
 `
 
 
-{/*Handles - Routing, passing initial state, modal ~&&~ delete, edit, add notes*/}
+// Handles - Routing, passing initial state, modal ~&&~ delete, edit, add notes*/
 class App extends Component {
   state = {
-    atNotesPage: false,
+    atHomePage: false,
     isModalOpen: false
   }
 
-  atNotesPageToggle = () => {
+  atHomeToggle = () => {
     this.setState(prevState => {
-      return { atNotesPage: !prevState.atNotesPage }
+      return { atHomePage: !prevState.atHomePage }
     })
   }
 
@@ -96,6 +96,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <Router>
         <MainContainer>
@@ -105,19 +106,14 @@ class App extends Component {
             </div>
             <nav>
               <NavLink className="link" exact strict to="/notes">View Your Notes</NavLink>
-              {this.state.atNotesPage ? <NavLink className="link" to="/notes/add-note/">+Create New Note</NavLink> : null}
+              {!this.state.atHomePage ? <NavLink className="link" to="/notes/add-note/">+Create New Note</NavLink> : null}
             </nav>
           </header>
 
           {/* Routes */}
-          <Route exact strict path="/" component={ Home } />
+          <Route exact strict path="/" render={props => <Home {...props} atHomeToggle={this.atHomeToggle} /> } />
 
-          <Route exact strict path="/notes"
-            render={props => <NotesContainer
-              {...props}
-              atNotesPageToggle={this.atNotesPageToggle}
-            /> }
-          />
+          <Route exact strict path="/notes" component={ NotesContainer } />
 
           <Route path="/notes/add-note/"
             render={props => <AddNoteForm
