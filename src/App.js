@@ -48,7 +48,7 @@ display: flex;
 componentDidMount() {
   const apiUrl = process.env.REACT_APP_API;
   axios
-  .get('https://sgnotes.herokuapp.com/api/notes')
+  .get(apiUrl)
   .then(response => {
     console.log("Get Response",response);
     this.setState({notes: response.data });
