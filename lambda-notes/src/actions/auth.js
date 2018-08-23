@@ -18,7 +18,7 @@ export const SET_SIGNIN = 'SET_SIGNIN'
 export const ERROR = 'ERROR';
 
 export const signIn = credentials => {
-    const promise = axios.post(`http://localhost:8000/api/users/login`, credentials);
+    const promise = axios.post(`https://noteswebapi.herokuapp.com/api/users/login`, credentials);
     return dispatch => {
         dispatch({ type: SIGNING_IN });
         promise.then(response => {
@@ -30,7 +30,7 @@ export const signIn = credentials => {
 }
 
 export const signUp = user => {
-    const promise = axios.post(`http://localhost:8000/api/users/register`, user);
+    const promise = axios.post(`https://noteswebapi.herokuapp.com/api/users/register`, user);
     return dispatch => {
         dispatch({ type: SIGNING_UP });
         promise.then(response => {
@@ -41,20 +41,26 @@ export const signUp = user => {
     }
 }
 
-export const checkToken = token => {
-    const promise = axios.get(`http://localhost:8000/api/users/auth`, { headers: { Authorization: token } });
+export const checkToken = (token, history) => {
+    const promise = axios.get(`https://noteswebapi.herokuapp.com/api/users/auth`, { headers: { Authorization: token } });
     return dispatch => {
         dispatch({ type: CHECKING_TOKEN });
         promise
             .then(axios.defaults.headers.common = { Authorization: token })
             .then(response => dispatch({ type: TOKEN_CHECKED, payload: response.data.success }))
-            .catch(err => dispatch({ type: ERROR, payload: err }));
+            .catch(err => {
+                if (err.response.data.error === 'Token invalid') {
+                    localStorage.removeItem('token');
+                    history.push('/login');
+                }
+                dispatch({ type: ERROR, payload: err })
+            });
     }
 }
 
 export const setOrder = order => {
     const id = jwt_decode(localStorage.getItem('token')).userId;
-    const promise = axios.put(`http://localhost:8000/api/users/${id}`, order);
+    const promise = axios.put(`https://noteswebapi.herokuapp.com/api/users/${id}`, order);
     return dispatch => {
         dispatch({ type: UPDATING_ORDER });
         promise.then(response => {

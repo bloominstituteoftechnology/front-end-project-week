@@ -21,7 +21,11 @@ export const SET_NOTES = 'SET_NOTES';
 export const ERROR = 'ERROR';
 
 export const getNotes = () => {
-    const promise = axios.get('http://localhost:8000/api/notes');
+    if (!axios.defaults.headers.common.authorization) {
+        axios.defaults.headers.common = { Authorization: localStorage.getItem('token') }
+    }
+
+    const promise = axios.get('https://noteswebapi.herokuapp.com/api/notes');
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise.then(response => dispatch({ type: NOTES_FETCHED, payload: response.data }))
@@ -30,7 +34,7 @@ export const getNotes = () => {
 }
 
 export const getNote = id => {
-    const promise = axios.get(`http://localhost:8000/api/notes/${id}`);
+    const promise = axios.get(`https://noteswebapi.herokuapp.com/api/notes/${id}`);
     return dispatch => {
         dispatch({ type: FETCHING_NOTE });
         promise.then(response => dispatch({ type: NOTE_FETCHED, payload: response.data }))
@@ -39,7 +43,7 @@ export const getNote = id => {
 }
 
 export const addNote = (note, history) => {
-    const promise = axios.post('http://localhost:8000/api/notes', note);
+    const promise = axios.post('https://noteswebapi.herokuapp.com/api/notes', note);
     return dispatch => {
         dispatch({ type: CREATING_NOTE });
         promise.then(response => {
@@ -51,7 +55,7 @@ export const addNote = (note, history) => {
 }
 
 export const editNote = (note, history) => {
-    const promise = axios.put(`http://localhost:8000/api/notes/${note.id}`, note);
+    const promise = axios.put(`https://noteswebapi.herokuapp.com/api/notes/${note.id}`, note);
     return dispatch => {
         dispatch({ type: EDITING_NOTE });
         promise.then(response => {
@@ -65,7 +69,7 @@ export const editNote = (note, history) => {
 }
 
 export const deleteNote = (id, history) => {
-    const promise = axios.delete(`http://localhost:8000/api/notes/${id}`);
+    const promise = axios.delete(`https://noteswebapi.herokuapp.com/api/notes/${id}`);
     return dispatch => {
         dispatch({ type: DELETING_NOTE });
         promise.then(() => {

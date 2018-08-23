@@ -1,6 +1,5 @@
 import React from 'react';
 import { SideBarWrapper, SideBarContent, SideBarHeader, MainButtons } from '../ReusableComponents/SideBar';
-import RequireAuth from '../Authenticate/RequireAuth';
 
 const SideBarContainer = props => {
     return (
@@ -17,4 +16,4 @@ const SideBarContainer = props => {
     );
 }
 
-export default RequireAuth(SideBarContainer);
+export default SideBarContainer;

@@ -9,7 +9,7 @@ const RequireNotAuth = ComposedComponent =>
         componentDidMount() {
             const token = localStorage.getItem('token');
             if (token) {
-                return this.props.checkToken(token);
+                return this.props.checkToken(token, this.props.history);
             }
             this.props.setSignIn();
         }

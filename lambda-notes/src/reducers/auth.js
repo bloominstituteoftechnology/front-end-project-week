@@ -45,18 +45,16 @@ export default (state = initialState, action) => {
         case ERROR:
             switch (action.payload.response.data.error) {
                 case "The username you entered doesn't belong to an account.":
-                    return { ...state, error: action.payload, invalidCredentials: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+                    return { ...state, error: action.payload, checkingToken: false, invalidCredentials: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
 
                 case "Invalid password":
-                    return { ...state, error: action.payload, invalidCredentials: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+                    return { ...state, error: action.payload, checkingToken: false, invalidCredentials: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
 
                 case "There is already a user with that name.":
-                    return { ...state, error: action.payload, userExists: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+                    return { ...state, error: action.payload, checkingToken: false, userExists: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
 
                 case "Token invalid":
-                    localStorage.removeItem('token');
-                    window.location.reload();
-                    return { ...state, error: action.payload, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+                    return { ...state, error: action.payload, checkingToken: false, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
 
                 default:
                     return { ...state, error: action.payload, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
