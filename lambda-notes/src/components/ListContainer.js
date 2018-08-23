@@ -95,7 +95,7 @@ class ListContainer extends React.Component {
     }
 
     deleteNoteHandler = (id) => {
-      axios.delete(this.state.list.filter(note => note.id === id))
+      axios.delete(`${this.state.list.filter(note => note.id === id)}`)
         .then(response => {
           console.log(response);
         });

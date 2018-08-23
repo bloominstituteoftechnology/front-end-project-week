@@ -1,4 +1,16 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
+.nav {
+  background-color: rgb(211, 210, 211);
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.container {
+  padding-left: 50px
+}
