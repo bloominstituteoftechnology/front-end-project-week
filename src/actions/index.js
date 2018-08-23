@@ -1,6 +1,6 @@
 import axios from 'axios'
-// const url = `https://shyne-notes.herokuapp.com`
-const url = `http://localhost:8000`
+const url = `https://shyne-notes.herokuapp.com`
+// const url = `http://localhost:8000`
 
 export const GET_NOTES = 'GET_NOTES'
 export const FETCHING = 'FETCHING'
