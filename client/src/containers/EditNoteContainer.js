@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 
 import { SecondaryHeading } from '../styles';
 import NotesForm from '../components/NotesForm';
-import { editNote } from '../actions';
+import { editNote, fetchOne } from '../actions';
 
 class EditNoteContainer extends Component {
   state = {
     requested: false,
   };
+
+  componentDidMount() {
+    this.props.fetchOne(this.props.match.params.id);
+  }
 
   onFormSubmit = data => {
     this.props.editNote(this.props.match.params.id, data);
@@ -37,8 +41,7 @@ class EditNoteContainer extends Component {
         <SecondaryHeading>Edit Note</SecondaryHeading>
         <NotesForm
           preloadedState={{
-            title: currentNote.title,
-            textBody: currentNote.textBody,
+            ...currentNote,
           }}
           onFormSubmit={this.onFormSubmit}
         />
@@ -48,6 +51,18 @@ class EditNoteContainer extends Component {
 }
 
 export default connect(
-  ({ isEditing, error, currentNote }) => ({ isEditing, error, currentNote }),
-  { editNote },
+  (
+    { isEditing, error, notes, currentNote },
+    {
+      match: {
+        params: { id },
+      },
+    },
+  ) => ({
+    isEditing,
+    error,
+    currentNote,
+    notes,
+  }),
+  { editNote, fetchOne },
 )(EditNoteContainer);

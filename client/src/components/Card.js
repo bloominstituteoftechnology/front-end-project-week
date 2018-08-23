@@ -5,6 +5,8 @@ import ReactMarkdown from 'react-markdown';
 import { Button, LinkWrapper } from '../styles';
 import { DragSource, DropTarget } from 'react-dnd';
 
+import { Tag } from '../styles';
+
 const StyledCard = styled.div`
   padding: 3rem;
   box-shadow: ${props =>
@@ -83,7 +85,7 @@ const collectTarget = connect => ({
 });
 
 const Card = ({
-  note: { _id, title, textBody },
+  note: { _id, title, textBody, tags },
   connectDragSource,
   isDragging,
   connectDropTarget,
@@ -94,13 +96,34 @@ const Card = ({
         <StyledCard isDragging={isDragging}>
           <HideOverflow>
             <CardTitle>{title}</CardTitle>
+            {tags.length > 0 && (
+              <div style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
+                Tags:{' '}
+                {tags.map(tag => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            )}
             <CardBody>
               <ReactMarkdown source={textBody.substr(0, 250)} />
             </CardBody>
           </HideOverflow>
-          <LinkWrapper to={`/notes/${_id}`} key={_id}>
-            <Button>View</Button>
-          </LinkWrapper>
+          <div>
+            <LinkWrapper
+              style={{ display: 'inline-block', margin: '0 1rem 0 0' }}
+              to={`/notes/${_id}`}
+              key={_id}
+            >
+              <Button>View</Button>
+            </LinkWrapper>
+            <LinkWrapper
+              style={{ display: 'inline-block', margin: 0 }}
+              to={`/notes/${_id}/edit`}
+              key={_id}
+            >
+              <Button>Edit</Button>
+            </LinkWrapper>
+          </div>
         </StyledCard>
       </div>,
     ),

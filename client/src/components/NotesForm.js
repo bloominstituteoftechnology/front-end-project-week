@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../styles';
+import { Button, Tag } from '../styles';
 
 const StyledInput = styled.input`
   padding: 1rem;
@@ -40,10 +40,17 @@ const FormButton = Button.extend`
   width: 25rem;
 `;
 
+const InlineInput = StyledInput.extend`
+  display: inline-block;
+  margin-right: 1rem;
+`;
+
 class NotesForm extends Component {
   state = {
     title: '',
     textBody: '',
+    tags: [],
+    tag: '',
   };
 
   componentDidMount() {
@@ -52,12 +59,23 @@ class NotesForm extends Component {
     }
   }
 
-  handleChange = ({ target: { name, value } }) =>
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.preloadedState._id !== this.props.preloadedState._id) {
+      this.setState(this.props.preloadedState);
+    }
+  }
+
+  handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+  };
+
+  deleteTag = name =>
+    this.setState(({ tags }) => ({ tags: tags.filter(tag => tag !== name) }));
 
   onFormSubmit = e => {
     e.preventDefault();
-    this.props.onFormSubmit(this.state);
+    const { title, textBody, tags } = this.state;
+    this.props.onFormSubmit({ title, textBody, tags });
   };
 
   render() {
@@ -77,6 +95,49 @@ class NotesForm extends Component {
           onChange={this.handleChange}
           name="textBody"
         />
+        <InlineInput
+          type="text"
+          name="tag"
+          onChange={this.handleChange}
+          value={this.state.tag}
+          placeholder="Add tag"
+          autoComplete="off"
+          onKeyDown={event => {
+            const {
+              key,
+              target: { value },
+              target,
+            } = event;
+            if (key === 'Enter') {
+              event.stopPropagation();
+              target.value = '';
+            }
+          }}
+        />
+        <Button
+          type="button"
+          onClick={() => {
+            this.setState(({ tags, tag }) => ({
+              tags: [...tags, tag],
+              tag: '',
+            }));
+          }}
+        >
+          Add Tag
+        </Button>
+        <div style={{ marginBottom: '2rem' }}>
+          {this.state.tags.map(tag => (
+            <Tag key={tag}>
+              {tag + ' '}{' '}
+              <span
+                style={{ cursor: 'pointer' }}
+                onClick={() => this.deleteTag(tag)}
+              >
+                &times;
+              </span>
+            </Tag>
+          ))}
+        </div>
         <FormButton>Save</FormButton>
       </form>
     );

@@ -37,3 +37,15 @@ export const LinkWrapper = styled(Link)`
     margin-bottom: 1rem;
   }
 `;
+
+export const Tag = styled.span`
+  display: inline-block;
+  font-size: 1.2rem;
+  background-color: #757575;
+  color: #fafafa;
+  padding: 0.5rem;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+`;
