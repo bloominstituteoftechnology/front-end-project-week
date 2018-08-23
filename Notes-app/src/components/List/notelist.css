@@ -1,0 +1,47 @@
+.page {
+  display: flex;
+  width: 100vw;
+  background: #f5f5f5;
+  /* min-height: 800px; */
+}
+
+section {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+}
+
+.note-container {
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.notes-title {
+  color: #545752;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+
+.note {
+  background: white;
+  width: 25%;
+  height: 200px;
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px 10px;
+  padding: 0 2% 0 2%;
+  line-height: 1.5;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}

@@ -15,7 +15,7 @@ class App extends Component {
         <Route exact path="/" component={List} />
         <Route path="/create" component={NewForm} />
         <Route path="/note/:id" component={NoteCard} />
-        <Route path="edit/:id" component={EditNote} />
+        <Route path="/edit/:id" component={EditNote} />
       </div>
     );
   }

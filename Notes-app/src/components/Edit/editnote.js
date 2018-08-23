@@ -10,11 +10,7 @@ class EditNote extends Component {
       _id: 0,
       title: "",
       textBody: ""
-    },
-
-    _id: -1,
-    title: "",
-    textBody: ""
+    }
   };
 
   handleInputChange = event => {
@@ -28,7 +24,7 @@ class EditNote extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     const newNote = this.props.notes.filter(note => {
-      return note._id == id;
+      return note._id === id;
     });
     this.setState({ note: newNote[0] });
     this.setState({ _id: id });

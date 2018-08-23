@@ -17,11 +17,11 @@ export class NoteCard extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    const newsNote = this.props.notes.filter(note => {
+    const newNote = this.props.notes.filter(note => {
       return note._id === id;
     });
     this.setState({ id: id });
-    this.setState({ note: newsNote[0] });
+    this.setState({ note: newNote[0] });
     this.props.fetchNote(id);
   }
 
@@ -30,15 +30,14 @@ export class NoteCard extends Component {
   }
   deleteHandler() {
     const index = this.state.id;
-    let newsNote = this.props.notes.slice();
+    let newNotes = this.props.notes.slice();
 
-    function isIndex(note) {
-      return note.id == index;
+    function thisIndex(note) {
+      return note.id === index;
     }
 
-    const idFinder = newsNote.indexOf(newsNote.find(isIndex));
-    newsNote.splice(idFinder, 1);
-
+    const iFinder = newNotes.indexOf(newNotes.find(thisIndex));
+    newNotes.splice(iFinder, 1);
     this.props.deleteNote(this.props.note._id);
   }
   render() {
@@ -52,17 +51,14 @@ export class NoteCard extends Component {
                 <Link to="/">
                   <button
                     type="button"
-                    className="btn-del"
+                    className="del"
                     onClick={() => this.deleteHandler()}
                   >
                     Delete
                   </button>
                 </Link>
 
-                <button
-                  className="overlay-btn"
-                  onClick={() => this.showDeleteHandler()}
-                >
+                <button className="no" onClick={() => this.showDeleteHandler()}>
                   No
                 </button>
               </div>
@@ -70,14 +66,14 @@ export class NoteCard extends Component {
           </div>
         ) : null}
         <SideBar />
-        <section>
+        <section className="card">
           <div className="edit-delete">
             <Link to={`/edit/${this.state.id}`}>
               <a> edit </a>
             </Link>
             <a onClick={() => this.showDeleteHandler()}> delete </a>
           </div>
-          <h1 className="notes-title card">{this.props.note.title}</h1>
+          <h1 className="notes-title">{this.props.note.title}</h1>
           <a className="note-content">{this.props.note.textBody}</a>
         </section>
       </div>

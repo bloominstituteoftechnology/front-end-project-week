@@ -13,9 +13,9 @@ export const UPDATING = "UPDATING";
 export const UPDATED = "UPDATED";
 
 export const fetchNotes = () => {
-  const noteData = axios.get("https://killer-notes.herokuapp.com/note/get/all");
+  const promise = axios.get("https://killer-notes.herokuapp.com/note/get/all");
   return function(dispatch) {
-    noteData
+    promise
       .then(({ data }) => {
         dispatch({ type: FETCHED, payload: data });
       })
@@ -26,12 +26,12 @@ export const fetchNotes = () => {
 };
 
 export const fetchNote = id => {
-  const noteData = axios.get(
+  const promise = axios.get(
     `https://killer-notes.herokuapp.com/note/get/${id}`
   );
   return function(dispatch) {
     dispatch({ type: FETCHING_SINGLE });
-    noteData
+    promise
       .then(({ data }) => {
         dispatch({ type: FETCHED_SINGLE, payload: data });
       })
@@ -42,13 +42,13 @@ export const fetchNote = id => {
 };
 
 export const addNote = newNote => {
-  const noteData = axios.post(
+  const promise = axios.post(
     "https://killer-notes.herokuapp.com/note/create",
     newNote
   );
   return function(dispatch) {
     dispatch({ type: ADDING });
-    noteData
+    promise
       .then(({ data }) => {
         dispatch({ type: ADDED, payload: data });
       })
@@ -59,13 +59,13 @@ export const addNote = newNote => {
 };
 
 export const updateNote = noteEdit => {
-  const noteData = axios.put(
+  const promise = axios.put(
     `https://killer-notes.herokuapp.com/note/edit/${noteEdit._id}`,
     noteEdit
   );
   return function(dispatch) {
     dispatch({ type: UPDATING });
-    noteData
+    promise
       .then(({ data }) => {
         dispatch({ type: UPDATED, payload: data });
       })
@@ -76,12 +76,12 @@ export const updateNote = noteEdit => {
 };
 
 export const deleteNote = id => {
-  const noteData = axios.delete(
+  const promise = axios.delete(
     `https://killer-notes.herokuapp.com/note/delete/${id}`
   );
   return function(dispatch) {
     dispatch({ type: DELETING });
-    noteData
+    promise
       .then(({ data }) => {
         dispatch({ type: DELETED });
       })

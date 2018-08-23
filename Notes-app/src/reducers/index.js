@@ -28,7 +28,7 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, addingNote: true };
 
     case actionTypes.ADDED:
-      return { ...state, addingNote: false };
+      return { ...state, addingNote: false, note: action.payload };
 
     case actionTypes.UPDATING:
       return { ...state, updatingNote: true };
