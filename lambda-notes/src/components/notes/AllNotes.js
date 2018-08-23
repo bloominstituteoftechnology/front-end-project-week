@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { SideBar } from "../sidebar/SideBar";
 
 import "../../css/allnotes.css";
 
@@ -20,7 +19,6 @@ class AllNotes extends Component {
   render() {
     return (
       <div className="mainNotesPageDiv">
-        <SideBar />
         <div className="allNotesDiv">
           <h2 className="yourNotesTitle">Your Notes:</h2>
           {this.state.allNotes.map(note => {

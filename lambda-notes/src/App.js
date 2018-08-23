@@ -7,6 +7,7 @@ import SingleNote from "./components/notes/SingleNote";
 import { noteData } from "./components/data/noteData";
 import "./App.css";
 import "./css/reset.css";
+import { SideBar } from "./components/sidebar/SideBar";
 
 class App extends Component {
   constructor(props) {
@@ -95,6 +96,7 @@ class App extends Component {
     return (
       <Router>
         <div className="mainAppDiv">
+          <Route path="/" component={SideBar} />
           <Route
             exact
             path="/"

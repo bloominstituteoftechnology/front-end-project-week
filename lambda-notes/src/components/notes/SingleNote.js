@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { SideBar } from "../sidebar/SideBar";
 
 import "../../css/singlenote.css";
 
@@ -28,7 +27,6 @@ class SingleNote extends Component {
     if (!this.props.show) {
       return (
         <div className="singleNoteDiv">
-          <SideBar />
           <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
             <button className="editButton">Edit</button>
           </Link>
@@ -41,7 +39,6 @@ class SingleNote extends Component {
     } else {
       return (
         <div className="singleNoteDiv">
-          <SideBar />
           <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
             <button className="editButton">Edit</button>
           </Link>
