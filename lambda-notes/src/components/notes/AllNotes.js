@@ -19,8 +19,8 @@ class AllNotes extends Component {
   render() {
     return (
       <div className="mainNotesPageDiv">
+        <h2 className="yourNotesTitle">Your Notes:</h2>
         <div className="allNotesDiv">
-          <h2 className="yourNotesTitle">Your Notes:</h2>
           {this.state.allNotes.map(note => {
             return (
               <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
