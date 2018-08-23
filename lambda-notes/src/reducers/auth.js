@@ -1,4 +1,4 @@
-import { SIGNING_IN, SIGNED_IN, SIGNING_UP, SIGNED_UP, CHECKING_TOKEN, TOKEN_CHECKED, SET_SIGNIN, ERROR } from '../actions/auth';
+import { SIGNING_IN, SIGNED_IN, SIGNING_UP, SIGNED_UP, CHECKING_TOKEN, TOKEN_CHECKED, SET_SIGNIN, ERROR, UPDATING_ORDER, ORDER_UPDATED } from '../actions/auth';
 
 const initialState = {
     signingIn: false,
@@ -6,6 +6,8 @@ const initialState = {
     signingUp: false,
     signedUp: false,
     checkingToken: false,
+    updatingOrder: false,
+    orderUpdated: false,
     userExists: null,
     invalidCredentials: null,
     error: null
@@ -31,6 +33,12 @@ export default (state = initialState, action) => {
         case TOKEN_CHECKED:
             return { ...state, signedIn: action.payload, checkingToken: false };
 
+        case UPDATING_ORDER:
+            return { ...state, updatingOrder: true };
+
+        case ORDER_UPDATED:
+            return { ...state, orderUpdated: true, updatingOrder: false };
+
         case SET_SIGNIN:
             return { ...state, signedIn: false };
 
@@ -44,6 +52,11 @@ export default (state = initialState, action) => {
 
                 case "There is already a user with that name.":
                     return { ...state, error: action.payload, userExists: action.payload.response.data.error, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
+
+                case "Token invalid":
+                    localStorage.removeItem('token');
+                    window.location.reload();
+                    return { ...state, error: action.payload, signingIn: false, signedIn: false, signingUp: false, signedUp: false }
 
                 default:
                     return { ...state, error: action.payload, signingIn: false, signedIn: false, signingUp: false, signedUp: false }

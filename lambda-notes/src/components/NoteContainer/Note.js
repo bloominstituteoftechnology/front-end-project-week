@@ -57,9 +57,8 @@ class Note extends React.Component {
 
     deleteNote = () => {
         // Deletes note / Removes Modal / Takes back to notes
-        this.props.deleteNote(this.props.note.id);
+        this.props.deleteNote(this.props.note.id, this.props.history);
         this.toggleModal();
-        this.props.history.push('/notes');
     }
 
     toggleModal = () => {

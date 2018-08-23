@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 export const SIGNING_IN = 'SIGNING_IN';
 export const SIGNED_IN = 'SIGNED_IN';
@@ -8,6 +9,9 @@ export const SIGNED_UP = 'SIGNED_UP';
 
 export const CHECKING_TOKEN = 'CHECKING_TOKEN';
 export const TOKEN_CHECKED = 'TOKEN_CHECKED';
+
+export const UPDATING_ORDER = 'UPDATING_ORDER';
+export const ORDER_UPDATED = 'ORDER_UPDATED';
 
 export const SET_SIGNIN = 'SET_SIGNIN'
 
@@ -41,7 +45,21 @@ export const checkToken = token => {
     const promise = axios.get(`http://localhost:8000/api/users/auth`, { headers: { Authorization: token } });
     return dispatch => {
         dispatch({ type: CHECKING_TOKEN });
-        promise.then(response => dispatch({ type: TOKEN_CHECKED, payload: response.data.success }))
+        promise
+            .then(axios.defaults.headers.common = { Authorization: token })
+            .then(response => dispatch({ type: TOKEN_CHECKED, payload: response.data.success }))
+            .catch(err => dispatch({ type: ERROR, payload: err }));
+    }
+}
+
+export const setOrder = order => {
+    const id = jwt_decode(localStorage.getItem('token')).userId;
+    const promise = axios.put(`http://localhost:8000/api/users/${id}`, order);
+    return dispatch => {
+        dispatch({ type: UPDATING_ORDER });
+        promise.then(response => {
+            dispatch({ type: ORDER_UPDATED, payload: response.data });
+        })
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }

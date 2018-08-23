@@ -41,7 +41,7 @@ export default (state = initialState, action) => {
         case EDITING_NOTE:
             return { ...state, editingNote: true };
 
-        case NOTE_EDITED:  
+        case NOTE_EDITED:
             let updateNote = state.notes.slice().map(note => {
                 if (note.id === action.payload.id) {
                     note = action.payload;

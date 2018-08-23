@@ -38,29 +38,42 @@ export const getNote = id => {
     }
 }
 
-export const addNote = note => {
+export const addNote = (note, history) => {
     const promise = axios.post('http://localhost:8000/api/notes', note);
     return dispatch => {
         dispatch({ type: CREATING_NOTE });
-        promise.then(response => dispatch({ type: NOTE_CREATED, payload: response }))
+        promise.then(response => {
+            history.push('/notes');
+            dispatch({ type: NOTE_CREATED, payload: response })
+        })
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }
 
-export const editNote = note => {
+export const editNote = (note, history) => {
     const promise = axios.put(`http://localhost:8000/api/notes/${note.id}`, note);
     return dispatch => {
         dispatch({ type: EDITING_NOTE });
-        promise.then(response => dispatch({ type: NOTE_EDITED, payload: response.data }))
+        promise.then(response => {
+            if (history) {
+                history.push(`/${note.id}`);
+            }
+            dispatch({ type: NOTE_EDITED, payload: response.data })
+        })
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }
 
-export const deleteNote = id => {
+export const deleteNote = (id, history) => {
     const promise = axios.delete(`http://localhost:8000/api/notes/${id}`);
     return dispatch => {
         dispatch({ type: DELETING_NOTE });
-        promise.then(dispatch({ type: NOTE_DELETED, payload: id }))
+        promise.then(() => {
+            if (history) {
+                history.push('/notes');
+            }
+            dispatch({ type: NOTE_DELETED, payload: id })
+        })
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }

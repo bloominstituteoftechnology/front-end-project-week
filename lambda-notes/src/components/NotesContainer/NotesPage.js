@@ -7,16 +7,8 @@ import NotesContainer from './NotesContainer';
 import CreateNotesContainer from './CreateNotesContainer';
 import RequireAuth from '../Authenticate/RequireAuth';
 import { Route } from 'react-router-dom';
-import { getNotes, deleteNote, editNote, setNotes } from '../../actions';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 
 class NotesPage extends Component {
-    componentDidMount() {
-        // Gets all notes from the server
-        this.props.getNotes();
-    }
-
     logoutButton = () => {
         // Removes username / password from local storage then refreshes page
         localStorage.removeItem('token');
@@ -35,7 +27,7 @@ class NotesPage extends Component {
                             <NotesContainer {...props}
                                 notes={this.props.notes}
                                 setNotes={this.props.setNotes}
-                                editNote={this.props.editNote}
+                                setOrder={this.props.setOrder}
                                 deleteNote={this.props.deleteNote} />} />
                         <Route path='/notes/:id/edit' component={RequireAuth(UpdateNotesContainer)} />
                         <Route path='/notes/create' component={RequireAuth(CreateNotesContainer)} />
@@ -49,11 +41,4 @@ class NotesPage extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        notes: state.notes.notes,
-        fetching: state.notes.fetchingNotes
-    }
-}
-// Authenticate used to check if user is logged in / withRouter used so redux knows that it changed routes'
-export default withRouter(connect(mapStateToProps, { getNotes, editNote, deleteNote, setNotes })(NotesPage));
+export default NotesPage;

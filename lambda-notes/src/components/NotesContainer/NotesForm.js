@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addNote, editNote } from '../../actions';
 import { NotesFormWrapper, NoteTitleInput, NoteContentInput } from '../ReusableComponents/Notes';
 import { MainButtons } from '../ReusableComponents/SideBar';
+import jwt_decode from 'jwt-decode';
 
 class NotesForm extends React.Component {
     constructor(props) {
@@ -21,13 +22,12 @@ class NotesForm extends React.Component {
 
     addNote = () => {
         // Adds a note if title / content fields aren't empty / Pushes back to notes page / Sets state to empty strings
-        const note = { title: this.state.title, content: this.state.content }
+        const user_id = jwt_decode(localStorage.getItem('token')).userId;
+        const note = { title: this.state.title, content: this.state.content, user_id }
 
         if (this.state.title === '' || this.state.content === '') return;
 
-        this.props.addNote(note);
-        this.props.history.push('/notes')
-        this.setState({ title: '', content: '' });
+        this.props.addNote(note, this.props.history);
     }
 
     editNote = () => {
@@ -35,9 +35,7 @@ class NotesForm extends React.Component {
         const note = { tags: this.props.tags, title: this.state.title, content: this.state.content, sort_id: this.props.sort_id, id: this.props.id }
 
         if (this.state.title === '' || this.state.content === '') return;
-        this.props.editNote(note);
-        this.props.history.push(`/notes/view/${this.props.id}`)
-        this.setState({ title: '', content: '' });
+        this.props.editNote(note, this.props.history);
     }
 
     render() {
