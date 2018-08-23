@@ -6,8 +6,8 @@ import {getNotes} from '../../actions';
 const NotesList=styled.div`
 width: 92.5%;
 display: flex;
-justify-content: space-evenly;
 align-items: center;
+justify-content: space-evenly;
 flex-wrap: wrap;
 margin-left: 5%;
 `
@@ -15,7 +15,7 @@ const NotesHeading=styled.h2`
 text-align: left;
 color:#424242
 margin-left: 5%;
-margin-top: 18px;
+margin-top: 40px;
 `
 const NotesPage=styled.div`
 background-color:#ddd;
@@ -25,16 +25,14 @@ width: 75%;
 const NoteFilter=styled.input`
 height: 20px;
 margin: 0 auto;
-margin-top: 25px;
 margin-right: 10%;
 margin-left: 25%;
 width: 260px;
-display: inline-block;
 `
 const SortContainer=styled.div`
 display: inline-block;
 box-sizing: border-box;
-width: 120px
+width: 120px;
 `
 class Notes extends React.Component {
     constructor(props) {
@@ -48,8 +46,7 @@ class Notes extends React.Component {
     componentDidMount() {
         localStorage.setItem('location',this.props.location.pathname);
         const sortOption=localStorage.getItem('sortOption');
-        sortOption?this.setState({sortOption:sortOption}):null;
-        this.props.getNotes();
+        sortOption?this.setState({sortOption:sortOption},()=>this.props.getNotes()):this.props.getNotes(); 
     }
     inputChange=(e)=>{
         this.setState({[e.target.name]:e.target.value},()=>{
@@ -60,7 +57,7 @@ class Notes extends React.Component {
         });
     }
     radioChange=(e)=>{
-        this.setState({[e.target.name]:e.currentTarget.value},()=>{console.log(this.state);localStorage.setItem('sortOption',this.state.sortOption)});
+        this.setState({[e.target.name]:e.currentTarget.value},()=>{localStorage.setItem('sortOption',this.state.sortOption)});
     }
     sortByTitle=(notes)=>{
         let sortedNotes=notes.slice();
@@ -83,8 +80,10 @@ class Notes extends React.Component {
                 <NoteFilter type='text' name='filterParam' placeholder='Enter search term' value={this.state.value} onChange={this.inputChange}/>
                 <SortContainer>
                 <p>Sort Options:</p>
-                <input type="radio" value={'default'} checked={this.state.sortOption==='default'} name="sortOption" onChange={this.radioChange}/>Default  
-                <input type="radio" value={'title'} checked={this.state.sortOption==='title'} name="sortOption" onChange={this.radioChange}/>Title
+                <input type="radio" value={'default'} id='Default' checked={this.state.sortOption==='default'} name="sortOption" onChange={this.radioChange}/>
+                <label for='Default'>Default</label>
+                <input type="radio" value={'title'} id='Title' checked={this.state.sortOption==='title'} name="sortOption" onChange={this.radioChange}/>
+                <label for='Title'>Title</label>
                 </SortContainer>
                 <NotesHeading>Your Notes:</NotesHeading>
                 <NotesList>
