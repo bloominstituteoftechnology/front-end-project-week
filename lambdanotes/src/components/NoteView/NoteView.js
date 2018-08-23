@@ -1,5 +1,6 @@
 import React from 'react';
 import './NoteView.css';
+import { Link } from "react-router-dom";
 
 class NoteView extends React.Component {
     constructor(props) {
@@ -20,9 +21,15 @@ class NoteView extends React.Component {
     
      render() {
         return (
-            <div>
-                <h2>{this.state.note.title}</h2>
-                <p>{this.state.note.textBody}</p>
+            <div className="noteview-container">
+                <div className="links-container">
+                    <Link to={`note-view/${this.state.note.id}/edit`} className="link">edit</Link>
+                    <Link to={`note-view/${this.state.note.id}/delete`} className="link">delete</Link>
+                </div>
+                <div className="body-container">
+                    <h2>{this.state.note.title}</h2>
+                    <p>{this.state.note.textBody}</p>
+                </div>
             </div>
         );
     }

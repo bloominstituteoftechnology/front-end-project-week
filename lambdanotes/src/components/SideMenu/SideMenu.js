@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import './SideMenu.css';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    NavLink
-  } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 import ListView from '../ListView/ListView';
 import NewNote from '../NewNote/NewNote';
@@ -49,6 +44,16 @@ class SideMenu extends Component {
         this.setState({ notes, title: '', textBody: '' });
     }
 
+    deleteNote = note => {
+        let notes = this.state.notes.slice();
+        for (let i = 0; i < notes.length; i++) {
+            if (notes[i].id === note.id) {
+                notes.splice(i, 1);
+            }
+        }
+        this.setState({ notes })
+    }
+
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -66,7 +71,7 @@ class SideMenu extends Component {
 
                 <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />}/>
                 <Route exact path="/create-new-note/" render={(props) => <NewNote {...props} notes={this.state.notes} addNote={this.addNote} handleInputChange={this.handleInputChange}/>}/>
-                <Route path="/note-view/:id" render={(props) => <NoteView {...props} notes={this.state.notes} />}/>
+                <Route exact path="/note-view/:id" render={(props) => <NoteView {...props} notes={this.state.notes} deleteNote={this.deleteNote} handleInputChange={this.handleInputChange}/>}/>
             </div>
         );
     }

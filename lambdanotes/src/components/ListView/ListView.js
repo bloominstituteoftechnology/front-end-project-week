@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ListView.css';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    NavLink
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ListView = props => {
         return (

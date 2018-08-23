@@ -1,19 +1,18 @@
 .list-container {
     width: 100%;
     background: #E7E6E7;
-    height: 100%;
 }
 
 .list-container .notes-title {
-    margin: 55px 0 0;
-    padding: 0 20px;
+    margin: 10px 0 0;
+    padding: 0 20px 20px;
     height: 10%;
     display: flex;
     align-items: flex-end;
 }
 
 .list-container .notes-top-container {
-    margin: 20px 20px 0;
+    margin: 0 20px;
 }
 
 .list-container .notes-top-container .notes-container {
