@@ -44,8 +44,9 @@ const Main = styled("main")`
 
 
 const NoteDescription = props => {
+
   let note = props.notes.filter(
-    item => item.id === parseInt(props.match.params.id, 10)
+    item => item.id === props.match.params.id
   );
 
   //Handle Errors
@@ -54,7 +55,7 @@ const NoteDescription = props => {
   } else {
     return (
       <Main>
-        
+
         {/*Body - handles modal*/}
         <header className="links-header">
           <Link className="link" to={`/notes/${note[0].id}/edit`}>

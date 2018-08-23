@@ -83,7 +83,7 @@ class AddNoteForm extends Component {
     }
     this.props.addNote(content)
     this.setState({title: '', description: ''})
-    this.props.history.goBack();
+    this.props.history.push('/notes');
   }
 
   render() {
