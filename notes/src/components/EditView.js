@@ -13,9 +13,9 @@ export default class EditNote extends Component {
   };
 
   
-  handleTextInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  // handleEditTextInput = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
 
   render() {
     return (
@@ -25,7 +25,7 @@ export default class EditNote extends Component {
           <input
             className="title-input"
             type="text"
-            onChange={this.handleInput}
+            onChange={this.handleEditInput}
             placeholder="Note title"
             name="title"
             value={this.props.title}
@@ -34,7 +34,7 @@ export default class EditNote extends Component {
           <input
             className="content-input"
             type="text"
-            onChange={this.handleInput}
+            onChange={this.handleEditInput}
             placeholder="Note content"
             name="content"
             value={this.props.content}

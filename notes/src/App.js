@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import ListView from "./components/ListView";
@@ -96,26 +96,39 @@ class App extends Component {
   //   this.setState({ notes });
   // };
 
+  editNote = ( editedNote, i ) => {
+    const notes = this.state.notes;
+    notes[i] = editedNote;
+    this.setState ({ notes: editedNote })
+  }
+
+  deleteNote = () => {
+    const notes = [...this.state.notes];
+    notes.splice(this.state.id, 1);
+    this.setState({ notes });
+    
+  };
+
   render() {
     return (
       <div className="App">
-        <ul className="side-bar">
-          <li>
-            <NavLink exact activeClassName="activeNavButton" to="/">
+        <div className="side-bar">
+          <div>
+            <Link exact ClassName="NavButton" to="/">
               Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="activeNavButton" to="/notes">
+            </Link>
+          </div>
+          <div>
+            <Link ClassName="NavButton2" to="/notes">
               View Notes
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact activeClassName="activeNavButton" to="/create">
+            </Link>
+          </div>
+          <div>
+            <Link exact ClassName="NavButton3" to="/create">
               Create a Note
-            </NavLink>
-          </li>
-        </ul>
+            </Link>
+          </div>
+        </div>
         <Route exact path="/" component={Home} />
         <Route
           exact
@@ -130,16 +143,23 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               makeNote={this.addNewNote}
+              handleInput={this.handleTextInput}
             />
           )}
         />
         <Route
           path="/notes/:id"
-          render={props => <NoteView {...props} note={this.state.notes} />}
+          render={props => (
+            <NoteView
+              {...props}
+              note={this.state.notes}
+              deleteNote={this.deleteNote}
+            />
+          )}
         />
         <Route
-           path="/edit"
-          render={props => <EditView {...props} editNote={this.editNote} />}
+          path="/edit"
+          render={props => <EditView {...props} editNote={this.editNote} handleEditInput={this.handleTextInput} />}
         />
       </div>
     );

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
 
 export default class CreateNote extends Component {
   constructor(props) {
@@ -14,9 +13,9 @@ export default class CreateNote extends Component {
   };
 
 
-  handleTextInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  // handleCreateTextInput = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
 
   render() {
     console.log("createProps", this.props);
@@ -27,7 +26,7 @@ export default class CreateNote extends Component {
           <input
             className="title-input"
             type="text"
-            onChange={this.handleInput}
+            onChange={this.props.handleInput}
             placeholder="Note title"
             name="title"
             value={this.props.title}
@@ -36,7 +35,7 @@ export default class CreateNote extends Component {
           <input
             className="content-input"
             type="text"
-            onChange={this.handleInput}
+            onChange={this.props.handleInput}
             placeholder="Note content"
             name="content"
             value={this.props.content}

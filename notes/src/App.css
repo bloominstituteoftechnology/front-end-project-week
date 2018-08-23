@@ -44,7 +44,37 @@ body {
   height: 100vh;
   width: 25%;
   border: 1px solid black;
-  background: #4DEDDD;
-  display: block;
+  background: darkgrey;
   margin: 0 12px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.NavButton {
+	padding: 10px 15px;
+	background: #4479BA;
+  color: #FFF;
+  margin: 20px 0;
+}
+
+.NavButton2 {
+	padding: 10px 15px;
+	background: #4479BA;
+  color: #FFF;
+  margin: 20px 0;
+}
+
+.NavButton3 {
+  height: 60px;
+  width: 100px;
+  border: 1px solid black;
+  color: #4DEDDD;
+  margin: 20px 0;
+}
+
+.side-bar > a {
+  padding: 10px 15px;
+	background: #4479BA;
+  color: #FFF;
+  margin: 20px 0;
 }
