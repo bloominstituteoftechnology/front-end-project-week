@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import {Route, Redirect} from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import {
-    AllNotes,
-    EditNote,
-    DeleteNote,
-    NewNote,
-    NoteDetails,
-    LeftMenu,
-     } from './components';
+  AllNotes,
+  EditNote,
+  DeleteNote,
+  NewNote,
+  NoteDetails,
+  LeftMenu, } from './components';
 
 import {
   addNote,
@@ -22,66 +21,20 @@ import {
   editNote,
   getNotes, } from './actions';
 
-const AppDiv = styled.div`
-    ${'' /* border: 1px solid red; */}
-    display: flex;
-    flex-direction: row;
-    z-index: 0;
-    height: 100%;
-    .right-display{
-      ${'' /* border: 1px solid blue; */}
-      background-color: #F3F3F3;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-    }
-    .delete {
-      ${'' /* border: 1px solid red; */}
-      width: 100vw;
-      height: 100vh;
-      background-color:rgba(215,215,215,0.5);
-      position: fixed;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-`;
-
 class App extends Component {
   constructor(){
     super();
     this.handleDrop = this.handleDrop.bind(this);
     this.state = {
       hideDetails: true,
-      notes: [
-        {
-        id: 0,
-        title: "Note Title 0",
-        body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-        id: 1,
-        title: "Note Title 1",
-        body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-        id: 2,
-        title: "Note Title 2",
-        body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-        id: 3,
-        title: "Note Title 3",
-        body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-      ],
     }
   }
 
   componentDidMount = ()=> {
     this.props.getNotes();
+    this.setState({
+      notes: this.props.getNotes(),
+    })
   }
 
   getNoteDetails = (id) => {
@@ -114,8 +67,7 @@ class App extends Component {
 
   handleDrop(id){
     console.log('handleDrop, id: ', id);
-    //will delete from actions when hooked up
-    //and add object to deleted page
+    //will delete from actions when uncommented
     // this.props.deleteNote(id)
   }
 
@@ -124,10 +76,8 @@ class App extends Component {
 
     return (
         <AppDiv>
-
+          <Redirect from="" to="/all-notes/" />
           <LeftMenu />
-
-          {/* {this.props.location.pathname === "/all-notes/" ? null : <Redirect from="/" to="/all-notes/" />  } */}
 
           <div className="right-display">
             <Route
@@ -135,7 +85,9 @@ class App extends Component {
               path="/all-notes/"
               render={ () => {
                 return (
-                  <AllNotes onDrop={this.handleDrop} notes={this.props.state.notes} />
+                  <AllNotes
+                    getNotes={this.props.getNotes}
+                    onDrop={this.handleDrop} notes={this.props.state.notes} />
                 )
               }}
             ></Route>
@@ -207,3 +159,30 @@ const mapDispatchToProps = {
   editNote,
 }
  export default DragDropContext(HTML5Backend)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));
+
+ const AppDiv = styled.div`
+     ${'' /* border: 1px solid red; */}
+     display: flex;
+     flex-direction: row;
+     z-index: 0;
+     height: 100%;
+     .right-display{
+       ${'' /* border: 1px solid blue; */}
+       background-color: #F3F3F3;
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       flex-wrap: wrap;
+     }
+     .delete {
+       ${'' /* border: 1px solid red; */}
+       width: 100vw;
+       height: 100vh;
+       background-color:rgba(215,215,215,0.5);
+       position: fixed;
+       z-index: 10;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+     }
+ `;

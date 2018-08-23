@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { DragSource } from 'react-dnd';
@@ -80,6 +80,7 @@ const NotePreview = (props) => (
               <div className="notTags">
                 <h3>{props.note.title}</h3>
                 <p>{props.note.textBody}</p>
+                <p>Index: {props.index}</p>
               </div>
 
               <div className="tags">
@@ -119,7 +120,8 @@ const sourceObj = {
     const  { _id, index }  = monitor.getItem(); //returns just 'blue'
     // console.log(props.color) // also returns just 'blue'
     console.log(monitor.getDropResult());
-    const { shape } = monitor.getDropResult();//gets props from the target
+    // const { shape } = monitor.getDropResult();
+    //gets props from the target
     console.log(_id)
     props.onDrop( _id, index );//onDrop supplied by parent which attaches the color and shape to the props
   },
