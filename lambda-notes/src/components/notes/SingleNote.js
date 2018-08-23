@@ -52,14 +52,15 @@ class SingleNote extends Component {
           <div className="backdrop">
             <div className="modal">
               {this.props.children}
-              <div>
+              <h4>Are you sure you want to delete this?</h4>
+              <div className=".modalButtonsDiv">
                 <button
                   deletenotenumber={this.state.id}
                   onClick={this.props.deleteNoteHandler}
                 >
-                  Deleteinside
+                  Delete
                 </button>
-                <button onClick={this.props.toggleModal}>Cancel</button>
+                <button onClick={this.props.toggleModal}>No</button>
               </div>
             </div>
           </div>
