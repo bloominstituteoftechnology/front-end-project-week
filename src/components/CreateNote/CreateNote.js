@@ -26,7 +26,7 @@ export default class CreateNote extends Component {
     }
     const URL = 'http://localhost:3000/';
     axios
-      .post(`http://localhost:8000/api/notes/`, {
+      .post(`${process.env.REACT_APP_API}/api/notes`, {
         title: this.state.title,
         message: this.state.message,
         username

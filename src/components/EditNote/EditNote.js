@@ -25,7 +25,7 @@ export default class CreateNote extends Component {
       }
     }
     axios
-      .get(`http://localhost:8000/api/notes/${this.props.match.params.id}`, requestOptions)
+      .get(`${process.env.REACT_APP_API}/api/notes/${this.props.match.params.id}`, requestOptions)
       .then(res => this.setState({ 
         title: res.data[0].title,
         message: res.data[0].message
@@ -44,7 +44,7 @@ export default class CreateNote extends Component {
     }
     const URL = 'http://localhost:3000/';
     axios
-      .put(`http://localhost:8000/api/notes/${id}`, {
+      .put(`${process.env.REACT_APP_API}/api/notes/${id}`, {
         title: this.state.title,
         message: this.state.message,
         username
