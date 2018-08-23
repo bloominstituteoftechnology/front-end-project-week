@@ -65,6 +65,12 @@ class NavBar extends Component {
         this.props.searchNotes(this.state.search);
         this.setState({ search: '' });
     }
+
+    logoutHandler = (e) => {
+        localStorage.removeItem('jwt')
+    
+        this.props.history.push('/')
+      }
     
     render(){
         return(
@@ -81,6 +87,7 @@ class NavBar extends Component {
                                 placeholder='Search Here'
                                 onChange={this.handleInput} />
                     </form>
+                    <div><button onClick={this.logoutHandler}>Logout</button></div>
                 </StyledButtonLinks>
             </StyledSideBar>
         );   

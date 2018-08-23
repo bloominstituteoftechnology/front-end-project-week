@@ -17,7 +17,8 @@ const Input = styled.input`
     height: 20px;
 `
 const Error = styled.div`
-    color: red
+    color: red;
+    font-size: 16px;
 `
 
 class Signin extends Component {
@@ -25,7 +26,7 @@ class Signin extends Component {
         userName: '',
         password: '',
         error: '',
-        url: 'https://lambda-notes-95090.herokuapp.com/users/login'
+        url: 'http://localhost:3300/users/login' //'https://lambda-notes-95090.herokuapp.com/users/login'
     }
 
     inputHandler = (e) => {

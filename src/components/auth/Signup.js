@@ -17,7 +17,8 @@ const Input = styled.input`
     height: 20px;
 `
 const Error = styled.div`
-    color: red
+    color: red;
+    font-size: 16px;
 `
 
 class Signup extends Component {
@@ -25,7 +26,7 @@ class Signup extends Component {
         userName: '',
         password: '',
         error: '',
-        url: 'https://lambda-notes-95090.herokuapp.com/users/register'
+        url: 'http://localhost:3300/users/register' // 'https://lambda-notes-95090.herokuapp.com/users/register'
     }
 
     inputHandler = (e) => {
@@ -37,10 +38,12 @@ class Signup extends Component {
         e.preventDefault()
 
         const { userName, password } = this.state
-
-        axios.post(this.state.url, {userName, password})
+        
+        if(!userName || !password){
+            this.setState({userName: '', password: '', error: "Please Include a User Name and Password"})
+        }else{
+            axios.post('http://localhost:3300/users/register', {userName, password})
             .then(res => {
-                console.log(res)
                 const token = res.data
 
                 localStorage.setItem('jwt', token)
@@ -48,9 +51,10 @@ class Signup extends Component {
 
             })
             .catch(err => {
-                console.log("Axios failed", err.response)
                 this.setState({userName: '', password: '', error: err.response.data.error})
             })
+        }
+
     }
 
     render() {
