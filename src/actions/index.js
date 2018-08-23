@@ -14,11 +14,11 @@ export const ERROR = "ERROR";
 
 
 // Original, Lambda created Server
-const url = "https://killer-notes.herokuapp.com/note/get/all";
-const singleURL = "https://killer-notes.herokuapp.com/note/get/";
-const postURL = "https://killer-notes.herokuapp.com/note/create";
-const deleteURL = "https://killer-notes.herokuapp.com/note/delete/";
-const editURL = "https://killer-notes.herokuapp.com/note/edit/";
+// const url = "https://killer-notes.herokuapp.com/note/get/all";
+// const singleURL = "https://killer-notes.herokuapp.com/note/get/";
+// const postURL = "https://killer-notes.herokuapp.com/note/create";
+// const deleteURL = "https://killer-notes.herokuapp.com/note/delete/";
+// const editURL = "https://killer-notes.herokuapp.com/note/edit/";
 
 // Local server
 // const url = "http://localhost:3300/note/get/all"
@@ -28,11 +28,11 @@ const editURL = "https://killer-notes.herokuapp.com/note/edit/";
 // const editURL = "http://localhost:3300/note/edit/"
 
 // Personally deployed Heroku app
-// const url = "https://lambda-notes-95090.herokuapp.com/note/get/all";
-// const singleURL = "https://lambda-notes-95090.herokuapp.com/note/get/";
-// const postURL = "https://lambda-notes-95090.herokuapp.com/note/create";
-// const deleteURL = "https://lambda-notes-95090.herokuapp.com/note/delete/";
-// const editURL = "https://lambda-notes-95090.herokuapp.com/note/edit/";
+const url = "https://lambda-notes-95090.herokuapp.com/note/get/all";
+const singleURL = "https://lambda-notes-95090.herokuapp.com/note/get/";
+const postURL = "https://lambda-notes-95090.herokuapp.com/note/create";
+const deleteURL = "https://lambda-notes-95090.herokuapp.com/note/delete/";
+const editURL = "https://lambda-notes-95090.herokuapp.com/note/edit/";
 
 
 export const getNotes = () => {
