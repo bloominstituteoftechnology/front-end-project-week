@@ -1,0 +1,50 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+.App__container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  max-width: 800px;
+  background-image: url("https://picsum.photos/g/800/1600/?random");
+}
+
+.App__left {
+  width: 25%;
+  border: solid black 1px;
+  background-color: rgba(128, 128, 128, 0.349);
+}
+
+.App__right {
+  width: 75%;
+  border: solid black 1px;
+  /* background-color: lightgrey; */
+}
+
+.App__left-buttons {
+  background-color: rgba(0, 0, 12, 0.7);
+  border: solid 1px grey;
+  max-width: 100px;
+  height: 50px;
+  color: white;
+}
+
+.App__left-buttons:hover {
+  background-color: black;
+}
+
+.App__Top-buttons {
+  background: grey;
+  border: 1px solid darkgrey;
+}
+
+.App__Top-buttons:hover {
+  background: black;
+  color: white;
+}
+
+.App__Top-div {
+  display: flex;
+  justify-content: space-around;
+}

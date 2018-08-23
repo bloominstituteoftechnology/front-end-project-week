@@ -1,0 +1,15 @@
+.View__note-links {
+    text-align: end;
+}
+
+.View__note-links :link {
+    text-decoration: none;
+}
+
+.View__note-links :visited {
+    color: black;
+}
+
+.tags {
+    text-transform: full-width;
+}
