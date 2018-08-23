@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
-import firebase, { auth, provider } from "./firebase";
-import { Link, Route } from "react-router-dom";
+import { auth, provider } from "./firebase";
+import { Route } from "react-router-dom";
 import Signup from "./Signup";
 import axios from "axios";
 

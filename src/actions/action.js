@@ -4,8 +4,6 @@ export const FETCH_NOTES = "FETCH_NOTES";
 export const ERROR = "ERROR";
 export const FETCHING_NOTES = "FETCHING_NOTES";
 
-let home_path = "http://localhost:3000/";
-
 export const submitNewNote = newNote => {
   return function(dispatch) {
     axios
