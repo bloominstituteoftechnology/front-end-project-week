@@ -13,13 +13,13 @@ export const SingleView = props => {
                     <div className="modal-content" >
                         <h3>Are you sure you want to delete this?</h3>
                         <div className="modal-btn-wrap" >
-                            <Link to=""> <div className="modal-btn-delete" onClick={() => props.deleteNote(denoted.id)}  >Delete</div ></Link>
+                            <Link to=""> <div className="modal-btn-delete" onClick={() =>{props.deleteNote(denoted.id); props.modalToggle();}}  >Delete</div ></Link>
                             <div className="modal-btn-no" onClick={() => props.modalToggle()} >No</div >
                         </div>
                     </div>
                 </div> )}
                 <div className="view-links" >
-                    <Link to={`/notes/${denoted.id}/edit`} >edit</Link> {/* {`/notes/${this.props.match.params.id}/edit`} */}
+                    <Link to={`/notes/${denoted.id}/edit`} >edit</Link>
                     &nbsp; &nbsp;
                     <div className="delete-link" onClick={() => props.modalToggle()} >delete</div>
                 </div>

@@ -14,7 +14,7 @@ export const NoteList = props => {
                         key={note.id}
                         className="note-wrap"
                     >
-                        <h3>{note.title}</h3>
+                        <h4>{note.title}</h4>
                         <hr/>
                     {note.text}
                     </div>

@@ -15,12 +15,6 @@ class EditNote extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    // handleClick = (event) => {
-    //     event.preventDefault();
-    //     props.addNewNote(event);
-    //     props.history.push("/");
-    // }
-
     render() {
     let denoted = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id, 10));
     
@@ -33,7 +27,7 @@ class EditNote extends Component {
                     <input className="edit-title-input" name="title" onChange={this.handleInputChange} value={this.state.title} /> <br/>
                     <textarea className="edit-text-input" name="text" onChange={this.handleInputChange} value={this.state.text} />
                     <Link to={`/notes/${denoted.id}`} ><div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text); this.props.history.push(`/notes/${denoted.id}`); }}  >Update</div></Link>
-                </form> {/* */}
+                </form>
             </div>
         )  
     } else return (<div>I've got a worse feeling about this...</div>)

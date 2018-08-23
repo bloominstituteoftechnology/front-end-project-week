@@ -4,12 +4,13 @@
   text-align: center;
   display: flex;
   box-sizing: border-box;
-  background: lightgray;
+  background: rgb(242, 242, 242);
   font-family: "Roboto", sans-serif;
-  max-width: 1000px;
+  max-width: 900px;
   height: 100%;
   min-height: 600px;
-  align-content: stretch;
+  align-content: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -18,8 +19,8 @@
 }
 
 .Nav-bar {
-  background-color: rgb(156, 154, 154);
-  width: 200px;
+  background-color: rgb(211, 211, 211);
+  width: 185px;
   padding: 20px;
   color: #222;
   display: flex;
@@ -34,15 +35,13 @@
   color: white;
   border: 1px solid darkgrey;
   width: 190px;
-  height: 48px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 11px 0;
-  /* padding-left: 11px; */
-  /* padding-top: 9px; */
-  background-color: rgb(30, 167, 167);
+  margin: 9px 0;
+  background-color: rgb(36, 184, 189);
 }
 
 .Nav-bar a {
@@ -51,16 +50,8 @@
 
  .App-title {
   font-size: 2.2em;
+  line-height: 33px;
 }
-/*
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
 
 .notes-wrap {
   display: flex;
@@ -69,11 +60,11 @@
 }
 
 .note-wrap {
-  border: 1px solid gray;
-  width: 200px;
-  height: 222px;
-  margin: 15px;
-  padding: 0 11px;
+  border: 1px solid rgb(203, 203, 203);
+  width: 172px;
+  height: 182px;
+  margin: 10px;
+  padding: 0 12px;
   padding-bottom: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -84,7 +75,7 @@
 }
 
 .note-wrap hr {
-  color: lightgray;
+  color: rgb(203, 203, 203);
 }
 
 .notes-wrap a {
@@ -143,7 +134,7 @@
   justify-content: center;
   align-items: center;
   margin: 11px 0;
-  background-color: red;
+  background-color: rgb(202, 0, 26);
   cursor: pointer;
 }
 
@@ -159,24 +150,20 @@
   opacity: 1;
   z-index: 10;
   padding-top: 20px;
-  /* margin-left: 15px; */
 }
 
 .modal-btn-wrap{
   display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  
+  justify-content: center;  
 }
 
 .modal-wrap {
-  /* display: none; */
   position: absolute;
   left: 1px;
-  width: 79%;
+  width: 70%;
   height: 100%;
-  background-color: lightgray;
-  opacity: .78;
+  background-color: rgba(203,203,203, 0.85);
+  /* opacity: .78; */
   z-index: 9;
   display: flex;
   justify-content: center;

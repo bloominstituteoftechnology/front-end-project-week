@@ -57,7 +57,6 @@ class App extends Component {
   }
 
   deleteNote = id => {
-    // ev.preventDefault();
     let notes = this.state.notes.slice();
     notes = notes.filter(note => note.id !== id);
     this.setState({ notes, id: '', title: '', text: ''  });

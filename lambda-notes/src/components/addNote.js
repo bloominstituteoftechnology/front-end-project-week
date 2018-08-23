@@ -7,7 +7,6 @@ export const AddNote = props => {
         props.addNewNote(event);
         props.history.push("/");
     }
-    //  onSubmit={props.addNewNote} 
 
     return (
         <div className="add-form-wrap" >
