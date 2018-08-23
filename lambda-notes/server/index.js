@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     res.send("Welcome To Lambda School Back-End Project");
 });
 // NOTES MODEL
-app.get('/api/notes',protected, (req, res) => {
+app.get('/api/notes', (req, res) => {
     db.notesModel.getNotes()
         .then(response => {
            res.status(200).json(response)
@@ -54,7 +54,7 @@ app.get('/api/notes/:id', protected , (req, res) => {
         })
 });
 
-app.post('/api/notes', protected, (req, res) => {
+app.post('/api/notes', (req, res) => {
     const { title, body } = req.body
     const note = { title , body }
     db.notesModel.addNote( note )
@@ -76,22 +76,15 @@ app.post('/api/notes', protected, (req, res) => {
     })
     
 });
-app.put('/api/notes/:id', protected, (req, res) => {
+app.put('/api/notes/:id', (req, res) => {
     const { id } = req.params
+    console.log( id  )
     const { title , body } = req.body
     const user = { title, body }
+    console.log(user)
     db.notesModel.editeNote(id, user)
         .then(response => {
-            if(response){
-                db.getNotes( id )
-                    .then( responseData =>{
-                        res.status(200).json(responseData)
-                    })
-                    .catch( error =>{
-                        res.status(500).json({error : error })
-                    })
-            }
-            
+            res.status(200).json(response)
         })
         .catch(error =>{
             res.status(500).json({ error : error })

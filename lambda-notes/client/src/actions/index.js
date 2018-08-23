@@ -13,7 +13,6 @@ export const editNote = noteData => ({
     noteData
 })
 
-
 export const deleteNote = id => ({
     type : DELETE_NOTE,
     payload : id

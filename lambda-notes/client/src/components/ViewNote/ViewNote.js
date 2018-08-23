@@ -6,23 +6,20 @@ import { connect } from 'react-redux';
 
 
 class ViewNote extends Component {
-    state = {
-        note : []
-    }
-
+            state = {
+            note : [],
+        }
+    
     //WARNING! To be deprecated in React v17. Use componentDidMount instead.
     componentDidMount()  {
         const id = this.props.match.params.id
-        console.log(this.props.notes)
-        let matched = this.props.notes.filter( note => note.id === id)
-         console.log(matched)
-         const [ note ] = matched
+        let matched = this.props.notes.filter(note => note.id === Number(id) )
+       console.log(matched)
+        const [ note ] = matched;
         this.setState({ note })
     }
 
     render() {
-        console.log("NOTE",this.state.note)
-        console.log(typeof this.state.note)
         return (
             <div className='main-container'>
             <div className="header">
@@ -44,6 +41,6 @@ class ViewNote extends Component {
 }
 
 const mapStateToprops = state => ({
-    notes : state
+    notes : state.notes
 })
 export default connect(mapStateToprops,null)(ViewNote);

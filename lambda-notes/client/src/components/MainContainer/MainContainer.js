@@ -12,7 +12,6 @@ import {
 
 class MainContainer extends Component {
     render() {
-        console.log( "STATE",this.props )
         return (
             <Router>
                 <div className = 'app-Container'>

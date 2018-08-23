@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import './index.css'
 import { connect } from 'react-redux';
-import { editNote } from '../../actions/index';
+import Axios from 'axios';
 
 
 
 class EditNote extends Component {
-    state = {
-        note : {},
-        title : '',
-        body: '',
-        newNote : {}
-    }
-
+        state = {
+            title : '',
+            body: '',
+        }
     componentDidMount()  {
         const id = this.props.match.params.id
-        console.log(this.props.notes)
-        let matched = this.props.notes.filter( note => note.id === id)
-         console.log(matched)
-         const [ note ] = matched
-        this.setState({ note, title : note.title, body : note.body })
+        let matched = this.props.notes.filter( note => note.id === Number(id))
+        const [ note ] = matched
+        console.log(note)
+        this.setState({ title : note.title, body : note.body })
     }
     handleInputChange = event =>{
         this.setState({[event.target.name] : event.target.value } )
@@ -27,9 +23,18 @@ class EditNote extends Component {
 
     handleUpdate = ( event ) =>{
         event.preventDefault();
-       let newNote = {...this.state.note, title : this.state.title, body : this.state.body }
-       this.props.editNote(newNote)
-       this.props.history.goBack()
+       let updatedNote = { title : this.state.title, body : this.state.body }
+       const id = this.props.match.params.id
+       Axios.put(`http://localhost:8000/api/notes/${id}`, updatedNote)
+            .then( response => {
+                if(response){
+                    console.log(response.data)
+                    this.props.history.push('/')
+                }
+            })
+            .catch( error => {
+                console.log(error)
+            })
     }
     render() {
         return (
@@ -56,7 +61,7 @@ class EditNote extends Component {
     }
 }
 const mapStateToProps = state =>({
-    notes : state
+    notes : state.notes
 })
 
-export default connect(mapStateToProps,{ editNote })(EditNote);
+export default connect(mapStateToProps,null)(EditNote);

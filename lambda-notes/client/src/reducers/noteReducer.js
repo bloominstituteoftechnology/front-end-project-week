@@ -1,4 +1,4 @@
-import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/index';
+import { ADD_NOTE, EDIT_NOTE } from '../actions/index';
 
 
 const initialState = [
@@ -39,7 +39,7 @@ export const noteReducer =(state = initialState , action) => {
                }
                state.push(action.noteData)
             })
-
+            break;
         default:
             return state;
     }
