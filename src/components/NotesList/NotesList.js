@@ -26,7 +26,7 @@ export default class NotesList extends Component {
       }
     }
     axios
-      .get('http://localhost:8000/api/notes/', requestOptions)
+      .get(`${process.env.REACT_APP_API}/api/notes/`, requestOptions)
       .then(res => {
         //console.log(res.data)
         this.setState({
