@@ -26,6 +26,7 @@ class NoteView extends Component {
   render() {
     return (
       <NoteList>
+        
         <CardContent>
           <Note note={this.props.notes} />
         </CardContent>

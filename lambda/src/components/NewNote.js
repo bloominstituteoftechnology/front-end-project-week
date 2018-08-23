@@ -29,12 +29,17 @@ const Button = styled.button`
     width: 200px;
     padding: 0.5rem 1rem;
     margin: 2%;
+    cursor:pointer;
 `
+const H2 = styled.h2`
+padding-left: 2.5%;
+color: #2F4F4F;
+`;
  class NewNote extends React.Component{
     render(){
         return(
             <Container>
-                <h2>Create New Note:</h2>
+                <H2>Create New Note:</H2>
                 <Title placeholder='Note Title'
                             name='title'
                             value={this.props.title}

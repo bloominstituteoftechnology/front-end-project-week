@@ -35,10 +35,13 @@ font-size: 13px;
 
 const Note = props => {
   return (
+    
     <NoteCard>
+      
       {props.note.map((item) => {
           return(
         <div key={item.id}>
+        
           <Card>
           <Link to={`/view/${item.id}`}style={{'text-decoration': 'none'}}><Title><H2>{item.title}</H2></Title></Link>
             <Content><P>{item.content}</P></Content>

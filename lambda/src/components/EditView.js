@@ -25,16 +25,19 @@ margin: 2%;
 const Button = styled.button`
 background: #1E90FF;
 color: white;
-display: flex;
-font-size: 1.5rem;
-width: 200px;
-padding: 1%;
+font-size: 1rem;
+font-weight: 700;
 text-align: center;
-position: center;
-flex-direction: column;
+width: 200px;
+padding: 0.5rem 1rem;
+margin: 2%;
 cursor: pointer;
-textDecoration: none;
 `;
+
+const H1 = styled.h1`
+color: #2F4F4F;
+padding-left: 2%;
+`
 
 
 
@@ -45,7 +48,7 @@ textDecoration: none;
     }
     return(
         <Container>
-        <h1>Edit Note</h1>
+        <H1>Edit Note</H1>
         
             <Title
             placeholder="Title"
