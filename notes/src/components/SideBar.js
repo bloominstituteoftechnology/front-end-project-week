@@ -29,6 +29,7 @@ class SideBar extends React.Component {
     render(){
         return(
             <Container fluid={true} style={{
+                                    width: '25%',
                                     border: '1px solid lightgray',
                                     background:' #D2D2D2',
                                     padding: '1rem'}}>
