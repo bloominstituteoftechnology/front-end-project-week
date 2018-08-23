@@ -54,8 +54,7 @@ export const getNote = (id, cb) => {
       .then((res) => {
         dispatch({ type: GETTING_NOTE, payload: false })
         dispatch({ type: GET_NOTE, payload: res.data })
-        cb()
-      })
+      }, cb())
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
 }
@@ -71,8 +70,7 @@ export const deleteNote = (id, cb) => {
           type: GET_NOTES,
           payload: res.data
         })
-        cb()
-      })
+      }, cb())
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
 }
@@ -92,8 +90,7 @@ export const postNote = (note, token, cb) => {
           type: GET_NOTES,
           payload: res.data
         })
-        cb()
-      })
+      }, cb())
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
 }
@@ -105,8 +102,7 @@ export const editNote = (id, note, cb) => {
     request
       .then((res) => {
         dispatch({ type: GET_NOTE, payload: res.data })
-        cb()
-      })
+      }, cb())
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
 }
@@ -117,8 +113,7 @@ export const editNoteWithTag = (id, note, cb) => {
     request
       .then((res) => {
         dispatch({ type: GET_NOTE, payload: res.data })
-        cb()
-      })
+      }, cb())
       .catch((err) => console.log(err))
   }
 }
