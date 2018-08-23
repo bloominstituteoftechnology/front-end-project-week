@@ -27,6 +27,9 @@
 .singleNoteDiv button {
   background: none;
   border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .buttonsSingleNoteDiv {
