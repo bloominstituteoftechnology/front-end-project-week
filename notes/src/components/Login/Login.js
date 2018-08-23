@@ -1,6 +1,8 @@
 import React from 'react'
 import './Login.css'
+import axios from 'axios';
 
+const URL = 'http://localhost:8000/api/users';
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -16,13 +18,38 @@ class Login extends React.Component {
 
     handleLoginSubmit = e => {
         e.preventDefault();
-        const user = this.state.username;
-        if (user === '' || this.state.password === '') { alert('Please fill out required fields'); return; };
+        const user = {
+            username: this.state.username,
+            password: this.state.password
+        };
 
-        localStorage.setItem('user', user)
-        localStorage.setItem('password', this.state.password)
+        if (this.state.username === '' || this.state.password === '') { alert('Please fill out required fields'); return; };
+        axios
+            .post(`${URL}/login`, user)
+            .then(response => {
+                const token = response.data;
+                localStorage.setItem('jwt', token);
+                this.props.history.push('/');
+            })
 
         window.location.reload();
+    }
+
+    handleRegisterSubmit = e => {
+        e.preventDefault();
+        const user = {
+            username: this.state.username,
+            password: this.state.password
+        }
+
+        axios
+            .post(`${URL}/register`, user)
+            .then(response => {
+                const token = response.data;
+                localStorage.setItem('jwt', token)
+                this.props.history.push('/')
+            })
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -52,6 +79,7 @@ class Login extends React.Component {
                     </div>
                     <div className="button-container">
                         <button type="submit" className="login-button" onSubmit={this.handleLoginSubmit}>Login</button>
+                        <button type="submit" className="login-button" onSubmit={this.handleRegisterSubmit}>Register</button>
                     </div>
                 </form>
 

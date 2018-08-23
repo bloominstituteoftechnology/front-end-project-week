@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from '../Login/Login'
+import axios from 'axios'
 
 const Authenticate = App =>
   class extends React.Component {
@@ -10,6 +11,7 @@ const Authenticate = App =>
       };
     }
     componentDidMount() {
+      
       if (localStorage.getItem('user')) {
         this.setState({ loggedIn: true })
       } else {
