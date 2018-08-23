@@ -5,6 +5,7 @@ import { Route, NavLink } from "react-router-dom";
 import ListView from '../ListView/ListView';
 import NewNote from '../NewNote/NewNote';
 import NoteView from '../NoteView/NoteView';
+import EditNote from '../EditNote/EditNote';
 
 class SideMenu extends Component {
     constructor() {
@@ -72,6 +73,7 @@ class SideMenu extends Component {
                 <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />}/>
                 <Route exact path="/create-new-note/" render={(props) => <NewNote {...props} notes={this.state.notes} addNote={this.addNote} handleInputChange={this.handleInputChange}/>}/>
                 <Route exact path="/note-view/:id" render={(props) => <NoteView {...props} notes={this.state.notes} deleteNote={this.deleteNote} handleInputChange={this.handleInputChange}/>}/>
+                <Route exact path="/note-view/:id/edit" render={(props) => <EditNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange}/>}/>
             </div>
         );
     }
