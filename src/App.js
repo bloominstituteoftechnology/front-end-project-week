@@ -14,10 +14,10 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
+require('dotenv').config();
 
 const Appcont = styled.div`
 display: flex;
-
     margin: 0 auto;
     width: 880px;
 `;
@@ -46,7 +46,7 @@ display: flex;
 }
 }
 componentDidMount() {
-  
+
   const apiUrl = process.env.REACT_APP_API;
   axios
   .get(apiUrl)
