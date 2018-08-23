@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom' 
-import {withRouter} from 'react-router'
+
 
 class SearchFullNote extends React.Component{
     constructor(props){
@@ -11,7 +11,6 @@ class SearchFullNote extends React.Component{
     }
 
     render () {
-        console.log(this.props)
         const title = this.props.location.state.title;
         const content = this.props.location.state.textBody;
         const index = this.props.location.state.index; 

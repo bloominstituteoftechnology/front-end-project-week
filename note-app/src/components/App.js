@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'; 
-import {Route, Switch} from 'react-router-dom'; 
+import {Route, Switch,Link} from 'react-router-dom'; 
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {connect} from 'react-redux'; 
-import axios from 'axios';
+
 
 import '../styles/App.css';
 import CreateNote from './create-note';
@@ -12,13 +12,14 @@ import ViewAllNotes from './notes';
 import FullNote from './FullNote';
 import DeleteModal from './delete-note';
 import Rhyme from './Rhyme';
-import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote,searchingNotes} from '../actions'; 
+import {fetchingNotes, addingNote, updatingNote, deletingNote, selectingNote} from '../actions'; 
 import one from '../images/createNote.png';
 import two from '../images/trash.jpg';
 import three from '../images/notepad.png';
 import four from '../images/search.jpg';
 import five from '../images/rhyme.jpg';
 import Search from './Search';
+import Trash from './Trash';
 
 class App extends Component {
   constructor(props){
@@ -28,11 +29,11 @@ class App extends Component {
       select: null,
       images: 
       [
-        {alt: "trash of notes img", src: two, className: "carousel-img"},
-        {alt:"search icon", src: four,className: "carousel-img"},
-        {alt:"rhyme", src: five,className: "carousel-img"},
-        {alt: "Create Note image", src: one, className: "carousel-img"},
-        {alt:"Note Pad image", src: three,className: "carousel-img"}
+        {alt: "trash of notes img", src: two, className: "carousel-img", link:'/trash'},
+        {alt:"search icon", src: four,className: "carousel-img", link: '/search'},
+        {alt:"rhyme", src: five,className: "carousel-img", link: '/rhyme-book'},
+        {alt: "Create Note image", src: one, className: "carousel-img", link: '/create-note'},
+        {alt:"Note Pad image", src: three,className: "carousel-img", link: '/'}
       ]
     }
   }
@@ -99,16 +100,14 @@ class App extends Component {
     images.map((image,i) => i === imageLength ? image.className = "carousel-img active-img" : image.className = "carousel-img nonactive-img")
     this.setState({images})
   }
-
   render() {
     return (
     <Router>
       <div className="App">
         <div className="heading">
-          <h3 className= "app-header"></h3>
           <div className = "scene">
             {this.state.images.map(image => <div key = {image.alt} className ="carousel-cell">
-              <img /*onMouseOver ={this.imgHover}*/ onClick = {this.imgClick} className = {image.className} src={image.src} alt={image.alt}/>
+              <Link to ={`${image.link}`}><img  onClick = {this.imgClick} className = {image.className} src={image.src} alt={image.alt}/></Link>
             </div>)}
           </div>
           <div className ="btns"><button onClick = {this.previousClick} className = "btn-side-bar menu-options"><i className="fas fa-backward"></i></button><button onClick = {this.nextClick} className = "btn-side-bar menu-options"><i className="fas fa-forward"></i></button></div>
@@ -124,6 +123,7 @@ class App extends Component {
                 <Route path = '/rhyme-book' render = {props => <Rhyme /> } />
                 <Route path = '/create-note'  render = {props => <CreateNote {...props} create = {this.postNote} idGenerator = {this.idGenerator} nextId = {this.state.nextId}/>} />
                 <Route path = '/search' render = {props => <Search {...props} notes = {this.props.notes}/> } />
+                <Route path = '/trash' render = {props => <Trash {...props} delete = {this.deleteNote} notes = {this.props.notes}/> } />
                 <Route path = '/:id/edit-note' render = {props => <EditNote {...props} update = {this.updateNote}/> } />
                 <Route path = '/:id/delete-note' render = {props => <DeleteModal {...props} select = {this.handleNoteSelect} delete = {this.deleteNote}/>} />
                 <Route path = '/:id' render = {props => <FullNote  {...props} select = {this.state.select} /> } />

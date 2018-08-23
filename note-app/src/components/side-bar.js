@@ -27,9 +27,10 @@ class SideBar extends Component {
             <div className ="side-bar">
                 <h1 className = "application-title">Lambda Notes</h1>
                 <Link to = "/"><button className="btn-side-bar">View Your Notes</button></Link>
-                <Link to="create-note"> <button className="btn-side-bar">+ Create New Note</button> </Link>
-                <Link to='rhyme-book'> <button className ="btn-side-bar">Rhyme Book</button></Link>
-                <Link to='search'> <button className ="btn-side-bar">Search</button></Link>
+                <Link to="/create-note"> <button className="btn-side-bar">+ Create New Note</button> </Link>
+                <Link to='/rhyme-book'> <button className ="btn-side-bar">Rhyme Book</button></Link>
+                <Link to='/search'> <button className ="btn-side-bar">Search</button></Link>
+                <Link to="/trash"> <button className ="btn-side-bar">Trash</button></Link>
             </div>
         )
 

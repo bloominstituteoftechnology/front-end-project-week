@@ -1,7 +1,6 @@
 import {GETTING_NOTES, ADDING_NOTE, UPDATING_NOTE, DELETING_NOTE, GOT_NOTES, ADDED_NOTE, UPDATED_NOTE, DELETED_NOTE , SELECTING_NOTE, SELECTED_NOTE, ERROR} from '../reducers'
-import {store} from '../index'
+
 import axios from 'axios' 
-import { bindActionCreators } from '../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
 
 
 export const fetchingNotes = () => {
