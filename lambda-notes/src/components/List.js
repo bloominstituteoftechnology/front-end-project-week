@@ -1,10 +1,12 @@
 import React from 'react';
 import Note from './Note';
+import { Link } from 'react-router-dom';
 
 const List = (props) => {
+
     return (
         <div>
-            {props.list.map((list, index) => <Note key={index} data={list} />)}
+            {props.list.map((note, index) => <Link to={`/Note/${note.id}`}> <Note key={index} data={note} /> </Link>)}
         </div>
     );
 }

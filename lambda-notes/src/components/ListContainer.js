@@ -12,61 +12,63 @@ class ListContainer extends React.Component {
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna1',
-            id: Date.now(),
+            id: 0,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna2',
-            id: Date.now(),
+            id: 1,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna3',
-            id: Date.now(),
+            id: 2,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna4',
-            id: Date.now(),
+            id: 3,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna5',
-            id: Date.now(),
+            id: 4,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna6',
-            id: Date.now(),
+            id: 5,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna7',
-            id: Date.now(),
+            id: 6,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna8',
-            id: Date.now(),
+            id: 7,
             completed: false
           },
           {
             title: 'Note Title',
             content: 'enim tortor at auctor urna9',
-            id: Date.now(),
+            id: 8,
             completed: false
           }
         ],
         title: '',
-        content: ''
+        content: '',
+        
       };
+      this.currentId = Math.max(...this.state.list.map(note => note.id))
     }
    
     handleTaskChange = e => {
@@ -77,9 +79,14 @@ class ListContainer extends React.Component {
       e.preventDefault();
       const list = this.state.list.slice();
       console.log(list);
-      list.push({ title: this.state.title, content: this.state.content, id: Date.now(), completed: false });
+      list.push({ title: this.state.title, content: this.state.content, id: this.currentId + 1, completed: false });
       console.log(list);
       this.setState({ list: list });
+    }
+
+    fetchNote = id => {
+      const filterNote = this.state.list.filter(note => note.id === id);
+        return filterNote[0];
     }
 
     render() {
@@ -95,11 +102,11 @@ class ListContainer extends React.Component {
               content={this.state.content}
             />
           } />
-          <Route path="/Note" component={Note} />
+          <Route path="/Note/:id" render={(props) => <Note {...props} fetchNote={this.fetchNote} />} />
         </div>
         
       );
-    }
+    } 
   }
   
   export default ListContainer;
