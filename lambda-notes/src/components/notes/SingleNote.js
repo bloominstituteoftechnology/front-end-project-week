@@ -12,12 +12,13 @@ class SingleNote extends Component {
 
   render() {
     const id = parseInt(this.props.match.params.id, 10);
-    console.log("ID", id);
-    console.log("propsprops", this.props.match);
-    console.log("Heyyeye", this.state.allNotes);
+    console.log("Single Note ID", id);
     return (
       <div className="singleNoteDiv">
         <SideBar />
+        <Link to={`/edit-note/${id}`} key={id}>
+          <button className="editButton">Edit</button>
+        </Link>
         <h2>{this.state.allNotes[id].title}</h2>
         <h2>{this.state.allNotes[id].description}</h2>
         <Link to="/">Home</Link>

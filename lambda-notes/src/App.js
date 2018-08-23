@@ -20,6 +20,7 @@ class App extends Component {
     this.setState({ notes: noteData, loadedData: true });
   }
 
+  // new note and modify note handlers
   inputChangeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -37,9 +38,9 @@ class App extends Component {
     notesCopy.push(newNote);
     this.setState({ notes: notesCopy, title: "", description: "" });
   };
+  // end new note and modify note handlers
+
   render() {
-    console.log("thisnotes", this.state.notes);
-    console.log("this.state.notes");
     if (this.state.loadedData === false) {
       return (
         <div>

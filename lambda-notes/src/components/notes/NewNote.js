@@ -5,9 +5,7 @@ class NewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allNotes: props.notes,
-      title: "",
-      description: ""
+      allNotes: props.notes
     };
   }
 
@@ -29,7 +27,7 @@ class NewNote extends Component {
             name="description"
             onChange={this.props.inputChangeHandler}
           />
-          <button>Update</button>
+          <button>Save</button>
         </form>
         <Link to="/">Home</Link>
       </div>
