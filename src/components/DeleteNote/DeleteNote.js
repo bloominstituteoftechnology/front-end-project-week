@@ -16,10 +16,9 @@ export default class DeleteNote extends Component {
         username
       }
     }
-    const URL = 'http://localhost:3000/'
     axios
       .delete(`${process.env.REACT_APP_API}/api/notes/${id}`, requestOptions)
-      .then(response => window.location.href = URL)
+      .then(response => this.props.history.push('/'))
       .catch(err => this.props.history.push('/login'))
   }
   

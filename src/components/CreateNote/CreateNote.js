@@ -24,14 +24,13 @@ export default class CreateNote extends Component {
         username
       }
     }
-    const URL = 'http://localhost:3000/';
     axios
       .post(`${process.env.REACT_APP_API}/api/notes`, {
         title: this.state.title,
         message: this.state.message,
         username
       }, requestOptions)
-      .then(() => window.location.href = URL)
+      .then(() => this.props.history.push('/'))
       .catch(err => this.props.history.push('/login'))
   }
 

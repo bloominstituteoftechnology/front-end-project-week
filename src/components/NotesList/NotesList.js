@@ -28,7 +28,6 @@ export default class NotesList extends Component {
     axios
       .get(`${process.env.REACT_APP_API}/api/notes/`, requestOptions)
       .then(res => {
-        //console.log(res.data)
         this.setState({
           notes: res.data.notes
         })
