@@ -54,7 +54,6 @@ class NoteDetails extends Component {
     const { title, context, tags } = this.state
     this.setState({ title, context, tags })
     const note = { title, context, tags }
-
     if (!tags) {
       this.props.editNote(this.props.match.params.id, note)
     }
@@ -63,7 +62,7 @@ class NoteDetails extends Component {
       this.props.editNoteWithTag(this.props.match.params.id, note)
     }
     this.editToggle()
-    this.props.history.push('/')
+    this.props.history.push(`/`)
   }
 
   handleEdit = () => {
@@ -72,14 +71,16 @@ class NoteDetails extends Component {
   handleUpdate = () => {
     this.setState({ title: this.props.note.title })
   }
-  // handleClone = (e) => {
-  //   e.preventDefault()
-  //   const { title, context, tags } = this.state
-  //   const note = { title, context, tags }
-  //   const token = localStorage.getItem('token')
-  //   this.props.postNote(note, token)
-  //   this.setState({ title, context, tags })
-  // }
+  handleClone = (e) => {
+    e.preventDefault()
+    const token = localStorage.getItem('token')
+    const { title, context, tags } = this.state
+    const note = { title, context, tags }
+    console.log('note', this.props.note.tags)
+    this.props.postNote(note, token, tags)
+    this.setState({ title, context, tags })
+    this.props.history.push('/')
+  }
 
   render () {
     if (!this.state.note || !this.props.note) {
