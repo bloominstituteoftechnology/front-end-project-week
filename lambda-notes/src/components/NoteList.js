@@ -18,7 +18,6 @@ class NoteList extends React.Component {
   }
 
   onSort = (sortedList) => {
-    console.log(sortedList);
     const updatedNoteOrdering = JSON.stringify(sortedList.map(note => {
       return Number(note._id);
     }));
@@ -69,7 +68,7 @@ class NoteList extends React.Component {
     })
 
     // returns loading component if notes aren't fetched
-    if (this.props.fetchingNotes) {
+    if (this.props.fetchingNotes && !this.props.notesFetched) {
       return (
         <Loading />
       )
@@ -105,7 +104,10 @@ NoteList.defaultProps = {
 };
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    fetchingNotes: state.fetchingNotes,
+    notesFetched: state.notesFetched
+  }
 }
 
 export default connect(mapStateToProps, { updateNoteOrdering })(NoteList);

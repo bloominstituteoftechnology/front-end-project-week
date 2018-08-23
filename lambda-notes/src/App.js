@@ -46,7 +46,7 @@ class App extends Component {
     e.preventDefault();
     this.props.addNote({ title: this.state.title, content: this.state.content });
     this.setState({ title: "", content: "" });
-    if (!this.props.fetchingNotes) {
+    if (this.props.notesFetched) {
       this.props.history.push("/");
     }
   }
@@ -61,7 +61,7 @@ class App extends Component {
 
           <Route exact path="/" render={ props =>
               <NoteList notes={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.props.notes}
-                        fetchingNotes={this.props.fetchingNotes} />
+              />
             }
           />
 
@@ -95,7 +95,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
-    fetchingNotes: state.fetchingNotes
+    fetchingNotes: state.fetchingNotes,
+    notesFetched: state.notesFetched
   }
 }
 

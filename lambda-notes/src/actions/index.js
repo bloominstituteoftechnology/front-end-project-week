@@ -22,7 +22,7 @@ export const silentUpdate = () => {
     axios
       .get(notesUrl)
       .then(response => {
-        dispatch({ type: 'NOTES_FETCHED', payload: response.data });
+        dispatch({ type: 'SILENT_UPDATE', payload: response.data });
       })
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });
@@ -44,6 +44,7 @@ export const updateNoteOrdering = (updatedNoteOrdering) => {
 
 export const addNote = (newNote) => {
   return dispatch => {
+    dispatch({ type: 'FETCHING_NOTES' });
     axios
       .post(notesUrl, newNote)
       .then(() => getNotes()(dispatch))
@@ -88,12 +89,9 @@ export const editNote = (editedNote) => {
 
 export const deleteNote = (id) => {
   return dispatch => {
-    dispatch({ type: 'DELETING_NOTE' });
+    dispatch({ type: 'FETCHING_NOTES' });
     axios
       .delete(`${notesUrl}/${id}`)
-      .then(response => {
-        dispatch({ type: 'NOTE_DELETED' })
-      })
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });

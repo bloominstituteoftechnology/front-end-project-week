@@ -2,9 +2,9 @@ const initialState = {
   notes: [],
   note: null,
   fetchingNotes: false,
+  notesFetched: false,
   fetchingNote: false,
   editingNote: false,
-  deletingNote: false,
   noteExists: false,
   error: null
 };
@@ -12,11 +12,16 @@ const initialState = {
 export default (state = initialState, action) => {
   switch(action.type) {
     case 'FETCHING_NOTES':
-      return { ...state, fetchingNotes: true };
+      return { ...state, fetchingNotes: true,
+                         notesFetched: false };
 
     case 'NOTES_FETCHED':
       return { ...state, fetchingNotes: false,
+                         notesFetched: true,
                          notes: action.payload };
+
+    case 'SILENT_UPDATE':
+      return { ...state, notes: action.payload };
 
     case 'FETCHING_NOTE':
       return { ...state, fetchingNote: true };
@@ -37,12 +42,6 @@ export default (state = initialState, action) => {
     case 'NOTE_EDITED':
       return { ...state, editingNote: false,
                          note: action.payload };
-
-    case 'DELETING_NOTE':
-      return { ...state, deletingNote: true };
-
-    case 'NOTE_DELETED':
-      return { ...state, deletingNote: false };
 
     case 'ERROR':
       return { ...state, error: action.payload };
