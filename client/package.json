@@ -5,9 +5,12 @@
   "dependencies": {
     "fuse.js": "^3.2.1",
     "react": "^16.4.2",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.4.2",
     "react-markdown": "^3.4.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "react-scripts start",

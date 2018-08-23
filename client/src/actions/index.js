@@ -41,7 +41,13 @@ export const {
   updateSearchTerm,
   sortAscending,
   sortDescending,
-} = createActions('UPDATE_SEARCH_TERM', 'SORT_ASCENDING', 'SORT_DESCENDING');
+  moveItem,
+} = createActions(
+  'UPDATE_SEARCH_TERM',
+  'SORT_ASCENDING',
+  'SORT_DESCENDING',
+  'MOVE_ITEM',
+);
 
 export const fetchNotes = () => async dispatch => {
   dispatch(fetchNotesRequest());

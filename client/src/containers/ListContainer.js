@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Fuse from 'fuse.js';
 
-import { fetchNotes } from '../actions';
+import { fetchNotes, moveItem } from '../actions';
 import ListView from '../components/ListView';
 
 class ListContainer extends Component {
@@ -30,7 +30,16 @@ class ListContainer extends Component {
         {this.props.isFetching ? (
           <div>Loading...</div>
         ) : (
-          <ListView notes={notes} />
+          <ListView
+            notes={notes}
+            moveAfter={(target, source) =>
+              target !== source && this.props.moveItem({ target, source })
+            }
+            moveBefore={(target, source) =>
+              target - 1 !== source &&
+              this.props.moveItem({ target: target - 1, source })
+            }
+          />
         )}
       </div>
     );
@@ -39,5 +48,5 @@ class ListContainer extends Component {
 
 export default connect(
   ({ notes, isFetching, term }) => ({ notes, isFetching, term }),
-  { fetchNotes },
+  { fetchNotes, moveItem },
 )(ListContainer);

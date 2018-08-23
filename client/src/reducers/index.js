@@ -19,6 +19,7 @@ import {
   updateSearchTerm,
   sortAscending,
   sortDescending,
+  moveItem,
 } from '../actions';
 
 const notes = handleActions(
@@ -41,6 +42,12 @@ const notes = handleActions(
             note1.title.toLowerCase().localeCompare(note2.title.toLowerCase()) *
             -1,
         ),
+    [moveItem]: (state, { payload: { target, source } }) => {
+      const nextState = state.slice();
+      const sourceItem = nextState.splice(source, 1)[0];
+      nextState.splice(target, 0, sourceItem);
+      return nextState;
+    },
   },
   [],
 );

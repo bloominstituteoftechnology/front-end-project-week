@@ -1,17 +1,21 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import { Button, LinkWrapper } from '../styles';
+import { DragSource, DropTarget } from 'react-dnd';
 
 const StyledCard = styled.div`
   padding: 3rem;
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  box-shadow: ${props =>
+    props.isDragging ? 'none' : '0 2rem 4rem rgba(0, 0, 0, 0.2)'};
   background-color: #fafafa;
   width: 32rem;
   height: 32rem;
   display: flex;
   flex-direction: column;
   margin: 1.5rem;
+  opacity: ${props => (props.isDragging ? 0 : 1)};
 `;
 
 const HideOverflow = styled.div`
@@ -34,20 +38,75 @@ const CardBody = styled.div`
   text-overflow: ellipsis;
 `;
 
-const Card = ({ note: { _id, title, textBody } }) => {
-  return (
-    <StyledCard>
-      <HideOverflow>
-        <CardTitle>{title}</CardTitle>
-        <CardBody>
-          <ReactMarkdown source={textBody.substr(0, 250)} />
-        </CardBody>
-      </HideOverflow>
-      <LinkWrapper to={`/notes/${_id}`} key={_id}>
-        <Button>View</Button>
-      </LinkWrapper>
-    </StyledCard>
+const cardSource = {
+  beginDrag(props) {
+    return {
+      id: props.id,
+      index: props.index,
+    };
+  },
+};
+
+const collectSource = (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging(),
+});
+
+const cardTarget = {
+  hover(props, monitor, component) {
+    if (!component) {
+      return null;
+    }
+    const dragIndex = monitor.getItem().index;
+    const hoverIndex = props.index;
+
+    if (dragIndex === hoverIndex) return;
+
+    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
+    const hoverMiddleX = (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
+
+    const clientOffset = monitor.getClientOffset();
+    const hoverClientX = clientOffset.x - hoverBoundingRect.left;
+
+    if (hoverClientX > hoverMiddleX) {
+      props.moveAfter(hoverIndex, dragIndex);
+    } else if (hoverClientX < hoverMiddleX) {
+      if (hoverIndex - 1 === dragIndex) return;
+      props.moveBefore(hoverIndex, dragIndex);
+    }
+    monitor.getItem().index = hoverIndex;
+  },
+};
+
+const collectTarget = connect => ({
+  connectDropTarget: connect.dropTarget(),
+});
+
+const Card = ({
+  note: { _id, title, textBody },
+  connectDragSource,
+  isDragging,
+  connectDropTarget,
+}) => {
+  return connectDragSource(
+    connectDropTarget(
+      <div>
+        <StyledCard isDragging={isDragging}>
+          <HideOverflow>
+            <CardTitle>{title}</CardTitle>
+            <CardBody>
+              <ReactMarkdown source={textBody.substr(0, 250)} />
+            </CardBody>
+          </HideOverflow>
+          <LinkWrapper to={`/notes/${_id}`} key={_id}>
+            <Button>View</Button>
+          </LinkWrapper>
+        </StyledCard>
+      </div>,
+    ),
   );
 };
 
-export default Card;
+export default DropTarget('CARD', cardTarget, collectTarget)(
+  DragSource('CARD', cardSource, collectSource)(Card),
+);
