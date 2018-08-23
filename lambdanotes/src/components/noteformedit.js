@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from "react-router-dom";
 
 const NoteFormEdit = (props) => {
+
     return (  
         <React.Fragment>
             {props.Redirect ? <Redirect to={'/'}/> : 

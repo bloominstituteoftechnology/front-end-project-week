@@ -16,11 +16,9 @@ class Note extends Component {
     }
         
     componentDidMount() {
-        const note = this.props.notes.find(note => { 
-            // console.log(note.title)
+        const note = this.props.notes.find(note => {
             return note.id.toString() === this.props.match.params.id
         })
-        console.log(note.title)
         this.setState({
             title: note.title,
             note: note.note,
@@ -44,6 +42,14 @@ class Note extends Component {
         this.setState({ edittoggle: !edit})
       }
 
+    // editSetup = (id) => {
+    //     const arr = props.notes;
+    //     let singleNote = arr.find(note => note.id.toString() === id);
+    //     this.setState({inputTitle: singleNote.title, inputNote: singleNote.note})
+    // }
+
+
+
     handleEditChange = event => {
     this.setState({[event.target.name]: event.target.value })
     };
@@ -53,8 +59,8 @@ class Note extends Component {
         console.log(this.state)
         return (  
             <div>
-                <Link to={`/note/${this.state.id}/edit`}><Button color="info">EDIT</Button></Link>
-                <DeleteModal />
+                <Link to={`/note/${this.state.id}/edit`} ><Button color="info">EDIT</Button></Link>
+                <DeleteModal {...this.props} deleteHandler={this.props.deleteHandler} history={this.props.history}/>
                 <Card>
                     <CardBody>
                         <CardTitle>{this.state.title}</CardTitle>

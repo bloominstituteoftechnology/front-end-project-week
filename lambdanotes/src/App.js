@@ -45,11 +45,24 @@ class App extends Component {
           edittoggle: this.state.edittoggle
         }
       );
-      this.setState({ notes: arr, count: this.state.count++, Redirect: true },() => {
+      this.setState({ 
+        notes: arr, 
+        title: '',
+        note: '',
+        Redirect: true },() => {
         this.setState({Redirect: false})
       }
       )}
     }
+
+    deleteHandler = (id) => {
+      let notes = this.state.notes.filter(item => item.id != id)
+      this.setState({ notes });
+    }
+
+    // editSubmit(mynote) = event => {
+    //   this.setState({myNote: mynote})
+    // }
 
    render() {
     return (
@@ -59,7 +72,7 @@ class App extends Component {
           <NotesList {...props} notes={this.state.notes} />
         )}/>
         <Route exact path="/note/:id" render={props => (
-          <Note {...props} notes={this.state.notes} handleNoteChange={this.handleNoteChange} addHandler={this.addHandler} Redirect={this.state.Redirect}/>
+          <Note {...props} notes={this.state.notes} handleNoteChange={this.handleNoteChange} addHandler={this.addHandler} Redirect={this.state.Redirect} deleteHandler={this.deleteHandler}/>
         )}/>
         <Route path="/form" render={props => (
           <NoteForm {...props} notes={this.state.notes} handleNoteChange={this.handleNoteChange} addHandler={this.addHandler} Redirect={this.state.Redirect}/>
