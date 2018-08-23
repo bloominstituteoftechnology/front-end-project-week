@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Button from './Button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchTags } from './../actions/index';
@@ -16,6 +17,7 @@ const StyledNoteGrid = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     margin: ${props => props.theme.dimensions.noteGrid.searchFormMargin};
 
     label {
@@ -26,6 +28,7 @@ const StyledNoteGrid = styled.div`
     }
 
     input[type='text'] {
+      height: ${props => props.theme.dimensions.noteGrid.inputHeight};
       width: ${props => props.theme.dimensions.noteGrid.inputWidth};
       border-radius: ${props =>
     props.theme.dimensions.noteGrid.inputBorderRadius};
@@ -57,12 +60,14 @@ const StyledNoteGrid = styled.div`
 `;
 
 class NoteGrid extends Component {
+  static defaultState = {
+    searchType: 'word',
+    searchInput: '',
+  };
+
   constructor(props) {
     super(props);
-    this.state = {
-      searchType: 'word',
-      searchInput: ''
-    };
+    this.state = NoteGrid.defaultState;
     this.updateInput = this.updateInput.bind(this);
     this.updateTagQuery = this.updateTagQuery.bind(this);
   }
@@ -82,6 +87,8 @@ class NoteGrid extends Component {
       searchInput: name,
     });
   }
+
+  resetInput = () => this.setState(NoteGrid.defaultState);
 
   render() {
     let { notes } = this.props;
@@ -135,6 +142,9 @@ class NoteGrid extends Component {
             value={searchInput}
             onChange={this.updateInput}
           />
+          <Button onClick={this.resetInput} >
+            CLEAR
+          </Button>
           <div>
             <div className="radio">
               <label>

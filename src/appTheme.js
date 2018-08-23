@@ -78,6 +78,7 @@ export default {
       inputBorderRadius: '2px',
       inputBorderWidth: '1px',
       inputWidth: '300px',
+      inputHeight: '42px',
       inputPadding: '4px',
       labelFontSize: '12px',
       labelPadding: '2px 0px',
