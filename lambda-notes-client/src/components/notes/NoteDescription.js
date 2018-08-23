@@ -19,9 +19,10 @@ const Main = styled("main")`
       text-decoration: underline;
       font-size: 1.8rem;
       color: #4A494A;
-      margin-right: 19px;
+      margin-right: 18px;
       &:hover {
         cursor: pointer;
+        color: #0f0f0f;
       }
     }
   }

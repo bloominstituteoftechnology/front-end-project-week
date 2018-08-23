@@ -74,11 +74,14 @@ h1, h2, h3, h4, h5 {
 	height: 265px;
   width: 265px;
   border: 1.5px solid #CBCBCB;
-	margin: 20px 2px 13px 0;
+	margin: 20px 0 14px;
 	text-decoration: none;
 	color: black;
 	background-color: white;
 	padding: 13px 25px;
+}
+.article-note__linked:hover {
+	box-shadow: .5px .5px 10px .5px rgba(0, 0, 0, .1)
 }
 .article-note__linked .underline {
 	width: 98%;

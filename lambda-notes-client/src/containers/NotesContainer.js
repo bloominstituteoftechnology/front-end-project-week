@@ -11,7 +11,7 @@ const Container = styled("div")`
   margin-left: 25%;
   min-height: 100vh;
   width: 75%;
-  padding: 80px 35px;
+  padding: 75px 35px 80px;
 
   .body-header {
     display: flex;
@@ -67,7 +67,7 @@ const Main = styled("main")`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 16px;
 `;
 
 

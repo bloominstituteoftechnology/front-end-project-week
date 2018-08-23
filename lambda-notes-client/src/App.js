@@ -58,6 +58,9 @@ const MainContainer = styled("div")`
         font-weight: bold;
         background-color: #2AC0C4;
         border: solid 1px #939797;
+        &:hover {
+        background-color: #23a0a4;
+      }
       }
     }
   }
@@ -96,74 +99,100 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <Router>
         <MainContainer>
           <header className="main-header">
             <div>
-              <NavLink className="logo" exact strict to="/">Lambda Notes</NavLink>
+              <NavLink className="logo" exact strict to="/">
+                Lambda Notes
+              </NavLink>
             </div>
             <nav>
-              <NavLink className="link" exact strict to="/notes">View Your Notes</NavLink>
-              {!this.state.atHomePage ? <NavLink className="link" to="/notes/add-note/">+Create New Note</NavLink> : null}
+              <NavLink className="link" exact strict to="/notes">
+                View Your Notes
+              </NavLink>
+              {!this.state.atHomePage ? (
+                <NavLink className="link" to="/notes/add-note/">
+                  +Create New Note
+                </NavLink>
+              ) : null}
             </nav>
           </header>
 
           {/* Routes */}
-          <Route exact strict path="/" render={props => <Home {...props} atHomeToggle={this.atHomeToggle} /> } />
-
-          <Route exact strict path="/notes" component={ NotesContainer } />
-
-          <Route path="/notes/add-note/"
-            render={props => <AddNoteForm
-              {...props}
-              notes={this.props.notes}
-              addNote={this.addNote}
-            /> }
+          <Route
+            exact
+            strict
+            path="/"
+            render={props => (
+              <Home {...props} atHomeToggle={this.atHomeToggle} />
+            )}
           />
 
-          <Route exact strict path="/notes/:id"
-            render={props => <NoteDescription
-              {...props}
-              notes={this.props.notes}
-              handleModal={this.handleModal}
-              isModalOpen={this.state.isModalOpen}
-              deleteNote={this.deleteNote}
-            /> }
+          <Route exact strict path="/notes" component={NotesContainer} />
+
+          <Route
+            path="/notes/add-note/"
+            render={props => (
+              <AddNoteForm
+                {...props}
+                notes={this.props.notes}
+                addNote={this.addNote}
+              />
+            )}
           />
 
-          <Route path="/notes/:id/edit"
-            render={props => <EditNoteForm
-              {...props}
-              notes={this.props.notes}
-              editNote={this.editNote}
-            /> }
+          <Route
+            exact
+            strict
+            path="/notes/:id"
+            render={props => (
+              <NoteDescription
+                {...props}
+                notes={this.props.notes}
+                handleModal={this.handleModal}
+                isModalOpen={this.state.isModalOpen}
+                deleteNote={this.deleteNote}
+              />
+            )}
           />
 
+          <Route
+            path="/notes/:id/edit"
+            render={props => (
+              <EditNoteForm
+                {...props}
+                notes={this.props.notes}
+                editNote={this.editNote}
+              />
+            )}
+          />
         </MainContainer>
       </Router>
     );
   }
 }
 
-
 const mapStateToProps = state => ({
   notes: state.notes
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   deleteNoteHandler: id => {
-    dispatch(deleteNote(id))
+    dispatch(deleteNote(id));
   },
 
-  editNoteHandler: (content) => {
-    dispatch(editNote(content))
+  editNoteHandler: content => {
+    dispatch(editNote(content));
   },
 
-  addNoteHandler: (content) => {
-    dispatch(addNote(content))
+  addNoteHandler: content => {
+    dispatch(addNote(content));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

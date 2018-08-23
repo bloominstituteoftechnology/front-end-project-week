@@ -3,7 +3,7 @@ import styled from "react-emotion";
 
 
 const Container = styled("div")`
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -19,21 +19,20 @@ const Opacity = styled("div")`
   width: 100vw;
   height: 100vh;
   z-index: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Modal = styled("div")`
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -360px;
+  margin-top: -240px;
   width: 718px;
   height: 242px;
   background: white;
   border: 1px solid black;
   z-index: 30;
   text-align: center;
-  margin-bottom: 240px;
-  margin-right: 20px;
 
   p {
     font-size: 1.8rem;
@@ -56,6 +55,10 @@ const Modal = styled("div")`
       font-weight: bold;
       background-color: #2AC0C4;
       border: solid 1px #939797;
+      &:hover {
+        cursor: pointer;
+        background-color: #23a0a4;
+      }
     }
     .first {
       margin-right: 20px;

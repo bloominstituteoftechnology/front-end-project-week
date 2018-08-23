@@ -58,6 +58,10 @@ const Main = styled("main")`
       font-weight: bold;
       background-color: #2AC0C4;
       border: solid 1px #939797;
+      &:hover {
+        cursor: pointer;
+        background-color: #23a0a4;
+      }
     }
   }
 `;
