@@ -11,7 +11,6 @@ class DeleteNote extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.handleSetCurrent(id);
     this.setState({ id: id });
   }
 
