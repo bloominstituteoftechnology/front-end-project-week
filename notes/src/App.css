@@ -1,35 +1,35 @@
-.app{
-  border: 1px solid #B7B7B7;
+.app {
+  border: 1px solid #b7b7b7;
   max-width: 890px;
-  display:flex;
+  display: flex;
   margin: 60px auto;
-  height: 950px
+  height: 950px;
 }
 
-.navbar{
-  border-right: 1px solid #B7B7B7;
-  background-color: #D8D8D8;
+.navbar {
+  border-right: 1px solid #b7b7b7;
+  background-color: #d8d8d8;
   width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.navbar .navbar-title{
+.navbar .navbar-title {
   font-size: 34px;
   font-weight: 700;
-  font: #4A4A4A;
+  font: #4a4a4a;
   line-height: 30px;
-  margin: 20px 10px 0px
+  margin: 20px 10px 0px;
 }
 
-.navbar .navlink{
+.navbar .navlink {
   text-decoration: none;
-  background-color: #2BC1C4;
+  background-color: #2bc1c4;
   color: white;
   font-size: 16px;
   font-weight: 700;
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
@@ -37,31 +37,28 @@
   width: 90%;
 }
 
-
 /*------ NOTES BODY ------*/
 
-
-.notesbody{
-  background-color: #F3F3F3;
+.notesbody {
+  background-color: #f3f3f3;
   width: 670px;
 }
 
-.notesview{
+.notesview {
   margin: 45px 15px;
   display: flex;
   flex-wrap: wrap;
 }
 
-.notesview .notesview-title{
-  
+.notesview .notesview-title {
   margin-bottom: 25px;
-  font: #4A4A4A;
+  font: #4a4a4a;
   font-size: 20px;
   font-weight: 700;
   padding-left: 10px;
 }
 
-.notesview .noteslist-group{
+.notesview .noteslist-group {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -69,18 +66,18 @@
 
 /*------ NOTES CARD ------*/
 
-.notecard{
+.notecard {
   border: 1px solid darkgray;
   display: flex;
   flex-direction: column;
   background-color: white;
   height: 190px;
   width: 165px;
-  margin: 2px 0px 20px 0px ;
+  margin: 2px 0px 20px 0px;
   padding: 0 10px;
 }
 
-.notecard .notecard-title{
+.notecard .notecard-title {
   border-bottom: 1px solid darkgray;
   font-size: 18px;
   font-weight: 700;
@@ -89,7 +86,7 @@
   color: black;
 }
 
-.notecard .notecard-note{
+.notecard .notecard-note {
   font-size: 12px;
   font-weight: 700;
   padding: 5px;
@@ -104,82 +101,84 @@
 
 /*------ NOTE ------*/
 
-.note-main{
+.note-main {
   margin: 35px 15px;
 }
 
-.note-main .note-title{
+.note-main .note-title {
   margin-bottom: 25px;
-  font: #4A4A4A;
+  font: #4a4a4a;
   font-size: 20px;
   font-weight: 700;
 }
 
-.note-main .note-note{
+.note-main .note-note {
   font-size: 15px;
   font-weight: 400;
   line-height: 24px;
-
 }
 
-.note-main .editdelete{
-  display: flex; 
+.note-main .editdelete {
+  display: flex;
   margin: 0px 10px;
   justify-content: flex-end;
-  font: #4A4A4A;
+  font: #4a4a4a;
   font-size: 16px;
   font-weight: 700;
   padding-left: 8px;
 }
 
-.note-main .editdelete .edit{
+.note-main .editdelete .edit {
   margin-right: 10px;
+  color: #4a4a4a;
+  text-decoration-color: #4a4a4a;
 }
 
-.note-main .editdelete .delete{
+.note-main .editdelete .delete {
   text-decoration: underline;
   cursor: pointer;
+  color: #4a4a4a;
 }
 
 /*------ FORM ------*/
 
-.form{
+.form {
   margin: 65px 15px;
 }
 
-.form .form-title{
+.form .form-title {
   margin-bottom: 25px;
-  font: #4A4A4A;
+  font: #4a4a4a;
   font-size: 20px;
   font-weight: 700;
   padding-left: 8px;
 }
 
-.form .form-body{
+.form .form-body {
   display: flex;
   flex-direction: column;
 }
 
-.form .form-inputtitle{
+.form .form-inputtitle {
   width: 400px;
   margin: 10px;
 }
 
-.form .form-inputnote{
+.form .form-inputnote {
   width: 90%;
   height: 400px;
   margin: 10px;
 }
 
-.form .form-button{
+.form .form-button {
   text-decoration: none;
-  background-color: #2BC1C4;
-  border: 2px solid #2BC1C4;
+  background-color: #2bc1c4;
+  border: 2px solid #2bc1c4;
   color: white;
   font-size: 16px;
   font-weight: 700;
   line-height: 30px;
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
@@ -191,22 +190,22 @@
 
 /*------ Delete Modal ------*/
 
-.modal-nodisplay{
+.modal-nodisplay {
   display: none;
 }
 
 .modal {
-  display: block; 
-  position: fixed; 
-  z-index: 1; 
-  padding-top: 100px; 
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal .modal-content {
@@ -215,7 +214,7 @@
   align-items: center;
   background-color: #fefefe;
   margin: auto;
-  padding: 20px 35px 40px ;
+  padding: 20px 35px 40px;
   border: 1px solid #888;
   width: 24%;
   display: flex;
@@ -224,16 +223,16 @@
   font-stretch: condensed;
 }
 
-.modal-content .form-button-group{
+.modal-content .form-button-group {
   display: flex;
   height: 50px;
   width: 400px;
 }
 
-.modal-content .form-button{
+.modal-content .form-button {
   text-decoration: none;
-  background-color: #2BC1C4;
-  border: 2px solid #2BC1C4;
+  background-color: #2bc1c4;
+  border: 2px solid #2bc1c4;
   color: white;
   font-size: 16px;
   font-weight: 700;
@@ -241,12 +240,10 @@
   height: 40px;
   width: 200px;
   cursor: pointer;
-  margin: 5px
+  margin: 5px;
 }
 
-
-.modal-content .form-button-group .delete:hover{
-  background-color: #BD001A;
-  border: 2px solid #BD001A;
-
+.modal-content .form-button-group .delete:hover {
+  background-color: #bd001a;
+  border: 2px solid #bd001a;
 }

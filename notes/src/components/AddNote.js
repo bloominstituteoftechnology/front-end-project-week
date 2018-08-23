@@ -11,6 +11,7 @@ export default function AddNote(props) {
   }
 
 return (
+  
     <div className="form">
 
       <div className="form-title">Create New Note:</div>
