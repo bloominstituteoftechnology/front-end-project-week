@@ -11,7 +11,8 @@ export const UPDATED = 'UPDATED';
 export const ERROR = 'ERROR';
 
 // const URL = 'https://killer-notes.herokuapp.com/note';
-const URL = 'http://localhost:8000/notes';
+// const URL = 'http://localhost:8000/notes';
+const URL = 'https://immense-beach-63523.herokuapp.com/notes';
 
 export const fetchReq = () => {
     return (dispatch) => {
