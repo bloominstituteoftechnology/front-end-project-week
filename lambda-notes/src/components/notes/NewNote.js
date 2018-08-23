@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import "../../css/newnote.css";
 
@@ -14,6 +13,7 @@ class NewNote extends Component {
   render() {
     return (
       <div className="newNoteMainDiv">
+        {this.props.renderRedirect()}
         <h2>New Note:</h2>
         <form
           className="newNoteForm"

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import "../../css/editnote.css";
 
@@ -17,6 +16,7 @@ class EditNote extends Component {
 
     return (
       <div className="editNoteMainDiv">
+        {this.props.renderRedirect()}
         <h2>Edit Note:</h2>
         <form
           className="editNoteForm"

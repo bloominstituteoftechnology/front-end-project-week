@@ -47,6 +47,8 @@ class App extends Component {
     };
     notesCopy.push(newNote);
     this.setState({ notes: notesCopy, title: "", description: "" });
+    setTimeout(() => this.setState({ redirect: true }), 1000);
+    setTimeout(() => this.setState({ redirect: false }), 1000);
   };
 
   editNewNoteHandler = event => {
@@ -59,6 +61,8 @@ class App extends Component {
     notesCopy[noteNumberToEdit].title = this.state.title;
     notesCopy[noteNumberToEdit].description = this.state.description;
     this.setState({ notes: notesCopy, title: "", description: "" });
+    setTimeout(() => this.setState({ redirect: true }), 1000);
+    setTimeout(() => this.setState({ redirect: false }), 1000);
   };
   // end new note and modify note handlers
 
@@ -133,6 +137,7 @@ class App extends Component {
                 {...props}
                 inputChangeHandler={this.inputChangeHandler}
                 submitNewNoteHandler={this.submitNewNoteHandler}
+                renderRedirect={this.renderRedirect}
               />
             )}
           />
@@ -159,6 +164,7 @@ class App extends Component {
                 notes={this.state.notes}
                 inputChangeHandler={this.inputChangeHandler}
                 editNewNoteHandler={this.editNewNoteHandler}
+                renderRedirect={this.renderRedirect}
               />
             )}
           />
