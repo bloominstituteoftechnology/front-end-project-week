@@ -12,7 +12,7 @@ export const SideBar = () => {
         <Link to="/">
           <button>View Your Notes</button>
         </Link>
-        <Link to="new-note">
+        <Link to="/new-note">
           <button>+ Create New Note</button>
         </Link>
       </div>

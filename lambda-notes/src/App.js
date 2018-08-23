@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import AllNotes from "./components/notes/AllNotes";
 import NewNote from "./components/notes/NewNote";
 import EditNote from "./components/notes/EditNote";
 import SingleNote from "./components/notes/SingleNote";
 import { noteData } from "./components/data/noteData";
+import { SideBar } from "./components/sidebar/SideBar";
 import "./App.css";
 import "./css/reset.css";
-import { SideBar } from "./components/sidebar/SideBar";
 
 class App extends Component {
   constructor(props) {
@@ -17,22 +17,18 @@ class App extends Component {
       loadedData: false,
       title: "",
       description: "",
-      isOpen: false
+      isOpen: false,
+      // modal actions start
+      loadingModal: false,
+      successModal: false,
+      // redirect
+      redirect: false
     };
     // this.deleteNoteHandler = this.deleteNoteHandler.bind(this);
   }
   componentDidMount() {
     this.setState({ notes: noteData, loadedData: true });
   }
-
-  // not receiving any props
-  // componentDidUpdate(prevProps) {
-  //   console.log("PREVPROPS APP", prevProps);
-  //   console.log("CURRENTPROPS APP", this.props);
-  //   if (this.props !== prevProps.notes) {
-  //     console.log("NOT MATCHING");
-  //   }
-  // }
 
   // new note and modify note handlers
   inputChangeHandler = event => {
@@ -83,6 +79,34 @@ class App extends Component {
       return note.id !== noteNumberToAvoid;
     });
     this.setState({ notes: notesCopy });
+
+    setTimeout(() => this.setState({ redirect: true }), 1000);
+    setTimeout(() => this.setState({ redirect: false, isOpen: false }), 1000);
+
+    // loading modal needed for modal action
+    // this.setState({ notes: notesCopy, loadingModal: true });
+
+    // modal action start
+    // setTimeout(
+    //   () =>
+    //     this.setState({
+    //       loadingModal: false,
+    //       successModal: true
+    //     }),
+    //   1000
+    // );
+    // setTimeout(() =>
+    //   this.setState({
+    //     isOpen: false
+    //   })
+    // );
+  };
+
+  // redirect
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
   };
 
   render() {
@@ -121,6 +145,9 @@ class App extends Component {
                 toggleModal={this.toggleModal}
                 show={this.state.isOpen}
                 deleteNoteHandler={this.deleteNoteHandler}
+                renderRedirect={this.renderRedirect}
+                loadingModal={this.state.loadingModal}
+                successModal={this.state.successModal}
               />
             )}
           />

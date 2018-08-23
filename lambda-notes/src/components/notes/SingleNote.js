@@ -12,7 +12,9 @@ class SingleNote extends Component {
       id: parseInt(this.props.match.params.id, 10),
       note: this.props.notes.filter(note => {
         return note.id === ID;
-      })
+      }),
+      successModal: this.props.successModal,
+      loadingModal: this.props.loadingModal
     };
   }
 
@@ -27,6 +29,7 @@ class SingleNote extends Component {
     if (!this.props.show) {
       return (
         <div className="singleNoteDiv">
+          {this.props.renderRedirect()}
           <div className="buttonsSingleNoteDiv">
             <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
               <button className="editButton">Edit</button>
@@ -42,6 +45,7 @@ class SingleNote extends Component {
     } else {
       return (
         <div className="singleNoteDiv">
+          {this.props.renderRedirect()}
           <div className="buttonsSingleNoteDiv">
             <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
               <button className="editButton">Edit</button>
@@ -51,7 +55,12 @@ class SingleNote extends Component {
 
           <div className="backdrop">
             <div className="modal">
-              {this.props.children}
+              {/* convert below to if return statments */}
+              {/* {this.state.loadingModal && "Loading..."}
+              {this.state.successModal && "Success (make me green)"}
+              {!this.state.successModal &&
+                !this.state.loadingModal &&
+                "Here's some text for the modal"} */}
               <h4>Are you sure you want to delete this?</h4>
               <div className=".modalButtonsDiv">
                 <button
