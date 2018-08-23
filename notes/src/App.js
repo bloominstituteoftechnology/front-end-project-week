@@ -89,11 +89,11 @@ export default class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSaveHandler = (e) => {
+  onSaveHandler = e => {
     e.preventDefault();
-    
-    let id = this.state.notes.length
-   
+
+    let id = this.state.notes.length;
+
     let notes = this.state.notes.slice();
 
     notes.push({
@@ -132,17 +132,17 @@ export default class App extends Component {
 
     deleted = deleted.map((note, i) => {
       return {
-      id: i,
-      title: note.title,
-      note: note.note
-    };
-  });
+        id: i,
+        title: note.title,
+        note: note.note
+      };
+    });
 
     this.setState(() => ({ notes: deleted, id: null, title: "", note: "" }));
   };
 
   render() {
-    console.log('app state', this.state.notes)
+    console.log("app state", this.state.notes);
     return (
       <div className="app">
         <div className="navbar">
@@ -156,13 +156,10 @@ export default class App extends Component {
         </div>
 
         <div className="notesbody">
-
           <Route
             exact
             path="/"
-            render={props => <NotesView 
-              {...props} 
-              notes={this.state.notes} />}
+            render={props => <NotesView {...props} notes={this.state.notes} />}
           />
 
           <Route

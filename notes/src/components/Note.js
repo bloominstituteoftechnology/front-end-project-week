@@ -20,19 +20,16 @@ export default class Note extends Component {
       searchID = this.props.id;
     }
 
-    console.log('component mounting param', searchID)
-    
+    console.log("component mounting param", searchID);
+
     const foundNote = this.state.notes.find(
       note => note.id === Number(searchID)
     );
 
-    console.log('foundNote',foundNote);
+    console.log("foundNote", foundNote);
 
     if (!foundNote) return;
     this.setState(() => ({ note: foundNote }));
-
-   
-
   }
 
   openModalHandler = e => {
@@ -50,8 +47,6 @@ export default class Note extends Component {
   };
 
   render() {
-    console.log('note notes state', this.state.notes)
-    console.log('note note state', this.state.note)
     return (
       <div className="note-main">
         <div className="editdelete">
