@@ -131,6 +131,7 @@ class ListView extends Component {
                             value={this.state.search}
                             onChange={this.handleChange}
                             onKeyDown={this.handleSearch}
+                            style={{display: "none"}}
                         />
                     </div>
                     {this.props.notes.map((note, index) => {
@@ -160,6 +161,7 @@ class ListView extends Component {
                             value={this.state.search}
                             onChange={this.handleChange}
                             onKeyDown={this.handleSearch}
+                            style={{display: "none"}}
                         />
                     </div>
                     {this.state.filteredNotes.map((note, index) => {
@@ -189,6 +191,7 @@ class ListView extends Component {
                             value={this.state.search}
                             onChange={this.handleChange}
                             onKeyDown={this.handleSearch}
+                            style={{display: "none"}}
                         />
                     </div>
                     {this.state.notes.map((note, index) => {
