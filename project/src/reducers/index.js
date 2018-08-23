@@ -76,7 +76,8 @@ export const noteReducer = (state = initialState, action) =>{
             return(
                 {
                     ...state,
-                    deletingNote: false,                    
+                    deletingNote: false, 
+                    notes: state.notes                   
                 }
             ) 
         case SELECT_ID:

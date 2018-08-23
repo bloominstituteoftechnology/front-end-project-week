@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { deleteNote } from '../actions'
+import { deleteNote, fetchNotes } from '../actions'
 import { connect } from 'react-redux';
 
 class NoteView extends Component {
@@ -15,9 +15,9 @@ class NoteView extends Component {
         this.setState({modal: !this.state.modal})
     }
 
-    handleDelete = () =>{
+    handleDelete = () =>{        
         this.props.deleteNote(this.props.id);
-        this.forceUpdate();
+        this.props.fetchNotes()
     }
 
     render(){
@@ -28,7 +28,7 @@ class NoteView extends Component {
                     <div className="modal-content">                        
                         <p>Are you sure you want to delete this?</p>
                         <div className="modal-btns">
-                            <Link to = '/' onClick = {this.handleDelete}>
+                            <Link onClick = {this.handleDelete} to = '/'>
                                 <button className="delete-btn" >Delete</button>
                             </Link>                            
                             <button onClick={this.toggleModal}>No</button>
@@ -55,4 +55,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { deleteNote })(NoteView) 
+export default connect(mapStatetoProps, { deleteNote, fetchNotes })(NoteView) 
