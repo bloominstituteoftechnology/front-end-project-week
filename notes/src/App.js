@@ -42,10 +42,11 @@ class App extends Component {
     axios
     .get("https://killer-notes.herokuapp.com/note/get/all")
     .then(response => {
-      if (JSON.stringify(this.state.notes)!==JSON.stringify(response.data)){
+      
+      if (JSON.stringify(this.state.notes) !== JSON.stringify(response.data)){
       this.setState({ notes: response.data });}
+     
     })
-    console.log("update")
   }
 
   noteInput = event => {
@@ -57,10 +58,14 @@ class App extends Component {
       .post("https://killer-notes.herokuapp.com/note/create", {
         title: this.state.newtitle,
         textBody: this.state.newbody
+      }).then(()=>{
+        axios.get("https://killer-notes.herokuapp.com/note/get/all")
+        .then(response => {
+          this.setState(()=> ({notes: response.data }))
+        })
       })
       .catch(error => {
         console.error("Server Error", error);
-        console.log(this.state.notes);
       });
    
     //pre API code
@@ -95,8 +100,14 @@ class App extends Component {
   submitEdit = id => {
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
       title: this.state.edittitle,
-      textBody: this.state.editbody
-    });
+      textBody: this.state.editbody}).then(()=>{
+        axios.get("https://killer-notes.herokuapp.com/note/get/all")
+        .then(response => {
+          this.setState({ notes: response.data })
+        })
+      })
+  
+    
 
     //pre API code
 
@@ -120,8 +131,18 @@ class App extends Component {
   };
 
   noteDelete = id => {
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
-    this.setState({ deleting: false });
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then(()=> {
+      console.log(this.state.notes);
+      axios.get("https://killer-notes.herokuapp.com/note/get/all")
+      .then(response => {
+        this.setState({ notes: response.data, deleting: false }) 
+      })
+    })
+     
+    
+    // this.setState({ deleting: false });
+
     //pre API code
     // let notesCopy = this.state.notes.slice();
     // let notesLeft = notesCopy.filter(note => note.id != id);
