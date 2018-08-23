@@ -37,7 +37,7 @@ class CreateNote extends Component {
           body: filtNote[0].body,
           mode: "EDIT",
           tags: filtNote[0].tags,
-          checklist: filtNote[0].checklist,
+          checklist: filtNote[0].checklist
         });
       }
     }
@@ -58,8 +58,7 @@ class CreateNote extends Component {
     let moddedChecklist = prevChecklist.filter(e => {
       if (e.name !== event.target.id) {
         return true;
-      }
-      else{
+      } else {
         return false;
       }
     });
@@ -68,9 +67,7 @@ class CreateNote extends Component {
     });
   };
   handleInputChange = e => {
-
     this.setState({ [e.target.name]: e.target.value });
-
   };
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):
@@ -89,7 +86,7 @@ class CreateNote extends Component {
             body: filtNote[0].body,
             mode: "EDIT",
             tags: filtNote[0].tags,
-            checklist: filtNote[0].checklist,
+            checklist: filtNote[0].checklist
           });
         }
       }
@@ -155,7 +152,7 @@ class CreateNote extends Component {
         <div className="viewTitle">
           {this.state.mode === "ADD" ? "Create New" : "Edit"} Note:
         </div>
-        <br/>
+        <br />
         <form className="formLayout" id="createNoteForm" onSubmit={this.submit}>
           <input
             required
@@ -167,7 +164,7 @@ class CreateNote extends Component {
             value={this.state.title}
             onChange={this.handleInputChange}
           />
-           <br/>
+          <br />
           <textarea
             required
             className="notesubmit"
@@ -177,11 +174,10 @@ class CreateNote extends Component {
             value={this.state.body}
             onChange={this.handleInputChange}
           />
-           <br/>
+          <br />
           <button className="sidebarButton">
             {this.state.mode === "ADD" ? "Save" : "Update"}
           </button>
-          
         </form>
         <div className="checklistContainer">
           <div className="tagtitle">Checklist:</div>
@@ -211,18 +207,17 @@ class CreateNote extends Component {
               );
             })}
           </div>
-          
         </div>
-        <br/>
+        <br />
         <div className="tagtitle">Tags:</div>
-          <ReactTags
-            tags={tags}
-            handleDelete={this.handleDelete}
-            handleAddition={this.handleAddition}
-            handleDrag={this.handleDrag}
-            delimiters={delimiters}
-            inline
-          />
+        <ReactTags
+          tags={tags}
+          handleDelete={this.handleDelete}
+          handleAddition={this.handleAddition}
+          handleDrag={this.handleDrag}
+          delimiters={delimiters}
+          inline
+        />
       </div>
     );
   }

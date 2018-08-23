@@ -26,7 +26,7 @@ class Notesview extends Component {
     super(props);
     this.state = {
       items: [],
-      searchMode:'title'
+      searchMode: "title"
     };
   }
 
@@ -52,9 +52,9 @@ class Notesview extends Component {
     let noteMod = [...this.state.items];
     switch (e.target.value) {
       case "normal":
-      this.setState({
-        items: this.props.notes
-      });
+        this.setState({
+          items: this.props.notes
+        });
         break;
       case "AZ":
         noteMod.sort(function(a, b) {
@@ -65,97 +65,97 @@ class Notesview extends Component {
         });
         break;
       case "ZA":
-      noteMod.sort(function(b, a) {
-        return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
-      });
-      this.setState({
-        items: noteMod
-      });
+        noteMod.sort(function(b, a) {
+          return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        });
+        this.setState({
+          items: noteMod
+        });
         break;
       case "timenew":
-      noteMod.sort(function(b, a) {
-        return a.id.toString().localeCompare(b.id.toString());
-      });
-      this.setState({
-        items: noteMod
-      });
-      break;
+        noteMod.sort(function(b, a) {
+          return a.id.toString().localeCompare(b.id.toString());
+        });
+        this.setState({
+          items: noteMod
+        });
+        break;
       case "timeold":
-      noteMod.sort(function(a, b) {
-        return a.id.toString().localeCompare(b.id.toString());
-      });
-      this.setState({
-        items: noteMod
-      });
+        noteMod.sort(function(a, b) {
+          return a.id.toString().localeCompare(b.id.toString());
+        });
+        this.setState({
+          items: noteMod
+        });
         break;
       default:
         break;
     }
   };
-  changeSearch=(e)=>{
-    this.setState({searchMode: e.target.value });
-  }
+  changeSearch = e => {
+    this.setState({ searchMode: e.target.value });
+  };
   handleInputChange = event => {
     let filtArray;
     switch (this.state.searchMode) {
       case "title":
-       filtArray= this.props.notes.filter(e=>{
-        if(e.title.includes(event.target.value)){
-          return e
-        }
-      })
-        break;
-        case "body":
-        filtArray= this.props.notes.filter(e=>{
-          if(e.body.includes(event.target.value)){
-            return e
+        filtArray = this.props.notes.filter(e => {
+          if (e.title.includes(event.target.value)) {
+            return e;
           }
-          else{
-            return
-          }
-        })
+        });
         break;
-        case "tags":
-        filtArray= this.props.notes.filter(e=>{
+      case "body":
+        filtArray = this.props.notes.filter(e => {
+          if (e.body.includes(event.target.value)) {
+            return e;
+          } else {
+            return;
+          }
+        });
+        break;
+      case "tags":
+        filtArray = this.props.notes.filter(e => {
           let found = false;
           e.tags.forEach(element => {
-            if (element.includes(event.target.value)){
+            if (element.includes(event.target.value)) {
               found = true;
-              return
+              return;
             }
           });
-          if(found){
-            return e
-          }      
-        })
+          if (found) {
+            return e;
+          }
+        });
         break;
-        case "all":
-        filtArray= this.props.notes.filter(e=>{
+      case "all":
+        filtArray = this.props.notes.filter(e => {
           let found = false;
           e.tags.forEach(element => {
-            if (element.includes(event.target.value)){
+            if (element.includes(event.target.value)) {
               found = true;
-              return
+              return;
             }
           });
-          if(found){
-            return e
+          if (found) {
+            return e;
+          } else {
+            if (
+              e.body.includes(event.target.value) ||
+              e.title.includes(event.target.value)
+            ) {
+              return e;
+            } else {
+              return;
+            }
           }
-          else{
-            if(e.body.includes(event.target.value) ||e.title.includes(event.target.value)){
-              return e
-            }
-            else{
-              return
-            }
-          }      
-        })
+        });
         break;
       default:
         break;
     }
-    
-    this.setState({items: filtArray });
+
+    this.setState({ items: filtArray });
   };
   render() {
     return (
@@ -169,20 +169,32 @@ class Notesview extends Component {
             <option value="timenew">Newest First</option>
             <option value="timeold">Oldest First</option>
           </select>
-          <div className='searchContainer'><input className=' lowerSelect notesubmit' name='search'placeholder='Search' onChange={this.handleInputChange}type='text'/>  <select className='' onChange={this.changeSearch}>
-            <option value="title">Title</option>
-            <option value="body">Body</option>
-            <option value="tags">Tags</option>
-            <option value="all">All</option>
-          </select></div>
+          <div className="searchContainer">
+            <input
+              className=" lowerSelect notesubmit"
+              name="search"
+              placeholder="Search"
+              onChange={this.handleInputChange}
+              type="text"
+            />{" "}
+            <select className="" onChange={this.changeSearch}>
+              <option value="title">Title</option>
+              <option value="body">Body</option>
+              <option value="tags">Tags</option>
+              <option value="all">All</option>
+            </select>
+          </div>
         </div>
-        {(this.props.notes)?
+        {this.props.notes ? (
           <SortableList
-          distance={1}
-          axis="xy"
-          items={this.state.items}
-          onSortEnd={this.onSortEnd}
-        />:''}
+            distance={1}
+            axis="xy"
+            items={this.state.items}
+            onSortEnd={this.onSortEnd}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }

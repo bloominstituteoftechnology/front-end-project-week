@@ -7,7 +7,6 @@ import Markdown from "react-markdown";
 class SingleNote extends Component {
   constructor() {
     super();
-
     this.state = {
       modalIsOpen: false,
       title: "",
@@ -27,7 +26,7 @@ class SingleNote extends Component {
     this.props.history.push("/");
   };
   componentDidMount() {
-    Modal.setAppElement("body");
+    Modal.setAppElement("body"); //this will mess with css attempts if you're not careful
     const filtNote = this.props.notes.filter(e => {
       if (e.id === Number(this.props.match.params.id)) {
         return true;
@@ -107,7 +106,6 @@ class SingleNote extends Component {
         <div className="viewBody">
           {this.state.tags.length > 0 ? (
             <div>
-              {" "}
               <div className="tagtitle">Tags:</div>
               <div className="tagArea">
                 {this.state.tags.map((e, i) => {

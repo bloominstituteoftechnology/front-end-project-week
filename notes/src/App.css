@@ -8,13 +8,10 @@
   background: rgb(238, 238, 238);
   display: flex;
   max-width: 1000px;
-  
 }
-
 .sidebarContainer {
   background-color: lightgray;
   width: 20em;
-
   height: 100vh;
   text-align: left;
   padding: 15px 15px;
@@ -39,7 +36,6 @@
   width: 12rem;
   font-size: 16px;
 }
-
 .notesViewContainer {
   padding: 4em 2em;
   text-align: left;
@@ -128,14 +124,11 @@ textarea {
   flex-direction: column;
   align-items: center;
   outline:none;
-
 }
-
 .modalButtonRow{
   display:flex;
   justify-content: space-around;
   width: 90%;
-  
 }
 .modalText{
   font-size: 18px;
@@ -148,8 +141,6 @@ a{
   text-decoration: none;
   color: black;
 }
-
-
 .ReactTags__tagInputField{
   margin-bottom: 1em;
   padding: 1em;
@@ -179,9 +170,7 @@ padding: 2px;
   padding: 3px;
   margin: 5px;
   display: inline-block
-
 }
-
 .removeButton{
   font-size: 14px;
   vertical-align: 1px;
@@ -190,20 +179,16 @@ padding: 2px;
 .checkboxRow{
   display:flex;
 }
-
 .searchContainer{
   margin-top: 10px;
   display:flex;
 }
-
 select{
   background: white;
   border: 2px grey solid;
   border-radius: 5px;
   font-size: 20px;
   padding: .4em;
-
-
 }
 .lowerSelect{
   margin-right: 15px;
