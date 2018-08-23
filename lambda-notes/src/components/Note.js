@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import Form from './Form';
+import NoteForm from './NoteForm';
 import NoMatch from './NoMatch';
 import Loading from './Loading';
 import Modal from 'react-modal';
@@ -82,7 +82,7 @@ class Note extends React.Component {
     // if edit mode is toggled, return edit form
     if (this.state.isEditing) {
       return (
-        <Form type={"edit"}
+        <NoteForm type={"edit"}
               title={this.state.title}
               content={this.state.content}
               handleFormSubmit={this.handleEditSubmit}

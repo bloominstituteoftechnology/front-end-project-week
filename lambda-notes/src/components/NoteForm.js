@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-const Form = props => {
+const NoteForm = props => {
   // name buttons according to the current action
   const heading = props.type === "new" ? "Create New Note:" : "Edit Note:";
   const buttonName = props.type === "new" ? "Save" : "Update";
@@ -31,4 +31,4 @@ const Form = props => {
   );
 }
 
-export default Form;
+export default NoteForm;

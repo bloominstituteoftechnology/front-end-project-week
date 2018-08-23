@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import Form from './components/Form';
+import NoteForm from './components/NoteForm';
 import Note from './components/Note';
 import NoteList from './components/NoteList';
 import Sidebar from './components/Sidebar';
@@ -46,9 +46,7 @@ class App extends Component {
     e.preventDefault();
     this.props.addNote({ title: this.state.title, content: this.state.content });
     this.setState({ title: "", content: "" });
-    if (this.props.notesFetched) {
-      this.props.history.push("/");
-    }
+    this.props.history.push("/");
   }
 
   render() {
@@ -66,7 +64,7 @@ class App extends Component {
           />
 
           <Route path="/notes/add" render={ props =>
-              <Form type={"new"}
+              <NoteForm type={"new"}
                     title={this.state.title}
                     content={this.state.content}
                     handleFormSubmit={this.handleFormSubmit}
@@ -94,9 +92,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
-    fetchingNotes: state.fetchingNotes,
-    notesFetched: state.notesFetched
+    notes: state.notes
   }
 }
 
