@@ -62,7 +62,7 @@ class App extends Component {
       return null;
     }
     window.location.reload();
-}
+  }
   addNote = e => {
     e.preventDefault();
     this.props.addNote(this.state.title, this.state.textBody);
@@ -96,11 +96,7 @@ class App extends Component {
                           searchTextBody={this.state.searchTextBody}
                           handleChange={this.handleChange}
                           filterByTitle={this.filterByTitle} 
-                          filterByTextBody={this.filterByTextBody}
-                          
-                          
-                          
-                          />  
+                          filterByTextBody={this.filterByTextBody} />  
                   <ListView {...props}
                           notes={this.props.notes} />
                 </div>
@@ -111,7 +107,6 @@ class App extends Component {
                         filtered={this.state.filteredResults} />
             }      
           }} />
-         
           <Switch>
             <Route exact path="/note/create" render={(props) => 
                 <CreateNote {...props} 

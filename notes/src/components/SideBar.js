@@ -3,13 +3,6 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {Container} from 'reactstrap';
 
-// const Col = styled.div`
-//     width: 25%;
-//     height: 100vh;
-//     border: 1px solid lightgray;
-//     background: #D2D2D2;
-//     padding: 1rem;
-// `;
 const H1 = styled.h1`
     max-width: 200px;
     font-size: 3rem;

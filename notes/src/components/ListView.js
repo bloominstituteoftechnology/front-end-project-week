@@ -13,10 +13,9 @@ const List = styled.div`
     height: 100%;
     width: 900px;
 `;
-
 const H2 = styled.h2`
     z-index:1;
-`
+`;
 const NoteOverview = styled.div`
     display: flex;
     background: #F1F1F1;
@@ -32,6 +31,9 @@ const SmallNote = styled.div`
     overflow: hidden;
     line-height: 2rem;
     margin: 0.5rem;
+    :hover{
+        box-shadow: 2px 2px 5px 5px #2AB4AE;
+    }
 `;
 const Title = styled.div`
     font-weight: 800;
