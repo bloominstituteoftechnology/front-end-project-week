@@ -19,12 +19,15 @@ const EditForm = styled.form`
         height: 30px;
         margin: 5px 0;
         padding: 10px;
+        font-size: 1.6rem;
     }
 
     > textarea {
         height: 300px;
         padding: 10px;
         margin: 5px 0;
+        font-size: 1.4rem;
+        line-height: 1.5;
     }
 
     > button {
@@ -99,7 +102,7 @@ componentDidMount () {
         
         return (
             <EditForm>
-                <h1>Edit Note: </h1>
+                <h1>Edit Note: {this.state.title}</h1>
                 <input
                     type='text'
                     name='title'

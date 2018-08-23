@@ -7,6 +7,7 @@ const DeletePop = styled.div`
     > a {
         cursor: pointer;
         text-decoration: underline;
+        font-size: 1.4rem;
     }
 
 `

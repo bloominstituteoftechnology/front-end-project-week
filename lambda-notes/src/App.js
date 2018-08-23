@@ -7,16 +7,12 @@ import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
-import Authenticate from './components/Authenticate/Authenticate';
-
-
-
 
 const Application = styled.div`
 
   max-width: 1024px;
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
   display: flex;
 `
 
@@ -31,6 +27,8 @@ class App extends Component {
       search: ''
     }
   }
+
+
 
   componentDidMount () {
     axios.get(URL)
@@ -72,4 +70,4 @@ handleSearch = (event) => {
   }
 }
 
-export default Authenticate(App);
+export default App;

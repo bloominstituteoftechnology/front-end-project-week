@@ -12,6 +12,7 @@ export const GOT_NOTE = 'GOT_NOTE';
 const URL = 'http://localhost:5000/notes/';
 
 export const getNotes = () => {
+    window.location = '/notes';
     const data = axios.get(URL);
     return (dispatch) => {
         dispatch({type: GETTING_NOTES});
@@ -52,6 +53,7 @@ export const getNote = (id) => {
 };
 
 export const addNote = (newNote) => {
+    
     const data = axios.post(URL, newNote);
     return (dispatch) => {
       data
@@ -66,7 +68,7 @@ export const addNote = (newNote) => {
           })
         });
     }
-  };
+};
   
 export const deleteNote = (id) => {
     const data = axios.delete(`${URL}${id}`);

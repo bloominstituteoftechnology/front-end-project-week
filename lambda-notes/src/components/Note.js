@@ -12,7 +12,11 @@ const NoteDisplay = styled.div`
     height: 200px;
     background: white;
     padding: 10px;
-    border: 1px solid gray;;
+    border: 1px solid gray;
+    
+    : hover {
+        opacity: 0.8;
+    }
     
     
     > a {
@@ -22,7 +26,7 @@ const NoteDisplay = styled.div`
 
     > h1 {
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 2.2rem;
         border-bottom: 1px solid gray;
         line-height: 30px;
         margin-bottom: 5px;
@@ -32,6 +36,7 @@ const NoteDisplay = styled.div`
        font-size: 1.2rem;
        height: 150px;
        overflow: hidden;
+       line-height: 1.5;
     }
     }
 `
@@ -43,9 +48,7 @@ const Note = (props) => {
             <NoteDisplay>
             <Link  to={`/note/${props.id}`}>
                 <h1>{props.title}</h1>
-                <p>
-                    <MarkdownPreview value={props.content} />
-                </p>
+                <p><MarkdownPreview value={props.content} /></p>
                 </Link>
             </NoteDisplay>
             

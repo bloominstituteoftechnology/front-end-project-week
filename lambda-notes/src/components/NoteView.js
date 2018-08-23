@@ -16,11 +16,15 @@ const ViewNote = styled.div`
     > h1 {
         margin-top: 10px;
         font-weight: bold;
+        font-size: 2.2rem;
+        border-bottom: 1px solid gray;
+        line-height: 2.5;
 
     }
     > p {
         margin: 10px 0;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        line-height: 1.6;
 
     }
 
@@ -45,6 +49,7 @@ const ButtonsContainer = styled.div`
         color: black;
         margin: 0 10px;
         cursor: pointer;
+        font-size: 1.4rem;
     }
 `
 

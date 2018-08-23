@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {getNotes, addNote} from '../actions/actions';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const AddForm = styled.form`
@@ -13,6 +12,7 @@ const AddForm = styled.form`
     > h1 {
         margin: 20px 0;
         font-weight: bold;
+        font-size: 2.2rem;
     }
 
     > input {
@@ -20,12 +20,14 @@ const AddForm = styled.form`
         height: 30px;
         margin: 5px 0;
         padding: 10px;
+        font-size: 1.6rem;
     }
 
     > textarea {
         height: 300px;
         padding: 10px;
         margin: 5px 0;
+        font-size: 1.4rem;
     }
 
     > button {
@@ -41,6 +43,7 @@ const AddForm = styled.form`
     
 
 `
+const URL = 'http://localhost:5000/notes';
 
 class NewNote extends Component {
     constructor(props) {
@@ -55,11 +58,25 @@ class NewNote extends Component {
         this.setState({ [event.target.name]: event.target.value});
     }
 
-    add = () => {
-        if (this.state.title.length > 0 && this.state.content.length > 0) {
-            this.props.addNote(this.state);
-            }
-        this.props.getNotes();
+    add = event => {
+        event.preventDefault();
+        const newNote = {
+          title: this.state.title,
+          content: this.state.content
+        }
+        axios.post(URL, newNote) 
+          .then(response => {
+            console.log(response);
+            console.log(response.data);
+            window.location = '/notes';
+          })
+          .catch(error => {
+            console.log(error);
+          })
+          this.setState({
+            title: '',
+            content: ''
+          });
     }
     render() { 
 
@@ -83,7 +100,7 @@ class NewNote extends Component {
                     onChange={(event) => this.change(event)}
                 />
 
-                <button onClick={() => this.add(this.state)}>Save</button>
+                <button onClick={this.add}>Save</button>
             </AddForm>
          );
     }
@@ -91,4 +108,4 @@ class NewNote extends Component {
 
 
  
-export default connect (null, {getNotes, addNote})(NewNote);
+export default NewNote;
