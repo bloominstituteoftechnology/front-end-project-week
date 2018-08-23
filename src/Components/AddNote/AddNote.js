@@ -46,9 +46,9 @@ class AddNote extends Component {
                     <h1>Create New Note</h1>
                     <input onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
                     <textarea onChange={this.handleInputChange} name="content" cols="99" rows="10" placeholder="Note Content"></textarea>
-                    <a href="/">
+                    
                     <div className='myButton' onClick={this.addNote}>Save</div>
-                    </a>
+                    
 
 
 
