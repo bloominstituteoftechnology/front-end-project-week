@@ -7,6 +7,7 @@ const NotePreviewDiv = styled.div`
   .note-preview {
     border: 1px solid lightgray;
     background: white;
+    ${'' /* background-color: #F3F3F3; */}
     width: 200px;
     height: 200px;
     margin-bottom: 15px;

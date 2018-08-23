@@ -70,3 +70,11 @@ export const editNote = (editedNote) =>  {
     })
   }
 }
+
+export const SORT_NOTE = 'SORT_NOTE';
+
+export const sortNote = (newlySortedArray) => {
+  return function(dispatch){
+    dispatch({type: SORT_NOTE, payload: newlySortedArray});
+  }
+}

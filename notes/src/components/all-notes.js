@@ -6,6 +6,7 @@ const AllNotesDiv = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
+  background-color: #F3F3F3;
   .sort {
     display: flex;
     flex-direction: row;
@@ -42,26 +43,8 @@ export default class AllNotes extends Component {
 
 
 
-  sortByLetter = (e) => {
-    console.log(e)
-    console.log(this.props.notes)
-    console.log('sortByLetter')
-  }
-
-  sortByIndex = () => {
-    console.log('sortByIndex')
-  }
-
-  mountToState(notes){
-    this.setState({
-      stateNotes: true,
-      notes: notes,
-    })
-  }
-
   render(props) {
-    console.log(this.props.notes)
-    {this.state.stateNotes ?  null : this.mountToState(this.props.notes)}
+    console.log(this.props)
     console.log(this.state.notes)
 
 
@@ -70,8 +53,8 @@ export default class AllNotes extends Component {
         <h3>Your Notes:</h3>
         <div className="sort">
           <h4>Sort by:</h4>
-            <button onClick={this.sortByLetter}>A->Z</button>
-            <button onClick={this.sortByIndex}>Index</button>
+            <button onClick={this.props.sortByLetter}>A->Z</button>
+            <button onClick={this.props.sortById}>Index</button>
         </div>
 
         <div className="all-notes">

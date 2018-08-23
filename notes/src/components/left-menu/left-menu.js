@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import { withRouter } from 'react-router';
-import {getNotes } from '../../actions';
 import DeleteTarget from './delete-target.js';
 
 const LeftMenuDiv = styled.div`

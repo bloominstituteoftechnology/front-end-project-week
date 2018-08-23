@@ -9,8 +9,41 @@ const NoteDetailsDiv = styled.div`
   display: flex;
   flex-direction: column;
   padding: 25px;
-  background-color: white;
+  ${'' /* background-color: white; */}
+  background-color: #F3F3F3;
+
   height: 100vh;
+  .noteDetails {
+    background-color: white;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: black;
+    padding: 10px;
+    h4 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    p {
+      line-height: 30px;
+    }
+    .tags{
+      ${'' /* border: 1px solid lightgray; */}
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      div{
+        margin: 3px;
+        padding: 5px;
+      }
+      .tag {
+        border: 1px solid lightgray;
+      }
+    }
+  }
   .links {
     ${'' /* border: 1px solid blue; */}
     padding: 15px;
@@ -22,27 +55,7 @@ const NoteDetailsDiv = styled.div`
       ${'' /* font-weight: bold */}
     }
   }
-  h4 {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  p {
-    line-height: 30px;
-  }
-  .tags{
-    ${'' /* border: 1px solid lightgray; */}
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    div{
-      margin: 3px;
-      padding: 5px;
-    }
-    .tag {
-      border: 1px solid lightgray;
-    }
-  }
+
 `;
 
 class NoteDetails extends Component {
@@ -69,15 +82,17 @@ class NoteDetails extends Component {
                 to={`/all-notes/`}
               >back</Link>
             </div>
-            <h4>{this.props.note.title}</h4>
-            <p>{this.props.note.textBody}</p>
-            <div className="tags">Tags:
-              {(this.props.note.tags.length > 0) ?
-                this.props.note.tags.map(tag => {
-                      return (<div className="tag">{tag}</div>)
-                    }
-                ) :
-                (<div className="noTags"> none </div>)}
+            <div className="noteDetails">
+              <h4>{this.props.note.title}</h4>
+              <p>{this.props.note.textBody}</p>
+              <div className="tags">Tags:
+                {(this.props.note.tags.length > 0) ?
+                  this.props.note.tags.map(tag => {
+                        return (<div className="tag">{tag}</div>)
+                      }
+                  ) :
+                  (<div className="noTags"> none </div>)}
+              </div>
             </div>
           </NoteDetailsDiv>
         ) :

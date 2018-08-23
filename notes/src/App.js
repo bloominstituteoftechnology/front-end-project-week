@@ -19,7 +19,8 @@ import {
   addNote,
   deleteNote,
   editNote,
-  getNotes, } from './actions';
+  getNotes,
+  sortNote, } from './actions';
 
 class App extends Component {
   constructor(){
@@ -71,9 +72,60 @@ class App extends Component {
     // this.props.deleteNote(id)
   }
 
-  render() {
-    const notesArr = this.props.state.notes;
+  sortById = (e) => {
+    console.log(e)
+    console.log(this.props.state.notes)
+    console.log(this.props)
+    console.log('sortById')
+    let newArr = this.props.state.notes.slice()
+    console.log(newArr)
 
+    function compare(a, b){
+      const Aa = a._id;
+      const Bb = b._id;
+      let comparison = 0;
+      if (Aa > Bb) {
+        comparison = 1;
+      } else if (Aa < Bb) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+
+    newArr.sort(compare)
+
+    console.log(newArr)
+    this.props.sortNote(newArr)
+  }
+
+  sortByLetter = (e) => {
+    console.log(e)
+    console.log(this.props.state.notes)
+    console.log(this.props)
+    console.log('sortByLetter')
+    let newArr = this.props.state.notes.slice()
+    console.log(newArr)
+
+    function compare(a, b){
+      const titleA = a.title;
+      const titleB = b.title;
+      let comparison = 0;
+      if (titleA > titleB) {
+        comparison = 1;
+      } else if (titleA < titleB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+
+    newArr.sort(compare)
+
+    console.log(newArr)
+    this.props.sortNote(newArr)
+  }
+
+
+  render() {
     return (
         <AppDiv>
           <Redirect from="" to="/all-notes/" />
@@ -86,7 +138,8 @@ class App extends Component {
               render={ () => {
                 return (
                   <AllNotes
-                    getNotes={this.props.getNotes}
+                    sortByLetter={this.sortByLetter}
+                    sortById={this.sortById}
                     onDrop={this.handleDrop} notes={this.props.state.notes} />
                 )
               }}
@@ -157,6 +210,7 @@ const mapDispatchToProps = {
   addNote,
   deleteNote,
   editNote,
+  sortNote,
 }
  export default DragDropContext(HTML5Backend)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));
 
