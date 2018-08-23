@@ -28,7 +28,7 @@ class Notes extends Component {
 
   render() {
     return (
-      <div>
+      <div className="background-color">
         <form className="searchbar">
           <input
             onChange={this.handleSearchInput}
@@ -43,7 +43,7 @@ class Notes extends Component {
             if (this.state.search === "") {
               return <NoteCard note={note} key={note.id} />;
             } else if (
-              note.textBody
+              note.content
                 .toLowerCase()
                 .includes(this.state.search.toLowerCase())
             ) {

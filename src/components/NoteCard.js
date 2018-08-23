@@ -19,9 +19,9 @@ const NoteCard = props => {
       <div className="notecard">
         <div className="">
           <div>
-              <h2>{title.substring(0,25)}</h2>
+              <h4>{title.substring(0,45)}</h4>
             <hr/>
-            <p className="notecardbody"><ReactMarkdown source={content.substring(0,140)}/></p>
+            <p className="notecardbody"><ReactMarkdown source={content.substring(0,300)}/></p>
           </div>
         </div>
       </div>
