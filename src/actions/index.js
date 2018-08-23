@@ -15,7 +15,7 @@ export const ERROR = 'ERROR';
 //middleware (another thunk) use for all action creators
 const fetchNotes = (dispatch) => {
   return axios
-    .get('http://localhost:5000/notes')
+    .get('https://sumi-notes.netlify.com/notes')
     .then(({ data }) => {
       setTimeout(() => {
         dispatch({ type: GOT_NOTES, payload: data });
@@ -37,7 +37,7 @@ export const gettingSingleNote = (id) => {
   return (dispatch) => {
     dispatch({ type: GETTING_NOTES });
     axios
-      .get(`http://localhost:5000/notes/${id}`)
+      .get(`https://sumi-notes.netlify.com/notes/${id}`)
       .then(({ data }) => dispatch({ type: GOT_NOTES, payload: data }))
       .catch((error) => {
         dispatch({ type: ERROR, message: 'error getting note' });
