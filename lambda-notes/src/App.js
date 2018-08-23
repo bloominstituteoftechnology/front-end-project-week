@@ -46,9 +46,11 @@ class App extends Component {
           }
         ],
         title: '',
-        text: ''
-     };
+        text: '',
+        }
     }
+
+
 
      addNote = event => {
        event.preventDefault();
@@ -58,10 +60,8 @@ class App extends Component {
      }
 
      handleInputChange = event => {
-       console.log(event.target.value);
        this.setState({[event.target.name]: event.target.value});
-       console.log(this.state.notes);
-     };
+      };
 
 
      deleteNote = note => {
@@ -75,19 +75,36 @@ class App extends Component {
     }
 
 
+
+
     editNote = note => {
-      // event.preventDefault();
-      const notes = this.state.notes.slice();
-      for (let i=0; i < notes.length; i++){
-        if(notes[i].id === note.id) {
-          console.log(note.id);
-        notes[i].title = this.state.title; 
-        // console.log(this.state.title);
-        notes[i].text = this.state.text;
+      console.log(note);
+      let notes = this.state.notes.slice();
+      for (let i = 0; i < notes.length; i++) {
+        if (notes[i].id === note.id) {
+          notes[i] = note
         }
       }
-      this.setState({ notes });
+      this.setState({ notes })
     }
+
+    handleInputChange = event => {
+      this.setState({[event.target.name]: event.target.value});
+     };
+
+    //  componentWillMount(){
+    //   if (localStorage.getItem('notes')){
+    //     let json = localStorage.getItem('notes')
+    //     // JSON.PARSE(json)
+    //     this.setState({notes:  JSON.parse(json)})
+    //   }
+    //  }
+
+    //  componentWillUpdate(nextProps ,nextState){
+    //    localStorage.setItem('notes',JSON.stringify(nextState.notes))
+    //  }
+
+    
 
 
 
@@ -116,16 +133,13 @@ class App extends Component {
                           notes={this.state.notes} 
                           title={this.state.title} 
                           text={this.state.text} 
-                          deleteNote={this.deleteNote}  
-                          editNote={this.editNote} />}  
+                          deleteNote={this.deleteNote}
+                          handleInputChange={this.handleInputChange} />}  
               />
               <Route  
-                exact path="/edit" 
+                exact path="/notes/:id/edit" 
                 render={(props) => <EditNote {...props} 
                         notes={this.state.notes} 
-                        title={this.state.title} 
-                        text={this.state.text}  
-                        handleInputChange={this.handleInputChange} 
                         editNote={this.editNote}/>} 
               />
               <Route 
