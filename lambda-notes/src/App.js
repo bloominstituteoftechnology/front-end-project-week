@@ -91,24 +91,6 @@ class App extends Component {
 
     setTimeout(() => this.setState({ redirect: true }), 1000);
     setTimeout(() => this.setState({ redirect: false, isOpen: false }), 1000);
-
-    // loading modal needed for modal action
-    // this.setState({ notes: notesCopy, loadingModal: true });
-
-    // modal action start
-    // setTimeout(
-    //   () =>
-    //     this.setState({
-    //       loadingModal: false,
-    //       successModal: true
-    //     }),
-    //   1000
-    // );
-    // setTimeout(() =>
-    //   this.setState({
-    //     isOpen: false
-    //   })
-    // );
   };
 
   // redirect
