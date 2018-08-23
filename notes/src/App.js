@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import SideNav from './components/SideNav';
 import ListView from './components/ListView';
-// import CreateView from './CreateView';
-// import EditView from './EditView';
-// import NoteView from './NoteView';
+// import CreateView from './components/CreateView';
+// import EditView from './components/EditView';
+// import NoteView from './components/NoteView';
 
 import './App.css';
 
@@ -14,6 +14,7 @@ class App extends Component {
       <div className="App">
         <SideNav />
         <ListView />
+        {/* <CreateView /> */}
       </div>
     );
   }

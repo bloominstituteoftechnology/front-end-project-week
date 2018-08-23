@@ -16,7 +16,11 @@ class ListView extends Component {
             <div className="note-container">
                 <h3>Your Notes: </h3>
                 <div>
-                    <button color="primary" onClick={this.handleAlert}>Note</button>{' '}
+                    {/* <Form>
+                        <CardBody>
+
+                        </CardBody>
+                    </Form> */}
                 </div>
             </div>
         )

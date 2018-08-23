@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
 .App {
-  /* background: orange; */
-  font-size: 24px;
   text-align: center;
+  display: flex;
+  font-size: 24px;
+  font-family: 'Fira Sans', sans-serif;
 }

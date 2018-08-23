@@ -2,5 +2,15 @@
     display: flex;
     flex-direction: column;
     width: auto;
-    height: auto;
+    max-height: 100%;
+    border: 1.5px solid rgb(206, 192, 192);
+    background: rgb(236, 235, 235);
+}
+
+button {
+    display: flex;
+    margin: 5% 7% 5%;
+    width: 85%;
+    justify-content: center;
+    padding: auto;
 }
