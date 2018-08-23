@@ -95,6 +95,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 toggleModal={this.toggleModal}
+                show={this.state.isOpen}
               />
             )}
           />
