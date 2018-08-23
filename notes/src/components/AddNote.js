@@ -1,8 +1,16 @@
 import React from "react";
 import "../App.css";
 
+
 export default function AddNote(props) {
-  return (
+
+ const addDelayer = () =>{
+    setTimeout(() => {
+      props.history.push('/')
+     }, 250) 
+  }
+
+return (
     <div className="form">
 
       <div className="form-title">Create New Note:</div>
@@ -26,7 +34,7 @@ export default function AddNote(props) {
             value={props.note}
           />
 
-          <button className="form-button">Save</button>
+          <button className="form-button" onClick={addDelayer}>Save</button>
         
         </form>
       </div>

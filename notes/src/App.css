@@ -1,13 +1,13 @@
 .app{
-  border: 2px solid purple;
+  border: 1px solid #B7B7B7;
   max-width: 890px;
   display:flex;
   margin: 60px auto;
-  height: 900px;
+  height: 950px
 }
 
 .navbar{
-  border: 1px solid yellow;
+  border-right: 1px solid #B7B7B7;
   background-color: #D8D8D8;
   width: 220px;
   display: flex;
@@ -16,7 +16,6 @@
 }
 
 .navbar .navbar-title{
-  border: 1px solid red; 
   font-size: 34px;
   font-weight: 700;
   font: #4A4A4A;
@@ -25,17 +24,15 @@
 }
 
 .navbar .navlink{
-  border: 1px solid orange; 
   text-decoration: none;
   background-color: #2BC1C4;
   color: white;
   font-size: 16px;
   font-weight: 700;
-  line-height: 30px;
   display: flex; 
   justify-content: center;
+  align-items: center;
   margin-top: 30px;
-  padding-top: 10px;
   height: 40px;
   width: 90%;
 }
@@ -45,17 +42,14 @@
 
 
 .notesbody{
-  border: 5px solid orange;
   background-color: #F3F3F3;
   width: 670px;
 }
 
 .notesview{
-  border: 5px solid orange;
   margin: 45px 15px;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .notesview .notesview-title{
@@ -64,15 +58,16 @@
   font: #4A4A4A;
   font-size: 20px;
   font-weight: 700;
-  padding-left: 8px;
+  padding-left: 10px;
 }
 
 .notesview .noteslist-group{
-  border: 5px solid steelblue;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
+
+/*------ NOTES CARD ------*/
 
 .notecard{
   border: 1px solid darkgray;
@@ -83,29 +78,67 @@
   width: 165px;
   margin: 2px 0px 20px 0px ;
   padding: 0 10px;
-
-}
-
-.notesview .noteslist-group Link{
-  text-decoration: none;
 }
 
 .notecard .notecard-title{
-  border-bottom: 3px solid darkgray;
+  border-bottom: 1px solid darkgray;
   font-size: 18px;
   font-weight: 700;
-  padding: 10px;
+  padding: 10px 0 10px 5px;
   height: 15px;
   color: black;
-
 }
 
 .notecard .notecard-note{
   font-size: 12px;
   font-weight: 700;
-  padding: 10px;
+  padding: 5px;
+  margin: 0 0 20px 0;
   line-height: 25px;
   color: black;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+}
+
+/*------ NOTE ------*/
+
+.note-main{
+  margin: 35px 15px;
+}
+
+.note-main .note-title{
+  margin-bottom: 25px;
+  font: #4A4A4A;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.note-main .note-note{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+
+}
+
+.note-main .editdelete{
+  display: flex; 
+  margin: 0px 10px;
+  justify-content: flex-end;
+  font: #4A4A4A;
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 8px;
+}
+
+.note-main .editdelete .edit{
+  margin-right: 10px;
+}
+
+.note-main .editdelete .delete{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /*------ FORM ------*/
@@ -113,7 +146,6 @@
 .form{
   margin: 65px 15px;
 }
-
 
 .form .form-title{
   margin-bottom: 25px;
@@ -139,11 +171,10 @@
   margin: 10px;
 }
 
-
 .form .form-button{
-  border: 1px solid orange; 
   text-decoration: none;
   background-color: #2BC1C4;
+  border: 2px solid #2BC1C4;
   color: white;
   font-size: 16px;
   font-weight: 700;
@@ -152,9 +183,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  height: 50px;
+  height: 40px;
   width: 200px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 /*------ Delete Modal ------*/
@@ -183,31 +215,38 @@
   align-items: center;
   background-color: #fefefe;
   margin: auto;
-  padding: 40px;
+  padding: 20px 35px 40px ;
   border: 1px solid #888;
-  width: 30%;
+  width: 24%;
   display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: condensed;
 }
 
 .modal-content .form-button-group{
-  border: 5px solid black;
   display: flex;
   height: 50px;
   width: 400px;
-  margin-left: 10px;
 }
 
 .modal-content .form-button{
-  border: 2px solid orange; 
   text-decoration: none;
   background-color: #2BC1C4;
+  border: 2px solid #2BC1C4;
   color: white;
   font-size: 16px;
   font-weight: 700;
   line-height: 30px;
-  margin-top: 15px;
-  height: 50px;
+  height: 40px;
   width: 200px;
-  margin-left: 10px;
+  cursor: pointer;
+  margin: 5px
+}
+
+
+.modal-content .form-button-group .delete:hover{
+  background-color: #BD001A;
+  border: 2px solid #BD001A;
 
 }

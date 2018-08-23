@@ -43,13 +43,15 @@ export default class Note extends Component {
 
   render() {
     return (
-      <div className="notecard">
+      <div className="note-main">
 
-        <Link className="link-style" to={`/edit/${this.props.match.params.id}`}>
-          <div>edit</div>
+        <div className="editdelete">
+        <Link to={`/edit/${this.props.match.params.id}`}>
+          <div className="edit">edit</div>
         </Link>
 
-        <div className="myButton" onClick={this.openModalHandler}>delete</div>
+        <div className="delete" onClick={this.openModalHandler}>delete</div>
+        </div>
 
         <div className={`${(this.state.openModal) ? "modal" : "modal-nodisplay"}`}>
           <div className="modal-content">
@@ -58,7 +60,7 @@ export default class Note extends Component {
             <div className="form-button-group">
             
               <div onClick={this.deleteDelayer}>
-            <button className="form-button" onClick={(e) => this.props.deleteHandler(e, this.props.match.params.id)}>Delete</button>
+            <button className="form-button delete" onClick={(e) => this.props.deleteHandler(e, this.props.match.params.id)}>Delete</button>
               </div>
             
             <button className="form-button" onClick={this.closeModalHandler}>No</button>
@@ -66,9 +68,9 @@ export default class Note extends Component {
           </div>
         </div>
 
-        <div className="notecard-title">{this.state.note.title}</div>
+        <div className="note-title">{this.state.note.title}</div>
 
-        <div className="notecard-note">{this.state.note.note}</div>
+        <div className="note-note">{this.state.note.note}</div>
       </div>
     );
   }
