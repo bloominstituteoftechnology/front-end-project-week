@@ -40,6 +40,11 @@ const NoteCard = styled.div`
     text-decoration: none;
     border: 2px solid #a6a6a6;
     background: white;
+    &:hover {
+        background: gray;
+        color: #000;
+        box-shadow: 0 0 20px aqua;
+    }
 `
 
 const Line = styled.hr`
@@ -75,7 +80,7 @@ const NotesList = (props) => {
                  
                 :
                 <NoteCardContainer>
-                    {props.notes.map(note => <Link to={`/note/${note.id}`} key={note.id}>
+                    {props.notes.map(note => <Link to={`/note/${note.id}`} key={note.id} style={{textDecoration: 'none'}}>
                         <NoteCard key={note.id}>
                             <NoteTitle>{note.title}</NoteTitle>
                             <Line/>

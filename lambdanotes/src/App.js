@@ -59,7 +59,6 @@ class App extends Component {
     }
 
    render() {
-     console.log(this.state.notes)
     return (
       <Container className="App">
         <Route path="/" component={NavBar} />
