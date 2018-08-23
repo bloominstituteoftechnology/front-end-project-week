@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
+
 import { SecondaryHeading, Button } from '../styles';
 
 const NoteContainer = styled.div`
@@ -108,7 +110,9 @@ class NoteView extends React.Component {
             delete
           </ButtonLink>
         </TopBar>
-        <TextContent>{textBody}</TextContent>
+        <TextContent>
+          <ReactMarkdown source={textBody} />
+        </TextContent>
         {this.state.showModal && (
           <ModalContainer>
             <Modal>

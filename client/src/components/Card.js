@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 const StyledCard = styled.div`
   padding: 3rem;
@@ -8,6 +9,13 @@ const StyledCard = styled.div`
   width: 30rem;
   height: 30rem;
   margin: 1.5rem;
+`;
+
+const HideOverflow = styled.div`
+  margin: 0;
+  padding: 0;
+  height: 100%; /* important to have a fixed dimension on its immediate parent */
+  overflow: hidden;
 `;
 
 const CardTitle = styled.h3`
@@ -26,8 +34,12 @@ const CardBody = styled.div`
 const Card = ({ note: { id, title, textBody } }) => {
   return (
     <StyledCard>
-      <CardTitle>{title}</CardTitle>
-      <CardBody>{textBody.substr(0, 250) + '...'}</CardBody>
+      <HideOverflow>
+        <CardTitle>{title}</CardTitle>
+        <CardBody>
+          <ReactMarkdown source={textBody.substr(0, 250)} />
+        </CardBody>
+      </HideOverflow>
     </StyledCard>
   );
 };
