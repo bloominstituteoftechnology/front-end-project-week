@@ -59,7 +59,7 @@ class SingleNotePage extends React.Component{
             <DeleteModal/>
             </EDcontainer>
             <Note>
-            <NoteHeading><ReactMarkdown source={this.props.note.title}/></NoteHeading>
+            <NoteHeading>{this.props.note.title}</NoteHeading>
             <NoteInfo><ReactMarkdown source={this.props.note.textBody}/></NoteInfo>
             </Note>
             </SingleNote>

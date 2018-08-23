@@ -26,19 +26,29 @@ const NoteFilter=styled.input`
 height: 20px;
 margin: 0 auto;
 margin-top: 25px;
-margin-right: 1%;
-width: 255px;
+margin-right: 10%;
+margin-left: 25%;
+width: 260px;
+display: inline-block;
+`
+const SortContainer=styled.div`
+display: inline-block;
+box-sizing: border-box;
+width: 120px
 `
 class Notes extends React.Component {
     constructor(props) {
         super(props);
         this.state={
             filteredNotes:'',
-            filterParam:''
+            filterParam:'',
+            sortOption: 'default'
         }
     }
     componentDidMount() {
         localStorage.setItem('location',this.props.location.pathname);
+        const sortOption=localStorage.getItem('sortOption');
+        sortOption?this.setState({sortOption:sortOption}):null;
         this.props.getNotes();
     }
     inputChange=(e)=>{
@@ -49,17 +59,46 @@ class Notes extends React.Component {
             return this.setState({filteredNotes:filteredNotes});
         });
     }
+    radioChange=(e)=>{
+        this.setState({[e.target.name]:e.currentTarget.value},()=>{console.log(this.state);localStorage.setItem('sortOption',this.state.sortOption)});
+    }
+    sortByTitle=(notes)=>{
+        let sortedNotes=notes.slice();
+        sortedNotes.sort(function(a,b){
+            a= a.title.toUpperCase(); 
+            b= b.title.toUpperCase(); 
+            if (a<b) {
+                return -1;
+              } else if (a>b) {
+                return 1;
+              } 
+              return 0;
+            })
+        return sortedNotes;
+    };
     render() {
         if (!this.props.fetchingNotes) {
         return(
             <NotesPage>
                 <NoteFilter type='text' name='filterParam' placeholder='Enter search term' value={this.state.value} onChange={this.inputChange}/>
+                <SortContainer>
+                <p>Sort Options:</p>
+                <input type="radio" value={'default'} checked={this.state.sortOption==='default'} name="sortOption" onChange={this.radioChange}/>Default  
+                <input type="radio" value={'title'} checked={this.state.sortOption==='title'} name="sortOption" onChange={this.radioChange}/>Title
+                </SortContainer>
                 <NotesHeading>Your Notes:</NotesHeading>
                 <NotesList>
-                    {this.state.filterParam.length===0?
-                    this.props.notes.map((e,i)=><Note key={i} data={e}></Note>):
-                    this.state.filteredNotes?this.state.filteredNotes.map((e,i)=><Note key={i} data={e}></Note>):null
-                        }
+                    {
+                        this.state.filterParam.length===0?
+                        this.state.sortOption==='default'?
+                        this.props.notes.map((e,i)=><Note key={i} data={e}></Note>):
+                        this.sortByTitle(this.props.notes).map((e,i)=><Note key={i} data={e}></Note>):
+                        this.state.filteredNotes?
+                        this.state.sortOption==='default'?
+                        this.state.filteredNotes.map((e,i)=><Note key={i} data={e}></Note>):
+                        this.sortByTitle(this.state.filteredNotes).map((e,i)=><Note key={i} data={e}></Note>)
+                        :null
+                    }
                 </NotesList>
             </NotesPage>
         )
