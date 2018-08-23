@@ -65,7 +65,10 @@ class App extends Component {
               />
             )}
           />
-          <Route path="/notes/:id" component={SingleNote} />
+          <Route
+            path="/notes/:id"
+            render={props => <SingleNote {...props} notes={this.state.notes} />}
+          />
         </div>
       </Router>
     );
