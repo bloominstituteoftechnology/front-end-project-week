@@ -109,9 +109,11 @@ class App extends Component {
               </NavLink>
             </div>
             <nav>
-              <NavLink className="link" exact strict to="/notes">
-                View Your Notes
-              </NavLink>
+              {!this.state.atHomePage ? (
+                <NavLink className="link" exact strict to="/notes">
+                  View Your Notes
+                </NavLink>
+              ) : null}
               {!this.state.atHomePage ? (
                 <NavLink className="link" to="/notes/add-note/">
                   +Create New Note

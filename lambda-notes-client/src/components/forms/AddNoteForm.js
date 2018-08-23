@@ -98,6 +98,7 @@ class AddNoteForm extends Component {
               name="title" 
               value={this.state.title} 
               onChange={this.handleOnChange}
+              required
             />
           </div>
           <div className="desc-input-container">
