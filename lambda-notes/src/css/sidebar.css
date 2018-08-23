@@ -11,6 +11,7 @@
   z-index: 1;
   top: 0;
   left: 0;
+  border-right: 1px solid #8b9c9d;
 }
 
 .mainNavButtonsDiv button {
@@ -21,6 +22,6 @@
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
-  border: 1px solid white;
+  border: 1px solid #8b9c9d;
   cursor: pointer;
 }

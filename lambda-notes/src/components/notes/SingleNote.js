@@ -27,23 +27,27 @@ class SingleNote extends Component {
     if (!this.props.show) {
       return (
         <div className="singleNoteDiv">
-          <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
-            <button className="editButton">Edit</button>
-          </Link>
-          <button onClick={this.props.toggleModal}>Delete</button>
-          <h2>{this.state.note[0].title}</h2>
-          <h2>{this.state.note[0].description}</h2>
-          <Link to="/">Home</Link>
+          <div className="buttonsSingleNoteDiv">
+            <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
+              <button className="editButton">Edit</button>
+            </Link>
+            <button onClick={this.props.toggleModal}>Delete</button>
+          </div>
+          <div className="singleNoteTextDiv">
+            <h2>{this.state.note[0].title}</h2>
+            <h4>{this.state.note[0].description}</h4>
+          </div>
         </div>
       );
     } else {
       return (
         <div className="singleNoteDiv">
-          <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
-            <button className="editButton">Edit</button>
-          </Link>
-
-          <button onClick={this.props.toggleModal}>Delete</button>
+          <div className="buttonsSingleNoteDiv">
+            <Link to={`/edit-note/${this.state.id}`} key={this.state.id}>
+              <button className="editButton">Edit</button>
+            </Link>
+            <button onClick={this.props.toggleModal}>Delete</button>
+          </div>
 
           <div className="backdrop">
             <div className="modal">
@@ -60,9 +64,10 @@ class SingleNote extends Component {
             </div>
           </div>
 
-          <h2>{this.state.note[0].title}</h2>
-          <h2>{this.state.note[0].description}</h2>
-          <Link to="/">Home</Link>
+          <div className="singleNoteTextDiv">
+            <h2>{this.state.note[0].title}</h2>
+            <h4>{this.state.note[0].description}</h4>
+          </div>
         </div>
       );
     }

@@ -1,3 +1,4 @@
+/* modal styling */
 .backdrop {
   position: fixed;
   top: 0;
@@ -15,4 +16,30 @@
   min-height: 300px;
   margin: 0 auto;
   padding: 30;
+}
+/* end modal */
+
+.singleNoteDiv {
+  padding: 3rem;
+  min-height: 40rem;
+}
+
+.singleNoteDiv button {
+  background: none;
+  border: none;
+}
+
+.buttonsSingleNoteDiv {
+  text-align: end;
+}
+
+.singleNoteTextDiv h2 {
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.singleNoteTextDiv h4 {
+  padding: 1rem;
+  font-size: 1.4rem;
 }
