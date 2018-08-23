@@ -12,10 +12,10 @@ const NoteCardsContainer = ({ notes }) =>
   <Container>
     {notes.map(note =>
       <NoteCard 
-        key={note._id} 
-        id={note._id}
+        key={note.id} 
+        id={note.id}
         title={note.title}
-        text={note.textBody}
+        content={note.content}
       />
     )}
   </Container>

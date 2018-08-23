@@ -6,7 +6,7 @@ export default class extends Component {
 
   state = {
     title: this.props.title,
-    textBody: this.props.text
+    content: this.props.content
   }
 
   handleChange = e => {
@@ -19,7 +19,7 @@ export default class extends Component {
   render() {
 
     const { id, editNote, history } = this.props
-    const { title, textBody } = this.state
+    const { title, content } = this.state
 
     return <div>
       <h2>Edit Note</h2>
@@ -34,15 +34,15 @@ export default class extends Component {
           value={title} 
         />
       </label>  
-      <label htmlFor="textBody">
+      <label htmlFor="content">
         <h3>Text</h3>
         <textarea 
           onChange={this.handleChange}
-          id="textBody" 
+          id="content" 
           rows="20" 
           cols="100" 
-          name="textBody"
-          value={textBody}
+          name="content"
+          value={content}
         />
       </label>
       <Flex mt={2}>

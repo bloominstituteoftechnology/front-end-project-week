@@ -20,10 +20,10 @@ export default class extends Component {
 
   rawMarkup = () => {
 
-    const { text } = this.props
+    const { content } = this.props
    
     return { 
-      __html: marked(text, {sanitize: true})
+      __html: marked(content, {sanitize: true})
     }
   }
   

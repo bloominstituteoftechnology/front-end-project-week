@@ -14,18 +14,18 @@ const Title = styled.h2`
   overflow: hidden;
 `
 
-const NoteCard = ({ id, title, text })  => 
+const NoteCard = ({ id, title, content })  => 
   <Link to={`/note/${id}`}>
     <Card>
       <Title>{title}</Title>
       <hr />
-      <p>{text}</p>
+      <p>{content}</p>
     </Card>
   </Link>
 
 NoteCard.defaultProps = {
   title: 'Note Title',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta, nisl at rutrum egestas, velit arcu accumsan.'
+  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta, nisl at rutrum egestas, velit arcu accumsan.'
 }
 
 export default NoteCard

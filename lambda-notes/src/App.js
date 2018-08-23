@@ -21,23 +21,7 @@ import ObjectsToCsv from 'objects-to-csv'
 class App extends Component {
  
   state = { 
-    notes: [
-      {
-        _id: 0,
-        title: 'React',
-        textBody: 'React is a UI Library developed by Facebook'
-      },
-      {
-        _id: 1,
-        title: 'Redux',
-        textBody: 'Redux makes managing complex state a breeze'
-      },
-      {
-        _id: 2,
-        title: 'Complacency',
-        textBody: 'We have to keep pushing ourselves'
-      }
-    ],
+    notes: [],
     filteredNotes: []
   }
 
@@ -47,7 +31,7 @@ class App extends Component {
       
       const {
         data: notes 
-      } = await get('https://killer-notes.herokuapp.com/note/get/all')
+      } = await get('https://allenhai-lambdanotes-back.now.sh/notes')
 
       this.setState({ notes, filteredNotes: notes })
 
@@ -66,13 +50,10 @@ class App extends Component {
     try {
 
       const {
-        data
-      } = await post('https://killer-notes.herokuapp.com/note/create', note)
+        data: newNote
+      } = await post('https://allenhai-lambdanotes-back.now.sh/notes', note)
 
-      const newNotes = [].concat({
-        ...note,
-        _id: data.success
-      }, notes)
+      const newNotes = [...notes, newNote]
 
 
       this.setState({
@@ -95,10 +76,10 @@ class App extends Component {
 
     try {
 
-      const { data } = await _delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      const { data } = await _delete(`https://allenhai-lambdanotes-back.now.sh/notes/${id}`)
 
       const filteredNotes = notes.filter(note => 
-        String(note._id) !== id 
+        String(note.id) !== id 
       )
 
       this.setState({
@@ -120,10 +101,10 @@ class App extends Component {
     const { notes } = this.state
 
     try {
-      const { data } = await put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote) 
+      const { data } = await put(`https://allenhai-lambdanotes-back.now.sh/notes/${id}`, updatedNote) 
 
       const newNotes = notes.map(note => {
-        if(String(note._id) === id){
+        if(String(note.id) === String(id)){
           return {...note, ...updatedNote}
         }
         return note
@@ -151,7 +132,7 @@ class App extends Component {
     this.setState({
       filteredNotes: notes.filter(note => 
         note.title.toLowerCase().includes(filter) 
-        || note.textBody.toLowerCase().includes(filter)
+        || note.content.toLowerCase().includes(filter)
       )
     })
   }
@@ -197,12 +178,12 @@ class App extends Component {
           
             <Route exact path='/note/:id' render={props => 
               notes.filter(note => 
-                String(note._id) === props.match.params.id
+                String(note.id) === props.match.params.id
               ).map(note => 
                 <NoteView
                   id={props.match.params.id}
                   title={note.title}
-                  text={note.textBody}
+                  content={note.content}
                   deleteNote={this.deleteNote}
                   {...props}
                 />
@@ -211,12 +192,12 @@ class App extends Component {
 
             <Route exact path='/note/:id/edit' render={props =>
               notes.filter(note =>
-                String(note._id) === props.match.params.id
+                String(note.id) === props.match.params.id
               ).map(note => 
                 <EditNote 
                   id={props.match.params.id}
                   title={note.title}
-                  text={note.textBody}
+                  content={note.content}
                   editNote={this.editNote}
                   {...props}
                 />
