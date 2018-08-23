@@ -9,7 +9,7 @@ const ListView = (props) => {
                 <div>
                     <div onClick={props.sortAz} className='sort-btn'>A-Z</div>
                     <div onClick={props.sortZa} className='sort-btn'>Z-A</div>
-                    <input type='text' name='search' placeholder='Search...' />
+                    <input name='search' onChange={props.handleSearch} value={props.searchVal} placeholder='Search...' />
                 </div>    
             </div>
             <ul className='note-list'>
