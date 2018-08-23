@@ -38,8 +38,8 @@ class ListView extends Component {
                                     <div className="card">
                                         <Link to ={`/note/${note.id}`
                                         }>
-                                            <h1 className="underline">{note.title.substring(0, 20)}</h1>
-                                            <p>{note.content.substring(0, 150)}</p>
+                                            <h1 className="underline">{note.title.substring(0, 15)}</h1>
+                                            <p>{note.content.substring(0, 75)}</p>
                                         </Link>
                                     </div>
                                     
