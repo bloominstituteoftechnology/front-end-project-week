@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-axios.defaults.withCredentials = true;
-
+//axios.defaults.withCredentials = true;
 
 export default class NotesList extends Component {
   constructor(props) {
