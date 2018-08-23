@@ -39,6 +39,12 @@ input:last-of-type {
     width:100%;
 }
 
+.create textarea {
+    width:100%;
+
+}
+
+
 .myButton {
     text-decoration: none;
     border: none;
