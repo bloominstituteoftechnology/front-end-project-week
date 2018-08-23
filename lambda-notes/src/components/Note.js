@@ -7,8 +7,11 @@ const Note = props => {
                 {props.data.title}
                 <br></br>
                 {props.data.content}
+                <br></br>
+                <br></br>
             </div>
         )
+
     } else {
         const id = Number(props.match.params.id.replace(':', ''));
         const note = props.fetchNote(id);
@@ -16,7 +19,12 @@ const Note = props => {
             <div>
                 {note.title}
                 <br></br>
+                <br></br>
                 {note.content}
+                <br></br>
+                <br></br>
+                <button>Edit</button>
+                <button onClick={props.deleteNoteHandler(id)}>Delete</button>
             </div>
         )
     }

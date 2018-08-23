@@ -6,7 +6,9 @@ const List = (props) => {
 
     return (
         <div>
-            {props.list.map((note, index) => <Link to={`/Note/${note.id}`}> <Note key={index} data={note} /> </Link>)}
+            {props.list.map((note, index) => 
+                <Link to={`/Note/${note.id}`}> <Note key={index} data={note} /> </Link>
+            )}
         </div>
     );
 }

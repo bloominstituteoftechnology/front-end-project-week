@@ -3,6 +3,7 @@ import List from './List';
 import Create from './Create';
 import { Route } from 'react-router-dom';
 import Note from './Note';
+import axios from 'axios';
 
 class ListContainer extends React.Component {
     constructor() {
@@ -70,7 +71,7 @@ class ListContainer extends React.Component {
       };
       this.currentId = Math.max(...this.state.list.map(note => note.id))
     }
-   
+
     handleTaskChange = e => {
       this.setState({ [e.target.name]: e.target.value });
     }
@@ -89,6 +90,17 @@ class ListContainer extends React.Component {
         return filterNote[0];
     }
 
+    updateNoteHandler = () => {
+      axios.put()
+    }
+
+    deleteNoteHandler = (id) => {
+      axios.delete(this.state.list.filter(note => note.id === id))
+        .then(response => {
+          console.log(response);
+        });
+    }
+
     render() {
       return (
         <div>
@@ -102,7 +114,12 @@ class ListContainer extends React.Component {
               content={this.state.content}
             />
           } />
-          <Route path="/Note/:id" render={(props) => <Note {...props} fetchNote={this.fetchNote} />} />
+          <Route path="/Note/:id" render={(props) => 
+            <Note {...props} 
+              fetchNote={this.fetchNote} 
+              deleteNoteHandler={this.deleteNoteHandler}
+            />
+          } />
         </div>
         
       );
