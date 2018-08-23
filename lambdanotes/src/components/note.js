@@ -1,9 +1,38 @@
 import React, {Component} from 'react';
-import { Link } from "react-router-dom";
 import { Card, CardText, CardBody, CardTitle} from 'reactstrap';
 import NoteFormEdit from './noteformedit';
 import DeleteModal from './deletemodal';
 import { Button } from 'reactstrap';
+import styled from 'styled-components';
+
+const NoteAttrib = styled.div`
+    background: #F2F1F2;
+    width: 75%;
+`
+
+const NoteButtons = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`
+
+const NoteButton = styled.button`
+    color: white;
+    background: #24b8bd;
+    margin: 10px;
+    border: 2px solid #56aaad; 
+    font-size: 12px;
+`
+
+const NoteTitle = styled.h4`
+    text-align: left;
+    margin: 20px 30px;
+    font-weight: bold;
+`
+
+const NoteContent = styled.p`
+    text-align: left;
+    margin: 0 30px;
+`
 
 class Note extends Component {
     state = {
@@ -48,23 +77,22 @@ class Note extends Component {
 
     render() {
         return (  
-            <div>
+            <NoteAttrib>
                 {this.state.edittoggle === false ?
                     <div>
-                        <Button color="info" onClick={this.editToggle}>EDIT</Button>
-                        <DeleteModal {...this.props} deleteHandler={this.props.deleteHandler} history={this.props.history}/>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>{this.state.title}</CardTitle>
-                                <CardText>{this.state.note}</CardText>
-                            </CardBody>
-                        </Card>
+                        <NoteButtons>
+                            <NoteButton color="info" onClick={this.editToggle}>EDIT</NoteButton>
+                            <DeleteModal {...this.props} deleteHandler={this.props.deleteHandler} history={this.props.history}/>
+                        </NoteButtons>
+                        <div>
+                            <NoteTitle>{this.state.title}</NoteTitle>
+                            <NoteContent>{this.state.note}</NoteContent>
+                        </div>
                     </div>
                     :
                     <NoteFormEdit notes={this.state} handleEditChange={this.handleEditChange} editHandler={this.editHandler} editToggle={this.editToggle} Redirect={this.props.Redirect}/>
-            }
-                
-            </div>
+                }                
+            </NoteAttrib>
         );
     }
     

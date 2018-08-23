@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import { Card, CardText, CardBody, CardTitle} from 'reactstrap';
 
 import Note from './note';
 
@@ -26,34 +25,40 @@ const NotesListAttrib = styled.div`
     background: #F2F1F2;
     height: 100vh;
 `
-const NoteCartContainer = styled.div`
+const NoteCardContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
+    margin-left: 30px;
 `
 
 const NoteCard = styled.div`
     width: 200px;
-    margin: 10px 5px;
+    margin: 10px 10px;
     height: 200px;
     text-decoration: none;
-    border: 1px solid black;
-    border-radius: 2px;
+    border: 2px solid #a6a6a6;
     background: white;
-    box-shadow: 3px 3px 5px darkslategray;
 `
 
 const Line = styled.hr`
     width: 80%;
+    background: #a6a6a6;
+    margin: 0 auto;
 `
 
-const NoteTitle = styled.h3`
+const NoteTitle = styled.h5`
     text-decoration: none;
     color: black;
+    text-align: left;
+    margin: 8px 20px 5px;
+    vertical-align: center;
 `
 
 const NoteContent = styled.p`
     text-decoration: none;
     color: black;
+    margin: 5px 20px;
+    text-align: left;
 `
 
 const NotesList = (props) => {
@@ -67,15 +72,15 @@ const NotesList = (props) => {
                 </NoteTextContainer>
                  
                 :
-                <NoteCartContainer>
+                <NoteCardContainer>
                     {props.notes.map(note => <Link to={`/note/${note.id}`} key={note.id}>
                         <NoteCard key={note.id}>
                             <NoteTitle>{note.title}</NoteTitle>
                             <Line/>
-                            <NoteContent>{note.note}</NoteContent>
+                            <NoteContent>{note.note.substring(0, 100)}...</NoteContent>
                         </NoteCard>
                     </Link>)}
-                </NoteCartContainer>  
+                </NoteCardContainer>  
             }                               
         </NotesListAttrib>
     );

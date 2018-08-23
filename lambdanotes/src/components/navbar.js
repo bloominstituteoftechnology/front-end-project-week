@@ -6,7 +6,7 @@ const NavbarAttrib = styled.div`
     width: 25%;
     background: #D3D2D3;
     height: 100vh;
-    border: 1px solid #a6a6a6;
+    border: 2px solid #a6a6a6;
 `
 
 const NavTitle = styled.h1`
