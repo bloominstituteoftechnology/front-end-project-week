@@ -14,12 +14,20 @@ class NotesContainer extends Component {
     super();
     this.state = {
       title: "",
-      content: ""
+      content: "",
+      searchTerm: "",
+      currentlyDisplayed: []
     }
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchData();
+    this.props.fetchData()
+  }
+
+  componentWillReceiveProps(props) {
+    console.log(props);
+    this.setState({ currentlyDisplayed: props.data });
   }
 
   inputHandler = e => {
@@ -43,6 +51,18 @@ class NotesContainer extends Component {
     });
   }
 
+  //searchbar input change handler
+  onInputChange = (event) => {
+    let newlyDisplayed = this.props.data.filter(note =>  
+      note.title.toLowerCase().includes(event.target.value.toLowerCase()) ||
+      note.textBody.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    this.setState({
+      searchTerm: event.target.value,
+      currentlyDisplayed: newlyDisplayed
+    });
+  }
+
   render() {
     return (
       <div className='notes-container'>
@@ -50,19 +70,30 @@ class NotesContainer extends Component {
       <div className='main-content'>
         <Route
           exact path="/"
-          render={(props) => <NotesList {...props} data={this.props.data} />}
+          render={(props) => <NotesList
+          {...props}
+          data={this.state.currentlyDisplayed}
+          onInputChange={this.onInputChange}
+          searchTerm={this.state.searchTerm} />}
           />
         <Route
           path="/create-new-note"
-          render={(props) => <NewNote {...props} handleChange={this.inputHandler} addNewNote={this.addNewNote} />}
+          render={(props) => <NewNote
+          {...props}
+          handleChange={this.inputHandler}
+          addNewNote={this.addNewNote} />}
           />
         <Route
           exact path="/notes/:id"
-          render={(props) => <NotePage {...props}  />}
+          render={(props) => <NotePage
+          {...props}  />}
           />
         <Route
           path="/notes/:id/edit-note"
-          render={(props) => <EditNote {...props} handleChange={this.inputHandler} editNote={this.editNote} />}
+          render={(props) => <EditNote
+          {...props}
+          handleChange={this.inputHandler}
+          editNote={this.editNote} />}
           />
         </div>
       </div>
