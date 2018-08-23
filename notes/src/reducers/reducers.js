@@ -13,8 +13,11 @@ import {FETCHING_NOTES,
 const initialState = {
     notes: [],
     note: [],
+    // filteredNotes: [],
     fetchingNotes: false,
     fetchedNotes: false,
+    // filteringNotes: false,
+    // filteredNotes: false,
     fetchingOneNote: false,
     fetchedOneNote: false,
     addingNote: false,
@@ -51,15 +54,17 @@ export const rootReducer = (state = initialState, action) => {
                 note: action.payload,
             });
         case ADDING_NOTE:
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 addingNote: true,
-            })
+            }
         case ADDED_NOTE:
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 addingNote: false,
                 addedNote: true,
-                notes: action.payload,
-            })
+                notes: [...state.notes, action.payload],
+            }
         case UPDATING_NOTE:
             return Object.assign({}, state, {
                 updatingNote: true,

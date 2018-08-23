@@ -65,7 +65,6 @@ class FilteredNotes extends React.Component{
         </List>
         );
     }
-
 }
 
 export default FilteredNotes;

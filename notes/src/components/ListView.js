@@ -12,6 +12,10 @@ const List = styled.div`
     height: 100%;
     width: 900px;
 `;
+
+const H2 = styled.h2`
+    z-index:1;
+`
 const NoteOverview = styled.div`
     display: flex;
     background: #F1F1F1;
@@ -47,23 +51,22 @@ class ListView extends React.Component{
         return(
             <div>
                 <List>
-                    <h2>Your Notes:</h2>
+                    <H2>Your Notes:</H2>
                     <NoteOverview style={{display: 'grid',
                                         gridTemplateColumns: 'repeat(3, 1fr)',
                                         gridGap: '10px',
                                         gridAutoRows: 'minMax(100px, auto)'}}>
                         {this.props.notes.map(note => {
                             return(
-                                
                                 <Draggable>      
-                                        <SmallNote key={note._id}>
-                                            <Title>{note.title}</Title>
-                                            <Link to={`/note/${note._id}`}
-                                                  style={{ textDecoration: 'none',
-                                                           color: 'black' }}>
-                                                <Content><ReactMarkdown source={note.textBody} /></Content>
-                                            </Link>
-                                        </SmallNote>
+                                    <SmallNote key={note._id}>
+                                        <Title>{note.title}</Title>
+                                        <Link to={`/note/${note._id}`}
+                                                style={{ textDecoration: 'none',
+                                                        color: 'black' }}>
+                                            <Content><ReactMarkdown source={note.textBody} /></Content>
+                                        </Link>
+                                    </SmallNote>
                                 </Draggable>
                             );
                         })}

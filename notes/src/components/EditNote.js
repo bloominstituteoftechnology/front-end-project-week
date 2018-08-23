@@ -10,7 +10,7 @@ const Body = styled.div`
     padding: 1rem;
 `;
 const InputTitle = styled.textarea`
-    width: 500px;
+    width: 300px;
     padding: 1rem;
     margin: 1rem 0;
 `;
@@ -38,12 +38,13 @@ class EditNote extends React.Component{
                 <InputTitle placeholder={this.props.oldTitle}
                             name='title'
                             value={this.props.title}
-                            onChange={this.props.handleChange}
+                            onChange={this.props.handleChangeEdit}
+                            multiple
                 />
                 <InputContent placeholder={this.props.oldTextBody}
                             name='textBody'
                             value={this.props.textBody}
-                            onChange={this.props.handleChange}
+                            onChange={this.props.handleChangeEdit}
                 />
                 <Button onClick={this.props.updateNote}
                         id={this.props.match.params.id}>

@@ -15,14 +15,22 @@ class SearchBar extends React.Component{
     render(){
         return(
             <Div>
-                <Input placeholder='  Search by Title'
+                <Input placeholder='Search by Title'
+                        name='searchTitle'
+                        value={this.props.searchTitle}
+                        onEnter={this.props.filterByTitle}
+                        onChange={this.props.handleChange} />
+                <button onClick={this.props.filterByTitle}>
+                    Search
+                </button>
+                {/* <Input placeholder='Search by Title'
                         name='searchTitle'
                         value={this.props.searchTitle}
                         onEnter={this.props.filter}
                         onChange={this.props.handleChange} />
                 <button onClick={this.props.filter}>
                     Search
-                </button>
+                </button> */}
             </Div>
         );
     }

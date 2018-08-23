@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
+// export const FILTERING_NOTES = 'FILTERING_NOTES';
+// export const FILTERED_NOTES = 'FILTERED_NOTES';
 export const FETCHING_ONE_NOTE = 'FETCHING_ONE_NOTE';
 export const FETCHED_ONE_NOTE = 'FETCHED_ONE_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
@@ -38,17 +40,24 @@ export const fetchOneNote = _id => {
     };
 }
 
-export const addNote = (title, textBody, tags) => {
+// export const filterNotes = () => {
+//     return dispatch => {
+//         dispatch({type:FILTERING_NOTES});
+//         axios
+//     }
+// }
+
+export const addNote = note => {
     return dispatch => {
         dispatch({type: ADDING_NOTE});
         axios
             .post(`${url}/create`, {
-                title: title,
-                textBody: textBody,
-                tags: tags,
+                title: note.title,
+                textBody: note.textBody,
+                tags: note.tags,
             })
-            .then( response => {
-                dispatch({type: ADDED_NOTE, payload: response.data});
+            .then(response => {
+                dispatch({type: ADDED_NOTE, payload: response.config.data});
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});
     };
@@ -62,8 +71,9 @@ export const updateNote = (title, textBody, _id) => {
                 title: title,
                 textBody: textBody,
             })
-            .then(response => {
-                dispatch({type:UPDATED_NOTE, payload: response.data});
+            .then(() => {
+                dispatch({type:UPDATED_NOTE});
+                window.location.href="/get/all";
             })
             
             .catch (err => {dispatch({type: ERRORS, payload: err})});
@@ -75,8 +85,9 @@ export const deleteNote = _id => {
         dispatch({type: DELETING_NOTE});
         axios
             .delete(`${url}/delete/${_id}`)
-            .then(response => {
-                dispatch({type: DELETED_NOTE, payload: response.data});
+            .then(() => {
+                dispatch({type: DELETED_NOTE});
+                window.location.href="/get/all";
             })
             .catch (err => {dispatch({type: ERRORS, payload: err})});
     }

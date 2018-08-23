@@ -18,37 +18,44 @@ class App extends Component {
       title: '',
       textBody: '',
       searchTitle: [],
+      searchTextBody: [],
       searchResultByTitle: [],
     }
   }
-  handleChange = e =>{
+  handleChange = e => {
     this.setState({[e.target.name]: e.target.value});
   }
-  filter = e => {
-      e.preventDefault();
+  handleChangeEdit = e => {
+    this.setState({[e.target.name]: e.target.value});
+  }
+  filterByTitle = e => {
       let result = this.state.searchTitle;
       if (result.length === 0){
         return null;
-      }
+      };
       let filtered = this.props.notes.filter(note => note.title.toLowerCase().includes(result));
-      this.setState({searchResultByTitle : filtered});
+      console.log(filtered);
+      this.setState({searchResultByTitle: filtered});
+      console.log(this.state.searchResultByTitle);
       if(this.state.searchResultByTitle.length === 0){
         return null;
       }
-      this.props.fetchNotes(this.state.searchResultByTitle);
       window.location.href="/get/filteredNotes";
     }
   addNote = e => {
     e.preventDefault();
-    this.props.addNote(this.state.title, this.state.textBody);
+    let note = {title: this.state.title, textBody: this.state.textBody};
+    this.props.addNote(note);
     this.setState({title:'', textBody:'',});
-    window.location.href='/get/all';
+    window.location.href="/get/all";
   }
   updateNote = e => {
     e.preventDefault();
-    this.props.updateNote(this.state.title, this.state.textBody, e.target.id);
+    this.props.updateNote(`${this.props.note.title} ${this.state.title}`,
+                        `${this.props.note.textBody} ${this.state.textBody}`,
+                          e.target.id);
     this.setState({title:'', textBody:'',});
-    window.location.href='/get/all';
+    // window.location.href='/get/all';
   }
   componentDidMount(){
     this.props.fetchNotes();
@@ -64,7 +71,7 @@ class App extends Component {
                 <SearchBar {...props}
                         searchTitle={this.state.searchTitle}
                         handleChange={this.handleChange}
-                        filter={this.filter}/>  
+                        filterByTitle={this.filterByTitle}/>  
                 <ListView {...props}
                           notes={this.props.notes} />
             </div> }
@@ -84,7 +91,7 @@ class App extends Component {
                 <EditNote {...props} 
                             title={this.state.title}
                             textBody={this.state.textBody}
-                            handleChange={this.handleChange}
+                            handleChangeEdit={this.handleChangeEdit}
                             updateNote={this.updateNote}
                             oldTitle={this.props.note.title}
                             oldTextBody={this.props.note.textBody} />}
@@ -99,6 +106,7 @@ class App extends Component {
 export const mapStateToProps = state => ({
   notes: state.notes,
   note: state.note,
+  filteredNotes: state.filteredNotes
 });
 
 export default withRouter(connect(mapStateToProps,

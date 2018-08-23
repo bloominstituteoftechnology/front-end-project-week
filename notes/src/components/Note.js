@@ -78,8 +78,7 @@ class Note extends React.Component{
                         <ModalFooter style={{height:'100px'}}>
                             <Button color="danger"
                                     onClick={() => {this.props.deleteNote(this.props.match.params.id);
-                                                    this.toggle();
-                                                    window.location.href="/get/all"}}
+                                                    this.toggle(); }}
                                     style={{position: 'absolute', left:100}}>
                                 Delete
                             </Button>
@@ -87,7 +86,8 @@ class Note extends React.Component{
                                     style={{background: '#2AB4AE',
                                             color: 'white',
                                             position: 'absolute',
-                                            right: 100}}>
+                                            right: 100,
+                                            border: 'none'}}>
                                 No
                             </Button>
                         </ModalFooter>
