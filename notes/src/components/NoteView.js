@@ -19,7 +19,7 @@ class NoteView extends Component {
     filteredNotes = note => {
         if(note.id === this.state.id) {
             return(
-                <div key={note.id}>
+                <div key = {note.id}>
                 <Link to={`/edit/${note._id}`}>
                 <button>
                 Edit

@@ -24,6 +24,7 @@ class App extends Component {
 componentDidMount(){
   axios.get('https://killer-notes.herokuapp.com/note/get/all')
   .then(response =>{
+    console.log(response)
     this.setState({notes: response.data})
   })
   .catch(err => {
@@ -54,36 +55,29 @@ toggleDeleteNote = () => {
         />
         )}
         />
+
         <Route path = "/form" render={props =>
         (<NewNoteForm {...props}
-          title={this.state.title}
-          textBody = {this.state.textBody}
-          handleAddNote = {this.handleAddNote}
-          handleChange = {this.handleChange}
           />
           )}
           />
 
-          <Route path = "/edit/id" render={props=>
-          (<UpdateNote {...props}
+          <Route path = "/edit/:id" render={props=>
+          (<UpdateNote {...props}    
           notes = {this.state.notes}
-          selected = {this.state.selected}
-          handleTitleUpdate = {this.handleTitleUpdate}
-          handleBodyUpdate = {this.handleBodyUpdate}
-          handleSelectNote = {this.handleSelectNote}
-          handleUpdateNote = {this.handleUpdateNote}
           />
           )}
           />
 
-          <Route path="/notes/id" render={props =>
+          <Route path="/notes/:id" render={props =>
           (<NoteView {...props}
-          note={this.state.note}
+          note={this.state.notes}
+          toggleDelete = {this.toggleDelete}
           />
           )}
           />
 
-          {this.state.remove ? (<Route path = "/notes/id" render = {props=>
+          {this.state.remove ? (<Route path = "/notes/:id" render = {props=>
           (<DeleteNote {...props}
           handleSelectNote = {this.handleSelectNote}
           toggleDeleteNote = {this.toggleDeleteNote} 

@@ -14,18 +14,13 @@ class NewNoteForm extends Component {
         };
     }
 
-    componentDidMount() {
-        console.log(this.props)
-        this.setState({
-            title: '', 
-            textBody: ''
-        });
-    }
-    
-    componentWillUnmount() {
-        localStorage.setItem('title', this.state.title);
-        localStorage.setItem('textBody', this.state.textBody);
-    }
+componentDidMount() {
+    console.log(this.props)
+    this.setState({
+        title: '', 
+        textBody: ''
+    });
+}
 
 
 handleChange = event => {
@@ -33,7 +28,7 @@ handleChange = event => {
   };
   
   
-  handleAddNote = event => {
+  handleAddNote = () => {
       const note = {
           title: this.state.title,
           textBody: this.state.textBody

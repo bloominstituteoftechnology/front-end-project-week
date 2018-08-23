@@ -28,11 +28,15 @@ render() {
 
     return(
         <div className = "notes-list-container">
-        {this.state.notes.map(note=>{
+        {this.state.notes.map(note => {
+            console.log(this.state);
+            console.log(this.state.notes);
+            console.log(this.state.note);
             return(
                 <div className = "note-container">
                 <div className = "note">
-                <Link to={`/notes/${note._id}`}>
+                <Link to={`/notes/${note._id}`}
+                key = {note._id}>
                 <h1>{note.title}</h1>
                 <p>{note.textBody}</p>
                 </Link>
