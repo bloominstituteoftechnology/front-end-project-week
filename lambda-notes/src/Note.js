@@ -5,10 +5,12 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 class Note extends React.Component {
   constructor(props) {
     super(props);
-    const id = parseInt(props.match.params.id,10);
+    const id = props.match.params.id;
+    console.log('id ', id);
     const note = props.notes.find(note => {
-      return note.id === id;
+      return note._id === id;
     });
+    console.log('note ', note);
     this.state = {
       id: id,
       note: note,
@@ -35,7 +37,7 @@ class Note extends React.Component {
         </div>
         <div className='note-content'>
           <h5>{this.state.note.title}</h5>
-          <p>{this.state.note.text}</p>
+          <p>{this.state.note.textBody}</p>
         </div>
         <Modal isOpen={this.state.showModal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Delete Note</ModalHeader>
