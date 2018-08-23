@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styled from "react-emotion";
 import './index.css';
 
-import { deleteNote, editNote, addNote } from './store/actions'; 
+import { deleteNote, editNote, addNote, addNoteTag, deleteTag } from './store/actions'; 
 
 import Home from './Home';
 import NotesContainer from './containers/NotesContainer';
@@ -59,8 +59,8 @@ const MainContainer = styled("div")`
         background-color: #2AC0C4;
         border: solid 1px #939797;
         &:hover {
-        background-color: #23a0a4;
-      }
+          background-color: #23a0a4;
+        }
       }
     }
   }
@@ -96,6 +96,18 @@ class App extends Component {
   
   addNote = (content) => {
     this.props.addNoteHandler(content);
+  }
+
+  addNoteTag = (newTag) => {
+    this.props.addNoteTagHandler(newTag);
+  }
+  
+  deleteTag = (text, id) => {
+    let newText = {
+      tag: text,
+      id: id
+    }
+    this.props.deleteTagHandler(newText);
   }
 
   render() {
@@ -156,6 +168,8 @@ class App extends Component {
                 handleModal={this.handleModal}
                 isModalOpen={this.state.isModalOpen}
                 deleteNote={this.deleteNote}
+                addNoteTag={this.addNoteTag}
+                deleteTag={this.deleteTag}
               />
             )}
           />
@@ -191,6 +205,14 @@ const mapDispatchToProps = dispatch => ({
 
   addNoteHandler: content => {
     dispatch(addNote(content));
+  },
+
+  addNoteTagHandler: content => {
+    dispatch(addNoteTag(content));
+  },
+
+  deleteTagHandler: text => {
+    dispatch(deleteTag(text));
   }
 });
 

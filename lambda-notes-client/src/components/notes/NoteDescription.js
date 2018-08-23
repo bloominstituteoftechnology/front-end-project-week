@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from "react-emotion";
 
 import DeleteModal from '../modals/DeleteModal';
+import AddNoteTagsForm from '../forms/AddNoteTagsForm';
 
 
 const Main = styled("main")`
@@ -40,6 +41,48 @@ const Main = styled("main")`
     letter-spacing: 1.3px;
     margin-top: 38px;
   }
+
+  .tags-section {
+    margin-top: 200px;
+    width: 45%;
+
+    .tag-content {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+
+      .tag {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2AC0C4;
+        border: solid 1px #939797; 
+        border-radius: 10px;
+        margin-right: 10px;
+        margin-top: 15px;
+        padding: 0 15px;
+  
+        p {
+          margin-top: 0;
+          margin-right: 7px;
+          color: white;
+          font-size: 1.5rem;
+        }
+  
+        span {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: red;
+  
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 `;
 
 
@@ -65,10 +108,33 @@ const NoteDescription = props => {
             delete
           </a>
         </header>
+
         <article>
           <h2>{note[0].title}</h2>
           <p>{note[0].description}</p>
         </article>
+
+        <section className="tags-section">
+          <AddNoteTagsForm 
+            addNoteTag={props.addNoteTag} 
+            id={note[0].id}
+          />
+          <div className="tag-content">
+            {note[0].tags.map(item => {
+              return (
+                <div className="tag">
+                  <p className="tag-text">{item}</p>
+                  <span 
+                    className="tag-delete" 
+                    onClick={() => props.deleteTag(item, note[0].id)}
+                  >
+                  X
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
         {/*Modal - handles delete*/}
         {props.isModalOpen ? (
