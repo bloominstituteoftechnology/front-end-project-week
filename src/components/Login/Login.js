@@ -44,7 +44,7 @@ class Login extends React.Component {
         return (
             <LoginWrapper>
 
-                <LoginForm>
+                <LoginForm autoComplete="new-password">
 
                     <h1>Lambda Notes</h1>
                     <LoginInput className='login-input' autoComplete='off' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
