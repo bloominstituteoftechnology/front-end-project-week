@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteNote, editNote, getNote, postNote } from '../actions'
+import {
+  deleteNote,
+  editNote,
+  getNote,
+  postNote,
+  editNoteWithTag
+} from '../actions'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 class NoteDetails extends Component {
@@ -19,12 +25,6 @@ class NoteDetails extends Component {
       tags: this.props.note.tags
     }
   }
-
-  componentWillReceiveProps = (nextProps) => {
-    this.setState({ note: nextProps.note })
-  }
-
-  // componentDidUpdate()
 
   toggle = () => {
     this.setState({
@@ -52,12 +52,18 @@ class NoteDetails extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { title, context, tags } = this.state
-    const note = { title, context, tags }
-    this.props.editNote(this.props.match.params.id, note, () => {
-      this.props.history.push(`/`)
-    })
     this.setState({ title, context, tags })
+    const note = { title, context, tags }
+
+    if (!tags) {
+      this.props.editNote(this.props.match.params.id, note)
+    }
+
+    if (tags) {
+      this.props.editNoteWithTag(this.props.match.params.id, note)
+    }
     this.editToggle()
+    this.props.history.push('/')
   }
 
   handleEdit = () => {
@@ -212,5 +218,6 @@ export default connect(mapStateToProps, {
   deleteNote,
   editNote,
   getNote,
-  postNote
+  postNote,
+  editNoteWithTag
 })(NoteDetails)
