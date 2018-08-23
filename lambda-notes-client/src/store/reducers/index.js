@@ -102,7 +102,6 @@ export const rootReducer = (state = initialState, action) => {
 
       let newNote = { ...action.payload, id: id };
       newNotes.push(newNote);
-
     return Object.assign({}, state, { notes: newNotes });
 
     default:

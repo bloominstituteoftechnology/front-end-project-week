@@ -79,7 +79,9 @@ h1, h2, h3, h4, h5 {
 	color: black;
 	background-color: white;
 	padding: 13px 25px;
+	word-break:break-all;
 }
+
 .article-note__linked:hover {
 	box-shadow: .5px .5px 10px .5px rgba(0, 0, 0, .1)
 }

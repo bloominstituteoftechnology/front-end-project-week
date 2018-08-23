@@ -12,9 +12,9 @@ const Note = props => {
     let newArr = [];
     let result = '';
 
-    if (title.length > 15) {
+    if (title.length > 20) {
       arr = title.split('');
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 20; i++) {
         newArr.push(arr[i])
       }
       result = newArr.join('') + '...';
