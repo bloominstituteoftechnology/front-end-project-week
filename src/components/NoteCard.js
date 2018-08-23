@@ -32,7 +32,6 @@ const NoteCard = (props) => {
       <div className='card-tags'>
         <div className=''>
           {note.tags.map((tag, index) => {
-            console.log(note.tags)
             return (
               <div className='fas fa-tags' key={tag + index}>
                 {' '}

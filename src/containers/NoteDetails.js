@@ -7,6 +7,7 @@ import {
   postNote,
   editNoteWithTag
 } from '../actions'
+// import RenderDetails from '../components/RenderDetails'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 class NoteDetails extends Component {
@@ -55,7 +56,9 @@ class NoteDetails extends Component {
     this.setState({ title, context, tags })
     const note = { title, context, tags }
     if (!tags) {
-      this.props.editNote(this.props.match.params.id, note)
+      this.props.editNote(this.props.match.params.id, note, () => {
+        this.props.history.push(`/`)
+      })
     }
 
     if (tags) {
@@ -76,10 +79,10 @@ class NoteDetails extends Component {
     const token = localStorage.getItem('token')
     const { title, context, tags } = this.state
     const note = { title, context, tags }
-    console.log('note', this.props.note.tags)
-    this.props.postNote(note, token, tags)
-    this.setState({ title, context, tags })
-    this.props.history.push('/')
+    this.props.postNote(note, token, () => {
+      this.setState({ title, context, tags })
+      this.props.history.push('/')
+    })
   }
 
   render () {
@@ -190,10 +193,12 @@ class NoteDetails extends Component {
               </Modal>
             </div>
             {/* end of delete modal */}
-            <div className='clone-btn' onClick={this.handleClone}>
+            <Button className='clone-btn' onClick={this.handleClone}>
               Duplicate
-            </div>
+            </Button>
           </div>
+
+          {/* <RenderDetails note={this.props.note} editToggle={this.editToggle} /> */}
           <div onClick={this.editToggle} className='detail-div'>
             <h1 className='title-header'>{this.props.note.title}</h1>
             <p className='noteBody'>{this.props.note.context}</p>

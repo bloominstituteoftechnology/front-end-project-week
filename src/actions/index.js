@@ -77,8 +77,8 @@ export const deleteNote = (id, cb) => {
   }
 }
 
-export const postNote = (note, token) => {
-  const request = axios.post(`${url}/auth/duplicate`, note, {
+export const postNote = (note, token, cb) => {
+  const request = axios.post(`${url}/auth/create`, note, {
     headers: {
       authorization: token
     }
@@ -92,6 +92,7 @@ export const postNote = (note, token) => {
           type: GET_NOTES,
           payload: res.data
         })
+        cb()
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
@@ -104,17 +105,19 @@ export const editNote = (id, note, cb) => {
     request
       .then((res) => {
         dispatch({ type: GET_NOTE, payload: res.data })
+        cb()
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
 }
 
-export const editNoteWithTag = (id, note) => {
+export const editNoteWithTag = (id, note, cb) => {
   const request = axios.put(`${url}/auth/edit/tag/${id}`, note)
   return (dispatch) => {
     request
       .then((res) => {
         dispatch({ type: GET_NOTE, payload: res.data })
+        cb()
       })
       .catch((err) => console.log(err))
   }

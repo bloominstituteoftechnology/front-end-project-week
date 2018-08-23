@@ -12,7 +12,9 @@ class NoteList extends Component {
   }
 
   render () {
-    console.log(this.props.notes)
+    if (!this.props.notes) {
+      return <div>waiting for notes</div>
+    }
     const { search } = this.props
     const filteredNotes = this.props.notes.filter((note) => {
       return (

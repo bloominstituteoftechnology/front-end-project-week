@@ -12,6 +12,9 @@ body {
 label {
   margin-bottom: 0px !important;
 }
+.clone-btn {
+  margin-left: 0.5em;
+}
 .snow {
   margin: 0;
   overflow: hidden;
@@ -277,7 +280,7 @@ label {
   padding: 1em;
 }
 .btn-modal {
-  margin-left: 1.5em;
+  margin-left: .5em;
 }
 .detail-div:hover {
   cursor: pointer;
@@ -295,8 +298,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1em;
-  margin-right: 1.3em;
+  margin-top: 0.9em;
+  margin-left: 1.3em;
   height: 40px;
 }
 .clear-Btn:hover {
@@ -305,7 +308,9 @@ label {
 .edit-textBody {
   min-height: 300px;
 }
-
+.edit-context {
+  height: 230px;
+}
 .edit-title {
   height: 40px;
 }
@@ -408,6 +413,16 @@ label {
   }
   .sideNav-note-header {
     margin-left: 0.9em;
+  }
+  .form-container {
+    left: 20px;
+    width: 470px;
+  }
+}
+@media (max-width: 530px) {
+  .form-container {
+    left: 15px;
+    width: 350px;
   }
 }
 @media (max-width: 420px) {

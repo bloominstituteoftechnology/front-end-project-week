@@ -7,11 +7,23 @@ class Login extends Component {
     super()
     this.state = {
       hasRegistered: true,
-      wrongCredentials: false
+      wrongCredentials: false,
+      windowHeight: undefined,
+      windowWidth: undefined
     }
   }
+  handleResize = () =>
+    this.setState({
+      windowHeight: window.innerHeight,
+      windowWidth: window.innerWidth
+    })
   componentDidMount () {
     this.updateCanvas()
+    this.handleResize()
+    window.addEventListener('resize', this.handleResize)
+  }
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.handleResize)
   }
 
   updateCanvas () {
@@ -141,11 +153,8 @@ class Login extends Component {
   }
 
   handleLogin = (values, cb) => {
-    // const url = `https://shyne-notes.herokuapp.com`
-    const url = `http://localhost:8000`
-
     axios
-      .post(`${url}/auth/login`, values)
+      .post('http://localhost:8000/auth/login', values)
       .then((res) => {
         localStorage.setItem('token', JSON.stringify(res.data.token))
         cb()
@@ -156,12 +165,9 @@ class Login extends Component {
       })
   }
   handleRegister = (values, cb) => {
-    // const url = `https://shyne-notes.herokuapp.com`
-    const url = `http://localhost:8000`
-
     console.log('METHOD')
     axios
-      .post(`${url}/auth/register`, values)
+      .post('http://localhost:8000/auth/register', values)
       .then((response) => {
         localStorage.setItem('token', JSON.stringify(response.data.token))
         cb()
@@ -190,7 +196,9 @@ class Login extends Component {
 
     return (
       <div className='Auth-container'>
-        <canvas className='canvas' ref='canvas' width={300} height={300} />
+        <canvas className='canvas' ref='canvas' width={300} height={300}>
+          {this.state.windowWidth} * {this.state.windowHeight}
+        </canvas>
         <div className='form-container'>
           <HandleFormDisplay hasRegistered={this.state.hasRegistered} />
           <label
