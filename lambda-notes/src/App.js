@@ -65,7 +65,6 @@ class App extends Component {
 
   editHandler = (event) => {
     event.preventDefault();
-    const id = parseInt(event.target.id,10);
     const id = event.target.id;
     const editedNote = {
       title: this.state.title,
@@ -75,6 +74,7 @@ class App extends Component {
     axios.put(url, editedNote)
       .then((res) => {
         console.log(res);
+        this.getNotes();
       })
       .catch((err) => {
         console.log(err);
@@ -83,20 +83,19 @@ class App extends Component {
       title: '',
       textBody: ''
     });
-    this.getNotes();
   }
 
   deleteHandler = (e, id) => {
     e.preventDefault();
-    id = parseInt(id,10);
-    const index = this.state.notes.findIndex((note) => {
-      return note.id === id;
-    })
-    let notes = this.state.notes.slice();
-    notes.splice(index,1);
-    this.setState({
-      notes: notes
-    });
+    const url = "http://killer-notes.herokuapp.com/note/delete/" + id;
+    axios.delete(url)
+      .then((res) => {
+        console.log(res);
+        this.getNotes();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   render() {
