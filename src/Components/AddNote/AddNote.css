@@ -35,7 +35,7 @@ input:last-of-type {
     margin-left: 3%;
 }
 
-.create button {
+.create .myButton {
     text-decoration: none;
     background-color: red;
     border: none;
@@ -50,7 +50,7 @@ input:last-of-type {
     align-items: center;
 }
 
-.create button:hover {
+.create .myButton:hover {
     font-size: 1.6rem;
     height: 7.7vh;
     cursor: pointer;
