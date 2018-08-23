@@ -8,15 +8,10 @@
   font-family: "Roboto", sans-serif;
   max-width: 900px;
   height: 100%;
-  min-height: 680px;
+  min-height: 650px;
   align-content: center;
   justify-content: center;
   margin: 0 auto;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .Nav-bar {
@@ -204,6 +199,14 @@
   height: 35px;
   width: 350px;
   padding-left: 9px;
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s; */
+}
+
+.add-title-input:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0 none;
 }
 
 .edit-title-input {
@@ -227,6 +230,12 @@
   padding-top: 9px;
   margin-top: 11px;
   font-family: roboto;
+}
+
+.add-text-input:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0 none;
 }
 
 .add-form-wrap {
