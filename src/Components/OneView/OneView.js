@@ -29,7 +29,7 @@ class AddedNote extends Component {
     // this.setState(() => ({ id: Number(id), notes: this.props.notes }))
 
     axios
-      .get(`${process.env.REACT_APP_API}/notes`)
+      .get(`${process.env.REACT_APP_API}/notes/${id}`)
       .then((response) => {
         this.setState({ notes: response.data, id: Number(id) })
       })
