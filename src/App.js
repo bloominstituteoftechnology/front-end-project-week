@@ -10,6 +10,7 @@ import DeleteModal from './components/DeleteModal';
 import EditNote from './components/EditNote';
 import { connect } from 'react-redux';
 import { getNotes } from './actions';
+import AuthContainer from './components/auth/AuthContainer';
 
 const StyledApp = styled.div`
   display: flex;
@@ -48,6 +49,7 @@ class App extends Component {
   render() {
     return (
       <StyledApp>
+        <Route exact path='/' component={AuthContainer} />
         <Route path='/notes' component={NavBar} />
         <Route exact path='/notes' component={NotesContainer} />
         <Route exact path='/notes/:id' render={props => <Note {...props} />} />
