@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NoteView = props => {
-    const { title, content, tags } = props.note;
+    const { id, title, content, tags } = props.note;
     return (
         <div className="NoteView-container">
             <div className="NoteView-header">
@@ -14,6 +14,7 @@ const NoteView = props => {
                 {/* {tags.length > 0 ? tags.map((tag) => <span>{tag}</span>) : <span></span>} */}
             </div>
             {/* <div>{`${props.note['_id'].substr(-4)}`}</div> */}
+            <div>{`#${id}`}</div>
         </div>
     );
 
