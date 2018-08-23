@@ -11,3 +11,28 @@
     width: 100%;
     justify-content: flex-start;
 }
+
+.list-view .tags {
+    margin-bottom: 25px;
+}
+.list-view .tags span {
+    border: 1px solid #454646;
+    border-radius: 10px;
+    margin-right: 2%;
+    padding: 3px;
+    font-size: .8rem;
+    font-weight: bold;
+    background-color: gray;
+    color: white;
+}
+
+.list-view .tags span:hover {
+    cursor: pointer;
+    background-color: white;
+    color: gray;
+}
+
+.list-view .tags .active {
+    background-color: white;
+    color: gray;
+}

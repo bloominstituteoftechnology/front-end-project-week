@@ -31,7 +31,7 @@ class App extends Component {
           tags: ["personal", "goals", "todo"]
         }
       ],
-
+      tags: ["all","productivity", "utilities", "personal", "goals", "todo"],
       deleteModalToggle: false,
       selectedNoteID: null
     };
@@ -39,9 +39,13 @@ class App extends Component {
 
   addNote = note => {
     let notes = this.state.notes.slice();
+    let tags = this.state.tags.slice();
     notes.push(note);
     notes = notes.map((note, index) => ({...note, id: index}));
-    this.setState({notes: notes});
+    note.tags.forEach(tag => 
+      {if(!tags.includes(tag)) tags.push(tag)}
+    );
+    this.setState({notes: notes, tags: tags});
   }
 
   updateNote = note => {
@@ -66,7 +70,7 @@ class App extends Component {
         <div className="container">
           <Sidebar />
           <div className="notes-view">
-            <Route exact path="/" render={routeProps => <ListView {...routeProps} notes={this.state.notes} />} />
+            <Route exact path="/" render={routeProps => <ListView {...routeProps} notes={this.state.notes} tags={this.state.tags} />} />
             <Route exact path="/new-note" render={routeProps => <NewNote {...routeProps} addNote={this.addNote}/>}/>
             <Route exact path="/note/:id" render={({match}) => <Note note={this.state.notes[match.params.id]} deleteNote={this.deleteToggleHandler} />}/>
             <Route path="/note/:id/edit" render={({match}) => <Edit id={match.params.id} updateNote={this.updateNote}/>}/>
