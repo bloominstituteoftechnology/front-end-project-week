@@ -26,7 +26,7 @@ class Signin extends Component {
         userName: '',
         password: '',
         error: '',
-        url: 'http://localhost:3300/users/login' //'https://lambda-notes-95090.herokuapp.com/users/login'
+        url: 'https://lambda-notes-95090.herokuapp.com/users/login'
     }
 
     inputHandler = (e) => {
