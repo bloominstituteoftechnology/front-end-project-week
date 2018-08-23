@@ -31,7 +31,8 @@ class ViewNote extends Component {
         super(props);
         this.state = { 
             id: props.match.params.id,
-            note: props.note
+            note: props.note,
+            delete: props.delete
          }
          console.log(this.state.note[this.state.id].noteName)
          console.log(this.state.id)
@@ -42,8 +43,7 @@ class ViewNote extends Component {
     render() { 
         return (<View className='col'>
 
-    
-        <Actions><Button>delete</Button><Button>edit</Button></Actions>
+        <Actions><Button onClick={this.state.delete}>delete</Button><Button>edit</Button></Actions>
 
         <NoteName>{this.state.note[this.state.id].noteName}</NoteName>
 

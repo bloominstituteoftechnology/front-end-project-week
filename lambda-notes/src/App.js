@@ -45,7 +45,7 @@ class App extends Component {
     this.setState({ noteName: '', noteText: '', notes: notes })
   }
 
-  deleteNote = e => {
+  deleteNote = (e, id) => {
     e.preventDefault()
     let notes = this.state.notes.slice()
     notes = notes.filter(note => !note.id)
@@ -56,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NotesContainer note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} />
+        <NotesContainer note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} delete={this.deleteNote} />
 
       </div>
     );
