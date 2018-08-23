@@ -1,7 +1,7 @@
 
 import React from 'react';
-// import { Button, Form, Input, Row, Container, Col } from 'reactstrap';
-//  import './EditNote.css';
+
+
 class EditNote extends React.Component {
     constructor(props) {
         super(props);
@@ -13,9 +13,7 @@ class EditNote extends React.Component {
         }
     }
    
-    
-
-    componentDidMount(){
+        componentDidMount(){
         console.log('whatthehellishappening');
         let noteID = this.props.match.params.id;
         const note = this.state.notes.find(
@@ -34,7 +32,7 @@ class EditNote extends React.Component {
             text: this.state.text
         }
         this.props.editNote(editedNote);
-        // window.location = '/'
+
     }
 
     handleInputChange = event => {
@@ -48,7 +46,7 @@ class EditNote extends React.Component {
             <input onChange={this.handleInputChange} type="text" name="title" placeholder="Title" value={this.state.title}/>
             <input onChange={this.handleInputChange} type="text" name="text" placeholder="Note"  value={this.state.text}/>
             <button>Edit</button>
-            </form>
+         </form>
         </div>
         );
     }

@@ -1,17 +1,18 @@
 .note {
     padding-top: 40px;
+    background-image:url("data:image/gif;base64,R0lGODlhFgAsAJEAAP////n8/ePv9gAAACH5BAAHAP8ALAAAAAAWACwAAAInhI+py+0Po5y02ouz3rz7D4biSJbmiabqyrZuFsTyTNeBgOf6zgsFADs=");
 }
  .note h2 {
     font-weight: bolder;
-    padding-top: 40px;
+    padding-top: 35px;
     font-family: 'SinkinSans100Thin'; 
     font-weight: bold; 
     font-style: normal;
 }
  .note p {
-    padding-top: 30px;
+    padding-top: 35px;
     font-family: 'SchoolCursiveRegular'; 
     font-weight: normal; 
     font-style: normal;
-    font-size: 25px;
+    font-size: 30px;
 }

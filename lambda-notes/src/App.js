@@ -21,7 +21,7 @@ class App extends Component {
           },
           {
             id:1,
-            title:"WWE Summer Smash",
+            title:"WWE Summerslam",
             text:"So happy Ronda won the match!"
           },
           {

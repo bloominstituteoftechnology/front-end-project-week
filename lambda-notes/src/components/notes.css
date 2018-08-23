@@ -4,13 +4,17 @@
 }
 
 
-.notes-page .notes{
+.notes-page .notes  {
     display: flex;
     flex-direction: row; 
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-   
+
+}
+
+.notes-page .notes :hover {
+    text-decoration: none;
 }
 
 
