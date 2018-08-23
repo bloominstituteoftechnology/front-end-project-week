@@ -38,16 +38,14 @@ class App extends Component {
   }
 
 
-  componentDidUpdate() {
-    axios
-    .get("https://killer-notes.herokuapp.com/note/get/all")
-    .then(response => {
-      
-      if (JSON.stringify(this.state.notes) !== JSON.stringify(response.data)){
-      this.setState({ notes: response.data });}
-     
-    })
-  }
+  // componentDidUpdate() {
+  //   axios
+  //   .get("https://killer-notes.herokuapp.com/note/get/all")
+  //   .then(response => {
+  //     if (JSON.stringify(this.state.notes) !== JSON.stringify(response.data)){
+  //     this.setState({ notes: response.data });}
+  //   })
+  // }
 
   noteInput = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -61,6 +59,7 @@ class App extends Component {
       }).then(()=>{
         axios.get("https://killer-notes.herokuapp.com/note/get/all")
         .then(response => {
+          console.log(response.data);
           this.setState(()=> ({notes: response.data }))
         })
       })
@@ -133,7 +132,6 @@ class App extends Component {
   noteDelete = id => {
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
     .then(()=> {
-      console.log(this.state.notes);
       axios.get("https://killer-notes.herokuapp.com/note/get/all")
       .then(response => {
         this.setState({ notes: response.data, deleting: false }) 

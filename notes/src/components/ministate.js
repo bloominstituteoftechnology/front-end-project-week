@@ -12,6 +12,12 @@ class Ministate extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.note._id !== this.props.note._id) {
+        this.setState({note: this.props.note})
+    }
+  }
+
   closeModal = () => {
     this.setState({ tagging: !this.state.tagging });
   };
@@ -47,6 +53,7 @@ class Ministate extends React.Component {
   };
 
   render() {
+      console.log(this.state.note)
     return (
       <div className="note">
         <div className={this.state.tagging ? "tagModal" : "hide"}>

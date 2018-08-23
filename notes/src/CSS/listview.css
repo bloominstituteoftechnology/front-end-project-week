@@ -195,6 +195,7 @@ h1, h2, h3 {
 
 .tagx > p {
     margin: 0;
+    padding-left: 2px;
 }
 
 .fa-plus-circle {
