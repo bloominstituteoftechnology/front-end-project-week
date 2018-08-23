@@ -41,14 +41,14 @@ const LeftMenuDiv = styled.div`
 export default class LeftMenu extends Component {
 
   render(props){
-    // console.log(this)
+    console.log(this.props.to)
 
     return (
       <LeftMenuDiv>
         <h1>Lambda Notes</h1>
-        <Link draggable className="menu-item" to="/all-notes">View Your Notes</Link>
+        <Link className="menu-item" to="/all-notes" style={this.props}>View Your Notes</Link>
         <Link className="menu-item" to="/new-note">+ Create New Note</Link>
-        <div className="menu-item" onClick={this.download} >Download CSV</div>
+        {/* <div className="menu-item" onClick={this.download} >Download CSV</div> */}
         <DeleteTarget action='delete' className="menu-item red" />
         {/* <div  onClick={this.delete} to="/deleted-notes">Delete Item</div> */}
       </LeftMenuDiv>

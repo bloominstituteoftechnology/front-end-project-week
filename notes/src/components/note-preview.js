@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { DragSource } from 'react-dnd';
+import ReactMarkdown from 'react-markdown';
+
 
 const NotePreviewDiv = styled.div`
   .note-preview {
@@ -86,8 +88,9 @@ const NotePreview = (props) => (
 
               <div className="notTags">
                 <h3>{props.note.title}</h3>
-                <p>{props.note.textBody}</p>
-                <p>Index: {props.index}</p>
+                {<ReactMarkdown>{props.note.textBody}</ReactMarkdown>}
+                <p></p>
+                {/* <p>Index: {props.index}</p> */}
               </div>
 
               <div className="tags">
