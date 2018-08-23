@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { SideBar } from "../sidebar/SideBar";
 
 class AllNotes extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class AllNotes extends Component {
   render() {
     return (
       <Fragment>
+        <SideBar />
         {this.state.allNotes.map(note => {
           return (
             <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
