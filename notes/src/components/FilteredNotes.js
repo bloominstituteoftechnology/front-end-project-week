@@ -30,7 +30,7 @@ const Title = styled.div`
     font-weight: 800;
     border-bottom: 1px solid lightgray;
     padding: 0.5rem;
-    margin: 0.5rem 1rem;
+    background: lightgray;
 `;
 const Content = styled.div`
     padding: 0.5rem;
@@ -42,7 +42,7 @@ class FilteredNotes extends React.Component{
     render(){
         return(
             <List>
-            <h2>Your Notes:</h2>
+            <h2>Your Filtered Notes:</h2>
             <NoteOverview style={{display: 'grid',
                                 gridTemplateColumns: 'repeat(3, 1fr)',
                                 gridGap: '10px',

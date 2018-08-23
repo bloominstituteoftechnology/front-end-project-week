@@ -19,7 +19,7 @@ class App extends Component {
       textBody: '',
       searchTitle: [],
       searchTextBody: [],
-      searchResultByTitle: [],
+      filteredResults: [],
     }
   }
   handleChange = e => {
@@ -28,20 +28,41 @@ class App extends Component {
   handleChangeEdit = e => {
     this.setState({[e.target.name]: e.target.value});
   }
-  filterByTitle = e => {
+  reset = () => {
+    this.setState({filteredResults: []});
+  }
+  filterByTitle = () => {
       let result = this.state.searchTitle;
       if (result.length === 0){
-        return null;
+        return alert("Note(s) not found");
       };
-      let filtered = this.props.notes.filter(note => note.title.toLowerCase().includes(result));
-      console.log(filtered);
-      this.setState({searchResultByTitle: filtered});
-      console.log(this.state.searchResultByTitle);
-      if(this.state.searchResultByTitle.length === 0){
+      let filtered = this.props.notes.filter(note => 
+                    note.title.toLowerCase().includes(result));
+      this.setState({
+        searchTitle: [],
+        filteredResults: filtered
+      });
+      if(this.state.filteredResults.length === 0){
         return null;
       }
-      window.location.href="/get/filteredNotes";
+      window.location.reload();
+  }
+  filterByTextBody = () => {
+    let result = this.state.searchTextBody;
+    if (result.length === 0){
+      return alert("Note(s) not found");
+    };
+    let filtered = this.props.notes.filter(note => 
+                  note.textBody.toLowerCase().includes(result));
+    this.setState({
+      searchTextBody: [],
+      filteredResults: filtered
+    });
+    if(this.state.filteredResults.length === 0){
+      return null;
     }
+    window.location.reload();
+}
   addNote = e => {
     e.preventDefault();
     this.props.addNote(this.state.title, this.state.textBody);
@@ -53,7 +74,8 @@ class App extends Component {
     e.preventDefault();
     this.props.updateNote(this.state.title,this.state.textBody, e.target.id);
     this.setState({title:'', textBody:'',});
-    // window.location.href='/get/all';
+    window.location.reload();
+    window.location.href="/get/all";
   }
   componentDidMount(){
     this.props.fetchNotes();
@@ -63,20 +85,33 @@ class App extends Component {
         <div className='App'>
           <Link to="/"></Link>
           {/* ROUTES */}
-          <Route path='/' component={SideBar} />
-          <Route exact path="/get/all" render={(props) => 
-            <div>
-                <SearchBar {...props}
-                        searchTitle={this.state.searchTitle}
-                        handleChange={this.handleChange}
-                        filterByTitle={this.filterByTitle}/>  
-                <ListView {...props}
+          <Route path='/' render={(props) => <SideBar {...props}
+                                              reset={this.reset}/> }/>
+          <Route exact path="/get/all" render={(props) => {
+            if(this.state.filteredResults.length===0){
+              return(
+                <div>
+                  <SearchBar {...props}
+                          searchTitle={this.state.searchTitle}
+                          searchTextBody={this.state.searchTextBody}
+                          handleChange={this.handleChange}
+                          filterByTitle={this.filterByTitle} 
+                          filterByTextBody={this.filterByTextBody}
+                          
+                          
+                          
+                          />  
+                  <ListView {...props}
                           notes={this.props.notes} />
-            </div> }
-          />
-          <Route exact path="/get/filteredNotes" render={(props) => 
-                <FilteredNotes {...props}
-                          filtered={this.state.searchResultByTitle} />} />
+                </div>
+              )
+            }
+            else {
+                return <FilteredNotes {...props} 
+                        filtered={this.state.filteredResults} />
+            }      
+          }} />
+         
           <Switch>
             <Route exact path="/note/create" render={(props) => 
                 <CreateNote {...props} 
@@ -104,7 +139,6 @@ class App extends Component {
 export const mapStateToProps = state => ({
   notes: state.notes,
   note: state.note,
-  filteredNotes: state.filteredNotes
 });
 
 export default withRouter(connect(mapStateToProps,

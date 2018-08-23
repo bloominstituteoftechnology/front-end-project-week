@@ -40,10 +40,15 @@ export const fetchOneNote = _id => {
     };
 }
 
-// export const filterNotes = () => {
+// export const filterNotes = notes => {
 //     return dispatch => {
 //         dispatch({type:FILTERING_NOTES});
 //         axios
+//             .post("http://localhost:3000/filteredNotes", {notes})
+//             .then( response => {
+//                 dispatch({type: FILTERED_NOTES, payload: response.data })
+//             })
+//             .catch (err => {dispatch({type: ERRORS, payload: err})});
 //     }
 // }
 

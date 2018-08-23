@@ -32,7 +32,7 @@ class SideBar extends React.Component {
                     <H1>Lambda Notes</H1>
                 </Link>
                 <Link to="/get/all" style={{ textDecoration: 'none' }}>
-                    <CustomButton>View Your Notes</CustomButton>
+                    <CustomButton onClick={this.props.reset}>View Your Notes</CustomButton>
                 </Link>
                 <Link to="/note/create" style={{ textDecoration: 'none' }}>
                     <CustomButton>+ Create New Note</CustomButton>

@@ -8,12 +8,15 @@ import {FETCHING_NOTES,
         UPDATED_NOTE,
         DELETING_NOTE,
         DELETED_NOTE,
-        ERRORS} from '../actions/actions';
+        ERRORS,
+        // FILTERING_NOTES,
+        // FILTERED_NOTES
+        } from '../actions/actions';
 
 const initialState = {
     notes: [],
     note: [],
-    // filteredNotes: [],
+    // filtered: [],
     fetchingNotes: false,
     fetchedNotes: false,
     // filteringNotes: false,
@@ -53,6 +56,18 @@ export const rootReducer = (state = initialState, action) => {
                 fetchedOneNote: true,
                 note: action.payload,
             });
+        // case FILTERING_NOTES:
+        //     return {
+        //         ...state,
+        //         filteringNotes: true,
+        //     }
+        // case FILTERED_NOTES:
+        //     return {
+        //         ...state,
+        //         filteringNotes: false,
+        //         filteredNotes: true,
+        //         filtered: action.payload,
+        //     }
         case ADDING_NOTE:
             return {
                 ...state,
