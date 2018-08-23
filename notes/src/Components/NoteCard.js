@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 
 const NoteCard = ({ note }) => {
 	return (
@@ -13,11 +14,14 @@ const NoteCard = ({ note }) => {
 				{note.tags.map(tag => (
 					<span className="Notes__tag">{tag}</span>
 				))}
-				<p className="Notes__text">
-					{note.textBody.length > 170
-						? note.textBody.substring(0, 170) + "..."
-						: note.textBody}
-				</p>
+				<ReactMarkdown
+					className="Notes__text"
+					source={
+						note.textBody.length > 170
+							? note.textBody.substring(0, 170) + "..."
+							: note.textBody
+					}
+				/>
 			</div>
 		</Link>
 	);
