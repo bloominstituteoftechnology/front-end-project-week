@@ -9,6 +9,15 @@
       "title": "Why is my note not showing up",
       "textBody": "I don't know why my note is not showing up. But I will get it to show up. 😁",
       "__v": 0
+    },
+    {
+      "id": "_41kyytuhs",
+      "tags": [
+        "draggable"
+      ],
+      "title": "New Note ",
+      "textBody": "Testing out the Drag and Drop feature. I would like to see if I can get this to work. ",
+      "__v": 0
     }
   ]
 }
