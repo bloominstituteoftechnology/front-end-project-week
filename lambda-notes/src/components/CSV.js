@@ -1,4 +1,4 @@
-export function convertArrtoCSV(arg) {
+export function convertArrtoCSV(args) {
     let result, ctr, keys, columnDelimiter, lineDelimiter, data;
 
     data = args.data || null;
@@ -27,7 +27,7 @@ export function convertArrtoCSV(arg) {
 
 export function downloadCSV(args) {  
     let data, filename, link;
-    let csv = convertArrToCSV({
+    let csv = convertArrtoCSV({
         data: args.notesData
     });
 
