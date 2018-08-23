@@ -13,12 +13,12 @@ class App extends Component {
       notes: [{
         noteName: 'Note Title',
         noteText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
-        id: 62
+        id: 0
       },
       {
-        noteName: 'Note Title',
+        noteName: 'Title of Note',
         noteText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
-        id: 52
+        id: 1
       },
       ],
       noteName: '',
@@ -33,14 +33,23 @@ class App extends Component {
 
   addNote = e => {
     e.preventDefault()
-    const notes = this.state.notes.splice()
-    ++this.state.id
-    this.state.notes.push({
+    const notes = this.state.notes.slice()
+    let num = this.state.id
+    num+=1
+    this.setState({id: num})
+    notes.push({
       noteName: this.state.noteName,
       noteText: this.state.noteText,
       id: this.state.id
     })
-    this.setState({noteName: '', noteText: ''})
+    this.setState({ noteName: '', noteText: '', notes: notes })
+  }
+
+  deleteNote = e => {
+    e.preventDefault()
+    let notes = this.state.notes.slice()
+    notes = notes.filter(note => !note.id)
+    this.setState({ notes: notes })
   }
 
 
