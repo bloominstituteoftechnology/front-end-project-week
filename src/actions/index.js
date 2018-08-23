@@ -15,7 +15,7 @@ export const ERROR = 'ERROR';
 //middleware (another thunk) use for all action creators
 const fetchNotes = (dispatch) => {
   return axios
-    .get('https://sumi-notes.netlify.com/')
+    .get('https://suminotes-api.herokuapp.com/')
     .then(({ data }) => {
       setTimeout(() => {
         dispatch({
