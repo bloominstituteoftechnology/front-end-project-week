@@ -21,6 +21,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getNotes();
+  }
+
+  getNotes = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
       .then((res) => {
         console.log(res.data);
@@ -44,17 +48,19 @@ class App extends Component {
     const newNote = {
       title: this.state.title,
       textBody: this.state.text,
-      id: this.state.id
     };
-    const notes = this.state.notes.slice();
-    notes.push(newNote);
-    let id = newNote.id + 1;
+    axios.post('https://killer-notes.herokuapp.com/note/create',newNote)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     this.setState({
-      notes: notes,
       title: '',
       textBody: '',
-      id: id
     });
+    this.getNotes();
   }
 
   editHandler = (event) => {
