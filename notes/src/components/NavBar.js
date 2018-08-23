@@ -7,7 +7,7 @@ const NavBar = () => {
             <h1 className = "nav-bar-header">
                 Lambda Notes
             </h1>
-            <Link to = {`/all`}>
+            <Link to = {`/`}>
             <button className = "nav-button"> 
                 View Your Notes
             </button>

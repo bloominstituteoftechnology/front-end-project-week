@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './UpdateNote.js'
-
 import './NewNoteForm.css';
 
 class NewNoteForm extends Component {
@@ -15,11 +15,17 @@ class NewNoteForm extends Component {
     }
 
 componentDidMount() {
-    console.log(this.props)
+    const title = this.props.title ===undefined ? '': this.props.title;
+    const textBody = this.props.textBody === undefined ? '': this.props.textBody;
     this.setState({
-        title: '', 
-        textBody: ''
+        title: title, 
+        textBody: textBody
     });
+}
+
+componentWillUnmount () {
+    localStorage.setItem('title', this.state.title);
+    localStorage.setItem('textBody', this.state.textBody);
 }
 
 
@@ -28,7 +34,7 @@ handleChange = event => {
   };
   
   
-  handleAddNote = () => {
+handleAddNote = () => {
       const note = {
           title: this.state.title,
           textBody: this.state.textBody
@@ -50,7 +56,6 @@ handleChange = event => {
     console.log(err))
   }
 
-
     render(){
     return (
         <div className = "new-note-container">
@@ -59,20 +64,20 @@ handleChange = event => {
                 </h2>
                 <input 
                 onChange = {this.handleChange} 
-                value = {this.title}
+                value = {this.state.title}
                 className = "note-title-input"
                 type="text"
                 placeholder="Note Title" 
                 />
                 <textarea
                 onChange = {this.handleChange} 
-                value = {this.textBody}
+                value = {this.state.textBody}
                 className = "note-content-input"
                 type = "text"
                 placeholder = "Note Content"
                 />
                 <Link to="/all"> 
-                <button onClick = {this.state.handleAddNote}> 
+                <button onClick = {this.handleAddNote}> 
                    Add to Note List     
                 </button> 
                 </Link>

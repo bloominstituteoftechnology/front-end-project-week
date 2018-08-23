@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class NoteView extends Component {
     constructor(props) {
@@ -9,11 +10,15 @@ class NoteView extends Component {
             notes: this.props.notes
         };
     }
-
+    
     componentDidMount() {
-        const id = this.props.match.params.id;
-        this.setState({id: Number(id), 
-        notes: this.props.note});
+        axios.get('https://killer-notes.herokuapp.com/note/get/id')
+        .then(response => {
+            this.setState({note: response.data})
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     filteredNotes = note => {

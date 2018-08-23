@@ -14,21 +14,21 @@ class NotesList extends Component {
     }
 
 
-componentDidMount() {
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => {
-        this.setState({notes: response.data})
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
+// componentDidMount() {
+//     axios.get('https://killer-notes.herokuapp.com/note/get/all')
+//     .then(response => {
+//         this.setState({notes: response.data})
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+// }
 
 render() {
 
     return(
         <div className = "notes-list-container">
-        {this.state.notes.map(note => {
+        {this.props.notes.map(note => {
             console.log(this.state);
             console.log(this.state.notes);
             console.log(this.state.note);
@@ -36,7 +36,7 @@ render() {
                 <div className = "note-container">
                 <div className = "note">
                 <Link to={`/notes/${note._id}`}
-                key = {note._id}>
+                key = {note.id}>
                 <h1>{note.title}</h1>
                 <p>{note.textBody}</p>
                 </Link>

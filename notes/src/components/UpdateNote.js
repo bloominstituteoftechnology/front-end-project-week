@@ -16,12 +16,6 @@ class UpdateNote extends Component {
         }
     }
 
-componentDidMount() {
-    const id = this.props.match.params.id;
-    let note = this.props.notes.filter(note => note.id===Number(id));
-    this.props.handleSelectNote(note[0]);
-}
-
 handleTitleUpdate = event => {
     this.setState({
       notes: {
@@ -48,6 +42,7 @@ handleTitleUpdate = event => {
           title: this.state.notes.title,
           textBody: this.state.notes.textBody
       }
+
       this.setState({
           id: null,
             notes: {
@@ -59,7 +54,7 @@ handleTitleUpdate = event => {
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, notes)
     .then( response =>{
     console.log(response)
-    this.props.history.push('/all');
+    this.props.history.push('/');
   })
     .catch(err =>console.log(err))
   }
@@ -71,17 +66,19 @@ render() {
     <form> 
         <input 
         type = "text" 
+        name="title"
         placeholder="Title"
         value = {this.state.notes.title}
         onChange = {this.handleTitleUpdate}
         />
         <textarea type = "text"
+        name = "textBody"
         placeholder = "Content"
         value = {this.state.notes.textBody}
         onChange = {this.handleBodyUpdate}
         />
         <Link to ="/all">
-        <button onClick = {this.handleUpdate}>
+        <button onClick = {this.handleUpdateNote}>
             Update
         </button>
         </Link>
