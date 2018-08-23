@@ -26,7 +26,6 @@ export default class DragDrop extends Component {
 	};
 
 	onDragStart = (ev, id) => {
-		console.log("dragstart:", id, "ev", ev);
 		ev.dataTransfer.setData("id", id);
 	};
 

@@ -11,7 +11,6 @@ class Notes extends React.Component {
 	};
 
 	onDragStart = (event, id) => {
-		console.log(id);
 		event.dataTransfer.setData("id", id);
 	};
 
@@ -21,12 +20,9 @@ class Notes extends React.Component {
 
 	onDrop = (ev, cat) => {
 		let id = ev.dataTransfer.getData("id");
-		console.log(id);
-		console.log(cat);
 		let notes = this.props.notes.filter(note => {
 			if (note._id == id) {
 				note.category = cat;
-				console.log(note);
 			}
 			return note;
 		});
@@ -80,10 +76,11 @@ class Notes extends React.Component {
 						))}
 				</div>
 				<div
-					className="Notes__completed"
+					className="NotesWrapper"
 					onDragOver={e => this.onDragOver(e)}
 					onDrop={e => this.onDrop(e, "complete")}
 				>
+					<h1 className="Notes__header">Completed:</h1>
 					{notes.complete}
 				</div>
 			</div>
