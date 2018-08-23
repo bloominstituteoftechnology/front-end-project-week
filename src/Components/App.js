@@ -18,7 +18,8 @@ class App extends Component {
       notes: [],
       deleting: false,
       loggedIn: true,
-      searchVal: ''
+      searchVal: '',
+      filteredNotes: []
     }
   }
 
@@ -58,17 +59,17 @@ class App extends Component {
   handleSearch = (e) => {
     this.setState({ searchVal: e.target.value })
     const searchVal = this.state.searchVal
-    const newNotes = this.state.notes.filter(note => {
+    const filteredNotes = this.state.notes.filter(note => {
       return note.title.includes(`${searchVal}`)
     })
-    this.setState({ notes: newNotes })
+    this.setState({ filteredNotes })
   }
 
   render() {
     return (
       <div className="App">
         <Banner />
-        <Route exact path='/' render={() => <ListView notes={this.state.notes} sortAz={this.sortAz} sortZa={this.sortZa} handleSearch={this.handleSearch} searchVal={this.state.searchVal} />} />
+        <Route exact path='/' render={() => <ListView notes={this.state.filteredNotes} sortAz={this.sortAz} sortZa={this.sortZa} handleSearch={this.handleSearch} searchVal={this.state.searchVal} />} />
         <Route path='/create' render={() => <CreateNote handleRefresh={this.handleRefresh} />} />
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} toggleDeleting={this.toggleDeleting} handleRefresh={this.handleRefresh} />} />
         <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} handleRefresh={this.handleRefresh} />} />
