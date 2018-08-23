@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNote, editNote } from '../actions';
 import '../styles/EditNote.css';
 
-const URL = 'http://localhost:8000/api/notes/';
+const URL = 'https://m4rkl3y-notes.herokuapp.com/api/notes/';
 
 class EditNote extends Component {
     state = {

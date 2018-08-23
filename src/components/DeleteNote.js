@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 import '../styles/DeleteNote.css';
 
-const URL = 'http://localhost:8000/api/notes/';
+const URL = 'https://m4rkl3y-notes.herokuapp.com/api/notes/';
 const path = '/notes/';
 
 class DeleteNote extends Component {
