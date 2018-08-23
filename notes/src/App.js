@@ -7,7 +7,6 @@ import Note from "./Components/Note";
 import AddNote from "./Components/AddNote";
 import Sidebar from "./Components/Sidebar";
 import FilteredNotes from "./Components/FilteredNotes";
-import Markdown from "./Components/Markdown";
 
 import "./App.css";
 
