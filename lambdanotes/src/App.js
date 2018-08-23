@@ -7,17 +7,18 @@ import axios from 'axios';
 import './App.css';
 import CreateNote from './components/CreateNote/CreateNote.js';
 import ViewSingleNote from './components/ViewSingleNote/ViewSingleNote.js';
+import EditNote from './components/EditNote/EditNote';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      notes:[
+      notes:[{
           // title:'Note Title',
           // content:'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …',
           // id:`${Date.now()}`
           
-      ],
+      }],
       title:'',
       content:'',
     };
@@ -34,6 +35,15 @@ class App extends Component {
       });
   }
 
+  refresh(){
+    axios.get('http://localhost:7000/notes')
+      .then(res=>{
+        this.setState({notes:res.data})
+      })
+      .catch(error=> {
+        console.log(error)
+      });
+  }
 
   addNote =() => {
     let note={
@@ -53,6 +63,26 @@ class App extends Component {
       .catch(err=> {
         console.log(err)
       });
+      window.location.reload();
+      
+  };
+
+  editNote=(id)=>{
+    let changes={
+      title:this.state.title,
+      content:this.state.content
+    }
+    axios
+      .put(`http://localhost:7000/notes/${id}`, changes)
+      .then(res=>{
+       // this.state(res.data)
+        console.log(res);
+      })
+      .catch(err=> {
+        console.log(err)
+      });
+      window.location.reload();
+      
   };
 
   deleteNote=(id) => {
@@ -71,6 +101,8 @@ class App extends Component {
       .catch(err=> {
         console.log(err)
       });
+      //return this.refresh();
+      window.location.reload();
   };
 
   handleInputChange = e => {
@@ -100,12 +132,22 @@ class App extends Component {
         />
 
         <Route exact path='/create' render={props => (
-            <CreateNote {...props} 
-              handleInputChange={this.handleInputChange} 
-              title={this.state.title} 
-              content={this.state.content} 
-              addNote={this.addNote} 
-            /> )} 
+          <CreateNote {...props} 
+            handleInputChange={this.handleInputChange} 
+            title={this.state.title} 
+            content={this.state.content} 
+            addNote={this.addNote} 
+          /> )} 
+        />
+
+        <Route exact path='/edit' render ={props=>(
+          <EditNote {...props}
+            handleInputChange={this.handleInputChange} 
+            title={this.state.title} 
+            content={this.state.content} 
+            notes={this.state.notes} 
+            editNote={this.editNote}
+          />)}
         />
 
         <Route path='/notes/' render={props => (
