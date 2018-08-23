@@ -1,0 +1,19 @@
+.Create__note-title {
+  width: 60%;
+}
+
+.Create__note-body {
+  width: 80%;
+  height: 500px;
+}
+
+.Create__note-button {
+  width: 35%;
+  height: 50px;
+  background-color: rgba(0, 0, 12, 0.7);
+  border: none;
+  color: white;
+}
+.Create__note-button:hover {
+  background-color: black;
+}

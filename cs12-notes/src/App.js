@@ -1,65 +1,66 @@
-import React, { Component } from 'react';
-import './App.css';
-import axios from 'axios';
+import React, { Component } from "react";
+import "./App.css";
+import { Link, Route } from "react-router-dom";
+import NoteList from "./components/Notes/NoteList";
+import CreateNote from "./components/Notes/CreateNote";
+import NoteNav from "./components/Notes/NoteNav";
 
-
-
-const DisplayNotes = (props) => {
-  console.log(props.dev[0]);
-  return (
-    <div className="DisplayNotes_Container">
-      {props.dev.map(notes =>
-        <div key={notes._id} className="DisplayNotes-Card">
-          <h1>{notes.title}</h1>
-          <h4>{notes.textBody}</h4>
-        </div>
-      )}
-    </div>
-  )
+class ButtonNav extends Component {
+  render() {
+    return (
+      <div className="App__Top-div">
+        <button className="App__Top-buttons">Login</button>
+        <button className="App__Top-buttons">Register</button>
+        <button className="App__Top-buttons">Logout</button>
+      </div>
+    );
+  }
 }
-
-
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      dev: []
-    }
-  }
-  componentDidMount() {
-    axios
-    .get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(responce => {
-      this.setState( { dev: responce.data } );
-    }).catch(err => console.log(err));
+      port: 0
+    };
   }
 
   render() {
-    if (this.state.div === []) {
-      return (
-        <h1>Loading...</h1>
-      )
-    } else {
-      return (
-        <div className="container"> {/* container div */}
-
-          <div className="App_Top"> {/* top div */} 
-          <div className="App_Top-Button">
-            <span>View Notes</span>
-          </div>
-          <div className="App_Top-Button">
-            <span>New Note</span>
-          </div>
-          </div> {/* top div end */}
-
-          <div className="App_Bottom"> {/* bottom div */} 
-            <DisplayNotes dev={this.state.dev} test="hello"/>
-          </div> {/* bottom div end */}
-
-        </div> /* container end */
-      );
+    {
+      document.title = "TombStone";
     }
+    return (
+      <div className="App">
+        <div className="App__container">
+          <div className="App__left">
+            {" "}
+            {/* start of left side div */}
+            <ButtonNav />
+            <h1>TombStone Notes</h1>
+            <Link to="/viewnotes">
+              <div className="App__left-buttons">
+                <span>View Your Notes</span>
+              </div>
+            </Link>
+            <Link to="/NewNote">
+              <div className="App__left-buttons">
+                <span>+ Create New Note</span>
+              </div>
+            </Link>
+          </div>{" "}
+          {/* end of left side div */}
+          <div className="App__right">
+            {" "}
+            {/* start of right side div */}
+            <NoteNav />
+            <Route exact path="/NewNote" component={CreateNote} />
+            <Route exact path="/viewnotes" component={NoteList} />
+          </div>{" "}
+          {/* end of right side div */}
+        </div>{" "}
+        {/* container div end */}
+      </div>
+    );
   }
 }
 
