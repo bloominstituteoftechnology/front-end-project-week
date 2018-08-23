@@ -16,7 +16,6 @@ class App extends Component {
       notes: [],
       title: '',
       textBody: '',
-      id: 4
     }
   }
 
@@ -41,6 +40,7 @@ class App extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+    console.log(this.state.textBody);
   }
 
   submitHandler = (event) => {
@@ -66,18 +66,24 @@ class App extends Component {
   editHandler = (event) => {
     event.preventDefault();
     const id = parseInt(event.target.id,10);
-    let notes = this.state.notes.slice();
+    const id = event.target.id;
     const editedNote = {
       title: this.state.title,
-      textBody: this.state.text,
-      id: id
+      textBody: this.state.textBody,
     };
-    notes[id] = editedNote;
+    const url = "http://killer-notes.herokuapp.com/note/edit/" + id;
+    axios.put(url, editedNote)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     this.setState({
-      notes: notes,
       title: '',
       textBody: ''
     });
+    this.getNotes();
   }
 
   deleteHandler = (e, id) => {
