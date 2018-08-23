@@ -58,8 +58,8 @@ class AddedNote extends Component {
          <SideBar />
           <div className="sideBar_pop noteCard">
             <div className='links'>
-              <Link to={`/edit/${note.id}`} style={backgroundstyle} >edit</Link>
-              <Link to='/'><h1 onClick={this.handleDelete} className='btn'>delete</h1></Link>
+              <Link to={`/edit/${note.id}`} style={backgroundstyle}> edit </Link>
+              <Link to='/' onClick={this.handleDelete}> delete </Link>
             </div>
             <h1 className='title'>{note.title}</h1>
             <p className='note'>{note.content}</p>

@@ -35,9 +35,8 @@ input:last-of-type {
     margin-left: 3%;
 }
 
-.create .myButton {
+.myButton {
     text-decoration: none;
-    background-color: red;
     border: none;
     width: 10rem;
     background-color: #2AC0C4;
@@ -50,7 +49,7 @@ input:last-of-type {
     align-items: center;
 }
 
-.create .myButton:hover {
+.myButton:hover {
     font-size: 1.6rem;
     height: 7.7vh;
     cursor: pointer;
@@ -58,4 +57,12 @@ input:last-of-type {
 
 .edit {
     border:1px solid black;
-}
+    font-size: 1rem;
+    margin: 0 10px 0 5px;
+    cursor: pointer;
+    text-decoration-line: underline;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4A4A4A;
+      }
