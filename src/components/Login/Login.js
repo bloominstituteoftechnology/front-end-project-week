@@ -16,7 +16,7 @@ export default class Login extends Component {
 
   handleSubmit = () => {
     axios
-      .post(`${process.env.REACT_APP_API}/login`, {
+      .post(`${process.env.REACT_APP_API}/api/login`, {
         username: this.state.username,
         password: this.state.password
       })
