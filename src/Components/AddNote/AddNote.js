@@ -20,7 +20,7 @@ class AddNote extends Component {
         const addone = { title: this.state.title, content: this.state.content };
         
         axios 
-          .post("http://localhost:3300/notes", addone)
+          .post(`${process.env.REACT_APP_API}`, addone)
           .then(response => {
             this.setState({ title: '', content:''});
             this.setState({notes: response.data})

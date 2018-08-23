@@ -22,7 +22,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3300/notes')
+      .get(`${process.env.REACT_APP_API}`)
       .then((response) => {
         this.setState({ notes: response.data })
       })
@@ -31,7 +31,7 @@ class App extends Component {
 
   handleRefresh = () => {
     axios
-      .get('http://localhost:3300/notes')
+      .get(`${process.env.REACT_APP_API}`)
       .then((response) => {
         this.setState({ notes: response.data })
       })

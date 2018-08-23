@@ -29,7 +29,7 @@ class AddedNote extends Component {
     // this.setState(() => ({ id: Number(id), notes: this.props.notes }))
 
     axios
-      .get(`http://localhost:3300/notes`)
+      .get(`${process.env.REACT_APP_API}`)
       .then((response) => {
         this.setState({ notes: response.data, id: Number(id) })
       })
@@ -40,7 +40,7 @@ class AddedNote extends Component {
 
   handleDelete = () => {
     const id = this.state.id
-    axios.delete(`http://localhost:3300/notes/${id}`)
+    axios.delete(`${process.env.REACT_APP_API}/${id}`)
       .then(response => {
         this.props.history.push('/')
         this.setState({ notes: response.data, id: null })
