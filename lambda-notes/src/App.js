@@ -72,30 +72,18 @@ class App extends Component {
   };
 
   deleteNoteHandler = event => {
-    console.log("event", event);
     let noteNumberToAvoid = parseInt(
       event.target.attributes.getNamedItem("deletenotenumber").value,
       10
     );
     let notesCopy = this.state.notes.slice();
-    console.log("DELETE NOTE HANDLER", noteNumberToAvoid);
-    console.log("DELETE NOTE HANDLER", notesCopy);
     notesCopy = notesCopy.filter(note => {
-      console.log(note);
       return note.id !== noteNumberToAvoid;
     });
-    console.log("DELETE NOTE HANDLER", notesCopy);
     this.setState({ notes: notesCopy });
-
-    // Same as above, just uses different way
-    // console.log("DELETE NOTE HANDLER", event);
-    // this.setState({
-    //   notes: this.state.notes.filter(note => note.id !== event)
-    // });
   };
 
   render() {
-    console.log("isOpen", this.state.isOpen);
     if (this.state.loadedData === false) {
       return (
         <div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class EditNote extends Component {
   constructor(props) {
     super(props);
-    console.log("EDIT NOTE", this.props.notes);
+
     this.state = {
       allNotes: this.props.notes
     };
@@ -12,7 +12,6 @@ class EditNote extends Component {
 
   render() {
     const idNumber = parseInt(this.props.match.params.id, 10);
-    console.log("EDIT FORM", this.props);
 
     return (
       <div>
