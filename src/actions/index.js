@@ -1,5 +1,7 @@
 import axios from 'axios'
-const url = `https://shyne-notes.herokuapp.com`
+// const url = `https://shyne-notes.herokuapp.com`
+const url = `http://localhost:8000`
+
 export const GET_NOTES = 'GET_NOTES'
 export const FETCHING = 'FETCHING'
 export const ERROR = 'ERROR'
@@ -50,7 +52,6 @@ export const getNote = (id, cb) => {
     dispatch({ type: GETTING_NOTE, payload: true })
     request
       .then((res) => {
-        console.log(res.data)
         dispatch({ type: GETTING_NOTE, payload: false })
         dispatch({ type: GET_NOTE, payload: res.data })
         cb()
@@ -59,7 +60,7 @@ export const getNote = (id, cb) => {
   }
 }
 
-export const deleteNote = (id) => {
+export const deleteNote = (id, cb) => {
   const request = axios.delete(`${url}/auth/delete/${id}`)
   return (dispatch) => {
     dispatch({ type: DELETING, payload: true })
@@ -70,6 +71,7 @@ export const deleteNote = (id) => {
           type: GET_NOTES,
           payload: res.data
         })
+        cb()
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
@@ -85,7 +87,7 @@ export const postNote = (note, token) => {
     dispatch({ type: POSTING, payload: true })
     request
       .then((res) => {
-        console.log(res.data)
+        console.log('IN POST NOT CONTROLLOWE', res.data)
         dispatch({
           type: GET_NOTES,
           payload: res.data
@@ -96,22 +98,14 @@ export const postNote = (note, token) => {
   }
 }
 
-export const editNote = (id, note) => {
-  // console.log('IN EDITNOTE', note)
+export const editNote = (id, note, cb) => {
+  console.log('IN EDITNOTE', note)
   const request = axios.put(`${url}/auth/edit/${id}`, note)
   return (dispatch) => {
-    dispatch({ type: UPDATING, payload: true })
     request
       .then((res) => {
-        dispatch({ type: UPDATING, payload: false })
-        dispatch({
-          type: GET_NOTE,
-          payload: axios.get(`${url}/get/${id}`).then((res) => {
-            const arr = res.data.tags
-            dispatch({ type: UPDATED_TAGS, payload: arr })
-            dispatch({ type: GET_NOTE, payload: res.data })
-          })
-        })
+        dispatch({ type: GET_NOTE, payload: res.data })
+        cb()
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }

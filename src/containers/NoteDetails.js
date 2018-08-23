@@ -6,7 +6,9 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 class NoteDetails extends Component {
   constructor (props) {
     super(props)
-    this.props.getNote(this.props.match.params.id)
+    this.props.getNote(this.props.match.params.id, () => {
+      this.props.history.push(`/notes/${this.props.match.params.id}`)
+    })
     this.state = {
       modal: false,
       editModal: false,
@@ -22,6 +24,8 @@ class NoteDetails extends Component {
     this.setState({ note: nextProps.note })
   }
 
+  // componentDidUpdate()
+
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -35,8 +39,9 @@ class NoteDetails extends Component {
   }
 
   handleClick = () => {
-    this.props.deleteNote(this.props.match.params.id)
-    this.props.history.push('/')
+    this.props.deleteNote(this.props.match.params.id, () => {
+      this.props.history.push('/')
+    })
   }
 
   handleChange = (e) => {
@@ -48,7 +53,9 @@ class NoteDetails extends Component {
     e.preventDefault()
     const { title, context, tags } = this.state
     const note = { title, context, tags }
-    this.props.editNote(this.props.match.params.id, note)
+    this.props.editNote(this.props.match.params.id, note, () => {
+      this.props.history.push(`/`)
+    })
     this.setState({ title, context, tags })
     this.editToggle()
   }
@@ -59,14 +66,14 @@ class NoteDetails extends Component {
   handleUpdate = () => {
     this.setState({ title: this.props.note.title })
   }
-  handleClone = (e) => {
-    e.preventDefault()
-    const { title, context, tags } = this.state
-    const note = { title, context, tags }
-    const token = localStorage.getItem('token')
-    this.props.postNote(note, token)
-    this.setState({ title, context, tags })
-  }
+  // handleClone = (e) => {
+  //   e.preventDefault()
+  //   const { title, context, tags } = this.state
+  //   const note = { title, context, tags }
+  //   const token = localStorage.getItem('token')
+  //   this.props.postNote(note, token)
+  //   this.setState({ title, context, tags })
+  // }
 
   render () {
     if (!this.state.note || !this.props.note) {
