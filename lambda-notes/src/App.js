@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 import LambdaNav from './containers/LambdaNav';
 import LambdaNotes from './containers/LambdaNotes';
@@ -29,14 +28,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount() { 
-    axios.get('http://localhost:8000/notes').then(res => {
-      console.log('res', res)
-      this.setState({notes: res.data})
-    }).catch(err => {
-      console.log(err)
-    })
-  }
 
   handleSelectNote = note => {
     this.setState({ selected: note });
@@ -44,7 +35,7 @@ class App extends Component {
 
 
   //Lambda Delete
-  
+
   toggleDelete = () => {
     this.setState({ remove: !this.state.remove })
   }
@@ -52,16 +43,16 @@ class App extends Component {
   render() {
     return (
       <StyledContainer>
-        <Route path="/" component={LambdaNav}/>
-        <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
-        <Route path="/form" render={props => (<LambdaForm {...props}  />)} />
-        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} handleRefresh={this.handleRefresh} notes={this.state.notes} />)} />
-        <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} toggleDelete={this.toggleDelete} />)} />
+        <Route path="/" component={LambdaNav} />
+        <Route exact path="/" component={LambdaNotes} />
+        <Route path="/form" component={LambdaForm} />
+        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} />)} />
+        <Route path="/notes/:id" render={props => (<LambdaView {...props} toggleDelete={this.toggleDelete} />)} />
         {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} toggleDelete={this.toggleDelete} />)} />) : null}
       </StyledContainer>
     )
   }
-} 
+}
 
 export default App;
 

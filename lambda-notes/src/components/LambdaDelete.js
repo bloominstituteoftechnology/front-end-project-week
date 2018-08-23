@@ -58,22 +58,22 @@ class LambdaDelete extends Component {
 
     handleDeleteNote = e => {
         const id = this.props.match.params.id;
-        axios.delete(`http://localhost:8000/notes/${id}`).then(res => {
-            this.setState({id: null});
+        axios.delete(`http://localhost:9000/${id}`).then(res => {
+            this.setState({ id: null });
             this.props.toggleDelete();
             this.props.history.push('/');
         }).catch(err => console.log(err))
     }
-    
+
 
     render() {
         return (
             <Modal>
-            <ModalStyle>
-                <Header>Are you sure you want to delete this?</Header>
-                <YesButton onClick={this.handleDeleteNote}>Yes</YesButton>
-                <NoButton onClick={this.props.toggleDelete}>No</NoButton>
-            </ModalStyle>
+                <ModalStyle>
+                    <Header>Are you sure you want to delete this?</Header>
+                    <YesButton onClick={this.handleDeleteNote}>Yes</YesButton>
+                    <NoButton onClick={this.props.toggleDelete}>No</NoButton>
+                </ModalStyle>
             </Modal>
         )
     }

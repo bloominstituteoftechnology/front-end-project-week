@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const ButtonDelete = styled.button`
@@ -18,13 +19,20 @@ class LambdaView extends Component {
         super(props);
         this.state = {
             id: null,
-            notes: this.props.notes
+            notes: []
         };
     }
 
-    componentDidMount () {
+    componentDidMount() {
         const id = this.props.match.params.id;
-        this.setState({ id: Number(id), notes: this.props.note });
+        this.setState({ id: Number(id), notes: this.state.notes });
+
+        axios.get('http://localhost:9000/notes').then(res => {
+            console.log('res', res)
+            this.setState({ notes: res.data })
+        }).catch(err => {
+            console.log(err)
+        })
     }
 
     filterNotes = note => {
@@ -33,8 +41,8 @@ class LambdaView extends Component {
 
                 <div key={note.id}>
                     <LinkDiv>
-                    <Link to={`/edit/${note.id}`} style={{ color: 'black', marginRight: '10px' }}><ButtonDelete>Edit</ButtonDelete></Link>
-                    <ButtonDelete onClick={this.props.toggleDelete}>Delete</ButtonDelete>
+                        <Link to={`/edit/${note.id}`} style={{ color: 'black', marginRight: '10px' }}><ButtonDelete>Edit</ButtonDelete></Link>
+                        <ButtonDelete onClick={this.props.toggleDelete}>Delete</ButtonDelete>
                     </LinkDiv>
                     <h1>{note.title}</h1>
                     <p>{note.content}</p>
@@ -45,7 +53,7 @@ class LambdaView extends Component {
 
     render() {
         return (
-            <div>{this.props.note.map(this.filterNotes)}</div>
+            <div>{this.state.notes.map(this.filterNotes)}</div>
         )
     }
 }
