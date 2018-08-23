@@ -23,11 +23,11 @@ class AddNote extends Component {
         axios 
           .post(`${process.env.REACT_APP_API}/notes`, addone)
           .then(response => {
+            alert('Your note has been added');
             this.setState({ title: '', content:''});
             this.setState({notes: response.data})
             this.props.handleRefresh();
             this.props.history.push('/');
-            alert('Your note has been added');
           })
     
           .catch(error => console.log(error));
