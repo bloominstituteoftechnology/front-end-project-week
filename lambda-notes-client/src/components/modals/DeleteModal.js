@@ -69,27 +69,31 @@ const Modal = styled("div")`
 
 
 const DeleteModal = props => {
-
   const handleDelete = () => {
     props.history.goBack();
-    props.deleteNote(props.id)
-    props.handleModal()
-  }
+    props.deleteNote(props.id);
+    props.handleModal();
+  };
 
-  const handleClose = () => props.handleModal()
+  const handleClose = () => props.handleModal();
 
   return (
     <Container>
-      <Opacity onClick={() => handleClose()}></Opacity>
-        <Modal>
-          <p>Are you sure you want to delete this?</p>
-          <div>
-            <button className="first" onClick={() => handleDelete()}>Delete</button>
-            <button className="last" onClick={() => handleClose()}>No</button>
-          </div>
-        </Modal>
+      <Opacity onClick={() => handleClose()} />
+      <Modal>
+        <p>Are you sure you want to delete this?</p>
+        <div>
+          <button className="first" onClick={() => handleDelete()}>
+            Delete
+          </button>
+          <button className="last" onClick={() => handleClose()}>
+            No
+          </button>
+        </div>
+      </Modal>
     </Container>
   );
-}
+};
 
 export default DeleteModal;
+

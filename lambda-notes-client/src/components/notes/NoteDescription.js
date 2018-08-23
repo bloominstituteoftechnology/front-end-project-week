@@ -44,20 +44,25 @@ const Main = styled("main")`
 
 
 const NoteDescription = props => {
-
-  let note = props.notes.filter(item => item.id === parseInt(props.match.params.id, 10));
+  let note = props.notes.filter(
+    item => item.id === parseInt(props.match.params.id, 10)
+  );
 
   //Handle Errors
   if (note.length === 0) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   } else {
     return (
       <Main>
-
+        
         {/*Body - handles modal*/}
         <header className="links-header">
-          <Link className="link" to={`/notes/${note[0].id}/edit`}>edit</Link>
-          <a className="link" onClick={props.handleModal}>delete</a>
+          <Link className="link" to={`/notes/${note[0].id}/edit`}>
+            edit
+          </Link>
+          <a className="link" onClick={props.handleModal}>
+            delete
+          </a>
         </header>
         <article>
           <h2>{note[0].title}</h2>
@@ -65,20 +70,17 @@ const NoteDescription = props => {
         </article>
 
         {/*Modal - handles delete*/}
-        {props.isModalOpen ?
+        {props.isModalOpen ? (
           <DeleteModal
             history={props.history}
             id={note[0].id}
             deleteNote={props.deleteNote}
             handleModal={props.handleModal}
           />
-          :
-          null
-        }
-
+        ) : null}
       </Main>
     );
   }
-}
+};
 
 export default NoteDescription;

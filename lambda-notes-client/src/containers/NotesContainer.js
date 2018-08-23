@@ -87,49 +87,58 @@ class NotesContainer extends Component {
   }
 
   render() {
-
     let filteredPosts = this.props.notes.filter(note => {
       return (
-        note.title.toLocaleLowerCase().includes(this.state.searchNotes.toLocaleLowerCase()) ||
-        note.description.toLocaleLowerCase().includes(this.state.searchNotes.toLocaleLowerCase())
+        note.title
+          .toLocaleLowerCase()
+          .includes(this.state.searchNotes.toLocaleLowerCase()) ||
+        note.description
+          .toLocaleLowerCase()
+          .includes(this.state.searchNotes.toLocaleLowerCase())
       );
     });
 
     return (
       <Container>
-
         <header className="body-header">
           <h2>Your Notes:</h2>
 
           {/*Search toggle*/}
-          {this.state.searchToggle ?
+          {this.state.searchToggle ? (
             <div className="img-container">
-              <img onClick={this.handleSearchToggle} src={searchBar} alt="search" />
+              <img
+                onClick={this.handleSearchToggle}
+                src={searchBar}
+                alt="search"
+              />
             </div>
-            :
+          ) : (
             <div className="search">
-              <SearchNotes handleOnChange={this.handleOnChange} searchNotes={this.state.searchNotes} />
+              <SearchNotes
+                handleOnChange={this.handleOnChange}
+                searchNotes={this.state.searchNotes}
+              />
               <span onClick={this.handleSearchToggle}>X</span>
             </div>
-          }
+          )}
         </header>
-        
+
         {/*Handles no posts*/}
-        {filteredPosts.length === 0 ?
+        {filteredPosts.length === 0 ? (
           <div className="no-posts">No Notes!</div>
-          :
+        ) : (
           <Main>
-            {
-              filteredPosts.map((item, index) => <Note
+            {filteredPosts.map((item, index) => (
+              <Note
                 key={index}
                 id={item.id}
                 title={item.title}
                 description={item.description}
                 deleteNote={this.deleteNote}
-              />)
-            }
+              />
+            ))}
           </Main>
-        }
+        )}
       </Container>
     );
   }
@@ -137,6 +146,9 @@ class NotesContainer extends Component {
 
 const mapStateToProps = state => ({
   notes: state.notes
-})
+});
 
-export default connect(mapStateToProps, {})(NotesContainer);
+export default connect(
+  mapStateToProps,
+  {}
+)(NotesContainer);

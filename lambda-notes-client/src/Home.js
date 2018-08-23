@@ -50,7 +50,9 @@ class Home extends Component {
     return (
       <Main>
         <h1>Welcome</h1>
-        <NavLink className="enter-link" to="/notes">Enter</NavLink>
+        <NavLink className="enter-link" to="/notes">
+          Enter
+        </NavLink>
       </Main>
     );
   }
