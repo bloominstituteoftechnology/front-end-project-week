@@ -61,6 +61,7 @@ class App extends Component {
   deleteNote = id => {
     let notes = this.state.notes.slice();
     notes = notes.filter(note => note.id !== this.state.selectedNoteID);
+    notes = notes.map((note, index) => ({...note, id: index}));
     this.setState({notes: notes, deleteModalToggle: false});
   }
 
