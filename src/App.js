@@ -46,8 +46,9 @@ display: flex;
 }
 }
 componentDidMount() {
+  const apiURL = process.env.REACT_APP_API
   axios
-  .get('http://localhost:6500/api/notes')
+  .get(apiURL)
   .then(response => {
     console.log("Get Response",response);
     this.setState({notes: response.data });
