@@ -5,7 +5,8 @@ import {
   editNote,
   getNote,
   postNote,
-  editNoteWithTag
+  editNoteWithTag,
+  copyNote
 } from '../actions'
 // import RenderDetails from '../components/RenderDetails'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
@@ -79,8 +80,7 @@ class NoteDetails extends Component {
     const token = localStorage.getItem('token')
     const { title, context, tags } = this.state
     const note = { title, context, tags }
-    this.props.postNote(note, token, () => {
-      this.setState({ title, context, tags })
+    this.props.copyNote(note, token, () => {
       this.props.history.push('/')
     })
   }
@@ -225,5 +225,6 @@ export default connect(mapStateToProps, {
   editNote,
   getNote,
   postNote,
-  editNoteWithTag
+  editNoteWithTag,
+  copyNote
 })(NoteDetails)

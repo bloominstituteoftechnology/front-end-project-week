@@ -87,7 +87,7 @@ export const postNote = (note, token, cb) => {
     dispatch({ type: POSTING, payload: true })
     request
       .then((res) => {
-        console.log('IN POST NOT CONTROLLOWE', res.data)
+        console.log('IN POSTNOTE ACTION', res.data)
         dispatch({
           type: GET_NOTES,
           payload: res.data
@@ -120,5 +120,25 @@ export const editNoteWithTag = (id, note, cb) => {
         cb()
       })
       .catch((err) => console.log(err))
+  }
+}
+
+export const copyNote = (note, token, cb) => {
+  const request = axios.post(`${url}/auth/duplicate`, note, {
+    headers: {
+      authorization: token
+    }
+  })
+  return (dispatch) => {
+    dispatch({ type: POSTING, payload: true })
+    request
+      .then((res) => {
+        console.log('IN POST NOT CONTROLLOWE', res.data)
+        dispatch({
+          type: GET_NOTES,
+          payload: res.data
+        })
+      }, cb())
+      .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
 }
