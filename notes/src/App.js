@@ -47,6 +47,7 @@ class App extends Component {
     this.props.addNote(this.state.title, this.state.textBody);
     this.setState({title:'', textBody:'',});
     window.location.reload();
+    window.location.href="/get/all";
   }
   updateNote = e => {
     e.preventDefault();
