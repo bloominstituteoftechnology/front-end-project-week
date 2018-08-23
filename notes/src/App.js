@@ -148,7 +148,7 @@ class App extends Component {
         distance: 100,
         maxPatternLength: 32,
         minMatchCharLength: 1,
-        keys: [ "title", "text" ]
+        keys: [ { name: "title", weight: .7 }, { name: "text", weight: .3 } ]
       };
       filteredNotes = new Fuse(this.state.notes, options).search(e.target.value);
     }
@@ -229,7 +229,7 @@ class App extends Component {
                   {notes.map(note => (
                     <Link 
                       key={note.id} 
-                      onClick={() => this.storeNote(note)} 
+                      onClick={(e) => this.storeNote(note)} 
                       to={`/notes/${note.id}`}
                     >
                       <Note note={note} />
