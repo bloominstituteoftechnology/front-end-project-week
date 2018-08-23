@@ -1,6 +1,33 @@
 import React from 'react';
 import './NoteView.css';
 import { Link } from "react-router-dom";
+import DeleteModal from '../DeleteNote/DeleteNote';
+
+import styled from  'styled-components';
+
+//============ STYLED COMPONENTS =======================
+
+const NoteViewContainer = styled.div`
+    background: #E7E6E7;
+`;
+
+const LinksContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 40px;
+`;
+
+const Title = styled.h2`
+    text-align: start;
+    margin: 0 20px;
+`;
+
+const Text = styled.p`
+    text-align: justify;
+    margin: 20px;; 
+`;
+
+
 
 class NoteView extends React.Component {
     constructor(props) {
@@ -21,16 +48,16 @@ class NoteView extends React.Component {
     
      render() {
         return (
-            <div className="noteview-container">
-                <div className="links-container">
+            <NoteViewContainer>
+                <LinksContainer>
                     <Link to={`note-view/${this.state.note.id}/edit`} className="link">edit</Link>
-                    <Link to={`note-view/${this.state.note.id}/delete`} className="link">delete</Link>
-                </div>
+                    <DeleteModal>delete</DeleteModal>
+                </LinksContainer>
                 <div className="body-container">
-                    <h2>{this.state.note.title}</h2>
-                    <p>{this.state.note.textBody}</p>
+                    <Title>{this.state.note.title}</Title>
+                    <Text>{this.state.note.textBody}</Text>
                 </div>
-            </div>
+            </NoteViewContainer>
         );
     }
 };

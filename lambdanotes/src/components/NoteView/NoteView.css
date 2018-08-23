@@ -1,25 +1,6 @@
-.noteview-container {
-    background: #E7E6E7;
-}
 
-.noteview-container .links-container {
-    display: flex;
-    justify-content: flex-end;
-    padding: 15px 40px;
-}
-
-.noteview-container .links-container .link {
+.link {
     margin: 0 15px;
     font-weight: bold;
     color: black;
-}
-
-.noteview-container .body-container h2{
-    text-align: start;
-    margin: 0 20px;;
-}
-
-.noteview-container .body-container p{
-    text-align: justify;
-    margin: 20px;;
 }
