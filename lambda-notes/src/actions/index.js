@@ -12,7 +12,7 @@ export const UPDATED = 'UPDATED';
 export const ERROR = 'ERROR';
 
 // const URL = 'https://killer-notes.herokuapp.com/note';
-const URL = 'http://localhost:9000/notes';
+const URL = 'http://localhost:3000/notes';
 
 export const fetchReq = () => {
     return (dispatch) => {
