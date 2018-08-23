@@ -48,13 +48,8 @@ export const sendEdit = (target, note, cb) => dispatch => {
 export const postNewNote = (note, cb) => dispatch => {
   return axios
     .post(`${url}/create`, note)
-    .then(res => {
       //optional cb to call on success
-      if (cb !== undefined) {
-        const { success: id } = res.data;
-        cb(id);
-      }
-    })
+    .then(({ data: { id } }) => (cb && cb(id)))
     .catch(err => {
       console.log(err);
     });
