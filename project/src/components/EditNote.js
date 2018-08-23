@@ -10,6 +10,10 @@ class EditNote extends Component {
             note: ''                
         }
     }
+    componentDidMount(){
+        this.setState({title: this.props.notes[this.props.notes.findIndex(n => n.id===this.props.id)].title, note:this.props.notes[this.props.notes.findIndex(n => n.id===this.props.id)].note})
+    }
+
     handleChange = e => this.setState({[e.target.name]:e.target.value});
 
     handleEditNote = () =>{
@@ -22,12 +26,12 @@ class EditNote extends Component {
         window.location.href = "/";
     }
 
-    render(){
+    render(){ console.log(this.props.notes[this.props.notes.findIndex(n => n.id===this.props.id)].title)
         return(
             <div className = "form-wrap">
                 <h1 className = "form-title">Edit Note:</h1>
-                <input onChange = {this.handleChange} name = "title" value = {this.state.title} placeholder = "Note Title"></input>
-                <textarea onChange = {this.handleChange} name = "note" value = {this.state.note} placeholder = "Note Content" rows='30' cols = '100'></textarea>
+                <input onChange = {this.handleChange} name = "title" value = {this.state.title} ></input>
+                <textarea onChange = {this.handleChange} name = "note" value = {this.state.note} rows='30' cols = '100'></textarea>
                 <button onClick = {()=>this.handleEditNote()} >Update</button>                
             </div>
         )
@@ -36,7 +40,8 @@ class EditNote extends Component {
 
 const mapStatetoProps = (state) => {
     return{
-        id: state.selectedId        
+        id: state.selectedId,
+        notes: state.notes 
     }
 }
 
