@@ -66,6 +66,7 @@ const NoteContent = styled.p`
     color: black;
     margin: 5px 20px;
     text-align: left;
+    word-wrap: break-word;
 `
 
 const NotesList = (props) => {
