@@ -27,7 +27,7 @@ class App extends Component {
     axios
       .get(`${process.env.REACT_APP_API}/notes`)
       .then(response => {
-        this.setState({ notes: response.data })
+        this.setState({ notes: response.data, filteredNotes: response.data })
       })
       .catch(err => {console.log(err)})
   }
@@ -57,12 +57,12 @@ class App extends Component {
       .catch(err => {console.log(err)})
   }
   handleSearch = (e) => {
-    this.setState({ searchVal: e.target.value })
-    const searchVal = this.state.searchVal
+    // this.setState({ searchVal: e.target.value })
+    const searchVal = e.target.value
     const filteredNotes = this.state.notes.filter(note => {
-      return note.title.includes(`${searchVal}`)
+      return note.title.includes(searchVal)
     })
-    this.setState({ filteredNotes })
+    this.setState({ filteredNotes, searchVal })
   }
 
   render() {
