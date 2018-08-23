@@ -46,6 +46,7 @@ display: flex;
 }
 }
 componentDidMount() {
+  
   const apiUrl = process.env.REACT_APP_API;
   axios
   .get(apiUrl)
