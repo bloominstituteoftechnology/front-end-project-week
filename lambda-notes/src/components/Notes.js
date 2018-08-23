@@ -19,7 +19,7 @@ const Notes = props => {
                     <h2>Your Notes:</h2>
                 </Col>
                 <Col>
-                    <Input onChange={props.searchHandler} type="text" name="search" placeholder="Search Notes" style={{ marginTop: 30 + 'px', border: "2px solid lightgray" }} value={props.term} />
+                    <Input onChange={props.searchHandler} type="text" name="search" placeholder="Search Notes" style={{ border: "2px solid lightgray" }} value={props.term} />
                 </Col>
             </Row>
             <Row >
