@@ -25,6 +25,7 @@ class AddNote extends Component {
             this.setState({ title: '', content:''});
             this.setState({notes: response.data})
             this.props.handleRefresh();
+            this.props.history.push('/');
           })
     
           .catch(error => console.log(error));
