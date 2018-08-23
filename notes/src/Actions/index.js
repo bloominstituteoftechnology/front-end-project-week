@@ -83,9 +83,22 @@ export const addNote = (e, note, history) => {
       .post('http://localhost:8000/api/notes', note)
       .then(response => {
         console.log('axios add note', response);
+        dispatch(() => {
+          axios
+            .get('http://localhost:8000/api/notes')
+            .then(response => {
+              const dataArray = response.data;
+              console.log('new data after note added', response.data)
+              dispatch({
+                type: GET_NOTES,
+                payload: dataArray
+              })
+            })
+        })
       })
 
     });
+
     setTimeout(() => {
       dispatch({
         type: SAVED
@@ -133,8 +146,21 @@ export const deleteNote = (e, id, history) => {
     e.preventDefault();
  console.log('deleting note');
  return (dispatch) => {
-      dispatch(() =>{
-      database.ref('notes/' + id).remove();
+      axios
+      .delete(`http://localhost:8000/api/notes/${id}`)
+      .then(response =>{
+        dispatch(() => {
+          axios
+            .get('http://localhost:8000/api/notes')
+            .then(response => {
+              const dataArray = response.data;
+              console.log('new data after delete', response.data)
+              dispatch({
+                type: GET_NOTES,
+                payload: dataArray
+              })
+            })
+        })
       })
 
      setTimeout(()=>{history.push('/')}, 500)
