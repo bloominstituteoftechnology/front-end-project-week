@@ -35,6 +35,10 @@ input:last-of-type {
     margin-left: 3%;
 }
 
+.create input {
+    width:100%;
+}
+
 .myButton {
     text-decoration: none;
     border: none;
