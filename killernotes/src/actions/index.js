@@ -13,13 +13,13 @@ export const EXPORTING = 'EXPORING';
 export const LOGGEDIN = 'LOGGEDIN';
 export const CLEARERROR = 'CLEARERROR';
 export const NOTLOGGEDIN = 'NOTLOGGEDIN';
+export const LOGOUT = 'LOGOUT';
 export const ERROR = 'ERROR';
 
-// const notesAPI = 'https://floating-sea-10752.herokuapp.com/api/notes/';
-// const usersAPI = 'https://floating-sea-10752.herokuapp.com/api/users/';
-const usersAPI = 'http://localhost:3007/api/users/';
-const notesAPI = 'http://localhost:3007/api/notes/';
-// const registerAPI = 'http://localhost:3007/api/register/';
+const notesAPI = 'https://floating-sea-10752.herokuapp.com/api/notes/';
+// const notesAPI = 'http://localhost:3007/api/notes/';
+const usersAPI = 'https://floating-sea-10752.herokuapp.com/api/users/';
+// const usersAPI = 'http://localhost:3007/api/users/';
 
 export const fetchData = id => {
   const token = localStorage.getItem('jwt');
@@ -101,6 +101,15 @@ export const loggedIn = (username, id) => {
   const user = { username, id };
   return function(dispatch) {
     dispatch({ type: LOGGEDIN, payload: user });
+  };
+};
+
+export const logout = () => {
+  localStorage.removeItem('jwt');
+  localStorage.removeItem('username');
+  localStorage.removeItem('userId');
+  return function(dispatch) {
+    dispatch({ type: LOGOUT });
   };
 };
 

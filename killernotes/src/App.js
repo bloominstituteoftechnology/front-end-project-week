@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { fetchData, clearError } from './actions';
 import SideBar from './components/SideBar';
 import Login from './components/Login';
-// import SignUp from './components/SignUp';
+import SignUp from './components/SignUp';
 import Notes from './components/Notes';
 import NoteView from './components/NoteView';
 import NoteForm from './components/NoteForm';
@@ -55,8 +55,26 @@ class App extends Component {
           render={props =>
             this.props.loggedIn ? (
               <Fetching>Welcome {this.props.username}!</Fetching>
+            ) : null
+          }
+        />
+        <Route
+          path="/login"
+          render={props =>
+            this.props.loggedIn ? (
+              <Fetching>Already logged in!</Fetching>
             ) : (
               <Login {...props} />
+            )
+          }
+        />
+        <Route
+          path="/signup"
+          render={props =>
+            this.props.loggedIn ? (
+              <Fetching>You're already logged in!</Fetching>
+            ) : (
+              <SignUp {...props} />
             )
           }
         />
@@ -81,8 +99,26 @@ class App extends Component {
           }
         />
         {/* ...props sends match, location, history, etc */}
-        <Route path="/note/:id" render={props => <NoteView {...props} />} />
-        <Route path="/add" render={props => <NoteForm {...props} />} />
+        <Route
+          path="/note/:id"
+          render={props =>
+            this.props.loggedIn ? (
+              <NoteView {...props} />
+            ) : (
+              <Fetching>Not logged in</Fetching>
+            )
+          }
+        />
+        <Route
+          path="/add"
+          render={props =>
+            this.props.loggedIn ? (
+              <NoteForm {...props} />
+            ) : (
+              <Fetching>Not logged in</Fetching>
+            )
+          }
+        />
         <Route path="/edit/:id" render={props => <NoteForm {...props} />} />
         {this.props.error ? (
           <Error>

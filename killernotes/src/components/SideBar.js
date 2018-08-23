@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { notEditing } from '../actions';
+import { notEditing, logout } from '../actions';
 // import { notEditing, exportNotes } from '../actions';
 import styled from 'styled-components';
 
@@ -44,6 +44,18 @@ const ExportNotes = ViewButton.extend`
   margin-top: 18px;
 `;
 
+const Login = ViewButton.extend`
+  margin-top: 28px;
+`;
+
+const SignUp = ViewButton.extend`
+  margin-top: 18px;
+`;
+
+const LogOut = ViewButton.extend`
+  margin-top: 18px;
+`;
+
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
@@ -68,6 +80,10 @@ class SideBar extends React.Component {
     this.setState({ CSV: updatedCSV });
   };
 
+  logout = () => {
+    this.props.logout();
+  };
+
   render() {
     return (
       <SideBarDiv>
@@ -86,6 +102,15 @@ class SideBar extends React.Component {
         >
           Click to download
         </a>
+        <Link to="/login">
+          <Login>Login</Login>
+        </Link>
+        <Link to="/signup">
+          <SignUp>Sign Up</SignUp>
+        </Link>
+        <Link to="/">
+          <LogOut onClick={this.logout}>Logout</LogOut>
+        </Link>
       </SideBarDiv>
     );
   }
@@ -99,5 +124,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { notEditing },
+  { notEditing, logout },
 )(SideBar);

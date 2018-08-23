@@ -22,6 +22,10 @@ const LoginForm = styled.form`
   }
 `;
 
+const Input = styled.input`
+  margin-left: 6px;
+`;
+
 const loginAPI = 'https://floating-sea-10752.herokuapp.com/api/login/';
 // const loginAPI = 'http://localhost:3007/api/login/';
 
@@ -49,6 +53,7 @@ class Login extends React.Component {
       username: this.state.username,
       password: this.state.password,
     };
+    axios.defaults.withCredentials = true;
     axios
       .post(`${loginAPI}`, user)
       .then(res => {
@@ -88,7 +93,7 @@ class Login extends React.Component {
     return (
       <LoginForm onSubmit={this.handleSubmit}>
         <div>
-          Username:
+          Username:{' '}
           <input
             type="text"
             name="username"
@@ -98,8 +103,8 @@ class Login extends React.Component {
           />
         </div>
         <div>
-          Password
-          <input
+          Password:{' '}
+          <Input
             type="password"
             name="password"
             onChange={this.handleInput}
@@ -108,7 +113,7 @@ class Login extends React.Component {
           />
         </div>
         <div>
-          <button type="submit">Login</button>
+          <Button type="submit">Login</Button>
         </div>
         <div>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>

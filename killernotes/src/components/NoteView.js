@@ -70,6 +70,9 @@ class NoteView extends React.Component {
   };
 
   deleteClicked = () => {
+    console.log('PROPS', this.props);
+    console.log('STATE', this.state);
+    this.setState({ modal: false });
     this.props.deleteNote(this.state.id);
     this.props.history.push('/notes');
   };
@@ -98,11 +101,8 @@ class NoteView extends React.Component {
     const id = this.props.match.params.id;
     // only setState when we actually have data
     if (newProps.notes[0]) {
-      console.log('NOTES!!', newProps.notes);
-      console.log('NOTE ID', id);
       // filter returns an array
       const note = newProps.notes.filter(n => +id === +n.id);
-      console.log('NOTE', note);
       this.setState({
         title: note[0].title,
         content: note[0].content,

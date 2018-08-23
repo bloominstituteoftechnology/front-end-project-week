@@ -1,6 +1,6 @@
 /* prettier-ignore */
 import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING,
-   EDITED, EXPORTING, CLEARERROR, LOGGEDIN, NOTLOGGEDIN} from '../actions';
+   EDITED, EXPORTING, CLEARERROR, LOGGEDIN, NOTLOGGEDIN, LOGOUT} from '../actions';
 
 const initialState = {
   loggedIn: false,
@@ -30,8 +30,6 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, loggedIn: true, username, userId };
 
     case FETCHED:
-      console.log('ACTION FETCHED', action.payload);
-      // if (action.payload === 'none')
       return {
         ...state,
         notes: action.payload,
@@ -118,6 +116,9 @@ const rootReducer = (state = initialState, action) => {
         exporting: false,
         error: null,
       };
+
+    case LOGOUT:
+      return { ...state, loggedIn: false };
 
     case ERROR:
       return {
