@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.css'
 import Note from '../Note/Note';
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { getNote } from '../../actions/noteActions';
 
 

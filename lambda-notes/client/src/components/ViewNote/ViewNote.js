@@ -8,13 +8,13 @@ import { connect } from 'react-redux';
 class ViewNote extends Component {
             state = {
             note : [],
+            toggleDelete : false
         }
     
     //WARNING! To be deprecated in React v17. Use componentDidMount instead.
     componentDidMount()  {
         const id = this.props.match.params.id
         let matched = this.props.notes.filter(note => note.id === Number(id) )
-       console.log(matched)
         const [ note ] = matched;
         this.setState({ note })
     }
@@ -24,8 +24,8 @@ class ViewNote extends Component {
             <div className='main-container'>
             <div className="header">
                 <div className="nav">
-                <Link to='/delete'><h5>delete</h5></Link>
-                <Link to={`/edit/${this.props.match.params.id}`}><h5>edit</h5></Link>
+                <a href="#" onClick={ this.showModal }>delete</a>
+                <Link to={`/edit/${this.props.match.params.id}`}><a>edit</a></Link>
                 </div>
                 <div className='tittle-header'>
                    <h4>{this.state.note.title}</h4>
@@ -34,9 +34,18 @@ class ViewNote extends Component {
                     {this.state.note.body}
                 </div>
             </div>
-            <DeleteNote />
+            <DeleteNote 
+            toggle = {this.state.toggleDelete}
+            history ={ this.props.history}
+            id ={ this.props.match.params.id}
+            showModal ={ this.showModal }
+            />
         </div>
         );
+    }
+
+    showModal = () =>{
+        this.setState({ toggleDelete : !this.state.toggleDelete})
     }
 }
 

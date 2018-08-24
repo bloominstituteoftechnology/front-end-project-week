@@ -91,8 +91,9 @@ app.put('/api/notes/:id', (req, res) => {
         })
 });
 
-app.delete('/api/notes/:id',protected, (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
     const { id } = req.params
+    console.log(id)
       db.notesModel.deleteNote(id)
         .then( response => {
             res.status(200).json(response)
@@ -163,7 +164,6 @@ app.post('/api/login', (req, res) => {
 });
 
 app.get('/api/users', protected,  (req, res) => {
-    console.log('token', req.jwtToken)
     db.usersModel.getUsers()
         .then( response => {
             console.log(response)

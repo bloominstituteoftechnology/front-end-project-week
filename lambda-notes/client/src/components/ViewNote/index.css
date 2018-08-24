@@ -11,7 +11,7 @@
     justify-content: flex-end;
     flex-direction: row;
 }
- .nav h5{
+ .nav  a{
      margin: 0.5rem;
      color: rgb(66,66.66);
  }
