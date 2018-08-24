@@ -4,8 +4,7 @@ import './SidePanel.css'
 
 const SidePanel = () => {
     let logOutUser = () => {
-        localStorage.removeItem("user");
-        localStorage.removeItem("password")
+        localStorage.removeItem("jwt");
         window.location.reload();
     }
 

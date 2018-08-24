@@ -24,6 +24,7 @@ class Login extends React.Component {
         };
 
         if (this.state.username === '' || this.state.password === '') { alert('Please fill out required fields'); return; };
+       
         axios
             .post(`${URL}/login`, user)
             .then(response => {
@@ -31,8 +32,9 @@ class Login extends React.Component {
                 localStorage.setItem('jwt', token);
                 this.props.history.push('/');
             })
+            .catch(err => console.log(err))
 
-        window.location.reload();
+            window.location.reload();
     }
 
     handleRegisterSubmit = e => {
@@ -41,15 +43,16 @@ class Login extends React.Component {
             username: this.state.username,
             password: this.state.password
         }
-
         axios
             .post(`${URL}/register`, user)
-            .then(response => {
+            .then(response =>{
                 const token = response.data;
                 localStorage.setItem('jwt', token)
                 this.props.history.push('/')
             })
             .catch(err => console.log(err))
+
+            window.location.reload();
     }
 
     render() {
@@ -79,7 +82,7 @@ class Login extends React.Component {
                     </div>
                     <div className="button-container">
                         <button type="submit" className="login-button" onSubmit={this.handleLoginSubmit}>Login</button>
-                        <button type="submit" className="login-button" onSubmit={this.handleRegisterSubmit}>Register</button>
+                        <button type="submit" className="login-button" onClick={this.handleRegisterSubmit}>Register</button>
                     </div>
                 </form>
 
