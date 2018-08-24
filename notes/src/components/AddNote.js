@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
+import { Link } from 'react-router-dom';
 import { addNote } from '../actions'; //takes in note as param
 import { connect } from 'react-redux'; 
 
@@ -26,7 +27,8 @@ class AddNote extends React.Component {
                 }>
                     <input onChange={this.handleFormInput} type="text" placeholder="New Title" id="title" />
                     <input onChange={this.handleFormInput} type="text" placeholder="Note Content" id="textBody" />
-                    <button>Save</button>
+                    <div className="btn"><Link to="/notes">Save</Link>
+                    </div>
                 </form>
 
             </div>

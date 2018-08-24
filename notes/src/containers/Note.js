@@ -5,8 +5,6 @@ import { getNote } from '../actions';
 import NavBar from '../components/NavBar';
 
 
-
- 
 class Note extends React.Component{
     componentWillMount(){
         this.props.getNote(this.props.match.params.id);

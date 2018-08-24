@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import { Link } from 'react-router-dom';
 import { editNote } from '../actions'; 
 import { connect } from 'react-redux';
 
@@ -26,7 +27,10 @@ class EditNote extends React.Component {
                 }>
                     <input onChange={this.handleFormInput} type="text" placeholder={`${this.props.note.title}`} id="title" />
                     <input onChange={this.handleFormInput} type="text" placeholder={`${this.props.note.textBody}`} id="textBody" />
-                    <button>Save</button>
+                    <div className="btn" onClick={(e)=>{
+                            e.preventDefault();
+                            this.props.editNote(this.state, this.props.note._id)}
+                        }><Link to="/notes">Save</Link></div>
                 </form>
 
             </div>

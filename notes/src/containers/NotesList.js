@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
  
 class NotesList extends React.Component {
-    componentDidMount(){
+    componentWillMount(){
         this.props.getAllNotes();
     }
     render(){
@@ -27,7 +27,8 @@ const mapStateToProps= (state)=> {
     return(
         {
             getAllNotes: state.loadReducer.getAllNotes,
-            notes: state.loadReducer.notes[0]
+            notes: state.loadReducer.notes[0],
+            notesFetched: state.loadReducer.notesFetched
         }
     )
 }
