@@ -1,0 +1,12 @@
+.new-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    padding: 20px;
+}
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

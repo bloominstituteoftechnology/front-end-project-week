@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   display: flex;
-  font-size: 24px;
   font-family: 'Fira Sans', sans-serif;
+  color: rgb(75, 74, 74);
+  font-size: 24px;
 }

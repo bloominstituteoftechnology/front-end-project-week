@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import SideNav from './components/SideNav';
 import ListView from './components/ListView';
-// import CreateView from './components/CreateView';
+import CreateView from './components/CreateView';
 // import EditView from './components/EditView';
 // import NoteView from './components/NoteView';
 
@@ -13,8 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <SideNav />
-        <ListView />
-        {/* <CreateView /> */}
+        {/* <ListView 
+        {...this.state} /> */}
+        <CreateView />
       </div>
     );
   }

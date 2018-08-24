@@ -6,8 +6,10 @@ const SideNav = () => {
     return (
         <div className="side-container">
             <h2 className="title">Lambda Notes</h2>
-            <button>View Your Notes</button>
-            <button>+ Create New Note</button>
+            <div className="side-buttons">
+                <button className="view-button">View Your Notes</button>
+                <button className="create-button">+ Create New Note</button>
+            </div>
         </div>
     );
 }
