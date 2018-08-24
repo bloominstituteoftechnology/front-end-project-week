@@ -90,6 +90,9 @@ export default {
       gridGap: '24px 16px',
       gridPadding: '1px',
       borderWidth: '1px',
+      oneCol: {
+        searchFormMargin: '0px 0 40px 0px',
+      },
     },
     viewNote: {
       padding: '20px 26px',

@@ -26,6 +26,11 @@ const StyledNoteGrid = styled.div`
     flex-wrap: wrap;
     align-items: center;
     margin: ${props => props.theme.dimensions.noteGrid.searchFormMargin};
+    
+    @media (max-width: ${ breakpoints.oneCol }) {
+      justify-content: center;
+      margin: ${props => props.theme.dimensions.noteGrid.oneCol.searchFormMargin};
+    }
 
     label {
       font-family: ${props => props.theme.font.body};
