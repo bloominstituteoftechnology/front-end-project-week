@@ -52,25 +52,16 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  deleteNoteHandler = (id) => {
-    let dummyNotes = this.state.notes;
-    const selectedNote = dummyNotes.find(note => note.id.toString() === id);
-    const index = dummyNotes.indexOf(selectedNote);
-    dummyNotes.splice(index, 1);
-    this.setState({ notes: dummyNotes, modal: false })
+  deleteNoteHandler = (note) => {
+    this.props.deleteNote(note);
   }
 
   addNewNoteHandler = (props) => {
-    // event.preventDefault();
-    console.log(this.props.match);
-    const dummyNotes = this.state.notes;
     const myNewNote = {
-      id: this.state.number,
-      title: this.state.newTitle,
-      note: this.state.newNote,
+      textBody: this.state.newNote,
+      title: this.state.newTitle
     };
-    dummyNotes.push(myNewNote);
-    this.setState({ notes: dummyNotes, newTitle: '', newNote: '', number: myNewNote.id + 1 });
+    this.props.saveNewNote(myNewNote);
   }
 
   beginEditNoteHandler = (id) => {
@@ -83,16 +74,13 @@ class App extends Component {
     this.setState({ newTitle: selectedNote.title, newNote: selectedNote.note, notes: dummyNotes })
   }
 
-  submitEditedNote = (id) => {
-    const dummyNotes = this.state.notes;
-    let selectedNote = dummyNotes.find(note => note.id.toString() === id);
-    selectedNote.title = this.state.newTitle;
-    selectedNote.note = this.state.newNote;
-    selectedNote.editing = false;
-    const index = dummyNotes.indexOf(selectedNote);
-    dummyNotes[index] = selectedNote;
-    this.setState({ newTitle: '', newNote: '', notes: dummyNotes });
-  }
+  submitEditedNote = () => {
+    const myEditedNote = {
+      textBody: this.state.newNote,
+      title: this.state.newTitle
+    };
+    this.props.saveEditedNote(myEditedNote);
+    }
 
   toggle = () => {
     this.setState({ modal: !this.state.modal })
@@ -103,10 +91,10 @@ class App extends Component {
       <AppContainer className="App">
         <MenuBar loadPage={this.props.loadPage} addNewNote={this.props.addNote} />
         {this.props.fetchingNotes ? <h2>{this.props.message}</h2> : null}
-        {this.props.notes.length === 0 ? <h1>Add a note!</h1> : <Notes notes={this.props.notes} noteView={this.props.singleNoteView} />}
+        {this.props.notes.length === 0 && !this.props.fetchingNotes ? <h1>Add a note!</h1> : <Notes notes={this.props.notes} noteView={this.props.singleNoteView} />}
         {this.props.fetchingNote ? <h2>{this.props.message}</h2> : null}
         {this.props.noteFetched ? <NotePage {...this.props} editComplete={this.props.saveEditedNote} editStart={this.props.editNote} id={this.props.id} change={this.onChangeHandler} notes={this.props.notes} delete={this.props.deleteNote} title={this.props.newTitle} note={this.props.newNote} toggle={this.toggle} modal={this.state.modal} editing={this.props.editingNote} /> : null}
-        {this.props.addingNote ? <NewNote {...this.props} addNote={this.props.saveNewNote} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} /> : null}
+        {this.props.addingNote ? <NewNote {...this.props} addNote={this.addNewNoteHandler} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} /> : null}
         {this.props.savingNote ? <h2>{this.props.message}</h2> : null}
         {this.props.noteSaved ? <h2>{this.props.message}</h2> : null}
         {this.props.error ? <h2>{this.props.message}</h2> : null}

@@ -7,12 +7,9 @@ export const loadPage = () => {
   dispatch({type: FETCHING_NOTES, message: 'Loading notes...'});
   axios.get('https://killer-notes.herokuapp.com/note/get/all')
   .then(response => {
-    if (response === undefined) {
-      dispatch({type: ERROR, message: 'Oops! We couldn\'t retrieve your notes :('})
-    } else {
-      dispatch({type: NOTES_FETCHED, payload: response.data})
-    }
-  })
+      dispatch({type: NOTES_FETCHED, payload: response.data});
+      console.log(response.data);
+    })
   .catch(error => {
     dispatch({type: ERROR, message: 'Oops! We couldn\'t retrieve your notes :('})
   })
@@ -24,6 +21,7 @@ export const singleNoteView = (id) => {
     dispatch({type: FETCHING_NOTE, payload: id, message: 'Loading your note...'});
     axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
     .then(response => {
+      console.log(response);
       if (response === undefined) {
         dispatch({type: ERROR, message: 'Oops! We couldn\'t retrieve your notes :('})
     } else {
@@ -57,7 +55,7 @@ export const saveNewNote = (note) => {
 export const saveEditedNote = (note) => {
   return function(dispatch) {
     dispatch({type: SAVING_NOTE, payload: note, message: 'Saving your changes...'});
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
     .then(response => {
       dispatch({type: NOTE_SAVED, payload: response, message: `Changes to your note \"${response.title}\" have been saved! Taking you home...`});
     })
@@ -66,11 +64,10 @@ export const saveEditedNote = (note) => {
 
 export const deleteNote = (note) => {
   return function(dispatch) {
-    dispatch({type: DELETING_NOTE, payload: note});
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${note.id}`)
+    dispatch({type: DELETING_NOTE, payload: note, message: `Sending \"${note.title}\" to the garbage...`});
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${note._id}`)
     .then(response => {
-      dispatch({type: NOTE_DELETED});
-      setTimeout(() => {loadPage(), 2500});
+      dispatch({type: NOTE_DELETED, message: 'Your note is toast! Taking you home...'});
     })
   }
 }
