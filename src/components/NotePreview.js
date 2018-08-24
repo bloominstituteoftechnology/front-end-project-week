@@ -73,7 +73,7 @@ const NotePreview = props => {
   // const { color, font } = props.theme;
   return connectDropTarget(
     connectDragSource(
-      <div>
+      <div style={ { display: 'flex', justifyContent: 'center' } }>
         <StyledNotePreview style={{ opacity: isOver ? .4 : 1 }}>
           <h2>{title}</h2>
           <MarkdownText mdText={textBody} plainText={true} />
