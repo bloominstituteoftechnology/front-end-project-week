@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
-.App {
-  text-align: center;
-  display: flex;
-  font-family: 'Fira Sans', sans-serif;
-  color: rgb(75, 74, 74);
-  font-size: 24px;
+@media (max-width: 1100px) {
+  .App {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    font-family: 'Fira Sans', sans-serif;
+    color: rgb(75, 74, 74);
+  }  
 }
+

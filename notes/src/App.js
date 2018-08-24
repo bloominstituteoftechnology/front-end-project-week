@@ -13,8 +13,8 @@ class App extends Component {
     return (
       <div className="App">
         <SideNav />
-        {/* <ListView 
-        {...this.state} /> */}
+        <ListView 
+        {...this.state} />
         <CreateView />
       </div>
     );

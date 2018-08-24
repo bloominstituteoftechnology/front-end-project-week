@@ -12,7 +12,7 @@ class CreateView extends Component {
         }
     }
 
-    addNewNote = e => {
+    handleAddNote = e => {
         this.setState({[e.target.name]: e.target.value})
     }
 
@@ -28,23 +28,30 @@ class CreateView extends Component {
     render() {
         return (
             <div className="new-container">
-                <h3>Create New Note: </h3>
+                <h5 className="">Create New Note: </h5>
                 <form className="note-form">
-                    <input 
-                    name="title" 
-                    value={this.state.newNotes}
-                    type="text"
-                    placeholder="Note Title"
-                    onChange={this.addNewNote}
-                    className="title-input" />
-                    <input 
-                    name="content" 
-                    value={this.state.newNotes}
-                    type="text"
-                    placeholder="Note Content"
-                    onChange={this.addNewNote}
-                    className="content-input" />
-                    <button type="submit" onClick={this.submitNewNote.notes}>Save</button>
+                    <div>
+                        <input 
+                        type="text"
+                        name="title" 
+                        value={this.state.newNotes}
+                        placeholder="Note Title"
+                        onChange={this.handleAddNote}
+                        className="title-input" />
+                    </div>
+                    <div>
+                        <textarea 
+                        type="text"
+                        name="content" 
+                        value={this.state.newNotes}
+                        placeholder="Note Content"
+                        onChange={this.handleAddNote}
+                        className="content-input" />
+                    </div>
+                    <div>
+                        <button type="submit" className="save-button" onClick={this.submitNewNote.notes}>Save</button>
+                    </div>
+                    
                 </form>
             </div>
         )

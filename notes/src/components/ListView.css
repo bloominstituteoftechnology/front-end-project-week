@@ -1,5 +1,7 @@
-/* .note-container {
+.note-container {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-} */
+    flex-direction: row wrap;
+    padding: 20px;
+    background: rgb(247, 245, 245);
+    border: 1px solid rgb(206, 192, 192);
+}

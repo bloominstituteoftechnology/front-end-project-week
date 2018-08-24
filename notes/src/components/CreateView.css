@@ -1,12 +1,32 @@
 .new-container {
     display: flex;
     flex-direction: column;
-    margin-top: 35px;
     padding: 20px;
+    background: rgb(247, 245, 245);
+    border: 1px solid rgb(206, 192, 192);
 }
 
 .note-form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+}
+
+.title-input {
+    display: flex;
+    width: 400px;
+    padding: 10px;
+}
+
+.content-input {
+    display: flex;
+    padding: 10px;
+    width: 700px;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.save-button {
+    display: flex;
+    margin-top: 20px;
+    padding: auto;
 }

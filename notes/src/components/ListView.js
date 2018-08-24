@@ -3,6 +3,14 @@ import React, { Component } from 'react';
 import './ListView.css';
 
 class ListView extends Component {
+    constructor() {
+        super();
+        this.state = {
+            title: "",
+            content: "",
+            notes: [{ title: 'Test Note Lorem', content: 'Test Note Ipsum' }]
+        }
+    }
 
     // handleAlert = () => {
     //     return (
@@ -14,13 +22,11 @@ class ListView extends Component {
     render() {
         return (
             <div className="note-container">
-                <h3>Your Notes: </h3>
+                <h5>Your Notes: </h5>
                 <div>
-                    {/* <Form>
-                        <CardBody>
+                    <form>
 
-                        </CardBody>
-                    </Form> */}
+                    </form>
                 </div>
             </div>
         )
