@@ -38,6 +38,10 @@ export default {
     tagBG: teal,
     tagDisplayBG: alto,
   },
+  breakpoints: {
+    twoCol: '900px',
+    verticalNav: '700px',
+  },
   dimensions: {
     main: {
       maxWidth: '670px',
@@ -75,7 +79,7 @@ export default {
       headingMargin: '0 0 20px 0',
       searchFormMargin: '10px 0 10px 1px',
       searchForminputBorderRadius: '2px',
-      inputBorderRadius: '2px',
+      // inputBorderRadius: '2px',
       inputBorderWidth: '1px',
       inputWidth: '300px',
       inputHeight: '42px',

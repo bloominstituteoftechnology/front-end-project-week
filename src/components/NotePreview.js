@@ -14,7 +14,7 @@ const StyledNotePreview = styled.div`
   border-width: ${props => props.theme.dimensions.notePreview.borderWidth};
   padding: ${props => props.theme.dimensions.notePreview.padding};
   background-color: ${props => props.theme.color.previewNoteBG};
-
+  
   overflow: hidden;
 
 

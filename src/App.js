@@ -8,12 +8,17 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import styled from 'styled-components';
 import SideBar from './components/SideBar';
 import MainPane from './components/MainPane';
+import breakpoints from './breakpoints';
 import './App.css';
 
 let StyledApp = styled.div`
   display: flex;
   justify-content: center;
   font-family: ${props => props.theme.font.body};
+
+  @media(max-width: ${ breakpoints.verticalNav }) {
+    flex-wrap: wrap;
+  }
 
   * {
     box-sizing: border-box;

@@ -6,11 +6,18 @@ import { connect } from 'react-redux';
 import { fetchTags } from './../actions/index';
 import TagSearchBox from './TagSearchBox';
 import NotePreview from './NotePreview';
+import breakpoints from '../breakpoints';
 
 const StyledNoteGrid = styled.div`
   padding: ${props => props.theme.dimensions.noteGrid.padding};
   h1 {
     margin: ${props => props.theme.dimensions.noteGrid.headingMargin};
+  }
+
+  @media(max-width: ${ breakpoints.verticalNav }) {
+    & > h1 {
+      display: none;
+    }
   }
 
   div.searchForm {
@@ -44,6 +51,16 @@ const StyledNoteGrid = styled.div`
   .notePreviewsContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    
+    @media(max-width: ${ breakpoints.twoCol }) {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    @media(max-width: ${ breakpoints.oneCol }) {
+      grid-template-columns: 1fr;
+    }
+    
+
     grid-gap: ${props => props.theme.dimensions.noteGrid.gridGap};
     padding: ${props => props.theme.dimensions.noteGrid.gridPadding};
 
