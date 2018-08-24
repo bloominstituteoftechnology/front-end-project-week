@@ -44,13 +44,15 @@ height: 400px;
 width: 96%;
 margin-top: 20px;
 border-radius: 3px;
+margin-bottom: 20px;
 `
 class NewNote extends React.Component{
     constructor(props){
         super(props);
         this.state={
             title:'',
-            content:''
+            content:'',
+            tags:''
         }
     }
     handleInputChange=(e)=>{
@@ -63,7 +65,8 @@ class NewNote extends React.Component{
         if (this.state.title.length>0 && this.state.content.length>0){
         const newNote={
             title:this.state.title,
-            textBody: this.state.content
+            textBody: this.state.content,
+            tags:this.state.tags.split(' ')
         }
         this.props.addNote(newNote,this.props.history);
     }
@@ -75,6 +78,7 @@ class NewNote extends React.Component{
                 <CreateNoteForm>
                 <CreateNoteInput name='title' type='text' placeholder='Note Title' value={this.state.title} onChange={this.handleInputChange}/>
                 <CreateNoteTextArea name='content' type='text' placeholder='Note Content' value={this.state.content} onChange={this.handleInputChange}/>
+                <CreateNoteInput name='tags' type='text' placeholder='Note Tags' value={this.state.tags} onChange={this.handleInputChange}/>
                 <CreateNoteButton onClick={this.createnewNoteObj}>Save</CreateNoteButton>
                 </CreateNoteForm>
             </CreateNotePage>

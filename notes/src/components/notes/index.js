@@ -26,7 +26,7 @@ const NoteFilter=styled.input`
 height: 20px;
 margin: 0 auto;
 margin-right: 10%;
-margin-left: 25%;
+margin-left: 24%;
 width: 260px;
 `
 const SortContainer=styled.div`
@@ -46,15 +46,20 @@ class Notes extends React.Component {
     componentDidMount() {
         localStorage.setItem('location',this.props.location.pathname);
         const sortOption=localStorage.getItem('sortOption');
-        sortOption?this.setState({sortOption:sortOption},()=>this.props.getNotes()):this.props.getNotes(); 
+        sortOption?this.setState({sortOption:sortOption},()=>this.props.getNotes()):this.props.getNotes();
     }
     inputChange=(e)=>{
-        this.setState({[e.target.name]:e.target.value},()=>{
-            let filteredNotes=this.props.notes.slice();
-            const filterParam=this.state.filterParam.toLowerCase();
-            filteredNotes=filteredNotes.filter(e=>e.textBody.toLowerCase().includes(filterParam)||e.title.toLowerCase().includes(filterParam));
-            return this.setState({filteredNotes:filteredNotes});
-        });
+        this.setState({[e.target.name]:e.target.value},()=>{this.filterNotes();});
+    }
+    filterNotes=()=>{
+        let filteredNotes=this.props.notes.slice();
+        const filterParam=this.state.filterParam.toLowerCase();
+        filteredNotes=filteredNotes.filter(e=>
+            e.textBody.toLowerCase().includes(filterParam)||
+            e.title.toLowerCase().includes(filterParam) ||
+            e.tags.join('').toLowerCase().includes(filterParam)
+        );
+        return this.setState({filteredNotes:filteredNotes});
     }
     radioChange=(e)=>{
         this.setState({[e.target.name]:e.currentTarget.value},()=>{localStorage.setItem('sortOption',this.state.sortOption)});
@@ -77,13 +82,13 @@ class Notes extends React.Component {
         if (!this.props.fetchingNotes) {
         return(
             <NotesPage>
-                <NoteFilter type='text' name='filterParam' placeholder='Enter search term' value={this.state.value} onChange={this.inputChange}/>
+                <NoteFilter type='text' name='filterParam' placeholder='Enter search term' value={this.state.filterParam} onChange={this.inputChange}/>
                 <SortContainer>
                 <p>Sort Options:</p>
                 <input type="radio" value={'default'} id='Default' checked={this.state.sortOption==='default'} name="sortOption" onChange={this.radioChange}/>
-                <label for='Default'>Default</label>
+                <label htmlFor='Default'>Default</label>
                 <input type="radio" value={'title'} id='Title' checked={this.state.sortOption==='title'} name="sortOption" onChange={this.radioChange}/>
-                <label for='Title'>Title</label>
+                <label htmlFor='Title'>Title</label>
                 </SortContainer>
                 <NotesHeading>Your Notes:</NotesHeading>
                 <NotesList>

@@ -39,6 +39,14 @@ margin: 0 auto;
 height: 2px;
 background-color:#c6c6c6;
 `
+const NoteTag=styled.p`
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    span{
+        margin-right: 3%;
+    }
+`
 const Note=(props)=><NoteContainer>
     <Link to={`/notes/${props.data._id}`}>
     <Content>
@@ -47,6 +55,7 @@ const Note=(props)=><NoteContainer>
     {props.data.textBody.length<100?
     <ReactMarkdown source={props.data.textBody}/>:
     <ReactMarkdown source={props.data.textBody.slice(0,101)+'...'}/>}
+    {props.data.tags.length>0?<NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags.map((e,i)=><span key={i}>{e}</span>)}</NoteTag>:null}
     </Content>
     </Link>
     </NoteContainer>

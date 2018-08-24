@@ -44,6 +44,7 @@ height: 400px;
 width: 96%;
 margin-top: 20px;
 border-radius: 3px;
+margin-bottom: 20px;
 `
 class EditNoteForm extends React.Component{
     constructor(props){
@@ -51,7 +52,8 @@ class EditNoteForm extends React.Component{
         this.state={
             title:'',
             content:'',
-            id:''
+            id:'',
+            tags:''
         }
     }
     handleInputChange=(e)=>{
@@ -60,16 +62,18 @@ class EditNoteForm extends React.Component{
     componentDidMount() {
         localStorage.setItem('location',this.props.location.pathname);
         if (this.props.note.title && this.props.note.textBody) {
-            this.setState({title:this.props.note.title,content:this.props.note.textBody,id:this.props.note._id},()=>localStorage.setItem('note',JSON.stringify(this.props.note)));
+            this.setState({title:this.props.note.title,content:this.props.note.textBody,id:this.props.note._id,tags:this.props.note.tags.toString().replace(/,/g,' ')}
+            ,()=>localStorage.setItem('note',JSON.stringify(this.props.note)));
         } else {
             const note=JSON.parse(localStorage.getItem('note'));
-            this.setState({title:note.title,content:note.textBody,id:note._id});
+            this.setState({title:note.title,content:note.textBody,id:note._id,tags:note.tags.toString().replace(/,/g,' ')});
         }
     }
     editNoteObj=()=>{
         const editedNote={
             title:this.state.title,
-            textBody: this.state.content
+            textBody: this.state.content,
+            tags:this.state.tags.split(' ')
         }
         this.props.updateNote(this.state.id,editedNote,this.props.history);
     }
@@ -80,6 +84,7 @@ class EditNoteForm extends React.Component{
                 <EditnoteForm>
                 <EditNoteInput name='title' type='text' placeholder='Note Title' value={this.state.title} onChange={this.handleInputChange}/>
                 <EditNoteTextArea name='content' type='text' placeholder='Note Content' value={this.state.content} onChange={this.handleInputChange}/>
+                <EditNoteInput name='tags' type='text' placeholder='Note Tags' value={this.state.tags} onChange={this.handleInputChange}/>
                 <EditNoteButton onClick={this.editNoteObj}>Save</EditNoteButton>
                 </EditnoteForm>
             </EditNotePage>

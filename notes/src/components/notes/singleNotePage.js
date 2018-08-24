@@ -44,6 +44,14 @@ font-weight: bold;
     margin-right: 2%;
 }
 `
+const NoteTag=styled.p`
+    margin-left: 5%;
+    display: flex;
+    justify-content: flex-start;
+    span{
+        margin-right: 3%;
+    }
+`
 class SingleNotePage extends React.Component{
     
     componentDidMount() {
@@ -61,6 +69,11 @@ class SingleNotePage extends React.Component{
             <Note>
             <NoteHeading>{this.props.note.title}</NoteHeading>
             <NoteInfo><ReactMarkdown source={this.props.note.textBody}/></NoteInfo>
+            {this.props.note.tags?
+            this.props.note.tags.length>0?
+            <NoteTag>
+                <span style={{textDecoration:'underline'}}>{'tags: '}</span>{this.props.note.tags.map((e,i)=><span key={i}>{e}</span>)}
+            </NoteTag>:null:null}
             </Note>
             </SingleNote>
         )
