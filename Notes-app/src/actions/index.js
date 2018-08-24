@@ -51,6 +51,7 @@ export const addNote = newNote => {
     promise
       .then(({ data }) => {
         dispatch({ type: ADDED, payload: data });
+        dispatch(fetchNotes());
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
@@ -68,6 +69,7 @@ export const updateNote = noteEdit => {
     promise
       .then(({ data }) => {
         dispatch({ type: UPDATED, payload: data });
+        dispatch(fetchNotes());
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
@@ -84,6 +86,7 @@ export const deleteNote = id => {
     promise
       .then(({ data }) => {
         dispatch({ type: DELETED });
+        dispatch(fetchNotes());
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });

@@ -21,7 +21,7 @@ export const rootReducer = (state = initialState, action) => {
     case actionTypes.FETCHING_SINGLE:
       return { ...state, fetchingNote: true };
 
-    case actionTypes.FETCHED.SINGLE:
+    case actionTypes.FETCHED_SINGLE:
       return { ...state, fetchingNote: false, note: action.payload };
 
     case actionTypes.ADDING:
@@ -39,8 +39,7 @@ export const rootReducer = (state = initialState, action) => {
     case actionTypes.DELETED:
       return {
         ...state,
-        deletingNote: false,
-        note: {}
+        deletingNote: false
       };
 
     case actionTypes.ERROR:
