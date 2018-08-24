@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
+// import CreateView from './CreateView';
+
 import './ListView.css';
 
 class ListView extends Component {
     constructor() {
         super();
         this.state = {
-            title: "",
-            content: "",
-            notes: [{ title: 'Test Note Lorem', content: 'Test Note Ipsum' }]
+            newNote: "",
+            notes: []
         }
     }
 
@@ -24,9 +25,7 @@ class ListView extends Component {
             <div className="note-container">
                 <h5>Your Notes: </h5>
                 <div>
-                    <form>
-
-                    </form>
+                    
                 </div>
             </div>
         )

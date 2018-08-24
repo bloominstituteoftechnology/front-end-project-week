@@ -16,8 +16,18 @@
 
 .view-button {
     margin-bottom: 15px;
+    font-weight: bolder;
+    color: white;
+    background: rgb(6, 182, 182);;
+    font-family: 'Fira Sans', sans-serif;
+    border: 1px solid rgb(206, 192, 192);
 }
 
 .create-button {
     margin-bottom: 15px;
+    font-weight: bolder;
+    color: white;
+    background: rgb(6, 182, 182);
+    font-family: 'Fira Sans', sans-serif;
+    border: 1px solid rgb(206, 192, 192);
 }

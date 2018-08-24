@@ -8,27 +8,26 @@ class CreateView extends Component {
         this.state = {
             title: "",
             content: "",
-            notes: [{ title: 'Test Note Lorem', content: 'Test Note Ipsum' }]
-        }
+            notes: []
+        };
     }
 
     handleAddNote = e => {
-        this.setState({[e.target.name]: e.target.value})
-    }
+        this.setState({ [e.target.name]: e.target.value})
+    };
 
     submitNewNote = e => {
         e.preventDefault();
         const { notes } = this.state;
-        const newNotes = { title: this.state.title, content: this.state.content }
-        notes.push(this.state.newNotes);
-        this.setState( {notes, newNotes: ""} );
-    }
-
+        const newNotes = { title: this.state.title, content: this.state.content };
+        notes.push(newNotes);
+        this.setState({ notes, title: "", content: "" });
+    };
 
     render() {
         return (
             <div className="new-container">
-                <h5 className="">Create New Note: </h5>
+                <h5 className="create-header">Create New Note: </h5>
                 <form className="note-form">
                     <div>
                         <input 
