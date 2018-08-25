@@ -8,10 +8,11 @@ import './NewNoteForm.css';
 class NewNoteForm extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
-        this.state = {
-           title: '',
-           textBody: ''
+        console.log('logging props in NewNoteForm', this.props)
+        this.state = {   
+            id: null,    
+            title: '',
+            textBody: ''
         };
     }
 
@@ -21,43 +22,49 @@ class NewNoteForm extends Component {
 //         textBody: ''
 //     });
 // }
-
-
-handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value})
-  };
   
-handleSubmit = data => this.setState({notes: data});
-
-  
-handleAddNote = event => {
-    event.preventDefault()
-      const note = {
-          title: this.state.title,
-          textBody: this.state.textBody
-      };
+// handleAddNote = event => {
+//     event.preventDefault();
+//     // this.setState({loading: true});
+//       const note = {
+//           title: this.state.title,
+//           textBody: this.state.textBody
+//       };
       
-      axios
-      .post("https://killer-notes.herokuapp.com/note/create", note)
-      .then(response => {
-          console.log('logging response in post method', response);
-          this.handleSubmit(response.data)
-          this.setState({
-            title: '',
-            textBody: ''
-        })
-        //     console.log('logging state in post attempt',this.state)
-        //   console.log('logging history', this.props.history)
-        //   this.props.history.push('/', this.state);
-      })
-      .catch(err =>
-    console.log(err));
+//     // this.setState({
+//     //     id: null,
+//     //       notes: {
+//     //           id: null, 
+//     //           title: '', 
+//     //           textBody: ''
+//     //       }})
 
-    this.setState({
-        title: '',
-        textBody: ''
-    });
-  }
+//       axios
+//       .post("https://killer-notes.herokuapp.com/note/create", note)
+//       .then(response => {
+//           console.log('logging response in post method', response);
+//           this.props.handleSubmit(response.data)
+//           this.setState({
+//             title: '',
+//             textBody: ''
+//         })
+//         //   console.log('logging state in post attempt',this.state)
+//         //   console.log('logging history', this.props.history)
+//         //   this.props.history.push('/', this.state);
+//       })
+//       .catch(err =>
+//     console.log(err));
+
+//     this.setState({
+//         title: '',
+//         textBody: ''
+//     });
+//   }
+
+//   handleChange = event => {
+//     this.setState({ [event.target.name]: event.target.value})
+//   };
+  
 
     render(){
     return (

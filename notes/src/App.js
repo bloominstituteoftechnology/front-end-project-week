@@ -42,28 +42,81 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
+      notes: dummyData,
+      title: '',
+      textBody: '',
       selected: {},
       remove: false
    }
 }
 
-componentDidMount(){
-  axios.get('https://killer-notes.herokuapp.com/note/get/all')
-  .then(response =>{
-    console.log(response)
-    this.setState({notes: response.data})
-  })
-  .catch(err => {
-    console.log(err)
+// componentDidMount(){
+//   axios.get('https://killer-notes.herokuapp.com/note/get/all')
+//   .then(response =>{
+//     console.log(response)
+//     this.setState({notes: response.data})
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
+// }
+
+handleSubmit = data => this.setState({notes: data});
+
+handleChange = event => {
+  this.setState({ [event.target.name]: event.target.value})
+}
+
+handleAddNote = event => {
+  event.preventDefault();
+  const notes = this.state.notes.slice();
+  notes.push({title: this.state.title, 
+    textBody: this.state.textBody, 
+    id: Date.now() });
+  this.setState({
+    notes, 
+    title: '', 
+    textBody: ''
+  });
+}
+
+handleSelectNote = id => {
+  this.setState({selected: this.state.notes[`${id}`]});
+}
+
+handleTitleUpdate = event => {
+  this.setState({
+    selected: {
+      id: this.state.selected.id,
+      title: event.target.value,
+      textBody: this.state.selected.textBody
+    }
   })
 }
 
-
-
-handleSelectNote = note => {
-  this.setState({selected: note});
+handleBodyUpdate = event => {
+  this.setState({
+    selected: {
+      id: this.state.selected.id,
+      title: this.state.selected.title,
+      textBody: event.target.value
+    }
+  })
 }
+
+handleUpdateNote =id => {
+    const notes = this.state.notes.slice();
+    for (let i=0; i<notes.length; i++){
+      if (notes[i].id === Number(id)) {
+        notes[i] = {
+          id: this.state.selected.id,
+          title: this.state.selected.title,
+          textBody: this.state.selected.textBody
+        };
+      }
+    }
+    this.setState({ notes,selected: {} });
+  }
 
 
 toggleDeleteNote = () => {
@@ -83,39 +136,49 @@ toggleDeleteNote = () => {
         )}
         />
 
-{/* replace BasicNoteForm (interacts with local data) with NewNoteForm (uses post method) */}
-
-        <Route path = "/form" render={props =>
+     <Route path = "/form" render={props =>
         (<NewNoteForm {...props}
+          title = {this.state.title}
+          textBody = {this.state.textBody}
+          handleChange = {this.handleChange}
+          handleAddNote = {this.handleAddNote}
+          handleSubmit = {this.handleSubmit}
           notes = {this.state.notes}/>
           )}
           />
 
 
           <Route path = "/edit/:id" render={props=>
-          (<UpdateNote {...props}    
-          notes = {this.state.notes}
+          (<UpdateNote {...props}  
+            selected = {this.state.selected}
+            handleTitleUpdate = {this.handleTitleUpdate}
+            handleBodyUpdate = {this.handleBodyUpdate}
+            handleUpdateNote = {this.handleUpdateNote} 
+            handleSubmit = {this.handleSubmit} 
+            notes = {this.state.notes}
           />
           )}
           />
 
-          <Route path="/notes/:id" render={props =>
+          <Route path="/note/:id" render={props =>
           (<NoteView {...props}
-          note={this.state.notes}
-          toggleDelete = {this.toggleDelete}
+            handleSelectNote = {this.state.handleSelectNote}
+            toggleDelete = {this.toggleDelete}
+            note={this.state.notes}           
           />
           )}
           />
 
-          {this.state.remove ? (<Route path = "/notes/:id" render = {props=>
+          {this.state.remove ? (<Route path = "/note/:id" render = {props=>
           (<DeleteNote {...props}
           handleSelectNote = {this.handleSelectNote}
           toggleDeleteNote = {this.toggleDeleteNote} 
+          notes={this.state.notes}
           />
           )}
         />
       )
-      :null  
+      : null  
       }
           
           

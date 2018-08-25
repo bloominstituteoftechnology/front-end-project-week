@@ -34,20 +34,20 @@ class NotesList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            notes: []
+            notes: this.props.notes
         }
     }
 
 
-componentDidMount() {
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => {
-        this.setState({notes: response.data})
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
+// componentDidMount() {
+//     axios.get('https://killer-notes.herokuapp.com/note/get/all')
+//     .then(response => {
+//         this.setState({notes: response.data})
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+// }
 
 render() {
 
@@ -60,7 +60,7 @@ render() {
             return(
                 <div className = "note-container">
                 <div className = "note">
-                <Link to={`/notes/${note._id}`}
+                <Link to={`/note/${note.id}`}
                 key = {note.id}>
                 <h1>{note.title}</h1>
                 <p>{note.textBody}</p>

@@ -44,19 +44,18 @@ handleTitleUpdate = event => {
       }
 
       this.setState({
-          id: null,
-            notes: {
+            note: {
                 id: null, 
                 title: '', 
                 textBody: ''
             }})
 
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, notes)
-    .then( response =>{
-    console.log(response)
-    this.props.history.push('/');
-  })
-    .catch(err =>console.log(err))
+//     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, notes)
+//     .then( response =>{
+//     console.log(response)
+//     this.props.history.push('/');
+//   })
+//     .catch(err =>console.log(err))
   }
 
 render() {
