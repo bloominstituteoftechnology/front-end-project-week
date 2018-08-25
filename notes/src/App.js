@@ -96,38 +96,61 @@ class App extends Component {
   //   this.setState({ notes });
   // };
 
-  editNote = ( editedNote, i ) => {
-    const notes = this.state.notes;
-    notes[i] = editedNote;
-    this.setState ({ notes: editedNote })
-  }
+  editNote = id => {
+    const editedNote = {
+      id: id,
+      title: this.state.title,
+      content: this.state.content
+    };
+                                                       //THIS TURNS INTO A STRING
+                                                       //interpolated string
+    const notesIndex = this.state.notes.findIndex(note => `${note.id}` === id); 
+           //takes in empty array first
+           //2ns takes in what you want to mutate
+           //3rd is the index of array and new value of array
+           //that you want to mutate
+   const newNotes = Object.assign([], this.state.notes, {[notesIndex]: editedNote});
+    console.log("edited", newNotes);
+    this.setState({ notes: newNotes });
+  };
 
   deleteNote = () => {
     const notes = [...this.state.notes];
     notes.splice(this.state.id, 1);
     this.setState({ notes });
-    
   };
 
   render() {
     return (
       <div className="App">
         <div className="side-bar">
-          <div>
-            <Link exact ClassName="NavButton" to="/">
+          
+            <Link
+              exact
+              ClassName="NavButton1"
+              to="/"
+              style={{ textDecoration: "none" }}
+            >
               Home
             </Link>
-          </div>
-          <div>
-            <Link ClassName="NavButton2" to="/notes">
+        
+            <Link
+              ClassName="NavButton2"
+              to="/notes"
+              style={{ textDecoration: "none" }}
+            >
               View Notes
             </Link>
-          </div>
-          <div>
-            <Link exact ClassName="NavButton3" to="/create">
+    
+            <Link
+              exact
+              ClassName="NavButton3"
+              to="/create"
+              style={{ textDecoration: "none" }}
+            >
               Create a Note
             </Link>
-          </div>
+         
         </div>
         <Route exact path="/" component={Home} />
         <Route
@@ -158,8 +181,14 @@ class App extends Component {
           )}
         />
         <Route
-          path="/edit"
-          render={props => <EditView {...props} editNote={this.editNote} handleEditInput={this.handleTextInput} />}
+          path="/edit/:id"
+          render={props => (
+            <EditView
+              {...props}
+              editNote={this.editNote}
+              handleEditInput={this.handleTextInput}
+            />
+          )}
         />
       </div>
     );

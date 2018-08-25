@@ -8,7 +8,7 @@ export default class EditNote extends Component {
 
   handleEditClick = event => {
     event.preventDefault();
-    this.props.editNote(event);
+    this.props.editNote(this.props.match.params.id);
     this.props.history.push("/notes");
   };
 
@@ -25,7 +25,7 @@ export default class EditNote extends Component {
           <input
             className="title-input"
             type="text"
-            onChange={this.handleEditInput}
+            onChange={this.props.handleEditInput}
             placeholder="Note title"
             name="title"
             value={this.props.title}
@@ -34,7 +34,7 @@ export default class EditNote extends Component {
           <input
             className="content-input"
             type="text"
-            onChange={this.handleEditInput}
+            onChange={this.props.handleEditInput}
             placeholder="Note content"
             name="content"
             value={this.props.content}

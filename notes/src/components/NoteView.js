@@ -25,7 +25,7 @@ export default class NoteView extends Component {
     return (
       <div className="note-container">
         <div className="singleNote-buttonContainer">
-          <Link to="/edit">edit</Link>
+          <Link to={`/edit/${note.id}`}>edit</Link>
           <DeleteModal deleteNote={this.handleDelete} />
         </div>
         <Card key={note.id}>
