@@ -55,6 +55,18 @@ class SideMenu extends Component {
         this.setState({ notes })
     }
 
+    editNote = note => {
+        //copia del estado utilizando el método slice() y pasando el parametro note
+        let notes = this.state.notes.slice();
+        // iteramos con i el array/lista de objectos guardados/store en el objeto notes
+        for(let i = 0; i < notes.length; i++) {
+            if (notes[i].id === note.id) {
+                notes[i] = note
+            }
+        }
+        this.setState({ notes })
+    }
+
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -73,7 +85,7 @@ class SideMenu extends Component {
                 <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />}/>
                 <Route exact path="/create-new-note/" render={(props) => <NewNote {...props} notes={this.state.notes} addNote={this.addNote} handleInputChange={this.handleInputChange}/>}/>
                 <Route exact path="/note-view/:id" render={(props) => <NoteView {...props} notes={this.state.notes} deleteNote={this.deleteNote} handleInputChange={this.handleInputChange}/>}/>
-                <Route exact path="/note-view/:id/edit" render={(props) => <EditNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange}/>}/>
+                <Route exact path="/note-view/:id/edit" render={(props) => <EditNote {...props} notes={this.state.notes} editNote={this.editNote} handleInputChange={this.handleInputChange}/>}/>
             </div>
         );
     }
