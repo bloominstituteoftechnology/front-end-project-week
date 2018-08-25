@@ -7,7 +7,7 @@ import NewNote from './components/new-note-page/NewNote';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from "react-redux";
-import { loadPage, singleNoteView, editNote, saveNewNote, saveEditedNote, deleteNote, addNote } from './store/actions';
+import { loadPage, homePage, singleNoteView, editNote, saveNewNote, saveEditedNote, deleteNote, addNote } from './store/actions';
 import './App.css';
 
 const myNotes = [
@@ -40,7 +40,8 @@ class App extends Component {
     this.state= {
       modal: false,
       newNote: '',
-      newTitle: ''
+      newTitle: '',
+      newId: ''
     }
   }
 
@@ -64,21 +65,27 @@ class App extends Component {
     this.props.saveNewNote(myNewNote);
   }
 
-  beginEditNoteHandler = (id) => {
-    const dummyNotes = this.state.notes;
-    let selectedNote = dummyNotes.find(note => note.id.toString() === id);
-    console.log(selectedNote);
-    const index = dummyNotes.indexOf(selectedNote);
-    selectedNote.editing = !selectedNote.editing;
-    dummyNotes[index] = selectedNote;
-    this.setState({ newTitle: selectedNote.title, newNote: selectedNote.note, notes: dummyNotes })
+  singleNoteView = (id) => {
+    this.props.singleNoteView(id);
+    const dummyNotes = this.props.notes;
+    const myNote = dummyNotes.find(note => note._id === id);
+    console.log(myNote);
+    this.setState({newNote: myNote.textBody, newTitle: myNote.title, newId: myNote._id})
+  }
+
+  beginEditNoteHandler = (note) => {
+    console.log(this.state);
+    console.log('this.props.note:', this.props.note);
+    this.props.editNote(note);
   }
 
   submitEditedNote = () => {
     const myEditedNote = {
       textBody: this.state.newNote,
-      title: this.state.newTitle
+      title: this.state.newTitle,
+      _id: this.state.newId
     };
+    console.log('MY EDITED NOTE!:', myEditedNote);
     this.props.saveEditedNote(myEditedNote);
     }
 
@@ -89,12 +96,30 @@ class App extends Component {
   render() {
     return (
       <AppContainer className="App">
-        <MenuBar loadPage={this.props.loadPage} addNewNote={this.props.addNote} />
+        <MenuBar {...this.props} loadPage={this.props.homePage} addNewNote={this.props.addNote} notes={this.props.notes} />
         {this.props.fetchingNotes ? <h2>{this.props.message}</h2> : null}
-        {this.props.notes.length === 0 && !this.props.fetchingNotes ? <h1>Add a note!</h1> : <Notes notes={this.props.notes} noteView={this.props.singleNoteView} />}
+        {this.props.notes.length === 0 && !this.props.fetchingNotes ? <h1>Add a note!</h1> : null }
+        {this.props.notesFetched ? <Notes {...this.props}
+          notes={this.props.notes}
+          noteView={this.singleNoteView} /> : null}
         {this.props.fetchingNote ? <h2>{this.props.message}</h2> : null}
-        {this.props.noteFetched ? <NotePage {...this.props} editComplete={this.props.saveEditedNote} editStart={this.props.editNote} id={this.props.id} change={this.onChangeHandler} notes={this.props.notes} delete={this.props.deleteNote} title={this.props.newTitle} note={this.props.newNote} toggle={this.toggle} modal={this.state.modal} editing={this.props.editingNote} /> : null}
-        {this.props.addingNote ? <NewNote {...this.props} addNote={this.addNewNoteHandler} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} /> : null}
+        {this.props.noteFetched ? <NotePage {...this.props}
+          editComplete={this.submitEditedNote}
+          editStart={this.beginEditNoteHandler}
+          id={this.props.id}
+          change={this.onChangeHandler}
+          notes={this.props.notes}
+          delete={this.props.deleteNote}
+          title={this.props.newTitle}
+          note={this.props.newNote}
+          modal={this.state.modal}
+          editing={this.props.editingNote}
+          toggle={this.toggle} /> : null}
+        {this.props.addingNote ? <NewNote {...this.props}
+          addNote={this.addNewNoteHandler}
+          title={this.state.newTitle}
+          note={this.state.newNote}
+          change={this.onChangeHandler} /> : null}
         {this.props.savingNote ? <h2>{this.props.message}</h2> : null}
         {this.props.noteSaved ? <h2>{this.props.message}</h2> : null}
         {this.props.error ? <h2>{this.props.message}</h2> : null}
@@ -121,4 +146,4 @@ const mapStateToProps = state => ({
   id: state.id,
 });
 
-export default connect(mapStateToProps, { loadPage, singleNoteView, editNote, saveNewNote, saveEditedNote, deleteNote, addNote })(App);
+export default connect(mapStateToProps, { loadPage, homePage, singleNoteView, editNote, saveNewNote, saveEditedNote, deleteNote, addNote })(App);

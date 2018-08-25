@@ -7,7 +7,7 @@ const NoteDiv = styled.div `
 `;
 
 export const Note = (props) => {
-  console.log(props.note);
+  console.log('My note:', props.note);
   return (
     <NoteDiv>
       <div>

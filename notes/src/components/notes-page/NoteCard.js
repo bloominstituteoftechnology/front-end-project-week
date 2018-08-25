@@ -16,8 +16,8 @@ const P = styled.p `
 export const NoteCard = (props) => {
   return (
       <NoteCardContainer xs='3'>
-        <div onClick={props.noteView(props.note._id)}>
-          <h4>{props.note.title}</h4>
+        <div onClick={() => {console.log(props.note); props.noteView(props.note._id)}}>
+          <h4>{props.note.title.substring(0, 30)}...</h4>
           <P>{props.note.textBody.substring(0, 70)}...</P>
         </div>
       </NoteCardContainer>

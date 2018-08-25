@@ -30,7 +30,7 @@ export const MenuBar = (props) => {
     <MenuBarContainer>
       <h1>Lambda<br/>
       Notes</h1>
-      <MenuBarButton onClick={() => props.loadPage()}>View Your Notes</MenuBarButton>
+      <MenuBarButton onClick={() => props.loadPage(props.notes)}>View Your Notes</MenuBarButton>
       <MenuBarButton onClick={() => props.addNewNote()}>+ Create New Note</MenuBarButton>
     </MenuBarContainer>
   )

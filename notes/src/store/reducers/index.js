@@ -28,8 +28,18 @@ export const notesReducer = (state = initialState, action) => {
       });
     case NOTES_FETCHED:
       return Object.assign({}, state, {
+        ...state,
         fetchingNotes: false,
         notesFetched: true,
+        fetchingNote: false,
+        noteFetched: false,
+        editingNote: false,
+        savingNote: false,
+        noteSaved: false,
+        deletingNote: false,
+        noteDeleted: false,
+        addingNote: false,
+        error: false,
         notes: action.payload
       });
     case FETCHING_NOTE:
@@ -40,12 +50,25 @@ export const notesReducer = (state = initialState, action) => {
       });
     case NOTE_FETCHED:
       return Object.assign({}, state, {
+        notesFetched: false,
+        fetchingNotes: false,
         fetchingNote: false,
         noteFetched: true,
-        note: action.payload
+        note: action.payload,
+        id: action.payload._id
       });
     case EDIT_NOTE:
       return Object.assign({}, state, {
+        ...state,
+        fetchingNotes: false,
+        notesFetched: false,
+        fetchingNote: false,
+        savingNote: false,
+        noteSaved: false,
+        deletingNote: false,
+        noteDeleted: false,
+        addingNote: false,
+        error: false,
         editingNote: true,
         noteFetched: true,
         note: action.payload

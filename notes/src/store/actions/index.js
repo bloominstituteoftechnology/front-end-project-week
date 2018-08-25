@@ -16,24 +16,25 @@ export const loadPage = () => {
   }
 };
 
+export const homePage = (notes) => {
+  return function(dispatch) {
+    dispatch({type: NOTES_FETCHED, payload: notes});
+  }
+}
+
 export const singleNoteView = (id) => {
   return function(dispatch) {
+    console.log(id);
     dispatch({type: FETCHING_NOTE, payload: id, message: 'Loading your note...'});
     axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
     .then(response => {
-      console.log(response);
-      if (response === undefined) {
-        dispatch({type: ERROR, message: 'Oops! We couldn\'t retrieve your notes :('})
-    } else {
-      dispatch({type: NOTE_FETCHED, payload: response})
-    }
+      console.log('response to single note view:', response);
+      dispatch({type: NOTE_FETCHED, payload: response.data})
   })
   .catch(error => {
-    dispatch.catch(error => {
       dispatch({type: ERROR, message: 'Oops! We couldn\'t retrieve your note :('})
     })
-  })
-}
+  }
 }
 
 export const editNote = (note) => {
@@ -49,16 +50,24 @@ export const saveNewNote = (note) => {
     .then(response => {
       dispatch({type: NOTE_SAVED, payload: response, message: `Your note was saved with the following id number: ${response}. Taking you home...`});
     })
+    .catch(error => {
+        dispatch({type: ERROR, message: 'Oops! We couldn\'t save your note :('})
+      })
   }
 }
 
 export const saveEditedNote = (note) => {
+  console.log('Note to be saved:', note);
   return function(dispatch) {
     dispatch({type: SAVING_NOTE, payload: note, message: 'Saving your changes...'});
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
     .then(response => {
-      dispatch({type: NOTE_SAVED, payload: response, message: `Changes to your note \"${response.title}\" have been saved! Taking you home...`});
+      console.log('response:', response)
+      dispatch({type: NOTE_SAVED, payload: response.data, message: `Changes to your note ${note.title} have been saved! Taking you home...`});
     })
+    .catch(error => {
+        dispatch({type: ERROR, message: 'Oops! We couldn\'t save your note :('})
+      })
   }
 }
 
@@ -69,6 +78,9 @@ export const deleteNote = (note) => {
     .then(response => {
       dispatch({type: NOTE_DELETED, message: 'Your note is toast! Taking you home...'});
     })
+    .catch(error => {
+        dispatch({type: ERROR, message: 'Oops! We couldn\'t delete your note :('})
+      })
   }
 }
 
