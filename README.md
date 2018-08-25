@@ -4,6 +4,10 @@ https://trello.com/b/R8H76zxl/lambda-notes-sumayyah-asgar
 
 https://github.com/LambdaSchool/back-end-project-week/pull/255/commits
 
+https://sumi-notes.netlify.com/
+
+https://suminotes-api.herokuapp.com/
+
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
 You are to treat this week as if you are working at a company and the instructor is your client. The project managers will be your main support throughout the week.
