@@ -64,7 +64,6 @@ const NoteDetailsDiv = styled.div`
 class NoteDetails extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div>
         {(this.props.note) ?
