@@ -51,14 +51,22 @@ export default class LeftMenu extends Component {
   }
 
   render(props){
+<<<<<<< HEAD
     console.log(this.state)
+=======
+    // console.log(this)
+>>>>>>> parent of 094ac5f... note preview now has markdown
 
     return (
       <LeftMenuDiv>
         <h1>Lambda Notes</h1>
+<<<<<<< HEAD
         <Link className={this.state.allNotesSelected ? "current menu-item" : "menu-item"}  to="/all-notes" style={this.props}>View Your Notes</Link>
+=======
+        <Link draggable className="menu-item" to="/all-notes">View Your Notes</Link>
+>>>>>>> parent of 094ac5f... note preview now has markdown
         <Link className="menu-item" to="/new-note">+ Create New Note</Link>
-        {/* <div className="menu-item" onClick={this.download} >Download CSV</div> */}
+        <div className="menu-item" onClick={this.download} >Download CSV</div>
         <DeleteTarget action='delete' className="menu-item red" />
         {/* <div  onClick={this.delete} to="/deleted-notes">Delete Item</div> */}
       </LeftMenuDiv>
