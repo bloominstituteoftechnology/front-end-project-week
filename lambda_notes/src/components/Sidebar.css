@@ -2,11 +2,13 @@
     width: 20%;
     height: 100vh;
     background: lightgray;
+    margin-left: 10px;
 }
 
 .sbTitle {
     font-size: 40px;
-    padding-top: 20px;
+    margin: 15px 0;
+    padding-top: -15px;
     padding-left: 10px;
 }
 
