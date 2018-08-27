@@ -20,8 +20,8 @@ class NoteList extends Component {
       <Page>
         <PageHeader>Your Notes:</PageHeader>
         <Grid>
-          {this.props.notes.map(note => {
-            return <NoteCard key={note.id} note={note} />;
+          {this.props.notes.map((note, index) => {
+            return <NoteCard key={index} note={note} />;
           })}
         </Grid>
       </Page>

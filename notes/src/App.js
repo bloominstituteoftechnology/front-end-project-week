@@ -36,6 +36,11 @@ class App extends Component {
 					path="/create"
 					render={() => <CreateNote handleSubmit={this.handleCreateNote}/>}
 				/>
+        {/* this route will handle the single note view as well as editing and deleting */}
+        <Route 
+        exact
+        path="/notes/:id"
+        />
       </div>
     );
   }
