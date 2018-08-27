@@ -1,0 +1,39 @@
+.Flex {
+    display: flex;
+}
+
+.Sidebar {
+	background-color: #ccc;
+	border-right: 1px solid darkgray;
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	align-items: center;
+	z-index: 1;
+}
+
+.Sidebar_header {
+	align-self: flex-start;
+	margin-left: 20px;
+	margin-top: 15px;
+	color: #212121;
+}
+
+.Button {
+	width: 220px;
+	height: 50px;
+	background-color: #00b6bb;
+	color: white;
+	text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.Button:hover,
+.Button:focus {
+	background: #077074;
+	outline: none;
+}
