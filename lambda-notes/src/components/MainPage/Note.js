@@ -11,3 +11,5 @@ const Note = props => {
         </div>
     )
 }
+
+export default Note;
