@@ -17,7 +17,7 @@ class App extends Component {
       notes: [
         {
             id:0,
-            title: "Cats",
+            title: "",
             text:""
           },
           {
