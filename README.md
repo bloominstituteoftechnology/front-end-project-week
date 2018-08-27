@@ -1,4 +1,13 @@
-https://trello.com/b/qTWg8ccu/lambda-notes-justin-hammett
+==========TRELLO=============================================
+https://trello.com/b/qTWg8ccu/lambda-notes-justin-hammett   |
+                                                            |
+=============================================================                                                            
+
+==========GIT PULL REQUEST=========================================
+https://github.com/LambdaSchool/front-end-project-week/pull/373   |
+                                                                  |
+=================================================================== 
+
 
 # Front End Project Week
 
