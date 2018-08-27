@@ -5,6 +5,7 @@ import Notes from './components/Notes';
 import Note from './components/Note';
 import NewNoteForm from './components/NewNoteForm';
 import EditNote from './components/EditNote';
+import Authenticate from './components/Authenticate';
 import './App.css';
 
 
@@ -50,12 +51,17 @@ class App extends Component {
             text:"CHEEESE!"
           }
         ],
+        username:'',
         title: '',
         text: '',
         term: '',
         }
-   
-    }
+  }
+
+  componentDidMount() {
+    const user = localStorage.getItem('user');
+    this.setState({username:user});
+  }
 
     searchHandler = event => {
       this.setState({term: event.target.value})
@@ -103,7 +109,7 @@ class App extends Component {
       return (
           <div className="App">
                
-        
+            
               <Sidebar />
               <Route 
                 exact path="/"
@@ -146,4 +152,4 @@ class App extends Component {
    }
 }
 
-export default App;
+export default Authenticate(App);
