@@ -6,6 +6,7 @@ const NavContainer = styled.div`
   height: 100vh;
   width: 15%;
   min-width: 260px;
+  max-width: 280px;
   margin-top: 0px;
   padding-top: 0px;
   display: flex;
@@ -15,6 +16,7 @@ const NavContainer = styled.div`
   padding: 0px;
   position: relative;
   left: 0;
+  z-index: 2;
   h1 {
     font-size: 36px;
     font-weight: bold;
