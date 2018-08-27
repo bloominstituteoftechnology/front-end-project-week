@@ -1,3 +1,7 @@
+# Trello Link
+
+https://trello.com/b/VSgfEqKh/lambda-notes-stephen-fargali
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
