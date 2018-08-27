@@ -18,7 +18,7 @@ class App extends Component {
         {
             id:0,
             title: "Cats",
-            text:"Cats are so cute I mean seriously"
+            text:""
           },
           {
             id:1,
