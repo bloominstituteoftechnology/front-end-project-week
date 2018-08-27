@@ -1,0 +1,23 @@
+.sideBar {
+    width: 20%;
+    height: 100vh;
+    background: lightgray;
+}
+
+.sbTitle {
+    font-size: 40px;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.sbButton {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: aquamarine;
+    border: 1px solid grey;
+    padding: 10px 30px;
+}
+
+.button1{
+    padding: 10px 38px;
+}
