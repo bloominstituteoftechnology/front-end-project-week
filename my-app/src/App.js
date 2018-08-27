@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <SideMenu />
-        <YourNotes />
+        <YourNotes notes={this.state.notes} />
       </div>
     );
   }

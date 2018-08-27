@@ -1,11 +1,18 @@
 import React from "react";
-import './YourNotes.css';
+import "./YourNotes.css";
 
-const YourNotes = () => {
+const YourNotes = props => {
   return (
     <div className="your-notes">
       <div className="text">
-          <h4>Your Notes:</h4>
+        <h4>Your Notes:</h4>
+      </div>
+      <div className="container">
+        <div className="cards">
+            <h3>Notes</h3>
+            <hr/>
+            <p>stuff</p>
+        </div>
       </div>
     </div>
   );

@@ -33,3 +33,7 @@
     margin-top: 60px;
     border: 1px solid blue;
 }
+
+h3 {
+    font-weight: bold;
+}
