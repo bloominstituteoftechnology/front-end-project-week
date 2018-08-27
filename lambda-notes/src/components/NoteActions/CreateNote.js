@@ -14,8 +14,24 @@ const Header = styled.h2`
 
 `
 
-const NewNote = styled.input`
-// padding: 12% 20%;
+const NoteTitle = styled.input`
+font-size: 1.5;
+padding: 0.25rem 0.75rem;
+margin-bottom: 1rem;
+border-radius: 0.2rem;
+border: 1px solid #B2B2B2
+`
+
+const NewNote = styled.textarea`
+resize: none;
+font-size: 1.5;
+margin-bottom: 1rem;
+border-radius: 0.2rem;
+border: 1px solid #B2B2B2
+`
+
+const AddNote = styled.button`
+
 `
 
 const CreateNote = (props) => {
@@ -25,7 +41,7 @@ const CreateNote = (props) => {
         <Header>Create New Note:</Header>
 
         <form onSubmit={props.addNote}>
-            <input
+            <NoteTitle
                 type='text'
                 placeholder='New Title'
                 autoComplete='off'
@@ -41,8 +57,10 @@ const CreateNote = (props) => {
                 value={props.noteText}
                 onChange={props.newNote}
                 autoComplete='off'
+                rows='10'
+                cols='50'
             />
-            <button onSubmit={props.addNote}>Add Note</button>
+            <AddNote onSubmit={props.addNote}>Save</AddNote>
         </form>
     </Create>);
 }

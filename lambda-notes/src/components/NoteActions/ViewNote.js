@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Route, NavLink, Link } from 'react-router-dom';
 
 const View = styled.div`
 // background: #f2f1f2;
@@ -13,7 +14,7 @@ const Actions = styled.div`
 `
 
 const Button = styled.button`
-float: right;
+// float: right;
 `
 
 const NoteName = styled.h2`
@@ -29,28 +30,31 @@ class ViewNote extends Component {
     constructor(props) {
         console.log(props)
         super(props);
-        this.state = { 
+        this.state = {
             id: props.match.params.id,
             note: props.note,
             delete: props.delete
-         }
-         console.log(this.state.note[this.state.id].noteName)
-         console.log(this.state.id)
+        }
+        console.log(this.state.note[this.state.id].noteName)
+        console.log(this.state.id)
     }
 
 
 
-    render() { 
+    render() {
         return (<View className='col'>
 
-        <Actions><Button onClick={this.state.delete}>delete</Button><Button>edit</Button></Actions>
+            <Actions>
+            
+            <NavLink to="/"><Button onClick={this.state.delete}>delete</Button></NavLink>
+            <Button>edit</Button></Actions>
 
-        <NoteName>{this.state.note[this.state.id].noteName}</NoteName>
+            <NoteName>{this.state.note[this.state.id].noteName}</NoteName>
 
-        <NoteText>{this.state.note[this.state.id].noteText}</NoteText>
+            <NoteText>{this.state.note[this.state.id].noteText}</NoteText>
 
-    </View> );
+        </View>);
     }
 }
- 
+
 export default ViewNote;

@@ -13,7 +13,7 @@ const Notes = styled.div`
 // border: 1px solid black;
 // margin: 20%;
 // display: inline-block;
-`
+// `
 
 const NoteName = styled.h2`
 
@@ -25,7 +25,7 @@ const NoteText = styled.p`
 
 const Note = (props) => {
     console.log(props.note)
-    return (<NoteContainer className='col'>
+    return (<NoteContainer>
 
         {props.note.map((note, index) => {
             return <NavLink to={`/view/${note.id}`}>
