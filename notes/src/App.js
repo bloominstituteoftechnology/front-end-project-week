@@ -2,21 +2,35 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 import { testData } from './testData'
-import Notelist from './components/Notelist'
+import NoteList from './components/NoteList'
+import CreateNote from './components/CreateNote'
 
 
 class App extends Component {
   state = {
     notes: testData,
   }
+
+  handleCreateNote = note => {
+    
+  }
   render() {
     return (
       <div className="App">
        <Sidebar />
        <Route
-          
+       exact
+					path="/"
+					render={() => <NoteList notes={this.state.notes} />}
+				/>
+       <Route
 					path="/notes"
-					render={() => <Notelist notes={this.state.notes} />}
+					render={() => <NoteList notes={this.state.notes} />}
+				/>
+        <Route
+        exact
+					path="/create"
+					render={() => <CreateNote handleSubmit={this.handleCreateNote}/>}
 				/>
       </div>
     );

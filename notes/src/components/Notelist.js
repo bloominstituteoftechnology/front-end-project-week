@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import {Page, PageHeader} from './styles'
 
-import Notecard from "./Notecard";
+import NoteCard from "./NoteCard";
 
 const Grid = styled.div`
   display: grid;
@@ -11,7 +11,7 @@ const Grid = styled.div`
   margin: 20px 20px;
 `
 
-class Notelist extends Component {
+class NoteList extends Component {
   state = {
     notes: this.props.notes
   };
@@ -21,7 +21,7 @@ class Notelist extends Component {
         <PageHeader>Your Notes:</PageHeader>
         <Grid>
           {this.props.notes.map(note => {
-            return <Notecard key={note.id} note={note} />;
+            return <NoteCard key={note.id} note={note} />;
           })}
         </Grid>
       </Page>
@@ -29,4 +29,4 @@ class Notelist extends Component {
   }
 }
 
-export default Notelist;
+export default NoteList;

@@ -18,7 +18,7 @@ const NoteBody = styled.p`
     line-height: 1.6;
 `
 
-class Notecard extends Component {
+class NoteCard extends Component {
   render() {
     return (
       <Card>
@@ -29,6 +29,6 @@ class Notecard extends Component {
   }
 }
 
-export default Notecard;
+export default NoteCard;
 
 
