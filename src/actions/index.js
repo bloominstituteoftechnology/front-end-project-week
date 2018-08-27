@@ -3,8 +3,6 @@ import axios from 'axios';
 //Declare action type const
 import * as types from './types';
 
-console.log(process.env.REACT_APP_API);
-
 export const fetchNotes = () => {
     const request = axios.get(`${process.env.REACT_APP_API}/api/notes` || 'http://localhost:8000/api/notes')
     console.log(request)
