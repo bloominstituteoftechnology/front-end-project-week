@@ -38,3 +38,7 @@ button:hover,
 button:focus {
 	background: black;
 }
+
+.App {
+  display: flex;
+}

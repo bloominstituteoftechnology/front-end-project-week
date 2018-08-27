@@ -5,7 +5,6 @@ import "./Sidebar.css";
 
 const Sidebar = () => {
   return (
-    <div className="Flex">
       <div className="Sidebar">
         <div className="Sidebar_header">
           <h1>
@@ -16,7 +15,6 @@ const Sidebar = () => {
         <button className="Button">View Your Notes</button>
 
         <button className="Button">+ Create New Note</button>
-      </div>
     </div>
   );
 };

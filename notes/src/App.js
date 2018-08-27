@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 import { testData } from './testData'
 import Notelist from './components/Notelist'
@@ -10,9 +11,13 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="App">
        <Sidebar />
-       <Notelist notes={this.state.notes}/>
+       <Route
+          exact
+					path="/notes"
+					render={() => <Notelist notes={this.state.notes} />}
+				/>
       </div>
     );
   }
