@@ -1,0 +1,14 @@
+.side-menu {
+    background-color: #D3D2D3;
+    width: 300px;
+    height: 1000px;
+    display: flex;
+}
+
+.lambda-notes {
+    border: 1px solid red;
+    flex-direction: column;
+    padding-right: 150px;
+    justify-content: center;
+    align-items: center;
+}
