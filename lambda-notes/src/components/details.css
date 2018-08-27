@@ -1,0 +1,29 @@
+
+
+ 
+  /* display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: white;
+  height: 100vh; */
+  .links {
+   
+    padding: 15px;
+    text-align: right;
+  }
+
+    .link {
+   
+      margin: 8px;
+      color: gray;
+    
+    }
+  
+  h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    line-height: 30px;
+  }
