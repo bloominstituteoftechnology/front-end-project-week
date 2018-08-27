@@ -28,18 +28,18 @@ class Login extends React.Component {
             <form className="login-container">
             <h3> Lambda Notes </h3>
                 <input
-                name="username"
-                type="text" 
-                placeholder="User Name"
-                value={this.state.username}
-                onChange= {this.handleInputChange}
+                    name="username"
+                    type="text" 
+                    placeholder="User Name"
+                    value={this.state.username}
+                    onChange= {this.handleInputChange}
                  />
                 <input 
-                name="password"
-                type="text"
-                placeholder="Password" 
-                value={this.state.password}
-                onChange={this.handleInputChange}
+                    name="password"
+                    type="text"
+                    placeholder="Password" 
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
                 />
                 <br />
                 <button color="success" onClick={this.handleLoginSubmit}>

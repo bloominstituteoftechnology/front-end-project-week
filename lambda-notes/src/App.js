@@ -5,7 +5,7 @@ import Notes from './components/Notes';
 import Note from './components/Note';
 import NewNoteForm from './components/NewNoteForm';
 import EditNote from './components/EditNote';
-import Authenticate from './components/Authenticate';
+import Authenticate from './Authenticate';
 import './App.css';
 
 
