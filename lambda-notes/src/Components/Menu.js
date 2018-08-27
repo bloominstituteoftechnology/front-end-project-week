@@ -7,7 +7,7 @@ const Menu = () => {
         <div className='menu'>
             <h1>Lambda Notes</h1>
             <Link className='link' to='/'>View Your Notes</Link>
-            <Link className='link' to='/'>Create New Note</Link>
+            <Link className='link' to='/newnote'>Create New Note</Link>
         </div>
     );
 };
