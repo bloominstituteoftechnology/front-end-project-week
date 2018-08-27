@@ -42,8 +42,7 @@ class App extends Component {
         </div>
         <Route exact path ="/" render={() =>
           <div>Welcome young master</div>} />
-        <Route exact path = '/new' render = {() =>
-          <div><Modal/></div>} />
+        <Route exact path = '/new' component ={Modal} />
         <Route exact path = '/notes' render = {() =>
           <div><Notes notes={this.state.notes}/></div>} />
         <Route path = "notes/:id" render ={(props) =>{

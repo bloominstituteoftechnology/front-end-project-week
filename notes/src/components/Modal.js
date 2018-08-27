@@ -1,8 +1,9 @@
 import React from 'react';
-import {Button, Form, FormGroup, FormText, Input, Label} from "reactstrap"
+import {Container, Button, Form, FormGroup, FormText, Input, Label} from "reactstrap"
 
 const Modal = () => {
   return(
+    <Container>
     <Form>
       <FormGroup>
         <Label for="exampleEmail">Title</Label>
@@ -13,6 +14,7 @@ const Modal = () => {
         <Input type="textarea" name="text" id="exampleText" />
      </FormGroup>
    </Form>
+   </Container>
   )
 }
 
