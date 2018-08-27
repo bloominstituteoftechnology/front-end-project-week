@@ -9,7 +9,7 @@ const initialState = {
     singleNote: false, 
     error: false, 
     notes: [],
-    currentNote: null,
+    currentNote: {},
 }
 
 export default (state=initialState, action) => {
@@ -22,6 +22,7 @@ export default (state=initialState, action) => {
                 updated: false,
                 deleted: false,
                 error: false,
+                currentNote: {}
             })
         case FETCHED:
             return Object.assign({}, state, {
@@ -31,14 +32,15 @@ export default (state=initialState, action) => {
             })
         case CREATED:
             return Object.assign({}, state, {
-                notes: action.payload,
+                currentNote: action.payload,
+                notes: state.notes.concat([action.payload]),
                 pending: false,
                 created: true,
                 error: false,
             })
         case UPDATED:
             return Object.assign({}, state, {
-                notes: action.payload,
+                currentNote: action.payload,
                 pending: false,
                 updated: true,
                 error: false,

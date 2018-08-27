@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
 import NoteButton from './NoteButton';
@@ -24,4 +25,4 @@ const DeleteModal = (props) => {
     )
 }
  
-export default DeleteModal;
+export default withRouter(DeleteModal);

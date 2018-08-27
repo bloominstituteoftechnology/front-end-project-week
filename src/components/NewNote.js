@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { Form, Input, Container, Row, Col } from 'reactstrap';
 import NoteButton from './NoteButton';
 import { connect } from 'react-redux';
@@ -28,19 +29,13 @@ class NewNote extends Component {
                 link: "/"
             })
         } else {
-             
-            const str = this.props.currentNote.checklist ? (
-                this.props.currentNote.checklist.join(', ')
-            ) : (
-                ''
-            )
             this.setState({
                 heading: 'Edit Note:',
                 title: this.props.currentNote.title,
                 content: this.props.currentNote.content,
                 button: "Update",
-                link: `/note/${this.props.currentNote.id}`,
-                checklistString: str
+                link: `/note/${this.props.currentNote._id}`,
+                checklistString: this.props.currentNote.checklist
             });
         }
     }
@@ -52,22 +47,25 @@ class NewNote extends Component {
 
     saveNote = (e) => {
         e.preventDefault();
-        // const newChecklist = this.state.checklistString.length > 0 ?
+        const newChecklist = this.state.checklistString.length > 0 ? this.state.checklistString.split(',') : '';
         const newNote = {
             title: this.state.title, 
             content: this.state.content,
-            checklist: this.state.checklistString.split(',')};
+            checklist: newChecklist};
         if (this.state.new) {
             this.props.createNote(newNote);
-            setTimeout(() => {
-                this.props.history.push("/");
-            }, 100);
+            this.props.history.push("/");
+            
         } else {
-            const updatedNote = Object.assign({}, newNote, {id: this.props.currentNote.id})
-            this.props.updateNote(updatedNote);
-            setTimeout(() => {
-                this.props.history.push(`/note/${this.props.currentNote.id}`);
-            }, 100);
+            const updatedNote = Object.assign({}, newNote, {_id: this.props.currentNote._id});
+            console.log("Updated note: ", updatedNote)
+            console.log("Note id: ", updatedNote._id);
+            async function update(object) {
+                object.props.updateNote(updatedNote);
+            }
+            update(this).then( res => {
+                this.props.history.push(`/note/${this.props.currentNote._id}`);
+            });
         }
     }
 
@@ -122,4 +120,4 @@ const mapStateToProps = (state) => {
     }
 }
  
-export default connect(mapStateToProps, { updateNote, createNote })(NewNote);
+export default withRouter(connect(mapStateToProps, { updateNote, createNote })(NewNote));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import ReactMarkdown from 'react-markdown';
+import { withRouter } from 'react-router';
 
 const NoteCard = (props) => {
     return (    
@@ -15,4 +16,4 @@ const NoteCard = (props) => {
     )
 }
  
-export default NoteCard;
+export default withRouter(NoteCard);

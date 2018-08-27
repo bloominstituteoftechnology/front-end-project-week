@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle } from 'reactstrap';
 import ReactMarkdown from 'react-markdown';
+import { withRouter } from 'react-router';
 
-const NoteThumbnail = (props) => {
-    
+class NoteThumbnail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: props.note._id,
+      title: props.note.title,
+      content: props.note.content
+    }
+  }
+
+  render() {
     return (
-        // <Link to={`/note/${props.note._id}`} className="note-link">
-            <Card className="note-thumbnail" onClick={props.selectNote}>
+        <Link to={`/note/${this.state.id}`} className="note-link">
+            <Card className="note-thumbnail">
                 <CardBody>
-                    <CardTitle className="note-title heading">{props.note.title}</CardTitle>
-                    <ReactMarkdown source={props.note.content} className="thumbnail-content"/>
+                    <CardTitle className="note-title heading">{this.state.title}</CardTitle>
+                    <ReactMarkdown source={this.state.content} className="thumbnail-content"/>
                 </CardBody>
             </Card>
-        // </Link>
+        </Link>
     )
+  }
 }
  
-export default NoteThumbnail;
+export default withRouter(NoteThumbnail);

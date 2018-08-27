@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 const NoteButton = (props) => {
@@ -17,4 +18,4 @@ const NoteButton = (props) => {
     )
 }
  
-export default NoteButton;
+export default withRouter(NoteButton);

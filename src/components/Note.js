@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
+//import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { fetchNote, removeNote } from '../actions';
 import { Container } from 'reactstrap';
@@ -18,19 +18,12 @@ class Note extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        console.log("id: ", id)
+        console.log("id (called in CDM in Note component): ", id)
         this.props.fetchNote(id);
-        console.log("current note checklist: ", this.props.currentNote.checklist)
-
-        if (this.props.currentNote.checklist) {
-          this.setState({checklist: this.props.currentNote.checklist.split(',')})
-        };
-        
-        console.log("checklist:", this.state.checklist)
     }
 
     selectNote = (e) => {
-        console.log(e.target)
+        console.log("Target of selectNote event", e.target)
         this.props.history.push(`/note/${e.target._id}`)
     }
 
@@ -38,10 +31,11 @@ class Note extends Component {
         this.setState({modal: !this.state.modal});
     }
 
-    deleteNote = () => {
-        const id = this.props.match.params._id
-        this.props.removeNote(id)
-        this.props.history.push("/");
+    deleteNote = async () => {
+        const id = this.props.currentNote._id;
+        console.log("id from current note: (called in deleteNote on Note component)", id);
+        this.props.removeNote(id);
+        await this.props.history.push("/")
     }
 
     handleCheckBox = (values) => {
@@ -49,42 +43,43 @@ class Note extends Component {
     }
 
     render() { 
-      console.log("state: ", this.state)
-        return (
-            this.state.checklist.length > 0 ? (
-                <Container fluid={true}> 
-                    <DeleteModal 
-                        id={this.props.match.params.id}
-                        modal={this.state.modal}
-                        toggle={this.toggleModal}
-                        deleteNote={this.deleteNote}/>
-                    <NoteCard 
-                        note={this.props.currentNote}
-                        selectNote={this.props.selectNote}/>
-                    <CheckList 
-                        checklist={this.state.checklist}
-                        id={this.props.match.params.id}/>
-                </Container>
-            ) : (
-                <Container fluid={true}> 
-                    <DeleteModal 
-                        id={this.props.match.params.id}
-                        modal={this.state.modal}
-                        toggle={this.toggleModal}
-                        deleteNote={this.deleteNote}/>
-                    <NoteCard 
-                        note={this.props.currentNote}
-                        selectNote={this.props.selectNote}/>
-                </Container>
-            )
+      console.log("state (called in render Note component): ", this.state)
+      console.log("current note (called in render Note component):", this.props.currentNote)
+      return (
+        this.props.currentNote.checklist ? (
+          <Container fluid={true}> 
+            <DeleteModal 
+              id={this.props.match.params.id}
+              modal={this.state.modal}
+              toggle={this.toggleModal}
+              deleteNote={this.deleteNote}/>
+            <NoteCard 
+              note={this.props.currentNote}
+              selectNote={this.props.selectNote}/>
+            <CheckList 
+              checklist={this.props.currentNote.checklist.split(',')}
+              id={this.props.match.params.id}/>
+          </Container>
+        ) : (
+          <Container fluid={true}> 
+            <DeleteModal 
+              id={this.props.match.params.id}
+              modal={this.state.modal}
+              toggle={this.toggleModal}
+              deleteNote={this.deleteNote}/>
+            <NoteCard 
+              note={this.props.currentNote}
+              selectNote={this.props.selectNote}/>
+          </Container>
         )
+      )
     }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        currentNote: state.currentNote
-    }
+  return {
+    currentNote: state.currentNote
+  }
 }
  
-export default withRouter(connect(mapStateToProps, { fetchNote, removeNote })(Note));
+export default connect(mapStateToProps, { fetchNote, removeNote })(Note);
