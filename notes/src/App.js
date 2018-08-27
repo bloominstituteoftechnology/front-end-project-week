@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Route} from "react-router-dom";
-import SideBar from "./components/SideBar"
+import {Link, Route} from "react-router-dom";
 import  Notes from "./components/Notes";
+import Note from "./components/Note"
+import Modal from './components/Modal'
 
 class App extends Component {
   constructor() {
@@ -35,11 +36,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SideBar/>
-        <Notes notes={this.state.notes}/>
-      {/* <Route exact path ="/" component = {Notes}/>
-      <Route path = "/:id" render ={(props) =>{
-        return(<Note {...props}/>) */}
+        <div className="sidenav">
+          <Link className="li" to ="/notes" href="#about">View Your Notes</Link>
+          <Link className="li" to = "/new" ref="#services">Create New Note</Link>
+        </div>
+        <Route exact path ="/" render={() =>
+          <div>Welcome young master</div>} />
+        <Route exact path = '/new' render = {() =>
+          <div><Modal/></div>} />
+        <Route exact path = '/notes' render = {() =>
+          <div><Notes notes={this.state.notes}/></div>} />
+        <Route path = "notes/:id" render ={(props) =>{
+          return(<Note {...props}/>) }} />
       </div>
     );
   }
