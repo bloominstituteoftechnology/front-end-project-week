@@ -22,7 +22,14 @@
 
 .your-notes {
     border: 1px solid black;
-    width: 130px;
-    margin-left: 350px;
-    margin-top: -930px;
+    height: 1000px;
+    margin-left: 300px;
+    margin-top: -1000px;
+    background-color: #F2F1F2;
+}
+
+.text {
+    margin-left: -970px;
+    margin-top: 60px;
+    border: 1px solid blue;
 }

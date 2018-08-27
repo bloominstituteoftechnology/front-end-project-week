@@ -38,6 +38,7 @@
     margin-top: 125px;
     margin-left: -100px;
     justify-content: center;
+    cursor: pointer;
 }
 
 .create-note {
@@ -53,6 +54,7 @@
     border-radius: 2px;
     margin-top: 205px;
     margin-left: -245px;
+    cursor: pointer;
 }
 
 span {
