@@ -5,7 +5,7 @@
 .Sidebar {
 	background-color: #ccc;
 	border-right: 1px solid darkgray;
-    width: 300px;
+    min-width: 300px;
     height: 100vh;
     padding: 20px;
 	display: flex;

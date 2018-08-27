@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
        <Sidebar />
        <Route
-          exact
+          
 					path="/notes"
 					render={() => <Notelist notes={this.state.notes} />}
 				/>
