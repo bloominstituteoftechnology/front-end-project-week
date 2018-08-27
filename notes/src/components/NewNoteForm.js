@@ -9,19 +9,20 @@ class NewNoteForm extends Component {
     constructor(props) {
         super(props);
         console.log('logging props in NewNoteForm', this.props)
-        this.state = {   
+        this.state = { 
             id: null,    
             title: '',
             textBody: ''
         };
     }
 
-// componentDidMount() {
-//     this.setState({
-//         title: '', 
-//         textBody: ''
-//     });
-// }
+componentDidMount() {
+    this.setState({
+        notes: this.props.notes,
+        title: '', 
+        textBody: ''
+    });
+}
   
 // handleAddNote = event => {
 //     event.preventDefault();
@@ -86,7 +87,7 @@ class NewNoteForm extends Component {
                 type = "text"
                 placeholder = "Note Content"
                 />
-                <Link to="/"> 
+                <Link to="/notes"> 
                 <button onClick = {this.handleAddNote}> 
                    Add to Note List     
                 </button> 

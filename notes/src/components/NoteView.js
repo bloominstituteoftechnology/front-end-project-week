@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import './NoteView.css'
+
 class NoteView extends Component {
     constructor(props) {
         super(props);
         this.state = {
             id: null,
-            notes: this.props.notes
+            notes: []
         };
     }
     
@@ -25,18 +27,22 @@ class NoteView extends Component {
     //     })
     // }
 
+    componentWillUnmount(){
+        this.mounted = false;
+    }
+
     filteredNotes = note => {
         if(note.id === this.state.id) {
             return(
-                <div key = {note.id}>
-                <h1>Note View</h1>
+                <div className = "note-view"
+                key = {note.id}>
                 <Link to={`/edit/${note.id}`}>
                 <button>
                 Edit
                 </button>
                 </Link>
                 
-                <Link>
+                <Link to = {`/delete/${note.id}`}>
                 <button onClick={this.props.toggleDeleteNote}>
                 Delete
                 </button>

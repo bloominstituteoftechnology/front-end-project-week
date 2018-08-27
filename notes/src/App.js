@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from './components/NavBar';
+import WelcomePage from './components/WelcomePage';
 import NewNoteForm from './components/NewNoteForm';
 import NotesList from './components/NotesList';
 import NoteView from './components/NoteView';
 import UpdateNote from './components/UpdateNote';
 import DeleteNote from './components/DeleteNote';
-import BasicNoteForm from './components/BasicNoteForm';
 import './App.css';
 
 const dummyData = [
@@ -64,15 +64,16 @@ class App extends Component {
 handleSubmit = data => this.setState({notes: data});
 
 handleChange = event => {
+  console.log('logging state in handleChange', this.state)
   this.setState({ [event.target.name]: event.target.value})
 }
 
 handleAddNote = event => {
-  event.preventDefault();
   const notes = this.state.notes.slice();
   notes.push({title: this.state.title, 
     textBody: this.state.textBody, 
     id: Date.now() });
+    console.log('logging state in handleAddNote', this.state)
   this.setState({
     notes, 
     title: '', 
@@ -80,16 +81,16 @@ handleAddNote = event => {
   });
 }
 
-handleSelectNote = id => {
-  this.setState({selected: this.state.notes[`${id}`]});
+handleSelectNote = note => {
+  this.setState({selected: note});
 }
 
 handleTitleUpdate = event => {
   this.setState({
     selected: {
-      id: this.state.selected.id,
+      id: this.state.notes.id,
       title: event.target.value,
-      textBody: this.state.selected.textBody
+      textBody: this.state.notes.textBody
     }
   })
 }
@@ -115,7 +116,7 @@ handleUpdateNote =id => {
         };
       }
     }
-    this.setState({ notes,selected: {} });
+    this.setState({ notes, selected: {} });
   }
 
 
@@ -128,8 +129,9 @@ toggleDeleteNote = () => {
     return (
       <div className = "app">
         <Route path = "/" component={NavBar} />
+        {/* <Route path = "/" component={WelcomePage} /> */}
         
-        <Route exact path = "/" render={props =>
+        <Route path = "/notes" render={props =>
         (<NotesList {...props}
         notes={this.state.notes} 
         />
@@ -160,7 +162,7 @@ toggleDeleteNote = () => {
           )}
           />
 
-          <Route path="/note/:id" render={props =>
+          <Route path = "/note/:id" render={props =>
           (<NoteView {...props}
             handleSelectNote = {this.state.handleSelectNote}
             toggleDelete = {this.toggleDelete}
@@ -169,7 +171,7 @@ toggleDeleteNote = () => {
           )}
           />
 
-          {this.state.remove ? (<Route path = "/note/:id" render = {props=>
+          {this.state.remove ? (<Route path = "/delete/:id" render = {props=>
           (<DeleteNote {...props}
           handleSelectNote = {this.handleSelectNote}
           toggleDeleteNote = {this.toggleDeleteNote} 

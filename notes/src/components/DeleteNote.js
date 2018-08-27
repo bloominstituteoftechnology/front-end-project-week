@@ -22,8 +22,6 @@ handleDeleteNote = event => {
     .catch(err => console.log(err))
 }
 
-
-
     render() {
         return (
                 <div className = "delete-note-container">

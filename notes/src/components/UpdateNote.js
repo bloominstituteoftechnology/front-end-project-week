@@ -16,39 +16,39 @@ class UpdateNote extends Component {
         }
     }
 
-handleTitleUpdate = event => {
-    this.setState({
-      notes: {
-        id: this.state.notes.id,
-        title: event.target.value,
-        textBody: this.state.notes.textBody
-      }
-    })
-  }
+// handleTitleUpdate = event => {
+//     this.setState({
+//       notes: {
+//         id: this.state.notes.id,
+//         title: event.target.value,
+//         textBody: this.state.notes.textBody
+//       }
+//     })
+//   }
   
-  handleBodyUpdate = event => {
-    this.setState({
-      notes: {
-        id: this.state.notes.id,
-        title: this.state.notes.title,
-        textBody: event.target.value
-      }
-    })
-  }
+//   handleBodyUpdate = event => {
+//     this.setState({
+//       notes: {
+//         id: this.state.notes.id,
+//         title: this.state.notes.title,
+//         textBody: event.target.value
+//       }
+//     })
+//   }
 
-  handleUpdateNote = () => {
-      const id = this.props.match.params.id
-      const notes = {
-          title: this.state.notes.title,
-          textBody: this.state.notes.textBody
-      }
+//   handleUpdateNote = () => {
+//       const id = this.props.match.params.id
+//       const notes = {
+//           title: this.state.notes.title,
+//           textBody: this.state.notes.textBody
+//       }
 
-      this.setState({
-            note: {
-                id: null, 
-                title: '', 
-                textBody: ''
-            }})
+//       this.setState({
+//             note: {
+//                 id: null, 
+//                 title: '', 
+//                 textBody: ''
+//             }})
 
 //     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, notes)
 //     .then( response =>{
@@ -56,11 +56,12 @@ handleTitleUpdate = event => {
 //     this.props.history.push('/');
 //   })
 //     .catch(err =>console.log(err))
-  }
+//   }
 
 render() {
+    console.log(this.state.notes.title)
     return(
-    <div>
+    <div className = "edit-note-container" >
         <h2> Edit Note</h2>
     <form> 
         <input 
@@ -68,16 +69,16 @@ render() {
         name="title"
         placeholder="Title"
         value = {this.state.notes.title}
-        onChange = {this.handleTitleUpdate}
+        onChange = {this.props.handleTitleUpdate}
         />
         <textarea type = "text"
         name = "textBody"
         placeholder = "Content"
         value = {this.state.notes.textBody}
-        onChange = {this.handleBodyUpdate}
+        onChange = {this.props.handleBodyUpdate}
         />
-        <Link to ="/all">
-        <button onClick = {this.handleUpdateNote}>
+        <Link to ="/notes">
+        <button onClick = {this.props.handleUpdateNote}>
             Update
         </button>
         </Link>

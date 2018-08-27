@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import './NotesList.css'
+
 const dummyData = [
     {
         id: 1,
@@ -50,7 +52,6 @@ class NotesList extends Component {
 // }
 
 render() {
-
     return(
         <div className = "notes-list-container">
         {this.props.notes.map(note => {
@@ -58,13 +59,18 @@ render() {
             console.log(this.state.notes);
             console.log(this.state.note);
             return(
-                <div className = "note-container">
+                <div key = {note.id} className = "note-container">
                 <div className = "note">
+                <div className="title-expand"> 
+                <h1>{note.title}</h1>
+             
                 <Link to={`/note/${note.id}`}
                 key = {note.id}>
-                <h1>{note.title}</h1>
-                <p>{note.textBody}</p>
+                <button className = "expand-note">Expand</button>
                 </Link>
+                </div>
+                <p>{note.textBody}</p>
+
                 </div>
                 </div>
             )

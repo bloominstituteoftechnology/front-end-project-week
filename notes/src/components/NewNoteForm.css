@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 80%;
 }
 
 form{
@@ -12,15 +13,13 @@ form{
 
 form .note-title-input{
     height: 40px;
-    width: 80%;
     margin: 20px;
     padding: 20px;
     font-size: 15px;
 }
 
 form .note-content-input{
-    height: 300px;
-    width: 80%;
+    height: 200px;
     margin: 20px;
     padding: 20px;
     font-size: 15px;
@@ -35,6 +34,8 @@ button{
     padding: 20px;
     margin: 10px;
     font-size: 15px;
-    background-color: #24B8BD;
+    background-color: rgb(174, 230, 199);
     color: white;
+    border: 1px solid rgb(247, 246, 245);
+    border-radius: 12px;
 }
