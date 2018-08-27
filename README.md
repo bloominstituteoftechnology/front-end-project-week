@@ -14,6 +14,8 @@ Board link: https://trello.com/b/9pxmOGbu/lambda-notes-keegan-burkett
 
 ## Trello Set Up:
 
+Board link: https://trello.com/b/9pxmOGbu/lambda-notes-keegan-burkett
+
 - [ ] Create a Trello account
 - [ ] Create a new board called "Lambda Notes - {Your Name}"
 - [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import {Page, PageHeader} from './styles'
 import Form from './Form'
+import {withRouter} from "react-router-dom";
 
 
 class CreateNote extends Component {
@@ -24,6 +25,7 @@ handleSubmit = e => {
         title: "",
         body: "",
     });
+    this.props.history.push("/notes")
 };
   render() {
     return (
@@ -41,4 +43,4 @@ handleSubmit = e => {
   }
 }
 
-export default CreateNote;
+export default withRouter(CreateNote);

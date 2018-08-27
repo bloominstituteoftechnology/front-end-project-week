@@ -12,7 +12,11 @@ class App extends Component {
   }
 
   handleCreateNote = note => {
-    
+    this.setState(prevState => {
+      return {
+        notes: prevState.notes.concat(note)
+      }
+    })
   }
   render() {
     return (
