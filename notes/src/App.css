@@ -1,0 +1,9 @@
+.app {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: thin;
+}
+

@@ -1,0 +1,21 @@
+.note-view{
+    background-color: rgb(244, 248, 242);
+    border: 2px solid #D7D7D7;
+    border-radius: 12px;
+    margin: 40px;
+    padding: 20px;
+
+}
+
+
+
+button{
+    padding: 20px;
+    margin: 10px;
+    font-size: 15px;
+    background-color: rgb(174, 230, 199);
+    color:rgb(77, 75, 75);
+    border: 1px solid rgb(247, 246, 245);
+    border-radius: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+}
