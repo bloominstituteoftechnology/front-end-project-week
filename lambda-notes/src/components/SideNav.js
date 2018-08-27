@@ -10,6 +10,7 @@ display: flex;
 justify-content:left;
 position: fixed;
 background-color: lightgray;
+z-index: 1;
 `;
 
 const NavButton = styled.div`
@@ -19,6 +20,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 background-color: lightblue;
+color: white;
 `;
 
 const SideBar = () => {
