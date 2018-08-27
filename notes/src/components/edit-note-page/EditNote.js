@@ -28,9 +28,9 @@ const EditNoteForm = styled.form `
 export const EditNote = (props) => {
   return (
     <EditNoteContainer>
-      <EditNoteForm onSubmit={(event) => {props.editComplete(props.note); event.preventDefault(); }} >
-        <TitleInput onChange={(event) => {props.change(event)}} name='newTitle' type='text' value={props.title} placeholder={props.title} />
-        <NoteInput onChange={(event) => {props.change(event)}} name='newNote' type='text' value={props.note} placeholder={props.note} />
+      <EditNoteForm onSubmit={(event) => {props.editComplete(props.id); event.preventDefault(); props.history.push('/')}} >
+        <TitleInput onChange={props.change} name='newTitle' type='text' value={props.title} placeholder={props.title} />
+        <NoteInput onChange={props.change} name='newNote' type='text' value={props.note} placeholder={props.note} />
         <button type='submit'>Submit Changes</button>
       </EditNoteForm>
     </EditNoteContainer>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Form, Input, Button } from 'reactstrap';
 
@@ -28,7 +29,7 @@ const NewNoteForm = styled.form `
 export default function NewNote(props) {
   return (
       <NewNoteContainer>
-        <NewNoteForm onSubmit={(event) => {event.preventDefault(); props.addNote;}}>
+        <NewNoteForm onSubmit={(event) => {event.preventDefault(); props.addNote(props); props.history.push('/')}}>
           <TitleInput name='newTitle' type='text' value={props.title} placeholder='new note title...' onChange={props.change} /><br/>
           <NoteInput name='newNote' type='text' value={props.note} placeholder='new note text...' onChange={props.change} /><br/>
           <Button type='submit'>Submit Note</Button>
