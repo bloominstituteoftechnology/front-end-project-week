@@ -13,7 +13,7 @@ border: 1px solid blue;
 `;
 
 const List = styled.div`
-width: 75%;
+width: 100%;
 display: flex;
 padding-left: 30%;`
 
