@@ -9,7 +9,7 @@ margin 20px;
 display: flex;
 border: 1px solid black;
 background-color: white;
-width: 20%;
+width: 95%;
 height: 20%;
 `
 

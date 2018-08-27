@@ -12,14 +12,15 @@ border: 1px solid blue;
 
 `;
 
-const ListContainer = styled.div`
-width: 100%;
+const List = styled.div`
+width: 75%;
+display: flex;
 padding-left: 30%;`
 
 const Notes = () => {
     return (
         <NotesContainer>
-            <ListContainer>
+            <List>
                 <Note />
                 <Note />
                 <Note />
@@ -27,7 +28,7 @@ const Notes = () => {
                 <Note />
                 <Note />
                 <Note />
-            </ListContainer>
+            </List>
         </NotesContainer>
     );
 };
