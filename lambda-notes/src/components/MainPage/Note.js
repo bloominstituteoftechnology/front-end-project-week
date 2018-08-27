@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NoteList = styled.div`
-`
-
 const NoteContainer = styled.div`
 margin 20px;
 display: flex;
@@ -22,7 +19,7 @@ const Note = props => {
                 <p> here's some sample content</p>
             </div>
         </NoteContainer>
-    )
+    );
 }
 
 export default Note;

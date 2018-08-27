@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const NotesContainer = styled.div`
 display: flex;
 width: 100%;
-height: 2000px;
+height: 500px;
 background-color: #EEEEEE;
 border: 1px solid blue;
 
