@@ -12,17 +12,15 @@
 
 .check-list {
   max-width: 1500px;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 30px 20px;
 }
 
 .checkbox {
-  padding: 10px !important;
+  padding: 10px;
   display: flex;
-  align-items: flex-end;
 }
 
 .heading {
