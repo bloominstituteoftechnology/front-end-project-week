@@ -19,3 +19,10 @@
     width: 100%;
     justify-content: center;
 }
+
+.your-notes {
+    border: 1px solid black;
+    width: 130px;
+    margin-left: 350px;
+    margin-top: -930px;
+}
