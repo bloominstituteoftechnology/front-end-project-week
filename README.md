@@ -12,21 +12,21 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## Trello Set Up:
 
-* [ ] Create a Trello account
-* [ ] Create a new board called "Lambda Notes - {Your Name}"
-* [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-* [ ] Fill in the `To Do` list with the MVP features listed below
-* [ ] Fill in the `backlog` list with all the extra features listed below
-* [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
-* [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+* [x] Create a Trello account
+* [x] Create a new board called "Lambda Notes - {Your Name}"
+* [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+* [x] Fill in the `To Do` list with the MVP features listed below
+* [x] Fill in the `backlog` list with all the extra features listed below
+* [x] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
+* [x] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
 
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
+* [x] Display a list of notes
+* [x] Create a note with a title and content
+* [x] View an existing note
+* [x] Edit an existing note
+* [x] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
 
@@ -58,14 +58,14 @@ Once your MVP has been approved, you have been given a feature list that the cli
 
 ## Extra Features:
 
-* [ ] Re-factor your code to include redux for your state-management
-* [ ] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
-* [ ] Search functionality
-* [ ] Markdown support in notes
+* [x] Re-factor your code to include redux for your state-management
+* [x] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
+* [x] Search functionality
+* [x] Markdown support in notes
 * [ ] Sorting options in the list view
 * [ ] Create and display tags that can be added to notes
 * [ ] Drag sorting in the list view
-* [ ] Add the ability to have checklists within the note view
+* [x] Add the ability to have checklists within the note view
 * [ ] Export all notes to a CSV
 * [ ] Create a login system around the MVP
 
