@@ -52,13 +52,19 @@ class App extends Component {
         ],
         title: '',
         text: '',
+        term: '',
         }
+   
+    }
+
+    searchHandler = event => {
+      this.setState({term: event.target.value})
     }
 
 
-
-
-
+      handleInputChange = event => {
+      this.setState({[event.target.name]: event.target.value});
+     };
 
 
      addNote = event => {
@@ -68,12 +74,8 @@ class App extends Component {
        this.setState({ notes, title: '', text: '' });
      }
 
-     handleInputChange = event => {
-       this.setState({[event.target.name]: event.target.value});
-      };
 
-
-     deleteNote = note => {
+      deleteNote = note => {
       let notes = this.state.notes.slice();
       for (let i = 0; i < notes.length; i++) {
         if (notes[i].id === note.id) {
@@ -83,10 +85,7 @@ class App extends Component {
       this.setState({ notes })
     }
 
-
-
-
-    editNote = note => {
+     editNote = note => {
       console.log(note);
       let notes = this.state.notes.slice();
       for (let i = 0; i < notes.length; i++) {
@@ -97,9 +96,6 @@ class App extends Component {
       this.setState({ notes })
     }
 
-    handleInputChange = event => {
-      this.setState({[event.target.name]: event.target.value});
-     };
 
 
       render() {
@@ -111,7 +107,7 @@ class App extends Component {
               <Sidebar />
               <Route 
                 exact path="/"
-                render={(props) => <Notes {...props} notes={this.state.notes}/>} 
+                render={(props) => <Notes {...props} notes={this.state.notes} searchHandler={this.searchHandler} term={this.state.term}/>} 
               />
               <Route  
                 exact path="/create-new-note" 
