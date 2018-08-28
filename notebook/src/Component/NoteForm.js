@@ -16,13 +16,17 @@ class NoteForm extends Component {
 
     handleNoteSubmit = event => {
         event.preventDefault();
+        const newNote = {
+            header: this.state.header,
+            content: this.state.content,
+        };
 
     }
 
     render() {
         return(
             <div>
-                form
+                
             </div>
         )
     }

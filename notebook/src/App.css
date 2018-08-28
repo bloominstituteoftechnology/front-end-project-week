@@ -1,8 +1,6 @@
-.testing {
+.App {
   text-align: center;
   font-weight: bold;
-  color: green;
-  font-family: 'Times New Roman', Times, serif;
-
+  color: aqua;
+  display: flex;
 }
-
