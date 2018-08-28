@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Route, NavLink, Link } from 'react-router-dom';
 
 const Edit = styled.div`
 // display: flex;
@@ -7,12 +8,13 @@ const Edit = styled.div`
 `
 
 const Header = styled.h2`
-
+margin-left: 9%;
 `
 
 const EditForm = styled.form`
 display: flex;
 flex-direction: column;
+margin-left: 5%;
 `
 
 const NoteTitle = styled.input`
@@ -22,6 +24,7 @@ margin-bottom: 1rem;
 border-radius: 0.2rem;
 border: 1px solid #B2B2B2
 width: 75%;
+margin-left: 5%;
 `
 
 const NewNote = styled.textarea`
@@ -31,6 +34,7 @@ margin-bottom: 1rem;
 border-radius: 0.2rem;
 border: 1px solid #B2B2B2;
 width: 115%;
+margin-left: 5%;
 `
 
 const EditNotes = styled.button`
@@ -39,6 +43,7 @@ border: 1px solid #cdcecf;
 color: white;
 font-weight: bold;
 width: 50%;
+margin-left: 5%;
 `
 
 class EditNote extends Component {
@@ -73,7 +78,7 @@ class EditNote extends Component {
                     rows='10'
                     cols='50'
                 />
-                <EditNotes>Edit</EditNotes>
+                <NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><EditNotes>Edit</EditNotes></NavLink>
             </EditForm>
         </Edit>);
     }

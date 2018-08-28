@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { Route, NavLink, Link } from 'react-router-dom';
 
 const View = styled.div`
-// background: #f2f1f2;
-// height: 100vh;
-// height: 100%;
+width: 76vw;
+background: #f2f1f2;
 
 `
 
@@ -14,15 +13,22 @@ const Actions = styled.div`
 `
 
 const Button = styled.button`
-// float: right;
+float: right;
+margin-right: 1rem;
+font-weight: bold;
+text-decoration: underline;
+border: none;
+background: none;
 `
 
 const NoteName = styled.h2`
-
+margin-left: 5%;
+margin-top: 5%;
 `
 
 const NoteText = styled.p`
-
+margin-left: 5%;
+margin-top: 5%;
 `
 
 
@@ -42,12 +48,14 @@ class ViewNote extends Component {
 
 
     render() {
-        return (<View className='col'>
+        return (<View>
 
             <Actions>
             
-            <Button onClick={this.state.delete}><NavLink to="/">delete</NavLink></Button>
-            <Button><NavLink to="/edit">edit</NavLink></Button></Actions>
+            <NavLink to="/view/:id/delete" style={{fontWeight: 'bold', color: 'black', marginLeft: '10px', marginRight: '10px'}}><Button>delete</Button></NavLink>
+            <NavLink to="/edit" style={{fontWeight: 'bold', color: 'black', marginLeft: '10px', marginRight: '10px'}}><Button>edit</Button></NavLink>
+            
+            </Actions>
 
             <NoteName>{this.state.note[this.state.id].noteName}</NoteName>
 

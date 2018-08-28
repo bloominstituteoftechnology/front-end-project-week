@@ -8,12 +8,13 @@ const Create = styled.div`
 `
 
 const Header = styled.h2`
-
+margin-left: 9%;
 `
 
 const CreateForm = styled.form`
 display: flex;
 flex-direction: column;
+margin-left: 5%;
 `
 
 const NoteTitle = styled.input`
@@ -23,6 +24,7 @@ margin-bottom: 1rem;
 border-radius: 0.2rem;
 border: 1px solid #B2B2B2
 width: 75%;
+margin-left: 5%;
 `
 
 const NewNote = styled.textarea`
@@ -32,6 +34,7 @@ margin-bottom: 1rem;
 border-radius: 0.2rem;
 border: 1px solid #B2B2B2;
 width: 115%;
+margin-left: 5%;
 `
 
 const AddNote = styled.button`
@@ -40,6 +43,7 @@ border: 1px solid #cdcecf;
 color: white;
 font-weight: bold;
 width: 50%;
+margin-left: 5%;
 `
 
 const CreateNote = (props) => {

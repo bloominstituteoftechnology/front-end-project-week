@@ -6,6 +6,7 @@ import Note from './Note';
 import CreateNote from '../NoteActions/CreateNote';
 import ViewNote from '../NoteActions/ViewNote';
 import EditNote from '../NoteActions/EditNote';
+import ConfirmDelete from '../NoteActions/ConfirmDelete';
 
 const Notes = styled.div`
 // display: flex;
@@ -13,6 +14,8 @@ const Notes = styled.div`
 // height: 100vh;
 // height: 100%;
 // width: 100%;
+background: #f2f1f2;
+
 `
 
 
@@ -23,6 +26,7 @@ const NotesContainer = (props) => {
         <Route exact path='/' render={routerProps => <Note {...routerProps} note={props.note} />} />
         <Route exact path='/create' render={routerProps => <CreateNote {...routerProps} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
         <Route path='/view/:id' render={routerProps => <ViewNote {...routerProps} delete={props.delete} note={props.note}/>} />
+        <Route path='/view/:id/delete' render={routerProps => <ConfirmDelete {...routerProps} />}/>
         <Route path='/edit' render={routerProps => <EditNote {...routerProps} edit={props.delete} note={props.note} />} />
     </Notes>);
 }

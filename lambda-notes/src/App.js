@@ -47,7 +47,7 @@ class App extends Component {
     notes = notes.filter(note => !note.id)
     this.setState({ notes: notes })
     let num = this.state.id
-    if (num > 0) {
+    if (num > -1) {
       --num
     }
     this.setState({ id: num })

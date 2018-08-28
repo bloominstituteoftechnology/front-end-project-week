@@ -9,7 +9,7 @@ background: #d3d2d3;
 display: flex;
 flex-direction: column;
 height: 100vh;
-margin-right: 2rem;
+border-right: 1px solid gray;
 `
 const Header = styled.h1`
 color: #4a4c4e;
