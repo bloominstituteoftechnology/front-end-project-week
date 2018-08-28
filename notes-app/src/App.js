@@ -7,7 +7,11 @@ class App extends Component {
   constructor(){
     super()
       this.state = {
-        notes: []
+        notes: [],
+        tag: '',
+        title: '',
+        textBody: ''
+
       };
   }
 
@@ -20,17 +24,55 @@ class App extends Component {
       .catch(error => {
         console.error('Server Error', error);
       });
+
+      
   }
+
+
+  adder = event => {
+    // event.preventDefault();
+    
+
+    const note = {
+        tag: this.state.tag,
+        title: this.state.title,
+        textBody: this.state.textBody,
+    }
+    console.log(note);
+    axios
+      .post('https://killer-notes.herokuapp.com/note/create', note)
+      .then(response => { console.log("post", response.data)
+        this.setState({
+          notes: response.data
+        });
+        
+      }).catch(error => console.log(error))
+  };
+
+
+
+
+  // deleter = id => {
+  //   console.log(id)
+  //   axios
+  //   .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+  //   .then(response => { console.log(response)
+  //     this.setState({
+  //       notes: response.data
+  //     })
+  //   }).catch(event => console.log(event))
+  // }
 
 
 
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
+      <insertFormHere></insertFormHere>
         
         {this.state.notes.map(each => (
-          <Notes key={each.id} note={each} />
+          <Notes key={each.id} note={each} deleter={this.deleter} />
         ))}
       </div>
     );
@@ -40,11 +82,11 @@ class App extends Component {
 
 function Notes(props){
   return (
-    <div>{props.note.textBody}</div>
+    <div > {props.note.textBody} x</div>
   )
 } 
 
-
+//{onClick={()=>{props.deleter(props.note.id)}}
 
 
 export default App;
