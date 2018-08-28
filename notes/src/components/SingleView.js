@@ -16,10 +16,16 @@ padding-right: 30px;
 h2 {
     padding-top: 25px;
 }
+p {
+     margin: 5px;
+     max-width: 660px;
+}
 `;
 
 const SingleView = (props) => {
     return ( 
+        // I THINK I NEED A FILTER IN ORDER TO GET THE DATA
+        // OF THE NOTE THAT IS AT A SPECIFIC ROUTE
 
         <StyledViewWrapper>
         <StyledNoteContainer>

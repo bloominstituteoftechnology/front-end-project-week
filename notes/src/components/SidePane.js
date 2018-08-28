@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Route, Link } from "react-router-dom";
 
 const NavContainer = styled.div`
-  background-color: #D2D1D2;
+  background-color: #d2d1d2;
   height: 100vh;
   width: 230px;
   min-width: 230px;
@@ -32,7 +32,7 @@ const Buttons = styled.div`
 `;
 
 const SideButton = styled.div`
-  background-color: #5EB3BB;
+  background-color: #5eb3bb;
   height: 40px;
   text-align: center;
   margin: 10px;
@@ -40,11 +40,12 @@ const SideButton = styled.div`
   display: flex;
   justify-content: center;
   color: white;
+  font-weight: bold;
+  align-self: center;
+  align-items: center;
   a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
-    align-self: center;
   }
 `;
 const SidePane = () => {
@@ -56,13 +57,14 @@ const SidePane = () => {
         Notes
       </h1>
       <Buttons>
-        <SideButton>
         {/* a's will be Links */}
-        <Link to="/">View Your Notes</Link>
-        </SideButton>
-        <SideButton>
-        <Link to={`/create`}>+ Create New Note</Link>
-        </SideButton>
+        <Link className="noDecoration" to="/">
+          <SideButton>View Your Notes</SideButton>
+        </Link>
+
+        <Link className="noDecoration" to={`/create`}>
+          <SideButton>+ Create New Note</SideButton>
+        </Link>
       </Buttons>
     </NavContainer>
   );
