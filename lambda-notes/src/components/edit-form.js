@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import './css/form.css';
 
 
 
@@ -50,7 +51,7 @@ export default class EditForm extends Component {
             <textarea className="input" id="body"
               name='body'
               onChange={this.inputHandler} value={this.state.body} placeholder="Note Content">{this.value}</textarea>
-            <Link className="menu-item" onClick={this.sendToApp} to={`/all-notes/${this.state.id}`}>{this.props.button}</Link>
+            <Link className="menu-item" onClick={this.sendToApp} to={`/listnotes/${this.state.id}`}>{this.props.button}</Link>
           </form>
         </div>
     );

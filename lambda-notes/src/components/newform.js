@@ -44,7 +44,7 @@ export default class NewForm extends Component {
             <textarea className="input" id="body"
               name='body'
               onChange={this.inputHandler} value={this.state.body} placeholder="Note Content">{this.value}</textarea>
-            <Link className="menu-item" onClick={this.sendToApp} to="/all-notes">{this.props.button}</Link>
+            <Link className="menu-item" onClick={this.sendToApp} to="/listnotes">{this.props.button}</Link>
           </form>
         </div>
     );

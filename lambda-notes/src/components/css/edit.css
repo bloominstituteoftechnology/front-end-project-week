@@ -1,19 +1,17 @@
-
-  form {
-    
+form {
+   
     background-color: #F3F3F3;
     display: flex;
     flex-direction: column;
-  }
+    justify-content: space-between;
+}
     .input {
       margin: 10px;
       padding: 10px;
       color: gray;
-      border-radius: 3px;
     }
-
     #title{
-      width: 40%;
+      width: 30%;
     }
     #body{
       height: 400px;
@@ -24,7 +22,7 @@
 
     }
     .menu-item{
-
+      
         width: 30%;
         padding: 15px;
         margin: 5px;
@@ -35,3 +33,28 @@
         font-weight: bold;
         border: 1px solid lightgray;
       }
+  
+
+    
+      /* display: flex;
+      flex-direction: column;
+      background-color: #F3F3F3;
+      padding: 25px;
+      background-color: white;
+      height: 100vh; */
+
+      .links {
+        
+        padding: 15px;
+        text-align: right;
+      }
+        .link {
+          margin: 8px;
+          color: gray;
+        }
+      
+      h4 {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    

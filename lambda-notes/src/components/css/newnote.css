@@ -1,0 +1,13 @@
+.newnote {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  background-color: #F3F3F3;
+  padding: 25px;
+  height: 100vh;
+}
+
+  h4 {
+    font-weight: bold;
+    margin: 0 0 10px 10px;
+  }

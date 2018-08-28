@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import './css/details.css';
 
 
 export default class Details extends Component {
@@ -16,11 +17,11 @@ export default class Details extends Component {
         <div className="links">
           <Link
             className="link"
-            to={`/all-notes/${this.state.note.id}/edit`}>edit</Link>
+            to={`/listnotes/${this.state.note.id}/edit`}>edit</Link>
           <Link
             className="link"
             onClick={() => this.props.enableDelete()}
-            to={`/all-notes/${this.state.note.id}/delete`}>delete</Link>
+            to={`/listnotes/${this.state.note.id}/delete`}>delete</Link>
         </div>
 
         <h4>{this.state.note.title}</h4>

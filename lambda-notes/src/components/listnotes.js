@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import './css/listnotes.css';
+
+
 
 
 export default class ListNotes extends Component {
@@ -12,14 +15,13 @@ export default class ListNotes extends Component {
 
   render() {
     return (
-      
-      <div>
+      <div className="listtop">
         <h3>Your Notes:</h3>
 
         <div className="all-notes">
           {this.state.notes.map(note => {
             return (
-              <Link className="note-link" key={note.id} to={`/list-notes/${note.id}`}>
+              <Link className="note-link" key={note.id} to={`/listnotes/${note.id}`}>
                 <div className="note-preview">
                   <h3>{note.title}</h3>
                   <p>{note.body}</p>
@@ -28,7 +30,6 @@ export default class ListNotes extends Component {
             )
           })}
         </div>
-      
       </div>
     );
   }
