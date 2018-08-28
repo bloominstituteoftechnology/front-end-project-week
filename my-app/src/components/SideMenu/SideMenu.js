@@ -1,5 +1,6 @@
 import React from "react";
 import "./SideMenu.css";
+import { Link } from "react-router-dom";
 
 const SideMenu = () => {
   return (
@@ -8,17 +9,21 @@ const SideMenu = () => {
         <h1>Lambda</h1>
       </div>
       <div className="notes">
-          <h1>Notes</h1>
+        <h1>Notes</h1>
       </div>
       <div className="buttons">
-        <div className="view-notes">
+        <Link>
+          <div className="view-notes">
             <span>View Your Notes</span>
-        </div>
-        <div className="create-note">
+          </div>
+        </Link>
+        <Link>
+          <div className="create-note">
             <span>+ Create New Note</span>
-        </div>
+          </div>
+        </Link>
       </div>
-    </div>  
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import YourNotes from "./components/YourNotes/YourNotes";
 import dummyData from "./dummyData";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 
 class App extends Component {
@@ -21,7 +21,6 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={Home} />
-        <Link exact to="/">Home</Link>
         <Route path="/yournotes" render={props => <YourNotes {...props} notes={this.state.notes} />} />
       </div>
     );
