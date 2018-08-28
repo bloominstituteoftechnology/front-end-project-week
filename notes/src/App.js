@@ -20,7 +20,7 @@ const StyledApp = styled.div`
   h2 {
     font-weight: bold;
     font-size: 24px;
-    margin-left: 20px;
+    margin-left: 1px;
     margin-top: 30px;
     display: inline-block;
     width: 70%;

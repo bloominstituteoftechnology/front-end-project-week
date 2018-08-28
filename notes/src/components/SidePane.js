@@ -57,6 +57,7 @@ const SidePane = () => {
       </h1>
       <Buttons>
         <SideButton>
+        {/* a's will be Links */}
           <a href="#">View Your Notes</a>
         </SideButton>
         <SideButton>
