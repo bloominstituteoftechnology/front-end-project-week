@@ -1,0 +1,6 @@
+.nav-container {
+    display: flex;
+    min-width: 220px;
+    height: 100vh;
+    background: lightgray
+}
