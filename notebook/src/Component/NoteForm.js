@@ -26,7 +26,8 @@ class NoteForm extends Component {
     render() {
         return(
             <div>
-                
+                <h1>Create New Note</h1>
+                Testing the route to the form
             </div>
         )
     }

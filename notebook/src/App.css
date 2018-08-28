@@ -4,3 +4,6 @@
   color: aqua;
   display: flex;
 }
+.App .sidebar-left {
+  background-color: grey;
+}

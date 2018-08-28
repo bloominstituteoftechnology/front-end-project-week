@@ -4,6 +4,7 @@ import "./App.css";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NoteList from "./Component/NoteList";
+import NoteForm from "./Component/NoteForm";
 
 const noteListArr = [
   {
@@ -20,7 +21,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: noteListArr,
+      notes: noteListArr
     };
   }
 
@@ -32,18 +33,18 @@ class App extends Component {
     return (
       <div className="App">
         <aside className="sidebar-left">
-          contents of sidebar will go here
           <h1>Lambda Notes</h1>
           <Link to={"/"}>
             <button>View Your Notes</button>
           </Link>
+
           <Link to={"/NoteForm"}>
             <button>Create New Note</button>
           </Link>
         </aside>
         <div className="notes-container">
-          <h2>Your Notes</h2>
-          <Route path="/" component={NoteList} />
+          <Route exact path="/" component={NoteList} />
+          <Route exact path="/noteform" component={NoteForm} />
         </div>
       </div>
     );
