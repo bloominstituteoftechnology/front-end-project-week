@@ -1,17 +1,25 @@
 import React, { Component } from "react";
 import SideMenu from "../SideMenu/SideMenu";
+import "./CreateNote.css";
+import axios from "axios";
 
 class CreateNote extends Component {
-    state = {
-        notes: this.props.notes,
-    };
+  state = {
+    notes: this.props.notes,
+    noteTitle: '',
+    noteContent: '',
+  };
+
+
 
   render() {
     return (
       <div>
-        <SideMenu />
         <div>
-            <h3>Create New Note</h3>
+          <SideMenu />
+        </div>
+        <div>
+          <input />
         </div>
       </div>
     );
