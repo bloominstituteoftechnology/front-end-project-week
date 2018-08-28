@@ -1,14 +1,26 @@
-import React from 'react';
-import './Sidebar.css';
+import React, { Component } from 'react';
+import './index.css';
 
-const Sidebar = () => {
-    return(
-        <div className='sideBar'>
-            <p className='sbTitle'><strong>Lambda Notes</strong></p>
-            <button className='sbButton button1'> View Your Notes</button>
-            <button className='sbButton'>+ Create New Note</button>
-        </div>
-    );
+export default class Sidebar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+    }
+    render() {
+        return(
+            <div className='sideBar'>
+                <p className='sbTitle'>
+                    <strong>Lambda Notes</strong>
+                </p>
+                <button className='sbButton button1'>
+                    <strong>View Your Notes</strong>
+                </button>
+                <button className='sbButton'>
+                    <strong>+ Create New Note</strong>
+                </button>
+            </div>
+        );
+    }
 }
-
-export default Sidebar;

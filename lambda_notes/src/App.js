@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
+import MainNotes from './components/MainNotes'
 import './App.css'
 
 class App extends Component {
@@ -15,9 +16,7 @@ class App extends Component {
         <p className='pageView'>Placeholder View</p>
         <div className='container'>
           <Sidebar />
-          <div className='mainNotes'>
-            yo
-          </div>
+          <MainNotes className='notesContainer' />
         </div>
       </div>
     );
