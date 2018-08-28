@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Roboto'
+  font-family: 'Roboto';
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -39,17 +40,21 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: grey;
+    background-color: #D2D1D2;
     overflow-x: hidden;
     padding-top: 20px;
 }
 
 .li {
     padding: 6px 8px 6px 16px;
+    margin: 5px 5px 5px 5px;
     text-decoration: none;
-    font-size: 25px;
-    color: blue;
+    font-size: 2rem;
+    color: #464444;
     display: block;
+    background-color: #41B7BA;
+    border: 1px solid #A0B2B2;
+    border-radius: .5rem;
 }
 
 

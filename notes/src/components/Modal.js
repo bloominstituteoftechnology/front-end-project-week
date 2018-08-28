@@ -6,12 +6,11 @@ const Modal = () => {
     <Container>
     <Form>
       <FormGroup>
-        <Label for="exampleEmail">Title</Label>
-        <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+        <Label for="exampleEmail">Create New Note</Label>
+        <Input type="email" name="email" id="exampleEmail" placeholder="Note title" />
       </FormGroup>
       <FormGroup>
-        <Label for="exampleText">Text Area</Label>
-        <Input type="textarea" name="text" id="exampleText" />
+        <Input type="textarea" name="text" id="exampleText" placeholder="Note Content" />
      </FormGroup>
    </Form>
    </Container>

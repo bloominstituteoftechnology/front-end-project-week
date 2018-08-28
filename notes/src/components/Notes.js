@@ -1,22 +1,23 @@
-import React from "react"
+import React, {Component} from "react"
 import Note from './Note'
-import {Container, CardGroup}  from 'reactstrap';
-import {Link } from 'react-router-dom'
+import {Container, CardGroup} from 'reactstrap';
+import {Link} from 'react-router-dom'
 
-
-const Notes = props => {
-  console.log("notes", props.notes, props.note)
-  return (
-    <Container>
+class Notes extends Component {
+  render() {
+    console.log("notes", this.props.notes)
+    return (<Container>
       <CardGroup>
-    {props.notes.map(note => (
-      <Link to = {`/notes/${note.id}`}>
-      <Note note={note} key={props.notes.id}/>
-      </Link>
-    ))}
-    </CardGroup>
-  </Container>
-  );
+        {
+          this.props.notes.map(note => (<div key={note.id}>
+            <Link to={`/notes/${note.id}`}>
+              <Note note={note} />
+            </Link>
+          </div>))
+        }
+      </CardGroup>
+    </Container>);
+  }
 };
 
 export default Notes;

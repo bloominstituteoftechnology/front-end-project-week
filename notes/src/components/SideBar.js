@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
+import
 
-const SideBar = () => {
+class SideBar extends Component {
+  render() {
   return (
     <div className="sidenav">
-      <ul>
-      <li href="#about">Add Note</li>
-      <li href="#services">+</li>
-    </ul>
+      <Link className="li" to ="/notes" href="#about">View Your Notes</Link>
+      <Link className="li" to = "/new" ref="#services">Create New Note</Link>
     </div>
   );
+}
 };
 
 export default SideBar;
