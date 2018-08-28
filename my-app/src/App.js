@@ -21,8 +21,8 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={Home} />
-        <Link to="/">Home</Link>
-        <Route path="/yournotes" render={() => <YourNotes notes={this.state.notes} />} />
+        <Link exact to="/">Home</Link>
+        <Route path="/yournotes" render={props => <YourNotes {...props} notes={this.state.notes} />} />
       </div>
     );
   }

@@ -40,7 +40,7 @@
 .text {
     margin-left: -970px;
     margin-top: 60px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 h3 {

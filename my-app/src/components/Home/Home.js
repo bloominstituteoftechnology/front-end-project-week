@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Home = props => {
+const Home = () => {
   return (
     <div>
       <h1>Welcome To Notes</h1>
+      <Link exact to="/yournotes">Notes</Link>
     </div>
   );
 };

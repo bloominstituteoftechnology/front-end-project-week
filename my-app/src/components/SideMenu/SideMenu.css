@@ -6,7 +6,7 @@
 }
 
 .lambda {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     flex-direction: column;
     padding-right: 155px;
     justify-content: center;
@@ -14,13 +14,13 @@
 }
 
 .notes {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     margin-top: 50px;
     margin-left: -300px;
 }
 
 .buttons {
-    border: 1px green solid;
+    /* border: 1px green solid; */
     display: flex;
     justify-content: space-evenly;
 }
