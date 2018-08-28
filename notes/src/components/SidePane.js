@@ -3,18 +3,12 @@ import styled from "styled-components";
 import { Route, Link } from "react-router-dom";
 
 const NavContainer = styled.div`
-  background-color: #d2d1d2;
+  background-color: #D2D1D2;
   height: 100vh;
-  width: 15%;
-  min-width: 260px;
-  max-width: 280px;
-  margin-top: 0px;
-  padding-top: 0px;
-  display: flex;
-  flex-wrap: wrap;
-  border-right: 1px solid grey;
-  margin-bottom: 0px;
-  padding: 0px;
+  width: 25%;
+  min-width: 230px;
+  border-right: 1px solid #434343;
+  padding-top: 10px;
   position: relative;
   left: 0;
   z-index: 2;
@@ -33,19 +27,19 @@ const Buttons = styled.div`
   margin: 0 auto;
   margin-top: -10%;
   position: absolute;
-  top: 110px;
-  right: 30px;
+  top: 125px;
+  right: 26px;
 `;
 
 const SideButton = styled.div`
-  background-color: #5eb3bb;
+  background-color: #5EB3BB;
   height: 40px;
   text-align: center;
   margin: 10px;
-  align-content: center;
+  margin-bottom: 12px;
   display: flex;
   justify-content: center;
-
+  color: white;
   a {
     text-decoration: none;
     color: white;

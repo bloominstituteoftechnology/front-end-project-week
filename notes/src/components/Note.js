@@ -12,6 +12,7 @@ const NoteContainer = styled.div`
   margin: 20px;
   padding: 10px;
   box-sizing: border-box;
+  background-color: white;
   h3 {
     border-bottom: 1px solid grey;
     font-size: 20px;
@@ -22,23 +23,16 @@ const NoteContainer = styled.div`
   }
 `;
 
-const ParentDiv = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
 
-  width: 200px;
-  display: inline-block;
-`;
 const Note = props => {
   return (
-    <ParentDiv>
       <NoteContainer>
         <h3>{props.title}</h3>
         <p>{props.body}</p>
       </NoteContainer>
-    </ParentDiv>
   );
 };
 
 export default Note;
+
+
