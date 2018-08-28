@@ -29,6 +29,12 @@ class App extends Component {
   }
 
 
+  handleInputChange = event => {
+    this.setState({ 
+      [event.target.name]: event.target.value });
+    console.log("Changer log:", event.target.value)
+  }
+
   adder = event => {
     // event.preventDefault();
     
@@ -49,9 +55,6 @@ class App extends Component {
       }).catch(error => console.log(error))
   };
 
-
-
-
   // deleter = id => {
   //   console.log(id)
   //   axios
@@ -63,13 +66,34 @@ class App extends Component {
   //   }).catch(event => console.log(event))
   // }
 
-
-
-
   render() {
     return (
       <div className="App" >
-      <insertFormHere></insertFormHere>
+      <form onSubmit={this.adder}>
+          <input
+            onChange={this.handleInputChange}
+            placeholder="Tag #"
+            type="number"
+            name="tag"
+          />
+          <input
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="Title"
+            
+            name="title"
+          />
+          <input
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="Note"
+            
+            name="textBody"
+          />
+          
+          <button type="submit">Add Note</button>
+          
+        </form>
         
         {this.state.notes.map(each => (
           <Notes key={each.id} note={each} deleter={this.deleter} />
