@@ -8,16 +8,25 @@ padding-left 500px;
 width: 100%;
 height: 500px;
 background-color: #EEEEEE;
-border: 1px solid blue;
 `
+const Buttons = styled.div`
+    width: 150px;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    color: white;
+    `;
 
 const NewNote = () => {
     return (
         <NewForm>
             <form className='note-form'>
                 <h1>Create New Note:</h1>
-                <input className='note-title' type='text' placeholder='New Title' /><br />
-                <input className='note-content' type='text' placeholder='New Content' />
+                <input className='note-title' type='text' placeholder='Note Title' /><br />
+                <input className='note-content' type='text' placeholder='Note Content' />
+                <Buttons>Save</Buttons>
             </form>
         </NewForm>
     );
