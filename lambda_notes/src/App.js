@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import MainNotes from './components/MainNotes'
 import CreateNote from './components/CreateNote';
+import NoteView from './components/NoteView';
 import './App.css'
 
 class App extends Component {
@@ -18,7 +19,8 @@ class App extends Component {
         <div className='container'>
           <Sidebar />
           {/* <MainNotes /> */}
-          <CreateNote />
+          {/* <CreateNote /> */}
+          <NoteView />
         </div>
       </div>
     );
