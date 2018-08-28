@@ -5,24 +5,8 @@ import App from './App';
 import { Switch, Route, Link } from 'react-router-dom';
 import { BrowserRouter as Router} from 'react-router-dom';
 import Notes from "./components/Notes";
-import { Navbar } from './components/Navbar';
 
 ReactDOM.render(
     <Router>
-        <div>
-        <Navbar />
-        <Switch>
-         <Route exact path="/"
-            render={() => <div>HOME page here</div>}
-        />
-
-        <Route exact path="/add"
-            render={() => <div>ADD notes here</div>}
-        />
-
-        <Route exact path="/notes"
-            component={Notes}
-        />
-        </Switch>
-        </div>
+        <App />
     </Router>, document.getElementById('root'),);

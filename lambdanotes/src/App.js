@@ -1,22 +1,44 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
 import Notes from "./components/Notes";
+import Note from "./components/Note";
+import dummyData from "./components/dummydata";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: dummyData,
+      newtitle: "",
+      newtext: "",
+      id: 4,
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <div className="sidebar">
-            <h1>Lambda Notes</h1>
-            <Link to="/notes">
-              <p>View Notes</p>
-            </Link>
-            <Link to="/add">
-              <p>Create Note</p>
-            </Link>
-        </div>
+      <div>
+        <Navbar />
+        <Switch>
+         <Route exact path="/"
+            render={() => <div>HOME page here</div>}
+        />
 
-      </div>
+        <Route exact path="/add"
+            render={() => <div>ADD notes here</div>}
+        />
+
+        <Route exact path="/notes"
+            component={Notes}
+        />
+
+        <Route exact path="/notes/:id"
+            render={props => (
+                <Note {...props} notes={this.state.notes} />
+            )}
+        />
+        </Switch>
+        </div>
     );
   }
 }
