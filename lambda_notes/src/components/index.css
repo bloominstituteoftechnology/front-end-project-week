@@ -1,12 +1,10 @@
+/* SideBar */
+
 .sideBar {
     width: 250px;
     height: 100vh;
     background: lightgray;
     margin-left: 10px;
-}
-
-html, body {
-    margin: 0;
 }
 
 .sbTitle {
@@ -31,6 +29,8 @@ html, body {
 .button1{
     padding: 10px 37px;
 }
+
+/* MainNotes */
 
 .notesContainer {
     padding-left: 35px;
@@ -70,3 +70,34 @@ html, body {
     height: 11rem;
     overflow: hidden;
 }
+
+ /* CreateNote */
+ .createNoteContainer {
+    padding-left: 35px;
+    background: whitesmoke;
+    width: 100%;
+    margin-right: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .inputTitle {
+     width: 60%;
+     margin: 15px 0;
+ }
+
+ .inputContent {
+     width: 97.5%;
+     margin-bottom: 15px;
+     height: 500px;
+ }
+
+ .createNoteButton {
+     width: 180px;
+    margin-bottom: 10px;
+    background: lightseagreen;
+    border: 1px solid grey;
+    padding: 10px 30px;
+    color: white;
+ }

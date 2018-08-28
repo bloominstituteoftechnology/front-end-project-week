@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import MainNotes from './components/MainNotes'
+import CreateNote from './components/CreateNote';
 import './App.css'
 
 class App extends Component {
@@ -16,7 +17,8 @@ class App extends Component {
         <p className='pageView'>Placeholder View</p>
         <div className='container'>
           <Sidebar />
-          <MainNotes className='notesContainer' />
+          {/* <MainNotes /> */}
+          <CreateNote />
         </div>
       </div>
     );
