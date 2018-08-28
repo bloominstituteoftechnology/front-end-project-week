@@ -13,9 +13,14 @@ const NoteContainer = styled.div`
 margin 20px;
 border: 1px solid black;
 background-color: white;
-width: 10%;
+width: 200px;
 height: 150px;
 `
+
+const Main = styled.div`
+    margin-left: 400px;
+    display: flex;
+    flex-wrap: wrap;`
 
 class App extends Component {
 
@@ -26,15 +31,19 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                {this.props.notes.map(note => {
-                    return (
-                        <NoteContainer>
-                            <div className='headline'>{note.title}</div>
-                            <div className='content'>{note.textBody}</div>
-                        </NoteContainer>
-                    )
-                })}
+                <SideBar />
+                <Main>
+                    {this.props.notes.map(note => {
+                        return (
+                            <NoteContainer>
+                                <div className='headline'>{note.title}</div>
+                                <div className='content'>{note.textBody}</div>
+                            </NoteContainer>
+                        )
+                    })}
+                </Main>
                 <NewNote />
+                <DeleteNote />
             </div>
         );
     }

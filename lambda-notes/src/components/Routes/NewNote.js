@@ -40,26 +40,28 @@ class NewNote extends Component {
 
     render() {
         return (
-            <form onSubmit={() => this.handleAddNote()}>
-                <h1>Create New Note:</h1>
-                <input
-                    name='title'
-                    value={this.state.title}
-                    type="text"
-                    placeholder="Note Title"
-                    onChange={this.handleInputChange}
-                /><br />
-                <input
-                    name='textBody'
-                    value={this.state.textBody}
-                    type="text"
-                    placeholder="content"
-                    onChange={this.handleInputChange}
-                /><br />
-                <button type='submit'>
-                    Save
+            <NewForm>
+                <form onSubmit={() => this.handleAddNote()}>
+                    <h1>Create New Note:</h1>
+                    <input
+                        name='title'
+                        value={this.state.title}
+                        type="text"
+                        placeholder="Note Title"
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <input
+                        name='textBody'
+                        value={this.state.textBody}
+                        type="text"
+                        placeholder="content"
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <button type='submit'>
+                        Save
                 </button>
-            </form>
+                </form>
+            </NewForm>
         );
     }
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const DeleteBox = styled.div`
     display: flex;
+    margin-left: 300px;
     justify-content: center;
     height: 400px;
     `
