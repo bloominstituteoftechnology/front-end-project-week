@@ -1,8 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const NoteList = () => {
+const NoteList = (props) => {
     return(
-        <div></div>
+        <div className='list-view'>
+            <h3>Your Notes</h3>
+            {props.notes.map(note => (
+                <div className='note-card' key={note.id}>
+                    <Link to={`/notes/${note.id}`}>
+                        <h3>{note.title}</h3>
+                    </Link>
+                    <p>{note.textBody}</p>
+                </div>
+            ))}
+        </div>
     );
 }
 

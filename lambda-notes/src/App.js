@@ -1,8 +1,42 @@
 import React, { Component } from 'react';
 import Route from 'react-router-dom';
 
+import ListView from './components/ListView';
 import SideBar from './components/SideBar';
 import './App.css';
+
+const notes = [
+  {
+    tags: 'Tuesday',
+    title: 'bank',
+    textBody: 'I need cash and quarters for laundry.', 
+    id: 0,
+  },
+  {
+    tags: ['Tuesday', 'Wednesday'],
+    title: 'laundry',
+    textBody: 'Do it late at night when no one else is trying to use the machines.',
+    id: 1,
+  },
+  {
+    tags: 'whenever',
+    title: 'haircut',
+    textBody: 'The Supercuts on Sunset & Gower.  Call first.',
+    id: 2,
+  },
+  {
+    tags: 'Thursday',
+    title: 'cable bill',
+    textBody: 'Pay online by Thursday.',
+    id: 3,
+  },
+  {
+    tags: 'Wednesday',
+    title: 'dinner',
+    textBody: "Dinner at my sister's house in Redondo Beach at 7pm.",
+    id: 4,
+  },
+]
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +56,15 @@ class App extends Component {
         <Route
           path='/'
           component={SideBar}
+        />
+        <Route
+          path='/notes'
+          render={props => (
+            <ListView 
+              {...props} 
+              notes={this.state.notes}
+            />
+          )}
         />
       </div>
     );
