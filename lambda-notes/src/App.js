@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Route from 'react-router-dom';
 
+import NoteView from './components/NoteView';
 import ListView from './components/ListView';
 import SideBar from './components/SideBar';
 import './App.css';
@@ -62,6 +63,15 @@ class App extends Component {
           render={props => (
             <ListView 
               {...props} 
+              notes={this.state.notes}
+            />
+          )}
+        />
+        <Route
+          path={'/notes/:id'}
+          render={props => (
+            <NoteView
+              {...props}
               notes={this.state.notes}
             />
           )}
