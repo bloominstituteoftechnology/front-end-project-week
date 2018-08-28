@@ -27,7 +27,7 @@ import { Route } from 'react-router-dom'
             <div>
                 <Route render={({ history }) => (
                     <div>
-                        <span className="delete-btn" onClick={this.toggle}><i class="fas fa-trash-alt"></i></span>
+                        <span className="delete-btn" onClick={this.toggle}><i className="fas fa-trash-alt"></i></span>
                         <Modal centered={true} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                             <ModalHeader centered={true}>Are you sure you want to delete this?</ModalHeader>
                             <ModalBody>

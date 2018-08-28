@@ -1,84 +1,69 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Container, Col } from 'reactstrap';
-import DeleteModal from './DeleteModal'
-import './Note.css';
- 
- class Note extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            notes: props.notes,
-            note: {}
-          
-        };
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Container, Col } from "reactstrap";
+import DeleteModal from "./DeleteModal";
+import "./Note.css";
+
+class Note extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: props.notes,
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.notes !== this.props.notes) {
+      this.setState({
+        notes: this.props.notes
+      });
     }
-     componentDidMount() {
-        let noteID = this.props.match.params.id;
-        const note = this.state.notes.find(
-            note => note.id === Number(noteID)
-        );
-        if (!note) return;
-        this.setState({ note });
-    }
+  }
 
- 
+  render() {
+    const noteID = this.props.match.params.id;
 
+    const note = this.state.notes.find(note => note._id === noteID.toString());
+    if (!note) return (<div>Loading...</div>);
 
-     render() {
-        const {title, text ,id} = this.state.note;
-        return (
-            <Container className="note">
-                <Row noGutters>
-                    <Col xs="10"></Col>
-                    <Col xs="1">
-                    <Link style={{ color: "black" }} to={`/notes/${id}/edit`}><i class="fas fa-edit"></i></Link>
-                    </Col>
-                    <Col xs="1">
-                        <DeleteModal note={this.state.note} deleteNote ={this.props.deleteNote}/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <h2>{title}</h2>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <p>{text}</p>
-                    </Col>
-                </Row>
-            </Container>
-        );
-    }
-};
- export default Note;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    const { title, textBody, _id } = note;
+    return (
+      <Container className="note">
+        <Row noGutters>
+          <Col xs="10"> </Col>{" "}
+          <Col xs="1">
+            <Link
+              style={{
+                color: "black"
+              }}
+              to={`/notes/${_id}/edit`}
+            >
+              {" "}
+              <i className="fas fa-edit"> </i>
+            </Link>
+          </Col>{" "}
+          <Col xs="1">
+            <DeleteModal
+              note={this.state.note}
+              deleteNote={this.props.deleteNote}
+            />{" "}
+          </Col>{" "}
+        </Row>{" "}
+        <Row>
+          <Col>
+            <h2> {title} </h2>{" "}
+          </Col>{" "}
+        </Row>{" "}
+        <Row>
+          <Col>
+            <p> {textBody} </p>{" "}
+          </Col>{" "}
+        </Row>{" "}
+      </Container>
+    );
+  }
+}
+export default Note;
 
 // import React from 'react';
 // import { Link } from 'react-router-dom';
@@ -93,7 +78,7 @@ import './Note.css';
 //         <Link to="/edit"><i class="fas fa-edit"></i></Link>
 //            <Link to="/delete"><i class="fas fa-trash-alt"></i></Link>
 //              <h2>{note.title} </h2>
-//              <p>{note.text}</p>
+//              <p>{note.textBody}</p>
 //          </div>
 //      );
 //    ;}
