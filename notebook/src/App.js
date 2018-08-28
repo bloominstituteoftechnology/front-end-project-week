@@ -6,24 +6,32 @@ import { Link } from "react-router-dom";
 import NoteList from "./Component/NoteList";
 import NoteForm from "./Component/NoteForm";
 
-const noteListArr = [
-  {
-    header: "Testing out New App",
-    content: "This is my new note app for front end project week"
-  },
-  {
-    header: "Things to See in NYC",
-    content: "The MET, Central Park, Financial District"
-  }
-];
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: noteListArr
+      notes: [
+        {
+          header: "Testing out New App",
+          content: "This is my new note app for front end project week"
+        },
+        {
+          header: "Things to See in NYC",
+          content: "The MET, Central Park, Financial District"
+        }
+      ],
+      note: ""
     };
   }
+
+  changeNote = event => {
+    this.setState({[event.target.name]: event.target.value});
+  }
+
+
+
+
 
   render() {
     //Build out sidebar

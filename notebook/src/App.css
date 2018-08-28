@@ -7,3 +7,9 @@
 .App .sidebar-left {
   background-color: grey;
 }
+
+
+.note-content-input{
+  height: 500px;
+  width: 300px;
+}

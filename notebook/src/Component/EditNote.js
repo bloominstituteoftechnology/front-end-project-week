@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FormGroup, Input } from "reactstrap";
 
-class NoteForm extends Component {
+class EditNote extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,6 +11,9 @@ class NoteForm extends Component {
       content: ""
     };
   }
+
+//build out the edit form
+
 
   handleINputChage = event => {
     this.setState({ [event.target.name]: event.target.value });
