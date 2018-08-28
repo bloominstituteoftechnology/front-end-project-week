@@ -22,7 +22,7 @@ class NoteCard extends Component {
           <NoteTitle>{this.props.note.title}</NoteTitle>
           <NoteBody>
             {this.props.note.body.length > 150
-              ? this.props.note.body.substring(0, 150) + "..."
+              ? `${this.props.note.body.substring(0, 150)}...`
               : this.props.note.body}
           </NoteBody>
         </Card>

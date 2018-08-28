@@ -5,6 +5,7 @@ import { testData } from "./testData";
 import NoteList from "./components/NoteList";
 import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
+import SimpleStorage from 'react-simple-storage'
 
 class App extends Component {
   state = {
@@ -23,6 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <SimpleStorage parent={this} />
         <Sidebar />
         <Route
           exact
