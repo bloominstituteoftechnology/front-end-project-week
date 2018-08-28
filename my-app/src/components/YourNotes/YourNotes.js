@@ -9,7 +9,7 @@ class YourNotes extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="cards-container">
         {this.props.notes.map((note, i) => {
           return (
             <div>

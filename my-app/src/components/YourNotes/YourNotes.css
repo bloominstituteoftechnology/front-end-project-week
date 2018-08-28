@@ -10,6 +10,15 @@
     font-family: 'Space Mono', monospace;
 }
 
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: -900px;
+    margin-left: 300px;
+    border: 1px solid red;
+}
+
 .container {
     /* border: 2px dashed red; */
     display: flex;
