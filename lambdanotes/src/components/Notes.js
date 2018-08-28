@@ -3,7 +3,9 @@ import React from "react";
 
 
 class Notes extends React.Component {
-	state = {
+    constructor(props) {
+        super(props);
+    state = {
     notes: [
       {
       id: 0,
@@ -25,14 +27,14 @@ class Notes extends React.Component {
       title: "No escape from reality",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       }
-    ]
+    ]}
   };
-  
+
 	render() {
 		return (
 			<div>
 				<h3>Your Notes:</h3>
-				{this.props.notes.map(note => (
+				{this.state.notes.map(note => (
 					<div>
 						<h4>{note.title}</h4>
 						<p>{note.text}</p>

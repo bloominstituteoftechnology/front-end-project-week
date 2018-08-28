@@ -18,11 +18,7 @@ ReactDOM.render(
         />
 
         <Route exact path="/notes"
-            render={() => (
-						<div>
-							<Notes notes={this.state.notes} />
-						</div>
-					)}
+            component={Notes}
         />
         </Switch>
     </Router>, document.getElementById('root'),);
