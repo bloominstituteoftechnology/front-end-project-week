@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import MainNotes from './components/MainNotes'
 import CreateNote from './components/CreateNote';
 import NoteView from './components/NoteView';
+import EditNote from './components/EditNote';
 import './App.css'
 
 class App extends Component {
@@ -20,7 +21,8 @@ class App extends Component {
           <Sidebar />
           {/* <MainNotes /> */}
           {/* <CreateNote /> */}
-          <NoteView />
+          {/* <NoteView /> */}
+          <EditNote />
         </div>
       </div>
     );
