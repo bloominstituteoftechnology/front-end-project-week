@@ -3,23 +3,30 @@ import styled from 'styled-components';
 import { Route, NavLink, Link } from 'react-router-dom';
 
 const Side = styled.div`
-// background: #d3d2d3;
+background: #d3d2d3;
 // width: 15%;
 // display: inline-block
+display: flex;
+flex-direction: column;
+height: 100vh;
+margin-right: 2rem;
 `
 const Header = styled.h1`
-// color: #4a4c4e
+color: #4a4c4e;
+margin-left: 5%;
+font-weight: bold;
 `
 
 const Button = styled.button`
-// background: #24b8bd;
-// border: 1px solid #cdcecf;
-// color: white;
-// font-weight: bold;
-// width: 90%;
-// margin-left: 5%;
-// height: 5%;
-// margin-top: 15%;
+background: #24b8bd;
+border: 1px solid #cdcecf;
+color: white;
+font-weight: bold;
+width: 90%;
+margin-left: 5%;
+height: 2.5rem;
+margin-top: 15%;
+
 `
 
 

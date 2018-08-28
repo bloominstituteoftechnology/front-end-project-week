@@ -3,15 +3,17 @@ import styled from 'styled-components';
 import { Route, NavLink, Link } from 'react-router-dom';
 
 const Create = styled.div`
-// display: inline-block;
-// background: #f2f1f2;
-// height: 100vh;
-// height: 100%;
-// width: 100%;
+// display: flex;
+// flex-direction: column;
 `
 
 const Header = styled.h2`
 
+`
+
+const CreateForm = styled.form`
+display: flex;
+flex-direction: column;
 `
 
 const NoteTitle = styled.input`
@@ -20,6 +22,7 @@ padding: 0.25rem 0.75rem;
 margin-bottom: 1rem;
 border-radius: 0.2rem;
 border: 1px solid #B2B2B2
+width: 75%;
 `
 
 const NewNote = styled.textarea`
@@ -27,11 +30,16 @@ resize: none;
 font-size: 1.5;
 margin-bottom: 1rem;
 border-radius: 0.2rem;
-border: 1px solid #B2B2B2
+border: 1px solid #B2B2B2;
+width: 115%;
 `
 
 const AddNote = styled.button`
-
+background: #24b8bd;
+border: 1px solid #cdcecf;
+color: white;
+font-weight: bold;
+width: 50%;
 `
 
 const CreateNote = (props) => {
@@ -40,7 +48,7 @@ const CreateNote = (props) => {
 
         <Header>Create New Note:</Header>
 
-        <form onSubmit={props.addNote}>
+        <CreateForm onSubmit={props.addNote}>
             <NoteTitle
                 type='text'
                 placeholder='New Title'
@@ -61,7 +69,7 @@ const CreateNote = (props) => {
                 cols='50'
             />
             <AddNote onSubmit={props.addNote}>Save</AddNote>
-        </form>
+        </CreateForm>
     </Create>);
 }
 
