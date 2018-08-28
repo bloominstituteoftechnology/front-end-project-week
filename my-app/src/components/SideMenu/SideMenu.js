@@ -12,12 +12,12 @@ const SideMenu = () => {
         <h1>Notes</h1>
       </div>
       <div className="buttons">
-        <Link>
+        <Link to="/yournotes">
           <div className="view-notes">
             <span>View Your Notes</span>
           </div>
         </Link>
-        <Link>
+        <Link to="/createnote">
           <div className="create-note">
             <span>+ Create New Note</span>
           </div>
