@@ -7,7 +7,7 @@ import "./App.css";
 import SidePane from "./components/SidePane";
 import Notes from "./NoteData";
 import NotesView from "./components/NotesView";
-
+import SingleView from './components/SingleView';
 
 //Styles================================
 const StyledApp = styled.div`
@@ -40,7 +40,8 @@ class App extends Component {
     return (
       <StyledApp>
         <SidePane />
-        <NotesView notes={Notes} />
+        {/* <NotesView notes={Notes} /> */}
+        <SingleView notes={Notes}/>
       </StyledApp>
     );
   }
