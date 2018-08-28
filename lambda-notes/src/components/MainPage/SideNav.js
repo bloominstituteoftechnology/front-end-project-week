@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
@@ -28,8 +29,12 @@ const SideBar = () => {
         <Sidebar>
             <div className='sidebar-container'>
                 <h1>Lambda<br />Notes</h1>
-                <NavButton>View Your Notes</NavButton><br />
-                <NavButton>+ Create New Note</NavButton>
+                <NavButton>
+                    <Link to='/notes'>View Your Notes</Link>
+                </NavButton><br />
+                <NavButton>
+                    <Link to='/create-note'>+ Create New Note</Link>
+                </NavButton>
             </div>
         </Sidebar>
     )

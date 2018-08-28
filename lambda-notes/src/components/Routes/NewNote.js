@@ -20,7 +20,6 @@ const Buttons = styled.div`
     color: white;
     `;
 
-
 class NewNote extends Component {
     state = {
         tags: '',

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import SideBar from './components/MainPage/SideNav';
-import ViewNote from './components/MainPage/ViewNote';
-import DeleteNote from './components/Routes/DeleteNote';
-import EditNote from './components/Routes/EditNote';
+import ViewNotes from './components/MainPage/ViewNotes';
+import NewNote from './components/Routes/NewNote';
 import styled from 'styled-components';
-
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchingNotes, createNote } from './actions/index';
-import NewNote from './components/Routes/NewNote';
 
 const NoteContainer = styled.div`
 margin 20px;
@@ -24,30 +22,17 @@ const Main = styled.div`
 
 class App extends Component {
 
-    componentDidMount() {
-        this.props.fetchingNotes();
-    };
-
     render() {
         return (
             <div className="App">
                 <SideBar />
-                <Main>
-                    {this.props.notes.map(note => {
-                        return (
-                            <NoteContainer>
-                                <div className='headline'>{note.title}</div>
-                                <div className='content'>{note.textBody}</div>
-                            </NoteContainer>
-                        )
-                    })}
-                </Main>
-                <NewNote />
-                <DeleteNote />
+                <Route path='/notes' exact render={() => { return (<ViewNotes />); }} />
+                <Route path='/create-note' exact render={() => { return (<NewNote />); }} />
             </div>
         );
     }
 }
+
 
 const mapStateToProps = state => {
     return {
