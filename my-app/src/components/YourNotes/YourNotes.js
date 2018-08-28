@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NoteCard from "./NoteCard";
+import "./YourNotes.css";
 
 class YourNotes extends Component {
   state = {
@@ -8,7 +9,7 @@ class YourNotes extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         {this.props.notes.map((note, i) => {
           return (
             <div>
