@@ -5,16 +5,16 @@ const SideBar = () => {
         <div className='sidebar'>
             <h1>Lambda Notes</h1>
             <button 
-                className='sidebar-button'
+                className='button-style'
                 onClick= {() =>
-                    clickHandler('/noteView')}
+                    clickHandler('/notes')}
             >
             View Your Notes
             </button>
             <button 
-                className='sidebar-button'
+                className='button-style'
                 onClick= {() =>
-                    clickHandler('/createNewView')}
+                    clickHandler('/create')}
             >
             + Create New Note
             </button>

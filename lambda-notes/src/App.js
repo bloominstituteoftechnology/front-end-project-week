@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Route from 'react-router-dom';
 
+import DeleteModal from './components/DeleteModal';
+import CreateNewView from './components/CreateNewView';
+import EditView from './components/EditView';
 import NoteView from './components/NoteView';
 import ListView from './components/ListView';
 import SideBar from './components/SideBar';
@@ -71,6 +74,33 @@ class App extends Component {
           path={'/notes/:id'}
           render={props => (
             <NoteView
+              {...props}
+              notes={this.state.notes}
+            />
+          )}
+        />
+        <Route
+          path={'/edit'}
+          render={props => (
+            <EditView
+              {...props}
+              notes={this.state.notes}
+            />
+          )}
+        />
+        <Route
+          path={'/create'}
+          render={props => (
+            <CreateNewView
+              {...props}
+              notes={this.state.notes}
+            />
+          )}
+        />
+        <Route
+          path={'/delete'}
+          render={props => (
+            <DeleteModal
               {...props}
               notes={this.state.notes}
             />
