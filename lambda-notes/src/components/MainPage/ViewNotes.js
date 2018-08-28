@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route, Link } from 'react-router-dom';
 import { fetchingNotes } from '../../actions/index';
 import styled from 'styled-components';
 
-const NotesContainer = styled.div`
+const Header = styled.div`
 display: flex;
 width: 100%;
-height: 500px;
-background-color: #EEEEEE;
-
-`;
+`
 
 const NoteContainer = styled.div`
 margin 20px;
@@ -34,17 +32,25 @@ class ViewNotes extends Component {
     render() {
         return (
             < Main >
-                {this.props.notes.map(note => {
-                    return (
-                        <NoteContainer>
-                            <div className='headline'>{note.title}</div>
-                            <div className='content'>{note.textBody}</div>
-                        </NoteContainer>
-                    )
-                })}
+                <Header><h1>Your Notes:</h1></Header>
+                {this.props.notes.map(note => (
+                    <SingleNote key={note.title} note={note} />
+                ))}
             </Main >
         );
     }
+}
+
+function SingleNote({ note }) {
+    const { tags, title, textBody } = note;
+    return (
+        <Link to='view-note'>
+            <NoteContainer>
+                <div className='headline'>{note.title}</div>
+                <div className='content'>{note.textBody}</div>
+            </NoteContainer>
+        </Link>
+    );
 }
 
 const mapStateToProps = state => {

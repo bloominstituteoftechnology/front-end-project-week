@@ -5,6 +5,7 @@ export const initialState = {
     updatingNote: false,
     deletingNote: false,
     notes: [{
+        tags: ['tag', 'otherTag'],
         title: 'Note Title',
         content: 'Note Content'
     }],

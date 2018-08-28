@@ -30,7 +30,7 @@ const SideBar = () => {
             <div className='sidebar-container'>
                 <h1>Lambda<br />Notes</h1>
                 <NavButton>
-                    <Link to='/notes'>View Your Notes</Link>
+                    <Link to='/your-notes'>View Your Notes</Link>
                 </NavButton><br />
                 <NavButton>
                     <Link to='/create-note'>+ Create New Note</Link>

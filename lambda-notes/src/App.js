@@ -2,23 +2,10 @@ import React, { Component } from 'react';
 import SideBar from './components/MainPage/SideNav';
 import ViewNotes from './components/MainPage/ViewNotes';
 import NewNote from './components/Routes/NewNote';
-import styled from 'styled-components';
+import SingleNote from './components/MainPage/ViewNotes';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchingNotes, createNote } from './actions/index';
-
-const NoteContainer = styled.div`
-margin 20px;
-border: 1px solid black;
-background-color: white;
-width: 200px;
-height: 150px;
-`
-
-const Main = styled.div`
-    margin-left: 400px;
-    display: flex;
-    flex-wrap: wrap;`
 
 class App extends Component {
 
@@ -26,8 +13,9 @@ class App extends Component {
         return (
             <div className="App">
                 <SideBar />
-                <Route path='/notes' exact render={() => { return (<ViewNotes />); }} />
+                <Route path='/your-notes' exact render={() => { return (<ViewNotes />); }} />
                 <Route path='/create-note' exact render={() => { return (<NewNote />); }} />
+                <Route path='/view-note' exact render={() => { return (<SingleNote />); }} />
             </div>
         );
     }
