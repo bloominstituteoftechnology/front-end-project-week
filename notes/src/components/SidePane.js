@@ -58,10 +58,10 @@ const SidePane = () => {
       <Buttons>
         <SideButton>
         {/* a's will be Links */}
-          <a href="#">View Your Notes</a>
+        <Link to="/">View Your Notes</Link>
         </SideButton>
         <SideButton>
-          <a href="#">+ Create New Note</a>
+        <Link to={`/create`}>+ Create New Note</Link>
         </SideButton>
       </Buttons>
     </NavContainer>

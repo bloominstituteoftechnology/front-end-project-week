@@ -135,4 +135,7 @@ body {
   font-family: sans-serif;
 }
 
-
+.noDecoration {
+  text-decoration: none;
+  color: #434343;
+}

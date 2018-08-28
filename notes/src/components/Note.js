@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
 const NoteContainer = styled.div`
   width: 170px;
@@ -15,11 +16,13 @@ const NoteContainer = styled.div`
   padding: 10px;
   box-sizing: border-box;
   background-color: white;
+  
   h3 {
     border-bottom: 1px solid lightgrey;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 10px;
+    
   }
   p {
     line-height: 2;
@@ -30,10 +33,12 @@ const NoteContainer = styled.div`
 
 const Note = props => {
   return (
+      <Link className="noDecoration" to={`/note${props.id}`}> 
     <NoteContainer>
       <h3>{props.title}</h3>
       <p>{props.body}</p>
     </NoteContainer>
+    </Link>
   );
 };
 

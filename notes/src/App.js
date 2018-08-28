@@ -47,7 +47,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/note1"
+          path="/note:id"
           render={props => <SingleView {...props} notes={Notes} />}
         />
       </StyledApp>

@@ -18,13 +18,17 @@ h2 {
 `;
 
 const NotesView = (props) => {
-    return ( 
 
+    const routeToCard = () => {
+        
+    }
+
+    return ( 
         <StyledViewWrapper>
         <h2>Your Notes:</h2>
         <StyledNoteContainer>
           {props.notes.map(note => (
-            <Note title={note.title} body={note.body} tags={note.tags} />
+            <Note id={note.id} title={note.title} body={note.body} tags={note.tags} />
           ))}
         </StyledNoteContainer>
       </StyledViewWrapper>

@@ -6,32 +6,38 @@ const Notes = [
   {
     title: "Test Note",
     tags: "test, whatever I choose",
-    body: lorem
+    body: lorem,
+    id: 1
   },
   {
     title: "Test Note",
     tags: "test, whatever I choose",
-    body: lorem
+    body: lorem,
+    id: 2
   },
   {
     title: "Test Note",
     tags: "test, whatever I choose",
-    body: lorem
+    body: lorem,
+    id: 3
   },
   {
     title: "Test Note",
     tags: "test, whatever I choose",
-    body: lorem
+    body: lorem,
+    id: 4
   },
   {
     title: "Test Note",
     tags: "test, whatever I choose",
-    body: lorem
+    body: lorem,
+    id: 5
   },
   {
     title: "Test Note",
     tags: "test, whatever I choose",
-    body: lorem
+    body: lorem,
+    id: 6
   }
 ];
 
