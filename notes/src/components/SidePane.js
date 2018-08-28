@@ -5,7 +5,7 @@ import { Route, Link } from "react-router-dom";
 const NavContainer = styled.div`
   background-color: #D2D1D2;
   height: 100vh;
-  width: 25%;
+  width: 230px;
   min-width: 230px;
   border-right: 1px solid #434343;
   padding-top: 10px;
@@ -21,14 +21,14 @@ const NavContainer = styled.div`
   }
 `;
 const Buttons = styled.div`
-  width: 80%;
+  width: 195px;
   color: white;
   margin: 10px;
   margin: 0 auto;
   margin-top: -10%;
   position: absolute;
   top: 125px;
-  right: 26px;
+  right: 20px;
 `;
 
 const SideButton = styled.div`

@@ -4,12 +4,12 @@ import styled from "styled-components";
 const NoteContainer = styled.div`
   width: 170px;
   height: 200px;
-  border: 1px solid black;
+  border: 1px solid #434343;
   overflow: hidden;
   display: flex;
   align-content: flex-end;
   flex-direction: column;
-  margin: 20px;
+  margin: 12px 10px;
   padding: 10px;
   box-sizing: border-box;
   background-color: white;
@@ -17,6 +17,7 @@ const NoteContainer = styled.div`
     border-bottom: 1px solid grey;
     font-size: 20px;
     font-weight: bold;
+    padding-bottom: 10px;
   }
   p {
     line-height: 2;

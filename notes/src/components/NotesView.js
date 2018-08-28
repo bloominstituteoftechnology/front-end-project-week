@@ -11,6 +11,11 @@ const StyledNoteContainer = styled.div`
 const StyledViewWrapper = styled.div`
 display: flex;
 flex-direction: column;
+padding-left: 15px;
+h2 {
+    padding-top: 25px;
+    margin-left: 5px;
+}
 `;
 
 const NotesView = (props) => {
