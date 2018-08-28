@@ -12,6 +12,13 @@ export const PageHeader = styled.h2`
   margin: 40px 20px;
 `;
 
+// Notes
+export const NoteBody = styled.p`
+    padding: 20px;
+    line-height: 1.6;
+`
+
+
 // buttons
 export const StyledButton = styled.button`
   width: 220px;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import {Page, PageHeader} from './styles'
 import Form from './Form'
 import {withRouter} from "react-router-dom";
@@ -28,6 +28,7 @@ handleSubmit = e => {
     this.props.history.push("/notes")
 };
   render() {
+      console.log(this.props)
     return (
       <Page>
         <PageHeader>Create New Note:</PageHeader>
