@@ -5,7 +5,7 @@ import './mainContent.css';
 class MainContent extends Component {
     render() {
         return(
-            <div>
+            <div className="mainContent">
                 Main Content
             </div>
         );
