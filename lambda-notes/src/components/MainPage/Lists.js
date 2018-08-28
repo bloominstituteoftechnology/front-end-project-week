@@ -8,8 +8,9 @@ display: flex;
 width: 100%;
 height: 500px;
 background-color: #EEEEEE;
-
 `;
+
+
 
 const List = styled.div`
 width: 100%;

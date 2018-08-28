@@ -1,5 +1,4 @@
 import React from 'react';
-import Note from './Note';
 import styled from 'styled-components';
 
 const NotesContainer = styled.div`
