@@ -46,8 +46,8 @@ class ViewNote extends Component {
 
             <Actions>
             
-            <NavLink to="/"><Button onClick={this.state.delete}>delete</Button></NavLink>
-            <Button>edit</Button></Actions>
+            <Button onClick={this.state.delete}><NavLink to="/">delete</NavLink></Button>
+            <Button><NavLink to="/edit">edit</NavLink></Button></Actions>
 
             <NoteName>{this.state.note[this.state.id].noteName}</NoteName>
 

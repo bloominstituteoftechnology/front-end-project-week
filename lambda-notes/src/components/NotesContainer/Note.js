@@ -3,17 +3,26 @@ import styled from 'styled-components';
 import { Route, NavLink, Link } from 'react-router-dom';
 import ViewNote from '../NoteActions/ViewNote';
 
-const NoteContainer = styled.div`
+const Header = styled.h2`
 
 `
 
+const NoteContainer = styled.div`
+display: inline-flex;
+flex-wrap: wrap;
+border: 1px solid black;
+max-width: 900px;
+justify-content: space-between;
+`
+
 const Notes = styled.div`
-// width: 200px;
-// padding: 0 12px;
-// border: 1px solid black;
-// margin: 20%;
-// display: inline-block;
-// `
+width: 200px;
+padding: 0 12px;
+border: 1px solid black;
+margin: 10%;
+display: inline-block;
+background: yellow;
+`
 
 const NoteName = styled.h2`
 
@@ -26,6 +35,10 @@ const NoteText = styled.p`
 const Note = (props) => {
     console.log(props.note)
     return (<NoteContainer>
+
+        <Header>Your Notes:</Header>
+
+        <br />
 
         {props.note.map((note, index) => {
             return <NavLink to={`/view/${note.id}`}>

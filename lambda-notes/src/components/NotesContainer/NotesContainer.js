@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Note from './Note';
 import CreateNote from '../NoteActions/CreateNote';
 import ViewNote from '../NoteActions/ViewNote';
+import EditNote from '../NoteActions/EditNote';
 
 const Notes = styled.div`
 // display: flex;
@@ -22,6 +23,7 @@ const NotesContainer = (props) => {
         <Route exact path='/' render={routerProps => <Note {...routerProps} note={props.note} />} />
         <Route exact path='/create' render={routerProps => <CreateNote {...routerProps} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
         <Route path='/view/:id' render={routerProps => <ViewNote {...routerProps} delete={props.delete} note={props.note}/>} />
+        <Route path='/edit' render={routerProps => <EditNote {...routerProps} edit={props.delete} note={props.note} />} />
     </Notes>);
 }
 
