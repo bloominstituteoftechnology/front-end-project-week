@@ -6,8 +6,10 @@ import "./App.css";
 
 import SidePane from "./components/SidePane";
 import Notes from "./NoteData";
-import Note from "./components/Note";
+import NotesView from "./components/NotesView";
 
+
+//Styles================================
 const StyledApp = styled.div`
   background-color: #e3e3e3;
   display: flex;
@@ -25,16 +27,7 @@ const StyledApp = styled.div`
     height: 40px;
   }
 `;
-
-const StyledNoteContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const StyledViewWrapper = styled.div`
-display: flex;
-flex-direction: column;
-`;
+//=====================================
 
 class App extends Component {
   state = {
@@ -47,14 +40,7 @@ class App extends Component {
     return (
       <StyledApp>
         <SidePane />
-        <StyledViewWrapper>
-          <h2>Your Notes:</h2>
-          <StyledNoteContainer>
-            {this.state.notes.map(note => (
-              <Note title={note.title} body={note.body} tags={note.tags} />
-            ))}
-          </StyledNoteContainer>
-        </StyledViewWrapper>
+        <NotesView notes={Notes} />
       </StyledApp>
     );
   }
