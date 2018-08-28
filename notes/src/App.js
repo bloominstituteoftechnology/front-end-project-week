@@ -21,7 +21,10 @@ class App extends Component {
           title: "test title 1",
           textBody: "test body 1"
         }
-      ]
+      ],
+      tags: [],
+      title: "",
+      textBody: "",
     };
   }
 
@@ -29,20 +32,42 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  newNote = e => {
+    e.preventDefault();
+    const noteList = [...this.state.noteList, {tags:this.state.tags, title: this.state.title, textBody: this.state.textBody}]
+    console.log("!!!",noteList)
+     this.setState({
+            noteList,
+            tags: [],
+            title: "",
+            textBody: ""
+    }) 
+  };
+
   render() {
     return (
       <div className="App">
         <Sidebar />
-        <Listview
-          tags={this.state.noteList.tags}
+{/*         <Listview
+           tags={this.state.noteList.tags}
           title={this.state.noteList.title}
           textBody={this.state.noteList.textbody}
           noteList={this.state.noteList}
-        />
-        {console.log(this.state.noteList, "!!!")}
+        />  */}
+        <Route to='/' render={(props) => <Listview {...props} 
+        tags={this.state.noteList.tags}
+          title={this.state.noteList.title}
+          textBody={this.state.noteList.textbody}
+          noteList={this.state.noteList}/>}/>
+        
+        
         <CreateNew 
         handleInputChange={this.handleInputChange}
-        noteList={this.state.noteList} />
+        noteList={this.state.noteList}
+        newNote={this.newNote}
+        textBody={this.state.textBody}
+        tags={this.state.tags}
+        title={this.state.title} />
       </div>
     );
   }
