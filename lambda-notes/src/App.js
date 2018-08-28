@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Notes from './components/MainPage/Lists';
 import SideBar from './components/SideNav';
-import NewNote from './components/MainPage/NewNote';
+import NewNote from './components/NewNote';
+import ViewNote from './components/MainPage/ViewNote';
 import DeleteNote from './components/DeleteNote';
-import EditNote from './components/MainPage/EditNote';
+import EditNote from './components/EditNote';
 
 class App extends Component {
     render() {
@@ -12,6 +13,7 @@ class App extends Component {
                 <SideBar />
                 <Notes />
                 <NewNote />
+                <ViewNote />
                 <EditNote />
                 <DeleteNote />
             </div>
