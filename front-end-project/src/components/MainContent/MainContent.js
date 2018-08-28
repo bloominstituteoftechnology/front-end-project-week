@@ -5,7 +5,7 @@ class MainContent extends Component {
     state = {  }
     render() { 
         return ( 
-            <div>
+            <div className='main_container'>
             placeholder for MainContent
             </div>
          );
