@@ -10,14 +10,15 @@ const NoteContainer = styled.div`
   align-content: flex-end;
   flex-direction: column;
   margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
   h3 {
-      border-bottom: 1px solid grey;
-      font-size: 20px;
-      font-weight: bold;
+    border-bottom: 1px solid grey;
+    font-size: 20px;
+    font-weight: bold;
   }
   p {
-      line-height: 2;
-
+    line-height: 2;
   }
 `;
 
@@ -25,14 +26,13 @@ const ParentDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   position: relative;
-  top: -700px;
-  margin-left: 270px;
 
-
-`
+  width: 200px;
+  display: inline-block;
+`;
 const Note = props => {
   return (
-    <ParentDiv>   
+    <ParentDiv>
       <NoteContainer>
         <h3>{props.title}</h3>
         <p>{props.body}</p>

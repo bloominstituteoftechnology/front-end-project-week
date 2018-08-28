@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Route, Link } from "react-router-dom";
 
 const NavContainer = styled.div`
   background-color: #d2d1d2;
@@ -23,7 +24,6 @@ const NavContainer = styled.div`
     margin-left: 12%;
     height: 40px;
     margin-top: 5px;
-
   }
 `;
 const Buttons = styled.div`
@@ -35,7 +35,6 @@ const Buttons = styled.div`
   position: absolute;
   top: 110px;
   right: 30px;
-
 `;
 
 const SideButton = styled.div`
@@ -46,7 +45,7 @@ const SideButton = styled.div`
   align-content: center;
   display: flex;
   justify-content: center;
-  
+
   a {
     text-decoration: none;
     color: white;
@@ -57,7 +56,11 @@ const SideButton = styled.div`
 const SidePane = () => {
   return (
     <NavContainer>
-        <h1>Lambda<br/>Notes</h1>
+      <h1>
+        Lambda
+        <br />
+        Notes
+      </h1>
       <Buttons>
         <SideButton>
           <a href="#">View Your Notes</a>
