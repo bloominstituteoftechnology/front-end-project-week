@@ -1,0 +1,9 @@
+.sidebar {
+    max-width: 167px;
+    border: solid black;
+    background-color: lightgrey;
+}
+
+h1 {
+    margin-left: 4px;
+}
