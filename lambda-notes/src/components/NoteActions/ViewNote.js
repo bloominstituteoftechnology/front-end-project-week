@@ -15,6 +15,7 @@ const Actions = styled.div`
 const Button = styled.button`
 float: right;
 margin-right: 1rem;
+margin-top: 1rem;
 font-weight: bold;
 text-decoration: underline;
 border: none;
@@ -24,6 +25,8 @@ background: none;
 const NoteName = styled.h2`
 margin-left: 5%;
 margin-top: 5%;
+font-weight: bold;
+
 `
 
 const NoteText = styled.p`

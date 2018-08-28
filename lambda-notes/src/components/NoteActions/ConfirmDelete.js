@@ -8,7 +8,7 @@ right: 25%;
 left: 25%;
 top: 25%;
 bottom: 25%;
-// background: #f2f1f2;
+background: white;
 border: 1px solid black;
 `
 

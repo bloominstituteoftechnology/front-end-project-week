@@ -5,6 +5,8 @@ import ViewNote from '../NoteActions/ViewNote';
 
 const Header = styled.h2`
 padding-left: 5%;
+font-weight: bold;
+margin-top: 1rem;
 
 `
 

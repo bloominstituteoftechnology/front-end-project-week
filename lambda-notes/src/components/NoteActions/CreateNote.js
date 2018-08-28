@@ -9,6 +9,9 @@ const Create = styled.div`
 
 const Header = styled.h2`
 margin-left: 9%;
+font-weight: bold;
+margin-top: 1rem;
+
 `
 
 const CreateForm = styled.form`
@@ -44,6 +47,7 @@ color: white;
 font-weight: bold;
 width: 50%;
 margin-left: 5%;
+height: 2rem;
 `
 
 const CreateNote = (props) => {
