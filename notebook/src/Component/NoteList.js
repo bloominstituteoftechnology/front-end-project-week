@@ -1,21 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
+import Note from './Note';
 
-class NoteList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      notes: []
-    };
-  }
 
-  render() {
-    return (
-      <div>
-        <h2>Your Notes</h2>
-        notelist
-      </div>
-    );
-  }
-}
+const NoteList = props => {
+  return (
+    <div>
+      <h2>Your Notes</h2>
+      {props.notes.map(note => (
+        <Note key={note.id}  note={note} />
+      ))}
+    </div>
+  );
+};
 
 export default NoteList;

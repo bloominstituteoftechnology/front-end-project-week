@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
+import uuid from "uuid";
+
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NoteList from "./Component/NoteList";
 import NoteForm from "./Component/NoteForm";
 
+const specId = uuid();
 
 class App extends Component {
   constructor() {
@@ -13,10 +16,12 @@ class App extends Component {
     this.state = {
       notes: [
         {
+          id: specId,
           header: "Testing out New App",
           content: "This is my new note app for front end project week"
         },
         {
+          id: specId,
           header: "Things to See in NYC",
           content: "The MET, Central Park, Financial District"
         }
@@ -26,12 +31,14 @@ class App extends Component {
   }
 
   changeNote = event => {
-    this.setState({[event.target.name]: event.target.value});
-  }
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-
-
-
+  addNote = event => {
+    event.preventDefault();
+    const notes = this.state.notes.slice();
+    this.setState({ notes, note: "" });
+  };
 
   render() {
     //Build out sidebar
@@ -45,13 +52,18 @@ class App extends Component {
           <Link to={"/"}>
             <button>View Your Notes</button>
           </Link>
-
-          <Link to={"/NoteForm"}>
+          <Link to={"/noteform"}>
             <button>Create New Note</button>
           </Link>
         </aside>
         <div className="notes-container">
-          <Route exact path="/" component={NoteList} />
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return <NoteList notes={this.state.notes} />;
+            }}
+          />
           <Route exact path="/noteform" component={NoteForm} />
         </div>
       </div>
