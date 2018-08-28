@@ -13,7 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com')
+      .get('https://killer-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -28,10 +28,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.notes}
+        
+        {this.state.notes.map(each => (
+          <Notes key={each.id} note={each} />
+        ))}
       </div>
     );
   }
 }
+
+
+function Notes(props){
+  return (
+    <div>{props.note.textBody}</div>
+  )
+} 
+
+
+
 
 export default App;
