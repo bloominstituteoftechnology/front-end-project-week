@@ -1,5 +1,7 @@
 .sidebar {
     max-width: 167px;
+    min-height: 100%;
+    position: absolute;
     border: solid black;
     background-color: lightgrey;
 }

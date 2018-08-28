@@ -5,7 +5,7 @@ class CreateNoteButton extends Component {
     render() {
         return (
             <div>
-                Create Note Button Placeholder
+                <button className="newButton">+ Create New Note</button>
             </div>
         );
     }
