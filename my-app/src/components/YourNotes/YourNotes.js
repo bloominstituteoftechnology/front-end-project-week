@@ -11,7 +11,9 @@ const YourNotes = props => {
         <div className="cards">
             <h3>Notes</h3>
             <hr/>
-            <p>stuff</p>
+            <p>{props.notes.map(note => {
+                props.note.message
+            })}</p>
         </div>
       </div>
     </div>

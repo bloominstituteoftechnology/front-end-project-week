@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import SideMenu from "./components/SideMenu/SideMenu";
 import YourNotes from "./components/YourNotes/YourNotes";
+import dummyData from "dummyData";
 
 class App extends Component {
   constructor() {
@@ -9,6 +10,10 @@ class App extends Component {
     this.state = {
       notes: [],
     };
+  }
+
+  componentDidMount() {
+    this.setState({ notes: dummyData });
   }
 
   render() {
