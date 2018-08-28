@@ -5,7 +5,7 @@ import React from "react";
 class Notes extends React.Component {
     constructor(props) {
         super(props);
-    state = {
+    this.state = {
     notes: [
       {
       id: 0,
