@@ -7,7 +7,7 @@ import "./App.css";
 import SidePane from "./components/SidePane";
 import Notes from "./NoteData";
 import NotesView from "./components/NotesView";
-import SingleView from './components/SingleView';
+import SingleView from "./components/SingleView";
 
 //Styles================================
 const StyledApp = styled.div`
@@ -39,9 +39,17 @@ class App extends Component {
   render() {
     return (
       <StyledApp>
-        <SidePane />
-        {/* <NotesView notes={Notes} /> */}
-        <SingleView notes={Notes}/>
+        <Route path="/" component={SidePane} />
+        <Route
+          exact
+          path="/"
+          render={props => <NotesView {...props} notes={Notes} />}
+        />
+        <Route
+          exact
+          path="/note1"
+          render={props => <SingleView {...props} notes={Notes} />}
+        />
       </StyledApp>
     );
   }
