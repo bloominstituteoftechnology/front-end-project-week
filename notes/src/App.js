@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <SimpleStorage parent={this} />
+      {/* <SimpleStorage parent={this} /> */}
         <Sidebar />
         <Route
           exact

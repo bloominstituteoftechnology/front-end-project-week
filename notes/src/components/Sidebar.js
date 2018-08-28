@@ -39,6 +39,7 @@ const Sidebar = () => {
       <Link to="/create">
         <StyledButton>+ Create New Note</StyledButton>
       </Link>
+      
     </SidebarContainer>
   );
 };
