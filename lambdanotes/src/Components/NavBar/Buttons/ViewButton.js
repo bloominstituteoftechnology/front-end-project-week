@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './viewButton.css';
-const ViewButton = () => {
-    return (
-        <div>
-            <button className="viewButton">View Your Notes</button>
-        </div>
-    );
+class ViewButton extends Component  {
+    render() {
+        return (
+            <div>
+                <button className="viewButton">View Your Notes</button>
+            </div>
+        );
+    };
 };
 
 export default ViewButton;
