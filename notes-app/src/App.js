@@ -8,7 +8,7 @@ class App extends Component {
     super()
       this.state = {
         notes: [],
-        tag: '',
+        tags: '',
         title: '',
         textBody: ''
 
@@ -40,7 +40,7 @@ class App extends Component {
     
 
     const note = {
-        tag: this.state.tag,
+        tags: this.state.tags,
         title: this.state.title,
         textBody: this.state.textBody,
     }
@@ -72,8 +72,8 @@ class App extends Component {
       <form onSubmit={this.adder}>
           <input
             onChange={this.handleInputChange}
-            placeholder="Tag #"
-            type="number"
+            placeholder="Tag"
+            type="text"
             name="tag"
           />
           <input
@@ -95,8 +95,8 @@ class App extends Component {
           
         </form>
         
-        {this.state.notes.map(each => (
-          <Notes key={each.id} note={each} deleter={this.deleter} />
+        {this.state.notes.map(each => ( 
+          <Notes key={each._id} note={each} deleter={this.deleter} />
         ))}
       </div>
     );
@@ -106,7 +106,7 @@ class App extends Component {
 
 function Notes(props){
   return (
-    <div > {props.note.textBody} x</div>
+    <div > {props.note.title} ||||| {props.note.textBody} x</div>
   )
 } 
 
