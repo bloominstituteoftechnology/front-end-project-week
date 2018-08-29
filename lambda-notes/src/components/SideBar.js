@@ -1,20 +1,20 @@
 import React from 'react';
 
-const SideBar = () => {
+const SideBar = (props) => {
     return(
         <div className='sidebar'>
             <h1>Lambda Notes</h1>
             <button 
                 className='button-style'
                 onClick= {() =>
-                    clickHandler('/notes')}
+                    {this.props.clickHandler('/notes')}}
             >
             View Your Notes
             </button>
             <button 
                 className='button-style'
                 onClick= {() =>
-                    clickHandler('/create')}
+                    {this.props.clickHandler('/create')}}
             >
             + Create New Note
             </button>
