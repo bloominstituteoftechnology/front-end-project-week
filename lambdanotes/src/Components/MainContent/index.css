@@ -1,5 +1,6 @@
 .main-container {
     display: flex;
+    flex-direction: column;
    min-width: 660px;
     height: 100vh;
     background:white;

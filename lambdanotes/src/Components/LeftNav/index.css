@@ -1,5 +1,6 @@
 .nav-container {
     display: flex;
+    flex-direction: column;
     min-width: 220px;
     height: 100vh;
     background: lightgray
