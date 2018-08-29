@@ -5,7 +5,7 @@ import { testData } from "./testData";
 import NoteList from "./components/NoteList";
 import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
-import SimpleStorage from 'react-simple-storage'
+import SimpleStorage from "react-simple-storage";
 
 class App extends Component {
   state = {
@@ -21,26 +21,25 @@ class App extends Component {
   };
 
   handleEdit = (_index, editedNote) => {
-    console.log('handleEdit called')
+    console.log("handleEdit called");
     this.setState(prevState => {
       return {
         notes: prevState.notes.map((note, index) => {
           if (index == _index) {
-            return editedNote
+            return editedNote;
           } else {
-            return note
+            return note;
           }
         })
       };
     });
   };
 
-
   render() {
-    console.log('App', this.props)
+    console.log("App", this.props);
     return (
       <div className="App">
-      {/* <SimpleStorage parent={this} /> */}
+        {/* <SimpleStorage parent={this} /> */}
         <Sidebar />
         <Route
           exact
@@ -48,7 +47,7 @@ class App extends Component {
           render={() => <NoteList notes={this.state.notes} />}
         />
         <Route
-        exact
+          exact
           path="/notes"
           render={() => <NoteList notes={this.state.notes} />}
         />
@@ -59,9 +58,15 @@ class App extends Component {
         />
         {/* this route will handle the single note view as well as editing and deleting */}
         <Route
-         exact
+          exact
           path="/notes/:index"
-          render={props => <Note {...props} notes={this.state.notes} handleSubmit={this.handleEdit}/>}
+          render={props => (
+            <Note
+              {...props}
+              notes={this.state.notes}
+              handleSubmit={this.handleEdit}
+            />
+          )}
         />
       </div>
     );

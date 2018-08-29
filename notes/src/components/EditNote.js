@@ -29,12 +29,14 @@ class EditNote extends React.Component {
     return this.props.history.goBack();
   };
 
+  
+  
   render() {
     console.log("PROPS", this.props);
     const filteredNote = this.props.notes.filter(
-      (note, index) => index == this.props.match.params.index
-    );
-    const currentNote = filteredNote[0];
+        (note, index) => index == this.props.match.params.index
+      );
+      const currentNote = filteredNote[0];
     return (
       <div>
         <ModeWrapper cancel>
@@ -46,7 +48,7 @@ class EditNote extends React.Component {
           title={this.state.title}
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}
-          label="Edit"
+          label="Save"
         />
       </div>
     );

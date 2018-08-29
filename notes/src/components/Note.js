@@ -2,6 +2,7 @@ import React from "react";
 import { Page, PageHeader, NoteBody, ModeWrapper, ModeLink } from "./styles";
 import EditNote from "./EditNote";
 import styled from "styled-components";
+import Modal from './Modal'
 
 class Note extends React.Component {
   state = {
@@ -18,6 +19,13 @@ class Note extends React.Component {
     });
   };
 
+  handleDeleteMode = () => {
+    this.setState(prevState => {
+      return {
+        deleteMode: !prevState.deleteMode
+      };
+    });
+  };
   handleSubmit = object => {
 		this.props.handleSubmit(this.state.index, object);
 		this.handleEditMode();
@@ -38,12 +46,17 @@ class Note extends React.Component {
           <div>
             <ModeWrapper>
               <ModeLink onClick={this.handleEditMode}>Edit</ModeLink>
-              <ModeLink>Delete</ModeLink>
+              <ModeLink onClick={this.handleDeleteMode}>Delete</ModeLink>
             </ModeWrapper>
             <PageHeader>{currentNote.title}</PageHeader>
             <NoteBody>{currentNote.body}</NoteBody>
           </div>
         )}
+        <Modal
+					deleteMode={this.state.deleteMode}
+					handleClose={() => this.handleDeleteMode()}
+					handleDelete={() => this.props.handleDelete()}
+				/>
       </Page>
     );
   }

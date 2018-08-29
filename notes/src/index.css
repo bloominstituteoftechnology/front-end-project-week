@@ -42,3 +42,29 @@ button:focus {
 .App {
   display: flex;
 }
+
+.show-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(29, 29, 29, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+.hide-modal {
+	display: none;
+}
+
+.delete-prompt {
+	background: #fff;
+	border: 1px solid #eee;
+	padding: 40px;
+	height: 250px;
+	width: 400px;
+	text-align: center;
+}
