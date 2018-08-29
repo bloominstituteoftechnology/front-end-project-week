@@ -4,8 +4,6 @@ import ViewNotes from './components/MainPage/ViewNotes';
 import NewNote from './components/Routes/NewNote';
 import SingleNote from './components/MainPage/ViewNotes';
 import { Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { fetchingNotes, createNote } from './actions/index';
 
 class App extends Component {
 
@@ -13,20 +11,11 @@ class App extends Component {
         return (
             <div className="App">
                 <SideBar />
-                <Route path='/your-notes' exact render={() => { return (<ViewNotes />); }} />
-                <Route path='/create-note' exact render={() => { return (<NewNote />); }} />
-                <Route path='/view-note' exact render={() => { return (<SingleNote />); }} />
+                <Route path='/your-notes' component={ViewNotes} />
+                <Route path='/create-note' component={NewNote} />
             </div>
         );
     }
 }
 
-
-const mapStateToProps = state => {
-    return {
-        notes: state.notesReducer.notes,
-        createNote: state.createNote
-    };
-};
-
-export default connect(mapStateToProps, { fetchingNotes, createNote })(App);
+export default App;
