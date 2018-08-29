@@ -4,7 +4,7 @@ import { Navbar } from "./components/Navbar";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
 import dummyData from "./components/dummydata";
-import { AddNote } from "./components/Addnote";
+import AddNote from "./components/Addnote";
 
 class App extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class App extends Component {
       notes: dummyData,
       newtitle: "",
       newtext: "",
-      id: noteid++,
+      id: 4,
     }
   }
   render() {

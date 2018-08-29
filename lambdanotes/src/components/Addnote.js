@@ -4,7 +4,7 @@ class AddNote extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: noteid++,
+            id: null,
             newtitle: "",
             newtext: "",
 
@@ -15,12 +15,12 @@ class AddNote extends React.Component {
     handleInputChange = event => {this.setState({ [event.target.name]: event.target.value });};
 
     handleNoteSubmit = () => {
-        let newID = noteid++
+        let newID = this.state.notes[(this.state.notes.length-1)].id;
         this.setState({id: newID}, function() {
             let notes = this.state.notes.slice();
             let id = this.state.id;
             if(this.state.newtitle != "" || this.state.newtext != ""){
-                noteid++
+                id++
                 notes.push({
                     id: id,
                     title: this.state.newtitle,
@@ -32,25 +32,15 @@ class AddNote extends React.Component {
     
 
     render() {
+        return (
         <div>
-            <form className="addNoteForm"
-            onSubmit={ event => {
-                this.props.onSubmit(this.state);
-                this.setState(prevState => ({
-                        id: noteid++,
-                        newtitle: "",
-                        newtext: "",
-                }));
-            }>
-
             <input type="text" placeholder="Title" value={this.state.newtitle} name="newtitle" onChange={this.handleInputChange} />
 
             <textarea type="text" className="addNoteForm" cols="25" rows="10" placeholder="Your Note" value={this.state.newtext} onChange={this.handleInputChange} />
 
             <button>Save</button>
-        </form>
     </div>
-        }
+        )
     }
 }
 
