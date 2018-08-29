@@ -3,12 +3,14 @@ import List from './List';
 import Create from './Create';
 import { Route } from 'react-router-dom';
 import Note from './Note';
+import Delete from './Delete';
 import axios from 'axios';
 
 class ListContainer extends React.Component {
     constructor() {
       super();
       this.state = {
+        displayDelete: false,
         list: [
           {
             title: 'Note Title',
@@ -101,6 +103,10 @@ class ListContainer extends React.Component {
         });
     }
 
+    showModal = () => {
+      this.setState({ displayDelete: !this.state.displayDelete })
+    }
+
     render() {
       return (
         <div>
@@ -118,6 +124,7 @@ class ListContainer extends React.Component {
             <Note {...props} 
               fetchNote={this.fetchNote} 
               deleteNoteHandler={this.deleteNoteHandler}
+              showModal={this.showModal}
             />
           } />
         </div>

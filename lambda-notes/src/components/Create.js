@@ -10,7 +10,7 @@ const Create = props => {
                 <input placeholder="Note Content" onChange={props.handleTaskChange} value={props.content} name="content"/>
                 <br></br>
                 <br></br>
-                <button onClick={props.handleAddNoteSubmit}>Save</button>
+                <button className='create-button' onClick={props.handleAddNoteSubmit}>Save</button>
             </form>
         </div>
     );

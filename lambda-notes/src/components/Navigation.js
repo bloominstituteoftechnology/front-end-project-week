@@ -6,8 +6,12 @@ const Navigation = () => {
     <div>
       <h1>Lambda<br></br>Notes</h1>
       <div className='nav-button-container'>
-        <Link to="/"><button className='nav-button'>View Your Notes</button></Link>
-        <Link to="/Create"><button className='nav-button'>+ Create New Note</button></Link>
+        <div className='nav-button'>
+          <Link to="/">View Your Notes</Link>
+        </div>
+        <div className='nav-button'>
+          <Link to="/Create">+ Create New Note</Link>
+        </div>
       </div>
     </div>
   );

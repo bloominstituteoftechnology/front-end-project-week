@@ -21,6 +21,25 @@
 }
 
 .nav-button {
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #23B8BE;
+  border: 1px solid #86AEB1;
+  margin: 0.5rem 0;
+  height: 40px;
+  border-radius: 0.1rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.container {
+  padding-left: 50px
+}
+
+.create-button {
   background-color: #23B8BE;
   border: 1px solid #86AEB1;
   margin: 0.5rem 0;
@@ -30,7 +49,50 @@
   font-weight: 600;
 }
 
-.container {
-  padding-left: 50px
+.delete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 200px;
+  border: 1px solid rgb(66, 66, 66);
+  box-shadow: 1px 1px 8px rgb(66, 66, 66);
 }
 
+.delete-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.delete-button1 {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border: 1px solid #86AEB1;
+  margin: 0.5rem 0.5rem;
+  height: 40px;
+  border-radius: 0.1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.delete-button2 {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #23B8BE;
+  border: 1px solid #86AEB1;
+  margin: 0.5rem 0.5rem;
+  height: 40px;
+  border-radius: 0.1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}

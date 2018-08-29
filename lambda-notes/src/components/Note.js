@@ -1,4 +1,5 @@
 import React from 'react';
+import Delete from './Delete';
 
 const Note = props => {
     if (props.data) {
@@ -26,7 +27,8 @@ const Note = props => {
                 <br></br>
                 <br></br>
                 <button>Edit</button>
-                <button onClick={props.deleteNoteHandler(id)}>Delete</button>
+                <button>Delete</button>
+                <Delete toggle={props.displayDelete} />
             </div>
         )
     }
