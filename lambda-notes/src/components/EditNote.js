@@ -32,7 +32,6 @@ class EditNote extends React.Component {
             <form  onSubmit={(event) => this.props.editNote(event, this.props.match.params.id, this.state.title, this.state.text)}>
             <input onChange={this.handleInputChange} type="text" name="title" placeholder="Title" value={this.state.title}/>
             <input onChange={this.handleInputChange} type="text" name="text" placeholder="Note"  value={this.state.text}/>
-            {/* <button>Edit</button> */}
             <button onClick={this.handleSubmit} onMouseUp={() => this.props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} /*"block" was here*/>Edit</button>
          </form>
         </div>

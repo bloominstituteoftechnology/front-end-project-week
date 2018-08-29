@@ -44,7 +44,7 @@ class Note extends React.Component {
           </Col>{" "}
           <Col xs="1">
             <DeleteModal
-              note={this.state.note}
+              note={note}
               deleteNote={this.props.deleteNote}
             />{" "}
           </Col>{" "}

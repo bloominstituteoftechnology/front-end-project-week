@@ -57,11 +57,6 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   const user = localStorage.getItem('user');
-  //   this.setState({username:user});
-  // }
-
   componentDidMount() {
     const user = localStorage.getItem("user");
     this.setState({ username: user });
@@ -99,15 +94,22 @@ class App extends Component {
     this.setState({ notes, title: "", text: "" });
   };
 
-  deleteNote = note => {
-    let notes = this.state.notes.slice();
-    for (let i = 0; i < notes.length; i++) {
-      if (notes[i].id === note.id) {
-        notes.splice(i, 1);
-      }
+  deleteNote = (noteID) => {
+    // event.preventDefault();
+    axios
+    .delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
+    .then(res => {
+      axios
+      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .then(res => {
+        this.setState({ notes: res.data });
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
     }
-    this.setState({ notes });
-  };
+    )}
+
 
   editNote = (event, noteID, title, textBody) => {
     event.preventDefault();
