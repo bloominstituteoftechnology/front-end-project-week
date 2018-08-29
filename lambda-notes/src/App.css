@@ -1,40 +1,87 @@
 body {
-  background: rgb(235, 234, 234);
+  background: #F2F1F2;
   max-width: 1000px;
-  margin: auto;
-  box-shadow: 0px 0px 10px lightgray;
+  margin: 0 auto;
 }
-
 .App {
   display: flex;
+  min-height: 100vh;
+  box-shadow: 0px 0px 10px lightgray;
 }
 
 .menu {
   width: 25%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #D3D2D3;
-  height: 100vh;
-  border-right: solid rgb(196, 196, 196) 1px;
-}
+ flex-direction: column;
+ align-items: center;
+ background: #D3D2D3;
 
+ border-right: solid rgb(196, 196, 196) 1px;
+}
 .menu > h1 {
   margin: 10% 10% 8%;
-  color: #414141;
+ color: #414141;
 }
 
 .menu-link {
   background: darkturquoise;
-  border: solid rgb(172, 172, 172) 1px;
-  font-size: 90%;
-  color: white;
+    border: solid rgb(172, 172, 172) 1px;
+    font-size: 90%;
+    color: white;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 5%;
+    border-radius: 2px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+     justify-content: center;
+}
+
+.note-container {
+  box-sizing: border-box;
+  background: #F2F1F2;
+  padding: 2.5%;
   width: 80%;
-  height: 40px;
-  margin-bottom: 5%;
-  border-radius: 5px;
-  text-decoration: none;
+  height: 100%;
+}
+
+h2 {
+  color: #414141;
+}
+
+.all-notes {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin-top: 5%;
+  padding-bottom: 5%;
+  border-bottom: solid lightgray 2px;
+  font-weight: bold;
+}
+
+.note {
+  width: 200px;
+  height: 200px;
+ background: white;
+ border: solid lightgray 2px;
+ box-sizing: border-box;
+ padding: 0 10% 10%;
+ margin: 1%;
+ position: relative;
+ border-radius: 3px;
+}
+
+.notelink {
+  text-decoration: none;
+  color: black;
+  margin: 2%;
+}
+.note-contents {
+  height: 100%;
+  overflow-y: scroll;
+  line-height: 150%;
+  white-space: pre-wrap;
 }

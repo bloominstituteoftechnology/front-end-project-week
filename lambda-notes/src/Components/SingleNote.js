@@ -1,5 +1,7 @@
 import React from "react";
+import "../CSS/SingleNote.css"
 import { Link } from "react-router-dom";
+
 
 const SingleNote = props => {
   const note = props.notes.find(note => note.id == props.match.params.id);
@@ -14,7 +16,7 @@ const SingleNote = props => {
         </Link>
       </div>
       <h1 className="single-title">{note.title}</h1>
-      <div className="single-note">{note.text}</div>
+      <div className="single-content">{note.text}</div>
     </div>
   );
 };
