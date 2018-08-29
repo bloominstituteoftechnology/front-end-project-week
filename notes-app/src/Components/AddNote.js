@@ -42,6 +42,7 @@ class AddNote extends Component {
           .catch(error => console.log(error))
       };
 
+
   render(props) {
     console.log("addnote:", props)
     return (

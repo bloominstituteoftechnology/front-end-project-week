@@ -32,27 +32,7 @@ class Notes extends Component {
   
   
   
-    handleInputChange = event => {
-      this.setState({ 
-        [event.target.name]: event.target.value });
-      console.log("Changer log:", event.target.value)
-    }
-  
-    adder = event => {
-      event.preventDefault();
-      
-  
-      const note = {
-          tags: this.state.tags,
-          title: this.state.title,
-          textBody: this.state.textBody,
-      }
-      console.log(note);
-      axios
-        .post('https://killer-notes.herokuapp.com/note/create', note)
-        .then(response => this.getNotes())
-        .catch(error => console.log(error))
-    };
+    
   
   
     deleter = id => {
@@ -77,6 +57,8 @@ class Notes extends Component {
           {this.state.notes.map(each => ( 
             <EachNote key={each._id} note={each} deleter={this.deleter} />
           ))}
+                <Route exact path={"/:id"} component={Child}/>  
+
         </div>
       );
     }
