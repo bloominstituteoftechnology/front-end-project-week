@@ -33,7 +33,7 @@ const NoteContainer = styled.div`
 
 const Note = props => {
   return (
-      <Link className="noDecoration" to={`/note${props.id}`}> 
+      <Link className="noDecoration" to={`/note/${props.id}`}> 
     <NoteContainer>
       <h3>{props.title}</h3>
       <p>{props.body}</p>

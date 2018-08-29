@@ -23,14 +23,17 @@ p {
 `;
 
 const SingleView = (props) => {
+    const note = props.notes.find(note => note.id.toString() === props.match.params.id) 
     return ( 
         // I THINK I NEED A FILTER IN ORDER TO GET THE DATA
         // OF THE NOTE THAT IS AT A SPECIFIC ROUTE
 
         <StyledViewWrapper>
         <StyledNoteContainer>
-        <h2>{props.notes[0].title}</h2>
-        <p>{props.notes[0].body}</p>
+
+        <h2>{note.title}</h2>
+        {/* <h5>{note.tags}</h5> */}
+        <p>{note.body}</p>
         </StyledNoteContainer>
       </StyledViewWrapper>
 
