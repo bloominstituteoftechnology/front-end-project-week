@@ -1,9 +1,10 @@
 import React from 'react';
 import './mainContent.css';
+import NotesList from '../NotesList/NotesList';
 const MainContent = props => {
     return (
         <div className="main_container">
-            <h1>Main Content</h1>
+            <NotesList />
         </div>
     );
 }

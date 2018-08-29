@@ -15,3 +15,6 @@ body {
   min-width: 900px;
 }
 
+.content-header {
+  margin: 1rem 0.5rem;
+}
