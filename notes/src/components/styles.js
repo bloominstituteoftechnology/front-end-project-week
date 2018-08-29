@@ -9,7 +9,8 @@ export const Page = styled.div`
   width: 100%;
 `;
 export const PageHeader = styled.h2`
-  margin: 40px 20px;
+  margin:  ${props => (props.singleNote ? "60px 20px 20px 20px" : "40px 20px")};
+  padding-bottom: ${props => (props.singleNoteEdit ? "20px" : "0px")};
 `;
 
 // Notes
@@ -39,7 +40,7 @@ export const ModeLink = styled.h4`
 export const StyledButton = styled.button`
   width: 220px;
   height: 50px;
-  background-color: #00b6bb;
+  background-color: ${props => (props.delete ? "palevioletred" : "#00b6bb")};
   color: white;
   text-align: center;
   margin-top: 20px;

@@ -7,14 +7,14 @@ import {StyledButton} from './styles'
 const Modal = props => (
 	<div className={props.deleteMode ? "show-modal" : "hide-modal"}>
 		<div className="delete-prompt">
-			<h4>Sure you want to delete this note?</h4>
+			<h4>Are you sure you want to delete this note?</h4>
 				<Link to="/notes">
-                    <StyledButton onClick={props.handleDelete}>
-					Yes
+                    <StyledButton delete onClick={props.handleDelete}>
+					Delete 🐐
 					</StyledButton>
 				</Link>
 				<StyledButton onClick={props.handleClose}>
-					No
+					No 😵
 				</StyledButton>
 			</div>
 		</div>

@@ -42,7 +42,7 @@ class EditNote extends React.Component {
         <ModeWrapper cancel>
           <ModeLink onClick={this.goBack}>Cancel</ModeLink>
         </ModeWrapper>
-        <PageHeader>Edit Note: {currentNote.title}</PageHeader>
+        <PageHeader singleNote singleNoteEdit>Edit Note: {currentNote.title}</PageHeader>
         <Form
           body={this.state.body}
           title={this.state.title}

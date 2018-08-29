@@ -35,6 +35,17 @@ class App extends Component {
     });
   };
 
+    handleDeleteNote = (_index) => {
+      this.setState(prevState => {
+        return {
+          notes: prevState.notes.filter((note, index) => {
+            return _index == index ? null : note;
+          })
+        }
+      })
+    }
+
+
   render() {
     console.log("App", this.props);
     return (
@@ -65,6 +76,7 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               handleSubmit={this.handleEdit}
+              handleDelete={this.handleDeleteNote}
             />
           )}
         />

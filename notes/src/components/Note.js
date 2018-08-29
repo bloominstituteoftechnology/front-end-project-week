@@ -37,6 +37,7 @@ class Note extends React.Component {
       (note, index) => index == this.props.match.params.index
     );
     const currentNote = filteredNote[0];
+    const _index = this.props.match.params.index;
     console.log(currentNote);
     return (
       <Page>
@@ -48,14 +49,14 @@ class Note extends React.Component {
               <ModeLink onClick={this.handleEditMode}>Edit</ModeLink>
               <ModeLink onClick={this.handleDeleteMode}>Delete</ModeLink>
             </ModeWrapper>
-            <PageHeader>{currentNote.title}</PageHeader>
+            <PageHeader singleNote>{currentNote.title}</PageHeader>
             <NoteBody>{currentNote.body}</NoteBody>
           </div>
         )}
         <Modal
 					deleteMode={this.state.deleteMode}
 					handleClose={() => this.handleDeleteMode()}
-					handleDelete={() => this.props.handleDelete()}
+					handleDelete={() => this.props.handleDelete(_index)}
 				/>
       </Page>
     );
