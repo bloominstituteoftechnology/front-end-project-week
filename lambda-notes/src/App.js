@@ -6,7 +6,7 @@ import SingleNote from "./Components/SingleNote";
 import EditNote from "./Components/EditNote";
 import { Route } from "react-router-dom";
 import dummydata from './dummydata';
-// import './App.css';
+import './App.css';
 
 class App extends Component {
   constructor() {
