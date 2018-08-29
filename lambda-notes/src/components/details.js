@@ -13,7 +13,7 @@ export default class Details extends Component {
 
   render() {
     return (
-      <div>
+      <div className="detail">
         <div className="links">
           <Link
             className="link"

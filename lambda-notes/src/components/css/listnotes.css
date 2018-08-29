@@ -7,7 +7,7 @@
 
         
     h4 {
-      border: 1px solid green;
+      /* border: 1px solid green; */
 
     }
 
@@ -16,10 +16,12 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-around;
+    
         }
 
       .note-link{
         text-decoration: none;
+        overflow-y: auto;
       }
 
       .note-preview {
@@ -32,6 +34,7 @@
         flex-direction: column;
         align-items: center;
         color: black;
+        overflow-y: auto;
             }
 
         h3{
@@ -46,7 +49,7 @@
           
           width: 80%;
           height: 70%;
-          overflow: hidden;
+          /* overflow: hidden; */
           text-decoration: none;
           margin: 0;
           line-height: 23px;

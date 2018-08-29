@@ -17,8 +17,8 @@ export default class NewNote extends Component {
     console.log(this.props.count)
     return (
       <div className='newNote'>
-        <h4>Create New Note:</h4>
-        <NewForm button="Create" count={this.props.count} newNote={this.props.newNote}></NewForm>
+        <h4 className='newNote'>Create New Note:</h4>
+        <NewForm button="Save" count={this.props.count} newNote={this.props.newNote}></NewForm>
       </div>
     );
   }

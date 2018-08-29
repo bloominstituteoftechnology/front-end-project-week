@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-
+// import './css/newnote.css';
 
 export default class NewForm extends Component {
   constructor(props){

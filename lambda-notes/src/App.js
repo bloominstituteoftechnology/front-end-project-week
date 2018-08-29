@@ -139,7 +139,7 @@ class App extends Component {
 
           <Route
             exact
-            path="/newnote"
+            path="/new-note"
             render={() => {
               return (
                 <NewNote

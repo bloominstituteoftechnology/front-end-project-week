@@ -18,11 +18,11 @@ export default class DeleteNote extends Component {
     console.log(this)
     return (
 
-      <div className="deleteTop">
+      <div className="deleteTop" className="modal">
         <div className="inner-div">
           <h4>Are you sure you want to delete this?</h4>
           <div className='delete-buttons'>
-            <Link className="delete" className="button"
+            <Link className="delete1" className="button"
               to="/listnotes/" onClick={this.deleteHandler}>Delete</Link>
             <Link id="no" className="button"
               onClick={() => this.props.disableDelete()}  to={`/listnotes/${this.state.note.id}`}>No</Link>

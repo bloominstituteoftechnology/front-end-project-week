@@ -19,7 +19,7 @@ export default class EditNote extends Component {
 
   render() {
     return (
-      <div>
+      <div classNmae="editNote">
         <div className="links">
           <Link className="link" to={`/listnotes/${this.state.note.id}`}>back</Link>
         </div>
