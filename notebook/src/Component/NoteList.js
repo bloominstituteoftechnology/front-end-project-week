@@ -7,7 +7,7 @@ const NoteList = props => {
     <div>
       <h2>Your Notes</h2>
       {props.notes.map(note => (
-        <Note key={note.id}  note={note} />
+        <Note key={note.id}  note={note.header} />
       ))}
     </div>
   );

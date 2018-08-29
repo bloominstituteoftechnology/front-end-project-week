@@ -58,7 +58,7 @@ class App extends Component {
           </Link>
         </aside>
         <div className="notes-container">
-          <Route
+        <Route
             exact
             path="/"
             render={() => {
