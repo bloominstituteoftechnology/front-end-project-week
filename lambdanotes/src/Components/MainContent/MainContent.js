@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './mainContent.css';
-
-
-class MainContent extends Component {
-    render() {
-        return(
-            <div className="mainContent">
-                Main Content
-            </div>
-        );
-    }
+const MainContent = props => {
+    return (
+        <div className="main_container">
+            <h1>Main Content</h1>
+        </div>
+    );
 }
 
 export default MainContent;

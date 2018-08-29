@@ -1,10 +1,8 @@
 .sidebar {
     display: flex;
-    flex-direction: column;
-    min-height: 100%;
     padding: 1rem;
-    position: absolute;
-    border: solid black;
-    background-color: lightgrey;
+    min-width: 220px;
+    height: 100vh;
+    background-color: #D3D3D3;
 }
 
