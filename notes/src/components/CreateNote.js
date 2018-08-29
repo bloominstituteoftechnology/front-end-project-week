@@ -21,14 +21,11 @@ const StyledForm = styled.form`
   }
 
   .test {
-    color: red;
     width: 200px;
     margin-bottom: 20px;
   }
-  .test2 {
-    width: 600px;
-    height: 400px;
-  }
+
+
 `;
 
 class CreateNote extends Component {
@@ -37,10 +34,16 @@ class CreateNote extends Component {
     this.state = {
       comment: {
         title: "",
-        tags: "",
+        // tags: "",
         body: ""
       }
     };
+  }
+  handleInput = (event) => {
+
+    const {name, value} = event.target 
+    this.setState((prevState) => ({ comment: {...prevState.comment, [name]: value }}));
+
   }
 
   render() {
@@ -50,9 +53,10 @@ class CreateNote extends Component {
 
         <StyledForm>
           <h3>Title</h3>
-          <input className="test"  />
+          <input name="title" onChange={this.handleInput} className="test"  />
           <h3>Text Body</h3>
-          <input className="test2"  />
+          
+          <textarea name="body" onChange={this.handleInput} class="longInput" />
         </StyledForm>
       </StyledViewWrapper>
     );

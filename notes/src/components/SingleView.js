@@ -19,6 +19,7 @@ h2 {
 p {
      margin: 5px;
      max-width: 660px;
+     line-height: 1.5;
 }
 `;
 
