@@ -18,6 +18,24 @@ export const NoteBody = styled.p`
     line-height: 1.6;
 `
 
+// Edit Delete mode controls
+export const ModeWrapper = styled.span`
+  display: flex;
+  justify-content: flex-end;
+  margin: -20px -40px 0 -40px;
+  padding-right: ${props => props.cancel ? '30px' : '30px'};
+  background: white;
+  border-bottom: 1px solid #ccc;
+
+`
+
+export const ModeLink = styled.h4`
+    padding: 15px 25px 15px 0;
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+`
+
 
 // buttons
 export const StyledButton = styled.button`
