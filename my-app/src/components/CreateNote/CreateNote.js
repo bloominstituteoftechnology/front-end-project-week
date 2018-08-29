@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SideMenu from "../SideMenu/SideMenu";
 import "./CreateNote.css";
-import axios from "axios";
+
 
 class CreateNote extends Component {
   state = {
@@ -9,8 +9,6 @@ class CreateNote extends Component {
     noteTitle: '',
     noteContent: '',
   };
-
-
 
   render() {
     return (

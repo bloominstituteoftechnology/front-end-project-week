@@ -7,7 +7,7 @@ class NoteCard extends Component {
       <div className="cards">
         <h4>{this.props.note.title}</h4>
         <hr />
-        <p>{this.props.note.message}</p>
+        <p>{this.props.note.textBody}</p>
       </div>
     );
   }

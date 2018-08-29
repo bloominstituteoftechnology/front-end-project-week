@@ -5,10 +5,6 @@ import SideMenu from "../SideMenu/SideMenu";
 import { Link } from "react-router-dom";
 
 class YourNotes extends Component {
-  state = {
-    notes: this.props.notes
-  };
-
   render() {
     return (
       <div>
