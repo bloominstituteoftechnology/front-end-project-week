@@ -8,7 +8,7 @@ import SidePane from "./components/SidePane";
 import Notes from "./NoteData";
 import NotesView from "./components/NotesView";
 import SingleView from "./components/SingleView";
-import CreateNote from './components/CreateNote';
+import CreateNote from "./components/CreateNote";
 //Styles================================
 const StyledApp = styled.div`
   background-color: #e3e3e3;
@@ -50,9 +50,11 @@ class App extends Component {
           path="/note/:id"
           render={props => <SingleView {...props} notes={Notes} />}
         />
-        <Route path="/create" component={CreateNote} />
+        <Route
+          path="/create"
+          render={props => <CreateNote {...props} notes={Notes} />}
+        />
       </StyledApp>
-
     );
   }
 }

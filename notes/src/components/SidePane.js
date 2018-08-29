@@ -7,7 +7,7 @@ const NavContainer = styled.div`
   height: 100vh;
   width: 230px;
   min-width: 230px;
-  border-right: 1px solid #434343;
+  border-right: 1px solid hsl(60, 1%, 68%);
   padding-top: 10px;
   position: relative;
   left: 0;
@@ -43,6 +43,7 @@ const SideButton = styled.div`
   font-weight: bold;
   align-self: center;
   align-items: center;
+  border-radius: 2px;
   a {
     text-decoration: none;
     color: white;

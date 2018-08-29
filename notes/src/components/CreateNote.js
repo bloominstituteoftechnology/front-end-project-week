@@ -51,7 +51,7 @@ const Button = styled.div`
   text-align: center;
   margin-left: 2px;
   margin-top: 10px;
- 
+  border-radius: 2px;
   display: flex;
   color: white;
   font-weight: bold;
@@ -68,7 +68,8 @@ class CreateNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: {
+      notes: props.notes,
+      newNote: {
         title: "",
         // tags: "",
         body: ""
@@ -78,21 +79,39 @@ class CreateNote extends Component {
   handleInput = event => {
     const { name, value } = event.target;
     this.setState(prevState => ({
-      comment: { ...prevState.comment, [name]: value }
+        newNote: { ...prevState.newNote, [name]: value }
     }));
   };
+
+  addNote = event => {
+      const newNotes = this.state.newNote
+    const notes = this.state.notes.slice();
+    notes.push({
+       title: newNotes.title ,
+       body: newNotes.body
+    });
+    this.setState({
+        notes: notes ,
+        newNote: {
+            body: "",
+            title: ""
+        }
+    })
+  }
 
   render() {
     return (
       <StyledViewWrapper>
         <h2>Create New Note:</h2>
 
-        <StyledForm>
+        <StyledForm onSubmit={this.addNote}
+        onEnter >
           <input
             name="title"
             placeholder="Note Title"
             onChange={this.handleInput}
             className="input input-title"
+            value={this.state.newNote.title}
           />
           <textarea
             name="body"
@@ -101,8 +120,9 @@ class CreateNote extends Component {
             placeholder="Note Content"
             onChange={this.handleInput}
             className="input input-content"
+            value={this.state.newNote.body}
           />
-          <Button>Save</Button>
+          <Button onClick={this.addNote} >Save</Button>
         </StyledForm>
       </StyledViewWrapper>
     );

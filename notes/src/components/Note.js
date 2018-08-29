@@ -16,7 +16,9 @@ const NoteContainer = styled.div`
   padding: 10px;
   box-sizing: border-box;
   background-color: white;
-  
+  :hover {
+      outline: 2.5px solid #D1D0D1;
+  }
   h3 {
     border-bottom: 1px solid lightgrey;
     font-size: 20px;
