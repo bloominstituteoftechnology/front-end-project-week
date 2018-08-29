@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./YourNotes.css";
 import { Link } from "react-router-dom";
-import NoteView from "../NoteView/NoteView";
 
 const URL = "https://killer-notes.herokuapp.com/note/get/id";
 

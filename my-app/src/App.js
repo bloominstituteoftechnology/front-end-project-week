@@ -11,8 +11,8 @@ import NoteCard from "./components/YourNotes/NoteCard";
 const URL = "https://killer-notes.herokuapp.com/note/get/all";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       notes: []
     };
@@ -51,12 +51,6 @@ class App extends Component {
           render={props => (
             <EditNote {...props} updateHandle={this.updateHandle} />
           )}
-        />
-        <Route
-        path="/noteview"
-        render={props => (
-          <NoteCard {...props} />
-        )} 
         />
       </div>
     );

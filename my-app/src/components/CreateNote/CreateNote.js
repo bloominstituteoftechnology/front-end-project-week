@@ -10,7 +10,7 @@ class CreateNote extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: "",
+      textBody: ""
     };
   }
 
@@ -26,7 +26,7 @@ class CreateNote extends Component {
         this.props.updateHandle(response.data);
         this.setState({
           title: "",
-          textBody: "",
+          textBody: ""
         });
       })
       .catch(err => console.log("Error", err));
@@ -35,7 +35,7 @@ class CreateNote extends Component {
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  
+
   render() {
     return (
       <div>
@@ -43,7 +43,7 @@ class CreateNote extends Component {
           <SideMenu />
         </div>
         <div className="addNoteForm">
-          <form onSubmit={this.newNote}>
+          <form onSubmit={this.addNote}>
             <input
               onChange={this.handleInputChange}
               placeholder="Note Title"
@@ -51,11 +51,11 @@ class CreateNote extends Component {
               name="title"
             />
             <input
-            className="note-content"
-            onChange={this.handleInputChange}
-            placeholder="Note Content"
-            value={this.state.textBody}
-            name="textBody" 
+              className="note-content"
+              onChange={this.handleInputChange}
+              placeholder="Note Content"
+              value={this.state.textBody}
+              name="textBody"
             />
             <button type="submit">Save</button>
           </form>
