@@ -52,12 +52,12 @@ class Notes extends Component {
         <Link to="AddNote"><button> + Create New Note </button></Link>
         <Route exact path="/AddNote" component={AddNote} />
         <br /><br /><br /><br /><br /><br /> */}
-        
+           <br /><br />
+            Your Notes:
           <br /><br />
           {this.state.notes.map(each => ( 
-            <EachNote key={each._id} note={each} deleter={this.deleter} />
+            <EachNote className="each" key={each._id} note={each} deleter={this.deleter} />
           ))}
-                <Route exact path={"/:id"} component={Child}/>  
 
         </div>
       );

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 
@@ -7,15 +7,18 @@ import {Route, Link} from 'react-router-dom';
 
 
 const EachNote = (props) => {
-    
-    return (<div>
-      <Link to={`/${props.note._id}`}><div key={props.note._id}> {props.note.title} ||||| {props.note.textBody} </div></Link>
+    return (<div className="eachNote">
+      <Link to={`/note/${props.note._id}`}><div key={props.note._id} noteView={props} > {props.note.title} ||||| {props.note.textBody} </div></Link>
       
     </div>
     )
   } 
 //<div onClick={()=>{props.deleter(props.note._id)}}> {props.note.title} ||||| {props.note.textBody} x</div>
   
+
+
+
+
 
 
 

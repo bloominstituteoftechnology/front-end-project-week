@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -25,4 +25,27 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+} */
+
+
+
+
+.eachNote {
+  height: 150px;
+  width: 100px;
 }
+
+.eachNote a {
+  text-decoration: none;
+  color: black;
+  
+  
+}
+
+
+.eachOne {
+  margin-bottom: 15px;
+  margin-right: 100px;
+  background-color: red;
+}
+

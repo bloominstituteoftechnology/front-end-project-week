@@ -1,5 +1,32 @@
+* {
+  border: 1px dashed palevioletred;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.btn {
+  background-color: turquoise;
+}
+
+.EachNote {
+  display: flex;
+ 
+}
+
+.eachOne {
+  margin-bottom: 15px;
+  margin-right: 100px;
+  background-color: red;
 }

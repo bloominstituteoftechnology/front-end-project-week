@@ -43,8 +43,8 @@ class AddNote extends Component {
       };
 
 
-  render(props) {
-    console.log("addnote:", props)
+  render() {
+    console.log("addnote:", this.props)
     return (
         
         <div>
