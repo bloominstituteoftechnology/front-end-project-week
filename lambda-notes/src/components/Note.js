@@ -3,12 +3,14 @@ import React from 'react';
 const Note = props => {
     if (props.data) {
         return (
-            <div>
-                {props.data.title}
-                <br></br>
-                {props.data.content}
-                <br></br>
-                <br></br>
+            <div className='note-container'>
+                <div className='note'>
+                    {props.data.title}
+                    <br></br>
+                    {props.data.content}
+                    <br></br>
+                    <br></br>
+                </div>
             </div>
         )
 

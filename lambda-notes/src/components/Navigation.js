@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const Navigation = () => {
   return (
     <div>
-        <h1>Lambda<br></br>Notes</h1>
-        <Link to="/"><button>View Your Notes</button></Link>
-        <br></br>
-        <br></br>
-        <Link to="/Create"><button>+ Create New Note</button></Link>
+      <h1>Lambda<br></br>Notes</h1>
+      <div className='nav-button-container'>
+        <Link to="/"><button className='nav-button'>View Your Notes</button></Link>
+        <Link to="/Create"><button className='nav-button'>+ Create New Note</button></Link>
+      </div>
     </div>
   );
 };
