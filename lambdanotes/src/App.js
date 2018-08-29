@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
 import dummyData from "./components/dummydata";
+import { AddNote } from "./components/Addnote";
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class App extends Component {
       notes: dummyData,
       newtitle: "",
       newtext: "",
-      id: 4,
+      id: noteid++,
     }
   }
   render() {
@@ -25,7 +26,7 @@ class App extends Component {
         />
 
         <Route exact path="/add"
-            render={() => <div>ADD notes here</div>}
+            component={AddNote}
         />
 
         <Route exact path="/notes"
