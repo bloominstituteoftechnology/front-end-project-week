@@ -26,7 +26,7 @@ class CreateNote extends Component {
         this.props.updateHandle(response.data);
         this.setState({
           title: "",
-          textBody: ""
+          textBody: "",
         });
       })
       .catch(err => console.log("Error", err));
@@ -50,12 +50,13 @@ class CreateNote extends Component {
               value={this.state.tite}
               name="title"
             />
-            <textarea
+            <input
+            className="note-content"
             onChange={this.handleInputChange}
             placeholder="Note Content"
             value={this.state.textBody}
             name="textBody" 
-            ></textarea>
+            />
             <button type="submit">Save</button>
           </form>
         </div>
