@@ -9,13 +9,20 @@ import CreateView from "./components/CreateView";
 import "./App.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [],
+    };
+  }
+
   render() {
     return (
-      <div className="App">
+      <React.Fragment className="App">
         <SideNav />
         <ListView {...this.state} />
         <CreateView />
-      </div>
+      </React.Fragment>
     );
   }
 }

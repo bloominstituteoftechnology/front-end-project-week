@@ -6,7 +6,7 @@ class CreateView extends Component {
   constructor() {
     super();
     this.state = {
-      newNote: { title: "", content: "" },
+      newNote: [{ title: "", content: "" }],
       notes: []
     };
   }
