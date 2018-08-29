@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class NoteView extends Component {
+class UpdateView extends Component {
   render() {
     return <div />;
   }
 }
 
-export default NoteView;
+export default UpdateView;

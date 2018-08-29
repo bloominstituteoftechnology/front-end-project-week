@@ -5,3 +5,7 @@
     background: rgb(247, 245, 245);
     border: 1px solid rgb(206, 192, 192);
 }
+
+.list-header {
+    display: flex;
+}

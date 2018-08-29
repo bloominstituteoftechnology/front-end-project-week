@@ -1,36 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import NoteView from "./NoteView";
 
-// import CreateView from './CreateView';
-
-import './ListView.css';
+import "./ListView.css";
 
 class ListView extends Component {
-    constructor() {
-        super();
-        this.state = {
-            newNote: "",
-            notes: []
-        }
-    }
+  constructor() {
+    super();
+    this.state = {
+      notes: []
+    };
+  }
 
-    // handleAlert = () => {
-    //     return (
-    //         alert('Weehee!!!')
-    //     )
-        
-    // }
-
-    render() {
-        return (
-            <div className="note-container">
-                <h5>Your Notes: </h5>
-                <div>
-                    
-                </div>
-            </div>
-        )
-    }
-    
+  render() {
+    return (
+      <div className="note-container">
+        <h5 className="list-header">Your Notes: </h5>
+        {this.state.notes.map(note => (
+          <Note key={note.id} />
+        ))}
+      </div>
+    );
+  }
 }
+
+// const ListView = props => {
+//     return (
+//         <div className="note-container">
+//             <h5 className="list-header">Your Notes: </h5>
+//             {props.notes.map(notes => (
+//                 <div key={notes.id}>{notes}</div>
+//             ))}
+//         </div>
+//     )
+// }
 
 export default ListView;
