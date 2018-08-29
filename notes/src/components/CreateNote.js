@@ -32,11 +32,13 @@ class CreateNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: {
+      comment: 
+      {
         title: "",
         // tags: "",
         body: ""
       }
+    
     };
   }
   handleInput = (event) => {
@@ -56,7 +58,7 @@ class CreateNote extends Component {
           <input name="title" onChange={this.handleInput} className="test"  />
           <h3>Text Body</h3>
           
-          <textarea name="body" onChange={this.handleInput} class="longInput" />
+          <textarea name="body" rows="15" cols="60" onChange={this.handleInput} class="longInput" />
         </StyledForm>
       </StyledViewWrapper>
     );

@@ -16,7 +16,7 @@ const Notes = [
     id: 1
   },
   {
-    title: "Test Note",
+    title: "SLJLorem",
     tags: "test, whatever I choose",
     body: lorem2,
     id: 2
