@@ -20,8 +20,24 @@ class App extends Component {
     });
   };
 
+  handleEdit = (_index, editedNote) => {
+    console.log('handleEdit called')
+    this.setState(prevState => {
+      return {
+        notes: prevState.notes.map((note, index) => {
+          if (index == _index) {
+            return editedNote
+          } else {
+            return note
+          }
+        })
+      };
+    });
+  };
+
 
   render() {
+    console.log('App', this.props)
     return (
       <div className="App">
       {/* <SimpleStorage parent={this} /> */}
@@ -45,7 +61,7 @@ class App extends Component {
         <Route
          exact
           path="/notes/:index"
-          render={props => <Note {...props} notes={this.state.notes} />}
+          render={props => <Note {...props} notes={this.state.notes} handleSubmit={this.handleEdit}/>}
         />
       </div>
     );

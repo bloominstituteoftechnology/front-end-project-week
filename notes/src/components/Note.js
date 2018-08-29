@@ -6,7 +6,8 @@ import styled from "styled-components";
 class Note extends React.Component {
   state = {
     editMode: false,
-    deleteMode: false
+    deleteMode: false,
+    index: this.props.match.params.index
   };
 
   handleEditMode = () => {
@@ -16,6 +17,11 @@ class Note extends React.Component {
       };
     });
   };
+
+  handleSubmit = object => {
+		this.props.handleSubmit(this.state.index, object);
+		this.handleEditMode();
+	};
 
   render() {
     console.log("PROPS", this.props.notes);
@@ -27,7 +33,7 @@ class Note extends React.Component {
     return (
       <Page>
         {this.state.editMode ? (
-          <EditNote notes={this.props.notes} />
+          <EditNote notes={this.props.notes} handleSubmit={this.handleSubmit} />
         ) : (
           <div>
             <ModeWrapper>
