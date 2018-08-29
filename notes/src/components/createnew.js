@@ -1,35 +1,34 @@
-import React, { Component } from "react";
-import {Link} from 'react-router-dom';
+import React from "react";
 
-class CreateNew extends Component {
+const CreateNew = (props) => {
 
-  render() {
+
     return (
         
-      <form onSubmit={this.props.newNote}>
-        {console.log(this.props)}
+      <form onSubmit={props.newNote}>
+        {console.log(props)}
         <input
-          onChange={this.props.handleInputChange}
+          onChange={props.handleInputChange}
           placeholder="title"
-          value={this.props.title}
+          value={props.title}
           name="title"
         />
         <input
-          onChange={this.props.handleInputChange}
+          onChange={props.handleInputChange}
           placeholder="tags"
-          value={this.props.tags}
+          value={props.tags}
           name="tags"
         />
         <input
-          onChange={this.props.handleInputChange}
+          onChange={props.handleInputChange}
           placeholder="body"
-          value={this.props.textBody}
+          value={props.textBody}
           name="textBody"
         />
         <button>Submit</button>
       </form>
     );
-  }
+  
 }
 
 export default CreateNew;

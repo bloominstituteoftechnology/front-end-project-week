@@ -1,24 +1,21 @@
-import React from 'react';
+import React from "react";
 
-const NoteView = () => {
-    return(
-        <div> 
-        {props.noteList.map((notes, i) => {
-            return (
-                <div>
-                {note = notes.filter(() => notes._id === path)}
-                {console.log(note)}
-                <div key={i}>
-                <div>{note.tags}</div>
-                <div>{note.title}</div>
-                <div>{note.textBody}</div>
-                </div>
-                </div>
-            )
-        })}
-    )
+const NoteView = props => {
+  const note = props.noteList.find(
+    eachNote => eachNote._id === Number(props.match.params.id)
+  );
+  return (
+    <div>
+      <div>
+        {console.log(note)}
+        <div key={note._id}>
+          <div>{note.tags}</div>
+          <div>{note.title}</div>
+          <div>{note.textBody}</div>
+        </div>
+      </div>
     </div>
-    )
-}
+  );
+};
 
-export default NoteView
+export default NoteView;

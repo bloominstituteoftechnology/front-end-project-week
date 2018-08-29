@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import { Route } from "react-router-dom";
-import Sidebar from "./components/sidebar";
-import Listview from "./components/listview";
-import CreateNew from "./components/createnew";
+import Sidebar from "./components/Sidebar";
+import ListView from "./components/ListView";
+import CreateNew from "./components/CreateNew";
+import NoteView from './components/NoteView';
 import "./App.css";
 
 class App extends Component {
@@ -43,8 +44,7 @@ class App extends Component {
         tags: this.state.tags,
         title: this.state.title,
         textBody: this.state.textBody
-      },
-
+      }
     ];
     console.log("!!!", noteList);
     this.setState({
@@ -63,9 +63,10 @@ class App extends Component {
           exact
           path="/"
           render={props => (
-            <Listview
+            <ListView
               {...props}
               tags={this.state.noteList.tags}
+              _id={this.state.noteList._id}
               title={this.state.noteList.title}
               textBody={this.state.noteList.textbody}
               noteList={this.state.noteList}
@@ -86,6 +87,14 @@ class App extends Component {
               tags={this.state.tags}
               title={this.state.title}
             />
+          )}
+        />
+
+        <Route
+          exact
+          path='/notes/:id'
+          render={props => (
+            <NoteView {...props} noteList={this.state.noteList} />
           )}
         />
       </div>
