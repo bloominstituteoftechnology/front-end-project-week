@@ -1,33 +1,25 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-import uuid from "uuid";
-
+import dummyData from "./dummyData";
+import uuid from 'uuid';
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NoteList from "./Component/NoteList";
 import NoteForm from "./Component/NoteForm";
-import EditNote from "./Component/EditNote";
+import Note from "./Component/Note";
 
-const specId = uuid();
+
+// import EditNote from "./Component/EditNote";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          id: specId,
-          header: "Testing out New App",
-          content: "This is my new note app for front end project week"
-        },
-        {
-          id: specId,
-          header: "Things to See in NYC",
-          content: "The MET, Central Park, Financial District"
-        }
-      ],
-      note: ""
+      notes: dummyData,
+      _id: uuid(),
+      title: '',
+      textBody:'',
     };
   }
 
@@ -37,9 +29,12 @@ class App extends Component {
 
   addNote = event => {
     event.preventDefault();
-    const notes = this.state.notes.slice();
-    this.setState({ notes, note: "" });
+    const notes = this.state.notes;
+    notes.push({_id: this.state._id, title: this.state.title, textBody: this.state.textBody});
+    this.setState({notes, _id:'', title: '', textBody: ''});
+
   };
+
 
   render() {
     //Build out sidebar
@@ -58,19 +53,34 @@ class App extends Component {
           </Link>
         </aside>
         <div className="notes-container">
-        <Route
+          <Route
             exact
             path="/"
             render={() => {
               return <NoteList notes={this.state.notes} />;
             }}
           />
-          <Route exact path="/noteform" component={NoteForm} />
+          <Route
+            exact
+            path="/noteform"
+            render={() => {
+              return (
+                <NoteForm
+                  handleAddNote={this.addNote}
+                  handleNoteChange={this.changeNote}
+                  _id={this.state._id}
+                  title={this.state.title}
+                  textBody={this.state.textBody}
+                />
+              );
+            }}
+          />
+
+          <Route exact path="/Note" Component={Note}/>
         </div>
       </div>
     );
   }
 }
-
 
 export default App;

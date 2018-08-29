@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Note = props => {
   return (
-    <div>
-      
-      <div className="note-header">{props.note.header}</div>
-      <div className="note-content">{props.note.content}</div>
-    </div>
+    <React.Fragment>
+      <div>{props.note.title}</div>
+      <div>{props.note.textBody}</div>
+    </React.Fragment>
   );
 };
 
