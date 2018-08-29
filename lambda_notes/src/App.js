@@ -5,6 +5,7 @@ import CreateNote from './components/CreateNote';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
 import './App.css'
+import DeleteNote from './components/DeleteNote';
 
 class App extends Component {
   constructor() {
@@ -21,8 +22,9 @@ class App extends Component {
           <Sidebar />
           {/* <MainNotes /> */}
           {/* <CreateNote /> */}
-          {/* <NoteView /> */}
-          <EditNote />
+          <NoteView />
+          {/* <EditNote /> */}
+          {/* <DeleteNote /> */}
         </div>
       </div>
     );

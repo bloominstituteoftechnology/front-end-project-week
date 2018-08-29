@@ -6,8 +6,8 @@ export default class EditNote extends Component {
         return (
             <div className='createNoteContainer'>
                 <h3>Edit Note:</h3>
-                <input className='inputTitle' placeholder='Note Title'></input>
-                <input className='inputContent' placeholder='Note Content'></input>
+                <input type='text' className='inputTitle' placeholder='Note Title'></input>
+                <textarea rows='20' className='inputContent' placeholder='Note Content'></textarea>
                 <button className='createNoteButton'><strong>Update</strong></button>
             </div>
         )
