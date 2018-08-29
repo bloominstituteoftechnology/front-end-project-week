@@ -43,7 +43,7 @@ class App extends Component {
         <Route
           path="/createnote"
           render={props => (
-            <CreateNote {...props} updateHandle={this.updateHandle} />
+            <CreateNote {...props} updateHandle={this.updateHandle} notes={this.state.notes} />
           )}
         />
         <Route
@@ -51,6 +51,10 @@ class App extends Component {
           render={props => (
             <EditNote {...props} updateHandle={this.updateHandle} />
           )}
+        />
+        <Route
+        path="/noteview"
+        render={props => (<NoteCard {...props} />)} 
         />
       </div>
     );

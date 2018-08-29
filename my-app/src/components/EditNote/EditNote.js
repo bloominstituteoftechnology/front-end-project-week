@@ -11,32 +11,32 @@ class EditNote extends Component {
     this.state = {
       title: "",
       textBody: "",
-      id: "",
+      id: ""
     };
   }
 
   editNote = e => {
-      e.preventDefault();
-      const editNote = {
-          tite: this.state.title,
-          textBody: this.state.textBody,
-      };
-      axios
-        .put(URL, editNote)
-        .then(response => {
-            this.props.updateHandle(response.data.id);
-            this.setState({
-                title: "",
-                textBody: "",
-                id: "",
-            });
-        })
-        .catch(err => console.log("Error", err));
-  }
+    e.preventDefault();
+    const editNote = {
+      tite: this.state.title,
+      textBody: this.state.textBody
+    };
+    axios
+      .put(URL, editNote)
+      .then(response => {
+        this.props.updateHandle(response.data.id);
+        this.setState({
+          title: "",
+          textBody: "",
+          id: ""
+        });
+      })
+      .catch(err => console.log("Error", err));
+  };
 
   handleInputChange = e => {
-      this.setState({ [e.target.title]: e.target.value });
-  }
+    this.setState({ [e.target.title]: e.target.value });
+  };
 
   render() {
     return (
@@ -46,6 +46,7 @@ class EditNote extends Component {
         </div>
         <div className="addNoteForm">
           <form onSubmit={this.newNote}>
+            <h1>Edit Note</h1>
             <input
               onChange={this.handleInputChange}
               placeholder="Note Title"
@@ -53,11 +54,11 @@ class EditNote extends Component {
               name="title"
             />
             <input
-            className="note-content"
-            onChange={this.handleInputChange}
-            placeholder="Note Content"
-            value={this.state.textBody}
-            name="textBody" 
+              className="note-content"
+              onChange={this.handleInputChange}
+              placeholder="Note Content"
+              value={this.state.textBody}
+              name="textBody"
             />
             <button type="submit">Update</button>
           </form>

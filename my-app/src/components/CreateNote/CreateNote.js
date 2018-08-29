@@ -10,7 +10,7 @@ class CreateNote extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: ""
+      textBody: "",
     };
   }
 
@@ -44,6 +44,7 @@ class CreateNote extends Component {
         </div>
         <div className="addNoteForm">
           <form onSubmit={this.addNote}>
+          <h1>Create New Note</h1>
             <input
               onChange={this.handleInputChange}
               placeholder="Note Title"
