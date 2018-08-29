@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
 import { fetchingNotes } from '../../actions/index';
 import SingleNote from './Note'
 import styled from 'styled-components';
@@ -27,7 +26,7 @@ class ViewNotes extends Component {
             < Main >
                 <Header><h1>Your Notes:</h1></Header>
                 {this.props.notes.map(note => (
-                    <Link to='view-note'> <SingleNote key={note._id} note={note} /></Link>
+                    <SingleNote key={note._id} note={note} />
                 ))}
             </Main >
         );
