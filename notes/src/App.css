@@ -37,11 +37,11 @@
 }
 
 .NotesWrapper {
-	display: flex; /* these flex rules might not be needed, see .Notes__wip */
+	display: flex;
 	align-content: flex-start;
 	flex-wrap: wrap;
 	padding: 2% 4%;
-	height: 300vh;
+	height: 200vh;
 	width: 100%;
 	background-color: #f2f0f2;
 }
@@ -71,17 +71,11 @@
 	margin-bottom: 10px;
 }
 
-.Notes__wip {
-	display: flex;
-	align-content: flex-start;
-	flex-wrap: wrap;
-}
-
 .Notes {
 	border: 1px solid lightgray;
 	background-color: #fafafa;
-	width: 230px;
-	height: 280px;
+	width: 190px;
+	height: 190px;
 	padding: 8px;
 	word-wrap: break-word;
 	overflow: hidden;
@@ -236,8 +230,9 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgb(128, 128, 128, 0.9);
-	/* opacity: 0.9; */
+	/* background-color: rgb(128, 128, 128, 0.9); */
+	background-color: gray;
+	opacity: 0.9;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -292,6 +287,6 @@
 	color: #212121;
 }
 
-.Notes__completed {
-	width: 100%;
+.knight {
+	font-size: 7rem;
 }
