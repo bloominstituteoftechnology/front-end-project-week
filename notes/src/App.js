@@ -12,11 +12,13 @@ class App extends Component {
     this.state = {
       noteList: [
         {
+          _id: 0,
           tags: ["test tag", "test tag1"],
           title: "test title",
           textBody: "test body"
         },
         {
+          _id: 1,
           tags: ["test tag 2", "test tag 3"],
           title: "test title 1",
           textBody: "test body 1"
@@ -24,7 +26,7 @@ class App extends Component {
       ],
       tags: [],
       title: "",
-      textBody: "",
+      textBody: ""
     };
   }
 
@@ -34,40 +36,58 @@ class App extends Component {
 
   newNote = e => {
     e.preventDefault();
-    const noteList = [...this.state.noteList, {tags:this.state.tags, title: this.state.title, textBody: this.state.textBody}]
-    console.log("!!!",noteList)
-     this.setState({
-            noteList,
-            tags: [],
-            title: "",
-            textBody: ""
-    }) 
+    const noteList = [
+      ...this.state.noteList,
+      {
+        _id: Date.now(),
+        tags: this.state.tags,
+        title: this.state.title,
+        textBody: this.state.textBody
+      },
+
+    ];
+    console.log("!!!", noteList);
+    this.setState({
+      noteList,
+      tags: [],
+      title: "",
+      textBody: ""
+    });
   };
 
   render() {
     return (
       <div className="App">
         <Sidebar />
-{/*         <Listview
-           tags={this.state.noteList.tags}
-          title={this.state.noteList.title}
-          textBody={this.state.noteList.textbody}
-          noteList={this.state.noteList}
-        />  */}
-        <Route to='/' render={(props) => <Listview {...props} 
-        tags={this.state.noteList.tags}
-          title={this.state.noteList.title}
-          textBody={this.state.noteList.textbody}
-          noteList={this.state.noteList}/>}/>
-        
-        
-        <CreateNew 
-        handleInputChange={this.handleInputChange}
-        noteList={this.state.noteList}
-        newNote={this.newNote}
-        textBody={this.state.textBody}
-        tags={this.state.tags}
-        title={this.state.title} />
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Listview
+              {...props}
+              tags={this.state.noteList.tags}
+              title={this.state.noteList.title}
+              textBody={this.state.noteList.textbody}
+              noteList={this.state.noteList}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/new"
+          render={props => (
+            <CreateNew
+              {...props}
+              handleInputChange={this.handleInputChange}
+              noteList={this.state.noteList}
+              newNote={this.newNote}
+              textBody={this.state.textBody}
+              tags={this.state.tags}
+              title={this.state.title}
+            />
+          )}
+        />
       </div>
     );
   }
