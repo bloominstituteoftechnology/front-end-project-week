@@ -72,11 +72,12 @@ class App extends Component {
                   title={this.state.title}
                   textBody={this.state.textBody}
                 />
+                
               );
             }}
           />
-
-          <Route exact path="/Note" Component={Note}/>
+          <Route  path="/note" Component={<Note/>} />
+          
         </div>
       </div>
     );
