@@ -9,6 +9,8 @@ class YourNotes extends Component {
     return (
       <div>
         <Link exact to="/">Home</Link>
+        <br />
+        <Link exact to="/editnote">Edit</Link>
         <SideMenu />
         <div className="cards-container">
           {this.props.notes.map((note, i) => {

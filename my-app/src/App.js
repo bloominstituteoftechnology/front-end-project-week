@@ -5,6 +5,7 @@ import axios from "axios";
 import { Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import CreateNote from "./components/CreateNote/CreateNote";
+import EditNote from "./components/EditNote/EditNote";
 
 const URL = "https://killer-notes.herokuapp.com/note/get/all";
 
@@ -37,6 +38,7 @@ class App extends Component {
           render={props => <YourNotes {...props} notes={this.state.notes} />}
         />
         <Route path="/createnote" render={props => <CreateNote {...props} updateHandle={this.updateHandle} />} />
+        <Route path="/editnote" render={props => <EditNote {...props} updateHandle={this.updateHandle}/>} />
       </div>
     );
   }
