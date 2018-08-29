@@ -36,7 +36,7 @@ class App extends Component {
           path="/yournotes"
           render={props => <YourNotes {...props} notes={this.state.notes} />}
         />
-        <Route path="/createnote" render={props => <CreateNote {...props} />} />
+        <Route path="/createnote" render={props => <CreateNote {...props} updateHandle={this.updateHandle} />} />
       </div>
     );
   }

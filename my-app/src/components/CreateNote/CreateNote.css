@@ -1,0 +1,21 @@
+.addNoteForm {
+    border: 1px solid red;
+    margin-top: -900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 340px;
+}
+
+input {
+    width: 600px;
+    border-radius: 1px;
+}
+
+textarea {
+    width: 600px;
+    height: 400px;
+}
