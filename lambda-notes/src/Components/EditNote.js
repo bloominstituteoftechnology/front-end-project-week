@@ -1,15 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const EditNote = props => {
-  const note = props.notes.find(note => note.id == props.match.params.id);
   return (
-    <div className="edit">
-      <div className="delete">
-        <p>edit</p>
-        <p>delete</p>
+    <div className="note-container">
+      <h2>Edit Note:</h2>
+      <div className="input">
+        <input
+          onChange={props.inputHandler}
+          name="edittitle"
+          className="input-title"
+          defaultValue={props.edittitle}
+        />
+        <textarea
+          onChange={props.inputHandler}
+          name="editbody"
+          className="input-body"
+          defaultValue={props.editbody}
+        />
+        <Link className="save" to="/">
+          <button onClick={() => props.submitChange(props.match.params.id)}>
+            Save
+          </button>
+        </Link>
       </div>
-      <h1 className="edit-title">{note.title}</h1>
-      <div className="edit-note">{note.text}</div>
     </div>
   );
 };

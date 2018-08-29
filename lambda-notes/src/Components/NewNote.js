@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NewNote = props => {
   return (
-    <div className="new-note-container">
+    <div className="note-container">
       <h1>Create New Note:</h1>
       <div className="input">
         <input
@@ -19,7 +19,7 @@ const NewNote = props => {
           placeholder="Note Content"
         />
         <Link className="save" to="/">
-          <button onClick={props.noteSubmit}>Save</button>
+          <button onClick={props.submitNote}>Save</button>
         </Link>
       </div>
     </div>

@@ -2,18 +2,22 @@ import React, { Component } from "react";
 import Menu from "./Components/Menu";
 import NoteList from "./Components/NoteList";
 import NewNote from "./Components/NewNote";
+import SingleNote from "./Components/SingleNote";
 import EditNote from "./Components/EditNote";
 import { Route } from "react-router-dom";
+import dummydata from './dummydata';
 // import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
+      notes: dummydata,
       notetitle: "",
       notebody: "",
-      id: null
+      id: null,
+      edittitle: "",
+      edittext: ""
     };
   }
 
@@ -22,8 +26,8 @@ class App extends Component {
   };
 
   submitNote = () => {
-    let each = this.state.notes[this.state.notes.length - 1].id;
-    this.setState({ id: each }, function() {
+    let newnote = this.state.notes[(this.state.notes.length-1)].id;
+    this.setState({id: newnote}, function () {
       let notes = this.state.notes.slice();
       let id = this.state.id;
       if (this.state.eachtitle !== "" || this.state.eachbody !== "") {
@@ -33,10 +37,30 @@ class App extends Component {
           title: this.state.eachtitle,
           text: this.state.eachbody
         });
-        this.setState({ notes, eachtitle: "", eachbody: "", id });
-      }
-    });
+        this.setState({ notes, eachtitle: "", eachbody: "", id })};
+      })
   };
+
+  editHandler = id => {
+    let notecopy = this.state.notes.slice();
+    let editnote = notecopy.find(note => note.id == id);
+    this.setState({ edittitle: editnote.title, editbody: editnote.text });
+  };
+
+  submitChange = id => {
+    let notecopy = this.state.notes.slice();
+    let editnote = notecopy.find(note => note.id == id);
+    editnote.title = this.state.edittitle;
+    editnote.text = this.state.editbody;
+    this.setState({ notes: notecopy });
+  };
+
+  noteDelete = (id) => {
+    let notecopy = this.state.notes.slice();
+    let notesremaining = notecopy.filter(note => note.id != id)
+    console.log(notesremaining);
+    this.setState({notes:notesremaining})
+  }
 
   render() {
     return (
@@ -61,7 +85,28 @@ class App extends Component {
         <Route
           exact
           path="/notes/:id"
-          render={props => <EditNote {...props} notes={this.state.notes} />}
+          render={props => (
+            <SingleNote
+              {...props}
+              editHandler={this.editHandler}
+              notes={this.state.notes}
+              noteDelete={this.noteDelete}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/notes/edit/:id"
+          render={props => (
+            <EditNote
+              {...props}
+              inputHandler={this.inputHandler}
+              submitChange={this.submitChange}
+              editbody={this.state.editbody}
+              edittitle={this.state.edittitle}
+              notes={this.state.notes}
+            />
+          )}
         />
       </div>
     );
