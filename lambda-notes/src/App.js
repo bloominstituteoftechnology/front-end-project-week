@@ -15,7 +15,7 @@ class App extends Component {
       notes: dummydata,
       notetitle: "",
       notebody: "",
-      id: null,
+      id: null ,
       edittitle: "",
       edittext: ""
     };
@@ -30,14 +30,14 @@ class App extends Component {
     this.setState({id: newnote}, function () {
       let notes = this.state.notes.slice();
       let id = this.state.id;
-      if (this.state.eachtitle !== "" || this.state.eachbody !== "") {
+      if (this.state.notetitle !== "" || this.state.notebody !== "") {
         id++;
         notes.push({
           id: id,
-          title: this.state.eachtitle,
-          text: this.state.eachbody
+          title: this.state.notetitle,
+          text: this.state.notebody
         });
-        this.setState({ notes, eachtitle: "", eachbody: "", id })};
+        this.setState({ notes, notetitle: "", notebody: "", id })};
       })
   };
 

@@ -8,13 +8,13 @@ const NewNote = props => {
       <div className="input">
         <input
           onChange={props.inputHandler}
-          name="newnotetitle"
+          name="notetitle"
           className="input-title"
           placeholder="Note Title"
         />
         <textarea
           onChange={props.inputHandler}
-          name="newnotebody"
+          name="notebody"
           className="input-body"
           placeholder="Note Content"
         />
