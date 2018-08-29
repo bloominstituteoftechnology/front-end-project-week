@@ -84,24 +84,47 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  addNote = event => {
+  // addNote = event => {
+  //   event.preventDefault();
+  //   const notes = this.state.notes.slice();
+  //   notes.push({
+  //     textBody: this.state.text,
+  //     title: this.state.title
+  //   });
+  //   this.setState({ notes, title: "", text: "" });
+  // };
+
+  addNote = (event) => {
     event.preventDefault();
-    const notes = this.state.notes.slice();
-    notes.push({
+    const newNote = {
+      title: this.state.title,
       textBody: this.state.text,
-      title: this.state.title
-    });
-    this.setState({ notes, title: "", text: "" });
-  };
+    };
+    axios
+    .post(`https://killer-notes.herokuapp.com/note/create`,newNote)
+    .then(res => {
+      console.log(res);
+      axios
+      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .then(res => {
+      console.log(res.data);
+      this.setState({notes: res.data , title: '' , text: ''})
+    })
+    })
+      .catch(error => {
+      console.error("Server Error", error);
+    })
+  }
+
 
   deleteNote = (noteID) => {
-    // event.preventDefault();
     axios
     .delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
     .then(res => {
       axios
       .get("https://killer-notes.herokuapp.com/note/get/all")
       .then(res => {
+        console.log(res.data);
         this.setState({ notes: res.data });
       })
       .catch(error => {
@@ -189,8 +212,8 @@ class App extends Component {
           )}
         />
       </div>
-    );
+      );
+    }
   }
-}
 
 export default Authenticate(App);
