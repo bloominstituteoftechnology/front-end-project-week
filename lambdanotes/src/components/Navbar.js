@@ -14,8 +14,8 @@ export const Navbar = (props) => {
             <h1>Lambda</h1>
             <h1>Notes</h1>
 
-            <NavButton>View Your Notes</NavButton>
-            <NavButton>+ Create New Note</NavButton>
+            <Link to="/notes"><NavButton>View Your Notes</NavButton></Link>
+            <Link to="/add"><NavButton>+ Create New Note</NavButton></Link>
         
         </NavBarContainer>
     )

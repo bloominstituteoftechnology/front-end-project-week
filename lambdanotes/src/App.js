@@ -16,7 +16,14 @@ class App extends Component {
       id: 4,
     }
   }
+  handleNoteSubmit = note => {
+    console.log('clicked')
+    console.log(this)
+        this.setState(prevState => ({ notes: [...prevState.notes, note] }))
+        };
+
   render() {
+    console.log(this)
     return (
       <div>
         <Navbar />
@@ -26,7 +33,9 @@ class App extends Component {
         />
 
         <Route exact path="/add"
-            component={AddNote}
+            render={props => (
+                <AddNote {...props} onSubmit={this.handleNoteSubmit} />
+            )}
         />
 
         <Route exact path="/notes"
