@@ -7,6 +7,7 @@ import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NoteList from "./Component/NoteList";
 import NoteForm from "./Component/NoteForm";
+import EditNote from "./Component/EditNote";
 
 const specId = uuid();
 
@@ -70,5 +71,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
