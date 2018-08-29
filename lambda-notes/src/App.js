@@ -10,7 +10,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                {/* <SideBar /> */}
+                <SideBar />
                 <Route exact path='/' component={ViewNotes} />
                 <Route path='/create-note' component={NewNote} />
                 <Route path='/view-note/:id' component={NoteViewer} />

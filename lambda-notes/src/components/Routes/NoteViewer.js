@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
+
+const Main = styled.div`
+    margin-left: 400px;
+    display: flex;
+    flex-wrap: wrap;`
+
+const NoteContainer = styled.div`
+margin 20px;
+width: 200px;
+height: 150px;
+`
 
 class NoteViewer extends Component {
 
@@ -19,10 +31,14 @@ class NoteViewer extends Component {
         console.log(this.state)
         const { title, textBody } = this.state.note;
         return (
-            <div>
-                <div>{title}</div>
-                <div>{textBody}</div>
-            </div>
+            < Main >
+                <div>
+                    <NoteContainer>
+                        <h1>{title}</h1>
+                        <div>{textBody}</div>
+                    </NoteContainer>
+                </div>
+            </Main>
         )
     }
 }
