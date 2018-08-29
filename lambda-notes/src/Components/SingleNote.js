@@ -6,7 +6,7 @@ const SingleNote = props => {
   return (
     <div className="single-note">
       <div className="delete">
-        <Link className="editlink" to={`/edit/${props.match.params.id}`}>
+        <Link className="editlink" to={`/notes/editnote/${props.match.params.id}`}>
           <p onClick={() => props.editHandler(props.match.params.id)}>edit</p>
         </Link>
         <Link to="/">
