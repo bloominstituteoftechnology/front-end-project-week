@@ -9,6 +9,8 @@ import Notes from "./NoteData";
 import NotesView from "./components/NotesView";
 import SingleView from "./components/SingleView";
 import CreateNote from "./components/CreateNote";
+import EditNote from "./components/EditNote"
+import DeleteNote from "./components/DeleteNote"
 //Styles================================
 const StyledApp = styled.div`
   background-color: #e3e3e3;
@@ -46,7 +48,6 @@ class App extends Component {
           render={props => <NotesView {...props} notes={Notes} />}
         />
         <Route
-          exact
           path="/note/:id"
           render={props => <SingleView {...props} notes={Notes} />}
         />
@@ -54,9 +55,17 @@ class App extends Component {
           path="/create"
           render={props => <CreateNote {...props} notes={Notes} />}
         />
+        <Route
+          path="/edit/:id"
+          render={props => <EditNote {...props} notes={Notes} />}
+        />
+        <Route
+          path="/note/:id/delete"
+          render={props => <DeleteNote {...props} notes={Notes} />}
+        />
       </StyledApp>
     );
-  }
+  } 
 }
 
 export default App;

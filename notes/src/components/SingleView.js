@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import {Link} from 'react-router-dom';
 import Note from './Note'
 
 const StyledNoteContainer = styled.div`
@@ -23,6 +23,20 @@ p {
 }
 `;
 
+const NoteOptions = styled.div`
+    color: black;
+    margin-top: 10px;
+    display:flex;
+    justify-content: flex-end;
+    margin-right: 80px;
+    font-weight:bold;
+    .edit {
+        margin-right: 20px;
+    }
+
+`
+
+
 const SingleView = (props) => {
     const note = props.notes.find(note => note.id.toString() === props.match.params.id) 
     return ( 
@@ -30,6 +44,11 @@ const SingleView = (props) => {
         // OF THE NOTE THAT IS AT A SPECIFIC ROUTE
 
         <StyledViewWrapper>
+        <NoteOptions>  
+        <Link className='edit noDecoration' to={`/edit/${note.id}`}>Edit</Link>
+        <Link className='delete noDecoration' to={`/note/${note.id}/delete`}>Delete</Link>
+         </NoteOptions>
+
         <StyledNoteContainer>
 
         <h2>{note.title}</h2>

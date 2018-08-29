@@ -64,7 +64,7 @@ const Button = styled.div`
   }
 `;
 
-class CreateNote extends Component {
+class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -104,7 +104,7 @@ class CreateNote extends Component {
   render() {
     return (
       <StyledViewWrapper>
-        <h2>Create New Note:</h2>
+        <h2>Edit Note:</h2>
 
         <StyledForm onSubmit={this.addNote}>
           <input
@@ -114,7 +114,7 @@ class CreateNote extends Component {
             className="input input-title"
             value={this.state.newNote.title}
           />
-          <textarea
+          <textarea   
             name="body"
             rows="15"
             cols="60"
@@ -123,11 +123,11 @@ class CreateNote extends Component {
             className="input input-content"
             value={this.state.newNote.body}
           />
-          <Button onClick={this.addNote} >Save</Button>
+          <Button  >Update</Button>
         </StyledForm>
       </StyledViewWrapper>
     );
   }
 }
 
-export default CreateNote;
+export default EditNote;
