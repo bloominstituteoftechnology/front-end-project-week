@@ -37,7 +37,7 @@
     height: 100%;
     width: 160px;
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     top: 0;
     left: 0;
     background-color: #D2D1D2;
@@ -47,14 +47,14 @@
 
 .li {
     padding: 6px 8px 6px 16px;
-    margin: 5px 5px 5px 5px;
+    margin: 15px 5px 10px 5px;
     text-decoration: none;
     font-size: 2rem;
     color: #464444;
     display: block;
-    background-color: #41B7BA;
+    background-color: #23B8BE;
     border: 1px solid #A0B2B2;
-    border-radius: .5rem;
+    border-radius: 2px!important;
 }
 
 
@@ -62,4 +62,15 @@
     margin-left: 160px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+}
+
+.nav {
+  text-decoration: underline;
+  justify-content: flex-end;
+  padding: 0 0 0 0;
+  color:#5E6368!important;
+}
+
+.note{
+  display: flex;
 }

@@ -3,21 +3,20 @@ import Note from './Note'
 import {Container, CardGroup} from 'reactstrap';
 import {Link} from 'react-router-dom'
 
-class Notes extends Component {
-  render() {
-    console.log("notes", this.props.notes)
+const Notes = (props) => {
+    console.log("notes", props.notes)
     return (<Container>
-      <CardGroup>
+      <CardGroup  >
         {
-          this.props.notes.map(note => (<div key={note.id}>
-            <Link to={`/notes/${note.id}`}>
+          props.notes.map(note => (<div className="note" key={note._id}>
+            <Link to={`/notes/${note._id}`} >
               <Note note={note} />
             </Link>
           </div>))
         }
       </CardGroup>
     </Container>);
-  }
+
 };
 
 export default Notes;

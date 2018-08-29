@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, CardBody, CardTitle, CardText, CardGroup} from "reactstrap"
 
 const Note = props => {
-  const { id, title, body} = props.note;
+  const { id, title, textBody} = props.note;
   console.log("note id", props.note.id)
 console.log(props.note)
   return (
@@ -10,7 +10,7 @@ console.log(props.note)
       <Card>
         <CardBody>
           <CardTitle>  {title}</CardTitle>
-          <CardText> {body}</CardText>
+          <CardText> {textBody}</CardText>
         </CardBody>
       </Card>
       </div>

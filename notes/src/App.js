@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Link, Route } from "react-router-dom";
+
+
 import Notes from "./components/Notes";
-import Note from "./components/Note"
 import SingleNote from './components/SingleNote'
-import Modal from './components/Modal'
-import { Button } from 'reactstrap'
+import Edit from './components/Edit'
+import NewNote from './components/NewNote'
 // import SideBar from './components/SideBar'
+import { Button } from 'reactstrap'
 
 class App extends Component {
   constructor(props) {
@@ -14,28 +16,57 @@ class App extends Component {
     this.state = {
       notes: [
         {
-          id: 1,
+          _id: 1,
           title: "note2",
-          body: "Test Test Test Test"
+          textBody: "Test Test Test Test"
         },
         {
-          id: 2,
+          _id: 2,
           title: "note1",
-          body: "Test Test Test Test"
+          textBody: "Test Test Test Test"
         },
         {
-          id: 3,
+          _id: 3,
           title: "note3",
-          body: "Test Test Test Test"
+          textBody: "Test Test Test Test"
         },
         {
-          id: 4,
+          _id: 4,
           title: "note4",
-          body: "Test Test Test Test"
+          textBody: "Test Test Test Test"
         }
-      ]
+      ],
+      title: '',
+      textBody: '',
+      _id: 5
     }
+
   }
+
+  addNote = (e) => {
+    e.preventDefault();
+
+    const notes = this.state.notes.slice();
+
+    notes.push({
+      title: this.state.title,
+      textBody: this.state.textBody,
+      _id: this.state._id
+    });
+
+    const _id = this.state._id + 1;
+
+    this.setState({
+      notes, _id, title: '', textBody: ''
+    })
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,20 +75,27 @@ class App extends Component {
           <Link to="/notes" href="#about">
             <Button className="li">View Your Notes</Button>
           </Link>
-          <Link to="/new" ref="#services">
+          <Link to="/new" >
             <Button className="li">Create New Note</Button></Link>
         </div>
         <Route exact path="/" render={() =>
           <div>Welcome young master</div>} />
-        <Route exact path='/new' component={Modal} />
+
+        <Route exact path='/new' render={(props) =>
+          <NewNote {...props} handleChange={this.handleChange} addNote={this.addNote} title={this.state.title} textBody={this.state.textBody} />} />
+
+        <Route exact path='/edit' component={Edit} />
+
         <Route exact path='/notes' render={() =>
           <div><Notes notes={this.state.notes} /></div>} />
+
         <Route path="/notes/:id" render={(props) =>
-          <SingleNote {...props} notes={this.state.notes} />
-        } />
+          <SingleNote {...props} notes={this.state.notes} />} />
       </div>
     );
   }
+
+
 }
 
 export default App;
