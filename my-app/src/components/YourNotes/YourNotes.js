@@ -3,7 +3,6 @@ import NoteCard from "./NoteCard";
 import "./YourNotes.css";
 import SideMenu from "../SideMenu/SideMenu";
 import { Link } from "react-router-dom";
-import uuid from 'uuid';
 
 class YourNotes extends Component {
   render() {
@@ -17,7 +16,7 @@ class YourNotes extends Component {
           {this.props.notes.map(note => {
             return (
               <div>
-                <NoteCard key={uuid()} note={note} />
+                <NoteCard key={this.props._id} note={note} />
               </div>
             );
           })}
