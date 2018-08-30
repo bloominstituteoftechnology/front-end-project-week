@@ -1,5 +1,6 @@
 import React from 'react';
 import Delete from './Delete';
+import { Link } from 'react-router-dom';
 
 const Note = props => {
     if (props.data) {
@@ -25,16 +26,19 @@ const Note = props => {
                         {note.title}
                     </h3>
                     <div>
-                        <a href='#' className='edit-delete'>edit</a>
-                        <a href='#' className='edit-delete'>delete</a>
+                        <Link to="/Edit"><a href='#' className='edit-delete'>edit</a></Link>
+                        <a href='#' className='edit-delete' onClick={props.deleteNoteHandler}>delete</a>
                     </div>
                 </div>
                 <div className='note-view-body'>
                     <p>
                         {note.content}
-                    </p>
-                    <Delete toggle={props.displayDelete} />
+                    </p>  
                 </div>
+                <Delete 
+                    toggle={props.displayDelete} 
+                    showModal={props.showModal}
+                />
             </div>
         )
     }
