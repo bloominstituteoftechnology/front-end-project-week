@@ -75,12 +75,11 @@ class App extends Component {
     let notes = this.state.notes.slice();
   
 
-    notes.splice(newNote.id, 1, {
-      ...newNote,
-      id: newNote.id,
+    notes.splice(newNote.id - 1, 1, {
       title: newNote.title,
-      body: newNote.note,
-      tags: newNote.tags
+      tags: newNote.tags,
+      body: newNote.body,
+      id: newNote.id
     });
     console.log(notes)
     console.log(newNote)

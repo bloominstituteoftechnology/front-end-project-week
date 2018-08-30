@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Redirect } from "react-router-dom";
 
 const StyledViewWrapper = styled.div`
   display: flex;
@@ -75,11 +76,12 @@ class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      Redirect: false,
       newNote: {
         title: "",
+        tags: "",
         body: "",
-        id: null,
-        tags: ""
+        id: null
       }
     };
   }
@@ -90,25 +92,32 @@ class EditNote extends Component {
     }));
   };
 
-componentDidMount() {
-    const id = this.props.match.params.id 
-    let note = this.props.notes.filter(note => id === note.id.toString())
-    note = note[0]
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    let note = this.props.notes.filter(note => id === note.id.toString());
+    note = note[0];
     this.setState({
-        newNote: {
-            title: note.title ,
-            body: note.body,
-            id: note.id,
-            tags: note.tags
-            
-        },
-    })
+      newNote: {
+        title: note.title,
+        body: note.body,
+        id: note.id,
+        tags: note.tags
+      }
+    });
+  }
 
-}
+  toggleRedirect = () => {
+    this.setState({
+      Redirect: !this.state.Redirect
+    });
+  };
 
   render() {
     return (
       <StyledViewWrapper>
+        {this.state.Redirect ? (
+          <Redirect to={`/note/${this.props.match.params.id}`} />
+        ) : null}
         <h2>Edit Note:</h2>
 
         <StyledForm onSubmit={this.addNote}>
@@ -128,7 +137,14 @@ componentDidMount() {
             className="input input-content"
             value={this.state.newNote.body}
           />
-          <Button onClick={() => this.props.editNote(this.state.newNote)}>Update</Button>
+          <Button
+            onClick={() => {
+              this.props.editNote(this.state.newNote);
+              this.toggleRedirect();
+            }}
+          >
+            Update
+          </Button>
         </StyledForm>
       </StyledViewWrapper>
     );

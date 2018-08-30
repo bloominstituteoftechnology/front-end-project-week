@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Redirect } from "react-router-dom";
 
 const StyledContainer = styled.div`
   background-color: hsla(0, 0%, 89%, 0.9);
@@ -87,6 +88,7 @@ class DeleteNote extends Component {
   render() {
     return (
       <StyledContainer>
+      {this.state.Redirect ? <Redirect to="/" /> : null}
         <ModalBox>
           <TextWrapper>
             <h3>Are you sure you want to delete this?</h3>
