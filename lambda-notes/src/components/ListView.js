@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NoteList = (props) => {
+const ListView = (props) => {
     return(
         <div className='list-view'>
             <h3>Your Notes</h3>
@@ -17,4 +17,4 @@ const NoteList = (props) => {
     );
 }
 
-export default NoteList;
+export default ListView;

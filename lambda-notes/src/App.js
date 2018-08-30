@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Route from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import ListView from './components/ListView';
 import SideBar from './components/SideBar';
 import './App.css';
+import './components/SideBar.css';
 
 class App extends Component {
   constructor() {
@@ -40,25 +41,12 @@ class App extends Component {
     };
   }
 
-  clickHandler(url) {
-    this.state.history.push(url);
-  }
-
   render() {
     return (
       <div className="App">
+        <SideBar />
         <Route
           path='/'
-          render={props => (
-            <SideBar
-              {...props}
-              notes={this.state.notes}
-              clickHandler={this.clickHandler}
-            />
-          )}
-        />
-        <Route
-          path='/notes'
           render={props => (
             <ListView 
               {...props} 

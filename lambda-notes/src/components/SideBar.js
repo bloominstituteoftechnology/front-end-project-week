@@ -1,23 +1,12 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom';
 
-const SideBar = (props) => {
+const SideBar = () => {
     return(
         <div className='sidebar'>
-            <h1>Lambda Notes</h1>
-            <button 
-                className='button-style'
-                onClick= {() =>
-                    {this.props.clickHandler('/notes')}}
-            >
-            View Your Notes
-            </button>
-            <button 
-                className='button-style'
-                onClick= {() =>
-                    {this.props.clickHandler('/create')}}
-            >
-            + Create New Note
-            </button>
+            <h1 className='sidebar-header'>Lambda<br/>Notes</h1>
+            <Link to='/'><button className='sidebar-button'>View Your Notes</button></Link>
+            <Link to='/create'><button className='sidebar-button'>+ Create New Note</button></Link>
         </div>
     );
 }
