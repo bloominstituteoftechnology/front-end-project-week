@@ -11,12 +11,7 @@ class MainContent extends React.Component {
     render() {
         return (
          <div className='main-container'>
-            <Switch>
-                 <Route path='/' exact component={NotesList} />
-                 <Route path='/note/:id' exact component={NotesView} />
-                 <Route path='/create' exact component={CreateNote} />
-                 <Route path='/edit/:id' exact component={EditNote} />
-            </Switch>
+           <NotesView/>
          </div>
         );
     }
