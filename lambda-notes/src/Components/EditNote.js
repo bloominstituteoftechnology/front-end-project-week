@@ -22,7 +22,7 @@ const EditNote = props => {
         />
         <Link className="save" to="/">
           <button onClick={() => props.submitChange(props.match.params.id)}>
-            Save
+            Update
           </button>
         </Link>
       </div>

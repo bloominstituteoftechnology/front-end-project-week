@@ -20,8 +20,10 @@ body {
   border-right: solid rgb(196, 196, 196) 1px;
 }
 .menu > h1 {
+  font-size: 28px;
   margin: 10% 10% 8%;
   color: #414141;
+  font-weight: bolder;
 }
 
 .menu-link {
@@ -47,6 +49,13 @@ body {
   height: 100%;
 }
 
+.note-container > h1 {
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 15px;
+
+}
+
 h2 {
   color: #414141;
 }
@@ -66,6 +75,7 @@ h2 {
 .note {
   width: 200px;
   height: 200px;
+  overflow-y: auto;
   background: white;
   border: solid lightgray 2px;
   box-sizing: border-box;
@@ -73,7 +83,6 @@ h2 {
   margin: 1%;
   position: relative;
   border-radius: 3px;
-  overflow-y: hidden;
 
 }
 
