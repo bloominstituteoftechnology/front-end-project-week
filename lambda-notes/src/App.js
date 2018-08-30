@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import Sidebar from "./components/Sidebar";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
@@ -21,92 +21,92 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    const user = localStorage.getItem("user");
-    this.setState({ username: user });
+  // componentDidMount() {
+  //   const user = localStorage.getItem("user");
+  //   this.setState({ username: user });
 
-    axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(response => {
-        this.setState({ notes: response.data });
-      })
-      .catch(error => {
-        console.error("Server Error", error);
-      });
-  }
+  //   axios
+  //     .get("https://killer-notes.herokuapp.com/note/get/all")
+  //     .then(response => {
+  //       this.setState({ notes: response.data });
+  //     })
+  //     .catch(error => {
+  //       console.error("Server Error", error);
+  //     });
+  // }
 
-  searchHandler = event => {
-    this.setState({ term: event.target.value });
-  };
+  // searchHandler = event => {
+  //   this.setState({ term: event.target.value });
+  // };
 
-  logOut() {
-    localStorage.removeItem("user");
-    window.location.reload();
-  }
+  // logOut() {
+  //   localStorage.removeItem("user");
+  //   window.location.reload();
+  // }
 
-  handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  // handleInputChange = event => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // };
 
-  addNote = (event) => {
-    event.preventDefault();
-    const newNote = {
-      title: this.state.title,
-      textBody: this.state.text,
-    };
-    axios
-    .post(`https://killer-notes.herokuapp.com/note/create`,newNote)
-    .then(res => {
-      console.log(res);
-      axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(res => {
-      console.log(res.data);
-      this.setState({notes: res.data , title: '' , text: ''})
-    })
-    })
-      .catch(error => {
-      console.error("Server Error", error);
-    })
-  }
+  // addNote = (event) => {
+  //   event.preventDefault();
+  //   const newNote = {
+  //     title: this.state.title,
+  //     textBody: this.state.text,
+  //   };
+  //   axios
+  //   .post(`https://killer-notes.herokuapp.com/note/create`,newNote)
+  //   .then(res => {
+  //     console.log(res);
+  //     axios
+  //     .get("https://killer-notes.herokuapp.com/note/get/all")
+  //     .then(res => {
+  //     console.log(res.data);
+  //     this.setState({notes: res.data , title: '' , text: ''})
+  //   })
+  //   })
+  //     .catch(error => {
+  //     console.error("Server Error", error);
+  //   })
+  // }
 
-  deleteNote = (noteID) => {
-    axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
-    .then(res => {
-      axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(res => {
-        console.log(res.data);
-        this.setState({ notes: res.data });
-      })
-      .catch(error => {
-        console.error("Server Error", error);
-      });
-    }
-    )}
+  // deleteNote = (noteID) => {
+  //   axios
+  //   .delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
+  //   .then(res => {
+  //     axios
+  //     .get("https://killer-notes.herokuapp.com/note/get/all")
+  //     .then(res => {
+  //       console.log(res.data);
+  //       this.setState({ notes: res.data });
+  //     })
+  //     .catch(error => {
+  //       console.error("Server Error", error);
+  //     });
+  //   }
+  //   )}
 
-  editNote = (event, noteID, title, textBody) => {
-    event.preventDefault();
+  // editNote = (event, noteID, title, textBody) => {
+  //   event.preventDefault();
 
-    const editedNote = { title, textBody };
+  //   const editedNote = { title, textBody };
 
-    axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${noteID}`, editedNote)
-      .then(res => {
-        const editedNote = res.data;
+  //   axios
+  //     .put(`https://killer-notes.herokuapp.com/note/edit/${noteID}`, editedNote)
+  //     .then(res => {
+  //       const editedNote = res.data;
 
-        const notes = this.state.notes.slice();
-        for (let i = 0; i < notes.length; i++) {
-          if (notes[i]._id === editedNote._id) {
-            notes[i] = editedNote;
-          }
-        }
+  //       const notes = this.state.notes.slice();
+  //       for (let i = 0; i < notes.length; i++) {
+  //         if (notes[i]._id === editedNote._id) {
+  //           notes[i] = editedNote;
+  //         }
+  //       }
 
-        this.setState({ notes });
-      })
-      .catch(err => console.error(err));
-  };
+  //       this.setState({ notes });
+  //     })
+  //     .catch(err => console.error(err));
+  // };
 
   render() {
     return (
