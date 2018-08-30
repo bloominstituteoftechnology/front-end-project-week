@@ -5,6 +5,7 @@ import Notes from "./components/Notes";
 import Note from "./components/Note";
 import dummyData from "./components/dummydata";
 import AddNote from "./components/Addnote";
+import EditNote from "./components/Editnote";
 
 class App extends Component {
   constructor() {

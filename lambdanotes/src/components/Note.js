@@ -6,15 +6,15 @@ class Note extends React.Component {
     super(props)
     }
     render() {
-        const note = this.props.notes.find(
+        let note = this.props.notes.find(
             note => note.id == this.props.match.params.id
         );
-        const noteID = this.props.match.params.id;
+        let noteID = this.props.match.params.id;
 
         return (
             <div>
-                <h2>{notes.title}</h2>
-                <p>{notes.text}</p>
+                <h2>{note.title}</h2>
+                <p>{note.text}</p>
                 <div>
                         <h3>Delete this note?</h3>
                         <Link to='/notes'>
