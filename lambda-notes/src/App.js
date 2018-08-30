@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
+import CreateNewView from './components/CreateNewView';
 import NoteView from './components/NoteView';
 import ListView from './components/ListView';
 import SideBar from './components/SideBar';
@@ -38,8 +39,30 @@ class App extends Component {
           _id: 4,
         },
       ],
-      note: ''
+      title: '',
+      textBody: '',
     };
+  }
+
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addNewNote = event => {
+    event.preventDefault();
+    const notes = [
+      ...this.state.notes,
+      {
+        _id: Date.now(),
+        title: this.state.title,
+        textBody: this.state.textBody,
+      }
+    ];
+    this.setState({
+      notes,
+      title: '',
+      textBody: '',
+    });
   }
 
   render() {
@@ -61,6 +84,19 @@ class App extends Component {
             <NoteView
               {...props}
               notes={this.state.notes}
+            />
+          )}
+        />
+        <Route
+          path={'/create'}
+          render={props => (
+            <CreateNewView
+              {...props}
+              notes={this.state.notes}
+              handleInputChange={this.handleInputChange}
+              addNewNote={this.addNewNote}
+              textBody={this.state.textBody}
+              title={this.state.title}
             />
           )}
         />
