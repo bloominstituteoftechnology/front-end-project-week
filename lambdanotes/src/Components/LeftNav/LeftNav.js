@@ -11,8 +11,12 @@ class LeftNav extends React.Component {
                 <h1>Lambda Notes</h1>
              </div>
              <div className='header-btns'>
+             <a href='#' className='btn-link'>
                 <button>View Your Notes</button>
+             </a>
+             <a href='#' className='btn-link'>
                 <button>Create New Note</button>
+             </a>  
              </div>
           </div>
         );

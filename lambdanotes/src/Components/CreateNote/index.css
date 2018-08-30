@@ -21,5 +21,21 @@
 }
 
 .createNote-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
 
+    }
+    
+    .createNote-btn button {
+        
+        color: white;
+        font-weight: 600;
+        background-color: #23B8BE;
+        border: 1px solid #86AEB1;
+        margin: 0.5rem 0;
+        height: 40px;
+        border-radius: 0.1rem;
+        width: 200px;
+ 
 }

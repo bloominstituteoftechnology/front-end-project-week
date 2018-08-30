@@ -14,7 +14,9 @@ class CreateNote extends React.Component {
         <div className='createNote-form'>
           <input type='text' className='createNote-title' placeholder='Note Title'/>
           <textarea className='createNote-body' placeholder='Note Content' rows='20'/>
+          <a href='#' className='button-link'>
           <div className='createNote-btn' ><button>Save</button></div>
+          </a>
         </div>
          </div>
         );

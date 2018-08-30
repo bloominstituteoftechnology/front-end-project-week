@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     min-width: 220px;
+    max-width: 220px;
     height: 100vh;
     background: lightgray
 }
@@ -22,6 +23,7 @@
     margin: 0.5rem 0;
     height: 40px;
     border-radius: 0.1rem;
+    width: 200px;
 }
 
 .header-title {

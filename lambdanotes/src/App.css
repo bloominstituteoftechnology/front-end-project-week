@@ -29,7 +29,10 @@
 
 
 * {
-  box-sizing: border-box;}
+  box-sizing: border-box;
+
+}
+
 
 
 body {
@@ -43,6 +46,9 @@ body {
   display: flex;
   justify-content: center;
   min-width: 880px;
-  border: 1px solid blue;
+
 }
 
+.button-link {
+  text-decoration: none;
+}

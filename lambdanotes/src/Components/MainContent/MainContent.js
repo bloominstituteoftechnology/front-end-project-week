@@ -11,7 +11,7 @@ class MainContent extends React.Component {
     render() {
         return (
          <div className='main-container'>
-           <CreateNote />
+         <NotesList/>
          </div>
         );
     }
