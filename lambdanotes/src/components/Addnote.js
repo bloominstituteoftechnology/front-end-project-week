@@ -17,11 +17,13 @@ class AddNote extends React.Component {
     render() {
         return (
         <div>
-            <input className="addNoteForm" type="text" placeholder="Title" value={this.state.newtitle} name="newtitle" onChange={this.handleInputChange} />
+            <input className="addNoteForm" type="text" placeholder="Title" 
+            value={this.state.newtitle} name="newtitle" onChange={this.handleInputChange} />
 
-            <textarea className="addNoteForm" type="text" name="newtext" cols="25" rows="10" placeholder="Your Note" value={this.state.newtext} onChange={this.handleInputChange} />
+            <textarea className="addNoteForm" type="text" name="newtext" cols="25" rows="10" 
+            placeholder="Your Note" value={this.state.newtext} onChange={this.handleInputChange} />
 
-            <Link className="savenote" to="/"> 
+
             <button onClick= {event => {
                 
                 this.props.onSubmit(this.state);
@@ -30,7 +32,7 @@ class AddNote extends React.Component {
                     newtitle: this.state.newtitle,
                     newtext: this.state.newtext,
                 }));
-            }}>Save</button></Link>
+            }}>Save</button>
     </div>
         )
     }

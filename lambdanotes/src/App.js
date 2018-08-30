@@ -16,12 +16,35 @@ class App extends Component {
       id: 4,
     }
   }
+
   handleNoteSubmit = note => {
     console.log('clicked')
-    console.log(this)
-        this.setState(prevState => ({ notes: [...prevState.notes, note] }));
+        const newNote = {id: this.state.notes.length,
+                        title: note.newtitle,
+                        text: note.newtext,}
+        this.setState( { notes: [...this.state.notes, newNote] });
 
 	};
+
+
+  handleInputChange = event => {this.setState({ [event.target.name]: event.target.value })};
+
+  handleEditNote = editNote => {
+      this.setState(prevState => ({
+        notes: prevState.notes.map(note => {
+          if (note.id == editNote.id) {
+            return editNote;
+          } else {return note}
+        }),
+      }));
+  }
+
+  handleDeleteNote = id => {
+      this.setState(prevState => ({
+        notes: prevState.notes.filter(note => note.id != id),
+      }));
+  };
+
 
   render() {
     console.log(this)
@@ -38,14 +61,23 @@ class App extends Component {
                 <AddNote {...props} onSubmit={this.handleNoteSubmit} />
             )}
         />
-
+          
         <Route exact path="/notes"
-            component={Notes}
+            render={props => (
+                <Note match={props.match} notes={this.state.notes}
+                
+                      match={props.match}
+                      notes={this.state.notes}
+                      onClick={this.handleDeleteNote}
+                      />
+            )}
         />
 
         <Route exact path="/notes/:id"
             render={props => (
-                <Note {...props} notes={this.state.notes} />
+                <Note {...props} notes={this.state.notes} 
+                                 onClick={this.handleDeleteNote}
+                                 onSubmit={this.handleEditNote}/>
             )}
         />
         </Switch>
