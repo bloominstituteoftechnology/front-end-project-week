@@ -22,7 +22,6 @@ class App extends Component {
   };
 
   handleEdit = (_index, editedNote) => {
-    console.log("handleEdit called");
     this.setState(prevState => {
       return {
         notes: prevState.notes.map((note, index) => {
