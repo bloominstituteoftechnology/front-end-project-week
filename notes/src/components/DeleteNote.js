@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
@@ -18,7 +18,7 @@ const ModalBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   height: 160px;
-  border: 3px solid #D1D0D1;
+  border: 3px solid #d1d0d1;
   border-radius: 3px;
   padding: 10px;
   margin: 0 auto;
@@ -28,10 +28,8 @@ const ModalBox = styled.div`
 `;
 
 const StyledButtons = styled.div`
-  ${"" /* background-color: #5eb3bb; */}
-  height: 40px;
-  ${"" /* margin-top: -50px; */}
-  display: flex;
+  ${"" /* background-color: #5eb3bb; */} height: 40px;
+  ${"" /* margin-top: -50px; */} display: flex;
   justify-content: space-between;
   color: white;
   font-weight: bold;
@@ -43,8 +41,8 @@ const StyledButtons = styled.div`
     color: white;
   }
   .red {
-      background-color: red;
-      margin-right: 10px;
+    background-color: red;
+    margin-right: 10px;
   }
 `;
 
@@ -53,7 +51,7 @@ const TextWrapper = styled.div`
   display: flex;
   h3 {
     font-size: 16px;
-    
+
     padding-top: 30px;
   }
 `;
@@ -70,24 +68,44 @@ const Button = styled.div`
   border-radius: 2px;
   width: 190px;
   :hover {
-      cursor: pointer;
+    cursor: pointer;
   }
 `;
+class DeleteNote extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Redirect: false
+    };
+  }
 
-const DeleteNote = props => {
-  return (
-    <StyledContainer>
-      <ModalBox>
-        <TextWrapper>
-          <h3>Are you sure you want to delete this?</h3>
-        </TextWrapper>
-        <StyledButtons>
-          <Button className="red">Delete</Button>
-          <Button onClick={props.history.goBack} >No</Button>
-        </StyledButtons>
-      </ModalBox>
-    </StyledContainer>
-  );
-};
+  toggleRedirect = () => {
+    this.setState({
+      Redirect: !this.state.Redirect
+    });
+  };
+  render() {
+    return (
+      <StyledContainer>
+        <ModalBox>
+          <TextWrapper>
+            <h3>Are you sure you want to delete this?</h3>
+          </TextWrapper>
+          <StyledButtons>
+            <Button
+              onClick={() => {
+                this.props.deleteNote(this.props.match.params.id);
+                this.toggleRedirect();
+              }}
+              className="red">
+              Delete
+            </Button>
+            <Button onClick={this.props.history.goBack}>No</Button>
+          </StyledButtons>
+        </ModalBox>
+      </StyledContainer>
+    );
+  }
+}
 
 export default DeleteNote;

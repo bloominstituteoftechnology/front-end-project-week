@@ -9,8 +9,8 @@ import Notes from "./NoteData";
 import NotesView from "./components/NotesView";
 import SingleView from "./components/SingleView";
 import CreateNote from "./components/CreateNote";
-import EditNote from "./components/EditNote"
-import DeleteNote from "./components/DeleteNote"
+import EditNote from "./components/EditNote";
+import DeleteNote from "./components/DeleteNote";
 //Styles================================
 const StyledApp = styled.div`
   background-color: #e3e3e3;
@@ -35,7 +35,7 @@ class App extends Component {
     notes: [],
     newNote: {
       title: "",
-      body: "",
+      body: ""
     },
     count: 6
   };
@@ -64,23 +64,35 @@ class App extends Component {
       count,
       newNote: {
         body: "",
-        title: "",
+        title: ""
       }
     });
-    const str = JSON.stringify(notes)
-    localStorage.setItem("notes", str)
-
+    const str = JSON.stringify(notes);
+    localStorage.setItem("notes", str);
   };
 
   editNote = newNote => {
-      let notes = this.state.notes.slice()
-      notes = notes.filter(note => note.id === newNote.id) 
-      notes = { title: newNote.title, body: newNote.body, id: newNote.id}
-      console.log(notes)
+    let notes = this.state.notes.slice();
+  
 
+    notes.splice(newNote.id, 1, {
+      ...newNote,
+      id: newNote.id,
+      title: newNote.title,
+      body: newNote.note,
+      tags: newNote.tags
+    });
+    console.log(notes)
+    console.log(newNote)
+  };
 
+  deleteNote = id => {
     
-  }
+    let notes = this.state.notes.slice();
+    console.log(notes, id)
+    notes = notes.filter(note => note.id !== Number(id));
+    console.log(notes)
+  };
 
   render() {
     return (
@@ -89,7 +101,7 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <NotesView {...props}  notes={this.state.notes} />}
+          render={props => <NotesView {...props} notes={this.state.notes} />}
         />
         <Route
           path="/note/:id"
@@ -97,19 +109,33 @@ class App extends Component {
         />
         <Route
           path="/create"
-          render={props => <CreateNote {...props}  newNote={this.state.newNote} handleInput={this.handleInput} addNote={this.addNote} notes={this.state.notes} />}
+          render={props => (
+            <CreateNote
+              {...props}
+              newNote={this.state.newNote}
+              handleInput={this.handleInput}
+              addNote={this.addNote}
+              notes={this.state.notes}
+            />
+          )}
         />
         <Route
           path="/edit/:id"
-          render={props => <EditNote {...props} editNote={this.editNote} notes={this.state.notes} />}
+          render={props => (
+            <EditNote
+              {...props}
+              editNote={this.editNote}
+              notes={this.state.notes}
+            />
+          )}
         />
         <Route
           path="/note/:id/delete"
-          render={props => <DeleteNote {...props} notes={this.state.notes} />}
+          render={props => <DeleteNote {...props} deleteNote={this.deleteNote} notes={this.state.notes} />}
         />
       </StyledApp>
     );
-  } 
+  }
 }
 
 export default App;
