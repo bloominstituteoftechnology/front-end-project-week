@@ -61,7 +61,7 @@ class App extends Component {
 
 
 const NoteView = (match, props) => {
-    console.log("NoteView:", match)
+    console.log("NoteView:", props)
     return (
     <div>
       <br /><br /><br />

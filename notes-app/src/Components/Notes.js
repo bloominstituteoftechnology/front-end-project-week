@@ -56,7 +56,7 @@ class Notes extends Component {
             Your Notes:
           <br /><br />
           {this.state.notes.map(each => ( 
-            <EachNote className="each" key={each._id} note={each} deleter={this.deleter} />
+            <EachNote className="eachOne" key={each._id} note={each} deleter={this.deleter} />
           ))}
 
         </div>
