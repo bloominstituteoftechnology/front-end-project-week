@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import MainNotes from './components/MainNotes'
-import CreateNote from './components/CreateNote';
-import NoteView from './components/NoteView';
-import EditNote from './components/EditNote';
 import './App.css'
 import DeleteNote from './components/DeleteNote';
 
@@ -20,11 +17,7 @@ class App extends Component {
         <p className='pageView'>Placeholder View</p>
         <div className='container'>
           <Sidebar />
-          {/* <MainNotes /> */}
-          {/* <CreateNote /> */}
-          <NoteView />
-          {/* <EditNote /> */}
-          {/* <DeleteNote /> */}
+          <MainNotes />
         </div>
       </div>
     );

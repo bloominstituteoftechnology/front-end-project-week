@@ -72,6 +72,12 @@
     overflow: hidden;
 }
 
+/* NotesList */
+.noteLink {
+    text-decoration: none;
+    color: black;
+}
+
  /* CreateNote */
  .createNoteContainer {
     padding-left: 35px;
@@ -90,7 +96,7 @@
  }
 
  .inputContent {
-     width: 97.5%;
+     width: 90%;
      margin-bottom: 15px;
      height: 500px;
      padding: 10px 0 0 10px;

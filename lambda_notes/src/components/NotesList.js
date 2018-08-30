@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 export default class NotesList extends Component {
@@ -46,19 +47,22 @@ export default class NotesList extends Component {
   render() {
     return (
       <div className="notesListContainer">
-        <div className="notesList">
-          {this.state.dummyNotes.map((note, index) => {
-            return(
-              <div className='note' key={index + note.title}>
-                <div>
-                  <h4>{note.title}</h4>
-                  <hr />
-                  <p>{note.body}</p>
+        <h2 className='header'>Your Notes:</h2>
+        <Link className='noteLink' to='/note/:id'>
+          <div className="notesList">
+            {this.state.dummyNotes.map((note, index) => {
+              return(
+                <div className='note' key={index + note.title}>
+                  <div>
+                    <h4>{note.title}</h4>
+                    <hr />
+                    <p>{note.body}</p>
+                  </div>
                 </div>
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        </Link>
       </div>
     );
   }

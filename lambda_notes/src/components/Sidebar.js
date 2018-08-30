@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 export default class Sidebar extends Component {
@@ -14,12 +15,16 @@ export default class Sidebar extends Component {
                 <p className='sbTitle'>
                     <strong>Lambda Notes</strong>
                 </p>
-                <button className='sbButton button1'>
-                    <strong>View Your Notes</strong>
-                </button>
-                <button className='sbButton'>
-                    <strong>+ Create New Note</strong>
-                </button>
+                <Link to='/'>
+                    <button className='sbButton button1'>
+                        <strong>View Your Notes</strong>
+                    </button>
+                </Link>
+                <Link to='/create'>
+                    <button className='sbButton'>
+                        <strong>+ Create New Note</strong>
+                    </button>
+                </Link>
             </div>
         );
     }
