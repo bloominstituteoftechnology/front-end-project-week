@@ -8,9 +8,8 @@ class YourNotes extends Component {
   render() {
     return (
       <div>
-        <Link exact to="/">Home</Link>
-        <br />
         <SideMenu />
+        <h2>Your Notes</h2>
         <div className="cards-container">
           {this.props.notes.map(note => {
             return (

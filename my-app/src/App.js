@@ -68,6 +68,9 @@ class App extends Component {
         path="/noteview/:monkey"
         render={props => (<NoteView  {...props} notes={this.state.notes} />)} 
         />
+        <Route
+         
+        />
       </div>
     );
   }

@@ -11,7 +11,6 @@ class EditNote extends Component {
     this.state = {
       title: "",
       textBody: "",
-      id: ""
     };
   }
 
@@ -28,14 +27,13 @@ class EditNote extends Component {
         this.setState({
           title: "",
           textBody: "",
-          id: ""
         });
       })
       .catch(err => console.log("Error", err));
   };
 
   handleInputChange = e => {
-    this.setState({ [e.target.title]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -50,7 +48,7 @@ class EditNote extends Component {
             <input
               onChange={this.handleInputChange}
               placeholder="Note Title"
-              value={this.state.tite}
+              value={this.state.title}
               name="title"
             />
             <input

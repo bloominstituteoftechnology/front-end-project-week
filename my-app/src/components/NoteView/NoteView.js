@@ -15,6 +15,10 @@ const NoteView = props => {
       <Link exact to={`/editnote/${props.match.params.monkey}`}>
         Edit
       </Link>
+      {/* <br />
+      <Link exact to={`/deletenote/${props.match.params.monkey}`}>
+        Delete
+      </Link> */}
       <br />
       <h2>{note.title}</h2>
       <br />
