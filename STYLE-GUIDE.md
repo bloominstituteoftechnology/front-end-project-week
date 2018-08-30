@@ -23,3 +23,6 @@ note-container: #F3F3F3;
 note input field: rounded corners
 
 placeholder text font-family: Raleway Medium
+
+
+font-color: #424242
