@@ -1,9 +1,25 @@
+// React Imports
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
+// Components Imports
 import './index.css';
-import Notes from './App';
+import App from './App';
+//Router Imports
+import {BrowserRouter as Router} from 'react-router-dom';
+//Redux Imports
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
+const dummyReducer = (state = [], action) => state;
 
-ReactDOM.render(<Router><Notes /></Router>, document.getElementById('root'));
+const store = createStore(dummyReducer);
+
+ReactDOM.render(
+    
+    <Provider store={store}>
+        <Router>
+            <App />
+        </Router>
+    </ Provider>
+, document.getElementById('root'));
 
