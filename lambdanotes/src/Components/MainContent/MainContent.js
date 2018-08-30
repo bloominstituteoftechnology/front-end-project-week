@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import NotesList from '../NotesList/NoteList';
+import NotesList from '../NotesList/NotesList';
 import NotesView from '../NotesView/NotesView';
 import CreateNote from '../CreateNote/CreateNote';
 import EditNote from '../EditNote/EditNote';

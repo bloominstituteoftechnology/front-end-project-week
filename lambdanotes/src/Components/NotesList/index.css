@@ -1,0 +1,41 @@
+.notes-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.noteslist {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 660px;
+}
+
+
+.note {
+    margin: 1rem 0.5rem;
+    width: 200px;
+    min-height: 180px;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    background: white;
+
+}
+
+.note h4 {
+    margin: 0;
+}
+
+.note hr {
+    margin: 0.2rem 0 0.2rem 0;
+}
+
+.note p {
+    margin: 0;
+    height: 8rem;
+    overflow: hidden;
+
+}
+
+.content-header {
+    margin: 1.2rem 0.5rem;
+}
