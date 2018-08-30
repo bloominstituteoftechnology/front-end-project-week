@@ -36,7 +36,8 @@
 }
 
 .container {
-  padding-left: 50px
+  padding-left: 50px;
+  width: 700px;
 }
 
 .create-button {
@@ -47,6 +48,43 @@
   border-radius: 0.1rem;
   color: white;
   font-weight: 600;
+}
+
+.note-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-list {
+  display: flex;
+}
+
+.note {
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.note-view-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.note-view-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-delete {
+  padding: 1rem 0.5rem;
+  color: rgb(66, 66, 66);
+}
+
+.note-view-body {
+
 }
 
 .delete-container {
@@ -63,6 +101,7 @@
 .delete-buttons {
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 20px;
 }
 
 .delete-button1 {

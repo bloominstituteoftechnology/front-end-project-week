@@ -6,6 +6,7 @@ const List = (props) => {
 
     return (
         <div>
+            <h3>Your Notes:</h3>
             {props.list.map((note, index) => 
                 <Link to={`/Note/${note.id}`}> <Note key={index} data={note} /> </Link>
             )}

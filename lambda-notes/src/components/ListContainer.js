@@ -110,7 +110,6 @@ class ListContainer extends React.Component {
     render() {
       return (
         <div>
-          <h3>Your Notes:</h3>
           <Route exact path="/" render={(props) => <List {...props} list={this.state.list}/>} />
           <Route path="/Create" render={(props) => 
             <Create {...props} 

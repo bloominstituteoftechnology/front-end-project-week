@@ -4,7 +4,7 @@ class Delete extends Component {
     render() {
         let toggle = this.props.toggle;
         return (
-            <div className='delete-container'>
+            <div className={toggle ? 'delete-container' : 'hidden'}>
                 <div>
                     <h4>Are you sure you want to delete this?</h4>
                 </div>
@@ -19,4 +19,3 @@ class Delete extends Component {
 
 export default Delete;
 
-// {toggle ? 'delete-container' : 'hidden'}
