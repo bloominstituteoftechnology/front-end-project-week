@@ -55,7 +55,8 @@ class EditNote extends Component {
         this.state = { 
             edit: props.newNote,
             clicked: props.clicked,
-            submit: props.editSubmit
+            submit: props.editSubmit,
+            notes: props.note
          }
 
 
@@ -69,7 +70,7 @@ class EditNote extends Component {
             <EditForm onSubmit={this.state.submit}>
                 <NoteTitle
                     type='text'
-                    placeholder='Edit Title'
+                    placeholder={this.state.notes[this.state.clicked].noteName}
                     autoComplete='off'
                     onChange={this.state.edit}
                     name='editName'
@@ -77,7 +78,7 @@ class EditNote extends Component {
                 <br />
                 <NewNote
                     type='text'
-                    placeholder='Edit Content'
+                    placeholder={this.state.notes[this.state.clicked].noteText}
                     name='editText'
                     autoComplete='off'
                     onChange={this.state.edit}
