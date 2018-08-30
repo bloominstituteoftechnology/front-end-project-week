@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
-
 export const AppContainer = styled.div`
-display: flex;
-@media (max-width: 720px) {
+  display: flex;
+  @media (max-width: 720px) {
     display: block;
     height: 200px;
     width: 100%;
   }
-`
-
+`;
 
 // shared styles
 
@@ -24,7 +22,7 @@ export const Page = styled.div`
   }
 `;
 export const PageHeader = styled.h2`
-  margin:  ${props => (props.singleNote ? "60px 20px 20px 20px" : "40px 20px")};
+  margin: ${props => (props.singleNote ? "60px 20px 20px 20px" : "40px 20px")};
   padding-bottom: ${props => (props.singleNoteEdit ? "20px" : "0px")};
 `;
 
@@ -64,14 +62,22 @@ export const ModeLink = styled.h4`
 export const StyledButton = styled.button`
   width: 220px;
   height: 50px;
-  background-color: ${props => (props.delete ? "palevioletred" : "#00b6bb")};
+  background-color: ${props => (props.delete ? "#f27670" : "#00b6bb")};
   color: white;
   text-align: center;
   margin-top: 20px;
   font-weight: 600;
+  border: none;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 100ms ease-in-out, transform 100ms ease;
   &:hover,
   &:focus {
-    background: #077074;
+    background: ${props => (props.delete ? "#a53d38" : "#077075")};
     outline: none;
   }
   @media (max-width: 720px) {

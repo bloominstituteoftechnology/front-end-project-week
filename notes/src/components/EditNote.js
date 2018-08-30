@@ -1,5 +1,5 @@
 import React from "react";
-import { Page, PageHeader, NoteBody, ModeLink, ModeWrapper } from "./styles";
+import { PageHeader, ModeLink, ModeWrapper } from "./styles";
 import Form from "./Form";
 import { withRouter } from "react-router-dom";
 
@@ -25,12 +25,11 @@ class EditNote extends React.Component {
     });
     this.props.history.push("/notes");
   };
-  
+
   goBack = () => {
     return this.props.history.goBack();
   };
 
-    
   render() {
     return (
       <div>

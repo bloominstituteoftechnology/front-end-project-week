@@ -23,7 +23,11 @@ class NoteList extends Component {
         <Grid>
           {this.props.notes.map((note, index) => {
             return (
-                <NoteCard key={`${note.title}${index}`} index={index} note={note} />
+              <NoteCard
+                key={`${note.title}${index}`}
+                index={index}
+                note={note}
+              />
             );
           })}
         </Grid>

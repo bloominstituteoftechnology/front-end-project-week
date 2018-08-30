@@ -27,10 +27,13 @@ const SidebarHeader = styled.div`
   color: #212121;
   @media (max-width: 720px) {
     h1 {
-      font-size: 24px;
+      font-size: 26px;
     }
   }
 `;
+
+
+
 
 const Sidebar = () => {
   return (

@@ -24,31 +24,8 @@ body {
 	color: #222;
 }
 
-button {
-	border: none;
-	padding: 1rem 2rem;
-	margin: 0;
-  text-decoration: none;
-  background: black;
-	color: #ffffff;
-	font-size: 1.4rem;
-	cursor: pointer;
-	text-align: center;
-	transition: background 250ms ease-in-out, transform 150ms ease;
-}
-
-
-button:hover,
-button:focus {
-	background: black;
-}
-
 p {
 	color: #444;
-}
-
-.App {
-  display: flex;
 }
 
 .show-modal {
@@ -67,4 +44,5 @@ p {
 .hide-modal {
 	display: none;
 }
+
 

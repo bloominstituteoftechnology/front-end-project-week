@@ -1,7 +1,6 @@
 import React from "react";
 import { Page, PageHeader, NoteBody, ModeWrapper, ModeLink } from "./styles";
 import EditNote from "./EditNote";
-import styled from "styled-components";
 import Modal from "./Modal";
 
 class Note extends React.Component {
@@ -31,7 +30,7 @@ class Note extends React.Component {
     this.props.handleSubmit(this.state.index, object);
     this.handleEditMode();
   };
-  
+
   currentNoteText = () => {
     const filteredNote = this.props.notes.filter(
       (note, index) => index == this.props.match.params.index

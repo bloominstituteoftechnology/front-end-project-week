@@ -6,7 +6,7 @@ import NoteList from "./components/NoteList";
 import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
 import SimpleStorage from "react-simple-storage";
-import { AppContainer } from './components/styles'
+import { AppContainer } from "./components/styles";
 
 class App extends Component {
   state = {
@@ -36,16 +36,15 @@ class App extends Component {
     });
   };
 
-    handleDeleteNote = (_index) => {
-      this.setState(prevState => {
-        return {
-          notes: prevState.notes.filter((note, index) => {
-            return _index == index ? null : note;
-          })
-        }
-      })
-    }
-
+  handleDeleteNote = _index => {
+    this.setState(prevState => {
+      return {
+        notes: prevState.notes.filter((note, index) => {
+          return _index == index ? null : note;
+        })
+      };
+    });
+  };
 
   render() {
     console.log("App", this.props);

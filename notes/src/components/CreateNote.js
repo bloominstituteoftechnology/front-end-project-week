@@ -1,44 +1,44 @@
 import React, { Component } from "react";
 // import styled from "styled-components";
-import {Page, PageHeader} from './styles'
-import Form from './Form'
-import {withRouter} from "react-router-dom";
-
+import { Page, PageHeader } from "./styles";
+import Form from "./Form";
+import { withRouter } from "react-router-dom";
 
 class CreateNote extends Component {
   state = {
     title: "",
-    body: "",
+    body: ""
   };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-};
+  };
 
-handleSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.handleSubmit({
-        title: this.state.title,
-        body: this.state.body,
+      title: this.state.title,
+      body: this.state.body
     });
     this.setState({
-        title: "",
-        body: "",
+      title: "",
+      body: ""
     });
-    this.props.history.push("/notes")
-};
+    this.props.history.push("/notes");
+  };
+  
   render() {
-      console.log(this.props)
+    console.log(this.props);
     return (
       <Page>
         <PageHeader>Create New Note:</PageHeader>
         <Form
-        label="Save"
-        title={this.state.title}
-	    body={this.state.body}
-        handleInputChange={this.handleInputChange}
-        handleSubmit={this.handleSubmit}
-         />
+          label="Save"
+          title={this.state.title}
+          body={this.state.body}
+          handleInputChange={this.handleInputChange}
+          handleSubmit={this.handleSubmit}
+        />
       </Page>
     );
   }

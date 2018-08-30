@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import '../index.css'
 import {StyledButton} from './styles'
 
+
 const ModalPrompt = styled.div`
 	background: #fff;
 	border: 1px solid #eee;
