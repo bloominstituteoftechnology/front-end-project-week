@@ -7,8 +7,9 @@ const Card = styled.div`
   background: white;
   height: 220px;
   border: 1px solid #eee;
+  padding-bottom: 20px;
   &:hover {
-    box-shadow: 0 7px 16px 0 rgba(200,200,200,.1), 0 11px 16px 0 rgba(200, 200, 200,.1);
+    box-shadow: 0 7px 21px 0 rgba(200,200,200,.1), 0 5px 20px 0 rgba(200, 200, 200,.1);
   }
 `;
 const NoteTitle = styled.h3`

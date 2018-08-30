@@ -1,5 +1,6 @@
 @import url('https://rsms.me/inter/inter-ui.css');
 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -36,9 +37,14 @@ button {
 	transition: background 250ms ease-in-out, transform 150ms ease;
 }
 
+
 button:hover,
 button:focus {
 	background: black;
+}
+
+p {
+	color: #444;
 }
 
 .App {

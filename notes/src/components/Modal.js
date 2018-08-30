@@ -20,11 +20,11 @@ const Modal = props => (
 			<h4>Are you sure you want to delete this note?</h4>
 				<Link to="/notes">
                     <StyledButton delete onClick={props.handleDelete}>
-					Delete 🐐
+					Delete
 					</StyledButton>
 				</Link>
 				<StyledButton onClick={props.handleClose}>
-					No 😵
+					No 
 				</StyledButton>
 			</ModalPrompt>
 		</div>
