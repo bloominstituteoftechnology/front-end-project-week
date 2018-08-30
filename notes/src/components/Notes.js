@@ -1,20 +1,24 @@
-import React, {Component} from "react"
+import React from "react"
 import Note from './Note'
-import {Container, CardGroup} from 'reactstrap';
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 const Notes = (props) => {
-    return (<Container>
-      <CardGroup  >
+    return (
+  <div ><h2 className="back">Your Notes:</h2>
+      <div className="row d-flex justify-content-between">
+
         {
-          props.notes.map(note => (<div className="note" key={note._id}>
-            <Link to={`/notes/${note._id}`} >
-              <Note note={note} />
-            </Link>
-          </div>))
+          props.notes.map(note => (
+            <div className = "col note" key={note._id}>
+            <NavLink to={`/notes/${note._id}`} >
+              <Note  note={note} />
+            </NavLink>
+            </div>
+          ))
         }
-      </CardGroup>
-    </Container>);
+      </div>
+      </div>
+    );
 
 };
 

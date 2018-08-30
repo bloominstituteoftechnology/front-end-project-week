@@ -34,16 +34,31 @@ class App extends Component {
           _id: 4,
           title: "note4",
           textBody: "Test Test Test Test"
+        },
+        {
+          _id: 5,
+          title: "note3",
+          textBody: "Test Test Test Test"
+        },
+        {
+          _id: 6,
+          title: "note3",
+          textBody: "Test Test Test Test"
+        },
+        {
+          _id: 7,
+          title: "note3",
+          textBody: "Test Test Test Test"
         }
       ],
       title: '',
       textBody: '',
-      _id: 5,
+      _id: 8,
     }
 
   }
 
-  addNote = (e) => {
+  addNote = (e, push) => {
     e.preventDefault();
 
     const notes = this.state.notes.slice();
@@ -55,7 +70,7 @@ class App extends Component {
     });
 
     const _id = this.state._id + 1;
-
+    push(`/notes`)
     this.setState({
       notes, _id, title: '', textBody: ''
     })
@@ -83,29 +98,29 @@ class App extends Component {
       title: '',
       textBody: '',
     })
-      push(`/notes/${id}`)
+    push(`/notes/${id}`)
   }
 
   handleDelete = (e, id, push) => {
     // delete stuff
-    this.setState({notes: this.state.notes.filter(note => note._id !== id)})
+    this.setState({ notes: this.state.notes.filter(note => note._id !== id) })
     push('/notes')
   }
 
 
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <div className="sidenav">
-          <h1 className="title">Lambda Notes </h1>
+          <Link to="/" className="home"><h1 className="title">Lambda Notes </h1></Link>
           <Link to='/notes'>
             <Button className="li">View Your Notes</Button>
           </Link>
           <Link to="/new" >
-            <Button className="li">Create New Note</Button></Link>
+            <Button className="li">+ Create New Note </Button></Link>
         </div>
         <Route exact path="/" render={() =>
-          <div>Welcome young master</div>} />
+          <h1>Welcome to your totally unique and not at all self similar notes app!! WOOOOOOOOOOO!!!</h1>} />
 
         <Route exact path='/new' render={(props) =>
           <NewNote {...props} handleChange={this.handleChange} addNote={this.addNote} title={this.state.title} textBody={this.state.textBody} />} />
@@ -117,7 +132,7 @@ class App extends Component {
           <div><Notes notes={this.state.notes} /></div>} />
 
         <Route path="/notes/:id" render={(props) =>
-          <SingleNote {...props} notes={this.state.notes} handleDelete = {this.handleDelete} />} />
+          <SingleNote {...props} notes={this.state.notes} handleDelete={this.handleDelete} />} />
       </div>
     );
   }

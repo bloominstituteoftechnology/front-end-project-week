@@ -2,6 +2,7 @@
   text-align: center;
   font-family: 'Roboto';
   margin: 0 auto;
+  /* background-color: #F1F1F2; */
 }
 
 .App-logo {
@@ -49,12 +50,13 @@
     padding: 6px 8px 6px 16px;
     margin: 15px 5px 10px 5px;
     text-decoration: none;
-    font-size: 2rem;
-    color: #464444;
+    font-size: 1.2rem!important;
+    color: white;
     display: block;
     background-color: #23B8BE;
     border: 1px solid #A0B2B2;
     border-radius: 2px!important;
+    width: 127px;
 }
 
 
@@ -73,4 +75,35 @@
 
 .note{
   display: flex;
+  margin: 10px 10px 10px 10px;
+  color:#5E6368!important;;
+  padding: 10px 10px 10px 10px;
+}
+
+
+.titlular{
+  border-bottom: 1px solid;
+}
+
+.home{
+  color:#434343
+}
+
+#no{
+  background-color: #23B8BE;
+  width: 125px;
+}
+
+#yes{
+  background-color: #C20028;
+  width: 125px;
+}
+
+.back{
+  text-align: left;
+  font-weight: 600;
+}
+
+.title{
+  font-weight: 600;
 }
