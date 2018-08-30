@@ -5,7 +5,13 @@ class NoteList extends Component {
     render() {
         return (
             <div>
-                NOTE LIST PLACEHOLDER
+                <h3>Your Notes:</h3>
+                <div>Title</div>
+                <div>Lorem</div>
+                <div>Title</div>
+                <div>Lorem</div>
+                <div>Title</div>
+                <div>Lorem</div>
             </div>
         )
     }

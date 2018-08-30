@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import './index.css';
-// cd 
+import LeftNav from './Components/LeftNav/LeftNav';
+import MainContent from './Components/MainContent/MainContent';
+
+
 class App extends Component {
     render() {
         return (
-            <div>
-                PLACEHOLDER for APP
+            <div className="app_container">
+                <LeftNav />
+                <MainContent />
             </div>
         )
     }
