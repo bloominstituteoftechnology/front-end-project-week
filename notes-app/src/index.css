@@ -1,6 +1,4 @@
-* {
-  border: 1px dashed palevioletred;
-}
+
 
 body {
   margin: 0;
@@ -22,11 +20,7 @@ body {
 
 .EachNote {
   display: flex;
+  flex-direction: flex-wrap;
  
 }
 
-.eachOne {
-  margin-bottom: 15px;
-  margin-right: 100px;
-  background-color: red;
-}

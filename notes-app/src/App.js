@@ -22,6 +22,9 @@ class App extends Component {
 
   componentDidMount() {
     this.getNotes();
+    
+      
+    
   }
 
   getNotes = () => {
@@ -37,7 +40,7 @@ class App extends Component {
 
   render() {
     return (
-      
+
       <div className="App" >
       <br /><br /><br />
           Lambda Notes
@@ -45,12 +48,16 @@ class App extends Component {
           <Link to="/AddNote"><button className="btn"> + Create New Note </button></Link>
           <Route exact path="/" component ={Notes} />
           <Route path="/AddNote" component={AddNote} />
-          <Route path={"/note/:id"} component={NoteView}/>  
+          <Route path={"/note/:id"} component={NoteView} />
+        
       </div>
     );
   }
 }
 
+// <Route path={"/note/:id"} component={NoteView}/> -> 
+// component={NoteView}/> -> render={() => }
+         
 
 
 const NoteView = (match, props) => {
@@ -59,8 +66,6 @@ const NoteView = (match, props) => {
     <div>
       <br /><br /><br />
         <div><h3>Title and Body of Unique ID:</h3>{match.match.params.id}</div>
-        
-        
     </div>);
 }
 
@@ -70,8 +75,8 @@ const NoteView = (match, props) => {
 export default App;
 
 /**
-   <Route exact path={"/:id"} component={Child}/>  
-  <Route exact path={"/:id"} render={(props) => <Child {...props} state={this.state.notes}}/>  
+   <Route exact path={"/:id"} component={Child}/>
+  <Route exact path={"/:id"} render={(props) => <Child {...props} state={this.state.notes}}/>
 
 
  */
