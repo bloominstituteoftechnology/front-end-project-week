@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+
+export const AppContainer = styled.div`
+display: flex;
+@media (max-width: 720px) {
+    display: block;
+    height: 200px;
+    width: 100%;
+  }
+`
+
+
 // shared styles
 
 // page related styles
@@ -8,6 +19,9 @@ export const Page = styled.div`
   background: #f9f9f9;
   width: 100%;
   border-left: 1px solid #eee;
+  @media (max-width: 720px) {
+    height: 100vh;
+  }
 `;
 export const PageHeader = styled.h2`
   margin:  ${props => (props.singleNote ? "60px 20px 20px 20px" : "40px 20px")};
@@ -28,6 +42,12 @@ export const ModeWrapper = styled.span`
   padding-right: ${props => (props.cancel ? "30px" : "30px")};
   background: white;
   border-bottom: 1px solid #eee;
+  @media (max-width: 720px) {
+    justify-content: flex-start;
+    margin: -20px -40px 0px -40px;
+    padding-left: 60px;
+    border-top: 1px solid #eee;
+  }
 `;
 
 export const ModeLink = styled.h4`
@@ -35,6 +55,9 @@ export const ModeLink = styled.h4`
   color: #111;
   font-weight: 600;
   cursor: pointer;
+  @media (max-width: 720px) {
+    font-size: 14px;
+  }
 `;
 
 // buttons
@@ -50,5 +73,11 @@ export const StyledButton = styled.button`
   &:focus {
     background: #077074;
     outline: none;
+  }
+  @media (max-width: 720px) {
+    height: 50px;
+    width: 160px;
+    margin: 20px 5px 0 5px;
+    font-size: 12px;
   }
 `;

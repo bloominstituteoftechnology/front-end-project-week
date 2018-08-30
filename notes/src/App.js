@@ -6,6 +6,7 @@ import NoteList from "./components/NoteList";
 import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
 import SimpleStorage from "react-simple-storage";
+import { AppContainer } from './components/styles'
 
 class App extends Component {
   state = {
@@ -49,7 +50,7 @@ class App extends Component {
   render() {
     console.log("App", this.props);
     return (
-      <div className="App">
+      <AppContainer>
         <SimpleStorage parent={this} />
         <Sidebar />
         <Route
@@ -80,7 +81,7 @@ class App extends Component {
             />
           )}
         />
-      </div>
+      </AppContainer>
     );
   }
 }

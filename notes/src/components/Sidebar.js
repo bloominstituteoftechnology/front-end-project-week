@@ -13,6 +13,11 @@ const SidebarContainer = styled.div`
   align-content: flex-start;
   align-items: center;
   z-index: 1;
+  @media (max-width: 720px) {
+    display: block;
+    height: 200px;
+    width: 100%;
+  }
 `;
 
 const SidebarHeader = styled.div`
@@ -20,6 +25,11 @@ const SidebarHeader = styled.div`
   margin-left: 20px;
   margin-top: 15px;
   color: #212121;
+  @media (max-width: 720px) {
+    h1 {
+      font-size: 24px;
+    }
+  }
 `;
 
 const Sidebar = () => {
