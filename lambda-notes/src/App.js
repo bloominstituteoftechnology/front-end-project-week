@@ -37,10 +37,10 @@ class App extends Component {
     notes.push({
       noteName: this.state.noteName,
       noteText: this.state.noteText,
-      id: this.state.id
+      id: this.state.notes.length
     })
     this.setState({ noteName: '', noteText: '', notes: notes})
-    this.setState({ id: ++this.state.id })
+    this.setState({ id: this.state.notes.length })
     console.log(`State id is ${this.state.id}`)
   }
 
