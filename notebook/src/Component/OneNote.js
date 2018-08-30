@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-import EditNote from "./EditNote";
+// import EditNote from "./EditNote";
 import DeleteNote from "./DeleteNote";
 
 
@@ -47,7 +47,8 @@ class OneNote extends React.Component {
 
           <Route
             exact path="/notes/:id/deletenote"
-            Component={<DeleteNote notes={this.state.notes} />}
+            render={() => {
+              return <DeleteNote notes={this.state.notes} />}}
           />
         </div>
       </div>
