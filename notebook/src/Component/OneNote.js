@@ -2,26 +2,25 @@ import React from "react";
 import { Link, Route } from "react-router-dom";
 import EditNote from "./EditNote";
 import DeleteNote from "./DeleteNote";
-// import uuid from "uuid";
+
 
 class OneNote extends React.Component {
- constructor(props){
-   super(props);
-   this.state = {
-    notes: props.notes,
-    title: "",
-    textBody: ""
-  };
- }
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: props.notes,
+      title: "",
+      textBody: ""
+    };
+  }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleEdit = (event, _id) => {
-    event.preventDefault();
-  };
+  // handleEdit = (event, _id) => {
+  //   event.preventDefault();
+  // };
 
   render() {
     const note = this.props.notes.find(note => {
@@ -30,9 +29,6 @@ class OneNote extends React.Component {
     return (
       <div className="note-container">
         <div className="each-ind-note">
-          <div>Testing this notes</div>
-          <div>{note.title}</div>
-          <div>{note.textBody}</div>
 
           <Link to={`/notes/${note._id}/editnote`}>
             <button>Edit</button>
@@ -41,17 +37,17 @@ class OneNote extends React.Component {
           <Link to={`/notes/${note._id}/deletenote`}>
             <button>Delete</button>
           </Link>
+          
+          <div>{note.title}</div>
+          <div>{note.textBody}</div>
+
+
+
+
+
           <Route
-            path="/notes/:id/editnote"
-            Component={
-              <EditNote
-                notes={this.state.notes}
-                title={this.state.title}
-                textBody={this.state.textBody}
-                handleChange={this.handleChange}
-                handleEdit={this.handleEdit}
-              />
-            }
+            exact path="/notes/:id/deletenote"
+            Component={<DeleteNote notes={this.state.notes} />}
           />
         </div>
       </div>

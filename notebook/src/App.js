@@ -9,7 +9,7 @@ import NoteList from "./Component/NoteList";
 import NoteForm from "./Component/NoteForm";
 import OneNote from "./Component/OneNote";
 import EditNote from "./Component/EditNote";
-import DeleteNote from './Component/DeleteNote';
+import DeleteNote from "./Component/DeleteNote";
 // import EditNote from "./Component/EditNote";
 // import SingleNote from "./Component/SingleNotes";
 
@@ -93,13 +93,15 @@ class App extends Component {
 
           <Route
             path="/notes/:id/editnote"
-            render={props => {
-              return <EditNote {...props} notes={this.state.notes} />;
-            }}
-          />
-          <Route
-            path="/notes/:id/deletenote"
-            Component={<DeleteNote notes={this.state.notes} />}
+            Component={
+              <EditNote
+                notes={this.state.notes}
+                title={this.state.title}
+                textBody={this.state.textBody}
+                handleChange={this.handleChange}
+                handleEdit={this.handleEdit}
+              />
+            }
           />
         </div>
       </div>

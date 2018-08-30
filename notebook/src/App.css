@@ -129,7 +129,7 @@ table {
 .App {
   text-align: center;
   font-weight: bold;
-  color: aqua;
+  color: #424242;
   display: flex;
 }
 .App .sidebar-left {
@@ -146,5 +146,6 @@ table {
   border: 1px solid yellow;
 }
 .notes {
-  width: 100px;
+  width: 125px;
+  height: 125px;
 }
