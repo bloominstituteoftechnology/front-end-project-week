@@ -6,8 +6,8 @@ const ListView = (props) => {
         <div className='list-view'>
             <h3>Your Notes</h3>
             {props.notes.map(note => (
-                <div className='note-card' key={note.id}>
-                    <Link to={`/notes/${note.id}`}>
+                <div className='note-card' key={note._id}>
+                    <Link to={`/notes/${note._id}`}>
                         <h3>{note.title}</h3>
                     </Link>
                     <p>{note.textBody}</p>
