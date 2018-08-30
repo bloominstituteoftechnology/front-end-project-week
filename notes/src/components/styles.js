@@ -7,6 +7,7 @@ export const Page = styled.div`
   padding: 20px 40px;
   background: #f9f9f9;
   width: 100%;
+  border-left: 1px solid #eee;
 `;
 export const PageHeader = styled.h2`
   margin:  ${props => (props.singleNote ? "60px 20px 20px 20px" : "40px 20px")};
@@ -26,7 +27,7 @@ export const ModeWrapper = styled.span`
   margin: -20px -40px 0 -40px;
   padding-right: ${props => (props.cancel ? "30px" : "30px")};
   background: white;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
 `;
 
 export const ModeLink = styled.h4`

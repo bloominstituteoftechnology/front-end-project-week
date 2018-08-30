@@ -25,6 +25,7 @@ class EditNote extends React.Component {
     });
     this.props.history.push("/notes");
   };
+  
   goBack = () => {
     return this.props.history.goBack();
   };

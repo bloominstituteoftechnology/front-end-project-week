@@ -26,10 +26,12 @@ class Note extends React.Component {
       };
     });
   };
+
   handleSubmit = object => {
     this.props.handleSubmit(this.state.index, object);
     this.handleEditMode();
   };
+  
   currentNoteText = () => {
     const filteredNote = this.props.notes.filter(
       (note, index) => index == this.props.match.params.index
@@ -39,12 +41,7 @@ class Note extends React.Component {
   };
 
   render() {
-    const filteredNote = this.props.notes.filter(
-      (note, index) => index == this.props.match.params.index
-    );
-    const currentNote = filteredNote[0];
     const _index = this.props.match.params.index;
-
     return (
       <Page>
         {this.state.editMode ? (
@@ -59,8 +56,8 @@ class Note extends React.Component {
               <ModeLink onClick={this.handleEditMode}>Edit</ModeLink>
               <ModeLink onClick={this.handleDeleteMode}>Delete</ModeLink>
             </ModeWrapper>
-            <PageHeader singleNote>{currentNote.title}</PageHeader>
-            <NoteBody>{currentNote.body}</NoteBody>
+            <PageHeader singleNote>{this.currentNoteText().title}</PageHeader>
+            <NoteBody>{this.currentNoteText().body}</NoteBody>
           </div>
         )}
         <Modal

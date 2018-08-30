@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const SidebarContainer = styled.div`
   background-color: #fff;
-  border-right: 1px solid #ccc;
   min-width: 300px;
   height: 100vh;
   padding: 20px;

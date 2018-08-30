@@ -62,12 +62,3 @@ button:focus {
 	display: none;
 }
 
-.delete-prompt {
-	background: #fff;
-	border: 1px solid #eee;
-	padding: 40px;
-	height: 250px;
-	width: 400px;
-	text-align: center;
-	border-radius: 4px;
-}

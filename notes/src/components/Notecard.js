@@ -6,9 +6,9 @@ import { NoteBody } from "./styles";
 const Card = styled.div`
   background: white;
   height: 220px;
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
   &:hover {
-    box-shadow: 0 7px 21px 0 rgba(100,100,100,.07), 0 11px 21px 0 rgba(100, 100, 100,.04);
+    box-shadow: 0 7px 16px 0 rgba(200,200,200,.1), 0 11px 16px 0 rgba(200, 200, 200,.1);
   }
 `;
 const NoteTitle = styled.h3`

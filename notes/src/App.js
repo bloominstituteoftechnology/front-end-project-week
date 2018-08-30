@@ -50,7 +50,7 @@ class App extends Component {
     console.log("App", this.props);
     return (
       <div className="App">
-        {/* <SimpleStorage parent={this} /> */}
+        <SimpleStorage parent={this} />
         <Sidebar />
         <Route
           exact

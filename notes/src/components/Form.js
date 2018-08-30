@@ -16,7 +16,11 @@ const StyledInput = styled.input`
   height: 50px;
   font-size: 1.4rem;
   color: #111;
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
+  &:focus {
+	  outline: none;
+	  border: 1px solid #00b6bb;
+  }
 `
 const TextArea = styled.textarea`
   display: block;
@@ -25,7 +29,11 @@ const TextArea = styled.textarea`
   height: 200px;
   font-size: 1.4rem;
   color: #111;
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
+  &:focus {
+	  outline: none;
+	  border: 1px solid #00b6bb;
+  }
 `
 const Form = props => {
 	return (
