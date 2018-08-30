@@ -48,33 +48,45 @@ table {
 }
 
 
-
 .App {
-    text-align: center;
-    font-weight: bold;
-    color: #424242;
-    display: flex;
+  text-align: center;
+  font-weight: bold;
+  color: #424242;
+  display: flex;
+}
+.App .sidebar-left {
+  background-color: grey;
+  height: 100vh;
+  width: 250px;
+  color: #D7D7D7;
+}
 
-    .sidebar-left{
-      background-color: grey;
-      height: 100vh;
-      width: 250px;
-      color: 4A494A;
-    }
-  }
+.note-container{
+  width: 75%;
+}
 
+.note-content-input {
+  height: 500px;
+  width: 300px;
+}
+.notes {
+  background-color: #d7d7d7;
+  
+}
+.note-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
-  .note-content-input{
-    height: 500px;
-    width: 300px;
-  }
-
-  .each-ind-note{
-    border: 1px solid yellow;
-  }
-
-  .notes{
-    width: 125px;
-    height: 125px;
-
-  }
+.each-ind-note {
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  width: 125px;
+  height: 125px;
+  align-content: space-between;
+}
+.note-links {
+  text-decoration: none;
+  color: #4A494A;
+}

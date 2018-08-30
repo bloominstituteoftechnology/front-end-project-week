@@ -1,8 +1,6 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-// import EditNote from "./EditNote";
 import DeleteNote from "./DeleteNote";
-
 
 class OneNote extends React.Component {
   constructor(props) {
@@ -14,13 +12,10 @@ class OneNote extends React.Component {
     };
   }
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  // handleEdit = (event, _id) => {
-  //   event.preventDefault();
+  // handleChange = event => {
+  //   this.setState({ [event.target.name]: event.target.value });
   // };
+
 
   render() {
     const note = this.props.notes.find(note => {
@@ -28,8 +23,7 @@ class OneNote extends React.Component {
     });
     return (
       <div className="note-container">
-        <div className="each-ind-note">
-
+        <div className="one-note">
           <Link to={`/notes/${note._id}/editnote`}>
             <button>Edit</button>
           </Link>
@@ -37,19 +31,11 @@ class OneNote extends React.Component {
           <Link to={`/notes/${note._id}/deletenote`}>
             <button>Delete</button>
           </Link>
-          
+
           <div>{note.title}</div>
           <div>{note.textBody}</div>
 
 
-
-
-
-          <Route
-            exact path="/notes/:id/deletenote"
-            render={() => {
-              return <DeleteNote notes={this.state.notes} />}}
-          />
         </div>
       </div>
     );

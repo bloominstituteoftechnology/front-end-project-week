@@ -1,20 +1,40 @@
-import React from "react";
+import React, {Component} from "react";
 import { FormGroup, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const EditNote = props => {
-    console.log(props.title)
-    return (
-      
+class EditNote extends Component {
+  constructor(props) {
+    super(props);
+     this.state = {
+      notes: props.notes,
+      title: "",
+      textBody:""
+    };
+  }
+  
 
+
+  handleChange = event => {
+    this.setState({[event.target.name]: event.target.value});
+  };
+
+
+  handleEdit = (event, _id) => {
+    event.preventDefault();
+
+  }
+
+
+  render() {
+    return (
       <form onSubmit="">
         <FormGroup>
           <Input
             type="textarea"
             name="title"
-            placeholder={props.title}
-            onChange={props.handleChange}
-            value={props.title}
+            placeholder="Note Title"
+            onChange={this.handleChange}
+            value={this.props.title}
           />
         </FormGroup>
         <FormGroup>
@@ -22,15 +42,17 @@ const EditNote = props => {
             className="note-content-input"
             type="textarea"
             name="textBody"
-            placeholder={props.textBody}
-            onChange={props.handleChange}
-            value={props.textBody}
+            placeholder="Note Content"
+            onChange={this.handleChange}
+            value={this.props.textBody}
           />
         </FormGroup>
         <Link to={"/"}>
-          <button onClick={props.handleEdit}>Save</button>
+          <button onClick={this.handleEdit}>Save</button>
         </Link>
       </form>
     );
   }
+}
+
 export default EditNote;
