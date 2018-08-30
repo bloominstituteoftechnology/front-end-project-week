@@ -8,9 +8,10 @@ export default class NoteView extends Component {
         super();
         this.state = {
             displayDelete: false,
+            selectedNote: [],
             dummyNotes: [
                 {
-                    _id: 'dsagh783',
+                    id: 'dsagh783',
                     title: 'First Note',
                     body: `When you play the game of thrones, you win or you die. May the Father
                     judge him justly. The Dothraki do things in their own time, for their
@@ -21,7 +22,7 @@ export default class NoteView extends Component {
                       createdAt: 6537826124945,
                 },
                 {
-                  _id: 'dsag2413',
+                  id: 'dsag2413',
                   title: 'Second Note',
                   body: `When you play the game of kings, you win or you die. May the Father
                   judge him justly. The Dothraki do things in their own time, for their
@@ -32,7 +33,7 @@ export default class NoteView extends Component {
                     createdAt: 6521324945,
               },
               {
-                  _id: 'ds463783',
+                  id: 'ds463783',
                   title: 'Third Note',
                   body: `When you play the game of birds, you win or you die. May the Father
                   judge him justly. The Dothraki do things in their own time, for their
@@ -49,12 +50,18 @@ export default class NoteView extends Component {
         this.setState({displayDelete: !this.state.displayDelete})
     }
 
+    componentWillMount() {
+        let noteId = this.props.match.params.id;
+        let selectedNote = this.state.dummyNotes.filter((note) => note.id === noteId);
+        this.setState({selectedNote: selectedNote});
+    }
+
     render() {
         return (
             <div className='createNoteContainer'>
                 <div className='noteViewLinks'>
                     <Link 
-                        to='/edit/:id' 
+                        to={`edit/${this.props.match.params.id}`} 
                         className='noteViewEdit noteViewLink'
                     >
                         <strong>edit </strong>
@@ -67,8 +74,8 @@ export default class NoteView extends Component {
                         <strong>delete</strong>
                     </a>
                 </div>
-                <h3>{this.state.dummyNotes.title}</h3>
-                <p>{this.state.dummyNotes.body}</p>
+                <h3>{this.state.selectedNote[0].title}</h3>
+                <p>{this.state.selectedNote[0].body}</p>
                 <DeleteNote toggle={this.state.displayDelete} updateStatus={this.showModal} />
             </div>
         )

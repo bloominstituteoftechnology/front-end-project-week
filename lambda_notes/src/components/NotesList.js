@@ -8,7 +8,7 @@ export default class NotesList extends Component {
       this.state = {
           dummyNotes: [
               {
-                  _id: 'dsagh783',
+                  id: 'dsagh783',
                   title: 'First Note',
                   body: `When you play the game of thrones, you win or you die. May the Father
                   judge him justly. The Dothraki do things in their own time, for their
@@ -19,7 +19,7 @@ export default class NotesList extends Component {
                     createdAt: 6537826124945,
               },
               {
-                _id: 'dsag2413',
+                id: 'dsag2413',
                 title: 'Second Note',
                 body: `When you play the game of kings, you win or you die. May the Father
                 judge him justly. The Dothraki do things in their own time, for their
@@ -30,7 +30,7 @@ export default class NotesList extends Component {
                   createdAt: 6521324945,
             },
             {
-                _id: 'ds463783',
+                id: 'ds463783',
                 title: 'Third Note',
                 body: `When you play the game of birds, you win or you die. May the Father
                 judge him justly. The Dothraki do things in their own time, for their
@@ -43,26 +43,31 @@ export default class NotesList extends Component {
           ]
       }
   }
-  
+
+
   render() {
     return (
       <div className="notesListContainer">
         <h2 className='header'>Your Notes:</h2>
-        <Link className='noteLink' to='/note/:id'>
           <div className="notesList">
-            {this.state.dummyNotes.map((note, index) => {
-              return(
-                <div className='note' key={index + note.title}>
-                  <div>
-                    <h4>{note.title}</h4>
-                    <hr />
-                    <p>{note.body}</p>
-                  </div>
-                </div>
-              )
-            })}
+              {this.state.dummyNotes.map((note, index) => {
+                return(
+                  <Link 
+                    key={index + note.title} 
+                    className='noteLink' 
+                    to={`/note/${note.id}`}
+                  >
+                    <div className='note'>
+                      <div>
+                        <h4>{note.title}</h4>
+                        <hr />
+                        <p>{note.body}</p>
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })}
           </div>
-        </Link>
       </div>
     );
   }

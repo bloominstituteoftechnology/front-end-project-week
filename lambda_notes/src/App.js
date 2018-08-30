@@ -5,12 +5,6 @@ import './App.css'
 import DeleteNote from './components/DeleteNote';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      notes: []
-    }
-  }
   render() {
     return (
       <div>

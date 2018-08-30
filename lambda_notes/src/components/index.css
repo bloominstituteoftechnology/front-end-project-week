@@ -81,8 +81,7 @@
  /* CreateNote */
  .createNoteContainer {
     padding-left: 35px;
-    background: whitesmoke;
-    width: 100%;
+    width: 90%;
     margin-right: 10px;
     padding-top: 50px;
     display: flex;
@@ -113,6 +112,10 @@
     color: white;
  }
 
+ .createNoteButton:hover {
+    cursor: pointer;
+}
+
  /* NoteView */
  .noteViewLinks {
      display: flex;
@@ -126,6 +129,7 @@
 
  .noteViewLink {
     text-decoration: underline;
+    color: darkgrey;
  }
 
  .noteViewLink:hover {
