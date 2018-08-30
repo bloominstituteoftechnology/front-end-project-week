@@ -1,12 +1,18 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const DeleteNote = () => {
-    return (
-        <div>
-            <h4>Are you sure you want to delete this?</h4>
-            {/* <Link */}<button>DELETE</button>
-            {/* <Link */}<button>NO</button>
-        </div>
-    );
-}
+const DeleteNote = props => {
+  return (
+    <div className="delete-container">
+      <h4>Are you sure you want to delete this?</h4>
+      <Link to={"/"}>
+        <button>DELETE</button>
+      </Link>
+      <Link to={`/notes/${props._id}`}>
+        <button>NO</button>
+      </Link>
+    </div>
+  );
+};
+
+export default DeleteNote;

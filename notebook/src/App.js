@@ -7,14 +7,16 @@ import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NoteList from "./Component/NoteList";
 import NoteForm from "./Component/NoteForm";
-// import Note from "./Component/Note";
-import SingleNote from "./Component/SingleNote";
+import OneNote from "./Component/OneNote";
+import EditNote from "./Component/EditNote";
+// import EditNote from "./Component/EditNote";
+// import SingleNote from "./Component/SingleNotes";
 
 // import EditNote from "./Component/EditNote";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: dummyData,
       _id: uuid(),
@@ -42,9 +44,9 @@ class App extends Component {
     //Build out sidebar
     //Route Notelist
     //Route NoteForm
-
     return (
       <div className="App">
+        {/* Sidebar Container */}
         <aside className="sidebar-left">
           <h1>Lambda Notes</h1>
           <Link to={"/"}>
@@ -54,20 +56,23 @@ class App extends Component {
             <button>Create New Note</button>
           </Link>
         </aside>
+
+        {/* Note List and Form Container */}
         <div className="notes-container">
           <Route
             exact
             path="/"
-            render={() => {
-              return <NoteList notes={this.state.notes} />;
+            render={props => {
+              return <NoteList {...props} notes={this.state.notes} />;
             }}
           />
           <Route
             exact
             path="/noteform"
-            render={() => {
+            render={props => {
               return (
                 <NoteForm
+                  {...props}
                   handleAddNote={this.addNote}
                   handleNoteChange={this.changeNote}
                   _id={this.state._id}
@@ -79,14 +84,23 @@ class App extends Component {
           />
 
           <Route
-            path={`/single`}
-            Component={<SingleNote />}
+            path="/notes/:id"
+            render={props => {
+              return <OneNote {...props} notes={this.state.notes} />;
+            }}
           />
 
-          {/* <Route  path={`/note/${this.state.notes._id}`} render={() => {
-            return <Note
-            note={this.state.notes}/>} }/>
-           */}
+          <Route 
+            path="/notes/:id/editnote"
+            render={props => {
+              return <EditNote {...props} notes={this.state.notes}/>
+            }}
+            />
+          <Route 
+            path="/notes/:id/deletenote"
+            Component= {<DeleteNote  notes={this.state.notes}/> 
+            }
+            />
         </div>
       </div>
     );
@@ -94,3 +108,8 @@ class App extends Component {
 }
 
 export default App;
+
+// In App
+
+// <Route path="/notes/:id" render={(props) =>
+//  <SingleNote {...props} notes={this.state.notes} />} />
