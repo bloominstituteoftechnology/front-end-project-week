@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 class CreateNewView extends Component {
     render() {
         return(
-            <div className='create-new-view'>
-                <h3>Create New Note</h3>
+            <div className='create-edit-view'>
+                <h3 className='create-edit-header'>Create New Note:</h3>
                 <form onSubmit={this.props.addNewNote}>
-                    <input 
+                    <input
+                        className='title-input' 
                         onChange={this.props.handleInputChange}
                         type="text"
                         placeholder='Note Title'
@@ -14,6 +15,7 @@ class CreateNewView extends Component {
                         name='title'
                     />
                     <textarea 
+                        className='content-input'
                         onChange={this.props.handleInputChange}
                         placeholder='Note Content' 
                         cols="70" 

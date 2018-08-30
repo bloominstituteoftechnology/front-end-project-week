@@ -1,0 +1,33 @@
+.note-view {
+    width: 764px;
+    height: 1024px;
+    display: flex;
+    background: lightgray;
+    color: #222222;
+    border: 1px solid darkgray;
+}
+
+.note-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.note-menu-items {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.note-menu-items:hover {
+    color: teal;
+}
+
+.note-display {
+    display: flex;
+}
+
+.display-title {
+    font-size: 24px;
+    font-weight: bold;
+}

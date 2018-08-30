@@ -1,0 +1,21 @@
+.create-edit-view {
+    width: 764px;
+    height: 1024px;
+    display: flex;
+    background: lightgray;
+    color: #222222;
+    border: 1px solid darkgray;
+}
+
+.create-edit-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title-input {
+    border: 1px solid darkgray;
+}
+
+.content-input {
+    border: 1px solid darkgray;
+}

@@ -5,8 +5,8 @@ const SideBar = () => {
     return(
         <div className='sidebar'>
             <h1 className='sidebar-header'>Lambda<br/>Notes</h1>
-            <Link to='/'><button className='sidebar-button'>View Your Notes</button></Link>
-            <Link to='/create'><button className='sidebar-button'>+ Create New Note</button></Link>
+            <Link to='/'><button className='button-style'>View Your Notes</button></Link>
+            <Link to='/create'><button className='button-style'>+ Create New Note</button></Link>
         </div>
     );
 }

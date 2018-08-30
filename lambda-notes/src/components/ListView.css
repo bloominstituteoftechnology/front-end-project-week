@@ -4,6 +4,7 @@
     display: flex;
     background: lightgray;
     color: #222222;
+    border: 1px solid darkgray;
 }
 
 .list-header {
@@ -23,6 +24,7 @@
     width: 200px;
     height: 200px;
     display: flex;
+    border: 1px solid darkgray;
 }
 
 .note-title {

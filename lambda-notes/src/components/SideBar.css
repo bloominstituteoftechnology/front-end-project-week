@@ -14,7 +14,7 @@
     margin-bottom: 20px;
 }
 
-.sidebar-button {
+.button-style {
     width: 220px;
     height: 50px;
     margin: 10px 0;
@@ -25,6 +25,6 @@
     text-decoration: none;
 }
 
-.sidebar-button:hover {
+.button-style:hover {
     background: #222222;
 }

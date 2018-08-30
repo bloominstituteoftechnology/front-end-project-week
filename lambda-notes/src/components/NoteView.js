@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NoteView = (props) => {
 
@@ -11,20 +11,20 @@ const NoteView = (props) => {
             <nav className='note-menu'>
                 <ul className='note-menu-items'>
                     <li>
-                        <NavLink to='/edit'>
+                        <Link to={`/edit/${props.match.params._id}`}>
                             edit
-                        </NavLink>
+                        </Link>
                     </li>
                     <li>
-                        <NavLink to='/delete'>
+                        <Link to={`/delete/${props.match.params._id}`}>
                             delete
-                        </NavLink>
+                        </Link>
                     </li>
                 </ul>
             </nav>
-            <div className='note-card'>
-                <h3>{note.title}</h3>
-                <p>{note.textBody}</p>
+            <div className='note-display'>
+                <h3 className='display-title'>{note.title}</h3>
+                <p className='display-content'>{note.textBody}</p>
             </div>
         </div>
     );

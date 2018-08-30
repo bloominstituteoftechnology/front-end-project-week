@@ -9,6 +9,10 @@ import ListView from './components/ListView';
 import SideBar from './components/SideBar';
 import './App.css';
 import './components/SideBar.css';
+import './components/NoteView.css';
+import './components/ListView.css';
+import './components/DeleteModal.css';
+import './components/CreateEditView.css';
 
 class App extends Component {
   constructor() {
@@ -67,19 +71,28 @@ class App extends Component {
     });
   }
 
-  editNote = event => {
-    event.preventDefault();
-    this.setState(prevState => ({
-      /*this.title: prevState.title,
-      this.textBody: prevState.textBody,
-      this._id: prevState._id,*/
-    }))
-  }
+  /*editNote = event => {
 
-  deleteNote = event => {
+    const _id = 0;
+    const title = 'New Title';
+    const textBody = '';
+
+    const mapCopy = notes.map(each => {
+    const copy = {...each};
+    if(copy._id === _id) {
+      if(title.length) copy.title = title;
+      if(body.length) copy.textBody = textBody;
+    }
+  
+    return copy;
+  })
+
+  this.setState({ notes: mapCopy })
+    }*/
+
+  deleteNote = (event, _id) => {
     event.preventDefault();
-    let notes = this.state.notes.slice();
-    notes = notes.filter(otherNotes => !note);
+    const notes = this.state.notes.filter(eachNote => eachNote._id !== Number(_id));
     this.setState({ notes });
   }
 
@@ -106,7 +119,7 @@ class App extends Component {
           )}
         />
         <Route
-          path={'/create'}
+          path='/create'
           render={props => (
             <CreateNewView
               {...props}
@@ -119,7 +132,7 @@ class App extends Component {
           )}
         />
         <Route
-          path={'/edit'}
+          path='/edit/:_id'
           render={props => (
             <EditView
               {...props}
@@ -132,7 +145,7 @@ class App extends Component {
           )}
         />
         <Route
-          path={'/delete'}
+          path='/delete/:_id'
           render={props => (
             <DeleteModal
               {...props}

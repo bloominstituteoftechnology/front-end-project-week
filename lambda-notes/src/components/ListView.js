@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ListView = (props) => {
     return(
         <div className='list-view'>
-            <h3 className='list-header'>Your Notes</h3>
+            <h3 className='list-header'>Your Notes:</h3>
             <div className='card-container'>
             {props.notes.map(note => (
                 <div className='note-card' key={note._id}>

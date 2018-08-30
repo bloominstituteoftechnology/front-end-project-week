@@ -4,7 +4,7 @@ class EditView extends Component {
     render() {
         return(
             <div className='create-new-view'>
-                <h3>Edit Note</h3>
+                <h3>Edit Note:</h3>
                 <form onSubmit={this.props.editNote}>
                     <input 
                         onChange={this.props.handleInputChange}
