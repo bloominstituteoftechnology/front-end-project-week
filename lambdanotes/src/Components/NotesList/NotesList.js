@@ -6,12 +6,11 @@ const NotesList = props => {
     return (
         <div className="notes-container">
             <div><h3 className="content-header">Your Notes:</h3></div>
-        <div className="all-notes">
-            <div className="note">
-                <div>
+        
+                <div className="all-notes">
                     {props.notesArray.map((note,index) => {
                         return (
-                            <div>
+                            <div className="note">
                                 <h4 key={index}>{note.title}</h4>
                                 <hr></hr>
                                 <p>{note.textBody}</p>
@@ -19,29 +18,7 @@ const NotesList = props => {
                         )
                     })};
                 </div>
-            </div>
-            <div className="note">
-                <div>
-                    <h4>Note Title</h4>
-                    <hr></hr>
-                    <p>Some text for a note.</p>
-                </div>
-            </div>
-            <div className="note">
-                <div>
-                    <h4>Note Title</h4>
-                    <hr></hr>
-                    <p>Some text for a note.</p>
-                </div>
-            </div>
-            <div className="note">
-                <div>
-                    <h4>Note Title</h4>
-                    <hr></hr>
-                    <p>Some text for a note.</p>
-                </div>
-            </div>
-        </div>
+        
         </div>
     );
 }
