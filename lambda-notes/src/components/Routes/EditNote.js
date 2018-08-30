@@ -15,15 +15,18 @@ class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: props.notes,
-            id: props._id,
+            notes: [],
             title: '',
             textBody: ''
         }
     };
 
-    componentDidMount(id) {
-        this.setState({ id })
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        let note = this.props.notes.filter(note => id === note._id.toString())
+        note = note[0]
+        this.setState({ title: note.title, textBody: note.textBody })
+        console.log(note)
 
     }
 
@@ -43,7 +46,8 @@ class EditNote extends Component {
     }
 
     render() {
-        console.log(this.handleEditNote)
+        console.log(this.props)
+
         return (
             <EditForm>
                 <form onSubmit={() => this.handleEditNote()}>
@@ -71,7 +75,8 @@ class EditNote extends Component {
 
 const mapStateToProps = state => {
     return {
-        editNote: state.editNote
+
+        notes: state.notesReducer.notes
     };
 }
 
