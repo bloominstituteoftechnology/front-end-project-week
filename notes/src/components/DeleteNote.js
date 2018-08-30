@@ -69,6 +69,9 @@ const Button = styled.div`
   align-items: center;
   border-radius: 2px;
   width: 190px;
+  :hover {
+      cursor: pointer;
+  }
 `;
 
 const DeleteNote = props => {
@@ -80,7 +83,7 @@ const DeleteNote = props => {
         </TextWrapper>
         <StyledButtons>
           <Button className="red">Delete</Button>
-          <Button>No</Button>
+          <Button onClick={props.history.goBack} >No</Button>
         </StyledButtons>
       </ModalBox>
     </StyledContainer>

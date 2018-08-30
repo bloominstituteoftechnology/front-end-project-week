@@ -16,33 +16,38 @@ const StyledForm = styled.form`
   flex-direction: column;
 
   h3 {
-      font-weight: bold;
-      margin-bottom:4px;
+    font-weight: bold;
+    margin-bottom: 4px;
   }
-    .input {
-        padding-left: 10px; 
-        border-radius: 5px;
-        border: 2px solid #D1D0D1;
-        ::placeholder {
-            font-weight: bold;
-            font-size: 14px;
-        }
-        :focus {
-            border: 2px solid darkgrey;
-            outline: none;
-        }
+  .input {
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 2px solid #d1d0d1;
+    ::placeholder {
+      font-weight: bold;
+      font-size: 14px;
     }
+    :focus {
+      border: 2px solid darkgrey;
+      outline: none;
+    }
+  }
   .input-title {
     width: 280px;
     margin-bottom: 10px;
     height: 40px;
-    }
   }
   .input-content {
     padding-top: 15px;
     padding-left: 15px;
-}
-
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    ::placeholder {
+      font-weight: bolder;
+      font-size: 14px;
+      
+    }
+  }
 `;
 
 const Button = styled.div`
@@ -58,6 +63,7 @@ const Button = styled.div`
   width: 160px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   a {
     text-decoration: none;
     color: white;
@@ -79,27 +85,26 @@ class CreateNote extends Component {
   handleInput = event => {
     const { name, value } = event.target;
     this.setState(prevState => ({
-        newNote: { ...prevState.newNote, [name]: value }
+      newNote: { ...prevState.newNote, [name]: value }
     }));
   };
 
   addNote = event => {
-      event.preventDefault();
-      const newNotes = this.state.newNote
+    event.preventDefault();
+    const newNotes = this.state.newNote;
     const notes = this.state.notes.slice();
     notes.push({
-       title: newNotes.title ,
-       body: newNotes.body
+      title: newNotes.title,
+      body: newNotes.body
     });
     this.setState({
-        notes: notes ,
-        newNote: {
-            body: "",
-            title: ""
-        }
-    })
-  }
-
+      notes: notes,
+      newNote: {
+        body: "",
+        title: ""
+      }
+    });
+  };
 
   render() {
     return (
@@ -123,7 +128,7 @@ class CreateNote extends Component {
             className="input input-content"
             value={this.state.newNote.body}
           />
-          <Button onClick={this.addNote} >Save</Button>
+          <Button onClick={this.addNote}>Save</Button>
         </StyledForm>
       </StyledViewWrapper>
     );

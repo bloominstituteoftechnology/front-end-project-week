@@ -58,6 +58,7 @@ const Button = styled.div`
   width: 160px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   a {
     text-decoration: none;
     color: white;
