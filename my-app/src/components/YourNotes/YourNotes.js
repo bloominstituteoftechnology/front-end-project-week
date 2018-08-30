@@ -10,13 +10,12 @@ class YourNotes extends Component {
       <div>
         <Link exact to="/">Home</Link>
         <br />
-        <Link exact to="/editnote">Edit</Link>
         <SideMenu />
         <div className="cards-container">
           {this.props.notes.map(note => {
             return (
-              <div>
-                <NoteCard key={this.props._id} note={note} />
+              <div key={note._id}>
+                <NoteCard note={note} />
               </div>
             );
           })}

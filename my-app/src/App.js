@@ -6,7 +6,7 @@ import { Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import CreateNote from "./components/CreateNote/CreateNote";
 import EditNote from "./components/EditNote/EditNote";
-import NoteCard from "./components/YourNotes/NoteCard";
+import NoteView from "./components/NoteView/NoteView";
 
 const URL = "https://killer-notes.herokuapp.com/note/get/all";
 
@@ -28,7 +28,19 @@ class App extends Component {
       .catch(err => console.log("Error:", err));
   }
 
-  updateHandle = notes => {
+  // updateHandle = () => {
+  //   axios
+  //   .get(URL)
+  //   .then(response => {
+  //     console.log(response);
+  //     this.setState({ notes: response.data });
+  //   })
+  //   .catch(err => console.log("Error:", err));
+  // }
+
+  updateHandle = newNote => {
+    const notes = this.state.notes.slice();
+    notes.push(newNote);
     this.setState({ notes });
   };
 
@@ -47,14 +59,14 @@ class App extends Component {
           )}
         />
         <Route
-          path="/editnote"
+          path="/editnote/:monkey"
           render={props => (
             <EditNote {...props} updateHandle={this.updateHandle} />
           )}
         />
         <Route
-        path="/noteview"
-        render={props => (<NoteCard {...props} />)} 
+        path="/noteview/:monkey"
+        render={props => (<NoteView  {...props} notes={this.state.notes} />)} 
         />
       </div>
     );

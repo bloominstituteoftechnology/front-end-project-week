@@ -10,7 +10,7 @@ class CreateNote extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: "",
+      textBody: ""
     };
   }
 
@@ -18,16 +18,18 @@ class CreateNote extends Component {
     e.preventDefault();
     const newNote = {
       title: this.state.title,
-      textBody: this.state.textBody
+      textBody: this.state.textBody,
     };
+    this.setState({
+      title: "",
+      textBody: ""
+    });
     axios
       .post(URL, newNote)
-      .then(response => {
-        this.props.updateHandle(response.data);
-        this.setState({
-          title: "",
-          textBody: ""
-        });
+      .then(response => {        
+        newNote._id = response.data.success;
+        this.props.updateHandle(newNote);
+        // this.props.updateHandle();
       })
       .catch(err => console.log("Error", err));
   };
@@ -44,11 +46,11 @@ class CreateNote extends Component {
         </div>
         <div className="addNoteForm">
           <form onSubmit={this.addNote}>
-          <h1>Create New Note</h1>
+            <h1>Create New Note</h1>
             <input
               onChange={this.handleInputChange}
               placeholder="Note Title"
-              value={this.state.tite}
+              value={this.state.title}
               name="title"
             />
             <input
