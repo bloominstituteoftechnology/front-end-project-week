@@ -4,7 +4,6 @@ import {Container, CardGroup} from 'reactstrap';
 import {Link} from 'react-router-dom'
 
 const Notes = (props) => {
-    console.log("notes", props.notes)
     return (<Container>
       <CardGroup  >
         {

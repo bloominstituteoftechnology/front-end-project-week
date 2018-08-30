@@ -38,7 +38,7 @@ class App extends Component {
       ],
       title: '',
       textBody: '',
-      _id: 5
+      _id: 5,
     }
 
   }
@@ -67,12 +67,38 @@ class App extends Component {
     })
   }
 
+  handleEdit = (e, id, push) => {
+    e.preventDefault();
+
+    const notes = this.state.notes.map(eachNote => {
+      if (eachNote._id === id) {
+        if (this.state.title.length) eachNote.title = this.state.title;
+        if (this.state.textBody.length) eachNote.textBody = this.state.textBody;
+      }
+      return eachNote;
+    });
+
+    this.setState({
+      notes,
+      title: '',
+      textBody: '',
+    })
+      push(`/notes/${id}`)
+  }
+
+  handleDelete = (e, id, push) => {
+    // delete stuff
+    this.setState({notes: this.state.notes.filter(note => note._id !== id)})
+    push('/notes')
+  }
+
+
   render() {
     return (
       <div className="App">
         <div className="sidenav">
           <h1 className="title">Lambda Notes </h1>
-          <Link to="/notes" href="#about">
+          <Link to='/notes'>
             <Button className="li">View Your Notes</Button>
           </Link>
           <Link to="/new" >
@@ -84,13 +110,14 @@ class App extends Component {
         <Route exact path='/new' render={(props) =>
           <NewNote {...props} handleChange={this.handleChange} addNote={this.addNote} title={this.state.title} textBody={this.state.textBody} />} />
 
-        <Route exact path='/edit' component={Edit} />
+        <Route exact path='/edit/:id' render={(props) =>
+          <Edit {...props} handleChange={this.handleChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} notes={this.state.notes} />} />
 
         <Route exact path='/notes' render={() =>
           <div><Notes notes={this.state.notes} /></div>} />
 
         <Route path="/notes/:id" render={(props) =>
-          <SingleNote {...props} notes={this.state.notes} />} />
+          <SingleNote {...props} notes={this.state.notes} handleDelete = {this.handleDelete} />} />
       </div>
     );
   }
