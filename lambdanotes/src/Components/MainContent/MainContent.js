@@ -4,7 +4,7 @@ import NotesList from '../NotesList/NotesList';
 const MainContent = props => {
     return (
         <div className="main_container">
-            <NotesList />
+            <NotesList notesArray={props.notesArray} />
         </div>
     );
 }

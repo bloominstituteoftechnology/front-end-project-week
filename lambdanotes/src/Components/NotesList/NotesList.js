@@ -9,9 +9,15 @@ const NotesList = props => {
         <div className="all-notes">
             <div className="note">
                 <div>
-                    <h4>Note Title</h4>
-                    <hr></hr>
-                    <p>Some text for a note.</p>
+                    {props.notesArray.map((note,index) => {
+                        return (
+                            <div>
+                                <h4 key={index}>{note.title}</h4>
+                                <hr></hr>
+                                <p>{note.textBody}</p>
+                            </div>
+                        )
+                    })};
                 </div>
             </div>
             <div className="note">

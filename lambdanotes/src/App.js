@@ -17,19 +17,20 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com')
+      .get('https://killer-notes.herokuapp.com/note/get/all')
         .then(response => {
           this.setState({ notesArray: response.data })
         })
         .catch(err => {
-          console.log('Error', err)
+          console.log('Error', err);
         });
   }
   render() {
+    console.log(this.state.notesArray);
     return (
       <div className="appContainer">
         <SideBar />
-        <MainContent />
+        <MainContent notesArray={this.state.notesArray} />
       </div>
     );
   }
