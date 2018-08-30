@@ -4,6 +4,8 @@ import ViewNotes from './components/MainPage/ViewNotes';
 import NewNote from './components/Routes/NewNote';
 import NoteViewer from './components/Routes/NoteViewer';
 import { Route } from 'react-router-dom';
+import EditNote from './components/Routes/EditNote';
+import DeleteNote from './components/Routes/DeleteNote';
 
 class App extends Component {
 
@@ -14,6 +16,8 @@ class App extends Component {
                 <Route exact path='/' component={ViewNotes} />
                 <Route path='/create-note' component={NewNote} />
                 <Route path='/view-note/:id' component={NoteViewer} />
+                <Route path='/edit-note/:id' component={EditNote} />
+                <Route path='/delete-note' component={DeleteNote} />
             </div>
         );
     }

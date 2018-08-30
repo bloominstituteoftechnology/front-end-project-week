@@ -1,4 +1,4 @@
-import { FETCH_NOTES, FETCHED, ADD_NOTE, ADDED, ERROR } from '../actions';
+import { FETCH_NOTES, FETCHED, ADD_NOTE, ADDED, EDIT_NOTES, EDITED, ERROR } from '../actions';
 export const initialState = {
     fetchingNotes: false,
     creatingNote: false,
@@ -34,6 +34,17 @@ export const notesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 creatingNote: false,
+                notes: [...action.payload]
+            }
+        case EDIT_NOTES:
+            return {
+                ...state,
+                updatingNote: true,
+            }
+        case EDITED:
+            return {
+                ...state,
+                updatingNote: false,
                 notes: [...action.payload]
             }
         case ERROR:

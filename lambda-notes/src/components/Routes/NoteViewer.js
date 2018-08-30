@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
@@ -13,6 +14,8 @@ margin 20px;
 width: 200px;
 height: 150px;
 `
+
+
 
 class NoteViewer extends Component {
 
@@ -29,9 +32,11 @@ class NoteViewer extends Component {
 
     render() {
         console.log(this.state)
-        const { title, textBody } = this.state.note;
+        const { title, textBody, _id } = this.state.note;
         return (
             < Main >
+                <Link to={`/edit-note/${_id}`}><div>edit</div></Link>
+                <Link to='/delete-note'><div>delete</div></Link>
                 <div>
                     <NoteContainer>
                         <h1>{title}</h1>

@@ -1,35 +1,78 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { editNote } from '../../actions/index';
 import styled from 'styled-components';
-
 
 const EditForm = styled.div`
 display: flex;
 padding-left 500px;
 width: 100%;
 height: 500px;
-background-color: #EEEEEE;
-`
-const Buttons = styled.div`
-    width: 150px;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightblue;
-    color: white;
-    `;
+background-color: #EEEEEE;`
 
-const EditNote = () => {
-    return (
-        <EditForm>
-            <form className='note-form'>
-                <h1>Edit Note:</h1>
-                <input className='note-title' type='text' placeholder='Note Title' /><br />
-                <input className='note-content' type='text' placeholder='Note Content' />
-                <Buttons>Update</Buttons>
-            </form>
-        </EditForm>
-    );
+
+class EditNote extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            notes: props.notes,
+            id: props._id,
+            title: '',
+            textBody: ''
+        }
+    };
+
+    componentDidMount(id) {
+        this.setState({ id })
+
+    }
+
+    handleInputChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    };
+
+    handleEditNote = e => {
+        e.preventDefault();
+        const editedNote = {
+            id: this.props.note._id,
+            title: this.props.title,
+            textBody: this.props.textBody
+
+        }
+        this.props.editNote(editedNote);
+    }
+
+    render() {
+        console.log(this.handleEditNote)
+        return (
+            <EditForm>
+                <form onSubmit={() => this.handleEditNote()}>
+                    <h1>Edit Note:</h1>
+                    <input
+                        name='title'
+                        value={this.state.title}
+                        type="text"
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <input
+                        name='textBody'
+                        value={this.state.textBody}
+                        type="text"
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <button type='submit'>
+                        Update
+                </button>
+                </form>
+            </EditForm>
+        );
+    }
 }
 
-export default EditNote;
+const mapStateToProps = state => {
+    return {
+        editNote: state.editNote
+    };
+}
+
+export default connect(mapStateToProps, { editNote })(EditNote);

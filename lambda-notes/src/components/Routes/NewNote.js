@@ -8,17 +8,7 @@ display: flex;
 padding-left 500px;
 width: 100%;
 height: 500px;
-background-color: #EEEEEE;
-`
-const Buttons = styled.div`
-    width: 150px;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightblue;
-    color: white;
-    `;
+background-color: #EEEEEE;`
 
 class NewNote extends Component {
     state = {
