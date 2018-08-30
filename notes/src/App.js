@@ -24,7 +24,6 @@ const StyledApp = styled.div`
     font-size: 24px;
     margin-left: 1px;
     margin-top: 30px;
-    display: inline-block;
     width: 70%;
     height: 40px;
   }
