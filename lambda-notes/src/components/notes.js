@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import "./Notes.css";
 
 const searchingFor = term => {
@@ -10,6 +9,7 @@ const searchingFor = term => {
 };
 
 const Notes = props => {
+  console.log(props);
   return (
     <div className="notes-page">
       <h2 className="page-title">Your Notes:</h2>
@@ -26,17 +26,20 @@ const Notes = props => {
       <i className="fas fa-sign-out-alt" onClick={props.logOut} />
 
       <div className="notes">
-        {props.notes.filter(searchingFor(props.term)).map(note => (
+      
+         {props.notes.filter(searchingFor(props.term)).map(note => ( 
           <Link key={note._id} to={`/notes/${note._id}`}>
             <div className="text">
               <h3>{note.title}</h3>
               <p>{note.textBody}</p>
             </div>
           </Link>
-        ))}
+         ))}
       </div>
     </div>
   );
 };
+
+
 
 export default Notes;

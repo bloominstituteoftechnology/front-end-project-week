@@ -1,5 +1,7 @@
 
 import React from 'react';
+import {connect} from 'react-redux';
+import {editNote} from '../actions';
 
 
 class EditNote extends React.Component {
@@ -38,4 +40,13 @@ class EditNote extends React.Component {
         );
     }
  }
- export default EditNote;
+
+
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        edittingNote: state.edittingNote
+    };
+};
+
+ export default connect(mapStateToProps,{editNote})(EditNote);

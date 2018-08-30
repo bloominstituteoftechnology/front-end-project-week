@@ -1,100 +1,51 @@
-import { GETTING_DATA, DATA_SUCCESS, GET_NOTE, ADD_NOTE, GET_NOTE_SUCCESS, ADDED_NOTE, EDIT_NOTE, EDIT_NOTE_SUCCESS, DELETE_NOTE, NOTE_DELETED ,ERROR} from '../actions';
+import { GET_NOTES, GETTING_NOTES, GET_NOTE,GETTING_NOTE, ADD_NOTE, ADDING_NOTE, EDIT_NOTE, EDITTING_NOTE, DELETE_NOTE, DELETING_NOTE ,ERROR} from '../actions';
 
 const initialState = {
-    addingNote: false,
+    notes:[],
     gettingNotes: false,
-    noteAddSuccess: false,
-    gettingNote: false,
+    gettingNote:false,
+    addingSmurf: false,
     edittingNote:false,
-    noteEditSuccess:false,
     deletingNote:false,
-    noteDeleted:false,
-    notes: [],
-    error: null,
-    currentNote:null
-}
+    error: null
+};
 
 export const notesReducer = (state = initialState, action) => {
     switch (action.type){
-        case GETTING_DATA:
-        return {
-            ...state , 
-            gettingNotes: true
-        };
+
+        case GETTING_NOTES:
+        return{...state, gettingNotes: true};
         
-        case DATA_SUCCESS:
-        return{
-            ...state,
-            notes: [
-                ...action.results
-            ],
-            gettingNotes:false,
-            noteAddSuccess:false,
-            noteDeleted:false,
-            noteEditSuccess:false,
-            currentNote: null
-        };
-
+        case GET_NOTES:
+        return {...state , notes: action.payload , gettingNotes:false};
+        
+        case ADDING_NOTE:
+        return {...state, addingNote:true};
+ 
         case ADD_NOTE:
-        return {
-            ...state,
-            addingNote: true,
-        };
+        return {...state,notes: action.payload , addingNote: false };
 
-        case ADDED_NOTE:
-        return {
-            ...state,
-            noteAddSuccess: true,
-            addingNote:false,
-        };
+        case GETTING_NOTE:
+        return {...state, gettingNote: true};
 
         case GET_NOTE:
-        return {
-            ...state,
-            gettingNote: true,
-            noteEditSuccess: false,
-        };
+        return {...state,notes: action.payload , gettingNote: false};
 
-        case GET_NOTE_SUCCESS:
-        return {
-            ...state,
-            gettingNote: false,
-            currentNote: action.result,
-        };
+        case EDITTING_NOTE:
+        return {...state, edittingNote: true};
 
         case EDIT_NOTE:
-        return {
-            ...state,
-            edittingNote: true,
-        };
+        return { ...state, notes:action.payload , edittingNote: false};
 
-        case EDIT_NOTE_SUCCESS:
-        return {
-            ...state,
-            edittingNote: false,
-            noteEditSuccess: true,
-        };
+        case DELETING_NOTE:
+        return {...state, deletingNote: true};
 
         case DELETE_NOTE:
-        return {
-            ...state,
-            deletingNote: true,
-        };
-
-        case NOTE_DELETED:
-        return {
-            ...state,
-            noteDeleted: true,
-            deletingNote: false
-        };
+        return {...state,notes:action.payload , deletingNote: false};
 
         case ERROR:
-        return {
-            ...state,
-            gettingNotes: false,
-            error: action.error
-        };
+        return {...state, gettingNotes: false, addingNote: false, gettingNote: false, edittingNote: false, deletingNote: false, error: action.error};
         default:
-            return state;
+          return state;
     }
 }

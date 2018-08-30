@@ -1,12 +1,13 @@
 
 import React from 'react';
 import './NewNoteForm.css';
+import {connect} from 'react-redux';
+import {addNote} from '../actions';
 
 
 const NewNoteForm = props => {
 
 
-  
     return (
       <div className="new-note">
         <h3 className="title">Create New Note:</h3>
@@ -21,11 +22,18 @@ const NewNoteForm = props => {
     );
 };
 
+const mapStateToProps = state => {
+  return {
+  error: state.error,
+  addingNote: state. addingNote
+  };
+};
 
 
 
 
-export default NewNoteForm;
+
+export default connect(mapStateToProps,{addNote})(NewNoteForm);
 
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Row, Col } from 'reactstrap';
+import {connect} from 'react-redux';
+import {deleteNote} from '../actions';
 import { Route } from 'react-router-dom'
  import './DeleteModal.css';
  
@@ -42,5 +44,13 @@ import { Route } from 'react-router-dom'
         );
     }
 }
- export default DeleteModal; 
+
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        deletingNote: state.deletingNote
+    };
+};
+
+ export default connect(mapStateToProps,{deleteNote})(DeleteModal); 
 

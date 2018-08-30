@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-// import axios from "axios";
+import { connect } from 'react-redux';
+import {getNotes} from './actions';
 import Sidebar from "./components/Sidebar";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
@@ -21,32 +22,24 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   const user = localStorage.getItem("user");
-  //   this.setState({ username: user });
+  componentDidMount() {
+    const user = localStorage.getItem("user");
+    this.setState({ username: user });
+    this.props.getNotes();
+  }
 
-  //   axios
-  //     .get("https://killer-notes.herokuapp.com/note/get/all")
-  //     .then(response => {
-  //       this.setState({ notes: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.error("Server Error", error);
-  //     });
-  // }
+  searchHandler = event => {
+    this.setState({ term: event.target.value });
+  };
 
-  // searchHandler = event => {
-  //   this.setState({ term: event.target.value });
-  // };
+  logOut() {
+    localStorage.removeItem("user");
+    window.location.reload();
+  }
 
-  // logOut() {
-  //   localStorage.removeItem("user");
-  //   window.location.reload();
-  // }
-
-  // handleInputChange = event => {
-  //   this.setState({ [event.target.name]: event.target.value });
-  // };
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   // addNote = (event) => {
   //   event.preventDefault();
@@ -109,6 +102,7 @@ class App extends Component {
   // };
 
   render() {
+    console.log(this.state.notes);
     return (
       <div className="App">
         <Sidebar />
@@ -118,7 +112,7 @@ class App extends Component {
           render={props => (
             <Notes
               {...props}
-              notes={this.state.notes}
+             notes={this.state.notes}
               logOut={this.logOut}
               searchHandler={this.searchHandler}
               term={this.state.term}
@@ -168,4 +162,11 @@ class App extends Component {
     }
   }
 
-export default Authenticate(App);
+  const mapStateToProps = state => {
+    return{
+      notes: state.notes,
+      getting: state.getting
+    };
+  };
+
+export default connect(mapStateToProps,{getNotes})(Authenticate(App));
