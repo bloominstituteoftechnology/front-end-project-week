@@ -19,6 +19,7 @@ export const Page = styled.div`
   border-left: 1px solid #eee;
   @media (max-width: 720px) {
     height: 100vh;
+    padding: 20px 20px;
   }
 `;
 export const PageHeader = styled.h2`
