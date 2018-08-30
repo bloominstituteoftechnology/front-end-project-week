@@ -1,0 +1,102 @@
+.single-note {
+    box-sizing: border-box;
+    background: white;
+    padding: 2.5% 6% 2.5% 2.5%;
+    width: 80%;
+    height: 100vh;
+    position: relative;
+    color: #414141;
+}
+ .single-title {
+    margin-top: 5%;
+}
+ .single-text {
+    line-height: 200%;
+    white-space: pre-wrap;
+}
+ .delete {
+    position: absolute;
+    right: 3%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    text-decoration: underline;
+    color: black;
+}
+ .delete > p{
+    cursor: pointer;
+}
+ .editlink{
+    color: black;
+}
+
+.delete {
+    z-index: 100;
+    background: rgba(226, 226, 226, 0.699);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+}
+.delete-menu {
+
+    background: rgba(226, 226, 226, 0.699);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+}
+ .hide-delete {
+    display: none;
+}
+ .modal {
+    margin-top: 20%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 175px;
+    width: 500px;
+    background: white;
+    border: solid 1px gray;
+    color: gray;
+}
+ .modal > p {
+    margin: 8% 0 7%;
+}
+ .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 420px;
+}
+ .delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background: rgb(211, 1, 1);
+    color: white;
+    border: solid 1px gray;
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+.delete-link {
+    text-decoration: none;
+}
+ .no-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background: darkturquoise;
+    color: white;
+    border: solid 1px gray;
+    border-radius: 5px;
+    cursor: pointer;
+ }
