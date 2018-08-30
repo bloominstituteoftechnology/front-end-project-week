@@ -37,17 +37,17 @@ class App extends Component {
         },
         {
           _id: 5,
-          title: "note3",
+          title: "note5",
           textBody: "Test Test Test Test"
         },
         {
           _id: 6,
-          title: "note3",
+          title: "note6",
           textBody: "Test Test Test Test"
         },
         {
           _id: 7,
-          title: "note3",
+          title: "note7",
           textBody: "Test Test Test Test"
         }
       ],

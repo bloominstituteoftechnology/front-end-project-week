@@ -42,7 +42,6 @@ class SingleNote extends Component {
       <h1>{note.title}</h1>
       <p>{note.textBody}</p>
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-        <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
         <ModalBody>
           Are you sure you want to delete this note?
         </ModalBody>
