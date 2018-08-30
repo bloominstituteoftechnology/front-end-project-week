@@ -63,23 +63,9 @@ class Note extends React.Component {
     );
   }
 }
+
+
 export default Note;
 
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import DeleteModal from './DeleteModal'
-// import './Note.css'
-//   const Note = props => {
-//     const note = props.notes.find(
-//          note => note.id === Number(props.match.params.id)
-//     );
-//       return (
-//         <div className="note">
-//         <Link to="/edit"><i class="fas fa-edit"></i></Link>
-//            <Link to="/delete"><i class="fas fa-trash-alt"></i></Link>
-//              <h2>{note.title} </h2>
-//              <p>{note.textBody}</p>
-//          </div>
-//      );
-//    ;}
-//  export default Note;
+
+

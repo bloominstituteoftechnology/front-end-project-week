@@ -13,43 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        // {
-        //   id: 0,
-        //   title: "Cats",
-        //   text: "Cats are so cute I mean seriously"
-        // },
-        // {
-        //   id: 1,
-        //   title: "Summer",
-        //   text: "Beach and Margaritas!"
-        // },
-        // {
-        //   id: 2,
-        //   title: "Food",
-        //   text: "I like , pizza, icecream and sushi"
-        // },
-        // {
-        //   id: 3,
-        //   title: "Hey!",
-        //   text: "Whatsup"
-        // },
-        // {
-        //   id: 4,
-        //   title: "CS12",
-        //   text: "CS12 rules, that is all"
-        // },
-        // {
-        //   id: 5,
-        //   title: "Rachel",
-        //   text: "My name is Rachel what's yours?"
-        // },
-        // {
-        //   id: 6,
-        //   title: "Say Cheese",
-        //   text: "CHEEESE!"
-        // }
-      ],
+      notes: [],
       username: "",
       title: "",
       text: "",
@@ -84,16 +48,6 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  // addNote = event => {
-  //   event.preventDefault();
-  //   const notes = this.state.notes.slice();
-  //   notes.push({
-  //     textBody: this.state.text,
-  //     title: this.state.title
-  //   });
-  //   this.setState({ notes, title: "", text: "" });
-  // };
-
   addNote = (event) => {
     event.preventDefault();
     const newNote = {
@@ -116,7 +70,6 @@ class App extends Component {
     })
   }
 
-
   deleteNote = (noteID) => {
     axios
     .delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
@@ -132,7 +85,6 @@ class App extends Component {
       });
     }
     )}
-
 
   editNote = (event, noteID, title, textBody) => {
     event.preventDefault();
