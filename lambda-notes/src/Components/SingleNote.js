@@ -6,7 +6,7 @@ const SingleNote = props => {
   const note = props.notes.find(note => note.id == props.match.params.id);
   return (
     <div className="single-note">
-      <div className={props.deleting ? "delete" : "hide-delete"}>
+      <div className={props.deleting ? "delete-show" : "hide-delete"}>
         <div className="modal">
           <p>Are you sure you want to delete this?</p>
           <div className="buttons">
