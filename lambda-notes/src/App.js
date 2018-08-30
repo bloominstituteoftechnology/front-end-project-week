@@ -17,7 +17,12 @@ class App extends Component {
       notes: [],
       noteName: '',
       noteText: '',
-      id: 0
+      id: 0,
+
+      clicked: 0,
+
+      editName: '',
+      editText: ''
     }
     console.log(this.state.id)
   }
@@ -29,36 +34,58 @@ class App extends Component {
   addNote = e => {
     e.preventDefault()
     const notes = this.state.notes.slice()
-    let num = this.state.id
-    ++num
-    this.setState({ id: num })
     notes.push({
       noteName: this.state.noteName,
       noteText: this.state.noteText,
       id: this.state.id
     })
-    this.setState({ noteName: '', noteText: '', notes: notes })
-    console.log(`Id is ${num}. State id is ${this.state.id}`)
+    this.setState({ noteName: '', noteText: '', notes: notes})
+    this.setState({ id: ++this.state.id })
+    console.log(`State id is ${this.state.id}`)
   }
 
-  deleteNote = (e, id) => {
-    e.preventDefault()
-    let notes = this.state.notes.slice()
-    notes = notes.filter(note => !note.id)
-    this.setState({ notes: notes })
-    let num = this.state.id
-    if (num > -1) {
-      --num
-    }
-    this.setState({ id: num })
-    console.log(`Id is ${num}. State id is ${this.state.id}`)
+  viewClick = id => {
+    this.setState({clicked: id})
+    console.log("clicked is now: " + this.state.clicked)
+  }
+
+  deleteNote = (id) => {
+    console.log("this is the id: " + id)
+    // e.preventDefault()
+    let notes = this.state.notes
+    notes.splice(this.state.clicked, 1)
+    this.setState({notes: notes})
+    let newId = this.state.notes.slice()
+    newId.forEach(note => note.id> this.state.clicked ? --note.id : null)
+    this.setState({notes: newId})
+    // let notes = this.state.notes.slice()
+    // let newNotes = []
+    // for (let i = 0; i < notes.length; i++) {
+    //   if (notes[i].id !== notes.id) {
+    //     // notes.splice(i, 1);
+    //     console.log(notes[i])
+    //     newNotes.push(notes[i])
+    //   }
+    // }
+    // this.setState({ notes: newNotes })
+    // notes = notes.filter(note => !note.id)
+    // console.log(notes)
+    // this.setState({ notes: notes })
+    // this.setState({ id: this.state.id-1})
+    // let num = this.state.id
+    // if (num > -1) {
+    //   --num
+    // }
+    // this.setState({ id: num })
+
+    console.log(`State id is ${this.state.id}`)
   }
 
 
   render() {
     return (
       <NoteApp>
-        <NotesContainer note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} delete={this.deleteNote} />
+        <NotesContainer clicked={this.state.clicked} viewClick={this.viewClick} note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} delete={this.deleteNote} />
 
       </NoteApp>
     );

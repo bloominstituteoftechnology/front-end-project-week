@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Route, NavLink, Link } from 'react-router-dom';
+import ConfirmDelete from './ConfirmDelete';
+import EditNote from './EditNote';
 
 const View = styled.div`
 width: 76vw;
@@ -42,12 +44,17 @@ class ViewNote extends Component {
         this.state = {
             id: props.match.params.id,
             note: props.note,
-            delete: props.delete
+            delete: props.delete,
+            clicked: props.clicked
         }
-        console.log(this.state.note[this.state.id].noteName)
+        console.log(this.state.note[this.state.clicked].noteName)
         console.log(this.state.id)
     }
 
+    componentDidMount(){
+        let id = this.props.match.params.id;
+        console.log(id);
+    }
 
 
     render() {
@@ -60,9 +67,10 @@ class ViewNote extends Component {
             
             </Actions>
 
-            <NoteName>{this.state.note[this.state.id].noteName}</NoteName>
+            <NoteName>{this.state.note[this.state.clicked].noteName}</NoteName>
 
-            <NoteText>{this.state.note[this.state.id].noteText}</NoteText>
+            <NoteText>{this.state.note[this.state.clicked].noteText}</NoteText>
+
 
         </View>);
     }

@@ -67,15 +67,14 @@ class EditNote extends Component {
             <EditForm>
                 <NoteTitle
                     type='text'
-                    placeholder='New Title'
+                    placeholder='Edit Title'
                     autoComplete='off'
                     name='noteName'
-
                 />
                 <br />
                 <NewNote
                     type='text'
-                    placeholder='New Content'
+                    placeholder='Edit Content'
                     name='noteText'
                     autoComplete='off'
                     rows='10'

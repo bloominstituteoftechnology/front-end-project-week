@@ -10,6 +10,7 @@ top: 25%;
 bottom: 25%;
 background: white;
 border: 1px solid black;
+height: 13rem;
 `
 
 const Header = styled.h4`
@@ -42,12 +43,13 @@ border: 1px solid #cdcecf;
 `
 
 const ConfirmDelete = (props) => {
+    console.log(props)
     return ( <Delete>
         
         <Header>Are you sure you want to delete this?</Header>
 
         <Options>
-        <NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><DeleteButton>Delete</DeleteButton></NavLink>
+        <DeleteButton onClick={props.delete}><NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}>Delete</NavLink></DeleteButton>
         <NavLink to="/view/:id/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><NoButton>No</NoButton></NavLink>
         </Options>
         

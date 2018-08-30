@@ -35,14 +35,14 @@ max-width: 80%;
 `
 
 const Note = (props) => {
-    console.log(props.note)
+    console.log(props)
     return (<div>
         <Header>Your Notes: </Header>
 
         <NoteContainer>
         {props.note.map((note, index) => {
-            return <NavLink to={`/view/${note.id}`} style={{margin: '2%', color: 'black', textDecoration: 'none'}}>
-                <Notes key={index}>
+            return <NavLink  key={index} to={`/view/${note.id}`} style={{margin: '2%', color: 'black', textDecoration: 'none'}}>
+                <Notes onClick={() => props.viewClick(note.id)}>
                     <NoteName>{note.noteName}</NoteName>
                     <hr />
                     <NoteText>{note.noteText}</NoteText>
