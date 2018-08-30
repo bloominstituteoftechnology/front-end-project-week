@@ -1,0 +1,32 @@
+.list-view {
+    width: 764px;
+    height: 1024px;
+    display: flex;
+    background: lightgray;
+    color: #222222;
+}
+
+.list-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-container {
+    width: 764px;
+    height: 944px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.note-card {
+    width: 200px;
+    height: 200px;
+    display: flex;
+}
+
+.note-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
+import DeleteModal from './components/DeleteModal';
+import EditView from './components/EditView';
 import CreateNewView from './components/CreateNewView';
 import NoteView from './components/NoteView';
 import ListView from './components/ListView';
@@ -65,6 +67,22 @@ class App extends Component {
     });
   }
 
+  editNote = event => {
+    event.preventDefault();
+    this.setState(prevState => ({
+      /*this.title: prevState.title,
+      this.textBody: prevState.textBody,
+      this._id: prevState._id,*/
+    }))
+  }
+
+  deleteNote = event => {
+    event.preventDefault();
+    let notes = this.state.notes.slice();
+    notes = notes.filter(otherNotes => !note);
+    this.setState({ notes });
+  }
+
   render() {
     return (
       <div className="App">
@@ -97,6 +115,29 @@ class App extends Component {
               addNewNote={this.addNewNote}
               textBody={this.state.textBody}
               title={this.state.title}
+            />
+          )}
+        />
+        <Route
+          path={'/edit'}
+          render={props => (
+            <EditView
+              {...props}
+              notes={this.state.notes}
+              handleInputChange={this.handleInputChange}
+              editNote={this.editNote}
+              textBody={this.state.textBody}
+              title={this.state.title}
+            />
+          )}
+        />
+        <Route
+          path={'/delete'}
+          render={props => (
+            <DeleteModal
+              {...props}
+              notes={this.state.notes}
+              deleteNote={this.deleteNote}
             />
           )}
         />
