@@ -4,7 +4,8 @@ import { Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import ListView from "./components/ListView";
 import CreateNew from "./components/CreateNew";
-import NoteView from './components/NoteView';
+import NoteView from "./components/NoteView";
+import EditView from "./components/EditView";
 import "./App.css";
 
 class App extends Component {
@@ -55,6 +56,33 @@ class App extends Component {
     });
   };
 
+  editNote = e => {
+    e.preventDefault();
+    const noteList = [
+      ...this.state.noteList
+    ];
+    const note = noteList.find(
+      eachNote => eachNote._id === Number(this.state.noteList._id)
+    );
+    const i = noteList.indexOf(note)
+    noteList.splice(i, 1,
+      {
+        _id: Date.now(),
+        tags: this.state.tags,
+        title: this.state.title,
+        textBody: this.state.textBody
+      }
+    )
+    console.log(noteList)
+    console.log(note)
+    this.setState({
+      noteList,
+      tags: [],
+      title: "",
+      textBody: ""
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -92,9 +120,25 @@ class App extends Component {
 
         <Route
           exact
-          path='/notes/:id'
+          path="/notes/:id"
           render={props => (
             <NoteView {...props} noteList={this.state.noteList} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/edit/:id"
+          render={props => (
+            <EditView
+              {...props}
+              noteList={this.state.noteList}
+              title={this.state.title}
+              textBody={this.state.textBody}
+              tags={this.state.tags}
+              handleInputChange={this.handleInputChange}
+              editNote={this.editNote}
+            />
           )}
         />
       </div>

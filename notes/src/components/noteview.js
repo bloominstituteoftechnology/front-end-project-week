@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const NoteView = props => {
   const note = props.noteList.find(
@@ -13,6 +14,8 @@ const NoteView = props => {
           <div>{note.title}</div>
           <div>{note.textBody}</div>
         </div>
+        <Link to={`/edit/${note._id}`}><button>Edit</button></Link>
+        <button>Delete</button>
       </div>
     </div>
   );
