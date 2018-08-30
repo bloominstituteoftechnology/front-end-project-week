@@ -19,8 +19,9 @@ class App extends Component {
   handleNoteSubmit = note => {
     console.log('clicked')
     console.log(this)
-        this.setState(prevState => ({ notes: [...prevState.notes, note] }))
-        };
+        this.setState(prevState => ({ notes: [...prevState.notes, note] }));
+
+	};
 
   render() {
     console.log(this)

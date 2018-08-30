@@ -27,8 +27,8 @@ class AddNote extends React.Component {
                 this.props.onSubmit(this.state);
                 this.setState(prevState => ({
                     id: Date.now(),
-                    newtitle: "",
-                    newtext: "",
+                    newtitle: this.state.newtitle,
+                    newtext: this.state.newtext,
                 }));
             }}>Save</button></Link>
     </div>

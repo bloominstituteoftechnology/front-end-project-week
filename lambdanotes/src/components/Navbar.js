@@ -11,7 +11,7 @@ let NavButton = styled.button `
 export const Navbar = (props) => {
     return (
         <NavBarContainer>
-            <h1>Lambda</h1>
+            <h1>My</h1>
             <h1>Notes</h1>
 
             <Link to="/notes"><NavButton>View Your Notes</NavButton></Link>
