@@ -8,8 +8,8 @@ const SideBar = () => {
                 <h1 className="nav-header">Lambda Notes</h1>
             </div>
             <div className="nav-buttons-container">
-                <button className="nav-button">View Your Notes</button>
-                <button className="nav-button">+ Create New Note</button>
+                <a href="#"><button className="nav-button">View Your Notes</button></a>
+                <a href="#"><button className="nav-button">+ Create New Note</button></a>
             </div>
         </div>
     );

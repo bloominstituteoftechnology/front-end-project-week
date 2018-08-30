@@ -1,0 +1,34 @@
+.createNote-Form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+}
+
+.createNote-Title {
+    width: 400px;
+    height: 40px;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #B2B2B2;
+}
+
+.createNote-Text {
+    resize: none;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #B2B2B2;
+}
+
+.save-button {
+    width: 200px;
+    background-color: #23B8BE;
+    color: white;
+    height: 25px;
+}
+
+.save-danger {
+    background-color: red;
+    width: 200px;
+    color: white;
+    height: 25px;
+}

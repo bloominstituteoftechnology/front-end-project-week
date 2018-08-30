@@ -1,0 +1,19 @@
+.delete-button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.delete-wrapper {
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 200px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 8px black;
+    background-color: white;
+}

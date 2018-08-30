@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import './deleteNote.css';
 
-class DeleteNote extends Component {
-    render() {
-        return (
+const DeleteNote = () => {
+    return (
+        <div className="delete-wrapper">
             <div>
-                Delete Note Placeholder
+                <h3 className="delete-button-wrapper">Are you sure you want to delete this?</h3>
             </div>
-        );
-    }
+            <div className="delete-button-wrapper">
+                <button className="save-danger">DELETE</button>
+                <button className="save-button">NO</button>
+            </div>
+        </div>
+    );
 }
 
 export default DeleteNote;
