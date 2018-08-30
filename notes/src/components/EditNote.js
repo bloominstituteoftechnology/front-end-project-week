@@ -120,7 +120,12 @@ class EditNote extends Component {
         ) : null}
         <h2>Edit Note:</h2>
 
-        <StyledForm onSubmit={this.addNote}>
+        <StyledForm
+          onSubmit={() => {
+            this.props.editNote(this.state.newNote);
+            this.toggleRedirect();
+          }}
+        >
           <input
             name="title"
             placeholder="Note Title"

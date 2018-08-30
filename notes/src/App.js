@@ -81,6 +81,10 @@ class App extends Component {
       body: newNote.body,
       id: newNote.id
     });
+    this.setState({
+      notes,
+      newNote,
+    })
     console.log(notes)
     console.log(newNote)
   };
@@ -88,9 +92,10 @@ class App extends Component {
   deleteNote = id => {
     
     let notes = this.state.notes.slice();
-    console.log(notes, id)
     notes = notes.filter(note => note.id !== Number(id));
-    console.log(notes)
+    this.setState({
+      notes,
+    })
   };
 
   render() {
