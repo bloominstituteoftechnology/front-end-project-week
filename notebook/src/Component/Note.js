@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Note = props => {
   return (
     
-    <React.Fragment key={props._id}>
-    <Link to={"/Note._id"}>
+    <div key={props._id} className="each-ind-note">
+    <Link to={`/eachnote`}>
       <div>{props.note.title}</div>
       <div>{props.note.textBody}</div>
       </Link>
-    </React.Fragment>
+    </div>
   );
 };
 

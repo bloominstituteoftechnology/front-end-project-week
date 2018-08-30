@@ -4,7 +4,7 @@ import Note from "./Note";
 
 const NoteList = props => {
   return (
-    <React.Fragment>
+    <div>
       <h2>Your Notes</h2>
       {props.notes.map(note => (
         
@@ -12,7 +12,7 @@ const NoteList = props => {
 
       ))}
       
-    </React.Fragment>
+    </div>
   );
 };
 
