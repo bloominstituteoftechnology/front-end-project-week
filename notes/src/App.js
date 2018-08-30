@@ -50,7 +50,6 @@ class App extends Component {
   };
 
   addNote = event => {
-    // event.preventDefault();
     const newNotes = this.state.newNote;
     const count = ++this.state.count;
     const notes = this.state.notes.slice();
@@ -71,10 +70,8 @@ class App extends Component {
     localStorage.setItem("notes", str);
   };
 
-  editNote = newNote => {
+  editNote = (newNote , push) => {
     let notes = this.state.notes.slice();
-  
-
     notes.splice(newNote.id - 1, 1, {
       title: newNote.title,
       tags: newNote.tags,
@@ -83,21 +80,21 @@ class App extends Component {
     });
     this.setState({
       notes,
-      newNote,
-    })
-    console.log(notes)
-    console.log(newNote)
+      newNote
+    });
+    console.log(notes);
+    console.log(newNote);
+    push('/')
   };
 
-  deleteNote = id => {
-    
+  deleteNote = (id, push) => {
     let notes = this.state.notes.slice();
-    notes = notes.filter(note => note.id !== Number(id));
-    this.setState({
-      notes,
-    })
-  };
+    let notesAfterDelete = notes.filter(note => note.id !== Number(id));
+    this.setState({ notes: notesAfterDelete });
+    console.log(this.state.notes);
+    push('/')
 
+  };
   render() {
     return (
       <StyledApp>
@@ -135,7 +132,13 @@ class App extends Component {
         />
         <Route
           path="/note/:id/delete"
-          render={props => <DeleteNote {...props} deleteNote={this.deleteNote} notes={this.state.notes} />}
+          render={props => (
+            <DeleteNote
+              {...props}
+              deleteNote={this.deleteNote}
+              notes={this.state.notes}
+            />
+          )}
         />
       </StyledApp>
     );

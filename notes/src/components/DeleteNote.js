@@ -76,19 +76,20 @@ class DeleteNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Redirect: false
+    //   Redirect: false
     };
   }
-
-  toggleRedirect = () => {
-    this.setState({
-      Redirect: !this.state.Redirect
-    });
-  };
+ //props.history.push end of delete
+ 
+//   toggleRedirect = () => {
+//     this.setState({
+//       Redirect: !this.state.Redirect
+//     });
+//   };
   render() {
     return (
       <StyledContainer>
-      {this.state.Redirect ? <Redirect to="/" /> : null}
+     
         <ModalBox>
           <TextWrapper>
             <h3>Are you sure you want to delete this?</h3>
@@ -96,8 +97,8 @@ class DeleteNote extends Component {
           <StyledButtons>
             <Button
               onClick={() => {
-                this.props.deleteNote(this.props.match.params.id);
-                this.toggleRedirect();
+                this.props.deleteNote(this.props.match.params.id, this.props.history.push);
+               
               }}
               className="red">
               Delete

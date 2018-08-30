@@ -106,11 +106,11 @@ class EditNote extends Component {
     });
   }
 
-  toggleRedirect = () => {
-    this.setState({
-      Redirect: !this.state.Redirect
-    });
-  };
+//   toggleRedirect = () => {
+//     this.setState({
+//       Redirect: !this.state.Redirect
+//     });
+//   };
 
   render() {
     return (
@@ -122,8 +122,8 @@ class EditNote extends Component {
 
         <StyledForm
           onSubmit={() => {
-            this.props.editNote(this.state.newNote);
-            this.toggleRedirect();
+            this.props.editNote(this.state.newNote, this.props.history.push);
+            // this.toggleRedirect();
           }}
         >
           <input
