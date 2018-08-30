@@ -8,7 +8,7 @@ export default class NotesList extends Component {
       this.state = {
           dummyNotes: [
               {
-                  id: 'dsagh783',
+                  id: 'one1',
                   title: 'First Note',
                   body: `When you play the game of thrones, you win or you die. May the Father
                   judge him justly. The Dothraki do things in their own time, for their
@@ -19,7 +19,7 @@ export default class NotesList extends Component {
                     createdAt: 6537826124945,
               },
               {
-                id: 'dsag2413',
+                id: 'two2',
                 title: 'Second Note',
                 body: `When you play the game of kings, you win or you die. May the Father
                 judge him justly. The Dothraki do things in their own time, for their
@@ -30,7 +30,7 @@ export default class NotesList extends Component {
                   createdAt: 6521324945,
             },
             {
-                id: 'ds463783',
+                id: 'three3',
                 title: 'Third Note',
                 body: `When you play the game of birds, you win or you die. May the Father
                 judge him justly. The Dothraki do things in their own time, for their
