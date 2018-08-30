@@ -2,7 +2,7 @@ import React from "react";
 import { Page, PageHeader, NoteBody, ModeWrapper, ModeLink } from "./styles";
 import EditNote from "./EditNote";
 import styled from "styled-components";
-import Modal from './Modal'
+import Modal from "./Modal";
 
 class Note extends React.Component {
   state = {
@@ -27,22 +27,32 @@ class Note extends React.Component {
     });
   };
   handleSubmit = object => {
-		this.props.handleSubmit(this.state.index, object);
-		this.handleEditMode();
-	};
+    this.props.handleSubmit(this.state.index, object);
+    this.handleEditMode();
+  };
+  currentNoteText = () => {
+    const filteredNote = this.props.notes.filter(
+      (note, index) => index == this.props.match.params.index
+    );
+    const currentNote = filteredNote[0];
+    return currentNote;
+  };
 
   render() {
-    console.log("PROPS", this.props.notes);
     const filteredNote = this.props.notes.filter(
       (note, index) => index == this.props.match.params.index
     );
     const currentNote = filteredNote[0];
     const _index = this.props.match.params.index;
-    console.log(currentNote);
+
     return (
       <Page>
         {this.state.editMode ? (
-          <EditNote notes={this.props.notes} handleSubmit={this.handleSubmit} />
+          <EditNote
+            notes={this.props.notes}
+            handleCurrentNote={this.currentNoteText}
+            handleSubmit={this.handleSubmit}
+          />
         ) : (
           <div>
             <ModeWrapper>
@@ -54,10 +64,10 @@ class Note extends React.Component {
           </div>
         )}
         <Modal
-					deleteMode={this.state.deleteMode}
-					handleClose={() => this.handleDeleteMode()}
-					handleDelete={() => this.props.handleDelete(_index)}
-				/>
+          deleteMode={this.state.deleteMode}
+          handleClose={() => this.handleDeleteMode()}
+          handleDelete={() => this.props.handleDelete(_index)}
+        />
       </Page>
     );
   }

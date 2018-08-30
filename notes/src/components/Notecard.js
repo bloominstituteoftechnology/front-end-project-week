@@ -7,6 +7,9 @@ const Card = styled.div`
   background: white;
   height: 220px;
   border: 1px solid #ccc;
+  &:hover {
+    box-shadow: 0 7px 21px 0 rgba(100,100,100,.07), 0 11px 21px 0 rgba(100, 100, 100,.04);
+  }
 `;
 const NoteTitle = styled.h3`
   padding: 16px;
