@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './index.css';
 
-
-class LeftNav extends Component {
+class MainContent extends Component {
     render() {
         return (
             <div>
-                LEFT NAV PLACEHOLDER
+                MAIN CONTENT PLACEHOLDER
             </div>
         )
     }
 }
 
-export default LeftNav;
+export default MainContent;

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './index.css';
 
-
-class LeftNav extends Component {
+class NoteView extends Component {
     render() {
         return (
             <div>
-                LEFT NAV PLACEHOLDER
+                NOTE VIEW PLACEHOLDER
             </div>
-        )
+        );
     }
 }
 
-export default LeftNav;
+export default NoteView;

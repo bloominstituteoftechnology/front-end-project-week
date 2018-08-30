@@ -1,78 +1,96 @@
 import React, { Component } from 'react';
-import {Link, Route} from 'react-router-dom';
-import axios from 'axios';
-import './App.css';
-
-// import NoteView from './Components/NoteView';
-import AddNote from './Components/AddNote';
-import Notes from './Components/Notes';
-
-
+import './index.css';
+// cd 
 class App extends Component {
-  constructor(){
-    super()
-      this.state = {
-        notes: [],
-        tags: '',
-        title: '',
-        textBody: ''
+    render() {
+        return (
+            <div>
+                PLACEHOLDER for APP
+            </div>
+        )
+    }
+}
 
-      };
-  }
+export default App; 
 
-  componentDidMount() {
-    this.getNotes();
+
+
+
+// import React, { Component } from 'react';
+// import {Link, Route} from 'react-router-dom';
+// import axios from 'axios';
+// import './App.css';
+
+// // import NoteView from './Components/NoteView';
+// import AddNote from './Components/AddNote';
+// import Notes from './Components/Notes';
+
+
+// class App extends Component {
+//   constructor(){
+//     super()
+//       this.state = {
+//         notes: [],
+//         tags: '',
+//         title: '',
+//         textBody: ''
+
+//       };
+//   }
+
+//   componentDidMount() {
+//     this.getNotes();
     
       
     
-  }
+//   }
 
-  getNotes = () => {
-    axios
-    .get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => {
-      this.setState(() => ({ notes: response.data }));
-    })
-    .catch(error => {
-      console.error('Server Error', error);
-    });
-  }
+//   getNotes = () => {
+//     axios
+//     .get('https://killer-notes.herokuapp.com/note/get/all')
+//     .then(response => {
+//       this.setState(() => ({ notes: response.data }));
+//     })
+//     .catch(error => {
+//       console.error('Server Error', error);
+//     });
+//   }
 
-  render() {
-    return (
+//   render() {
+//     return (
 
-      <div className="App" >
-      <br /><br /><br />
-          Lambda Notes
-          <Link to="/"><button className="btn"> View Your Notes </button></Link>
-          <Link to="/AddNote"><button className="btn"> + Create New Note </button></Link>
-          <Route exact path="/" component ={Notes} />
-          <Route path="/AddNote" component={AddNote} />
-          <Route path={"/note/:id"} component={NoteView} />
+//       <div className="App" >
+//       <br /><br /><br />
+//           Lambda Notes
+//           <Link to="/"><button className="btn"> View Your Notes </button></Link>
+//           <Link to="/AddNote"><button className="btn"> + Create New Note </button></Link>
+//           <Route exact path="/" component ={Notes} />
+//           <Route path="/AddNote" component={AddNote} />
+//           <Route path={"/note/:id"} component={NoteView} />
         
-      </div>
-    );
-  }
-}
+//       </div>
+//     );
+//   }
+// }
 
-// <Route path={"/note/:id"} component={NoteView}/> -> 
-// component={NoteView}/> -> render={() => }
+// // <Route path={"/note/:id"} component={NoteView}/> -> 
+// // component={NoteView}/> -> render={() => }
          
 
 
-const NoteView = (match, props) => {
-    console.log("NoteView:", props)
-    return (
-    <div>
-      <br /><br /><br />
-        <div><h3>Title and Body of Unique ID:</h3>{match.match.params.id}</div>
-    </div>);
-}
+// const NoteView = (match, props) => {
+//     console.log("NoteView:", props)
+//     return (
+//     <div>
+//       <br /><br /><br />
+//         <div><h3>Title and Body of Unique ID:</h3>{match.match.params.id}</div>
+//     </div>);
+// }
 
 
 
 
-export default App;
+// export default App;
 
 /**
    <Route exact path={"/:id"} component={Child}/>
