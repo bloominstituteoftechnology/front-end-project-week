@@ -22,9 +22,10 @@ form {
       line-height: 20px;
 
     }
-    /* .menu-item{
-      
-        width: 30%;
+
+   .menu-item{
+height: 100%;
+        /* width: 30%;
         padding: 15px;
         margin: 5px;
         text-align: center;
@@ -32,8 +33,8 @@ form {
         color: white;
         background-color: #2AC0C4;
         font-weight: bold;
-        border: 1px solid lightgray;
-      } */
+        border: 1px solid lightgray; */
+      }  
   
 
     
@@ -62,5 +63,6 @@ form {
         font-weight: bold;
         margin-bottom: 10px;
         font-size: 24px;
+        margin: 10px 10px 10px 10px; 
       }
     

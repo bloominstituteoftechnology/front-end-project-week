@@ -15,7 +15,8 @@ export default class ListNotes extends Component {
 
   render() {
     return (
-      <div className="listtop" >
+      <div className="container">
+          <div className="listtop" >
         <h3>Your Notes:</h3>
 
         <div className="all-notes">
@@ -29,6 +30,7 @@ export default class ListNotes extends Component {
               </Link>
             )
           })}
+          </div>
         </div>
       </div>
     );

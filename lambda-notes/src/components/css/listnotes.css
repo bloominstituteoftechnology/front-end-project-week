@@ -1,7 +1,16 @@
-    .listtop {
+
+/* .container{
+  display: inline-grid;
+  flex-direction: column;
+
+} */
+
+
+.listtop {
     display: flex;
     flex-direction: column;
     padding: 15px;
+   
         }
         
 
@@ -12,9 +21,11 @@
     }
 
     .all-notes {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      display: grid;
+      /* grid-template-columns: 350px 350px 350px; */
+      grid-template-columns: 250px 250px 250px;
+      /* flex-direction: row; */
+      /* flex-wrap: wrap; */
       justify-content: space-around;
     
         }
@@ -39,9 +50,16 @@
 
         h3{
           
-          margin: 10px 10px 5px 10px;
+          margin: 40px 40px 40px 10px;
           width: 80%;
+          font-size: 19px;
           text-decoration: none;
+          /* border-bottom: 1px solid black; */
+        }
+
+        .note-preview h3{
+          margin: 10px 10px 10px 10px;
+          
           border-bottom: 1px solid black;
         }
 

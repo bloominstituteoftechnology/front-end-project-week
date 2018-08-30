@@ -1,6 +1,7 @@
 .newnote {
   /* border: 1px solid green;  */
-  /* display: flex; */
+  display: grid;
+  grid-template-columns: 500px;
   /* flex-direction: column; */
   /* background-color: #F3F3F3; */
   padding: 25px;
@@ -13,8 +14,8 @@
 }
 
   .newNote h4 {
-  text-align: left;
+text-align: left;
 font-size: 24px;
-    font-weight: bold;
-    /* margin: 0 0 10px 10px; */
+font-weight: bold;
+ margin: 10px 0 10px 10px; 
   }
