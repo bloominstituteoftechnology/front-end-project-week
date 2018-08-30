@@ -15,7 +15,7 @@ const NoteView = props => {
           <div>{note.textBody}</div>
         </div>
         <Link to={`/edit/${note._id}`}><button>Edit</button></Link>
-        <button>Delete</button>
+        <Link to={'/'}><button onClick={props.deleteNote}>Delete</button></Link>
       </div>
     </div>
   );

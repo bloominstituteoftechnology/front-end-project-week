@@ -73,13 +73,27 @@ class App extends Component {
         textBody: this.state.textBody
       }
     )
-    console.log(noteList)
-    console.log(note)
     this.setState({
       noteList,
       tags: [],
       title: "",
       textBody: ""
+    });
+  }
+  deleteNote = e => {
+    e.preventDefault();
+    const noteList = [
+      ...this.state.noteList
+    ];
+    const note = noteList.find(
+      eachNote => eachNote._id === Number(this.state.noteList._id)
+    );
+    const i = noteList.indexOf(note)
+    noteList.splice(i, 1
+    )
+    console.log(noteList)
+    this.setState({
+      noteList
     });
   }
 
@@ -122,7 +136,7 @@ class App extends Component {
           exact
           path="/notes/:id"
           render={props => (
-            <NoteView {...props} noteList={this.state.noteList} />
+            <NoteView {...props} noteList={this.state.noteList} deleteNote={this.deleteNote}/>
           )}
         />
 
