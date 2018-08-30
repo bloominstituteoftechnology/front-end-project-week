@@ -32,11 +32,56 @@ const StyledApp = styled.div`
 
 class App extends Component {
   state = {
-    notes: []
+    notes: [],
+    newNote: {
+      title: "",
+      body: "",
+    },
+    count: 6
   };
   componentDidMount() {
     this.setState({ notes: Notes });
   }
+
+  handleInput = ({ target }) => {
+    this.setState(prevState => ({
+      newNote: { ...prevState.newNote, [target.name]: target.value }
+    }));
+  };
+
+  addNote = event => {
+    // event.preventDefault();
+    const newNotes = this.state.newNote;
+    const count = ++this.state.count;
+    const notes = this.state.notes.slice();
+    notes.push({
+      id: count,
+      title: newNotes.title,
+      body: newNotes.body
+    });
+    this.setState({
+      notes,
+      count,
+      newNote: {
+        body: "",
+        title: "",
+      }
+    });
+    const str = JSON.stringify(notes)
+    localStorage.setItem("notes", str)
+
+  };
+
+  editNote = newNote => {
+      let notes = this.state.notes.slice()
+      notes = notes.filter(note => note.id === newNote.id) 
+      notes = { title: newNote.title, body: newNote.body, id: newNote.id}
+      console.log(notes)
+
+
+    
+  }
+
   render() {
     return (
       <StyledApp>
@@ -44,23 +89,23 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <NotesView {...props} notes={Notes} />}
+          render={props => <NotesView {...props}  notes={this.state.notes} />}
         />
         <Route
           path="/note/:id"
-          render={props => <SingleView {...props} notes={Notes} />}
+          render={props => <SingleView {...props} notes={this.state.notes} />}
         />
         <Route
           path="/create"
-          render={props => <CreateNote {...props} notes={Notes} />}
+          render={props => <CreateNote {...props}  newNote={this.state.newNote} handleInput={this.handleInput} addNote={this.addNote} notes={this.state.notes} />}
         />
         <Route
           path="/edit/:id"
-          render={props => <EditNote {...props} notes={Notes} />}
+          render={props => <EditNote {...props} editNote={this.editNote} notes={this.state.notes} />}
         />
         <Route
           path="/note/:id/delete"
-          render={props => <DeleteNote {...props} notes={Notes} />}
+          render={props => <DeleteNote {...props} notes={this.state.notes} />}
         />
       </StyledApp>
     );

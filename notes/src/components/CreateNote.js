@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Redirect } from "react-router-dom";
 
 const StyledViewWrapper = styled.div`
   display: flex;
@@ -41,11 +42,10 @@ const StyledForm = styled.form`
     padding-top: 15px;
     padding-left: 15px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     ::placeholder {
       font-weight: bolder;
       font-size: 14px;
-      
     }
   }
 `;
@@ -71,64 +71,46 @@ const Button = styled.div`
 `;
 
 class CreateNote extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: props.notes,
-      newNote: {
-        title: "",
-        // tags: "",
-        body: ""
-      }
-    };
-  }
-  handleInput = event => {
-    const { name, value } = event.target;
-    this.setState(prevState => ({
-      newNote: { ...prevState.newNote, [name]: value }
-    }));
+  state = {
+    Redirect: false
   };
-
-  addNote = event => {
-    event.preventDefault();
-    const newNotes = this.state.newNote;
-    const notes = this.state.notes.slice();
-    notes.push({
-      title: newNotes.title,
-      body: newNotes.body
-    });
+  toggleRedirect = () => {
     this.setState({
-      notes: notes,
-      newNote: {
-        body: "",
-        title: ""
-      }
+      Redirect: !this.state.Redirect
     });
   };
 
   render() {
     return (
       <StyledViewWrapper>
+        {this.state.Redirect ? <Redirect to="/" /> : null}
         <h2>Create New Note:</h2>
 
-        <StyledForm onSubmit={this.addNote}>
+        <StyledForm onSubmit={this.props.addNote}>
           <input
             name="title"
             placeholder="Note Title"
-            onChange={this.handleInput}
+            onChange={this.props.handleInput}
             className="input input-title"
-            value={this.state.newNote.title}
+            value={this.props.newNote.title}
           />
           <textarea
             name="body"
             rows="15"
             cols="60"
             placeholder="Note Content"
-            onChange={this.handleInput}
+            onChange={this.props.handleInput}
             className="input input-content"
-            value={this.state.newNote.body}
+            value={this.props.newNote.body}
           />
-          <Button onClick={this.addNote}>Save</Button>
+          <Button
+            onClick={() => {
+              this.props.addNote();
+              this.toggleRedirect();
+            }}
+          >
+            Save
+          </Button>
         </StyledForm>
       </StyledViewWrapper>
     );

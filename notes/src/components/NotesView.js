@@ -19,10 +19,6 @@ h2 {
 
 const NotesView = (props) => {
 
-    const routeToCard = () => {
-        
-    }
-
     return ( 
         <StyledViewWrapper>
         <h2>Your Notes:</h2>

@@ -41,6 +41,12 @@ const StyledForm = styled.form`
   .input-content {
     padding-top: 15px;
     padding-left: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    ::placeholder {
+      font-weight: bolder;
+      font-size: 14px;
+}
 }
 
 `;
@@ -69,38 +75,36 @@ class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: props.notes,
       newNote: {
         title: "",
-        // tags: "",
-        body: ""
+        body: "",
+        id: null,
+        tags: ""
       }
     };
   }
   handleInput = event => {
     const { name, value } = event.target;
     this.setState(prevState => ({
-        newNote: { ...prevState.newNote, [name]: value }
+      newNote: { ...prevState.newNote, [name]: value }
     }));
   };
 
-  addNote = event => {
-      event.preventDefault();
-      const newNotes = this.state.newNote
-    const notes = this.state.notes.slice();
-    notes.push({
-       title: newNotes.title ,
-       body: newNotes.body
-    });
+componentDidMount() {
+    const id = this.props.match.params.id 
+    let note = this.props.notes.filter(note => id === note.id.toString())
+    note = note[0]
     this.setState({
-        notes: notes ,
         newNote: {
-            body: "",
-            title: ""
-        }
+            title: note.title ,
+            body: note.body,
+            id: note.id,
+            tags: note.tags
+            
+        },
     })
-  }
 
+}
 
   render() {
     return (
@@ -115,7 +119,7 @@ class EditNote extends Component {
             className="input input-title"
             value={this.state.newNote.title}
           />
-          <textarea   
+          <textarea
             name="body"
             rows="15"
             cols="60"
@@ -124,7 +128,7 @@ class EditNote extends Component {
             className="input input-content"
             value={this.state.newNote.body}
           />
-          <Button  >Update</Button>
+          <Button onClick={() => this.props.editNote(this.state.newNote)}>Update</Button>
         </StyledForm>
       </StyledViewWrapper>
     );
