@@ -49,7 +49,7 @@ const ConfirmDelete = (props) => {
         <Header>Are you sure you want to delete this?</Header>
 
         <Options>
-        <DeleteButton onClick={props.delete}><NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}>Delete</NavLink></DeleteButton>
+        <NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><DeleteButton onClick={props.delete}><NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}>Delete</NavLink></DeleteButton></NavLink>
         <NavLink to="/view/:id/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><NoButton>No</NoButton></NavLink>
         </Options>
         

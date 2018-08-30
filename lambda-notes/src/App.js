@@ -81,11 +81,21 @@ class App extends Component {
     console.log(`State id is ${this.state.id}`)
   }
 
+  editSubmit = e => {
+    e.preventDefault()
+    let notes = this.state.notes.slice()
+    // notes.forEach(notes => note[this.state.id] == note[this.state.clicked] ? note.noteText = this.state.editText note.noteName = this.state.editName : null)
+    notes[this.state.clicked].noteName = this.state.editName
+    notes[this.state.clicked].noteText = this.state.editText
+
+    this.setState({notes: notes, editName: '', editText: ''})
+  }
+
 
   render() {
     return (
       <NoteApp>
-        <NotesContainer clicked={this.state.clicked} viewClick={this.viewClick} note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} delete={this.deleteNote} />
+        <NotesContainer editSubmit={this.editSubmit} clicked={this.state.clicked} viewClick={this.viewClick} note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} delete={this.deleteNote} />
 
       </NoteApp>
     );

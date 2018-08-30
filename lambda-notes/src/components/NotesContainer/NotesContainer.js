@@ -27,7 +27,7 @@ const NotesContainer = (props) => {
         <Route exact path='/create' render={routerProps => <CreateNote {...routerProps} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
         <Route path='/view/:id' render={routerProps => <ViewNote clicked={props.clicked} viewClick={props.viewClick} {...routerProps} delete={props.delete} note={props.note}/>} />
         <Route path='/view/:id/delete' render={routerProps => <ConfirmDelete {...routerProps} delete={props.delete} note={props.note} />}/>
-        <Route path='/edit' render={routerProps => <EditNote {...routerProps} edit={props.delete} note={props.note} />} />
+        <Route path='/edit' render={routerProps => <EditNote {...routerProps} editSubmit={props.editSubmit} clicked={props.clicked} newNote={props.newNote} edit={props.delete} note={props.note} />} />
     </Notes>);
 }
 

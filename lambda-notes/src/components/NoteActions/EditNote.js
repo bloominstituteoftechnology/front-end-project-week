@@ -53,7 +53,9 @@ class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-
+            edit: props.newNote,
+            clicked: props.clicked,
+            submit: props.editSubmit
          }
 
 
@@ -64,23 +66,25 @@ class EditNote extends Component {
 
             <Header>Edit Note:</Header>
     
-            <EditForm>
+            <EditForm onSubmit={this.state.submit}>
                 <NoteTitle
                     type='text'
                     placeholder='Edit Title'
                     autoComplete='off'
-                    name='noteName'
+                    onChange={this.state.edit}
+                    name='editName'
                 />
                 <br />
                 <NewNote
                     type='text'
                     placeholder='Edit Content'
-                    name='noteText'
+                    name='editText'
                     autoComplete='off'
+                    onChange={this.state.edit}
                     rows='10'
                     cols='50'
                 />
-                <NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><EditNotes>Edit</EditNotes></NavLink>
+                <EditNotes onSubmit={this.state.submit}><NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}>Edit</NavLink></EditNotes>
             </EditForm>
         </Edit>);
     }
