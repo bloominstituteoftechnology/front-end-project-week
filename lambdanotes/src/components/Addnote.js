@@ -24,6 +24,7 @@ class AddNote extends React.Component {
             placeholder="Your Note" value={this.state.newtext} onChange={this.handleInputChange} />
 
 
+            <Link to="/notes">
             <button onClick= {event => {
                 
                 this.props.onSubmit(this.state);
@@ -32,7 +33,9 @@ class AddNote extends React.Component {
                     newtitle: this.state.newtitle,
                     newtext: this.state.newtext,
                 }));
-            }}>Save</button>
+            }}>
+            Save</button>
+            </Link>
     </div>
         )
     }

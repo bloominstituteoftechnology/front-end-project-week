@@ -54,6 +54,6 @@ render() {
             </div>
   )
 }
-
-
 }
+
+export default EditNote
