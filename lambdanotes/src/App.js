@@ -65,9 +65,7 @@ class App extends Component {
           
         <Route exact path="/notes"
             render={props => (
-                <Note match={props.match} notes={this.state.notes}
-                
-                      match={props.match}
+                <Notes {...props}
                       notes={this.state.notes}
                       onClick={this.handleDeleteNote}
                       />
@@ -77,8 +75,8 @@ class App extends Component {
         <Route exact path="/notes/:id"
             render={props => (
                 <Note {...props} notes={this.state.notes} 
-                                 onClick={this.handleDeleteNote}
-                                 onSubmit={this.handleEditNote}/>
+                                 submitDelete={this.handleDeleteNote}
+                                 submitEdit={this.handleEditNote}/>
             )}
         />
         </Switch>

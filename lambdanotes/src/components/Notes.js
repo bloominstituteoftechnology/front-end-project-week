@@ -8,11 +8,14 @@ class Notes extends React.Component {
     constructor(props) {
         super(props);
           this.state = {
-          notes: dummyData
+          notes: this.props.notes,
+		  title: '',
+		  text: '',
           };
     }  
 
 	render() {
+		console.log(this.state.notes[0].id)
 		return (
 			<div>
 				<h3>Your Notes:</h3>
