@@ -8,7 +8,7 @@ const SideNav = () => {
     <div className="side-container">
       <h2 className="title">Lambda Notes</h2>
       <div className="side-buttons">
-        {/* <NavLink to="/list"> */}
+        {/* <NavLink to="/"> */}
           <button className="view-button">View Your Notes</button>
         {/* </NavLink> */}
         {/* <NavLink to="/create"> */}

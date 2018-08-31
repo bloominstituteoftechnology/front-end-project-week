@@ -10,25 +10,45 @@ import CreateView from "./components/CreateView";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      // newNote: { title: "", content: "" },
+      title: "",
+      content: "",
       notes: []
     };
   }
 
+  noteHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submitNewNote = e => {
+    e.preventDefault();
+    const { notes } = this.state;
+    const myNotes = {
+      title: this.state.title,
+      content: this.state.content
+    };
+    notes.push(myNotes);
+    this.setState({ notes, myNotes: "" });
+  };
+
   render() {
     return (
-      // <Router>
       <div>
         <SideNav />
         <div>
-          <CreateView />
+          <CreateView
+            title={this.props.title}
+            content={this.state.content}
+            notes={this.state.notes}
+            onChange={this.props.noteHandler}
+            onSubmit={this.props.submitNewNote}
+          />
           <ListView notes={this.state.notes} />
         </div>
       </div>
-      // </Router>
     );
   }
 }
@@ -36,12 +56,19 @@ class App extends Component {
 //   render() {
 //     return (
 //       <Router>
-//         {/* <React.Fragment className="App"> */}
-//         {/* <SideNav> */}
-//         <Route path="/" exact component={ListView} />
-//         <Route path="/create" exact component={CreateView} />
-//         {/* </SideNav> */}
-//         {/* </React.Fragment> */}
+//         <div className="App">
+//           <Switch>
+//             <SideNav />
+//             <Route
+//               path="/"
+//               exact
+//               render={() => (
+//                 <ListView {...this.state} notes={this.state.notes} />
+//               )}
+//             />
+//             <Route path="/create" exact component={CreateView} />
+//           </Switch>
+//         </div>
 //       </Router>
 //     );
 //   }
