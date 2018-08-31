@@ -8,7 +8,7 @@ const ListView = props => {
     <div className="note-container">
       <h5 className="list-header">Your Notes: </h5>
       {props.notes.map(notes => (
-          <div>{notes.note}</div>
+          <div key={notes.id}>{props.notes}</div>
       ))}
     </div>
   );

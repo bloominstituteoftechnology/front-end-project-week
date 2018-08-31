@@ -13,22 +13,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      newNote: [{ title: "", content: "" }],
-      notes: [{ note: "Test" }]
+      // newNote: { title: "", content: "" },
+      notes: []
     };
   }
-
-  noteHandler = e => {
-    this.setState({ newNote: e.target.value });
-  };
-
-  submitNewNote = e => {
-    e.preventDefault();
-    const { notes } = this.state;
-    const myNotes = { title: this.state.title, content: this.state.content };
-    notes.push(myNotes);
-    this.setState({ notes, myNotes: "" });
-  };
 
   render() {
     return (
@@ -36,7 +24,7 @@ class App extends Component {
       <div>
         <SideNav />
         <div>
-          <CreateView onChange={this.noteHandler} />
+          <CreateView />
           <ListView notes={this.state.notes} />
         </div>
       </div>

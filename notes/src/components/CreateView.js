@@ -1,90 +1,70 @@
-// import React, { Component } from "react";
-import React from "react";
+import React, { Component } from "react";
 
 import "./CreateView.css";
 
-const CreateView = props => {
-  return (
-    <div className="new-container">
-      <h5 className="create-header">Create New Note: </h5>
-      <form className="note-form">
-        <div>
-          <input
-            className="title-input"
-            type="text"
-            placeholder="Note Title"
-            name="newNote"
-            value={props.title}
-            onChange={props.noteHandler}
-          />
-        </div>
-        <div>
-          <textarea
-            className="content-input"
-            type="text"
-            placeholder="Note Content"
-            name="newNote"
-            value={props.content}
-            onChange={props.noteHandler}
-          />
-        </div>
-        <div>
-          <button
-            type="submit"
-            className="save-button"
-            onSubmit={props.submitNewNote}
-          >
-            Save
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
+class CreateView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: "",
+      content: "",
+      notes: []
+    };
+  }
 
-// class CreateView extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
+  noteHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-//   render() {
-//     return (
-//       <div className="new-container">
-//         <h5 className="create-header">Create New Note: </h5>
-//         <form className="note-form">
-//           <div>
-//             <input
-//               className="title-input"
-//               type="text"
-//               placeholder="Note Title"
-//               name="newNote"
-//               value={this.props.newNote}
-//               onChange={this.noteHandler}
-//             />
-//           </div>
-//           <div>
-//             <textarea
-//               className="content-input"
-//               type="text"
-//               placeholder="Note Content"
-//               name="newNote"
-//               value={this.props.newNote}
-//               onChange={this.noteHandler}
-//             />
-//           </div>
-//           <div>
-//             <button
-//               type="submit"
-//               className="save-button"
-//               onSubmit={this.submitNewNote}
-//             >
-//               Save
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
+  submitNewNote = e => {
+    e.preventDefault();
+    const { notes } = this.state;
+    const myNotes = {
+      title: this.state.title,
+      content: this.state.content
+    };
+    notes.push(myNotes);
+    this.setState({ notes, myNotes: "" });
+  };
+
+  render() {
+    return (
+      <div className="new-container">
+        <h5 className="create-header">Create New Note: </h5>
+        <form className="note-form" onSubmit={this.submitNewNote}>
+          <div>
+            <input
+              type="text"
+              placeholder="Note Title"
+              name="title"
+              value={this.state.title}
+              onChange={this.noteHandler}
+              className="title-input"
+            />
+          </div>
+          <div>
+            <textarea
+              type="text"
+              placeholder="Note Content"
+              name="content"
+              value={this.state.content}
+              onChange={this.noteHandler}
+              className="content-input"
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              //   onSubmit={this.submitNewNote}
+              className="save-button"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default CreateView;
