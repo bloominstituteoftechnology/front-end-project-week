@@ -1,3 +1,4 @@
+
 .delete-button-wrapper {
     display: flex;
     justify-content: space-evenly;
@@ -16,4 +17,8 @@
     border: 1px solid black;
     box-shadow: 1px 1px 8px black;
     background-color: white;
+}
+
+.hide {
+    display: none;
 }

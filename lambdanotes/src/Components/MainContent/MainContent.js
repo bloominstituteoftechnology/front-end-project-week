@@ -8,7 +8,8 @@ import DeleteNote from '../DeleteNote/DeleteNote';
 const MainContent = props => {
     return (
         <div className="main_container">
-            <NotesList notesArray={props.notesArray} />
+            <NoteView toggle={props.toggle} showModal={props.showModal} />
+            
         </div>
     );
 }

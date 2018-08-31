@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SideBar from './Components/NavBar/SideBar';
 import MainContent from './Components/MainContent/MainContent';
+import DeleteNote from './Components/DeleteNote/DeleteNote';
 import './index.css';
 import axios from 'axios';
 class App extends Component {
@@ -12,8 +13,12 @@ class App extends Component {
         id: 1,
         title: '',
         textBody: ''
-      }
+      },
+      displayModal: false
     }
+  }
+  showModal = () => {
+    this.setState({ displayModal: !this.state.displayModal })
   }
   componentDidMount() {
     axios
@@ -30,7 +35,7 @@ class App extends Component {
     return (
       <div className="appContainer">
         <SideBar />
-        <MainContent notesArray={this.state.notesArray} />
+        <MainContent notesArray={this.state.notesArray} toggle={this.state.displayModal} showModal={this.showModal} />
       </div>
     );
   }

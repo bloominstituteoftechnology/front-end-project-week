@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './deleteNote.css';
 
-const DeleteNote = () => {
+const DeleteNote = props => {
+    let toggle = props.displayModal;
     return (
-        <div className="delete-wrapper">
+        <div className={toggle ? 'delete-wrapper' : 'hide'}>
             <div>
                 <h3 className="delete-button-wrapper">Are you sure you want to delete this?</h3>
             </div>

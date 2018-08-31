@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { Component } from 'react';
+import DeleteNote from '../DeleteNote/DeleteNote';
 
 const NoteView = props => {
     return (
@@ -10,9 +10,10 @@ const NoteView = props => {
                 </h4>
                 <div className="noteView-Content">
                     <a href="#" className="edit_link">edit</a>
-                    <a href="#" className="edit_link">delete</a>
+                    <a href="#" className="edit_link" onClick={props.showModal}>delete</a>
                 </div>
             </div>
+            <DeleteNote toggle={props.toggle} />
         </div>
     );
 }
