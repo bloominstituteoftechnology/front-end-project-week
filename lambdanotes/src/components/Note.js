@@ -11,8 +11,6 @@ class Note extends React.Component {
     }
     }
 
-    handleInputChange = event => {this.setState({ [event.target.name]: event.target.value })};
-    
     render() {
         const noteID = this.props.match.params.id;
         console.log(noteID)
@@ -22,9 +20,9 @@ class Note extends React.Component {
 
         return (
             <div>
-            <div>
                 <h2>{note.title}</h2>
                 <p>{note.text}</p>
+            <Link to={`/edit/${note.id}`}> <button>Edit this note</button> </Link>
                 <div>
                         <h3>Delete this note?</h3>
                         <Link to='/notes'>
@@ -33,35 +31,6 @@ class Note extends React.Component {
                             <button>No</button>
                 </div>
             </div>
-
-            <div>
-					<form
-						id="editNoteForm"
-						onSubmit={e => {
-							e.preventDefault();
-							this.props.submitEdit(this.state);
-						}}
-					>
-						<input
-							type="text"
-							placeholder="Note Title"
-							value={this.state.title}
-							name="title"
-							onChange={this.handleInputChange}
-						/>
-						<textarea
-							id="editNoteForm"
-							cols="30"
-							rows="10"
-							name="text"
-							placeholder="Note Content"
-							value={this.state.text}
-							onChange={this.handleInputChange}
-						/>
-						<button>Update</button>
-					</form>
-				</div>
-        </div>
 
         )
     }
