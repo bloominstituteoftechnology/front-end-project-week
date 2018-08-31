@@ -44,12 +44,6 @@ class App extends Component {
     this.setState({ notes });
   };
 
-  editHandle = editNote => {
-    const notes = this.state.notes.slice();
-    notes.push(editNote);
-    this.setState({ notes });
-  };
-
   render() {
     return (
       <div className="App">

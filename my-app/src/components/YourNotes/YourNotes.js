@@ -8,6 +8,7 @@ class YourNotes extends Component {
     return (
       <div>
         <SideMenu />
+        {/* <h2 className="title">Your Notes</h2> */}
         <div className="cards-container">
           {this.props.notes.map(note => {
             return (
