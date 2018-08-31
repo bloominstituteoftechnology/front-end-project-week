@@ -15,7 +15,7 @@ export default class NewForm extends Component {
 
   sendToApp = (e) => {
     console.log(this.props)
-    if (this.props.button === "Create") {
+    if (this.props.button === "Save") {
       this.props.newNote(this.state);
     } else {
       this.props.editNote(this.state);
