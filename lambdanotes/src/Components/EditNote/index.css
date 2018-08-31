@@ -1,10 +1,10 @@
-.createNote-form {
+.editNote-form {
     display: flex;
     flex-direction: column;
     padding: 0 0.5rem;
 }
 
-.createNote-title {
+.editNote-title {
   height: 40px;
   width: 350px;
   padding: 0.2rem .8rem;
@@ -14,21 +14,21 @@
 }
 
 
-.createNote-body {
+.editNote-body {
   padding: 0.2rem .8rem;
   margin-bottom: 1rem;
   border: 1 px solid #B2B2B2;
   border-radius: 0.2rem;
 }
 
-.createNote-btn {
+.editNote-btn {
         display: flex;
         flex-direction: column;
         justify-content: left;
 
     }
     
-    .createNote-btn button {
+    .editNote-btn button {
         
         color: white;
         font-weight: 600;
