@@ -23,7 +23,7 @@ class EditNote extends Component {
     axios
       .put(`${URL}${this.props.match.params.monkey}`, editNote)
       .then(response => {
-        this.props.updateHandle(response.data);
+        this.props.editHandle(response.data);
         this.setState({
           title: "",
           textBody: "",

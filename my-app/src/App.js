@@ -44,6 +44,12 @@ class App extends Component {
     this.setState({ notes });
   };
 
+  editHandle = editNote => {
+    const notes = this.state.notes.slice();
+    notes.push(editNote);
+    this.setState({ notes });
+  };
+
   render() {
     return (
       <div className="App">
@@ -69,7 +75,7 @@ class App extends Component {
         render={props => (<NoteView  {...props} notes={this.state.notes} />)} 
         />
         <Route
-         
+
         />
       </div>
     );
