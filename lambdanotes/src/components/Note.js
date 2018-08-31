@@ -25,7 +25,7 @@ class Note extends React.Component {
                 <div>
                         <h3>Delete this note?</h3>
                         <Link to='/notes'>
-                            <button submitDelete={() => this.props.submitDelete(noteID)}>Yes</button>
+                            <button onClick= {event => this.props.submitDelete(noteID)}>Yes</button>
                         </Link>
                             <button>No</button>
                 </div>

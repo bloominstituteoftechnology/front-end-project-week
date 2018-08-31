@@ -14,7 +14,7 @@ class App extends Component {
       notes: dummyData,
       newtitle: "",
       newtext: "",
-      id: 4,
+      id: null,
     }
   }
 
@@ -41,6 +41,7 @@ class App extends Component {
   }
 
   handleDeleteNote = id => {
+    console.log('clicked', id)
       this.setState(prevState => ({
         notes: prevState.notes.filter(note => note.id != id),
       }));
