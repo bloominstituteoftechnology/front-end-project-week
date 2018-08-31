@@ -11,6 +11,26 @@ const dummyData = [
     _id: uuid(),
     title: "Things to See in NYC",
     textBody: "The MET, Central Park, Financial District"
+  },
+  {
+    _id: uuid(),
+    title: "Things to See in NYC",
+    textBody: "The MET, Central Park, Financial District"
+  },
+  {
+    _id: uuid(),
+    title: "Things to See in NYC",
+    textBody: "The MET, Central Park, Financial District"
+  },
+  {
+    _id: uuid(),
+    title: "Things to See in NYC",
+    textBody: "The MET, Central Park, Financial District"
+  },
+  {
+    _id: uuid(),
+    title: "Things to See in NYC",
+    textBody: "The MET, Central Park, Financial District"
   }
 ];
 

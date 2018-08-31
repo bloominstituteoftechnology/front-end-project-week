@@ -19,10 +19,11 @@ class EditNote extends Component {
   };
 
 
-  handleEdit = (event, _id) => {
-    event.preventDefault();
+  // handleEdit = (event, _id) => {
+  //   event.preventDefault();
+  //   this.setState({title: event.target.value})
 
-  }
+  // }
 
 
   render() {

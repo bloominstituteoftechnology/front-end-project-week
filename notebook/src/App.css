@@ -157,8 +157,8 @@ table {
 .each-ind-note {
   border: 1px solid darkgray;
   border-radius: 5px;
-  width: 125px;
-  height: 125px;
+  width: 200px;
+  height: 200px;
   align-content: space-between;
 }
 

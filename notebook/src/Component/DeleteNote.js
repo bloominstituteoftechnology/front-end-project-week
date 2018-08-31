@@ -17,3 +17,19 @@ const DeleteNote = props => {
 };
 
 export default DeleteNote;
+
+
+
+// class DeleteNote extends Component {
+//     state = {
+//         notes: props.notes       
+//     }
+
+//     handleDelete = () => {
+//         event.preventDefault();
+//         if (this.state.notes._id === this.props.match.params.id ) {}
+//       } 
+
+// }
+
+// export default DeleteNote;
