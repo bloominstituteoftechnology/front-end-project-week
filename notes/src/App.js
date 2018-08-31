@@ -80,7 +80,11 @@ class App extends Component {
     });
     this.setState({
       notes,
-      newNote
+      newNote,
+      newNote: {
+        body: "",
+        title: ""
+      }
     });
     console.log(notes);
     console.log(newNote);
