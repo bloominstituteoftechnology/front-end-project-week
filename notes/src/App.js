@@ -70,25 +70,21 @@ class App extends Component {
     localStorage.setItem("notes", str);
   };
 
-  editNote = (newNote , push) => {
-    let notes = this.state.notes.slice();
-    notes.splice(newNote.id - 1, 1, {
-      title: newNote.title,
-      tags: newNote.tags,
-      body: newNote.body,
-      id: newNote.id
+  editNote = (newNote, id, push) => {
+    const notes = this.state.notes.map(note => {
+      if (note.id === Number(id)) return newNote;
+      return note;
     });
+
     this.setState({
       notes,
-      newNote,
       newNote: {
         body: "",
         title: ""
       }
     });
-    console.log(notes);
-    console.log(newNote);
-    push('/')
+    console.log("notes in editNote in App: ", notes);
+    push("/");
   };
 
   deleteNote = (id, push) => {
@@ -96,8 +92,7 @@ class App extends Component {
     let notesAfterDelete = notes.filter(note => note.id !== Number(id));
     this.setState({ notes: notesAfterDelete });
     console.log(this.state.notes);
-    push('/')
-
+    push("/");
   };
   render() {
     return (

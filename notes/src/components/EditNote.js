@@ -113,6 +113,7 @@ class EditNote extends Component {
 //   };
 
   render() {
+      console.log("push", this.props)
     return (
       <StyledViewWrapper>
         {this.state.Redirect ? (
@@ -122,7 +123,7 @@ class EditNote extends Component {
 
         <StyledForm
           onSubmit={() => {
-            this.props.editNote(this.state.newNote, this.props.history.push);
+            this.props.editNote(this.state.newNote, this.props.match.params.id, this.props.history.push);
             // this.toggleRedirect();
           }}
         >
@@ -144,7 +145,7 @@ class EditNote extends Component {
           />
           <Button
             onClick={() => {
-              this.props.editNote(this.state.newNote, this.props.history.push);
+              this.props.editNote(this.state.newNote, this.props.match.params.id, this.props.history.push);
               
             }}
           >
