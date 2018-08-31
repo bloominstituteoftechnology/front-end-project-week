@@ -10,6 +10,9 @@ class Note extends React.Component {
         text: ''
     }
     }
+
+    handleInputChange = event => {this.setState({ [event.target.name]: event.target.value })};
+    
     render() {
         const noteID = this.props.match.params.id;
         console.log(noteID)
@@ -34,7 +37,7 @@ class Note extends React.Component {
             <div>
 					<form
 						id="editNoteForm"
-						submitEdit={e => {
+						onSubmit={e => {
 							e.preventDefault();
 							this.props.submitEdit(this.state);
 						}}
