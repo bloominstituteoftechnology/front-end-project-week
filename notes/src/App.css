@@ -2,7 +2,9 @@
   text-align: center;
   font-family: 'Roboto';
   margin: 0 auto;
-  /* background-color: #F1F1F2; */
+  /* background-color: #F1F1F2;
+  height: 600px;
+  width: 1800px!important; */
 }
 
 .App-logo {
