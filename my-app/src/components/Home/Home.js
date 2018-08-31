@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome To Notes</h1>
-      <Link exact to="/yournotes">Notes</Link>
+      <Link to="/yournotes">Notes</Link>
     </div>
   );
 };

@@ -23,7 +23,7 @@ const SideMenu = () => {
           </div>
         </Link>
       </div>
-      <Link exact to="/">Home</Link>
+      <Link to="/">Home</Link>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import SideMenu from "../SideMenu/SideMenu";
 import "../CreateNote/CreateNote.css";
 import axios from "axios";
 
-const URL = "https://killer-notes.herokuapp.com/note/edit/id";
+const URL = "https://killer-notes.herokuapp.com/note/edit/";
 
 class EditNote extends Component {
   constructor(props) {
@@ -17,13 +17,13 @@ class EditNote extends Component {
   editNote = e => {
     e.preventDefault();
     const editNote = {
-      tite: this.state.title,
+      title: this.state.title,
       textBody: this.state.textBody
     };
     axios
-      .put(URL, editNote)
+      .put(`${URL}${this.props.match.params.monkey}`, editNote)
       .then(response => {
-        this.props.updateHandle(response.data.id);
+        this.props.updateHandle(response.data);
         this.setState({
           title: "",
           textBody: "",
@@ -43,7 +43,7 @@ class EditNote extends Component {
           <SideMenu />
         </div>
         <div className="addNoteForm">
-          <form onSubmit={this.newNote}>
+          <form onSubmit={this.editNote}>
             <h1>Edit Note</h1>
             <input
               onChange={this.handleInputChange}
