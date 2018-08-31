@@ -23,8 +23,7 @@ class EditNote extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        let note = this.props.notes.filter(note => id === note._id.toString())
-        note = note[0]
+        let note = this.props.notes.find(note => id === note._id.toString())
         this.setState({ title: note.title, textBody: note.textBody })
         console.log(note)
 
@@ -37,12 +36,11 @@ class EditNote extends Component {
     handleEditNote = e => {
         e.preventDefault();
         const editedNote = {
-            id: this.props.note._id,
-            title: this.props.title,
-            textBody: this.props.textBody
+            title: this.state.title,
+            textBody: this.state.textBody
 
         }
-        this.props.editNote(editedNote);
+        this.props.editNote(editedNote, this.props.match.params.id);
     }
 
     render() {
@@ -50,7 +48,7 @@ class EditNote extends Component {
 
         return (
             <EditForm>
-                <form onSubmit={() => this.handleEditNote()}>
+                <form onSubmit={(e) => this.handleEditNote(e)}>
                     <h1>Edit Note:</h1>
                     <input
                         name='title'
