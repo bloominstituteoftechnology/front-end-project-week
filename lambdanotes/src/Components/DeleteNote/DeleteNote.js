@@ -4,8 +4,9 @@ import './index.css';
 
 class DeleteNote extends React.Component {
     render() {
+        let toggle = this.props.toggle;
         return (
-         <div className='delete-note-container hidden'>
+         <div className={toggle ? 'delete-note-container' : 'hidden'}>
              <div>
                  <h4>Are you sure you want to delete?</h4>
              </div>

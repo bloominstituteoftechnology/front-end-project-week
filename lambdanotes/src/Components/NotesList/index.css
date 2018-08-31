@@ -39,3 +39,15 @@
 .content-header {
     margin: 1.2rem 0.5rem;
 }
+
+
+.note-link {
+    text-decoration: none;
+    color: rgb(66,66,66);
+  }
+
+  .note-link :visited {
+      text-decoration: none;
+      color: rgb(66,66,66);
+  }
+  

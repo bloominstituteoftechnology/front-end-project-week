@@ -5,15 +5,19 @@ import NotesView from '../NotesView/NotesView';
 import CreateNote from '../CreateNote/CreateNote';
 import EditNote from '../EditNote/EditNote';
 import {Route, Switch} from 'react-router-dom';
-import DeleteNote from '../DeleteNote/DeleteNote';
+
 
 
 class MainContent extends React.Component {
     render() {
         return (
          <div className='main-container'>
-         <NotesView/>
-         <DeleteNote />
+          <Switch>
+                    <Route path='/' exact component={NotesList} />
+                    <Route path='/note/:id' exact component={NotesView} />
+                    <Route path='/createnote' exact component={CreateNote} />
+                    <Route path='/edit/:id' exact component={EditNote} />
+          </Switch>
          </div>
         );
     }

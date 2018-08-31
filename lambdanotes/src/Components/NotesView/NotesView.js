@@ -1,10 +1,15 @@
 import React from 'react';
 import './index.css';
+import { Link } from 'react-router-dom';
+import DeleteNote from '/Users/sparekh/Desktop/MBP CS12/front-end-project-week/lambdanotes/src/Components/DeleteNote/DeleteNote.js';
+
 
 class NotesView extends React.Component {
     constructor() {
         super()
         this.state = {
+            showDelete: false,
+            matched: [],
              notesArray: [
                  {
                      _id: 'ddddd1244444',
@@ -32,7 +37,16 @@ class NotesView extends React.Component {
              ]
         }
     }
-    
+
+componentWillMount() {
+    let routedId = this.props.match.params.id;
+    let matched = this.state.notesArray.filter((item) => item._id === routedId);
+    this.setState({matched})
+}
+
+showModal = () => {
+    this.setState({showDelete: this.state.showDelete})
+}
 
 
     
@@ -43,17 +57,18 @@ class NotesView extends React.Component {
          <div className='notesView-container'>
            
             <div className='noteView-top'>
-                <h3 className='content-header'>{this.state.notesArray[0].title}</h3>
+                <h3 className='content-header'>{this.state.matched[0].title}</h3>
                 <div>
-                    <a href='#' className='edit-delete'>edit</a>
-                    <a href='#' className='edit-delete'>delete</a>
+                    <Link to={`/edit/${this.props.match.params.id}`} className='edit-delete'>edit</Link>
+                    <a href='#' className='edit-delete' onClick={this.showModal}>delete</a>
                 </div>
             </div>
           <div className='noteslist'>
             <p>
-                {this.state.notesArray[0].body}
+                {this.state.matched[0].body}
             </p>
           </div>
+          <DeleteNote toggle={this.state.showDelete}/>
         </div>
         );
     }
