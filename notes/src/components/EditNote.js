@@ -144,8 +144,8 @@ class EditNote extends Component {
           />
           <Button
             onClick={() => {
-              this.props.editNote(this.state.newNote);
-              this.toggleRedirect();
+              this.props.editNote(this.state.newNote, this.props.history.push);
+              
             }}
           >
             Update
