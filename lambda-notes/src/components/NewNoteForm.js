@@ -1,8 +1,7 @@
-
 import React from 'react';
 import './NewNoteForm.css';
 import {connect} from 'react-redux';
-import {addNote} from '../actions';
+import {addNote} from '../actions'
 
 
 const NewNoteForm = props => {
@@ -23,11 +22,18 @@ const NewNoteForm = props => {
 };
 
 const mapStateToProps = state => {
-  return {
-  error: state.error,
-  addingNote: state. addingNote
+  const {notesReducer} = state;
+  return{
+   
+    note: notesReducer.note,
+    error: notesReducer.error,
+    addNote:notesReducer.addNote,
+    addingNote: notesReducer.addingNote,
+   
   };
 };
+
+
 
 
 

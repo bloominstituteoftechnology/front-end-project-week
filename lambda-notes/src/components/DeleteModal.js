@@ -46,9 +46,11 @@ import { Route } from 'react-router-dom'
 }
 
 const mapStateToProps = state => {
+    const {notesReducer} = state;
     return {
-        error: state.error,
-        deletingNote: state.deletingNote
+        error: notesReducer.error,
+        deleteNote: notesReducer.deleteNote,
+        deletingNote: notesReducer.deletingNote
     };
 };
 

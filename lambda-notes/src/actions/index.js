@@ -6,7 +6,7 @@ export const GETTING_NOTE = 'GETTING_NOTE';
 export const ADD_NOTE = 'ADD_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
-export const EDITTING_NOTE = 'EDITTING_NOTE';
+export const EDITING_NOTE = 'EDITING_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const ERROR = 'ERROR';
@@ -54,7 +54,7 @@ export const getNote = noteID => (dispatch) => {
 }
 
 export const editNote = (noteID , note) => dispatch => {
-    dispatch({type: EDITTING_NOTE});
+    dispatch({type: EDITING_NOTE});
     axios
     .put(`https://killer-notes.herokuapp.com/note/edit/${noteID}`,note)
     .then(res => {

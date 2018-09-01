@@ -1,11 +1,11 @@
-import { GET_NOTES, GETTING_NOTES, GET_NOTE,GETTING_NOTE, ADD_NOTE, ADDING_NOTE, EDIT_NOTE, EDITTING_NOTE, DELETE_NOTE, DELETING_NOTE ,ERROR} from '../actions';
+import { GET_NOTES, GETTING_NOTES, GET_NOTE,GETTING_NOTE, ADD_NOTE, ADDING_NOTE, EDIT_NOTE, EDITING_NOTE, DELETE_NOTE, DELETING_NOTE ,ERROR} from '../actions';
 
 const initialState = {
     notes:[],
     gettingNotes: false,
     gettingNote:false,
     addingSmurf: false,
-    edittingNote:false,
+    editingNote:false,
     deletingNote:false,
     error: null
 };
@@ -31,11 +31,11 @@ export const notesReducer = (state = initialState, action) => {
         case GET_NOTE:
         return {...state,notes: action.payload , gettingNote: false};
 
-        case EDITTING_NOTE:
-        return {...state, edittingNote: true};
+        case EDITING_NOTE:
+        return {...state, editingNote: true};
 
         case EDIT_NOTE:
-        return { ...state, notes:action.payload , edittingNote: false};
+        return { ...state, notes:action.payload , editingNote: false};
 
         case DELETING_NOTE:
         return {...state, deletingNote: true};
@@ -44,7 +44,7 @@ export const notesReducer = (state = initialState, action) => {
         return {...state,notes:action.payload , deletingNote: false};
 
         case ERROR:
-        return {...state, gettingNotes: false, addingNote: false, gettingNote: false, edittingNote: false, deletingNote: false, error: action.error};
+        return {...state, gettingNotes: false, addingNote: false, gettingNote: false, editingNote: false, deletingNote: false, error: action.error};
         default:
           return state;
     }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
 import "./Notes.css";
 
 const searchingFor = term => {
@@ -9,7 +10,7 @@ const searchingFor = term => {
 };
 
 const Notes = props => {
-  console.log(props);
+  console.log(props.notes);
   return (
     <div className="notes-page">
       <h2 className="page-title">Your Notes:</h2>
@@ -26,7 +27,7 @@ const Notes = props => {
       <i className="fas fa-sign-out-alt" onClick={props.logOut} />
 
       <div className="notes">
-      
+        
          {props.notes.filter(searchingFor(props.term)).map(note => ( 
           <Link key={note._id} to={`/notes/${note._id}`}>
             <div className="text">
@@ -41,5 +42,14 @@ const Notes = props => {
 };
 
 
+const mapStateToProps = state => {
+  const {notesReducer} = state;
+  return{
+    notes: notesReducer.notes,
+    
+  };
+};
 
-export default Notes;
+
+
+export default connect(mapStateToProps)(Notes);

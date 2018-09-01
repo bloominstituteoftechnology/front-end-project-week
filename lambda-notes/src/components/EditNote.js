@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {editNote} from '../actions';
+import {editNote} from '../actions'
 
 
 class EditNote extends React.Component {
@@ -41,12 +41,15 @@ class EditNote extends React.Component {
     }
  }
 
-
-const mapStateToProps = state => {
-    return {
-        error: state.error,
-        edittingNote: state.edittingNote
+ const mapStateToProps = state => {
+    const {notesReducer} = state;
+    return{
+    note: notesReducer.note,
+    editNote: notesReducer.editNote,
+    editingNote: notesReducer.editingNote,
+    
     };
-};
+  };
 
- export default connect(mapStateToProps,{editNote})(EditNote);
+
+ export default connect(mapStateToProps, {editNote})(EditNote);
