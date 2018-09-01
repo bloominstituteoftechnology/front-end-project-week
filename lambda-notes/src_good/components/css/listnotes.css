@@ -6,7 +6,7 @@
 } */
 
 
-.allnotes {
+.listtop {
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -27,11 +27,6 @@
       /* flex-direction: row; */
       /* flex-wrap: wrap; */
       justify-content: space-around;
-      border-radius: 3px;
-      border-width: 2px;
-    border-style: inset;
-    border-color: initial;
-    border-image: initial;
     
         }
 
@@ -51,13 +46,12 @@
         align-items: center;
         color: black;
         overflow-y: auto;
-       
             }
 
         h3{
           
           margin: 40px 40px 40px 10px;
-          /* width: 80%; */
+          width: 80%;
           font-size: 19px;
           text-decoration: none;
           /* border-bottom: 1px solid black; */

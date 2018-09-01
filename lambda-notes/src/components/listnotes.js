@@ -1,36 +1,44 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import './css/listnotes.css';
+
+import NotePreview from './note-preview.js';
+import './css/listnotes.css'
 
 
 
-
-export default class ListNotes extends Component {
+export default class AllNotes extends Component {
   constructor(props){
     super(props);
+    console.log(this.props)
     this.state = {
-      notes: this.props.notes,
+      stateNotes: false,
+      notes: [],
     }
   }
 
-  render() {
+
+
+  render(props) {
+    // console.log(this.props)
+    // console.log(this.state.notes)
+
+
     return (
-      <div className="container">
-          <div className="listtop" >
+      <div className="allnotes">
         <h3>Your Notes:</h3>
+       
+         
 
         <div className="all-notes">
-          {this.state.notes.map(note => {
+          {this.props.notes.map((note, index) => {
+           
             return (
-              <Link className="note-link" key={note.id} to={`/listnotes/${note.id}`}>
-                <div className="note-preview">
-                  <h3>{note.title}</h3>
-                  <p>{note.body}</p>
-                </div>
-              </Link>
-            )
+              <NotePreview
+                onDrop={this.props.onDrop}
+                key={index}
+                index={index}
+                note={note}
+              />)
           })}
-          </div>
         </div>
       </div>
     );

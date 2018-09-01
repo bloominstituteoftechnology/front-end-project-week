@@ -1,0 +1,17 @@
+.note-preview {
+    border: 1px solid lightgray;
+    background: white;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    overflow-y: auto;
+    border-radius: 3px;
+    border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+        }

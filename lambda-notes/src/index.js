@@ -4,10 +4,21 @@ import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-export {default as NewNote} from './components/new-note.js';
-export {default as ListNotes} from './components/listnotes.js';
-export {default as Details} from './components/details.js';
-export {default as EditNote} from './components/editnote';
-export {default as DeleteNote} from './components/delete-note.js';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import {reducer} from  './reducers';
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+const store = createStore( reducer,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+   applyMiddleware(thunk, logger)
+);
+
+ReactDOM.render(
+<Provider store={store}>
+  <Router>
+    <App />
+  </Router>
+</Provider>
+  , document.getElementById('root'));

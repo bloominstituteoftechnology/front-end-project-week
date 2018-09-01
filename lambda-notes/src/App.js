@@ -1,204 +1,165 @@
-import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
-import "./App.css";
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import  './App.css'
+
+
+
 
 import {
-  ListNotes,
-  NewNote,
-  Details,
+  AllNotes,
   EditNote,
-  DeleteNote
-} from "./components";
+  DeleteNote,
+  NewNote,
+  NoteDetails,
+  LeftMenu, } from './components';
+
+import {
+  addNote,
+  deleteNote,
+  editNote,
+  getNotes,
+  } from './actions';
 
 class App extends Component {
-  constructor() {
+  constructor(){
     super();
+    this.handleDrop = this.handleDrop.bind(this);
     this.state = {
-      count: 45,
       hideDetails: true,
-      //ADD some static data to strt with...wanted to use local storage but may be to late now
-      notes: [
-        {
-          id: 0,
-          title: "Clip",
-          body:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 1,
-          title: "Clop",
-          body:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 2,
-          title: "Bingo",
-          body:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 3,
-          title: "Bongo",
-          body:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 4,
-          title: "Bongo",
-          body:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 5,
-          title: "Bongo",
-          body:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 6,
-          title: "Bongo",
-          body:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      ]
-    };
+    }
   }
 
-  getNoteDetails = id => {
-    return this.state.notes.find(note => {
-      return note.id === parseInt(id, 10);
-    });
-    //parseInt(string, radix); 10 is the radix or base
-  };
+  componentDidMount = () => {
+    this.props.getNotes();
+
+  }
+
+  getNoteDetails = (id) => {
+    return this.props.state.notes.find(note => {return note._id === id})
+  }
 
   disableDelete = () => {
     this.setState({
-      deleteEnabled: false
-    });
-  };
+      deleteEnabled: false,
+    })
+  }
 
   enableDelete = () => {
     this.setState({
-      deleteEnabled: true
-    });
-  };
+      deleteEnabled: true,
+    })
+  }
 
-  deleteNote = id => {
-    let newArr = this.state.notes.slice().filter(note => note.id !== id);
-    this.setState({
-      notes: newArr,
-      deleteEnabled: false
-    });
-  };
+  deleteNote = (id) => {
+    this.props.deleteNote(id);
+  }
 
-  newNote = newNote => {
-    // console.log('editnote', newNote);
-    let newArr = this.state.notes.slice();
-    newArr.push(newNote);
-    this.setState({
-      notes: newArr,
-      count: this.state.count + 1
-    });
-  };
+  newNote = (newNote) => {
+    this.props.addNote(newNote);
+  }
 
-  editNote = noteEdit => {
-    // console.log('editnote', noteEdit.id);
-    let newArr = this.state.notes.slice();
-    // let obj = newArr.filter(note => noteEdit.id === note.id)
-    // console.log(obj)
-    let position = newArr.findIndex(note => note.id === noteEdit.id);
-    // console.log(position)
-    newArr[position] = noteEdit;
-    this.setState({
-      notes: newArr,
-      count: this.state.count + 1
-    });
-  };
+  editNote = (noteEdit) => {
+    this.props.editNote(noteEdit)
+  }
+
+  handleDrop(id){
+    console.log('handleDrop, id: ', id);
+    //will delete from actions when uncommented
+    // this.props.deleteNote(id)
+  }
+
+ 
 
   render() {
     return (
-      <div className="top">
-        <div className="left-menu">
-          <h1>Lambda Notes</h1>
-          <Link className="menu-item" to="/listnotes">
-            View Your Notes
-          </Link>
-          <Link className="menu-item" to="/new-note">
-            + Create New Note
-          </Link>
-        </div>
+        <div className="app">
+          <Redirect from="" to="/listnotes/" />
+          <LeftMenu />
 
-        <div className="right-display">
-          <Route
-            exact
-            path="/listnotes/"
-            render={() => {
-              return <ListNotes notes={this.state.notes} />;
-            }}
-          />
-
-          <Route
-            exact
-            path="/new-note"
-            render={() => {
-              return (
-                <NewNote
-                  count={this.state.count}
-                  newNote={this.newNote}
-                  notes={this.state.notes}
-                />
-              );
-            }}
-          />
-
-          <Route
-            path="/listnotes/:noteId"
-            exact={!this.state.deleteEnabled}
-            render={note => {
-              let single = this.getNoteDetails(note.match.params.noteId);
-              return <Details enableDelete={this.enableDelete} note={single} />;
-            }}
-          />
-
-          <Route
-            exact
-            path="/listnotes/:noteId/edit"
-            render={note => {
-              let single = this.getNoteDetails(note.match.params.noteId);
-              return (
-                <EditNote
-                  count={this.state.count}
-                  editNote={this.editNote}
-                  note={single}
-                />
-              );
-            }}
-          />
-        </div>
-
-        {this.state.deleteEnabled ? (
-          <div className="delete">
+          <div className="right-display">
             <Route
-              path="/listnotes/:noteId/delete"
-              render={note => {
-                let single = this.getNoteDetails(note.match.params.noteId);
+              exact
+              path="/listnotes/"
+              render={ () => {
                 return (
-                  <div>
-                    <DeleteNote
-                      deleteNote={this.deleteNote}
-                      disableDelete={this.disableDelete}
-                      note={single}
+                  <AllNotes
+                    onDrop={this.handleDrop} notes={this.props.state.notes} 
                     />
-                    {/* <Details note={single} /> */}
-                  </div>
-                );
+                )
               }}
-            />
+            ></Route>
+
+            <Route
+              exact
+              path="/new-note"
+              render={ () => {
+                return (
+                  <NewNote
+                    count={this.state.count} newNote={this.newNote} notes={this.state.notes} />
+                )
+              }}
+            ></Route>
+
+            <Route
+              exact={!this.state.deleteEnabled}
+              path="/listnotes/:noteId"
+              render={ (note) => {
+                return (
+                  <NoteDetails
+                    enableDelete={this.enableDelete}  note={this.getNoteDetails(note.match.params.noteId)} />
+                )
+              }}></Route>
+
+            <Route
+              exact
+              path="/listnotes/:noteId/edit"
+              render={ (note) => {
+                return (
+                  <EditNote
+                    count={this.state.count}
+                    editNote={this.editNote} note={this.getNoteDetails(note.match.params.noteId)} />
+                )
+              }}
+            ></Route>
+
           </div>
-        ) : null}
-      </div>
-    ); //return
-  } //render
+
+          {(this.state.deleteEnabled) ?
+             (<div className="delete">
+                <Route
+                  path="/listnotes/:noteId/delete"
+                  render={ (note) => {
+                    return (
+                      <div>
+                        <DeleteNote
+                          deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
+                      </div>
+                    )
+                  }}
+                ></Route>
+              </div>) :
+          null}
+
+        </div>
+    );//return
+  }//render
 }
 
-export default App;
+const mapStateToProps = store => {
+  return {state: store};//state is really props & store is store
+}
+
+const mapDispatchToProps = {
+  getNotes,
+  addNote,
+  deleteNote,
+  editNote,
+ 
+}
+
+ export default (withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));
+
+

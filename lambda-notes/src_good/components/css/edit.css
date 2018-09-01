@@ -1,0 +1,68 @@
+form {
+   
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+    .input {
+      margin: 10px;
+      padding: 10px;
+      color: gray;
+    }
+
+    /* #title{
+      width: 30%;
+    } */
+    #body{
+      height: 400px;
+      text-emphasis: wrap;
+      max-width: 90%;
+      font-family: 'Roberto';
+      line-height: 20px;
+
+    }
+
+   .menu-item{
+height: 100%;
+        /* width: 30%;
+        padding: 15px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #2AC0C4;
+        font-weight: bold;
+        border: 1px solid lightgray; */
+      }  
+  
+
+    
+      /* display: flex;
+      flex-direction: column;
+      background-color: #F3F3F3;
+      padding: 25px;
+      background-color: white;
+      height: 100vh; */
+
+      .links {
+        
+        padding: 15px;
+        text-align: right;
+        font-weight: bold;
+      }
+
+        .link {
+          margin: 8px;
+          color: gray;
+        }
+      
+      
+      
+      .editNote h4 {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 24px;
+        margin: 10px 10px 10px 10px; 
+      }
+    

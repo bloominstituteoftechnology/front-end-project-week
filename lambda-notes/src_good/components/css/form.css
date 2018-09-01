@@ -1,0 +1,43 @@
+
+  form {
+    display: grid;
+    grid-template-columns: 75rem;
+    background-color: #F3F3F3;
+    /* display: flex;
+    flex-direction: column; */
+  }
+    .input {
+      margin: 10px;
+      padding: 10px;
+      color: gray;
+      border-radius: 3px;
+    }
+
+    #title{
+      width: 40%;
+     
+    }
+    
+    #body{
+      height: 400px;
+      text-emphasis: wrap;
+      max-width: 886px;
+      font-family: 'Roberto';
+      line-height: 20px;
+
+    }
+    .menu-item{
+
+        width: 189px;
+        height: 30px;
+        font-size: 16px;
+        padding-top: 1rem;
+        /* padding: 15px; */
+        /* margin: 5px; */
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #2AC0C4;
+        font-weight: bold;
+        border: 1px solid lightgray;
+      }

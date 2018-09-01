@@ -11,29 +11,23 @@ export default class DeleteNote extends Component {
   }
 
   deleteHandler = (e) => {
-    this.props.deleteNote(this.state.note._id);
-    this.props.disableDelete();
+    this.props.deleteNote(this.state.note.id);
   }
 
   render() {
+    console.log(this)
     return (
-      <div className="deletenote">
+
+      <div className="deleteTop" className="modal">
         <div className="inner-div">
           <h4>Are you sure you want to delete this?</h4>
           <div className='delete-buttons'>
-            <Link
-              id="delete"
-              className="button"
-              to="/listnotes/"
-              onClick={this.deleteHandler}
-            >Delete</Link>
-            <Link
-              id="no"
-              className="button"
-              onClick={() => this.props.disableDelete()}
-              to={`/listnotes/${this.state.note._id}`}
-            >No</Link>
+            <Link className="delete1" className="button"
+              to="/listnotes/" onClick={this.deleteHandler}>Delete</Link>
+            <Link id="no" className="button"
+              onClick={() => this.props.disableDelete()}  to={`/listnotes/${this.state.note.id}`}>No</Link>
           </div>
+
         </div>
       </div>
     );
