@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './deleteNote.css';
 
 const DeleteNote = props => {
-    let toggle = props.displayModal;
+    let toggle = props.toggle;
     return (
         <div className={toggle ? 'delete-wrapper' : 'hide'}>
             <div>
