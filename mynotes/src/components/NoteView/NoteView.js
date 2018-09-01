@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import DeleteNote from '../DeleteNote/DeleteNote.js';
 import "./index.css";
 
 class NoteView extends Component {
   state = {
+    displayDelete: false,
     notesArray: [
       {
         _id: "asdklfjsodijflsdkf19",
@@ -24,6 +26,11 @@ class NoteView extends Component {
       }
     ]
   };
+
+  showModal = () => {
+    this.setState({ displayDelete: !this.state.displayDelete })
+  }
+
   render() {
     return (
       <div className="noteView_container">
@@ -31,12 +38,16 @@ class NoteView extends Component {
           <h3 className="content_header">{this.state.notesArray[0].title}</h3>
           <div>
               <a className='edit_delete' href="#">edit</a>
-              <a className='edit_delete' href="#">delete</a>
+              <a className='edit_delete' href="#" onClick={this.showModal}>delete</a>
           </div>
         </div>
         <div className="notesList">
           <p className=''>{this.state.notesArray[0].body}</p>
         </div>
+        <DeleteNote 
+          toggle={this.state.displayDelete}
+          showModal={this.showModal}
+          />
       </div>
     );
   }

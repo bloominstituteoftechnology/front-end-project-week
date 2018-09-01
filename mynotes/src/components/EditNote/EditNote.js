@@ -6,7 +6,7 @@ class EditNote extends Component {
     return (
       <div className="noteView_container">
         <div className="noteView_topContent">
-          <h3 className="content_header">Create New Note:</h3>
+          <h3 className="content_header">Edit Note:</h3>
         </div>
         <div className="createNote_form">
           <input
@@ -20,7 +20,7 @@ class EditNote extends Component {
             rows="20"
           />
           <a href="#" className="button_link">
-            <div className="nav_button createNote_button">Save</div>
+            <div className="nav_button createNote_button">Update</div>
           </a>
         </div>
       </div>

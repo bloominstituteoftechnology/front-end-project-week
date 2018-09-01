@@ -1,13 +1,13 @@
 * {
   box-sizing: border-box;
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
   /* border: 1px solid red; */
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
   color: rgb(66, 66, 66);
 }
 
@@ -24,4 +24,22 @@ body {
 
 .button_link {
   text-decoration: none;
+}
+
+.button {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  background-color: #24b8bd;
+  border: 1px solid #b6aeb1;
+  margin: 0.5rem 0.5rem;
+  height: 40px;
+  border-radius: 0.1rem;
+}
+
+.button-danger {
+  background-color: red;
 }
