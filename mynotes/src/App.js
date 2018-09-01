@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import LeftNav from './components/LeftNav/LeftNav.js';
+import MainContent from './components/MainContent/MainContent.js';
 
 class App extends Component {
   render() {
     return (
-      <div>
-       
+      <div className='app_container'>
+       <LeftNav />
+       <MainContent />
       </div>
     );
   }
