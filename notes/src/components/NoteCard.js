@@ -1,13 +1,15 @@
-import React from 'react';
-import CreateView from './CreateView';
+import React from "react";
+// import CreateView from "./CreateView";
 
 const NoteCard = props => {
-    return (
-        <div>
-            <span>{props.title}</span>
-            <p>{props.content}</p>
-        </div>
-    )
-}
+  const { title, content } = props.notes;
+
+  return (
+    <div>
+      <span>{title}</span>
+      <p>{content}</p>
+    </div>
+  );
+};
 
 export default NoteCard;
