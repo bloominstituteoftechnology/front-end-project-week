@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, NavLink, Link } from 'react-router-dom';
 
 const Create = styled.div`
 // display: flex;
@@ -51,7 +50,6 @@ height: 2rem;
 `
 
 const CreateNote = (props) => {
-    console.log(props)
     return (<Create>
 
         <Header>Create New Note:</Header>

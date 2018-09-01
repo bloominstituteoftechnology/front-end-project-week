@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 const Edit = styled.div`
 // display: flex;
@@ -52,21 +52,21 @@ height: 2rem;
 class EditNote extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             edit: props.newNote,
             clicked: props.clicked,
             submit: props.editSubmit,
             notes: props.note
-         }
+        }
 
 
 
     }
-    render() { 
-        return ( <Edit>
+    render() {
+        return (<Edit>
 
             <Header>Edit Note:</Header>
-    
+
             <EditForm onSubmit={this.state.submit}>
                 <NoteTitle
                     type='text'
@@ -85,10 +85,10 @@ class EditNote extends Component {
                     rows='10'
                     cols='50'
                 />
-                <EditNotes onSubmit={this.state.submit}><NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}>Edit</NavLink></EditNotes>
+                <EditNotes onClick={this.state.submit}><NavLink to="/" activeStyle={{ fontWeight: 'bold', color: 'white', textDecoration: 'none' }}>Edit</NavLink></EditNotes>
             </EditForm>
         </Edit>);
     }
 }
- 
+
 export default EditNote;

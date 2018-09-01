@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 const Delete = styled.div`
 position: absolute;
@@ -43,17 +43,16 @@ border: 1px solid #cdcecf;
 `
 
 const ConfirmDelete = (props) => {
-    console.log(props)
-    return ( <Delete>
-        
+    return (<Delete>
+
         <Header>Are you sure you want to delete this?</Header>
 
         <Options>
-        <NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><DeleteButton onClick={props.delete}><NavLink to="/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}>Delete</NavLink></DeleteButton></NavLink>
-        <NavLink to="/view/:id/" activeStyle={{fontWeight: 'bold', color: 'white', textDecoration: 'none'}}><NoButton>No</NoButton></NavLink>
+            <NavLink to="/" activeStyle={{ fontWeight: 'bold', color: 'white', textDecoration: 'none' }}><DeleteButton onClick={props.delete}><NavLink to="/" activeStyle={{ fontWeight: 'bold', color: 'white', textDecoration: 'none' }}>Delete</NavLink></DeleteButton></NavLink>
+            <NavLink to="/view/:id/" activeStyle={{ fontWeight: 'bold', color: 'white', textDecoration: 'none' }}><NoButton>No</NoButton></NavLink>
         </Options>
-        
-        </Delete> );
+
+    </Delete>);
 }
- 
+
 export default ConfirmDelete;

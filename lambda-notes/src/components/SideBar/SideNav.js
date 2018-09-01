@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, NavLink, Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 
 const Side = styled.div`
 background: #d3d2d3;

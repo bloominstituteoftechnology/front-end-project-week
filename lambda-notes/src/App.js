@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import NotesContainer from './components/NotesContainer/NotesContainer';
 import styled from 'styled-components';
-import Note from './components/NotesContainer/Note';
-import CreateNote from './components/NoteActions/CreateNote';
-import ViewNote from './components/NoteActions/ViewNote';
-import { Route, NavLink } from 'react-router-dom';
 
 const NoteApp = styled.div`
 `
@@ -24,7 +20,6 @@ class App extends Component {
       editName: '',
       editText: ''
     }
-    console.log(this.state.id)
   }
 
   newNote = e => {
@@ -39,56 +34,32 @@ class App extends Component {
       noteText: this.state.noteText,
       id: this.state.notes.length
     })
-    this.setState({ noteName: '', noteText: '', notes: notes})
+    this.setState({ noteName: '', noteText: '', notes: notes })
     this.setState({ id: this.state.notes.length })
-    console.log(`State id is ${this.state.id}`)
   }
 
   viewClick = id => {
-    this.setState({clicked: id})
-    console.log("clicked is now: " + this.state.clicked)
+    this.setState({ clicked: id })
   }
 
   deleteNote = (id) => {
-    console.log("this is the id: " + id)
-    // e.preventDefault()
     let notes = this.state.notes
     notes.splice(this.state.clicked, 1)
-    this.setState({notes: notes})
-    let newId = this.state.notes.slice()
-    newId.forEach(note => note.id> this.state.clicked ? --note.id : null)
-    this.setState({notes: newId})
-    // let notes = this.state.notes.slice()
-    // let newNotes = []
-    // for (let i = 0; i < notes.length; i++) {
-    //   if (notes[i].id !== notes.id) {
-    //     // notes.splice(i, 1);
-    //     console.log(notes[i])
-    //     newNotes.push(notes[i])
-    //   }
-    // }
-    // this.setState({ notes: newNotes })
-    // notes = notes.filter(note => !note.id)
-    // console.log(notes)
-    // this.setState({ notes: notes })
-    // this.setState({ id: this.state.id-1})
-    // let num = this.state.id
-    // if (num > -1) {
-    //   --num
-    // }
-    // this.setState({ id: num })
+    this.setState({ notes: notes })
 
-    console.log(`State id is ${this.state.id}`)
+    let newId = this.state.notes.slice()
+    newId.forEach(note => note.id > this.state.clicked ? --note.id : null)
+    this.setState({ notes: newId })
+
   }
 
   editSubmit = e => {
     e.preventDefault()
     let notes = this.state.notes.slice()
-    // notes.forEach(notes => note[this.state.id] == note[this.state.clicked] ? note.noteText = this.state.editText note.noteName = this.state.editName : null)
     notes[this.state.clicked].noteName = this.state.editName
     notes[this.state.clicked].noteText = this.state.editText
 
-    this.setState({notes: notes, editName: '', editText: ''})
+    this.setState({ notes: notes, editName: '', editText: '' })
   }
 
 
