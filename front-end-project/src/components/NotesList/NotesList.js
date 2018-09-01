@@ -8,122 +8,51 @@ class NotesList extends Component {
       notesArray: [
         {
           _id: "sdlfjsldka12984729",
-          title: "FirstNote",
+          title: "First Note",
           body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id,",
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
           createdAt: "2394879076121"
         },
         {
           _id: "sdlfjsldka12984729",
-          title: "SecondNote",
+          title: "Second Note",
           body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id,",
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
           createdAt: "239487907612123"
         },
         {
           _id: "sdlfjsldka12984729",
-          title: "ThirdNote",
+          title: "Third Note",
           body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id,",
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
           createdAt: "2394879076121234"
+        },
+        {
+          _id: "sdlfjslddsfka12984729",
+          title: "Fourth Note",
+          body:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
+          createdAt: "239487903876121234"
+        },
+        {
+          _id: "sdlfjsldka12ivn984729",
+          title: "Fifth Note",
+          body:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
+          createdAt: "239487009076121234"
+        },
+        {
+          _id: "sdlfjsldka129840376729",
+          title: "Sixth Note",
+          body:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
+          createdAt: "2394871209076121234"
         }
       ]
     };
   }
 
   render() {
-    const notesElements = [
-      <div className="note">
-        <h4>Note Title</h4>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          tortor purus, condimentum fringilla nunc id, molestie egestas lacus.
-          Duis eu justo dui. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Curabitur non odio ut arcu
-          viverra porttitor et vel diam. Mauris in dictum velit. Proin vitae
-          ornare sapien. Ut a erat in libero fermentum suscipit id eget metus.
-          Proin gravida massa ut tempor feugiat.
-        </p>
-      </div>,
-      <div className="note">
-        <h4>Note Title</h4>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          tortor purus, condimentum fringilla nunc id, molestie egestas lacus.
-          Duis eu justo dui. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Curabitur non odio ut arcu
-          viverra porttitor et vel diam. Mauris in dictum velit. Proin vitae
-          ornare sapien. Ut a erat in libero fermentum suscipit id eget metus.
-          Proin gravida massa ut tempor feugiat.
-        </p>
-      </div>,
-      <div className="note">
-        <h4>Note Title</h4>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          tortor purus, condimentum fringilla nunc id, molestie egestas lacus.
-          Duis eu justo dui. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Curabitur non odio ut arcu
-          viverra porttitor et vel diam. Mauris in dictum velit. Proin vitae
-          ornare sapien. Ut a erat in libero fermentum suscipit id eget metus.
-          Proin gravida massa ut tempor feugiat.
-        </p>
-      </div>,
-      <div className="note">
-        <h4>Note Title</h4>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          tortor purus, condimentum fringilla nunc id, molestie egestas lacus.
-          Duis eu justo dui. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Curabitur non odio ut arcu
-          viverra porttitor et vel diam. Mauris in dictum velit. Proin vitae
-          ornare sapien. Ut a erat in libero fermentum suscipit id eget metus.
-          Proin gravida massa ut tempor feugiat.
-        </p>
-      </div>,
-      <div className="note">
-        <h4>Note Title</h4>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          tortor purus, condimentum fringilla nunc id, molestie egestas lacus.
-          Duis eu justo dui. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Curabitur non odio ut arcu
-          viverra porttitor et vel diam. Mauris in dictum velit. Proin vitae
-          ornare sapien. Ut a erat in libero fermentum suscipit id eget metus.
-          Proin gravida massa ut tempor feugiat.
-        </p>
-      </div>,
-      <div className="note">
-        <h4>Note Title</h4>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          tortor purus, condimentum fringilla nunc id, molestie egestas lacus.
-          Duis eu justo dui. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Curabitur non odio ut arcu
-          viverra porttitor et vel diam. Mauris in dictum velit. Proin vitae
-          ornare sapien. Ut a erat in libero fermentum suscipit id eget metus.
-          Proin gravida massa ut tempor feugiat.
-        </p>
-      </div>
-    ];
-    let newNotesCollection = [];
-    for (let i = 0; i < this.state.notesArray.length; i++) {
-      newNotesCollection.push(
-        <div className="note" key={i + this.state.notesArray[i].title}>
-          <div>
-            <h4>{this.state.notesArray[i].title}</h4>
-            <hr />
-            <p>{this.state.notesArray[i].body}</p>
-          </div>
-        </div>
-      );
-    }
     return (
       <div classname="notelist_container">
         <div className="content_header">
