@@ -8,22 +8,22 @@ const NoteView = (props) => {
         
     return(
         <div className='note-view'>
-            <nav className='note-menu'>
-                <ul className='note-menu-items'>
-                    <li>
-                        <Link to={`/edit/${props.match.params._id}`}>
-                            edit
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={`/delete/${props.match.params._id}`}>
-                            delete
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
-            <div className='note-display'>
+            <div className='note-menu'>
+                <div className='note-menu-items'>
+                    <Link to={`/edit/${props.match.params._id}`}>
+                        edit
+                    </Link>
+                </div>
+                <div className='note-menu-items'>
+                    <Link to={`/delete/${props.match.params._id}`}>
+                        delete
+                    </Link>
+                </div>                
+            </div>
+            <header className='note-header'>
                 <h3 className='display-title'>{note.title}</h3>
+            </header>
+            <div className='note-display'>
                 <p className='display-content'>{note.textBody}</p>
             </div>
         </div>

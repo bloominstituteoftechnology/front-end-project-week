@@ -1,0 +1,57 @@
+.delete-view {
+    width: 100vw;
+    height: 880px;
+    background: gray;
+    z-index: 2;
+    display: flex;
+    opacity: .9;
+    justify-content: center;
+}
+
+.button-box {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    background: #FFFFFF;
+    margin-top: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-buttons {
+    display: flex;
+    margin-top: 20px;
+}
+
+.delete-button {
+    width: 220px;
+    height: 50px;
+    margin: 10px 0;
+    background: red;
+    color: white;
+    border: 1px solid darkgray;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.delete-button:hover {
+    background: #222222;
+}
+
+.no-button {
+    width: 220px;
+    height: 50px;
+    margin: 10px 0;
+    background: teal;
+    color: white;
+    border: 1px solid darkgray;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.no-button:hover {
+    background: #222222;
+}
