@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   /* border: 1px solid red; */
 }
 
@@ -19,4 +20,8 @@ body {
 
 .content_header {
   margin: 1rem 0.5rem;
+}
+
+.button_link {
+  text-decoration: none;
 }
