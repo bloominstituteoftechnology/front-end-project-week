@@ -34,17 +34,21 @@ class App extends Component {
     this.setState({ notes, myNotes: "" });
   };
 
+  // updateNote = e => {}
+
+  // deleteModal = e => {}
+
   render() {
     return (
       <div>
         <SideNav />
         <div>
           <CreateView
-            title={this.props.title}
+            title={this.state.title}
             content={this.state.content}
             notes={this.state.notes}
-            onChange={this.props.noteHandler}
-            onSubmit={this.props.submitNewNote}
+            onChange={this.noteHandler}
+            onSubmit={this.submitNewNote}
           />
           <ListView notes={this.state.notes} />
         </div>
