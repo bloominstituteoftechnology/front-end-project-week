@@ -11,7 +11,7 @@ class DeleteNote extends Component {
     }
 
     render() {
-        console.log('Delete Note Props:', this.props)
+        console.log('Delete Note Props:', this.props);
         let toggle = this.props.toggle;
         return (
             <div className={ toggle ? 'delete_wrapper' : 'hidden' }>

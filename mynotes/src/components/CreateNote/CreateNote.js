@@ -1,7 +1,26 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createNote } from "../../actions";
 import "./index.css";
 
 class CreateNote extends Component {
+  state = {
+    note: {
+      _id: "",
+      title: "",
+      body: "",
+      createdAt: ""
+    }
+  };
+
+  handleSave = () => {
+    this.props.saveNote(this.state.note);
+  };
+
+  handleChange = event => {
+    this.setState({ note: { [event.target.name]: event.target.value } });
+  };
+
   render() {
     return (
       <div className="noteView_container">
@@ -13,19 +32,33 @@ class CreateNote extends Component {
             type="text"
             className="createNote_title"
             placeholder="Note Title"
+            name="title"
+            value={this.state.note.title}
+            onChange={this.handleChange}
           />
           <textarea
             className="createNote_body"
             placeholder="Note Content"
+            name="body"
+            value={this.state.note.body}
+            onChange={this.handleChange}
             rows="20"
           />
-          <a className='button_link'>
-            <div className="nav_button createNote_button">Save</div>
-          </a>
+          <div
+            className="nav_button 
+          createNote_button 
+          button_link"
+            onClick={this.handleSave}
+          >
+            Save
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default CreateNote;
+export default connect(
+  null,
+  { createNote }
+)(CreateNote);

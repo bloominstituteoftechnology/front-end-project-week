@@ -12,6 +12,11 @@ const mapStateToProps = state => {
 class NotesList extends Component {
   state = {};
 
+  componentWillMount() {
+    let reversed = Array.from(this.props.notesArray).reverse();
+    this.setState({ notesArray: reversed });
+  }
+
   generateNotes = (what, where) => {
     return (
       <Link to={`/note/${what._id}`} className="unstyled_link" key={what._id}>
@@ -34,7 +39,7 @@ class NotesList extends Component {
           <h3 className="content_header">Your Notes:</h3>
         </div>
         <div className="notesList">
-          {this.props.notesArray.map(this.generateNotes)}
+          {this.state.notesArray.map(this.generateNotes)}
         </div>
       </div>
     );

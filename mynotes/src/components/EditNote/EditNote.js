@@ -1,7 +1,36 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { editNote } from "../../actions";
 import "./index.css";
 
+const mapStateToProps = state => {
+  return {
+    notesArray: state
+  };
+};
+
 class EditNote extends Component {
+  state = {
+    matched: []
+  };
+
+  componentWillMount() {
+    let routeId = this.props.match.params.id;
+    let matched = this.props.notesArray.filter(item => item._id === routeId);
+    this.setState({ matched });
+  }
+
+  handleUpdate = () => {
+    this.props.editNote(this.state.matched[0]);
+    this.props.history.push("/");
+  };
+
+  handleChange = event => {
+    let temp = Array.from(this.state.matched);
+    temp[0][event.target.name] = event.target.value;
+    this.setState({ matched: temp });
+  };
+
   render() {
     return (
       <div className="noteView_container">
@@ -11,21 +40,33 @@ class EditNote extends Component {
         <div className="createNote_form">
           <input
             type="text"
+            name="title"
             className="createNote_title"
-            placeholder="Note Title"
+            value={this.state.matched[0].title}
+            onChange={this.handleChange}
           />
           <textarea
             className="createNote_body"
-            placeholder="Note Content"
+            name="body"
+            value={this.state.matched[0].body}
             rows="20"
+            onChange={this.handleChange}
           />
-          <a className="button_link">
-            <div className="nav_button createNote_button">Update</div>
-          </a>
+          <div
+            className="nav_button 
+          createNote_button 
+          button_link"
+            onClick={this.handleUpdate}
+          >
+            Update
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default EditNote;
+export default connect(
+  mapStateToProps,
+  { editNote }
+)(EditNote);
