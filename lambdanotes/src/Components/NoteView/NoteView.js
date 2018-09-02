@@ -13,7 +13,7 @@ const NoteView = props => {
                     <a href="#" className="edit_link" onClick={props.showModal}>delete</a>
                 </div>
             </div>
-            <DeleteNote toggle={props.toggle} />
+            <DeleteNote toggle={props.toggle} updateParent={props.showModal} />
         </div>
     );
 }

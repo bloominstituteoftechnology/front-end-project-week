@@ -9,8 +9,8 @@ const DeleteNote = props => {
                 <h3 className="delete-button-wrapper">Are you sure you want to delete this?</h3>
             </div>
             <div className="delete-button-wrapper">
-                <button className="save-danger">DELETE</button>
-                <button className="save-button">NO</button>
+                <button className="save-danger" onClick={props.updateParent}>DELETE</button>
+                <button className="save-button" onClick={props.updateParent}>NO</button>
             </div>
         </div>
     );
