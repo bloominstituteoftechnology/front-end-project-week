@@ -31,6 +31,7 @@ class NoteView extends Component {
 
   componentWillMount() {
     let routeId = this.props.match.params.id;
+    console.log('Route id is:', routeId)
     let matched = this.state.notesArray.filter((item) => item._id === routeId);
     this.setState({ matched });
   }
