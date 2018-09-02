@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import { deleteNote } from '../../actions';
+import { connect } from 'react-redux';
 import './index.css';
 
 class DeleteNote extends Component {
+
+    handleDelete = () => {
+        this.props.deleteNote(this.props.toDelete);
+        this.props.history.push('/');
+    }
+
     render() {
+        console.log('Delete Note Props:', this.props)
         let toggle = this.props.toggle;
         return (
             <div className={ toggle ? 'delete_wrapper' : 'hidden' }>
@@ -10,7 +19,7 @@ class DeleteNote extends Component {
                     <h4>Are you sure you want to delete this?</h4>
                 </div>
                 <div className='delete_buttons_wrapper'>
-                    <div className='button button-danger' onClick={this.props.showModal}>Delete</div>
+                    <div className='button button-danger' onClick={this.handleDelete}>Delete</div>
                     <div className='button' onClick={this.props.showModal}>No</div>
                 </div>
             </div>
@@ -18,4 +27,4 @@ class DeleteNote extends Component {
     }
 }
 
-export default DeleteNote;
+export default connect(null, {deleteNote})(DeleteNote);

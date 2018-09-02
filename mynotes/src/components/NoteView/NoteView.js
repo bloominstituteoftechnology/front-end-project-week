@@ -46,6 +46,8 @@ class NoteView extends Component {
         <DeleteNote 
           toggle={this.state.displayDelete}
           showModal={this.showModal}
+          toDelete={this.state.matched[0]._id}
+          history={this.props.history}
           />
       </div>
     );

@@ -1,3 +1,5 @@
+import { DELETE_NOTE } from "../actions";
+
 const initialState = [
   {
     _id: "asdklfjsodijflsdkf19",
@@ -21,8 +23,15 @@ const initialState = [
 
 const notesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "STUFF":
-      return state;
+    case DELETE_NOTE:
+      let temp = Array.from(state);
+      state.forEach((item, index) => {
+        if (item._id === action.payload) {
+          temp.splice(index, 1);
+          return;
+        }
+      });
+      return temp;
     default:
       return state;
   }
