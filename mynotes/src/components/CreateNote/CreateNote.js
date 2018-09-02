@@ -19,7 +19,7 @@ class CreateNote extends Component {
             placeholder="Note Content"
             rows="20"
           />
-          <a href="#" className='button_link'>
+          <a className='button_link'>
             <div className="nav_button createNote_button">Save</div>
           </a>
         </div>

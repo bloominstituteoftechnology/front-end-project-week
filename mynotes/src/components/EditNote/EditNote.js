@@ -19,7 +19,7 @@ class EditNote extends Component {
             placeholder="Note Content"
             rows="20"
           />
-          <a href="#" className="button_link">
+          <a className="button_link">
             <div className="nav_button createNote_button">Update</div>
           </a>
         </div>
