@@ -1,5 +1,5 @@
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -8,13 +8,39 @@ body {
   font-family: Roboto;
 }
 
-.app_container{
+.app_container {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  min-width:900px;
+  min-width: 900px;
 }
 
-.content_header{
-    margin: 1rem 0.5rem;
+.content_header {
+  margin: 1rem 0.5rem;
+}
+
+.button {
+  width: 200px;
+  background-color: #23b8be;
+  border: 1px solid #86aeb1;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  margin: 0.05rem 0;
+  height: 40px;
+  border-radius: 0.1rem;
+}
+
+.button_red {
+  width: 200px;
+  background-color: red;
+  border: 1px solid #86aeb1;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  margin: 0.05rem 0.5rem;
+  height: 40px;
+  border-radius: 0.1rem;
 }
