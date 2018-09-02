@@ -5,9 +5,9 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-const dummyReducer = (state = [], action) => state;
+import notesReducer from './reducers';
 
-const store = createStore(dummyReducer);
+const store = createStore(notesReducer);
 
 ReactDOM.render(
   <Provider store={store}>
