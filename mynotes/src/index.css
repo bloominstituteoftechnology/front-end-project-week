@@ -53,3 +53,7 @@ body {
 .button-danger {
   background-color: red;
 }
+
+.blackline {
+  border-top: 0.10rem solid black;
+}
