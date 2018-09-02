@@ -6,19 +6,25 @@ import "./index.css";
 class CreateNote extends Component {
   state = {
     note: {
-      _id: "",
       title: "",
-      body: "",
-      createdAt: ""
+      body: ""
     }
   };
 
   handleSave = () => {
-    this.props.saveNote(this.state.note);
+    // console.log("My Note is:", this.state.note);
+    let craftedNote = { ...this.state.note };
+    craftedNote["_id"] = Date.now() + craftedNote.title;
+    craftedNote.createdAt = Date.now();
+    console.log("My Crafted Note is:", craftedNote);
+    this.props.createNote(craftedNote);
+    this.props.history.push('/');
   };
 
   handleChange = event => {
-    this.setState({ note: { [event.target.name]: event.target.value } });
+    let temp = { ...this.state.note };
+    temp[event.target.name] = event.target.value;
+    this.setState({ note: temp });
   };
 
   render() {

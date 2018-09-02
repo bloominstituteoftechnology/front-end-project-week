@@ -1,4 +1,4 @@
-import { DELETE_NOTE, EDIT_NOTE } from "../actions";
+import { DELETE_NOTE, EDIT_NOTE, CREATE_NOTE } from "../actions";
 
 const initialState = [
   {
@@ -39,6 +39,9 @@ const notesReducer = (state = initialState, action) => {
           return;
         }
       });
+      temp.push(action.payload);
+      return temp;
+    case CREATE_NOTE:
       temp.push(action.payload);
       return temp;
     default:
