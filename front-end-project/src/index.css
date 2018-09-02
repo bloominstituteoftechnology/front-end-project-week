@@ -44,3 +44,8 @@ body {
   height: 40px;
   border-radius: 0.1rem;
 }
+
+.unstyled_link{
+  text-decoration: none;
+  color: rgb(66,66,66);
+}

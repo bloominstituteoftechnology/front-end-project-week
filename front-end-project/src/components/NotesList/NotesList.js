@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
+import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
   constructor() {
@@ -58,18 +59,23 @@ class NotesList extends Component {
         <div className="content_header">
           <h3> Your Notes: </h3>
         </div>
-        <div className="notesList" />
+        
+        <div className="notesList" >
         {this.state.notesArray.map((note, index) => {
           return (
-            <div className="note" key={index + note.title}>
+             <Link to={`/note/${note._id}`} className='unstyled_link'>
+            <div className="note" key={note._id}>
               <div>
                 <h4>{note.title}</h4>
                 <hr />
                 <p>{note.body}</p>
               </div>
             </div>
+            </Link>
           );
         })}
+        </div>
+        
       </div>
     );
   }
