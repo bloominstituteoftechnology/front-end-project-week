@@ -1,6 +1,5 @@
 .delete-view {
-    width: 100vw;
-    height: 880px;
+    width: 764px;
     background: gray;
     z-index: 2;
     display: flex;

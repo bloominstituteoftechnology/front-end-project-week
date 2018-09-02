@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
+import EditView from './components/EditView';
 import DeleteModal from './components/DeleteModal';
 import CreateNewView from './components/CreateNewView';
 import NoteView from './components/NoteView';
@@ -70,6 +71,23 @@ class App extends Component {
     });
   }
 
+  editNote = (event, _id) => {
+    event.preventDefault();
+
+    const notes = this.state.notes.map(eachNote => {
+      if(eachNote._id == _id) {
+        if(this.state.title.length)eachNote.title = this.state.title;
+        if(this.state.textBody.length)eachNote.textBody = this.state.textBody;
+      }
+      return eachNote;
+    });
+    this.setState({
+      notes,
+      title: '',
+      textBody: '',
+    })
+  }
+
   deleteNote = (event, _id) => {
     event.preventDefault();
     const notes = this.state.notes.filter(eachNote => eachNote._id !== Number(_id));
@@ -118,6 +136,19 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               deleteNote={this.deleteNote}
+            />
+          )}
+        />
+        <Route
+          path='/edit/:_id'
+          render={props => (
+            <EditView
+              {...props}
+              notes={this.state.notes}
+              handleInputChange={this.handleInputChange}
+              editNote={this.editNote}
+              textBody={this.state.textBody}
+              title={this.state.title}
             />
           )}
         />
