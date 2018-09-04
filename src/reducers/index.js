@@ -43,7 +43,7 @@ const allIdsReducer = (state = [], action) => {
     let newArr = state.filter(id => id !== sourceId);
 
     // Place source id after target id in allIds array.
-    const targetIndex = state.findIndex(id => id === dropId);
+    const targetIndex = newArr.findIndex(id => id === dropId);
     return [
       ...newArr.slice(0, targetIndex),
       sourceId,
