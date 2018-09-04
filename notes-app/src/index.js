@@ -9,10 +9,11 @@ import {BrowserRouter as Router} from 'react-router-dom';
 //Redux Imports
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import notesReducer from './reducers'
 
-const dummyReducer = (state = [], action) => state;
 
-const store = createStore(dummyReducer);
+
+const store = createStore(notesReducer);
 
 ReactDOM.render(
     
