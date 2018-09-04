@@ -3,9 +3,11 @@ import axios from 'axios';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHED = 'FETCHED';
 export const ADD_NOTE = 'ADD_NOTE';
-export const ADDED = 'ADDED'
-export const UPDATE_NOTES = 'UPDATE_NOTES'
-export const UPDATED = 'UPDATED'
+export const ADDED = 'ADDED';
+export const UPDATE_NOTES = 'UPDATE_NOTES';
+export const UPDATED = 'UPDATED';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETED = 'DELETED';
 export const ERROR = 'ERROR';
 
 export const fetchingNotes = () => {
@@ -74,3 +76,25 @@ export const editNote = (note, id) => {
             })
     }
 };
+
+export const deleteNote = (note, id) => {
+    return dispatch => {
+        dispatch({
+            type: DELETE_NOTE,
+        })
+        axios
+            .delete(`https://killer-notes.herokuapp.com/note/delete/id/${id}`, note)
+            .then(response => {
+                dispatch({
+                    type: DELETED,
+                    payload: response.data
+                });
+            })
+            .catch(error => {
+                dispatch({
+                    type: ERROR,
+                    payload: 'error'
+                })
+            })
+    }
+}

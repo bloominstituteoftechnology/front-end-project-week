@@ -7,7 +7,7 @@ const EditForm = styled.div`
 display: flex;
 padding-left 500px;
 width: 100%;
-height: 500px;
+height: 850px;
 background-color: #EEEEEE;`
 
 
