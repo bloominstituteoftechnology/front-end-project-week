@@ -1,4 +1,6 @@
-import  {Component} from 'react';
+import  React, {Component} from 'react';
+import {Route} from 'react-router-dom';
+import Note from './note'
 //import axios from 'axios';
 
 export default class DeleteNote extends Component {
@@ -11,6 +13,13 @@ export default class DeleteNote extends Component {
     }
 
 render() {
-    return;
+    return(
+        <div>
+            this is delete
+
+            {/* <Route path='/23' component = {Note} /> */}
+        </div>
+    
+    )
 }
 }
