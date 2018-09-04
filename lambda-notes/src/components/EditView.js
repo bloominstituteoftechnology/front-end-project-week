@@ -13,7 +13,7 @@ const EditView = (props) => {
             <div className='form-container'>
                 <form 
                     className='create-edit-form'
-                    onSubmit={(event) => this.props.editNote(event, note._id)}>
+                    onSubmit={(event) => props.editNote(event, note._id, props.history.push)}>
                     <input 
                         className='title-input'
                         onChange={props.handleInputChange}

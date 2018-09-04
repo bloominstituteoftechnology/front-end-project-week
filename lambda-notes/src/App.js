@@ -54,7 +54,7 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  addNewNote = event => {
+  addNewNote = (event) => {
     event.preventDefault();
     const notes = [
       ...this.state.notes,
@@ -71,7 +71,7 @@ class App extends Component {
     });
   }
 
-  editNote = (event, _id) => {
+  editNote = (event, _id, push) => {
     event.preventDefault();
 
     const notes = this.state.notes.map(eachNote => {
@@ -85,13 +85,15 @@ class App extends Component {
       notes,
       title: '',
       textBody: '',
-    })
+    });
+    push('/')
   }
 
-  deleteNote = (event, _id) => {
+  deleteNote = (event, _id, push) => {
     event.preventDefault();
     const notes = this.state.notes.filter(eachNote => eachNote._id !== Number(_id));
     this.setState({ notes });
+    push('/')
   }
 
   render() {
@@ -130,7 +132,7 @@ class App extends Component {
           )}
         />
         <Route
-          path='/delete/:_id/'
+          path='/notes/:_id/delete'
           render={props => (
             <DeleteModal
               {...props}

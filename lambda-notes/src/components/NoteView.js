@@ -15,7 +15,7 @@ const NoteView = (props) => {
                     </Link>
                 </div>
                 <div className='note-menu-items'>
-                    <Link to={`/delete/${props.match.params._id}`}>
+                    <Link to={`/notes/${props.match.params._id}/delete`}>
                         delete
                     </Link>
                 </div>                

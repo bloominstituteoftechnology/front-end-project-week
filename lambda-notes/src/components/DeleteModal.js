@@ -9,7 +9,7 @@ const DeleteModal = (props) => {
                 <div className='modal-buttons'>
                     <button 
                         className='delete-button'
-                        onClick={(event) => props.deleteNote(event, props.match.params._id)}
+                        onClick={(event) => props.deleteNote(event, props.match.params._id, props.history.push)}
                     >
                         Delete
                     </button>
