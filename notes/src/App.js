@@ -48,6 +48,8 @@ class App extends Component {
       newNote: { ...prevState.newNote, [target.name]: target.value }
     }));
   };
+  
+//addNote does this thing about this
 
   addNote = event => {
     const newNotes = this.state.newNote;
