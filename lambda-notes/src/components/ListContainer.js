@@ -86,7 +86,7 @@ class ListContainer extends React.Component {
     }
 
     fetchNote = id => {
-      const filterNote = this.state.list.filter(note => note.id === id);
+      const filterNote = this.state.list.filter(note => note.id === id); //delete is reverse of this, use !==
         return filterNote[0];
     }
 
@@ -97,11 +97,9 @@ class ListContainer extends React.Component {
       this.setState({ list: list });
     }
 
-    deleteNoteHandler = e => {
-      e.preventDefault();
-      const list = this.state.list.slice();
-      list.splice({id: this.currentId}, 1);
-      this.setState({ list: list });
+    deleteNoteHandler = id => {
+      const deleteNote = this.state.list.filter(note => note.id !== id); 
+        return deleteNote;
     }
 
     showModal = () => {
