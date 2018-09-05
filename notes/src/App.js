@@ -22,14 +22,42 @@ class App extends Component {
     }
   }
 
-  createNewNote(newtitle, newcontent) {
-    //console.log('Creating a new note!' + this.state.create)
+  createNewNote = (newtitle, newcontent) => {
+    console.log('Creating a new note!' + newtitle)
     // this.state.create = true;
     //this.setState({create:true})
     // console.log('Creating a new note! from inside' + this.state.notes.length)
     // let newNote = {id: 9, title: newtitle, content: newcontent}
-    const newArray = [...this.state.notes, {id: 99, title: 'drrgdrrg ', content: 'xdfgdf '}]
+    const newArray = [...this.state.notes, {id: this.state.notes.length + 1, title: newtitle, content: newcontent}]
     this.setState({notes: newArray});
+  }
+  editNote = (id, newtitle, newcontent) => {
+    console.log('editing note with '+ id + this.state.title + this.state.content) // why is this negative 1
+    let noteindex = this.state.notes.findIndex(i => i.id === id)
+      let replaced = this.state.notes.splice(noteindex, 1,{id, title: newtitle, content: newcontent});
+      this.setState({replaced});
+    // } else if ( newtitle === '' && newcontent != ''){
+    //   let replaced = this.state.notes.splice(noteindex, 1,{id, title, content: newcontent});
+    //   this.setState({replaced});
+    // } else if (newtitle != '' && content === '') {
+    //   let replaced = this.state.notes.splice(noteindex, 1,{id, title: newtitle, content});
+    //   this.setState({replaced});
+    // } else if (newtitle != '' && newcontent != '') {
+    //   let replaced = this.state.notes.splice(noteindex, 1,{id, title: newtitle, content: newcontent});
+    //   this.setState({replaced});
+    // }
+     
+    // let replaced = this.state.notes.splice(noteindex, 1,{id, title, content});
+    // console.log('the note index is: ' + replaced);
+    // this.setState({replaced});
+  }
+  deleteNote = (noteid) => {
+    console.log('deleting note ' + (noteid)) // why is this negative 1
+    let noteindex = this.state.notes.findIndex(i => i.id === noteid)
+     
+     let removed = this.state.notes.splice(noteindex, 1);
+     console.log('the note index is: ' + removed);
+     this.setState(this.state.notes);
   }
   componentDidMount(){
     // this.notes.push('this is us')
@@ -52,7 +80,7 @@ class App extends Component {
                                    
                                  }
                                }>    
-               <Button  onClick={() => this.createNewNote()} color="primary" size="lg" >View Your Notes</Button>{' '}
+               <Button color="primary" size="lg" >View Your Notes</Button>{' '}
                </Link>
           </Row>
           <Row>
@@ -63,7 +91,7 @@ class App extends Component {
                            }
                          }>
                         
-               <Button onClick={() => this.createNewNote()}  color="primary" size="lg" >+ Create New Note</Button>{' '}
+               <Button  color="primary" size="lg" >+ Create New Note</Button>{' '}
                </Link>
           </Row>
         </ButtonToolbar>
@@ -71,7 +99,7 @@ class App extends Component {
         </div>
         <Col sm ='8'>
         <Switch>
-         <Route exact path='/' render={() => <ListNotes notes={this.state.notes}/>}/>
+         <Route exact path='/' render={() => <ListNotes notes={this.state.notes} deletenote={this.deleteNote} editnote={this.editNote}/>}/>
          {/* <Route exact path='/' render={() => <DeleteNote notes={this.state.notes}/>}/> */}
          {/* <Route exact path = '/notes/true' component = {CreateNote}/> */}
          <Route exact path = '/notes/true' component = {() => <CreateNote createNote={this.createNewNote}/>}/>
@@ -80,6 +108,7 @@ class App extends Component {
          {/* <Switch><Route path={`notes/${Note.id}`} render={(note) => <Note {...note}/>}/> */}
          {/* <Route exact path='/' render={() => <ListNotes notes={this.state.notes}/>}/> */}
          <Route path={`/notes/:id`} component = {Note} />
+         {/* <Route path = {`/notes/:id`} component = {() => <Note deleteNote={this.deleteNote}/>}/> */}
          </Switch>
          {/* <ListNotes notes={this.state.notes}></ListNotes> */}
          {/* <Route exact path ={`/notes/${note.id}`} render={(note) => <Note {...note}/>}/> */}

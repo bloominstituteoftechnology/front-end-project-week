@@ -12,17 +12,25 @@ export default class Note extends Component {
         this.state = {
             modal: false
           };
-        console.log("This is note" + props);
+        console.log("This is note" + this.props.location.editnote);
         this.toggle = this.toggle.bind(this);
+    }
+
+    delete =() => {
+      console.log(this.props.location.state.note.id);
+      console.log(this.state.modal)
+      let newdeletenote = this.props.location.state.note.id
+      this.props.location.deletenote(newdeletenote)
     }
 
     toggle() {
         this.setState({
           modal: !this.state.modal
         });
+        
     }
 render() {
-    console.log('the state is ' + this.props.location.state.note.title)
+      // console.log('the state is ' + this.props.location.editnote)
     return(
     <div>
         <Card className="text-left">
@@ -32,10 +40,12 @@ render() {
               <Nav className="text-right">
               <Link to= {
                                  {
-                                   pathname: '/notes/edit',
+                                   pathname: `/notes/edit`,
+                                   state: this.props.location.state.note,
+                                   editnote: this.props.location.editnote
                                  }
                                }>    
-               <NavLink href="#">edit</NavLink>
+               <NavLink>edit</NavLink>
                </Link>
                 
                 <NavLink color="danger" onClick={this.toggle} href="#">delete</NavLink>
@@ -43,13 +53,17 @@ render() {
               </div>
               <div>
               <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                <ModalBody>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </ModalBody>
+                <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
                 <ModalFooter>
-                  <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                  <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                <Link to= {
+                           {
+                             pathname: '/',
+                             
+                           }
+                         }>
+                  <Button color="primary" onClick={this.delete}>Delete</Button>
+                  </Link>
+                  <Button color="secondary" onClick={this.toggle}>No</Button>
                 </ModalFooter>
               </Modal>
             </div>

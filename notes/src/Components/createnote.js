@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 //import axios from 'axios';
 import { Card, CardText, Button, Form, FormGroup, Input} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 export default class CreateNote extends Component {
     constructor(props) {
@@ -8,7 +9,8 @@ export default class CreateNote extends Component {
         //  console.log(this.props)
 
         this.state = {
-            note: []
+            title: '', 
+            content: ''
         };
     }
 
@@ -17,11 +19,20 @@ render() {
         <div>
             <Form>
                 <FormGroup>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="Note Title" />
-                    <Input type="textarea" name="text" id="exampleText" placeholder="Note Content" />
+                    <input type= 'text' placeholder = 'Note Title'  name= 'title' value = {this.state.title} onChange = {e => this.setState({ [e.target.name]: e.target.value})} />
+                    <input type= 'text' placeholder = 'Note Content'   name= 'content' value = {this.state.content} onChange = {e => this.setState({ [e.target.name]: e.target.value})} />
                 </FormGroup>
                 {/* {console.log(this.props)} */}
-                <Button onClick={() => this.props.createNote('Tommys notes', 'The way i started this story was ')}  color="primary" >+ Create Note</Button>{' '}
+                <Link to= {
+                           {
+                             pathname: '/',
+                             
+                           }
+                         }>
+                        
+                        <Button onClick={() => this.props.createNote(this.state.title, this.state.content)}  color="primary" >+ Create Note</Button>{' '}
+               </Link>
+               
             </Form>
         </div>
     )

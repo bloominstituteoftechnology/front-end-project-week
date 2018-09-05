@@ -9,7 +9,7 @@ import {Link, Redirect} from 'react-router-dom';
 const ListNotes = props => {
     return (
     <div className = "d-flex flex-wrap">
-
+    {console.log(props.deletenote)}
            
            {props.notes.map((note) => {
             return (
@@ -20,7 +20,9 @@ const ListNotes = props => {
                     <Link to= {
                         {
                             pathname: `/notes/${note.id}`,
-                            state: { note}
+                            state: {note},
+                            deletenote: props.deletenote,
+                            editnote: props.editnote
                         } 
                     }>
                         <Card>

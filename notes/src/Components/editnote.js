@@ -1,36 +1,42 @@
 import React, {Component} from 'react';
-import { Card, CardText, CardBody, Form, FormGroup, Input} from 'reactstrap';
 //import axios from 'axios';
+import { Card, CardText, Button, Form, FormGroup, Input} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 export default class EditNote extends Component {
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
+          console.log('edit is props: ' + this.props.location.state.title)
+          console.log('edit is props: ' + this.props.location.editnote)
 
-    //     this.state = {
-    //         movie: []
-    //     };
-    // }
+        this.state = {
+            title: '', 
+            content: ''
+        };
+    }
 
-    render() {
-        return(
-            <div>
-                <Form>
-                    <FormGroup>
-                        <Input type="email" name="email" id="exampleEmail" placeholder="Note Title" />
-                        <Input type="textarea" name="text" id="exampleText" placeholder="Note Content" />
-                    </FormGroup>
-                </Form>
-                {/* <form onSubmit={e => {e.preventDefault() 
-                        if(!input.value.trim()) {
-                            return 
-                        }
-                        dispatch(addItem(input.value))
-                        input.value = ''
-                        }} >
-                    <input ref={node => {input = node}} />
-                    <button type='submit'> Add Note</button>
-                </form> */}
-            </div>
-        )
-    }
-    }
+render() {
+    return(
+        <div>
+            hello from edit
+            <Form>
+                <FormGroup>
+                    <input type= 'text' placeholder = 'Note Title'  name= 'title' value = {this.state.title} onChange = {e => this.setState({ [e.target.name]: e.target.value})} />
+                    <input type= 'text' placeholder = 'Note Content'   name= 'content' value = {this.state.content} onChange = {e => this.setState({ [e.target.name]: e.target.value})} />
+                </FormGroup>
+                {/* {console.log(this.props)} */}
+                <Link to= {
+                           {
+                             pathname: '/',
+                             
+                           }
+                         }>
+                        
+                        <Button onClick={() => this.props.location.editnote(this.props.location.state.id, this.state.title, this.state.content)}  color="primary" >+ Edit Note</Button>{' '}
+               </Link>
+               
+            </Form>
+        </div>
+    )
+}
+}
