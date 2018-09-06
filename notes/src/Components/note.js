@@ -12,13 +12,10 @@ export default class Note extends Component {
         this.state = {
             modal: false
           };
-        console.log("This is note" + this.props.location.editnote);
         this.toggle = this.toggle.bind(this);
     }
 
-    delete =() => {
-      console.log(this.props.location.state.note.id);
-      console.log(this.state.modal)
+    delete = () => {
       let newdeletenote = this.props.location.state.note.id
       this.props.location.deletenote(newdeletenote)
     }
@@ -30,14 +27,12 @@ export default class Note extends Component {
         
     }
 render() {
-      // console.log('the state is ' + this.props.location.editnote)
     return(
     <div>
         <Card className="text-left">
           <CardBody>
-              <div className="text-right">
-              this proves it
-              <Nav className="text-right">
+              <div class="text-right">
+              <Nav>
               <Link to= {
                                  {
                                    pathname: `/notes/edit`,

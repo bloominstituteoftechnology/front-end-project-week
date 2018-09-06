@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 export default class CreateNote extends Component {
     constructor(props) {
         super(props);
-        //  console.log(this.props)
 
         this.state = {
             title: '', 
@@ -22,7 +21,6 @@ render() {
                     <input type= 'text' placeholder = 'Note Title'  name= 'title' value = {this.state.title} onChange = {e => this.setState({ [e.target.name]: e.target.value})} />
                     <input type= 'text' placeholder = 'Note Content'   name= 'content' value = {this.state.content} onChange = {e => this.setState({ [e.target.name]: e.target.value})} />
                 </FormGroup>
-                {/* {console.log(this.props)} */}
                 <Link to= {
                            {
                              pathname: '/',

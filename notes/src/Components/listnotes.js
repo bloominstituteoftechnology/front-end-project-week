@@ -9,14 +9,12 @@ import {Link, Redirect} from 'react-router-dom';
 const ListNotes = props => {
     return (
     <div className = "d-flex flex-wrap">
-    {console.log(props.deletenote)}
            
            {props.notes.map((note) => {
             return (
                 <Col sm='4'd-flex flex-wrap>
                 <h3>
                 <div className="Character-Wrapper ">
-                {console.log(note)}
                     <Link to= {
                         {
                             pathname: `/notes/${note.id}`,
@@ -48,6 +46,3 @@ const ListNotes = props => {
 
 
 export default ListNotes;
-
-// pathname:`/notes/${note.id}`,
-//                         state: {}

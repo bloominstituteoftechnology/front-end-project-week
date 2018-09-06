@@ -1,12 +1,26 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1{
+  text-align: center;
 }
-
+.testing{
+  display :flex ;
+  flex-wrap: wrap;
+  margin-left: 50px;
+}
+Button {
+  width: 200px;
+}
+.button{
+  margin-top: 50px;
+}
+.col-sm-8 { 
+  margin-top: 100px;
+}
+h3 {
+  text-align: left;
+}
 .App-header {
   background-color: #222;
   height: 150px;
@@ -27,8 +41,3 @@
   to { transform: rotate(360deg); }
 }
 
-.testing { 
-  display :flex ;
-  flex-wrap: wrap;
-  border: red ;
-}

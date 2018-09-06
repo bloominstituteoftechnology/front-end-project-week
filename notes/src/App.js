@@ -16,72 +16,57 @@ class App extends Component {
     super(props);
 
     this.state = {
-      notes: [{ id: 0, title: 'Note1' , content: "This is an example note"}, { id: 1, title: 'Note2' , content: "This is an example note2"}, {id: 2, title: 'Note3' , content: "This is an example note3"},  {id: 3, title: 'Note4' , content: "This is an example note4"}],
+    notes: [{ id: 0, title: 'Note1' , content: "This is an example note1"}, 
+            { id: 1, title: 'Note2' , content: "This is an example note2"}, 
+            { id: 2, title: 'Note3' , content: "This is an example note3"},  
+            { id: 3, title: 'Note4' , content: "This is an example note4"},
+            { id: 4, title: 'Note5' , content: "This is an example note5"}, 
+            { id: 5, title: 'Note6' , content: "This is an example note6"}, 
+            { id: 6, title: 'Note7' , content: "This is an example note7"},  
+            { id: 7, title: 'Note8' , content: "This is an example note8"},   
+            { id: 8, title: 'Note9' , content: "This is an example note9"}, 
+            { id: 9, title: 'Note10' , content: "This is an example note10"},
+            { id: 10, title: 'Note11' , content: "This is an example note11"},  
+            { id: 11, title: 'Note12' , content: "This is an example note12"}
+    ],
       delete: false,
 
     }
   }
 
   createNewNote = (newtitle, newcontent) => {
-    console.log('Creating a new note!' + newtitle)
-    // this.state.create = true;
-    //this.setState({create:true})
-    // console.log('Creating a new note! from inside' + this.state.notes.length)
-    // let newNote = {id: 9, title: newtitle, content: newcontent}
     const newArray = [...this.state.notes, {id: this.state.notes.length + 1, title: newtitle, content: newcontent}]
     this.setState({notes: newArray});
   }
   editNote = (id, newtitle, newcontent) => {
-    console.log('editing note with '+ id + this.state.title + this.state.content) // why is this negative 1
     let noteindex = this.state.notes.findIndex(i => i.id === id)
-      let replaced = this.state.notes.splice(noteindex, 1,{id, title: newtitle, content: newcontent});
-      this.setState({replaced});
-    // } else if ( newtitle === '' && newcontent != ''){
-    //   let replaced = this.state.notes.splice(noteindex, 1,{id, title, content: newcontent});
-    //   this.setState({replaced});
-    // } else if (newtitle != '' && content === '') {
-    //   let replaced = this.state.notes.splice(noteindex, 1,{id, title: newtitle, content});
-    //   this.setState({replaced});
-    // } else if (newtitle != '' && newcontent != '') {
-    //   let replaced = this.state.notes.splice(noteindex, 1,{id, title: newtitle, content: newcontent});
-    //   this.setState({replaced});
-    // }
-     
-    // let replaced = this.state.notes.splice(noteindex, 1,{id, title, content});
-    // console.log('the note index is: ' + replaced);
-    // this.setState({replaced});
+    let replaced = this.state.notes.splice(noteindex, 1,{id, title: newtitle, content: newcontent});
+    this.setState({replaced});
   }
   deleteNote = (noteid) => {
-    console.log('deleting note ' + (noteid)) // why is this negative 1
     let noteindex = this.state.notes.findIndex(i => i.id === noteid)
-     
-     let removed = this.state.notes.splice(noteindex, 1);
-     console.log('the note index is: ' + removed);
-     this.setState(this.state.notes);
+    this.state.notes.splice(noteindex, 1);
+    this.setState(this.state.notes);
   }
   componentDidMount(){
-    // this.notes.push('this is us')
   }
   render() {
-    // console.log(this.state.notes);
     return (
       <div className="App">
-        <div>
+        <div className = 'app-container'>
           <Row>
         <div className = "testing">
         <Col sm='4' >
         
         <h1> Lambda Notes</h1>
-        <ButtonToolbar>
           <Row>
-                <Link to= {
-                                 {
-                                   pathname: '/',
-                                   
-                                 }
-                               }>    
-               <Button color="primary" size="lg" >View Your Notes</Button>{' '}
-               </Link>
+            <Link to ={
+                       {
+                         pathname: '/'
+                       }
+                      }>    
+              <Button color="info" size="lg" >View Your Notes</Button>
+            </Link>
           </Row>
           <Row>
                <Link to= {
@@ -91,28 +76,22 @@ class App extends Component {
                            }
                          }>
                         
-               <Button  color="primary" size="lg" >+ Create New Note</Button>{' '}
+               <Button  color="info" size="lg" >+ Create New Note</Button>{' '}
                </Link>
           </Row>
-        </ButtonToolbar>
         </Col>
         </div>
         <Col sm ='8'>
+        <h3>
+        Your Notes:
+        </h3>
+        
         <Switch>
          <Route exact path='/' render={() => <ListNotes notes={this.state.notes} deletenote={this.deleteNote} editnote={this.editNote}/>}/>
-         {/* <Route exact path='/' render={() => <DeleteNote notes={this.state.notes}/>}/> */}
-         {/* <Route exact path = '/notes/true' component = {CreateNote}/> */}
          <Route exact path = '/notes/true' component = {() => <CreateNote createNote={this.createNewNote}/>}/>
-         {/* <Route component={() => <ChildComponent methodToPass={this.state.method}/> */}
          <Route exact path = '/notes/edit' component = {EditNote}/>
-         {/* <Switch><Route path={`notes/${Note.id}`} render={(note) => <Note {...note}/>}/> */}
-         {/* <Route exact path='/' render={() => <ListNotes notes={this.state.notes}/>}/> */}
          <Route path={`/notes/:id`} component = {Note} />
-         {/* <Route path = {`/notes/:id`} component = {() => <Note deleteNote={this.deleteNote}/>}/> */}
          </Switch>
-         {/* <ListNotes notes={this.state.notes}></ListNotes> */}
-         {/* <Route exact path ={`/notes/${note.id}`} render={(note) => <Note {...note}/>}/> */}
-         {/* </Switch> */}
          </Col>
          </Row>
         </div>
