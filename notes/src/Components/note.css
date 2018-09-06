@@ -1,13 +1,27 @@
 .navigation {
     display: flex;
-    border: 1px solid red; 
-    /* justify-content: left; */
+    justify-content:flex-end;
+    color: black;
     
 }
-navlink{
-    justify-content: center;
+
+
+.nav-link{
+   color: black;
 }
+
 a{
-    justify-content: center;
-    text-align: center;
+    color: black!important;
+}
+
+.note{
+    
+    padding-left: 10px;
+}
+
+.noteTitle {
+    font-size: 2rem;
+}
+.noteBody {
+    padding-top: 20px;
 }

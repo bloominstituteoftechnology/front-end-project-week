@@ -14,6 +14,7 @@ h1{
   border-right: 1px solid black;
   font-weight: bold;
   color: rgb(65,65,65);
+  min-height: 645px;
 }
 .frontpagebuttons{
   /* border: 1px solid red; */
@@ -25,7 +26,7 @@ Button {
 
 
 .col-sm-8 { 
-  padding-top: 130px;
+  padding-top: 80px;
   background-color: rgb(242, 241, 242);
 }
 h3 {

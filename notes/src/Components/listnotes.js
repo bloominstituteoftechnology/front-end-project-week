@@ -9,9 +9,9 @@ import {Link, Redirect} from 'react-router-dom';
 const ListNotes = props => {
     return (
         <div>
-        <h3>
+        <h2>
         Your Notes:
-        </h3>
+        </h2>
     <div className = "d-flex flex-wrap">
            
            {props.notes.map((note) => {

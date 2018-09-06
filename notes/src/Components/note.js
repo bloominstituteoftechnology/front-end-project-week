@@ -41,7 +41,7 @@ render() {
                <NavLink>edit</NavLink>
                </Link>
                 
-                <NavLink color="danger" onClick={this.toggle} href="#">delete</NavLink>
+                <NavLink onClick={this.toggle} href="#">delete</NavLink>
             
               </div>
               <div>
@@ -60,8 +60,10 @@ render() {
                 </ModalFooter>
               </Modal>
             </div>
-            <h5>{this.props.location.state.note.title}</h5>
-            <CardText>{this.props.location.state.note.content}</CardText>
+            <div className="note">
+              <h5 className="noteTitle">{this.props.location.state.note.title}</h5>
+              <div className="noteBody">{this.props.location.state.note.content}</div>
+            </div>
     </div>
 
     )
