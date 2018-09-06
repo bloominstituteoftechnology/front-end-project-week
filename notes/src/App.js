@@ -5,8 +5,8 @@ import SideNav from "./components/SideNav";
 import ListView from "./components/ListView";
 import CreateView from "./components/CreateView";
 import NoteView from "./components/NoteView";
-// import EditView from './components/EditView';
-import DeleteView from "./components/DeleteView";
+import EditView from './components/EditView';
+import DeleteView from "./components/DeleteModal";
 
 import "./App.css";
 
@@ -62,7 +62,7 @@ class App extends Component {
           />
           <ListView notes={this.state.notes} />
           <NoteView />
-          {/* <EditView /> */}
+          <EditView />
           <DeleteView />
         </div>
       </div>
