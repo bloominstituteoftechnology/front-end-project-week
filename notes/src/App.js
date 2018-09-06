@@ -53,13 +53,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className = 'app-container'>
           <Row>
         <div className = "testing">
         <Col sm='4' >
         
         <h1> Lambda Notes</h1>
-          <Row>
+          <div className='frontpagebuttons'>
             <Link to ={
                        {
                          pathname: '/'
@@ -67,25 +66,21 @@ class App extends Component {
                       }>    
               <Button color="info" size="lg" >View Your Notes</Button>
             </Link>
-          </Row>
-          <Row>
-               <Link to= {
-                           {
-                             pathname: '/notes/true',
-                             
-                           }
-                         }>
-                        
+          </div>
+          <div className='frontpagebuttons'>
+            <Link to= {
+                        {
+                          pathname: '/notes/true',
+                          
+                        }
+                      }>
+                     
                <Button  color="info" size="lg" >+ Create New Note</Button>{' '}
-               </Link>
-          </Row>
+            </Link>
+          </div>
         </Col>
         </div>
         <Col sm ='8'>
-        <h3>
-        Your Notes:
-        </h3>
-        
         <Switch>
          <Route exact path='/' render={() => <ListNotes notes={this.state.notes} deletenote={this.deleteNote} editnote={this.editNote}/>}/>
          <Route exact path = '/notes/true' component = {() => <CreateNote createNote={this.createNewNote}/>}/>
@@ -94,7 +89,6 @@ class App extends Component {
          </Switch>
          </Col>
          </Row>
-        </div>
       </div>
     );
   }

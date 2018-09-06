@@ -29,10 +29,8 @@ export default class Note extends Component {
 render() {
     return(
     <div>
-        <Card className="text-left">
-          <CardBody>
-              <div class="text-right">
-              <Nav>
+              <div className="navigation">
+              
               <Link to= {
                                  {
                                    pathname: `/notes/edit`,
@@ -44,7 +42,7 @@ render() {
                </Link>
                 
                 <NavLink color="danger" onClick={this.toggle} href="#">delete</NavLink>
-              </Nav>
+            
               </div>
               <div>
               <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
@@ -62,10 +60,8 @@ render() {
                 </ModalFooter>
               </Modal>
             </div>
-            <CardTitle>{this.props.location.state.note.title}</CardTitle>
+            <h5>{this.props.location.state.note.title}</h5>
             <CardText>{this.props.location.state.note.content}</CardText>
-          </CardBody>
-        </Card>
     </div>
 
     )

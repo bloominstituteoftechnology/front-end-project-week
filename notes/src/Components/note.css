@@ -1,6 +1,13 @@
-
-
-.nav{
-    text-align: right; 
-    border:red!important;
+.navigation {
+    display: flex;
+    border: 1px solid red; 
+    /* justify-content: left; */
+    
+}
+navlink{
+    justify-content: center;
+}
+a{
+    justify-content: center;
+    text-align: center;
 }
