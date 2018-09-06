@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import SideNav from "./components/SideNav";
 import ListView from "./components/ListView";
@@ -10,7 +10,7 @@ import DeleteView from "./components/DeleteModal";
 
 import "./App.css";
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,13 +26,15 @@ class App extends Component {
 
   submitNewNote = e => {
     e.preventDefault();
-    const { notes } = this.state;
-    const myNotes = {
-      title: this.state.title,
-      content: this.state.content
-    };
-    notes.push(myNotes);
-    this.setState({ notes, myNotes: "", title: "", content: "" });
+    const notes = [
+      ...this.state.notes,
+      {
+        title: this.state.title,
+        content: this.state.content
+      }
+    ];
+    // notes.push(myNotes);
+    this.setState({ notes, title: "", content: "" });
   };
 
   updateNote = e => {
@@ -50,22 +52,27 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <SideNav />
+      <Router>
         <div>
-          <CreateView
-            title={this.state.title}
-            content={this.state.content}
-            notes={this.state.notes}
-            onChange={this.noteHandler}
-            onSubmit={this.submitNewNote}
-          />
-          <ListView notes={this.state.notes} />
-          <NoteView />
-          <EditView />
-          <DeleteView />
+          <SideNav />
+          <div>
+            <CreateView
+              title={this.state.title}
+              content={this.state.content}
+              notes={this.state.notes}
+              onChange={this.noteHandler}
+              onSubmit={this.submitNewNote}
+            />
+            <ListView notes={this.state.notes} />
+            <NoteView />
+            <EditView />
+            <DeleteView />
+          </div>
+
+          {/* <Route exact path="/" component={ListView} /> */}
+          <Route path="/create" component={CreateView} />
         </div>
-      </div>
+      </Router>
     );
   }
 }

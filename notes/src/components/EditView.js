@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 
 import "./EditView.css";
 
-class EditView extends Component {
+class EditView extends React.Component {
   render() {
     return (
       <div className="new-container">

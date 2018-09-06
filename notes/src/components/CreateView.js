@@ -29,10 +29,7 @@ class CreateView extends Component {
             />
           </div>
           <div>
-            <button
-              type="submit"
-              className="save-button"
-            >
+            <button type="submit" className="save-button">
               Save
             </button>
           </div>
