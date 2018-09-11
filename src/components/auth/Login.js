@@ -6,8 +6,8 @@ import { logIn } from "../../actions";
 
 class Login extends React.Component {
     state = {
-        email: 'test@test.com',
-        password: '12345678',
+        email: '',
+        password: '',
         error: null
     }
 
