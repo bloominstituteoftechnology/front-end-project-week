@@ -564,7 +564,8 @@ p {
 .account-form {
   display: flex;
   flex-flow: column wrap;
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   margin: 87px 0 0;
   padding: 10px 18px 22px;
   border-radius: 4px;
@@ -598,18 +599,21 @@ p {
   padding: 0 0 5px 10px;
 }
 
-.account-form a {
-  width: 36%;
+.account-form .button {
+  width: 28%;
   color: white;
   font-size: 1.4rem;
-  margin-top: 18px;
   display: inline-block;
+  float: right;
+}
+
+.account-form .delete {
+  width: 36%;
 }
 
 .account-form > div:last-child {
   display: flex;
-  margin: 10px 0 0;
-  justify-content: space-between;
+  margin: 40px 0 0;
   width: 100%;
 }
 
