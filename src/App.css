@@ -211,6 +211,14 @@ border:none;
   .close:hover{
     color:#DC3545;
   } 
+  .far{
+    margin-right:5%;
+    font-size:30px;
+  }
+  .site-name{
+    margin-top:4%;
+    letter-spacing: .2ch
+  }
 @media(max-width: 390px){
 
   .navbar-brand{

@@ -32,7 +32,8 @@ class Home extends Component {
               <Navbar fixed={"top"} light expand="md">
                 <Col sm="auto" md="auto">
                   <NavbarBrand href="/">
-                    <i className="far fa-sticky-note" />Lambda Notes
+                    <i className="far fa-sticky-note" />
+                    <div className="site-name">JLL Notes</div>
                   </NavbarBrand>
                 </Col>
 
