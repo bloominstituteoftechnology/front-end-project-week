@@ -16,15 +16,15 @@ class NotesList extends Component {
             
         }
     }
-
+  //Since the newly created note is showing last in the notesarray, this has it show first by reversing the order
     componentWillMount() {
         let reversed = Array.from(this.props.notesArray).reverse();
         this.setState({ notesArray: reversed });
     }
-
+    //note plus note.id are just a really long specific string
     showNotes = (note, index) => {
         return (
-            <Link to={`/note/${note._id}`} className='unstiledLink' key={note._id}>  
+            <Link to={`/note/${note._id}`} className='unstyledLink' key={note._id}>  
             <div className='note'>
                 <div>
                     <h4>{note.title}</h4>

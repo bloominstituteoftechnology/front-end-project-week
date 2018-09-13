@@ -9,12 +9,14 @@ class DeleteNote extends Component {
         this.props.deleteNote(this.props.toDelete);
         this.props.history.push('/');
     }
-    
+    //Really intense prop passing to children.......
     render() {
         console.log('Delete Note Props:', this.props)
+        //toggle logic
         let toggle = this.props.toggle;
         return (
-            <div className={toggle ? 'delete_wrapper' : 'hidden'}>
+            //hidden by default, then when selected, will display contents of delete wrapper. Ternary statement. Works with a prop passed through delete note in Noteview.
+            <div className={toggle ? 'delete_wrapper' : 'hidden'}> 
                 <div>
                     <h4>Are you sure you want to delete this?</h4>
                 </div>

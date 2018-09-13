@@ -48,6 +48,9 @@ const initialState = [
 
 ];
 
+
+//temp is working with a "temporary" copy of the copy of the notes notes array that you make changes to, and then display. 
+//The Array.from() method creates a new, shallow-copied Array instance from an array-like or object.
 const notesReducer = (state = initialState, action) => {
     let temp = Array.from(state);
     switch (action.type) {

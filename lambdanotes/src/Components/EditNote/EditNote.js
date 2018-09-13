@@ -69,3 +69,4 @@ class EditNote extends Component {
 }
 
 export default connect(mapStateToProps, {editNote})(EditNote);
+
