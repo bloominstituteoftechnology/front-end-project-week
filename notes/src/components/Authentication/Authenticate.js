@@ -11,7 +11,7 @@ const Authenticate = NotesList =>
       }
     }
 
-/* Component displays only if localStorage contains a certain value */
+    /* Component displays only if localStorage contains a certain value */
     componentDidMount() {
       if (localStorage.getItem('token')) this.setState({
        loggedIn: true
@@ -19,7 +19,6 @@ const Authenticate = NotesList =>
    }
 
     render() {
-      console.log('Auth location', this.props.location);
         return (this.state.loggedIn ? <NotesList /> : <Login />);
     }
   }

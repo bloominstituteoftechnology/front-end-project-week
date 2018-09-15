@@ -27,19 +27,19 @@ class NotesList extends React.Component {
       })
   }
 
-/*CLick function that enables the user to logout of the page*/
+  /* Click function that enables the user to logout of the page */
   handleLogout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     window.location.reload();
   }
 
-/*Generic change handler that updates component state from an input field*/
+  /* Generic change handler that updates component state from an input field */
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
-/*Function allows for note searching functionality*/
+  /* Function allows for note searching functionality */
   handleSearch = event => {
     event.preventDefault();
     let searchResults = this.state.notes.slice();
@@ -57,12 +57,12 @@ class NotesList extends React.Component {
     this.setState({searchResults: searchResults})
   }
 
-/*Toggles the sorting of notes Alphabetically by title*/
+  /* Toggles the sorting of notes Alphabetically by title */
   toggleAlphaSort = () => {
     this.setState({alphaSort: !this.state.alphaSort})
   }
 
-/*Working on this function, will enable export to a CSV file*/
+  /* Working on this function, will enable export to a CSV file */
   exportCSV = dataArray => {
     let str = 'data:text/csv;charset=utf-8,';
 
@@ -77,6 +77,7 @@ class NotesList extends React.Component {
     }
     return str;
   }
+  
   render() {
     let returnedNotes;
     returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.state.notes;
