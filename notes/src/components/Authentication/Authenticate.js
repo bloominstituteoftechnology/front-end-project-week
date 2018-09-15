@@ -1,7 +1,8 @@
 import React from 'react';
 import Login from '../Login/Login';
+import NotesList from '../NotesList';
 
-const Authenticate = App =>
+const Authenticate = NotesList =>
   class InnerApp extends React.Component {
     constructor(props) {
       super(props);
@@ -19,8 +20,8 @@ const Authenticate = App =>
 
     render() {
       console.log('Auth location', this.props.location);
-        return (this.state.loggedIn ? <App /> : <Login />);
+        return (this.state.loggedIn ? <NotesList /> : <Login />);
     }
   }
-//This should only exist in the registration page version NOW IT SHOULD
+
 export default Authenticate;

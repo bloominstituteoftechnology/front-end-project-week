@@ -23,8 +23,6 @@ class CreateNote extends React.Component {
     event.preventDefault();
     axios.post('https://nameless-harbor-91626.herokuapp.com/notes/', newNote)
     .then(response => {
-      console.log(response);
-      this.props.setData();
       this.props.history.push("/")
     })
     .catch(err => {
