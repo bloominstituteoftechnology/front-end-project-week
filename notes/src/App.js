@@ -18,8 +18,9 @@ class App extends Component {
 
   /*Fetches data from the server once the App component mounts then passes it to the state to be displayed*/
   componentDidMount() {
+    console.log('app userID', localStorage.getItem('userID'));
     axios
-      .get('https://nameless-harbor-91626.herokuapp.com/notes/all')
+      .get(`https://nameless-harbor-91626.herokuapp.com/users/${localStorage.getItem('userID')}/notes`)
       .then(response => {
         console.log('HERE', response.data);
         this.setState({notes: response.data})
@@ -32,7 +33,7 @@ class App extends Component {
 /*Exported function met to fetch API data for this state via a different component*/
   setData = () => {
     axios
-      .get('https://nameless-harbor-91626.herokuapp.com/notes/all')
+      .get(`https://nameless-harbor-91626.herokuapp.com/users/${localStorage.getItem('userID')}/notes`)
       .then(response => {
         this.setState({notes: response.data})
       })

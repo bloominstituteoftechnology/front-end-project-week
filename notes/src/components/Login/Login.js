@@ -28,6 +28,7 @@ class Login extends React.Component {
       .then(response => {
         localStorage.setItem('user', username);
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('userID', response.data.id);
         window.location.reload();
       }).catch(err => {
         this.setState({unAuthenticated: true});
