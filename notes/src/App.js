@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
+import {Route} from 'react-router-dom';
 import NotesList from './components/NotesList';
 import CreateNote from './components/CreateNote';
-import {Route} from 'react-router-dom';
 import ViewNote from './components/ViewNote';
 import Register from './components/Register';
 
