@@ -79,7 +79,6 @@ class NotesList extends React.Component {
   }
 
   render() {
-    console.log('NOTE PROPS', this.props)
     let returnedNotes;
     returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.state.notes;
     let sortedNotes = returnedNotes.slice();

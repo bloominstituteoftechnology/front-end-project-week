@@ -20,17 +20,19 @@ class Register extends React.Component {
     e.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-    axios.post('https://nameless-harbor-91626.herokuapp.com/register', {username, password}).then(response => {
-      localStorage.setItem('token', response.data.token);
-      this.props.history.push('/home');
-    }).catch(err => {
+    axios
+      .post('https://nameless-harbor-91626.herokuapp.com/register',
+        {username, password}).then(response => {
+          localStorage.setItem('userID', response.data.id);
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', response.data.username);
+          this.props.history.push('/');
+        }).catch(err => {
       console.log(err);
-    })
-
+      })
   }
 
   render() {
-    console.log('register location', this.props.location);
     return (
       <div>
         <form className="login">

@@ -12,7 +12,6 @@ const Authenticate = ProtectedComponent =>
 
     /* Component displays only if localStorage contains a certain value */
     componentDidMount() {
-      console.log('auth', this.props.location)
       if (localStorage.getItem('token')) this.setState({
        loggedIn: true
      });
