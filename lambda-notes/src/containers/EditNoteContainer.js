@@ -3,6 +3,7 @@ import NoteForm from '../components/NoteForm';
 import { connect } from 'react-redux';
 import { getNote, editNote } from '../actions';
 import Wrapper from '../components/Wrapper';
+import Loading from '../components/Loading';
 
 class EditNoteContainer extends React.Component {
   state = {
@@ -46,10 +47,10 @@ class EditNoteContainer extends React.Component {
               handleChange={this.handleChange}
               title={this.state.title}
               content={this.state.textBody}
+              loading={this.props.edittingNote}
             />
           </Fragment>
         )}
-        {this.props.edittingNote && <p>Editing note... </p>}
       </Wrapper>
     );
   }

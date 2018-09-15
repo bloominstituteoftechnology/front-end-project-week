@@ -6,6 +6,7 @@ import { getNote, deleteNote } from '../actions';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
 import Wrapper from '../components/Wrapper';
+import Loading from '../components/Loading';
 
 const PageWrapper = styled(Wrapper)`
   margin-top: 9px;
@@ -15,6 +16,7 @@ const StyledLink = styled.div`
   padding: 8px;
   color: #414141;
   font-size: 11px;
+  cursor: pointer;
 `;
 const LinkWrapper = styled.div`
   display: flex;
@@ -36,41 +38,36 @@ class NoteContainer extends React.Component {
     }
   }
 
-  showModal = () => {
-    this.setState({ showingModal: true });
-  };
-
-  hideModal = () => {
-    this.setState({ showingModal: false });
-  };
-
   render() {
     return (
-      <Fragment>
+      <PageWrapper>
         {this.props.isFetching ? (
-          <p> gettin dat note </p>
+          <Loading />
         ) : this.props.noteDeleted ? (
           <p> note deleted! </p>
         ) : (
-          <PageWrapper>
+          <Fragment>
             <LinkWrapper>
               <Link to={`/edit/${this.props.match.params.id}`}>
                 <StyledLink>edit</StyledLink>
               </Link>
-              <StyledLink onClick={this.showModal}> delete </StyledLink>
+              <StyledLink onClick={() => this.setState({ showingModal: true })}>
+                {' '}
+                delete{' '}
+              </StyledLink>
             </LinkWrapper>
             <Note note={this.props.note} />
             <Modal
               show={this.state.showingModal}
-              handleClose={this.hideModal}
+              handleClose={() => this.setState({ showingModal: false })}
               handleDelete={() =>
                 this.props.deleteNote(this.props.match.params.id)
               }
               deleteNote={this.props.deletingNote}
             />
-          </PageWrapper>
+          </Fragment>
         )}
-      </Fragment>
+      </PageWrapper>
     );
   }
 }

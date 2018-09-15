@@ -1,5 +1,6 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import Loading from './Loading';
 
 const StyledNote = styled.div`
   h4 {
@@ -10,8 +11,7 @@ const StyledNote = styled.div`
   p {
     font-size: 12px;
   }
-
-`
+`;
 
 const Note = ({ note }) => (
   <div>
@@ -21,7 +21,7 @@ const Note = ({ note }) => (
         <p>{note.textBody}</p>
       </StyledNote>
     ) : (
-      <p> loading note...</p>
+      <Loading />
     )}
   </div>
 );

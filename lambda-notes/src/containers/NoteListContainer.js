@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 import NoteList from '../components/NoteList';
 import Wrapper from '../components/Wrapper';
+import Loading from '../components/Loading';
 
 class NoteListContainer extends React.Component {
   componentDidMount() {
@@ -11,16 +12,16 @@ class NoteListContainer extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <Wrapper>
         {this.props.fetchingNotes ? (
-          <p> ur notes b coming </p>
+          <Loading />
         ) : (
-          <Wrapper>
+          <Fragment>
             <h4>Your Notes:</h4>
             <NoteList notes={this.props.notes} />
-          </Wrapper>
+          </Fragment>
         )}
-      </Fragment>
+      </Wrapper>
     );
   }
 }
