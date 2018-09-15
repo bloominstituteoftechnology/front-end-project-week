@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import { connect } from "react-redux";
-import { fetchNotes } from "../actions";
-import NoteList from "../components/NoteList";
-import { StyledContainer } from '../styled-components/container-styles'; 
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+import { fetchNotes } from '../actions';
+import NoteList from '../components/NoteList';
+import Wrapper from '../components/Wrapper';
 
 class NoteListContainer extends React.Component {
   componentDidMount() {
@@ -15,10 +15,10 @@ class NoteListContainer extends React.Component {
         {this.props.fetchingNotes ? (
           <p> ur notes b coming </p>
         ) : (
-          <StyledContainer>
-          <h4>Your Notes:</h4>
-          <NoteList notes={this.props.notes} />
-          </StyledContainer>
+          <Wrapper>
+            <h4>Your Notes:</h4>
+            <NoteList notes={this.props.notes} />
+          </Wrapper>
         )}
       </Fragment>
     );
@@ -32,5 +32,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchNotes }
+  { fetchNotes },
 )(NoteListContainer);

@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
-import NoteForm from "../components/NoteForm";
-import { connect } from "react-redux";
-import { getNote, editNote } from "../actions";
-import { StyledContainer } from "../styled-components/container-styles";
+import React, { Fragment } from 'react';
+import NoteForm from '../components/NoteForm';
+import { connect } from 'react-redux';
+import { getNote, editNote } from '../actions';
+import Wrapper from '../components/Wrapper';
 
 class EditNoteContainer extends React.Component {
   state = {
-    title: "",
-    textBody: "",
+    title: '',
+    textBody: '',
   };
 
   componentDidMount() {
@@ -20,7 +20,7 @@ class EditNoteContainer extends React.Component {
 
   componentDidUpdate() {
     if (this.props.noteEditSuccess) {
-      this.props.history.push(`/note/${this.props.match.params.id}`)
+      this.props.history.push(`/note/${this.props.match.params.id}`);
     }
   }
 
@@ -37,7 +37,7 @@ class EditNoteContainer extends React.Component {
 
   render() {
     return (
-      <StyledContainer>
+      <Wrapper>
         {this.props.note && (
           <Fragment>
             <h4>Edit Note:</h4>
@@ -50,7 +50,7 @@ class EditNoteContainer extends React.Component {
           </Fragment>
         )}
         {this.props.edittingNote && <p>Editing note... </p>}
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
@@ -64,5 +64,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getNote, editNote }
+  { getNote, editNote },
 )(EditNoteContainer);

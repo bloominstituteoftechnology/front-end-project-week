@@ -1,18 +1,18 @@
-import React from "react";
-import NoteForm from "../components/NoteForm";
-import { connect } from "react-redux";
-import { addNote } from "../actions";
-import { StyledContainer } from '../styled-components/container-styles'
+import React from 'react';
+import NoteForm from '../components/NoteForm';
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
+import Wrapper from '../components/Wrapper';
 
 class CreateNoteContainer extends React.Component {
   state = {
-    title: "",
-    textBody: "",
+    title: '',
+    textBody: '',
   };
 
   componentDidUpdate() {
-    if (this.props.updated) { 
-      this.props.history.push('/')
+    if (this.props.updated) {
+      this.props.history.push('/');
     }
   }
 
@@ -23,12 +23,12 @@ class CreateNoteContainer extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.addNote(this.state);
-  }
+  };
 
   render() {
     return (
-      <StyledContainer>
-      <h4>Create New Note:</h4>
+      <Wrapper>
+        <h4>Create New Note:</h4>
         <NoteForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
@@ -37,17 +37,17 @@ class CreateNoteContainer extends React.Component {
         />
         {this.props.addingNote && <p>addin ur note...</p>}
         {this.props.updated && <p>Note added!</p>}
-      </StyledContainer>
+      </Wrapper>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   updated: state.notesReducer.noteAddSuccess,
-  addingNote: state.notesReducer.addingNote
-})
+  addingNote: state.notesReducer.addingNote,
+});
 
 export default connect(
   mapStateToProps,
-  { addNote }
+  { addNote },
 )(CreateNoteContainer);

@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Note from "../components/Note";
-import { getNote, deleteNote } from "../actions";
-import Modal from "../components/Modal";
-import styled from "styled-components";
-import { StyledContainer } from '../styled-components/container-styles'
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Note from '../components/Note';
+import { getNote, deleteNote } from '../actions';
+import Modal from '../components/Modal';
+import styled from 'styled-components';
+import Wrapper from '../components/Wrapper';
 
-const PageWrapper = StyledContainer.extend`
+const PageWrapper = styled(Wrapper)`
   margin-top: 9px;
-`
+`;
 const StyledLink = styled.div`
   text-decoration: underline;
   padding: 8px;
@@ -32,7 +32,7 @@ class NoteContainer extends React.Component {
 
   componentDidUpdate() {
     if (this.props.noteDeleted) {
-      this.props.history.push("/");
+      this.props.history.push('/');
     }
   }
 
@@ -84,5 +84,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getNote, deleteNote }
+  { getNote, deleteNote },
 )(NoteContainer);

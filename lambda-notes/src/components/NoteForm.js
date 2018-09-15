@@ -36,6 +36,7 @@ const NoteForm = ({ handleChange, handleSubmit, title, content }) => (
       value={title}
       placeholder="Note Title"
       required
+      autoComplete='off'
     />
     <StyledTextArea
       name="textBody"
@@ -44,6 +45,7 @@ const NoteForm = ({ handleChange, handleSubmit, title, content }) => (
       placeholder="Note Content"
       rows='20'
       required
+      autoComplete='off'
     />
     <SaveButton type="submit" value="Save"/>
   </StyledForm>
