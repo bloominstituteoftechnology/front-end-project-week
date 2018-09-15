@@ -1,9 +1,10 @@
-import React from 'react';
 import '../App.css';
-import {NavLink} from 'react-router-dom';
+import React from 'react';
 import axios from 'axios';
-import {Button, Modal, ModalBody, ModalFooter} from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 import MarkdownRenderer from 'react-markdown-renderer';
+import Authenticate from './Authentication/Authenticate';
+import {Button, Modal, ModalBody, ModalFooter} from 'reactstrap';
 
 class ViewNote extends React.Component {
   constructor(props) {
@@ -24,11 +25,11 @@ class ViewNote extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchNote(this.props.match.params.id);
+    this.fetchNote(this.props.auth.match.params.id);
   }
 
   componentWillReceiverProps(newProps) {
-    if (this.props.match.params.id !== newProps.match.params.id) {
+    if (this.props.auth.match.params.id !== newProps.match.params.id) {
       this.fetchNote(newProps.match.params.id);
     }
   }
@@ -51,7 +52,7 @@ class ViewNote extends React.Component {
     axios.delete(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`)
     .then(response => {
       console.log("Delete response", response.data);
-      this.props.history.push("/")
+      this.props.auth.history.push("/")
     })
     .catch(err => {
       console.log("err", err);
@@ -89,7 +90,7 @@ class ViewNote extends React.Component {
   /* Helper function that prevents page from reloading when editing tags */
   handleTagSubmit = e => {
     e.preventDefault();
-    this.handleTagEdit(this.props.match.params.id);
+    this.handleTagEdit(this.props.auth.match.params.id);
   }
 
   /* Sends a put request to the server to edit the tag array */
@@ -152,7 +153,7 @@ class ViewNote extends React.Component {
             <p>Are you sure you want to delete this note?</p>
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" onClick={() => {this.deleteNote(this.props.match.params.id)}}>Delete</Button>{' '}
+            <Button color="danger" onClick={() => {this.deleteNote(this.props.auth.match.params.id)}}>Delete</Button>{' '}
             <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -167,11 +168,11 @@ class ViewNote extends React.Component {
         <input className="mainInput" type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
         </form>
         </div>
-        {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}} className="view-note-button">Save</button> : null}
+        {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.auth.match.params.id)}} className="view-note-button">Save</button> : null}
       </div>
     </div>
   )
   }
 }
 
-export default ViewNote;
+export default Authenticate(ViewNote)
