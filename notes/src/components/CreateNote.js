@@ -19,7 +19,7 @@ class CreateNote extends React.Component {
   }
 
   saveNote = event => {
-    const newNote = {title: this.state.title, textBody: this.state.content}
+    const newNote = {title: this.state.title, textBody: this.state.content, user_id: localStorage.getItem('userID')}
     event.preventDefault();
     axios.post('https://nameless-harbor-91626.herokuapp.com/notes/', newNote)
     .then(response => {
