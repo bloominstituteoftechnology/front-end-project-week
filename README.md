@@ -1,6 +1,6 @@
-## This is a project by Alec Jordan, to view click [HERE](https://adoring-archimedes-17c12a.netlify.com/)
+## This is a project by Alec Jordan, to use this project click [HERE](https://adoring-archimedes-17c12a.netlify.com/), ALTERNATIVELY you can view a demo video [here](https://youtu.be/rN-O9h8UQlE?t=975)
 
-DESCRIPTION: This is a basic note taking app very similar to Evernote. It highlights my front end programming abilities as I use UI/UX design, front-end routing, and crud operation to make a fully functional note taking app complete with user profiles. I also built the back end used for this project. That backend can be found [here](https://github.com/TheDeterminator/back-end-project-week). Note: To interact with the project you will have to register with a username and simple password, if you'd like to see a live demonstration please contact me or look at this brief [video](https://youtu.be/rN-O9h8UQlE?t=975)
+DESCRIPTION: This is a basic note taking app very similar to Evernote. It highlights my front end programming abilities as I use UI/UX design, front-end routing, and crud operations to make a fully functional note taking app complete with user profiles. I also built the back end used for this project. That backend can be found [here](https://github.com/TheDeterminator/back-end-project-week).
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
