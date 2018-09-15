@@ -2,15 +2,30 @@ import React from 'react';
 import '../App.css';
 import NotesContainer from './NotesContainer';
 import {NavLink} from 'react-router-dom';
+import Authenticate from './Authentication/Authenticate';
+import axios from 'axios';
 
 class NotesList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      notes: [],
       searchTerm: '',
       searchResults: [],
       alphaSort: false
     }
+  }
+
+  componentDidMount() {
+    axios
+      .get(`https://nameless-harbor-91626.herokuapp.com/users/${localStorage.getItem('userID')}/notes`)
+      .then(response => {
+        console.log('NL HERE NL', response.data);
+        this.setState({notes: response.data});
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
 /*CLick function that enables the user to logout of the page*/
@@ -28,9 +43,9 @@ class NotesList extends React.Component {
 /*Function allows for note searching functionality*/
   handleSearch = event => {
     event.preventDefault();
-    let searchResults = this.props.notes.slice();
+    let searchResults = this.state.notes.slice();
     if (this.state.searchTerm.length === 0) {
-      searchResults = this.props.notes.slice();
+      searchResults = this.state.notes.slice();
       return searchResults;
     } else {
     searchResults = searchResults.filter(note => {
@@ -66,7 +81,8 @@ class NotesList extends React.Component {
   render() {
     console.log('NoteList location', this.props.location);
     let returnedNotes;
-    returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.props.notes;
+    console.log('PROP NOTES', this.state.notes)
+    returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.state.notes;
     let sortedNotes = returnedNotes.slice();
     let encodeUri = encodeURI(this.exportCSV(returnedNotes));
     if (this.state.alphaSort) {
@@ -91,6 +107,7 @@ class NotesList extends React.Component {
         <NavLink to="/create"><button className="sidebar-button">+ Create New Note</button></NavLink>
         <button onClick={this.handleLogout} className="logout-button">Logout</button>
       </div>
+
       <div className="right-bar">
         <h3 className="note-list-header">Your Notes: </h3>
         <form className="sortCheck" onChange={this.handleSearch}>
@@ -105,4 +122,4 @@ class NotesList extends React.Component {
   }
 }
 
-export default NotesList;
+export default Authenticate(NotesList);
