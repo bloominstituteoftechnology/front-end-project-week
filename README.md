@@ -1,3 +1,5 @@
+## This is a project by Alec Jordan, to view click HERE[https://adoring-archimedes-17c12a.netlify.com/]
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
