@@ -11,22 +11,7 @@ import Register from './components/Register';
 
 class App extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      notes: ['1']
-    }
-  }
-
-/*Exported function met to fetch API data for this state via a different component*/
-  setData = () => {
-    axios
-      .get(`https://nameless-harbor-91626.herokuapp.com/users/${localStorage.getItem('userID')}/notes`)
-      .then(response => {
-        this.setState({notes: response.data})
-      })
-      .catch(err => {
-        console.log("Set Data failed:", err)
-      })
+    super(props)
   }
 
   render() {
@@ -34,15 +19,12 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' component={NotesList} />
-        <Route exact path="/create" component={props => <CreateNote {...props}
-        setData={this.setData} />} />
-        <Route exact path="/notes/:id" component={props => <ViewNote {...props}
-        setData={this.setData} />} />
+        <Route exact path='/create' component={CreateNote} />
+        <Route exact path='/notes/:id' component={ViewNote} />
         <Route exact path="/signup" component={Register} />
       </div>
     );
   }
 }
 
-// export default Authenticate(App);
 export default App;

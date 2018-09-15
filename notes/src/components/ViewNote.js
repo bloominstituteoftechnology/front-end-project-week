@@ -23,19 +23,6 @@ class ViewNote extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
-/*Saves a note to the server*/
-  saveNote = event => {
-    const newNote = {title: this.state.title, textBody: this.state.content}
-    event.preventDefault();
-    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
-    .then(response => {
-      console.log(response)
-    })
-    .catch(err => {
-      console.log("Error is:", err);
-    });
-  }
-
   componentDidMount() {
     this.fetchNote(this.props.match.params.id);
   }
@@ -46,7 +33,7 @@ class ViewNote extends React.Component {
     }
   }
 
-/*Will fetch just one note to be viewed upon clicking on a link to its route*/
+  /* Will fetch just one note to be viewed upon clicking on a link to its route */
   fetchNote = id => {
     axios.get(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`)
     .then(response => {
@@ -58,13 +45,12 @@ class ViewNote extends React.Component {
     })
   }
 
-/*Allows for the deleting of notes*/
+  /*Allows for the deleting of notes*/
   deleteNote = id => {
     console.log(id);
     axios.delete(`https://nameless-harbor-91626.herokuapp.com/notes/${id}`)
     .then(response => {
       console.log("Delete response", response.data);
-      this.props.setData();
       this.props.history.push("/")
     })
     .catch(err => {
@@ -72,7 +58,7 @@ class ViewNote extends React.Component {
     })
   }
 
-/*Toggles the edit form for editing a note*/
+  /* Toggles the edit form for editing a note */
   toggleEdit = () => {
     this.setState({
       editingNote: !this.state.editingNote,
@@ -81,11 +67,7 @@ class ViewNote extends React.Component {
     });
   }
 
-  handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
-  }
-
-/*Saves the edits to the server and then redisplays the Note component*/
+  /*Saves the edits to the server and then redisplays the Note component*/
   handleEdit = (id) => {
     const newEdits = {};
     if (this.state.tag.length > 0){
@@ -98,20 +80,19 @@ class ViewNote extends React.Component {
     .then(response => {
       console.log(response.data);
       this.setState({note: response.data, editingNote: false});
-      this.props.setData();
     })
     .catch(err => {
       console.log('Edit Error:', err);
     })
   }
 
-/*Helper function that prevents page from reloading when editing tags*/
+  /* Helper function that prevents page from reloading when editing tags */
   handleTagSubmit = e => {
     e.preventDefault();
     this.handleTagEdit(this.props.match.params.id);
   }
 
-/*Sends a put request to the server to edit the tag array*/
+  /* Sends a put request to the server to edit the tag array */
   handleTagEdit = id => {
     console.log("hte tags", this.state.tags); //tags will be inactive with current methods
     const newTag = {text: this.state.tag, note_id: id}
@@ -125,19 +106,19 @@ class ViewNote extends React.Component {
     })
   }
 
-/*Helper function used for Modal toggling in the delete functionality*/
+  /* Helper function used for Modal toggling in the delete functionality */
   toggleModal = () => {
     this.setState({modal: !this.state.modal});
   }
 
-/*Allows the user to logout of the app*/
+  /* Allows the user to logout of the app */
   handleLogout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     window.location.reload();
   }
 
-/*Deletes a tag from the view edit page*/
+  /* Deletes a tag from the view edit page */
   deleteTag = (event) => {
     let newArray = this.state.tags.slice();
     newArray.splice(event.target.getAttribute('index'), 1);

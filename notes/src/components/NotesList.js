@@ -20,7 +20,6 @@ class NotesList extends React.Component {
     axios
       .get(`https://nameless-harbor-91626.herokuapp.com/users/${localStorage.getItem('userID')}/notes`)
       .then(response => {
-        console.log('NL HERE NL', response.data);
         this.setState({notes: response.data});
       })
       .catch(err => {
@@ -79,9 +78,7 @@ class NotesList extends React.Component {
     return str;
   }
   render() {
-    console.log('NoteList location', this.props.location);
     let returnedNotes;
-    console.log('PROP NOTES', this.state.notes)
     returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.state.notes;
     let sortedNotes = returnedNotes.slice();
     let encodeUri = encodeURI(this.exportCSV(returnedNotes));
