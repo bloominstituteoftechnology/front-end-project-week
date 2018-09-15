@@ -46,7 +46,7 @@ const NoteForm = ({ handleChange, handleSubmit, title, content, loading }) => (
       autoComplete="off"
     />
     <StyledTextArea
-      name="textBody"
+      name="content"
       onChange={handleChange}
       value={content}
       placeholder="Note Content"

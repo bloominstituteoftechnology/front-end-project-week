@@ -8,14 +8,14 @@ import Loading from '../components/Loading';
 class EditNoteContainer extends React.Component {
   state = {
     title: '',
-    textBody: '',
+    content: '',
   };
 
   componentDidMount() {
     this.props.getNote(this.props.match.params.id);
     this.setState({
       title: this.props.note.title,
-      textBody: this.props.note.textBody,
+      content: this.props.note.content,
     });
   }
 
@@ -31,8 +31,8 @@ class EditNoteContainer extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.title && this.state.textBody) {
-      this.props.editNote(this.props.note._id, this.state);
+    if (this.state.title && this.state.content) {
+      this.props.editNote(this.props.note.id, this.state);
     }
   };
 
@@ -46,7 +46,7 @@ class EditNoteContainer extends React.Component {
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
               title={this.state.title}
-              content={this.state.textBody}
+              content={this.state.content}
               loading={this.props.edittingNote}
             />
           </Fragment>

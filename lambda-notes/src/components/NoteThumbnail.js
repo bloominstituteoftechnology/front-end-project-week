@@ -24,14 +24,18 @@ const Note = styled.div`
     padding-top: 5px;
     text-overflow: ellipsis;
   }
-`
+`;
 
 const NoteThumbnail = ({ note }) => (
   <Note>
     <h5>{note.title}</h5>
-    <hr></hr>
-    <p>{note.textBody.length > 150 ? note.textBody.substr(0, 150) + '...' : note.textBody}</p>
+    <hr />
+    <p>
+      {note.content.length > 150
+        ? note.content.substr(0, 150) + '...'
+        : note.content}
+    </p>
   </Note>
-)
+);
 
 export default NoteThumbnail;

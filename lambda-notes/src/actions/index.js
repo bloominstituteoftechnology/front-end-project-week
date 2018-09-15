@@ -12,57 +12,52 @@ export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
 
+const URL = 'http://localhost:3400/api/notes';
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_DATA });
-  axios 
-    .get('https://killer-notes.herokuapp.com/note/get/all')
+  axios
+    .get(URL)
     .then(response => {
-      dispatch({type: DATA_SUCCESS, results: response.data})
+      console.log(response);
+      dispatch({ type: DATA_SUCCESS, results: response.data });
     })
     .catch(err => {
-      console.log(err)
-      dispatch({type: DATA_ERROR, error: err})
-    })
-} 
+      console.log(err);
+      dispatch({ type: DATA_ERROR, error: err });
+    });
+};
 
 export const addNote = note => dispatch => {
   dispatch({ type: ADD_NOTE });
-  axios 
-    .post('https://killer-notes.herokuapp.com/note/create', note)
+  axios
+    .post(URL, note)
     .then(response => {
-      dispatch({type: ADDED_SUCCESS})
+      dispatch({ type: ADDED_SUCCESS });
     })
     .catch(err => {
-      console.log(err)
-    })
-}
+      console.log(err);
+    });
+};
 
-export const getNote = id => (dispatch) => {
+export const getNote = id => dispatch => {
   dispatch({ type: GET_NOTE });
-  axios
-    .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-    .then(response => { 
-      console.log(response)
-      dispatch({type: GET_NOTE_SUCCESS, result: response.data})
-    })
-}
+  axios.get(`${URL}/${id}`).then(response => {
+    console.log(response);
+    dispatch({ type: GET_NOTE_SUCCESS, result: response.data });
+  });
+};
 
 export const editNote = (id, note) => dispatch => {
   dispatch({ type: EDIT_NOTE });
-  axios 
-    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
-    .then(response => {
-      dispatch({ type: EDIT_NOTE_SUCCESS, result: response.data })
-    })
-}
+  axios.put(`${URL}/${id}`, note).then(response => {
+    dispatch({ type: EDIT_NOTE_SUCCESS, result: response.data });
+  });
+};
 
 export const deleteNote = id => dispatch => {
-  dispatch({ type: DELETE_NOTE});
-  axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-    .then(response => { 
-      dispatch({ type: NOTE_DELETED })
-    })
-}
-
+  dispatch({ type: DELETE_NOTE });
+  axios.delete(`${URL}/${id}`).then(response => {
+    dispatch({ type: NOTE_DELETED });
+  });
+};

@@ -18,7 +18,7 @@ const Note = ({ note }) => (
     {note ? (
       <StyledNote>
         <h4>{note.title}</h4>
-        <p>{note.textBody}</p>
+        <p>{note.content}</p>
       </StyledNote>
     ) : (
       <Loading />

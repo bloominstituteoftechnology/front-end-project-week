@@ -8,7 +8,7 @@ import Loading from '../components/Loading';
 class CreateNoteContainer extends React.Component {
   state = {
     title: '',
-    textBody: '',
+    content: '',
   };
 
   componentDidUpdate() {
@@ -34,7 +34,7 @@ class CreateNoteContainer extends React.Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           title={this.state.title}
-          content={this.state.textBody}
+          content={this.state.content}
           loading={this.props.addingNote}
         />
         {this.props.updated && <p>Note added!</p>}
