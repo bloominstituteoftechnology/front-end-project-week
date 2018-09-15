@@ -12,7 +12,7 @@ export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
 
-const URL = 'http://localhost:3400/api/notes';
+const URL = 'https://laurens-lambda-notes-api.herokuapp.com/api/notes';
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_DATA });
