@@ -1,8 +1,7 @@
 import React from 'react';
 import Login from '../Login/Login';
-import NotesList from '../NotesList';
 
-const Authenticate = NotesList =>
+const Authenticate = ProtectedComponent =>
   class InnerApp extends React.Component {
     constructor(props) {
       super(props);
@@ -13,13 +12,14 @@ const Authenticate = NotesList =>
 
     /* Component displays only if localStorage contains a certain value */
     componentDidMount() {
+      console.log('auth', this.props.location)
       if (localStorage.getItem('token')) this.setState({
        loggedIn: true
      });
    }
 
     render() {
-        return (this.state.loggedIn ? <NotesList /> : <Login />);
+        return (this.state.loggedIn ? <ProtectedComponent auth={this.props} /> : <Login />);
     }
   }
 

@@ -1,7 +1,8 @@
-import React from 'react';
 import '../App.css';
-import {NavLink} from 'react-router-dom';
+import React from 'react';
 import axios from 'axios';
+import {NavLink} from 'react-router-dom';
+import Authenticate from './Authentication/Authenticate';
 
 class CreateNote extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class CreateNote extends React.Component {
     event.preventDefault();
     axios.post('https://nameless-harbor-91626.herokuapp.com/notes/', newNote)
     .then(response => {
-      this.props.history.push("/")
+      this.props.auth.history.push("/")
     })
     .catch(err => {
       console.log("Error is:", err);
@@ -37,7 +38,7 @@ class CreateNote extends React.Component {
   }
 
   render() {
-    console.log('Create note location', this.props.location);
+    console.log('Create note location', this.props.auth.location);
     return (
     <div className="note-list">
       <div className="list-sidebar">
@@ -61,4 +62,4 @@ class CreateNote extends React.Component {
   }
 }
 
-export default CreateNote;
+export default Authenticate(CreateNote)
