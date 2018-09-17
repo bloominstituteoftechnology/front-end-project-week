@@ -120,8 +120,7 @@ Sidebar background: #D8D8D8
   margin-bottom: 20px;
   padding: 20px;
   border: 1px solid #979797;
-  /* width: 27%; */
-  flex: 0 1 27%;
+  width: 27%;
 }
  
 .NoteCard-list .scroll {
