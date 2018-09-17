@@ -73,7 +73,6 @@ class App extends Component {
 
   editNote = (event, _id, push) => {
     event.preventDefault();
-
     const notes = this.state.notes.map(eachNote => {
       if(eachNote._id == _id) {
         if(this.state.title.length)eachNote.title = this.state.title;

@@ -13,7 +13,7 @@ const DeleteModal = (props) => {
                     >
                         Delete
                     </button>
-                    <Link to='/notes/:_id'><button className='no-button'>No</button></Link>
+                    <Link to='/'><button className='no-button'>No</button></Link>
                 </div>
             </div>
         </div>
