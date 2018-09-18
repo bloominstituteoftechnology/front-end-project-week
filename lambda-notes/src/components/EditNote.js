@@ -1,7 +1,7 @@
 
 import React from 'react';
-import {connect} from 'react-redux';
-import {editNote} from '../actions'
+// import {connect} from 'react-redux';
+// import {editNote, EDIT_NOTE} from '../actions'
 
 
 class EditNote extends React.Component {
@@ -11,9 +11,11 @@ class EditNote extends React.Component {
             notes: props.notes,
             note: {},
             title: '',
-            text: ''
-        }
-    }
+            text: '',
+         
+        };
+     }
+
 
     componentDidUpdate(prevProps) {
         if (prevProps.notes !== this.props.notes) {
@@ -27,29 +29,35 @@ class EditNote extends React.Component {
     handleInputChange = event => {
         this.setState({[event.target.name]: event.target.value});
     };
+
+
     render() {
+       
     return (
         <div className="edit-note">
             <h2>Edit Note:</h2>
-            <form  onSubmit={(event) => this.props.editNote(event, this.props.match.params.id, this.state.title, this.state.text)}>
+            <form  onSubmit={(event) =>{ event.preventDefault(); this.props.editNote(event, this.props.match.params.id, this.state.title, this.state.text)}}>
             <input onChange={this.handleInputChange} type="text" name="title" placeholder="Title" value={this.state.title}/>
             <input onChange={this.handleInputChange} type="text" name="text" placeholder="Note"  value={this.state.text}/>
             <button onClick={this.handleSubmit} onMouseUp={() => this.props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} /*"block" was here*/>Edit</button>
          </form>
         </div>
         );
+      
     }
  }
 
- const mapStateToProps = state => {
-    const {notesReducer} = state;
-    return{
-    note: notesReducer.note,
-    editNote: notesReducer.editNote,
-    editingNote: notesReducer.editingNote,
+//  const mapStateToProps = state => {
+//     const {notesReducer} = state;
+//     return{
+//     note: notesReducer.note,
+//     editNote: notesReducer.editNote,
+//     editingNote: notesReducer.editingNote,
     
-    };
-  };
+//     };
+//   };
 
 
- export default connect(mapStateToProps, {editNote})(EditNote);
+//  export default connect(mapStateToProps, {editNote})(EditNote);
+
+export default EditNote;

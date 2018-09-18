@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
-import {getNote} from '../actions';
+// import {connect} from 'react-redux';
+// import {getNote} from '../actions';
 import { Row, Container, Col } from "reactstrap";
 import DeleteModal from "./DeleteModal";
 import "./Note.css";
@@ -66,18 +66,20 @@ class Note extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  const {notesReducer} = state;
-  return {
-    note: notesReducer.note,
-    error: notesReducer.error,
-    gettingNote: notesReducer.gettingNote
-  };
-};
+// const mapStateToProps = state => {
+//   const {notesReducer} = state;
+//   return {
+//     note: notesReducer.note,
+//     error: notesReducer.error,
+//     gettingNote: notesReducer.gettingNote
+//   };
+// };
 
 
 
-export default connect(mapStateToProps,{getNote})(Note);
+// export default connect(mapStateToProps,{getNote})(Note);
+
+export default Note;
 
 
 

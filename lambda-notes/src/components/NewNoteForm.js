@@ -1,7 +1,7 @@
 import React from 'react';
 import './NewNoteForm.css';
-import {connect} from 'react-redux';
-import {addNote} from '../actions'
+// import {connect} from 'react-redux';
+// import {addNote} from '../actions'
 
 
 const NewNoteForm = props => {
@@ -21,17 +21,17 @@ const NewNoteForm = props => {
     );
 };
 
-const mapStateToProps = state => {
-  const {notesReducer} = state;
-  return{
+// const mapStateToProps = state => {
+//   const {notesReducer} = state;
+//   return{
    
-    note: notesReducer.note,
-    error: notesReducer.error,
-    addNote:notesReducer.addNote,
-    addingNote: notesReducer.addingNote,
+//     note: notesReducer.note,
+//     error: notesReducer.error,
+//     addNote:notesReducer.addNote,
+//     addingNote: notesReducer.addingNote,
    
-  };
-};
+//   };
+// };
 
 
 
@@ -39,7 +39,8 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps,{addNote})(NewNoteForm);
+// export default connect(mapStateToProps,{addNote})(NewNoteForm);
+export default NewNoteForm;
 
 
 

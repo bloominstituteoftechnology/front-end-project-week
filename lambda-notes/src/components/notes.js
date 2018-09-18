@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import "./Notes.css";
 
 const searchingFor = term => {
@@ -42,14 +42,16 @@ const Notes = props => {
 };
 
 
-const mapStateToProps = state => {
-  const {notesReducer} = state;
-  return{
-    notes: notesReducer.notes,
+// const mapStateToProps = state => {
+//   const {notesReducer} = state;
+//   return{
+//     notes: notesReducer.notes,
     
-  };
-};
+//   };
+// };
 
 
 
-export default connect(mapStateToProps)(Notes);
+// export default connect(mapStateToProps)(Notes);
+
+export default Notes;
