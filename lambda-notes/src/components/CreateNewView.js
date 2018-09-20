@@ -9,7 +9,7 @@ const CreateNewView = (props) => {
             <div className='form-container'>
                 <form
                     className='create-edit-form'
-                    onSubmit={props.addNewNote}>
+                    onSubmit={(event) => props.addNewNote(event, props.history.push)}>
                     <input
                         className='title-input' 
                         onChange={props.handleInputChange}

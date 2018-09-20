@@ -54,7 +54,7 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  addNewNote = (event) => {
+  addNewNote = (event, push) => {
     event.preventDefault();
     const notes = [
       ...this.state.notes,
@@ -69,6 +69,7 @@ class App extends Component {
       title: '',
       textBody: '',
     });
+    push('/')
   }
 
   editNote = (event, _id, push) => {
