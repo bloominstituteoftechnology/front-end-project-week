@@ -127,46 +127,39 @@ table {
   border-spacing: 0;
 }
 .App {
+  text-align: center;
+  font-weight: bold;
+  color: #424242;
   display: flex;
 }
 .App .sidebar-left {
-  background-color: #D7D7D7;
+  background-color: grey;
   height: 100vh;
   width: 250px;
-  color: #424242;
-  
+  color: #D7D7D7;
 }
-
-.notes-container{
+.note-container {
   width: 75%;
-  height: 100%;
-  background-color: #F2F1F2;
 }
-
 .note-content-input {
   height: 500px;
   width: 300px;
 }
-
+.notes {
+  background-color: #d7d7d7;
+}
 .note-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
-
 .each-ind-note {
   border: 1px solid darkgray;
   border-radius: 5px;
-  width: 200px;
-  height: 200px;
+  width: 125px;
+  height: 125px;
   align-content: space-between;
 }
-
-.note-header{
-  font-weight: bold;
-}
-
-
 .note-links {
   text-decoration: none;
   color: #4A494A;

@@ -17,6 +17,9 @@ class OneNote extends React.Component {
   // };
 
 
+
+
+  
   render() {
     const note = this.props.notes.find(note => {
       return note._id === this.props.match.params.id;

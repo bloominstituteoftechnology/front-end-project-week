@@ -41,6 +41,35 @@ class App extends Component {
     this.setState({ notes, _id: "", title: "", textBody: "" });
   };
 
+  handleEdit = (event, id, push) => {
+    event.preventDefault();
+
+    const notes = this.state.notes.map(note => {
+      if (note._id === id) {
+        const editedNote = { ...note };
+        if (this.state.title) editedNote.title = this.state.title;
+        if (this.state.textBody) editedNote.textBody = this.state.textBody;
+        return editedNote;
+      }
+      return note;
+    });
+
+    this.setState({
+      notes,
+      title: "",
+      textBody: ""
+    });
+    push(`/notes/${id}`);
+  };
+
+
+  // handleDelete = (event, id, push) => {
+  //   event.preventDefault();
+  //   // const 
+  // }
+
+
+
   render() {
     //Build out sidebar
     //Route Notelist
@@ -96,7 +125,13 @@ class App extends Component {
             exact
             path="/notes/:id/editnote"
             render={props => {
-              return <EditNote {...props} notes={this.state.notes} />;
+              return (
+                <EditNote
+                  {...props}
+                  changeNote={this.changeNote}
+                  handleEdit={this.handleEdit}
+                />
+              );
             }}
           />
 
@@ -104,9 +139,13 @@ class App extends Component {
             exact
             path="/notes/:id/deletenote"
             render={props => {
-              return <DeleteNote {...props} notes={this.state.notes} />;
+              return (
+                <DeleteNote 
+              notes={this.state.notes} />
+            );
             }}
           />
+      
         </div>
       </div>
     );
@@ -114,8 +153,3 @@ class App extends Component {
 }
 
 export default App;
-
-// In App
-
-// <Route path="/notes/:id" render={(props) =>
-//  <SingleNote {...props} notes={this.state.notes} />} />
