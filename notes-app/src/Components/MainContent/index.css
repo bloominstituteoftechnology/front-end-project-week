@@ -1,3 +1,16 @@
 .main_content {
     display: flex;
+    
 }
+
+.main_container {
+    padding-top: 25px;
+    padding-left: 25px;
+    background-color: #F2F1F2;
+    width: 667px;
+    display: flex;
+    
+}
+
+
+

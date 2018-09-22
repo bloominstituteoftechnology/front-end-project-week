@@ -1,0 +1,28 @@
+.nav_container {
+    background-color: #D3D2D3;
+    border-right: gray;
+    width: 220px;
+    height: 888px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.title {
+    font-size: 40px;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 20px;
+    line-height: 35px;
+}
+
+button {
+    color: white;
+    background-color: #23B7BD;
+    font-weight: bold;
+    height: 40px;
+    width: 188px;
+    font-size: 16px;
+    margin: 0 10px 15px 10px;
+    border-radius: 3px;
+}

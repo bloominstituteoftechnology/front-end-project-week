@@ -5,16 +5,17 @@ import './index.css';
 class EditNote extends Component {
     render() {
         return (
-            <div className='createView'>
-                <form>
+            <div className='edit_view'>
+                <form className="edit_form">
                 <br /><br />
-                    <input type ="text" />
-                  <br /><br />
-                    <textarea rows="20"/>
+                <h3 className="edit_header">Edit Note: </h3>
+                <br />
+                    <input className="edit_title" type="text" placeholder="Note Title"/>
+                <br /><br />
+                    <textarea className="edit_content" rows="20" placeholder="Note Content"/>
                     <br />
-                    <button>Update</button>
+                    <button className="edit_button">Update</button>
                 </form>
-               
             </div>
         )
     }

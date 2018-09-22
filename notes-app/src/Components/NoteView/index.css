@@ -1,0 +1,58 @@
+/* Notes View */
+
+.view_container {
+    display: flex;
+}
+
+.note {
+    width: 190px;
+    color: black;
+    height: 183px; 
+    text-decoration: none;
+    margin: 0 9px 25px 9px;
+    overflow: scroll;
+    border: 1px solid gray;
+    padding: 0 18px 18px 18px;
+    background-color: white;
+    
+}
+
+Link {
+    text-decoration: none;
+}
+
+.note_title {
+    border-bottom: solid 1px black;
+    margin-bottom: 10px;
+    font-weight: bold;
+    height: 30px;
+    
+}
+
+.view_title {
+    font-weight: bold;
+}
+
+.view_content {
+    width: 595px;
+}
+
+.links_container {
+    display: flex;
+    justify-content: space-between;
+    width: 75px;    
+    margin-left: 525px;
+}
+
+.view_links {
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+

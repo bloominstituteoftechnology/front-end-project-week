@@ -7,12 +7,15 @@ body {
   margin: 0 auto;
   padding: 0;
   font-family: sans-serif;
+  width: 888px;
 }
 
 
 
 .app_container {
   display: flex;
+  width: 888px;
+  height: 888px;
 }
 
 

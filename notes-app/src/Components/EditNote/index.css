@@ -1,0 +1,27 @@
+.create_view {
+    margin-top: 50px;
+}
+
+.edit_header {
+    margin-bottom: 0px;
+}
+
+.edit_title {
+    height: 38px;
+    width: 355px;
+    padding-left: 10px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.edit_content {
+    border-radius: 3px;
+    width: 605px;
+    height: 345px;
+    padding: 17px;
+    font-size: 12px;
+}
+
+.edit_button {
+    margin: 10px 0 0 0;
+}

@@ -9,8 +9,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 //Redux Imports
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import notesReducer from './reducers'
-
+import notesReducer from './reducers';
 
 
 const store = createStore(notesReducer);
