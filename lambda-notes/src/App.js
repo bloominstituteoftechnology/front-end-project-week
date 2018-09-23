@@ -27,7 +27,10 @@ class App extends Component {
 		return (
 			<div className = 'App'>
 				<div className = 'side-nav'>
-					<h1>Lambda Notes</h1>
+					<header>
+						<div>Lambda</div>
+						<div>Notes</div>
+					</header>
 
 					<NavLink 
 						exact to = '/' 
