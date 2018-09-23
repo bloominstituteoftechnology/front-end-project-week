@@ -5,13 +5,21 @@ body {
   display: flex;
   justify-content: center;
 }
-body .App {
+body #root {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+body #root .App {
   text-align: center;
-  width: 69vw;
+  width: calc((-7 / 31 * 100vw + 38795 / 31 * 1px) * 98/100);
   display: flex;
   height: 100%;
 }
-body .App .side-nav {
+body #root .App .phone {
+  display: none;
+}
+body #root .App .nav {
   width: 25vw;
   display: inline-block;
   background-color: #D7D7D7;
@@ -19,56 +27,211 @@ body .App .side-nav {
   color: #4A484A;
   border-right: 1px solid #A8A8A8;
 }
-body .App .side-nav header {
-  margin-bottom: 49px;
+body #root .App .nav header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
-body .App .side-nav header div {
+body #root .App .nav header .lambda-notes {
   font-weight: bold;
-  font-size: 2.2rem;
+  font-size: 2.6vw;
   text-align: left;
-  margin: 18px 0 -25px 16px;
-  letter-spacing: 1px;
+  margin: 3.4vh 0 4.8vh 1.2vw;
+  letter-spacing: 0.04vw;
+  line-height: 5vh;
 }
-body .App .side-nav .btn {
+@media ( max-width: 1024px ) {
+  body #root .App .nav header .lambda-notes {
+    font-size: 2rem;
+    text-align: left;
+    margin: 2vh 1vw;
+  }
+}
+body #root .App .nav header .hamburger-menu-container {
+  margin: 1vw;
+  font-size: 2rem;
+}
+body #root .App .nav header .hamburger-menu-container .fa-bars {
+  animation-name: grow-anim;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+body #root .App .nav header .hamburger-menu-container .fa-times {
+  animation-name: grow-anim1;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+body #root .App .nav header .hamburger-menu-container:hover {
+  color: black;
+  cursor: pointer;
+}
+body #root .App .nav .btn-container .btn {
   display: block;
   background-color: #2AC1C5;
-  padding: 12px;
-  height: 20px;
-  width: 176px;
+  padding: 2.05vh 0.9vw;
+  font-size: 94%;
   border: 1px solid #6BA8A9;
-  margin: 18px;
+  margin: 0 1.2vw 3vh;
   color: white;
   font-weight: bold;
   text-decoration: none;
 }
-body .App .side-nav .btn:hover {
+body #root .App .nav .btn-container .btn:hover {
   text-decoration: underline;
   border: 1px solid black;
 }
-body .App .side-nav .active-btn {
+@media ( max-width: 1024px ) {
+  body #root .App .nav .btn-container .btn {
+    display: inline-block;
+    margin: 0 1vw;
+  }
+}
+@media ( max-width: 540px ) {
+  body #root .App .nav .btn-container .btn {
+    width: 100%;
+    padding: 20px 0;
+  }
+}
+body #root .App .nav .btn-container .active-btn {
   background-color: #166666;
 }
-body .App .main-content {
+@media ( max-width: 1024px ) {
+  body #root .App .nav .btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+@media ( max-width: 540px ) {
+  body #root .App .nav .btn-container {
+    display: block;
+    width: 100%;
+    animation-name: grow-anim;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+@media ( max-width: 1024px ) {
+  body #root .App .nav {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media ( max-width: 540px ) {
+  body #root .App .nav {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  body #root .App .nav .display-none {
+    display: none;
+  }
+}
+body #root .App .main-content {
   display: inline-block;
   background: #F3F3F3;
   width: 75vw;
 }
-body .App .list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 42px 26px 0 26px;
+@media ( max-width: 1024px ) {
+  body #root .App .main-content {
+    width: 100%;
+  }
 }
-body .App .list h2 {
+body #root .App .list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 42px 26px 120px 26px;
+}
+body #root .App .list h2 {
   text-align: left;
   color: #4D4B4D;
   font-size: 1.35rem;
   width: 100%;
   margin-bottom: 28px;
 }
-body .App .list .note {
-  border: 1px solid black;
-  width: 14.9vw;
-  height: 57vh;
+body #root .App .list .note {
+  border: 1px solid #BFBFBF;
+  border-radius: 5px;
+  width: 12vw;
+  width: calc(-20 / 341 * 100vw + 83244 / 341 * 1px);
+  height: 204px;
   display: inline-block;
+  margin-bottom: 25px;
+  padding: 0 20px;
+  overflow: hidden;
+}
+body #root .App .list .note h3,
+body #root .App .list .note p {
+  text-align: left;
+}
+body #root .App .list .note h3 {
+  margin: 11px 0 -3px 0;
+  white-space: nowrap;
+}
+body #root .App .list .note p {
+  line-height: 22px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-top: 1px;
+  max-height: 133px;
+  overflow: hidden;
+}
+@media ( max-width: 540px ) {
+  body #root .App .list .note {
+    width: 80%;
+  }
+}
+@media ( max-width: 1024px ) {
+  body #root .App .list {
+    margin: 50px 5px;
+  }
+}
+@media ( max-width: 1024px ) {
+  body #root .App {
+    width: 98vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  body #root .App .desktop {
+    display: none;
+  }
+}
+@media ( max-width: 540px ) {
+  body #root .App .tablet {
+    display: none;
+  }
+  body #root .App .phone {
+    display: block;
+  }
+}
+@keyframes grow-anim {
+  0% {
+    font-size: 0;
+  }
+  33% {
+    font-size: 2.4rem;
+  }
+  66% {
+    font-size: 1.6rem;
+  }
+  100% {
+    font-size: 2rem;
+  }
+}
+@keyframes grow-anim1 {
+  0% {
+    font-size: 0;
+  }
+  33% {
+    font-size: 2.4rem;
+  }
+  66% {
+    font-size: 1.6rem;
+  }
+  100% {
+    font-size: 2rem;
+  }
 }

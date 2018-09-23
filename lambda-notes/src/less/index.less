@@ -1,3 +1,5 @@
+@import './variables.less';
+
 body {
 	margin: 0;
 	padding: 0;
@@ -5,81 +7,236 @@ body {
 	display: flex;
 	justify-content: center;
 
-	.App {
-		text-align: center;
-		width: 69vw;
+	#root {
 		display: flex;
-		height: 100%;
+		justify-content: center;
+		width: 100%;
 
-		.side-nav {
-			width: 25vw;
-			display: inline-block;
-			background-color: #D7D7D7;
-			overflow-x: hidden;
-			color: #4A484A;
-			border-right: 1px solid #A8A8A8;
-
-			header {
-				margin-bottom: 49px;
-
-				div {
-					font-weight: bold;
-					font-size: 2.2rem;
-					text-align: left;
-					margin: 18px 0 -25px 16px;
-					letter-spacing: 1px;
-				}
-			}
-
-			.btn {
-				display: block;
-				background-color: #2AC1C5;
-				padding: 12px;
-				height: 20px;
-				width: 176px;
-				border: 1px solid #6BA8A9;
-				margin: 18px;
-				color: white;
-				font-weight: bold;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-					border: 1px solid black;
-				}
-			}
-
-			.active-btn {
-				background-color: #166666;
-			}
-		} // body .App .side-nav
-
-		.main-content {
-			display: inline-block;
-			background: #F3F3F3;
-			width: 75vw;
-		} // body .App .main-content
-
-		.list {
+		.App {
+			text-align: center;
+			width: calc((-7 / 31 * 100vw + 38795 / 31 * 1px) * 98/100);
 			display: flex;
-			justify-content: space-between;
-			flex-wrap: wrap;
-			margin: 42px 26px 0 26px;
+			height: 100%;
 
-			h2 {
-				text-align: left;
-				color: #4D4B4D;
-				font-size: 1.35rem;
-				width: 100%;
-				margin-bottom: 28px;
+			.phone {
+				display: none;
 			}
 
-			.note {
-				border: 1px solid black;
-				width: 14.9vw;
-				height: 57vh;
+			.nav {
+				width: 25vw;
 				display: inline-block;
+				background-color: #D7D7D7;
+				overflow-x: hidden;
+				color: #4A484A;
+				border-right: 1px solid #A8A8A8;
+
+				header {
+					display: flex;
+					justify-content: space-between;
+					width: 100%;
+
+					.lambda-notes {
+						font-weight: bold;
+						font-size: 2.6vw;
+						text-align: left;
+						margin: 3.4vh 0 4.8vh 1.2vw;
+						letter-spacing: 0.04vw;
+						line-height: 5vh;
+
+						@media @tablet {
+							font-size: 2rem;
+							text-align: left;
+							margin: 2vh 1vw;
+						}
+					}
+
+					.hamburger-menu-container {
+						margin: 1vw;
+						font-size: 2rem;
+
+						.fa-bars {
+							animation-name: grow-anim;
+							animation-duration: 0.5s;
+							animation-fill-mode: forwards;
+						}
+
+						.fa-times {
+							animation-name: grow-anim1;
+							animation-duration: 0.5s;
+							animation-fill-mode: forwards;
+						}
+
+						&:hover {
+							color: black;
+							cursor: pointer;
+						}
+					}
+				}
+
+				.btn-container {
+					.btn {
+						display: block;
+						background-color: #2AC1C5;
+						padding: 2.05vh 0.9vw;
+						font-size: 94%;
+						border: 1px solid #6BA8A9;
+						margin: 0 1.2vw 3vh;
+						color: white;
+						font-weight: bold;
+						text-decoration: none;
+
+						&:hover {
+							text-decoration: underline;
+							border: 1px solid black;
+						}
+
+						@media @tablet {
+							display: inline-block;
+							margin: 0 1vw;
+						}
+
+						@media @phone {
+							width: 100%;
+							padding: 20px 0;
+						}
+					}
+
+					.active-btn {
+						background-color: #166666;
+					}
+
+					@media @tablet {
+						display: flex;
+						justify-content: space-evenly;
+						width: 100%;
+					}
+
+					@media @phone {
+						display: block;
+						width: 100%;
+						animation-name: grow-anim;
+						animation-duration: 0.5s;
+						animation-fill-mode: forwards;
+					}
+				} // body #root .App .nav .btn-container
+
+				@media @tablet {
+					width: 100%;
+					position: fixed;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+				}
+
+				@media @phone {
+					flex-wrap: nowrap;
+					flex-direction: column;
+
+					.display-none {
+						display: none;
+					}
+				}
+			} // body #root .App .nav
+
+			.main-content {
+				display: inline-block;
+				background: #F3F3F3;
+				width: 75vw;
+
+				@media @tablet {
+					width: 100%;
+				}
+			} // body #root .App .main-content
+
+			.list {
+				display: flex;
+				justify-content: space-evenly;
+				flex-wrap: wrap;
+				margin: 42px 26px 120px 26px;
+
+				h2 {
+					text-align: left;
+					color: #4D4B4D;
+					font-size: 1.35rem;
+					width: 100%;
+					margin-bottom: 28px;
+				}
+
+				.note {
+					border: 1px solid #BFBFBF;
+					border-radius: 5px;
+					width: 12vw;
+					width: calc(-20 / 341 * 100vw + 83244 / 341 * 1px);
+					height: 204px;
+					display: inline-block;
+					margin-bottom: 25px;
+					padding: 0 20px;
+					overflow: hidden;
+
+					h3, p {
+						text-align: left;
+					}
+
+					h3 {
+						margin: 11px 0 -3px 0;
+						white-space: nowrap;
+					}
+
+					p {
+						line-height: 22px;
+						font-size: 0.85rem;
+						letter-spacing: 1px;
+						margin-top: 1px;
+						max-height: 133px;
+						overflow: hidden;
+					}
+
+					@media @phone {
+						width: 80%;
+					}
+				} // body #root .App .list .note
+
+				@media @tablet {
+					margin: 50px 5px;
+				}
+			} // body #root .App .list
+
+			@media @tablet {
+				width: 98vw;
+				flex-wrap: wrap;
+				flex-direction: column;
+
+				.desktop {
+					display: none;
+				}
 			}
-		} // body .App .list
-	} // body .App
+
+			@media @phone {
+				.tablet {
+					display: none;
+				}
+
+				.phone {
+					display: block;
+				}
+			}
+		} // body #root .App
+	} // body #root
 } // body
+
+
+// Animations
+
+@keyframes grow-anim {
+	0% {font-size: 0;}
+	33% {font-size: 2.4rem;}
+	66% {font-size: 1.6rem;}
+	100% {font-size: 2rem;}
+}
+
+@keyframes grow-anim1 {
+	0% {font-size: 0;}
+	33% {font-size: 2.4rem;}
+	66% {font-size: 1.6rem;}
+	100% {font-size: 2rem;}
+}

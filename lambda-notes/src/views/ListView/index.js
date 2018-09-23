@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components
-import NoteView from '../NoteView';
+import Note from '../../components/Note';
 
 const ListView = props => {
 	return(
@@ -10,7 +10,7 @@ const ListView = props => {
 			<div className = 'list'>
 				<h2>Your Notes:</h2>
 
-				{ props.notes.map((note, i) => <NoteView key = { i } note = { note } />) }
+				{ props.notes.map((note, i) => <Note key = { i } note = { note } />) }
 			</div>
 		</div>
 	);

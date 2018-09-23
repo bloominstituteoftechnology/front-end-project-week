@@ -9,64 +9,67 @@ class App extends Component {
 	state = {
 		notes: [
 			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody1',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody2',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody3',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody4',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody5',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody6',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody7',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody8',
-			},
-			{
-				noteTitle: 'Note Title',
-				noteBody: 'noteBody9',
-			},
+				noteTitle: '',
+				noteBody: '',
+			}
 		],
+		toggleMenu: false,
 	};
+
+	componentDidMount() {
+		const loremIpsumNotes = [];
+
+		for (let i = 0; i < 9; i++) {
+			loremIpsumNotes.push({
+				noteTitle: 'Note Title',
+				noteBody: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis',
+			});
+		}
+
+		this.setState({
+			notes: loremIpsumNotes,
+		});
+	}
+
+	toggleMenu = () => {
+		this.setState({
+			...this.state,
+			notes: [ ...this.state.notes ],
+			toggleMenu: !this.state.toggleMenu,
+		});
+	}
 
 	render() {
 		return (
 			<div className = 'App'>
-				<div className = 'side-nav'>
+				<div className = 'nav slide-down-anim'>
 					<header>
-						<div>Lambda</div>
-						<div>Notes</div>
+						<div className = 'lambda-notes'>
+							Lambda<br className = 'desktop' />
+							Notes
+						</div>
+
+						<div 
+							className = 'hamburger-menu-container phone' 
+							onClick = { this.toggleMenu }
+						>
+							<i className = { `fas ${ this.state.toggleMenu ? 'fa-times' : 'fa-bars' }` } />
+						</div>
 					</header>
 
-					<NavLink 
-						exact to = '/' 
-						className = 'btn' 
-						activeClassName = 'active-btn'
-					>View Your Notes</NavLink>
+					<div className = { `btn-container ${ this.state.toggleMenu ? null : 'display-none' }` }>
+						<NavLink 
+							exact to = '/' 
+							className = 'btn' 
+							activeClassName = 'active-btn'
+						>View Your Notes</NavLink>
 
-					<NavLink 
-						to = '/create-new' 
-						className = 'btn' 
-						activeClassName = 'active-btn'
-					>+ Create New Note</NavLink>
+						<NavLink 
+							to = '/create-new' 
+							className = 'btn' 
+							activeClassName = 'active-btn'
+						>+ Create New Note</NavLink>
+					</div>
 				</div>
 				
 				<Route 
