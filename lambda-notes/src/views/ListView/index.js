@@ -1,10 +1,13 @@
 // React
 import React from 'react';
 
-const ListView = () => {
+// Components
+import NoteView from '../NoteView';
+
+const ListView = props => {
 	return(
 		<div>
-			ListView
+			{ props.notes.map((note, i) => <NoteView key = { i } note = { note } />) }
 		</div>
 	);
 }
