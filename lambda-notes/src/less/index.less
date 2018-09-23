@@ -9,9 +9,9 @@ body {
 		text-align: center;
 		width: 69vw;
 		display: flex;
+		height: 100%;
 
 		.side-nav {
-			height: 100vh;
 			width: 25vw;
 			display: inline-block;
 			background-color: #D7D7D7;
@@ -57,15 +57,29 @@ body {
 		.main-content {
 			display: inline-block;
 			background: #F3F3F3;
-			height: 100vh;
 			width: 75vw;
+		} // body .App .main-content
+
+		.list {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin: 42px 26px 0 26px;
 
 			h2 {
 				text-align: left;
 				color: #4D4B4D;
-				margin: 60px 0 0 26px;
 				font-size: 1.35rem;
+				width: 100%;
+				margin-bottom: 28px;
 			}
-		} // body .App .main-content		
+
+			.note {
+				border: 1px solid black;
+				width: 14.9vw;
+				height: 57vh;
+				display: inline-block;
+			}
+		} // body .App .list
 	} // body .App
 } // body

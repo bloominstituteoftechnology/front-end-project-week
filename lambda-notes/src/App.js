@@ -9,16 +9,40 @@ class App extends Component {
 	state = {
 		notes: [
 			{
-				noteTitle: 'noteTitle1',
+				noteTitle: 'Note Title',
 				noteBody: 'noteBody1',
 			},
 			{
-				noteTitle: 'noteTitle2',
+				noteTitle: 'Note Title',
 				noteBody: 'noteBody2',
 			},
 			{
-				noteTitle: 'noteTitle3',
+				noteTitle: 'Note Title',
 				noteBody: 'noteBody3',
+			},
+			{
+				noteTitle: 'Note Title',
+				noteBody: 'noteBody4',
+			},
+			{
+				noteTitle: 'Note Title',
+				noteBody: 'noteBody5',
+			},
+			{
+				noteTitle: 'Note Title',
+				noteBody: 'noteBody6',
+			},
+			{
+				noteTitle: 'Note Title',
+				noteBody: 'noteBody7',
+			},
+			{
+				noteTitle: 'Note Title',
+				noteBody: 'noteBody8',
+			},
+			{
+				noteTitle: 'Note Title',
+				noteBody: 'noteBody9',
 			},
 		],
 	};

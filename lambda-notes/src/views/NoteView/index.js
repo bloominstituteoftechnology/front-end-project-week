@@ -3,7 +3,7 @@ import React from 'react';
 
 const NoteView = props => {
 	return(
-		<div>
+		<div className = 'note'>
 			<p>Title: { props.note.noteTitle }</p>
 			<p>Body: { props.note.noteBody }</p>
 		</div>
