@@ -1,12 +1,9 @@
 // React
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 // Components
 import ListView from './views/ListView';
-
-// Styles
-import './css/App.css';
 
 class App extends Component {
 	state = {
@@ -29,11 +26,26 @@ class App extends Component {
 	render() {
 		return (
 			<div className = 'App'>
-				<header>
+				<div className = 'side-nav'>
 					<h1>Lambda Notes</h1>
-				</header>
+
+					<NavLink 
+						exact to = '/' 
+						className = 'btn' 
+						activeClassName = 'active-btn'
+					>View Your Notes</NavLink>
+
+					<NavLink 
+						to = '/create-new' 
+						className = 'btn' 
+						activeClassName = 'active-btn'
+					>+ Create New Note</NavLink>
+				</div>
 				
-				<Route exact path = '/' render = { () => <ListView notes = { this.state.notes } /> } />
+				<Route 
+					exact path = '/'  
+					render = { () => <ListView notes = { this.state.notes } /> } 
+				/>
 			</div>
 		);
 	}
