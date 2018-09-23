@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 
 // Components
-import ListView from './views/ListView';
+import { 
+	ListView, 
+	CreateNewView, 
+} from './views';
 
 class App extends Component {
 	state = {
@@ -22,7 +25,7 @@ class App extends Component {
 		for (let i = 0; i < 9; i++) {
 			loremIpsumNotes.push({
 				noteTitle: 'Note Title',
-				noteBody: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis',
+				noteContent: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis',
 			});
 		}
 
@@ -57,7 +60,7 @@ class App extends Component {
 						</div>
 					</header>
 
-					<div className = { `btn-container ${ this.state.toggleMenu ? null : 'display-none' }` }>
+					<div className = { `btn-container ${ this.state.toggleMenu ? '' : 'display-none' }` }>
 						<NavLink 
 							exact to = '/' 
 							className = 'btn' 
@@ -71,11 +74,13 @@ class App extends Component {
 						>+ Create New Note</NavLink>
 					</div>
 				</div>
-				
+
 				<Route 
 					exact path = '/'  
 					render = { () => <ListView notes = { this.state.notes } /> } 
 				/>
+
+				<Route path = '/create-new' component = { CreateNewView } />
 			</div>
 		);
 	}

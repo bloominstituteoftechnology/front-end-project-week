@@ -6,7 +6,7 @@ const Note = props => {
 		<div className = 'note'>
 			<h3>{ props.note.noteTitle }</h3>
 			<hr />
-			<p>{ props.note.noteBody }</p>
+			<p>{ props.note.noteContent }</p>
 		</div>
 	);
 }

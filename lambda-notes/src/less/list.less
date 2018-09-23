@@ -1,0 +1,44 @@
+.list {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	margin: 42px 26px 120px 26px;
+
+	.note {
+		border: 1px solid #BFBFBF;
+		border-radius: 5px;
+		width: 12vw;
+		width: calc(-20 / 341 * 100vw + 83244 / 341 * 1px);
+		height: 204px;
+		display: inline-block;
+		margin-bottom: 25px;
+		padding: 0 20px;
+		overflow: hidden;
+
+		h3, p {
+			text-align: left;
+		}
+
+		h3 {
+			margin: 11px 0 -3px 0;
+			white-space: nowrap;
+		}
+
+		p {
+			line-height: 22px;
+			font-size: 0.85rem;
+			letter-spacing: 1px;
+			margin-top: 1px;
+			max-height: 133px;
+			overflow: hidden;
+		}
+
+		@media @phone {
+			width: 80%;
+		}
+	} // .list .note
+
+	@media @tablet {
+		margin: 50px 5px;
+	}
+} // .list

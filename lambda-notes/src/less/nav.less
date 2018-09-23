@@ -1,0 +1,103 @@
+.nav {
+	width: 25vw;
+	display: inline-block;
+	background-color: #D7D7D7;
+	overflow-x: hidden;
+	color: #4A484A;
+	border-right: 1px solid #A8A8A8;
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		.lambda-notes {
+			font-weight: bold;
+			font-size: 2.6vw;
+			text-align: left;
+			margin: 3.4vh 0 4.8vh 1.2vw;
+			letter-spacing: 0.04vw;
+			line-height: 5vh;
+
+			@media @tablet {
+				font-size: 2rem;
+				text-align: left;
+				margin: 2vh 1vw;
+			}
+		}
+
+		.hamburger-menu-container {
+			margin: 1vw;
+			font-size: 2rem;
+
+			.fa-bars {
+				animation-name: grow-anim;
+				animation-duration: 0.5s;
+				animation-fill-mode: forwards;
+			}
+
+			.fa-times {
+				animation-name: grow-anim1;
+				animation-duration: 0.5s;
+				animation-fill-mode: forwards;
+			}
+
+			&:hover {
+				color: black;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.btn-container {
+		.btn {
+			display: block;
+			margin: 0 1.2vw 3vh;
+
+			@media @tablet {
+				display: inline-block;
+				margin: 0 1vw;
+			}
+
+			@media @phone {
+				width: 100%;
+				padding: 20px 0;
+			}
+		}
+
+		.active-btn {
+			background-color: #166666;
+		}
+
+		@media @tablet {
+			display: flex;
+			justify-content: space-evenly;
+			width: 100%;
+		}
+
+		@media @phone {
+			display: block;
+			width: 100%;
+			animation-name: grow-anim;
+			animation-duration: 0.5s;
+			animation-fill-mode: forwards;
+		}
+	} // .nav .btn-container
+
+	@media @tablet {
+		width: 100%;
+		position: fixed;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	@media @phone {
+		flex-wrap: nowrap;
+		flex-direction: column;
+
+		.display-none {
+			display: none;
+		}
+	}
+} // .nav
