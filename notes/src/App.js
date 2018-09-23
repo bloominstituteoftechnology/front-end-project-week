@@ -5,51 +5,74 @@ import { testData } from "./testData";
 import NoteList from "./components/NoteList";
 import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
-import SimpleStorage from "react-simple-storage";
+// import SimpleStorage from "react-simple-storage";
 import { AppContainer } from "./components/styles";
+import axios from 'axios'
+
+const ALL = "https://killer-notes.herokuapp.com/note/get/all";
+const CREATE = "https://killer-notes.herokuapp.com/note/create";
+const DELETE = "https://killer-notes.herokuapp.com/note/delete";
+const GET = "https://killer-notes.herokuapp.com/note/get";
+const PUT = "https://killer-notes.herokuapp.com/note/edit";
 
 class App extends Component {
   state = {
-    notes: testData
+    notes: [],
+    loading: false
   };
+
+  componentDidMount() {
+		this.setState({ loading: true });
+		axios.get(ALL).then(response => {
+			this.setState({ notes: response.data, loading: false });
+		});
+	}
 
   handleCreateNote = note => {
-    this.setState(prevState => {
-      return {
-        notes: prevState.notes.concat(note)
-      };
-    });
-  };
-
-  handleEdit = (_index, editedNote) => {
-    this.setState(prevState => {
-      return {
-        notes: prevState.notes.map((note, index) => {
-          if (index == _index) {
-            return editedNote;
-          } else {
-            return note;
+		this.setState({ loading: true });
+		axios.post(CREATE, note).then(response => {
+			axios.get(`${GET}/${response.data.success}`).then(response => {
+				this.setState(prevState => {
+          return {
+            notes: [...prevState.notes, response.data],
+					loading: false,
           }
-        })
-      };
-    });
-  };
+				});
+			});
+		});
+	};
 
-  handleDeleteNote = _index => {
-    this.setState(prevState => {
-      return {
-        notes: prevState.notes.filter((note, index) => {
-          return _index == index ? null : note;
-        })
-      };
-    });
-  };
+  handleEdit = (id, edited) => {
+		console.log("we got in.");
+		this.setState({ loading: true });
+		axios.put(`${PUT}/${id}`, edited).then(response => {
+			this.setState(prevState => ({
+				notes: prevState.notes.map(note => {
+					if (note._id == response.data._id) {
+						return response.data;
+					} else {
+						return note;
+					}
+				}),
+				loading: false,
+			}));
+		});
+	};
 
+  handleDeleteNote = id => {
+		this.setState({ loading: true });
+		axios.delete(`${DELETE}/${id}`).then(() => {
+			axios.get(ALL).then(response => {
+				this.setState({ notes: response.data, loading: false });
+			});
+		});
+	};
+
+  // removed this from render: <SimpleStorage parent={this} />
   render() {
     console.log("App", this.props);
     return (
       <AppContainer>
-        <SimpleStorage parent={this} />
         <Sidebar />
         <Route
           exact
@@ -69,7 +92,7 @@ class App extends Component {
         {/* this route will handle the single note view as well as editing and deleting */}
         <Route
           exact
-          path="/notes/:index"
+          path="/notes/:id"
           render={props => (
             <Note
               {...props}

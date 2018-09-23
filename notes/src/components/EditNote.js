@@ -5,9 +5,16 @@ import { withRouter } from "react-router-dom";
 
 class EditNote extends React.Component {
   state = {
-    title: this.props.handleCurrentNote().title,
-    body: this.props.handleCurrentNote().body
+    title: "",
+		textBody: "",
   };
+
+  componentDidMount() {
+		this.setState({
+			title: this.props.note.title,
+			textBody: this.props.note.textBody,
+		});
+	}
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -17,11 +24,11 @@ class EditNote extends React.Component {
     e.preventDefault();
     this.props.handleSubmit({
       title: this.state.title,
-      body: this.state.body
+      textBody: this.state.textBody
     });
     this.setState({
       title: "",
-      body: ""
+      textBody: ""
     });
     this.props.history.push("/notes");
   };
@@ -40,7 +47,7 @@ class EditNote extends React.Component {
           Edit Note: {this.state.title}
         </PageHeader>
         <Form
-          body={this.state.body}
+          textBody={this.state.textBody}
           title={this.state.title}
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}

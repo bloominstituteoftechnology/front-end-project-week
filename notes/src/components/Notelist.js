@@ -14,7 +14,7 @@ const Grid = styled.div`
 
 class NoteList extends Component {
   state = {
-    notes: this.props.notes
+    notes: this.props.notes,
   };
   render() {
     return (

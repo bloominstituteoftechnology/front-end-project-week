@@ -48,9 +48,9 @@ const Form = props => {
           onChange={props.handleInputChange}
         />
         <TextArea
-          name="body"
+          name="textBody"
           placeholder="Note Content"
-          value={props.body}
+          value={props.textBody}
           onChange={props.handleInputChange}
         />
         <StyledButton>{props.label}</StyledButton>

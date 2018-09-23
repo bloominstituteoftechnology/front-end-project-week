@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 class CreateNote extends Component {
   state = {
     title: "",
-    body: ""
+		textBody: "",
   };
 
   handleInputChange = e => {
@@ -18,11 +18,11 @@ class CreateNote extends Component {
     e.preventDefault();
     this.props.handleSubmit({
       title: this.state.title,
-      body: this.state.body
+			textBody: this.state.textBody,
     });
     this.setState({
       title: "",
-      body: ""
+      textBody: "",
     });
     this.props.history.push("/notes");
   };

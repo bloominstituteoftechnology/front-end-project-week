@@ -21,14 +21,15 @@ const NoteTitle = styled.h3`
 
 class NoteCard extends Component {
   render() {
+    const note = this.props.note;
     return (
-      <Link to={`/notes/${this.props.index}`}>
+      <Link key={note._id} to={`/notes/${note._id}`}>
         <Card>
-          <NoteTitle>{this.props.note.title}</NoteTitle>
+          <NoteTitle>{note.title}</NoteTitle>
           <NoteBody>
-            {this.props.note.body.length > 150
-              ? `${this.props.note.body.substring(0, 150)}...`
-              : this.props.note.body}
+            {note.textBody.length > 150
+              ? `${note.textBody.substring(0, 150)}...`
+              : note.textBody}
           </NoteBody>
         </Card>
       </Link>
