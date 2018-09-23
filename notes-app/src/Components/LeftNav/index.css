@@ -1,8 +1,9 @@
 .nav_container {
+    border-radius: 5px 0 0 5px;
     background-color: #D3D2D3;
-    border-right: gray;
+    border-right: 2px solid palegoldenrod;
     width: 220px;
-    height: 888px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -12,8 +13,12 @@
     font-size: 40px;
     text-align: left;
     margin-left: 15px;
-    margin-top: 20px;
+    margin-top: 70px;
     line-height: 35px;
+    border-left: 10px dashed palegoldenrod;
+    padding-left: 15px;
+    color: #5a5a5a;
+    text-shadow: 2px 2px palegoldenrod;
 }
 
 button {

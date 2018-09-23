@@ -8,6 +8,7 @@ class App extends Component {
     render() {
         return (
             <div className="app_container">
+            <div className="overlay"></div>
                 <LeftNav />
                 <MainContent />
             </div>

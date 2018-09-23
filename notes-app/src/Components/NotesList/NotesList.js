@@ -66,6 +66,11 @@ class NotesList extends Component {
         }
     }
 
+    componentWillMount(){
+        let reversed = Array.from(this.props.notes.reverse());
+        this.setState({ notes: reversed })
+    }
+
 
     generateNotes = (what, where) => {
         return (
@@ -106,10 +111,10 @@ class NotesList extends Component {
         console.log("noteslist", this.props)
         return (
                     <div className="inner_outer_notes">
-                        <h3>Your Notes:</h3>
+                        <h3 className="list_title">Your Notes:</h3>
                         <div className="note_container">
                         {/* changes state to props below */}
-                        {this.props.notes.map(this.generateNotes
+                        {this.state.notes.map(this.generateNotes
                             )
                         }
                         </div>

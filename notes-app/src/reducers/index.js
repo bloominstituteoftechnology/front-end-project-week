@@ -1,4 +1,4 @@
-import { DELETE_NOTE } from '../actions'
+import { DELETE_NOTE, EDIT_NOTE } from '../actions'
 
 const initialState = [
     {
@@ -51,9 +51,11 @@ const initialState = [
 
 // // current app state, {action object}
 const notesReducer = (state = initialState, action) => {
+    let temp = Array.from(state);
+
     switch (action.type) {
         case DELETE_NOTE:
-            let temp = Array.from(state);
+            
 
             state.forEach((item, index) => {
                 if (item._id === action.payload) {
@@ -62,6 +64,16 @@ const notesReducer = (state = initialState, action) => {
                 }
             });
 
+            return temp;
+        case EDIT_NOTE:
+            
+            state.forEach((item, index) => {
+                if (item._id === action.payload._id) {
+                    temp.splice(index, 1);
+                    return;
+                }
+            });
+            temp.push(action.payload);
             return temp;
         default:
             return state;

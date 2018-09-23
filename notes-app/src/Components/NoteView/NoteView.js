@@ -3,11 +3,15 @@ import './index.css';
 import DeleteNote from '../DeleteNote/DeleteNote';
 import { Link } from 'react-router-dom';
 
-//1/3
+
+//redux 1/3
 import { connect } from 'react-redux';
 
 
-//2/3 for redux copy and paste the state
+
+
+
+//redux 2/3 for redux copy and paste the state
 const mapStateToProps = (state) => {
     return {
         notes: state
@@ -116,4 +120,5 @@ componentWillMount(){
     }
 }
 
+//action 2/3
 export default connect(mapStateToProps,{})(NoteView);
