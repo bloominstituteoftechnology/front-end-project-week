@@ -38,6 +38,10 @@ class EditNote extends Component {
         this.setState({ matched: temp })
     }
 
+    cancelButton = () => {
+        window.location.reload();
+    }
+
 
 
     render() {
@@ -75,6 +79,13 @@ class EditNote extends Component {
                         
                             >Update
                     </button>
+                    <button 
+                        className="cancel_button"
+                        onClick={this.cancelButton}
+                        
+                            >Undo Changes
+                    </button>
+
                 </form>
             </div>
         )

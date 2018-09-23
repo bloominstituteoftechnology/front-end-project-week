@@ -1,4 +1,4 @@
-import { DELETE_NOTE, EDIT_NOTE } from '../actions'
+import { DELETE_NOTE, EDIT_NOTE, CREATE_NOTE } from '../actions'
 
 const initialState = [
     {
@@ -75,6 +75,15 @@ const notesReducer = (state = initialState, action) => {
             });
             temp.push(action.payload);
             return temp;
+        case CREATE_NOTE:
+
+            state.forEach((item, index) => {
+                    temp.push(index++, 1);
+                    return;
+                
+            });
+            temp.push(action.payload);
+            return temp;
         default:
             return state;
 
@@ -82,14 +91,6 @@ const notesReducer = (state = initialState, action) => {
     }
 }
 
-// const notesReducer = (state = initialState, action) => {
-//     switch (action.type) {
-//         case 'DELETE_NOTE':
-//             return state;
-//         default:
-//             return state;
-//     }
-// }
 
 
 

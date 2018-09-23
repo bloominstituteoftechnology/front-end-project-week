@@ -90,10 +90,7 @@ class NotesList extends Component {
         )
     }
 
-    // render() {
-    //     
-
-    //     
+    
     render() {
 
         console.log("here:", this.props)
