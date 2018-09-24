@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
+import NoteList from '../NoteList';
+import Form from '../Form';
 import './index.css';
 
 import SideBar from '../SideBar';
@@ -9,6 +12,10 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar />
+
+        <Route exact path="/" component={NoteList} />
+        
+        <Route path="/notes/add" component={Form} />
       </div>
     );
   }
