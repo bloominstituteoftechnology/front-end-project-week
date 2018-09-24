@@ -42,7 +42,10 @@ class NoteView extends React.Component {
 											className = 'btn save-btn delete-btn' 
 											onClick = { this.deleteNote } 
 										>Delete</div>
-										<div className = 'btn save-btn no-btn'>No</div>
+										<div 
+											className = 'btn save-btn no-btn' 
+											onClick = { this.toggleDeleteModal } 
+										>No</div>
 									</div>
 								</ModalBody>
 							</Modal>
