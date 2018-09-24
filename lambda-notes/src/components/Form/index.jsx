@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 const Form = props => {
   const heading = props.type === "new" ? "Create New Note:" : "Edit Note:";
