@@ -2,6 +2,7 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-csv": "^1.0.14",
+    "react-google-login": "^3.2.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "reactstrap": "^6.4.0",
