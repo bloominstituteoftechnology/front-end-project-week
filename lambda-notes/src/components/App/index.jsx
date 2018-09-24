@@ -5,7 +5,9 @@ import axios from "axios";
 import NoteList from "../NoteList";
 import Form from "../Form";
 import Note from '../Note';
+import '../components.css';
 import "./index.css";
+
 
 import SideBar from "../SideBar";
 
