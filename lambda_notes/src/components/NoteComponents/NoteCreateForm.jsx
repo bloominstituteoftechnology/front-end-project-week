@@ -12,8 +12,25 @@ class NoteCreateForm extends Component {
         textBody: '',
     };
 
+    componentDidMount() {
+        const note = this.props.note;
+        if (this.props.isUpdating) {
+            this.setState({
+                id: note[0].id,
+                title: note[0].title,
+                textBody: note[0].textBody,
+            });
+        };
+    };
+
     handleSubmit = e => {
         e.preventDefault();
+
+        if (this.props.isUpdating) {
+            this.props.updateNote(this.state.id, this.state);
+            return;
+        }
+
         const ids = this.props.ids + 1;
 
         this.setState ({
@@ -35,6 +52,7 @@ class NoteCreateForm extends Component {
         return (
             <Wrapper>
                 <form>
+                    <p>{this.props.isUpdating ? 'Update Note' : 'Add Note'}</p>
                     <input type="text" name="title" placeholder="Note Title" value={this.state.title} onChange={this.handleChange} />
                     <input type="text" name="textBody" placeholder="Note Content" value={this.state.textBody} onChange={this.handleChange} />
                     <button onClick={this.handleSubmit}>Save</button>

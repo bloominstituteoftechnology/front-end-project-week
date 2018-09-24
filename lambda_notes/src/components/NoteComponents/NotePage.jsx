@@ -34,6 +34,7 @@ export default class NotePage extends Component {
 
         return (
             <Wrapper>
+                <NavLink to="/create-note" onClick={event => this.props.updateNote(event, this.state.note.id)}>Edit</NavLink>
                 <h1>{this.state.note.title}</h1>
                 <p>{this.state.note.textBody}</p>
             </Wrapper>

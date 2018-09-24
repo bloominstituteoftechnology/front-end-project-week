@@ -27,6 +27,8 @@ class App extends Component {
       textBody: 'hhhhhhhhhhhhhhhhhhhhhhh',
     }],
     ids: 2,
+    isUpdating: false,
+    note: null,
   };
 
   addNote = (e, note) => {
@@ -42,6 +44,19 @@ class App extends Component {
 
   };
 
+  updateNote = (id, note) => {
+    let nNote = this.state.notes.map(note => note).filter(note => note.id !== id);
+    nNote.push(note);
+    // console.log('NEW_NOTE',nNote)
+    this.setState({notes: nNote, isUpdating: false}, () => console.log('STATE' ,this.state.notes));
+  }
+
+  updateNoteForm = (e, id) => {
+    e.preventDefault();
+    const note = this.state.notes.map(note => note).filter(note => note.id === parseInt(id, 10));
+    this.setState({isUpdating: !this.state.isUpdating, note: note}, () => this.props.history.push('/create-note'))
+  }
+
   render() {
     return (
       <div>
@@ -51,11 +66,12 @@ class App extends Component {
             notes={this.state.notes} />
         } />
         <Route exact path="/create-note" render={ props =>
-          <NoteCreateForm {...props} addNote={this.addNote} ids={this.state.ids} />
+          <NoteCreateForm {...props} addNote={this.addNote} ids={this.state.ids} isUpdating={this.state.isUpdating} updateNote={this.updateNote} note={this.state.note}/>
         } />
         <Route path="/notes/:id" render={ props => 
           <NotePage {...props}
-            notes={this.state.notes} />
+            notes={this.state.notes}
+            updateNote={this.updateNoteForm} />
         } />
       </div>
     );
