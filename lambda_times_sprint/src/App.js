@@ -3,8 +3,10 @@ import './App.css';
 
 import { Route, NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
+
 import NotesList from './components/NotesList';
 import NoteForm from './components/NoteForm';
+import Note from './components/Note';
 
 
 class App extends Component {
@@ -22,6 +24,9 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
+
+    // const id = this.props.match.params.id;
+    // this.fetchNote(id); 
   }
 
   handleChange = event => {
@@ -40,6 +45,17 @@ class App extends Component {
                                         textBody: response.data.textBody
                                       }))
   }
+
+  // fetchNote = id => {
+  //   axios
+  //     .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+  //     .then(response => {
+  //       this.setState(() => ({ note: response.data }));
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // };
 
   render() {
     return (
@@ -77,6 +93,7 @@ class App extends Component {
           /> 
           )}
         />
+        <Route path="/tags/:id" render={props => <Note {...props} />} />
 
         </div>
 
