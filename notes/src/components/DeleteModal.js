@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import React from "react";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -25,14 +25,24 @@ class ModalExample extends React.Component {
   // };
 
   render() {
+    console.log("modalProps", this.props);
     return (
       <div className="deleteModal-wrapper">
-        <Button className="delete-button" onClick={this.toggle}>Delete</Button>
+        <Button className="delete-button" onClick={this.toggle}>
+          Delete
+        </Button>
         <Modal isOpen={this.state.modal} className="delete-modal">
           <ModalHeader>Are you sure you want to delete this?</ModalHeader>
           <ModalBody>
-          <Button color="danger" onClick={this.props.deleteNote}>Delete</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>No</Button>
+            <Button
+              color="danger"
+              onClick={() => this.props.deleteNote(this.props.noteId)}
+            >
+              Delete
+            </Button>{" "}
+            <Button color="secondary" onClick={this.toggle}>
+              No
+            </Button>
           </ModalBody>
         </Modal>
       </div>

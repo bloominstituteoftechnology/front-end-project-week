@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Card, CardTitle, CardText } from "reactstrap";
 import "./components.css";
 

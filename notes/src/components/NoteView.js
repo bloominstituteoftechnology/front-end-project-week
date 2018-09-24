@@ -10,8 +10,8 @@ export default class NoteView extends Component {
   }
 
  handleDelete = event => {
-    event.preventDefault();
-    console.log('deleteModal', this.props);
+    // event.preventDefault();
+    console.log('event', event);
     this.props.history.push("/notes");
     this.props.deleteNote(event);
   };
@@ -26,7 +26,7 @@ export default class NoteView extends Component {
       <div className="note-container">
         <div className="singleNote-buttonContainer">
           <Link to={`/edit/${note.id}`}>edit</Link>
-          <DeleteModal deleteNote={this.handleDelete} />
+          <DeleteModal deleteNote={this.handleDelete} noteId={note.id} />
         </div>
         <Card key={note.id}>
           <CardTitle>{note.title}</CardTitle>
