@@ -3,11 +3,11 @@ import { NoteItem, H1, NoteTitle, P, H3, H4 } from '../StyledComponents';
 
 function Item(props) {
   return (
-    <NoteItem>
+    <NoteItem onClick={props.onClick}>
       <NoteTitle>
         <H4>{props.title}</H4>
       </NoteTitle>
-      <P>{props.content}</P>
+      <P>{props.textBody}</P>
     </NoteItem>
   );
 }

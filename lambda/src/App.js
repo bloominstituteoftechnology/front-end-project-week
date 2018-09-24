@@ -3,7 +3,13 @@ import './App.css';
 import { Button, H1, H2, H3 } from './components/StyledComponents';
 import SideBar from './components/SideBar';
 import { connect } from 'react-redux';
-import { fetchNotes, addNewNote } from './actions';
+import {
+  fetchNotes,
+  addNewNote,
+  fetchNote,
+  deleteNote,
+  updateNotes
+} from './actions';
 import ListView from './components/ListView/ListView';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import NewNote from './components/CreateNote/NewNote';
@@ -24,7 +30,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={props => <ListView {...this.props} />}
+              render={props => <ListView {...this.props} {...props} />}
             />
             <Route
               path="/newNote"
@@ -65,5 +71,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchNotes, addNewNote }
+  { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes }
 )(App);

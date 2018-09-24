@@ -56,7 +56,7 @@ export const UnderLinedP = P.extend`
 export const NoteItem = styled.div`
   border: 1px solid black;
   transition: 0.3s;
-  width: 31%;
+  width: 25%;
   padding: 10px;
   margin: 3px;
 `;
@@ -67,7 +67,7 @@ export const NoteTitle = styled.div`
 
 export const ListViews = styled.div`
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
 `;
 
 export const TitleInput = styled.input`

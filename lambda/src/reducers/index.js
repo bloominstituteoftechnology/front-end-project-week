@@ -2,27 +2,22 @@ import {
   FETCHING_NOTES,
   FETCHED_NOTES,
   ADDING_NOTES,
-  ADDED_NOTES
+  ADDED_NOTES,
+  ERROR,
+  FETCHING_NOTE,
+  FETCHED_NOTE,
+  UPDATING_NOTES,
+  UPDATED_NOTES
 } from '../actions';
 
 const initialState = {
-  notes: [
-    {
-      title: 'Title 1',
-      content: 'Lorem ipsum'
-    },
-    {
-      title: 'Title 1',
-      content: 'Lorem ipsum'
-    },
-    {
-      title: 'Title 1',
-      content: 'Lorem ipsum'
-    }
-  ],
+  notes: [],
   fetchingNotes: true,
   addingNotes: false,
-  addedNotes: true
+  addedNotes: true,
+  err: null,
+  fetchingNote: true,
+  fetchedNote: {}
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -50,22 +45,31 @@ export const notesReducer = (state = initialState, action) => {
         addedNotes: true,
         notes: state.notes.push(action.payload)
       };
+    case FETCHING_NOTE:
+      return {
+        ...state,
+        fetchingNote: true
+      };
+    case FETCHED_NOTE:
+      return {
+        ...state,
+        fetchedNote: action.payload,
+        fetchingNote: false
+      };
+    case UPDATING_NOTES:
+      return {
+        ...state
+      };
+    case UPDATED_NOTES:
+      return {
+        ...state
+      };
+    case ERROR:
+      return {
+        ...state,
+        err: action.err
+      };
     default:
       return state;
   }
 };
-
-const testNotes = [
-  {
-    title: 'Title 1',
-    content: 'Lorem ipsum'
-  },
-  {
-    title: 'Title 1',
-    content: 'Lorem ipsum'
-  },
-  {
-    title: 'Title 1',
-    content: 'Lorem ipsum'
-  }
-];

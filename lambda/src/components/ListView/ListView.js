@@ -7,12 +7,18 @@ function List(props) {
   return (
     <ListViews>
       {props.notes.map(note => (
-        <Link to={`/notes/${note.id}`}>
-          <Item key={note.id} {...note} />
-        </Link>
+        <Item
+          onClick={event => onClick(note._id, props.history)}
+          key={note._id}
+          {...note}
+        />
       ))}
     </ListViews>
   );
+}
+
+function onClick(id, history) {
+  history.push(`notes/${id}`);
 }
 
 function ListView(props) {
