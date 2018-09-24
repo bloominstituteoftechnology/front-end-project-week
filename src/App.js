@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    return this.props.state.notes.find(note => {return note.id === id})
+    return this.props.state.notes.find(note => {return note.id == id})
   }
 
   disableDelete = () => {
