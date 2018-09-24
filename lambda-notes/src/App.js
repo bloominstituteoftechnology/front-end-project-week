@@ -34,7 +34,19 @@ class App extends Component {
       .catch(error => {
         console.error("Server Error", error);
       });
-  }
+   }
+  getNote = (event => {
+    event.preventDefault();
+    axios
+    .get("http://localhost:2200/api/notes/:id")
+    .then(response => {
+      this.setState({notes: response.data});
+    })
+    .catch(error => {
+      console.error("Server Error",error)
+    });
+  })
+  
 
   searchHandler = event => {
     this.setState({ term: event.target.value });
@@ -49,6 +61,7 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  
     addNote = (event) => {
     event.preventDefault();
     const newNote = {
@@ -72,9 +85,9 @@ class App extends Component {
   }
 
 
-  deleteNote = (id) => {
+  deleteNote = (noteID) => {
     axios
-    .delete(`http://localhost:2200/api/notes/:id`)
+    .delete(`http://localhost:2200/api/notes/${noteID}`)
     .then(res => {
       axios
       .get("http://localhost:2200/api/notes")
@@ -89,19 +102,19 @@ class App extends Component {
     )}
 
 
-  editNote = (event, id, title, content) => {
+  editNote = (event, noteID ,title, content) => {
     event.preventDefault();
 
     const editedNote = { title, content };
 
     axios
-      .put(`http://localhost:2200/api/notes/${id}`, editedNote)
+      .put(`http://localhost:2200/api/notes/${noteID}`, editedNote)
       .then(res => {
         const editedNote = res.data;
 
         const notes = this.state.notes.slice();
         for (let i = 0; i < notes.length; i++) {
-          if (notes[i]._id === editedNote._id) {
+          if (notes[i].id === editedNote.id) {
             notes[i] = editedNote;
           }
         }

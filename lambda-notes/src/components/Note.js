@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Container, Col } from "reactstrap";
@@ -22,8 +23,12 @@ class Note extends React.Component {
 
   render() {
     const id = this.props.match.params.id;
-
-    const note = this.state.notes.find(note => note.id === id.toString());
+    const note = this.state.notes.find(note => {
+      console.log('typeof note.id', typeof note.id);
+      return note.id === Number(id);
+    });
+    // console.log(typeof this.state.notes[0].id);
+    console.log('note.js id',id,'note',note);
     if (!note) return (<div>Loading...</div>);
 
     const { title, content} = note;
