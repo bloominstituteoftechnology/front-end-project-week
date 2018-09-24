@@ -1,18 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import { Route, NavLink} from "react-router-dom";
+
+import ListView from "./views/ListView";
+import NoteView from "./views/NoteView";
+import CreateNoteView from "./views/CreateNoteView";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <ul className="navbar">
+          <li>
+            <NavLink exact to="/" >
+              View Your Notes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/create-note" >
+              Create New Note
+            </NavLink>
+          </li>
+        </ul>
+        <Route exact path="/" component={ListView} />
+        <Route path="/note/:noteId" component={NoteView} />
+        <Route path="/create-note" component={CreateNoteView} />
       </div>
     );
   }
