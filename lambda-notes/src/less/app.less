@@ -42,6 +42,10 @@
 			width: 26vw;
 			height: 32px;
 			margin-bottom: 14px;
+
+			@media @tablet {
+				width: 60vw;
+			}
 		}
 
 		.note-content-text-area {
@@ -50,6 +54,10 @@
 			width: 43vw;
 			height: 325px;
 			margin-bottom: 10px;
+
+			@media @tablet {
+				width: 80vw;
+			}
 		}
 
 		.save-btn {
@@ -57,6 +65,14 @@
 			
 			&:hover {
 				cursor: pointer;
+			}
+
+			@media @tablet {
+				width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
+			}
+
+			@media @phone {
+				width: calc(89 / 135 * 100vw);
 			}
 		}
 	}

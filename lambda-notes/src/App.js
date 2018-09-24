@@ -66,13 +66,15 @@ class App extends Component {
 						<NavLink 
 							exact to = '/' 
 							className = 'btn' 
-							activeClassName = 'active-btn'
+							activeClassName = 'active-btn' 
+							onClick = { () => this.setState({ ...this.state, notes: [ ...this.state.notes ], toggleMenu: false }) } 
 						>View Your Notes</NavLink>
 
 						<NavLink 
 							to = '/create-new' 
 							className = 'btn' 
-							activeClassName = 'active-btn'
+							activeClassName = 'active-btn' 
+							onClick = { () => this.setState({ ...this.state, notes: [ ...this.state.notes ], toggleMenu: false }) } 
 						>+ Create New Note</NavLink>
 					</div>
 				</div>

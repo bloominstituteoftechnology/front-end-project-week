@@ -37,6 +37,11 @@
   height: 32px;
   margin-bottom: 14px;
 }
+@media ( max-width: 1024px ) {
+  .App .form .note-title-input {
+    width: 60vw;
+  }
+}
 .App .form .note-content-text-area {
   border-radius: 5px;
   padding: 20px 27px;
@@ -44,11 +49,26 @@
   height: 325px;
   margin-bottom: 10px;
 }
+@media ( max-width: 1024px ) {
+  .App .form .note-content-text-area {
+    width: 80vw;
+  }
+}
 .App .form .save-btn {
   width: 13vw;
 }
 .App .form .save-btn:hover {
   cursor: pointer;
+}
+@media ( max-width: 1024px ) {
+  .App .form .save-btn {
+    width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
+  }
+}
+@media ( max-width: 540px ) {
+  .App .form .save-btn {
+    width: calc(89 / 135 * 100vw);
+  }
 }
 @media ( max-width: 1024px ) {
   .App {
@@ -144,7 +164,7 @@
   .nav .btn-container {
     display: block;
     width: 100%;
-    animation-name: grow-anim;
+    animation-name: grow-anim-btn;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
   }
@@ -230,10 +250,20 @@
 .create-new,
 .edit {
   margin: 60px 22px 120px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 .create-new h2,
 .edit h2 {
   letter-spacing: -0.3px;
+}
+@media ( max-width: 1024px ) {
+  .create-new,
+  .edit {
+    margin: 60px 0;
+  }
 }
 .note-view {
   margin: 20px;
@@ -303,5 +333,19 @@ body #root {
   }
   100% {
     font-size: 2rem;
+  }
+}
+@keyframes grow-anim-btn {
+  0% {
+    font-size: 0;
+  }
+  33% {
+    font-size: 120%;
+  }
+  66% {
+    font-size: 80%;
+  }
+  100% {
+    font-size: 94%;
   }
 }
