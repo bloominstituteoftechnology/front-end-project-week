@@ -35,7 +35,7 @@ class NoteForm extends React.Component {
     } else {
       const newNote = {
         title: this.state.title,
-        textBody: this.state.textBody
+        content: this.state.content
       };
       this.props.createPost(newNote);
       this.props.history.push('/');
