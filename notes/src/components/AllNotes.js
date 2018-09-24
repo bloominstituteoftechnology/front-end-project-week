@@ -16,7 +16,7 @@ function AllNotes(props) {
                     <h3 onClick={() => props.history.push(`/${note.id}`)}>
                     {note.title}
                     </h3>
-                    <p>{note.body}</p>
+                    <p>{note.content}</p>
                 </div> 
             ))}
         </div>

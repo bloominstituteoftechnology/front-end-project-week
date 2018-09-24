@@ -4,22 +4,22 @@ import { Route, NavLink, withRouter } from 'react-router-dom';
 
 import AllNotes from './components/AllNotes';
 import Note from './components/Note';
-import AddNote from './components/AddNote';
+import NotesForm from './components/NotesForm';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: [
-        // {
-        // id: 1,
-        // title: 'Test Note',
-        // body: 'Lorem ipsum whateverum'
-        // }
+        {
+        id: 1,
+        title: 'Test Note',
+        content: 'Lorem ipsum whateverum'
+        }
       ],
       note: {
         title: '',
-        body: ''
+        content: ''
       },
       isUpdating: false,
     }
@@ -49,9 +49,13 @@ class App extends Component {
     //delete note
   }
 
-  openUpdateForm = (e, id) => {
-    e.preventDefault();
+  openUpdateForm = (event, id) => {
+    event.preventDefault();
+    console.log('open update')
     //open update form
+    const noteToUpdate = this.state.notes.find(note => note.id === id);
+    this.setState ({ isUpdating: true, note: noteToUpdate },
+      () => this.props.history.push('/notesform'))
   }
 
   updateNote = noteId => {
@@ -68,7 +72,7 @@ class App extends Component {
           View Your Notes</NavLink>
         </li>
         <li>
-          <NavLink to="/add-note"
+          <NavLink to="/notesform"
           activeClassName="activeNavButton" >
           + Create New Note
           </NavLink>
@@ -82,6 +86,7 @@ class App extends Component {
        )}
        />
        <Route
+        exact
         path="/:noteId"
         render={props => (
           <Note 
@@ -93,9 +98,10 @@ class App extends Component {
         )}
         />
         <Route
-          path="/add-note"
+          exact
+          path="/notesform"
           render={props => (
-            <AddNote
+            <NotesForm
             {...props}
             note={this.state.note}
             addNewNote={this.addNewNote}
