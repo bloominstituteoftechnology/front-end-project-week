@@ -54,7 +54,7 @@ const ButtonsContainer = styled.div`
 `
 
 
-const URL = 'http://localhost:5000/notes/';
+const URL = 'http://localhost:9000/notes/';
 
 class NoteView extends Component {
     constructor(props) {
@@ -105,7 +105,7 @@ class NoteView extends Component {
                 <DeleteModal delete={() => this.delete(this.state.id)} title={this.state.title}/>
                 </ButtonsContainer>
                 <h1>{this.state.title}</h1>
-                <p><MarkdownPreview value={this.state.content} /></p>
+                <MarkdownPreview value={this.state.content} />
                 <Link to={`/notes`}><button>Back</button></Link>
             </ViewNote>
          );

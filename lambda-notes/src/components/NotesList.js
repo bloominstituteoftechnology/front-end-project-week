@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Pagination from './Pagination';
 import styled from 'styled-components';
 import Note from './Note';
 import Search from './Search';
@@ -23,14 +24,37 @@ const ListView = styled.div`
 `
 
 class NotesList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          renderedNotes: [],
+          page: 1,
+        };
+        this.handlePageChange = this.handlePageChange.bind(this);
+      }
+
+      handlePageChange(page) {
+        const renderedNotes = this.props.notes.slice((page - 1) * 9, (page - 1) * 9 + 9);
+
+        this.setState({ page, renderedNotes });
+      }
+
+      componentDidMount() {
+        setTimeout(() => {
+          this.setState({ renderedNotes: this.props.notes.slice(0, 9), total: this.props.notes.length });
+        })
+      }
+
+
 
     render() {
+        const { page, total, renderedNotes } = this.state;
         return (
             <ListView>
                 <Search {...this.props}/>
                     <h1>Your notes: </h1>
                 <ListNotes>
-                    { this.props.notes.map(note => { 
+                    { renderedNotes.map(note => { 
                         return (
                             <Note
                                 key={note.id}
@@ -41,6 +65,12 @@ class NotesList extends Component {
                         )
                     }) }
                 </ListNotes>
+                <Pagination
+          margin={2}
+          page={page}
+          count={Math.ceil(total / 2)}
+          onPageChange={this.handlePageChange}
+        />
             </ListView>
         );
     }

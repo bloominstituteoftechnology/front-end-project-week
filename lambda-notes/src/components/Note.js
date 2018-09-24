@@ -48,7 +48,7 @@ const Note = (props) => {
             <NoteDisplay>
             <Link  to={`/note/${props.id}`}>
                 <h1>{props.title}</h1>
-                <p><MarkdownPreview value={props.content} /></p>
+                <MarkdownPreview value={props.content} />
                 </Link>
             </NoteDisplay>
             

@@ -44,7 +44,7 @@ const EditForm = styled.form`
 `
 
 
-const URL = 'http://localhost:5000/notes/';
+const URL = 'http://localhost:9000/notes/';
 
 
 class EditNote extends Component {

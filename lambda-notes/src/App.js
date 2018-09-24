@@ -16,7 +16,7 @@ const Application = styled.div`
   display: flex;
 `
 
-const URL = 'http://localhost:5000/notes/';
+const URL = 'http://localhost:9000/notes/';
 
 class App extends Component {
   constructor(props){
