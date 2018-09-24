@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
+import { Link } from 'react-dom';
 
 
 
@@ -11,15 +12,40 @@ class NotesList extends Component {
 
 
     render(){
-
+        console.log('here', this.state.notes)
         return (
             <div>
+                <div className="inner_outer_notes">
+                <h3 className="list_title">Your Notes:</h3>
+                <div className="note_container">
                 {this.state.notes.map(each => (
-                    <div key={each.id}>{each.title}</div>
+
+
+                    <div className="note" key={each.id}>
+                        
+                        <div className="note_title">
+                        {each.title}<br /><br />
+                        </div>
+                        {each.content}
+                    </div>
+                    
                 ))}
+                </div>
+                </div>
             </div>
         )
     }
+
+    //<div className="inner_outer_notes">
+//                         <h3 className="list_title">Your Notes:</h3>
+//                         <div className="note_container">
+//                         {/* changes state to props below */}
+//                         {this.state.notes.map(this.generateNotes
+//                             )
+//                         }
+//                         </div>
+//                     </div>
+
 
 
 
