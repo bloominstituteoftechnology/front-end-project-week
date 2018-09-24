@@ -1,4 +1,4 @@
-https://trello.com/b/GshWLiEN/lambda-notes-michelle-paredes
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
