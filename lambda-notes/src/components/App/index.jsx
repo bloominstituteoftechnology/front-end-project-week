@@ -14,11 +14,14 @@ class App extends Component {
     textBody: ""
   };
 
+  // component did mount and refecth the notes from the api
   componentDidMount() {
-    this.updateNotes();
+    this.refetchNotes();
   }
 
-  updateNotes = () => {
+
+  // refetch notes
+  refetchNotes = () => {
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/all`)
       .then(response => {
@@ -27,10 +30,12 @@ class App extends Component {
       .catch(error => console.log(error));
   };
 
+  // handle input change
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // handle form submit
   handleFormSubmit = e => {
     e.preventDefault();
 
@@ -42,7 +47,7 @@ class App extends Component {
     axios
       .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
       .then(response => {
-        this.updateNotes();
+        this.refetchNotes();
         this.setState({
           title: "",
           textBody: ""
@@ -80,7 +85,7 @@ class App extends Component {
 
           <Route
             path="/notes/:id"
-            render={props => <Note {...props} updateNotes={this.updateNotes} />}
+            render={props => <Note {...props} refetchNotes={this.refetchNotes} />}
           />
         </Switch>
       </div>
