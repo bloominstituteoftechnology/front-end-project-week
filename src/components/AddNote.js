@@ -1,6 +1,5 @@
 import React from 'react';
 
-// wire up onSubmit
 // handleAddNote -> fetch the value typed -> if value, then alert
 export default class AddNote extends React.Component {
   state = {
