@@ -44,10 +44,17 @@ export default class AllNotes extends Component {
 
 
   render(props) {
-    // console.log(this.props)
-    // console.log(this.state.notes)
 
-
+    //converts tag string to tags array 
+    this.props.notes.forEach(note => {
+      if(note.tags){
+        console.log(note.tags)
+        const tagsArr = note.tags.split(',')
+        console.log(tagsArr)
+        note.tags = tagsArr
+      }
+    })
+    
     return (
       <AllNotesDiv>
         <h3>Your Notes:</h3>

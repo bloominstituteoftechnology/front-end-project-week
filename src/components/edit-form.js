@@ -52,6 +52,7 @@ export default class EditForm extends Component {
   }
 
   sendToApp = (e) => {
+    console.log(this.state)
     this.props.editNote(this.state)
   }
 
@@ -64,15 +65,17 @@ export default class EditForm extends Component {
 
   addTag = (e) => {
     e.preventDefault();
-    let thing = this.state.tags.slice();
-    thing.push(this.state.newTag)
-    this.setState({
+    let newStr = this.state.tags + ', ' + this.state.newTag
+     this.setState({
       newTag: '',
-      tags: thing,
-    })
+      tags: newStr,
+    });
+      
+    
   }
 
   render() {
+    console.log(this.state.tags)
     return (
       <EditFormDiv>
         <form onSubmit={this.sendToApp}>
@@ -95,7 +98,6 @@ export default class EditForm extends Component {
             placeholder="Note Content"
           >{this.value}</textarea>
 
-
           <input
             onSubmit={this.addTag}
             className="input"
@@ -106,7 +108,6 @@ export default class EditForm extends Component {
             placeholder={`${this.state.tags}`}
           >{this.value}</input>
           <button onClick={this.addTag}>add tag</button>
-
 
           <Link
             className="menu-item"

@@ -62,6 +62,7 @@ const NoteDetailsDiv = styled.div`
 class NoteDetails extends Component {
 
   render() {
+    console.log(this.props.note)
     return (
       <div>
         {(this.props.note) ?
@@ -86,11 +87,16 @@ class NoteDetails extends Component {
               <h4>{this.props.note.title}</h4>
               <p>{<ReactMarkdown>{this.props.note.textBody}</ReactMarkdown>}</p>
               <div className="tags">Tags:
-                {(this.props.note.tags && this.props.note.tags.length > 0) ?
-                  this.props.note.tags.map(tag => {
+                {(this.props.note.tags.isArray) ? 
+                (this.props.note.tags.map(tag => {
                         return (<div className="tag">{tag}</div>)
                       }
-                  ) :
+                  )) :
+                  (<div className="noTags"> none </div>)}
+                {(typeof this.props.note.tags == "string") ? 
+                (<div className="tag">tag</div>)
+                      
+                   :
                   (<div className="noTags"> none </div>)}
               </div>
             </div>

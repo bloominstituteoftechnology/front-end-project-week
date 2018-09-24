@@ -166,7 +166,7 @@ class App extends Component {
               render={ (note) => {
                 return (
                   <NoteDetails
-                    enableDelete={this.enableDelete}  note={this.getNoteDetails(note.match.params.noteId)} />
+                    enableDelete={this.enableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
                 )
               }}></Route>
 
