@@ -1,50 +1,48 @@
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import "../components.css";
 import axios from "axios";
-
-import NoteList from "../NoteList";
+import { Route, Switch, withRouter } from "react-router-dom";
 import Form from "../Form";
-import Note from '../Note';
-import '../components.css';
-import "./index.css";
-
-
-import SideBar from "../SideBar";
+import Note from "../Note";
+import NoteList from "../NoteList";
+import Sidebar from "../SideBar";
 
 class App extends Component {
-  // state to track data
   state = {
     notes: [],
     title: "",
     textBody: ""
   };
 
-  // component did mount
-  componentDidMount = () => {
-    this.refetchNotes();
+  componentDidMount() {
+    this.updateNotes();
+  }
+
+  updateNotes = () => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .then(response => {
+        this.setState({ notes: response.data });
+      })
+      .catch(error => console.log(error));
   };
 
-  // handle input change
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // handle form submit
   handleFormSubmit = e => {
-    // stop page refresh on submit
     e.preventDefault();
 
-    // create a new note
     const newNote = {
       title: this.state.title,
       textBody: this.state.textBody
     };
 
-    // do an axios post call on the api
     axios
       .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
       .then(response => {
-        this.refetchNotes();
+        this.updateNotes();
         this.setState({
           title: "",
           textBody: ""
@@ -55,20 +53,10 @@ class App extends Component {
     this.props.history.push("/");
   };
 
-  // refetch notes
-  refetchNotes = () => {
-    axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
-      .then(response => {
-        this.setState({ notes: response.data });
-      })
-      .catch(error => console.log(error));
-  };
-
   render() {
     return (
-      <div className="App">
-        <SideBar />
+      <div className="container">
+        <Sidebar />
 
         <Route
           exact
@@ -92,7 +80,7 @@ class App extends Component {
 
           <Route
             path="/notes/:id"
-            render={props => <Note {...props} refetchNotes={this.refetchNotes} />}
+            render={props => <Note {...props} updateNotes={this.updateNotes} />}
           />
         </Switch>
       </div>

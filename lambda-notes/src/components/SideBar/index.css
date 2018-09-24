@@ -1,0 +1,20 @@
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 15px;
+  width: 250px;
+  background: #D8D8D8;
+  border-right: 1px solid #979797;
+  box-sizing: border-box;
+}
+
+.sidebar-wrapper h1 {
+  font-size: 35px;
+  line-height: 0.9;
+}
+
+.sidebar-wrapper button {
+  margin-bottom: 15px;
+}
