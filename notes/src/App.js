@@ -28,7 +28,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:5000/notes")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -53,11 +53,11 @@ class App extends Component {
 
   noteSubmit = () => {
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", {
+      .post("http://localhost:5000/notes", {
         title: this.state.newtitle,
-        textBody: this.state.newbody
+        text: this.state.newbody
       }).then(()=>{
-        axios.get("https://killer-notes.herokuapp.com/note/get/all")
+        axios.get("http://localhost:5000/notes")
         .then(response => {
           console.log(response.data);
           this.setState(()=> ({notes: response.data }))
@@ -92,31 +92,19 @@ class App extends Component {
 
   editNote = id => {
     let notesCopy = this.state.notes.slice();
-    let editnote = notesCopy.find(note => note._id == id);
-    this.setState({ edittitle: editnote.title, editbody: editnote.textBody });
+    let editnote = notesCopy.find(note => note.id == id);
+    this.setState({ edittitle: editnote.title, editbody: editnote.text });
   };
 
   submitEdit = id => {
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+    axios.put(`http://localhost:5000/notes/${id}`, {
       title: this.state.edittitle,
-      textBody: this.state.editbody}).then(()=>{
-        axios.get("https://killer-notes.herokuapp.com/note/get/all")
+      text: this.state.editbody}).then(()=>{
+        axios.get("http://localhost:5000/notes")
         .then(response => {
           this.setState({ notes: response.data })
         })
       })
-  
-    
-
-    //pre API code
-
-    // let notesCopy = this.state.notes.map(note =>Object.assign({}, note));
-    // let editnote = notesCopy.find(note => note.id == id);
-    // editnote.title = this.state.edittitle;
-    // editnote.text = this.state.editbody;
-    // if ((this.state.edittitle.trim() !== "" || this.state.editbody.trim() !== "")){
-    //   this.setState({notes: notesCopy})
-    // }
   };
 
   deleteModal = () => {
@@ -126,26 +114,16 @@ class App extends Component {
 
   closeModal = () => {
     this.setState({ tagging: !this.state.tagging });
-    console.log(this.state.tagging);
   };
 
   noteDelete = id => {
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`http://localhost:5000/notes/${id}`)
     .then(()=> {
-      axios.get("https://killer-notes.herokuapp.com/note/get/all")
+      axios.get("http://localhost:5000/notes")
       .then(response => {
         this.setState({ notes: response.data, deleting: false }) 
       })
     })
-     
-    
-    // this.setState({ deleting: false });
-
-    //pre API code
-    // let notesCopy = this.state.notes.slice();
-    // let notesLeft = notesCopy.filter(note => note.id != id);
-    // console.log(notesLeft);
-    // this.setState({ notes: notesLeft, deleting: false });
   };
 
   origtheme = () => {
@@ -207,7 +185,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/notes/:_id"
+          path="/notes/:id"
           render={props => (
             <NoteFocus
               {...props}

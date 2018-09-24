@@ -13,7 +13,7 @@ class Ministate extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.note._id !== this.props.note._id) {
+    if (prevProps.note.id !== this.props.note.id) {
         this.setState({note: this.props.note})
     }
   }
@@ -53,13 +53,13 @@ class Ministate extends React.Component {
   };
 
   render() {
-      console.log(this.state.note)
+      console.log(this.state.note.tags)
     return (
       <div className="note">
         <div className={this.state.tagging ? "tagModal" : "hide"}>
           New Tag
           <input name="tag" onChange={this.noteInput} />
-          <button onClick={() => this.addTag(this.state.note._id)}>Add</button>
+          <button onClick={() => this.addTag(this.state.note.id)}>Add</button>
           <button onClick={this.closeModal}>Cancel</button>
         </div>
         <div className="tags">
@@ -68,7 +68,7 @@ class Ministate extends React.Component {
               <div className="tagx">
                 <p>{tag}</p>
                 <i
-                  onClick={() => this.deleteTag(this.state.note._id, tag)}
+                  onClick={() => this.deleteTag(this.state.note.id, tag)}
                   class="fas fa-times"
                 />
               </div>
@@ -79,11 +79,11 @@ class Ministate extends React.Component {
             Tag
           </div>
         </div>
-        <Link className="notelink" to={`/notes/${this.state.note._id}`}>
+        <Link className="notelink" to={`/notes/${this.state.note.id}`}>
           <div>
             <div className="note-contents">
               <p className="note-title">{this.state.note.title}</p>
-              <p className="note-text">{this.state.note.textBody}</p>
+              <p className="note-text">{this.state.note.text}</p>
             </div>
           </div>
         </Link>

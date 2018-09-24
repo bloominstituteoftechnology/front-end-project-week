@@ -13,24 +13,24 @@ class NoteFocus extends React.Component {
   }
 
   componentDidMount() {
-    this.noteView(this.props.match.params._id);
+    this.noteView(this.props.match.params.id);
   }
 
   componentDidUpdate() {
     axios
-    .get(`https://killer-notes.herokuapp.com/note/get/${this.props.match.params._id}`)
+    .get(`http://localhost:5000/notes/${this.props.match.params.id}`)
     .then(response => {
       if (JSON.stringify(this.state.note)!==JSON.stringify(response.data)){
       this.setState({ note: response.data });}
     })
-    console.log("update")
   }
  
   noteView = (id) => {
     axios
-  .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+  .get(`http://localhost:5000/notes/${id}`)
   .then(response => {
     this.setState(() => ({note: response.data}))
+    console.log(response.data)
   })
   .catch(error => {
     console.error('Server Error', error);
@@ -38,6 +38,7 @@ class NoteFocus extends React.Component {
   }
 
  render(){
+   
   return (
     <div className={this.props.pink? "focus focuspink" : this.props.blue? "focus focusblue" : "focus"}>
       <div className={this.props.deleting ? "delete" : "hide-delete"}>
@@ -46,7 +47,7 @@ class NoteFocus extends React.Component {
           <div className="btns">
             <Link className="linkdel" to="/">
               <div
-                onClick={() => this.props.noteDelete(this.props.match.params._id)}
+                onClick={() => this.props.noteDelete(this.props.match.params.id)}
                 className="deletebtn"
               >
                 Delete
@@ -59,13 +60,13 @@ class NoteFocus extends React.Component {
         </div>
       </div>
       <div className="edit-del">
-        <Link className="linkedit" to={`/notes/edit/${this.props.match.params._id}`}>
-          <p onClick={() => this.props.editNote(this.props.match.params._id)}>edit</p>
+        <Link className="linkedit" to={`/notes/edit/${this.props.match.params.id}`}>
+          <p onClick={() => this.props.editNote(this.props.match.params.id)}>edit</p>
         </Link>
         <p onClick={this.props.deleteModal}>delete</p>
       </div>
       <h1 className="focustitle">{this.state.note.title}</h1>
-      <div className="notetxt">{this.state.note.textBody}</div>
+      <div className="notetxt">{this.state.note.text}</div>
     </div>
   );
 }
