@@ -1,6 +1,6 @@
 export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
-
+export const SET_UPDATE_NOTE = 'SET_UPDATE_NOTE';
 
 export const addNote = note => {
     return {
@@ -14,4 +14,11 @@ export const deleteNote = title => {
         type: DELETE_NOTE,
         title
     }
+}
+
+export const setUpdateNote = title => {
+    return {
+        type: SET_UPDATE_NOTE,
+        payload: title,
+    };
 }

@@ -9,8 +9,16 @@ class NotesFormView extends React.Component {
         note: {
             title: '',
             text: ''
-        }
+        },
+        isUpdating: false,
     };
+
+    componentDidMount() {
+        console.log(this.props);
+        if(this.props.noteToUpdate){
+            this.setState({isUpdating: true, note: this.props.noteToUpdate});
+        }
+    }
 
     handleChange = event => {
         this.setState({
@@ -34,13 +42,14 @@ class NotesFormView extends React.Component {
             note = {this.state.note}
             handleAddNewNote={this.handleAddNewNote}
             handleChange={this.handleChange}
+            isUpdating={this.state.isUpdating}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-
+    noteToUpdate: state.noteToUpdate
 });
 
 export default connect(mapStateToProps, { addNote })(NotesFormView);

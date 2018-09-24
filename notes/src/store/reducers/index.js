@@ -1,7 +1,8 @@
-import { ADD_NOTE, DELETE_NOTE } from '../actions';
+import { ADD_NOTE, DELETE_NOTE, SET_UPDATE_NOTE } from '../actions';
 
 const initialState = {
-    notes: []
+    notes: [],
+    noteToUpdate: null
 };
 
 export const notesReducer = (state=initialState, action) => {
@@ -10,6 +11,9 @@ export const notesReducer = (state=initialState, action) => {
             return Object.assign({}, state, {notes: [...state.notes, action.payload]});
         case DELETE_NOTE:
             return ({...state, notes: state.notes.filter(note => action.title !== note.title)});
+        case SET_UPDATE_NOTE:
+        const note = state.notes.find(note => note.title === action.payload)
+            return {...state, noteToUpdate: note ? note : null}
         default: 
             return state;
     }

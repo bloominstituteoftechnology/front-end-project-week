@@ -8,7 +8,7 @@ function NotesForm(props) {
 
     return (
         <Fragment>
-            <h2>Add A New Note:</h2>
+            <h2>{props.isUpdating ? 'Update Note' : 'Add New Note'}</h2>
             <form>
                 <h3>Title:</h3>
                 <input
