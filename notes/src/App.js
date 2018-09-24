@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Route, NavLink, withRouter } from 'react-router-dom';
 
@@ -11,7 +10,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
+      notes: [
+        // {
+        // id: 1,
+        // title: 'Test Note',
+        // body: 'Lorem ipsum whateverum'
+        // }
+      ],
       note: {
         title: '',
         body: ''
