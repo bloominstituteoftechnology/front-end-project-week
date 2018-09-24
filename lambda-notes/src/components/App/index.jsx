@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   // component did mount 
-  componentDidMount = () => { refetchNotes(); };
+  componentDidMount = () => { this.refetchNotes(); };
 
   // handle input change
   handleInputChange = e => { this.setState({ [e.target.name]: e.target.value }); };
