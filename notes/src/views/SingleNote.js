@@ -2,6 +2,7 @@ import React from "react";
 import NotesList from '../components/NotesList/NotesList';
 import './SingleNote.css';
 import { connect } from 'react-redux';  
+import { deleteNote } from '../store/actions';
 
 
 class SingleNote extends React.Component {
@@ -25,8 +26,12 @@ class SingleNote extends React.Component {
         this.setState({ note: foundNote});
     }
     
-    
-   
+
+    handleDeleteNote = title => {
+        this.props.deleteNote(this.state.note.title);
+        console.log('Title: ', this.state.note.title);
+        this.props.history.push('/notes');
+    }
     
 
     render() {
@@ -34,7 +39,7 @@ class SingleNote extends React.Component {
         const {title, text} = this.state.note
         return(
         <div className='active' >
-            <button>Delete</button>
+            <button onClick={this.handleDeleteNote}>Delete</button>
             <h2>{title}</h2>
             <p>{text}</p>
         </div>
@@ -46,4 +51,4 @@ const mapStateToProps = state => ({
     notesList: state.notes
 });
 
-export default connect(mapStateToProps)(SingleNote);
+export default connect(mapStateToProps, { deleteNote })(SingleNote);

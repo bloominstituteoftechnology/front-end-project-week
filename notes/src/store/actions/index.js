@@ -9,9 +9,9 @@ export const addNote = note => {
     };
   };
 
-export const deleteNote = noteId => {
+export const deleteNote = title => {
     return {
         type: DELETE_NOTE,
-        noteId
+        title
     }
 }
