@@ -38,7 +38,7 @@ class App extends Component {
             <Note {...props} /> 
           }} /> */}
           {/* <Route path='/notes/:id' component={Note} /> */}
-          <Route path='/new' conponent={NewNote} />
+          <Route path='/new' component={NewNote} />
         </div>
       </div>
     );

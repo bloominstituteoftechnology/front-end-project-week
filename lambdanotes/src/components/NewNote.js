@@ -6,8 +6,8 @@ export default class NewNote extends Component {
     super(props);
     this.state = {
       // tags: ["tag", "otherTag"],
-      title: "Note Title",
-      textBody: "Note Body"
+      title: '',
+      textBody: ''
     };
   }
 
@@ -33,6 +33,7 @@ export default class NewNote extends Component {
   render() {
     return(
       <div className='new-note'>
+        <h3>Create New Note:</h3>
         <form onSubmit={this.addNewNote}>
           <input 
             type='text'
