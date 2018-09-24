@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from './logo.svg';
-import './noteView.css';
+import './NoteView.css';
 
 const noteView = () => {
   return (

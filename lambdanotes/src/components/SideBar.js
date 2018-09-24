@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import './SideBar.css';
+
+
+
+
 
 class sideBar extends Component {
   render() {
     return (
       <div className="side-bar-container">
-      <h1> Lambda Notes</h1>
+      <img src='/Users/josephbradley/Desktop/practice-dir/front-end-project-week/lambdanotes/public/lambda.png' alt="Lambda"/>
         <div className="view-button">
           <button>View Cards</button>
         </div>

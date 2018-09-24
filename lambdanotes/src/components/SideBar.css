@@ -3,19 +3,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #B3AEAF;
+    background-color: gainsboro;
     height: 400px;
     width: 300px;
 }
 
 button {
     font-size: 1em;
-    color: #bdb0b3;
+    color: #2d2527;
     height: 50px;
     width: 200px;
-    background: #8e9cbe;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
 
 }
 
