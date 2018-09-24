@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //get note data
+    //get data
   }
 
   handleChange = e => {

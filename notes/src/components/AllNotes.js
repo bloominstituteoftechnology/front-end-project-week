@@ -1,8 +1,12 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 function AllNotes(props) {
     if (!props.notesList || !props.notesList.length) {
-        return <h1>You don't have any Notes yet. :(</h1>
+        return (
+        <div><h3>You don't have any Notes yet. :(</h3>
+            <p>Try adding a new Note by clicking the <strong>+ Create New Note</strong> button! :)</p></div>
+        )
     }
 
     return (
@@ -25,3 +29,5 @@ AllNotes.propTypes = {
         push: PropTypes.func
     })
 }
+
+export default AllNotes;
