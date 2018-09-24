@@ -13,15 +13,15 @@ class App extends Component {
     super();
     this.state = {
       notes: [
-      { id: 0, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 1, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 2, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 3, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 4, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 5, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 6, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 7, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 8, title: 'Note Title', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' }
+      { id: 0, title: '0', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 1, title: '1', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 2, title: '2', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 3, title: '3', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 4, title: '4', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 5, title: '5', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 6, title: '6', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 7, title: '7', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
+      { id: 8, title: '8', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' }
       ]
     }
   }
