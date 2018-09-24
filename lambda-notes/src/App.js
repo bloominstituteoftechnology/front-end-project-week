@@ -39,15 +39,31 @@ class App extends Component {
         }, 2000);
       });
   }
+
+  setErrorHandler = errMsg => {
+    this.setState({ errorMessage: errMsg });
+    setTimeout(() => {
+      this.setState({ errorMessage: null });
+    }, 2000);
+  };
+
   addNote = event => {
     event.preventDefault();
-    const notes = this.state.notes.slice();
-    notes.push({
-      content: this.state.content,
-      title: this.state.title,
-      id: Date.now()
+    const { title, content } = this.state;
+    const newNote = { title, content };
+    axios
+      .post(`http://localhost:7000/api/notes`, newNote)
+      .then(response => {
+        this.setState({
+          notes: response.data,
+          errorMessage: null
+        });
+      })
+      .catch(error => this.props.setErrorHandler("Error creating note!"));
+    this.setState({
+      title: "",
+      content: ""
     });
-    this.setState({ notes, title: "", content: "" });
   };
 
   deleteNote = note => {
