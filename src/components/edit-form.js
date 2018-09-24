@@ -46,7 +46,7 @@ export default class EditForm extends Component {
       tags: this.props.note.tags,
       title: this.props.note.title,
       textBody: this.props.note.textBody,
-      _id: this.props.note._id,
+      id: this.props.note.id,
       newTag: '',
     }
   }
@@ -111,7 +111,7 @@ export default class EditForm extends Component {
           <Link
             className="menu-item"
             onClick={this.sendToApp}
-            to={`/all-notes/${this.state._id}`}
+            to={`/all-notes/${this.state.id}`}
           >Save</Link>
 
         </form>

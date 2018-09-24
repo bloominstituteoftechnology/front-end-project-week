@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import { withRouter } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 
-
 const NoteDetailsDiv = styled.div`
   ${'' /* border: 1px solid green; */}
   display: flex;
@@ -13,7 +12,6 @@ const NoteDetailsDiv = styled.div`
   padding: 25px;
   ${'' /* background-color: white; */}
   background-color: #F3F3F3;
-
   height: 100vh;
   .noteDetails {
     background-color: white;
@@ -73,11 +71,11 @@ class NoteDetails extends Component {
               <Link
                 className="link"
                 onClick={() => this.props.enableDelete()}
-                to={`/all-notes/${this.props.note._id}/delete`}
+                to={`/all-notes/${this.props.note.id}/delete`}
               >delete</Link>
               <Link
                 className="link"
-                to={`/all-notes/${this.props.note._id}/edit`}
+                to={`/all-notes/${this.props.note.id}/edit`}
               >edit</Link>
               <Link
                 className="link"

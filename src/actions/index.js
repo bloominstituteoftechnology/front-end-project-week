@@ -60,7 +60,7 @@ export const editNote = (editedNote) =>  {
   console.log(editedNote, 'editedNote')
   return function(dispatch){
     dispatch({type: EDITING_NOTE});
-    axios.put(`http://localhost:3300/api/notes/${editedNote._id}`,
+    axios.put(`http://localhost:3300/api/notes/${editedNote.id}`,
       { "tags": editedNote.tags,
         "title": editedNote.title,
         "textBody": editedNote.textBody}

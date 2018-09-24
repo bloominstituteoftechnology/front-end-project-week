@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    return this.props.state.notes.find(note => {return note._id === id})
+    return this.props.state.notes.find(note => {return note.id === id})
   }
 
   disableDelete = () => {
@@ -88,8 +88,8 @@ class App extends Component {
     // console.log(newArr)
 
     function compare(a, b){
-      const Aa = a._id;
-      const Bb = b._id;
+      const Aa = a.id;
+      const Bb = b.id;
       let comparison = 0;
       if (Aa > Bb) {
         comparison = 1;

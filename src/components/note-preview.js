@@ -75,8 +75,8 @@ const NotePreview = (props) => (
           key={props.key}
           index={props.index}
           className="note-link"
-          _id={props.note._id}
-          to={`/all-notes/${props.note._id}`}>
+          id={props.note.id}
+          to={`/all-notes/${props.note.id}`}>
 
             <div key={props.index} className="note-preview">
 
@@ -105,10 +105,10 @@ const NotePreview = (props) => (
 const sourceObj = {
   beginDrag(props) {
     console.log("beginDrag", props)
-    const { _id, index } = props.note; //this return just 'green'
-    console.log(_id, index);
+    const { id, index } = props.note; //this return just 'green'
+    console.log(id, index);
     return ({
-      _id, index
+      id, index
     });
   },
   //endDrag is called when dropped on a target
@@ -120,13 +120,13 @@ const sourceObj = {
     }
     // const { onDrop } = props;
     console.log(monitor.getItem());
-    const  { _id, index }  = monitor.getItem(); //returns just 'blue'
+    const  { id, index }  = monitor.getItem(); //returns just 'blue'
     // console.log(props.color) // also returns just 'blue'
     console.log(monitor.getDropResult());
     // const { shape } = monitor.getDropResult();
     //gets props from the target
-    console.log(_id)
-    props.onDrop( _id, index );//onDrop supplied by parent which attaches the color and shape to the props
+    console.log(id)
+    props.onDrop( id, index );//onDrop supplied by parent which attaches the color and shape to the props
   },
 };
 
@@ -157,8 +157,8 @@ export default DragSource('item', sourceObj, collect)(NotePreview)
 //                 key={key}
 //                 index={index}
 //                 className="note-link"
-//                 _id={note._id}
-//                 to={`/all-notes/${note._id}`}>
+//                 id={note.id}
+//                 to={`/all-notes/${note.id}`}>
 //
 //                   <div key={index} className="note-preview">
 //

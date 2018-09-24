@@ -71,7 +71,7 @@ export default class DeleteNote extends Component {
   }
 
   deleteHandler = (e) => {
-    this.props.deleteNote(this.state.note._id);
+    this.props.deleteNote(this.state.note.id);
     this.props.disableDelete();
   }
 
@@ -91,7 +91,7 @@ export default class DeleteNote extends Component {
               id="no"
               className="button"
               onClick={() => this.props.disableDelete()}
-              to={`/all-notes/${this.state.note._id}`}
+              to={`/all-notes/${this.state.note.id}`}
             >No</Link>
           </div>
         </div>
