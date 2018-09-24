@@ -3,7 +3,7 @@ import axios from 'axios';
 export const ACTIONS = {
     COLLECTING_NOTES: 'COLLECTING_NOTES', NOTES_COLLECTED: 'NOTES_COLLECTED', 
     ASSEMBLING_NOTE: 'ASSEMBLING_NOTE', NOTE_ASSEMBLED: 'NOTE_ASSEMBLED', 
-    REVISING_NOTE: 'REVISING_NOTE', NOTE_REVISE: 'NOTE_REVISED', 
+    REVISING_NOTE: 'REVISING_NOTE', NOTE_REVISED: 'NOTE_REVISED', 
     EXPUNGING_NOTE: 'EXPUNGING_NOTE', NOTE_EXPUNGED: 'NOTE_EXPUNGED'
 }
 
@@ -20,7 +20,7 @@ export const assembleNotes = note => dispatch => {
     dispatch({type: ACTIONS.ASSEMBLING_NOTE});
     axios.post('http://localhost:3333/api/notes', {...note})
     .then(response => ({type: ACTIONS.NOTE_ASSEMBLED, notes: response.data}))
-    .catch(err => console.log('Unable to Assemble Notes: ' + err.message))
+    .catch(err => console.log('Unable to Assemble Note: ' + err.message))
 }
 
 export const reviseNotes = note => dispatch => {
