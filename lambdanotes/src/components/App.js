@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 // Components
-import SideBar from './ListPage';
+import SideBar from './SideBar';
+import NoteListPage from './NoteListPage';
 import NotePage from './NotePage';
 import NewNotePage from './NewNotePage';
 import EditNotePage from './EditNotePage';
@@ -14,7 +15,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<SideBar />
-				<Route exact path="/" component={ListPage} />
+				<Route exact path="/" component={NoteListPage} />
 				<Route path={`/note/${id}`} component={NotePage} />
 				<Route path="/new" component={NewNotePage} />
 				<Route path="/edit" component={EditNotePage} />
