@@ -7,7 +7,7 @@ class EditNote extends Component {
     super(props);
 
     this.state = {
-      allNotes: this.props.notes
+      allNotes: this.props.notes,
     };
   }
 
@@ -31,9 +31,9 @@ class EditNote extends Component {
           />
           <input
             placehold="Note Content"
-            name="description"
+            name="content"
             onChange={this.props.inputChangeHandler}
-            className="inputDescription"
+            className="inputContent"
           />
           <button>Update</button>
         </form>

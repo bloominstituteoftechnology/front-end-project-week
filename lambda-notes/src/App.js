@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import axios from "axios";
 import AllNotes from "./components/notes/AllNotes";
 import NewNote from "./components/notes/NewNote";
 import EditNote from "./components/notes/EditNote";
 import SingleNote from "./components/notes/SingleNote";
-import { noteData } from "./components/data/noteData";
 import { SideBar } from "./components/sidebar/SideBar";
 import "./App.css";
 import "./css/reset.css";
+
+const dataUrl = "http://localhost:7000/api/notes/";
 
 class App extends Component {
   constructor(props) {
@@ -16,18 +18,24 @@ class App extends Component {
       notes: [],
       loadedData: false,
       title: "",
-      description: "",
+      content: "",
       isOpen: false,
       // modal actions start
       loadingModal: false,
       successModal: false,
       // redirect
-      redirect: false
+      redirect: false,
     };
-    // this.deleteNoteHandler = this.deleteNoteHandler.bind(this);
   }
   componentDidMount() {
-    this.setState({ notes: noteData, loadedData: true });
+    axios
+      .get(dataUrl)
+      .then(response => {
+        this.setState({ notes: response.data, loadedData: true });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   // new note and modify note handlers
@@ -48,10 +56,10 @@ class App extends Component {
     let newNote = {
       id: lastIndex,
       title: this.state.title,
-      description: this.state.description
+      content: this.state.content,
     };
     notesCopy.push(newNote);
-    this.setState({ notes: notesCopy, title: "", description: "" });
+    this.setState({ notes: notesCopy, title: "", content: "" });
     setTimeout(() => this.setState({ redirect: true }), 1000);
     setTimeout(() => this.setState({ redirect: false }), 1000);
   };
@@ -60,12 +68,12 @@ class App extends Component {
     event.preventDefault();
     let noteNumberToEdit = parseInt(
       event.target.attributes.getNamedItem("notenumber").value,
-      10
+      10,
     );
     let notesCopy = this.state.notes.slice();
     notesCopy[noteNumberToEdit].title = this.state.title;
-    notesCopy[noteNumberToEdit].description = this.state.description;
-    this.setState({ notes: notesCopy, title: "", description: "" });
+    notesCopy[noteNumberToEdit].content = this.state.content;
+    this.setState({ notes: notesCopy, title: "", content: "" });
     setTimeout(() => this.setState({ redirect: true }), 1000);
     setTimeout(() => this.setState({ redirect: false }), 1000);
   };
@@ -74,14 +82,14 @@ class App extends Component {
   // delete note handlers and modal
   toggleModal = () => {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   };
 
   deleteNoteHandler = event => {
     let noteNumberToAvoid = parseInt(
       event.target.attributes.getNamedItem("deletenotenumber").value,
-      10
+      10,
     );
     let notesCopy = this.state.notes.slice();
     notesCopy = notesCopy.filter(note => {

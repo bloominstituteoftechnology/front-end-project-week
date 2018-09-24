@@ -14,6 +14,13 @@
   border-right: 1px solid #8b9c9d;
 }
 
+.sidebarDiv h1 {
+  font-size: 2rem;
+  /* font-family: "Oswald", sans-serif; */
+  font-family: sans-serif;
+  letter-spacing: 3px;
+  line-height: 34px;
+}
 .mainNavButtonsDiv button {
   margin: 1rem 0;
   padding: 1rem;

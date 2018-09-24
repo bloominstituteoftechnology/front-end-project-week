@@ -10,8 +10,6 @@
   font-size: 1.6rem;
   display: flex;
   flex-wrap: wrap;
-  /* Don't know if I want to space evenly yet */
-  /* justify-content: space-evenly; */
   align-items: center;
 }
 
@@ -40,7 +38,7 @@
   padding-top: 0.5rem;
 }
 
-.noteDescription {
+.noteContent {
   border-top: 1px solid #000000;
   line-height: 2rem;
 }

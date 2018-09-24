@@ -14,7 +14,7 @@ class SingleNote extends Component {
         return note.id === ID;
       }),
       successModal: this.props.successModal,
-      loadingModal: this.props.loadingModal
+      loadingModal: this.props.loadingModal,
     };
   }
 
@@ -38,7 +38,7 @@ class SingleNote extends Component {
           </div>
           <div className="singleNoteTextDiv">
             <h2>{this.state.note[0].title}</h2>
-            <h4>{this.state.note[0].description}</h4>
+            <h4>{this.state.note[0].content}</h4>
           </div>
         </div>
       );
@@ -76,7 +76,7 @@ class SingleNote extends Component {
 
           <div className="singleNoteTextDiv">
             <h2>{this.state.note[0].title}</h2>
-            <h4>{this.state.note[0].description}</h4>
+            <h4>{this.state.note[0].content}</h4>
           </div>
         </div>
       );

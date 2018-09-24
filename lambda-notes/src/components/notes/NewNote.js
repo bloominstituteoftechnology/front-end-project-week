@@ -6,7 +6,7 @@ class NewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allNotes: this.props.notes
+      allNotes: this.props.notes,
     };
   }
 
@@ -27,9 +27,9 @@ class NewNote extends Component {
           />
           <input
             placehold="Note Content"
-            name="description"
+            name="content"
             onChange={this.props.inputChangeHandler}
-            className="inputDescription"
+            className="inputContent"
           />
           <button>Save</button>
         </form>
