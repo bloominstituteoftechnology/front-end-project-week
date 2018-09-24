@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { fetchData } from '../actions';
+
 import NoteCard from '../components/Notes/NoteCard';
 
 class NotesView extends Component {
+  componentDidMount() {
+    this.props.fetchData();
+  }
+
   render() {
     console.log(this.props);
     return (
@@ -22,11 +28,10 @@ const mapStateToProps = (state) => {
   return {
     notes: state.notesReducer.notes,
     fetchingData: state.notesReducer.fetchingData,
-    error: state.notesReducer.error,
   };
 };
 
 export default connect(
   mapStateToProps,
-  {}
+  { fetchData }
 )(NotesView);

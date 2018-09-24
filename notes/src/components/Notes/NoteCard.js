@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NoteCard = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       <h1>{props.note.title}</h1>

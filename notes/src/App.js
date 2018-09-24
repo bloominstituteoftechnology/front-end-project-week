@@ -61,7 +61,7 @@ const StyledNavLink = styled(NavLink)`
 
 const NavTitle = styled.h1`
   font-size: 2.2rem;
-  margin-bottom: 10px;
+  margin: 10px 0;
 `;
 
 const Content = styled.div`
