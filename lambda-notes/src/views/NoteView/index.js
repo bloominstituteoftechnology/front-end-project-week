@@ -15,6 +15,11 @@ class NoteView extends React.Component {
 		this.setState({ deleteModal: !this.state.deleteModal });
 	}
 
+	deleteNote = () => {
+		this.props.deleteNote(this.props.id);
+		this.props.history.push('/');
+	}
+
 	render() {
 		return(
 			<div className = 'main-content'>
@@ -33,7 +38,10 @@ class NoteView extends React.Component {
 									<p>Are you sure you want to delete this?</p>
 
 									<div className = 'modal-btns'>
-										<div className = 'btn save-btn delete-btn'>Delete</div>
+										<div 
+											className = 'btn save-btn delete-btn' 
+											onClick = { this.deleteNote } 
+										>Delete</div>
 										<div className = 'btn save-btn no-btn'>No</div>
 									</div>
 								</ModalBody>
