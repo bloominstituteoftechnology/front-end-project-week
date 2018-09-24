@@ -15,5 +15,5 @@ const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_
 
 const collection = createStore(reducer, compose(applyMiddleware(thunk, logger), reduxDevToolsHook));
 
-ReactDOM.render(<Provider store={collection}><Router><App /></Router></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={collection}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

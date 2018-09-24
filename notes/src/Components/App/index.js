@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
 
 import './App.css';
 import { YourNotes, Sidebar, Forms } from '../Container/';
@@ -16,15 +17,23 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        
+        <Sidebar />
+
         <main className="notes-main">
-          <Sidebar />
-          <Forms assembleNote={this.props.assembleNote}/>
-          <YourNotes 
-          notes={this.props.notes} 
-          collectNotes={this.props.collectNotes} 
-          expungeNote={this.props.expungeNote}
-          />
+          <Route exact path="/forms/:form" render={ props => (
+            <Forms {...props} 
+            assembleNote={this.props.assembleNote}
+            />
+          )}/>
+
+          <Route path="/notes" render={ props => (
+            <YourNotes 
+            {...props} 
+            notes={this.props.notes} 
+            collectNotes={this.props.collectNotes} 
+            expungeNote={this.props.expungeNote}
+            />
+          )}/>
         </main>
 
       </div>
@@ -36,4 +45,4 @@ const connectStateToProps = state => ({
   notes: state.notes
 })
 
-export default connect(connectStateToProps, { collectNotes, assembleNote, expungeNote })(App);
+export default withRouter(connect(connectStateToProps, { collectNotes, assembleNote, expungeNote })(App));

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { AssembleNote, ExpungeNote } from '../Presentational';
+import { AssembleNote, ReviseNote } from '../Presentational';
+import { Route } from 'react-router-dom';
 
 export class Forms extends Component {
     state = {};
 
-    handleInput = (e, formName) => {
+    componentDidMount() {
+
+    }
+
+    handleInput = (e) => {
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value
         })
@@ -13,8 +18,20 @@ export class Forms extends Component {
     render() {
         return (
             <div>FORMS
-                <AssembleNote note={this.state} handleInput={this.handleInput} assembleNote={this.props.assembleNote} formName="assemble"/>
-                <ExpungeNote />
+                <Route path="/forms/assemble" render={props => (
+                    <AssembleNote 
+                    {...props}
+                    note={this.state} 
+                    handleInput={this.handleInput} 
+                    assembleNote={this.props.assembleNote} 
+                    formName="assemble"/>
+                )}/>
+
+                <Route path="/forms/revise" render={props => (
+                <ReviseNote />
+                )}/>
+
+
             </div>
         )
     }
