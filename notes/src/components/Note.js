@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 function Note(props) {
     console.log(props.match.params);
+    console.log("in note");
     const note = props.notesList.find(note => note.id === parseInt(props.match.params.noteId, 10)
     );
 
@@ -20,8 +21,10 @@ function Note(props) {
             </div>
             <button className="modify-button" onClick={event => {
                 event.preventDefault();
+                console.log("clicked open update");
                 props.openUpdateForm(event, note.id)
             }}>edit</button>
+
             <button className="modify-button" onClick={deleteNote}>delete</button>
         </Fragment>
     )

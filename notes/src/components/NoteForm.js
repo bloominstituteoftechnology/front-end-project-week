@@ -1,21 +1,26 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-function NotesForm(props) {
-    // function handleSubmit(event) {
-    //     event.preventDefault();
+function NoteForm(props) {
+    function handleSubmit(event) {
+        event.preventDefault();
 
-    //     if (props.isUpdating) {
-    //         props.updateNote(props.note.id);
-    //     } else {
-    //         props.addNewNote();
-    //     }
-    // }
+        if (props.isUpdating) {
+            props.updateNote(props.note.id);
+        } else {
+            props.addNewNote();
+        }
+    }
+
+    function handleCancel(event) {
+        event.preventDefault();
+        
+    }
 
     return (
         <Fragment>
-            <h1>Component Test</h1>
-            {/* <h2>{props.isUpdating ? 'Edit Note' : 'Add New Note'}</h2>
+            
+            <h2>{props.isUpdating ? 'Edit Note' : 'Add New Note'}</h2>
             <form>
                 <div className="note-form">
                     <input type="text"
@@ -30,12 +35,12 @@ function NotesForm(props) {
                     onChange={props.handleChange} />
                 </div>
                 <button className="save-button" onClick={handleSubmit}>{props.isUpdating ? 'Update' : 'Save'}</button>
-            </form> */}
+            </form>
         </Fragment>
     )
 }
 
-// NotesForm.propTypes = {
+// Form.propTypes = {
 //     note: PropTypes.shape({
 //         title: PropTypes.string,
 //         content: PropTypes.string
@@ -46,4 +51,4 @@ function NotesForm(props) {
 //     updateNote: PropTypes.func
 // }
 
-export default NotesForm;
+export default NoteForm;

@@ -13,7 +13,7 @@ function AllNotes(props) {
         <div className="notes-list-wrapper">
             {props.notesList.map(note => (
                 <div className="note-card" key={note.id}>
-                    <h3 onClick={() => props.history.push(`/${note.id}`)}>
+                    <h3 onClick={() => props.history.push(`notes/${note.id}`)}>
                     {note.title}
                     </h3>
                     <p>{note.content}</p>

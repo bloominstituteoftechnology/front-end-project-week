@@ -1,32 +1,35 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Route, NavLink, withRouter } from 'react-router-dom';
+import axios from 'axios';
 
+import Home from './components/Home';
 import AllNotes from './components/AllNotes';
 import Note from './components/Note';
-import NotesForm from './components/NotesForm';
+import NoteForm from './components/NoteForm';
+
+import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-        id: 1,
-        title: 'Test Note',
-        content: 'Lorem ipsum whateverum'
-        }
-      ],
+      notesData: [],
       note: {
         title: '',
         content: ''
       },
       isUpdating: false,
-    }
+    };
   }
 
   componentDidMount() {
-    //get data
+    axios.get('http://localhost:5000/notes')
+    .then(response => {
+      this.setState({ notesData: response.data, isUpdating: false })
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   handleChange = e => {
@@ -39,27 +42,42 @@ class App extends Component {
     });
   }
 
-  addNewNote = e => {
-    e.preventDefault();
+  addNewNote = event => {
+    //event.preventDefault();
     console.log('adding new');
-    //add new note
+    axios.post('http://localhost:5000/notes', this.state.note)
+    .then(response => this.setState({ notesData: response.data, note: { title: '', content: ''} },
+    () => this.props.history.push('/notes')))
   }
 
   deleteNote = noteId => {
-    //delete note
+    return axios.delete(`http://localhost:5000/notes/${noteId}`)
+    .then(response => this.setState({ notesData: response.data }))
   }
 
   openUpdateForm = (event, id) => {
     event.preventDefault();
-    console.log('open update')
+    
     //open update form
-    const noteToUpdate = this.state.notes.find(note => note.id === id);
+    const noteToUpdate = this.state.notesData.find(note => note.id === id);
     this.setState ({ isUpdating: true, note: noteToUpdate },
-      () => this.props.history.push('/notesform'))
+      () => this.props.history.push('/note-form'));
   }
 
   updateNote = noteId => {
-    //update note
+    axios.put(`http://localhost:5000/notes/${noteId}`, this.state.note)
+    .then(response => {
+      this.setState({
+        notesData: response.data,
+        isUpdating: false,
+        note: { title: '', content: '' },
+      });
+      this.props.history.push(`/notes/${noteId}`)
+    })
+  }
+
+  cancelUpdate = (event) => {
+    this.setState({ note: {title: '', content: ''}, isUpdating: false })
   }
 
   render() {
@@ -69,29 +87,40 @@ class App extends Component {
         <li>
           <NavLink exact to="/"
           activeClassName="activeNavButton" >
-          View Your Notes</NavLink>
+          Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/notesform"
+          <NavLink exact to="/notes"
           activeClassName="activeNavButton" >
+          View Your Notes
+        </NavLink>
+        </li>
+        <li>
+          <NavLink exact to="/note-form"
+          activeClassName="activeNavButton"
+          onClick={this.cancelUpdate} >
           + Create New Note
           </NavLink>
         </li>
        </ul>
-       <Route exact path="/"
+       <Route exact path="/" component={Home} />
+       <Route 
+        exact 
+        path="/notes"
         render={props => (
          <AllNotes {...props}
-         notesList={this.state.notes}
+         notesList={this.state.notesData}
          />
        )}
        />
        <Route
         exact
-        path="/:noteId"
+        path="/notes/:noteId"
         render={props => (
           <Note 
           {...props}
-          notesList={this.state.notes}
+          notesList={this.state.notesData}
           deleteNote={this.deleteNote}
           openUpdateForm={this.openUpdateForm}
           />
@@ -99,9 +128,9 @@ class App extends Component {
         />
         <Route
           exact
-          path="/notesform"
+          path="/note-form"
           render={props => (
-            <NotesForm
+            <NoteForm
             {...props}
             note={this.state.note}
             addNewNote={this.addNewNote}

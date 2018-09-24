@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-let nextId = 1;
+let nextId = 2;
 
 function getNewId() {
   return nextId++;
@@ -14,8 +14,13 @@ let notes = [
     {
       id: 0,
       title: 'First Note',
-      body: 'This is a default note.'
+      content: 'This is a default note.'
     },
+    {
+      id: 1,
+      title: 'Second Note',
+      content: 'Can I delete this note?'
+    }
   ];
   
 
