@@ -20,12 +20,18 @@ class NotePage extends Component {
     render () {
         return (
             <div className="note-page">
-                <div className="note-options">
-                <Link to={`/notes/${this.props.match.params.id}/edit-note`}>edit</Link>
-                <DeleteModal id={this.props.match.params.id} deleteNote={this.deleteNote}/>
-                </div>
-                <h2>{this.props.note.title}</h2>
-                <p>{this.props.note.textBody}</p>
+                {this.props.note.title && this.props.note.textBody ? (
+                    <div>
+                        <div className="note-options">
+                            <Link to={`/notes/${this.props.match.params.id}/edit-note`}>edit</Link>
+                            <DeleteModal id={this.props.match.params.id} deleteNote={this.deleteNote}/>
+                        </div>
+                        <h2>{this.props.note.title}</h2>
+                        <p>{this.props.note.textBody}</p>
+                    </div>
+                ) : (
+                    <h4>This note does not exist</h4>
+                )}
             </div>
         )
     }
