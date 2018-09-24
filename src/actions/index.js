@@ -26,7 +26,7 @@ export const addNote = (newNote) =>  {
   return function(dispatch){
     dispatch({type: ADDING_NOTE});
     axios.post('http://localhost:3300/api/notes/', {
-        "tags": ["tag", "otherTag"],
+        // "tags": ["tag", "otherTag"],
         "title": newNote.title,
         "textBody": newNote.textBody
     }).then(res => {
