@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
 
+import Note from './components/Note';
+import NotesList from './components/NotesList';
+import NotesMenu from './components/NotesMenu';
+
 class App extends Component {
   render() {
     return (
