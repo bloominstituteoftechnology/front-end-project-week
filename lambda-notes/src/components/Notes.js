@@ -36,7 +36,7 @@ const Notes = props => {
                     </Col>
                 ))}
             </Row>
-        </Container>
+        </Container> 
     );
 }
 

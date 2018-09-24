@@ -23,7 +23,7 @@ class EditNote extends React.Component {
     }
 
 
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
         const updatedNote = {
             id: this.state.note.id,

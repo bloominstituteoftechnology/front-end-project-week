@@ -17,7 +17,7 @@ class App extends Component {
         {
           id: 0,
           title: "Note 0",
-          content: "Lorem ipsum dolor sit amet."
+          content: "Lorem ipsum dolor sit amet. Search."
         },
         {
           id: 1,
@@ -32,7 +32,7 @@ class App extends Component {
         {
           id: 3,
           title: "Note 3",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
+          content: "Lorem search ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est eu purus tristique posuere ut et orci. Integer a."
         }
       ],
       title: '',
