@@ -65,6 +65,25 @@ export default class Note extends Component {
     this.setState({ isEditing: true });
   };
 
+  // handle delete 
+  handleDelete = e => {
+    e.preventDefault();
+
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
+      .then(response => {
+        this.props.refetchNotes();
+        this.setState({ isEditing: false,
+                        note: null,
+                        title: "",
+                        textBody: "" });
+      })
+      .catch(error => console.log(error));
+
+    this.props.history.push("/");
+  }
+
+
   render() {
     if (!this.state.note) {
       return <div className="main-container note">Note is loading...</div>;
