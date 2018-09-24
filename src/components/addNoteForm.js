@@ -12,7 +12,8 @@ class AddNoteForm extends Component {
     axios
       .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
       .then(response => {
-        console.log(response);
+        this.setState({ title: "",
+        text: ""}, () => this.props.history.push("/"));
       })
       .catch(err => {
         console.log(err);

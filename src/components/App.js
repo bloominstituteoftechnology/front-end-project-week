@@ -31,7 +31,7 @@ class App extends Component {
           path="/"
           render={props => <ListView {...props} notes={this.state.notes} />}
         />
-        <Route path="/addnote" component={AddNote} />
+        <Route path="/addnote" render={props=> <AddNote  {...props}/>}/>
         <Route
           path="/notes/:id" 
           render={props=> <SingleNoteHolder {...props} notes={this.state.notes} />}

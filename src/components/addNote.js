@@ -2,11 +2,11 @@ import React from "react";
 import SideBar from "./sidebar";
 import AddNoteForm from "./addNoteForm";
 
-export const AddNote = () => {
+export const AddNote = (props) => {
   return (
     <div className={"container"}>
       <SideBar />
-      <AddNoteForm />
+      <AddNoteForm {...props} />
     </div>
   );
 };
