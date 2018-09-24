@@ -1,0 +1,1 @@
+// Singular Note view when clicked on
