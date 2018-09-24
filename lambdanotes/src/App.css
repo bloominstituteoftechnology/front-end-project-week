@@ -1,0 +1,108 @@
+.App {
+	text-align: center;
+	display: flex;
+}
+
+.navlinks {
+	display: flex;
+	flex-flow: column;
+}
+.sidebar-container {
+	background: lightgray;
+	height: 100vh;
+	padding-right: 1.5%;
+	width: 11%;
+	border-right: 1px solid gray;
+}
+.main-container {
+	background: #f2f2f2;
+	width: 100vw;
+}
+.main-notes {
+	background: #f2f2f2;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+}
+.title {
+	color: black;
+	font-weight: bold;
+	text-align: left;
+	font-size: 18px;
+}
+.body {
+	overflow: hidden;
+	text-align: left;
+	line-height: 1.8;
+}
+.note-container {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 10px 1.5%;
+}
+.note {
+	border: 1px solid black;
+	background: white;
+	padding: 15px;
+
+	margin: 10px 0.5%;
+}
+.navlink {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	border: 1px solid black;
+	background: #30d4ff;
+	padding: 15px 30px;
+	margin-top: 20px;
+	margin-left: 10%;
+	font-size: 19px;
+}
+
+.main-header {
+	width: 12%;
+	margin-top: 100px;
+	color: #424141;
+}
+.note-header {
+	width: 15%;
+	margin-top: 100px;
+	color: #424141;
+}
+
+.sidebar-header {
+	color: #424141;
+	text-align: left;
+	font-size: 26px;
+	line-height: 0.5;
+	margin-left: 10%;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
+}
+
+.App-header {
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	color: white;
+}
+
+.App-title {
+	font-size: 1.5em;
+}
+
+.App-intro {
+	font-size: large;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
