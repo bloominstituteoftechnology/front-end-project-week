@@ -16,6 +16,18 @@ class App extends Component {
     textBody: ""
   }
 
+  // component did mount 
+  componentDidMount() {}
+
+  // handle input change
+  handleInputChange() {}
+
+  // handle form submit
+  handleFormSubmit() {}
+
+  // refetch notes
+  refetchNotes() {}
+
   render() {
     return (
       <div className="App">
