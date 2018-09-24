@@ -4,7 +4,20 @@ import { Container, Row, Col, Input, Button, Fa, Card, CardBody, Modal, ModalHea
 import Styled from 'styled-components';
 
 const Wrapper = Styled.div`
+    margin-top: 30px;
     margin-left: 18%;
+
+`;
+
+const Header = Styled.header`
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2%;
+
+`;
+
+const LinkD = Styled.div`
+    padding-right: 2%;
 
 `;
 
@@ -45,8 +58,10 @@ export default class NotePage extends Component {
 
         return (
             <Wrapper>
-                <NavLink to="/create-note" onClick={event => this.props.updateNote(event, this.state.note.id)}>Edit</NavLink>
-                <NavLink to="/" onClick={this.toggle}>Delete</NavLink>
+                <Header>
+                    <LinkD><NavLink to="/create-note" onClick={event => this.props.updateNote(event, this.state.note.id)}>Edit</NavLink></LinkD>
+                    <LinkD><NavLink to="/" onClick={this.toggle}>Delete</NavLink></LinkD>
+                </Header>
                 <h1>{this.state.note.title}</h1>
                 <p>{this.state.note.textBody}</p>
 

@@ -27,6 +27,7 @@ const Button = Styled.button`
     color: white;
     border: none;
     margin-bottom: 20px;
+    cursor: pointer;
 `;
 
 function Navigation(props) {
