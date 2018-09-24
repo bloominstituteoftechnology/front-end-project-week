@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(() => {}, compose(applyMiddleware(thunk, logger), reduxDevToolsHook));
+const collection = createStore(() => {}, compose(applyMiddleware(thunk, logger), reduxDevToolsHook));
 
-ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={collection}><Router><App /></Router></Provider>, document.getElementById('root'));
 registerServiceWorker();
