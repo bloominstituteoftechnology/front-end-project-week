@@ -1,32 +1,29 @@
 import React, { Component } from "react";
+import Note from "./Note";
 import { getNotes } from "../actions/actions";
 import { connect } from "react-redux";
 
 class MainNotes extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			notes: [
 				{
-					title: "hey",
-					body: "this is a body"
+					title: "buy a new guy",
+					body: "here lies the guy"
 				}
 			]
 		};
 	}
 	componentDidMount() {
-		this.props.getNotes(this.state.notes);
+		this.props.getNotes(this.props.notes);
 	}
 
 	render() {
 		return (
 			<div className="note-container">
-				{this.props.notes.map(notes => (
-					<div className="note">
-						<div className="title">{notes.title}</div>
-						<hr />
-						<div className="body">{notes.body}</div>
-					</div>
+				{this.props.notes.map(note => (
+					<Note note={note} title={note.title} body={note.body} />
 				))}
 			</div>
 		);

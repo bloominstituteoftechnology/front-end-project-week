@@ -7,7 +7,8 @@ class AddNote extends Component {
 		super();
 		this.state = {
 			title: "",
-			body: ""
+			body: "",
+			id: Date.now()
 		};
 	}
 
