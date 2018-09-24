@@ -1,14 +1,17 @@
 // React
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-// Components
+// Views
 import { 
 	ListView, 
 	CreateNewView, 
 	EditView, 
 	NoteView, 
 } from './views';
+
+// Components
+import { Nav } from './components';
 
 class App extends Component {
 	state = {
@@ -18,7 +21,6 @@ class App extends Component {
 				noteContent: '',
 			}
 		],
-		toggleMenu: false,
 	};
 
 	componentDidMount() {
@@ -33,14 +35,6 @@ class App extends Component {
 
 		this.setState({
 			notes: loremIpsumNotes,
-		});
-	}
-
-	toggleMenu = () => {
-		this.setState({
-			...this.state,
-			notes: [ ...this.state.notes ],
-			toggleMenu: !this.state.toggleMenu,
 		});
 	}
 
@@ -74,37 +68,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className = 'App'>
-				<div className = 'nav slide-down-anim'>
-					<header>
-						<div className = 'lambda-notes'>
-							Lambda<br className = 'desktop' />
-							Notes
-						</div>
-
-						<div 
-							className = 'hamburger-menu-container phone' 
-							onClick = { this.toggleMenu }
-						>
-							<i className = { `fas ${ this.state.toggleMenu ? 'fa-times' : 'fa-bars' }` } />
-						</div>
-					</header>
-
-					<div className = { `btn-container ${ this.state.toggleMenu ? '' : 'display-none' }` }>
-						<NavLink 
-							exact to = '/' 
-							className = 'btn' 
-							activeClassName = 'active-btn' 
-							onClick = { () => this.setState({ ...this.state, notes: [ ...this.state.notes ], toggleMenu: false }) } 
-						>View Your Notes</NavLink>
-
-						<NavLink 
-							to = '/create-new' 
-							className = 'btn' 
-							activeClassName = 'active-btn' 
-							onClick = { () => this.setState({ ...this.state, notes: [ ...this.state.notes ], toggleMenu: false }) } 
-						>+ Create New Note</NavLink>
-					</div>
-				</div>
+				<Nav />
 
 				<Route 
 					exact path = '/'  

@@ -47,7 +47,15 @@
 				cursor: pointer;
 			}
 		}
-	}
+
+		@media @tablet {
+			width: fit-content;
+		}
+
+		@media @phone {
+			width: 100%;
+		}
+	} // .nav header
 
 	.btn-container {
 		.btn {
@@ -72,7 +80,7 @@
 		@media @tablet {
 			display: flex;
 			justify-content: space-evenly;
-			width: 100%;
+			width: fit-content;
 		}
 
 		@media @phone {
