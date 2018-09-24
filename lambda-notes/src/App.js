@@ -16,7 +16,7 @@ const Application = styled.div`
   display: flex;
 `
 
-const URL = 'https://vigilant-kilby-3a07a6.netlify.com//notes/';
+const URL = 'http://localhost:9000/notes/';
 
 class App extends Component {
   constructor(props){
