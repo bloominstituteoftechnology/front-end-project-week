@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import {fetchNotes} from './actions/index';
+import { connect } from 'react-redux';
+import NoteList from './components/NoteList';
 
 class App extends Component {
+
+  componentDidMount(){
+    console.log(this.props.notes);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        
+        <NoteList notes={this.props.notes}/>
+
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchNotes
+})(App);
