@@ -1,6 +1,11 @@
 // Dependencies
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+// Components
+import SideBar from './ListPage';
+import NotePage from './NotePage';
+import NewNotePage from './NewNotePage';
+import EditNotePage from './EditNotePage';
 // Styles
 import '../styles/App.css';
 
