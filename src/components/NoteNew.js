@@ -6,6 +6,17 @@ class NoteNew extends Component {
   state = {
     title: "",
     text: "",
+    editing: false
+  }
+
+  componentDidMount() {
+    if (this.props.noteUpdate) {
+      this.setState({
+        editing: true,
+        title: this.props.noteUpdate.title,
+        text: this.props.noteUpdate.text,
+      })
+    }
   }
 
   handleChange = (e) => {
@@ -16,18 +27,29 @@ class NoteNew extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const newNote = {
-      id: Date.now(),
-      title: this.state.title,
-      text: this.state.text
+    if (this.state.editing) {
+      const updatedNote = {
+        id: this.props.noteUpdate.id,
+        title: this.state.title,
+        text: this.state.text
+      }
+      this.props.updateNote(updatedNote)
+      this.props.history.push("/")
     }
-    const emptyNote = {
-      title: '',
-      text: ''
+    else {
+      const newNote = {
+        id: Date.now(),
+        title: this.state.title,
+        text: this.state.text
+      }
+      const emptyNote = {
+        title: '',
+        text: ''
+      }
+      this.props.addNote(newNote)
+      this.setState(emptyNote)
+      this.props.history.push("/")
     }
-    this.props.addNote(newNote)
-    this.setState(emptyNote)
-    this.props.history.push("/")
   }
 
   render() {

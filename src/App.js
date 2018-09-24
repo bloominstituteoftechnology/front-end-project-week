@@ -25,16 +25,30 @@ class App extends Component {
         title: "Trailblaze through the wild",
         text: "Get out there and breathe in nature."
       },
-    ]
+    ],
+    noteUpdate: null
   }
 
   addNote = (newNote) => {
     this.setState({ notes: [ ...this.state.notes, newNote] })
   }
 
-  deleteNote = (targetId) => {
+  editNote = (noteId) => {
+    this.setState({ noteUpdate: this.state.notes.filter(note => note.id === noteId)[0] })
+  }
+
+  updateNote = (targetNote) => {
+    let currentList = this.state.notes.filter(note => note.id !== targetNote.id)
+    let updatedNote = this.state.notes.filter(note => note.id === targetNote.id)[0]
+    updatedNote.title = targetNote.title
+    updatedNote.text = targetNote.text
+    const notes = [updatedNote, ...currentList]
+    this.setState({ notes })
+  }
+
+  deleteNote = (noteId) => {
     this.props.history.push("/")
-    this.setState({ notes: this.state.notes.filter(note => note.id !== targetId)})
+    this.setState({ notes: this.state.notes.filter(note => note.id !== noteId) })
   }
 
   render() {
@@ -53,13 +67,19 @@ class App extends Component {
           <NoteNew
             addNote={this.addNote}
           />
-        }
-        />
-        <Route path="/notes/:id" render={(props) => 
+        }/>
+        <Route exact path="/notes/:id" render={(props) => 
           <NoteSingle
             {...props}
             notes={this.state.notes}
+            editNote={this.editNote}
             deleteNote={this.deleteNote}
+          />
+        }/>
+        <Route path="/notes/:id/edit" render={() => 
+          <NoteNew
+            noteUpdate={this.state.noteUpdate}
+            updateNote={this.updateNote}
           />
         }
         />
