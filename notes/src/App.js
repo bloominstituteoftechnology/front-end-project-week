@@ -4,9 +4,11 @@ import NoteList from './components/NoteList';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote'
 import LinkedNote from './components/LinkedNote';
+import Authenticate from './components/Authenticate';
+import Login from './components/Login';
 
 import styled from 'styled-components';
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 const BGColor = styled.div`
   background-color: #ebebeb;
@@ -40,12 +42,14 @@ class App extends Component {
   handleData = data => this.setState({ notesData: data });
 
   render() {
-    console.log(this.state)
+
     return (
+
       <BGColor>
+
           <Route
             exact
-            path="/"
+            path="/notes"
             render={props => (
             <div>
               <NoteList
@@ -69,7 +73,6 @@ class App extends Component {
           )}
         />
 
-
         <Route
           exact
           path="/notes/:id"
@@ -82,11 +85,10 @@ class App extends Component {
           </div>
           )}
         />
-
-        <SideBar />
+        <Route path="/" component={SideBar} />
       </BGColor>
     );
   }
 }
 
-export default App;
+export default Authenticate(App);

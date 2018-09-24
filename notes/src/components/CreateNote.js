@@ -70,7 +70,7 @@ class CreateNote extends React.Component {
 				this.props.handleData(response.data);
 			})
 			.catch(error => console.log(error));
-			this.props.history.push("/")
+			this.props.history.push("/notes")
 	}
 
   handleChange = event => {

@@ -206,7 +206,7 @@ class LinkedNote extends React.Component {
 				this.props.handleData(response.data);
 			})
 			.catch(err => console.log(err));
-			this.props.history.push("/")
+			this.props.history.push("/notes")
 	}
 
 
