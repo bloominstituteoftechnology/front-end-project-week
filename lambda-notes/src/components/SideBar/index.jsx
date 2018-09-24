@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 const SideBar = () => {
   return (
     <div>
-      SideBar component
+      <div className="sidebar-wrapper">
+        <h1>Lambda<br />Notes</h1>
+        <Link to="/"><button>View Your Notes</button></Link>
+      </div>
     </div>
   );
 }
