@@ -1,0 +1,28 @@
+.notes-container {
+  max-width: 880px;
+  margin: 0 auto;
+  border: 1px solid green;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.note {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  background-color: coral;
+  color: white;
+  border-radius: 3px;
+
+  border: 1px solid coral;
+}
+
+.note h1 {
+  color: white;
+}
+
+.note:hover {
+  box-shadow: 1px 5px 5px;
+  color: black;
+}
