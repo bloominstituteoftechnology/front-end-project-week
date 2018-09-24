@@ -16,12 +16,18 @@ class NewNote extends React.Component {
 
   addNewNote(e) {
     e.preventDefault();
-    const note = { title: this.state.title, content: this.state.content };
+    const note = {
+      title: this.state.title,
+      content: this.state.content
+    };
     this.props.addNewNote(note);
     this.setState(...this.state, { title: "", content: "" });
   }
 
   render() {
+    {
+      console.log(this.state);
+    }
     return (
       <form>
         <input

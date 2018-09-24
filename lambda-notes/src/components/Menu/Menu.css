@@ -5,15 +5,7 @@
   color: black;
 }
 
-.button {
-  width: 150px;
-  height: 30px;
-  padding-top: 10px;
-  text-align: center;
-  margin: 20px 10px;
-  background-color: #30b8bc;
+a {
+  text-decoration: none;
   color: white;
-  cursor: pointer;
-
-  border: 1px solid gray;
 }

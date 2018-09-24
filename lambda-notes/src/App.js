@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { Route, Link } from "react-router-dom";
 
 //Import components
 import NotesList from "./components/NotesList/NotesList";
 import Menu from "./components/Menu/Menu";
 import NewNote from "./components/NewNote/NewNote";
+import NoteView from "./components/NoteView/NoteView";
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: [
         {
@@ -28,18 +30,38 @@ class App extends Component {
   }
 
   addNewNote(note) {
-    console.log(this.state);
-    const notes = [...this.state.notes];
-    notes.push(note);
-    this.setState(...this.state, { notes });
+    if (note.title.length > 0) {
+      console.log(this.state);
+      const notes = [...this.state.notes];
+      note.id = this.state.notes.length;
+      notes.push(note);
+      this.setState(...this.state, { notes });
+    }
   }
   render() {
+    console.log(this.state.notes);
     return (
       <div className="App">
         <Menu />
         <div className="container">
-          <NewNote addNewNote={this.addNewNote.bind(this)} />
-          <NotesList notes={this.state.notes} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <NotesList {...this.props} notes={this.state.notes} />
+            )}
+          />
+          <Route
+            path="/notes/:id"
+            render={props => {
+              let id = props.match.params.id;
+              return <NoteView note={this.state.notes[id]} />;
+            }}
+          />
+          <Route
+            path="/new"
+            render={() => <NewNote addNewNote={this.addNewNote.bind(this)} />}
+          />
         </div>
       </div>
     );
