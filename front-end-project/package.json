@@ -1,0 +1,23 @@
+{
+  "name": "front-end-project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "emotion": "^9.2.10",
+    "emotion-theming": "^9.2.9",
+    "gsap": "^2.0.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-emotion": "^9.2.10",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "react-transition-group": "^2.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
