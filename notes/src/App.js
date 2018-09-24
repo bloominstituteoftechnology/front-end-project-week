@@ -8,7 +8,8 @@ import NoteFormContainer from './components/NoteFormContainer';
 import Modal from './components/DeleteModal';
 import Dropdown from './components/SortDropdown';
 
-const URL = 'http://localhost:8000/api/notes';
+
+const URL = 'https://notes-api-johnoro.herokuapp.com/api/notes';
 
 class App extends Component {
   state = {
@@ -16,7 +17,7 @@ class App extends Component {
       {
         id: 0,
         title: 'Welcome!',
-        text: `Please create a new note! Click for more information. You can create a new note by clicking the create new note button to the left. You can also edit and delete me by clicking on me and then using one of the handy controls at the top!`
+        text: 'Please create a new note! Click for more information. You can create a new note by clicking the create new note button to the left. You can also edit and delete me by clicking on me and then using one of the handy controls at the top!'
       }
     ],
     title: '',
@@ -41,10 +42,10 @@ class App extends Component {
     const { notes, title, text } = this.state;
     if (title === '') return null;
     axios.post(URL, { title, text })
-      .then(res => {
+      .then(({ data }) => {
         this.setState({
           notes: [{
-            id: res.data,
+            id: data,
             title,
             text
           }, ...notes],
