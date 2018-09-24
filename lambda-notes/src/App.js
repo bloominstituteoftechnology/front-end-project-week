@@ -7,6 +7,7 @@ import Route from 'react-router-dom/Route';
 import { SingleView } from './components/noteView';
 import { AddNote } from './components/addNote';
 import  EditNote  from './components/editNote';
+import axios from 'axios';
 
 
 
@@ -23,9 +24,16 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.setState({ 
-      notes: notesData,
-     })
+    axios.get('http://localhost:8000/api/notes').then(response => {
+      console.log(response);
+      this.setState({
+        notes: response.data,
+      });
+    });
+
+    // this.setState({ 
+    //   notes: notesData,
+    //  })
   }
 
   handleInputChange = e => {
