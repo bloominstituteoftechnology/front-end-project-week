@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Form = props => {
-  const heading = "Generic Form";
-  const buttonName = "Submit";
+  const heading = props.type === "new" ? "Create New Note:" : "Edit Note:";
+  const buttonName = props.type === "new" ? "Save" : "Update";
+
 
   return (
     <div className="main-container form">
