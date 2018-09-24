@@ -1,0 +1,35 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding-left: 8%;
+}
+
+.title-form {
+    height: 60px;
+}
+
+.title {
+    height: 35px;
+    width: 200px;
+    font-size: 1em;
+}
+
+.comment {
+    display: absolute;
+    height: 290px;
+    width: 400px;
+    font-size: 1em;
+}
+
+h2 {
+    /* -webkit-text-stroke: 1px white;
+   color: black;
+   text-shadow:
+       3px 3px 0 #000,
+     -.5px -.5px 0 #000,  
+      .5px -.5px 0 #000,
+      -.5px .5px 0 #000,
+       .5px .5px 0 #000; */
+}

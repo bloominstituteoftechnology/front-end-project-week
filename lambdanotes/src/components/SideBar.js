@@ -1,6 +1,8 @@
-import React, { Component} from 'react';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './SideBar.css';
+
+// import logo from '/lambdanotes/src/assets/lambdalogo.png';
 
 
 
@@ -11,7 +13,7 @@ class sideBar extends Component {
     return (
       <Router>
       <div className="side-bar-container">
-      <img src='/Users/josephbradley/Desktop/practice-dir/front-end-project-week/lambdanotes/public/lambda.png' alt="Lambda"/>
+      <span>logo</span>
       <h2> Lambda Notes </h2>
         <div className="view-button">
           <Link to ="/viewcards"><button className="button"><span>View Cards</span></button></Link>
