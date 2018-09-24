@@ -31,11 +31,13 @@ class App extends Component {
     })
   }
 
-  deleteNote = (id) => {
-    const notes = this.state.notes.filter(note => note.id !== id)
+  deleteNote = (id, event) => {
+    // event.preventDefault();
+    const notes = this.state.notes.filter(note => note.id != id)
     this.setState({
       notes: notes
     })
+    
   }
 
   render() {
