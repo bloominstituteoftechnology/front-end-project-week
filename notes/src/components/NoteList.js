@@ -1,16 +1,17 @@
 import React from 'react';
 import Note from './Note';
+import {withRouter} from 'react-router-dom';
 
 const NoteList = (props) => {
     return (
-        <div>
+        <div className = 'note-list'>
 
             {props.notes.map(note => {
-                return <Note {...note} key = {note.id} />
+                return <Note {...note} key = {note._id} />
             })}
 
         </div>
     )
 }
 
-export default NoteList;
+export default withRouter(NoteList);

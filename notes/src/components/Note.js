@@ -2,9 +2,9 @@ import React from 'react';
 
 const Note = (props) => {
     return (
-        <div>
-            <h1>{props.title}</h1>
-            <p>{props.content}</p>
+        <div className = 'note-container'>
+            <div className = 'note-title'>{props.title}</div>
+            <div className='note-content'>{props.textBody}</div>
         </div>
     )
 }

@@ -88,3 +88,24 @@ body {
   background: #f2f1f2;
   padding: 20px;
 }
+
+.note-list {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.note-container {
+  width: 30%;
+  background: white;
+  border: 2px solid black;
+  height: 200px;
+  margin: 20px 0px;
+  padding: 10px;
+}
+
+.note-title {
+  font-weight: bold;
+  font-size: 2rem;
+}

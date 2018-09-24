@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
 
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
 class App extends Component {
 
   componentDidMount(){
-    console.log(this.props.notes);
+    this.props.fetchNotes();
   }
 
   render() {
@@ -21,20 +21,26 @@ class App extends Component {
       <div className = 'container'>
 
       <div className = 'navigation'>
+      
       <h1>Lambda Notes</h1>
+      <Link to ='/' onClick={this.props.fetchNotes}>
       <div className = 'nav-link'>
       View Your Notes
       </div>
+      </Link>
+
+      <Link to='/form'>
       <div className = 'nav-link'>
       + Create New Note
       </div>
+      </Link>
       </div>
 
       <div className = 'application'>
         
         <Switch>
           <Route exact path = '/'
-          render={() => <NoteList notes={this.props.notes} />} />
+          render={(props) => <NoteList {...props} notes={this.props.notes} />} />
           <Route exact path = '/form' component={NoteForm} />
         </Switch>
 
@@ -58,6 +64,6 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {
+export default withRouter(connect(mapStateToProps, {
   fetchNotes
-})(App);
+})(App));

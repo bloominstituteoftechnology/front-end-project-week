@@ -7,9 +7,9 @@ class NoteForm extends React.Component {
         super(props);
 
         this.state = {
+            tags: [],
             title: '',
-            content: '',
-            id: props.currentID
+            textBody: '',
         }
     }
 
@@ -27,18 +27,19 @@ class NoteForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         let newNote = {
+            tags: [],
             title: this.state.title,
-            content: this.state.content,
-            id: this.props.currentID
+            textBody: this.state.textBody,
         }
 
         this.props.addNote(newNote);
 
         this.setState({
+            tags: [],
             title: '',
-            content: '',
-            id: this.props.currentID
+            textBody: '',
         })
+
     }
 
     render(){
@@ -47,7 +48,7 @@ class NoteForm extends React.Component {
                 NOTE FORM
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleInput} type = 'text' placeholder = 'Note Title' name='title' value={this.state.title}></input>
-                    <input type='text' onChange={this.handleInput} placeholder = 'Note Content' name='content' value={this.state.content}></input>
+                    <input type='text' onChange={this.handleInput} placeholder = 'Note Content' name='textBody' value={this.state.textBody}></input>
                     <button type = 'submit'>Add Note</button>
                 </form>
             </div>
@@ -57,8 +58,7 @@ class NoteForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      notes: state.notes,
-      currentID: state.currentID
+      notes: state.notes
     }
   }
   

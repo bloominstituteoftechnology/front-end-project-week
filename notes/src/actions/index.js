@@ -8,13 +8,37 @@ export const ERROR = 'ERROR';
 
 export const fetchNotes = () => {
 
-    // TODO: wire this up to the external notes API and return the data
-    return;
+    const fetchAllRequest = axios.get(`https://killer-notes.herokuapp.com/note/get/all`);
+
+    return dispatch => {
+        dispatch({type: FETCHING})
+
+        fetchAllRequest.then(res => {
+            dispatch({type: FETCHED, payload: res.data})
+        }).catch(err => {
+            console.log(err);
+            dispatch({type: ERROR})
+        })
+    }
 }
 
 export const addNote = note => {
+    console.log(note);
+
+    const addFriendRequest = axios.post(`https://killer-notes.herokuapp.com/note/create`, note);
+
     return dispatch => {
-        dispatch({type: POSTED, payload: note});
+
+        dispatch({type: POSTING});
+
+        addFriendRequest.then(res => {
+            dispatch({type: POSTED, payload: res.data})
+        }).catch(err => {
+            console.log(err);
+            dispatch({type: ERROR})
+        });
 
     }
+
+    
 }
