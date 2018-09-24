@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropTarget } from 'react-dnd';
+import { DropTarget, hover } from 'react-dnd';
 
 const DeleteTarget = (props) => (
 // const Target = ({ connectDropTarget, highlighted, shape }) => (
@@ -13,6 +13,8 @@ const DeleteTarget = (props) => (
       style={{
         height: props.highlighted ? "200px" : null,
         background: props.highlighted ? "red" : null,
+        textDecoration: "none",
+        cursor: "default"
       }}
 
       >
@@ -27,11 +29,19 @@ const specObj = {
   //in this example the target's shape is (attached? combined?)
 
   //this is a good place to call redux(flux) actions
+  hover(props, component){
+    // console.log(props.highlighted)
+
+
+
+  },
+
   drop(props) {
     console.log('target props', props)//target props //square or circle
-    const { action } = props;
+    const { action, index } = props;
     return ({
       action,
+      index
       //drop() must return undefined or an object that represents drop result
     });
   }

@@ -6,7 +6,8 @@ import DeleteTarget from './delete-target.js';
 const LeftMenuDiv = styled.div`
     border: 1px solid lightgray;
     background-color: #D7D7D7;
-    height: 100vh;
+    ${'' /* height: 100vh; */}
+    height: auto;
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@ const LeftMenuDiv = styled.div`
     .menu-item{
       ${'' /* border: 1px solid red; */}
       width: 70%;
+
       padding: 15px;
       text-align: center;
       text-decoration: none;
@@ -29,7 +31,11 @@ const LeftMenuDiv = styled.div`
       border: 1px solid gray;
       &:hover {
         cursor: pointer;
+        text-decoration: underline;
       }
+    }
+    .current {
+      background-color: orange;
     }
     .red {
       background-color: red;
@@ -39,16 +45,28 @@ const LeftMenuDiv = styled.div`
 `;
 
 export default class LeftMenu extends Component {
+  state = {
+    allNotesSelected: false,
+    createNoteSelected: false,
+  }
 
   render(props){
-    console.log(this.props.to)
+<<<<<<< HEAD
+    console.log(this.state)
+=======
+    // console.log(this)
+>>>>>>> parent of 094ac5f... note preview now has markdown
 
     return (
       <LeftMenuDiv>
         <h1>Lambda Notes</h1>
-        <Link className="menu-item" to="/all-notes" style={this.props}>View Your Notes</Link>
+<<<<<<< HEAD
+        <Link className={this.state.allNotesSelected ? "current menu-item" : "menu-item"}  to="/all-notes" style={this.props}>View Your Notes</Link>
+=======
+        <Link draggable className="menu-item" to="/all-notes">View Your Notes</Link>
+>>>>>>> parent of 094ac5f... note preview now has markdown
         <Link className="menu-item" to="/new-note">+ Create New Note</Link>
-        {/* <div className="menu-item" onClick={this.download} >Download CSV</div> */}
+        <div className="menu-item" onClick={this.download} >Download CSV</div>
         <DeleteTarget action='delete' className="menu-item red" />
         {/* <div  onClick={this.delete} to="/deleted-notes">Delete Item</div> */}
       </LeftMenuDiv>

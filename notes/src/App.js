@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import showdown from 'showdown';
+
 
 
 import {
@@ -75,7 +75,7 @@ class App extends Component {
   handleDrop(id){
     console.log('handleDrop, id: ', id);
     //will delete from actions when uncommented
-    // this.props.deleteNote(id)
+    this.props.deleteNote(id)
   }
 
   sortById = (e) => {
@@ -131,7 +131,7 @@ class App extends Component {
   render() {
     return (
         <AppDiv>
-          <Redirect from="" to="/all-notes/" />
+          <Redirect from="" to="/all-notes" />
           <LeftMenu />
 
           <div className="right-display">

@@ -54,7 +54,7 @@ export default class AllNotes extends Component {
         <div className="sort">
           <h4>Sort by:</h4>
             <button onClick={this.props.sortByLetter}>A->Z</button>
-            <button onClick={this.props.sortById}>Index</button>
+            <button onClick={this.props.sortById}>Id</button>
         </div>
 
         <div className="all-notes">
