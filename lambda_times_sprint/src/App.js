@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import NotesList from './components/NotesList';
+
 class App extends Component {
+  state = {
+    tags: [],
+    title: '',
+    textBody: ''
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header className="sidebar">
+          <h1 className="App-title">Lambda Notes</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div>
+          <NotesList />
+
+        </div>
+
       </div>
     );
   }
