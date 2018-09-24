@@ -12,7 +12,6 @@ const NotesBar = () => {
       <Link to="/new">
         <Button>New Note</Button>
       </Link>
-
     </Div1>
   )
 }

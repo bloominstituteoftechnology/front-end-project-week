@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import styled from 'styled-components'
 import NotesBar from './components/NotesBar'
 import NotesMain from './components/NotesMain'
+import NoteNew from './components/NoteNew'
 
 class App extends Component {
   state = {
@@ -25,6 +26,10 @@ class App extends Component {
     ]
   }
 
+  addNote = (newNote) => {
+    this.setState({ notes: [ ...this.state.notes, newNote] })
+  }
+
   render() {
     return (
       <Div1 className="App">
@@ -36,6 +41,13 @@ class App extends Component {
             notes={this.state.notes}
           />
         }/>
+        <Route path="/new" render={() => 
+          <NoteNew
+            addNote={this.addNote}
+          />
+        }
+
+        />
       </Div1>
     )
   }
