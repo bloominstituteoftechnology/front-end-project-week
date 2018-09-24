@@ -34,13 +34,14 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   margin: auto;
+  height: 100%;
 `;
 
 const NavBar = styled.nav`
   background: #d3d2d3;
   height: 100vh;
   width: 20%;
-  position: sticky;
+  position: fixed;
   display: flex;
   flex-direction: column;
   padding: 12px;
@@ -67,6 +68,7 @@ const NavTitle = styled.h1`
 const Content = styled.div`
   border: 1px solid #c3c2c3;
   width: 80%;
-  height: 100vh;
+  height: 100%;
   background: #f2f1f2;
+  margin-left: 20%;
 `;

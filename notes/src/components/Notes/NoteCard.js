@@ -1,13 +1,37 @@
 import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const NoteCard = (props) => {
-  // console.log(props);
+  console.log(props);
   return (
-    <div>
-      <h1>{props.note.title}</h1>
-      <p>{props.note.textBody}</p>
-    </div>
+    <Card to={`/note/${props.note._id}`}>
+      <Title>{props.note.title}</Title>
+      <Text>{props.note.textBody}</Text>
+    </Card>
   );
 };
 
 export default NoteCard;
+
+const Card = styled(NavLink)`
+  text-decoration: none;
+  color: black;
+  background: white;
+  width: 30%;
+  margin: 1%;
+  border: 2px solid #cfcfcf;
+  padding: 10px;
+`;
+
+const Title = styled.h1`
+  font-size: 1.2rem;
+  border-bottom: 2px solid #cfcfcf;
+  padding-bottom: 2px;
+  font-weight: 600;
+`;
+
+const Text = styled.p`
+  font-size: 1rem;
+  margin: 5px 0;
+`;
