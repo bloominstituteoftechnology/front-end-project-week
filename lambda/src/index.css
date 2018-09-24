@@ -3,3 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.Side-container {
+  width: 25%;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  background-color: #bebebe;
+  border: solid #838383 1px;
+}
+.ViewNotes {
+  margin: 10px 0;
+}
+.CreateNotes {
+  margin: 10px 0;
+}
