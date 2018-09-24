@@ -162,7 +162,7 @@ class App extends Component {
         distance: 100,
         maxPatternLength: 32,
         minMatchCharLength: 1,
-        keys: [ { name: "title", weight: .7 }, { name: "text", weight: .3 } ]
+        keys: [ { name: 'title', weight: .7 }, { name: 'text', weight: .3 } ]
       };
       filteredNotes = new Fuse(this.state.notes, options).search(e.target.value);
     }
