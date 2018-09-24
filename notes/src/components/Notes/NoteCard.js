@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const NoteCard = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <Card to={`/note/${props.note._id}`}>
       <Title>{props.note.title}</Title>

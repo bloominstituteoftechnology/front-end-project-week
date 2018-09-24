@@ -8,11 +8,16 @@ import NoteCard from '../components/Notes/NoteCard';
 
 class NotesView extends Component {
   componentDidMount() {
-    this.props.fetchData();
+    if (this.props.notes.length === 0) {
+      this.props.fetchData();
+    }
   }
 
   render() {
     console.log(this.props);
+    if (this.props.notes.length === 0) {
+      return <h1>loading notes...</h1>;
+    }
     return (
       <Container>
         <Title> Your Notes:</Title>
@@ -30,7 +35,6 @@ const mapStateToProps = (state) => {
   // console.log(state);
   return {
     notes: state.notesReducer.notes,
-    fetchingData: state.notesReducer.fetchingData,
   };
 };
 

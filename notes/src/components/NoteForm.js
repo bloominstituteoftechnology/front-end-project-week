@@ -1,13 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NoteForm = () => {
+const NoteForm = (props) => {
   return (
-    <Form>
+    <Form onSubmit={props.handleAddData}>
       <Title>Create New Note:</Title>
-      <TitleInput placeholder="Note Title" />
-      <ContentInput placeholder="Note Content" />
-      <StyledButton>Save</StyledButton>
+      <TitleInput
+        onChange={props.handleInput}
+        value={props.form.titleInput}
+        name="title"
+        placeholder="Note Title"
+      />
+      <ContentInput
+        onChange={props.handleInput}
+        value={props.form.contentInput}
+        name="textBody"
+        placeholder="Note Content"
+      />
+      <StyledButton type="submit">Save</StyledButton>
     </Form>
   );
 };

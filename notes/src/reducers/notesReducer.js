@@ -16,6 +16,7 @@ import {
 const initialState = {
   notes: [],
   fetchingData: false,
+  addingData: false,
   error: null,
 };
 
@@ -40,6 +41,22 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         fetchingData: false,
         error: action.payload,
+      };
+    case ADDING_DATA:
+      return {
+        ...state,
+        addingData: true,
+      };
+    case ADDED_DATA:
+      return {
+        ...state,
+        addingData: false,
+      };
+    case ADD_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        addingNote: false,
       };
     default:
       return state;
