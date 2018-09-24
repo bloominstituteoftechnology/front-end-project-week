@@ -29,7 +29,7 @@ class EditNote extends Component {
             onChange={this.props.inputChangeHandler}
             className="inputTitle"
           />
-          <input
+          <textarea
             placehold="Note Content"
             name="content"
             onChange={this.props.inputChangeHandler}
