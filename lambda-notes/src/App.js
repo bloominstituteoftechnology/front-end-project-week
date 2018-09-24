@@ -1,6 +1,9 @@
 // React
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
+
+// Redux
+import { connect } from 'react-redux';
 
 // Views
 import { 
@@ -13,76 +16,34 @@ import {
 // Components
 import { Nav } from './components';
 
-class App extends Component {
-	state = {
-		notes: [
-			{
-				noteTitle: '',
-				noteContent: '',
-			}
-		],
-	};
+// Actions
+import {
+	createNote, 
+	deleteNote, 
+	editNote, 
+} from './store/actions';
 
-	componentDidMount() {
-		const loremIpsumNotes = [];
+const App = ({ notes, createNote, deleteNote, editNote }) => {
+	return (
+		<div className = 'App'>
+			<Nav />
 
-		for (let i = 0; i < 9; i++) {
-			loremIpsumNotes.push({
-				noteTitle: `Note Name ${ i }`,
-				noteContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum volutpat cursus. Mauris vitae odio at quam pharetra consectetur. Proin suscipit nibh et mauris dignissim, sit amet elementum nulla facilisis. Cras ac nibh mollis, dignissim neque in, tristique enim. Sed sed purus at justo scelerisque ultrices vel et erat. Suspendisse eu nulla ante. Pellentesque eros tellus, mollis a dapibus quis, ultrices at sem. Aliquam sed laoreet leo, ut fringilla justo. Aenean interdum aliquam quam, at consequat ligula eleifend sit amet. Donec sit amet nisl erat. Nunc condimentum arcu eget lacus ultricies, vulputate cursus erat pulvinar. Pellentesque nec tempus metus. Morbi viverra leo non elit egestas rhoncus. Nulla dignissim mauris id ipsum tincidunt, a faucibus sem lacinia. Mauris interdum aliquet quam, sit amet tincidunt justo dapibus vel.			\n\nPellentesque ac elementum nibh. Nam et congue sem, finibus hendrerit sapien. Maecenas et leo id massa dignissim egestas ac ac quam. Nullam congue dui quis lectus egestas lobortis. In ornare elit at rhoncus mollis. Cras velit risus, sollicitudin a quam nec, accumsan euismod quam. In eget interdum risus, nec lacinia tortor. Proin ut viverra turpis. Nunc nisi neque, aliquam tempor pulvinar non, sollicitudin in lorem. Etiam sagittis mauris sed tortor dictum ultricies.			\n\nProin accumsan ac massa efficitur suscipit. Fusce sagittis, arcu sed fermentum maximus, massa ante posuere mauris, in imperdiet ipsum ligula ac dui. Duis eget malesuada sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus ipsum, bibendum id magna in, dignissim vulputate lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed mollis ante augue, consectetur lacinia odio semper non. Aliquam lacus diam, cursus eget urna fringilla, semper tincidunt justo. Suspendisse potenti. Ut sit amet efficitur arcu, nec porttitor purus. Maecenas tincidunt tempus quam, sed mollis nibh iaculis vitae. Quisque sit amet massa ac libero condimentum posuere.			\n\nEtiam in eleifend orci. Vestibulum semper ex id sapien finibus, ac lobortis lectus maximus. Suspendisse potenti. Suspendisse condimentum posuere consectetur. Donec in metus id neque dignissim dictum non ut sem. Vestibulum ut sapien quis nisl consectetur auctor. Praesent orci enim, vestibulum ac neque quis, aliquam semper eros. Quisque vitae hendrerit augue. Aliquam eu massa sollicitudin sem finibus gravida eu commodo nunc. Duis rhoncus metus quis sapien aliquam, eget rhoncus massa ultrices. Quisque sed lectus et lectus elementum cursus. Nulla sit amet hendrerit nisl, in viverra nibh. Suspendisse potenti. Aenean dapibus pellentesque elementum.			\n\nMaecenas semper lacus sed nisi hendrerit eleifend. Vestibulum vitae quam finibus, fermentum dolor nec, bibendum turpis. Pellentesque malesuada, purus sed consequat viverra, eros enim laoreet diam, nec condimentum eros ex eget sapien. Cras nec mi dolor. Aenean id turpis at tortor vestibulum rutrum. Vivamus aliquam convallis aliquet. Aliquam erat volutpat. Aliquam consectetur nunc at metus ultricies, a tristique nibh sagittis. Mauris vel vestibulum nulla, sit amet ultrices ex. Aliquam convallis lectus non pretium lacinia. Proin porta, lorem id tristique malesuada, quam felis feugiat ipsum, quis auctor elit odio at purus. Nam bibendum lectus id nibh malesuada, vel tristique augue pulvinar. Phasellus tempus mauris euismod libero pretium luctus. Curabitur arcu enim, tempor in ante eget, viverra faucibus risus. Nulla rutrum sollicitudin rhoncus.',
-			});
-		}
+			<Route 
+				exact path = '/'  
+				render = { props => <ListView history = { props.history } notes = { notes } /> } 
+			/>
 
-		this.setState({
-			notes: loremIpsumNotes,
-		});
-	}
+			<Route path = '/create-new' render = { props => <CreateNewView createNote = { createNote } history = { props.history } /> } />
 
-	editNote = (note, id) => {
-		const newNotes = [ ...this.state.notes ];
-		newNotes[id] = note;
+			<Route path = '/note/:id' render = { props => <NoteView id = { Number(props.match.params.id) } deleteNote = { deleteNote } history = { props.history } note = { notes[Number(props.match.params.id)] } /> } />
 
-		this.setState({
-			...this.state,
-			notes: newNotes,
-		});
-	}
-
-	deleteNote = id => {
-		this.setState({
-			...this.state,
-			notes: this.state.notes.filter((note, i) => i !== id),
-		});
-	}
-
-	createNote = note => {
-		const newNotes = [ ...this.state.notes ];
-		newNotes.push(note);
-
-		this.setState({
-			...this.state,
-			notes: newNotes,
-		});
-	}
-
-	render() {
-		return (
-			<div className = 'App'>
-				<Nav />
-
-				<Route 
-					exact path = '/'  
-					render = { props => <ListView history = { props.history } notes = { this.state.notes } /> } 
-				/>
-
-				<Route path = '/create-new' render = { props => <CreateNewView createNote = { this.createNote } history = { props.history } /> } />
-
-				<Route path = '/note/:id' render = { props => <NoteView id = { Number(props.match.params.id) } deleteNote = { this.deleteNote } history = { props.history } note = { this.state.notes[Number(props.match.params.id)] } /> } />
-
-				<Route path = '/edit/:id' render = { props => <EditView id = { Number(props.match.params.id) } note = { this.state.notes[Number(props.match.params.id)] } history = { props.history } editNote = { this.editNote } /> } />
-			</div>
-		);
-	}
+			<Route path = '/edit/:id' render = { props => <EditView id = { Number(props.match.params.id) } note = { notes[Number(props.match.params.id)] } history = { props.history } editNote = { editNote } /> } />
+		</div>
+	);
 }
 
-export default App;
+const mapStateToProps = state => ({
+	notes: state.notes,
+});
+
+export default connect(mapStateToProps, { createNote, deleteNote, editNote })(App);
