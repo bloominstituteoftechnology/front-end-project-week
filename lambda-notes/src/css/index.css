@@ -27,6 +27,29 @@
   width: 100%;
   margin-bottom: 28px;
 }
+.App .form input {
+  display: block;
+}
+.App .form .note-title-input {
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 26vw;
+  height: 32px;
+  margin-bottom: 14px;
+}
+.App .form .note-content-text-area {
+  border-radius: 5px;
+  padding: 20px 27px;
+  width: 43vw;
+  height: 325px;
+  margin-bottom: 10px;
+}
+.App .form .save-btn {
+  width: 13vw;
+}
+.App .form .save-btn:hover {
+  cursor: pointer;
+}
 @media ( max-width: 1024px ) {
   .App {
     width: 98vw;
@@ -179,6 +202,13 @@
   margin: 11px 0 -3px 0;
   white-space: nowrap;
 }
+.list .note h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+.list .note h3 a:hover {
+  text-decoration: underline;
+}
 .list .note p {
   line-height: 22px;
   font-size: 0.85rem;
@@ -197,31 +227,43 @@
     margin: 50px 5px;
   }
 }
-.create-new {
+.create-new,
+.edit {
   margin: 60px 22px 120px;
 }
-.create-new h2 {
+.create-new h2,
+.edit h2 {
   letter-spacing: -0.3px;
 }
-.create-new .form input {
-  display: block;
+.note-view {
+  margin: 20px;
+  margin-bottom: 200px;
 }
-.create-new .form .note-title-input {
-  border-radius: 5px;
-  padding: 5px 10px;
-  width: 26vw;
-  height: 32px;
-  margin-bottom: 14px;
+.note-view .edit-delete-wrapper {
+  text-align: right;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #4D4B4D;
 }
-.create-new .form .note-content-text-area {
-  border-radius: 5px;
-  padding: 20px 27px;
-  width: 43vw;
-  height: 325px;
-  margin-bottom: 10px;
+.note-view .edit-delete-wrapper span {
+  margin-right: 14px;
 }
-.create-new .form .save-btn {
-  width: 13vw;
+.note-view .edit-delete-wrapper span a {
+  text-decoration: none;
+  color: inherit;
+}
+.note-view .edit-delete-wrapper span:hover {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+.note-view h2 {
+  margin-top: 24px;
+}
+.note-view p {
+  text-align: left;
+  letter-spacing: 1px;
+  line-height: 26px;
 }
 body {
   margin: 0;
