@@ -3,23 +3,22 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { addNote } from '../../store/actions';
-import Note from '../presentational/Note';
+import Note from './Note';
 
-class NoteList extends React.Component {
-  render() {
-    return (
+function NoteList(props) {
+  return (
+    <div>
       <div>
-        <div>
-          {this.props.notes.map(note => (
-            <Link to={`/notes/${note.id}`}>
-              <Note key={note.id} note={note} />
-            </Link>
+        <h2>Your Notes:</h2>
+        {props.notes.map(note => (
+          <Link to={`/notes/${note.id}`} key={note.id}>
+            <Note note={note} />
+          </Link>
 
-          ))}
-        </div>
+        ))}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 const mapStateToProps = state => {

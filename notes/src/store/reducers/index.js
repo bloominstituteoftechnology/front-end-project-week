@@ -20,9 +20,19 @@ const initialState = {
   ]
 }
 
+let index = 4;
 
 export const noteReducers = (state = initialState, action) => {
   switch(action.type) {
+    case ADD_NOTE:
+      const newNote = {id: index, ...action.payload };
+      index++;
+      return {notes: [
+        ...state.notes,
+        {
+          ...newNote
+        }
+      ]};
 
     default:
       return state;

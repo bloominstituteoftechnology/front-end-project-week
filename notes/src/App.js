@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './App.css';
 
-import NoteList from './components/functional/NoteList';
-import NoteForm from './components/presentational/NoteForm';
+import NoteList from './components/presentational/NoteList';
+import NoteForm from './components/functional/NoteForm';
 import ViewPage from './components/functional/ViewPage';
 
 class App extends Component {
