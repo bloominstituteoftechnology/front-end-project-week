@@ -1,3 +1,5 @@
+# KEIRAN'S BOARD: https://trello.com/b/A8NoOWl9/lambda-notes-keiran-kozlowski
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
