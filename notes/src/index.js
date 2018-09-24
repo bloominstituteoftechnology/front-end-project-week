@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import App from "./App";
 import "./index.css";
-import { notesReducer } from "./store/reducers";
+import  notesReducer  from "./store/reducers";
 
 const store = createStore(
   notesReducer,
