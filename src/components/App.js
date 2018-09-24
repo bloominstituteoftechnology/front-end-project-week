@@ -4,7 +4,7 @@ import axios from "axios";
 import ListView from "../components/listView";
 import { AddNote } from "../components/addNote";
 import { Route } from "react-router-dom";
-import IndividualNoteComponents from "./individualNoteComponents.js";
+import SingleNoteHolder from './SingleNoteHolder';
 
 class App extends Component {
   state = {
@@ -33,11 +33,11 @@ class App extends Component {
         />
         <Route path="/addnote" component={AddNote} />
         <Route
-          path="/note/:id"
-          render={props => (
-            <IndividualNoteComponents {...props} notes={this.state.notes} />
-          )}
-        />
+          path="/notes/:id" 
+          render={props=> <SingleNoteHolder {...props} notes={this.state.notes} />}
+          />
+          
+       
       </div>
     );
   }
