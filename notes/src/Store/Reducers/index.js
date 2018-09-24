@@ -38,7 +38,8 @@ export const reducer = (state = initialState, action) => {
         return {...state, isExpunging: true};
 
         case ACTIONS.NOTE_EXPUNGED:
-        return {...state, notes: action.notes, isExpunging: false};
+        const remainingNotes = state.notes.filter(note => note._id !== action.noteId);
+        return {...state, notes:[...remainingNotes], isExpunging: false};
 
         default: 
         return state;

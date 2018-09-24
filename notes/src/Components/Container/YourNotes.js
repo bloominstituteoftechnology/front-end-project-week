@@ -10,7 +10,13 @@ export class YourNotes extends Component {
     render() {
         return (
             <div>YOUR NOTES
-                {this.props.notes.map((note, index) => (<Note key={"note-"+index} note={note}/>))}
+                {this.props.notes.map((note, index) => (
+                <Note 
+                key={"note-"+index} 
+                note={note} 
+                expungeNote={this.props.expungeNote}
+                />
+                ))}
             </div>
         )
     }

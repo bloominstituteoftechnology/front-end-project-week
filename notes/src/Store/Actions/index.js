@@ -27,7 +27,7 @@ export const assembleNote = (note) => dispatch => {
     console.log('Assemble Note');
     dispatch({type: ACTIONS.ASSEMBLING_NOTE});
     axios.post('https://killer-notes.herokuapp.com/note/create', {...note})
-    .then(response => (dispatch({type: ACTIONS.NOTE_ASSEMBLED, note: {id: response.data, ...note}})))
+    .then(response => (dispatch({type: ACTIONS.NOTE_ASSEMBLED, note: {_id: response.data, ...note}})))
     .catch(err => console.log('Unable to Assemble Note: ' + err.message))
 }
 
@@ -42,7 +42,7 @@ export const reviseNote = note => dispatch => {
 export const expungeNote = noteId => dispatch => {
     console.log('Expunge Note');
     dispatch({type: ACTIONS.EXPUNGING_NOTE});
-    axios.delete(`http://localhost:3333/api/notes/${noteId}`)
-    .then(response => (dispatch({type: ACTIONS.NOTE_EXPUNGED, notes: response.data})))
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+    .then(() => (dispatch({type: ACTIONS.NOTE_EXPUNGED, noteId: noteId})))
     .catch(err => console.log('Unable to Delete Note: ' + err.message))
 }
