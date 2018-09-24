@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class NotesView extends Component {
   render() {
@@ -10,4 +11,16 @@ class NotesView extends Component {
   }
 }
 
-export default NotesView;
+const mapStateToProps = (state) => {
+  // console.log(state);
+  return {
+    notes: state.notesReducer.notes,
+    fetchingData: state.notesReducer.fetchingData,
+    error: state.notesReducer.error,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(NotesView);
