@@ -1,0 +1,13 @@
+
+.main-container .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.main-container .note-body {
+  width: 660px;
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}

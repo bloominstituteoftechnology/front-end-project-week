@@ -3,7 +3,8 @@ import axios from "axios";
 import Modal from "react-modal";
 
 import Form from "../Form";
-
+import '../components.css';
+import './index.css';
 export default class Note extends Component {
   state = {
     isEditing: false,
