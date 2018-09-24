@@ -66,9 +66,9 @@ class NotesList extends Component {
                     }) }
                 </ListNotes>
                 <Pagination
-          margin={2}
+          margin={9}
           page={page}
-          count={Math.ceil(total / 2)}
+          count={Math.ceil(total / 9)}
           onPageChange={this.handlePageChange}
         />
             </ListView>
