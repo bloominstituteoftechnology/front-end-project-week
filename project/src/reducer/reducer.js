@@ -1,4 +1,4 @@
-import { VIEWALL,VIEWONE,DELETE } from '../actions/action';
+import { VIEWALL,VIEWONE,DELETE,ADDING,CREATING,EDITING,EDIT } from '../actions/action';
 
 const grootText = "I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot."
 
@@ -11,9 +11,8 @@ notes : [
 ],
 error:null,
 view:'all',
-editing:false,
+editing:null,
 adding:false,
-deleting:false,
 }
 
 const reducer = (state=initial,action) => {
@@ -21,11 +20,23 @@ switch(action.type){
 case VIEWONE:
 return({...state,view:action.payload});
 case VIEWALL:
-return({...state, error:null, view:'all', editing:false, adding:false, deleting:false});
+return({...state, error:null, view:'all', editing:null, adding:false});
 case DELETE:
 let copyNotes = state.notes.splice('');
 copyNotes.splice(state.view,1);
-return ({...state,view:'all',notes:copyNotes,deleting:false})
+return ({...state,view:'all',notes:copyNotes})
+case ADDING:
+return({...state,adding:true,view:null,editing:null})
+case CREATING:
+let copyNotes2 = state.notes.splice('');
+copyNotes2.push({title:action.title,content:action.content});
+return({...state,view:'all',adding:false,notes:copyNotes2})
+case EDITING:
+return({...state,view:null,editing:action.payload})
+case EDIT:
+let copyNotes3 = state.notes.splice('');
+copyNotes3[state.editing]={title:action.title,content:action.content}
+return({...state,notes:copyNotes3,view:'all',editing:null,})
 default:
 return state
 }

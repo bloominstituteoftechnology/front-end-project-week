@@ -7,7 +7,7 @@ return(
 <div className="header">Lambda</div>
 <div className="header">Notes</div>
 <div className="button" onClick={()=>props.viewall()}>view your notes</div>
-<div className="button">+ add new note</div>
+<div className="button" onClick={()=>props.adding()}>+ add new note</div>
 </div>
 )
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import './Notes.css';
-import logo from '../logo.svg';
+import OneNote from './OneNote';
 
 const Notes = (props) => {
 return(
 <div className="notes">
-{props.notes ? (
+{props.view==="all" ? (
 <React.Fragment>
 <div className="heading">Your Notes:</div>
 <div className="notesContainer">
@@ -20,11 +20,8 @@ return(
 </div>
 </React.Fragment>
 ):(
-<React.Fragment>
-<div>getting notes...</div>
-<img src={logo} className="App-logo" alt='' />
-</React.Fragment>
-)	
+<OneNote index={props.view} deleteNote={props.deleteNote} editNote={props.editNote} note={props.notes[props.view]} />
+)
 }
 </div>
 )

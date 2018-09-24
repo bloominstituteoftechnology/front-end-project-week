@@ -19,7 +19,7 @@ render(){
 return(
 <div className="overall">
 <div className="flex">
-<div className="option">edit</div>
+<div className="option" onClick={()=>this.props.editNote(this.props.index)}>edit</div>
 <div className="option" onClick={()=>this.deleteToggle()}>delete</div>
 </div>
 <div className="contents">
