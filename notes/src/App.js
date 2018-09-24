@@ -7,6 +7,7 @@ import NewNote from './components/new-note-page/NewNote';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import './App.css';
+import axios from 'axios';
 
 const myNotes = [
   {
@@ -39,37 +40,41 @@ class App extends Component {
       notes: [],
       newTitle: '',
       newNote: '',
-      number: myNotes.length,
       modal: false
     }
   }
 
   componentDidMount() {
-    this.setState({ notes: myNotes });
+    axios.get('http://localhost:8700/notes').then(response => {
+      this.setState({ notes: response.data, number: response.data.length });
+    }).catch(err => {
+      console.error(err);
+    })
   }
 
   onChangeHandler = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  deleteNoteHandler = (id) => {
-    let dummyNotes = this.state.notes;
-    const selectedNote = dummyNotes.find(note => note.id.toString() === id);
-    const index = dummyNotes.indexOf(selectedNote);
-    dummyNotes.splice(index, 1);
-    this.setState({ notes: dummyNotes, modal: false })
+  deleteNoteHandler = async (id) => {
+    const noteId = parseInt(id);
+    axios.delete(`http://localhost:8700/notes/${noteId}`).then(response => {
+      const notes = await axios.get('http://localhost:8700/notes');
+      this.setState({ notes: notes.data, modal: false })
+    }).catch(err => {
+      console.error(err);
+    })
   }
 
   addNewNoteHandler = (props) => {
-    // event.preventDefault();
-    console.log(this.props.match);
-    const dummyNotes = this.state.notes;
     const myNewNote = {
-      id: this.state.number,
       title: this.state.newTitle,
       note: this.state.newNote,
     };
-    dummyNotes.push(myNewNote);
+    axios.post('http://localhost:8700/notes', myNewNote).then(response => {
+      const notes = await axios.get('http://localhost:8700/notes');
+      this.setState({ notes: notes.data })
+    }).catch();
     this.setState({ notes: dummyNotes, newTitle: '', newNote: '', number: myNewNote.id + 1 });
   }
 
