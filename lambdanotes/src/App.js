@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import SideBarNav from './components/SideBarNav';
+import NotesPage from './components/notes/NotesPage';
 import './App.css';
 
 class App extends Component {
   render() {
-    return <div className="App">Note List</div>;
+    return <SideBarNav />
+    <NotesPage/>
   }
 }
 
