@@ -24,6 +24,12 @@ export default class Note extends Component {
       .catch(error => console.log(error));
   }
 
+  // turn on the edit mode by changing the isEditing to true
+  toggleEditMode = e => {
+    e.preventDefault();
+    this.setState({ isEditing: true });
+  }
+
   render() {
     if (!this.state.note) {
       return (
