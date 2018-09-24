@@ -24,9 +24,15 @@ export default class Note extends Component {
   }
 
   render() {
+    if (!this.state.note) {
+      return (
+        <div className="main-container note">Note is loading...</div>
+      )
+    }
     return (
-      <div>
-        
+      <div className="main-container note">
+        <h2>{this.state.title}</h2>
+        <div className="note-body">{this.state.textBody}</div>
       </div>
     )
   }
