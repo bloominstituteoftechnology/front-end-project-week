@@ -1,7 +1,8 @@
-.App {
-  max-width: 880px;
-  display: flex;
-  margin: 0 auto;
+.menu-container {
+  width: 20%;
+  height: 600px;
+  background-color: lightgray;
+  color: black;
 }
 
 .button {
@@ -13,7 +14,6 @@
   background-color: #30b8bc;
   color: white;
   cursor: pointer;
-  font-size: 18px;
 
   border: 1px solid gray;
 }

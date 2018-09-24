@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import NotesList from "./components/NotesList/NotesList";
 
+//Import components
+import NotesList from "./components/NotesList/NotesList";
+import Menu from "./components/Menu/Menu";
+import NewNote from "./components/NewNote/NewNote";
 class App extends Component {
   constructor() {
     super();
@@ -23,11 +26,21 @@ class App extends Component {
       ]
     };
   }
+
+  addNewNote(note) {
+    console.log(this.state);
+    const notes = [...this.state.notes];
+    notes.push(note);
+    this.setState(...this.state, { notes });
+  }
   render() {
     return (
       <div className="App">
-        Notes app:
-        <NotesList notes={this.state.notes} />
+        <Menu />
+        <div className="container">
+          <NewNote addNewNote={this.addNewNote.bind(this)} />
+          <NotesList notes={this.state.notes} />
+        </div>
       </div>
     );
   }
