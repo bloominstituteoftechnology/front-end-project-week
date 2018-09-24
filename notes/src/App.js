@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
+import axios from 'axios';
 import Fuse from 'fuse.js';
 import Sidebar from './components/Sidebar';
 import Note from './components/Note';
 import NoteFormContainer from './components/NoteFormContainer';
 import Modal from './components/DeleteModal';
 import Dropdown from './components/SortDropdown';
+
+const URL = 'http://localhost:8000/api/notes';
 
 class App extends Component {
   state = {
@@ -24,8 +27,7 @@ class App extends Component {
       text: 'You\'ve went and refreshed at the wrong time! Just view your notes to continue your lovely note experience.'
     },
     modal: false,
-    dropdown: false,
-    nextId: 1
+    dropdown: false
   };
 
   /* Form methods */
@@ -36,29 +38,36 @@ class App extends Component {
 
   addNote = e => {
     e.preventDefault();
-    const { notes, title, text, nextId } = this.state;
+    const { notes, title, text } = this.state;
     if (title === '') return null;
-    this.setState({
-      notes: [{
-        id: nextId,
-        title,
-        text
-      }, ...notes],
-      title: '',
-      text: '',
-      nextId: nextId + 1
-    }, this.redirect);
+    axios.post(URL, { title, text })
+      .then(res => {
+        this.setState({
+          notes: [{
+            id: res.data,
+            title,
+            text
+          }, ...notes],
+          title: '',
+          text: ''
+        }, this.redirect);
+      })
+      .catch(err => console.error(err));
   };
 
   editNote = e => {
     e.preventDefault();
     const { notes, title, text, note } = this.state;
     if (title === '') return null;
-    this.setState({
-      notes: notes.map(n => n.id === note.id ? {...n, title, text} : n),
-      title: '',
-      text: ''
-    }, this.redirect);
+    axios.put(`${URL}/${note.id}`, { title, text })
+      .then(() => {
+        this.setState({
+          notes: notes.map(n => n.id === note.id ? {...n, title, text} : n),
+          title: '',
+          text: ''
+        }, this.redirect);
+      })
+      .catch(err => console.error(err));
   };
 
   updateEditInput = () => {
@@ -75,9 +84,13 @@ class App extends Component {
   deleteNote = () => {
     const { notes, note } = this.state;
     this.toggleModal();
-    this.setState({
-      notes: notes.filter(n => n.id !== note.id)
-    }, this.redirect);
+    axios.delete(`${URL}/${note.id}`)
+      .then(() => {
+        this.setState({
+          notes: notes.filter(n => n.id !== note.id)
+        }, this.redirect);
+      })
+      .catch(err => console.error(err));
   };
 
   toggleModal = () => {
@@ -169,18 +182,16 @@ class App extends Component {
 
   /* Lifecycle methods */
 
-  componentWillMount() {
-    localStorage.getItem('notes') &&
-    localStorage.getItem('nextId') &&
-    this.setState({
-      notes: JSON.parse(localStorage.getItem('notes')),
-      nextId: JSON.parse(localStorage.getItem('nextId'))
-    });
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('notes', JSON.stringify(nextState.notes));
-    localStorage.setItem('nextId', JSON.stringify(nextState.nextId));
+  componentDidMount() {
+    axios.get(URL)
+      .then(({ data }) => {
+        if (data.length > 0) {
+          this.setState({
+            notes: data
+          });
+        }
+      })
+      .catch(err => console.error(err));
   }
 
   render() {
