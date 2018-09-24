@@ -27,7 +27,7 @@ class Note extends React.Component {
         return (
             <div className='main-view'>
                 <div className='note-links'>
-                    <NavLink to={`/note/${this.state.id}/edit`}>edit</NavLink>
+                    <NavLink to={`/note-edit/${this.state.id}`}>edit</NavLink>
                     <NavLink to={`/note/${this.state.id}/delete`}>delete</NavLink>
                 </div>
                 <h2>{this.state.title}</h2>
