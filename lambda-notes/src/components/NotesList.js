@@ -16,7 +16,7 @@ import SearchBar from './Searchbar';
         />
         <h2>Your Notes:</h2>
         {props.data.map(note => (
-          <Link to={`/notes/${note._id}`} key={note._id}>
+          <Link to={`/notes/${note.id}`} key={note.id}>
           <Note note={note}/>
           </Link>
         ))}

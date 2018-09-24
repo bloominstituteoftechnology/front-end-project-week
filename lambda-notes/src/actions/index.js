@@ -16,7 +16,7 @@ export const fetchData = () => {
   return function(dispatch) {
       dispatch({ type: FETCHING_DATA });
       axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .get(`http://localhost:8000/api/notes`)
       .then(response => {
           dispatch({ type: DATA_FETCHED, payload: response.data });
       })
@@ -30,7 +30,7 @@ export const fetchNote = (id) => {
     return function(dispatch) {
         dispatch({ type: FETCHING_NOTE });
         axios
-        .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .get(`http://localhost:8000/api/notes/${id}`)
         .then(response => {
             dispatch({ type: NOTE_FETCHED, payload: response.data });
         })
@@ -44,7 +44,7 @@ export const addNewNote = (title, content) => {
   return function(dispatch) {
       dispatch({ type: ADD_NOTE });
       axios
-     .post(`https://killer-notes.herokuapp.com/note/create`, {
+     .post(`http://localhost:8000/api/notes`, {
       title: title,
       textBody: content
       })
@@ -64,7 +64,7 @@ export const deleteNote = id => {
   return function(dispatch) {
       dispatch({ type: DELETE_NOTE });
       axios
-     .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+     .delete(`http://localhost:8000/api/notes/${id}`)
       .then(() => {
           dispatch({ type: NOTE_DELETED });
       })
@@ -81,7 +81,7 @@ export const editNote = (title, content, id) => {
   return function(dispatch) {
       dispatch({ type: EDIT_NOTE });
       axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+      .put(`http://localhost:8000/api/notes/${id}`, {
         title: title,
         textBody: content
           })

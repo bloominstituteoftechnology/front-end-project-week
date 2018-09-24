@@ -23,6 +23,9 @@ return (
             />
         <button className="save-button" onClick={props.addNewNote}>Save</button>
         </form>
+        <p style={ props.addingNote ? { color: "red", margin: "20px 0" } : { display: "none" } }>
+            Please include a title and content for the note.
+        </p>
     </div>
     );
 }

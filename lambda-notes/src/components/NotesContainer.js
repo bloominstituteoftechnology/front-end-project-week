@@ -26,7 +26,6 @@ class NotesContainer extends Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log(props);
     this.setState({ currentlyDisplayed: props.data });
   }
 
@@ -37,18 +36,10 @@ class NotesContainer extends Component {
   addNewNote = (e) => {
     e.preventDefault();
     this.props.addNewNote(this.state.title, this.state.content);
-    this.setState({
-      title: "",
-      content: ""
-    });
   };
 
   editNote = (id) => {
     this.props.editNote(this.state.title, this.state.content, id);
-    this.setState({
-      title: "",
-      content: ""
-    });
   }
 
   //searchbar input change handler
@@ -81,7 +72,8 @@ class NotesContainer extends Component {
           render={(props) => <NewNote
           {...props}
           handleChange={this.inputHandler}
-          addNewNote={this.addNewNote} />}
+          addNewNote={this.addNewNote}
+          addingNote={this.props.addingNote} />}
           />
         <Route
           exact path="/notes/:id"
@@ -93,7 +85,8 @@ class NotesContainer extends Component {
           render={(props) => <EditNote
           {...props}
           handleChange={this.inputHandler}
-          editNote={this.editNote} />}
+          editNote={this.editNote}
+          updatingNote={this.props.updatingNote} />}
           />
         </div>
       </div>
@@ -103,7 +96,9 @@ class NotesContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    data: state.notes
+    data: state.notes,
+    addingNote: state.addingNote,
+    updatingNote: state.updatingNote
   }
 }
 
