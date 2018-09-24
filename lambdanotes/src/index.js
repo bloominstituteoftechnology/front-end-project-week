@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { noteReducer } from "./reducer/noteReducer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddNotesContainer from "./AddNotesContainer";
+import NoteContainer from "./NoteContainer";
 
 const store = createStore(noteReducer);
 
@@ -17,6 +18,7 @@ ReactDOM.render(
 			<Switch>
 				<Route exact path="/" component={App} />
 				<Route path="/add-note" component={AddNotesContainer} />
+				<Route path="/note/:id" component={NoteContainer} />
 			</Switch>
 		</Router>
 	</Provider>,

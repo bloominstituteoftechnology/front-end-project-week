@@ -36,6 +36,7 @@
 }
 .text-body {
 	overflow: hidden;
+	color: black;
 }
 .body {
 	overflow: hidden;
@@ -51,11 +52,14 @@
 .notes-container {
 	margin: 10px 1.5%;
 }
+.note-link {
+	text-decoration: none;
+}
 .note {
 	border: 1px solid black;
 	background: white;
 	padding: 15px;
-	width: 25%;
+	width: 100%;
 	margin: 10px 0.5%;
 	height: 250px;
 	overflow: hidden;
