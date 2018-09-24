@@ -8,21 +8,6 @@
 		display: none;
 	}
 
-	.btn {
-		background-color: #2AC1C5;
-		padding: 2.05vh 0.9vw;
-		font-size: 94%;
-		border: 1px solid #6BA8A9;
-		color: white;
-		font-weight: bold;
-		text-decoration: none;
-
-		&:hover {
-			text-decoration: underline;
-			border: 1px solid black;
-		}
-	}
-
 	h2 {
 		text-align: left;
 		color: #4D4B4D;
@@ -32,6 +17,10 @@
 	}
 
 	.form {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+
 		input {
 			display: block;
 		}
@@ -57,22 +46,6 @@
 
 			@media @tablet {
 				width: 80vw;
-			}
-		}
-
-		.save-btn {
-			width: 13vw;
-			
-			&:hover {
-				cursor: pointer;
-			}
-
-			@media @tablet {
-				width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
-			}
-
-			@media @phone {
-				width: calc(89 / 135 * 100vw);
 			}
 		}
 	}

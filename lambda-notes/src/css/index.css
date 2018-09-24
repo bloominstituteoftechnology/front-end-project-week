@@ -7,25 +7,17 @@
 .App .phone {
   display: none;
 }
-.App .btn {
-  background-color: #2AC1C5;
-  padding: 2.05vh 0.9vw;
-  font-size: 94%;
-  border: 1px solid #6BA8A9;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-}
-.App .btn:hover {
-  text-decoration: underline;
-  border: 1px solid black;
-}
 .App h2 {
   text-align: left;
   color: #4D4B4D;
   font-size: 1.35rem;
   width: 100%;
   margin-bottom: 28px;
+}
+.App .form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .App .form input {
   display: block;
@@ -52,22 +44,6 @@
 @media ( max-width: 1024px ) {
   .App .form .note-content-text-area {
     width: 80vw;
-  }
-}
-.App .form .save-btn {
-  width: 13vw;
-}
-.App .form .save-btn:hover {
-  cursor: pointer;
-}
-@media ( max-width: 1024px ) {
-  .App .form .save-btn {
-    width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
-  }
-}
-@media ( max-width: 540px ) {
-  .App .form .save-btn {
-    width: calc(89 / 135 * 100vw);
   }
 }
 @media ( max-width: 1024px ) {
@@ -221,6 +197,8 @@
 .list .note h3 {
   margin: 11px 0 -3px 0;
   white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .list .note h3 a {
   text-decoration: none;
@@ -301,6 +279,46 @@ body {
   font-family: sans-serif;
   display: flex;
   justify-content: center;
+}
+body .btn {
+  background-color: #2AC1C5;
+  padding: 2.05vh 0.9vw;
+  font-size: 94%;
+  border: 1px solid #6BA8A9;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+body .btn:hover {
+  text-decoration: underline;
+  border: 1px solid black;
+}
+body .save-btn {
+  width: 13vw;
+}
+body .save-btn:hover {
+  cursor: pointer;
+}
+@media ( max-width: 1024px ) {
+  body .save-btn {
+    width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
+  }
+}
+@media ( max-width: 540px ) {
+  body .save-btn {
+    width: calc(89 / 135 * 100vw);
+  }
+}
+body .modal-body {
+  text-align: center;
+  border: 1px solid black;
+  padding: 40px 0;
+}
+body .modal-body .modal-btns * {
+  margin: 0 20px;
+}
+body .modal-body .modal-btns .delete-btn {
+  background-color: #D1001A;
 }
 body #root {
   display: flex;

@@ -15,6 +15,53 @@ body {
 	display: flex;
 	justify-content: center;
 
+	.btn {
+		background-color: #2AC1C5;
+		padding: 2.05vh 0.9vw;
+		font-size: 94%;
+		border: 1px solid #6BA8A9;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+			border: 1px solid black;
+		}
+	}
+
+	.save-btn {
+		width: 13vw;
+		
+		&:hover {
+			cursor: pointer;
+		}
+
+		@media @tablet {
+			width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
+		}
+
+		@media @phone {
+			width: calc(89 / 135 * 100vw);
+		}
+	}
+
+	.modal-body {
+		text-align: center;
+		border: 1px solid black;
+		padding: 40px 0;
+
+		.modal-btns {	
+			* {
+				margin: 0 20px;
+			}
+
+			.delete-btn {
+				background-color: #D1001A;
+			}
+		}
+	}
+
 	#root {
 		display: flex;
 		justify-content: center;
