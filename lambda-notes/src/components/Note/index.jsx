@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import Form from '../Form';
+
 export default class Note extends Component {
   state = {
     isEditing: false,
@@ -26,6 +28,11 @@ export default class Note extends Component {
       .catch(error => console.log(error));
   }
 
+  // handle input change 
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  
   // turn on the edit mode by changing the isEditing to true
   toggleEditMode = e => {
     e.preventDefault();
@@ -36,6 +43,18 @@ export default class Note extends Component {
     if (!this.state.note) {
       return <div className="main-container note">Note is loading...</div>;
     }
+    // if isEditing then render the form
+    if (this.state.isEditing) {
+      return (
+        <Form type={"edit"}
+              title={this.state.title}
+              textBody={this.state.textBody}
+              handleFormSubmit={this.handleEditSubmit}
+              handleInputChange={this.handleInputChange}
+        />
+      );
+    }
+
     return (
       <div className="main-container note">
         <div className="actions-container">
