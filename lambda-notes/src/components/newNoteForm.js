@@ -1,7 +1,8 @@
 import React from 'react';
 import { createNote } from '../actions';
 import { connect } from 'react-redux';
-import '../CSS/newNoteForm.css';
+import '../CSS/newNoteForm.css'
+import {withRouter} from 'react-router';
 
 class NewNoteForm extends React.Component {
   state = {
@@ -32,4 +33,4 @@ class NewNoteForm extends React.Component {
   }
 }
 
-export default connect(null, { createNote })(NewNoteForm);
+export default withRouter(connect(null, { createNote })(NewNoteForm));

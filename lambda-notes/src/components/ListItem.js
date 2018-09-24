@@ -1,6 +1,6 @@
 import React from 'react';
 import '../CSS/ListItem.css';
-import { deleteNote, getOne } from '../actions';
+import { deleteNote } from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {Link} from 'react-router-dom';
@@ -9,8 +9,8 @@ class ListItem extends React.Component {
   render() {
     return (
       <div className="note-card">
-        <Link onClick={() => this.props.getOne(this.props.note._id)} to={{
-          pathname: `/${this.props.note._id}`,
+        <Link to={{
+          pathname: `${this.props.note.title}/${this.props.note._id}`,
           state: {
             note: this.props.note
           }
@@ -23,4 +23,4 @@ class ListItem extends React.Component {
   }
 }
 
-export default withRouter(connect(null, { deleteNote, getOne })(ListItem));
+export default withRouter(connect(null, { deleteNote })(ListItem));

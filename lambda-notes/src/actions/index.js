@@ -6,9 +6,8 @@ export const FETCHING_NOTES_FAILURE = "FETCHING_NOTES_FAILURE";
 export const CREATING_NOTE = "CREATING_NOTE";
 export const CREATING_NOTE_SUCESSFULL = "CREATING_NOTE_SUCESSFULL";
 export const CREATING_NOTE_FAILURE = "CREATING_NOTE_FAILURE";
-export const GETTING_ONE = "GETTING_ONE";
-export const GETTING_ONE_SUCCESSFULL = "GETTING_ONE_SUCCESSFULL";
-export const GETTING_ONE_FAILURE = "GETTING_ONE_FAILURE";
+export const DELETE_NOTE_SUCCESS = "DELETE_NOTE_SUCCESS";
+export const DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE";
 
 export const getNotes = () => {
   return dispatch => {
@@ -31,15 +30,10 @@ export const createNote = (note) => {
 }
 
 export const deleteNote = (id) => {
-  console.log('del action', id);
-}
-
-export const getOne = (id) => {
   return dispatch => {
-    dispatch({type: GETTING_ONE})
     axios
-    .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-    .then(resp => dispatch({type: GETTING_ONE_SUCCESSFULL, payload: resp.data}))
-    .catch(err =>  dispatch({type: GETTING_ONE_FAILURE, payload: new Error(err)}));
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(resp => dispatch({type: DELETE_NOTE_SUCCESS, payload: resp.data}))
+      .catch(err => dispatch({type: DELETE_NOTE_FAILURE, payload: new Error(err)}));
   }
 }

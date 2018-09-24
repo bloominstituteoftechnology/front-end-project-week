@@ -13,13 +13,15 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row m-3">
-          <div className="col-md-3 vh-100 p-5 border-left action-container">
+          <div className="col-md-3 p-5 border-left action-container">
             <ActionPanel />
           </div>
-          <div className="col-md-9 vh-100 p-5 border right-side">
+          <div className={`col-md-9 p-5 border right-side ${
+            window.location.href.length > 22 ? 'vh-100' : null
+          }`}>
             <Route exact path="/" component={ListView} />
-            <Route path="/newNote" component={NewNoteForm} />
-            <Route path="/:id" component={GotOne} />
+            <Route exact path="/newNote" component={NewNoteForm} />
+            <Route path="/:title/:id" component={GotOne} />
           </div>
         </div>
       </div>
