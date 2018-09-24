@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getNotes } from '../actions';
 import ListItem from './ListItem';
+import { withRouter } from 'react-router';
 import '../CSS/ListView.css';
+
 
 class ListView extends React.Component {
   
@@ -16,7 +18,7 @@ class ListView extends React.Component {
         {
           this.props.notes.map(note => {
             return (
-                <ListItem note={note} />
+                <ListItem note={note} key={note._id} />
             )
           })
         }
@@ -35,4 +37,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getNotes })(ListView);
+export default withRouter(connect(mapStateToProps, { getNotes })(ListView));

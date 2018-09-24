@@ -4,12 +4,3 @@
   align-items: baseline;
   flex-wrap: wrap;
 }
-
-button {
-  background: rgba(36, 171, 175);
-  color: #fff;
-}
-
-.action-container {
-  background: rgba(200, 200, 200);
-}

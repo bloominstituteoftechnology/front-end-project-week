@@ -1,0 +1,27 @@
+.action-panel-title {
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+
+.link {
+  background: rgba(36, 171, 175);
+  color: #fff;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  transition: all 200ms ease-in-out;
+}
+
+.link:hover, button:hover {
+  text-decoration: none;
+  color: #fff;
+  filter: brightness(95%);
+}
+
+.action-container {
+  background: rgba(200, 200, 200);
+}
+
+textarea {
+  resize: none;
+}
