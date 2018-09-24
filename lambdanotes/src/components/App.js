@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import SideBar from './SideBar';
 import NoteView from './NoteView';
 import './App.css';
@@ -12,6 +13,7 @@ class App extends Component {
         </div>
         <div className="note-view">
           <NoteView />
+          
         </div>
       </div>
     );

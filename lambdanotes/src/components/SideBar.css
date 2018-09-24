@@ -8,7 +8,7 @@
     width: 300px;
 }
 
-button {
+.button {
     font-size: 1em;
     color: #2d2527;
     height: 50px;
@@ -20,8 +20,36 @@ button {
     -webkit-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
     -moz-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
     box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
 
 }
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
 
 h1{
     padding-top: 3%;
