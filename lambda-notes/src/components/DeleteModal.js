@@ -1,9 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Row, Col } from 'reactstrap';
-// import {connect} from 'react-redux';
-// import {deleteNote} from '../actions';
 import { Route } from 'react-router-dom'
- import './DeleteModal.css';
+import './DeleteModal.css';
  
  
  
@@ -34,7 +32,7 @@ import { Route } from 'react-router-dom'
                             <ModalHeader centered={true}>Are you sure you want to delete this?</ModalHeader>
                             <ModalBody>
                                 <Row>
-                                    <Col><Button color="danger" size="lg" block onClick={() => {this.props.deleteNote(this.props.note._id)}} onMouseUp={() => history.goBack()}>Yes</Button></Col> {' '}
+                                    <Col><Button color="danger" size="lg" block onClick={() => {this.props.deleteNote(this.props.note.id)}} onMouseUp={() => history.goBack()}>Yes</Button></Col> {' '}
                                     <Col><Button color="success" size="lg" block onClick={this.toggle}>No</Button> </Col>
                                 </Row>
                             </ModalBody>
@@ -45,16 +43,8 @@ import { Route } from 'react-router-dom'
     }
 }
 
-// const mapStateToProps = state => {
-//     const {notesReducer} = state;
-//     return {
-//         error: notesReducer.error,
-//         deleteNote: notesReducer.deleteNote,
-//         deletingNote: notesReducer.deletingNote
-//     };
-// };
 
-//  export default connect(mapStateToProps,{deleteNote})(DeleteModal); 
+
 
 export default DeleteModal;
 

@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import {connect} from 'react-redux';
 import "./Notes.css";
 
 const searchingFor = term => {
   return function(note) {
-    return note.textBody.toLowerCase().includes(term.toLowerCase()) || !term;
+    return note.content.toLowerCase().includes(term.toLowerCase()) || !term;
   };
 };
 
@@ -29,10 +28,10 @@ const Notes = props => {
       <div className="notes">
         
          {props.notes.filter(searchingFor(props.term)).map(note => ( 
-          <Link key={note._id} to={`/notes/${note._id}`}>
+          <Link key={note.id} to={`/notes/${note.id}`}>
             <div className="text">
               <h3>{note.title}</h3>
-              <p>{note.textBody}</p>
+              <p>{note.content}</p>
             </div>
           </Link>
          ))}
@@ -41,17 +40,5 @@ const Notes = props => {
   );
 };
 
-
-// const mapStateToProps = state => {
-//   const {notesReducer} = state;
-//   return{
-//     notes: notesReducer.notes,
-    
-//   };
-// };
-
-
-
-// export default connect(mapStateToProps)(Notes);
 
 export default Notes;

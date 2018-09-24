@@ -6,10 +6,12 @@
 
 .notes-page .notes  {
     display: flex;
-    flex-direction: row; 
+    /* flex-direction: row; 
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    align-content: center; */
+    flex-flow: row wrap;
+    text-align: center;
 
 }
 

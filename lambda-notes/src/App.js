@@ -17,7 +17,7 @@ class App extends Component {
       notes: [],
       username: "",
       title: "",
-      text: "",
+      content: "",
       term: ""
     };
   }
@@ -27,7 +27,7 @@ class App extends Component {
     this.setState({ username: user });
 
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:2200/api/notes")
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -49,31 +49,21 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  // addNote = event => {
-  //   event.preventDefault();
-  //   const notes = this.state.notes.slice();
-  //   notes.push({
-  //     textBody: this.state.text,
-  //     title: this.state.title
-  //   });
-  //   this.setState({ notes, title: "", text: "" });
-  // };
-
-  addNote = (event) => {
+    addNote = (event) => {
     event.preventDefault();
     const newNote = {
       title: this.state.title,
-      textBody: this.state.text,
+      content: this.state.content,
     };
     axios
-    .post(`https://killer-notes.herokuapp.com/note/create`,newNote)
+    .post(`http://localhost:2200/api/notes`,newNote)
     .then(res => {
       console.log(res);
       axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:2200/api/notes")
       .then(res => {
       console.log(res.data);
-      this.setState({notes: res.data , title: '' , text: ''})
+      this.setState({notes: res.data , title: '' , content: ''})
     })
     })
       .catch(error => {
@@ -82,12 +72,12 @@ class App extends Component {
   }
 
 
-  deleteNote = (noteID) => {
+  deleteNote = (id) => {
     axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
+    .delete(`http://localhost:2200/api/notes/:id`)
     .then(res => {
       axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:2200/api/notes")
       .then(res => {
         console.log(res.data);
         this.setState({ notes: res.data });
@@ -99,13 +89,13 @@ class App extends Component {
     )}
 
 
-  editNote = (event, noteID, title, textBody) => {
+  editNote = (event, id, title, content) => {
     event.preventDefault();
 
-    const editedNote = { title, textBody };
+    const editedNote = { title, content };
 
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${noteID}`, editedNote)
+      .put(`http://localhost:2200/api/notes/${id}`, editedNote)
       .then(res => {
         const editedNote = res.data;
 
@@ -145,7 +135,7 @@ class App extends Component {
             <NewNoteForm
               {...props}
               title={this.state.title}
-              text={this.state.text}
+              content={this.state.content}
               addNote={this.addNote}
               handleInputChange={this.handleInputChange}
             />
@@ -159,7 +149,7 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               title={this.state.title}
-              text={this.state.text}
+              content={this.state.content}
               deleteNote={this.deleteNote}
               handleInputChange={this.handleInputChange}
             />
@@ -184,36 +174,9 @@ class App extends Component {
 export default Authenticate(App);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { Component } from "react";
-// import { Route ,withRouter} from "react-router-dom";
-// import { connect } from 'react-redux';
-// import {getNotes} from './actions';
+// import { Route } from "react-router-dom";
+// import axios from "axios";
 // import Sidebar from "./components/Sidebar";
 // import Notes from "./components/Notes";
 // import Note from "./components/Note";
@@ -223,8 +186,8 @@ export default Authenticate(App);
 // import "./App.css";
 
 // class App extends Component {
-//   constructor(props) {
-//     super(props);
+//   constructor() {
+//     super();
 //     this.state = {
 //       notes: [],
 //       username: "",
@@ -237,8 +200,15 @@ export default Authenticate(App);
 //   componentDidMount() {
 //     const user = localStorage.getItem("user");
 //     this.setState({ username: user });
-//     this.props.getNotes();
-//     console.log(this.props);
+
+//     axios
+//       .get("https://killer-notes.herokuapp.com/note/get/all")
+//       .then(response => {
+//         this.setState({ notes: response.data });
+//       })
+//       .catch(error => {
+//         console.error("Server Error", error);
+//       });
 //   }
 
 //   searchHandler = event => {
@@ -254,14 +224,67 @@ export default Authenticate(App);
 //     this.setState({ [event.target.name]: event.target.value });
 //   };
 
-//   addNote = (event) => {
+//     addNote = (event) => {
 //     event.preventDefault();
-//     this.props.addNote(newNote);
 //     const newNote = {
 //       title: this.state.title,
 //       textBody: this.state.text,
 //     };
+//     axios
+//     .post(`https://killer-notes.herokuapp.com/note/create`,newNote)
+//     .then(res => {
+//       console.log(res);
+//       axios
+//       .get("https://killer-notes.herokuapp.com/note/get/all")
+//       .then(res => {
+//       console.log(res.data);
+//       this.setState({notes: res.data , title: '' , text: ''})
+//     })
+//     })
+//       .catch(error => {
+//       console.error("Server Error", error);
+//     })
 //   }
+
+
+//   deleteNote = (noteID) => {
+//     axios
+//     .delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
+//     .then(res => {
+//       axios
+//       .get("https://killer-notes.herokuapp.com/note/get/all")
+//       .then(res => {
+//         console.log(res.data);
+//         this.setState({ notes: res.data });
+//       })
+//       .catch(error => {
+//         console.error("Server Error", error);
+//       });
+//     }
+//     )}
+
+
+//   editNote = (event, noteID, title, textBody) => {
+//     event.preventDefault();
+
+//     const editedNote = { title, textBody };
+
+//     axios
+//       .put(`https://killer-notes.herokuapp.com/note/edit/${noteID}`, editedNote)
+//       .then(res => {
+//         const editedNote = res.data;
+
+//         const notes = this.state.notes.slice();
+//         for (let i = 0; i < notes.length; i++) {
+//           if (notes[i]._id === editedNote._id) {
+//             notes[i] = editedNote;
+//           }
+//         }
+
+//         this.setState({ notes });
+//       })
+//       .catch(err => console.error(err));
+//   };
 
 //   render() {
 //     return (
@@ -273,11 +296,14 @@ export default Authenticate(App);
 //           render={props => (
 //             <Notes
 //               {...props}
+//               notes={this.state.notes}
+//               logOut={this.logOut}
+//               searchHandler={this.searchHandler}
 //               term={this.state.term}
 //             />
 //           )}
 //         />
-//       <Route
+//         <Route
 //           exact
 //           path="/create-new-note"
 //           render={props => (
@@ -296,7 +322,7 @@ export default Authenticate(App);
 //           render={props => (
 //             <Note
 //               {...props}
-//               notes={this.props.notes}
+//               notes={this.state.notes}
 //               title={this.state.title}
 //               text={this.state.text}
 //               deleteNote={this.deleteNote}
@@ -310,7 +336,7 @@ export default Authenticate(App);
 //           render={props => (
 //             <EditNote
 //               {...props}
-//               notes={this.props.notes}
+//               notes={this.state.notes}
 //               editNote={this.editNote}
 //             />
 //           )}
@@ -320,17 +346,32 @@ export default Authenticate(App);
 //     }
 //   }
 
+// export default Authenticate(App);
 
-//   const mapStateToProps = state => {
-//     const {notesReducer} = state;
-//     return{
-//       notes: notesReducer.notes,
-   
-//       getting: notesReducer.getting,
-//       get: notesReducer.get,
-//       error: notesReducer.error,
 
-//     };
-//   };
 
-// export default withRouter(connect(mapStateToProps,{getNotes})(Authenticate(App)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
