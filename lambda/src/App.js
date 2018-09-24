@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Menu from './Components/Menu';
 import NoteList from './Components/NoteList';
 import NewNote from './Components/NewNote';
+import EditNote from './Components/EditNote';
 import { Route } from 'react-router-dom';
 import './App.css';
 
@@ -56,6 +57,11 @@ class App extends Component {
               submitNote={this.submitNote}
             />
           )}
+        />
+        <Route
+          exact
+          path="/notes/:id"
+          render={props => <EditNote {...props} notes={this.state.notes} />}
         />
       </div>
     );

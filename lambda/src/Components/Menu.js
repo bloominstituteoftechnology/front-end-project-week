@@ -5,10 +5,10 @@ const Menu = () => {
   return (
     <div className="menu">
       <h1>Lambda Notes</h1>
-      <Link className="link" to="/">
+      <Link className="menu-link" to="/">
         View Your Notes
       </Link>
-      <Link className="link" to="/newnote">
+      <Link className="menu-link" to="/newnote">
         Create New Note
       </Link>
     </div>
