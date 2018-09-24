@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -23,6 +21,49 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  box-sizing: content-box;
+}
+
+.App {
+  height: 100%;
+}
+
+.sideBar {
+  border-right: 1px black solid;
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #d7d7d7;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.appView {
+  margin-left: 25%;
+  padding: 30px;
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+.newNote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

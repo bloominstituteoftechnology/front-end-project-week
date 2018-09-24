@@ -1,71 +1,64 @@
 import React, { Component } from 'react';
-import Menu from './Components/Menu';
-import NoteList from './Components/NoteList';
-import NewNote from './Components/NewNote';
-import EditNote from './Components/EditNote';
-import { Route } from 'react-router-dom';
 import './App.css';
+import { Button, H1, H2, H3 } from './components/StyledComponents';
+import SideBar from './components/SideBar';
+import { connect } from 'react-redux';
+import { fetchNotes, addNewNote } from './actions';
+import ListView from './components/ListView/ListView';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import NewNote from './components/CreateNote/NewNote';
+import NoteView from './components/NoteView';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      notes: [],
-      notetitle: '',
-      notebody: '',
-      id: null
-    };
+  componentDidMount() {
+    this.props.fetchNotes();
   }
-
-  inputHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  submitNote = () => {
-    let each = this.state.notes[this.state.notes.length - 1].id;
-    this.setState({ id: each }, () => {
-      let notes = this.state.notes.slice();
-      let id = this.state.id;
-      if (this.state.eachtitle !== '' || this.state.eachbody !== '') {
-        id++;
-        notes.push({
-          id: id,
-          title: this.state.eachtitle,
-          text: this.state.eachbody
-        });
-        this.setState({ notes, eachtitle: '', eachbody: '', id });
-      }
-    });
-  };
-
   render() {
     return (
       <div className="App">
-        <Menu />
-        <Route
-          exact
-          path="/"
-          render={props => <NoteList {...props} notes={this.state.notes} />}
-        />
-        <Route
-          exact
-          path="/newnote"
-          render={props => (
-            <NewNote
-              {...props}
-              inputHandler={this.inputHandler}
-              submitNote={this.submitNote}
+        <div className="sideBar">
+          <SideBar />
+        </div>
+        {this.props.notes ? (
+          <div>
+            <Route
+              exact
+              path="/"
+              render={props => <ListView {...this.props} />}
             />
-          )}
-        />
-        <Route
-          exact
-          path="/notes/:id"
-          render={props => <EditNote {...props} notes={this.state.notes} />}
-        />
+            <Route
+              path="/newNote"
+              render={props => <NewNote {...this.props} />}
+            />
+            <Route
+              path="/notes/:id"
+              render={props => <NoteView {...props} {...this.props} />}
+            />
+          </div>
+        ) : (
+          <H1>Loading</H1>
+        )}
       </div>
     );
   }
 }
 
-export default App;
+function Home() {
+  return (
+    <div>
+      <H1>Hello</H1>
+    </div>
+  );
+}
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchNotes, addNewNote }
+)(App);
