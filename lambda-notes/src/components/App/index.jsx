@@ -9,6 +9,13 @@ import './index.css';
 import SideBar from '../SideBar';
 
 class App extends Component {
+  // state to track data
+  state = {
+    notes: [],
+    title: "",
+    textBody: ""
+  }
+
   render() {
     return (
       <div className="App">
