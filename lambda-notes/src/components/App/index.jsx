@@ -27,7 +27,28 @@ class App extends Component {
   };
 
   // handle form submit
-  handleFormSubmit = e => {};
+  handleFormSubmit = e => {
+    // stop page refresh on submit
+    e.preventDefault();
+
+    // create a new note 
+    const newNote = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    }
+
+    // do an axios post call on the api
+    axios
+    .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
+    .then(response => {
+      this.refetchNotes();
+      this.setState({ title: "",
+                      textBody: "" });
+    })
+    .catch(error => console.log(error));
+
+  this.props.history.push("/");
+  };
 
   // refetch notes
   refetchNotes = () => {
