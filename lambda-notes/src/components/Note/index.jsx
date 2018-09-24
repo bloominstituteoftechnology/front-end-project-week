@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Modal from 'react-modal';
 
 import Form from "../Form";
 
