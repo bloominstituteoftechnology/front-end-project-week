@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components
-import Note from '../../components/Note';
+import { Note } from '../../components';
 
 const ListView = props => {
 	return(
