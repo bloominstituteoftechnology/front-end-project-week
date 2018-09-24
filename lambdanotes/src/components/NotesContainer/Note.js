@@ -8,7 +8,7 @@ function Note(props) {
 			</div>
 			<hr />
 			<div className="body">
-				<p>{props.body}</p>
+				<p className="text-body">{props.body}</p>
 			</div>
 		</div>
 	);

@@ -34,6 +34,9 @@
 	text-align: left;
 	font-size: 18px;
 }
+.text-body {
+	overflow: hidden;
+}
 .body {
 	overflow: hidden;
 	text-align: left;
@@ -54,6 +57,8 @@
 	padding: 15px;
 	width: 25%;
 	margin: 10px 0.5%;
+	height: 250px;
+	overflow: hidden;
 }
 input[type="text-title"] {
 	padding: 0px;
@@ -62,7 +67,12 @@ input[type="text-title"] {
 	margin-bottom: 20px;
 }
 
-input[type="text"] {
+input[type="textarea"] {
+	padding: 0px 200px 200px 0;
+	width: 50%;
+	margin-bottom: 20px;
+}
+.form.bodyinput {
 	padding: 0px 200px 200px 0;
 	width: 50%;
 	margin-bottom: 20px;

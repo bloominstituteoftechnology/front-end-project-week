@@ -41,9 +41,8 @@ class AddNote extends Component {
 						onChange={this.handleChange}
 						placeholder="Title of your note..."
 					/>
-					<input
+					<textarea
 						className="form bodyinput"
-						type="text"
 						name="body"
 						onChange={this.handleChange}
 						value={this.state.body}
