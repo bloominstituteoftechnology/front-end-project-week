@@ -85,14 +85,14 @@ class NoteDetails extends Component {
             <div className="noteDetails">
               <h4>{this.props.note.title}</h4>
               <p>{<ReactMarkdown>{this.props.note.textBody}</ReactMarkdown>}</p>
-              {/* <div className="tags">Tags:
-                {(this.props.note.tags.length > 0) ?
+              <div className="tags">Tags:
+                {(this.props.note.tags && this.props.note.tags.length > 0) ?
                   this.props.note.tags.map(tag => {
                         return (<div className="tag">{tag}</div>)
                       }
                   ) :
                   (<div className="noTags"> none </div>)}
-              </div> */}
+              </div>
             </div>
           </NoteDetailsDiv>
         ) :
