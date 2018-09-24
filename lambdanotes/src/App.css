@@ -18,6 +18,10 @@
 	background: #f2f2f2;
 	width: 100vw;
 }
+.notes-contain {
+	background: #f2f2f2;
+	width: 100vw;
+}
 .main-notes {
 	background: #f2f2f2;
 	width: 100vw;
@@ -40,12 +44,41 @@
 	justify-content: space-evenly;
 	margin: 10px 1.5%;
 }
+.notes-container {
+	margin: 10px 1.5%;
+}
 .note {
 	border: 1px solid black;
 	background: white;
 	padding: 15px;
 
 	margin: 10px 0.5%;
+}
+input[type="text-title"] {
+	padding: 0px;
+	height: 40px;
+	width: 30%;
+	margin-bottom: 20px;
+}
+
+input[type="text"] {
+	padding: 0px 200px 200px 0;
+	width: 50%;
+	margin-bottom: 20px;
+}
+.forms {
+	display: flex;
+	flex-flow: column;
+}
+.savenote-button {
+	background: #30d4ff;
+	width: 10%;
+	cursor: pointer;
+	padding: 20px;
+	color: white;
+	font-weight: bold;
+	font-size: 24px;
+	border: 1px solid black;
 }
 .navlink {
 	text-decoration: none;

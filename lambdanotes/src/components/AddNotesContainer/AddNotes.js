@@ -4,7 +4,7 @@ import NoteHeader from "./NoteHeader";
 
 function AddNotes() {
 	return (
-		<div className="main-container">
+		<div className="notes-contain">
 			<NoteHeader />
 			<AddNote />
 		</div>

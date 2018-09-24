@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { getNotes } from "../actions/actions";
+import { connect } from "react-redux";
 
 class MainNotes extends Component {
 	constructor() {
@@ -6,37 +8,24 @@ class MainNotes extends Component {
 		this.state = {
 			notes: [
 				{
-					title: "Lorum Ipsum",
-					body:
-						"Lorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum Ipsum"
-				},
-				{
-					title: "Lorum Ipsum",
-					body:
-						"Lorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum Ipsum"
-				},
-				{
-					title: "Lorum Ipsum",
-					body:
-						"Lorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum Ipsum"
-				},
-				{
-					title: "Lorum Ipsum",
-					body:
-						"Lorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum IpsumLorum Ipsum"
+					title: "hey",
+					body: "this is a body"
 				}
 			]
 		};
+	}
+	componentDidMount() {
+		this.props.getNotes(this.state.notes);
 	}
 
 	render() {
 		return (
 			<div className="note-container">
-				{this.state.notes.map(note => (
+				{this.props.notes.map(notes => (
 					<div className="note">
-						<div className="title">{note.title}</div>
+						<div className="title">{notes.title}</div>
 						<hr />
-						<div className="body">{note.body}</div>
+						<div className="body">{notes.body}</div>
 					</div>
 				))}
 			</div>
@@ -44,4 +33,11 @@ class MainNotes extends Component {
 	}
 }
 
-export default MainNotes;
+const mapStateToProps = state => ({
+	notes: state.notes
+});
+
+export default connect(
+	mapStateToProps,
+	{ getNotes }
+)(MainNotes);
