@@ -8,7 +8,7 @@ import {
     DELETING_NOTE,
     DELETED_NOTE,
     NOTE_ERROR
-} from '../Actions/';
+} from '../actions/';
 
 const initialState = {
 	"notes": [
@@ -75,7 +75,7 @@ export default (state = initialState, action) => {
         case CREATING_NOTE:
         case CREATED_NOTE:
         case GETTING_NOTES:
-        case GOT_NOTE:
+        case GOT_NOTES:
         case EDITING_NOTE:
         case EDITED_NOTE:
         case DELETING_NOTE:

@@ -1,6 +1,4 @@
-import { injectGlobal } from 'styled-components';
-
-export default injectGlobal`
+export default `
     /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
     License: none (public domain)
@@ -62,5 +60,9 @@ export default injectGlobal`
 
     html, body {
         font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        background-color: #ffffff;
     }
 `;

@@ -1,0 +1,22 @@
+background: #ffffff
+border: #afafaf
+nav background: #d3d2d3
+nav header text: #414141
+nav button text: #ffffff
+nav buttons: #24b8bd
+nav buttons broder: #acb7b8
+notes list background: #f2f2f2
+note preview background: #ffffff
+note preview text: #000000
+note editor header text: #414141
+note editor button: #24b8bd
+note editor button text: #ffffff
+note title text: #414141
+note body text: #414141
+note edit/delete text: #414141
+delete modal delete button: #ca001a
+delete modal cancel button: #24b8bd
+delete modal text: #414141
+delete modal button text: #ffffff
+delete modal background: #ffffff
+delete modal background dimming: #d8d8d8
