@@ -1,13 +1,16 @@
 .App {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .side-bar {
+  flex:1;
   
 
 }
 
 .note-view {
-
+flex: 2;
 }
