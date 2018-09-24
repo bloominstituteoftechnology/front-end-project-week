@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  width: 1024px;
 }
 
 .App-logo {
@@ -25,4 +27,37 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.allNotes {
+  display: flex;
+}
+
+.allNotes a {
+  text-decoration: none;
+}
+
+.main-page p {
+  text-align: center;
+}
+
+.note {
+  border: 1px solid gray;
+  padding: 10px;
+  text-decoration: none;
+  width: 15%;
+}
+
+.noteList {
+  display: flex;
+  flex-wrap: wrap;
 }
