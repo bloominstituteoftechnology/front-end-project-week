@@ -32,7 +32,7 @@ const SmallNote = styled.div`
     line-height: 2rem;
     margin: 0.5rem;
     :hover{
-        box-shadow: 2px 2px 5px 5px #2AB4AE;
+        box-shadow: 1px 1px 25px 5px #2AB4AE;
     }
 `;
 const Title = styled.div`
@@ -62,9 +62,9 @@ class ListView extends React.Component{
                         {this.props.notes.map(note => {
                             return(
                                 <Draggable>      
-                                    <SmallNote key={note._id}>
+                                    <SmallNote key={note.id}>
                                         <Title>{note.title}</Title>
-                                        <Link to={`/note/${note._id}`}
+                                        <Link to={`/note/${note.id}`}
                                                 style={{ textDecoration: 'none',
                                                         color: 'black' }}>
                                             <Content>

@@ -5,7 +5,7 @@ import {Form, Button} from 'reactstrap';
 const Input = styled.input`
     width: 400px;
     margin: 1rem 0 0 1rem;
-    border-radius: 10px;
+    border-radius: 2px;
     padding: 0.2rem;
 `;
 const Div = styled.div`
@@ -36,7 +36,7 @@ class SearchBar extends React.Component{
                             style={{background: 'white',
                                     color: 'black',
                                     fontWeight: '500',
-                                    border: 'none' }}>
+                                    borderColor: 'lightgray' }}>
                         Search
                     </Button>
                 </Div>

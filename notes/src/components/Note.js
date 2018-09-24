@@ -32,6 +32,7 @@ const NoteContent = styled.div`
     line-spacing: 1rem;
     padding: 2rem;
 `;
+
 class Note extends React.Component{
     constructor(props){
         super(props);
@@ -54,7 +55,7 @@ class Note extends React.Component{
             <Row noGutters={true}>
                 <Body>
                     <EditDel>
-                        <Link to={{pathname: `/note/${this.props.note._id}/editnote`}}
+                        <Link to={{pathname: `/note/${this.props.note.id}/editnote`}}
                             style={{color: 'darkgray'}}>
                             edit
                         </Link>
@@ -99,7 +100,7 @@ class Note extends React.Component{
                 </Body>
             </Row>
         );
-    }
+    };
 }
 
 export const mapStateToProps = state => ({

@@ -14,7 +14,7 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETED_NOTE = 'DELETED_NOTE';
 export const ERRORS = 'ERRORS';
 
-const url = "https://killer-notes.herokuapp.com/note";
+const url = "http://localhost:8000";
 
 export const fetchNotes = () => {
     return dispatch => {
@@ -28,11 +28,11 @@ export const fetchNotes = () => {
     }
 };
 
-export const fetchOneNote = _id => {
+export const fetchOneNote = id => {
     return dispatch => {
         dispatch({type: FETCHING_ONE_NOTE});
         axios
-            .get(`${url}/get/${_id}`)
+            .get(`${url}/get/${id}`)
             .then( response => {
                 dispatch({type: FETCHED_ONE_NOTE, payload: response.data})
             })
@@ -67,11 +67,11 @@ export const addNote = (title, textBody) => {
     };
 }
 
-export const updateNote = (title, textBody, _id) => {
+export const updateNote = (title, textBody, id) => {
     return dispatch => {
         dispatch({type: UPDATING_NOTE});
         axios  
-            .put(`${url}/edit/${_id}`, {
+            .put(`${url}/edit/${id}`, {
                 title: title,
                 textBody: textBody,
             })
@@ -84,11 +84,11 @@ export const updateNote = (title, textBody, _id) => {
     }
 }
 
-export const deleteNote = _id => {
+export const deleteNote = id => {
     return dispatch => {
         dispatch({type: DELETING_NOTE});
         axios
-            .delete(`${url}/delete/${_id}`)
+            .delete(`${url}/delete/${id}`)
             .then(() => {
                 dispatch({type: DELETED_NOTE});
                 window.location.href="/get/all";
