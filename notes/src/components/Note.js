@@ -1,5 +1,10 @@
 import React from "react";
 
-export default function() {
-  return <div>'Note'</div>;
+export default function Note(props) {
+  return (
+    <div>
+      {props.note.title}
+      {props.note.textBody}
+    </div>
+  );
 }
