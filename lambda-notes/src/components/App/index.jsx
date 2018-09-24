@@ -90,7 +90,7 @@ class App extends Component {
 
           <Route
             path="/notes/:id"
-            render={props => <Note {...props} updateNotes={this.updateNotes} />}
+            render={props => <Note {...props} refetchNotes={this.refetchNotes} />}
           />
         </Switch>
       </div>

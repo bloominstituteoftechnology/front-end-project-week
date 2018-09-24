@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import Form from '../Form';
+import Form from "../Form";
 
 export default class Note extends Component {
   state = {
@@ -28,11 +28,37 @@ export default class Note extends Component {
       .catch(error => console.log(error));
   }
 
-  // handle input change 
+  // handle input change
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
-  
+  };
+
+  // handle edit submit
+  handleEditSubmit = e => {
+    e.preventDefault();
+
+    const editedNote = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    };
+
+    axios
+      .put(
+        `https://killer-notes.herokuapp.com/note/edit/${this.id}`,
+        editedNote
+      )
+      .then(response => {
+        this.props.refetchNotes();
+        this.setState({
+          isEditing: false,
+          note: response.data,
+          title: response.data.title,
+          textBody: response.data.textBody
+        });
+      })
+      .catch(error => console.log(error));
+  };
+
   // turn on the edit mode by changing the isEditing to true
   toggleEditMode = e => {
     e.preventDefault();
@@ -46,11 +72,12 @@ export default class Note extends Component {
     // if isEditing then render the form
     if (this.state.isEditing) {
       return (
-        <Form type={"edit"}
-              title={this.state.title}
-              textBody={this.state.textBody}
-              handleFormSubmit={this.handleEditSubmit}
-              handleInputChange={this.handleInputChange}
+        <Form
+          type={"edit"}
+          title={this.state.title}
+          textBody={this.state.textBody}
+          handleFormSubmit={this.handleEditSubmit}
+          handleInputChange={this.handleInputChange}
         />
       );
     }
