@@ -8,10 +8,11 @@ export const ERROR = 'ERROR';
 export const getNotes = () =>  {
   return function(dispatch){
     dispatch({type: FETCHING_NOTES});
-    axios.get('https://killer-notes.herokuapp.com/note/get/all').then(res => {
-
+    axios.get('http://localhost:3300/api/notes/')
+      .then(res => {
       dispatch({type: NOTES_RECIEVED, payload: res.data})
-    }).catch(err => {
+    })
+      .catch(err => {
       dispatch({type: ERROR, payload: err})
     })
   }
@@ -24,7 +25,7 @@ export const addNote = (newNote) =>  {
   console.log('addnote', newNote)
   return function(dispatch){
     dispatch({type: ADDING_NOTE});
-    axios.post('https://killer-notes.herokuapp.com/note/create', {
+    axios.post('http://localhost:3300/api/notes/', {
         "tags": ["tag", "otherTag"],
         "title": newNote.title,
         "textBody": newNote.textBody
@@ -44,7 +45,7 @@ export const deleteNote = (id) =>  {
 
   return function(dispatch){
     dispatch({type: DELETING_NOTE});
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`).then(res => {
+    axios.delete(`http://localhost:3300/api/notes/${id}`).then(res => {
       dispatch({type: NOTE_DELETED, payload: res});
       dispatch(getNotes());
     }).catch(err => {
@@ -59,7 +60,7 @@ export const editNote = (editedNote) =>  {
   console.log(editedNote, 'editedNote')
   return function(dispatch){
     dispatch({type: EDITING_NOTE});
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${editedNote._id}`,
+    axios.put(`http://localhost:3300/api/notes/${editedNote._id}`,
       { "tags": editedNote.tags,
         "title": editedNote.title,
         "textBody": editedNote.textBody}

@@ -62,10 +62,6 @@ const NotePreviewDiv = styled.div`
   }
 `;
 
-
-
-
-
 // const { note, index, key } = this.props;
 const NotePreview = (props) => (
 
@@ -91,7 +87,7 @@ const NotePreview = (props) => (
               </div>
 
               <div className="tags">
-                {(props.note.tags.length > 0) ?
+                {(props.note.tags && props.note.tags.length > 0) ?
                   props.note.tags.map(tag => {
                         return (<div key={tag}>{tag}</div>)
                       }

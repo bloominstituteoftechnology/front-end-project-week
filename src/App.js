@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { 
+  Route,
+  // Redirect 
+  } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-
-
 
 import {
   AllNotes,
@@ -79,12 +80,12 @@ class App extends Component {
   }
 
   sortById = (e) => {
-    console.log(e)
-    console.log(this.props.state.notes)
-    console.log(this.props)
-    console.log('sortById')
+    // console.log(e)
+    // console.log(this.props.state.notes)
+    // console.log(this.props)
+    // console.log('sortById')
     let newArr = this.props.state.notes.slice()
-    console.log(newArr)
+    // console.log(newArr)
 
     function compare(a, b){
       const Aa = a._id;
@@ -100,17 +101,17 @@ class App extends Component {
 
     newArr.sort(compare)
 
-    console.log(newArr)
+    // console.log(newArr)
     this.props.sortNote(newArr)
   }
 
   sortByLetter = (e) => {
-    console.log(e)
-    console.log(this.props.state.notes)
-    console.log(this.props)
-    console.log('sortByLetter')
+    // console.log(e)
+    // console.log(this.props.state.notes)
+    // console.log(this.props)
+    // console.log('sortByLetter')
     let newArr = this.props.state.notes.slice()
-    console.log(newArr)
+    // console.log(newArr)
 
     function compare(a, b){
       const titleA = a.title;
@@ -124,14 +125,14 @@ class App extends Component {
       return comparison;
     }
     newArr.sort(compare)
-    console.log(newArr)
+    // console.log(newArr)
     this.props.sortNote(newArr)
   }
 
   render() {
     return (
         <AppDiv>
-          <Redirect from="" to="/all-notes" />
+          {/* <Redirect from="/" to="/all-notes" /> */}
           <LeftMenu />
 
           <div className="right-display">
