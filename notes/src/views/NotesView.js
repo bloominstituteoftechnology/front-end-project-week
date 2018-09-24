@@ -41,7 +41,6 @@ export default connect(
 
 const Container = styled.div`
   width: 100%;
-  margin: 50px 3%;
   height: 100%;
 `;
 

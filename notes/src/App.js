@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import './styles/App.css';
 import NotesView from './views/NotesView';
-import AddNoteView from './views/AddNoteView';
+import NoteFormView from './views/NoteFormView';
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
         </NavBar>
         <Content>
           <Route exact path="/" component={NotesView} />
-          <Route path="/addnote" component={AddNoteView} />
+          <Route path="/addnote" component={NoteFormView} />
         </Content>
       </Container>
     );
@@ -71,4 +71,5 @@ const Content = styled.div`
   height: 100%;
   background: #f2f1f2;
   margin-left: 20%;
+  padding: 50px 3%;
 `;
