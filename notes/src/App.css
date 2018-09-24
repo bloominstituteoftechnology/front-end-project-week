@@ -96,13 +96,18 @@ body {
   justify-content: space-between;
 }
 
-.note-container {
+.note-list a {
   width: 30%;
+}
+
+.note-container {
+  width: 100%;
   background: white;
   border: 2px solid black;
   height: 200px;
   margin: 20px 0px;
   padding: 10px;
+  overflow: auto;
 }
 
 .note-title {

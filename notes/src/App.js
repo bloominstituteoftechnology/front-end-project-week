@@ -5,6 +5,7 @@ import {fetchNotes} from './actions/index';
 import { connect } from 'react-redux';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
+import NoteDetails from './components/NoteDetails';
 
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
