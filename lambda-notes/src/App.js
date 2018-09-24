@@ -1,21 +1,85 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
+// import './styles/App.css';import './App.css';
+import { fetchData, addNote} from './actions';
+import NotesList from './components/NotesList';
+import NoteForm from './components/NoteForm';
 
 class App extends Component {
+
+  state = {
+    inputData: {
+      tags: [],
+      title: '',
+      textBody: '',
+    },
+  };
+
+  componentDidMount() {
+    this.props.fetchData();
+  }
+  
+  handleInput = (event) => {
+    this.setState({
+      inputData: {
+        ...this.state.inputData,
+        [event.target.name]: event.target.value,
+      },
+    });
+  };
+
+  handleAdd = (event) => {
+    event.preventDefault();
+    this.props.addNote(this.state.inputData);
+    this.resetForm();
+  };
+
+  resetForm() {
+    this.setState({
+      inputData: {
+        tags: [],
+        title: '',
+        textBody: '',
+      },
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {!this.props.dataFetched ? (
+          <h1>Loading notes, please wait...</h1>
+        ) : (
+          <React.Fragment>
+            <NoteForm
+              inputData={this.state.inputData}
+              handleInput={this.handleInput}
+              handleAdd={this.handleAdd}
+            />
+            <NotesList notes={this.props.notes}
+            />
+          </React.Fragment>
+        )}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    fetchingData: state.fetchingData,
+    dataFetched: state.dataFetched,
+    addingNote: state.addingNote,
+    updatingNote: state.updatingNote,
+    notes: state.notes,
+    error: state.error,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    fetchData,
+    addNote,
+  }
+)(App);
