@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import NotesBar from './components/NotesBar'
 import NotesMain from './components/NotesMain'
 import NoteNew from './components/NoteNew'
+import NoteSingle from './components/NoteSingle'
 
 class App extends Component {
   state = {
@@ -44,6 +45,13 @@ class App extends Component {
         <Route path="/new" render={() => 
           <NoteNew
             addNote={this.addNote}
+          />
+        }
+        />
+        <Route path="/notes/:id" render={(props) => 
+          <NoteSingle
+            {...props}
+            notes={this.state.notes}
           />
         }
         />
