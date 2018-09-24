@@ -106,7 +106,6 @@ a {
 .app .notes .note-page {
   margin: 50px 20px 0;
   overflow-y: scroll;
-  max-width: 600px;
 }
 
 .app .notes .note-page .text{
@@ -159,7 +158,7 @@ label {
   margin-bottom: 20px;
 }
 
-#textBody {
+#content {
   height: 400px;
   width: 100%;
   display: flex;

@@ -8,16 +8,15 @@ class NoteForm extends React.Component {
     super();
     this.state = {
       title: '',
-      textBody: '',
+      content: '',
     }
   }
 
   componentDidMount(){
     if(this.props.match.params.id){
       const note = this.props.selectedPost;
-      this.setState({title: note.title, textBody: note.textBody});
+      this.setState({title: note.title, content: note.content});
     }
-    console.log(this.props);
   }
 
   handleChange = event => {
@@ -29,10 +28,9 @@ class NoteForm extends React.Component {
     if(this.props.match.params.id){
       const updatedNote = {
         title: this.state.title,
-        textBody: this.state.textBody
+        content: this.state.content
       };
       this.props.editPost(this.props.match.params.id, updatedNote);
-      this.props.fetchPosts();
       this.props.history.push('/');
     } else {
       const newNote = {
@@ -40,7 +38,6 @@ class NoteForm extends React.Component {
         textBody: this.state.textBody
       };
       this.props.createPost(newNote);
-      this.props.fetchPosts();
       this.props.history.push('/');
     }
   }
@@ -58,11 +55,11 @@ class NoteForm extends React.Component {
           value={this.state.title}
         />
         <textarea
-          id="textBody"
+          id="content"
           placeholder="Note Content"
           onChange={this.handleChange}
-          name="textBody"
-          value={this.state.textBody}
+          name="content"
+          value={this.state.content}
         />
         <button className="btn" type="submit">Save</button>
       </form>

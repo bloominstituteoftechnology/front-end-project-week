@@ -1,6 +1,12 @@
-import { FETCHING_POSTS, POSTS_FETCHED, ERROR,
-          FETCHING_POST, POST_FETCHED, DELETING_POST,
-            CANCEL_DELETE, CONFIRM_DELETE } from '../actions';
+import { FETCHING_POSTS,
+          POSTS_FETCHED,
+          ERROR,
+          FETCHING_POST,
+          POST_FETCHED,
+          DELETING_POST,
+          CANCEL_DELETE,
+          CONFIRM_DELETE
+        } from '../actions';
 
 const initialState = {
   posts: [],

@@ -6,7 +6,6 @@ import { cancelDelete, deletePost, fetchPosts } from '../actions';
 class DeleteModal extends React.Component{
   deleteAndRedirect(){
     this.props.deletePost(this.props.id);
-    this.props.fetchPosts();
     this.props.history.push('/');
   }
 
@@ -37,7 +36,7 @@ class DeleteModal extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    id: state.selectedPost._id
+    id: state.selectedPost.id
   }
 }
 

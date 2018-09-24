@@ -32,7 +32,7 @@ class NotePage extends Component{
             </div>
           </div>
           <div className="title">{this.props.note.title}</div>
-          <MarkdownPreview value={this.props.note.textBody} />
+          <MarkdownPreview value={this.props.note.content} />
         </React.Fragment>
       )
     }
@@ -41,7 +41,7 @@ class NotePage extends Component{
   render(){
     return(
       <div className="note-page">
-        { this.renderPicker()}
+        { this.renderPicker() }
       </div>
   )}
 }
