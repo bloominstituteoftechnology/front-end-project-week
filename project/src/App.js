@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { viewall } from './actions/action';
+import { viewall,viewone,deleteNote } from './actions/action';
 import SideBar from './components/SideBar';
 import Notes from './components/Notes';
+import OneNote from './components/OneNote';
 
 class App extends Component {
   render() {
     return (
 		<div className="App">
-		<SideBar viewall={viewall} />
-		{this.props.viewAll ? (
-		<Notes notes={this.props.notes}/>
+		<SideBar viewall={this.props.viewall} />
+		{this.props.view==="all" ? (
+		<Notes notes={this.props.notes} viewone={this.props.viewone} />
 		) : (
-		null
+		<OneNote index={this.props.view} note={this.props.notes[this.props.view]} deleteNote={this.props.deleteNote} />
 		)}
+		
 		</div>
     );
   }
@@ -25,12 +27,11 @@ return(
 {
 notes:state.notes,
 error:state.error,
-viewAll:state.viewAll,
-viewOne:state.viewOne,
+view:state.view,
 editing:state.editing,
 adding:state.adding,
 deleting:state.deleting,
 })
 }
 
-export default connect (map, { viewall })(App);
+export default connect (map, ( {viewall,viewone,deleteNote} ))(App);
