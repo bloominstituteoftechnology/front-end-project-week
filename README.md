@@ -1,4 +1,6 @@
 # Front End Project Week
+TRELLO ACCOUNT PROJECT LINK
+https://trello.com/b/320ROfdi/lambda-notes-csilla-gates
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
