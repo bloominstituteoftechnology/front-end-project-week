@@ -31,9 +31,10 @@ export const rootReducer = (state = initialState, action) => {
             });
 
             newNotes.push(action.payload);
+            let newCurrentID = state.currentID += 1;
 
             return Object.assign({}, state, {
-                notePosted: true, postingNote: false, notes: newNotes
+                notePosted: true, postingNote: false, notes: newNotes, currentID: newCurrentID
             })
 
         

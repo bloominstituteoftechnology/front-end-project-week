@@ -9,13 +9,13 @@ class NoteForm extends React.Component {
         this.state = {
             title: '',
             content: '',
-            id: this.props.currentID
+            id: props.currentID
         }
     }
 
-    componentDidMount(){
-        console.log(`the current note ID is: ${this.props.currentID}`);
-    }
+    // componentDidMount(){
+        
+    // }
 
     handleInput = (event) => {
         event.preventDefault();
@@ -24,13 +24,31 @@ class NoteForm extends React.Component {
         })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let newNote = {
+            title: this.state.title,
+            content: this.state.content,
+            id: this.props.currentID
+        }
+
+        this.props.addNote(newNote);
+
+        this.setState({
+            title: '',
+            content: '',
+            id: this.props.currentID
+        })
+    }
+
     render(){
         return(
             <div>
                 NOTE FORM
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleInput} type = 'text' placeholder = 'Note Title' name='title' value={this.state.title}></input>
-                    <textarea onChange={this.handleInput} placeholder = 'Note Content' name='content' value={this.state.content}></textarea>
+                    <input type='text' onChange={this.handleInput} placeholder = 'Note Content' name='content' value={this.state.content}></input>
+                    <button type = 'submit'>Add Note</button>
                 </form>
             </div>
         )
