@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
-export const DELETE_NOTE = 'DELETE_NOTE';
+// export const DELETE_NOTE = 'DELETE_NOTE';
 export const ADD_NOTE = 'ADD_NOTE';
 
 export const fetchNotes = () => {
