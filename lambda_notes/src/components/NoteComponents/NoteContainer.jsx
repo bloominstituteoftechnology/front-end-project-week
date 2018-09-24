@@ -4,6 +4,7 @@ import Styled from 'styled-components';
 import NoteList from './NoteList';
 
 const Wrapper = Styled.div`
+    margin-top: 80px;
     margin-left: 18%;
 `;
 
