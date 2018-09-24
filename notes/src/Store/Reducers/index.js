@@ -24,7 +24,7 @@ export const reducer = (state = initialState, action) => {
         return {...state, isAssembling: true};
 
         case ACTIONS.NOTE_ASSEMBLED:
-        return {...state, notes: action.notes, isAssembling: false};
+        return {...state, notes: [...state.notes, action.note], isAssembling: false};
 
         // UPDATE
         case ACTIONS.REVISING_NOTE:

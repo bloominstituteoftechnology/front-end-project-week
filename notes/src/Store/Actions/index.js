@@ -10,20 +10,28 @@ export const ACTIONS = {
 export const collectNotes = () => dispatch => {
     console.log('Collect Notes');
     dispatch({type: ACTIONS.COLLECTING_NOTES});
-    axios.get('http://localhost:3333/api/notes')
+    axios.get('https://killer-notes.herokuapp.com/note/GET/all')
     .then(response => (dispatch({type: ACTIONS.NOTES_COLLECTED, notes: response.data})))
     .catch(err => console.log('Unable to Collect Notes: ' + err.message))
 }
 
-export const assembleNotes = note => dispatch => {
+// export const assembleNote = (note) => dispatch => {
+//     console.log('Assemble Note');
+//     dispatch({type: ACTIONS.ASSEMBLING_NOTE});
+//     axios.post('https://killer-notes.herokuapp.com/note/create', {...note})
+//     .then(response => (console.log(response.data)))
+//     .catch(err => console.log('Unable to Assemble Note: ' + err.message))
+// }
+
+export const assembleNote = (note) => dispatch => {
     console.log('Assemble Note');
     dispatch({type: ACTIONS.ASSEMBLING_NOTE});
-    axios.post('http://localhost:3333/api/notes', {...note})
-    .then(response => (dispatch({type: ACTIONS.NOTE_ASSEMBLED, notes: response.data})))
+    axios.post('https://killer-notes.herokuapp.com/note/create', {...note})
+    .then(response => (dispatch({type: ACTIONS.NOTE_ASSEMBLED, note: {id: response.data, ...note}})))
     .catch(err => console.log('Unable to Assemble Note: ' + err.message))
 }
 
-export const reviseNotes = note => dispatch => {
+export const reviseNote = note => dispatch => {
     console.log('Revise Note');
     dispatch({type: ACTIONS.REVISING_NOTE});
     axios.put(`http://localhost:3333/api/notes/${note.id}`, {...note})
@@ -31,7 +39,7 @@ export const reviseNotes = note => dispatch => {
     .catch(err => console.log('Unable to Revise Note: ' + err.message))
 }
 
-export const expungeNotes = noteId => dispatch => {
+export const expungeNote = noteId => dispatch => {
     console.log('Expunge Note');
     dispatch({type: ACTIONS.EXPUNGING_NOTE});
     axios.delete(`http://localhost:3333/api/notes/${noteId}`)

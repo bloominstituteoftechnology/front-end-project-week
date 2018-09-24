@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const CreateNote = props => {
+export const ExpungeNote = props => {
     return (
         <form>
             <input/>

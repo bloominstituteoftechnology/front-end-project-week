@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { CreateNote, DeleteNote } from '../Presentational';
+import { AssembleNote, ExpungeNote } from '../Presentational';
 
 export class Forms extends Component {
     state = {};
 
-    handleInput = e => {
+    handleInput = (e, formName) => {
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value
         })
@@ -13,8 +13,8 @@ export class Forms extends Component {
     render() {
         return (
             <div>FORMS
-                <CreateNote />
-                <DeleteNote />
+                <AssembleNote note={this.state} handleInput={this.handleInput} assembleNote={this.props.assembleNote} formName="assemble"/>
+                <ExpungeNote />
             </div>
         )
     }

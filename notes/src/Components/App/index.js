@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import { YourNotes, Sidebar, Forms } from '../Container/';
 import { Header } from '../Presentational/';
-import { collectNotes } from '../../Store/Actions';
+import { collectNotes, assembleNote } from '../../Store/Actions';
 
 class App extends Component {
 
@@ -19,7 +19,7 @@ class App extends Component {
         
         <main className="notes-main">
           <Sidebar />
-          <Forms />
+          <Forms assembleNote={this.props.assembleNote}/>
           <YourNotes notes={this.props.notes} collectNotes={this.props.collectNotes}/>
         </main>
 
@@ -32,4 +32,4 @@ const connectStateToProps = state => ({
   notes: state.notes
 })
 
-export default connect(connectStateToProps, { collectNotes })(App);
+export default connect(connectStateToProps, { collectNotes, assembleNote })(App);
