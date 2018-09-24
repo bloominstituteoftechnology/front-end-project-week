@@ -192,6 +192,10 @@
 }
 .list .note:hover {
   border: 1px solid black;
+  cursor: pointer;
+}
+.list .note:hover h3 {
+  text-decoration: underline;
 }
 .list .note h3,
 .list .note p {
@@ -202,13 +206,6 @@
   white-space: nowrap;
   font-size: 1.2rem;
   font-weight: bold;
-}
-.list .note h3 a {
-  text-decoration: none;
-  color: inherit;
-}
-.list .note h3 a:hover {
-  text-decoration: underline;
 }
 .list .note p {
   line-height: 22px;
