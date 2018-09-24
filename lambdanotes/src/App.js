@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import { Note } from './Components/Note';
+import { NoteList } from './Components/NoteList';
+ 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: []
+    }
+  }
+ 
+  componentDidMount(){
+    this.setState({ 
+      notes: Note,
+     })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="Main-Page">
+      <div className="App-header">
+        <h1 className="App-title">Lambda Notes</h1>
+          <button>View Your Notes</button>
+          <button>+ Create New Note</button>
+          </div>
+          <NoteList notes={this.state.notes} />
       </div>
     );
   }
-}
-
-export default App;
+ }
+ 
+ export default App;

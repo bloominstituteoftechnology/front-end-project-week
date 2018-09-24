@@ -1,28 +1,60 @@
-.App {
-  text-align: center;
+.Main-Page {
+  display: flex;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
+ .App-header {
+  border: 1px solid rgb(158, 158, 158);
+  background-color: rgb(209, 209, 209);
   height: 150px;
-  padding: 20px;
+  width: 195px;
+  padding: 15px;
   color: white;
+  display: flex;
+  flex-direction: column;
+  height:800px;
+}
+ .App-title {
+   padding-left: 10px;
+   color: rgba(20, 20, 20, 0.712);
+   font-size: 2.0em;
+ }
+ 
+ .noteList {
+   background-color: rgb(236, 236, 236);
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.App-title {
-  font-size: 1.5em;
+.your-header {
+  height: 30px;
+  width: 100%;
 }
 
-.App-intro {
-  font-size: large;
+ .Single-Note {
+  background-color: white;
+  border: 1px solid rgb(158, 158, 158);
+
+  width: 20%;
+  height: 222px;
+  margin: 15px;
+  padding: 0 11px;
+  padding-bottom: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  display:block;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.note-title {
+  padding-bottom: 5px;
+  border-bottom: 1.4px rgb(153, 153, 153) solid;
+}
+
+button {
+  border: 1px solid rgb(158, 158, 158);
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(0, 201, 201);
+  padding: 12px 24px;
+  margin: 7px 0;
 }
