@@ -13,7 +13,6 @@ const Header = Styled.header`
 
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     padding: 1%;
 `;
 

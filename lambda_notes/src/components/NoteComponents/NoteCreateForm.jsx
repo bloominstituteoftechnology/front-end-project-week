@@ -46,8 +46,6 @@ class NoteCreateForm extends Component {
         });
     };
 
-
-
     render() {
         return (
             <Wrapper>
@@ -57,6 +55,7 @@ class NoteCreateForm extends Component {
                     <input type="text" name="textBody" placeholder="Note Content" value={this.state.textBody} onChange={this.handleChange} />
                     <button onClick={this.handleSubmit}>Save</button>
                 </form>
+                
             </Wrapper>
             
         )

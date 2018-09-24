@@ -44,11 +44,19 @@ class App extends Component {
 
   };
 
+  removeNote = (e, id) => {
+    e.preventDefault();
+
+    let notes = this.state.notes.map(note => note).filter(note => note.id !== id);
+
+    this.setState({notes: notes}, () => this.props.history.push('/'));
+  }
+
   updateNote = (id, note) => {
     let nNote = this.state.notes.map(note => note).filter(note => note.id !== id);
     nNote.push(note);
     // console.log('NEW_NOTE',nNote)
-    this.setState({notes: nNote, isUpdating: false}, () => console.log('STATE' ,this.state.notes));
+    this.setState({notes: nNote, isUpdating: false});
   }
 
   updateNoteForm = (e, id) => {
@@ -71,7 +79,8 @@ class App extends Component {
         <Route path="/notes/:id" render={ props => 
           <NotePage {...props}
             notes={this.state.notes}
-            updateNote={this.updateNoteForm} />
+            updateNote={this.updateNoteForm}
+            removeNote={this.removeNote} />
         } />
       </div>
     );
