@@ -4,16 +4,13 @@ import Styled from 'styled-components';
 import NoteList from './NoteList';
 
 const Wrapper = Styled.div`
-    width: 100%;
-    margin-left: 20%;
+    margin-left: 18%;
 `;
 
 const Header = Styled.header`
-    width: 100%;
 `;
 
 const Container = Styled.div`
-    width: 100%;
     
     display: flex;
     flex-wrap: wrap;

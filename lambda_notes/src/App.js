@@ -6,24 +6,40 @@ import { Route, withRouter } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation';
 import NoteContainer from './components/NoteComponents/NoteContainer';
+import NoteCreateForm from './components/NoteComponents/NoteCreateForm';
+import NotePage from './components/NoteComponents/NotePage';
 
 class App extends Component {
   state = {
     notes: [{
-      _id: 0,
+      id: 0,
       title: 'Lets',
       textBody: 'Go!',
     },
     {
-      _id: 2,
+      id: 1,
       title: 'Blah Blah',
       textBody: 'hneausseuof',
     },
     {
-      _id: 3,
+      id: 2,
       title: 'hhhhhhh',
       textBody: 'hhhhhhhhhhhhhhhhhhhhhhh',
     }],
+    ids: 2,
+  };
+
+  addNote = (e, note) => {
+
+    this.setState(prevState => ({
+      notes: [...this.state.notes, {
+        id: note.id,
+        title: note.title,
+        textBody: note.textBody,
+      }],
+      ids: note.id++,
+    }), () => this.props.history.push('/'));
+
   };
 
   render() {
@@ -32,11 +48,18 @@ class App extends Component {
         <Navigation />
         <Route exact path="/" render={ props =>
           <NoteContainer {...props}
-          notes={this.state.notes} />
-          } />
+            notes={this.state.notes} />
+        } />
+        <Route exact path="/create-note" render={ props =>
+          <NoteCreateForm {...props} addNote={this.addNote} ids={this.state.ids} />
+        } />
+        <Route path="/notes/:id" render={ props => 
+          <NotePage {...props}
+            notes={this.state.notes} />
+        } />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
