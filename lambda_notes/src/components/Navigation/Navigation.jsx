@@ -9,19 +9,32 @@ const Header = Styled.header`
     width: 30%;
     min-height: 100%;
     height: 100%;
-    background-color: gray;
+    background-color: #d7d7d7;
 
     display: flex;
     flex-direction: column;
     padding: 1%;
+
+    h1 {
+        font-size: 60px;
+    }
+`;
+
+const Button = Styled.button`
+    width: 90%;
+    height: 60px;
+    background-color: #2ac0c4;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
 `;
 
 function Navigation(props) {
     return (
         <Header>
             <h1>Lambda Notes</h1>
-            <NavLink to="/">View Your Notes</NavLink>
-            <NavLink to="/create-note">Create A New Note</NavLink>
+            <NavLink to="/"><Button>View Your Notes</Button></NavLink>
+            <NavLink to="/create-note"><Button>Create A New Note</Button></NavLink>
         </Header>
     )
 };
