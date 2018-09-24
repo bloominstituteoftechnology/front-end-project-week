@@ -1,4 +1,5 @@
 https://trello.com/b/vdFZYp44/lambda-notes-jeanette-fernandez
+https://github.com/LambdaSchool/front-end-project-week/pull/398
 
 # Front End Project Week
 
