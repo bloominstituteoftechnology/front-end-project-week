@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import { Note } from '../Presentational';
 
-class YourNotes extends Component {
+export class YourNotes extends Component {
+
+    componentDidMount(){
+    this.props.collectNotes();
+    }
 
     render() {
         return (
-            <div>YOUR NOTES</div>
+            <div>YOUR NOTES
+                {this.props.notes.map((note, index) => (<Note key={"note-"+index} note={note}/>))}
+            </div>
         )
     }
 }
-
-export default YourNotes;

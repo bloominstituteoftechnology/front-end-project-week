@@ -9,7 +9,7 @@ const initialState = {
     activePage: ''
 }
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     switch(action.type) {
 
         // READ

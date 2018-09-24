@@ -9,9 +9,37 @@ let nextId = 6;
 let notes = [
   {
     "tags":[],
-    "_id":"5ba8145811b7c40014cb7abf",
+    "_id":"5ba8145811b7c40014cb7abfasdfag",
     "title":"Blah BLah",
     "textBody":"dsfsdf",
+    "__v":0},
+
+  {
+    "tags":[],
+    "_id":"5ba8145811b7c40014cb7abfghjkghj",
+    "title":"MORE BLAH",
+    "textBody":"Diggity doobity Dopper",
+    "__v":0},
+
+  {
+    "tags":[],
+    "_id":"5ba8145811b7c40014cb7abfgtbrtgnty",
+    "title":"ANOTHER NOTE",
+    "textBody":"I've already gotten bored of making these notes.",
+    "__v":0},
+
+  {
+    "tags":[],
+    "_id":"5ba8145811b7c40014cb7abfas4fasdf",
+    "title":"FOURTH NOTE",
+    "textBody":"May the Fourth be with you, always.",
+    "__v":0},
+
+  {
+    "tags":[],
+    "_id":"5ba8145811b7c40014cb7abfafs45tsdtg",
+    "title":"FOURTH PRIME NOTE",
+    "textBody":"BECAUSE ONE TECHNICALLY ISN'T CONSIDERED PRIME",
     "__v":0}
 ];
 

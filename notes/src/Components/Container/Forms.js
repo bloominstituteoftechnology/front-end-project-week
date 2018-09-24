@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { CreateNote, DeleteNote } from '../Presentational';
 
-class Forms extends Component {
+export class Forms extends Component {
     state = {};
 
     handleInput = e => {
@@ -11,9 +12,10 @@ class Forms extends Component {
 
     render() {
         return (
-            <div>FORMS</div>
+            <div>FORMS
+                <CreateNote />
+                <DeleteNote />
+            </div>
         )
     }
 }
-
-export default Forms;
