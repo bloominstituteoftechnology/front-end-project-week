@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, Link } from 'react-router-dom';
 import './App.css';
+
+import NoteList from './components/functional/NoteList';
+import NoteForm from './components/presentational/NoteForm';
+import ViewPage from './components/functional/ViewPage';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="navigation">
+          <Link to='/'>View Your Notes</Link>
+          <Link to='/noteform'>+ Create New Note</Link>
+        </div>
+        <Route exact path='/' component={NoteList} />
+        <Route path='/noteform' component={NoteForm} />
+        <Route path='/notes/:id' render={props => <ViewPage {...props} />} />
       </div>
     );
   }
