@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SideBarNav from './Nav/SideBarNav';
 import NotesPage from './notes/NotesPage';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <SideBarNav />
-        <NotesPage />
-      </div>
-    );
-  }
-}
-
+const App = () => {
+  return (
+    <div className="App">
+      {/* <SideBarNav /> */}
+      <NotesPage />
+      App Page
+    </div>
+  );
+};
 export default App;
