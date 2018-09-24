@@ -15,13 +15,14 @@ const Div = styled.div`
 class SearchBar extends React.Component{
     render(){
         return(
-            <Form>
+            <Form onSubmit={this.props.filterByTitle}>
                 <Div>
                     <Input placeholder='Search by Title'
                             name='searchTitle'
                             value={this.props.searchTitle}
                             onChange={this.props.handleChange} />
-                    <Button onClick={this.props.filterByTitle}
+                    <Button type='submit'
+                            onClick={this.props.filterByTitle}
                             style={{background: 'lightgray',
                                     color: 'black',
                                     fontWeight: '700',
@@ -32,7 +33,8 @@ class SearchBar extends React.Component{
                             name='searchTextBody'
                             value={this.props.searchTextBody}
                             onChange={this.props.handleChange} />
-                    <Button onClick={this.props.filterByTextBody}
+                    <Button type='submit'
+                            onClick={this.props.filterByTextBody}
                             style={{background: 'white',
                                     color: 'black',
                                     fontWeight: '500',

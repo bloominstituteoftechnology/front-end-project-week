@@ -54,7 +54,7 @@ export const rootReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 fetchingOneNote: false,
                 fetchedOneNote: true,
-                note: action.payload,
+                note: action.payload[0],
             });
         // case FILTERING_NOTES:
         //     return {

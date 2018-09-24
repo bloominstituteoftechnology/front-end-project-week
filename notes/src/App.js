@@ -31,7 +31,8 @@ class App extends Component {
   reset = () => {
     this.setState({filteredResults: []});
   }
-  filterByTitle = () => {
+  filterByTitle = e => {
+      e.preventDefault();
       let result = this.state.searchTitle;
       if (result.length === 0){
         return alert("Note(s) not found");
@@ -47,7 +48,8 @@ class App extends Component {
       }
       window.location.reload();
   }
-  filterByTextBody = () => {
+  filterByTextBody = e => {
+    e.preventDefault();
     let result = this.state.searchTextBody;
     if (result.length === 0){
       return alert("Note(s) not found");
