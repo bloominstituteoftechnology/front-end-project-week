@@ -43,6 +43,9 @@ class App extends Component {
           <Route exact path = '/'
           render={(props) => <NoteList {...props} notes={this.props.notes} />} />
           <Route exact path = '/form' component={NoteForm} />
+          <Route path='/notes/:id' render={(props) => <NoteDetails {...props} notes={this.props.notes}/>} />
+      
+
         </Switch>
 
         {/* <NoteForm />
