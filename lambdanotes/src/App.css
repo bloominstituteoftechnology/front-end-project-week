@@ -42,6 +42,7 @@
 .note-container {
 	display: flex;
 	justify-content: space-evenly;
+	flex-wrap: wrap;
 	margin: 10px 1.5%;
 }
 .notes-container {
@@ -51,7 +52,7 @@
 	border: 1px solid black;
 	background: white;
 	padding: 15px;
-
+	width: 25%;
 	margin: 10px 0.5%;
 }
 input[type="text-title"] {

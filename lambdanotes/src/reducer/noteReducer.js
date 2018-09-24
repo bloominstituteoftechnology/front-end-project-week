@@ -1,12 +1,7 @@
 import { ADD_NOTE, GET_NOTES } from "../components/actions/actions";
 
 const initialState = {
-	notes: [
-		{
-			title: "hey",
-			body: "nah"
-		}
-	]
+	notes: []
 };
 
 export const noteReducer = (state = initialState, action) => {

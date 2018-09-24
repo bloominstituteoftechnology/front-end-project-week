@@ -4,17 +4,6 @@ import { getNotes } from "../actions/actions";
 import { connect } from "react-redux";
 
 class MainNotes extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			notes: [
-				{
-					title: "buy a new guy",
-					body: "here lies the guy"
-				}
-			]
-		};
-	}
 	componentDidMount() {
 		this.props.getNotes(this.props.notes);
 	}
@@ -23,7 +12,12 @@ class MainNotes extends Component {
 		return (
 			<div className="note-container">
 				{this.props.notes.map(note => (
-					<Note note={note} title={note.title} body={note.body} />
+					<Note
+						note={note}
+						title={note.title}
+						body={note.body}
+						id={Date.now()}
+					/>
 				))}
 			</div>
 		);
