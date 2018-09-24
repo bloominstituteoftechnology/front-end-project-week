@@ -61,6 +61,16 @@ class App extends Component {
 		});
 	}
 
+	createNote = note => {
+		const newNotes = [ ...this.state.notes ];
+		newNotes.push(note);
+
+		this.setState({
+			...this.state,
+			notes: newNotes,
+		});
+	}
+
 	render() {
 		return (
 			<div className = 'App'>
@@ -101,7 +111,7 @@ class App extends Component {
 					render = { props => <ListView history = { props.history } notes = { this.state.notes } /> } 
 				/>
 
-				<Route path = '/create-new' component = { CreateNewView } />
+				<Route path = '/create-new' render = { props => <CreateNewView createNote = { this.createNote } history = { props.history } /> } />
 
 				<Route path = '/note/:id' render = { props => <NoteView id = { Number(props.match.params.id) } deleteNote = { this.deleteNote } history = { props.history } note = { this.state.notes[Number(props.match.params.id)] } /> } />
 
