@@ -4,6 +4,7 @@ import './App.css';
 import {fetchNotes} from './actions/index';
 import { connect } from 'react-redux';
 import NoteList from './components/NoteList';
+import NoteForm from './components/NoteForm';
 
 class App extends Component {
 
@@ -16,6 +17,8 @@ class App extends Component {
       <div className="App">
         
         <NoteList notes={this.props.notes}/>
+
+        <NoteForm />
 
       </div>
     );

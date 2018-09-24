@@ -17,11 +17,25 @@ const initialState = {
             content: 'This is another test note. You can see this test note now.',
             id: 1,
         }
-]
+],
+    currentID: 2
 }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+
+
+        case POSTED:
+            let newNotes = state.notes.map(note => {
+                return note;
+            });
+
+            newNotes.push(action.payload);
+
+            return Object.assign({}, state, {
+                notePosted: true, postingNote: false, notes: newNotes
+            })
+
         
 
         default:

@@ -11,3 +11,10 @@ export const fetchNotes = () => {
     // TODO: wire this up to the external notes API and return the data
     return;
 }
+
+export const addNote = note => {
+    return dispatch => {
+        dispatch({type: POSTED, payload: note});
+
+    }
+}
