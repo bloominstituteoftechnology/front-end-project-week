@@ -66,6 +66,14 @@ export default class Note extends Component {
     this.setState({ isEditing: true });
   };
 
+  // open modal
+  openModal = e => {
+    e.preventDefault();
+
+    this.setState({ modalIsOpen: true });
+  }
+
+
   // handle delete 
   handleDelete = e => {
     e.preventDefault();
