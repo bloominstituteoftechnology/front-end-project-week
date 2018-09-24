@@ -12,79 +12,86 @@ export const DELETING_NOTES = 'DELETING_NOTES';
 export const DELETED_NOTES = 'DELETED_NOTES';
 export const ERROR = 'ERROR';
 
-export const fetchNotes = () => {
-    return dispatch => {
-        dispatch({ type: FETCHING_NOTES });
+const url = `http://localhost:9000/notes`;
 
-        axios.get('https://killer-notes.herokuapp.com/note/get/all')
-            .then(res => {
-                dispatch({ type: FETCHED_NOTES, payload: res.data });
-            })
-            .catch(err => {
-                dispatch({ type: ERROR, payload: err });
-            })
-    }
-}
+export const fetchNotes = () => {
+  return dispatch => {
+    dispatch({ type: FETCHING_NOTES });
+
+    axios
+      .get(url)
+      .then(res => {
+        dispatch({ type: FETCHED_NOTES, payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err });
+      });
+  };
+};
 
 export const fetchNote = noteId => {
-    return dispatch => {
-        dispatch({ type: FETCHING_NOTE });
+  return dispatch => {
+    dispatch({ type: FETCHING_NOTE });
 
-        axios.get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
-            .then(res => {
-                dispatch({ type: FETCHED_NOTE, payload: res.data });
-            })
-            .catch(err => {
-                dispatch({ type: ERROR, payload: err });
-            })
-    }
-}
+    axios
+      .get(`${url}/${noteId}`)
+      .then(res => {
+        dispatch({ type: FETCHED_NOTE, payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err });
+      });
+  };
+};
 
 export const addNote = (note, history) => {
-    return dispatch => {
-        dispatch({ type: SAVING_NOTES });
-        axios.post('https://killer-notes.herokuapp.com/note/create', {
-            title: note.title,
-            textBody: note.content,
-            tags: note.tags
-        })
-            .then(res => {
-                dispatch({ type: SAVED_NOTES, payload: res.data })
-            })
-            .then(() => history.push('/'))
-            .catch(err => {
-                dispatch({ type: ERROR, payload: err })
-            })
-    }
-}
+  return dispatch => {
+    dispatch({ type: SAVING_NOTES });
+    axios
+      .post(url, {
+        title: note.title,
+        content: note.content
+        // tags: note.tags
+      })
+      .then(res => {
+        dispatch({ type: SAVED_NOTES, payload: res.data });
+      })
+      .then(() => history.push('/'))
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err });
+      });
+  };
+};
 
 export const deleteNote = (NoteId, history) => {
-    return dispatch => {
-        dispatch({ type: DELETING_NOTES });
-        axios.delete(`https://killer-notes.herokuapp.com/note/delete/${NoteId}`)
-            .then(res => {
-                dispatch({ type: DELETED_NOTES })
-            })
-            .then(() => history.push('/'))
-            .catch(err => {
-                dispatch({ TYPE: ERROR, payload: err });
-            })
-    }
-}
+  return dispatch => {
+    dispatch({ type: DELETING_NOTES });
+    axios
+      .delete(`${url}/${NoteId}`)
+      .then(res => {
+        dispatch({ type: DELETED_NOTES });
+      })
+      .then(() => history.push('/'))
+      .catch(err => {
+        dispatch({ TYPE: ERROR, payload: err });
+      });
+  };
+};
 
 export const updateNote = note => {
-    return dispatch => {
-        dispatch({ type: UPDATING_NOTES });
-        axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, {
-            title: note.title,
-            textBody: note.content,
-            tags: note.tags
-        })
-            .then(res => {
-                dispatch({ type: UPDATED_NOTES, payload: res.data })
-            })
-            .catch(err => {
-                dispatch({ TYPE: ERROR, payload: err });
-            })
-    }
-}
+  return dispatch => {
+    dispatch({ type: UPDATING_NOTES });
+    axios
+      .put(`${url}/${note.id}`, {
+        title: note.title,
+        content: note.content
+        // tags: note.tags
+      })
+      .then(res => {
+        dispatch({ type: UPDATED_NOTES, payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ TYPE: ERROR, payload: err });
+      });
+  };
+};

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { withRouter, Route, Link, Switch } from 'react-router-dom';
-import * as actions from './actions'
+import * as actions from './actions';
 import Notes from './components/Notes';
 import SingleNote from './components/SingleNote';
 import NoteForm from './components/NoteForm';
@@ -13,26 +13,46 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar>
-          <NavbarBrand>Lambda<br /> Notes</NavbarBrand>
+          <NavbarBrand>
+            Lambda
+            <br /> Notes
+          </NavbarBrand>
           <Nav>
             <NavItem>
-              <NavLink tag={Link} to="/">View Your Notes</NavLink>
+              <NavLink tag={Link} to="/">
+                View Your Notes
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to="/notes/add">+ Create New Note</NavLink> 
+              <NavLink tag={Link} to="/notes/add">
+                + Create New Note
+              </NavLink>
             </NavItem>
           </Nav>
         </Navbar>
-        <Route exact path="/" render={props => (
-          <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} fetchingNotes={this.props.fetchingNotes} />
-        )} />
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Notes
+              {...props}
+              notes={this.props.notes}
+              fetchNotes={this.props.fetchNotes}
+              fetchingNotes={this.props.fetchingNotes}
+            />
+          )}
+        />
         <Switch>
-          <Route path="/notes/add" render={props => (
-            <NoteForm {...props} addNote={this.props.addNote} />
-          )} />
-          <Route path="/notes/:id" render={props => (
-            <SingleNote {...props} note={this.props.note} />
-          )}  />
+          <Route
+            path="/notes/add"
+            render={props => (
+              <NoteForm {...props} addNote={this.props.addNote} />
+            )}
+          />
+          <Route
+            path="/notes/:id"
+            render={props => <SingleNote {...props} note={this.props.note} />}
+          />
         </Switch>
       </div>
     );
@@ -46,8 +66,13 @@ const mapStateToProps = state => {
     notes: state.notes,
     note: state.note,
     error: state.error,
-    updatingNote: state.updatingNote,
-  }
-}
+    updatingNote: state.updatingNote
+  };
+};
 
-export default withRouter(connect(mapStateToProps, actions)(App))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    actions
+  )(App)
+);
