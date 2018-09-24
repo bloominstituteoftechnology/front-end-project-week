@@ -1,0 +1,80 @@
+~~~~~Store~~~~~
+{
+	"notes": [
+		{
+			"tags": ["tag1", "tag2", "tagN"],
+			"title": "asdf",
+			"textBody": "ghgchfgjhghjghj fgh fgh fgh fthfghfthf fhfhth",
+			"_id": "5ba8145811b7c40014cb7abf",
+			"__v": 0
+		},
+		{...},
+		{...}
+	], 
+	"editing": {
+		"isEditing": false,
+		"tmpNote": {
+			"tags": [],
+			"title": "",
+			"textBody": "",
+			"_id": "",
+			"__v": -1
+		}
+	},
+	"crudStatus": {
+		"postingNote": false,
+		"postedNote": false,
+		"gettingNotes": false,
+		"gotNotes": false,
+		"puttingNote": false,
+		"putNote": false,
+		"deletingNote": false,
+		"deletedNote": false,
+		"noteError": ""
+	}
+}
+
+~~~~~Routes~~~~~
+List view
+	/
+Editor view (New note / Edit note)
+	/editor
+Note view
+	/notes/:id
+
+~~~~~Components~~~~~
+index.js
+	insert style resets here
+	create store, hook in dev tools
+	<Provider><Router><App /></Router></Provider>
+App
+	insert <Route />'s here, or maybe import them from a separate routes.js file?
+Navigation
+	nav.js
+		insert <NavLink />'s here
+	button maker?
+Form
+	noteeditor.js
+	class
+	state
+		{
+			"tags": [],
+			"title": "",
+			"textBody": "",
+			"_id": "",
+			"__v": 0
+		}
+	submitHandler method
+	editHandler method
+	link up with redux here or higher up the chain?
+List
+	noteslist.js
+	notepreview.js
+		insert <Link />'s here
+	link up with redux above noteslist?
+		{
+			notes: {...}
+		}
+
+Note
+	note.js
