@@ -52,9 +52,9 @@ class NoteView extends React.Component {
 						</div>
 					</div>
 
-					<h2>{ this.props.note.noteTitle }</h2>
+					<h2>{ this.props.note.title }</h2>
 
-					{ this.props.note.noteContent.split('\n').map((str, i) => <p key = { i }>{ str }</p>) }
+					{ this.props.note.textBody.split('\n').map((str, i) => <p key = { i }>{ str }</p>) }
 				</div>
 			</div>
 		);

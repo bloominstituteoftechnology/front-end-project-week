@@ -4,8 +4,8 @@ import React from 'react';
 class CreateNew extends React.Component {
 	state = {
 		note: {
-			noteTitle: '',
-			noteContent: '',
+			title: '',
+			textBody: '',
 		},
 		errorMsg: '',
 	};
@@ -22,8 +22,8 @@ class CreateNew extends React.Component {
 
 		let emptyField = true;
 
-		for (let i = 0; i < this.state.note.noteTitle.length; i++) {
-			if (this.state.note.noteTitle[i] !== ' ') {
+		for (let i = 0; i < this.state.note.title.length; i++) {
+			if (this.state.note.title[i] !== ' ') {
 				emptyField = false;
 				break;
 			}
@@ -38,8 +38,8 @@ class CreateNew extends React.Component {
 		} else {
 			emptyField = true;
 
-			for (let i = 0; i < this.state.note.noteContent.length; i++) {
-				if (this.state.note.noteContent[i] !== ' ') {
+			for (let i = 0; i < this.state.note.textBody.length; i++) {
+				if (this.state.note.textBody[i] !== ' ') {
 					emptyField = false;
 					break;
 				}
@@ -68,18 +68,18 @@ class CreateNew extends React.Component {
 
 					<input 
 						className = 'note-title-input' 
-						name = 'noteTitle' 
+						name = 'title' 
 						type = 'text' 
-						placeholder = 'Note Title' 
-						value = { this.state.note.noteTitle } 
+						placeholder = 'Title' 
+						value = { this.state.note.title } 
 						onChange = { this.handleInputChange } 
 					/>
 
 					<textarea 
 						className = 'note-content-text-area' 
-						name = 'noteContent' 
-						placeholder = 'Note Content' 
-						value = { this.state.note.noteContent } 
+						name = 'textBody' 
+						placeholder = 'Body' 
+						value = { this.state.note.textBody } 
 						onChange = { this.handleInputChange } 
 					/>
 

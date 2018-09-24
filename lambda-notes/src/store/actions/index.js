@@ -3,9 +3,15 @@ import {
 	DELETE_NOTE, 
 	EDIT_NOTE, 
 
+	GETTING_KILLER_NOTES, 
+	GETTING_KILLER_NOTES_COMPLETE, 
+	GETTING_KILLER_NOTES_ERROR, 
+
 	createNote, 
 	deleteNote, 
 	editNote, 
+
+	getKillerNotes, 
 } from './NotesActions';
 
 export { 
@@ -13,7 +19,13 @@ export {
 	DELETE_NOTE, 
 	EDIT_NOTE, 
 
+	GETTING_KILLER_NOTES, 
+	GETTING_KILLER_NOTES_COMPLETE, 
+	GETTING_KILLER_NOTES_ERROR, 
+
 	createNote, 
 	deleteNote, 
-	editNote,  
+	editNote, 
+
+	getKillerNotes, 
 };
