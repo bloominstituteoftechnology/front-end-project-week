@@ -2,10 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { deleteNote } from "../../store/actions";
+import Modal from '../presentational/Modal';
 
 class ViewPage extends React.Component {
   state = {
-    note: {}
+    note: {},
+    showModal: false
   }
 
   filterProps = () => {
@@ -20,15 +22,32 @@ class ViewPage extends React.Component {
     this.filterProps();
   }
 
+  toggleModal = e => {
+    e.preventDefault();
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  }
+
+  deleteClick = (e) => {
+    e.preventDefault();
+    this.props.deleteNote(this.state.note)
+    this.props.history.goBack();
+
+  }
+
   render() {
     return (
       <div>
         <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={this.toggleModal}>Delete</button>
         <div>
           <h3>{this.state.note.title}</h3>
           <p>{this.state.note.description}</p>
         </div>
+        <Modal 
+          showModal={this.state.showModal}  
+          toggleModal={this.toggleModal}
+          deleteClick={this.deleteClick}
+        />
       </div>
     );
   }

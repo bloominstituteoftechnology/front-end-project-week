@@ -1,4 +1,4 @@
-import { ADD_NOTE } from '../actions';
+import { ADD_NOTE, DELETE_NOTE } from '../actions';
 
 const initialState = {
   notes: [
@@ -33,6 +33,13 @@ export const noteReducers = (state = initialState, action) => {
           ...newNote
         }
       ]};
+
+    case DELETE_NOTE:
+      let position = state.notes.findIndex(note => note.id === action.payload.id);
+      return { notes: [
+        ...state.notes.slice(0, position),
+        ...state.notes.slice(position + 1)
+      ]}
 
     default:
       return state;

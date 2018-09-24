@@ -1,0 +1,23 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0 , 0.6)
+}
+
+.modal-main {
+  background: lightgray;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: auto;
+}
+
+.modal-main button {
+  width: 25%;
+  margin: 10px 5%;
+  padding: 10px 2%;
+}

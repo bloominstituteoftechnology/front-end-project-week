@@ -10,5 +10,9 @@ import { noteReducers } from './store/reducers'
 
 const store = createStore(noteReducers)
 
-ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}>
+  <Router>
+    <App />
+  </Router>
+</Provider>, document.getElementById('root'));
 registerServiceWorker();
