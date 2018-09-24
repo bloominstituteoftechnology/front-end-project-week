@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default class Note extends Component {
   state = {
+    isEditing: false,
     note: null,
     title: "",
     textBody: ""
