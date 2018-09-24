@@ -17,16 +17,16 @@ class App extends Component {
   }
 
   // component did mount 
-  componentDidMount() {}
+  componentDidMount = () => {};
 
   // handle input change
-  handleInputChange() {}
+  handleInputChange = e => { this.setState({ [e.target.name]: e.target.value }); };
 
   // handle form submit
-  handleFormSubmit() {}
+  handleFormSubmit = () => {};
 
   // refetch notes
-  refetchNotes() {}
+  refetchNotes = () => {};
 
   render() {
     return (
