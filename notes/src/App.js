@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SideBar from './components/SideBar';
 import {Switch, Route, Link, withRouter} from 'react-router-dom';
+import Authenticate from './components/Authenticate';
 import SearchBar from './components/SearchBar';
 import ListView from './components/ListView';
 import CreateNote from './components/CreateNote';
@@ -9,7 +10,7 @@ import Note from './components/Note';
 import EditNote from './components/EditNote';
 import FilteredNotes from './components/FilteredNotes';
 import {fetchNotes, addNote, updateNote} from './actions/actions';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props){
@@ -85,9 +86,9 @@ class App extends Component {
   render(){
     return (
         <div className='App'>
-          <Link to="/"></Link>
           {/* ROUTES */}
-          <Route path='/' render={(props) => <SideBar {...props}
+          <Route exact path="/" component={ Authenticate } />
+          <Route path='/get' render={(props) => <SideBar {...props}
                                               reset={this.reset}/> }/>
           <Route exact path="/get/all" render={(props) => {
             if(this.state.filteredResults.length===0){
