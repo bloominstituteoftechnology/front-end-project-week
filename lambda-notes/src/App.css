@@ -1,1 +1,8 @@
-
+/* note-container is a NavLink so that it can be clicked anywhere without a page refresh */
+.note-container {
+    text-decoration: none;
+    color: black;
+}
+.note-container:hover {
+    cursor: pointer;
+}
