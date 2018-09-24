@@ -1,6 +1,6 @@
 import { FETCHED_NOTES, FETCHING_NOTES, ERROR_FETCHING_NOTES, 
         ADDED_NOTE, ADDING_NOTE, ERROR_ADDING_NOTE, 
-        UPDATED_NOTE, UPDATING_NOTE, ERROR_UPDATING_NOTE, 
+        PICK_NOTE_TO_UPDATE, UPDATED_NOTE, UPDATING_NOTE, ERROR_UPDATING_NOTE, 
         DELETED_NOTE, DELETING_NOTE, ERROR_DELETING_NOTE } from '../actions';
 
 const initialState = {
@@ -8,7 +8,9 @@ const initialState = {
     fetchingNotes: false,
     addingNote: false,
     updatingNote: false,
-    deletingNote: false
+    deletingNote: false,
+    noteToUpdate: null,
+    error: ''
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -53,6 +55,12 @@ export const rootReducer = (state = initialState, action) => {
                 deletingNote: false
             }
 
+        case PICK_NOTE_TO_UPDATE:
+            const note = state.notes.find(note => note.id === action.payload);
+            return { 
+                ...state, 
+                noteToUpdate: note ? note : null 
+            }
         case UPDATED_NOTE:
             return {
                 ...state,

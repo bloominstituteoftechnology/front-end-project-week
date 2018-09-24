@@ -6,6 +6,7 @@ export const ERROR_FETCHING_NOTES = "ERROR_FETCHING_NOTES";
 export const ADDED_NOTE = "ADDED_NOTE";
 export const ADDING_NOTE = "ADDING_NOTE";
 export const ERROR_ADDING_NOTE = "ERROR_ADDING_NOTE";
+export const PICK_NOTE_TO_UPDATE = "PICK_NOTE_TO_UPDATE";
 export const UPDATED_NOTE = "UPDATED_NOTE";
 export const UPDATING_NOTE = "UPDATING_NOTE";
 export const ERROR_UPDATING_NOTE = "ERROR_UPDATING_NOTE";
@@ -55,11 +56,35 @@ export const addNote = (note) => {
     }
 }
 
-export const updateNote = () => {
-  
-}
+export const setUpdateNote = (id) => {
+  return {
+      type: PICK_NOTE_TO_UPDATE,
+      payload: id,
+  };
+};
 
-export const deleteNote = (id) => dispatch => {
+export const updateNote = note => {
+  return dispatch => {
+    dispatch({ type: UPDATING_NOTE });
+
+    axios
+        .put(`http://localhost:5000/avengers/${note.id}`, note)
+        .then(response => {
+            dispatch({ 
+              type: UPDATED_NOTE, 
+              payload: response.data 
+            });
+        })
+        .catch(error => {
+            dispatch({ 
+              type: ERROR_UPDATING_NOTE, 
+              payload: "ERROR: unable to update note"
+            });
+        });
+  }
+};
+
+export const deleteNote = (id) => {
     return dispatch => {
       dispatch({ type: DELETING_NOTE });
   
