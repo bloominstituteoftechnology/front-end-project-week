@@ -130,6 +130,7 @@ export default class Note extends Component {
         </Modal>
         <div className="actions-container">
           <h5 onClick={this.toggleEditMode}>edit</h5>
+          <h5 onClick={this.openModal}>delete</h5>
         </div>
         <h2>{this.state.title}</h2>
         <div className="note-body">{this.state.textBody}</div>
