@@ -24,11 +24,6 @@ class Note extends Component {
       });
   };
 
-  // handleDelete = props =>  {
-  //   props.handleDeleteNote(note.id);
-  //   props.history.push('/tags');
-  // }
-
   get id() {
     return this.props.match.params.id;
   }
