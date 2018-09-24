@@ -46,7 +46,6 @@ class App extends Component {
             addNote={this.addNote}
           />
         }
-
         />
       </Div1>
     )

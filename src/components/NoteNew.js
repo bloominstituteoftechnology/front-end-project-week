@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
 class NoteNew extends Component {
@@ -26,6 +27,7 @@ class NoteNew extends Component {
     }
     this.props.addNote(newNote)
     this.setState(emptyNote)
+    this.props.history.push("/")
   }
 
   render() {
@@ -62,4 +64,4 @@ const Form = styled.form``
 const Input = styled.input``
 const Button = styled.button``
 
-export default NoteNew
+export default withRouter(NoteNew)
