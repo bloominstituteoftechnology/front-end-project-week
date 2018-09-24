@@ -8,7 +8,7 @@ const Menu = () => {
       <Link className="link" to="/">
         View Your Notes
       </Link>
-      <Link className="link" to="/">
+      <Link className="link" to="/newnote">
         Create New Note
       </Link>
     </div>
