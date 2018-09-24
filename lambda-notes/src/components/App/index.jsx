@@ -42,7 +42,13 @@ class App extends Component {
 
         <Route exact path="/" component={NoteList} />
         
-        <Route path="/notes/add" component={Form} />
+        <Route path="/notes/add" render={ props =>
+              <Form
+                    title={this.state.title}
+                    textBody={this.state.textBody}
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleInputChange={this.handleInputChange}
+              />} />
       </div>
     );
   }
