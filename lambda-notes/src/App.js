@@ -25,6 +25,12 @@ class App extends Component {
     }
   }
 
+  addNote = (newNote) => {
+    this.setState({
+      notes: [...this.state.notes, newNote]
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -36,7 +42,7 @@ class App extends Component {
         {/* main-view with specific note */}
         <Route exact path='/note/:id' render={props => ( <Note {...props} notes={this.state.notes} /> )} />
         {/* main-view create note goes here, class component */}
-        <Route exact path='/create-note' render={props => ( <CreateNote {...props} /> )} />
+        <Route exact path='/create-note' render={props => ( <CreateNote {...props} notes={this.state.notes} addNote={this.addNote} /> )} />
       </div>
     );
   }
