@@ -69,8 +69,11 @@ export default class Note extends Component {
   // open modal
   openModal = e => {
     e.preventDefault();
-
     this.setState({ modalIsOpen: true });
+  }
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
   }
 
 
