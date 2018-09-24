@@ -20,7 +20,7 @@ class EditNote extends Component {
         if(this.props.notes.length > 0) {
         this.setState(function (prevState, props) {
         return {
-            foundNote: this.props.notes.find(note => note._id === this.props.match.params.id)
+            foundNote: this.props.notes.find(note => note.id === Number(this.props.match.params.id))
         }}, () => {
             this.afterCDM();
         })
@@ -43,7 +43,7 @@ class EditNote extends Component {
         return (
             <div className="editNote">
                 <h2 className="editNoteTitle">Edit Note:</h2>
-                <form className="editForm" onSubmit={(event) => {event.preventDefault(); this.props.submitEdit(this.state.foundNote._id, this.state.tags, this.state.title, this.state.textBody)}} >
+                <form className="editForm" onSubmit={(event) => {event.preventDefault(); this.props.submitEdit(this.state.foundNote.id, this.state.tags, this.state.title, this.state.textBody)}} >
                     <input type="text" name="title" className="createFormTitleInput" placeholder={this.state.foundNote.title} value={this.state.title} onChange={this.changeHandler} />
                     <input type="text" name="tags" className="createFormTitleInput" placeholder={this.state.foundNote.tags} value={this.state.tags} onChange={this.changeHandler} />
                     <textarea type="text" name="textBody" className="createFormTextInput" placeholder={this.state.foundNote.textBody} value={this.state.textBody} onChange={this.changeHandler} />

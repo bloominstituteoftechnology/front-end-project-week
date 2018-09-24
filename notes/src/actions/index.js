@@ -12,7 +12,7 @@ export const SEARCHING = 'SEARCHING';
 export const ERROR = 'ERROR';
 
 export const addNote = (tags, title, textBody) => {
-    const promise = axios.post('https://killer-notes.herokuapp.com/note/create', {tags, title, textBody});
+    const promise = axios.post('http://localhost:5020/note/create', {tags, title, textBody});
     return dispatch => {
         dispatch({type: ADDING_NOTE});
         promise
@@ -28,7 +28,7 @@ export const addNote = (tags, title, textBody) => {
 }
 
 export const getNotes = () => {
-    const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+    const promise = axios.get('http://localhost:5020/note/get/all');
     return dispatch => {
         dispatch({type: FETCHING_NOTES});
         promise
@@ -43,7 +43,7 @@ export const getNotes = () => {
 }
 
 export const updateNote = (id, tags, title, textBody) => {
-    const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {tags, title, textBody});
+    const promise = axios.put(`http://localhost:5020/note/edit/${id}`, {tags, title, textBody});
     return dispatch => {
         dispatch({type: UPDATING_NOTE});
         promise
@@ -59,7 +59,7 @@ export const updateNote = (id, tags, title, textBody) => {
 }
 
 export const deleteNote = (id) => {
-    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
+    const promise = axios.delete(`http://localhost:5020/note/delete/${id}`);
     return dispatch => {
         dispatch({type: DELETING_NOTE});
         promise

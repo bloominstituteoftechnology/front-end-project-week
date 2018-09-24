@@ -70,7 +70,7 @@ class NotesList extends Component {
 
                 <h2 className="notesListTitle">Your Notes:</h2>
                 <div className="notesInnerDiv">
-                {this.props.notes.map(note => <Link to={`/notes/${note._id}`}><Note note={note} key={note._id} /></Link>)}
+                {this.props.notes.map(note => <Link to={`/notes/${note.id}`}><Note note={note} key={note._id} /></Link>)}
                 </div>
                 <div className="CSV"><CSVLink data={this.props.notes}>Download CSV of Notes</CSVLink></div>
             
