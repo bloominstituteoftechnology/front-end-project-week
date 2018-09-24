@@ -3,14 +3,18 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  background-color: #84001a;
+  height: 500px;
 }
 
 .side-bar {
   flex:1;
-  
+  padding: 5%;
+
 
 }
 
 .note-view {
 flex: 2;
+padding: 5%;
 }
