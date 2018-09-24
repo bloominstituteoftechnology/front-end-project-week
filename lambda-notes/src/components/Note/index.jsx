@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
 import Form from "../Form";
 
@@ -70,14 +70,13 @@ export default class Note extends Component {
   openModal = e => {
     e.preventDefault();
     this.setState({ modalIsOpen: true });
-  }
+  };
 
   closeModal = () => {
     this.setState({ modalIsOpen: false });
-  }
+  };
 
-
-  // handle delete 
+  // handle delete
   handleDelete = e => {
     e.preventDefault();
 
@@ -85,16 +84,17 @@ export default class Note extends Component {
       .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
       .then(response => {
         this.props.refetchNotes();
-        this.setState({ isEditing: false,
-                        note: null,
-                        title: "",
-                        textBody: "" });
+        this.setState({
+          isEditing: false,
+          note: null,
+          title: "",
+          textBody: ""
+        });
       })
       .catch(error => console.log(error));
 
     this.props.history.push("/");
-  }
-
+  };
 
   render() {
     if (!this.state.note) {
@@ -115,6 +115,19 @@ export default class Note extends Component {
 
     return (
       <div className="main-container note">
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          className="modal"
+          overlayClassName="overlay"
+        >
+          <h3>Are you sure you want to delete this?</h3>
+          <div className="modal-buttons">
+            <button onClick={this.handleDelete}>Delete</button>
+            <button onClick={this.closeModal}>No</button>
+          </div>
+        </Modal>
         <div className="actions-container">
           <h5 onClick={this.toggleEditMode}>edit</h5>
         </div>
