@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
 
+import { Switch, Route, Link } from 'react-router-dom';
+
 class App extends Component {
 
   componentDidMount(){
@@ -15,10 +17,35 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
-        <NoteList notes={this.props.notes}/>
 
-        <NoteForm />
+      <div className = 'container'>
+
+      <div className = 'navigation'>
+      <h1>Lambda Notes</h1>
+      <div className = 'nav-link'>
+      View Your Notes
+      </div>
+      <div className = 'nav-link'>
+      + Create New Note
+      </div>
+      </div>
+
+      <div className = 'application'>
+        
+        <Switch>
+          <Route exact path = '/'
+          render={() => <NoteList notes={this.props.notes} />} />
+          <Route exact path = '/form' component={NoteForm} />
+        </Switch>
+
+        {/* <NoteForm />
+
+        <NoteList notes={this.props.notes}/> */}
+
+      </div>
+
+      </div>
+
 
       </div>
     );
