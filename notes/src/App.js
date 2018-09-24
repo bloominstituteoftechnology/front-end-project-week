@@ -8,6 +8,16 @@ import NotesList from './components/NotesList';
 import NotesMenu from './components/NotesMenu';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [],
+      noteTitle: '',
+      noteText: '',
+      id: null
+    };
+  }
+  
   render() {
     return (
       <div className="App">
