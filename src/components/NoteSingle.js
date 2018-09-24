@@ -6,13 +6,16 @@ const NoteSingle = (props) => {
   return (
     <Div1 className="NoteSingle">
       <H2>NoteSingle Functional Component</H2>
-      <p>{note.title}</p>
-      <p>{note.text}</p>
+      <P>{note.title}</P>
+      <P>{note.text}</P>
+      <Button onClick={() => props.deleteNote(Number(note.id))}>Delete Current Note</Button>
     </Div1>
   )
 }
 
 const Div1 = styled.div``
 const H2 = styled.h2``
+const P =  styled.p``
+const Button = styled.button``
 
 export default NoteSingle

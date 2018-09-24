@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import styled from 'styled-components'
+import { withRouter } from 'react-router-dom'
 import NotesBar from './components/NotesBar'
 import NotesMain from './components/NotesMain'
 import NoteNew from './components/NoteNew'
@@ -32,6 +33,7 @@ class App extends Component {
   }
 
   deleteNote = (targetId) => {
+    this.props.history.push("/")
     this.setState({ notes: this.state.notes.filter(note => note.id !== targetId)})
   }
 
@@ -57,6 +59,7 @@ class App extends Component {
           <NoteSingle
             {...props}
             notes={this.state.notes}
+            deleteNote={this.deleteNote}
           />
         }
         />
@@ -68,4 +71,4 @@ class App extends Component {
 const Div1 = styled.div``
 const H1 = styled.h1``
 
-export default App
+export default withRouter(App)
