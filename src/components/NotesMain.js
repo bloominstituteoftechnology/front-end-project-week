@@ -15,6 +15,7 @@ const NotesMain = (props) => {
               <Link to={`/notes/${item.id}`}>
                 <Button>View Note</Button>
               </Link>
+              <Button onClick={() => props.deleteNote(item.id)}>Delete Note</Button>
             </Div2>
           )
         }

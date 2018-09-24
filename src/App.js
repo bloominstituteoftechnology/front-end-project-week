@@ -31,6 +31,10 @@ class App extends Component {
     this.setState({ notes: [ ...this.state.notes, newNote] })
   }
 
+  deleteNote = (targetId) => {
+    this.setState({ notes: this.state.notes.filter(note => note.id !== targetId)})
+  }
+
   render() {
     return (
       <Div1 className="App">
@@ -40,6 +44,7 @@ class App extends Component {
         <Route exact path="/" render={() => 
           <NotesMain
             notes={this.state.notes}
+            deleteNote={this.deleteNote}
           />
         }/>
         <Route path="/new" render={() => 
