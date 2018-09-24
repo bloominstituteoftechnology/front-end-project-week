@@ -4,6 +4,7 @@ import SideBar from './components/SideBar';
 import { Route } from 'react-router-dom';
 import Notes from './components/Notes';
 import Note from './components/Note';
+import CreateNote from './components/CreateNote';
 
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
         {/* main-view with specific note */}
         <Route exact path='/note/:id' render={props => ( <Note {...props} notes={this.state.notes} /> )} />
         {/* main-view create note goes here, class component */}
+        <Route exact path='/create-note' render={props => ( <CreateNote {...props} /> )} />
       </div>
     );
   }
