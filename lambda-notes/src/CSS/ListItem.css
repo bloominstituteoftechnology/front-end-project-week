@@ -1,0 +1,18 @@
+.note-card {
+  width: 135px;
+  margin: 5px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.note-card-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  word-wrap: break-word;
+  border-bottom: 1px solid black;
+}
+
+.note-card-text {
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}

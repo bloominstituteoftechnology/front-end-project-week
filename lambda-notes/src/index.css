@@ -1,5 +1,7 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+* {
+  font-size: 62.5%;
+}
+
+.w-100 {
+  width: 100%;
 }
