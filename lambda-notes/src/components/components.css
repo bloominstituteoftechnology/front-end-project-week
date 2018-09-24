@@ -79,9 +79,8 @@ button a:visited {
   font-size: 15px;
   font-weight: bold;
 }
-
 .overlay {
-  background-color: rgba(207, 207, 207, 0.8);
+  background-color: rgba(207, 207, 207, 0.80);
   position: fixed;
   top: 0;
   left: 0;
@@ -98,7 +97,7 @@ button a:visited {
   width: 530px;
   height: 175px;
   border: 1px solid #979797;
-  background: #ffffff;
+  background: #FFFFFF;
 }
 
 .modal:focus {
@@ -113,7 +112,7 @@ button a:visited {
 }
 
 .modal-buttons button:first-child {
-  background: #d0021b;
+  background: #D0021B;
 }
 
 .modal-buttons button:last-child {
