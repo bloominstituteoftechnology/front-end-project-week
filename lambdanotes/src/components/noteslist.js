@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import Note from "./note";
-
 const NoteTextContainer = styled.div`
   height: 80vh;
   display: flex;

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Card, CardText, CardBody, CardTitle } from "reactstrap";
 import NoteFormEdit from "./noteformedit";
 import DeleteModal from "./deletemodal";
-import { Button } from "reactstrap";
 import styled from "styled-components";
 
 const NoteAttrib = styled.div`
@@ -50,9 +48,9 @@ class Note extends Component {
       return note.id.toString() === this.props.match.params.id;
     });
     this.setState({
+      id: note[0].id,
       title: note[0].title,
       note: note[0].note,
-      id: note[0].id,
       edittoggle: false
     });
   }

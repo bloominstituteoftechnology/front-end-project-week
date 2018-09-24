@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/navbar";
 import NotesList from "./components/noteslist";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Note from "./components/note";
 import NoteForm from "./components/noteform";
 import NoteFormEdit from "./components/noteformedit";
 import styled from "styled-components";
-import { runInThisContext } from "vm";
+import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -27,6 +26,17 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    axios.get("http://localhost:2200/")
+    .then(response => {
+      const newNotes = response.data;
+      console.log(newNotes);
+      const newState = Object.assign({}, this.state, { notes: newNotes });
+      this.setState(newState);
+    })
+    .catch(err => console.log(err));    
+  }
+
   handleNoteChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -35,12 +45,19 @@ class App extends Component {
     event.preventDefault();
     const arr = this.state.notes.slice();
     if (this.state.title && this.state.note) {
-      arr.push({
+      arr.push({        
+        id: this.state.id,
         title: this.state.title,
         note: this.state.note,
-        id: Date.now(),
         edittoggle: this.state.edittoggle
       });
+      axios.post("http://localhost:2200/form", {
+        id: this.state.id,
+        title: this.state.title,
+        note: this.state.note,
+        edittoggle: this.state.edittoggle
+      }).then(res => {console.log(res);
+      console.log(res.data)});
       this.setState(
         {
           notes: arr,
@@ -56,9 +73,14 @@ class App extends Component {
   };
 
   deleteHandler = id => {
-    let notes = this.state.notes.filter(item => item.id != id);
-    this.setState({ notes });
+    axios.delete(`http://localhost:2200/note/${id}`)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   };
+
+  
 
   render() {
     return (
@@ -95,7 +117,7 @@ class App extends Component {
             />
           )}
         />
-        <Route
+        {/* <Route
           path="/note/:id/edit"
           render={props => (
             <NoteFormEdit
@@ -105,7 +127,7 @@ class App extends Component {
               addHandler={this.addHandler}
               Redirect={this.state.Redirect}
             />
-          )}
+          )} */}
         />
       </Container>
     );
@@ -113,3 +135,4 @@ class App extends Component {
 }
 
 export default App;
+
