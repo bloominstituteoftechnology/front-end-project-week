@@ -26,7 +26,14 @@ class App extends Component {
   handleFormSubmit = () => {};
 
   // refetch notes
-  refetchNotes = () => {};
+  refetchNotes = () => {
+    axios
+    .get(`https://killer-notes.herokuapp.com/note/get/all`)
+    .then(response => {
+      this.setState({ notes: response.data });
+    })
+    .catch(error => console.log(error));
+  };
 
   render() {
     return (
