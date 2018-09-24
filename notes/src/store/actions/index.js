@@ -4,7 +4,7 @@ export const NOTES_FETCH_START = "NOTES_FETCH_START";
 export const NOTES_FETCH_COMPLETE = "NOTES_FETCH_COMPLETE";
 export const NOTES_FETCH_ERROR = "NOTES_FETCH_ERROR";
 
-export const fetchNotes = () => {
+export const getNotes = () => {
   return dispatch => {
     dispatch({ type: NOTES_FETCH_START });
     axios
