@@ -6,6 +6,11 @@ export default class Note extends Component {
     title: "",
     textBody: ""
   }
+
+  get id() {
+    return this.props.match.params.id;
+  }
+  
   render() {
     return (
       <div>
