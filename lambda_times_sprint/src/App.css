@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  display: flex;;
 }
 
 .App-logo {
@@ -25,4 +25,8 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.notes-section {
+  margin-left: 100px;
 }
