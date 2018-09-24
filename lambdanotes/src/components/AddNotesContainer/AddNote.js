@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addNote } from "../actions/actions";
+import { withRouter } from "react-router-dom";
 
 class AddNote extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			title: "",
 			body: "",
@@ -25,6 +26,7 @@ class AddNote extends Component {
 			console.log(this.state);
 		}
 		this.props.addNote(this.state);
+		this.props.history.push("/");
 	};
 
 	render() {
@@ -63,4 +65,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{ addNote }
-)(AddNote);
+)(withRouter(AddNote));
