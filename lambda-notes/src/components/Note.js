@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
-import { NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
+import DeleteNote from './DeleteNote';
 
 class Note extends React.Component {
     constructor(props) {
@@ -25,12 +26,13 @@ class Note extends React.Component {
     render() {
         return (
             <div className='main-view'>
-                <div class='note-links'>
+                <div className='note-links'>
                     <NavLink to={`/note/${this.state.id}/edit`}>edit</NavLink>
                     <NavLink to={`/note/${this.state.id}/delete`}>delete</NavLink>
                 </div>
                 <h2>{this.state.title}</h2>
                 <p>{this.state.content}</p>
+                <Route path='/note/:id/delete' render={props => ( <DeleteNote {...props} deleteNote={this.props.deleteNote} /> )} />
             </div>
         )
     }

@@ -31,6 +31,13 @@ class App extends Component {
     })
   }
 
+  deleteNote = (id) => {
+    const notes = this.state.notes.filter(note => note.id !== id)
+    this.setState({
+      notes: notes
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,7 +47,7 @@ class App extends Component {
         {/* main-view with all notes */}
         <Route exact path='/' render={props => ( <Notes {...props} notes={this.state.notes} /> )} />
         {/* main-view with specific note */}
-        <Route exact path='/note/:id' render={props => ( <Note {...props} notes={this.state.notes} /> )} />
+        <Route path='/note/:id' render={props => ( <Note {...props} notes={this.state.notes} deleteNote={this.deleteNote} /> )} />
         {/* main-view create note goes here, class component */}
         <Route exact path='/create-note' render={props => ( <CreateNote {...props} notes={this.state.notes} addNote={this.addNote} /> )} />
       </div>
