@@ -10,7 +10,9 @@ class NotesListView extends React.Component {
 
     render() {
         return (
+            <div>
             <NotesList {...this.props}/>
+            </div>
         );
     }
 }

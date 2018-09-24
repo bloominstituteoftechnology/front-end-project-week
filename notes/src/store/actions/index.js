@@ -1,4 +1,5 @@
 export const ADD_NOTE = 'ADD_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 
 
 export const addNote = note => {
@@ -7,3 +8,10 @@ export const addNote = note => {
       payload: note
     };
   };
+
+export const deleteNote = noteId => {
+    return {
+        type: DELETE_NOTE,
+        noteId
+    }
+}

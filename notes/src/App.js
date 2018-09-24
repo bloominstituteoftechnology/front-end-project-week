@@ -3,6 +3,7 @@ import { Route, NavLink, withRouter } from 'react-router-dom';
 import './App.css';
 import NotesListView from './views/NotesListView';
 import NotesFormView from './views/NotesFormView';
+import SingleNote from './views/SingleNote';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
         </ul>
         <Route exact path='/notes' component={NotesListView} />
         <Route path= '/notes-form' component={NotesFormView} />
+        <Route path='/notes/:noteId' component={SingleNote} />
       </div>
     );
   }

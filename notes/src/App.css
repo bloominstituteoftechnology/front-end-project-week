@@ -11,7 +11,7 @@
   margin-top: 0;
   padding: 3%;
   background-color: lightgray;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .nav li{
