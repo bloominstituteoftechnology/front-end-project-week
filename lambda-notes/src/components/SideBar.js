@@ -5,8 +5,8 @@ const SideBar = () => {
     return (
         <div className="side-bar">
             <h1>Lambda Notes</h1>
-            <div className="button">View Your Notes</div>
-            <div className="button">+ Create New Note</div>
+            <NavLink to="/notes" className="button">View Your Notes</NavLink>
+            <NavLink to="/create-note" className="button">+ Create New Note</NavLink>
         </div>
     );
 };
