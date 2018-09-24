@@ -11,13 +11,13 @@ export const NOTE_DELETED = 'NOTE_DELETED'
 export const NOTES = 'NOTES'
 export const ERROR = 'ERROR'
 
-const URL = 'https://killer-notes.herokuapp.com/note/get/all'
+const URL = 'https://killer-notes.herokuapp.com/note/'
 
 export const fetchNotes = () => {
   return dispatch => {
     dispatch({type: FETCHING_NOTES})
     axios
-      .get(URL)
+      .get(URL+'get/all')
       .then(response => { console.log(response), dispatch({type: NOTES_FETCHED, payload: response.data}) })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
@@ -25,11 +25,11 @@ export const fetchNotes = () => {
   }
 }
 
-export const saveNote = (note) => {
+export const createNote = (note) => {
   return dispatch => {
     dispatch({type: SAVING_NOTES});
     axios
-      .post(URL)
+      .post(URL+'create', note) //response from the server will be the ID of the new note
       .then(response => {dispatch({type: NOTES_SAVED, payload:response.data}) })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})

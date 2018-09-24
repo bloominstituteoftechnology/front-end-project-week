@@ -7,13 +7,11 @@ class NoteList extends Component {
     super(props);
   }
   render() {
-    console.log('NoteList props:', this.props);
     return this.props
     ?  (
       <div className="note-list">
-        <h1> NoteList </h1>
+        <h2> Your Notes: </h2>
           {this.props.noteList.map(note => {
-            console.log(note);
             return (
               <React.Fragment>
               <Note note={note} />
