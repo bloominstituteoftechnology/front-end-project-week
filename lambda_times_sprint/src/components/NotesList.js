@@ -6,15 +6,16 @@ function NotesList(props) {
     }
     return (
         <div className="notes-list-wrapper">
-            {props.notesList.map(note => (
-            <div className="note-card" key={note.id}>
+          <h2>Your Notes:</h2>
+            {props.notesList.map(tag => (
+            <div className="note-card" key={tag.id}>
                 
                 <h3
-                onClick={() => props.history.push(`/notes/${note.id}/info`)}
+                onClick={() => props.history.push(`/tags/${tag.id}/info`)}
                 >
-                {note.title}
+                {tag.title}
                 </h3>
-                <p>({note.textBody})</p>
+                <p>({tag.textBody})</p>
             </div>
             ))}
         </div>

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import NotesList from './components/NotesList';
+import NoteForm from './components/NoteForm';
+
 
 class App extends Component {
   state = {
-    notes: [],
+    tags: [],
     title: '',
     textBody: ''
   }
@@ -15,11 +17,28 @@ class App extends Component {
   componentDidMount() {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
       .then(response => {
-        this.setState({ notes: response.data });
+        this.setState({ tags: response.data });
       })
       .catch(err => {
         console.log(err);
       });
+  }
+
+  handleChange = event => {
+      this.setState({ [event.target.name]: event.target.value });
+    }
+
+  handleAddNewNote = event => {
+    event.preventDefault();
+    console.log('firing')
+
+    const note = {title: this.state.title, textBody: this.state.textBody};
+
+    axios.post('https://killer-notes.herokuapp.com/note/create', note)
+      .then(response => this.setState({ note: response.data,
+                                        title: response.data.title,
+                                        textBody: response.data.textBody
+                                      }))
   }
 
   render() {
@@ -33,15 +52,29 @@ class App extends Component {
               View Your Notes
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/note-form" activeClassName="activeNavButton">
+              +Create New Note
+            </NavLink></li>
         </ul>
         </header>
         <div className="notes-section">
-        <h2>Your Notes:</h2>
         <Route
           exact
           path="/"
           render={props => (
-            <NotesList {...props} notesList={this.state.notes} />
+            <NotesList {...props} notesList={this.state.tags} />
+          )}
+        />
+        <Route
+          path="/note-form"
+          render={props => (
+          <NoteForm 
+            {...props} 
+            note={this.state.tags} 
+            handleAddNewNote={this.handleAddNewNote}
+            handleChange={this.handleChange}    
+          /> 
           )}
         />
 
@@ -52,4 +85,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
