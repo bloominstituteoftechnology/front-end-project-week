@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import './index.css';
+
 import NotesList from '../NotesList/NotesList';
+// import Notes from '../../Components/Notes';
+
 import NoteView from '../NoteView/NoteView';
+// import NoteView from '../NoteView';
+
+
 import CreateNote from '../CreateNote/CreateNote';
 import EditNote from '../EditNote/EditNote';
 // import DeleteNote from '../DeleteNote/DeleteNote';

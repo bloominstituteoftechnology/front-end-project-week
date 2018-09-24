@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import '../index.css';
 import EachNote from './EachNote';
 
 class Notes extends Component {
@@ -46,20 +46,16 @@ class Notes extends Component {
     render() {
       return (
         
-        <div className="EachNote" >
-        {/* <br /><br /><br />
-        <Link to="/"><button> View Your Notes </button></Link>
-        <Link to="AddNote"><button> + Create New Note </button></Link>
-        <Route exact path="/AddNote" component={AddNote} />
-        <br /><br /><br /><br /><br /><br /> */}
-           <br /><br />
-            Your Notes:
-          <br /><br />
+        <div className="inner_outer_notes">
+            <h3 className="list_title">Your Notes:</h3>
+            <div className="note_container">
           {this.state.notes.map(each => ( 
             <EachNote className="eachOne" key={each._id} note={each} deleter={this.deleter} />
           ))}
 
         </div>
+        </div>
+        
       );
     }
   }

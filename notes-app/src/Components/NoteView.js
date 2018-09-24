@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import '../index.css';
 
 
 class NoteView extends Component {
@@ -33,7 +34,8 @@ class NoteView extends Component {
         console.log("view this:", this.state.notes[0])
         return (
                 <div>
-                    <h3>test</h3>
+                    {/* {this.state.notes[0]}
+                    {this.state.notes[0]} */}
                 </div>
                 );
         
