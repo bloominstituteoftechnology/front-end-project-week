@@ -1,8 +1,13 @@
-import { FETCHING_NOTES, FETCHED_NOTES, ADD_NOTE } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, FETCH_NOTES_ERROR } from '../actions';
 
-const initialState = { notes: [], note: {}, fetching: false, error: '' };
-
-export const smurfReducer = (state = initialState, action) => {
+// const initialState = {};
+const initialState = {
+  notes: [],
+  note: { tags: [], title: '', textBody: '' },
+  fetching: false,
+  error: ''
+};
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_NOTES:
       return { ...state, fetching: true };
@@ -10,14 +15,11 @@ export const smurfReducer = (state = initialState, action) => {
     case FETCHED_NOTES:
       return {
         ...state,
-        smurfs: action.payload,
+        notes: action.payload,
         fetching: false
       };
 
-    case ADD_NOTE:
-      return { ...state, fetching: true };
-
-    case ERRORS:
+    case FETCH_NOTES_ERROR:
       return {
         ...state,
         fetching: false,
@@ -28,3 +30,5 @@ export const smurfReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default rootReducer;
