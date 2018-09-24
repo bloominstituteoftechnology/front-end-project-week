@@ -34,7 +34,7 @@ function NoteDetails({ note }) {
     <div className="note-card">
 
       <h2>{title}</h2>
-      <div className="movie-director">{textBody}</div>
+      <div className="text-body">{textBody}</div>
     
       </div>
   );

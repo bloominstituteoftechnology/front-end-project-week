@@ -34,7 +34,7 @@ class App extends Component {
     }
 
   handleAddNewNote = event => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log('firing')
 
     const note = {title: this.state.title, textBody: this.state.textBody};
@@ -46,16 +46,10 @@ class App extends Component {
                                       }))
   }
 
-  // fetchNote = id => {
-  //   axios
-  //     .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-  //     .then(response => {
-  //       this.setState(() => ({ note: response.data }));
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  // };
+  handleDeleteNote = id => {
+    return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => this.setState({ note: response.data }));
+  }
 
   render() {
     return (
@@ -93,7 +87,13 @@ class App extends Component {
           /> 
           )}
         />
-        <Route path="/tags/:id" render={props => <Note {...props} />} />
+        <Route path="/tags/:id" render={props => 
+          <Note 
+            {...props}
+            handleDeleteNote={this.handleDeleteNote}
+          />
+          } 
+        />
 
         </div>
 

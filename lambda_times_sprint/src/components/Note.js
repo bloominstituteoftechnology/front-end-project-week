@@ -24,6 +24,23 @@ class Note extends Component {
       });
   };
 
+  // handleDelete = props =>  {
+  //   props.handleDeleteNote(note.id);
+  //   props.history.push('/tags');
+  // }
+
+  get id() {
+    return this.props.match.params.id;
+  }
+
+  handleDelete = e => {
+    e.preventDefault();
+    this.props.handleDeleteNote(this.id);
+    if (!this.props.deletingNote) {
+      this.props.history.push("/");
+    }
+  }
+
   render() {
     if(!this.state.note) {
       return(<div>Loading Note...</div>);
@@ -37,8 +54,8 @@ class Note extends Component {
       <h2>{title}</h2>
       <div className="movie-director">{textBody}</div>
 
-      {/* <button>Update</button>
-      <button>Delete</button> */}
+      {/* <button>edit</button> */}
+      <button className="delete-btn" onClick={this.handleDelete}>delete</button>
     
       </div>
     );
