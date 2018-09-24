@@ -6,6 +6,7 @@ export default {
         button: '#2AC0C4',
         mainBackground: '#F3F3F3',
         subBackground: '#FFFFFF',
-        border: '#ACACAC'
+        border: '#ACACAC',
+        delete: 'red'
     }
 }

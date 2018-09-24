@@ -1,76 +1,47 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import styled from "react-emotion";
+import DeleteNote from './DeleteNote'
 
 class NoteView extends Component {
-  state = {
-    titleInput: "",
-    contentInput: "",
-    isEditing: false,
-    isDeleting: false,
-    show: true
-  };
+  state= {
+      isDeleting: false,
+  }
 
-  handleInput = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-    console.log(this.state.titleInput);
-  };
-
-  sumbitNote = id => {
-    this.props.updateNote({
-      id: id,
-      title: this.state.titleInput,
-      content: this.state.contentInput
-    });
-  };
-
-  
+  notDeleting = () =>{
+      this.setState({isDeleting: false})
+  }
 
   render() {
     const note = this.props.notes.find(
       note => note.id === parseInt(this.props.match.params.id, 10)
     );
     const { selectedTheme } = this.props;
-    const { id, title, content } = note;
-    const { titleInput, contentInput, isEditing, show } = this.state;
+    const { title, content } = note;
+    const {isDeleting} = this.state
+ 
     console.log(selectedTheme)
     return (
-      <NoteCardDiv>
-        {isEditing ? <h2>Update Notes:</h2> : <h2>{title}</h2>}
-        {isEditing && (
-          <NoteInput
-            name={"titleInput"}
-            onChange={this.handleInput}
-            value={titleInput}
-          />
-        )}
-        {isEditing ? (
-          <NoteText
-            name={"contentInput"}
-            onChange={this.handleInput}
-            value={contentInput}
-          />
-        ) : (
-          <p>{content}</p>
-        )}
+      <Fragment>
+          {isDeleting && <DeleteNote {...this.props} notDeleting={this.notDeleting}/> }
+          <NoteCardDiv>
+          <h2>{title}</h2>
+         <p>{content}</p>
+
         <NoteButton
           data-theme={selectedTheme}
-          onClick={() => {
-            if (titleInput && contentInput) {
-              this.sumbitNote(id);
-            }
-
-            this.setState(state => ({ isEditing: !state.isEditing }));
-          }}
+          onClick={() => this.props.history.push('/notes/:id/create')}
         >
-          {isEditing ? 'Cancel':'Update'}
+        Update
         </NoteButton>
-        <NoteButton data-theme={selectedTheme}>
+        <NoteButton data-theme={selectedTheme} 
+        onClick={() => this.setState({isDeleting:true})}
+        >
           Delete
         </NoteButton>
       </NoteCardDiv>
+      </Fragment>  
+      
     );
   }
 }
@@ -79,15 +50,6 @@ const NoteCardDiv = styled("div")`
   width: 500px;
 `;
 
-const NoteInput = styled("input")`
-  width: 300px;
-  height: 30px;
-  margin-bottom: 10px;
-`;
-const NoteText = styled("textarea")`
-  width: 500px;
-  height: 400px;
-`;
 
 const NoteButton = styled("div")`
   cursor: pointer;

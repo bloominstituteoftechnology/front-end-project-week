@@ -4,6 +4,7 @@ import NavBar from "./NavBar/Navbar";
 import styled from "react-emotion";
 import NewNote from "./CreateNote/NewNote";
 import NoteView from "./NoteViews/NoteView";
+import UpdateNote from './NoteViews/UpdateNote'
 import { Route, Switch, Redirect } from "react-router-dom";
 
 class NoteContainer extends Component {
@@ -63,6 +64,14 @@ class NoteContainer extends Component {
       notes: notes
     })
   }
+  deleteNote = id => {
+    const notes = this.state.notes.filter(note => {
+      return (
+        note.id !== id
+      )
+    })
+    this.setState({notes: notes})
+  }
 
   render() {
     const { notes, selectedTheme } = this.state;
@@ -92,12 +101,27 @@ class NoteContainer extends Component {
 
             <Route
               exact
-              path="/notes/:id"
+              strict
+              path="/notes/:id/create"
+              render={props => (
+                <UpdateNote
+                  {...props}
+                  selectedTheme={selectedTheme}
+                  updateNote={this.updateNote}
+                  notes={notes}
+                />
+              )}
+            />
+
+            <Route
+              exact
+              path="/notes/:id/"
               render={props => (
                 <NoteView
                   {...props}
                   selectedTheme={selectedTheme}
                   updateNote={this.updateNote}
+                  deleteNote={this.deleteNote}
                   notes={notes}
                 />
               )}
