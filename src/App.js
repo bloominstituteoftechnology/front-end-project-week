@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import styled from 'styled-components'
 import NotesBar from './components/NotesBar'
 import NotesMain from './components/NotesMain'
@@ -29,9 +30,12 @@ class App extends Component {
       <Div1 className="App">
         <H1>Lambda Notes App</H1>
         <NotesBar />
-        <NotesMain
-          notes={this.state.notes}
-        />
+        
+        <Route exact path="/" render={() => 
+          <NotesMain
+            notes={this.state.notes}
+          />
+        }/>
       </Div1>
     )
   }
