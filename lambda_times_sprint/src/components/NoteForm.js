@@ -2,7 +2,7 @@ import React from 'react';
 
 function NoteForm(props) {
     function handleSubmit(event) {
-        event.preventDefault();
+        // event.preventDefault();
             props.handleAddNewNote();
     }
 

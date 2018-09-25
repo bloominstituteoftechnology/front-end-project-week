@@ -29,11 +29,11 @@ class Note extends Component {
   }
 
   handleDelete = e => {
-    e.preventDefault();
+    // e.preventDefault();
     this.props.handleDeleteNote(this.id);
-    if (!this.props.deletingNote) {
-      this.props.history.push("/");
-    }
+    // if (!this.props.deletingNote) {
+    //   this.props.history.push("/");
+    // }
   }
 
   render() {
