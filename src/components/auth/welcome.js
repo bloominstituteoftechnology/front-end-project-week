@@ -6,6 +6,7 @@ import {
 
 import Login from './login';
 import Register from './register';
+import Header from './header';
 import { connect } from 'react-redux';
 
 import {
@@ -30,11 +31,7 @@ class Welcome extends Component{
         console.log(this.props)
         return(
             <WelcomeDiv>
-                <h1>Welcome to Lambda Notes</h1>
-                <div className="links">
-                    <Link to="/welcome/login" >Login</Link>
-                    <Link to="/welcome/register" >Register</Link>
-                </div>
+                <Route path="/" component={Header} />
                 <Route path="/welcome/login" component={Login} />
                 <Route path="/welcome/register" render={() => {
                     return <Register createUser={this.createUser} />}} />

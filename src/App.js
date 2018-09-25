@@ -40,9 +40,9 @@ class App extends Component {
     if(localStorage.getItem('JWT')){
       //this should check for token when set up 
       this.props.getNotes();
-      this.props.history.push('/all-notes')
+      this.props.history.push('/')
     } else {
-      this.props.history.push('/welcome/register')
+      this.props.history.push('/welcome/')
     }
   }
 
@@ -115,12 +115,19 @@ class App extends Component {
     this.props.sortNote(newArr)
   }
 
+  logout = (e) => {
+    console.log(this)
+    e.preventDefault();
+    localStorage.removeItem('JWT');
+    this.props.history.push('/welcome')
+  }
+
   render() {
     return (
         <AppDiv>
-          <Redirect from="/" to="/all-notes" />
+          {/* <Redirect from="/" to="/all-notes" /> */}
           
-          {localStorage.getItem('JWT') ? <LeftMenu /> : null}
+          {localStorage.getItem('JWT') ? <LeftMenu logout={this.logout} /> : null}
 
           <div className="right-display">
           

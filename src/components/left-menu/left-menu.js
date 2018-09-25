@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import DeleteTarget from './delete-target.js';
 
 export default class LeftMenu extends Component {
+  constructor(props){
+    super(props)
+  }
   state = {
     allNotesSelected: false,
     createNoteSelected: false,
@@ -17,6 +20,7 @@ export default class LeftMenu extends Component {
         {/* <Link draggable className="menu-item" to="/all-notes">View Your Notes</Link> */}
         <Link className="menu-item" to="/new-note">+ Create New Note</Link>
         <div className="menu-item" onClick={this.download} >Download CSV</div>
+        <div className="menu-item" onClick={this.props.logout} >Logout</div>
         <DeleteTarget action='delete' className="menu-item red" />
         {/* <div  onClick={this.delete} to="/deleted-notes">Delete Item</div> */}
       </LeftMenuDiv>
