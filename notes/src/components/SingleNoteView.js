@@ -32,6 +32,7 @@ class SingleNoteView extends Component {
                 <div className="singleNoteView">
                     <div className="singleLinks">
                         <Button color="link" onClick={() => {this.props.history.push(`/notes/${foundNote.id}/edit`); this.forceUpdate();}}>edit</Button>
+                        <Button color="link" onClick={() => {this.props.clone(foundNote)}}>clone</Button>
                         &nbsp;<Button color="link" onClick={this.modalToggle}>delete</Button>
                         <Modal isOpen={this.state.modal} toggle={this.modalToggle} className={this.props.className}>
                             <ModalHeader toggle={this.modalToggle}></ModalHeader>

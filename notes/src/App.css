@@ -274,3 +274,8 @@ button {
   margin: 0 auto !important;
   display: block !important;
 }
+
+.btn-link a:hover, .btn-link a:active, .btn-link a:link, .btn-link a:visited {
+  color: white !important;
+  text-decoration: none !important;
+}

@@ -60,6 +60,11 @@ class App extends Component {
     localStorage.setItem('username', user);
   }
 
+  cloneNote = (foundNote) => {
+    this.props.addNote(foundNote.tags, foundNote.title, foundNote.textBody);
+    this.props.history.push('/');
+  }
+
   sortList = (button) => {
     if (button === 0) {
       this.setState({sorted: this.props.filteredNotes.sort(this.sortCompareDefault)})
@@ -144,7 +149,7 @@ class App extends Component {
         <Sidebar />
         <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.filteredNotes} filter={this.filterData} sortList={this.sortList} />)} />
         <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.filteredNotes} submit={this.submitForm} />)} />
-        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes} delete={this.deleteNote} />)} />
+        <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes} delete={this.deleteNote} clone={this.cloneNote} />)} />
         <Route path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.props.filteredNotes} submitEdit={this.submitEditForm} />)} />
       </div>
     );
