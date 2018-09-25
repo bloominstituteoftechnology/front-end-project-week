@@ -1,4 +1,4 @@
-import { DELETE_NOTE, EDIT_NOTE, CREATE_NOTE } from "../actions";
+import { DELETE_NOTE, EDIT_NOTE, CREATE_NOTE, FETCH_NOTE, FETCH_NOTE_ID } from "../actions";
 
 const initialState = [
   {
@@ -24,6 +24,7 @@ const initialState = [
 const notesReducer = (state = initialState, action) => {
   let temp = Array.from(state);
   switch (action.type) {
+
     case DELETE_NOTE:
       state.forEach((item, index) => {
         if (item._id === action.payload) {
@@ -32,6 +33,7 @@ const notesReducer = (state = initialState, action) => {
         }
       });
       return temp;
+
     case EDIT_NOTE:
       state.forEach((item, index) => {
         if (item._id === action.payload._id) {
@@ -41,11 +43,22 @@ const notesReducer = (state = initialState, action) => {
       });
       temp.push(action.payload);
       return temp;
+
     case CREATE_NOTE:
       temp.push(action.payload);
       return temp;
     default:
       return state;
+
+    case FETCH_NOTE:
+      return temp;
+
+    case FETCH_NOTE_ID:
+      state.forEach((item, index) => {
+        if (item._id === action.payload._id) {
+          return temp;
+        }
+      });
   }
 };
 
