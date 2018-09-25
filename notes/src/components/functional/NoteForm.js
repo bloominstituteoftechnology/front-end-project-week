@@ -1,14 +1,35 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-import { addNote } from '../../store/actions';
+import { addNote, editNote } from '../../store/actions';
 
 
 class NoteForm extends React.Component {
   state = {
-    title: '',
-    description: ''
+      title: '',
+      description: '',
+      id: null,
+      editNote: false
   }
+
+  filterProps = () => {
+    this.props.notes.forEach(note => {
+      if (parseInt(this.props.match.params.id, 10) === note.id) {
+        this.setState({...note});
+      }
+    });
+  };
+
+  componentDidMount() {
+    this.filterProps();
+    this.setState({ editNote: true })
+
+  }
+
+  componentWillReceiveProps() {
+    this.setState({ title: '', description: '', editNote: false })   
+  }
+
 
   handleChange = e => {
     this.setState({
@@ -18,14 +39,16 @@ class NoteForm extends React.Component {
 
   handleClick = e => {
     e.preventDefault();
-    this.props.addNote(this.state);
-    this.setState({ title: '', description: '' })
+    this.props.editNote? this.props.editNote(this.state):this.props.addNote(this.state);
+    this.setState({ title: '', description: '', editNote: false });
+    this.props.history.push('/noteform');
   }
+
 
   render() {
     return (
       <form>
-        <h2>Create New Note:</h2>
+        <h2>{this.state.editNote? 'Edit Note:':'Create New Note:'}</h2>
         <input 
           name='title' 
           type='text' 
@@ -40,7 +63,7 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         >
         </textarea>
-        <button type='submit' onClick={this.handleClick}>Save</button>
+        <button type='submit' onClick={this.handleClick}>{this.state.editNote? 'Update':'Save'}</button>
       </form>
     );
   }
@@ -54,5 +77,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addNote }
+  { addNote, editNote }
 )(NoteForm);

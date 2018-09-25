@@ -15,7 +15,7 @@ class App extends Component {
           <Link to='/noteform'>+ Create New Note</Link>
         </div>
         <Route exact path='/' component={NoteList} />
-        <Route path='/noteform' component={NoteForm} />
+        <Route exact path='/noteform/:id?' render={props => <NoteForm {...props} />} />
         <Route path='/notes/:id' render={props => <ViewPage {...props} />} />
       </div>
     );

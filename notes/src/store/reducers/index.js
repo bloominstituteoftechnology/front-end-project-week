@@ -1,9 +1,9 @@
-import { ADD_NOTE, DELETE_NOTE } from '../actions';
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from '../actions';
 
 const initialState = {
   notes: [
     {
-      id: 0,
+      id: 1,
       title: 'Note title1',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
@@ -40,6 +40,15 @@ export const noteReducers = (state = initialState, action) => {
         ...state.notes.slice(0, position),
         ...state.notes.slice(position + 1)
       ]}
+
+      case EDIT_NOTE:
+        let editPosition = state.notes.findIndex(note => note.id === action.payload.id);
+        console.log(editPosition)
+        return { notes: [
+          ...state.notes.slice(0, editPosition),
+          {id: action.payload.id, title: action.payload.title, description: action.payload.description},
+          ...state.notes.slice(editPosition + 1)
+        ]};
 
     default:
       return state;

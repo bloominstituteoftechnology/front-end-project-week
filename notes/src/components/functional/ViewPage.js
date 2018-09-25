@@ -31,13 +31,17 @@ class ViewPage extends React.Component {
     e.preventDefault();
     this.props.deleteNote(this.state.note)
     this.props.history.goBack();
+  }
 
+  editClick = (e) => {
+    e.preventDefault();
+    this.props.history.push(`/noteform/${this.state.note.id}`)
   }
 
   render() {
     return (
       <div>
-        <button>Edit</button>
+        <button onClick={this.editClick}>Edit</button>
         <button onClick={this.toggleModal}>Delete</button>
         <div>
           <h3>{this.state.note.title}</h3>
