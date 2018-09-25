@@ -31,6 +31,7 @@ class App extends Component {
         });
       })
       .catch(error => {
+        console.error("Server Error", error);
         this.setState({
           errorMessage: "Error fetching notes!"
         });
@@ -39,16 +40,6 @@ class App extends Component {
         }, 2000);
       });
   }
-  // addNote = event => {
-  //   event.preventDefault();
-  //   const notes = this.state.notes.slice();
-  //   notes.push({
-  //     content: this.state.content,
-  //     title: this.state.title,
-  //     id: Date.now()
-  //   });
-  //   this.setState({ notes, title: "", content: "" });
-  // };
 
   setErrorHandler = errMsg => {
     this.setState({ errorMessage: errMsg });
@@ -69,7 +60,10 @@ class App extends Component {
           errorMessage: null
         });
       })
-      .catch(error => this.setErrorHandler("Error creating note!"));
+      .catch(error => {
+        console.error("Server Error", error);
+        this.setErrorHandler("Error creating note!");
+      });
     this.setState({
       title: "",
       content: ""
@@ -106,7 +100,7 @@ class App extends Component {
 
   preventSubmit = event => {
     const key = event.charCode || event.keyCode || 0;
-    if (key == 13) {
+    if (key === 13) {
       event.preventDefault();
     }
   };

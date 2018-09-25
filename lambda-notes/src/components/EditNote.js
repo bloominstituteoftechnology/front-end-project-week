@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Input, Row, Container, Col } from "reactstrap";
+import axios from "axios";
 
 import "./EditNote.css";
 
@@ -7,17 +8,24 @@ class EditNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: props.notes,
       note: {},
       title: "",
       content: ""
     };
   }
   componentDidMount() {
-    let noteID = this.props.match.params.id;
-    const note = this.state.notes.find(note => note.id === Number(noteID));
-    if (!note) return;
-    this.setState({ note, title: note.title, content: note.content });
+    axios
+      .get(`http://localhost:7000/api/notes/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState(() => ({
+          note: response.data,
+          title: response.data[0].title,
+          content: response.data[0].content
+        }));
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
   }
 
   handleSubmit = event => {
@@ -50,7 +58,7 @@ class EditNote extends React.Component {
                 onChange={this.handleInputChange}
                 type="text"
                 name="title"
-                placeholder="Note Title"
+                // placeholder={this.state.title}
                 style={{ marginTop: 30 + "px", border: "2px solid lightgray" }}
                 value={this.state.title}
               />
@@ -60,7 +68,7 @@ class EditNote extends React.Component {
             onChange={this.handleInputChange}
             type="textarea"
             name="content"
-            placeholder="Note Content"
+            // placeholder={this.state.content}
             rows="15"
             style={{ marginTop: 15 + "px", border: "2px solid lightgray" }}
             value={this.state.content}
