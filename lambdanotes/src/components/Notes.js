@@ -1,10 +1,13 @@
 import React from 'react';
+import './Notes.css';
 
 
-function Notes(props) {
+function Notes() {
 return (
-    <div>
-        <h1>{props.notes}</h1>
+    <div className ="card">
+        <h3 className="cardtitle">This is a card</h3>
+        <hr/>
+        <p>Notes</p>
     </div>
 )
 }

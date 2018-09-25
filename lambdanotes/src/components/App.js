@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SideBar from './SideBar';
 import NoteView from './NoteView';
 import CreateNew from './CreateNew';
-import Notes from './Notes';
+// import Notes from './Notes';
 import './App.css';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
         </Switch>
         </div>
       </div>
-        </Router>
+      </Router>
           
        
     );

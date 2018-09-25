@@ -2,13 +2,17 @@
     height: 400px;
     width: 600px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: top;
+    align-items: left;
     padding-top: 10%;
 }
 
 .cards{
+    width: 33%;
 
+}
 
+.statement {
+    font-family: 'Permanent Marker', cursive;
 }
