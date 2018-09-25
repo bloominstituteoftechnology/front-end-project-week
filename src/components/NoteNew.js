@@ -40,11 +40,12 @@ class NoteNew extends Component {
       this.props.history.push("/")
     }
     else {
+      const formattedTags = this.state.tags.split(",").map(word => word.trim())
       const newNote = {
         id: Date.now(),
         title: this.state.title,
         text: this.state.text,
-        tags: this.state.tags,
+        tags: formattedTags,
       }
       const emptyNote = {
         title: '',
@@ -81,7 +82,7 @@ class NoteNew extends Component {
           <Input
             name="tags"
             type="text"
-            placeholder="Tags"
+            placeholder="Tags (with commas)"
             value={this.state.tags}
             onChange={this.handleChange}
             required

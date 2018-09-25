@@ -10,9 +10,14 @@ const NotesMain = (props) => {
           props.notes.map(note => 
             <Div2 key={note.id}>
               <H3>{note.title}</H3>
-              <P>Note Tags: {note.tags}</P>
+              <P>Note Tags:<br />
+                {
+                  note.tags.map(function(note, index) {
+                    return <span key={`tag${index}`}>{ (index ? ', ' : '') + note }</span>; 
+                  })
+                }
+              </P>
               <P>{note.text.substring(0, 20)}...</P>
-
               <Link to={`/notes/${note.id}`}>
                 <Button>View Note</Button>
               </Link>
