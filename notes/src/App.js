@@ -151,6 +151,25 @@ class App extends Component {
 
   /* Misc. methods */
 
+  clone = () => {
+    const { notes, note } = this.state;
+    const { title, text } = note;
+    if (title === '') return null;
+    axios.post(URL, { title, text })
+      .then(({ data }) => {
+        this.setState({
+          notes: [{
+            id: data,
+            title,
+            text
+          }, ...notes],
+          title: '',
+          text: ''
+        });
+      })
+      .catch(err => console.error(err));
+  };
+
   search = e => {
     let filteredNotes;
     if (e.target.value === '') filteredNotes = null;
@@ -257,6 +276,7 @@ class App extends Component {
               <div className="single-note-card">
                 <Link to="/notes/delete" onClick={this.toggleModal}>delete</Link>
                 <Link to="/edit">edit</Link>
+                <Link to="/" onClick={this.clone}>clone</Link>
                 <Note note={this.state.note} view="single" />
               </div>
             )}
