@@ -9,6 +9,7 @@ import EditNoteForm from "./components/EditNote/editnoteform";
 class App extends Component {
   componentDidMount(){
 //   this.props.getNotes();
+
   }
   render(){
     return (
