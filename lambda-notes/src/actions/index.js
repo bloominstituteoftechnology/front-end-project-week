@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// getNotes action creator TODO: fill in logic
+// getNotes action creator
 export const getNotes = () => {
   return dispatch => {
     axios
@@ -14,8 +14,17 @@ export const getNotes = () => {
   }
 }
 
-// addNotes action creator TODO: fill in logic
-export const addNote = () => {}
+// addNotes action creator
+export const addNote = newNote => {
+  return dispatch => {
+    axios
+      .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
+      .then(() => getNotes()(dispatch))
+      .catch(error => {
+        dispatch({ type: 'ERROR', payload: error });
+      });
+  }
+}
 
 // getNote action creator TODO: fill in logic
 export const getNote = () => {}
