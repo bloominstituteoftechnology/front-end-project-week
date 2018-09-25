@@ -4,4 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './components/App';
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+// redux imports
+import { Provider } from 'react-redux';
+
+ReactDOM.render(<Router><Provider><App /></Provider></Router>, document.getElementById('root'));
