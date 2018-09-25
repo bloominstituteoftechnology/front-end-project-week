@@ -6,7 +6,7 @@ import SideBar from './SideBar';
 import NoteListPage from './NoteListPage';
 import NotePage from './NotePage';
 import NewNotePage from './NewNotePage';
-import EditNotePage from './EditNotePage';
+// import EditNote from './EditNote';
 // Styles
 import '../styles/App.css';
 
@@ -16,9 +16,9 @@ class App extends Component {
 			<div className="App">
 				<SideBar />
 				<Route exact path="/" component={NoteListPage} />
-				<Route path={`/note/:id`} component={NotePage} />
+				<Route path={`/:id`} component={NotePage} />
 				<Route path="/new" component={NewNotePage} />
-				<Route path="/edit" component={EditNotePage} />
+				{/* <Route path="/edit" component={EditNote} /> */}
 			</div>
 		);
 	}
