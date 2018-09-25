@@ -9,14 +9,15 @@ import { Form, Input, Textarea, Button } from '../style/noteFormStyle';
 class NoteForm extends React.Component {
   state = {
       title: '',
-      description: '',
-      id: null,
+      textBody: '',
+      _id: null,
   }
 
   filterProps = () => {
     this.props.notes.forEach(note => {
-      if (parseInt(this.props.match.params.id, 10) === note.id) {
+      if (this.props.match.params.id === note._id) {
         this.setState({...note});
+        console.log(note)
       }
     });
   };
@@ -27,7 +28,7 @@ class NoteForm extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.setState({ title: '', description: '' })   
+    this.setState({ title: '', textBody: '' })   
   }
 
 
@@ -41,7 +42,7 @@ class NoteForm extends React.Component {
     e.preventDefault();
     const pathName = this.props.match.url;
     pathName === '/noteform'? this.props.addNote(this.state): this.props.editNote(this.state);
-    this.setState({ title: '', description: '' });
+    this.setState({ title: '', textBody: '' });
     this.props.history.push('/');
   }
 
@@ -59,9 +60,9 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         />
         <Textarea  
-          name='description' 
+          name='textBody' 
           placeholder='Note Content' 
-          value={this.state.description}
+          value={this.state.textBody}
           onChange={this.handleChange}
         >
         </Textarea>

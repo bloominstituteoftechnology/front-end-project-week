@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { deleteNote } from "../../store/actions";
+import { deleteNote, getData } from "../../store/actions";
 import Modal from '../presentational/Modal';
 
 import { Button, ViewContainer } from '../style/noteStyle';
@@ -14,15 +14,16 @@ class ViewPage extends React.Component {
 
   filterProps = () => {
     this.props.notes.forEach(note => {
-      if (parseInt(this.props.match.params.id, 10) === note.id) {
-        this.setState({note});
+      if (this.props.match.params.id === note._id) {
+        this.setState({note: note});
       }
     });
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.filterProps();
   }
+
 
   toggleModal = e => {
     e.preventDefault();
@@ -31,17 +32,18 @@ class ViewPage extends React.Component {
 
   deleteClick = (e) => {
     e.preventDefault();
-    this.props.deleteNote(this.state.note)
+    this.props.deleteNote(this.state.note._id)
     this.props.history.goBack();
   }
 
   editClick = (e) => {
     e.preventDefault();
-    this.props.history.push(`/noteform/${this.state.note.id}`)
+    this.props.history.push(`/noteform/${this.state.note._id}`)
   }
 
   render() {
-    const description = this.state.note.description.split('\n');
+    const description = this.state.note.textBody === undefined? []:this.state.note.textBody.split('\n');
+    // console.log(description)
     return (
       <ViewContainer>
         <Button onClick={this.editClick} className='left'>edit</Button>
@@ -70,5 +72,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { deleteNote }
+  { deleteNote, getData }
 )(ViewPage);

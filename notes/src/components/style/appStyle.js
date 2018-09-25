@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const AppStyle = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 100vh
 `
 
 export const Navigation = styled.div`
+  position: fixed;
   width: 20%;
   background: #D3D2D3;
   padding: 0 2%; 
+  height: 100vh;
 
   h1 {
     padding: 20px 0;
@@ -30,5 +31,6 @@ export const Navigation = styled.div`
 
 export const Main = styled.div`
   background: #F2F1F2;
+  margin-left: 20%;
   width: 80%;
 `

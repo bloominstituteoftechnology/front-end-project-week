@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { AppStyle, Navigation, Main } from './components/style/appStyle';
 
-import NoteList from './components/presentational/NoteList';
+import NoteList from './components/functional/NoteList';
 import NoteForm from './components/functional/NoteForm';
 import ViewPage from './components/functional/ViewPage';
 
