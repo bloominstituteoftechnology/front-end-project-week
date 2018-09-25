@@ -88,7 +88,7 @@ class App extends Component {
       selectedNote.editing = false;
       axios.put(`http://localhost:8700/notes/${noteId}`, selectedNote).then(response => {
         axios.get('http://localhost:8700/notes').then(res2 => {
-          this.setState({ newTitle: '', newNote: '', notes: res2.data })
+          this.setState({ newTitle: '', newNote: '', notes: res2.data, editing: false })
         }).catch(err => {
           console.error(err);
         })
