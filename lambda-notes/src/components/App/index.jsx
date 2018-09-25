@@ -1,26 +1,27 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import "../components.css";
 import axios from "axios";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { getNotes, addNote } from '../../actions';
+import { getNotes, addNote } from "../../actions";
 import Form from "../Form";
 import Note from "../Note";
 import NoteList from "../NoteList";
 import Sidebar from "../SideBar";
 
 class App extends Component {
+  // refactored for redux
   state = {
-    notes: [],
     title: "",
     textBody: ""
   };
 
   // component did mount and refecth the notes from the api
   componentDidMount() {
-    this.refetchNotes();
+    //this.refetchNotes();
+    // refactored for redux
+    this.props.getNotes();
   }
-
 
   // refetch notes
   refetchNotes = () => {
@@ -37,38 +38,27 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // handle form submit
+  // handle form submit -- refactored for redux
   handleFormSubmit = e => {
     e.preventDefault();
-
-    const newNote = {
+    this.props.addNote({
       title: this.state.title,
       textBody: this.state.textBody
-    };
-
-    axios
-      .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
-      .then(response => {
-        this.refetchNotes();
-        this.setState({
-          title: "",
-          textBody: ""
-        });
-      })
-      .catch(error => console.log(error));
-
+    });
+    this.setState({ title: "", textBody: "" });
     this.props.history.push("/");
   };
 
+  // refactored for redux
   render() {
     return (
-      <div className="container">
+      <div className="wrapper">
         <Sidebar />
 
         <Route
           exact
           path="/"
-          render={props => <NoteList notes={this.state.notes} />}
+          render={props => <NoteList notes={this.props.notes} />}
         />
 
         <Switch>
@@ -85,10 +75,7 @@ class App extends Component {
             )}
           />
 
-          <Route
-            path="/notes/:id"
-            render={props => <Note {...props} refetchNotes={this.refetchNotes} />}
-          />
+          <Route path="/notes/:id" render={props => <Note {...props} />} />
         </Switch>
       </div>
     );
@@ -98,7 +85,12 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes
-  }
-}
+  };
+};
 
-export default withRouter(connect(mapStateToProps, { getNotes, addNote })(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes, addNote }
+  )(App)
+);
