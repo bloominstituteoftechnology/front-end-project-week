@@ -15,8 +15,9 @@ class CreateNew extends Component {
         </div>
         <div className="comment-form">
         <form>
-            <input className="comment"type ="text" value="New Notes"/>
+            <input className="comment" type ="text" value="New Notes"/>
         </form>
+        <button className="savebutton"><span>Save</span></button>
         </div>
       </div>
     
