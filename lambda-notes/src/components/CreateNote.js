@@ -11,7 +11,6 @@ class CreateNote extends React.Component {
             _id: null
         }
     }
-
     handleInput = (event, props) => {
         this.setState({
             [event.target.name]: event.target.value,
