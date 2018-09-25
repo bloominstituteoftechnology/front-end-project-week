@@ -48,7 +48,7 @@ class NotesList extends Component {
         super(props);
 
         this.state = {
-            
+        
         }
     }
 
@@ -61,16 +61,18 @@ class NotesList extends Component {
                 
                 <div className="sorting"> 
                 Sort by:&nbsp;
-                <button className="sort-btn" onClick={() => this.props.sortList(0)}>Unsorted</button>
-                <button className="sort-btn" onClick={() => this.props.sortList(1)}>Title A-Z</button>
-                <button className="sort-btn" onClick={() => this.props.sortList(2)}>Title Z-A</button>
-                <button className="sort-btn" onClick={() => this.props.sortList(3)}>Text A-Z</button>
-                <button className="sort-btn" onClick={() => this.props.sortList(4)}>Text Z-A</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(0)}>ID 0-9</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(1)}>ID 9-0</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(2)}>Title A-Z</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(3)}>Title Z-A</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(4)}>Text A-Z</button>
+                <button className="sort-btn" onClick={() => this.props.sortList(5)}>Text Z-A</button>
                 </div>
 
                 <h2 className="notesListTitle">Your Notes:</h2>
                 <div className="notesInnerDiv">
-                {this.props.notes.map(note => <Link to={`/notes/${note.id}`}><Note note={note} key={note._id} /></Link>)}
+                {this.props.notes.map(note => <Link to={`/notes/${note.id}`}><Note note={note} key={note.id} /></Link>)}
+                
                 </div>
                 <div className="CSV"><CSVLink data={this.props.notes}>Download CSV of Notes</CSVLink></div>
             
