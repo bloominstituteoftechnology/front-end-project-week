@@ -17,7 +17,6 @@ class Note extends Component {
     axios
       .get(`http://localhost:8000/api/notes/${this.props.id}`)
       .then(response => {
-        console.log(response.data[0]);
         let tags = response.data[0].tags.split(",");
         this.setState({
           note: response.data[0],

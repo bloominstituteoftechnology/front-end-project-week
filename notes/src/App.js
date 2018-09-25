@@ -41,24 +41,16 @@ class App extends Component {
   }*/
 
   addNote = note => {
-    let notes = this.state.notes.slice();
-    let tags = this.state.tags.slice();
-    let newTags = note.tags.split(",");
     console.log(note);
     axios
       .post(`http://localhost:8000/api/notes`, note)
       .then(response => {
         console.log(response);
+        this.setState();
       })
       .catch(err => {
         console.log("Error adding new note");
       });
-
-    notes = [...this.state.notes, note];
-    newTags.forEach(tag => {
-      if (!tags.includes(tag)) tags.push(tag);
-    });
-    this.setState({ notes: notes, tags: tags });
   };
 
   updateNote = note => {
@@ -79,7 +71,7 @@ class App extends Component {
     notes = notes.filter(note => note.id !== this.state.selectedNoteID);
 
     axios
-      .delete(`http://localhost:8000/api/notes${this.state.selectedNoteID}`)
+      .delete(`http://localhost:8000/api/notes/${this.state.selectedNoteID}`)
       .then(response => {
         console.log(response + " deleted successfully");
         this.setState({ notes: notes, deleteModalToggle: false });
@@ -95,17 +87,7 @@ class App extends Component {
         <div className="container">
           <Sidebar />
           <div className="notes-view">
-            <Route
-              exact
-              path="/"
-              render={routeProps => (
-                <ListView
-                  {...routeProps}
-                  notes={this.state.notes}
-                  tags={this.state.tags}
-                />
-              )}
-            />
+            <Route exact path="/" component={ListView} />
             <Route
               exact
               path="/new-note"
