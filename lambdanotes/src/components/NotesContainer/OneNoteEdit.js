@@ -45,14 +45,17 @@ class OneNoteEdit extends Component {
 
 	render() {
 		return (
-			<div className="Onenoteedit">
-				<form>
+			<div className="main-container">
+				<h1 className="note-header">Edit Note:</h1>
+				<form className="edit-form">
 					<input
+						className="form titleinput-edit"
 						value={this.state.title}
 						name="title"
 						onChange={this.handleChange}
 					/>
 					<textarea
+						className="form bodyinput"
 						value={this.state.body}
 						name="body"
 						onChange={this.handleChange}

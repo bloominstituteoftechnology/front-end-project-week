@@ -157,6 +157,11 @@ input[type="textarea"] {
 	margin-bottom: 20px;
 	resize: none;
 }
+.form.titleinput-edit {
+	width: 30%;
+	height: 40px;
+	margin-bottom: 20px;
+}
 .forms {
 	display: flex;
 	flex-flow: column;
@@ -194,7 +199,12 @@ input[type="textarea"] {
 	font-size: 19px;
 	text-align: center;
 }
-
+.edit-form {
+	display: flex;
+	flex-flow: column;
+	width: 80vw;
+	margin-left: 1.5%;
+}
 .main-header {
 	width: 15%;
 	margin-top: 100px;
