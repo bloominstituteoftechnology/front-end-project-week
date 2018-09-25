@@ -17,7 +17,7 @@ class ListItem extends React.Component {
         }}>
           <h2 className="note-card-title">{this.props.note.title}</h2>
         </Link>
-        <p className="note-card-text">{this.props.note.textBody}</p>
+        <p className="note-card-text">{this.props.note.textBody.length > 100 ? this.props.note.textBody.slice(0, 101) + ' ...' : this.props.note.textBody }</p>
       </div>
     )
   }
