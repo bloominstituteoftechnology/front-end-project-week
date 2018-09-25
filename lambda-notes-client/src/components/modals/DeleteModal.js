@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from "react-emotion";
+import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { updateNotes } from '../../store/actions'; 
 
 
 const Container = styled("div")`
@@ -68,32 +72,65 @@ const Modal = styled("div")`
 `;
 
 
-const DeleteModal = props => {
-  const handleDelete = () => {
-    props.history.goBack();
-    props.deleteNote(props.id);
-    props.handleModal();
+class DeleteModal extends React.Component {  
+
+
+  handleDelete = () => {
+    const token = localStorage.getItem('jwt')
+    const { id } = this.props;
+    const reqOptions = {
+      headers: {
+        Authorization: token,
+      }
+    }
+
+    axios.delete(`http://localhost:8000/protected/notes/${id}`, reqOptions)
+    .then(res => {
+      axios.get('http://localhost:8000/protected/notes', reqOptions)
+      .then(res => {
+        this.props.updateNotesHandler(res.data)
+        this.props.handleModal();
+        this.props.history.goBack();
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    })
+    .catch(err => console.log(err))
   };
 
-  const handleClose = () => props.handleModal();
+  handleClose = () => this.props.handleModal();
 
-  return (
-    <Container>
-      <Opacity onClick={() => handleClose()} />
-      <Modal>
-        <p>Are you sure you want to delete this?</p>
-        <div>
-          <button className="first" onClick={() => handleDelete()}>
-            Delete
-          </button>
-          <button className="last" onClick={() => handleClose()}>
-            No
-          </button>
-        </div>
-      </Modal>
-    </Container>
-  );
+
+  render() {
+    return (
+      <Container>
+        <Opacity onClick={() => this.handleClose()} />
+        <Modal>
+          <p>Are you sure you want to delete this?</p>
+          <div>
+            <button className="first" onClick={() => this.handleDelete()}>
+              Delete
+            </button>
+            <button className="last" onClick={() => this.handleClose()}>
+              No
+            </button>
+          </div>
+        </Modal>
+      </Container>
+    );
+  }
 };
 
-export default DeleteModal;
+
+const mapDispatchToProps = dispatch => ({
+  updateNotesHandler: lePackage => {
+    dispatch(updateNotes(lePackage));
+  }
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(DeleteModal);
 

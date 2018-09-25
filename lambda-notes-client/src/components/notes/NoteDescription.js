@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from "react-emotion";
+import { connect } from 'react-redux';
 
 import DeleteModal from '../modals/DeleteModal';
-import AddNoteTagsForm from '../forms/AddNoteTagsForm';
 
 
 const Main = styled("main")`
@@ -86,68 +86,58 @@ const Main = styled("main")`
 `;
 
 
-const NoteDescription = props => {
+class NoteDescription extends React.Component {
 
-  let note = props.notes.filter(
-    item => item.id === props.match.params.id
-  );
+  
+  render() {
+  
+    let note = this.props.notes.filter(
+      item => item.id === parseInt(this.props.match.params.id, 10)
+    );
 
-  //Handle Errors
-  if (note.length === 0) {
-    return <h1>Loading...</h1>;
-  } else {
-    return (
-      <Main>
-
-        {/*Body - handles modal*/}
-        <header className="links-header">
-          <Link className="link" to={`/notes/${note[0].id}/edit`}>
-            edit
-          </Link>
-          <a className="link" onClick={props.handleModal}>
-            delete
-          </a>
-        </header>
-
-        <article>
-          <h2>{note[0].title}</h2>
-          <p>{note[0].description}</p>
-        </article>
-
-        <section className="tags-section">
-          <AddNoteTagsForm 
-            addNoteTag={props.addNoteTag} 
-            id={note[0].id}
-          />
-          <div className="tag-content">
-            {note[0].tags.map(item => {
-              return (
-                <div className="tag">
-                  <p className="tag-text">{item}</p>
-                  <span 
-                    className="tag-delete" 
-                    onClick={() => props.deleteTag(item, note[0].id)}
-                  >
-                  X
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/*Modal - handles delete*/}
-        {props.isModalOpen ? (
-          <DeleteModal
-            history={props.history}
-            id={note[0].id}
-            deleteNote={props.deleteNote}
-            handleModal={props.handleModal}
-          />
-        ) : null}
+    if (note.length === 0) {
+      return <h1>Loading...</h1>;
+    } else {
+      return (
+        <Main>
+  
+          {/*Body - handles modal*/}
+          <header className="links-header">
+            <Link className="link" to={`/notes/${note[0].id}/edit`}>
+              edit
+            </Link>
+            <a className="link" onClick={this.props.handleModal}>
+              delete
+            </a>
+          </header>
+  
+          <article>
+            <h2>{note[0].title}</h2>
+            <p>{note[0].description}</p>
+          </article>
+  
+  
+          {/*Modal - handles delete*/}
+          {this.props.isModalOpen ? (
+            <DeleteModal
+              history={this.props.history}
+              id={note[0].id}
+              deleteNote={this.props.deleteNote}
+              handleModal={this.props.handleModal}
+            />
+          ) : null}
       </Main>
     );
   }
+  }
 };
 
-export default NoteDescription;
+
+const mapStateToProps = state => ({
+  notes: state.notes
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(NoteDescription);

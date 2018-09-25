@@ -4,6 +4,15 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const ADD_TAG = 'ADD_TAG';
 export const DELETE_TAG = 'DELETE_TAG';
 
+export const UPDATE_NOTES = 'UPDATE_NOTES';
+
+
+export const updateNotes = lePackage => {
+  return {
+    type: UPDATE_NOTES,
+    payload: lePackage
+  }
+}
 
 export const deleteNote = id => {
   return {

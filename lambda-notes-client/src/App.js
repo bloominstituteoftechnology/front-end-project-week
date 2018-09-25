@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { NavLink, Route, withRouter } from 'react-router-dom';
 import styled from "react-emotion";
 import './index.css';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
-import { deleteNote, editNote, addNote, addNoteTag, deleteTag } from './store/actions'; 
+import { updateNotes } from './store/actions';
+
 
 import Home from './Home';
 import NotesContainer from './containers/NotesContainer';
@@ -67,11 +70,34 @@ const MainContainer = styled("div")`
 `
 
 
-// Handles - Routing, passing initial state, modal ~&&~ delete, edit, add notes*/
 class App extends Component {
   state = {
     atHomePage: false,
     isModalOpen: false
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('jwt')) {
+      const token = localStorage.getItem('jwt')
+      const reqOptions = {
+        headers: {
+          Authorization: token,
+        }
+      }
+      axios.get('http://localhost:8000/protected/notes', reqOptions)
+      .then(res => {
+        this.props.updateNotesHandler(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    } else {
+      this.props.history.push('/')
+    }
+  }
+
+  logout = () => {
+    this.props.history.push('/')
   }
 
   atHomeToggle = () => {
@@ -86,33 +112,8 @@ class App extends Component {
     });
   }
 
-  deleteNote = (id) => {
-    this.props.deleteNoteHandler(id)
-  }
-
-  editNote = (content) => {
-    this.props.editNoteHandler(content);
-  }
-  
-  addNote = (content) => {
-    this.props.addNoteHandler(content);
-  }
-
-  addNoteTag = (newTag) => {
-    this.props.addNoteTagHandler(newTag);
-  }
-  
-  deleteTag = (text, id) => {
-    let newText = {
-      tag: text,
-      id: id
-    }
-    this.props.deleteTagHandler(newText);
-  }
-
   render() {
     return (
-      <Router>
         <MainContainer>
           <header className="main-header">
             <div>
@@ -122,14 +123,17 @@ class App extends Component {
             </div>
             <nav>
               {!this.state.atHomePage ? (
-                <NavLink className="link" exact strict to="/notes">
-                  View Your Notes
-                </NavLink>
-              ) : null}
-              {!this.state.atHomePage ? (
-                <NavLink className="link" to="/notes/add-note/">
+                <div>
+                  <NavLink className="link" exact strict to="/notes">
+                    View Your Notes
+                  </NavLink>
+                  <NavLink className="link" to="/notes/add-note/">
                   +Create New Note
-                </NavLink>
+                  </NavLink>
+                  <button className="link" onClick={this.logout}>
+                  Log Out
+                  </button>
+                </div>
               ) : null}
             </nav>
           </header>
@@ -151,8 +155,6 @@ class App extends Component {
             render={props => (
               <AddNoteForm
                 {...props}
-                notes={this.props.notes}
-                addNote={this.addNote}
               />
             )}
           />
@@ -164,12 +166,8 @@ class App extends Component {
             render={props => (
               <NoteDescription
                 {...props}
-                notes={this.props.notes}
                 handleModal={this.handleModal}
                 isModalOpen={this.state.isModalOpen}
-                deleteNote={this.deleteNote}
-                addNoteTag={this.addNoteTag}
-                deleteTag={this.deleteTag}
               />
             )}
           />
@@ -179,44 +177,21 @@ class App extends Component {
             render={props => (
               <EditNoteForm
                 {...props}
-                notes={this.props.notes}
-                editNote={this.editNote}
               />
             )}
           />
         </MainContainer>
-      </Router>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  notes: state.notes
-});
-
 const mapDispatchToProps = dispatch => ({
-  deleteNoteHandler: id => {
-    dispatch(deleteNote(id));
-  },
-
-  editNoteHandler: content => {
-    dispatch(editNote(content));
-  },
-
-  addNoteHandler: content => {
-    dispatch(addNote(content));
-  },
-
-  addNoteTagHandler: content => {
-    dispatch(addNoteTag(content));
-  },
-
-  deleteTagHandler: text => {
-    dispatch(deleteTag(text));
+  updateNotesHandler: lePackage => {
+    dispatch(updateNotes(lePackage));
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default compose(
+  withRouter,
+  connect(null, mapDispatchToProps)
+)(App)

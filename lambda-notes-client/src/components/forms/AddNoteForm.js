@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import styled from "react-emotion";
+import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { updateNotes } from '../../store/actions'; 
 
 
 const Main = styled("main")`
@@ -70,20 +74,39 @@ const Main = styled("main")`
 class AddNoteForm extends Component {
   state = {
     title: '',
-    description: ''
+    content: ''
   }
 
   handleOnChange = e => this.setState({[e.target.name]: e.target.value});
 
   handleAddNote = (e) => {
     e.preventDefault();
-    let content = {
+    const token = localStorage.getItem('jwt')
+
+    const content = {
       title: this.state.title,
-      description: this.state.description
+      content: this.state.content
     }
-    this.props.addNote(content)
-    this.setState({title: '', description: ''})
-    this.props.history.push('/notes');
+
+    const reqOptions = {
+      headers: {
+        Authorization: token,
+      }
+    }
+
+    axios.post('http://localhost:8000/protected/notes', content, reqOptions)
+    .then(res => {
+      axios.get('http://localhost:8000/protected/notes', reqOptions)
+      .then(res => {
+        this.props.updateNotesHandler(res.data)
+        this.props.history.push('/notes')
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    })
+    .catch(err => console.log(err))
+    this.setState({title: '', content: ''})
   }
 
   render() {
@@ -105,8 +128,8 @@ class AddNoteForm extends Component {
             <textarea 
               type="text"
               placeholder="Note Content"
-              name="description" 
-              value={this.state.description} 
+              name="content" 
+              value={this.state.content} 
               onChange={this.handleOnChange}
             />
           </div>
@@ -117,4 +140,13 @@ class AddNoteForm extends Component {
   }
 }
 
-export default AddNoteForm;
+const mapDispatchToProps = dispatch => ({
+  updateNotesHandler: lePackage => {
+    dispatch(updateNotes(lePackage));
+  }
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AddNoteForm);

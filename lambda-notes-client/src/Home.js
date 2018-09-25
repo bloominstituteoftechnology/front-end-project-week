@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from "react-emotion";
 
-import { NavLink } from 'react-router-dom';
+import Register from './components/forms/user/Register';
+import Login from './components/forms/user/Login';
+
 
 const Main = styled("div")`
   margin-left: 25%;
@@ -9,30 +11,18 @@ const Main = styled("div")`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   h1 {
     font-size: 4.5rem;
     font-weight: bold;
     line-height: 43px;
     color: #4A494A;
+    margin-top: 20%;
   }
-  .enter-link {
+  div {
     display: flex;
-    margin-top: 20px;
-    padding: 18px;
-    width: 150px;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    background-color: #2AC0C4;
-    border: solid 1px #939797;
-    &:hover {
-        background-color: #23a0a4;
-      }
+    margin-top: 100px;
   }
 `;
 
@@ -50,9 +40,10 @@ class Home extends Component {
     return (
       <Main>
         <h1>Welcome</h1>
-        <NavLink className="enter-link" to="/notes">
-          Enter
-        </NavLink>
+        <div>
+          <Login {...this.props} />
+          <Register {...this.props} />
+        </div>
       </Main>
     );
   }
