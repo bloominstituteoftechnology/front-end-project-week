@@ -5,10 +5,10 @@ const SideBar = () => {
     return(
         <div>
             <h1>Lambda Notes</h1>
-            <NavLink to='/'>
+            <NavLink to='/list-view'>
                 <button>View Your Notes</button>
             </NavLink>
-            <NavLink to='/new-note'>
+            <NavLink to='/create-new'>
                 <button>+ Create New Note</button>
             </NavLink>
         </div>

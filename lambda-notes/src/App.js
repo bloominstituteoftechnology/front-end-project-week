@@ -5,6 +5,7 @@ import './App.css';
 import NoteList from './components/NoteList';
 import NewNote from './components/NewNote';
 import SideBar from './components/SideBar';
+import NoteView from './components/NoteView';
 
 class App extends Component {
   state={
@@ -25,11 +26,14 @@ class App extends Component {
     return(
       <div className="App">
         <SideBar />
-        <Route exact path='/' render={props => 
+        <Route path="/list-view" render={props => 
           <NoteList {...props} notes={this.state.notes} />
         } />
-        <Route path='/new-note' render={props =>
+        <Route path="/create-new" render={props =>
           <NewNote {...props} createNote={this.createNote} />
+        } />
+        <Route path="/notes/:id" render={props =>
+          <NoteView {...props} notes={this.state.notes} />
         } />
       </div> 
     ) 

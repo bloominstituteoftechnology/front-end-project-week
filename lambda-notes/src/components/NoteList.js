@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 const NoteList = props => {
     console.log('notelist props:', props)
@@ -7,9 +8,11 @@ const NoteList = props => {
             <h1>Your Notes:</h1>
             {props.notes.map(note => 
                 <div key={note.id}>
-                    <h2>{note.title}</h2>
-                    <p>{note.content}...</p>
-                </div>
+                    <NavLink to={`/notes/${note.id}`}>
+                        <h2>{note.title}</h2>
+                        <p>{note.content}...</p>
+                    </NavLink>  
+                </div> 
             )}
         </div>
     )
