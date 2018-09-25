@@ -37,14 +37,14 @@ handleChange = event => {
 
 handleAddNote = event => {
   const notes = this.state.notes.slice();
-  notes.push({title: this.state.name, 
+  notes.push({name: this.state.name, 
     content: this.state.content, 
     id: Date.now() });
     console.log('logging state in handleAddNote', this.state)
   this.setState({
     notes, 
-    title: '', 
-    textBody: ''
+    name: '', 
+    content: ''
   });
 }
 
@@ -56,7 +56,7 @@ handleTitleUpdate = event => {
   this.setState({
     selected: {
       id: this.state.notes.id,
-      title: event.target.value,
+      name: event.target.value,
       content: this.state.notes.content
     }
   })
@@ -67,7 +67,7 @@ handleBodyUpdate = event => {
     selected: {
       id: this.state.selected.id,
       name: this.state.selected.name,
-      textBody: event.target.value
+      content: event.target.value
     }
   })
 }
@@ -78,8 +78,8 @@ handleUpdateNote =id => {
       if (notes[i].id === Number(id)) {
         notes[i] = {
           id: this.state.selected.id,
-          title: this.state.selected.title,
-          textBody: this.state.selected.textBody
+          name: this.state.selected.name,
+          content: this.state.selected.content
         };
       }
     }
@@ -107,8 +107,8 @@ toggleDeleteNote = () => {
 
      <Route path = "/form" render={props =>
         (<NewNoteForm {...props}
-          title = {this.state.name}
-          textBody = {this.state.content}
+          name = {this.state.name}
+          content = {this.state.content}
           handleChange = {this.handleChange}
           handleAddNote = {this.handleAddNote}
           handleSubmit = {this.handleSubmit}

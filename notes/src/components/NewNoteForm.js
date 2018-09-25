@@ -11,60 +11,60 @@ class NewNoteForm extends Component {
         console.log('logging props in NewNoteForm', this.props)
         this.state = { 
             id: null,    
-            title: '',
-            textBody: ''
+            name: '',
+            content: ''
         };
     }
 
 componentDidMount() {
     this.setState({
         notes: this.props.notes,
-        title: '', 
-        textBody: ''
+        name: '', 
+        content: ''
     });
 }
   
-// handleAddNote = event => {
-//     event.preventDefault();
-//     // this.setState({loading: true});
-//       const note = {
-//           title: this.state.title,
-//           textBody: this.state.textBody
-//       };
+handleAddNote = event => {
+    event.preventDefault();
+    // this.setState({loading: true});
+      const note = {
+          name: this.state.name,
+          content: this.state.content
+      };
       
-//     // this.setState({
-//     //     id: null,
-//     //       notes: {
-//     //           id: null, 
-//     //           title: '', 
-//     //           textBody: ''
-//     //       }})
+    this.setState({
+        id: null,
+          notes: {
+              id: null, 
+              name: '', 
+              content: ''
+          }})
 
-//       axios
-//       .post("https://killer-notes.herokuapp.com/note/create", note)
-//       .then(response => {
-//           console.log('logging response in post method', response);
-//           this.props.handleSubmit(response.data)
-//           this.setState({
-//             title: '',
-//             textBody: ''
-//         })
-//         //   console.log('logging state in post attempt',this.state)
-//         //   console.log('logging history', this.props.history)
-//         //   this.props.history.push('/', this.state);
-//       })
-//       .catch(err =>
-//     console.log(err));
+      axios
+      .post('http://localhost:9000/api/notes', note)
+      .then(response => {
+          console.log('logging response in post method', response);
+          this.props.handleSubmit(response.data)
+          this.setState({
+            name: '',
+            content: ''
+        })
+        //   console.log('logging state in post attempt',this.state)
+        //   console.log('logging history', this.props.history)
+        //   this.props.history.push('/', this.state);
+      })
+      .catch(err =>
+    console.log(err));
 
-//     this.setState({
-//         title: '',
-//         textBody: ''
-//     });
-//   }
+    this.setState({
+        name: '',
+        content: ''
+    });
+  }
 
-//   handleChange = event => {
-//     this.setState({ [event.target.name]: event.target.value})
-//   };
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value})
+  };
   
 
     render(){
@@ -75,14 +75,14 @@ componentDidMount() {
                 </h2>
                 <input 
                 onChange = {this.handleChange} 
-                value = {this.state.title}
+                value = {this.state.name}
                 className = "note-title-input"
                 type="text"
                 placeholder="Note Title" 
                 />
                 <textarea
                 onChange = {this.handleChange} 
-                value = {this.state.textBody}
+                value = {this.state.content}
                 className = "note-content-input"
                 type = "text"
                 placeholder = "Note Content"

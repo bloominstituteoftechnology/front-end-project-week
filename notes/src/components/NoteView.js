@@ -5,30 +5,31 @@ import axios from 'axios';
 import './NoteView.css'
 
 class NoteView extends Component {
-   state = {
-       note: {},
-   }
+    constructor(props) {
+        super(props);
+        console.log('logging props in Noteview', this.props)
+        this.state = {}
+}
     
     componentDidMount() {
-        const id = this.state.match.params.id;
-        console.log('id match',this.state.match.params)
-        this.setState({ id: Number(id), notes: this.state.note})
+        const id = this.props.match.params.id;
+        console.log('id match',this.props.match.params)
+        this.setState({ id: Number(id), notes: this.state.notes})
     
-        axios.get(`http://localhost:9000/notes/id`)
+        axios.get(`http://localhost:9000/api/notes/${id}`)
         .then(response => {
-            this.setState({note: response.data})
+            this.setState({note: response.data[0]})
+            console.log('note',this.state.note)
+            console.log('state in noteview', this.state)
         })
         .catch(err => {
             console.log(err)
         })
     }
 
-    componentWillUnmount(){
-        this.mounted = false;
-    }
-
     filteredNotes = note => {
-        if(note.id === this.state.id) {
+        if(note.id === this.state.note.id) {
+            console.log('note in filtered notes',this.state.note)
             return(
                 <div className = "note-view"
                 key = {note.id}>
@@ -44,8 +45,8 @@ class NoteView extends Component {
                 </button>
                 </Link>
 
-                <h1>{note.title}</h1>
-                <p>{note.textBody}</p>
+                <h1>{this.state.note.name}</h1>
+                <p>{this.state.note.content}</p>
                 </div>
             )
         }
@@ -53,7 +54,7 @@ class NoteView extends Component {
 
     render() {
         return(
-            <div>{this.state.note.map(this.filteredNotes)}
+            <div>{this.filteredNotes}
             </div>
         )
     }
