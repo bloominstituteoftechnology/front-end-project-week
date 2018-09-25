@@ -1,5 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html, body, #root, .App {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: royalblue;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.button {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.navigation {
+  background-color: lightskyblue;
+  color: snow;
+  text-decoration: none;
+  width: 100%;
+}
+
+.navigation:hover {
+  background-color: paleturquoise;
+}
+
+.your-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 70px;
+  padding-left: 2rem;
+  background: #e8e8e8;
+  padding-right: 30px;
+}
+
+.your-notes h2 {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.your-notes .note {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 0px 0px rgba(0,0,0,0.30);
+  transition: box-shadow .2s ease;
+  border-radius: 2px;
+}
+
+.your-notes .note:nth-child(10n + 5) {
+  width: 100%;
+}
+
+.your-notes .note:nth-child(5n + 1) {
+  width: 59.5%;
+}
+
+
+.your-notes .note:hover {
+box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 2px 15px rgba(0,0,0,0.30);
+}
+
+.your-notes .note .note-container { 
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+  padding: 20px;
+  height: 100%;
+}
+
+.your-notes .note h3 {
+padding-bottom: 5px;
+margin-bottom: 10px;
+border-bottom: 1px solid goldenrod;
+font-size: 15px;
+
+}
+
+.view-note {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(240, 248, 255, .75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-note .note {
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 2px 15px rgba(0,0,0,0.30);
+  padding: 10px;
+}
+
+.view-note .button {
+  width: 150px;
+}
+
+.view-note .button:hover {
+  background-color: paleturquoise;
+}
+
+.view-note .delete {
+  background-color: lightskyblue;
+}
+
+.view-note .update {
+  background-color: lightskyblue;
 }

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import './App.css';
 import { YourNotes, Sidebar, Forms, ViewNote } from '../Container/';
 import { Header } from '../Presentational/';
 import { collectNotes, assembleNote, reviseNote, expungeNote } from '../../Store/Actions';
+import { Container, NotesMain } from '../Styles';
 
 class App extends Component {
 
@@ -17,10 +17,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
+        <Container>
         <Sidebar />
 
-        <main className="notes-main">
+       <NotesMain>
           <Route path="/forms/:form" render= { props => (
             <Forms {...props} 
             assembleNote={this.props.assembleNote} 
@@ -28,7 +28,7 @@ class App extends Component {
             />
           )}/>
 
-          <Route exact path="/notes" render= { props => (
+          <Route path="/notes" render= { props => (
             <YourNotes 
             {...props} 
             notes={this.props.notes} 
@@ -45,7 +45,8 @@ class App extends Component {
             expungeNote={this.props.expungeNote} 
             />
           )}/>
-        </main>
+        </NotesMain>
+        </Container>
 
       </div>
     );

@@ -5,7 +5,8 @@ export class YourNotes extends Component {
 
     render() {
         return (
-            <div>YOUR NOTES
+            <article className="your-notes">
+                <h2>Your Notes</h2>
                 {this.props.notes.map(note => (
                 <Note 
                 {...this.props} 
@@ -13,7 +14,8 @@ export class YourNotes extends Component {
                 note={note} 
                 />
                 ))}
-            </div>
+            </article>
         )
     }
 }
+

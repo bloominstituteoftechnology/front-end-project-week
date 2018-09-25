@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Note } from '../Presentational';
 
 export class ViewNote extends Component {
+    
+    hideModal = e => {
+        if (e.target.dataset.modal === 'modal') {
+        this.props.history.push('/notes');
+        }
+    }
 
     render() {
     let currentNote = this.props.notes.filter(note => (note._id.toString() === this.props.match.params.id.toString()));
@@ -10,7 +16,7 @@ export class ViewNote extends Component {
     }
 
     return (
-        <section className="view-note">
+        <section className="view-note" data-modal="modal" onClick={this.hideModal}>
         {
             <Note 
             {...this.props} 
