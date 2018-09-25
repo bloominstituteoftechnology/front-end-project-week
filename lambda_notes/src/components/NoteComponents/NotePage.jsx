@@ -108,7 +108,7 @@ export default class NotePage extends Component {
         return (
             <Wrapper>
                 <Header>
-                    <LinkD><NavLink to="/create-note" onClick={event => this.props.updateNote(event, this.state.note.id)} style={{color: "#4a494a" }}>Edit</NavLink></LinkD>
+                    <LinkD><NavLink to="/create-note" onClick={event => this.props.updateNoteForm(event, this.state.note._id)} style={{color: "#4a494a" }}>Edit</NavLink></LinkD>
                     <LinkD><NavLink to="/" onClick={this.toggle} style={{color: "#4a494a" }}>Delete</NavLink></LinkD>
                 </Header>
                 <h1>{this.state.note.title}</h1>

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Styled from 'styled-components';
-import { CardGroup } from 'mdbreact';
 
 import NoteList from './NoteList';
 

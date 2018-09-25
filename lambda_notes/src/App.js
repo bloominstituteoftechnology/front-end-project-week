@@ -77,15 +77,19 @@ class App extends Component {
   }
 
   updateNote = (id, note) => {
-    let nNote = this.state.notes.map(note => note).filter(note => note.id !== id);
-    nNote.unshift(note);
-    // console.log('NEW_NOTE',nNote)
-    this.setState({notes: nNote, isUpdating: false, filtered: false,}, () => this.props.history.push('/'));
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+      .then(response => {this.fetchData(); this.props.history.push(`/notes/${id}`);})
+      .catch(err => console.error('UPDATE_NOTE ERROR', err));
+
+    // let nNote = this.state.notes.map(note => note).filter(note => note.id !== id);
+    // nNote.unshift(note);
+    // // console.log('NEW_NOTE',nNote)
+    // this.setState({notes: nNote, isUpdating: false, filtered: false,}, () => this.props.history.push('/'));
   }
 
   updateNoteForm = (e, id) => {
     e.preventDefault();
-    const note = this.state.notes.map(note => note).filter(note => note.id === parseInt(id, 10));
+    const note = this.state.notes.map(note => note).filter(note => note._id === id);
     this.setState({isUpdating: !this.state.isUpdating, note: note, filtered: false,}, () => this.props.history.push('/create-note'))
   }
 
@@ -128,7 +132,7 @@ class App extends Component {
           <Route path="/notes/:id" render={ props => 
             <NotePage {...props}
               notes={this.state.notes}
-              updateNote={this.updateNoteForm}
+              updateNoteForm={this.updateNoteForm}
               removeNote={this.removeNote} />
           } />
         </Content>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Input, Fa } from 'mdbreact';
 import Styled from 'styled-components';
 
 const Wrapper = Styled.div`
@@ -34,12 +33,13 @@ class NoteCreateForm extends Component {
     };
 
     componentDidMount() {
-        const note = this.props.note;
+        const note = this.props.note[0];
+
         if (this.props.isUpdating) {
             this.setState({
-                tags: note[0].tags,
-                title: note[0].title,
-                textBody: note[0].textBody,
+                tags: note.tags,
+                title: note.title,
+                textBody: note.textBody,
             });
         }
     };
@@ -48,7 +48,7 @@ class NoteCreateForm extends Component {
         e.preventDefault();
 
         if (this.props.isUpdating) {
-            this.props.updateNote(this.state.id, this.state);
+            this.props.updateNote(this.props.note[0]._id, this.state);
             return;
         }
 

@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import Styled from 'styled-components';
-import { Card, CardImage, CardBody, CardTitle, CardText, Button, Fa } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
 import './Note.css';
 
