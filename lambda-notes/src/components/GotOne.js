@@ -35,7 +35,7 @@ class GotOne extends React.Component {
           <p onClick={this.confirmIt}>Delete</p>
         </div>
         <h2 className="single-card-title">{title}</h2>
-        <p className="single-card-text">{textBody}</p>
+        <p className="single-card-text" style={{whiteSpace: 'pre-line'}}>{textBody}</p>
         {
           this.state.showConfirm 
           ? <ConfirmDelete handleDelete={this.handleDelete} confirmIt={this.confirmIt} />
