@@ -66,11 +66,21 @@ class App extends Component {
   }
 
   editNoteSubmit = (noteID, title, text) => {
-    this.setState(function (prevState) {
-      return {
-        notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, text} : note )
-      }
-    } );
+    console.log(noteID);
+    axios.put(`${url}/${noteID}`, {
+      title: title,
+      text: text
+    })
+      .then(response => {
+        axios.get(`${url}`).then(response => {
+          this.setState({ notes: response.data })
+        })
+      })
+    // this.setState(function (prevState) {
+    //   return {
+    //     notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, text} : note )
+    //   }
+    // });
   }
 
   deleteNote = id => {
