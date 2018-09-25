@@ -21,11 +21,12 @@ const initialState = {
   selecting: false,
   error: null,
   select: null,
-  nextId: null
+  nextId: null,
+  sort: null
 };
 
 const reducerNote = (state = initialState, action) => {
-  const notes = state.notes
+  const notes = state.notes;
   switch (action.type) {
     case ADDING_NOTE:
       return { ...state, addingNote: true };
@@ -73,17 +74,15 @@ const reducerNote = (state = initialState, action) => {
     case GOT_NOTES:
       return { ...state, gettingNotes: false, notes: action.payload };
     case SORT_GREATEST:
-      
       notes.sort((a, b) => {
         return a.length < b.length;
       });
-      return  {...state, notes};
+      return { ...state, notes, sort: SORT_GREATEST };
     case SORT_LEAST:
-    
       notes.sort((a, b) => {
         return a.length > b.length;
       });
-      return {...state, notes};
+      return { ...state, notes, sort: SORT_LEAST };
     case ERROR:
       return {
         ...state,

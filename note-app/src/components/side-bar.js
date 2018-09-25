@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import { CSVLink } from "react-csv";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { greatToLeast, leastToGreat } from "../actions";
+import {
+  fetchingNotes,
+  addingNote,
+  updatingNote,
+  deletingNote,
+  selectingNote,
+  greatToLeast,
+  leastToGreat
+} from "../actions";
 
 class SideBar extends Component {
   constructor(props) {
@@ -67,10 +75,14 @@ class SideBar extends Component {
               : this.state.dummy
           }
         >
-          <button className="btn-side-bar">Download Notes To CSV</button>
+          <button className="btn-side-bar">Export To CSV</button>
         </CSVLink>
-        <button onClick = {this.props.greatToLeast} className="btn-side-bar">Sort Great to Least</button>
-        <button onClick = {this.props.leastToGreat} className="btn-side-bar">Sort Least to Great</button>
+        <button onClick={this.props.greatToLeast} className="btn-side-bar">
+          Sort Great to Least
+        </button>
+        <button onClick={this.props.leastToGreat} className="btn-side-bar">
+          Sort Least to Great
+        </button>
       </div>
     );
   }
@@ -86,11 +98,20 @@ const mapStateToProps = state => {
     selecting: state.selecting,
     error: state.error,
     select: state.select,
-    nextId: state.nextId
+    nextId: state.nextId,
+    sort: state.sort
   };
 };
 
 export default connect(
   mapStateToProps,
-  { greatToLeast, leastToGreat }
+  {
+    fetchingNotes,
+    addingNote,
+    updatingNote,
+    deletingNote,
+    selectingNote,
+    greatToLeast,
+    leastToGreat
+  }
 )(withRouter(SideBar));

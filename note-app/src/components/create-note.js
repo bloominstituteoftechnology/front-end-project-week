@@ -19,13 +19,17 @@ class CreateNote extends Component {
   };
 
   gatherCreation = () => {
-    const id = this.props.idGenerator();
+    //const id = this.props.idGenerator();
+    const _id = this.props.idGenerator();
     const time = moment(Date.now())
-    const tags = this.state.tags.split(/[ ,]+/).length
+    let tags = this.state.tags.split(/[ ,]+/).length
       ? this.state.tags.split(/[ ,]+/)
       : [];
+    // const tags = this.state.tags
+    tags = tags.join(",")
+    console.log(tags, "tags")
     const obj = {
-      id,
+      _id,
       tags,
       title: this.state.title,
       textBody: this.state.textBody,
@@ -34,6 +38,7 @@ class CreateNote extends Component {
       length: this.state.textBody.length
     };
     this.setState({ title: "", textBody: "", tags: "" });
+    console.log(obj);
     this.props.create(obj);
   };
 

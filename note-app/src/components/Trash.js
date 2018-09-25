@@ -38,7 +38,6 @@ class Trash extends React.Component {
 
   render() {
     const notes = this.props.notes;
-    console.log(this.props);
     return (
       <div className="main-container">
         <SideBar />

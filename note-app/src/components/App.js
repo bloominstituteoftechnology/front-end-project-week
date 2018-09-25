@@ -36,6 +36,12 @@ class App extends Component {
       select: null,
       images: [
         {
+          alt: "rhyme",
+          src: five,
+          className: "carousel-img",
+          link: "/rhyme-book"
+        },
+        {
           alt: "trash of notes img",
           src: two,
           className: "carousel-img",
@@ -46,12 +52,6 @@ class App extends Component {
           src: four,
           className: "carousel-img",
           link: "/search"
-        },
-        {
-          alt: "rhyme",
-          src: five,
-          className: "carousel-img",
-          link: "/rhyme-book"
         },
         {
           alt: "Create Note image",
@@ -65,6 +65,7 @@ class App extends Component {
           className: "carousel-img",
           link: "/"
         }
+        
       ]
     };
   }
@@ -112,6 +113,7 @@ class App extends Component {
 
   updateNote = (index, noteObj) => {
     this.props.updatingNote(index, noteObj);
+    setTimeout(this.fetchingNotes, 1500); 
   };
 
   deleteNote = index => {
@@ -155,6 +157,13 @@ class App extends Component {
     );
     this.setState({ images });
   };
+
+  greatToLeast() {
+    this.props.greatToLeast();
+  }
+  leastToGreat() {
+    this.props.leastToGreat();
+  }
 
   render() {
     return (
@@ -285,7 +294,8 @@ const mapStateToProps = state => {
     selecting: state.selecting,
     error: state.error,
     select: state.select,
-    nextId: state.nextId
+    nextId: state.nextId,
+    sort: state.sort
   };
 };
 

@@ -30,7 +30,8 @@ class EditNote extends Component {
     } else {
       tags = this.state.tags;
     }
-
+    tags = tags.join(",")
+    console.log("tags", this.state.tags)
     const obj = {
       ...this.props.location.state.select,
       tags: tags,
