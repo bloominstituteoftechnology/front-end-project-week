@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {  Link } from "react-router-dom";
 import './App.css';
-import { notesData } from './notesData';
+// import { notesData } from './notesData';
 import { NoteList } from './components/notesContainer';
 import Route from 'react-router-dom/Route';
 import { SingleView } from './components/noteView';
@@ -9,7 +9,7 @@ import { AddNote } from './components/addNote';
 import  EditNote  from './components/editNote';
 import axios from 'axios';
 
-
+const url = 'http://localhost:8000/api/notes';
 
 class App extends Component {
   constructor() {
@@ -65,9 +65,19 @@ class App extends Component {
   }
 
   deleteNote = id => {
-    let notes = this.state.notes.slice();
-    notes = notes.filter(note => note.id !== id);
-    this.setState({ notes, id: '', title: '', text: ''  });
+    axios
+      .delete(`${url}/${id}`)
+      .then(response => {
+        axios.get(`${url}`).then(response => {
+          this.setState({
+            notes: response.data,
+          });
+        })
+      })
+
+    // let notes = this.state.notes.slice();
+    // notes = notes.filter(note => note.id !== id);
+    // this.setState({ notes, id: '', title: '', text: ''  });
   }
 
   modalToggle = () => {
