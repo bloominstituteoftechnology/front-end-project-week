@@ -48,6 +48,37 @@ class App extends Component {
     console.log(notes);
     this.setState(...this.state, { notes });
   }
+
+  updateNote(updatedNote) {
+    console.log("update note");
+    const note = this.state.notes.find(note => note.id === updatedNote.id);
+    console.log("old note:");
+    console.log(note);
+    note.title = updatedNote.title;
+    note.content = updatedNote.content;
+    console.log("new note:");
+    console.log(note);
+    const notes = this.state.notes.map(note => {
+      if (note.id.toString() === updatedNote.id) {
+        return updatedNote;
+      }
+    });
+    this.setState(...this.state, { notes }, console.log(this.state));
+
+    console.log(this.props);
+  }
+
+  getNoteFromState(id) {
+    if (!id) {
+      console.log("do noooot send me back to edit");
+    }
+    console.log(id);
+    console.log(this.state.notes);
+    const noteArr = this.state.notes.filter(note => note.id.toString() === id);
+    console.log(noteArr);
+    const note = noteArr[0];
+    return note;
+  }
   render() {
     console.log(this.state.notes);
     return (
@@ -62,6 +93,7 @@ class App extends Component {
             )}
           />
           <Route
+            exact
             path="/notes/:id"
             render={props => {
               let id = props.match.params.id;
@@ -84,6 +116,22 @@ class App extends Component {
           <Route
             path="/new"
             render={() => <NewNote addNewNote={this.addNewNote.bind(this)} />}
+          />
+
+          <Route
+            path="/notes/:id/edit"
+            render={props => {
+              let id = props.match.params.id;
+              const note = this.getNoteFromState(id);
+              return (
+                <NewNote
+                  updateNote={this.updateNote.bind(this)}
+                  addNewNote={this.addNewNote.bind(this)}
+                  isUpdatingNote="true"
+                  note={note}
+                />
+              );
+            }}
           />
         </div>
       </div>
