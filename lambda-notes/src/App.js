@@ -8,7 +8,6 @@ import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
 import axios from 'axios';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -80,7 +79,7 @@ class App extends Component {
         <Route exact path='/create-note' render={props => ( <CreateNote {...props} notes={this.state.notes} addNote={this.addNote} /> )} />
         {/* main-view edit note goes here, class component */}
         <Route exact path='/note-edit/:id' render={props => ( <EditNote {...props} notes={this.state.notes} editNote={this.editNote} /> )} /> 
-      </div>
+    </div>
     );
   }
 }
