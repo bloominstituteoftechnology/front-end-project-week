@@ -6,7 +6,8 @@ import Note from '../Note';
 import NoteList from '../NoteList';
 import Sidebar from '../SideBar';
 import { getNotes, addNote } from '../../actions';
-
+import './index.css';
+import '../components.css';
 class App extends Component {
   state = {
     title: "",
