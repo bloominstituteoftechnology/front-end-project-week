@@ -24,7 +24,11 @@ class App extends Component {
           <Content>
             <Route exact path="/" component={NotesView} />
             <Route path="/addnote" component={NoteFormView} />
-            <Route path="/note/:noteId" component={SingleNoteView} />
+            <Route exact path="/note/:noteId" component={SingleNoteView} />
+            <Route
+              path="/note/:noteId/edit"
+              render={(props) => <NoteFormView {...props} editForm={true} />}
+            />
           </Content>
         </Container>
         <BackGround />

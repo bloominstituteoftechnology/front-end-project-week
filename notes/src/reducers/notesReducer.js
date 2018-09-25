@@ -18,6 +18,7 @@ const initialState = {
   fetchingData: false,
   addingData: false,
   deletingData: false,
+  editingData: false,
   error: null,
 };
 
@@ -74,6 +75,22 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         deletingNote: false,
+      };
+    case EDITING_DATA:
+      return {
+        ...state,
+        editingData: true,
+      };
+    case EDITED_DATA:
+      return {
+        ...state,
+        editingData: false,
+      };
+    case EDIT_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        editingData: false,
       };
     default:
       return state;

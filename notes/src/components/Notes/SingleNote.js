@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const SingleNote = (props) => {
   // console.log(props);
@@ -15,12 +16,12 @@ const SingleNote = (props) => {
   };
 
   if (!note) return <div />;
-  console.log(props);
+  // console.log(props);
   return (
     <Container>
       <Title>{note.title}</Title>
       <Content>{note.textBody}</Content>
-      <EditButton>edit</EditButton>
+      <EditLink to={`/note/${note._id}/edit`}>edit</EditLink>
       <DeleteButton onClick={handleDelete}>delete</DeleteButton>
     </Container>
   );
@@ -61,7 +62,12 @@ const DeleteButton = styled(StyledButton)`
   top: 30px;
 `;
 
-const EditButton = styled(StyledButton)`
+const EditLink = styled(Link)`
+  position: absolute;
+  color: black;
   right: 160px;
+  width: 50px;
+  font-size: 1rem;
+  text-align: center;
   top: 30px;
 `;
