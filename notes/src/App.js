@@ -10,43 +10,16 @@ import UpdateNote from './components/UpdateNote';
 import DeleteNote from './components/DeleteNote';
 import './App.css';
 
-const dummyData = [
-  {
-      id: 1,
-      tags: [],
-      title: 'Note Title',
-      textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-   },
-  {
-      id: 2,
-      tags: [],
-      title: 'Note Title',
-      textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-   },
-  {
-      id: 3,
-      tags: [],
-      title: 'Note Title',
-      textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-   },
-  {
-      id: 4,
-      tags: [],
-      title: 'Note Title',
-      textBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-   },
-]
-
 class App extends Component {
   state = {
-    notes: []
+    notes: [],
   }
 
 componentDidMount(){
   axios
   .get('http://localhost:9000/api/notes')
   .then(response =>{
-    console.log(response)
+    console.log('data from axios request', response.data)
     console.log(this.state.notes)
     this.setState({notes: response.data})
   })
@@ -64,8 +37,8 @@ handleChange = event => {
 
 handleAddNote = event => {
   const notes = this.state.notes.slice();
-  notes.push({title: this.state.title, 
-    textBody: this.state.textBody, 
+  notes.push({title: this.state.name, 
+    content: this.state.content, 
     id: Date.now() });
     console.log('logging state in handleAddNote', this.state)
   this.setState({
@@ -84,7 +57,7 @@ handleTitleUpdate = event => {
     selected: {
       id: this.state.notes.id,
       title: event.target.value,
-      textBody: this.state.notes.textBody
+      content: this.state.notes.content
     }
   })
 }
@@ -93,7 +66,7 @@ handleBodyUpdate = event => {
   this.setState({
     selected: {
       id: this.state.selected.id,
-      title: this.state.selected.title,
+      name: this.state.selected.name,
       textBody: event.target.value
     }
   })
@@ -134,8 +107,8 @@ toggleDeleteNote = () => {
 
      <Route path = "/form" render={props =>
         (<NewNoteForm {...props}
-          title = {this.state.title}
-          textBody = {this.state.textBody}
+          title = {this.state.name}
+          textBody = {this.state.content}
           handleChange = {this.handleChange}
           handleAddNote = {this.handleAddNote}
           handleSubmit = {this.handleSubmit}
