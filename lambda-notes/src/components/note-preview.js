@@ -20,9 +20,10 @@ export default class NotePreview extends Component {
                 key={key}
                 index={index}
                 className="note-link"
-                _id={note._id}
-                to={`/listnotes/${note._id}`}>
-
+                // _id={note._id}
+                // to={`/listnotes/${note._id}`}>
+                id={note.id}
+                 to={`/listnotes/${note.id}`}>
                   <div key={index} className="note-preview">
 
                     <div className="notTags">

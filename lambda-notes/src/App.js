@@ -76,13 +76,13 @@ class App extends Component {
   render() {
     return (
         <div className="app">
-          <Redirect from="" to="/listnotes/" />
+          {/* <Redirect from="" to="/listnotes" /> */}
           <LeftMenu />
 
           <div className="right-display">
             <Route
               exact
-              path="/listnotes/"
+              path="/listnotes"
               render={ () => {
                 return (
                   <AllNotes

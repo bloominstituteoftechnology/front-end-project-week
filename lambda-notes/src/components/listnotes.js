@@ -19,7 +19,7 @@ export default class AllNotes extends Component {
 
   render(props) {
     // console.log(this.props)
-    // console.log(this.state.notes)
+     console.log(this.state.notes)
 
 
     return (
@@ -35,7 +35,8 @@ export default class AllNotes extends Component {
               <NotePreview
                 onDrop={this.props.onDrop}
                 key={index}
-                index={index}
+                // index={index}
+                id={index}
                 note={note}
               />)
           })}
