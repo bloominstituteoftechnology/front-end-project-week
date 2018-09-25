@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import Note from './components/Note';
 import NotesList from './components/NotesList';
 import NotesMenu from './components/NotesMenu';
+import AddNote from './components/AddNote';
 
 class App extends Component {
   constructor() {
@@ -38,10 +39,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Notes App - Placeholder</h1>
-        </header>
+        <NotesMenu />
+
+        <Route exact path = '/'
+          render = {props => <NotesList {...props} notes = {this.state.notes} />}
+        />
+        <Route exact path = '/addnote'
+          render = {props => (<AddNote {...props} inputHandler = {this.inputHandler} publishNote = {this.publishNote} />
+        )}
+      />
       </div>
     );
   }
