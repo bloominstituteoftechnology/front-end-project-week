@@ -1,4 +1,4 @@
-import { FETCH_NOTES, FETCHED, ADD_NOTE, ADDED, UPDATE_NOTES, UPDATED, ERROR } from '../actions';
+import { FETCH_NOTES, FETCHED, ADD_NOTE, ADDED, UPDATE_NOTES, UPDATED, DELETE_NOTE, DELETED, ERROR } from '../actions';
 export const initialState = {
     fetchingNotes: false,
     creatingNote: false,
@@ -52,6 +52,18 @@ export const notesReducer = (state = initialState, action) => {
                     return note;
                 })
             }
+        case DELETE_NOTE:
+            return {
+                ...state,
+                deleteingNote: true,
+            };
+        case DELETED:
+            return {
+                ...state,
+                deleteingNote: false,
+
+            }
+
         case ERROR:
             return {
                 ...state,

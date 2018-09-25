@@ -50,6 +50,8 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 - [ ] Delete an existing note
 ```
 
+https://trello.com/b/GfpnPZD1/lambda-notes-arthur-bates
+
 ---
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.

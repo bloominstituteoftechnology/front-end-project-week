@@ -11,6 +11,7 @@ const Modal = styled.div`
     height: 160px;
     border: 1px solid red;
     background-color: white;
+    z-index: 1;
     `
 const DeleteBox = styled.div`
     display: flex;

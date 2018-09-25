@@ -43,7 +43,7 @@ class NewNote extends Component {
                         name='textBody'
                         value={this.state.textBody}
                         type="text"
-                        placeholder="content"
+                        placeholder="Note content"
                         onChange={this.handleInputChange}
                     /><br />
                     <button type='submit'>
