@@ -71,9 +71,52 @@ class App extends Component {
     });
   };
 
-
-
   handleData = data => this.setState({ notesData: data });
+
+  swapNotes = (fromNote, toNote) => {
+    let notes = this.state.notesData.slice();
+    let fromIndex = -1;
+    let toIndex = -1;
+
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].id === fromNote.id){
+        fromIndex = i;
+      }
+      if (notes[i].id === toNote.id) {
+        toIndex = i;
+      }
+    }
+
+    if (fromIndex != -1 && toIndex != -1) {
+      let {fromId, ...fromRest } = notes[fromIndex]
+      let { toId, ...toRest } = notes[toIndex];
+      notes[fromIndex] = { id: fromNote.id, ...toRest };
+      notes[toIndex] = {id: toNote.id, ...fromRest };
+    }
+
+    this.setState({notesData: notes})
+  }
+
+  handleDragStart = data => event => {
+    let fromNote = JSON.stringify({ id: data.id})
+    event.dataTransfer.setData("dragContent", fromNote);
+  }
+
+  handleDragOver = data => event => {
+    event.preventDefault();
+    return false;
+  }
+
+  handleDrop = data => event => {
+    event.preventDefault();
+
+    let fromNote = JSON.parse(event.dataTransfer.getData("dragContent"));
+    let toNote = { id: data.id };
+
+    this.swapNotes(fromNote, toNote);
+    return false;
+  };
+
 
   render() {
 
@@ -91,6 +134,9 @@ class App extends Component {
                 notes={this.state.notesData}
                 handleInput={this.handleInput}
                 searchNotes={this.searchNotes}
+                handleDragStart={this.handleDragStart}
+                handleDragOver={this.handleDragOver}
+                handleDrop={this.handleDrop}
               />
             </div>
             )}
