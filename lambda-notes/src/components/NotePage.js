@@ -12,8 +12,11 @@ class NotePage extends Component {
           headers: {
               authorization: token
           }}
-        this.props.fetchNote(this.props.match.params.id, requestOptions);
+        const id = parseInt(this.props.match.params.id, 10);
+        if (Number.isInteger(id)) {
+            this.props.fetchNote(id, requestOptions);
         }
+    }
 
     deleteNote = (id) => {
         this.props.deleteNote(id);

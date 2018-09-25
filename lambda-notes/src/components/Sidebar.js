@@ -6,8 +6,8 @@ class Sidebar extends Component {
     return (
     <div className='sidebar'>
         <h1>Lambda<br />Notes</h1>
-        <Link to={`/`}>View Your Notes</Link>
-        <Link to="/create-new-note">+ Create New Note</Link>
+        <Link to="/notes">View Your Notes</Link>
+        <Link to="/notes/create-new-note">+ Create New Note</Link>
     </div>
     );
   }

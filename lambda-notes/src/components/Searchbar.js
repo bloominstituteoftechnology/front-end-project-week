@@ -1,13 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
 
-// const SearchForm = styled.form`
-//     width: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     margin-bottom: 30px;
-// `;
-
 const SearchInput = styled.input`
     font-size: 16px;
     text-align: center;
@@ -16,11 +9,6 @@ const SearchInput = styled.input`
     border-radius: 5px;
     margin-bottom: 30px;
 `;
-
-// const SearchButton = styled.button`
-//     width: 50px;
-//     border-radius: 5px;
-// `;
 
 const SearchBar = (props) => {
     return (
@@ -32,7 +20,6 @@ const SearchBar = (props) => {
             value={props.searchTerm}
             onChange={props.onInputChange}
             />
-        {/* <SearchButton onClick={props.searchNotes}>Go</SearchButton> */}
         </form>
     )
 }

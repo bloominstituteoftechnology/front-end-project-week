@@ -39,7 +39,7 @@ export const fetchNote = (id, requestOptions) => {
         .catch(error => {
             dispatch({ type: ERROR, payload: error });
         })
-   }
+    }
 }
 
 export const addNewNote = (title, content) => {
@@ -54,7 +54,7 @@ export const addNewNote = (title, content) => {
           dispatch({ type: NOTE_ADDED, payload: response.data });
       })
       .then(() => {
-        window.location.replace("/");
+        window.location.replace("/notes");
         })
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
@@ -71,7 +71,7 @@ export const deleteNote = id => {
           dispatch({ type: NOTE_DELETED });
       })
       .then(() => {
-        window.location.replace("/");
+        window.location.replace("/notes");
     })
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
@@ -91,7 +91,7 @@ export const editNote = (title, content, id) => {
           dispatch({ type: NOTE_EDITED });
       })
       .then(() => {
-        window.location.replace("/");
+        window.location.replace("/notes");
     })
       .catch(error => {
           dispatch({ type: ERROR, payload: error });

@@ -22,11 +22,11 @@ class NotesContainer extends Component {
   }
 
   componentDidMount() {
-  const token = localStorage.getItem('token');
-      const requestOptions = {
-          headers: {
-              authorization: token
-          }}
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+        headers: {
+            authorization: token
+        }}
     this.props.fetchData(requestOptions)
   }
 
@@ -39,6 +39,11 @@ class NotesContainer extends Component {
   };
 
   addNewNote = (e) => {
+    // const token = localStorage.getItem('token');
+    // const requestOptions = {
+    //     headers: {
+    //         authorization: token
+    //     }}
     e.preventDefault();
     this.props.addNewNote(this.state.title, this.state.content);
   };
@@ -73,7 +78,7 @@ class NotesContainer extends Component {
           searchTerm={this.state.searchTerm} />}
           />
         <Route
-          path="/create-new-note"
+          path="/notes/create-new-note"
           render={(props) => <NewNote
           {...props}
           handleChange={this.inputHandler}
