@@ -1,37 +1,41 @@
 import { 
-	CREATE_NOTE, 
-	DELETE_NOTE, 
+	GETTING_KILLER_NOTES, 
+	GETTING_KILLER_NOTES_COMPLETE, 
+	GETTING_KILLER_NOTES_ERROR, 
+
+	CREATING_NOTE, 
+	CREATING_NOTE_COMPLETE, 
+	CREATING_NOTE_ERROR, 
 
 	EDITTING_NOTE, 
 	EDITTING_NOTE_COMPLETE, 
 	EDITTING_NOTE_ERROR, 
 
+	DELETE_NOTE, 
+
+	getKillerNotes, 
+	createNote, 
+	editNote, 
+	deleteNote, 
+} from './NotesActions';
+
+export { 
 	GETTING_KILLER_NOTES, 
 	GETTING_KILLER_NOTES_COMPLETE, 
 	GETTING_KILLER_NOTES_ERROR, 
 
-	createNote, 
-	deleteNote, 
-	editNote, 
-
-	getKillerNotes, 
-} from './NotesActions';
-
-export { 
-	CREATE_NOTE, 
-	DELETE_NOTE, 
+	CREATING_NOTE, 
+	CREATING_NOTE_COMPLETE, 
+	CREATING_NOTE_ERROR, 
 
 	EDITTING_NOTE, 
 	EDITTING_NOTE_COMPLETE,
 	EDITTING_NOTE_ERROR, 
 
-	GETTING_KILLER_NOTES, 
-	GETTING_KILLER_NOTES_COMPLETE, 
-	GETTING_KILLER_NOTES_ERROR, 
-
-	createNote, 
-	deleteNote, 
-	editNote, 
+	DELETE_NOTE, 
 
 	getKillerNotes, 
+	createNote, 
+	editNote, 
+	deleteNote, 
 };

@@ -56,4 +56,11 @@ const mapStateToProps = state => ({
 	errorMsg: state.errorMsg,
 });
 
-export default connect(mapStateToProps, { createNote, deleteNote, editNote, getKillerNotes })(App);
+export default connect(
+	mapStateToProps, 
+	{ 
+		createNote, 
+		deleteNote, 
+		editNote, 
+		getKillerNotes, 
+	})(App);

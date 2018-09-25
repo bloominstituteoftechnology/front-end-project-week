@@ -1,15 +1,18 @@
 //Actions
 import { 
-	CREATE_NOTE,
-	DELETE_NOTE, 
+	GETTING_KILLER_NOTES, 
+	GETTING_KILLER_NOTES_COMPLETE, 
+	GETTING_KILLER_NOTES_ERROR, 
+
+	CREATING_NOTE, 
+	CREATING_NOTE_COMPLETE, 
+	CREATING_NOTE_ERROR, 
 
 	EDITTING_NOTE, 
 	EDITTING_NOTE_COMPLETE, 
 	EDITTING_NOTE_ERROR, 
 
-	GETTING_KILLER_NOTES, 
-	GETTING_KILLER_NOTES_COMPLETE, 
-	GETTING_KILLER_NOTES_ERROR, 
+	DELETE_NOTE, 
 } from '../actions';
 
 // Initial State
@@ -29,15 +32,24 @@ export const NotesReducer = (state = initialState, action) => {
 		}
 
 		case GETTING_KILLER_NOTES_COMPLETE: {
-			return { ...state, notes: action.payload, errorMsg: '' };
+			return { 
+				...state, 
+				notes: action.payload, 
+				errorMsg: '', 
+			};
 		}
 
 		// CREATING_NOTE
-		case CREATE_NOTE: {
-			const newNotes = [ ...state.notes ];
-			newNotes.push(action.payload);
+		case CREATING_NOTE: {
+			return state;
+		}
 
-			return { ...state, notes: newNotes };
+		case CREATING_NOTE_COMPLETE: {
+			return { 
+				...state, 
+				notes: [ ...state.notes ], 
+				errorMsg: '', 
+			};
 		}
 
 		// EDITTING_NOTE
@@ -46,18 +58,30 @@ export const NotesReducer = (state = initialState, action) => {
 		}
 
 		case EDITTING_NOTE_COMPLETE: {
-			return { ...state, notes: [ ...state.notes ], errorMsg: '' };
+			return { 
+				...state, 
+				notes: [ ...state.notes ], 
+				errorMsg: '', 
+			};
 		}
 
 		// DELETING_NOTE
 		case DELETE_NOTE: {
-			return { ...state, notes: state.notes.filter((note, i) => i !== action.payload) };
+			return { 
+				...state, 
+				notes: state.notes.filter((note, i) => i !== action.payload), 
+			};
 		}
 
 		// ERRORS
 		case EDITTING_NOTE_ERROR:
+		case CREATING_NOTE_ERROR:
 		case GETTING_KILLER_NOTES_ERROR: {
-			return { ...state, notes: [ ...state.notes ], errorMsg: action.payload + '' };
+			return { 
+				...state, 
+				notes: [ ...state.notes ], 
+				errorMsg: action.payload + '', 
+			};
 		}
 
 		default:
