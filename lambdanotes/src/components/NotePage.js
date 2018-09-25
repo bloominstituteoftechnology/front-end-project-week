@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import EditNote from './EditNote';
 import DeleteNoteModal from './DeleteNoteModal';
 // Actions
-import { getNote, updateNote } from '../actions';
+import { getNote } from '../actions';
 // Styles
 import '../styles/NotePage.css';
 
@@ -19,8 +19,8 @@ class NotePage extends Component {
 		});
 	};
 
-	submitChanges = updatedNote => {
-		this.props.updateNote(updatedNote);
+	doneEditing = () => {
+		// this.props.updateNote(updatedNote);
 		this.setState({
 			edit: undefined
 		});
@@ -63,7 +63,7 @@ class NotePage extends Component {
 						)}
 					</React.Fragment>
 				) : (
-					<EditNote note={this.props.note} submitChanges={this.submitChanges} />
+					<EditNote note={this.props.note} doneEditing={this.doneEditing} />
 				)}
 				{this.state.delete ? <DeleteNoteModal /> : null}
 			</div>
@@ -80,5 +80,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{ getNote, updateNote }
+	{ getNote }
 )(NotePage);

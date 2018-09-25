@@ -1,5 +1,8 @@
 // Dependencies
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+// Actions
+import { updateNote } from '../actions';
 // Styles
 import '../styles/EditNote.css';
 
@@ -17,12 +20,14 @@ class EditNote extends Component {
 	submitHandler = event => {
 		event.preventDefault();
 
-		this.props.submitChanges({
+		this.props.updateNote({
 			// tags: [],
 			_id: this.props.note._id,
 			title: this.state.title,
 			textBody: this.state.textBody
 		});
+
+		this.props.doneEditing();
 	};
 
 	componentDidMount() {
@@ -61,4 +66,7 @@ class EditNote extends Component {
 	}
 }
 
-export default EditNote;
+export default connect(
+	null,
+	{ updateNote }
+)(EditNote);
