@@ -29,13 +29,12 @@ class App extends Component {
     this.props.newNote(note);
   }
 
-  deleteNote = (id, event) => {
-    event.preventDefault();
+  deleteNote = (id) => {
+    console.log(id);
     this.props.deleteNote(id);
   }
 
-  editNote = (updatedNote, event) => {
-    event.preventDefault();
+  editNote = (updatedNote) => {
     this.props.editNote(updatedNote);
   }
 

@@ -30,7 +30,7 @@ export const noteReducer = (state = initialState, action) => {
     case DELETING_NOTE:
       return {...state, deletingNote: true };
     case NOTE_DELETED:
-      return {...state, deletingNote: false, notes: action.payload };
+      return {...state, deletingNote: false };
     case EDITING_NOTE:
       return {...state, updatingNote: true};
     case NOTE_EDITED:

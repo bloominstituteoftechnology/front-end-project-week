@@ -15,4 +15,5 @@ const DeleteNote = ({ match, deleteNote }) => {
 
 }
 
+
 export default DeleteNote;

@@ -47,6 +47,7 @@ export const deleteNote = id => dispatch => {
 
   axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
   .then(res => {
+    console.log('delete action', res);
     dispatch({ type: NOTE_DELETED, payload: res.data })
   })
   .catch(err => {
