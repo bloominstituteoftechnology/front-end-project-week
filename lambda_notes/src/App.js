@@ -63,7 +63,7 @@ class App extends Component {
 
   addNote = (e, note) => {
     axios.post('https://killer-notes.herokuapp.com/note/create', note)
-      .then(response => {this.fetchData(); this.props.history.push('/');})
+      .then(response => {this.fetchData();  this.props.history.push('/')})
       .catch(err => console.error('POST_ERROR', err))
 
   };
@@ -71,9 +71,13 @@ class App extends Component {
   removeNote = (e, id) => {
     e.preventDefault();
 
-    let notes = this.state.notes.map(note => note).filter(note => note.id !== id);
+    // let notes = this.state.notes.map(note => note).filter(note => note.id !== id);
 
-    this.setState({notes: notes}, () => this.props.history.push('/'));
+    // this.setState({notes: notes}, () => this.props.history.push('/'));
+
+    return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {this.fetchData(); this.props.history.push('/')})
+      .catch(err => console.error('DELETE_ERROR', err));
   }
 
   updateNote = (id, note) => {
@@ -102,8 +106,6 @@ class App extends Component {
     let updatedList = this.state.notes.filter(item => {
       return item.title.toLowerCase().search(e.toLowerCase()) !== -1;
     });
-
-    
 
     this.setState({filteredNotes: updatedList, filtered: true});
 

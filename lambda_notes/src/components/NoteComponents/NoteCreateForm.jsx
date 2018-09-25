@@ -33,9 +33,8 @@ class NoteCreateForm extends Component {
     };
 
     componentDidMount() {
-        const note = this.props.note[0];
-
         if (this.props.isUpdating) {
+            const note = this.props.note[0];
             this.setState({
                 tags: note.tags,
                 title: note.title,

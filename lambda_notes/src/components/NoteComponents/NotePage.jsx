@@ -97,7 +97,7 @@ export default class NotePage extends Component {
     }
 
     removeNote = e => {
-        this.props.removeNote(e, this.state.note.id);
+        this.props.removeNote(e, this.state.note._id);
     }
 
     render() {
