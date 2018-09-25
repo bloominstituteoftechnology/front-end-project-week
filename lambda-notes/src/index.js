@@ -6,5 +6,6 @@ import App from './components/App';
 
 // redux imports
 import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
 ReactDOM.render(<Router><Provider><App /></Provider></Router>, document.getElementById('root'));
