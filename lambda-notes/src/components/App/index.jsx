@@ -95,4 +95,10 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  }
+}
+
 export default withRouter(connect(mapStateToProps, { getNotes, addNote })(App));
