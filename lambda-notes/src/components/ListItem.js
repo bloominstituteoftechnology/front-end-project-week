@@ -22,7 +22,7 @@ class ListItem extends React.Component {
           }
         }}>
           <h2 style={{whiteSpace: 'pre-line'}} className="note-card-title">
-          {this.props.note.textBody.length > 15 ? this.props.note.textBody.slice(0, 16) + ' ...' : this.props.note.textBody }
+          {this.props.note.title.length > 15 ? this.props.note.title.slice(0, 16) + ' ...' : this.props.note.title }
           </h2>
         </Link>
         <p style={{whiteSpace: 'pre-line'}} className="note-card-text">{this.props.note.textBody.length > 100 ? this.props.note.textBody.slice(0, 50) + ' ...' : this.props.note.textBody }</p>

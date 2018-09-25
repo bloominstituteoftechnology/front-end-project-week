@@ -1,10 +1,5 @@
 .right-side {
   background: rgba(239,239,239);
-  height: fit-content;
-}
-
-.left-side {
-  height: fit-content;
 }
 
 @media (max-width: 975px) {
