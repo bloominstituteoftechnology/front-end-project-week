@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import "../components.css";
 import axios from "axios";
 import { Route, Switch, withRouter } from "react-router-dom";
+
 import Form from "../Form";
 import Note from "../Note";
 import NoteList from "../NoteList";
