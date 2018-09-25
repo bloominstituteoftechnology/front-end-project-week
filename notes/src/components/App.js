@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Route, Switch, withRouter, Link } from 'react-router-dom'
+import { Route, withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchNotes } from '../actions'
 
 import NotesList from './NotesList'
 import NewNote from './NewNote'
-import Note from './Note'
+import EditNote from './EditNote'
 // import Header from './Header';
 
 
@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.notes);
     return (
       <div className="App">
         <header className="App-header">
@@ -29,27 +28,40 @@ class App extends Component {
           <Link to='/note-list'> Note List</Link>
           <Link to='/new-note'> New Note </Link>
           <Link to='/smurf-update'> Smurf Update </Link>
-          <Link to='/note-list/5ba96a29d7042d0014318ba9'> One Guy </Link>
-          <Link to='/note-list/5ba903d1d7042d0014318b47'> Two Guys </Link>
-          <Link to='/note-list/5ba9313ed7042d0014318b4d'> Three Guys </Link>
+          <Link to='/edit/:id'> Edit </Link>
+          {/* <Link to='/note-list/5ba903d1d7042d0014318b47'> Two Guys </Link>
+          <Link to='/note-list/5ba9313ed7042d0014318b4d'> Three Guys </Link> */}
         </header>
         <section className='main-section'>
           <Route exact path='/note-list' render={props =>
-            <NotesList
-              {...props}
-              noteList={this.props.notes}
-             />
+            <React.Fragment>
+              <h2> Your Notes: </h2>
+              <NotesList
+                {...props}
+                noteList={this.props.notes}
+               />
+             </React.Fragment>
            } />
            <Route path='/note-list/:id' render={props =>
+             <React.Fragment>
+               <p>edit</p>
+               <p>delete</p>
              <NotesList
                {...props}
                noteList={this.props.notes}
               />
+              </React.Fragment>
             } />
            {/* <Route path='/note-list/:id' component={Note} /> */}
            <Route path='/new-note' render={props =>
              <NewNote
                {...props}
+             />
+           } />
+           <Route path='/edit-note/:id' render={props =>
+             <EditNote
+               {...props}
+               noteList={this.props.notes}
              />
            } />
         </section>
@@ -65,6 +77,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps,
-  { fetchNotes})
-  (App))
+export default withRouter(connect(mapStateToProps, { fetchNotes })(App))

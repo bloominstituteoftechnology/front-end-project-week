@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import { createNote } from '../actions'
+import { updateNote } from '../actions'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import NoteForm from './NoteForm'
 
 class NewNote extends Component {
   state = {
-    title: 'Luisan',
-    textBody: 'this is my test'
+    title: 'Edit',
+    textBody: 'ing my test'
   }
 
   handleChange = (event) => {
@@ -20,13 +20,16 @@ class NewNote extends Component {
     let newNote = {
       title: this.state.title,
       textBody: this.state.textBody,
+      _id: this.props.noteList.find(item => item._id = this.props.match.params.id)._id
     }
-    this.props.createNote(newNote)
+    console.log(newNote._id);
+    this.props.updateNote(newNote)
     this.setState({ title:'', textBody:'' })
 
   }
 
   render() {
+    let ans = this.props.noteList.find(item => item._id = this.props.match.params.id)
     return (
       <React.Fragment>
       <h2> Create New Note: </h2>
@@ -46,4 +49,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { createNote}) (NewNote))
+export default withRouter(connect(mapStateToProps, { updateNote }) (NewNote))

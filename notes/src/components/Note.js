@@ -10,18 +10,9 @@ import './App.css';
  class Note extends Component {
 
    handleClick = (event) => {
-     console.log(event)
-     console.log(this.props.match.params);
      this.props.deleteNote(this.props.match.params.id)
-     console.log('finished delete');
    }
 
-   // console.log('Note:', props);
-   // console.log('Path:', this.props.match.path);
-   // console.log('Url:', this.props.match.url);
-   // console.log(this.props.match.params.id);
-   // console.log(this.props.note._id);
-   // if (this.props.match.params.id == this.props.note._id) {
    render() {
     return !this.props.match.params.id
     ? (
@@ -36,7 +27,7 @@ import './App.css';
           <Link to={`/note-list/${this.props.note._id}`}>My Home </Link>
       </div>
     )
-    : this.props.match.params.id == this.props.note._id
+    : this.props.match.params.id === this.props.note._id
     ? (      <div className="note">
             <h3>{this.props.note.title}</h3>
             <p>{this.props.note.textBody}</p>

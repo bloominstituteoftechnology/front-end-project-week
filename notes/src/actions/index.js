@@ -18,7 +18,7 @@ export const fetchNotes = () => {
     dispatch({type: FETCHING_NOTES})
     axios
       .get(URL+'get/all')
-      .then(response => { console.log(response), dispatch({type: NOTES_FETCHED, payload: response.data}) })
+      .then(response => { dispatch({type: NOTES_FETCHED, payload: response.data}) })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
       })
@@ -30,7 +30,7 @@ export const createNote = (note) => {
     dispatch({type: SAVING_NOTES});
     axios
       .post(URL+'create', note) //response from the server will be the ID of the new note
-      .then(response => { console.log('creating'), dispatch({type: NOTES_SAVED, payload:response.data}) })
+      .then(response => { dispatch({type: NOTES_SAVED, payload:response.data}) })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
       })
@@ -38,19 +38,29 @@ export const createNote = (note) => {
 }
 
 export const deleteNote = (noteId) => {
-  console.log('step 2');
-  console.log(URL+`delete/${noteId}`);
   return dispatch => {
-    // dispatch({type: DELETING_NOTE})
-    console.log('first dispatch fired');
+    dispatch({type: DELETING_NOTE})
     axios
     .delete(URL+`delete/${noteId}`)
-    .then(response =>{ console.log('axios delete fired');
-      // dispatch({type: NOTE_DELETED, payload: response.data})
+    .then(response =>{ dispatch({type: NOTE_DELETED, payload: response.data })
     })
     .catch(error => {
-      console.error('Wops! Mistake!', error)
+      dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
     })
     console.log('axios done');
+  }
+}
+export const updateNote = (note) => {
+  return dispatch => {
+    dispatch({type: SAVING_NOTES});
+    console.log('Actions');
+    console.log(note);
+    console.log(note._id);
+    axios
+      .put(URL+`edit/${note._id}`, note) //response from the server will be the ID of the new note
+      .then(response => { dispatch({type: NOTES_SAVED, payload:response.data}) })
+      .catch(error => {
+        dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
+      })
   }
 }
