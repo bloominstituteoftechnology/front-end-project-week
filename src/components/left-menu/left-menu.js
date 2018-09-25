@@ -4,15 +4,12 @@ import styled from 'styled-components';
 import DeleteTarget from './delete-target.js';
 
 export default class LeftMenu extends Component {
-  constructor(props){
-    super(props)
-  }
   state = {
     allNotesSelected: false,
     createNoteSelected: false,
   }
 
-  render(props){
+  render(){
     return (
       <LeftMenuDiv>
         <h1>Lambda Notes</h1>

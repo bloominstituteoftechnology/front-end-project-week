@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import { 
-   Link, Route
-    } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import Login from './login';
 import Register from './register';
 import Header from './header';
-import { connect } from 'react-redux';
 
 import {
     createUser,
@@ -15,11 +13,6 @@ import {
     } from '../../actions';
 
 class Welcome extends Component{
-
-    componentDidMount(){
-        //check if token had previously existed then route to login automatically 
-        console.log(this.props)
-    }
 
     createUser = (newUser) => {
         console.log('createuser in welcome.js', this)

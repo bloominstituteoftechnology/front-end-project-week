@@ -30,9 +30,8 @@ export const loginUser = (creds) => {
   }
 }
 
-
 export const createUser = (newUser) => {
-  console.log(newUser)
+  // console.log(newUser)
   return function(dispatch){
     dispatch({type: SENDING_NEW_USERDATA})
     axios.post('http://localhost:3300/api/welcome/register', newUser)
@@ -50,20 +49,32 @@ export const createUser = (newUser) => {
 
 export const getNotes = () =>  {
   return function(dispatch){
-    dispatch({type: FETCHING_NOTES});
-    axios.get('http://localhost:3300/api/notes/all')
-      .then(res => {
-        //convert tags from strings to array here and pass it back 
-      dispatch({type: NOTES_RECIEVED, payload: res.data})
-    })
-      .catch(err => {
-      dispatch({type: ERROR, payload: err})
-    })
+    if(localStorage.getItem('JWT')){
+      console.log('token')
+      dispatch({type: FETCHING_NOTES});
+      const token = localStorage.getItem('JWT')
+      const authHeader = {
+        headers: {
+          Authorization: token, 
+        }
+      }
+      axios.get('http://localhost:3300/api/notes/all', authHeader)
+        .then(res => {
+          //convert tags from strings to array here and pass it back 
+        dispatch({type: NOTES_RECIEVED, payload: res.data})
+      })
+        .catch(err => {
+        dispatch({type: ERROR, payload: err})
+      })
+    } else {
+      dispatch({type: ERROR, payload: 'there was no token found'})      
+    }
+      
   }
 }
 
 export const addNote = (newNote) =>  {
-  console.log('addnote', newNote)
+  // console.log('addnote', newNote)
   return function(dispatch){
     dispatch({type: ADDING_NOTE});
     axios.post('http://localhost:3300/api/notes/', {
@@ -81,7 +92,6 @@ export const addNote = (newNote) =>  {
 }
 
 export const deleteNote = (id) =>  {
-
   return function(dispatch){
     dispatch({type: DELETING_NOTE});
     axios.delete(`http://localhost:3300/api/notes/${id}`).then(res => {
@@ -95,7 +105,6 @@ export const deleteNote = (id) =>  {
 }
 
 export const editNote = (editedNote) =>  {
-  console.log(editedNote, 'editedNote')
   return function(dispatch){
     dispatch({type: EDITING_NOTE});
     axios.put(`http://localhost:3300/api/notes/${editedNote.id}`,

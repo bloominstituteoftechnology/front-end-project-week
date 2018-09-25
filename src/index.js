@@ -11,8 +11,6 @@ import axios from 'axios';
 
 import App from './App';
 
-import FirstAuth from './firstAuth';
-
 axios.defaults.withCredentials = true;
 
 const store = createStore( reducer,

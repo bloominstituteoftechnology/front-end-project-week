@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { 
-  Route,
-  Redirect,
-  
-  } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -17,7 +13,8 @@ import {
   NewNote,
   NoteDetails,
   LeftMenu,
-  Welcome, } from './components';
+  Welcome, 
+} from './components';
 
 import {
   addNote,
@@ -40,7 +37,7 @@ class App extends Component {
     if(localStorage.getItem('JWT')){
       //this should check for token when set up 
       this.props.getNotes();
-      this.props.history.push('/')
+      this.props.history.push('/all-notes')
     } else {
       this.props.history.push('/welcome/')
     }
@@ -116,7 +113,6 @@ class App extends Component {
   }
 
   logout = (e) => {
-    console.log(this)
     e.preventDefault();
     localStorage.removeItem('JWT');
     this.props.history.push('/welcome')
@@ -125,7 +121,6 @@ class App extends Component {
   render() {
     return (
         <AppDiv>
-          {/* <Redirect from="/" to="/all-notes" /> */}
           
           {localStorage.getItem('JWT') ? <LeftMenu logout={this.logout} /> : null}
 
