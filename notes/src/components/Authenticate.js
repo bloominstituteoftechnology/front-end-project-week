@@ -6,14 +6,16 @@ const Authenticate = App =>
         constructor(props) {
             super(props);
             this.state = {
-                username: ''
+                username: '',
+                loggedIn: false
             }
         }
 
         responseGoogle = (response) => {
             this.props.handleLogin(response.googleId)
             console.log(response);
-            window.location.reload();
+            this.forceUpdate();
+            this.props.history.push('/');
         }
 
         handleChange = (event) => {
@@ -25,7 +27,7 @@ const Authenticate = App =>
                 <div>
                     <h1>Please log in</h1>
                     <GoogleLogin
-                    clientId="82812314384-pd0mig537qa6b5o6pdn79nb31i7k7k23.apps.googleusercontent.com"
+                    clientId="708243962597-kv2d1370mrc5ud39h9s39iqq6odkht3p.apps.googleusercontent.com"
                     buttonText="Log in with Google"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}

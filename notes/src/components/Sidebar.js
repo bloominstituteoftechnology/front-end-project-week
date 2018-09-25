@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
+import { withRouter } from 'react-router';
 
-const logout = () => {
-    localStorage.removeItem('username');
-    console.log('logout');
-    window.location.reload();
-}
 
 class Sidebar extends Component {
     constructor(props){
         super(props);
 
         this.state = {
-
+            loggedIn: true
         }
+    }
+
+    logout = () => {
+        localStorage.removeItem('username');
+        console.log('logout');
+        this.props.logout();
     }
 
     render() {
@@ -23,13 +25,10 @@ class Sidebar extends Component {
                 <h1>Lambda Notes</h1>
                 <div className="button"><Link to="/" onClick={() => this.forceUpdate()}>View Your Notes</Link></div>
                 <div className="button"><Link to="/create">+ Create New Note</Link></div>
-                <GoogleLogout
-                buttonText="Log out"
-                onLogoutSuccess={logout}>
-                </GoogleLogout>
+                <div className="btn-danger" onClick={this.logout}>Log out</div>
             </div>
         )
     }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

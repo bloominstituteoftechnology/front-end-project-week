@@ -58,6 +58,11 @@ class App extends Component {
 
   handleLogin = (user) => {
     localStorage.setItem('username', user);
+    this.setState({loggedIn: true});
+  }
+
+  handleLogout = () => {
+    this.setState({loggedIn: false});
   }
 
   cloneNote = (foundNote) => {
@@ -146,7 +151,7 @@ class App extends Component {
     if (this.state.loggedIn) {
     return (
       <div className="App">
-        <Sidebar />
+        <Sidebar logout={this.handleLogout} />
         <Route exact path="/" render={props => (<NotesList {...props} notes={this.props.filteredNotes} filter={this.filterData} sortList={this.sortList} />)} />
         <Route path="/create" render={props => (<CreateNote {...props} notes={this.props.filteredNotes} submit={this.submitForm} />)} />
         <Route exact path="/notes/:id" render={props => (<SingleNoteView {...props} notes={this.props.filteredNotes} delete={this.deleteNote} clone={this.cloneNote} />)} />
