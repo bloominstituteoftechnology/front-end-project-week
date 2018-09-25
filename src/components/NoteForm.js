@@ -38,6 +38,7 @@ class NoteForm extends Component {
       }
       this.props.updateNote(updatedNote)
       this.props.history.push("/")
+      this.setState({ editing: false })
     }
     else {
       const formattedTags = this.state.tags.split(",").map(word => word.trim())
@@ -61,7 +62,7 @@ class NoteForm extends Component {
   render() {
     return (
       <Div className="NoteForm">
-        <H2>Create New Note</H2>
+        <H2>{this.state.editing ? "Edit Note: " : "Create New Note"}</H2>
         <Form onSubmit={(e) => this.handleSubmit(e)}>
           <Input1
             name="title"
@@ -87,7 +88,7 @@ class NoteForm extends Component {
             onChange={this.handleChange}
             required
           />
-          <Button1>Submit</Button1>
+          <Button1>{this.state.editing ? "Update" : "Save"}</Button1>
         </Form>
       </Div>
     )
