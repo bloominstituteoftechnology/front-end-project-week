@@ -24,7 +24,7 @@ a:hover {
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: nowrap;
-  background-color: #D3D2D3;
+  background-color: #d3d2d3;
 }
 
 .navbar-brand {
@@ -37,7 +37,7 @@ a:hover {
 
 .nav-item {
   width: 100%;
-  background-color: #24B8BD;
+  background-color: #24b8bd;
   margin-bottom: 1rem;
   text-align: center;
   border: 1px solid grey;
@@ -51,8 +51,28 @@ a:hover {
 .home {
   width: 75%;
   margin-left: 25%;
-  background-color: #F2F1F2;
+  background-color: #f2f1f2;
   padding: 20px 10px;
+}
+
+.login,
+.register {
+  width: 75%;
+  height: 100vh;
+  margin-left: 25%;
+  background-color: #f2f1f2;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.login input,
+.register input {
+  margin: 0 auto;
+}
+
+.login h2,
+.register h2 {
+  margin-bottom: 30px;
 }
 
 .home h3 {
@@ -77,7 +97,7 @@ button {
 .form-container {
   width: 75%;
   margin-left: 25%;
-  background-color: #F2F1F2;
+  background-color: #f2f1f2;
   padding: 20px 10px;
   height: 100%;
 }
@@ -106,7 +126,7 @@ button {
 .teal-button {
   margin: 0;
   width: 200px;
-  background-color: #24B8BD;
+  background-color: #24b8bd;
   color: white;
   border: 1px solid grey;
 }
@@ -118,7 +138,7 @@ button {
 .single-note-view {
   width: 75%;
   margin-left: 25%;
-  background-color: #F2F1F2;
+  background-color: #f2f1f2;
   padding: 20px 10px;
   height: 100%;
 }
@@ -134,11 +154,11 @@ button {
   margin: 0 10px;
   font-size: 16px;
   cursor: pointer;
-  color: #5B5C60;
+  color: #5b5c60;
 }
 
 .single-note-view .header a:hover {
-  color: #5B5C60;
+  color: #5b5c60;
   text-decoration: underline;
 }
 
@@ -183,7 +203,7 @@ button {
 }
 
 .search-bar {
-  text-align:center;
+  text-align: center;
   width: 60%;
   margin: 1rem auto;
 }

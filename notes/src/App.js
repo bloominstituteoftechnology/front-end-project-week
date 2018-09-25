@@ -7,8 +7,13 @@ import Notes from './components/Notes';
 import SingleNote from './components/SingleNote';
 import NoteForm from './components/NoteForm';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import Login from './components/Login';
+import Register from './components/Register';
 
 class App extends Component {
+  logoutUser = () => {
+    this.props.logoutUser(this.props.history);
+  };
   render() {
     return (
       <div className="App">
@@ -28,6 +33,31 @@ class App extends Component {
                 + Create New Note
               </NavLink>
             </NavItem>
+            {!localStorage.getItem('token') ? (
+              <React.Fragment>
+                <NavItem>
+                  <NavLink tag={Link} to="/login">
+                    Login
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} to="/register">
+                    Register
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <NavItem>
+                  <NavLink
+                    onClick={this.logoutUser}
+                    style={{ color: 'white', cursor: 'pointer' }}
+                  >
+                    Logout
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+            )}
           </Nav>
         </Navbar>
         <Route
@@ -54,6 +84,18 @@ class App extends Component {
             render={props => <SingleNote {...props} note={this.props.note} />}
           />
         </Switch>
+        <Route
+          path="/login"
+          render={props => (
+            <Login {...props} loginUser={this.props.loginUser} />
+          )}
+        />
+        <Route
+          path="/register"
+          render={props => (
+            <Register {...props} registerUser={this.props.registerUser} />
+          )}
+        />
       </div>
     );
   }
