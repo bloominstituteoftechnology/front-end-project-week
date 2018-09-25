@@ -23,11 +23,29 @@ class App extends Component {
         tags: ["backpacking", "outsdoorsy", "friend"]
       },
       {
-        id: 1537805898669,
+        id: 1537905924075,
         title: "Trailblaze through the wild",
         text: "Get out there and breathe in nature.",
         tags: ["backpacking", "nature", "outdoors"]
       },
+      {
+        id: 1537905911476,
+        title: "Grab a buddy",
+        text: "Find an outdoorsy friend that loves to rough it up.",
+        tags: ["backpacking", "outsdoorsy", "friend"]
+      },
+      {
+        id: 1537905943717,
+        title: "Trailblaze through the wild",
+        text: "Get out there and breathe in nature.",
+        tags: ["backpacking", "nature", "outdoors"]
+      },
+      {
+        id: 1537905962795,
+        title: "Get a rucksack",
+        text: "Find a nice rucksack that can hold all your backpacking gear.",
+        tags: ["backpacking", "gear", "capacity"]
+      }
     ],
     noteUpdate: null
   }
@@ -110,7 +128,16 @@ const GlobalStyle = createGlobalStyle`
     border: 1px solid #D6D5D6;
   }
   h1 {
-    font-size: 3rem
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.6rem;
   }
   button {
     background-color: #24B8BD;
