@@ -94,6 +94,7 @@ class App extends Component {
 
   postNote = noteobj => {
     this.props.addingNote(noteobj);
+    setTimeout("location.reload(true);",0)
   };
 
   handleNoteSelect = index => {
@@ -113,11 +114,12 @@ class App extends Component {
 
   updateNote = (index, noteObj) => {
     this.props.updatingNote(index, noteObj);
-    setTimeout(this.fetchingNotes, 1500); 
+    setTimeout("location.reload(true);",500)
   };
 
   deleteNote = index => {
     this.props.deletingNote(index);
+    setTimeout("location.reload(true);",500)
   };
 
   handleChange = event => {

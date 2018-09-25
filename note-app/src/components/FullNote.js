@@ -15,6 +15,8 @@ class FullNote extends React.Component {
     const select = this.props.select;
     console.log(this.props.select.tags)
     const tags = this.props.select.tags.split(",");
+    //const tags = this.props.select.tags
+    console.log(tags)
     return (
       <div className="main-container">
         <SideBar />

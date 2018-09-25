@@ -29,6 +29,7 @@ class SideBar extends Component {
   }
 
   render() {
+    console.log(this.props.notes, "notes")
     if (this.props.name) {
       return (
         <div className="side-bar">
@@ -70,7 +71,7 @@ class SideBar extends Component {
         </Link>
         <CSVLink
           data={
-            this.props.notes.length && !this.props.notes.includes(undefined)
+            this.props.notes.length && this.props.notes.includes(undefined) === false
               ? this.props.notes
               : this.state.dummy
           }

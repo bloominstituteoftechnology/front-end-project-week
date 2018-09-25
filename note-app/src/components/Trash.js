@@ -1,7 +1,7 @@
 import React from "react";
 import SideBar from "./side-bar";
 import Note from "./Note";
-
+import { Link } from "react-router-dom";
 class Trash extends React.Component {
   constructor(props) {
     super(props);
@@ -44,9 +44,9 @@ class Trash extends React.Component {
         <div className="create-note-form view-notes">
           <h3 className="your-notes">
             Add Items To trash:
-            <button onClick={this.deleting} className="btn-side-bar">
+            <Link to = "/"><button onClick={this.deleting} className="btn-side-bar">
               Delete Items
-            </button>{" "}
+            </button></Link>{" "}
             <button onClick={this.selectAll} className="btn-side-bar">
               Select All
             </button>
