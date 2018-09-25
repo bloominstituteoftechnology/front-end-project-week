@@ -16,13 +16,14 @@ export class NoteCard extends Component {
   };
 
   componentDidMount() {
-    const id = this.props.match.params.id;
+    let id = this.props.match.params.id;
+    id = Number(id);
     const newNote = this.props.notes.filter(note => {
-      return note._id === id;
+      return note.id === id;
     });
+    this.props.fetchNote(id);
     this.setState({ id: id });
     this.setState({ note: newNote[0] });
-    this.props.fetchNote(id);
   }
 
   showDeleteHandler() {
@@ -31,16 +32,15 @@ export class NoteCard extends Component {
   deleteHandler() {
     const index = this.state.id;
     let newNotes = this.props.notes.slice();
-
     function thisIndex(note) {
       return note.id === index;
     }
-
     const iFinder = newNotes.indexOf(newNotes.find(thisIndex));
     newNotes.splice(iFinder, 1);
-    this.props.deleteNote(this.props.note._id);
+    this.props.deleteNote(this.props.note.id);
   }
   render() {
+    // console.log(this.props.note[0].title);
     return (
       <div className="card-container">
         {this.state.deleteForm ? (
@@ -68,9 +68,7 @@ export class NoteCard extends Component {
         <SideBar />
         <section className="card">
           <div className="edit-delete">
-            <Link to={`/edit/${this.state.id}`}>
-              <a> edit </a>
-            </Link>
+            <Link to={`/edit/${this.state.id}`}>edit</Link>
             <a onClick={() => this.showDeleteHandler()}> delete </a>
           </div>
           <h1 className="notes-title">{this.props.note.title}</h1>

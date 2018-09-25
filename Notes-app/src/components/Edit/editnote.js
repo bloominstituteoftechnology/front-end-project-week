@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class EditNote extends Component {
   state = {
     note: {
-      _id: 0,
+      id: 0,
       title: "",
       textBody: ""
     }
@@ -17,17 +17,19 @@ class EditNote extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   updateHandler = () => {
-    const _id = this.props.match.params.id;
+    const id = this.props.match.params.id;
     const { title, textBody } = this.state;
-    this.props.updateNote({ _id, title, textBody });
+    this.props.updateNote({ id, title, textBody });
   };
   componentDidMount() {
     const id = this.props.match.params.id;
     const newNote = this.props.notes.filter(note => {
-      return note._id === id;
+      console.log(note);
+      return note.id === Number(id);
     });
-    this.setState({ note: newNote[0] });
-    this.setState({ _id: id });
+    console.log(newNote);
+    this.setState({ note: newNote[0], id: id });
+    this.setState({ id: id });
   }
 
   render() {
@@ -52,7 +54,7 @@ class EditNote extends Component {
               name="textBody"
             />
 
-            <Link to={`/note/${this.state._id}`}>
+            <Link to={`/note/${this.state.id}`}>
               <button
                 className="update"
                 type="button"

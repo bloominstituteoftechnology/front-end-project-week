@@ -33,7 +33,8 @@ export const fetchNote = id => {
     dispatch({ type: FETCHING_SINGLE });
     promise
       .then(({ data }) => {
-        dispatch({ type: FETCHED_SINGLE, payload: data });
+        console.log(data[0]);
+        dispatch({ type: FETCHED_SINGLE, payload: data[0] });
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
@@ -57,7 +58,7 @@ export const addNote = newNote => {
 };
 
 export const updateNote = noteEdit => {
-  const promise = axios.put(`${URL}`, `${noteEdit._id}`, noteEdit);
+  const promise = axios.put(`${URL}`, `${noteEdit.id}`, noteEdit);
   return function(dispatch) {
     dispatch({ type: UPDATING });
     promise
@@ -72,12 +73,13 @@ export const updateNote = noteEdit => {
 };
 
 export const deleteNote = id => {
-  const promise = axios.delete(`${URL}/${id}`);
+  const promise = axios.delete(`${URL}/${id}`, { data: { id } });
+  console.log(typeof id);
   return function(dispatch) {
     dispatch({ type: DELETING });
     promise
       .then(({ data }) => {
-        dispatch({ type: DELETED });
+        dispatch({ type: DELETED, payload: data[0] });
         dispatch(fetchNotes());
       })
       .catch(err => {

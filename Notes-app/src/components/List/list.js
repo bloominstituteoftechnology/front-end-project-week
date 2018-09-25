@@ -18,7 +18,7 @@ class List extends Component {
           <h1 className="notes-title"> Your Notes: </h1>
           <div className="note-container">
             {this.props.notes.map(note => (
-              <Note key={note._id} note={note} />
+              <Note key={note.id} note={note} />
             ))}
           </div>
         </section>
