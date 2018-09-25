@@ -30,11 +30,11 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { notes, createNote, deleteNote, editNote } = this.props;
+		const { notes, createNote, deleteNote, editNote, errorMsg } = this.props;
 
 		return (
 			<div className = 'App'>
-				<Nav />
+				<Nav errorMsg = { errorMsg } />
 
 				<Route 
 					exact path = '/'  
@@ -43,9 +43,9 @@ class App extends React.Component {
 
 				<Route path = '/create-new' render = { props => <CreateNewView createNote = { createNote } history = { props.history } /> } />
 
-				<Route path = '/note/:id' render = { props => <NoteView id = { Number(props.match.params.id) } deleteNote = { deleteNote } history = { props.history } note = { notes[Number(props.match.params.id)] } /> } />
+				<Route path = '/note/:id' render = { props => <NoteView deleteNote = { deleteNote } history = { props.history } note = { notes.find(note => note._id === props.match.params.id) } /> } />
 
-				<Route path = '/edit/:id' render = { props => <EditView id = { Number(props.match.params.id) } note = { notes[Number(props.match.params.id)] } history = { props.history } editNote = { editNote } /> } />
+				<Route path = '/edit/:id' render = { props => <EditView note = { notes.find(note => note._id === props.match.params.id) } history = { props.history } editNote = { editNote } /> } />
 			</div>
 		);
 	}
@@ -53,6 +53,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
 	notes: state.notes,
+	errorMsg: state.errorMsg,
 });
 
 export default connect(mapStateToProps, { createNote, deleteNote, editNote, getKillerNotes })(App);

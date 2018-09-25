@@ -54,8 +54,8 @@ class Edit extends React.Component {
 			}
 		}
 
-		this.props.editNote(this.state.note, this.props.id);
-		this.props.history.push('/');
+		this.props.editNote(this.state.note, this.props.note._id, this.props.history);
+		// this.props.history.push('/');
 	}
 	
 	render() {

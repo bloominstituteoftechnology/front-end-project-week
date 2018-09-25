@@ -16,7 +16,7 @@ class NoteView extends React.Component {
 	}
 
 	deleteNote = () => {
-		this.props.deleteNote(this.props.id);
+		this.props.deleteNote(this.props.note._id);
 		this.props.history.push('/');
 	}
 
@@ -25,7 +25,7 @@ class NoteView extends React.Component {
 			<div className = 'main-content'>
 				<div className = 'note-view'>
 					<div className = 'edit-delete-wrapper'>
-						<span><Link to = { `/edit/${ this.props.id }` }>edit</Link></span>
+						<span><Link to = { `/edit/${ this.props.note._id }` }>edit</Link></span>
 						<span onClick = { this.toggleDeleteModal }>delete</span>
 						
 						<div>
