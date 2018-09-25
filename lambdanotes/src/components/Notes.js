@@ -1,38 +1,47 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo, removeTodos, getNotes } from '../actions';
+import { fetchData, } from '../actions';
+import { Link } from 'react-router-dom'
+
 
 class Notes extends Component {
-  
-  
-    render() {
-      return (
-        <div >
-        {console.log(typeof this.state.notes)}
-            {/* {this.props.notes.map(note => {
-              return (
-                <div>
-                  {note.text}
-                  {note.title}
-                </div>
-              );
-            })} */}
-        </div>
-         
-      );
-      
-    }
+  componentDidMount() {
+    this.props.fetchData();
   }
-  // Hey Redux?! Whatever is state in the store, could throw it on Props inside
-  // this react component?
-  const mapStateToProps = state => {
-    
-    return {
-      notes: state.notesReducer.notes,
-    };
+
+  
+
+  render() {
+    return (
+      <div className='listDisplay' >
+        <h1>Your notes</h1>
+        <div className='noteDisplay'>
+          {this.props.notes.map(note => {
+            return (
+              <Link to={`/notes/${note._id}`} >
+                <div className="notesDisplay" key={note._id}>
+                  <h1>{note.title}</h1>
+                  <p>{note.textBody}</p>
+                </div>
+              </Link>
+            );
+          })}</div>
+      </div>
+
+    );
+
+  }
+}
+
+
+
+const mapStateToProps = state => {
+
+  return {
+    notes: state.notesReducer.notes,
+  };
 };
 
 export default connect(mapStateToProps, {
-  
-  })(Notes);
-  
+  fetchData,
+})(Notes);

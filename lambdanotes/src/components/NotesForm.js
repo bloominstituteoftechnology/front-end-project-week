@@ -5,10 +5,8 @@ import { addNote } from '../actions';
 class NotesForm extends Component {
     state = {
         title: '',
-        text: '',
+        textBody: '',
     };
-
-
 
     handleTodoInput = e => {
         this.setState({ [e.target.name]: e.target.value });
@@ -17,7 +15,9 @@ class NotesForm extends Component {
     addTodoHandler = e => {
         e.preventDefault();
 		console.log(this.state);
-		this.props.addNote(this.state);
+        this.props.addNote (this.state);
+        this.props.history.push("/");
+        
     };
 
     render() {
@@ -28,15 +28,15 @@ class NotesForm extends Component {
                     value={this.state.title}
                     name="title"
                     type="text"
-                    placeholder="Title"
+                    placeholder="Note Title"
                     onChange={this.handleTodoInput}
                 />
                 <input
                     className="input"
-                    value={this.state.text}
-                    name="text"
+                    value={this.state.textBody}
+                    name="textBody"
                     type="text"
-                    placeholder="Notes"
+                    placeholder="Note Comment"
                     onChange={this.handleTodoInput}
                 />
                 <button onClick={this.addTodoHandler}>Add Note</button>
@@ -47,7 +47,7 @@ class NotesForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notesReducer.notes,
+        notes: state.notes,
     };
 };
 

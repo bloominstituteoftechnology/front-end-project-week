@@ -1,5 +1,9 @@
 .App {
-  text-align: center;
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
 }
 
 .App-logo {
@@ -21,6 +25,54 @@
 .App-intro {
   font-size: large;
 }
+
+.left-side{
+  background-color: #D7D7D7;
+ 
+}
+.side-bar{
+   display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.listDisplay{
+max-width:800px;
+width: 100%;
+max-height: 1000px;
+height:100%;
+
+}
+.listDisplay h1{
+  margin-left: 10px;
+}
+.noteDisplay{
+display: flex;
+flex-direction:row;
+flex-wrap: wrap;
+}
+.notesDisplay{
+  border: 1px solid black;
+  width:200px;
+  margin-left:20px;
+  height: 200px;
+  margin-top: 20px;
+  overflow: auto;
+  }
+  .notesDisplay p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .notesDisplay h1 {
+    border-bottom: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
+  .Column-Layout{
+    display: flex;
+    flex-direction: column;
+  }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
