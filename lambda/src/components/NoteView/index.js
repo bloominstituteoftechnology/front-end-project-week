@@ -7,7 +7,7 @@ import {
   TitleInput,
   ContentInput
 } from '../StyledComponents';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 class NoteView extends React.Component {
   state = {
     notesAdded: false,
@@ -27,6 +27,7 @@ class NoteView extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.fetchNote(id);
+    console.log('setting state');
     this.setState({
       id: id
     });
@@ -60,7 +61,7 @@ class NoteView extends React.Component {
 
   render() {
     if (!this.state.notesAdded) {
-      if (this.props.notes.length > 0) {
+      if (this.props.notes.length > 0 && this.state.id) {
         const notes = this.props.notes.filter(
           note => note._id == this.state.id
         )[0];
@@ -130,4 +131,4 @@ class NoteView extends React.Component {
   }
 }
 
-export default NoteView;
+export default withRouter(NoteView);

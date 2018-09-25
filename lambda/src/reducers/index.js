@@ -7,7 +7,8 @@ import {
   FETCHING_NOTE,
   FETCHED_NOTE,
   UPDATING_NOTES,
-  UPDATED_NOTES
+  UPDATED_NOTES,
+  SEARCH
 } from '../actions';
 
 const initialState = {
@@ -17,7 +18,9 @@ const initialState = {
   addedNotes: true,
   err: null,
   fetchingNote: true,
-  fetchedNote: {}
+  fetchedNote: {},
+  searchList: [],
+  searching: false
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -33,6 +36,21 @@ export const notesReducer = (state = initialState, action) => {
         fetchingNotes: false,
         notes: action.payload
       };
+    case SEARCH:
+      if (action.sString === '')
+        return {
+          ...state,
+          searchList: [],
+          searching: false
+        };
+      else {
+        const notes = state.notes.slice();
+        return {
+          ...state,
+          searching: true,
+          searchList: notes.filter(note => note.title.includes(action.sString))
+        };
+      }
     case ADDING_NOTES:
       return {
         ...state,
@@ -43,7 +61,10 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         addingNotes: false,
         addedNotes: true,
-        notes: state.notes.push(action.payload)
+        notes: state.notes.push({
+          ...action.data,
+          _id: action.id
+        })
       };
     case FETCHING_NOTE:
       return {

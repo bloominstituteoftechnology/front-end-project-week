@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, Button } from './StyledComponents';
+import { H1, Button, SearchInput } from './StyledComponents';
 import {
   BrowserRouter as Router,
   Route,
@@ -21,6 +21,12 @@ function SideBar(props) {
       <NavLink to="/newNote">
         <Button>+ Create New Note</Button>
       </NavLink>
+      <SearchInput
+        onChange={props.onSearchChange}
+        type="text"
+        name="search"
+        placeholder="Search"
+      />
     </div>
   );
 }
