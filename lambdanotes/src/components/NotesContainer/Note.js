@@ -7,7 +7,7 @@ function Note(props) {
 			<div className="title">
 				<h2>{props.title}</h2>
 			</div>
-			<hr />
+			<hr className="divider" />
 			<div className="body">
 				<p className="text-body">{props.body}</p>
 			</div>

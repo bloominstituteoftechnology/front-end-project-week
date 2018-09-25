@@ -18,8 +18,8 @@ function NoteContainer(props) {
 			<SidebarContainer />
 			<div className="newNote">
 				<div className="edit-delete">
-					<button>edit</button>
-					<button>delete</button>
+					<button className="button">edit</button>
+					<button className="button">delete</button>
 				</div>
 				<OneNote note={thisNote} title={thisNote.title} body={thisNote.body} />
 			</div>
