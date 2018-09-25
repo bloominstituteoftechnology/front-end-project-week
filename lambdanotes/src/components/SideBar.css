@@ -1,15 +1,22 @@
+.side-bar {
+    background-color: gainsboro;
+    padding-left: 5%;
+    height: 100%;
+}
 .side-bar-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    background-color: gainsboro;
+    justify-content: center;
+    padding-left: 5%;
+    /* background-color: gainsboro; */
     height: 400px;
-    width: 300px;
+    width: 250px;
 }
 
 .button {
     font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
     color: #2d2527;
     height: 50px;
     width: 200px;
@@ -51,6 +58,14 @@
     right: 0;
   }
 
-h1{
-    padding-top: 3%;
+.notes{
+    font-size: 20px;
+    font-family: 'Permanent Marker', cursive;
+    padding-top: -2%;
+
+}
+
+img {
+    height: 150px;
+    width: auto;
 }

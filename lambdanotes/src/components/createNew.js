@@ -10,12 +10,12 @@ class CreateNew extends Component {
       <h2> Create New Note </h2>
         <div className="title-form">
         <form>
-            <input className="title" type ="text" newCardTitle="title" value="New Title"/>
+            <input className="title" type ="text" value="New Title"/>
         </form>
         </div>
         <div className="comment-form">
         <form>
-            <input className="comment"type ="text" newCardComment="comment" value="New Notes"/>
+            <input className="comment"type ="text" value="New Notes"/>
         </form>
         </div>
       </div>

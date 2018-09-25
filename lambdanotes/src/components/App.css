@@ -1,21 +1,22 @@
 .App {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: top;
   background-color: #84001a;
-  height: 500px;
+  height: 800px;
 }
 
 .side-bar {
   flex:1;
-  padding: 5%;
+  padding: 1%;
+  height: 450px;
 
 
 }
 
 .note-view {
 flex: 2;
-padding: 5%;
+padding: 1%;
 height: 450px;
 }

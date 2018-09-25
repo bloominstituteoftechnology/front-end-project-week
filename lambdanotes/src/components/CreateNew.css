@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: left;
-    padding-left: 8%;
+    padding-left: 5%;
+    padding-top: 10%;
 }
 
 .title-form {
@@ -12,14 +13,13 @@
 
 .title {
     height: 35px;
-    width: 200px;
+    width: 300px;
     font-size: 1em;
 }
 
 .comment {
-    display: absolute;
-    height: 290px;
-    width: 400px;
+    height: 257px;
+    width: 650px;
     font-size: 1em;
 }
 
