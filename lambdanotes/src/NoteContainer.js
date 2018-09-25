@@ -83,7 +83,7 @@ class NoteContainer extends React.Component {
 						>
 							Delete
 						</Button>{" "}
-						<Button color="secondary" onClick={this.toggle}>
+						<Button outline color="secondary" onClick={this.toggle}>
 							Cancel
 						</Button>
 					</ModalFooter>

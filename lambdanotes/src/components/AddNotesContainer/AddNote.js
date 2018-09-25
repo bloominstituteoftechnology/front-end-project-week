@@ -40,6 +40,7 @@ class AddNote extends Component {
 						value={this.state.title}
 						onChange={this.handleChange}
 						placeholder="Title of your note..."
+						required
 					/>
 					<textarea
 						className="form bodyinput"
@@ -47,6 +48,7 @@ class AddNote extends Component {
 						onChange={this.handleChange}
 						value={this.state.body}
 						placeholder="Enter your note here..."
+						required
 					/>
 					<button onClick={this.addNote} className="savenote-button">
 						Save
