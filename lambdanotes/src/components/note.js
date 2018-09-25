@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NoteFormEdit from "./noteformedit";
 import DeleteModal from "./deletemodal";
 import styled from "styled-components";
+import axios from "axios";
 
 const NoteAttrib = styled.div`
   background: #f2f1f2;
@@ -44,6 +45,7 @@ class Note extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.match.params.id)
     const note = this.props.notes.filter(note => {
       return note.id.toString() === this.props.match.params.id;
     });
@@ -57,8 +59,19 @@ class Note extends Component {
 
   editHandler = event => {
     event.preventDefault();
+    axios
+      .put(`http://localhost:2200/note/${this.props.match.params.id}`, {
+        title: this.state.title,
+        note: this.state.note,
+        edittoggle: false        
+      })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      });
     this.setState(
       {
+        id: this.state.id,
         title: this.state.title,
         note: this.state.note,
         edittoggle: false,

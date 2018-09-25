@@ -5,7 +5,6 @@ import NotesList from "./components/noteslist";
 import { Route } from "react-router-dom";
 import Note from "./components/note";
 import NoteForm from "./components/noteform";
-import NoteFormEdit from "./components/noteformedit";
 import styled from "styled-components";
 import axios from 'axios';
 
@@ -30,7 +29,6 @@ class App extends Component {
     axios.get("http://localhost:2200/")
     .then(response => {
       const newNotes = response.data;
-      console.log(newNotes);
       const newState = Object.assign({}, this.state, { notes: newNotes });
       this.setState(newState);
     })
@@ -42,22 +40,23 @@ class App extends Component {
   };
 
   addHandler = event => {
-    event.preventDefault();
+    // event.preventDefault();
     const arr = this.state.notes.slice();
     if (this.state.title && this.state.note) {
-      arr.push({        
-        id: this.state.id,
-        title: this.state.title,
-        note: this.state.note,
-        edittoggle: this.state.edittoggle
-      });
       axios.post("http://localhost:2200/form", {
-        id: this.state.id,
         title: this.state.title,
         note: this.state.note,
         edittoggle: this.state.edittoggle
-      }).then(res => {console.log(res);
-      console.log(res.data)});
+      }).then(res => {
+        console.log(res);
+        console.log(res.data)
+        arr.push({        
+          id: this.state.id,
+          title: this.state.title,
+          note: this.state.note,
+          edittoggle: this.state.edittoggle
+        });
+      });
       this.setState(
         {
           notes: arr,
