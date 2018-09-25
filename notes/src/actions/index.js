@@ -21,6 +21,7 @@ export const fetchNotes = () => {
         dispatch({ type: FETCHING });
         const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
         promise
+        //axios.get('https://killer-notes.herokuapp.com/note/get/all')
         .then(response => {
             dispatch({
                 type: FETCHED,
@@ -29,7 +30,7 @@ export const fetchNotes = () => {
         })
         .catch(err => {
             console.log(err);
-            dispatch({ type: FETCH_ERROR })
+            dispatch({ type: FETCH_ERROR, payload: err })
         })
     }
 }
@@ -46,7 +47,7 @@ export const addNewNote = (note) => {
                 payload: response.data
             });
         })
-        .then(fetchNotes())
+        
         .catch(err => {
             console.log(err);
             dispatch({ type: ADD_ERROR })
@@ -60,6 +61,7 @@ export const deleteNote = noteId => dispatch => {
     .then(response => {
         dispatch({ type: DELETED, payload: response.data });
     })
+    
     .catch(err => {
         dispatch({ type: DELETE_ERROR, payload: err });
     });

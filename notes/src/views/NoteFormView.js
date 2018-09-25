@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNewNote } from '../actions';
+import { addNewNote, setUpdateNote, updateNote } from '../actions';
 
 import NoteForm from '../components/NoteForm';
 
@@ -12,12 +12,12 @@ class NoteFormView extends React.Component {
             textBody: '',
             _id: ''
         },
-        isUpdating: false,
+        updatingNote: false,
     };
 
     componentDidMount() {
         if (this.props.noteToUpdate) {
-            this.setState({ isUpdating: true, note: this.props.noteToUpdate});
+            this.setState({ updatingNote: true, note: this.props.noteToUpdate});
 
         }
     }
@@ -61,4 +61,4 @@ const mapStateToProps = state => ({
     noteToUpdate: state.noteToUpdate,
 });
 
-export default connect(mapStateToProps, { addNewNote })(NoteFormView);
+export default connect(mapStateToProps, { addNewNote, setUpdateNote, updateNote })(NoteFormView);

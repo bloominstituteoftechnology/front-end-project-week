@@ -1,4 +1,4 @@
-import { FETCHING, FETCHED, ADDING, ADDED, UPDATING, UPDATED, DELETING, DELETED, FETCH_ERROR, ADD_ERROR, UPDATE_ERROR, DELETE_ERROR } from '../actions';
+import { FETCHING, FETCHED, ADDING, ADDED, UPDATING, UPDATED, DELETING, DELETED, FETCH_ERROR, ADD_ERROR, UPDATE_ERROR, DELETE_ERROR, SET_UPDATE_NOTE } from '../actions';
 
 const initialState = {
     notes: [],
@@ -20,6 +20,9 @@ export default function (state = initialState, action) {
         return {...state, addingNote: true};
         case ADDED:
         return {...state, addingNote: false, notes: action.payload };
+        case SET_UPDATE_NOTE:
+        const note = state.notes.find(note => note._id === action.payload );
+        return {...state, noteToUpdate: note ? note : null }
         case UPDATING:
         return {...state, updatingNote: true };
         case UPDATED:

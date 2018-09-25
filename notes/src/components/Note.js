@@ -6,7 +6,7 @@ export default function Note(props) {
     const note = props.notes.find(note => note._id === props.match.params.noteId);
 
     function handleDelete() {
-        props.handleDeleteNote(note.id);
+        props.handleDeleteNote(note._id);
         props.history.push('/notes');
     }
 
@@ -14,7 +14,10 @@ export default function Note(props) {
 
     return (
         <div className="note-view">
-        <Link to="/addNote" onClick={props.goToUpdateNoteForm}>edit</Link>
+        <div className="note-options">
+        <p onClick={(event) => props.goToUpdateNoteForm(event, note._id)}>edit</p>
+        <p onClick={handleDelete}>delete</p>
+        </div>
         <h2>{note.title}</h2>
         <p>{note.textBody}</p>
         </div>
