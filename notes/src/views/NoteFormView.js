@@ -6,8 +6,6 @@ import { addData, editData, fetchData } from '../actions';
 
 import NoteForm from '../components/NoteForm';
 
-console.log('outside addnote view');
-
 class AddNoteView extends Component {
   state = {
     form: {
@@ -19,15 +17,12 @@ class AddNoteView extends Component {
 
   componentDidMount() {
     if (this.props.editForm) {
-      if (this.props.notes.length === 0) {
-        fetchData();
-      }
-      console.log('editForm', this.props.notes);
+      // console.log('editForm', this.props.notes);
       const note = this.props.notes.find(
         (note) => note._id === this.props.match.params.noteId
       );
       if (note) {
-        console.log(note);
+        // console.log(note);
         this.setState({
           form: {
             title: note.title,
