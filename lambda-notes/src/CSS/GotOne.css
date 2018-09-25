@@ -24,3 +24,7 @@
 .edit-delete p, .edit-delete h2 {
   cursor: pointer;
 }
+
+.pos-relative {
+  position: relative;
+}

@@ -1,0 +1,36 @@
+.delete-modal {
+  height: 100%;
+  position: fixed;
+  background: rgba(0,0,0,0.3);
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.delete-modal-content {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-25%, -50%);
+  background: #fff;
+  padding: 50px;
+}
+
+.delete-modal-title {
+  text-align: center;
+}
+
+.delete-btn {
+  width: 100px;
+  margin: 1rem 2rem;
+  background: rgba(188, 0, 21);
+  color: #fff;
+  font-weight: bold;
+}
+
+.no-btn {
+  width: 100px;
+  background: rgba(36, 171, 175);
+  color: #fff;
+  font-weight: bold;
+}
