@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED,  EDITING_NOTE, NOTE_EDITED, DELETING, DELETED, ERROR, SAVING_NOTE, NOTE_SAVED, FETCHED_SINGLE_NOTE} from "../actions";
+import {FETCHING, FETCHING_CREATE_PAGE, FETCHED,  EDITING_NOTE, NOTE_EDITED, DELETING, DELETED, ERROR, SAVING_NOTE, NOTE_SAVED, FETCHED_SINGLE_NOTE} from "../actions";
 
 
 
@@ -26,8 +26,12 @@ const noteReducer = (state=initialState, action) => {
         case FETCHED:
         return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, noteDeleted: false, notes: action.notes, noteEdited: false, fetchedSingleNote: false});
 
+	
+	case FETCHING_CREATE_PAGE:
+        return Object.assign({}, state, {fetchingNotes: false, noteDeleted: false, noteSaved: false, noteEdited: false, error: null, fetchedSingleNote: false});
+
 	case FETCHED_SINGLE_NOTE:
-        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, fetchedSingleNote: true, singleNote: action.note, noteEdited: false});
+        return Object.assign({}, state, {fetchingNotes: false, addingNote: false, noteSaved: false, fetchedSingleNote: true, singleNote: action.note, noteEdited: false, noteDeleted: false});
 
         case SAVING_NOTE:
         return Object.assign({}, state, {fetchingNotes: false, addingNote: true, noteSaved: false, error: null, noteEdited: false, fetchedSingleNote: false});

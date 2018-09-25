@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {addNotesAction, fetchingSingleNote} from "../../actions";
+import {addNotesAction, fetchingSingleNote, fetchingCreatePage} from "../../actions";
 import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
 
 class CreateNoteBody extends React.Component {
@@ -12,6 +12,12 @@ constructor(props){
                 content: "",
         };
 
+}
+
+
+
+componentDidMount(){
+	this.props.fetchingCreatePage();
 }
 
 
@@ -45,8 +51,11 @@ render() {
                 <div className="note-card-container">{this.props.fetchedSingleNote? (
 		<div>	
 		<h4 className="note-save-message">New Note Created</h4>
+		
+
 		<h3 className="single-note-title">{this.props.single.title}</h3>
-                <div className="single-note-container">{this.props.single.textBody}</div>
+                <div className="single-note-container">{this.props.single.content}</div>
+			
 		</div>
 
 		):(
@@ -71,17 +80,16 @@ render() {
 
 const mapStateToProps = state => {
   return {
-          notes: state.notes,
           fetching: state.fetchingNotes,
 	  saved: state.noteSaved,
-	  id: state.id.success,
+	  id: state.id.id, //state.id.success
 	  single: state.singleNote,
 	  fetchedSingleNote: state.fetchedSingleNote
   };
 };
 
 
-export default connect(mapStateToProps, {addNotesAction, fetchingSingleNote})(CreateNoteBody);
+export default connect(mapStateToProps, {addNotesAction, fetchingSingleNote, fetchingCreatePage})(CreateNoteBody);
 
 
 
