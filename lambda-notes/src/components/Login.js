@@ -5,6 +5,13 @@ import React from 'react';
 import logo from '../assets/notepad.svg';
 
 export default class Login extends React.Component {
+	handleSubmit = e => {
+		e.preventDefault();
+
+		localStorage.setItem('lambdaNotesUsername', e.target[0].value);
+		this.props.handleLogin();
+	}
+
 	render() {
 		return(
 			<div className = 'login'>
@@ -14,14 +21,20 @@ export default class Login extends React.Component {
 					<img className = 'logo' src = { logo } alt = 'notepad' />
 				</header>
 
-				<form className = 'form'>
+				<form className = 'form' onSubmit = { e => this.handleSubmit(e) }>
 					<h2>Log in</h2>
 
 					<p>Name:</p>
-					<input />
+					<input 
+						type = 'text' 
+					/>
 
 					<p>Password:</p>
-					<input />
+					<input 
+						type = 'password' 
+					/>
+
+					<button className = 'btn save-btn' type = 'submit'>Log In</button>
 				</form>
 			</div>
 		);

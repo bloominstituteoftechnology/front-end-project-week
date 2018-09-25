@@ -49,7 +49,7 @@ export const createNote = (note, history) => dispatch => {
 			type: CREATING_NOTE_COMPLETE, 
 		}))
 		.then(() => getKillerNotes()(dispatch))
-		.then(() => history.push('/'))
+		.then(() => history.push('/list'))
 		.catch(err => {
 			console.log(err);
 			dispatch({
@@ -72,7 +72,7 @@ export const editNote = (note, id, history) => dispatch => {
 			});
 		})
 		.then(() => getKillerNotes()(dispatch))
-		.then(() => history.push('/'))
+		.then(() => history.push('/list'))
 		.catch(err => {
 			console.log(err);
 			dispatch({ 
@@ -95,7 +95,7 @@ export const deleteNote = (id, history) => dispatch => {
 			});
 		})
 		.then(() => getKillerNotes()(dispatch))
-		.then(() => history.push('/'))
+		.then(() => history.push('/list'))
 		.catch(err => {
 			console.log(err);
 			dispatch({

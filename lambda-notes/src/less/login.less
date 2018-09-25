@@ -15,23 +15,80 @@
 
 				@media @tablet {
 					font-size: 2rem;
+					margin: 0;
 				}
 			}
 
 			.logo {
 				max-width: 100px;
 			}
+
+			@media @tablet {
+				padding: 0;
+			}
+
+			@media @phone {
+				* {
+					padding: 10px;
+				}
+			}
 		}
 
 		.form {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			flex-direction: column;
+			margin-top: 20px;
+
 			p {
 				text-align: left;
 				padding-top: 20px;
 			}
+
+			h2 {
+				width: fit-content;
+				margin: 0;
+
+				@media @phone {
+					padding: 0px;
+				}
+			}
+
+			p, input {
+				width: 300px;
+
+				@media @tablet {
+					width: 80vw;
+				}
+			}
+
+			input {
+				height: 50px;
+			}
+
+			.btn {
+				margin-top: 20px;
+
+				@media @tablet {
+					width: 80vw;
+				}
+			}
+
+			@media @tablet {
+				margin: 10px 0 0 0;
+				padding: 0;
+			}
+
+			@media @phone {
+				padding: 0px;
+			}
 		}
 
 		@media @tablet {
-			margin: 0px;
+			margin: 0 20px;
+			padding: 0;
 		}
 	} // .login-view .login
 } // .login-view

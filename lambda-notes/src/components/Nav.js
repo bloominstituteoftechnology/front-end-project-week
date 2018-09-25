@@ -13,6 +13,13 @@ class Nav extends React.Component {
 		this.setState({ toggleMenu: !this.state.toggleMenu });
 	}
 
+	handleLogOut = e => {
+		e.preventDefault();
+
+		localStorage.removeItem('lambdaNotesUsername');
+		window.location.reload();
+	}
+
 	render() {
 		return(
 			<div className = 'nav slide-down-anim'>
@@ -53,6 +60,11 @@ class Nav extends React.Component {
 						activeClassName = 'active-btn' 
 						onClick = { () => this.setState({ toggleMenu: false }) } 
 					>+ Create New Note</NavLink>
+
+					<a 
+						className = 'btn logout-btn' 
+						onClick = { e => this.handleLogOut(e) } 
+					>Log Out</a>
 				</div>
 			</div>
 		);

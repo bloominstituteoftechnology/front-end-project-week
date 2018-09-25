@@ -4,11 +4,13 @@ import React from 'react';
 // Assets
 import logo from '../../assets/notepad.svg';
 
-const HomeView = () => {
+const HomeView = props => {
+	const { username } = props;
+
 	return(
 		<div className = 'main-content'>
 			<div className = 'home'>
-				<h1>Welcome to Lambda Notes!</h1>
+				<h1>Welcome back to Lambda Notes, { username }!</h1>
 
 				<img className = 'logo' src = { logo } alt = 'notepad' />
 			</div>

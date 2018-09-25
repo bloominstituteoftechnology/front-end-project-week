@@ -8,7 +8,7 @@ const ListView = props => {
 	return(
 		<div className = 'main-content'>
 			<div className = 'list'>
-				<h2>Your Notes:</h2>
+				<h2>{ props.username }'s Notes:</h2>
 
 				{ props.notes.map((note, i) => <Note history = { props.history } key = { i } note = { note } />) }
 			</div>

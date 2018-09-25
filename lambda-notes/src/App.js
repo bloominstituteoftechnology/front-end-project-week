@@ -31,7 +31,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { notes, createNote, deleteNote, editNote, errorMsg } = this.props;
+		const { notes, createNote, deleteNote, editNote, errorMsg, username } = this.props;
 
 		return (
 			<div className = 'App'>
@@ -39,12 +39,12 @@ class App extends React.Component {
 
 				<Route 
 					exact path = '/' 
-					component = { HomeView }
+					render = { () => <HomeView username = { username } /> } 
 				/>
 
 				<Route 
 					path = '/list' 
-					render = { props => <ListView history = { props.history } notes = { notes } /> } 
+					render = { props => <ListView history = { props.history } username = { username } notes = { notes } /> } 
 				/>
 
 				<Route 

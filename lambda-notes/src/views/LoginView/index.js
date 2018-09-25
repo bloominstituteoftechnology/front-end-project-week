@@ -4,10 +4,10 @@ import React from 'react';
 // Components
 import { Login } from '../../components';
 
-const LoginView = () => {
+const LoginView = props => {
 	return(
 		<div className = 'main-content'>
-			<Login />
+			<Login handleLogin = { props.handleLogin } />
 		</div>
 	);
 }

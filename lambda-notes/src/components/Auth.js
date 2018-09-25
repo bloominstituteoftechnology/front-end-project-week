@@ -4,18 +4,26 @@ import { Route } from 'react-router-dom';
 
 const Auth = App => LoginView => class extends React.Component {
 	state = {
-		loggedIn: true,
+		loggedIn: false,
+		username: '',
 	};
+
+	handleLogin = () => {
+		this.setState({ 
+			loggedIn: true,
+			username: localStorage.getItem('lambdaNotesUsername'),
+		});
+	}
 
 	render() {
 		if (this.state.loggedIn) {
 			return(
-				<Route path = '/' component = { App } />
+				<Route path = '/' render = { props => <App { ...props } username = { this.state.username } /> } />
 			);
 		} else {
 			return(
 				<div className = 'App login-view'>
-					<LoginView />
+					<LoginView handleLogin = { this.handleLogin } />
 				</div>
 			);
 		}
