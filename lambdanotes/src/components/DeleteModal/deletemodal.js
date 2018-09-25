@@ -15,7 +15,6 @@ const DeleteBackground = Styled.div`
     height:100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: rgba(216, 216, 216, 0.75);
 `;
 
@@ -23,9 +22,10 @@ const DeletePrompt = Styled.div`
     z-index: 98;
     display: flex;
     flex-direction: column;
+    align-content: center;
     width: 530px;
     height: 175px;
-    margin: auto;
+    margin-top: 170px;
     border: 1px solid #afafaf;
     border-radius: 2px;
     background-color: #ffffff;
@@ -35,12 +35,17 @@ const DeleteHeader = Styled.h4`
     z-index: 99;
     margin: auto;
     font-size: 2rem;
+    /* border: 1px solid black;
+    background-color: green; */
 `;
 
 const ButtonContainer = Styled.div`
     z-index: 99;
+    height: 70px;
     display: flex;
     justify-content: center;
+    /* border: 1px solid black;
+    background-color: blue; */
 `;
 
 const DeleteModal = (props) => {
