@@ -26,7 +26,7 @@ export const Note = (props) => {
        </Modal>
       <h3>{props.note.title}</h3>
       <p>{props.note.note}</p>
-      {props.note.tags !== null ? <Tags tags={props.note.tags} newTags={props.newTags} removeTag={props.removeTag} /> : null}
+      {props.note.tags !== null ? <Tags history={props.history} tags={props.note.tags} newTags={props.newTags} removeTag={props.removeTag} change={props.change} submitTags={props.submitTags} id={props.id} /> : null}
     </NoteDiv>
   )
 }

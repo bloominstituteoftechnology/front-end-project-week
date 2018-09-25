@@ -101,6 +101,48 @@ class App extends Component {
     })
   }
 
+  submitNewTags = (id) => {
+    const noteId = parseInt(id);
+
+    axios.get(`http://localhost:8700/notes/${noteId}`).then(note => {
+      let selectedNote = note.data;
+      selectedNote.tags = this.state.newTags + " " + selectedNote.tags;
+      axios.put(`http://localhost:8700/notes/${noteId}`, selectedNote).then(response => {
+        axios.get('http://localhost:8700/notes').then(res2 => {
+          this.setState({ newTags: '', notes: res2.data })
+        }).catch(err => {
+          console.error(err);
+        })
+      }).catch(err => {
+        console.error(err);
+      })
+    }).catch(err => {
+      console.error(err);
+    })
+  }
+
+  deleteTag = (tagIndex, id) => {
+    const noteId = parseInt(id);
+
+    axios.get(`http://localhost:8700/notes/${noteId}`).then(note => {
+      let selectedNote = note.data;
+      const tags = selectedNote.tags.split(" ");
+      tags.splice(tagIndex, 1);
+      selectedNote.tags = tags.join(" ");
+      axios.put(`http://localhost:8700/notes/${noteId}`, selectedNote).then(response => {
+        axios.get('http://localhost:8700/notes').then(res2 => {
+          this.setState({ newTags: '', notes: res2.data })
+        }).catch(err => {
+          console.error(err);
+        })
+      }).catch(err => {
+        console.error(err);
+      })
+    }).catch(err => {
+      console.error(err);
+    })
+  }
+
   toggle = () => {
     this.setState({ modal: !this.state.modal })
   }
@@ -113,7 +155,7 @@ class App extends Component {
           this.state.notes.length === 0 ? <h1>Add a note!</h1>
           : <Notes notes={this.state.notes} />
         } />
-        <Route path='/notes/:id' render={(props) => <NotePage {...props} editComplete={this.submitEditedNote} editStart={this.beginEditNoteHandler} change={this.onChangeHandler} notes={this.state.notes} delete={this.deleteNoteHandler} title={this.state.newTitle} note={this.state.newNote} toggle={this.toggle} modal={this.state.modal} editing={this.state.editing} />} />
+        <Route path='/notes/:id' render={(props) => <NotePage {...props} editComplete={this.submitEditedNote} editStart={this.beginEditNoteHandler} change={this.onChangeHandler} notes={this.state.notes} delete={this.deleteNoteHandler} title={this.state.newTitle} note={this.state.newNote} toggle={this.toggle} modal={this.state.modal} editing={this.state.editing} newTags={this.state.newTags} submitTags={this.submitNewTags} removeTag={this.deleteTag} />} />
         <Route path='/new-note' render={(props) => <NewNote {...props} addNote={this.addNewNoteHandler} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} />} />
       </AppContainer>
     );

@@ -11,6 +11,6 @@ const TagBtn = styled.button `
 
 export const Tag = (props) => {
   return (
-    <TagBtn onClick={props.removeTag}>{props.tag}</TagBtn>
+    <TagBtn onClick={(event) => {props.removeTag(props.tags.indexOf(props.tag), props.id); props.history.push(`/notes/${props.id}`)}}>{props.tag}</TagBtn>
   )
 }
