@@ -1,0 +1,7 @@
+[Settings]
+    ID=-56e4f137-21c8-4a71-929d-74647f0a6a61
+
+[build]
+  base    = "notes/"
+  publish = "notes/build"
+  command = "yarn build"

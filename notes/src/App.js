@@ -29,16 +29,16 @@ class App extends Component {
 		});
 	}
 
-	componentDidUpdate(prevState) {
-		if (
-			this.state.deleting !== prevState.deleting &&
-			!this.state.deleting
-		) {
-			axios.get(API_ALL).then(response => {
-				this.setState({ notes: response.data.message, loading: false });
-			});
-		}
-	}
+	// componentDidUpdate(prevState) {
+	// 	if (
+	// 		this.state.deleting !== prevState.deleting &&
+	// 		!this.state.deleting
+	// 	) {
+	// 		axios.get(API_ALL).then(response => {
+	// 			this.setState({ notes: response.data.message, loading: false });
+	// 		});
+	// 	}
+	// }
 
 	handleAddNote = note => {
 		this.setState({ loading: true });
