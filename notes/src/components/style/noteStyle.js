@@ -6,16 +6,22 @@ export const NotesContainer = styled.div`
 
 export const NoteAlign = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
+  a {
+    width: 30%;
+  }
+
 `
 
 export const NoteStyle = styled.div`
   background: #FFFFFF;
-  width: 90%;
   
   border: 1px solid #D3D2D3;
   padding: 5px 10%;
   margin-top: 20px;
+  height: 270px;
 
   h3 {
     border-bottom: 1px solid #D3D2D3;
