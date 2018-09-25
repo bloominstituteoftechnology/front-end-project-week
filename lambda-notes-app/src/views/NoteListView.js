@@ -16,7 +16,7 @@ class NoteListView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  notesList: state.notes
+  notesList: state.notes // notesList is defined from our props.notesList.map inside our component
 })
 
 export default connect(mapStateToProps, { fetchNotes })(NoteListView);

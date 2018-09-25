@@ -4,8 +4,8 @@ export const NotesList = props => {
   return (
     <div className='notes-list-wrap'>
       {props.notesList.map(note => (
-        <div className='note-box'>
-          <h3 onClick={() => props.history.push(`/notes/${`note.id`}/info`)}>
+        <div className='note-box' key={note._id}>
+          <h3 onClick={() => props.history.push(`/notes/${note._id}/info`)}>
             {note.title}
           </h3>
           <p>{note.textBody}</p>
