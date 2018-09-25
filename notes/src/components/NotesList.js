@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Note from './Note';
 
 class NotesList extends Component {
     constructor(props) {
@@ -12,7 +13,8 @@ class NotesList extends Component {
         axios
         .get('https://killer-notes.herokuapp.com/note/get/all')
         .then(response => {
-            this.setState({ notes: response });
+            this.setState({ notes: response.data.textBody });
+            console.log(response.data);
         })
         .catch(error => {
         console.error('Server Error', error);
@@ -24,6 +26,7 @@ class NotesList extends Component {
                 {this.state.notes.map(note => (
                     <Note key={note.id} note={note} />
                 ))}
+                {this.state.notes}
             </div>
         );
     }
