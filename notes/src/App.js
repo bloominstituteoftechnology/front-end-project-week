@@ -13,6 +13,7 @@ import './App.css';
 class App extends Component {
   state = {
     notes: [],
+    note: {}
   }
 
 componentDidMount(){
@@ -86,6 +87,17 @@ handleUpdateNote =id => {
     this.setState({ notes, selected: {} });
   }
 
+handleDeleteNote = (id) => {
+  const newState = this.state.notes.filter((note => note.id !== id))
+  axios
+  .delete(`http://localhost:9000/api/notes/${id}`)
+  .then(response => {
+      this.setState({ notes: newState });
+      this.state.toggleDelete();
+      this.state.history.push('/notes');
+  })
+  .catch(err => console.log(err))
+}
 
 toggleDeleteNote = () => {
   this.setState({ remove: !this.state.remove })
@@ -131,14 +143,14 @@ toggleDeleteNote = () => {
 
           <Route path = "/note/:id" render={props =>
           (<NoteView {...props}
-            handleSelectNote = {this.state.handleSelectNote}
+            handleSelectNote = {this.handleSelectNote}
             toggleDelete = {this.toggleDelete}
-            note={this.state.notes}           
+            notes={this.state.notes}           
           />
           )}
           />
 
-          {this.state.remove ? (<Route path = "/delete/:id" render = {props=>
+          <Route path = "/delete/:id" render = {props =>
           (<DeleteNote {...props}
           handleSelectNote = {this.handleSelectNote}
           toggleDeleteNote = {this.toggleDeleteNote} 
@@ -146,9 +158,6 @@ toggleDeleteNote = () => {
           />
           )}
         />
-      )
-      : null  
-      }
           
           
       </div>
