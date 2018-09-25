@@ -1,43 +1,75 @@
 import React from "react";
 import "../CSS/singlenote.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const SingleNote = props => {
-  const note = props.notes.find(note => note.id == props.match.params.id);
+class SingleNote extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      note: {},
+      notePrev: {},
+    }
+  }
+
+  componentDidMount() {
+    this.noteView(this.props.match.params.id);
+  }
+
+  componentDidUpdate() {
+    axios
+    .get(`http://localhost:5000/notes/${this.props.match.params.id}`)
+    .then(response => {
+      if (JSON.stringify(this.state.note)!==JSON.stringify(response.data)){
+      this.setState({ note: response.data });}
+    })
+  }
+
+  noteView = (id) => {
+    axios
+  .get(`http://localhost:5000/notes/${id}`)
+  .then(response => {
+    this.setState(() => ({note: response.data}))
+    console.log(response.data)
+  })
+  .catch(error => {
+    console.error('Server Error', error);
+  });
+  }
+
+ render(){
+
   return (
-    <div className="single-note">
-      <div className={props.deleting ? "delete-show" : "hide-delete"}>
+    <div className={this.props.pink? "focus focuspink" : this.props.blue? "focus focusblue" : "focus"}>
+      <div className={this.props.deleting ? "delete" : "hide-delete"}>
         <div className="modal">
           <p>Are you sure you want to delete this?</p>
-          <div className="buttons">
-            <Link className="delete-link" to="/">
+          <div className="btns">
+            <Link className="linkdel" to="/">
               <div
-                onClick={() => props.noteDelete(props.match.params.id)}
-                className="delete-button"
+                onClick={() => this.props.noteDelete(this.props.match.params.id)}
+                className="deletebtn"
               >
                 Delete
               </div>
             </Link>
-            <div onClick={props.deleteModal} className="no-button">
+            <div onClick={this.props.deleteModal} className="nobtn">
               No
             </div>
           </div>
         </div>
       </div>
-
-      <div className="delete">
-        <Link
-          className="editlink"
-          to={`/notes/editnote/${props.match.params.id}`}
-        >
-          <p onClick={() => props.editHandler(props.match.params.id)}>edit</p>
+      <div className="edit-del">
+        <Link className="linkedit" to={`/notes/edit/${this.props.match.params.id}`}>
+          <p onClick={() => this.props.editNote(this.props.match.params.id)}>edit</p>
         </Link>
-        <p onClick={props.deleteModal}>delete</p>
+        <p onClick={this.props.deleteModal}>delete</p>
       </div>
-      <h1 className="single-title">{note.title}</h1>
-      <div className="single-content">{note.text}</div>
+      <h1 className="focustitle">{this.state.note.title}</h1>
+      <div className="notetxt">{this.state.note.text}</div>
     </div>
   );
+}
 };
 
 export default SingleNote;

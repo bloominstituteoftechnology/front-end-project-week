@@ -12,19 +12,20 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: dummydata,
+      notes: [],
       notetitle: "",
       notebody: "",
       id: null ,
       edittitle: "",
       edittext: "",
-      deleting: false
+      deleting: false,
+      tagging: false
     };
   }
 
   componentDidMount() {
     axios
-      .get("http://localhost:3300/notes")
+      .get("http://localhost:5000/notes")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -40,11 +41,11 @@ class App extends Component {
 
   noteSubmit = () => {
     axios
-      .post("http://localhost:3300/notes", {
+      .post("http://localhost:5000/notes", {
         title: this.state.newtitle,
         text: this.state.newbody
       }).then(()=>{
-        axios.get("http://localhost:3300notes")
+        axios.get("http://localhost:5000notes")
         .then(response => {
           console.log(response.data);
           this.setState(()=> ({notes: response.data }))
@@ -61,12 +62,15 @@ class App extends Component {
     this.setState({ edittitle: editnote.title, editbody: editnote.text });
   };
 
-  submitChange = id => {
-    let notecopy = this.state.notes.slice();
-    let editnote = notecopy.find(note => note.id == id);
-    editnote.title = this.state.edittitle;
-    editnote.text = this.state.editbody;
-    this.setState({ notes: notecopy });
+  submitEdit = id => {
+    axios.put(`http://localhost:5000/notes/${id}`, {
+      title: this.state.edittitle,
+      text: this.state.editbody}).then(()=>{
+        axios.get("http://localhost:5000/notes")
+        .then(response => {
+          this.setState({ notes: response.data })
+        })
+      })
   };
 
   deleteModal = () => {
@@ -74,12 +78,19 @@ class App extends Component {
     this.setState({ deleting });
   };
 
+  closeModal = () => {
+    this.setState({ tagging: !this.state.tagging });
+  };
+
   noteDelete = id => {
-    let notecopy = this.state.notes.slice();
-    let notesremaining = notecopy.filter(note => note.id != id)
-    console.log(notesremaining);
-    this.setState({ notes: notesremaining, deleting: false})
-  }
+    axios.delete(`http://localhost:5000/notes/${id}`)
+    .then(()=> {
+      axios.get("http://localhost:5000/notes")
+      .then(response => {
+        this.setState({ notes: response.data, deleting: false })
+      })
+    })
+  };
 
   render() {
     return (
@@ -106,12 +117,13 @@ class App extends Component {
           path="/notes/:id"
           render={props => (
             <SingleNote
-              {...props}
-              editHandler={this.editHandler}
-              notes={this.state.notes}
-              noteDelete={this.noteDelete}
-              deleteModal={this.deleteModal}
-              deleting={this.state.deleting}
+            {...props}
+            editNote={this.editHandler}
+            notes={this.state.notes}
+            note={this.state.note}
+            noteDelete={this.noteDelete}
+            deleteModal={this.deleteModal}
+            deleting={this.state.deleting}
             />
           )}
         />
