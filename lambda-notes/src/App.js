@@ -9,7 +9,7 @@ import { SideBar } from "./components/sidebar/SideBar";
 import "./App.css";
 import "./css/reset.css";
 
-const dataURL = "http://localhost:7000/api/notes/";
+const dataURL = "https://secret-bastion-74251.herokuapp.com/api/notes";
 
 class App extends Component {
   constructor(props) {
@@ -71,7 +71,10 @@ class App extends Component {
       content: this.state.content,
     };
     axios
-      .put(`http://localhost:7000/api/notes/${id}`, newNote)
+      .put(
+        `https://secret-bastion-74251.herokuapp.com/api/notes/${id}`,
+        newNote,
+      )
       .then(response => {
         this.setState({ title: "", content: "" });
         setTimeout(() => this.setState({ redirect: true }), 500);
@@ -95,7 +98,7 @@ class App extends Component {
       10,
     );
     axios
-      .delete(`http://localhost:7000/api/notes/${id}`)
+      .delete(`https://secret-bastion-74251.herokuapp.com/api/notes/${id}`)
       .then(response => {
         this.setState({ title: "", content: "" });
         setTimeout(() => this.setState({ redirect: true }), 500);
