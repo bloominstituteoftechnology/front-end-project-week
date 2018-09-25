@@ -1,3 +1,9 @@
 .right-side {
   background: rgba(239,239,239);
 }
+
+@media (max-width: 975px) {
+  .right-side {
+    padding: 5px 0 !important; /* bootstrap over-ride */
+  }
+}

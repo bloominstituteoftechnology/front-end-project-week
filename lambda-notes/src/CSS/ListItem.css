@@ -16,3 +16,12 @@
   font-size: 1.2rem;
   word-wrap: break-word;
 }
+
+@media (min-width: 975px) {
+  .note-card {
+    width: 100%;
+    margin: 5px;
+    padding: 20px;
+    border: 1px solid black;
+  }
+}

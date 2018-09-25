@@ -1,6 +1,6 @@
 .note-card-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: baseline;
   flex-wrap: wrap;
 }

@@ -30,7 +30,7 @@ class GotOne extends React.Component {
   render() {
     const {textBody, title, _id} = this.props.location.state.note;
     return (
-        <div className="note-card single-card col-md-12 pos-relative">
+        <div className="note-card single-card col-md-12 pos-relative got-one-card">
         <div className="edit-delete">
           <p className="mx-3">
             <Link style={{color: 'black', fontWeight: 'bold', fontSize: '0.7rem'}} to={{

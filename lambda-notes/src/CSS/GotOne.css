@@ -28,3 +28,7 @@
 .pos-relative {
   position: relative;
 }
+
+.got-one-card {
+  border: none;
+}
