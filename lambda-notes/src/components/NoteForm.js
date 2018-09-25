@@ -1,21 +1,19 @@
 import React from 'react';
-
 const NoteForm = (props) => {
   return (
     <form>
-      Title:
+      <p>Title:</p>
       <input
         type="text"
         name="title"
         placeholder="Title"
-        //Notice below, we're filling in the name prop thats part of the inputData prop object we set in App.js
         value={props.inputData.title}
         onChange={props.handleInput}
       />
-      Description:
+      <p>Description:</p>
       <input
         type="text"
-        name="title"
+        name="textBody"
         placeholder="Description"
         value={props.inputData.textBody}
         onChange={props.handleInput}
@@ -24,5 +22,4 @@ const NoteForm = (props) => {
     </form>
   );
 };
-
-export default NoteForm;
+export default NoteForm; 
