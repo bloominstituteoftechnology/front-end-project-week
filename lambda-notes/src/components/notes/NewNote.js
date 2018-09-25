@@ -11,6 +11,7 @@ class NewNote extends Component {
   }
 
   render() {
+    console.log("NEWNOTE PROPS");
     return (
       <div className="newNoteMainDiv">
         {this.props.renderRedirect()}

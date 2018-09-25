@@ -9,7 +9,7 @@ import { SideBar } from "./components/sidebar/SideBar";
 import "./App.css";
 import "./css/reset.css";
 
-const dataUrl = "http://localhost:7000/api/notes/";
+const dataURL = "http://localhost:7000/api/notes/";
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get(dataUrl)
+      .get(dataURL)
       .then(response => {
         this.setState({ notes: response.data, loadedData: true });
       })
@@ -44,24 +44,21 @@ class App extends Component {
   };
 
   submitNewNoteHandler = event => {
-    event.preventDefault();
-    let notesCopy = this.state.notes.slice();
-    let lastIndex = 0;
-    if (notesCopy.length <= 0) {
-      lastIndex = 0;
-    } else {
-      lastIndex = this.state.notes.slice(-1)[0];
-      lastIndex = lastIndex.id + 1;
-    }
-    let newNote = {
-      id: lastIndex,
+    // event.preventDefault();
+    const newNote = {
       title: this.state.title,
       content: this.state.content,
     };
-    notesCopy.push(newNote);
-    this.setState({ notes: notesCopy, title: "", content: "" });
-    setTimeout(() => this.setState({ redirect: true }), 1000);
-    setTimeout(() => this.setState({ redirect: false }), 1000);
+    axios
+      .post(dataURL, newNote)
+      .then(response => {
+        this.setState({ title: "", content: "" });
+        // setTimeout(() => this.setState({ redirect: true }), 1000);
+        // this.forceUpdate();
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   editNewNoteHandler = event => {
@@ -104,7 +101,10 @@ class App extends Component {
   // redirect
   renderRedirect = () => {
     if (this.state.redirect) {
+      this.setState({ redirect: false });
       return <Redirect to="/" />;
+    } else {
+      // do nothing
     }
   };
 
@@ -123,7 +123,13 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={props => <AllNotes {...props} notes={this.state.notes} />}
+            render={props => (
+              <AllNotes
+                {...props}
+                notes={this.state.notes}
+                renderRedirect={this.renderRedirect}
+              />
+            )}
           />
           <Route
             path="/new-note"

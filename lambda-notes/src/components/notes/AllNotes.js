@@ -12,12 +12,12 @@ class AllNotes extends Component {
   }
 
   render() {
-    const notesArrayCopy = this.state.allNotes.slice();
     return (
       <div className="mainNotesPageDiv">
+        {/* {() => this.props.renderRedirect()}; */}
         <h2 className="yourNotesTitle">Your Notes:</h2>
         <div className="allNotesDiv">
-          {notesArrayCopy.map(note => {
+          {this.props.notes.map(note => {
             return (
               <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
                 <h2>
