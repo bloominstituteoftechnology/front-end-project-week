@@ -5,8 +5,18 @@ import React from 'react';
 import logo from '../assets/notepad.svg';
 
 export default class Login extends React.Component {
+	state = {
+		errorMsg: '',
+	};
+
 	handleSubmit = e => {
 		e.preventDefault();
+
+		if (!e.target[0].value.match(/[^\s]/g)) {
+			return this.setState({
+				errorMsg: 'Username cannot be empty.',
+			});
+		}
 
 		localStorage.setItem('lambdaNotesUsername', e.target[0].value);
 		this.props.handleLogin();
@@ -24,7 +34,9 @@ export default class Login extends React.Component {
 				<form className = 'form' onSubmit = { e => this.handleSubmit(e) }>
 					<h2>Log in</h2>
 
-					<p>Name:</p>
+					{ this.state.errorMsg && <p className = 'error-msg'>{ this.state.errorMsg }</p> }
+
+					<p>Username:</p>
 					<input 
 						type = 'text' 
 					/>
