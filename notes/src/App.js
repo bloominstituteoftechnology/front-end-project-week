@@ -7,6 +7,7 @@ import Note from './components/Note';
 import NotesList from './components/NotesList';
 import NotesMenu from './components/NotesMenu';
 import AddNote from './components/AddNote';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   constructor() {
@@ -46,8 +47,11 @@ class App extends Component {
         />
         <Route exact path = '/addnote'
           render = {props => (<AddNote {...props} inputHandler = {this.inputHandler} publishNote = {this.publishNote} />
-        )}
-      />
+          )}
+        />
+        <Route exact path = '/notes/:id'
+          render = {props => <EditNote {...props} notes = {this.state.notes} />}
+        />
       </div>
     );
   }
