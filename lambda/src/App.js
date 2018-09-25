@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button, H1, H2, H3 } from './components/StyledComponents';
+import {
+  //Button,
+  H1
+  //H2,
+  //H3
+} from './components/StyledComponents';
 import SideBar from './components/SideBar';
 import { connect } from 'react-redux';
 import {
@@ -22,6 +27,7 @@ import {
 import NewNote from './components/CreateNote/NewNote';
 import NoteView from './components/NoteView';
 import Authenticate from './Authentication';
+import { convertArrToCSV } from './util/csvUtil';
 
 class App extends Component {
   state = {
@@ -47,10 +53,8 @@ class App extends Component {
   };
 
   render() {
-    let notes = this.props.notes.slice();
-    if (this.props.searching) {
-      notes = this.props.searchList.slice();
-    }
+    // let notes = this.props.notes;
+    // if (this.props.searching) notes = this.props.searchList.slice();
 
     return (
       <div className="App">
@@ -63,12 +67,16 @@ class App extends Component {
               exact
               path="/"
               render={props => (
-                <ListView notes={notes} sort={this.onSortClick} {...props} />
+                <ListView
+                  notes={this.props.notes}
+                  sort={this.onSortClick}
+                  {...props}
+                />
               )}
             />
             <Route
               path="/newNote"
-              render={props => <NewNote {...this.props} {...props} />}
+              render={props => <NewNote {...props} {...this.props} />}
             />
             <Route
               exact
@@ -105,19 +113,21 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = {
+  fetchNotes,
+  addNewNote,
+  fetchNote,
+  deleteNote,
+  updateNotes,
+  search,
+  sort
+};
+
 export default Authenticate(
   withRouter(
     connect(
       mapStateToProps,
-      {
-        fetchNotes,
-        addNewNote,
-        fetchNote,
-        deleteNote,
-        updateNotes,
-        search,
-        sort
-      }
+      mapDispatchToProps
     )(App)
   )
 );

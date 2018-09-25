@@ -4,14 +4,17 @@ import {
   TitleInput,
   ContentInput,
   Button,
-  TagInput
+  TagInput,
+  H1
 } from '../StyledComponents';
+import { Route, Redirect } from 'react-router';
 
 class Note extends React.Component {
   state = {
     title: '',
     textBody: '',
-    tags: ''
+    tags: '',
+    created: false
   };
 
   onInputChnage = event => {
@@ -20,15 +23,22 @@ class Note extends React.Component {
     });
   };
 
-  onSumbit = event => {
+  onSubmit = () => {
     console.log(this.state.tags.split(','));
     this.props.addNewNote({
-      ...this.state,
+      title: this.state.title,
+      textBody: this.state.textBody,
       tags: this.state.tags.split(',')
+    });
+    this.setState({
+      created: true
     });
   };
 
   render() {
+    console.log(this.props);
+    if (this.state.created) return <H1>Notes Added...</H1>;
+
     return (
       <div className="newNote">
         <TitleInput
@@ -52,7 +62,7 @@ class Note extends React.Component {
           name="tags"
           placeholder="Enter the tags (separate them with commas)"
         />
-        <Button onClick={this.onSumbit} submit>
+        <Button onClick={this.onSubmit} submit>
           Submit
         </Button>
       </div>

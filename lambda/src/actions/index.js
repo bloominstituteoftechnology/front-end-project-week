@@ -1,4 +1,3 @@
-// import { testNotes } from '../data';
 import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
@@ -56,7 +55,7 @@ export const deleteNote = noteId => {
     dispatch({ type: DELETING_NOTES });
     axios
       .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
-      .then(res => dispatch({ type: DELETED_NOTES }))
+      .then(res => dispatch({ type: DELETED_NOTES, payload: res.data }))
       .catch(err => dispatch({ type: ERROR, err: err }));
   };
 };

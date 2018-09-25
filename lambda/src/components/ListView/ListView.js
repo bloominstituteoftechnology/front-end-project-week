@@ -7,14 +7,16 @@ import {
   UnderLinedP,
   H3
 } from '../StyledComponents';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { downloadCSV } from '../../util/csvUtil';
 
-function List(props) {
+function List({ notes, history }) {
+  console.log(notes);
   return (
     <ListViews>
-      {props.notes.map(note => (
+      {notes.map(note => (
         <Item
-          onClick={event => onClick(note._id, props.history)}
+          onClick={() => history.push(`notes/${note._id}`)}
           key={note._id}
           {...note}
         />
@@ -23,24 +25,27 @@ function List(props) {
   );
 }
 
-function onClick(id, history) {
-  history.push(`notes/${id}`);
-}
-
-function ListView(props) {
+function ListView({ notes, sort }) {
   return (
     <div className="appView">
+      <a
+        href="#"
+        onClick={downloadCSV({
+          filename: 'notesData.csv',
+          notesData: notes
+        })}
+      >
+        Download CSV
+      </a>
       <ListOptions>
         <H3>Sort by </H3>
-        <UnderLinedP onClick={() => props.sort('CHARACTERS')}>
-          Characters
-        </UnderLinedP>
-        <UnderLinedP onClick={() => props.sort('CONTENT')}>
+        <UnderLinedP onClick={() => sort('CHARACTERS')}>Characters</UnderLinedP>
+        <UnderLinedP onClick={() => sort('CONTENT')}>
           Content Length
         </UnderLinedP>
       </ListOptions>
       <H2>Your Notes:</H2>
-      <List {...props} />
+      <List notes={notes} />
     </div>
   );
 }

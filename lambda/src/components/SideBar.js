@@ -1,13 +1,13 @@
 import React from 'react';
 import { H1, Button, SearchInput } from './StyledComponents';
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
+  // BrowserRouter as Router,
+  // Route,
+  // Link,
   NavLink
 } from 'react-router-dom';
 
-function SideBar(props) {
+const SideBar = props => {
   return (
     <div>
       <H1>
@@ -29,6 +29,6 @@ function SideBar(props) {
       />
     </div>
   );
-}
+};
 
 export default SideBar;
