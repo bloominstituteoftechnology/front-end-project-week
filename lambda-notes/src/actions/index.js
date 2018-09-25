@@ -42,11 +42,13 @@ export const addNote = (newNote) => {
     axios
         .post('https://killer-notes.herokuapp.com/note/create', newNote)
         .then(({ response }) => {
+            console.log("Hit *then* of addNote");
             dispatch({
               type: ADDED_NOTE,
               payload: response.data
             });
           })
+        .then(fetchNotes())
         .catch(error => {
             dispatch({
               type: ERROR_ADDING_NOTE,
@@ -56,10 +58,10 @@ export const addNote = (newNote) => {
     }
 }
 
-export const setUpdateNote = (id) => {
+export const setUpdateNote = (_id) => {
   return {
       type: PICK_NOTE_TO_UPDATE,
-      payload: id,
+      payload: _id,
   };
 };
 
@@ -68,7 +70,7 @@ export const updateNote = note => {
     dispatch({ type: UPDATING_NOTE });
 
     axios
-        .put(`http://localhost:5000/avengers/${note.id}`, note)
+        .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
         .then(response => {
             dispatch({ 
               type: UPDATED_NOTE, 
@@ -84,14 +86,14 @@ export const updateNote = note => {
   }
 };
 
-export const deleteNote = (id) => {
+export const deleteNote = (_id) => {
     return dispatch => {
       dispatch({ type: DELETING_NOTE });
   
       axios
-        .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+        .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
         .then(() => {
-          dispatch({type: DELETED_NOTE, id})
+          dispatch({type: DELETED_NOTE, _id})
         })
         .catch(error => {
           dispatch({

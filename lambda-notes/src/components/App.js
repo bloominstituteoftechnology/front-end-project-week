@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchNotes, addNote, updateNote, deleteNote } from '../actions';
 
 import NotesList from '../components/NotesList';
+import NoteAdd from '../components/NoteAdd';
 
 import './App.css';
 
@@ -33,8 +34,9 @@ class App extends Component {
     this.props.addNote(this.state.newNote);
     this.setState({
       newNote: {
+        ...this.state.newNote,
         title: "",
-        content: ""
+        textBody: ""
       }
     })
   }
@@ -45,6 +47,12 @@ class App extends Component {
         <h1>Notes</h1>
         <NotesList 
           notes={this.props.notes}
+          deleteNote={this.props.deleteNote}
+        />
+        <NoteAdd 
+          newNote={this.state.newNote}
+          handleInput={this.handleInput}
+          addNote={this.addNote}
         />
       </div>
     );
