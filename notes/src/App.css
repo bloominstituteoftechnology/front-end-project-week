@@ -81,6 +81,11 @@ a:hover {
   font-weight: bold;
 }
 
+.alert-dismissible .close {
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+}
+
 button {
   margin: 10px;
 }

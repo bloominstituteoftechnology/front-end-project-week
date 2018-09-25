@@ -6,11 +6,22 @@ import * as actions from './actions';
 import Notes from './components/Notes';
 import SingleNote from './components/SingleNote';
 import NoteForm from './components/NoteForm';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Alert } from 'reactstrap';
 import Login from './components/Login';
 import Register from './components/Register';
 
 class App extends Component {
+  state = {
+    visible: false
+  };
+  componentDidUpdate(prevProps) {
+    if (prevProps.error !== this.props.error) {
+      this.setState({ visible: true });
+    }
+  }
+  onDismiss = () => {
+    this.setState({ visible: false });
+  };
   logoutUser = () => {
     this.props.logoutUser(this.props.history);
   };
@@ -60,6 +71,14 @@ class App extends Component {
             )}
           </Nav>
         </Navbar>
+        <Alert
+          color="danger"
+          isOpen={this.state.visible}
+          toggle={this.onDismiss}
+          style={{ position: 'absolute', top: 0, width: '50%', left: '25%' }}
+        >
+          {this.props.error}
+        </Alert>
         <Route
           exact
           path="/"
