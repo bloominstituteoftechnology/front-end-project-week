@@ -2,6 +2,8 @@ import React from 'react';
 import '../App.css';
 import { Route, NavLink } from 'react-router-dom';
 import DeleteNote from './DeleteNote';
+import { connect } from 'react-redux';
+import { fetchNotes } from '../actions';
 
 class Note extends React.Component {
     constructor(props) {
@@ -13,7 +15,8 @@ class Note extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
+        this.props.fetchNotes();
         const note = this.props.notes.find(note => note._id == this.props.match.params.id);
         this.setState({
             _id: note._id,
@@ -37,4 +40,11 @@ class Note extends React.Component {
     }
 }
 
-export default Note; 
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+        fetchingNotes: state.fetchingNotes, 
+    }
+}
+
+export default connect(mapStateToProps, {fetchNotes})(Note); 

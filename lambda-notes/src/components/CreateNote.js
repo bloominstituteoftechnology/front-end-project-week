@@ -29,4 +29,6 @@ class CreateNote extends React.Component {
     }
 }
 
+{/* <button><NavLink to='/' onClick={() => this.props.addNote(this.state)} className="button">Save</NavLink></button> */}
+
 export default CreateNote;
