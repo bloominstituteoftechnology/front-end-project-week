@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
+export const VIEWING_NOTE = 'VIEWING_NOTE';
+export const VIEWED_NOTE = 'VIEWED_NOTE';
 export const SAVING_NOTES = 'SAVING_NOTES';
 export const SAVED_NOTES = 'SAVED_NOTES';
 export const UPDATING_NOTES = 'UPDATING_NOTES';
@@ -25,6 +27,21 @@ export const fetchNotes = () => {
     }
 }
 
+export const viewNote = noteId => {
+    return dispatch => {
+        dispatch({ type: VIEWING_NOTE });
+
+        axios
+            .get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
+            .then(res => {
+                dispatch ({ type: VIEWED_NOTE, payload: res.data });
+            })
+            .catch(err => {
+                dispatch({ type:ERROR, payload: err });
+            })
+    }
+}
+
 export const addNote = note => {
     return dispatch => {
         dispatch({ type: SAVING_NOTES });
@@ -32,7 +49,7 @@ export const addNote = note => {
         axios
             .post('https://killer-notes.herokuapp.com/note/create', {
                 title: note.title,
-                content: note.content
+                textBody: note.content
             })
             .then(res => {
                 dispatch({ type: SAVED_NOTES, payload: res.data });
@@ -65,7 +82,7 @@ export const updateNote = note => {
         axios
         .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, {
             title: note.title,
-            content: note.content
+            textBody: note.content
         })
         .then(res => {
             dispatch({ type: UPDATED_NOTES, payload: res.data })

@@ -1,9 +1,12 @@
 import * as actionTypes from '../actions';
 
 const initialState = {
+    note: [],
     notes: [],
     fetchingNotes: false, 
-    fetchedNotes: false,   
+    fetchedNotes: false,
+    viewingNote: false,
+    viewedNote: false,    
     savingNotes: false,
     savedNotes: false,
     updatingNote: false,
@@ -27,10 +30,22 @@ export const notesReducer = (state = initialState, action) => {
                 fetchedNotes: true,
                 notes: action.payload
             }
+        case actionTypes.VIEWING_NOTE:
+            return {
+                ...state,
+                viewingNote: true
+            }
+        case actionTypes.VIEWED_NOTE:
+            return {
+                ...state,
+                viewingNote: false,
+                viewedNote: true,
+                note: action.payload
+            }
         case actionTypes.SAVING_NOTES:
             return {
                 ...state,
-                savingNotes: true,                
+                savingNotes: true               
             }
         case actionTypes.SAVED_NOTES:
             return {
@@ -67,9 +82,11 @@ export const notesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetchingNotes: false,
+                viewingNote: false,
                 savingNotes: false,
                 updatingNote: false,
-                deletingNote: false                
+                deletingNote: false,
+                error: action.payload                
             }
         default:
             return state;
