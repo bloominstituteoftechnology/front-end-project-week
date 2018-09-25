@@ -11,7 +11,7 @@ import logo from '/Users/josephbradley/Desktop/practice-dir/front-end-project-we
 class sideBar extends Component {
   render() {
     return (
-      <Router>
+      // <Router>
       <div className="side-bar-container">
       <img src={logo} className="Lambda-logo" alt="logo" />
       <h2 className="notes"> Notes </h2>
@@ -22,7 +22,7 @@ class sideBar extends Component {
          <Link to = "/createcards"><button className="button"><span>Create Cards</span></button></Link>
         </div>
       </div>
-      </Router>
+      // </Router>
     );
   }
 }

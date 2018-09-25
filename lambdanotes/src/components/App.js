@@ -7,28 +7,34 @@ import Notes from './Notes';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [],
+      note: ''
+    };
+  }
   render() {
     return (
+      <Router>
       <div className="App">
         <div className="side-bar">
           <SideBar />
         </div>
         <div className="note-view">
-        <Router> 
+        {/* <Router>  */}
         <Switch> 
-          <Route path='/viewcards' render={props => (
-            <NoteView {...props} NoteView={Notes}
-            />
-          )}
+          <Route path='/viewcards' component={NoteView}
           />
           <Route path='/createcards' 
           component={CreateNew}
           />
         </Switch>
-        </Router>
-          
         </div>
       </div>
+        </Router>
+          
+       
     );
   }
 }
