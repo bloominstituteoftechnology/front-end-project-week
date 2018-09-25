@@ -27,7 +27,7 @@ class EditNote extends Component {
 			textBody: this.state.textBody
 		});
 
-		this.props.doneEditing();
+		this.props.returnToNote('edit');
 	};
 
 	componentDidMount() {

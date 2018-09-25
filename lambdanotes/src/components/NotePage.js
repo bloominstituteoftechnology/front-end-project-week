@@ -19,10 +19,9 @@ class NotePage extends Component {
 		});
 	};
 
-	doneEditing = () => {
-		// this.props.updateNote(updatedNote);
+	returnToNote = action => {
 		this.setState({
-			edit: undefined
+			[action]: undefined
 		});
 	};
 
@@ -63,7 +62,7 @@ class NotePage extends Component {
 						)}
 					</React.Fragment>
 				) : (
-					<EditNote note={this.props.note} doneEditing={this.doneEditing} />
+					<EditNote note={this.props.note} returnToNote={this.returnToNote} />
 				)}
 				{this.state.delete ? <DeleteNoteModal /> : null}
 			</div>
