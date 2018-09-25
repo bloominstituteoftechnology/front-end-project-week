@@ -13,13 +13,13 @@ import "./App.css";
 
 const API_ALL = "http://localhost:8000/notes";
 const API_ADD = "http://localhost:8000/notes";
-const API_DELETE = "https://killer-notes.herokuapp.com/note/delete";
-const API_GET = "https://killer-notes.herokuapp.com/note/get";
-const API_PUT = "https://killer-notes.herokuapp.com/note/edit";
+const API_DELETE = "http://localhost:8000/notes";
+const API_PUT = "http://localhost:8000/notes";
 class App extends Component {
 	state = {
 		notes: [],
 		loading: false,
+		deleting: false,
 	};
 
 	componentDidMount() {
@@ -29,27 +29,41 @@ class App extends Component {
 		});
 	}
 
+	componentDidUpdate(prevState) {
+		if (
+			this.state.deleting !== prevState.deleting &&
+			!this.state.deleting
+		) {
+			axios.get(API_ALL).then(response => {
+				this.setState({ notes: response.data.message, loading: false });
+			});
+		}
+	}
+
 	handleAddNote = note => {
 		this.setState({ loading: true });
 		axios.post(API_ADD, note).then(response => {
 			this.setState(prevState => ({
-				notes: [...prevState.notes, { ...note, id: response.message }],
+				notes: [
+					...prevState.notes,
+					{ ...note, id: response.data.message },
+				],
 				loading: false,
 			}));
 		});
 	};
 
 	handleDeleteNote = id => {
-		this.setState({ loading: true });
+		this.setState({ deleting: true });
+
 		axios.delete(`${API_DELETE}/${id}`).then(() => {
-			axios.get(API_ALL).then(response => {
-				this.setState({ notes: response.data, loading: false });
-			});
+			this.setState(prevState => ({
+				deleting: false,
+			}));
 		});
 	};
 
 	handleEditNote = (id, edited) => {
-		console.log("we made it");
 		this.setState({ loading: true });
 		axios.put(`${API_PUT}/${id}`, edited).then(response => {
 			this.setState(prevState => ({

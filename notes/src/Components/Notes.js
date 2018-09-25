@@ -47,7 +47,6 @@ class Notes extends React.Component {
 			} else {
 				notes.wip.push(note);
 			}
-			console.log(notes);
 		});
 
 		return (
