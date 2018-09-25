@@ -70,14 +70,18 @@ class App extends Component {
     });
   };
 
-  deleteNote = note => {
-    let notes = this.state.notes.slice();
-    for (let i = 0; i < notes.length; i++) {
-      if (notes[i].id === note.id) {
-        notes.splice(i, 1);
-      }
-    }
-    this.setState({ notes });
+  deleteNote = id => {
+    axios
+      .delete(`http://localhost:7000/api/notes/${id}`)
+      .then(response => {
+        this.setState({
+          notes: response.data
+        });
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+        this.setErrorHandler("Error deleting note!");
+      });
   };
 
   setNotesData = data => this.setState({ notes: data });
@@ -142,7 +146,6 @@ class App extends Component {
             render={props => (
               <EditNote
                 {...props}
-                notes={this.state.notes}
                 setNotesData={this.setNotesData}
                 preventSubmit={this.preventSubmit}
               />

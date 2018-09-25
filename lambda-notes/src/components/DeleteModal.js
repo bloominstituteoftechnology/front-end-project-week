@@ -30,7 +30,7 @@ class DeleteModal extends React.Component {
                             <ModalHeader style={{ justifyContent: "center" }}>Are you sure you want to delete this?</ModalHeader>
                             <ModalBody>
                                 <Row>
-                                    <Col><Button color="danger" size="lg" block onClick={() => this.props.deleteNote(this.props.note)} onMouseUp={() => history.goBack()}> Delete</Button></Col> {' '}
+                                    <Col><Button color="danger" size="lg" block onClick={() => this.props.deleteNote(this.props.note.id)} onMouseUp={() => history.goBack()}> Delete</Button></Col> {' '}
                                     <Col><Button color="info" size="lg" block onClick={this.toggle}>No</Button></Col>
                                 </Row>
                             </ModalBody>
