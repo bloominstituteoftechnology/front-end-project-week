@@ -7,7 +7,7 @@ export default function CreateEditNote(props) {
     if (props.updatingNote) {
       props.handleUpdateNote();
     } else {
-      props.handleAddNewNote(event);
+      props.handleAddNote(event);
     }
   }
 
@@ -20,7 +20,7 @@ export default function CreateEditNote(props) {
             type="text"
             placeholder="Note Title"
             value={props.note.title}
-            name="name"
+            name="title"
             onChange={props.handleChange}
           />
         </div>

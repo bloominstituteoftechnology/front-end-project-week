@@ -46,7 +46,7 @@ export const updateNote = note => dispatch => {
   dispatch({ type: NOTES_UPDATE_START });
 
   axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+    .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
     .then(response => {
       dispatch({ type: NOTES_UPDATE_COMPLETE, payload: response.data });
     })

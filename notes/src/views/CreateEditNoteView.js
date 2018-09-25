@@ -1,9 +1,6 @@
 import React from "react";
 import CreateEditNote from "../components/CreateEditNote";
-
-import React from "react";
 import { connect } from "react-redux";
-
 import { addNewNote, updateNote } from "../store/actions";
 
 class CreateEditNoteView extends React.Component {
@@ -35,12 +32,11 @@ class CreateEditNoteView extends React.Component {
     event.preventDefault();
     console.log("handle add new note");
     this.props.addNewNote(this.state.note);
-    this.props.history.push("/notes");
   };
 
   handleUpdateNote = () => {
     this.props.updateNote(this.state.note);
-    this.props.history.push("/notes");
+    this.props.history.push("/");
   };
 
   render() {

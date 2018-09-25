@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, NavLink, withRouter } from "react-router-dom";
 
 import ListView from "./views/ListView";
-import CreateNoteView from "./views/CreateNoteView";
+import CreateEditNoteView from "./views/CreateEditNoteView";
 import SingleNoteView from "./views/SingleNoteView";
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
           </li>
         </ul>
         <Route exact path="/" component={ListView} />
-        <Route path="/create-note" component={CreateNoteView} />
+        <Route path="/create-note" component={CreateEditNoteView} />
         <Route path="/note/get/:id" component={SingleNoteView} />
       </div>
     );
