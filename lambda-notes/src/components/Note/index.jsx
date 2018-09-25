@@ -6,7 +6,7 @@ import { getNote, getNotes, editNote, deleteNote } from '../../actions';
 import Form from "../Form";
 import '../components.css';
 import './index.css';
-class Note extends Component {
+class Note extends React.Component {
   state = {
     isEditing: false,
     modalIsOpen: false,

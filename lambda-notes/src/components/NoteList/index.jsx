@@ -51,7 +51,7 @@ const NoteList = props => {
 }
 
 
-MoteList.defaultProps = {
+NoteList.defaultProps = {
   notes: []
 };
 
