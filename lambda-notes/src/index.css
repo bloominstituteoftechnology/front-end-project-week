@@ -1,25 +1,9 @@
-/* * {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: sans-serif;
+  box-sizing: border-box;
+  height: 100%;
 }
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  font-family: 'Roboto', sans-serif;
-  background-color: #eeeeee;
-  color: #434343;
-  margin-left: 250px;
-}
-
-.navbar {
-  width: 100px;
-  height: 200px;
-  background-color: black;
-}
- */

@@ -1,117 +1,139 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
-
-import Notes from "./components/Notes";
-import Note from "./components/Note";
-import AddNote from "./components/AddNote";
-
-import { downloadCSV } from "./components/CSV";
-
 import "./App.css";
+import { connect } from "react-redux";
+import { withRouter, Route, Link, Switch } from "react-router-dom";
+import * as actions from "./actions";
+import Notes from "./components/Notes";
+import SingleNote from "./components/SingleNote";
+import NoteForm from "./components/NoteForm";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Alert } from "reactstrap";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 class App extends Component {
-	state={
-		notes: [
-			{
-				id: 0,
-				title: 'Note1',
-				text: 'Go for a run',
-			},
-			{
-				id: 1,
-				title: 'Note2',
-				text: 'take out trash',
-			},
-			{
-				id: 2,
-				title: 'Note3',
-				text: 'finish sprint',
-      },
-      {
-				id: 3,
-				title: 'demo',
-				text: 'this is another note',
-      },
-      {
-				id: 4,
-				title: 'demooo',
-				text: 'more notess',
-      },
-      {
-				id: 5,
-				title: 'another 1',
-				text: 'have u had enough notes yet',
-			}
-		],
-	};
-
-	handleAddNote = note => {
-		this.setState(prevState => ({ notes: [...prevState.notes, note] }));
-	};
-
-	handleDeleteNote = id => {
-		this.setState(prevState => ({
-			notes: prevState.notes.filter(note => note.id != id),
-		}));
-	};
-
-	handleEditNote = edited => {
-		this.setState(prevState => ({
-			notes: prevState.notes.map(note => {
-				if (note.id == edited.id) {
-					return edited;
-				} else {
-					return note;
-				}
-			}),
-		}));
-	};
-
-	render() {
-		return (
-			<div className='App'>
-				<div className='Sidebar'>
-					<div className='Sidebar-header'>
-						<h1>Lambda Notes</h1>
-					</div>
-					<Link to='/notes'>
-						<button className='button'>View Your Notes</button>
-					</Link>
-
-					<Link to='/add'>
-						<button className='button'>+ Create New Note</button>
-					</Link>
-				</div>
-				<Route
-					exact
-					path='/'
-					render={() => <div>This is the home page</div>}
-				/>
-				<Route
-					exact
-					path='/notes'
-					render={() => <Notes notes={this.state.notes} />}
-				/>
-				<Route
-					exact
-					path='/add'
-					render={() => <AddNote onSubmit={this.handleAddNote} />}
-				/>
-				<Route
-					exact
-					path='/notes/:id'
-					render={props => (
-						<Note
-							match={props.match}
-							notes={this.state.notes}
-							onClick={this.handleDeleteNote}
-							onSubmit={this.handleEditNote}
-						/>
-					)}
-				/>
-			</div>
-		);
-	}
+  state = {
+    visible: false
+  };
+  componentDidUpdate(prevProps) {
+    if (prevProps.error !== this.props.error) {
+      this.setState({ visible: true });
+    }
+  }
+  onDismiss = () => {
+    this.setState({ visible: false });
+  };
+  logoutUser = () => {
+    this.props.logoutUser(this.props.history);
+  };
+  render() {
+    return (
+      <div className="App">
+        <Navbar>
+          <NavbarBrand>
+            Lambda
+            <br /> Notes
+          </NavbarBrand>
+          <Nav>
+            <NavItem>
+              <NavLink tag={Link} to="/">
+                View Your Notes
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/notes/add">
+                + Create New Note
+              </NavLink>
+            </NavItem>
+            {!localStorage.getItem("token") ? (
+              <React.Fragment>
+                <NavItem>
+                  <NavLink tag={Link} to="/login">
+                    Login
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} to="/register">
+                    Register
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <NavItem>
+                  <NavLink
+                    onClick={this.logoutUser}
+                    style={{ color: "white", cursor: "pointer" }}
+                  >
+                    Logout
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+            )}
+          </Nav>
+        </Navbar>
+        <Alert
+          color="danger"
+          isOpen={this.state.visible}
+          toggle={this.onDismiss}
+          style={{ position: "absolute", top: 0, width: "50%", left: "25%" }}
+        >
+          {this.props.error}
+        </Alert>
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Notes
+              {...props}
+              notes={this.props.notes}
+              fetchNotes={this.props.fetchNotes}
+              fetchingNotes={this.props.fetchingNotes}
+            />
+          )}
+        />
+        <Switch>
+          <Route
+            path="/notes/add"
+            render={props => (
+              <NoteForm {...props} addNote={this.props.addNote} />
+            )}
+          />
+          <Route
+            path="/notes/:id"
+            render={props => <SingleNote {...props} note={this.props.note} />}
+          />
+        </Switch>
+        <Route
+          path="/login"
+          render={props => (
+            <Login {...props} loginUser={this.props.loginUser} />
+          )}
+        />
+        <Route
+          path="/register"
+          render={props => (
+            <Register {...props} registerUser={this.props.registerUser} />
+          )}
+        />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    fetchingNotes: state.fetchingNotes,
+    fetchingNote: state.fetchingNotes,
+    notes: state.notes,
+    note: state.note,
+    error: state.error,
+    updatingNote: state.updatingNote
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    actions
+  )(App)
+);
