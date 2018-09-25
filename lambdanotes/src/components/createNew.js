@@ -1,46 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../components/CreateNew.css';
 
 
 
-class CreateNew extends Component {
-    constructor() {
-        super();
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        const data = new FormData(event.target);
-
-        fetch('https://killer-notes.herokuapp.com/note/edit/id', {
-            method: 'POST',
-            body: data,
-        });
-    }
-  render() {
-    //   console.log(data);
+const CreateNew = (props) => {
+console.log(props.notes);
     return (
       <div className="main-container">
       <h2> Create New Note </h2>
         <div className="title-form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <label htmlFor="notetitle">Note Title</label>
             <br/>
-            <input className="title" type ="text" name="New Title" id="notetitle"/>
+            <input className="title" type ="text" name="title" value={props.value}/>
         {/* </div> */}
         {/* <div className="comment-form"> */}
             <br/>
             <label htmlFor="note">New Notes</label>
             <br/>
-            <input className="comment" type ="text" name="New Notes" id="notetitle"/>
+            <input className="comment" type ="text" name="note" value ={props.value} />
         <button className="savebutton"><span>Save</span></button>
         </form>
         </div>
       </div>
     
     );
-  }
-}
+};
 
 export default CreateNew;

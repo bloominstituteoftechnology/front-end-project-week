@@ -24,7 +24,18 @@ class App extends Component {
       note: ''
     };
   }
+
+    Submit = event  => {
+      event.preventDefault();
+      const notes = this.state.notes.slice();
+      notes.push({ title: this.notes.title, note: this.notes.note, id: Date.now() });
+      this.setState({ notes, note:''});
+
+      
+  }
+
   render() {
+    console.log(this.state.notes);
     return (
       <Router>
       <div className="App">
@@ -32,12 +43,13 @@ class App extends Component {
           <SideBar />
         </div>
         <div className="note-view">
-        {/* <Router>  */}
         <Switch> 
           <Route path='/viewcards' 
-          render={(notes) => <NoteView {...notes} notes={this.state.notes}/>}
+          render={(props) => <NoteView {...props} notes={this.state.notes}/>}
           />
-          <Route path='/createcards' 
+          {/* //Comeback and check on lines 48 and 52// */}
+          <Route path='/createcards'
+          render={(props) => <CreateNew {...props} notes={this.state.notes} handleSubmit= {this.handleSubmit}/>} 
           component={CreateNew}
           />
         </Switch>

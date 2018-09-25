@@ -13,10 +13,16 @@
     display: flex;
     flex-direction: row;
     justify-content: top;
+    padding-left: 3%;
 
 
 }
 
 .statement {
+    font-family: 'Permanent Marker', cursive;
+    padding-left: 5%;
+}
+
+h2 {
     font-family: 'Permanent Marker', cursive;
 }
