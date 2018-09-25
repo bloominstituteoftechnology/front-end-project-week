@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddNotesContainer from "./AddNotesContainer";
 import OneNoteEditContainer from "./OneNoteEditContainer";
 import NoteContainer from "./NoteContainer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const store = createStore(noteReducer);
 

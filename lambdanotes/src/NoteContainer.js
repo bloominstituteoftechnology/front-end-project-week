@@ -4,37 +4,93 @@ import "./App.css";
 import { getNotes } from "./components/actions/actions";
 import { connect } from "react-redux";
 import OneNote from "./components/NotesContainer/OneNote";
+import { withRouter } from "react-router-dom";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-function NoteContainer(props) {
-	const noteID = parseInt(props.match.params.id, 10);
+class NoteContainer extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			modal: false,
+			backdrop: true
+		};
 
-	let thisNote = props.notes.find(note => note.id === noteID);
-
-	function handleDelete() {
-		console.log(props);
-		const newNotes = props.notes.filter(note => note.id != thisNote.id);
-		props.getNotes(newNotes);
-		props.history.push("/");
+		this.toggle = this.toggle.bind(this);
 	}
-	return (
-		<div className="App">
-			<SidebarContainer />
-			<div className="newNote">
-				<div className="edit-delete">
-					<button
-						onClick={() => props.history.push(`/note/${noteID}/edit`)}
-						className="button"
-					>
-						edit
-					</button>
-					<button onClick={props => handleDelete(props)} className="button">
-						delete
-					</button>
+
+	toggle() {
+		this.setState({
+			modal: !this.state.modal
+		});
+	}
+	handleDelete(props) {
+		const noteID = parseInt(this.props.match.params.id, 10);
+
+		let thisNote = this.props.notes.find(note => note.id === noteID);
+		const newNotes = this.props.notes.filter(note => note.id != thisNote.id);
+		this.props.getNotes(newNotes);
+		this.props.history.push("/");
+	}
+	changeBackdrop(e) {
+		let value = e.target.value;
+		if (value !== "static") {
+			value = JSON.parse(value);
+		}
+		this.setState({ backdrop: value });
+	}
+
+	render(props) {
+		const noteID = parseInt(this.props.match.params.id, 10);
+
+		let thisNote = this.props.notes.find(note => note.id === noteID);
+		return (
+			<div>
+				<div className="App">
+					<SidebarContainer />
+					<div className="newNote">
+						<div className="edit-delete">
+							<button
+								onClick={() => this.props.history.push(`/note/${noteID}/edit`)}
+								className="button"
+							>
+								edit
+							</button>
+							<button onClick={this.toggle} className="button">
+								delete
+							</button>
+						</div>
+						<OneNote
+							note={thisNote}
+							title={thisNote.title}
+							body={thisNote.body}
+						/>
+					</div>
 				</div>
-				<OneNote note={thisNote} title={thisNote.title} body={thisNote.body} />
+				<Modal
+					isOpen={this.state.modal}
+					toggle={this.toggle}
+					className={this.props.className}
+					backdrop={this.state.backdrop}
+					modalTransition={{ timeout: 200 }}
+					backdropTransition={{ timeout: 200 }}
+				>
+					<ModalHeader toggle={this.toggle}>Delete Note</ModalHeader>
+					<ModalBody>Are you sure you wish to delete this note?</ModalBody>
+					<ModalFooter>
+						<Button
+							color="danger"
+							onClick={() => this.handleDelete(this.props)}
+						>
+							Delete
+						</Button>{" "}
+						<Button color="secondary" onClick={this.toggle}>
+							Cancel
+						</Button>
+					</ModalFooter>
+				</Modal>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 const mapStateToProps = state => ({
@@ -44,4 +100,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{ getNotes }
-)(NoteContainer);
+)(withRouter(NoteContainer));
