@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Row, Container, Col } from "reactstrap";
 import axios from "axios";
 
-
 import "./Note.css";
 import DeleteModal from "./DeleteModal";
 

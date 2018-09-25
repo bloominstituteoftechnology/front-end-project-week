@@ -80,15 +80,7 @@ class App extends Component {
     this.setState({ notes });
   };
 
-  editNote = note => {
-    let notes = this.state.notes.slice();
-    for (let i = 0; i < notes.length; i++) {
-      if (notes[i].id === note.id) {
-        notes[i] = note;
-      }
-    }
-    this.setState({ notes });
-  };
+  setNotesData = data => this.setState({ notes: data });
 
   searchHandler = event => {
     this.setState({ term: event.target.value });
@@ -142,12 +134,7 @@ class App extends Component {
           <Route
             exact
             path="/notes/:id"
-            render={props => (
-              <Note
-                {...props}
-                deleteNote={this.deleteNote}
-              />
-            )}
+            render={props => <Note {...props} deleteNote={this.deleteNote} />}
           />
           <Route
             exact
@@ -156,7 +143,7 @@ class App extends Component {
               <EditNote
                 {...props}
                 notes={this.state.notes}
-                editNote={this.editNote}
+                setNotesData={this.setNotesData}
                 preventSubmit={this.preventSubmit}
               />
             )}

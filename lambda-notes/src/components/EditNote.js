@@ -18,7 +18,7 @@ class EditNote extends React.Component {
       .get(`http://localhost:7000/api/notes/${this.props.match.params.id}`)
       .then(response => {
         this.setState(() => ({
-          note: response.data,
+          note: response.data[0],
           title: response.data[0].title,
           content: response.data[0].content
         }));
@@ -27,15 +27,30 @@ class EditNote extends React.Component {
         console.error("Server Error", error);
       });
   }
-
-  handleSubmit = event => {
+  editNote = event => {
     event.preventDefault();
-    const updatedNote = {
-      id: this.state.note.id,
-      title: this.state.title,
-      content: this.state.content
-    };
-    this.props.editNote(updatedNote);
+    const { title, content } = this.state;
+    const newNote = { title, content };
+    axios
+      .put(
+        `http://localhost:7000/api/notes/${this.props.match.params.id}`,
+        newNote
+      )
+      .then(response => {
+        this.props.setNotesData(response.data);
+        this.setState(() => ({
+          note: response.data.find(
+            note => note.id === Number(this.props.match.params.id)
+          )
+        }));
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+        this.setErrorHandler("Error editing note!");
+      });
+    setTimeout(() => {
+      this.props.history.goBack();
+    }, 100);
   };
 
   handleInputChange = event => {
@@ -58,7 +73,6 @@ class EditNote extends React.Component {
                 onChange={this.handleInputChange}
                 type="text"
                 name="title"
-                // placeholder={this.state.title}
                 style={{ marginTop: 30 + "px", border: "2px solid lightgray" }}
                 value={this.state.title}
               />
@@ -68,7 +82,6 @@ class EditNote extends React.Component {
             onChange={this.handleInputChange}
             type="textarea"
             name="content"
-            // placeholder={this.state.content}
             rows="15"
             style={{ marginTop: 15 + "px", border: "2px solid lightgray" }}
             value={this.state.content}
@@ -76,8 +89,7 @@ class EditNote extends React.Component {
           <Row>
             <Col sm="4">
               <Button
-                onClick={this.handleSubmit}
-                onMouseUp={() => this.props.history.goBack()}
+                onClick={this.editNote}
                 color="info"
                 style={{ marginTop: 15 + "px" }}
                 block
