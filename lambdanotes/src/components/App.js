@@ -15,6 +15,11 @@ class App extends Component {
          note: "Hey, I have stuff to do",    
          id: 1, 
       },
+      {title: "Homework2",
+         note: "Hey, I have more stuff to do",    
+         id: 2, 
+      },
+
       ],
       note: ''
     };
