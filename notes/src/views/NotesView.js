@@ -45,7 +45,6 @@ export default connect(
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
 `;
 
 const List = styled.div`

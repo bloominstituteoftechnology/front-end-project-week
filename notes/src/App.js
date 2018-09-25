@@ -9,21 +9,24 @@ import NoteFormView from './views/NoteFormView';
 class App extends Component {
   render() {
     return (
-      <Container>
-        <NavBar>
-          <NavTitle>Lambda Notes</NavTitle>
-          <StyledNavLink exact to="/" activeClassName="activeNavButton">
-            View Your Notes
-          </StyledNavLink>
-          <StyledNavLink to="/addnote" activeClassName="activeNavButton">
-            + Create New Note
-          </StyledNavLink>
-        </NavBar>
-        <Content>
-          <Route exact path="/" component={NotesView} />
-          <Route path="/addnote" component={NoteFormView} />
-        </Content>
-      </Container>
+      <React.Fragment>
+        <Container>
+          <NavBar>
+            <NavTitle>Lambda Notes</NavTitle>
+            <StyledNavLink exact to="/" activeClassName="activeNavButton">
+              View Your Notes
+            </StyledNavLink>
+            <StyledNavLink to="/addnote" activeClassName="activeNavButton">
+              + Create New Note
+            </StyledNavLink>
+          </NavBar>
+          <Content>
+            <Route exact path="/" component={NotesView} />
+            <Route path="/addnote" component={NoteFormView} />
+          </Content>
+        </Container>
+        <BackGround />
+      </React.Fragment>
     );
   }
 }
@@ -66,10 +69,17 @@ const NavTitle = styled.h1`
 `;
 
 const Content = styled.div`
-  border: 1px solid #c3c2c3;
   width: 80%;
-  height: 100%;
-  background: #f2f1f2;
   margin-left: 20%;
   padding: 50px 3%;
+`;
+
+const BackGround = styled.div`
+  border: 1px solid #c3c2c3;
+  background: #f2f1f2;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  top: 0;
 `;
