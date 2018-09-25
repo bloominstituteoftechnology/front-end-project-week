@@ -5,12 +5,14 @@ import { fetchNote, deleteNote } from "../actions";
 import DeleteModal from './DeleteModal';
 
 class NotePage extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
 
     componentDidMount() {
-        this.props.fetchNote(this.props.match.params.id);
+        const token = localStorage.getItem('token');
+        const requestOptions = {
+          headers: {
+              authorization: token
+          }}
+        this.props.fetchNote(this.props.match.params.id, requestOptions);
         }
 
     deleteNote = (id) => {

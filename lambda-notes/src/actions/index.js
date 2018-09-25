@@ -18,7 +18,7 @@ export const fetchData = (requestOptions) => {
       axios
       .get(`http://localhost:8000/api/notes`, requestOptions)
       .then(response => {
-          console.log(response.data)
+          //console.log(response.data)
           dispatch({ type: DATA_FETCHED, payload: response.data });
       })
       .catch(error => {
@@ -27,13 +27,13 @@ export const fetchData = (requestOptions) => {
     }
 }
 
-export const fetchNote = (id) => {
+export const fetchNote = (id, requestOptions) => {
     return function(dispatch) {
         dispatch({ type: FETCHING_NOTE });
         axios
-        .get(`http://localhost:8000/api/notes/${id}`)
+        .get(`http://localhost:8000/api/notes/${id}`, requestOptions)
         .then(response => {
-            console.log(response.data)
+            //console.log(response.data)
             dispatch({ type: NOTE_FETCHED, payload: response.data });
         })
         .catch(error => {

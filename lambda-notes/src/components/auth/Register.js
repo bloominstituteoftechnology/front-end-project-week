@@ -18,7 +18,7 @@ class Register extends Component {
         axios
         .post('http://localhost:8000/api/register', this.state)
         .then(res => {
-            console.log('response', res)
+            //console.log('response', res)
             const {token} = res.data;
             localStorage.setItem('token', token);
             this.props.history.push('/notes');
