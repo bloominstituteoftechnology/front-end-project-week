@@ -7,26 +7,22 @@ import { getNotes } from "../store/actions";
 
 class SingleNoteView extends React.Component {
   componentDidMount() {
-    if (this.props.notesList.length === 0) {
-      this.props.getNotes();
-    }
+    this.props.getNotes();
   }
 
   render() {
-    return (
-      <SingleNote
-        {...this.props}
-        notesList={this.props.notesList}
-        fetchingNotes={this.props.fetchingNotes}
-      />
-    );
+    console.log("note props", this.props);
+    return <SingleNote {...this.props} />;
   }
 }
 
-const mapStateToProps = state => ({
-  notesList: state.notes,
-  fetchingNotes: state.fetchingNotes
-});
+const mapStateToProps = state => {
+  console.log("state", state);
+  return {
+    notesList: state.notes,
+    fetchingNotes: state.fetchingNotes
+  };
+};
 
 export default connect(
   mapStateToProps,

@@ -13,7 +13,7 @@ export const getNotes = () => {
     axios
       .get("https://killer-notes.herokuapp.com/note/get/all")
       .then(response => {
-        console.log(response);
+        console.log("RESPONSE DATA", response);
         dispatch({ type: NOTES_FETCH_COMPLETE, payload: response.data });
       })
       .catch(err => {

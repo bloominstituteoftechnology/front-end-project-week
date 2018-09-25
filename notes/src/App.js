@@ -3,6 +3,7 @@ import { Route, NavLink, withRouter } from "react-router-dom";
 
 import ListView from "./views/ListView";
 import CreateNoteView from "./views/CreateNoteView";
+import SingleNoteView from "./views/SingleNoteView";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
         </ul>
         <Route exact path="/" component={ListView} />
         <Route path="/create-note" component={CreateNoteView} />
+        <Route path="/note/get/:id" component={SingleNoteView} />
       </div>
     );
   }

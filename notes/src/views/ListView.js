@@ -11,14 +11,18 @@ class ListView extends React.Component {
   }
 
   render() {
+    console.log("list props", this.props);
     return <List {...this.props} />;
   }
 }
 
-const mapStateToProps = state => ({
-  notesList: state.notes
-});
-
+const mapStateToProps = state => {
+  console.log("state", state);
+  return {
+    notesList: state.notes,
+    fetchingNotes: state.fetchingNotes
+  };
+};
 export default connect(
   mapStateToProps,
   { getNotes }
