@@ -108,7 +108,7 @@ const noteReducer = (state = initialState, action) => {
 		case UPDATED_NOTE:
 			return {
 				...state,
-				notes: action.payload,
+				note: action.payload,
 				updatingNote: false
 			};
 
