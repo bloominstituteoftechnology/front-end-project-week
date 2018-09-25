@@ -8,6 +8,7 @@ import NotePreview from './notepreview';
 const ListDiv = Styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     margin: auto;
 `;
 
