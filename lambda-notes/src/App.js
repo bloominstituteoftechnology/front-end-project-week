@@ -54,8 +54,6 @@ class App extends Component {
       .then(response => {
         this.setState({ title: "", content: "" });
         setTimeout(() => this.setState({ redirect: true }), 500);
-        // this.forceUpdate();
-        // this.props.history.push("/");
       })
       .catch(err => {
         console.log(err);
@@ -106,8 +104,6 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-    // setTimeout(() => this.setState({ redirect: true }), 1000);
-    // setTimeout(() => this.setState({ redirect: false, isOpen: false }), 1000);
   };
 
   // redirect
