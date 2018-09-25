@@ -77,12 +77,10 @@ export default class NotePage extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-
         this.fetchNote(id);
     };
 
     fetchNote = id => {
-
         axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
         .then(response => {this.setState(() => ({note: response.data })); })
         .catch(err => console.error('GET_ERROR-NOTEPAGE', err));
@@ -104,6 +102,7 @@ export default class NotePage extends Component {
         if (!this.state.note) {
             return <div>No Note Data Found...</div>
         }
+        const tags = this.state.note.tags.join(', ');
 
         return (
             <Wrapper>
@@ -112,6 +111,9 @@ export default class NotePage extends Component {
                     <LinkD><NavLink to="/" onClick={this.toggle} style={{color: "#4a494a" }}>Delete</NavLink></LinkD>
                 </Header>
                 <h1>{this.state.note.title}</h1>
+                <h5>Tags: {tags}</h5>
+                <br />
+                <h5>Summary</h5>
                 <p>{this.state.note.textBody}</p>
 
                 <Modal isOpen={this.state.modal14} toggle={this.toggle} centered>

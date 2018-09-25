@@ -33,6 +33,14 @@ const Header = Styled.header`
     }
 `;
 
+const Tags = Styled.div`
+    color: blue;
+    width: 100%;
+    height: 30px;
+    margin: 0 4% 0 4%;
+    padding: 1%;
+`;
+
 const Content = Styled.div`
     padding: 4%;
     color: black;
@@ -43,10 +51,12 @@ const Content = Styled.div`
 `;
 
 function Note(props) {
+    const tags = props.note.tags.join(', ');
     return (
         <Container>
              <NavLink to={`/notes/${props.note._id}`} >
                  <Header><h1>{props.note.title}</h1></Header>
+                 <Tags>{tags}</Tags>
                  <Content className="block-with-text">{props.note.textBody}</Content>
              </NavLink>
          </Container>

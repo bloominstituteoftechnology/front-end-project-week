@@ -32,16 +32,7 @@ const Content = Styled.div`
 
 class App extends Component {
   state = {
-    notes: [{
-      id: 0,
-      title: 'Note Title 1',
-      textBody: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-    },
-    {
-      id: 1,
-      title: 'Note Title 2',
-      textBody: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-    },],
+    notes: [],
     ids: 4,
     isUpdating: false,
     note: null,
@@ -69,11 +60,6 @@ class App extends Component {
   };
 
   removeNote = (e, id) => {
-    e.preventDefault();
-
-    // let notes = this.state.notes.map(note => note).filter(note => note.id !== id);
-
-    // this.setState({notes: notes}, () => this.props.history.push('/'));
 
     return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {this.fetchData(); this.props.history.push('/')})
@@ -84,15 +70,9 @@ class App extends Component {
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
       .then(response => {this.fetchData(); this.props.history.push(`/notes/${id}`);})
       .catch(err => console.error('UPDATE_NOTE ERROR', err));
-
-    // let nNote = this.state.notes.map(note => note).filter(note => note.id !== id);
-    // nNote.unshift(note);
-    // // console.log('NEW_NOTE',nNote)
-    // this.setState({notes: nNote, isUpdating: false, filtered: false,}, () => this.props.history.push('/'));
   }
 
   updateNoteForm = (e, id) => {
-    e.preventDefault();
     const note = this.state.notes.map(note => note).filter(note => note._id === id);
     this.setState({isUpdating: !this.state.isUpdating, note: note, filtered: false,}, () => this.props.history.push('/create-note'))
   }
