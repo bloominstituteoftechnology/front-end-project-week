@@ -10,7 +10,7 @@ class Sidebar extends Component {
             <div className = "sb-wrap">
                 <h1 className = "sb-title">Lambda Notes</h1>
                 <Link to = "/"><button>View Your Notes</button></Link>
-                <Link to = "/new"><button>+ Create New Note</button></Link>
+                <Link to = "/note/new"><button>+ Create New Note</button></Link>
             </div>
         )
     }

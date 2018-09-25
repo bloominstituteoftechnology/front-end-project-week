@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import NoteText from './NoteText'
 
 class NoteCard extends Component {
     constructor(props){
@@ -8,7 +9,7 @@ class NoteCard extends Component {
         return(
             <div className = "note-card">
                 <h2 className = "card-title">{this.props.title}</h2>
-                <p className = "card-conent">{this.props.note}</p>
+                <NoteText text= {this.props.note} />
             </div>
         )
     }
