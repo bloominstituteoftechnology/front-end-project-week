@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Component } from "react";
 import  {connect} from 'react-redux';
 import {fetchNotes} from '../../actions';
 import SideBar from "../Sidebar/sidebar";
 import "./notelist.css";
 import Note from "./note";
-import { render } from 'react-dom';
+
 
 class NoteList extends Component {
-    //this.props.fetchNotes();
+ componentDidMount(){
+     this.props.fetchNotes();
+ }   //this.props.fetchNotes();
 
 
 render(){
@@ -31,3 +33,5 @@ const mapStateToProps = state => {
         notes: state.notes
     }
 }
+
+export default connect(mapStateToProps, { fetchNotes })(NoteList);

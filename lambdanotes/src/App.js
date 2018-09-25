@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-//import React from 'react';
-//import ReactDOM from 'react-dom';
 import {Route} from 'react-router-dom';
 import NoteList from "./components/NoteList/notelist";
 import NewNoteForm from "./components/NewNote/newnoteform";
@@ -10,9 +8,9 @@ import EditNoteForm from "./components/EditNote/editnoteform";
 
 class App extends Component {
   componentDidMount(){
-//    this.props.getNotes();
+//   this.props.getNotes();
   }
-  render() {
+  render(){
     return (
       <div className="App-container">
         <Route exact path='/' component ={NoteList}/>
@@ -22,6 +20,7 @@ class App extends Component {
       </div>
     );
   }
-}
+  }
+
 
 export default App;

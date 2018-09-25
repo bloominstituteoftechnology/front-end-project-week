@@ -1,28 +1,114 @@
+/* //@import url('https://fonts.googleapis.com/css?family=Roboto');
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App-container {
+    display: flex;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+* {
+    box-sizing: content-box;
+}
+
+.App {
+    height: 100%;
+}
+
+.sideBar {
+    border-right: 1px black solid;
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #D7D7D7;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.appView {
+    margin-left: 25%;
+    padding: 30px;
+}
+
+body {
+    background-color: #F3F3F3;
+}
+
+.newNote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* The Modal (background) */
+
+/*
+
+
+
+/* Modal Content */
+
+/*
+.modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    width: 80%;
+}
+/*
+.modal-options {
+    display: flex;
+    flex-direction: row;
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    width: 80%;
+}
+/*
+.modalData {
+    border: 2px solid black;
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    width: 80%;
+}
+
+*/
+
+.App {
+    text-align: center;
+}
+
+.App-container {
+    display: flex;
 }

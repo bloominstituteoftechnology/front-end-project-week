@@ -1,75 +1,115 @@
-import React, { Component } from "react";
-import Sidebar from "../Sidebar/sidebar";
-import { updateNote } from "../../actions";
+import React from "react";
+import styled from "styled-components";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { updateNote } from "../../actions";
 
-class EditNoteForm extends Component {
-    state ={
-        note: {
-            _id:0,
-            title: '',
-            textBody:''
+const EditNotePage = styled.div`
+  background-color: #ddd;
+  width: 75%;
+`;
+const EditNoteHeading = styled.h2`
+text-align: left;
+color:#424242
+margin-left: 5%;
+margin-top: 70px;
+`;
+const EditnoteForm = styled.div`
+  width: 92.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 5%;
+`;
+const EditNoteButton = styled.div`
+  width: 30%;
+  margin-top: 20px;
+  height: 40px;
+  background-color: #0db5ba;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const EditNoteInput = styled.input`
+  width: 55%;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const EditNoteTextArea = styled.textarea`
+  height: 400px;
+  width: 96%;
+  margin-top: 20px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+`;
+class EditNoteForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      content: "",
+      id: "",
+      tags: ""
+    };
+  }
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  componentDidMount() {
+    localStorage.setItem("location", this.props.location.pathname);
+    if (this.props.note.title && this.props.note.textBody) {
+      this.setState(
+        {
+          title: this.props.note.title,
+          content: this.props.note.textBody,
+          id: this.props.note._id,
+          tags: this.props.note.tags.toString().replace(/,/g, " ")
         },
-        _id: -1,
-        title: '',
-        textBody: ''
+        () => localStorage.setItem("note", JSON.stringify(this.props.note))
+      );
+    } else {
+      const note = JSON.parse(localStorage.getItem("note"));
+      this.setState({
+        title: note.title,
+        content: note.textBody,
+        id: note._id,
+        tags: note.tags.toString().replace(/,/g, " ")
+      });
     }
-    handleInputChange = event =>{
-        this.setState({
-            [event.target.name]: event.target.value});
-        };
-        updateHandler=()=>{
-            const_id= this.props.match.params.id;
-            const {title, textBody}=this.state;
-            this.props.updateNote({_id, title, textBody});
-        }
-
-        componentDidMount(){
-            const id=this.props.match.params.id;
-            const newNote = this.props.notes.filter((note)=>{
-                return note._id === id});
-                this.setState({note: newNote[0]});
-                this.setState({_id: id});
-            }
-
-            render (){
-                return(
-                    <div className="create-page-container">
-                        <Sidebar/>
-                        <div className="section-container">
-                            <h1 className="notes-title create">Edit Note:</h1>
-                            <form className="create-form">
-                                <textarea
-                                placeholder={this.state.note.title}
-                                onChange={this.handleInputChange}
-                                className="title-input"
-                                value={this.state.title}
-                                name="title"
-                                >
-
-                                </textarea>
-                                <textarea
-                                    placeholder={this.state.note.textBody}
-                                    onChange={this.handleInputChange}
-                                    className='content-input'
-                                    value={this.state.textBody}
-                                    name='textBody'
-                                >
-                                </textarea>
-                                <Link to={`/note/${this.state._id}`}>
-                                    <button className='create-button' type="button" onClick={()=> this.updateHandler()}>Update</button>
-                                </Link>
-                            </form>
-                        </div>
-                    </div>
-                )
-            }
-        }
-        const mapStateToProps=state=>{
-            return{
-                notes: state.notes
-            };
-        }
-export default connect(mapStateToProps, {updateNote})(EditNoteForm);
-        
+  }
+  editNoteObj = () => {
+    const editedNote = { 
+      title: this.state.title, 
+      textBody: this.state.content, 
+      tags: this.state.tags.split(" "), 
+      id: this.state.id
+    };
+    this.props.updateNote(this.state.id, editedNote, this.props.history);
+  };
+  render() {
+    return <EditNotePage>
+        <EditNoteHeading>Edit Note:</EditNoteHeading>
+        <EditnoteForm>
+          <EditNoteInput name="title" type="text" placeholder="Note Title" value={this.state.title} onChange={this.handleInputChange} />
+          <EditNoteTextArea name="content" type="text" placeholder="Note Content" value={this.state.content} onChange={this.handleInputChange} />
+          <EditNoteInput name="tags" type="text" placeholder="Note Tags" value={this.state.tags} onChange={this.handleInputChange} />
+          <Link to="/">
+            <EditNoteButton onClick={this.editNoteObj}>Save</EditNoteButton>
+          </Link>
+        </EditnoteForm>
+      </EditNotePage>;
+  }
+}
+const mapStateToProps = state => {
+  return {
+    note: state.note
+  };
+};
+export default connect(
+  mapStateToProps,
+  { updateNote }
+)(withRouter(EditNoteForm));

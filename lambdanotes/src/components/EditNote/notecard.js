@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SideBar from '../Sidebar/sidebar';
 import './notecard.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteNote, fetchSingleNote } from '../../actions';
-import { render } from 'react-dom';
 
-class NoteCard extends Component {
+class NoteCard extends React.Component {
     state={
         deleteFormShow: false,
         id:0,
@@ -39,6 +38,7 @@ class NoteCard extends Component {
 
             console.log(this.props.note)
             this.props.deleteNote(this.props.note._id);
+            this.forceUpdate()
             }
             render(){
                 return(
@@ -61,7 +61,7 @@ class NoteCard extends Component {
                                     </Link>
                                     <button
                                     className="overlay-btn"
-                                    onClick={()=>this.showDeleteHandler}
+                                        onClick={() => this.setState({ deleteFormShow: false})}
                                     >
                                         {""}
                                         No{""}
@@ -70,7 +70,7 @@ class NoteCard extends Component {
                             </div>
                                             </div>
                 ):null}
-                <sideBar/>
+                <SideBar/>
                 <div className="section-container">
                     <div className="edit-delete">
                         <Link to ={`/edit/${this.state.id}`}>
@@ -86,7 +86,7 @@ class NoteCard extends Component {
             }
         }
 
-        constmapStateToProps = state=>{
+        const mapStateToProps = state=>{
             console.log(state);
             return{
                 notes: state.notes,
