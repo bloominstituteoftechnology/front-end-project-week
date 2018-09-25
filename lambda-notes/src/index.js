@@ -11,4 +11,6 @@ import thunk from 'react-thunk';
 import logger from 'react-logger';
 import rootReducer from './reducerrs';
 import reducerrs from './reducerrs';
-ReactDOM.render(<Router><Provider><App /></Provider></Router>, document.getElementById('root'));
+
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+ReactDOM.render(<Router><Provider store={store}><App /></Provider></Router>, document.getElementById('root'));
