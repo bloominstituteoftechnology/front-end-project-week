@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row m-3">
-          <div className="col-md-3 p-5 border-left action-container">
+          <div className="col-md-3 p-5 border-left action-container left-side">
             <ActionPanel />
           </div>
           <div className={`col-md-9 p-5 border right-side`}>
