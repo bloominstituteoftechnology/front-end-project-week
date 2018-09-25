@@ -3,68 +3,7 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { DragSource } from 'react-dnd';
 
-const NotePreviewDiv = styled.div`
-  .note-preview {
-    border: 1px solid lightgray;
-    background: white;
-    ${'' /* background-color: #F3F3F3; */}
-    width: 200px;
-    height: 200px;
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: black;
-    .notTags{
-      ${'' /* border: 1px solid green; */}
-      width: 90%;
-      max-height: 150px;
-      overflow: auto;
-      margin: 2% 0;
-      h3{
-        ${'' /* border: 1px solid green; */}
-        margin: 10px 10px 5px 0;
-        text-decoration: none;
-        border-bottom: 1px solid black;
-      }
-      p {
-        ${'' /* border: 1px solid blue; */}
-        width: 95%;
-        height: 40%;
-        padding-bottom: 10px;
-        overflow: auto;
-        text-decoration: none;
-        margin: 0;
-        line-height: 23px;
-        font-size: 14px;
-        font: roboto;
-      }
-    }
-
-    .tags {
-      ${'' /* border: 1px solid red; */}
-      display: flex;
-      flex-direction: row:
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-end;
-      width: 90%;
-      bottom: 0;
-      overflow: hidden;
-      ${'' /* overflow: hidden; */}
-      div {
-        border: 1px solid lightgray;
-        margin: 2px;
-        padding: 4px;
-      }
-    }
-  }
-`;
-
-// const { note, index, key } = this.props;
 const NotePreview = (props) => (
-
   props.connectDragSource(
     <div className="startObject"
       style={{
@@ -104,33 +43,31 @@ const NotePreview = (props) => (
 
 const sourceObj = {
   beginDrag(props) {
-    console.log("beginDrag", props)
+    // console.log("beginDrag", props)
     const { id, index } = props.note; //this return just 'green'
-    console.log(id, index);
+    // console.log(id, index);
     return ({
       id, index
     });
   },
   //endDrag is called when dropped on a target
   endDrag(props, monitor) {
-    console.log("endDrag", "props", props, "monitor", monitor.getDropResult())
+    // console.log("endDrag", "props", props, "monitor", monitor.getDropResult())
     if (!monitor.didDrop()) {
-      console.log('!didDrop')
+      // console.log('!didDrop')
       return;
     }
     // const { onDrop } = props;
-    console.log(monitor.getItem());
+    // console.log(monitor.getItem());
     const  { id, index }  = monitor.getItem(); //returns just 'blue'
     // console.log(props.color) // also returns just 'blue'
-    console.log(monitor.getDropResult());
+    // console.log(monitor.getDropResult());
     // const { shape } = monitor.getDropResult();
     //gets props from the target
-    console.log(id)
+    // console.log(id)
     props.onDrop( id, index );//onDrop supplied by parent which attaches the color and shape to the props
   },
 };
-
-
 
 const collect = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
@@ -141,6 +78,63 @@ const collect = (connect, monitor) => ({
 
 export default DragSource('item', sourceObj, collect)(NotePreview)
 
+const NotePreviewDiv = styled.div`
+  .note-preview {
+    border: 1px solid lightgray;
+    background: white;
+    ${'' /* background-color: #F3F3F3; */}
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    .notTags{
+      ${'' /* border: 1px solid green; */}
+      width: 90%;
+      max-height: 150px;
+      overflow: auto;
+      margin: 2% 0;
+      h3{
+        ${'' /* border: 1px solid green; */}
+        margin: 10px 10px 5px 0;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+      }
+      p {
+        ${'' /* border: 1px solid blue; */}
+        width: 95%;
+        height: 40%;
+        padding-bottom: 10px;
+        overflow: auto;
+        text-decoration: none;
+        margin: 0;
+        line-height: 23px;
+        font-size: 14px;
+        font: roboto;
+      }
+    }
+    .tags {
+      ${'' /* border: 1px solid red; */}
+      display: flex;
+      flex-direction: row:
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-end;
+      width: 90%;
+      bottom: 0;
+      overflow: hidden;
+      ${'' /* overflow: hidden; */}
+      div {
+        border: 1px solid lightgray;
+        margin: 2px;
+        padding: 4px;
+      }
+    }
+  }
+`;
 
 
 

@@ -6,7 +6,6 @@ import {
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -40,7 +39,7 @@ class App extends Component {
   }
 
   getNoteDetails = (id) => {
-    return this.props.state.notes.find(note => {return note.id == id})
+    return this.props.state.notes.find(note => {return note.id === +id})
   }
 
   disableDelete = () => {

@@ -2,43 +2,6 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-const EditFormDiv = styled.div`
-  form {
-    ${'' /* border: 1px solid blue; */}
-    background-color: #F3F3F3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .input {
-      margin: 10px;
-      padding: 10px;
-      color: gray;
-    }
-    #title{
-      width: 30%;
-    }
-    #body{
-      height: 100px;
-      text-emphasis: wrap;
-      max-width: 90%;
-      font-family: 'Roberto';
-      line-height: 20px;
-    }
-    .menu-item{
-        ${'' /* border: 1px solid red; */}
-        width: 30%;
-        padding: 15px;
-        margin: 5px;
-        text-align: center;
-        text-decoration: none;
-        color: white;
-        background-color: #2AC0C4;
-        font-weight: bold;
-        border: 1px solid lightgray;
-      }
-  }
-`;
-
 export default class EditForm extends Component {
   constructor(props){
     super(props);
@@ -52,7 +15,6 @@ export default class EditForm extends Component {
   }
 
   sendToApp = (e) => {
-    console.log(this.state)
     this.props.editNote(this.state)
   }
 
@@ -75,7 +37,7 @@ export default class EditForm extends Component {
   }
 
   render() {
-    console.log(this.state.tags)
+    // console.log(this.state.tags)
     return (
       <EditFormDiv>
         <form onSubmit={this.sendToApp}>
@@ -120,3 +82,40 @@ export default class EditForm extends Component {
     );
   }
 }
+
+const EditFormDiv = styled.div`
+  form {
+    ${'' /* border: 1px solid blue; */}
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .input {
+      margin: 10px;
+      padding: 10px;
+      color: gray;
+    }
+    #title{
+      width: 30%;
+    }
+    #body{
+      height: 100px;
+      text-emphasis: wrap;
+      max-width: 90%;
+      font-family: 'Roberto';
+      line-height: 20px;
+    }
+    .menu-item{
+        ${'' /* border: 1px solid red; */}
+        width: 30%;
+        padding: 15px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #2AC0C4;
+        font-weight: bold;
+        border: 1px solid lightgray;
+      }
+  }
+`;

@@ -5,6 +5,68 @@ import {connect} from 'react-redux';
 import { withRouter } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 
+class NoteDetails extends Component {
+  // getTags = () => {
+  //   if(this.props.note.tags.isArray){
+  //     (this.props.note.tags.map(tag => {
+  //         return (<div className="tag">{tag}</div>)
+  //       }
+  //   ))
+  // } else if (typeof this.props.note.tags == "string"){
+  //   (this.props.note.tags.split(',').map(tag => {
+  //   return <div className="tag">{tag}</div>
+  // }))
+  // } else {
+  //   return (<div className="noTags"> none </div>)
+  // }
+  // }
+
+  render() {
+    return (
+      <div>
+        {(this.props.note) ?
+          (
+            <NoteDetailsDiv>
+            <div className="links">
+              <Link
+                className="link"
+                onClick={() => this.props.enableDelete()}
+                to={`/all-notes/${this.props.note.id}/delete`}
+              >delete</Link>
+              <Link
+                className="link"
+                to={`/all-notes/${this.props.note.id}/edit`}
+              >edit</Link>
+              <Link
+                className="link"
+                to={`/all-notes/`}
+              >back</Link>
+            </div>
+            <div className="noteDetails">
+              <h4>{this.props.note.title}</h4>
+              {<ReactMarkdown>{this.props.note.textBody}</ReactMarkdown>}
+              {/* <div className="tags">Tags:
+                {this.getTags()}
+              </div> */}
+            </div>
+          </NoteDetailsDiv>
+        ) :
+        null}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = store => {
+  return {state: store};//state is really props & store is store
+}
+
+const mapDispatchToProps = {
+
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NoteDetails));
+
 const NoteDetailsDiv = styled.div`
   ${'' /* border: 1px solid green; */}
   display: flex;
@@ -58,67 +120,3 @@ const NoteDetailsDiv = styled.div`
   }
 
 `;
-
-class NoteDetails extends Component {
-
-  getTags = () => {
-    if(this.props.note.tags.isArray){
-      (this.props.note.tags.map(tag => {
-          return (<div className="tag">{tag}</div>)
-        }
-    ))
-  } else if (typeof this.props.note.tags == "string"){
-    (this.props.note.tags.split(',').map(tag => {
-    return <div className="tag">{tag}</div>
-  }))
-  } else {
-    return (<div className="noTags"> none </div>)
-  }
-  }
-
-  render() {
-    console.log(this.props.note)
-    return (
-      <div>
-        {(this.props.note) ?
-          (
-            <NoteDetailsDiv>
-            <div className="links">
-              <Link
-                className="link"
-                onClick={() => this.props.enableDelete()}
-                to={`/all-notes/${this.props.note.id}/delete`}
-              >delete</Link>
-              <Link
-                className="link"
-                to={`/all-notes/${this.props.note.id}/edit`}
-              >edit</Link>
-              <Link
-                className="link"
-                to={`/all-notes/`}
-              >back</Link>
-            </div>
-            <div className="noteDetails">
-              <h4>{this.props.note.title}</h4>
-              {<ReactMarkdown>{this.props.note.textBody}</ReactMarkdown>}
-              {/* <div className="tags">Tags:
-                {this.getTags()}
-              </div> */}
-            </div>
-          </NoteDetailsDiv>
-        ) :
-        null}
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = store => {
-  return {state: store};//state is really props & store is store
-}
-
-const mapDispatchToProps = {
-
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NoteDetails));

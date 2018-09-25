@@ -1,16 +1,21 @@
-//actions
 import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const NOTES_RECIEVED = 'NOTES_RECIEVED';
 export const ERROR = 'ERROR';
+export const ADDING_NOTE = 'ADDING_NOTE';
+export const NOTE_ADDED = 'NOTE_ADDED';
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const NOTE_DELETED = 'NOTE_DELETED';
+export const EDITING_NOTE = 'EDITING_NOTE';
+export const NOTE_EDITED = 'NOTE_EDITED';
+export const SORT_NOTE = 'SORT_NOTE';
 
 export const getNotes = () =>  {
   return function(dispatch){
     dispatch({type: FETCHING_NOTES});
     axios.get('http://localhost:3300/api/notes/')
       .then(res => {
-        console.log(res.data)
         //convert tags from strings to array here and pass it back 
       dispatch({type: NOTES_RECIEVED, payload: res.data})
     })
@@ -19,9 +24,6 @@ export const getNotes = () =>  {
     })
   }
 }
-
-export const ADDING_NOTE = 'ADDING_NOTE';
-export const NOTE_ADDED = 'NOTE_ADDED';
 
 export const addNote = (newNote) =>  {
   console.log('addnote', newNote)
@@ -41,9 +43,6 @@ export const addNote = (newNote) =>  {
   }
 }
 
-export const DELETING_NOTE = 'DELETING_NOTE';
-export const NOTE_DELETED = 'NOTE_DELETED';
-
 export const deleteNote = (id) =>  {
 
   return function(dispatch){
@@ -57,8 +56,6 @@ export const deleteNote = (id) =>  {
     })
   }
 }
-export const EDITING_NOTE = 'EDITING_NOTE';
-export const NOTE_EDITED = 'NOTE_EDITED';
 
 export const editNote = (editedNote) =>  {
   console.log(editedNote, 'editedNote')
@@ -77,8 +74,6 @@ export const editNote = (editedNote) =>  {
     })
   }
 }
-
-export const SORT_NOTE = 'SORT_NOTE';
 
 export const sortNote = (newlySortedArray) => {
   return function(dispatch){
