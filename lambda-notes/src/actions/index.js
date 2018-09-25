@@ -26,7 +26,7 @@ export const addNote = newNote => {
   }
 }
 
-// getNote action creator TODO: fill in logic
+// getNote action creator
 export const getNote = id => {
   return dispatch => {
     axios
@@ -40,7 +40,7 @@ export const getNote = id => {
   }
 }
 
-// editNote action creator TODO: fill in logic
+// editNote action creator
 export const editNote = editedNote => {
   return dispatch => {
     axios
@@ -55,5 +55,14 @@ export const editNote = editedNote => {
   }
 }
 
-// deleteNote action creator TODO: fill in logic
-export const deleteNote = id => {}
+// deleteNote action creator
+export const deleteNote = id => {
+  return dispatch => {
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(() => getNotes()(dispatch))
+      .catch(error => {
+        dispatch({ type: 'ERROR', payload: error });
+      });
+  }
+}
