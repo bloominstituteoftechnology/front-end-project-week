@@ -6,6 +6,7 @@ class NoteNew extends Component {
   state = {
     title: "",
     text: "",
+    tags: "",
     editing: false
   }
 
@@ -15,6 +16,7 @@ class NoteNew extends Component {
         editing: true,
         title: this.props.noteUpdate.title,
         text: this.props.noteUpdate.text,
+        tags: this.props.noteUpdate.tags,
       })
     }
   }
@@ -31,7 +33,8 @@ class NoteNew extends Component {
       const updatedNote = {
         id: this.props.noteUpdate.id,
         title: this.state.title,
-        text: this.state.text
+        text: this.state.text,
+        tags: this.state.tags
       }
       this.props.updateNote(updatedNote)
       this.props.history.push("/")
@@ -40,11 +43,13 @@ class NoteNew extends Component {
       const newNote = {
         id: Date.now(),
         title: this.state.title,
-        text: this.state.text
+        text: this.state.text,
+        tags: this.state.tags,
       }
       const emptyNote = {
         title: '',
-        text: ''
+        text: '',
+        tags: ''
       }
       this.props.addNote(newNote)
       this.setState(emptyNote)
@@ -70,6 +75,14 @@ class NoteNew extends Component {
             type="text"
             placeholder="Text"
             value={this.state.text}
+            onChange={this.handleChange}
+            required
+          />
+          <Input
+            name="tags"
+            type="text"
+            placeholder="Tags"
+            value={this.state.tags}
             onChange={this.handleChange}
             required
           />

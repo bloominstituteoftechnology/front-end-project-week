@@ -9,13 +9,8 @@ const NoteSingle = (props) => {
       <H2>NoteSingle Functional Component</H2>
       <P>{note.title}</P>
       <P>{note.text}</P>
-      <P>Note Tags:<br />
-        {
-          note.tags.map(function(item, index) {
-            return <span key={`tag${index}`}>{ (index ? ', ' : '') + item }</span>; 
-          })
-        }
-      </P>
+      <P>Note Tags: {note.tags}</P>
+      
       <Link to={`/notes/${note.id}/edit`}>
         <Button onClick={() => props.editNote(Number(note.id))}>Edit Current Note</Button>
       </Link>
