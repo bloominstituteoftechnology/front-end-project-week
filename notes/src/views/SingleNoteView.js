@@ -1,11 +1,11 @@
 import React from "react";
-import Note from "../components/Note";
+import SingleNote from "../components/SingleNote";
 
 import { connect } from "react-redux";
 
 import { getNotes } from "../store/actions";
 
-class NoteView extends React.Component {
+class SingleNoteView extends React.Component {
   componentDidMount() {
     if (this.props.notesList.length === 0) {
       this.props.getNotes();
@@ -14,7 +14,7 @@ class NoteView extends React.Component {
 
   render() {
     return (
-      <Note
+      <SingleNote
         {...this.props}
         notesList={this.props.notesList}
         fetchingNotes={this.props.fetchingNotes}
@@ -31,4 +31,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getNotes }
-)(NoteView);
+)(SingleNoteView);
