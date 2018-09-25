@@ -45,6 +45,7 @@ const Div2 = styled.div`
 const Div3 = styled.div`
   border: 1px solid #B7B7B7;
   max-width: 31%;
+  min-width: 31%;
   height: 200px;
   margin-bottom: 4%;
   padding: 0 2%;

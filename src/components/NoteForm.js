@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
-class NoteNew extends Component {
+class NoteForm extends Component {
   state = {
     title: "",
     text: "",
@@ -60,10 +60,10 @@ class NoteNew extends Component {
 
   render() {
     return (
-      <Div className="NoteNew">
-        <H2>NoteNew Class Component</H2>
+      <Div className="NoteForm">
+        <H2>Create New Note</H2>
         <Form onSubmit={(e) => this.handleSubmit(e)}>
-          <Input
+          <Input1
             name="title"
             type="text"
             placeholder="Title"
@@ -71,7 +71,7 @@ class NoteNew extends Component {
             onChange={this.handleChange}
             required
           />
-          <Input
+          <Textarea
             name="text"
             type="text"
             placeholder="Text"
@@ -79,7 +79,7 @@ class NoteNew extends Component {
             onChange={this.handleChange}
             required
           />
-          <Input
+          <Input2
             name="tags"
             type="text"
             placeholder="Tags (with commas)"
@@ -87,17 +87,45 @@ class NoteNew extends Component {
             onChange={this.handleChange}
             required
           />
-          <Button>Submit</Button>
+          <Button1>Submit</Button1>
         </Form>
       </Div>
     )
   }
 }
 
-const Div = styled.div``
+const Div = styled.div`
+  padding: 5% 3% 1% 3%;
+  width: 75%;
+  background: #F2F1F2;
+  `
 const H2 = styled.h2``
 const Form = styled.form``
-const Input = styled.input``
-const Button = styled.button``
+const Input1 = styled.input`
+  width: 60%;
+  font-size: 1.6rem;
+  padding: 2%;
+  margin: 2% 0;
+  border-radius: 2px;
+`
+const Input2 = styled.input`
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 2%;
+  margin: 2% 0;
+  border-radius: 2px;
+`
+const Textarea = styled.textarea`
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 2%;
+  margin: 2% 0;
+  height: 300px;
+border-radius: 2px;
+`
+const Button1 = styled.button`
+  padding: 2%;
+  width: 50%;
+`
 
-export default withRouter(NoteNew)
+export default withRouter(NoteForm)

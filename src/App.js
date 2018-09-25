@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import SideBar from './components/SideBar'
 import NotesMain from './components/NotesMain'
-import NoteNew from './components/NoteNew'
+import NoteForm from './components/NoteForm'
 import NoteSingle from './components/NoteSingle'
 
 class App extends Component {
@@ -85,7 +85,7 @@ class App extends Component {
           />
         }/>
         <Route path="/new" render={() => 
-          <NoteNew
+          <NoteForm
             addNote={this.addNote}
           />
         }/>
@@ -98,7 +98,7 @@ class App extends Component {
           />
         }/>
         <Route path="/notes/:id/edit" render={() => 
-          <NoteNew
+          <NoteForm
             noteUpdate={this.state.noteUpdate}
             updateNote={this.updateNote}
           />
@@ -146,6 +146,7 @@ const GlobalStyle = createGlobalStyle`
     width: 190px;
     padding: 5%;
     margin-bottom: 8%;
+    border-radius: 2px;
   }
 `
 const Div1 = styled.div`
