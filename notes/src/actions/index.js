@@ -18,7 +18,11 @@ export const LOGGING_OUT_USER = 'LOGGING_OUT_USER';
 export const LOGGED_OUT_USER = 'LOGGED_OUT_USER';
 export const ERROR = 'ERROR';
 
-const url = `http://localhost:9000/notes`;
+const url = `https://salty-cliffs-66443.herokuapp.com/notes`;
+const baseUrl = `https://salty-cliffs-66443.herokuapp.com`;
+
+// const url = `http://localhost:9000/notes`;
+// const baseUrl = `http://localhost:9000`;
 
 export const fetchNotes = () => {
   return dispatch => {
@@ -107,7 +111,7 @@ export const registerUser = (user, history) => {
     dispatch({ type: REGISTERING_USER });
 
     axios
-      .post(`http://localhost:9000/register`, user)
+      .post(`${baseUrl}/register`, user)
       .then(res => {
         localStorage.setItem('token', res.data.token);
         dispatch({ type: REGISTERED_USER });
@@ -124,7 +128,7 @@ export const loginUser = (user, history) => {
     dispatch({ type: LOGGING_IN_USER });
 
     axios
-      .post(`http://localhost:9000/login`, user)
+      .post(`${baseUrl}/login`, user)
       .then(res => {
         localStorage.setItem('token', res.data.token);
         dispatch({ type: LOGGED_IN_USER });
