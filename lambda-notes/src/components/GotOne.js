@@ -2,6 +2,7 @@ import React from 'react';
 import '../CSS/GotOne.css';
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 class GotOne extends React.Component {
   handleDelete = () => {
@@ -23,4 +24,4 @@ class GotOne extends React.Component {
   }
 }
 
-export default connect(null, { deleteNote })(GotOne);
+export default withRouter(connect(null, { deleteNote })(GotOne));

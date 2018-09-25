@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getNotes } from '../actions';
 import ListItem from './ListItem';
-import { withRouter } from 'react-router';
 import '../CSS/ListView.css';
+import { withRouter } from 'react-router-dom';
 
 
 class ListView extends React.Component {
@@ -28,7 +28,6 @@ class ListView extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     notes: state.notes,
     fetched: state.fetched,

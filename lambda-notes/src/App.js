@@ -4,7 +4,8 @@ import ListView from './components/ListView';
 import ActionPanel from './components/ActionPanel';
 import {Route} from 'react-router-dom';
 import NewNoteForm from './components/newNoteForm';
-import GotOne from './components/GotOne';;
+import GotOne from './components/GotOne';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -29,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
