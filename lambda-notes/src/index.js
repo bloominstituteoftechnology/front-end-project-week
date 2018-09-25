@@ -5,11 +5,13 @@ import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import  noteReducer from './reducer';
 
-const store = createStore(noteReducer, applyMiddleware(thunk, logger));
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(noteReducer, composeEnhancers(applyMiddleware(thunk, logger)));
 
 
 ReactDOM.render(
