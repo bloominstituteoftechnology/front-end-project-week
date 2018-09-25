@@ -31,6 +31,7 @@ function NoteForm(props) {
                     placeholder="Note Content"
                     onChange={props.handleChange}
                 />
+                <button className="button" onClick={handleSubmit}>Submit</button>
             </form>
         </Fragment>
     )

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { addNewNote } from '../actions';
+
 import NoteForm from '../components/NoteForm';
 
 class NoteFormView extends React.Component {
@@ -59,4 +61,4 @@ const mapStateToProps = state => ({
     noteToUpdate: state.noteToUpdate,
 });
 
-export default connect(mapStateToProps, {})(NoteFormView);
+export default connect(mapStateToProps, { addNewNote })(NoteFormView);
