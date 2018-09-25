@@ -6,6 +6,7 @@ class NewNote extends Component {
     constructor(props) {
 	super(props);
 	this.state = {
+	    id: 0,
 	    title: '',
 	    text: ''
 	};
