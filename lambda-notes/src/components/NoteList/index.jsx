@@ -4,7 +4,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import DragSortableList from 'react-drag-sortable';
 import '@zendeskgarden/react-toggles/dist/styles.css';
-import { ThemeProvider } from '@zendeskgarden/react-theming';
+
+import {ThemeProvider} from '@zendeskgarden/react-theming';
 import { Toggle, Label } from '@zendeskgarden/react-toggles';
 
 class NoteList extends React.Component {
