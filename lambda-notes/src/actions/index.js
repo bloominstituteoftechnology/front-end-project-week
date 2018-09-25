@@ -10,9 +10,10 @@ export const DELETING = "DELETING";
 export const DELETED = "DELETED";
 export const NOTE_EDITED = "NOTE_EDITED";
 export const  EDITING_NOTE = " EDITING_NOTE";
+export const FETCHING_CREATE_PAGE = "FETCHING_CREATE_PAGE";
 
 export const fetchingNotesAction = () => {
-	const request = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+	const request = axios.get('http://localhost:5000/api/notes');
 
         return (dispatch) => {
         dispatch({type: FETCHING});
@@ -30,7 +31,7 @@ export const fetchingNotesAction = () => {
 
 
 export const fetchingSingleNote = (id) => {
-        const request = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
+        const request = axios.get(`http://localhost:5000/api/notes/${id}`);
 
         return (dispatch) => {
         dispatch({type: FETCHING});
@@ -46,10 +47,17 @@ export const fetchingSingleNote = (id) => {
   };
 };
 
+export const fetchingCreatePage = () => {
+	return (dispatch) => {
+        dispatch({type: FETCHING_CREATE_PAGE});
+}
+}
+
+
 
 export const addNotesAction = (title, content) => {
-	const note= {title: title, textBody: content};
-        const request = axios.post('https://killer-notes.herokuapp.com/note/create', note);
+	const note= {title: title, content: content};
+        const request = axios.post('http://localhost:5000/api/notes', note);
 
         return (dispatch) => {
         dispatch({type: SAVING_NOTE});
@@ -67,8 +75,8 @@ export const addNotesAction = (title, content) => {
 };
 
 export const editNoteAction = (id, title, content) => {
-        const note= {title: title, textBody: content};
-        const request = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note);
+        const note= {title: title, content: content};
+        const request = axios.put(`http://localhost:5000/api/notes/${id}`, note);
 
         return (dispatch) => {
         dispatch({type: EDITING_NOTE});
@@ -87,8 +95,9 @@ export const editNoteAction = (id, title, content) => {
 
 
 export const deleteNoteAction = (noteIdr) => {
-	 const noteId= {_id:noteIdr};
-        const request = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteIdr}`, noteId);
+	 //const noteId= {_id:noteIdr};
+	const id = noteIdr;
+        const request = axios.delete(`http://localhost:5000/api/notes/${id}`);
 
         return (dispatch) => {
         dispatch({type: DELETING});
