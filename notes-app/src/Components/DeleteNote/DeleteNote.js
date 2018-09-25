@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
-import { deleteNote } from '../../actions';
-import { connect } from 'react-redux';
+// import { deleteNote } from '../../actions';
+// import { connect } from 'react-redux';
 
 
 
@@ -44,5 +44,5 @@ class DeleteNote extends Component {
     }
 }
 
-export default connect(null, {deleteNote})(DeleteNote);
-// export default DeleteNote;
+// export default connect(null, {deleteNote})(DeleteNote);
+export default DeleteNote;

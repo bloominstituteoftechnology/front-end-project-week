@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './index.css';
-import { Link } from 'react-dom';
+import { Link } from 'react-router-dom';
 
 
 
 class NotesList extends Component {
-    state = {
-        notes: [],
-    }
-
-
+    
     render(){
-        console.log('here', this.state.notes)
         return (
             <div>
                 <div className="inner_outer_notes">
                 <h3 className="list_title">Your Notes:</h3>
                 <div className="note_container">
-                {this.state.notes.map(each => (
+                {this.props.state.notes.map(each => (
 
 
-                    <div className="note" key={each.id}>
+        <Link to={`/note/${each.id}`} style={{ textDecoration: 'none' }}>
+                    <div 
+                        className="note" 
+                        key={each.id}
+                        allnotes={this.state}    
+                    >
                         
                         <div className="note_title">
                         {each.title}<br /><br />
                         </div>
                         {each.content}
                     </div>
+                    </Link>
                     
                 ))}
                 </div>
@@ -49,18 +49,7 @@ class NotesList extends Component {
 
 
 
-    componentDidMount(){ 
-        axios
-            .get('http://localhost:5000/notes')
-            .then(res => {
-                console.log('Notes Data:', res.data);
-                this.setState({ notes: res.data });
-            })
-            .catch(err => {
-                console.error('Axios Error', err)
-            });
-
-    };
+    
 
 }
 
