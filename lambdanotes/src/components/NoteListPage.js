@@ -29,10 +29,9 @@ class NoteListPage extends Component {
 					</React.Fragment>
 				) : !this.props.error ? (
 					<h4 className="empty-message">'No notes to display.'</h4>
-				) : null}
-				{this.props.error ? (
+				) : (
 					<h4 className="error-message">{this.props.error}</h4>
-				) : null}
+				)}
 			</div>
 		);
 	}
