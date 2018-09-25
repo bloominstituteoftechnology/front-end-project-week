@@ -16,13 +16,13 @@ export const ERROR_DELETING_NOTE = "ERROR_DELETING_NOTE";
 
 export const fetchNotes = () => {
     return dispatch => {
-        dispatch({ type: FETCHED_NOTES });
+        dispatch({ type: FETCHING_NOTES });
 
     axios
         .get('https://killer-notes.herokuapp.com/note/get/all')
         .then(response => {
             dispatch({
-              type: FETCHING_NOTES,
+              type: FETCHED_NOTES,
               payload: response.data
             });
           })
@@ -35,16 +35,16 @@ export const fetchNotes = () => {
     }
 }
 
-export const addNote = (note) => {
+export const addNote = (newNote) => {
     return dispatch => {
         dispatch({ type: ADDING_NOTE });
 
     axios
-        .post('https://killer-notes.herokuapp.com/note/create', note)
-        .then(({ data }) => {
+        .post('https://killer-notes.herokuapp.com/note/create', newNote)
+        .then(({ response }) => {
             dispatch({
               type: ADDED_NOTE,
-              payload: data
+              payload: response.data
             });
           })
         .catch(error => {
@@ -91,7 +91,7 @@ export const deleteNote = (id) => {
       axios
         .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
         .then(() => {
-          dispatch({type: DELETE_NOTE, id})
+          dispatch({type: DELETED_NOTE, id})
         })
         .catch(error => {
           dispatch({

@@ -4,27 +4,54 @@ import { connect } from 'react-redux';
 import { fetchNotes, addNote, updateNote, deleteNote } from '../actions';
 
 import NotesList from '../components/NotesList';
-import NoteAdd from '../components/NoteAdd';
-import NoteUpdate from '../components/NoteUpdate';
-import NoteDelete from '../components/NoteDelete';
 
 import './App.css';
 
 class App extends Component {
+  state = {
+    newNote: {
+      title: "",
+      content: ""
+    }
+  }
+
   componentDidMount() {
     this.props.fetchNotes();
+  }
+
+  handleInput = event => {
+    this.setState({
+      newNote: {
+        ...this.state.newNote,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  addNote = event => {
+    event.preventDefault();
+    this.props.addNote(this.state.newNote);
+    this.setState({
+      newNote: {
+        title: "",
+        content: ""
+      }
+    })
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Notes</h1>
-        <div>
-          <NotesList />
-          <NoteAdd />
-          <NoteUpdate />
-          <NoteDelete />
-        </div>
+        {!this.props.fetchedNote ? (
+          <h1>Loading notes...</h1>
+          ) : (
+          <div>
+            <h1>Notes</h1>
+            <NotesList 
+              notes={this.props.notes}
+            />
+          </div>
+        )}
       </div>
     );
   }
@@ -32,6 +59,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
+    notes: state.notes,
     fetchingNotes: state.fetchingNotes,
     addingNote: state.addingNote,
     updatingNote: state.updatingNote,
