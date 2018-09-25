@@ -3,22 +3,28 @@ import '../CSS/GotOne.css';
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 import { withRouter, Link } from 'react-router-dom';
+import ConfirmDelete from './ConfirmDelete';
 
 class GotOne extends React.Component {
+  state = {
+    showConfirm: false,
+  }
+
+  confirmIt = () => {
+    this.setState({
+      showConfirm: !this.state.showConfirm
+    })
+  }
+
   handleDelete = () => {
     this.props.deleteNote(this.props.location.state.note._id);
     this.props.history.push("/");
   }
-  // <Link to={{
-  //   pathname: `${this.props.note.title}/${this.props.note._id}`,
-  //   state: {
-  //     note: this.props.note
-  //   }
-  // }}>
+
   render() {
     const {textBody, title, _id} = this.props.location.state.note;
     return (
-      <div className="note-card single-card col-md-12">
+        <div className="note-card single-card col-md-12">
         <div className="edit-delete">
           <p className="mx-3">
             <Link to={{
@@ -26,10 +32,15 @@ class GotOne extends React.Component {
               state: this.props.location.state.note
             }}>Edit</Link>
           </p>
-          <p onClick={this.handleDelete}>Delete</p>
+          <p onClick={this.confirmIt}>Delete</p>
         </div>
         <h2 className="single-card-title">{title}</h2>
         <p className="single-card-text">{textBody}</p>
+        {
+          this.state.showConfirm 
+          ? <ConfirmDelete handleDelete={this.handleDelete} confirmIt={this.confirmIt} />
+          : null
+        }
       </div>
     )
   }
