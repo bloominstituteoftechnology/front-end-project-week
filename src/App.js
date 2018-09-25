@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { 
   Route,
-  // Redirect 
+  Redirect 
   } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -32,12 +32,11 @@ class App extends Component {
     this.handleDrop = this.handleDrop.bind(this);
     this.state = {
       hideDetails: true,
-      loggedIn: false
     }
   }
 
   componentDidMount = () => {
-    if(this.state.loggedIn){
+    if(localStorage.getItem('JWT')){
       //this should check for token when set up 
       this.props.getNotes();
       this.props.history.push('/all-notes')
@@ -118,11 +117,11 @@ class App extends Component {
   render() {
     return (
         <AppDiv>
-          {/* <Redirect from="/" to="/all-notes" /> */}
+          <Redirect from="/" to="/all-notes" />
           
-          {this.state.loggedIn ? <LeftMenu /> : null}
+          {localStorage.getItem('JWT') ? <LeftMenu /> : null}
           <div className="right-display">
-          {this.state.loggedIn ? null : <Route path="/welcome" component={Welcome} /> }
+          {localStorage.getItem('JWT') ? null : <Route path="/welcome" component={Welcome} /> }
             <Route
               exact
               path="/all-notes/"

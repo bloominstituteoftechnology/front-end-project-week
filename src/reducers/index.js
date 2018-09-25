@@ -8,7 +8,9 @@ import {
         NOTE_DELETED,
          EDITING_NOTE,
           NOTE_EDITED,
-           SORT_NOTE
+           SORT_NOTE,
+            SENDING_NEW_USERDATA,
+             USER_CREATED 
            } from '../actions';
 
 const initialState = {
@@ -23,6 +25,16 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch(action.type) {
+    case SENDING_NEW_USERDATA: 
+      return Object.assign({}, state, {
+        sendingNewUser: true,
+      })
+    case USER_CREATED: 
+      return Object.assign({}, state, {
+        sendingNewUser: false,
+        userCreated: true,
+        token: action.payload.token
+      })
     case FETCHING_NOTES:
       return Object.assign({}, state, {
         fetchingNotes: true,

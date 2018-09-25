@@ -10,11 +10,29 @@ export const NOTE_DELETED = 'NOTE_DELETED';
 export const EDITING_NOTE = 'EDITING_NOTE';
 export const NOTE_EDITED = 'NOTE_EDITED';
 export const SORT_NOTE = 'SORT_NOTE';
+export const SENDING_NEW_USERDATA = 'SENDING_NEW_USERDATA';
+export const USER_CREATED = 'USER_CREATED';
+
+export const createUser = (newUser) => {
+  console.log(newUser)
+  return function(dispatch){
+    dispatch({type: SENDING_NEW_USERDATA})
+    axios.post('http://localhost:3300/api/welcome/register', newUser)
+    .then(res => {
+
+      localStorage.setItem('JWT', res.data.token)
+      dispatch({type: USER_CREATED, payload: res.data})
+    })
+    .catch(err => {
+      dispatch({type: ERROR, payload: err})
+    })
+  }
+}
 
 export const getNotes = () =>  {
   return function(dispatch){
     dispatch({type: FETCHING_NOTES});
-    axios.get('http://localhost:3300/api/notes/')
+    axios.get('http://localhost:3300/api/notes/all')
       .then(res => {
         //convert tags from strings to array here and pass it back 
       dispatch({type: NOTES_RECIEVED, payload: res.data})

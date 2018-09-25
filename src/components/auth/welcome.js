@@ -6,13 +6,27 @@ import {
 
 import Login from './login';
 import Register from './register';
+import { connect } from 'react-redux';
 
-export default class Welcome extends Component{
+import {
+    createUser,
+    } from '../../actions';
+
+class Welcome extends Component{
+
     componentDidMount(){
         //check if token had previously existed then route to login automatically 
+        console.log(this.props)
+    }
+
+    createUser = (newUser) => {
+        console.log('createuser in welcome.js', this)
+        this.props.createUser(newUser);
+        this.props.history.push('/')
     }
     
-    render(){
+    render(props){
+        console.log(this.props)
         return(
             <WelcomeDiv>
                 <h1>Welcome to Lambda Notes</h1>
@@ -21,11 +35,22 @@ export default class Welcome extends Component{
                     <Link to="/welcome/register" >Register</Link>
                 </div>
                 <Route path="/welcome/login" component={Login} />
-                <Route path="/welcome/register" component={Register} />
+                <Route path="/welcome/register" render={() => {
+                    return <Register createUser={this.createUser} />}} />
             </WelcomeDiv>
         )
     }
 }
+
+const mapStateToProps = store => {
+    return {state: store};//state is really props & store is store
+  }
+  
+  const mapDispatchToProps = {
+    createUser
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome)
 
 const WelcomeDiv = styled.div`
     border: 1px solid red;

@@ -8,8 +8,6 @@ export default class UserForm extends Component{
         this.state = {
             username: '',
             password: '',
-            email: '',
-
         };
     }
 
@@ -24,7 +22,8 @@ export default class UserForm extends Component{
 
     submit = (e) => {
         e.preventDefault();
-        this.props.whenSubmit(this.state)
+        this.props.loginOrRegister(this.state)
+
     }
     
     render(){
@@ -38,13 +37,13 @@ export default class UserForm extends Component{
                         placeholder="username" 
                         onChange={this.inputHandler}
                         value={this.state.username}>{this.value}</input>
-                    <input 
+                    {/* <input 
                         required
                         type="text"
                         name="email" 
                         placeholder="email" 
                         onChange={this.inputHandler}
-                        value={this.state.email}>{this.value}</input>
+                        value={this.state.email}>{this.value}</input> */}
                     <input 
                         required
                         type="password"

@@ -4,16 +4,12 @@ import styled from 'styled-components';
 import UserForm from './userform.js';
 
 export default class Register extends Component{
-    
-    registerUser(userCreds){
-        console.log(userCreds)
-    }
 
-    render(){
+    render(props){
         return(
             <RegisterDiv>
                 <h1>RegisterDiv</h1>
-                <UserForm whenSubmit={this.registerUser}/>
+                <UserForm loginOrRegister={this.props.createUser}/>
             </RegisterDiv>
         )
     }
