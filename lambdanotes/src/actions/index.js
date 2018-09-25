@@ -33,9 +33,9 @@ export const getNotes = () => {
 		axios
 			.get('https://killer-notes.herokuapp.com/note/get/all')
 
-			.then(async response => {
+			.then(async ({ data }) => {
 				await sleep(1000);
-				dispatch({ type: GOT_NOTES, payload: response.data });
+				dispatch({ type: GOT_NOTES, payload: data });
 			})
 
 			.catch(error => dispatch({ type: GET_NOTES_ERROR, payload: error }));
@@ -49,9 +49,9 @@ export const getNote = id => {
 		axios
 			.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
 
-			.then(async response => {
+			.then(async ({ data }) => {
 				await sleep(1000);
-				dispatch({ type: GOT_NOTE, payload: response.data });
+				dispatch({ type: GOT_NOTE, payload: data });
 			})
 
 			.catch(error => dispatch({ type: GET_NOTE_ERROR, payload: error }));
@@ -104,9 +104,9 @@ export const updateNote = updatedNote => {
 				updatedNote
 			)
 
-			.then(async response => {
+			.then(async ({ data }) => {
 				await sleep(1000);
-				dispatch({ type: UPDATED_NOTE, payload: response.data });
+				dispatch({ type: UPDATED_NOTE, payload: data });
 			})
 
 			.catch(error => dispatch({ type: UPDATE_NOTE_ERROR, payload: error }));
