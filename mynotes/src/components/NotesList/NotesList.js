@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+// import { fetchNote } from "../../actions";
 import "./index.css";
 
 const mapStateToProps = state => {
@@ -48,5 +49,5 @@ class NotesList extends Component {
 
 export default connect(
   mapStateToProps,
-  {fetchNote}
+  {}
 )(NotesList);

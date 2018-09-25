@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import DeleteNote from "../DeleteNote/DeleteNote.js";
+// import { fetchNoteId } from "../../actions";
 import "./index.css";
 
 const mapStateToProps = state => {
@@ -59,5 +60,5 @@ class NoteView extends Component {
 
 export default connect(
   mapStateToProps,
-  {fetchNoteId}
+  {}
 )(NoteView);
