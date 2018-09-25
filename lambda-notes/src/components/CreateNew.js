@@ -55,7 +55,6 @@ class CreateNew extends React.Component {
 		}
 
 		this.props.createNote(this.state.note, this.props.history);
-		// this.props.history.push('/');
 	}
 	
 	render() {

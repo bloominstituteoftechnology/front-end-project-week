@@ -14,7 +14,9 @@ export const EDITTING_NOTE = 'EDITTING_NOTE';
 export const EDITTING_NOTE_COMPLETE = 'EDITTING_NOTE_COMPLETE';
 export const EDITTING_NOTE_ERROR = 'EDITTING_NOTE_ERROR';
 
-export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const DELETING_NOTE_COMPLETE = 'DELETING_NOTE_COMPLETE';
+export const DELETING_NOTE_ERROR = 'DELETING_NOTE_ERROR';
 
 export const getKillerNotes = () => dispatch => {
 	dispatch({ 
@@ -67,7 +69,7 @@ export const editNote = (note, id, history) => dispatch => {
 		.then(res => {
 			dispatch({ 
 				type: EDITTING_NOTE_COMPLETE, 
-			})
+			});
 		})
 		.then(() => getKillerNotes()(dispatch))
 		.then(() => history.push('/'))
@@ -80,9 +82,25 @@ export const editNote = (note, id, history) => dispatch => {
 		})
 }
 
-export const deleteNote = id => {
-	return { 
-		type: DELETE_NOTE, 
-		payload: id 
-	};
+export const deleteNote = (id, history) => dispatch => {
+	dispatch({
+		type: DELETING_NOTE, 
+	});
+
+	axios
+		.delete(`https://killer-notes.herokuapp.com/note/delete/${ id }`)
+		.then(res => {
+			dispatch({
+				type: DELETING_NOTE_COMPLETE, 
+			});
+		})
+		.then(() => getKillerNotes()(dispatch))
+		.then(() => history.push('/'))
+		.catch(err => {
+			console.log(err);
+			dispatch({
+				type: DELETING_NOTE_ERROR, 
+				payload: err, 
+			});
+		})
 }

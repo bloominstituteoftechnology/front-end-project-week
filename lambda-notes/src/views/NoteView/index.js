@@ -16,8 +16,7 @@ class NoteView extends React.Component {
 	}
 
 	deleteNote = () => {
-		this.props.deleteNote(this.props.note._id);
-		this.props.history.push('/');
+		this.props.deleteNote(this.props.note._id, this.props.history);
 	}
 
 	render() {

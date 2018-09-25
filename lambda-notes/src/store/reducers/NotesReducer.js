@@ -12,7 +12,9 @@ import {
 	EDITTING_NOTE_COMPLETE, 
 	EDITTING_NOTE_ERROR, 
 
-	DELETE_NOTE, 
+	DELETING_NOTE, 
+	DELETING_NOTE_COMPLETE, 
+	DELETING_NOTE_ERROR, 
 } from '../actions';
 
 // Initial State
@@ -66,14 +68,20 @@ export const NotesReducer = (state = initialState, action) => {
 		}
 
 		// DELETING_NOTE
-		case DELETE_NOTE: {
+		case DELETING_NOTE: {
+			return state;
+		}
+	
+		case DELETING_NOTE_COMPLETE: {
 			return { 
 				...state, 
-				notes: state.notes.filter((note, i) => i !== action.payload), 
+				notes: [ ...state.notes ], 
+				errorMsg: '', 
 			};
 		}
 
 		// ERRORS
+		case DELETING_NOTE_ERROR:
 		case EDITTING_NOTE_ERROR:
 		case CREATING_NOTE_ERROR:
 		case GETTING_KILLER_NOTES_ERROR: {
