@@ -23,7 +23,7 @@ class NoteListPage extends Component {
 						<h2 className="note-page-title">Your Notes:</h2>
 						<ul className="note-list">
 							{this.props.notes.map(note => (
-								<Note key={note.id} note={note} />
+								<Note key={note._id} note={note} />
 							))}
 						</ul>
 					</React.Fragment>
