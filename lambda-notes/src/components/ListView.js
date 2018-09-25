@@ -33,6 +33,8 @@ const mapStateToProps = (state) => {
     fetched: state.fetched,
     isFetching: state.isFetching,
     error: state.error,
+    updated: state.updated,
+    deleted: state.deleted,
   }
 }
 

@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import ListView from './components/ListView';
 import ActionPanel from './components/ActionPanel';
-import {Route} from 'react-router-dom';
-import NewNoteForm from './components/newNoteForm';
+import { Route } from 'react-router-dom';
+import NewNoteForm from './components/NewNoteForm';
 import GotOne from './components/GotOne';
 import { withRouter } from 'react-router-dom';
 import EditNoteForm from './components/EditNoteForm';
-
+import { connect } from 'react-redux';
+import { updateNote } from './actions';
 
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
             <Route exact path="/" component={ListView} />
             <Route exact path="/newNote" component={NewNoteForm} />
             <Route exact path="/:title/:id" component={GotOne} />
-            <Route exact path="/editForm/:title/:id" component={EditNoteForm} />
+            <Route exact path="/editForm/:title/:id" render={() => <EditNoteForm updateNote={ this.props.updateNote } />} />
           </div>
         </div>
       </div>
@@ -32,4 +33,10 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = state => {
+  return {
+    updated: state.updated,
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { updateNote })(App));

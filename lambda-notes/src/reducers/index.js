@@ -19,6 +19,8 @@ const initialState = {
   isPosting: false,
   posted: false,
   gotOne: null,
+  updated: false,
+  deleted: false,
 };
 
 export default (state = initialState, action) => {
@@ -51,17 +53,19 @@ export default (state = initialState, action) => {
         error: action.payload
       })
     case DELETE_NOTE_SUCCESS:
-      return state;
+      return Object.assign({}, state, {deleted: true});
     case DELETE_NOTE_FAILURE:
       return Object.assign({}, state, {
-        error: action.payload
+        error: action.payload,
+        deleted: false,
       })
     case UPDATE_SUCCESSFUL:
       console.log('UPDATE', action.payload);
-      return state
+      return Object.assign({}, state, {updated: true});
     case UPDATE_FAILURE:
       return Object.assign({}, state, {
-        error: action.payload
+        error: action.payload,
+        updated: false
       })
     default:
       return state;

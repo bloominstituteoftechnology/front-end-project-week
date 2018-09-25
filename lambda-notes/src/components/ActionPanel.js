@@ -18,4 +18,4 @@ class ActionPanel extends React.Component {
   }
 }
 
-export default ActionPanel;
+export default ActionPanel

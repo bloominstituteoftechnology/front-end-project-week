@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { updateNote } from '../actions';
 
 class EditNoteForm extends React.Component {
   
@@ -11,7 +10,7 @@ class EditNoteForm extends React.Component {
     _id: this.props.location.state._id,
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = () => {
     this.props.updateNote(this.state);
     this.props.history.push("/");
   }
@@ -35,4 +34,4 @@ class EditNoteForm extends React.Component {
   }
 }
 
-export default withRouter(connect(null, { updateNote })(EditNoteForm));
+export default withRouter(connect(null, {})(EditNoteForm));
