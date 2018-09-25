@@ -100,18 +100,30 @@ class App extends Component {
   };
 
   deleteNoteHandler = event => {
-    let noteNumberToAvoid = parseInt(
+    // let noteNumberToAvoid = parseInt(
+    //   event.target.attributes.getNamedItem("deletenotenumber").value,
+    //   10,
+    // );
+    // let notesCopy = this.state.notes.slice();
+    // notesCopy = notesCopy.filter(note => {
+    //   return note.id !== noteNumberToAvoid;
+    // });
+    // this.setState({ notes: notesCopy });
+
+    // setTimeout(() => this.setState({ redirect: true }), 1000);
+    // setTimeout(() => this.setState({ redirect: false, isOpen: false }), 1000);
+    const id = parseInt(
       event.target.attributes.getNamedItem("deletenotenumber").value,
       10,
     );
-    let notesCopy = this.state.notes.slice();
-    notesCopy = notesCopy.filter(note => {
-      return note.id !== noteNumberToAvoid;
-    });
-    this.setState({ notes: notesCopy });
-
-    setTimeout(() => this.setState({ redirect: true }), 1000);
-    setTimeout(() => this.setState({ redirect: false, isOpen: false }), 1000);
+    axios
+      .delete(`http://localhost:7000/api/notes/${id}`)
+      .then(response => {
+        this.setState({ title: "", content: "" });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   // redirect
