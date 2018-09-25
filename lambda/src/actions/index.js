@@ -12,6 +12,9 @@ export const DELETED_NOTES = 'DELETED_NOTES';
 export const UPDATING_NOTES = 'UPDATING_NOTES';
 export const UPDATED_NOTES = 'UPDATED_NOTES';
 export const SEARCH = 'SEARCH';
+export const SORT_CHARACTERS = 'SORT_CHARACTERS';
+export const SORT_CONTENT = 'SORT_CONTENT';
+export const NO_SORT = 'NO_SORT';
 export const ERROR = 'ERROR';
 
 export const fetchNotes = () => {
@@ -72,5 +75,16 @@ export const updateNotes = data => {
 export const search = sString => {
   return dispatch => {
     dispatch({ type: SEARCH, sString });
+  };
+};
+
+export const sort = sortType => {
+  console.log('CALLED');
+  console.log(sortType);
+  return dispatch => {
+    console.log('IN DISPATCH');
+    if (sortType === 'CHARACTERS') dispatch({ type: SORT_CHARACTERS });
+    else if (sortType === 'CONTENT') dispatch({ type: SORT_CONTENT });
+    else dispatch({ type: NO_SORT });
   };
 };

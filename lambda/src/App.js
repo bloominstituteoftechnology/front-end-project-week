@@ -9,7 +9,8 @@ import {
   fetchNote,
   deleteNote,
   updateNotes,
-  search
+  search,
+  sort
 } from './actions';
 import ListView from './components/ListView/ListView';
 import {
@@ -40,6 +41,10 @@ class App extends Component {
     this.props.fetchNotes();
   }
 
+  onSortClick = sortType => {
+    this.props.sort(sortType);
+  };
+
   render() {
     let notes = this.props.notes.slice();
     if (this.props.searching) {
@@ -56,7 +61,9 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={props => <ListView notes={notes} {...props} />}
+              render={props => (
+                <ListView notes={notes} sort={this.onSortClick} {...props} />
+              )}
             />
             <Route
               path="/newNote"
@@ -100,6 +107,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search }
+    { fetchNotes, addNewNote, fetchNote, deleteNote, updateNotes, search, sort }
   )(App)
 );

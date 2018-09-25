@@ -117,3 +117,10 @@ export const Tag = styled.p`
   background: ${props => props.color};
   border-radius: 3px;
 `;
+
+export const ListOptions = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 900px;
+`;
