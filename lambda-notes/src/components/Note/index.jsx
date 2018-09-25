@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Modal from "react-modal";
+import { getNote, getNotes, editNote, deleteNote } from '../../actions';
 
 import Form from "../Form";
 import '../components.css';
