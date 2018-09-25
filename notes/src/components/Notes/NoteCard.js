@@ -23,6 +23,9 @@ const Card = styled(NavLink)`
   border: 2px solid #cfcfcf;
   padding: 10px;
   height: 200px;
+  overflow: hidden;
+  hyphens: auto;
+  line-height: 1.4rem;
 `;
 
 const Title = styled.h1`

@@ -14,7 +14,7 @@ class NotesView extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     if (this.props.notes.length === 0) {
       return <h1>loading notes...</h1>;
     }
@@ -55,4 +55,5 @@ const List = styled.div`
 
 const Title = styled.h1`
   font-size: 1.5rem;
+  font-weight: 600;
 `;
