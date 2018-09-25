@@ -36,6 +36,17 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  componentDidUpdate() {
+    axios
+      .get("http://localhost:2200/")
+      .then(response => {
+        const newNotes = response.data;
+        const newState = Object.assign({}, this.state, { notes: newNotes });
+        this.setState(newState);
+      })
+      .catch(err => console.log(err));
+  }
+
   handleNoteChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -51,12 +62,6 @@ class App extends Component {
           edittoggle: this.state.edittoggle
         })
         .then(res => {
-          axios
-            .get("http://localhost:2200/")
-            .then(response => {
-              this.setState({ notes: response.data });
-            })
-            .catch(err => console.log(err));
           console.log(res);
           console.log(res.data);
           arr.push({
@@ -84,12 +89,6 @@ class App extends Component {
     axios
       .delete(`http://localhost:2200/note/${id}`)
       .then(res => {
-        axios
-          .get("http://localhost:2200/")
-          .then(response => {
-            this.setState({ notes: response.data });
-          })
-          .catch(err => console.log(err));
         console.log(res);
         console.log(res.data);
       })

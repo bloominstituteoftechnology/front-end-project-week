@@ -37,24 +37,27 @@ const NoteContent = styled.p`
 
 class Note extends Component {
   state = {
+    id: null,
     title: "",
     note: "",
-    id: null,
     edittoggle: false,
     Redirect: false
   };
 
   componentDidMount() {
-    console.log(this.props.match.params.id)
-    const note = this.props.notes.filter(note => {
-      return note.id.toString() === this.props.match.params.id;
-    });
-    this.setState({
-      id: note[0].id,
-      title: note[0].title,
-      note: note[0].note,
-      edittoggle: false
-    });
+    axios
+      .get(`http://localhost:2200/note/${this.props.match.params.id}`)
+      .then(response => {
+        console.log(this.props.notes);
+        console.log(response.data);
+        this.setState({
+          id: response.data[0].id,
+          title: response.data[0].title,
+          note: response.data[0].note,
+          edittoggle: false
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   editHandler = event => {
@@ -63,7 +66,7 @@ class Note extends Component {
       .put(`http://localhost:2200/note/${this.props.match.params.id}`, {
         title: this.state.title,
         note: this.state.note,
-        edittoggle: false        
+        edittoggle: false
       })
       .then(res => {
         console.log(res);
