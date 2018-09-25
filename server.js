@@ -13,47 +13,56 @@ let notes = [
   {
     id: 1,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'marshall'
   },
   {
     id: 2,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'marshall'
   },
   {
     id: 3,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'marshall'
   },
   {
     id: 4,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'timmy'
   },
   {
     id: 5,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'timmy'
   },
   {
     id: 6,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'jessica'
   },
   {
     id: 7,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'jessica'
   },
   {
     id: 8,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'jessica'
   },
   {
     id: 9,
     title: 'Note Title',
-    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.'
+    text: 'Donec maximus at mauris et pulvinar. Sed non neque et neque viverra faucibus non vehicula ante. Aliquam erat volutpat. Curabitur accumsan, massa ut facilisis lacinia, massa tellus finibus nisi, nec tincidunt purus augue vitae ex.',
+    author: 'jessica'
   },
 ];
 

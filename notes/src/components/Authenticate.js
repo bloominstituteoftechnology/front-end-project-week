@@ -20,10 +20,6 @@ const Authenticate = App =>
       const userList = this.state.possibleUsers.map(item => item.name);
       const logs = this.state.possibleUsers.map(item => item.login);
 
-      console.log(userList)
-      console.log(logs)
-      console.log(name[0], login[0])
-
       const newState = {...this.state};
 
 

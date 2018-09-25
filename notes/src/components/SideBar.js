@@ -36,11 +36,15 @@ const DivClick = styled.div`
 	}
 `;
 
+const Log = styled.p`
+	text-transform:capitalize;
+`;
+
 const SideBar = (props) => {
 	return (
 		<Aside>
 			<h1>Lambda<br /> Notes</h1>
-			<p>Welcome - {Object.keys(localStorage)}</p>
+			<Log>welcome - {Object.keys(localStorage)}</Log>
 			<Link to="/notes"><DivClick><p>View Your Notes</p></DivClick></Link>
 			<Link to="/create"><DivClick><p>+ Create New Note</p></DivClick></Link>
 			<DivClick onClick={() => {localStorage.clear(); window.location.reload();}}><p>Log Out</p></DivClick>

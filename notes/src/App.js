@@ -5,10 +5,9 @@ import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote'
 import LinkedNote from './components/LinkedNote';
 import Authenticate from './components/Authenticate';
-import Login from './components/Login';
 
 import styled from 'styled-components';
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 const BGColor = styled.div`
   background-color: #ebebeb;
@@ -25,6 +24,8 @@ class App extends Component {
     super();
     this.state = {
       notesData: [],
+      inputText: '',
+      boolVal: false,
     };
   }
 
@@ -38,6 +39,39 @@ class App extends Component {
         console.log(err)
       })
   }
+
+  searchNotes = e => {
+    e.preventDefault();
+    let newState = {...this.state};
+    // console.log(newState)
+
+    const filter = newState.notesData.filter((note) => note.author === newState.inputText);
+
+    for (let i = 0; i < newState.notesData.length; i++){
+      if (newState.inputText === newState.notesData[i].author){
+        newState.boolVal = true;
+      }
+    }
+
+    if (newState.boolVal === false){
+      axios.get("http://localhost:5000/notes").then(response => {this.setState({notesData: response.data, });})
+    }
+
+    if (newState.boolVal === true){
+      this.setState({
+        notesData: filter,
+        inputText: '',
+      })
+    }
+  }
+
+  handleInput = event => {
+    this.setState({
+      inputText: event.target.value,
+    });
+  };
+
+
 
   handleData = data => this.setState({ notesData: data });
 
@@ -55,6 +89,8 @@ class App extends Component {
               <NoteList
                 {...props}
                 notes={this.state.notesData}
+                handleInput={this.handleInput}
+                searchNotes={this.searchNotes}
               />
             </div>
             )}

@@ -36,6 +36,7 @@ const InputContent = styled.textarea`
 	width: 450px;
 	padding: 1%;
 	height: 200px;
+	white-space:pre;
 `;
 
 const DivClick = styled.button`
@@ -65,15 +66,17 @@ class CreateNote extends React.Component {
 		this.state = {
 			title: '',
 			text: '',
+			author: '',
 			errorTitle: '',
 			errorBody: '',
 		};
 	}
 
 	createNote = () => {
-		const note = {title: this.state.title, text: this.state.text}
-		const nI1 = note.title.length;
-		const nI2 = note.text.length;
+		const note = {title: this.state.title, text: this.state.text, author: Object.keys(localStorage)};
+
+		let nI1 = note.title.lengh;
+		let nI2 = note.text.length;
 
 		if (nI1 < 6 && nI2 < 20){
 			this.setState({
@@ -105,7 +108,6 @@ class CreateNote extends React.Component {
   }
 
 	render(){
-		console.log(this.props)
 		return (
 			<BGColor>
 				<SubmitContainer>

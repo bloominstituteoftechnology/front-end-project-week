@@ -1,9 +1,9 @@
 const userData = [
-  {name: 'philzcoffee', login: '1234'},
+  {name: 'timmy', login: '1234'},
   {name: 'marshall', login: '1234'},
-  {name: 'biancasaurus', login: 'roar'},
-  {name: 'fortnite', login: 'pwned'},
-  {name: 'playhearthstone', login: 'pizza'}
+  {name: 'sarah', login: 'roar'},
+  {name: 'carl', login: 'pwned'},
+  {name: 'jessica', login: 'pizza'}
 ]
 
 export default userData;

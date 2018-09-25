@@ -27,6 +27,7 @@ const NoteContainer = styled.div`
 	padding: 2%;
 	background-color: white;
 `;
+
 const WrapP = styled.p`
 	overflow-wrap: break-word;
 `;
@@ -44,9 +45,27 @@ const NoteHR = styled.hr`
 	background-color: #818181;
 `;
 
+const Author = styled.p`
+	margin-top: 10px;
+	text-transform:capitalize;
+`;
+
+const SearchInput = styled.input`
+  text-align: center;
+  padding: .2%;
+  font-size: 1.2rem;
+  color: grey;
+  margin-left: 31%;
+  width: 200px;
+`;
+
+
 const NoteList = (props) => {
 	return (
 		<MainContainer>
+			<form onSubmit={props.searchNotes}>
+				<SearchInput onChange={props.handleInput} placeholder="Search by Author" value={props.input} />
+			</form>
 			<h2>Your Notes:</h2>
 			<NotesContainer>
 				{props.notes.map(note  => (
@@ -54,7 +73,8 @@ const NoteList = (props) => {
 						<Link to={`/notes/${note.id}`}>
 							<NoteTitle>{note.title}</NoteTitle>
 							<NoteHR />
-							<WrapP>{note.text}</WrapP>
+								<WrapP>{note.text}</WrapP>
+								<Author> Posted by - {note.author}</Author>
 						</Link>
 					</NoteContainer>
 				))}

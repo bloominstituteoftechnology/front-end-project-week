@@ -123,6 +123,11 @@ const ButtonFlex = styled.div`
   justify-content: space-evenly;
 `;
 
+const Author = styled.p`
+	margin-top: 15px;
+	text-transform:capitalize;
+`;
+
 class LinkedNote extends React.Component {
 	constructor(props){
 		super(props);
@@ -140,7 +145,6 @@ class LinkedNote extends React.Component {
 		console.log(this.props.match.params.id)
 		const noteId = this.props.match.params.id;
 		this.fetchNote(noteId);
-		console.log(this.props)
 	}
 
 	fetchNote = id => {
@@ -218,7 +222,7 @@ class LinkedNote extends React.Component {
 		if (!this.state.note) {
 		 return <div>Loading note information...</div>;
 		}
-		const { title, text } = this.state.note;
+		const { title, text, author } = this.state.note;
 
 		return (
 			<LinkedContainer>
@@ -246,6 +250,7 @@ class LinkedNote extends React.Component {
 					<div>
 						<h2>{title}</h2>
 						<p>{text}</p>
+						<Author>posted by - {author}</Author>
 					</div>
 					) :
 
