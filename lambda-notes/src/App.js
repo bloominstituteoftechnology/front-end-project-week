@@ -5,7 +5,7 @@ import NewNote from "./Components/NewNote";
 import SingleNote from "./Components/SingleNote";
 import EditNote from "./Components/EditNote";
 import { Route } from "react-router-dom";
-import dummydata from './dummydata';
+import axios from "axios";
 import './App.css';
 
 class App extends Component {
@@ -22,25 +22,38 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    axios
+      .get("http://localhost:3300/notes")
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+       .catch(error => {
+         console.error("Server Error", error);
+       });
+   }
+
   inputHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  submitNote = () => {
-    let newnote = this.state.notes[(this.state.notes.length-1)].id;
-    this.setState({id: newnote}, function () {
-      let notes = this.state.notes.slice();
-      let id = this.state.id;
-      if (this.state.notetitle !== "" || this.state.notebody !== "") {
-        id++;
-        notes.push({
-          id: id,
-          title: this.state.notetitle,
-          text: this.state.notebody
-        });
-        this.setState({ notes, notetitle: "", notebody: "", id })};
+
+  noteSubmit = () => {
+    axios
+      .post("http://localhost:3300/notes", {
+        title: this.state.newtitle,
+        text: this.state.newbody
+      }).then(()=>{
+        axios.get("http://localhost:3300notes")
+        .then(response => {
+          console.log(response.data);
+          this.setState(()=> ({notes: response.data }))
+        })
       })
-  };
+      .catch(error => {
+        console.error("Server Error", error)
+      });
+    };
 
   editHandler = id => {
     let notecopy = this.state.notes.slice();
