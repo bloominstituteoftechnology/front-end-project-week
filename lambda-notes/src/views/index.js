@@ -3,6 +3,7 @@ import ListView 		from './ListView';
 import EditView			from './EditView';
 import NoteView 		from './NoteView';
 import HomeView 		from './HomeView';
+import LoginView 		from './LoginView';
 
 export { 
 	CreateNewView, 
@@ -10,4 +11,5 @@ export {
 	EditView, 
 	NoteView, 
 	HomeView, 
+	LoginView, 
 };

@@ -9,9 +9,26 @@
 		letter-spacing: -0.3px;
 		text-align: center;
 		color: #4A484A;
+
+		@media @phone {
+			padding-top: 0;
+		}
 	}
 
 	.logo {
 		max-width: 400px;
+
+		@media @tablet {
+			max-width: 350px;
+		}
+
+		@media @phone {
+			padding: 0;
+			max-width: 300px;
+		}
+	}
+
+	@media @phone {
+		padding: 0;
 	}
 } // .home

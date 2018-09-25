@@ -12,6 +12,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 // Components
 import App from './App';
+import { LoginView } from './views';
+import { Auth } from './components';
 
 // Reducers
 import { NotesReducer } from './store/reducers';
@@ -24,12 +26,12 @@ import logger from 'redux-logger';
 import './css/index.css';
 
 const store = createStore(NotesReducer, applyMiddleware(thunk, logger));
+const AuthComp = Auth(App)(LoginView);
 
 ReactDOM.render(
 	<Provider store = { store }>
 		<Router>
-			{/* <App /> */}
-			<Route path = '/' component = { App } />
+			<Route path = '/' component = { AuthComp } />
 		</Router>
 	</Provider>, 
 	document.getElementById('root')

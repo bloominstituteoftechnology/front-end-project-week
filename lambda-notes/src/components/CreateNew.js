@@ -63,7 +63,7 @@ class CreateNew extends React.Component {
 				<form className = 'form' onSubmit = { this.handleSubmit }>
 					<h2>Create New Note:</h2>
 
-					<p>{ this.state.errorMsg }</p>
+					{ this.state.errorMsg && <p>{ this.state.errorMsg }</p> }
 
 					<input 
 						className = 'note-title-input' 

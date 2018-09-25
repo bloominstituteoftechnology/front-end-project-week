@@ -160,11 +160,12 @@
 }
 @media ( max-width: 1024px ) {
   .nav {
-    width: 100%;
+    width: 98vw;
     position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
   }
 }
 @media ( max-width: 612px ) {
@@ -188,7 +189,14 @@
 @media ( max-width: 1024px ) {
   .main-content {
     width: 100%;
-    margin-top: 20px;
+  }
+  .main-content * {
+    padding-top: 20px;
+  }
+}
+@media ( max-width: 612px ) {
+  .main-content * {
+    padding-top: 40px;
   }
 }
 .list {
@@ -196,6 +204,11 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 42px 26px 120px 26px;
+}
+@media ( max-width: 612px ) {
+  .list h2 {
+    padding: 0;
+  }
 }
 .list .note {
   border: 1px solid #BFBFBF;
@@ -258,7 +271,19 @@
 @media ( max-width: 1024px ) {
   .create-new,
   .edit {
-    margin: 60px 0;
+    margin: 0;
+  }
+  .create-new h2,
+  .edit h2 {
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 10px;
+  }
+}
+@media ( max-width: 612px ) {
+  .create-new h2,
+  .edit h2 {
+    padding-top: 0;
   }
 }
 .note-view {
@@ -303,8 +328,60 @@
   text-align: center;
   color: #4A484A;
 }
+@media ( max-width: 612px ) {
+  .home h1 {
+    padding-top: 0;
+  }
+}
 .home .logo {
   max-width: 400px;
+}
+@media ( max-width: 1024px ) {
+  .home .logo {
+    max-width: 350px;
+  }
+}
+@media ( max-width: 612px ) {
+  .home .logo {
+    padding: 0;
+    max-width: 300px;
+  }
+}
+@media ( max-width: 612px ) {
+  .home {
+    padding: 0;
+  }
+}
+.login-view {
+  display: flex;
+  justify-content: center;
+}
+.login-view .login {
+  margin: 60px;
+}
+.login-view .login header .lambda-notes {
+  font-weight: bold;
+  font-size: 2.6vw;
+  text-align: center;
+  letter-spacing: 0.04vw;
+  line-height: 5vh;
+}
+@media ( max-width: 1024px ) {
+  .login-view .login header .lambda-notes {
+    font-size: 2rem;
+  }
+}
+.login-view .login header .logo {
+  max-width: 100px;
+}
+.login-view .login .form p {
+  text-align: left;
+  padding-top: 20px;
+}
+@media ( max-width: 1024px ) {
+  .login-view .login {
+    margin: 0px;
+  }
 }
 body {
   margin: 0;
