@@ -5,9 +5,12 @@ import List from "./components/List/list";
 import NewForm from "./components/New/newform";
 import NoteCard from "./components/Edit/notecard";
 import EditNote from "./components/Edit/editnote";
+import { fetchNotes } from "./actions";
 
 class App extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    fetchNotes();
+  }
 
   render() {
     return (

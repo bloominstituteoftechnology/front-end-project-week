@@ -7,7 +7,6 @@ import "./newform.css";
 
 class NewForm extends Component {
   state = {
-    id: -1,
     title: "",
     textBody: ""
   };

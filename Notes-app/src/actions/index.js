@@ -12,12 +12,14 @@ export const ERROR = "ERROR";
 export const UPDATING = "UPDATING";
 export const UPDATED = "UPDATED";
 
+const URL = "http://localhost:8000/notes";
+
 export const fetchNotes = () => {
-  const promise = axios.get("https://killer-notes.herokuapp.com/note/get/all");
-  return function(dispatch) {
+  const promise = axios.get(`${URL}`);
+  return dispatch => {
     promise
-      .then(({ data }) => {
-        dispatch({ type: FETCHED, payload: data });
+      .then(response => {
+        dispatch({ type: FETCHED, payload: response.data });
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
@@ -26,9 +28,7 @@ export const fetchNotes = () => {
 };
 
 export const fetchNote = id => {
-  const promise = axios.get(
-    `https://killer-notes.herokuapp.com/note/get/${id}`
-  );
+  const promise = axios.get(`${URL}/${id}`);
   return function(dispatch) {
     dispatch({ type: FETCHING_SINGLE });
     promise
@@ -42,10 +42,7 @@ export const fetchNote = id => {
 };
 
 export const addNote = newNote => {
-  const promise = axios.post(
-    "https://killer-notes.herokuapp.com/note/create",
-    newNote
-  );
+  const promise = axios.post(`${URL}`, newNote);
   return function(dispatch) {
     dispatch({ type: ADDING });
     promise
@@ -60,10 +57,7 @@ export const addNote = newNote => {
 };
 
 export const updateNote = noteEdit => {
-  const promise = axios.put(
-    `https://killer-notes.herokuapp.com/note/edit/${noteEdit._id}`,
-    noteEdit
-  );
+  const promise = axios.put(`${URL}`, `${noteEdit._id}`, noteEdit);
   return function(dispatch) {
     dispatch({ type: UPDATING });
     promise
@@ -78,9 +72,7 @@ export const updateNote = noteEdit => {
 };
 
 export const deleteNote = id => {
-  const promise = axios.delete(
-    `https://killer-notes.herokuapp.com/note/delete/${id}`
-  );
+  const promise = axios.delete(`${URL}/${id}`);
   return function(dispatch) {
     dispatch({ type: DELETING });
     promise
