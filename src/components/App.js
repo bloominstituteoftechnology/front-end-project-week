@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "../style/App.css";
 import axios from "axios";
-import ListView from "../components/listView";
-import { AddNote } from "../components/addNote";
+import ListViewHolder from "../components/ListView/listViewHolder";
+import { AddNote } from "../components/AddNote/addNote";
 import { Route } from "react-router-dom";
-import SingleNoteHolder from './SingleNoteHolder';
-import EditNoteHolder from './editNoteHolder'
+import SingleNoteHolder from '../components/SingleNote/SingleNoteHolder';
+import EditNoteHolder from '../components/EditNote/editNoteHolder'
+import Authenticate from '../components/Authentication/authenticate';
+import NoteSearchHolder from '../components/NoteSearch/noteSearchHolder';
 
 class App extends Component {
   state = {
@@ -41,7 +43,7 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <ListView {...props} notes={this.state.notes} />}
+          render={props => <ListViewHolder {...props} notes={this.state.notes} />}
         />
         <Route path="/addnote" render={props=> <AddNote  {...props}/>}/>
         <Route
@@ -51,6 +53,10 @@ class App extends Component {
            <Route
           path="/edit/:id" 
           render={props=> <EditNoteHolder {...props} notes={this.state.notes} />}
+          />
+             <Route
+          path="/search" 
+          render={props=> <NoteSearchHolder {...props} notes={this.state.notes} />}
           />
        
       </div>
