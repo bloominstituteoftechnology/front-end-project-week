@@ -1,51 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { NavLink, Route } from 'react-router-dom';
 import NotesList from './components/Notes Components/NotesList';
 import CreateNote from './components/Functionality/CreateNote';
+import axios from 'axios';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      notes: [
-        {
-          title: 'Note Test 1',
-          noteBody: 'yeet yeet. yeet yeet yeet.'
-        }
-      ], 
+      notes: [], 
       note: {
         title: '',
-        noteBody: ''
+        textBody: ''
       }     
     }
   }
 
-  addNote = e => {
-    e.preventDefault();
-    console.log(this.state.note);
-    this.setState({
-      notes: [...this.state.notes, this.state.note.title, this.state.note.noteBody],
-      note: {
-        title: '',
-        noteBody: ''
-      }
-    })
+  updateNotes = notes => {
+    this.setState({ notes })
   }
 
-  handleTextInput = e => {
-    e.preventDefault();
-    this.setState({
-      note: {
-        ...this.state.note,
-        [e.target.name]: e.target.value
-      }
-    });
-  };
-
-  
-
+  componentDidMount() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(res => {
+        console.log(res);
+        this.setState({ notes: res.data });
+        console.log(res.data)
+      })
+      .catch(err => console.log(err));
+  }
 
 
   render() {
@@ -59,16 +43,14 @@ class App extends Component {
         <Route 
           exact path='/home'
           render={props => (
-            <NotesList {...props} notes={this.state.notes} />
+            <NotesList notes={this.state.notes} />
           )}
         />
         <Route
           path='/create-note'
           render={props => (
             <CreateNote
-              {...props}
-              addNote={this.state.addNote}
-              handleTextInput={this.state.handleTextInput}
+              updateNotes={this.updateNotes}                    
             />
           )}
         />
