@@ -8,7 +8,7 @@ class Note extends React.Component {
 	state = {
 		editDisplay: false,
 		deleteDisplay: false,
-		_id: this.props.match.params.id,
+		id: this.props.match.params.id,
 	};
 
 	handleEditFlip = () => {
@@ -24,13 +24,13 @@ class Note extends React.Component {
 	};
 
 	onSubmit = object => {
-		this.props.onSubmit(this.state._id, object);
+		this.props.onSubmit(this.state.id, object);
 		this.handleEditFlip();
 	};
 
 	render() {
 		const note = this.props.notes.find(
-			note => note._id == this.props.match.params.id,
+			note => note.id == this.props.match.params.id,
 		);
 		const noteId = this.props.match.params.id;
 

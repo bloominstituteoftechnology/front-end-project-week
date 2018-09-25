@@ -8,11 +8,11 @@ class NoteCard extends React.Component {
 		return (
 			<div
 				draggable
-				onDragStart={e => this.props.onDragStart(e, note._id)}
+				onDragStart={e => this.props.onDragStart(e, note.id)}
 				className="Notes"
-				key={note._id}
+				key={note.id}
 			>
-				<Link key={note._id} to={`/notes/${note._id}`}>
+				<Link key={note.id} to={`/notes/${note.id}`}>
 					<h4 className="Notes__title">
 						{note.title.length > 20
 							? note.title.substring(0, 20) + "..."

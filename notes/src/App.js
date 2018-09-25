@@ -11,8 +11,8 @@ import DragDrop from "./Components/DragDrop";
 
 import "./App.css";
 
-const API_ALL = "https://killer-notes.herokuapp.com/note/get/all";
-const API_ADD = "https://killer-notes.herokuapp.com/note/create";
+const API_ALL = "http://localhost:8000/notes";
+const API_ADD = "http://localhost:8000/notes";
 const API_DELETE = "https://killer-notes.herokuapp.com/note/delete";
 const API_GET = "https://killer-notes.herokuapp.com/note/get";
 const API_PUT = "https://killer-notes.herokuapp.com/note/edit";
@@ -25,19 +25,17 @@ class App extends Component {
 	componentDidMount() {
 		this.setState({ loading: true });
 		axios.get(API_ALL).then(response => {
-			this.setState({ notes: response.data, loading: false });
+			this.setState({ notes: response.data.message, loading: false });
 		});
 	}
 
 	handleAddNote = note => {
 		this.setState({ loading: true });
 		axios.post(API_ADD, note).then(response => {
-			axios.get(`${API_GET}/${response.data.success}`).then(response => {
-				this.setState(prevState => ({
-					notes: [...prevState.notes, response.data],
-					loading: false,
-				}));
-			});
+			this.setState(prevState => ({
+				notes: [...prevState.notes, { ...note, id: response.message }],
+				loading: false,
+			}));
 		});
 	};
 
@@ -56,7 +54,7 @@ class App extends Component {
 		axios.put(`${API_PUT}/${id}`, edited).then(response => {
 			this.setState(prevState => ({
 				notes: prevState.notes.map(note => {
-					if (note._id == response.data._id) {
+					if (note.id == response.data.id) {
 						return response.data;
 					} else {
 						return note;

@@ -21,7 +21,7 @@ class Notes extends React.Component {
 	onDrop = (ev, cat) => {
 		let id = ev.dataTransfer.getData("id");
 		let notes = this.props.notes.filter(note => {
-			if (note._id == id) {
+			if (note.id == id) {
 				note.category = cat;
 			}
 			return note;
