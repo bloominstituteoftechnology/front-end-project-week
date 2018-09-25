@@ -1,5 +1,6 @@
 .note-card {
-  width: 135px;
+  width: 150px;
+  height: 150px;
   margin: 5px;
   border: 1px solid black;
   padding: 10px;
@@ -17,11 +18,8 @@
   word-wrap: break-word;
 }
 
-@media (min-width: 975px) {
+@media (max-width: 500px) {
   .note-card {
-    width: 100%;
-    margin: 5px;
-    padding: 20px;
-    border: 1px solid black;
+    width: 500px;
   }
 }
