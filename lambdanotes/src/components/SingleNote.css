@@ -1,0 +1,93 @@
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.edit {
+    font-size: .8em;
+    font-family: 'Open Sans', sans-serif;
+    color: #2d2527;
+    height: 40px;
+    width: 100px;
+    border: .2px solid #84001a;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+
+}
+
+.edit span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+.edit span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+.edit:hover span {
+    padding-right: 25px;
+  }
+  
+.edit:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+.delete {
+    font-size: .8em;
+    font-family: 'Open Sans', sans-serif;
+    color: #2d2527;
+    height: 40px;
+    width: 100px;
+    border: .2px solid #84001a;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+
+}
+
+.delete span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+.delete span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+.delete:hover span {
+    padding-right: 25px;
+  }
+  
+.delete:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

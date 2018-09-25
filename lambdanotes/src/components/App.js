@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SideBar from './SideBar';
 import NoteView from './NoteView';
 import CreateNew from './CreateNew';
+import SingleNote from './SingleNote'
 // import Notes from './Notes';
 import './App.css';
 
@@ -52,6 +53,10 @@ class App extends Component {
           render={(props) => <CreateNew {...props} notes={this.state.notes} handleSubmit= {this.handleSubmit}/>} 
           component={CreateNew}
           />
+          <Route path="/singlenoteview" 
+       render={(props) => 
+       <SingleNote {...props} title={this.state.note.title} content= {this.state.note.note}/>} component={SingleNote}
+         />
         </Switch>
         </div>
       </div>
