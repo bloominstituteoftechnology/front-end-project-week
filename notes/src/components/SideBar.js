@@ -16,6 +16,9 @@ const Aside = styled.div`
 		color: #4b4b4b;
 		margin: 15px 0 15px 5%;
 	}
+	> p {
+		margin: 0 0 15px 5%;
+	}
 `;
 
 const DivClick = styled.div`
@@ -37,6 +40,7 @@ const SideBar = (props) => {
 	return (
 		<Aside>
 			<h1>Lambda<br /> Notes</h1>
+			<p>Welcome - {Object.keys(localStorage)}</p>
 			<Link to="/notes"><DivClick><p>View Your Notes</p></DivClick></Link>
 			<Link to="/create"><DivClick><p>+ Create New Note</p></DivClick></Link>
 			<DivClick onClick={() => {localStorage.clear(); window.location.reload();}}><p>Log Out</p></DivClick>
