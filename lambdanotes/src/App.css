@@ -33,6 +33,7 @@
 .navlinks {
 	display: flex;
 	flex-flow: column;
+	margin-left: 10%;
 }
 .newNote {
 	display: block;
@@ -176,9 +177,10 @@ input[type="textarea"] {
 	font-weight: bold;
 	border: 1px solid black;
 	background: #30d4ff;
-	padding: 20px 20%;
-	margin: 20px auto;
+	padding: 20px 15%;
+	margin: 20px 0%;
 	font-size: 19px;
+
 	text-align: center;
 }
 .navlink:hover {
@@ -187,8 +189,8 @@ input[type="textarea"] {
 	color: white;
 	font-weight: bold;
 	border: 1px solid black;
-	padding: 20px 20%;
-	margin: 20px auto;
+	padding: 20px 15%;
+	margin: 20px 0%;
 	font-size: 19px;
 	text-align: center;
 }
