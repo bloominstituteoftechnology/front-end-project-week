@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { deleteNote } from "../../store/actions";
 import Modal from '../presentational/Modal';
 
+import { Button, ViewContainer } from '../style/noteStyle';
+
 class ViewPage extends React.Component {
   state = {
     note: {},
@@ -39,20 +41,23 @@ class ViewPage extends React.Component {
   }
 
   render() {
+    const description = this.state.note.description.split('\n');
     return (
-      <div>
-        <button onClick={this.editClick}>Edit</button>
-        <button onClick={this.toggleModal}>Delete</button>
+      <ViewContainer>
+        <Button onClick={this.editClick} className='left'>edit</Button>
+        <Button onClick={this.toggleModal}>delete</Button>
         <div>
           <h3>{this.state.note.title}</h3>
-          <p>{this.state.note.description}</p>
+          {description.map((descript, index) => {
+            return <p key={index}>{descript}</p>
+          })}
         </div>
         <Modal 
           showModal={this.state.showModal}  
           toggleModal={this.toggleModal}
           deleteClick={this.deleteClick}
         />
-      </div>
+      </ViewContainer>
     );
   }
 }

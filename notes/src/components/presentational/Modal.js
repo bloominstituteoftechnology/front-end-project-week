@@ -1,18 +1,19 @@
 import React from 'react';
-import './modal.css';
+
+import { ModalContainer, ModalMain, DeleteButton, NoButton  } from '../style/modalStyle';
 
 
 
 
 function Modal(props) {
   return (
-    <div style={{display: props.showModal? 'block': 'none'}} className="modal">
-      <div className="modal-main">
+    <ModalContainer style={{display: props.showModal? 'block': 'none'}} >
+      <ModalMain>
         <h5>Are you sure you want to delete this?</h5>
-        <button onClick={(event)=>props.deleteClick(event)}>Delete</button>
-        <button onClick={props.toggleModal}>No</button>
-      </div>
-    </div>
+        <DeleteButton onClick={(event)=>props.deleteClick(event)}>Delete</DeleteButton>
+        <NoButton onClick={props.toggleModal}>No</NoButton>
+      </ModalMain>
+    </ModalContainer>
   )
 }
 

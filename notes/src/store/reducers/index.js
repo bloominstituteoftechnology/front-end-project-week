@@ -25,7 +25,7 @@ let index = 4;
 export const noteReducers = (state = initialState, action) => {
   switch(action.type) {
     case ADD_NOTE:
-      const newNote = {id: index, ...action.payload };
+      const newNote = {...action.payload, id: index };
       index++;
       return {notes: [
         ...state.notes,
@@ -43,7 +43,7 @@ export const noteReducers = (state = initialState, action) => {
 
       case EDIT_NOTE:
         let editPosition = state.notes.findIndex(note => note.id === action.payload.id);
-        console.log(editPosition)
+        console.log(action.payload.description);
         return { notes: [
           ...state.notes.slice(0, editPosition),
           {id: action.payload.id, title: action.payload.title, description: action.payload.description},

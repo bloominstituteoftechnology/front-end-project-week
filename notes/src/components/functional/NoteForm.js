@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 
 import { addNote, editNote } from '../../store/actions';
 
+import { Form, Input, Textarea, Button } from '../style/noteFormStyle';
+
 
 class NoteForm extends React.Component {
   state = {
       title: '',
       description: '',
       id: null,
-      editNote: false
   }
 
   filterProps = () => {
@@ -22,12 +23,11 @@ class NoteForm extends React.Component {
 
   componentDidMount() {
     this.filterProps();
-    this.setState({ editNote: true })
 
   }
 
   componentWillReceiveProps() {
-    this.setState({ title: '', description: '', editNote: false })   
+    this.setState({ title: '', description: '' })   
   }
 
 
@@ -39,32 +39,34 @@ class NoteForm extends React.Component {
 
   handleClick = e => {
     e.preventDefault();
-    this.props.editNote? this.props.editNote(this.state):this.props.addNote(this.state);
-    this.setState({ title: '', description: '', editNote: false });
-    this.props.history.push('/noteform');
+    const pathName = this.props.match.url;
+    pathName === '/noteform'? this.props.addNote(this.state): this.props.editNote(this.state);
+    this.setState({ title: '', description: '' });
+    this.props.history.push('/');
   }
 
 
   render() {
+    const pathName = this.props.match.url;
     return (
-      <form>
-        <h2>{this.state.editNote? 'Edit Note:':'Create New Note:'}</h2>
-        <input 
+      <Form>
+        <h2>{pathName === '/noteform'? 'Create New Note:': 'Edit Note:'}</h2>
+        <Input 
           name='title' 
           type='text' 
           placeholder="Note Title" 
           value={this.state.title}
           onChange={this.handleChange}
         />
-        <textarea  
+        <Textarea  
           name='description' 
           placeholder='Note Content' 
           value={this.state.description}
           onChange={this.handleChange}
         >
-        </textarea>
-        <button type='submit' onClick={this.handleClick}>{this.state.editNote? 'Update':'Save'}</button>
-      </form>
+        </Textarea>
+        <Button type='submit' onClick={this.handleClick}>{pathName === '/noteform'? 'Save': 'Upadate'}</Button>
+      </Form>
     );
   }
 }
