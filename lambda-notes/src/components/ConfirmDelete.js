@@ -1,4 +1,6 @@
 import React from "react";
+
+//CSS
 import "../CSS/ConfirmDelete.css";
 
 class ConfirmDelete extends React.Component {

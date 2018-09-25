@@ -1,10 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { getNotes } from '../actions';
-import ListItem from './ListItem';
-import '../CSS/ListView.css';
-import { withRouter } from 'react-router-dom';
 
+// Auxillary Packages
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { getNotes } from '../actions';
+
+// Components
+import ListItem from './ListItem';
+
+// CSS
+import '../CSS/ListView.css';
 
 class ListView extends React.Component {
   

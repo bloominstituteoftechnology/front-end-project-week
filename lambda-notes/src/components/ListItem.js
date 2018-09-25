@@ -1,9 +1,15 @@
 import React from 'react';
-import '../CSS/ListItem.css';
-import { deleteNote } from '../actions';
+
+// Auxillary Packages
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import { deleteNote } from '../actions';
+
+// Purgatorial Packages
+import {Link} from 'react-router-dom';
+
+// CSS
+import '../CSS/ListItem.css';
 
 class ListItem extends React.Component {
   render() {

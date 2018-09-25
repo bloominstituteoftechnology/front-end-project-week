@@ -1,8 +1,12 @@
 import React from 'react';
-import { createNote } from '../actions';
+
+// Auxillary Packages
 import { connect } from 'react-redux';
-import '../CSS/newNoteForm.css'
 import { withRouter } from 'react-router-dom';
+import { createNote } from '../actions';
+
+// CSS
+import '../CSS/newNoteForm.css';
 
 class NewNoteForm extends React.Component {
   state = {

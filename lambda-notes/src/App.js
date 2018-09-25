@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
-import ListView from './components/ListView';
-import ActionPanel from './components/ActionPanel';
-import { Route } from 'react-router-dom';
-import NewNoteForm from './components/NewNoteForm';
-import GotOne from './components/GotOne';
-import { withRouter } from 'react-router-dom';
-import EditNoteForm from './components/EditNoteForm';
+
+// Auxillary Packages
 import { connect } from 'react-redux';
 import { updateNote } from './actions';
+import { withRouter } from 'react-router-dom';
 
+// Purgatorial Packages
+import { Route } from 'react-router-dom';
+
+// Components
+import ListView from './components/ListView';
+import ActionPanel from './components/ActionPanel';
+import NewNoteForm from './components/NewNoteForm';
+import GotOne from './components/GotOne';
+import EditNoteForm from './components/EditNoteForm';
+
+// CSS
+import './App.css';
 
 class App extends Component {
   render() {

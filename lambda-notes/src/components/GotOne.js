@@ -1,9 +1,15 @@
 import React from 'react';
-import '../CSS/GotOne.css';
+
+// Auxillary Packages
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 import { withRouter, Link } from 'react-router-dom';
+
+// Components
 import ConfirmDelete from './ConfirmDelete';
+
+// CSS
+import '../CSS/GotOne.css';
 
 class GotOne extends React.Component {
   state = {

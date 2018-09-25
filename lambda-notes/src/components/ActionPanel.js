@@ -1,6 +1,10 @@
 import React from "react";
-import "../CSS/ActionPanel.css";
+
+// Purgatorial Packages
 import {Link} from 'react-router-dom';
+
+// CSS
+import "../CSS/ActionPanel.css";
 
 class ActionPanel extends React.Component {
   render() {
