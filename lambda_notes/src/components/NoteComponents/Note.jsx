@@ -19,9 +19,7 @@ const Container = Styled.div`
 `;
 
 const Header = Styled.header`
-    padding: 1%;
     border-bottom: 2px solid #b0b0b0;
-    margin: 0 4% 0 4%;
     font-weight: bold;
     color: black;
     width: 100%;
@@ -37,12 +35,13 @@ const Tags = Styled.div`
     color: blue;
     width: 100%;
     height: 30px;
-    margin: 0 4% 0 4%;
     padding: 1%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `;
 
 const Content = Styled.div`
-    padding: 4%;
     color: black;
     overflow: hidden;
     text-overflow: ellipsis;
