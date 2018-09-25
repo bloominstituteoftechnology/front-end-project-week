@@ -96,8 +96,6 @@ table {
 .notes-title {
   font-size: 1.4rem;
   margin-bottom: 28px;
-  text-decoration: none;
-  color: black;
  }
 
 .note-list {
@@ -114,4 +112,24 @@ table {
   width: 31%;
   height: 197px;
   margin-bottom: 25px;
+}
+
+.delete-modal{
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.modal-overlay{
+  background-color: gray;
+  opacity: 0.6;
+  height: 100%;
+  width: 100%;
+}
+
+.confirmation-box{
+
 }

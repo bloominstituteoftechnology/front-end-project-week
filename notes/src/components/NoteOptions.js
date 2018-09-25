@@ -3,12 +3,16 @@ import React, { Component } from 'react';
 import { Route, withRouter, Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteNote } from '../actions'
+import DeleteModal from './DeleteModal'
 
 class NoteOptions extends Component {
+  state = {
+    showModal: false
+  }
 
-  handleClick = (event) => {
-    console.log('click firing');
-    this.props.deleteNote(this.props.match.params.id)
+  handleModal = () => {
+    console.log('firing');
+    this.setState({ showModal: !this.state.showModal})
   }
 
   render() {
@@ -21,7 +25,13 @@ class NoteOptions extends Component {
           <NavLink to={`/edit-note/${ans._id}`}> edit </NavLink>
           <button
             className='delete-button'
-            onClick={this.handleClick}>Delete Me</button>
+            onClick={this.handleModal}>Delete Me</button>
+            {
+              this.state.showModal &&
+              <DeleteModal
+                handleModal={this.handleModal}
+              />
+            }
         </div>)
     } else { return (<p> waiting </p>) }
   }
