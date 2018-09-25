@@ -16,7 +16,7 @@ class NoteNew extends Component {
         editing: true,
         title: this.props.noteUpdate.title,
         text: this.props.noteUpdate.text,
-        tags: this.props.noteUpdate.tags,
+        tags: this.props.noteUpdate.tags
       })
     }
   }

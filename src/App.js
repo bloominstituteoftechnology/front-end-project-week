@@ -45,6 +45,7 @@ class App extends Component {
     let updatedNote = this.state.notes.filter(note => note.id === targetNote.id)[0]
     updatedNote.title = targetNote.title
     updatedNote.text = targetNote.text
+    updatedNote.tags = targetNote.tags
     const notes = [updatedNote, ...currentList]
     this.setState({ notes })
   }
