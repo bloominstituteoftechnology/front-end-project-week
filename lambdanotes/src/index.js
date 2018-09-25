@@ -18,7 +18,10 @@ ReactDOM.render(
 			<Switch>
 				<Route exact path="/" component={App} />
 				<Route path="/add-note" component={AddNotesContainer} />
-				<Route path="/note/:id" component={NoteContainer} />
+				<Route
+					path="/note/:id"
+					render={props => <NoteContainer {...props} />}
+				/>
 			</Switch>
 		</Router>
 	</Provider>,

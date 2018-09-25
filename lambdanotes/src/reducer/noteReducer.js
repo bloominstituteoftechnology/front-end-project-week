@@ -7,10 +7,8 @@ const initialState = {
 export const noteReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_NOTES:
-			console.log(action.payload);
 			return { ...state, notes: action.payload };
 		case ADD_NOTE:
-			console.log(action.payload);
 			return { ...state, notes: [...state.notes, action.payload] };
 		default:
 			return state;

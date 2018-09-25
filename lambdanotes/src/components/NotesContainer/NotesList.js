@@ -12,12 +12,7 @@ class MainNotes extends Component {
 		return (
 			<div className="note-container">
 				{this.props.notes.map(note => (
-					<Note
-						note={note}
-						title={note.title}
-						body={note.body}
-						id={Date.now()}
-					/>
+					<Note note={note} id={note.id} title={note.title} body={note.body} />
 				))}
 			</div>
 		);
