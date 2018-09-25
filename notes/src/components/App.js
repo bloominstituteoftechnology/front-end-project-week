@@ -9,14 +9,23 @@ import NotesList from './NotesList'
 import NewNote from './NewNote'
 import EditNote from './EditNote'
 import NoteOptions from './NoteOptions'
+import SearchBar from './SearchBar.js'
 // import Header from './Header';
 
 
 
 class App extends Component {
 
+  state = {
+    filter: 'Note',
+  }
+
   componentDidMount() {
     this.props.fetchNotes()
+  }
+
+  handleFilter = e => {
+    this.setState({ [e.target.name] : e.target.value})
   }
 
   render() {
@@ -35,9 +44,13 @@ class App extends Component {
           <Route exact path='/note-list' render={props =>
             <React.Fragment>
               <h2 className='notes-title'> Your Notes: </h2>
+              <SearchBar
+                handleFilter={this.handleFilter}
+                filter={this.state.filter} />
               <NotesList
                 {...props}
                 noteList={this.props.notes}
+                filter={this.state.filter}
                />
              </React.Fragment>
            } />

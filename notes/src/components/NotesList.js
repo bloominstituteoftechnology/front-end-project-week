@@ -4,14 +4,14 @@ import Note from './Note';
 // import { Route } from 'react-router-dom'
 
 class NoteList extends Component {
-  // constructor(props){
-  //   super(props);
-  // }
+
   render() {
     return this.props
     ?  (
       <div className="note-list">
-          {this.props.noteList.filter(item => item.title == 'Note Title')
+          {this.props.noteList.filter(item =>
+            (JSON.stringify(item.title)+JSON.stringify(item.textBody))
+            .toLowerCase().includes(this.props.filter.toLowerCase()))
             .map(note => {
             return (
               // <Route path='/note-list/:_id' render={props =>
