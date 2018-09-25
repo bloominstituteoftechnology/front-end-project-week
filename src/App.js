@@ -24,7 +24,7 @@ import {
   editNote,
   getNotes,
   sortNote,
-  markdownNotes } from './actions';
+  } from './actions';
 
 class App extends Component {
   constructor(){
@@ -194,7 +194,6 @@ const mapDispatchToProps = {
   deleteNote,
   editNote,
   sortNote,
-  markdownNotes,
 }
  export default DragDropContext(HTML5Backend)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));
 

@@ -68,12 +68,6 @@ export const reducer = (state = initialState, action) => {
         customSort: true,
         notes: action.payload,
       })
-    case MARKDOWN_NOTES:
-      return Object.assign({}, state, {
-        arrayMarkedDown: true,
-        notes: action.payload,
-      })
-
     default:
       return state;
   }

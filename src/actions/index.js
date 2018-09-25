@@ -28,6 +28,7 @@ export const addNote = (newNote) =>  {
   return function(dispatch){
     dispatch({type: ADDING_NOTE});
     axios.post('http://localhost:3300/api/notes/', {
+    // axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/notes', {
         "tags": newNote.tags,
         "title": newNote.title,
         "textBody": newNote.textBody
@@ -48,6 +49,7 @@ export const deleteNote = (id) =>  {
   return function(dispatch){
     dispatch({type: DELETING_NOTE});
     axios.delete(`http://localhost:3300/api/notes/${id}`).then(res => {
+    // axios.delete(`https://lambda-notes-backend-mjk.herokuapp.com//api/notes/${id}`).then(res => {
       dispatch({type: NOTE_DELETED, payload: res});
       dispatch(getNotes());
     }).catch(err => {
@@ -63,6 +65,7 @@ export const editNote = (editedNote) =>  {
   return function(dispatch){
     dispatch({type: EDITING_NOTE});
     axios.put(`http://localhost:3300/api/notes/${editedNote.id}`,
+    // axios.put(`https://lambda-notes-backend-mjk.herokuapp.com//api/notes/${editedNote.id}`,
       { "tags": editedNote.tags,
         "title": editedNote.title,
         "textBody": editedNote.textBody}
@@ -80,20 +83,5 @@ export const SORT_NOTE = 'SORT_NOTE';
 export const sortNote = (newlySortedArray) => {
   return function(dispatch){
     dispatch({type: SORT_NOTE, payload: newlySortedArray});
-  }
-}
-
-export const MARKDOWN_NOTES = 'MARKDOWN_NOTES';
-
-export const markdownNotes = (markedDownArray) => {
-  // let newArr = markedDownArray.map(note => {
-  //   var text = note.textBody,
-  //   target = textBody,
-  //   converter = new showdown.Converter(),
-  //   html = converter.makeHtml(text)
-  //   note.textBody = text
-  // })
-  return function(dispatch){
-    dispatch({type: MARKDOWN_NOTES, payload: markedDownArray});
   }
 }

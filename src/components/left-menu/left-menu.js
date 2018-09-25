@@ -20,7 +20,6 @@ const LeftMenuDiv = styled.div`
     .menu-item{
       ${'' /* border: 1px solid red; */}
       width: 70%;
-
       padding: 15px;
       text-align: center;
       text-decoration: none;
