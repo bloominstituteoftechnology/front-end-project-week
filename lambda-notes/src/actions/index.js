@@ -8,6 +8,8 @@ export const CREATING_NOTE_SUCESSFULL = "CREATING_NOTE_SUCESSFULL";
 export const CREATING_NOTE_FAILURE = "CREATING_NOTE_FAILURE";
 export const DELETE_NOTE_SUCCESS = "DELETE_NOTE_SUCCESS";
 export const DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE";
+export const UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL";
+export const UPDATE_FAILURE = "UPDATE_FAILURE";
 
 export const getNotes = () => {
   return dispatch => {
@@ -35,5 +37,14 @@ export const deleteNote = (id) => {
       .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(resp => dispatch({type: DELETE_NOTE_SUCCESS, payload: resp.data}))
       .catch(err => dispatch({type: DELETE_NOTE_FAILURE, payload: new Error(err)}));
+  }
+}
+
+export const updateNote = (note) => {
+  return dispatch => {
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
+    .then(resp => dispatch({type: UPDATE_SUCCESSFUL, payload: resp.data}))
+    .catch(err => dispatch({type: UPDATE_FAILURE, payload: new Error(err)}));
   }
 }

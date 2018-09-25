@@ -6,6 +6,7 @@ import {Route} from 'react-router-dom';
 import NewNoteForm from './components/newNoteForm';
 import GotOne from './components/GotOne';
 import { withRouter } from 'react-router-dom';
+import EditNoteForm from './components/EditNoteForm';
 
 
 
@@ -22,7 +23,8 @@ class App extends Component {
           }`}>
             <Route exact path="/" component={ListView} />
             <Route exact path="/newNote" component={NewNoteForm} />
-            <Route path="/:title/:id" component={GotOne} />
+            <Route exact path="/:title/:id" component={GotOne} />
+            <Route exact path="/editForm/:title/:id" component={EditNoteForm} />
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ class NewNoteForm extends React.Component {
         <h2>Create New Note:</h2>
         <input onChange={this.onChangeHandler} name="title" type="text" placeholder="Title" className="form-control my-3"/>
         <textarea onChange={this.onChangeHandler} name="textBody" type="text" placeholder="Text Body" className="form-control my-3" rows="10" cols="30"/>
-        <button onClick={this.handleSubmit} type="submit" className="save-btn btn px-5">Save</button>
+        <button onClick={this.handleSubmit} type="button" className="save-btn btn px-5">Save</button>
       </form>
     )
   }

@@ -6,7 +6,9 @@ import {
   CREATING_NOTE_SUCESSFULL,
   CREATING_NOTE_FAILURE,
   DELETE_NOTE_SUCCESS,
-  DELETE_NOTE_FAILURE
+  DELETE_NOTE_FAILURE,
+  UPDATE_SUCCESSFUL,
+  UPDATE_FAILURE
 } from "../actions";
 
 const initialState = {
@@ -51,6 +53,13 @@ export default (state = initialState, action) => {
     case DELETE_NOTE_SUCCESS:
       return state;
     case DELETE_NOTE_FAILURE:
+      return Object.assign({}, state, {
+        error: action.payload
+      })
+    case UPDATE_SUCCESSFUL:
+      console.log('UPDATE', action.payload);
+      return state
+    case UPDATE_FAILURE:
       return Object.assign({}, state, {
         error: action.payload
       })
