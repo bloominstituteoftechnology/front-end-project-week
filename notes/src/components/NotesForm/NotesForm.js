@@ -28,8 +28,8 @@ function NotesForm(props) {
                 <h3>Note:</h3>
                 <textarea
                     type='text'
-                    value={props.note.text}
-                    name='text'
+                    value={props.note.textBody}
+                    name='textBody'
                     onChange={props.handleChange}
                     className='text-input'
                 ></textarea>

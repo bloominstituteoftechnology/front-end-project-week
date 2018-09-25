@@ -14,8 +14,8 @@ class NotesFormView extends React.Component {
     state={
         note: {
             title: '',
-            text: '',
-            id: null
+            textBody: '',
+            _id: null
         },
         isUpdating: false,
     };
@@ -42,7 +42,7 @@ class NotesFormView extends React.Component {
                 note: {
                     ...this.state.note,
                     [event.target.name]: event.target.value,
-                    id: getNewId()
+                    // _id: getNewId()
                 }
             });
         }

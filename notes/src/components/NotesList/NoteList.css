@@ -1,5 +1,5 @@
 .note-container{
-    width: 100%;
+    width: 90%;
     padding: 5%;
     display: flex;
     flex-direction: row;
@@ -7,7 +7,7 @@
 }
 
 .single-notes{
-    margin: 3%;
+    margin: 2% 1%;
     display: flex;
     flex-direction: row;
     background-color: white;

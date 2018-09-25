@@ -2,7 +2,7 @@ import React from "react";
 import NotesList from '../components/NotesList/NotesList';
 import './SingleNote.css';
 import { connect } from 'react-redux';  
-import { deleteNote, setUpdateNote } from '../store/actions';
+import { deleteNote, setUpdateNote, getNotes } from '../store/actions';
 
 
 class SingleNote extends React.Component {
@@ -24,6 +24,8 @@ class SingleNote extends React.Component {
         const foundNote = this.props.notesList.find(note => note.title === myId);
         if(!foundNote) return;
         this.setState({ note: foundNote});
+
+        this.props.getNotes();
     }
     
 
@@ -49,8 +51,8 @@ class SingleNote extends React.Component {
 
     render() {
         console.log(this.props);
-        const {title, text} = this.state.note
-        console.log('note-key',this.state.note.id);
+        const {title, textBody} = this.state.note
+        console.log('note-key',this.state.note._id);
         return(
             
         <div className='active' >
@@ -62,7 +64,7 @@ class SingleNote extends React.Component {
             }}>Update</button>
             </div>
             <h2>{title}</h2>
-            <p>{text}</p>
+            <p>{textBody}</p>
             
         </div>
         
@@ -74,4 +76,4 @@ const mapStateToProps = state => ({
     notesList: state.notes
 });
 
-export default connect(mapStateToProps, { deleteNote, setUpdateNote })(SingleNote);
+export default connect(mapStateToProps, { deleteNote, setUpdateNote, getNotes })(SingleNote);
