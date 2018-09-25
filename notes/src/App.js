@@ -19,34 +19,11 @@ class App extends Component {
     };
   }
 
-  /* componentDidMount() {
-    axios
-      .get(`http://localhost:8000/api/notes`)
-      .then(response => {
-        let tags = "";
-
-        response.data.forEach(note => {
-          tags += note.tags;
-        });
-
-        tags = tags.split(",").filter((tag, index) => {
-          return tags.indexOf(tag) === index;
-        });
-
-        this.setState({ notes: response.data, tags: tags });
-      })
-      .catch(err => {
-        console.log("Error retrieving notes");
-      });
-  }*/
-
   addNote = note => {
-    console.log(note);
     axios
       .post(`http://localhost:8000/api/notes`, note)
       .then(response => {
         console.log(response);
-        this.setState();
       })
       .catch(err => {
         console.log("Error adding new note");
@@ -54,9 +31,10 @@ class App extends Component {
   };
 
   updateNote = note => {
-    let notes = this.state.notes.slice();
-    notes[note.id] = { ...note };
-    this.setState({ notes: notes });
+    axios
+      .put(`http://localhost:8000/api/notes/${note.id}`, note)
+      .then(response => {})
+      .catch(err => {});
   };
 
   deleteToggleHandler = e => {
@@ -67,14 +45,11 @@ class App extends Component {
   };
 
   deleteNote = id => {
-    let notes = this.state.notes.slice();
-    notes = notes.filter(note => note.id !== this.state.selectedNoteID);
-
     axios
       .delete(`http://localhost:8000/api/notes/${this.state.selectedNoteID}`)
       .then(response => {
         console.log(response + " deleted successfully");
-        this.setState({ notes: notes, deleteModalToggle: false });
+        this.setState({ deleteModalToggle: false });
       })
       .catch(err => {
         console.log("Error deleting note");
