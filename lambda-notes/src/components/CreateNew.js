@@ -4,6 +4,7 @@ import React from 'react';
 class CreateNew extends React.Component {
 	state = {
 		note: {
+			tags: [],
 			title: '',
 			textBody: '',
 		},
@@ -54,7 +55,16 @@ class CreateNew extends React.Component {
 			}
 		}
 
-		this.props.createNote(this.state.note, this.props.history);
+		const newNote = { ...this.state.note };
+
+		// Note: this changes if form's structure changes
+		for (let i = 2; i < e.target.length - 1; i++) {
+			if (e.target[i].checked) {
+				newNote.tags.push(e.target[i].value);
+			}
+		}
+
+		this.props.createNote(newNote, this.props.history);
 	}
 	
 	render() {
@@ -81,6 +91,36 @@ class CreateNew extends React.Component {
 						value = { this.state.note.textBody } 
 						onChange = { this.handleInputChange } 
 					/>
+
+					<div className = 'tags'>
+						<input 
+							type = 'checkbox' 
+							name = 'grin-beam' 
+							value = 'grin-beam'
+						/>
+						<i className = 'far fa-grin-beam' />
+
+						<input 
+							type = 'checkbox' 
+							name = 'angry' 
+							value = 'angry'
+						/>
+						<i className = 'far fa-angry' />
+
+						<input 
+							type = 'checkbox' 
+							name = 'grin-squint-tears' 
+							value = 'grin-squint-tears'
+						/>
+						<i className = 'far fa-grin-squint-tears' />
+
+						<input 
+							type = 'checkbox' 
+							name = 'frown' 
+							value = 'frown'
+						/>
+						<i className = 'far fa-frown' />
+					</div>
 
 					<button className = 'btn save-btn' type = 'submit'>Save</button>
 				</form>

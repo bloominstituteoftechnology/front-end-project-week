@@ -218,15 +218,10 @@
     padding: 0;
   }
 }
-.list .add-tag {
-  text-align: right;
-  margin-bottom: 25px;
-  border: 1px solid #BFBFBF;
-  border-top: 0;
-  border-radius: 5px;
-  background: brown;
+.list .note-wrapper {
+  padding-bottom: 30px;
 }
-.list .note {
+.list .note-wrapper .note {
   border: 1px solid #BFBFBF;
   border-radius: 5px;
   width: 12vw;
@@ -236,24 +231,24 @@
   padding: 0 20px;
   overflow: hidden;
 }
-.list .note:hover {
+.list .note-wrapper .note:hover {
   border: 1px solid black;
   cursor: pointer;
 }
-.list .note:hover h3 {
+.list .note-wrapper .note:hover h3 {
   text-decoration: underline;
 }
-.list .note h3,
-.list .note p {
+.list .note-wrapper .note h3,
+.list .note-wrapper .note p {
   text-align: left;
 }
-.list .note h3 {
+.list .note-wrapper .note h3 {
   margin: 11px 0 -3px 0;
   white-space: nowrap;
   font-size: 1.2rem;
   font-weight: bold;
 }
-.list .note p {
+.list .note-wrapper .note p {
   line-height: 22px;
   font-size: 0.85rem;
   letter-spacing: 1px;
@@ -262,12 +257,20 @@
   overflow: hidden;
 }
 @media ( max-width: 710px ) {
-  .list .note {
+  .list .note-wrapper .note {
     width: 80%;
   }
 }
+.list .note-wrapper .tags-div {
+  border: 1px solid #BFBFBF;
+  border-top: 0;
+  border-radius: 5px;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
 @media ( max-width: 1024px ) {
-  .list {
+  .list .note-wrapper {
     margin: 50px 5px;
   }
 }
@@ -282,6 +285,29 @@
 .create-new h2,
 .edit h2 {
   letter-spacing: -0.3px;
+}
+.create-new .form .tags,
+.edit .form .tags {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px 0;
+}
+.create-new .form .tags *,
+.edit .form .tags * {
+  padding: 0;
+}
+.create-new .form .tags input[type=checkbox],
+.edit .form .tags input[type=checkbox] {
+  display: inline-block;
+  margin: auto 10px auto 50px;
+  transform: scale(2, 2);
+}
+.create-new .form .tags .far,
+.edit .form .tags .far {
+  display: inline-block;
+  width: fit-content;
+  text-align: center;
 }
 @media ( max-width: 1024px ) {
   .create-new,
