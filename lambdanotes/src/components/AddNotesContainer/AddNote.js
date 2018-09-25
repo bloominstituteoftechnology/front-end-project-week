@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addNote } from "../actions/actions";
 import { withRouter } from "react-router-dom";
+import { Alert } from "reactstrap";
 
 class AddNote extends Component {
 	constructor(props) {
@@ -9,7 +10,8 @@ class AddNote extends Component {
 		this.state = {
 			title: "",
 			body: "",
-			id: Date.now()
+			id: Date.now(),
+			visable: false
 		};
 	}
 
@@ -25,8 +27,12 @@ class AddNote extends Component {
 		{
 			console.log(this.state);
 		}
-		this.props.addNote(this.state);
-		this.props.history.push("/");
+		if (!this.state.title || !this.state.body) {
+			this.setState({ visable: true });
+		} else {
+			this.props.addNote(this.state);
+			this.props.history.push("/");
+		}
 	};
 
 	render() {
@@ -50,6 +56,12 @@ class AddNote extends Component {
 						placeholder="Enter your note here..."
 						required
 					/>
+					<div className="alert-box">
+						<Alert isOpen={this.state.visable} color="danger">
+							Please enter a title and a body
+						</Alert>
+					</div>
+
 					<button onClick={this.addNote} className="savenote-button">
 						Save
 					</button>
