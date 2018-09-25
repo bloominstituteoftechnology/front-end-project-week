@@ -34,7 +34,7 @@ class EditNote extends React.Component {
                 <h2>Edit Note:</h2>
                 <input type="text" className='title' name="title" value={this.state.title} onChange={this.handleInput} />
                 <textarea className="text-body" name="textBody" value={this.state.textBody} onChange={this.handleInput} />
-                <NavLink to={`/`} onClick={() => this.props.editNote(this.state)} className="button">Update</NavLink>
+                <button><NavLink to={`/`} onClick={() => this.props.editNote(this.state)} className="button">Update</NavLink></button>
             </div>
         )
     }

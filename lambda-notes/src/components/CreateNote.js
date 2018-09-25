@@ -24,7 +24,7 @@ class CreateNote extends React.Component {
                 <h2>Create New Note:</h2>
                 <input className="title" type="text" name="title" placeholder="Note Title" onChange={this.handleInput} />
                 <textarea className="text-body" name="textBody" placeholder="Note Content" onChange={this.handleInput} />
-                <NavLink to='/' onClick={() => this.props.addNote(this.state)} className="button">Save</NavLink>
+                <button><NavLink to='/' onClick={() => this.props.addNote(this.state)} className="button">Save</NavLink></button>
             </div>
         )
     }
