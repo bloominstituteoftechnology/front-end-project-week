@@ -41,7 +41,19 @@ export const getNote = id => {
 }
 
 // editNote action creator TODO: fill in logic
-export const editNote = editedNote => {}
+export const editNote = editedNote => {
+  return dispatch => {
+    axios
+      .put(`https://killer-notes.herokuapp.com/note/edit/${editedNote.id}`, editedNote)
+      .then(response => {
+        dispatch({ type: 'NOTE_EDITED', payload: response.data });
+      })
+      .then(() => getNotes()(dispatch))
+      .catch(error => {
+        dispatch({ type: 'ERROR', payload: error });
+      });
+  }
+}
 
 // deleteNote action creator TODO: fill in logic
 export const deleteNote = id => {}
