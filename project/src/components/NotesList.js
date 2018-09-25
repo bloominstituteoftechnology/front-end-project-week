@@ -6,12 +6,12 @@ const NotesList = props => {
   }
   return (
     <div className="notes-container">
-      {props.avengersList.map(avenger => (
+      {props.notesList.map(note => (
         <div className="note" key={note.id}>
           <h3 onClick={() => props.history.push(`/notes/${note.id}/info`)}>
             {note.title}
           </h3>
-          <h3>({note.nickname})</h3>
+          <h3>({note.body})</h3>
         </div>
       ))}
     </div>
@@ -19,4 +19,3 @@ const NotesList = props => {
 };
 
 export default NotesList;
-props;

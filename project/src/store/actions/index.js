@@ -27,7 +27,7 @@ export const getNotes = () => dispatch => {
       dispatch({ type: NOTES_FETCH_COMPLETE, payload: response.data });
     })
     .catch(err => {
-      dispatch({ type: NOTES_FETCH_FAILURE, payload: err });
+      dispatch({ type: NOTES_FETCH_ERROR, payload: err });
     });
 };
 
@@ -55,6 +55,13 @@ export const deleteNote = note => dispatch => {
     .catch(err => {
       dispatch({ type: DELETE_NOTE_ERROR, payload: err });
     });
+};
+
+export const setUpdateNote = id => {
+  return {
+    type: SET_UPDATE_NOTE,
+    payload: id
+  };
 };
 
 export const updateNote = note => dispatch => {

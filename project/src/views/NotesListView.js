@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getNotes } from "./store/actions";
+import { getNotes } from "../store/actions";
 import NotesList from "../components/NotesList";
 
 class NotesListView extends React.Component {

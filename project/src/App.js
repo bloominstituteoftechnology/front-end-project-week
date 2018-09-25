@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import { NavLink } from "react-router-dom";
 import { Route } from "react-router-dom";
-import { NotesListView } from "./views/NotesListView";
-import { NoteView } from "./views/NoteView";
-import { NotesFormView } from "./views/NotesFormView";
+import NotesListView from "./views/NotesListView";
+import NoteView from "./views/NoteView";
+import NotesFormView from "./views/NotesFormView";
 
 class App extends Component {
   render() {
