@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const NotesMain = (props) => {
   return (
     <Div1 className="NotesMain">
-      <H2>NotesMain Functional Component</H2>
+      <H2>Your Notes</H2>
         {
           props.notes.map(note => 
             <Div2 key={note.id}>

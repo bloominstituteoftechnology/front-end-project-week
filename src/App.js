@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import NotesBar from './components/NotesBar'
 import NotesMain from './components/NotesMain'
@@ -58,7 +58,6 @@ class App extends Component {
   render() {
     return (
       <Div1 className="App">
-        <H1>Lambda Notes App</H1>
         <NotesBar />
         
         <Route exact path="/" render={() => 
@@ -87,12 +86,29 @@ class App extends Component {
           />
         }
         />
+
+        <GlobalStyle />
       </Div1>
     )
   }
 }
 
-const Div1 = styled.div``
+const GlobalStyle = createGlobalStyle`
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .App {
+    width: 100%;
+    max-width: 888px;
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+`
+const Div1 = styled.div`
+  display: flex;
+`
 const H1 = styled.h1``
 
 export default withRouter(App)
