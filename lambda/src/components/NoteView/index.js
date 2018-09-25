@@ -5,9 +5,11 @@ import {
   NoteOptions,
   Button,
   TitleInput,
-  ContentInput
+  ContentInput,
+  TagInput
 } from '../StyledComponents';
 import { withRouter } from 'react-router-dom';
+const ReactMarkdown = require('react-markdown');
 class NoteView extends React.Component {
   state = {
     notesAdded: false,
@@ -52,7 +54,8 @@ class NoteView extends React.Component {
     this.props.updateNotes({
       _id: this.state.id,
       title: this.state.title,
-      textBody: this.state.content
+      textBody: this.state.content,
+      tags: this.state.tags.split(',')
     });
     this.setState({ update: false });
   };
@@ -61,11 +64,12 @@ class NoteView extends React.Component {
     if (!this.state.notesAdded) {
       if (this.props.notes.length > 0 && this.state.id) {
         const notes = this.props.notes.filter(
-          note => note._id === this.state.id
+          note => note._id == this.state.id
         )[0];
         this.setState({
           title: notes.title,
           content: notes.textBody,
+          tags: notes.tags.join(','),
           notesAdded: true
         });
       }
@@ -91,6 +95,12 @@ class NoteView extends React.Component {
               wrap="soft"
               value={this.state.content}
             />
+            <TagInput
+              onChange={this.onInputChnage}
+              type="text"
+              name="content"
+              value={this.state.tags}
+            />
             <Button onClick={this.onSumbit} submit>
               Submit
             </Button>
@@ -106,7 +116,8 @@ class NoteView extends React.Component {
           </NoteOptions>
           <div className="NoteView">
             <H1>{this.state.title}</H1>
-            <p>{this.state.content}</p>
+            <ReactMarkdown source={this.state.content} />
+            <p>{this.state.tags}</p>
           </div>
           {this.state.modal ? (
             <div id="myModal" className="modal">
