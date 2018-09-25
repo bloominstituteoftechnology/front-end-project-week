@@ -21,7 +21,7 @@ class App extends Component {
               <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} fetchingNotes={this.props.fetchingNotes}/>
             )}
           />
-          <Route path="/notes/add" render={props => (
+          <Route path="/note/add" render={props => (
             <NewNoteForm {...props} addNote={this.props.addNote} />
           )}
           />
