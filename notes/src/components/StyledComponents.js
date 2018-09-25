@@ -74,6 +74,14 @@ import styled from 'styled-components';
   margin: 5px;
 `;
 
+export const TagInput = styled.input`
+  widht: 100%;
+  border-radius: 2px;
+  border-color: #deddde;
+  padding: 5px;
+  margin: 5px;
+`;
+
  export const ContentInput = styled.textarea`
   wdith: 100%;
   border-radius: 2px;
