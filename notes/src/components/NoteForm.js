@@ -24,24 +24,31 @@ function NoteForm(props) {
 
     return (
         <Fragment>
-            
-            <h2>{props.isUpdating ? 'Edit Note' : 'Add New Note'}</h2>
+           <div className="note-form">
+            <h3>{props.isUpdating ? 'Edit Note:' : 'Create New Note:'}</h3>
             <form>
-                <div className="note-form">
+                
                     <input type="text"
                     value={props.note.title}
                     name="title"
+                    className="title"
                     placeholder="Note Title"
+                    rows="1"
                     onChange={props.handleChange} />
-                    <input type="text"
+                    <textarea type="text"
                     value={props.note.content}
                     name="content"
+                    className="content"
                     placeholder="Note Content"
-                    onChange={props.handleChange} />
+                    cols="30"
+                    rows="5"
+                    onChange={props.handleChange}></textarea>
+                <div className="buttons">  
+                <button className="blueButton" onClick={handleSubmit}>{props.isUpdating ? 'Update' : 'Save'}</button>
+                <button className="blueButton" onClick={handleCancel}>Cancel</button>
                 </div>
-                <button className="prompt-button" onClick={handleSubmit}>{props.isUpdating ? 'Update' : 'Save'}</button>
-                <button className="prompt-button" onClick={handleCancel}>Cancel</button>
             </form>
+            </div>
         </Fragment>
     )
 }

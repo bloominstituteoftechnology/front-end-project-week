@@ -10,15 +10,19 @@ function AllNotes(props) {
     }
 
     return (
+        
         <div className="notes-list-wrapper">
+        <h3>Your Notes:</h3>
+            <div className="all-notes">
             {props.notesList.map(note => (
-                <div className="note-card" key={note.id}>
-                    <h3 onClick={() => props.history.push(`notes/${note.id}`)}>
+                <div className="note-card" key={note.id} onClick={() => props.history.push(`notes/${note.id}`)}>
+                    <h4>
                     {note.title}
-                    </h3>
-                    <p>{note.content}</p>
+                    </h4>
+                    <p>{props.truncate(note.content)}</p>
                 </div> 
             ))}
+            </div>
         </div>
     )
 }

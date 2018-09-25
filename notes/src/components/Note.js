@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Modal from './Modal/Modal';
-
+import '../App.css';
 
 
 function Note(props) {
@@ -19,22 +19,28 @@ function Note(props) {
 
     return (
         <Fragment>
-            <div className="note-info-wrapper">
-                <h1>{note.title}</h1>
-                <p>{note.content}</p>
-            </div>
-            <button className="plain-button" onClick={event => {
+            <div className="single-note">
+            <div className="edit-delete">
+            <a className="plain-button" onClick={event => {
                 event.preventDefault();
                 console.log("clicked open update");
                 props.openUpdateForm(event, note.id)
-            }}>edit</button>
-            <button className="plain-button" onClick={event => {
+            }}>edit</a>
+            <a className="plain-button" onClick={event => {
                 props.showModal(event, note.id)
-            }}>delete</button>
+            }}>delete</a>
+            
+            </div>
+                <div className="note-info-wrapper">
+                <h1>{note.title}</h1>
+                <p>{note.content}</p>
+            
+                </div>
+            </div>
 
             <Modal show={props.show} className="deleteModal">
             Are you sure you want to delete this note?
-            <button className="prompt-button" onClick={props.showModal}>nope</button>
+            <button className="blueButton" onClick={props.showModal}>nope</button>
             <button className="prompt-button" onClick={deleteNote}>delete</button> 
             </Modal>
            

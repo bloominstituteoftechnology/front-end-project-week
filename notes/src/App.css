@@ -1,28 +1,217 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  display: flex;
+  width: 930px;
+  align-content: center;
+  margin: 0 auto;
+  background: #F2F1F2
+}
+/* GLOBAL STYLES*/
+
+.blueButton {
+  list-style: none;
+  border: 1px solid #C8C8C8;
   text-align: center;
+  background-color: #24B8BD;
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 11px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.blueButton a {
+  text-decoration: none;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.inactive {
+  background-color: #C8C8C8;
+  margin-bottom: 5px;
 }
 
-.App-intro {
-  font-size: large;
+.inactive a {
+  color: #414141;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+ul {
+  padding: 0px;
+  list-style: none;
 }
+
+/* NAVBAR STYLES */
+
+.header {
+  /* border: 2px solid black; */
+  margin: 5px 0 0 15px;
+  color: #414141;
+}
+
+.navbar {
+  justify-content: flex-start;
+  background: #D3D2D3;
+  border-right: 1px #C8C8C8;
+  padding: 10px;
+  width: 25%;
+  /* width: 230px; */
+  height: 100vh;
+}
+
+.navlinks {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* HOME PAGE STYLES */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F2F1F2;
+  width: 75%;
+
+}
+
+.home .header {
+  margin: 50px 0 0 0;
+}
+
+.home p {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0;
+}
+
+
+/* ALL NOTES STYLES */
+.notes-list-wrapper {
+  /* border: 2px solid black; */
+  /* display: flex;
+  flex-wrap: wrap; */
+  width: 75%;
+  background: #F2F1F2;
+ 
+}
+
+.notes-list-wrapper h3 {
+  margin: 55px 0 20px 25px;
+}
+
+.all-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* align-content: space-between; */
+  /* border: 2px solid purple; */
+  margin: 0 25px;
+}
+
+.note-card {
+  width: 190px;
+  height: 200px;
+  border: 1px solid #C8C8C8;
+  margin-bottom: 25px;
+  padding-top: 5px;
+  background: white;
+}
+
+.note-card:hover {
+  cursor: pointer;
+  background: #D3D2D3
+}
+
+.note-card h4 {
+ 
+  padding: 0 5px;
+  /* border: 1px solid lime; */
+  margin: 0;
+  font-size: 20px;
+}
+
+.note-card p {
+
+  font-size: 14px;
+  padding: 5px;
+}
+
+/* SINGLE NOTE VIEW */
+
+.single-note {
+  width: 75%;
+  /* border: 2px solid lime; */
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-delete {
+  align-self: flex-end;
+  margin: 10px 65px 0 0;
+}
+
+.plain-button {
+  /* border: 2px solid fuchsia; */
+  display: inline-block;
+  padding: 5px 5px 0 5px;
+  text-decoration: underline;
+}
+
+.plain-button:hover {
+  cursor: pointer;
+}
+
+.note-info-wrapper {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 2px solid turquoise; */
+  margin: 5px 25px;
+}
+
+.note-info-wrapper h1 {
+  /* border: 2px solid purple; */
+  font-size: 24px;
+}
+
+.note-info-wrapper p {
+  margin-top: 0;
+  line-height: 25px;
+}
+
+
+/* FORM STYLES */
+
+.note-form {
+  border: 2px solid lime;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  /* margin: 20px; */
+}
+
+.note-form h3 {
+  margin: 50px 0 20px 25px;
+}
+
+.note-form form {
+  border: 2px solid purple;
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+}
+
+.note-form .title {
+  width: 50%;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+/* .note-form .content {
+  width: 50%;
+  height: 70%;;
+} */

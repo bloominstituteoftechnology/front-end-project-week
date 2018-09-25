@@ -89,23 +89,35 @@ class App extends Component {
     this.setState({ note: {title: '', content: ''}, isUpdating: false })
   }
 
+  truncate = (content) => {
+    let val = '';
+    if(content.length > 200) {
+        val = `${content.slice(0,197)}...`
+    }
+    return val;
+  }
+
   render() {
     return (
       <div className="App">
-       <ul className="navbar">
-        <li>
+      <div className="navbar">
+       <h1 className="header">
+         Lambda Notes
+       </h1>
+       <ul className="navlinks">
+        <li className="blueButton">
           <NavLink exact to="/"
           activeClassName="activeNavButton" >
           Home
           </NavLink>
         </li>
-        <li>
+        <li className="blueButton">
           <NavLink exact to="/notes"
           activeClassName="activeNavButton" >
           View Your Notes
         </NavLink>
         </li>
-        <li>
+        <li className="blueButton">
           <NavLink exact to="/note-form"
           activeClassName="activeNavButton"
           onClick={this.cancelUpdate} >
@@ -113,6 +125,7 @@ class App extends Component {
           </NavLink>
         </li>
        </ul>
+       </div>
        <Route exact path="/" component={Home} />
        <Route 
         exact 
@@ -120,6 +133,7 @@ class App extends Component {
         render={props => (
          <AllNotes {...props}
          notesList={this.state.notesData}
+         truncate={this.truncate}
          />
        )}
        />
@@ -153,6 +167,7 @@ class App extends Component {
         />
         <Modal show={this.state.show} />
       </div>
+      
     );
   }
 }
