@@ -1,21 +1,29 @@
 import React, { Fragment } from 'react';
+import './NotesForm.css';
 
 function NotesForm(props) {
     function handleSubmit(event) {
         event.preventDefault();
-        props.handleAddNewNote(event);
+
+        if(props.isUpdating) {
+            props.handleUpdateNote();
+        } else {
+            props.handleAddNewNote(event);
+        }
     }
 
     return (
-        <Fragment>
-            <h2>{props.isUpdating ? 'Update Note' : 'Add New Note'}</h2>
-            <form>
+        <Fragment className='overall-container'>
+            
+            <form className='form-container'>
+            <h2>{props.isUpdating ? 'Update Note' : 'Create New Note'}</h2>
                 <h3>Title:</h3>
                 <input
                     type='text'
                     value={props.note.title}
                     name='title'
                     onChange={props.handleChange}
+                    className='title-input'
                 />
                 <h3>Note:</h3>
                 <textarea
@@ -23,6 +31,7 @@ function NotesForm(props) {
                     value={props.note.text}
                     name='text'
                     onChange={props.handleChange}
+                    className='text-input'
                 ></textarea>
                 <button onClick={handleSubmit}>Add Note</button>
             </form>

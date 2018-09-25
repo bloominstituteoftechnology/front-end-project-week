@@ -26,10 +26,17 @@
 .single-notes h2{
     border-bottom: 1px solid black;
     width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .single-notes p{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.single-notes button{
+    display: none;
 }

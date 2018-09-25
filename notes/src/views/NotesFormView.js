@@ -1,14 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNote } from '../store/actions';
+import { addNote, updateNote } from '../store/actions';
 import NotesForm from '../components/NotesForm/NotesForm';
+
+let nextId = 0;
+
+function getNewId() {
+  return nextId++;
+}
 
 class NotesFormView extends React.Component {
     state={
         note: {
             title: '',
-            text: ''
+            text: '',
+            id: null
         },
         isUpdating: false,
     };
@@ -19,19 +26,36 @@ class NotesFormView extends React.Component {
             this.setState({isUpdating: true, note: this.props.noteToUpdate});
         }
     }
+    
+    
 
     handleChange = event => {
-        this.setState({
-            note: {
-                ...this.state.note,
-                [event.target.name]: event.target.value
-            }
-        });
+        if(this.state.isUpdating){
+            this.setState({
+                note: {
+                    ...this.state.note,
+                    [event.target.name]: event.target.value,
+                }
+            });
+        } else {
+            this.setState({
+                note: {
+                    ...this.state.note,
+                    [event.target.name]: event.target.value,
+                    id: getNewId()
+                }
+            });
+        }
     }
 
     handleAddNewNote = event => {
         event.preventDefault();
         this.props.addNote(this.state.note);
+        this.props.history.push('/notes');
+    }
+
+    handleUpdateNote = () => {
+        this.props.updateNote(this.state.note);
         this.props.history.push('/notes');
     }
 
@@ -43,6 +67,7 @@ class NotesFormView extends React.Component {
             handleAddNewNote={this.handleAddNewNote}
             handleChange={this.handleChange}
             isUpdating={this.state.isUpdating}
+            handleUpdateNote={this.handleUpdateNote}
             />
         );
     }
@@ -52,4 +77,4 @@ const mapStateToProps = state => ({
     noteToUpdate: state.noteToUpdate
 });
 
-export default connect(mapStateToProps, { addNote })(NotesFormView);
+export default connect(mapStateToProps, { addNote, updateNote })(NotesFormView);

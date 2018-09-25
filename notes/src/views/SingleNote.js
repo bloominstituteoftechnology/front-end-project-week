@@ -33,26 +33,39 @@ class SingleNote extends React.Component {
         this.props.history.push('/notes');
     }
 
-    goToUpdateNoteForm = (event, title) => {
+    goToUpdateNoteForm = (event,title) => {
         event.preventDefault();
         this.props.setUpdateNote(title);
         this.props.history.push('/notes-form');
+    }
+
+    handleClick = event => {
+        event.preventDefault();
+        this.setState({
+            clicked: !this.state.clicked
+        });
     }
     
 
     render() {
         console.log(this.props);
         const {title, text} = this.state.note
+        console.log('note-key',this.state.note.id);
         return(
+            
         <div className='active' >
+           <div className='buttons'>
             <button onClick={this.handleDeleteNote}>Delete</button>
             <button onClick={event => {
                 event.preventDefault();
                 this.goToUpdateNoteForm(event, this.state.note.title)
             }}>Update</button>
+            </div>
             <h2>{title}</h2>
             <p>{text}</p>
+            
         </div>
+        
         );
     }
 }

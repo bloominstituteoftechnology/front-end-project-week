@@ -4,14 +4,19 @@ import { connect } from 'react-redux';
 import NotesList from '../components/NotesList/NotesList';
 
 class NotesListView extends React.Component {
+     
     componentDidMount() {
         this.props.notesList;
     }
 
+    
+
     render() {
         return (
             <div>
-            <NotesList {...this.props}/>
+            <NotesList 
+            
+            {...this.props}/>
             </div>
         );
     }
