@@ -1,7 +1,18 @@
 import axios from 'axios'
 
 // getNotes action creator TODO: fill in logic
-export const getNotes = () => {}
+export const getNotes = () => {
+  return dispatch => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .then(response => {
+        dispatch({ type: 'NOTES_FETCHED', payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: 'ERROR', payload: error });
+      });
+  }
+}
 
 // addNotes action creator TODO: fill in logic
 export const addNote = () => {}
