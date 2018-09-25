@@ -1,24 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Editnote from './Editnote';
-import Deletenote from './Deletenote';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from "react-router-dom";
 
-const Note = props => {
 
-        return (
-            <div className="note">
-                <div className="noteHeader">
-                    <Link to='/notes/:_id/edit' component={Editnote}>Edit</Link>
-                    <Link to='/notes/:_id/delete' component={Deletenote}>Delete</Link>
-                </div>
-                <div className='noteBody'>
-                    <h1>{props.note.title}</h1>
-                    <h3>{props.note.textBody}</h3>
-                </div>
-            </div>
-            
-        )
-    
+export default class Note extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      note: null
+    };
+  }
+
+  componentDidMount() {
+    const _id = this.props.match.params._id;
+    this.fetchNote(_id);
+  }
+
+  fetchNote = _id => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${_id}`)
+      .then(response => {
+        this.setState(() => ({ note: response.data }));
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  render() {
+
+    if (!this.state.note) {
+      return <div>Loading note information...</div>;
+    }
+
+    const { textBody, title } = this.state.note;
+    return (
+      <div className="note">
+        <div className="noteHeader">
+          <Link to={`/notes/${this.state.note._id}/edit`} className='editz'>Edit</Link>
+          <Link to={`/notes/${this.state.note._id}/delete`} className='editz' onClick={this.props.toggleDelete}>Delete</Link>
+        </div>
+        <div className='noteBody'>
+          <h1>{title}</h1>
+          <h3>{textBody}</h3>
+        </div>
+      </div>
+    )
+
+  }
 }
-
-export default Note;
