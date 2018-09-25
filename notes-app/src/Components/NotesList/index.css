@@ -1,0 +1,11 @@
+.note_container {
+    display: flex;
+    width: 750px;
+    
+    flex-wrap: wrap;
+}
+
+.list_title {
+    margin-bottom: 60px;
+    text-shadow: 2px 2px palegoldenrod
+}

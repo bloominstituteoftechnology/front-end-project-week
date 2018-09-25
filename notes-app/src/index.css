@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+*:active {
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  opacity: .97;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  background-color: white;
+  border: 1px solid black;
+}
+
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+  width: 888px;
+  background-color:silver;
+  background-image: 
+  radial-gradient(circle at 100% 150%, silver 24%, #373737 25%, #373737 28%, silver 29%, silver 36%, #373737 36%, #373737 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, silver 24%, #373737 25%, #373737 28%, silver 29%, silver 36%, #373737 36%, #373737 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, silver 10%, silver 11%, silver 23%, #373737 24%, #373737 30%, silver 31%, silver 43%, #373737 44%, #373737 50%, silver 51%, silver 63%, #373737 64%, #373737 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, silver 5%, silver 6%, silver 15%, #373737 16%, #373737 20%, silver 21%, silver 30%, #373737 31%, #373737 35%, silver 36%, silver 45%, #373737 46%, #373737 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, silver 5%, silver 6%, silver 15%, #373737 16%, #373737 20%, silver 21%, silver 30%, #373737 31%, #373737 35%, silver 36%, silver 45%, #373737 46%, #373737 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+
+  /* background-color: rgba(128, 128, 128, 0.5);
+  background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, gray 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+  radial-gradient(at 100% 100%,      rgba(96, 16, 48, 0) 9px, palegoldenrod 10px, rgba(96, 16, 48, 0) 11px),
+  #919191;
+  background-size: 20px 20px; */
+}
+
+
+
+.app_container {
+  border: 1px solid white;
+  border-radius: 6px 31px 31px 6px;
+  margin: 60px 0 100px 0;
+  display: flex;
+  width: 888px;
+  height: 888px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+
+
+
+
+/* .App {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.btn {
+  background-color: turquoise;
+}
+
+.EachNote {
+  display: flex;
+  
+} */
+
+.note_container {
+  display: flex;
+  width: 750px;
+  
+  flex-wrap: wrap;
+}
+
+.list_title {
+  margin-bottom: 60px;
+  text-shadow: 2px 2px palegoldenrod
+}

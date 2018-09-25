@@ -1,0 +1,17 @@
+.main_content {
+    display: flex;
+    
+}
+
+.main_container {
+    border-radius: 0 30px 30px 0;
+    padding-top: 50px;
+    padding-left: 25px;
+    background-color: #F2F1F2;
+    width: 667px;
+    display: flex;
+    
+}
+
+
+

@@ -1,0 +1,55 @@
+/* Delete Note */
+
+
+
+.gray_background {
+    position: fixed;
+    opacity: .8;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    background-color: #E0EEEA;
+    border: 1px solid black;
+}
+
+
+.show_modal {
+    position: fixed;
+    top: 200px;
+    z-index: 1;
+    margin: 0 auto;
+    text-align: center;
+    
+    
+    
+    
+}
+
+.modal {
+    position: relative;
+    margin-top: -10px;
+    padding-top: 10px;
+    width: 530px; 
+    height: 180px;
+    background-color: white;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    border-radius: 5px;
+}
+
+
+
+.question {
+    margin: 30px 0 30px 0;
+    padding-top: 10px;
+    font-weight: bolder;
+}
+
+.red {
+    background-color: red !important;
+}
+
+.hidden {
+    display: none;
+}
