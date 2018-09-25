@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import NotesListView from '../views/NotesListView';
 import NoteFormView from '../views/NoteFormView';
+import NoteView from '../views/NoteView';
 import logo from '../logo.svg';
 import '../App.css';
 
@@ -22,8 +23,9 @@ class App extends Component {
         </NavLink>
 
         </div>
-        <Route path="/notes" component={NotesListView} />
-        <Route path="/addNote" component={NoteFormView} />
+        <Route exact path="/notes" component={NotesListView} />
+        <Route exact path="/addNote" component={NoteFormView} />
+        <Route exact path="/notes/:noteId" component={NoteView} />
       </div>
     );
   }
