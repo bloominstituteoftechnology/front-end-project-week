@@ -2,31 +2,30 @@ import React, { Component } from 'react';
 import {Route, NavLink, withRouter} from 'react-router-dom';
 import './App.css';
 import NoteListView from './views/NoteListView';
-import NoteView from './views/NoteView.js';
+import NoteView from './views/NoteView';
+import CreateNoteView from './views/CreateNoteView';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <navigator className="navigation-panel">
-          <h1>Lambda Notes</h1>
-          <button onClick={() => this.props.history.push("/")}  
-               ClassName="notelist-button">
-            View Your Notes</button>
-            <button //onClick={() => this.props.history.push("/create-note")}  
-                    ClassName="create-note-button">
-            + Create New Notes</button>
-        </navigator>
+        <nav className="navigation-panel">
+            <h1>Lambda Notes</h1>
+            <button onClick={() => this.props.history.push("/")}  
+                    className="notelist-button">
+                    View Your Notes</button>
+            <button onClick={() => this.props.history.push("/create-note")}  
+                    className="create-note-button">
+                    + Create New Notes</button>
+        </nav>
         <div className="display-panel">
-          <h2>Your Notes:</h2>
-          {/* <NoteListView /> */}
-          <Route  exact
-                  path='/'
-                  Component={NoteListView}/>
-          <Route  path='/note'
-                  Component={NoteView}/>
-          {/* <Route  path='/create-note'
-                  Component={CreateNoteView}/> */}
+            <Route  exact
+                    path='/'
+                    component={NoteListView}/>
+            <Route  path="/note/:id"
+                    component={NoteView}/>
+            <Route  path='/create-note'
+                    component={CreateNoteView}/>
         </div>
         
       </div>
@@ -34,8 +33,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  noteList: state.notes
-});
 
 export default withRouter(App);

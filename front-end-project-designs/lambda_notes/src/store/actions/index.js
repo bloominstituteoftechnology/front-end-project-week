@@ -7,6 +7,11 @@ export {
     ADD_NOTE_COMPLETE,
     ADD_NOTE_FAILURE,
 
+    NOTE_GET_START,
+    NOTE_GET_COMPLETE,
+    NOTE_GET_FAILURE,
+
     getNoteList,
-    addNewNote
+    addNewNote,
+    getNote
 } from './notesActions';

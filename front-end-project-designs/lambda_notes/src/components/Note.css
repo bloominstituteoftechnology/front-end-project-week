@@ -1,0 +1,36 @@
+.notelist-wrapper{
+    margin: 20px;
+}
+
+.notelist-wrapper h1{
+    font-size: 24px;
+    display: flex;
+    justify-content: flex-start;
+}
+.note-card-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.note-card {
+    width: 30%;
+    height: 300px; 
+    border: 1px solid black;
+}
+
+.note-card:hover{
+    cursor: pointer;
+}
+
+.note-component .note-title {
+    font-size: 16px;
+}
+
+.note-component .note-textBody {
+    font-size: 14px;
+}
+
+.create-update-form {
+    margin: 20px;
+}

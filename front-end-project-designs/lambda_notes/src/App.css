@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
 }
 
 .App-logo {
@@ -34,7 +34,7 @@
 
 .navigation-panel{
   width: 200px;
-  height: 100%;
+  height: auto;
   background-color: #D3D2D3;
   display: flex;
   flex-direction: column;
@@ -42,6 +42,13 @@
 }
  .navigation-panel button{
    background-color: #24B8BD;
-   width: 150px;
+   width: 130px;
    height: 30px;
+ }
+
+ .display-panel{
+   /* width:inherit; */
+   
+   width: 100%;
+   background-color: #F2F1F2;
  }
