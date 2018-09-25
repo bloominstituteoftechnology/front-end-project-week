@@ -90,9 +90,7 @@ export const deleteNote = id => {
 
 			// route to note list?
 
-			.then.catch(error =>
-				dispatch({ type: DELETE_NOTE_ERROR, payload: error })
-			);
+			.catch(error => dispatch({ type: DELETE_NOTE_ERROR, payload: error }));
 	};
 };
 
