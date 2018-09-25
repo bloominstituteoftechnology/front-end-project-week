@@ -7,7 +7,7 @@ import {
   UnderLinedP,
   H3
 } from '../StyledComponents';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { downloadCSV } from '../../util/csvUtil';
 
 function List({ notes, history }) {
