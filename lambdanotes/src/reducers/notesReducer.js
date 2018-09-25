@@ -72,7 +72,7 @@ const noteReducer = (state = initialState, action) => {
 		case ADDED_NOTE:
 			return {
 				...state,
-				notes: action.payload,
+				//notes: action.payload,
 				addingNote: false
 			};
 
@@ -90,7 +90,7 @@ const noteReducer = (state = initialState, action) => {
 		case DELETED_NOTE:
 			return {
 				...state,
-				notes: action.payload,
+				//notes: action.payload,
 				deletingNote: false
 			};
 
