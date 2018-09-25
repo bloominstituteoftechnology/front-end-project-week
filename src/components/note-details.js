@@ -61,6 +61,21 @@ const NoteDetailsDiv = styled.div`
 
 class NoteDetails extends Component {
 
+  getTags = () => {
+    if(this.props.note.tags.isArray){
+      (this.props.note.tags.map(tag => {
+          return (<div className="tag">{tag}</div>)
+        }
+    ))
+  } else if (typeof this.props.note.tags == "string"){
+    (this.props.note.tags.split(',').map(tag => {
+    return <div className="tag">{tag}</div>
+  }))
+  } else {
+    return (<div className="noTags"> none </div>)
+  }
+  }
+
   render() {
     console.log(this.props.note)
     return (
@@ -85,20 +100,10 @@ class NoteDetails extends Component {
             </div>
             <div className="noteDetails">
               <h4>{this.props.note.title}</h4>
-              <p>{<ReactMarkdown>{this.props.note.textBody}</ReactMarkdown>}</p>
-              <div className="tags">Tags:
-                {(this.props.note.tags.isArray) ? 
-                (this.props.note.tags.map(tag => {
-                        return (<div className="tag">{tag}</div>)
-                      }
-                  )) :
-                  (<div className="noTags"> none </div>)}
-                {(typeof this.props.note.tags == "string") ? 
-                (<div className="tag">tag</div>)
-                      
-                   :
-                  (<div className="noTags"> none </div>)}
-              </div>
+              {<ReactMarkdown>{this.props.note.textBody}</ReactMarkdown>}
+              {/* <div className="tags">Tags:
+                {this.getTags()}
+              </div> */}
             </div>
           </NoteDetailsDiv>
         ) :

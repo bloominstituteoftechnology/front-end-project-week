@@ -86,14 +86,14 @@ const NotePreview = (props) => (
                 <p>Index: {props.index}</p>
               </div>
 
-              <div className="tags">
+              {/* <div className="tags">
                 {(props.note.tags) ?
                   props.note.tags.map(tag => {
                         return (<div key={tag}>{tag}</div>)
                       }
                   ) :
                   null}
-              </div>
+              </div> */}
             </div>
         </Link>
       </NotePreviewDiv>

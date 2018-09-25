@@ -98,7 +98,7 @@ export default class EditForm extends Component {
             placeholder="Note Content"
           >{this.value}</textarea>
 
-          <input
+          {/* <input
             onSubmit={this.addTag}
             className="input"
             onChange={this.inputHandler}
@@ -107,7 +107,7 @@ export default class EditForm extends Component {
             name='newTag'
             placeholder={`${this.state.tags}`}
           >{this.value}</input>
-          <button onClick={this.addTag}>add tag</button>
+          <button onClick={this.addTag}>add tag</button> */}
 
           <Link
             className="menu-item"

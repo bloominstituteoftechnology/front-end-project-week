@@ -37,12 +37,6 @@ class App extends Component {
 
   componentDidMount = () => {
     this.props.getNotes();
-    // var promise1 = new Promise(res =>  {
-    //   res(this.props.getNotes())
-    // })
-    // promise1.then( () => {
-    //   console.log(this.props.state.notes)
-    // })
   }
 
   getNoteDetails = (id) => {
@@ -80,13 +74,7 @@ class App extends Component {
   }
 
   sortById = (e) => {
-    // console.log(e)
-    // console.log(this.props.state.notes)
-    // console.log(this.props)
-    // console.log('sortById')
     let newArr = this.props.state.notes.slice()
-    // console.log(newArr)
-
     function compare(a, b){
       const Aa = a.id;
       const Bb = b.id;
@@ -100,19 +88,11 @@ class App extends Component {
     }
 
     newArr.sort(compare)
-
-    // console.log(newArr)
     this.props.sortNote(newArr)
   }
 
   sortByLetter = (e) => {
-    // console.log(e)
-    // console.log(this.props.state.notes)
-    // console.log(this.props)
-    // console.log('sortByLetter')
     let newArr = this.props.state.notes.slice()
-    // console.log(newArr)
-
     function compare(a, b){
       const titleA = a.title;
       const titleB = b.title;
@@ -125,7 +105,6 @@ class App extends Component {
       return comparison;
     }
     newArr.sort(compare)
-    // console.log(newArr)
     this.props.sortNote(newArr)
   }
 

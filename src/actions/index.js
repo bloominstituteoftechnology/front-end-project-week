@@ -10,6 +10,8 @@ export const getNotes = () =>  {
     dispatch({type: FETCHING_NOTES});
     axios.get('http://localhost:3300/api/notes/')
       .then(res => {
+        console.log(res.data)
+        //convert tags from strings to array here and pass it back 
       dispatch({type: NOTES_RECIEVED, payload: res.data})
     })
       .catch(err => {
@@ -26,7 +28,7 @@ export const addNote = (newNote) =>  {
   return function(dispatch){
     dispatch({type: ADDING_NOTE});
     axios.post('http://localhost:3300/api/notes/', {
-        // "tags": ["tag", "otherTag"],
+        "tags": newNote.tags,
         "title": newNote.title,
         "textBody": newNote.textBody
     }).then(res => {
