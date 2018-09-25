@@ -6,9 +6,9 @@ export default class OneNote extends React.Component{
     render(){
         return(
             <StyledNote>
-                <div className='title'>
+                <StyledTitle>
                     {this.props.title}
-                </div>
+                </StyledTitle>
                 <div className='noteContent'>
                     {this.props.content}
                 </div>
@@ -23,6 +23,16 @@ OneNote.propType = {
 }
 
 const StyledNote = styled.div`
-    border: 1px solid;
-    margin: 10px;
+    border: 2px solid;
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+`
+
+const StyledTitle = styled.div`
+    border-bottom: 1px solid;
+    font-weight: bold;
+    font-size: 1.2rem;
 `

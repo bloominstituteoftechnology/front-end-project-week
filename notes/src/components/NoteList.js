@@ -1,6 +1,7 @@
 import React from 'react';
 import OneNote from './OneNote';
 import PropTypes from 'prop-types';
+//import styled from 'styled-components';
 
 export default class NoteList extends React.Component{
     render(){
@@ -18,7 +19,7 @@ export default class NoteList extends React.Component{
     }
 }
 
-NoteList.PropTypes = {
+NoteList.propType = {
     notes: PropTypes.arrayOf({
         note: PropTypes.shape({
             title: PropTypes.string,
