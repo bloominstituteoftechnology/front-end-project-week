@@ -16,6 +16,9 @@ export default (state = initialState, action) => {
     case "NOTE_EDITED":
       return { ...state, note: action.payload };
 
+    case "ERROR":
+      return { ...state, error: action.payload };
+
     default:
       return state;
   }
