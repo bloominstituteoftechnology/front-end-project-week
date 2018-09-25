@@ -42,7 +42,7 @@ const Authenticate = App =>
     		localStorage.clear();
     		return (
           <div>
-      			<Redirect push to='/login'/>
+      			<Redirect to='/login'/>
             <Login />
           </div>
     		)
@@ -50,25 +50,3 @@ const Authenticate = App =>
     }
   };
 export default Authenticate;
-
-
-
-//import { Redirect } from 'react-router-dom';
-
-//import styled from 'styled-components';
-
-
-      // if (newState.loginSuccess === true){
-      //   return (
-      //     <Containerz>
-      //       <PostsPage />
-      //     </Containerz>
-      //   )
-      // } else {
-      //   localStorage.clear();
-      //   return (
-      //     <Containerz>
-      //       <Login />
-      //     </Containerz>
-      //   )
-      // }
