@@ -78,12 +78,12 @@ render() {
 	
 	<CardDeck>{this.props.notes.map(note =>{
       return(	
-	<Link style={{ textDecoration: 'none' }} to={`/note/${note._id}`} onClick={window.scrollTo(0, 0)} key={note._id}><div>
+	<Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`} onClick={window.scrollTo(0, 0)} key={note.id}><div>
 	<Card className="note-card">
 	  <CardBody>
           <CardTitle><div className="card-title-div">{note.title.substring(0, 40)}</div></CardTitle>
           <CardSubtitle></CardSubtitle>
-          <CardText>{note.textBody.substring(0, 70)}...</CardText>
+          <CardText>{note.content.substring(0, 70)}...</CardText>
 
         </CardBody>
 	  
