@@ -64,8 +64,8 @@ class App extends Component {
   };
 
   addNote = (e, note) => {
-
     this.setState(prevState => ({
+      filtered: false,
       notes: [{
         id: note.id,
         title: note.title,
@@ -88,24 +88,26 @@ class App extends Component {
     let nNote = this.state.notes.map(note => note).filter(note => note.id !== id);
     nNote.unshift(note);
     // console.log('NEW_NOTE',nNote)
-    this.setState({notes: nNote, isUpdating: false}, () => this.props.history.push('/'));
+    this.setState({notes: nNote, isUpdating: false, filtered: false,}, () => this.props.history.push('/'));
   }
 
   updateNoteForm = (e, id) => {
     e.preventDefault();
     const note = this.state.notes.map(note => note).filter(note => note.id === parseInt(id, 10));
-    this.setState({isUpdating: !this.state.isUpdating, note: note}, () => this.props.history.push('/create-note'))
+    this.setState({isUpdating: !this.state.isUpdating, note: note, filtered: false,}, () => this.props.history.push('/create-note'))
   }
 
   isUpdate = e => {
-    this.setState({isUpdating: false});
+    this.setState({isUpdating: false, filtered: false,});
   }
 
   handleSearch = e => {
-    if (e === '') {this.setState({filtered: false})};
+    if (e === '' || e === undefined || e.lenght === 0) {this.setState({filtered: false})};
     let updatedList = this.state.notes.filter(item => {
       return item.title.toLowerCase().search(e.toLowerCase()) !== -1;
     });
+
+    
 
     this.setState({filteredNotes: updatedList, filtered: true});
 
