@@ -14,6 +14,7 @@ export default function Note(props) {
 
     return (
         <div className="note-view">
+        <Link to="/addNote" onClick={props.goToUpdateNoteForm}>edit</Link>
         <h2>{note.title}</h2>
         <p>{note.textBody}</p>
         </div>

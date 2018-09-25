@@ -46,6 +46,7 @@ export const addNewNote = (note) => {
                 payload: response.data
             });
         })
+        .then(fetchNotes())
         .catch(err => {
             console.log(err);
             dispatch({ type: ADD_ERROR })

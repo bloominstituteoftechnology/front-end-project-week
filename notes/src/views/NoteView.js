@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchNotes } from '../actions';
+import { fetchNotes, setUpdateNote, updateNote } from '../actions';
 
 import Note from '../components/Note';
 
@@ -40,4 +40,4 @@ const mapStateToProps = state => ({
     isLoading: state.isLoading
 });
 
-export default connect(mapStateToProps, {fetchNotes})(NoteView);
+export default connect(mapStateToProps, {fetchNotes, setUpdateNote, updateNote })(NoteView);
