@@ -8,6 +8,7 @@ import {
     DELETE_NOTE_START,
     DELETE_NOTE_SUCCESS,
     DELETE_NOTE_FAILURE,
+    SET_UPDATE_NOTE,
     UPDATE_NOTE_START,
     UPDATE_NOTE_SUCCESS,
     UPDATE_NOTE_FAILURE,
@@ -46,6 +47,9 @@ export const notesReducer = (state = initialState, action) => {
         case DELETE_NOTE_FAILURE:
             console.log(action.payload);
             return { ...state, isDeleting: false, error: action.payload };
+        case SET_UPDATE_NOTE:
+            const note = state.notes.find(note => note.id === action.payload);
+            return { ...state, noteToUpdate: note ? note : null }
         case UPDATE_NOTE_START:
             return { ...state, isUpdating: true };
         case UPDATE_NOTE_SUCCESS: 

@@ -11,6 +11,8 @@ export {
     DELETE_NOTE_SUCCESS,
     DELETE_NOTE_FAILURE,
 
+    SET_UPDATE_NOTE,
+
     UPDATE_NOTE_START,
     UPDATE_NOTE_SUCCESS,
     UPDATE_NOTE_FAILURE,
@@ -18,5 +20,6 @@ export {
     getNotes,
     addNewNote,
     deleteNote,
+    setUpdateNote,
     updateNote,
 } from './notesActions';

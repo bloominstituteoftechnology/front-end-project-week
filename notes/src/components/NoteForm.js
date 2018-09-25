@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import '../App.css';
 
 function NoteForm(props) {
     function handleSubmit(event) {
@@ -13,10 +14,11 @@ function NoteForm(props) {
 
   return (
     <Fragment>
-        <h2>{props.isUpdating ? 'Update Note' : 'Add New Note'}</h2>
-        <form>
+        <h2 className='form-title'>{props.isUpdating ? 'Update Note' : 'Add New Note'}</h2>
+        <form className='note-form'>
             <div className="group">
                 <input 
+                    className='update-new-input'
                     type="text" 
                     value={props.note.title} 
                     name="title" 
@@ -26,19 +28,11 @@ function NoteForm(props) {
             </div>
             <div className="group">
                 <input 
+                    className='update-new-input body-input'
                     type="text" 
                     value={props.note.textBody} 
                     name="textBody" 
                     placeholder='Note Body'
-                    onChange={props.handleChange} 
-                />
-            </div>
-            <div className="group">
-                <input 
-                    type="text" 
-                    value={props.note.tags} 
-                    name="tags"
-                    placeholder='tags' 
                     onChange={props.handleChange} 
                 />
             </div>

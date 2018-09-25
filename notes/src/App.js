@@ -12,14 +12,15 @@ class App extends React.Component {
       <div className="App">
       <ul className="nav-bar">
         <li>
-          <NavLink exact to="/" activeClassName="activeNavButton">
+          <NavLink exact to="/" activeClassName="activeNavButton" style={{textDecoration: 'none', color: 'gray'}}>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/note-form" activeClassName="activeNavButton">
+          <NavLink to="/note-form" activeClassName="activeNavButton" style={{textDecoration: 'none', color: 'gray'}}>
             Add Note
-          </NavLink></li>
+          </NavLink>
+        </li>
       </ul>
       <Route exact path="/" component={HomeView} />
       <Route

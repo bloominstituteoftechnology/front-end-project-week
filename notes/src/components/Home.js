@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 function Home() {
   return (
     <div>
-        <h1>Welcome to the Lambda Notes App</h1>
-        <Link to="/notes">View Notes</Link>
+        <h1 className='title'>Lambda Notes</h1>
+       <div className='notes-link'> 
+          <Link to="/notes" 
+            style={{textDecoration: 'none', color: 'gray'}}
+          >
+            View Notes
+          </Link>
+       </div>
   </div>
   );
 }

@@ -12,6 +12,8 @@ export const DELETE_NOTE_START = 'DELETE_NOTE_START';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
+export const SET_UPDATE_NOTE = 'SET_UPDATE_NOTE';
+
 export const UPDATE_NOTE_START = 'UPDATE_NOTE_START';
 export const UPDATE_NOTE_SUCCESS = 'UPDATE_NOTE_SUCCESS';
 export const UPDATE_NOTE_FAILURE = 'UPDATE_NOTE_FAILURE';
@@ -53,6 +55,12 @@ export const deleteNote = noteId => dispatch => {
         });
 };
 
+export const setUpdateNote = id => {
+    return {
+        type: SET_UPDATE_NOTE,
+        payload: id,
+    };
+};
 
 export const updateNote = note => dispatch => {
     dispatch({ type: UPDATE_NOTE_START });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getNotes } from '../actions';
+import { getNotes, deleteNote } from '../actions';
 
 import NotesList from '../components/NotesList';
 
@@ -22,4 +22,4 @@ const mapStateToProps = state => ({
     notesList: state.notes
 });
 
-export default connect(mapStateToProps, { getNotes })(NotesListView);
+export default connect(mapStateToProps, { getNotes, deleteNote})(NotesListView);
