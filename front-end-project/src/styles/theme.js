@@ -10,7 +10,7 @@ export default {
         delete: 'red'
     },
     darkTheme: {
-        nav: '#A0011E',//red
+        nav: '#AB2317',//red
         mainTitle: '#1D2326',//black
         subTitle: '#1D2326',
         button: '#1D2326',//black
