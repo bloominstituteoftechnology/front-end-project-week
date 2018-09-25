@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {CSVLink} from 'react-csv';
 
 const SideNavigation = styled.div`
 
@@ -46,7 +45,6 @@ const SideNav = (props) => {
             <h1>Lambda Notes</h1>
             <Link to='/notes'>View Your Notes</Link>
             <Link to='/add-note'>+ Create New Note</Link>
-            <CSVLink data={props.notes}>Export Notes To CSV</CSVLink>
         </SideNavigation>
     )
 }

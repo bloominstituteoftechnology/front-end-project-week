@@ -61,8 +61,6 @@ componentDidMount () {
     const id = Number(this.props.match.params.id);
         axios.get(URL)
         .then(response => {
-            console.log(response);
-            console.log(response.data);
             let matching = response.data.find(note => note.id === id);
             this.setState({
                 title: matching.title,

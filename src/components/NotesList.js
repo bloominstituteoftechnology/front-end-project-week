@@ -27,34 +27,24 @@ class NotesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          renderedNotes: [],
-          page: 1,
+          pageOfItems: []
         };
-        this.handlePageChange = this.handlePageChange.bind(this);
-      }
+        this.onChangePage = this.onChangePage.bind(this);
+    };
 
-      handlePageChange(page) {
-        const renderedNotes = this.props.notes.slice((page - 1) * 9, (page - 1) * 9 + 9);
-
-        this.setState({ page, renderedNotes });
-      }
-
-      componentDidMount() {
-        setTimeout(() => {
-          this.setState({ renderedNotes: this.props.notes.slice(0, 9), total: this.props.notes.length });
-        })
-      }
-
-
+      onChangePage(pageOfItems) {
+        // update state with new page of items
+        this.setState({ pageOfItems: pageOfItems });
+    }
 
     render() {
-        const { page, total, renderedNotes } = this.state;
+        
         return (
             <ListView>
                 <Search {...this.props}/>
                     <h1>Your notes: </h1>
                 <ListNotes>
-                    { renderedNotes.map(note => { 
+                    { this.state.pageOfItems.map(note => { 
                         return (
                             <Note
                                 key={note.id}
@@ -63,14 +53,9 @@ class NotesList extends Component {
                                 content={note.content}
                             />
                         )
-                    }) }
+                    })}
                 </ListNotes>
-                <Pagination
-          margin={9}
-          page={page}
-          count={Math.ceil(total / 9)}
-          onPageChange={this.handlePageChange}
-        />
+                <Pagination items={this.props.notes} onChangePage={this.onChangePage} />
             </ListView>
         );
     }
