@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Container, Row, Col, Input, Button, Fa, Card, CardBody, Modal, ModalHeader, ModalBody, ModalFooter } from 'mdbreact';
+import { Container, Row, Col, Input, Fa, Card, CardBody, Modal, ModalHeader, ModalBody, ModalFooter } from 'mdbreact';
 import Styled from 'styled-components';
 
 const Wrapper = Styled.div`
     margin-top: 30px;
-    margin-left: 18%;
+    color: #4a494a;
+    background-color: #f3f3f3;
 
 `;
 
@@ -13,12 +14,54 @@ const Header = Styled.header`
     display: flex;
     justify-content: flex-end;
     margin-right: 2%;
+    padding-top: 20px;
 
 `;
 
-const LinkD = Styled.div`
-    padding-right: 2%;
+const Button = Styled.button`
+    width: 30%;
+    height: 40px;
+    background-color: #2ac0c4;
+    color: white;
+    border: 1px solid #969696;
+    cursor: pointer;
+    margin-top: 20px;
+`;
 
+const ButtonDanger = Styled.button`
+    width: 30%;
+    height: 40px;
+    color: white;
+    border: 1px solid #969696;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #d0011b;
+`;
+
+const LinkD = Styled.div`
+    padding-right: 3%;
+    color: #4a494a;
+
+    text-decoration: underline;
+    a:active {
+        color: #4a494a;
+    }
+
+`;
+
+const ModalContainer = Styled.div`
+    text-align: center;
+    border: 1px solid #969696;
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    padding-top: 40px;
+
+`;
+
+const ModalButtons = Styled.div`
+    display: flex;
+    justify-content: space-evenly;
 `;
 
 export default class NotePage extends Component {
@@ -59,21 +102,20 @@ export default class NotePage extends Component {
         return (
             <Wrapper>
                 <Header>
-                    <LinkD><NavLink to="/create-note" onClick={event => this.props.updateNote(event, this.state.note.id)}>Edit</NavLink></LinkD>
-                    <LinkD><NavLink to="/" onClick={this.toggle}>Delete</NavLink></LinkD>
+                    <LinkD><NavLink to="/create-note" onClick={event => this.props.updateNote(event, this.state.note.id)} style={{color: "#4a494a" }}>Edit</NavLink></LinkD>
+                    <LinkD><NavLink to="/" onClick={this.toggle} style={{color: "#4a494a" }}>Delete</NavLink></LinkD>
                 </Header>
                 <h1>{this.state.note.title}</h1>
                 <p>{this.state.note.textBody}</p>
 
                 <Modal isOpen={this.state.modal14} toggle={this.toggle} centered>
-                <ModalHeader toggle={this.toggle}>Delete Note</ModalHeader>
-                <ModalBody>
-                    Are you sure you want to delete this note?
-                </ModalBody>
-                <ModalFooter>
-                    <Button className='btn btn-elegant' onClick={this.toggle}>Cancel</Button>
-                    <Button className='btn btn-elegant' onClick={event => this.removeNote(event)}>Delete</Button>
-                </ModalFooter>
+                <ModalContainer>
+                    Are you sure you want to delete this?
+                    <ModalButtons>
+                    <ButtonDanger onClick={event => this.removeNote(event)}>Delete</ButtonDanger>
+                    <Button onClick={this.toggle}>No</Button>
+                    </ModalButtons>
+                </ModalContainer>
                 </Modal>
             </Wrapper>
         );

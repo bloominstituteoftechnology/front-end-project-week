@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
+import { Container, Row, Col, Input, Fa } from 'mdbreact';
 import Styled from 'styled-components';
 
 const Wrapper = Styled.div`
-    margin-left: 18%;
+    width: 50%;
+    margin-top: 80px;
+    color: #4a494a;
+
+    input {
+        width: 400px;
+    }
+
+    textarea {
+        height: 500px;
+    }
+`;
+
+const Button = Styled.button`
+    width: 30%;
+    height: 60px;
+    background-color: #2ac0c4;
+    color: white;
+    border: 1px solid #969696;
+    cursor: pointer;
+    margin-top: 20px;
 `;
 
 class NoteCreateForm extends Component {
@@ -20,7 +41,7 @@ class NoteCreateForm extends Component {
                 title: note[0].title,
                 textBody: note[0].textBody,
             });
-        };
+        }
     };
 
     handleSubmit = e => {
@@ -50,12 +71,12 @@ class NoteCreateForm extends Component {
         return (
             <Wrapper>
                 <form>
-                    <p>{this.props.isUpdating ? 'Update Note' : 'Add Note'}</p>
-                    <input type="text" name="title" placeholder="Note Title" value={this.state.title} onChange={this.handleChange} />
-                    <input type="text" name="textBody" placeholder="Note Content" value={this.state.textBody} onChange={this.handleChange} />
-                    <button onClick={this.handleSubmit}>Save</button>
-                </form>
-                
+                    <p className="h4 mb-4">{this.props.isUpdating ? 'Edit Note:' : 'Create New Note:'}</p>
+                    <input type="text" placeholder="Note Title" name="title" id="defaultFormContactNameEx" className="form-control" value={this.state.title} onChange={this.handleChange}/>
+                    <br/>
+                    <textarea type="text" placeholder="Note Content" name="textBody" id="defaultFormContactMessageEx" className="form-control" rows="3" value={this.state.textBody} onChange={this.handleChange}></textarea>
+                    <Button type="button" onClick={this.handleSubmit}>{this.props.isUpdating ? 'Update' : 'Save'}</Button>
+                    </form>
             </Wrapper>
             
         )
