@@ -31,7 +31,7 @@
   }
   
 .edit span:after {
-    content: '\00bb';
+    content: '+/-';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -75,7 +75,7 @@
   }
   
 .delete span:after {
-    content: '\00bb';
+    content: '\00d7';
     position: absolute;
     opacity: 0;
     top: 0;
