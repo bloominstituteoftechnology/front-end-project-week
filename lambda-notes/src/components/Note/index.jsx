@@ -6,7 +6,8 @@ import { getNote, getNotes, editNote, deleteNote } from '../../actions';
 import Form from "../Form";
 import '../components.css';
 import './index.css';
-export default class Note extends Component {
+import { connect } from "net";
+class Note extends Component {
   state = {
     isEditing: false,
     note: null,
@@ -140,3 +141,5 @@ export default class Note extends Component {
     );
   }
 }
+
+export default connect(mapStateToProps, { getNote, getNotes, editNote, deleteNote })(Note);
