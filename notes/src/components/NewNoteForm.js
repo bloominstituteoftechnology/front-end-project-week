@@ -10,9 +10,7 @@ class NewNoteForm extends Component {
         super(props);
         console.log('logging props in NewNoteForm', this.props)
         this.state = { 
-            id: null,    
-            name: '',
-            content: ''
+            notes: [],
         };
     }
 
@@ -49,9 +47,9 @@ handleAddNote = event => {
             name: '',
             content: ''
         })
-        //   console.log('logging state in post attempt',this.state)
-        //   console.log('logging history', this.props.history)
-        //   this.props.history.push('/', this.state);
+          console.log('logging state in post attempt',this.state)
+          console.log('logging history', this.props.history)
+          this.props.history.push('/', this.state);
       })
       .catch(err =>
     console.log(err));

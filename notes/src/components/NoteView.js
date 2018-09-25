@@ -8,7 +8,10 @@ class NoteView extends Component {
     constructor(props) {
         super(props);
         console.log('logging props in Noteview', this.props)
-        this.state = {}
+        this.state = {
+            notes: [],
+            note: {}
+        }
 }
     
     componentDidMount() {
