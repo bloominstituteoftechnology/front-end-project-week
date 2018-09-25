@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Container, Row, Col, Input, Fa, Card, CardBody, Modal, ModalHeader, ModalBody, ModalFooter } from 'mdbreact';
+import { Modal } from 'mdbreact';
 import Styled from 'styled-components';
+import axios from 'axios';
 
 const Wrapper = Styled.div`
     margin-top: 30px;
@@ -81,8 +82,13 @@ export default class NotePage extends Component {
     };
 
     fetchNote = id => {
-        const note = this.props.notes.map(note => note).filter(note => note.id === parseInt(id, 10));
-        this.setState({ note: note[0] })
+
+        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .then(response => {this.setState(() => ({note: response.data })); })
+        .catch(err => console.error('GET_ERROR-NOTEPAGE', err));
+
+        // const note = this.props.notes.map(note => note).filter(note => note.id === parseInt(id, 10));
+        // this.setState({ note: note[0] })
     };
 
     toggle = e => {

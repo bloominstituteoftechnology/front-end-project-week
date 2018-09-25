@@ -25,8 +25,13 @@ const Header = Styled.header`
     margin: 0 4% 0 4%;
     font-weight: bold;
     color: black;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    width: 100%;
+    
+    h1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 `;
 
 const Content = Styled.div`
@@ -41,7 +46,7 @@ const Content = Styled.div`
 function Note(props) {
     return (
         <Container>
-             <NavLink to={`/notes/${props.note.id}`} >
+             <NavLink to={`/notes/${props.note._id}`} >
                  <Header><h1>{props.note.title}</h1></Header>
                  <Content className="block-with-text">{props.note.textBody}</Content>
              </NavLink>
