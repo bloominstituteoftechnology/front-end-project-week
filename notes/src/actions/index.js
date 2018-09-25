@@ -7,7 +7,10 @@ export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
 export const UPDATING = 'UPDATING';
 export const DELETING = 'DELETING';
-export const ERROR = 'ERROR';
+export const FETCH_ERROR = 'FETCH_ERROR';
+export const ADD_ERROR = 'ADD_ERROR';
+export const UPDATE_ERROR = 'UPDATE_ERROR';
+export const DELETE_ERROR = 'DELETE_ERROR';
 
 export const fetchNotes = () => {
     return dispatch => {
@@ -22,7 +25,46 @@ export const fetchNotes = () => {
         })
         .catch(err => {
             console.log(err);
-            dispatch({ type: ERROR })
+            dispatch({ type: FETCH_ERROR })
         })
     }
+}
+
+export const addNewNote = (note) => {
+    return dispatch => {
+        dispatch({ type: ADDING });
+        axios
+        .post('https://killer-notes.herokuapp.com/note/create', note)
+        .then(response => {
+            console.log(response);
+            dispatch({
+                type: ADDED,
+                payload: response.data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({ type: ADD_ERROR })
+        })
+    }
+}
+
+export const setUpdateNote = id => {
+    return {
+        type: SET_UPDATE_NOTE,
+        payload: id,
+    }
+}
+
+export const updateNote = note => dispatch => {
+    dispatch({ type: UPDATING });
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
+    .then(response => {
+        dispatch({ type: UPDATED, payload: response.data });
+    })
+    .catch(err => {
+        dispatch({ type: UPDATE_ERROR, payload: err})
+    })
+}
 }
