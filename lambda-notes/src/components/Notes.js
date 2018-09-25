@@ -3,7 +3,15 @@ import Note from './Note.js';
 import { Link } from 'react-router-dom';
 
 class Notes extends Component {
+
+    componentDidMount = () => {
+        this.props.fetchNotes();
+    }
+
     render() {
+        if (this.props.fetchingNotes){
+            return (<div></div>)
+        }
         return (
             <div>
                 {this.props.notes.map(note => {
@@ -15,6 +23,7 @@ class Notes extends Component {
                         </div>
                     )
                 })}
+                <Link to="/notes/add">Add</Link>
             </div>
         )
     }

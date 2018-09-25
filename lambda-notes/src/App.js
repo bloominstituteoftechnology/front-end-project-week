@@ -5,6 +5,7 @@ import Notes from  './components/Notes'
 import { connect } from 'react-redux';
 import { withRouter, Route } from 'react-router-dom';
 import ViewNote from './components/ViewNote';
+import NewNoteForm from './components/NewNoteForm';
 
 class App extends Component {
   componentDidMount = () => {
@@ -16,18 +17,15 @@ class App extends Component {
       <div className="App">
         <div>
           <h1 className="App-title">Lambda Notes</h1>
-          <Route 
-            exact path="/"
-            render={props => (
-              <Notes 
-                {...props} 
-                notes={this.props.notes}
-              />
+          <Route exact path="/" render={props => (
+              <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} fetchingNotes={this.props.fetchingNotes}/>
             )}
           />
-          <Route 
-            path="notes/:id"
-            render={props => (
+          <Route path="/notes/add" render={props => (
+            <NewNoteForm {...props} addNote={this.props.addNote} />
+          )}
+          />
+          <Route path="/notes/:id" render={props => (
               <ViewNote {...props} note={this.props.note} />
             )}
           />
@@ -42,11 +40,8 @@ const mapStateToProps = state => {
     notes: state.notes,
     note: state.note,
     fetchingNotes: state.fetchingNotes,
-    fetchedNotes: state.fetchedNotes,
     viewingNote: state.fetchingNotes,
-    viewNote: state.fetchedNotes,
     updatingNote: state.updatingNote,
-    updatedNote: state.updatedNote,
     error: state.error
   }
 }

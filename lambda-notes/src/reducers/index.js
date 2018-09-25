@@ -3,16 +3,11 @@ import * as actionTypes from '../actions';
 const initialState = {
     note: [],
     notes: [],
-    fetchingNotes: false, 
-    fetchedNotes: false,
-    viewingNote: false,
-    viewedNote: false,    
+    fetchingNotes: false,
+    viewingNote: false, 
     savingNotes: false,
-    savedNotes: false,
     updatingNote: false,
-    updatedNote: false,
     deletingNote: false,
-    deletedNote: false,
     error: null  
 }
 
@@ -27,7 +22,6 @@ export const notesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetchingNotes: false,
-                fetchedNotes: true,
                 notes: action.payload
             }
         case actionTypes.VIEWING_NOTE:
@@ -39,7 +33,6 @@ export const notesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 viewingNote: false,
-                viewedNote: true,
                 note: action.payload
             }
         case actionTypes.SAVING_NOTES:
@@ -50,9 +43,7 @@ export const notesReducer = (state = initialState, action) => {
         case actionTypes.SAVED_NOTES:
             return {
                 ...state,
-                savingNotes: false,
-                savedNotes: true,
-                notes: action.payload
+                savingNotes: false
             }
         case actionTypes.UPDATING_NOTES:
             return {
@@ -63,20 +54,17 @@ export const notesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 updatingNote: false,
-                updatedNote: true,
-                notes: action.payload
+                note: action.payload
             }
         case actionTypes.DELETING_NOTES:
             return {
                 ...state,
-                updatingNote: true
+                deletingNote: true
             }
         case actionTypes.DELETED_NOTES:
             return {
                 ...state,
-                updatingNote: false,
-                updatedNote: true,
-                notes: action.payload
+                deletingNote: false
             }
         case actionTypes.ERROR:
             return {
