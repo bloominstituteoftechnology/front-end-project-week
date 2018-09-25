@@ -64,10 +64,12 @@ class App extends Component {
         console.error("Server Error", error);
         this.setErrorHandler("Error creating note!");
       });
-    this.setState({
-      title: "",
-      content: ""
-    });
+    setTimeout(() => {
+      this.setState({
+        title: "",
+        content: ""
+      });
+    }, 1000);
   };
 
   deleteNote = id => {
