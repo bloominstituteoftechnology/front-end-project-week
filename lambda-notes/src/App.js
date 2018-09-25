@@ -44,7 +44,7 @@ class App extends Component {
   };
 
   submitNewNoteHandler = event => {
-    // event.preventDefault();
+    event.preventDefault();
     const newNote = {
       title: this.state.title,
       content: this.state.content,
@@ -53,8 +53,9 @@ class App extends Component {
       .post(dataURL, newNote)
       .then(response => {
         this.setState({ title: "", content: "" });
-        // setTimeout(() => this.setState({ redirect: true }), 1000);
+        setTimeout(() => this.setState({ redirect: true }), 1000);
         // this.forceUpdate();
+        // this.props.history.push("/");
       })
       .catch(err => {
         console.log(err);
@@ -120,16 +121,24 @@ class App extends Component {
       .delete(`http://localhost:7000/api/notes/${id}`)
       .then(response => {
         this.setState({ title: "", content: "" });
+        setTimeout(() => this.setState({ redirect: true }), 1000);
+        setTimeout(
+          () => this.setState({ redirect: false, isOpen: false }),
+          1000,
+        );
       })
       .catch(err => {
         console.log(err);
       });
+    // setTimeout(() => this.setState({ redirect: true }), 1000);
+    // setTimeout(() => this.setState({ redirect: false, isOpen: false }), 1000);
   };
 
   // redirect
   renderRedirect = () => {
     if (this.state.redirect) {
       this.setState({ redirect: false });
+      window.location.reload();
       return <Redirect to="/" />;
     } else {
       // do nothing

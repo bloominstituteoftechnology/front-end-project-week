@@ -11,7 +11,6 @@ class NewNote extends Component {
   }
 
   render() {
-    console.log("NEWNOTE PROPS");
     return (
       <div className="newNoteMainDiv">
         {this.props.renderRedirect()}
@@ -19,6 +18,7 @@ class NewNote extends Component {
         <form
           className="newNoteForm"
           onSubmit={this.props.submitNewNoteHandler}
+          // onSubmit={() => this.props.submitNewNoteHandler(this.props)}
         >
           <input
             placehold="Note Title"
