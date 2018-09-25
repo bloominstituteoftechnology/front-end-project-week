@@ -32,7 +32,6 @@ const Title = styled.h1`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  height: 100%;
 `;
 
 const TitleInput = styled.textarea`

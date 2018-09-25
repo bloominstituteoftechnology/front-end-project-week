@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import './styles/App.css';
 import NotesView from './views/NotesView';
 import NoteFormView from './views/NoteFormView';
+import SingleNoteView from './views/SingleNoteView';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
           <Content>
             <Route exact path="/" component={NotesView} />
             <Route path="/addnote" component={NoteFormView} />
+            <Route path="/note/:noteId" component={SingleNoteView} />
           </Content>
         </Container>
         <BackGround />
