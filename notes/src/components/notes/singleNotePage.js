@@ -72,7 +72,7 @@ class SingleNotePage extends React.Component{
             {this.props.note.tags?
             this.props.note.tags.length>0?
             <NoteTag>
-                <span style={{textDecoration:'underline'}}>{'tags: '}</span>{this.props.note.tags.map((e,i)=><span key={i}>{e}</span>)}
+                <span style={{textDecoration:'underline'}}>{'tags: '}</span>{this.props.note.tags}
             </NoteTag>:null:null}
             </Note>
             </SingleNote>

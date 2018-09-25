@@ -12,7 +12,7 @@ export const UPDATINGNOTE='UPDATINGNOTE';
 export const UPDATEDNOTE='UPDATEDNOTE';
 
 export const getNotes=()=>{
-  const request=axios.get('https://killer-notes.herokuapp.com/note/get/all');
+  const request=axios.get('http://localhost:9000/note/get/all');
   return function (dispatch){
     dispatch({type:'FETCHINGNOTES'});
     request.then(data=>{dispatch({type:'FETCHEDNOTES',payload:data.data})})
@@ -20,15 +20,15 @@ export const getNotes=()=>{
   }
 }
 export const getSingleNote=(id)=>{
-    const request=axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
+    const request=axios.get(`http://localhost:9000/note/get/${id}`);
     return function (dispatch){
         dispatch({type:'FETCHINGNOTE'});
-        request.then(data=>{dispatch({type:'FETCHEDNOTE',payload:data.data})})
+        request.then(data=>{dispatch({type:'FETCHEDNOTE',payload:data.data[0]})})
         .catch(err=>dispatch({type:'ERROR',payload:err}));
       }
 }
 export const addNote=(newNote,history)=>{
-  const request=axios.post('https://killer-notes.herokuapp.com/note/create',newNote);
+  const request=axios.post('http://localhost:9000/note/create',newNote);
   return function (dispatch){
     dispatch({type:'ADDINGNOTE'});
     request.then(data=>{dispatch({type:'ADDEDNOTE'});history.push('/notes')})
@@ -36,7 +36,7 @@ export const addNote=(newNote,history)=>{
 }
 }
 export const deleteNote=(id,history)=>{
-  const request= axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
+  const request= axios.delete(`http://localhost:9000/note/delete/${id}`);
   return function (dispatch) {
     dispatch({type:'DELETINGNOTE'});
     request.then(data=>{dispatch({type:'DELETEDNOTE'});history.push('/notes')})
@@ -44,7 +44,7 @@ export const deleteNote=(id,history)=>{
   }
 }
 export const updateNote=(id,editedNote,history)=>{
-  const request=axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`,editedNote)
+  const request=axios.put(`http://localhost:9000/note/edit/${id}`,editedNote)
   return function (dispatch) {
     dispatch({type:'UPDATINGNOTE'});
     request.then(data=>{dispatch({type:'UPDATEDNOTE'});history.push('/notes')})

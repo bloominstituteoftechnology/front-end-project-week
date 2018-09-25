@@ -57,7 +57,7 @@ class Notes extends React.Component {
         filteredNotes=filteredNotes.filter(e=>
             e.textBody.toLowerCase().includes(filterParam)||
             e.title.toLowerCase().includes(filterParam) ||
-            e.tags.join('').toLowerCase().includes(filterParam)
+            (e.tags!==null && e.tags.toLowerCase().includes(filterParam))
         );
         return this.setState({filteredNotes:filteredNotes});
     }

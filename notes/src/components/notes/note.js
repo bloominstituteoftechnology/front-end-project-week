@@ -48,14 +48,14 @@ const NoteTag=styled.p`
     }
 `
 const Note=(props)=><NoteContainer>
-    <Link to={`/notes/${props.data._id}`}>
+    <Link to={`/notes/${props.data.id}`}>
     <Content>
     <h3>{props.data.title}</h3>
     <Rule/>
     {props.data.textBody.length<100?
     <ReactMarkdown source={props.data.textBody}/>:
     <ReactMarkdown source={props.data.textBody.slice(0,101)+'...'}/>}
-    {props.data.tags.length>0?<NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags.map((e,i)=><span key={i}>{e}</span>)}</NoteTag>:null}
+    {props.data.tags!==null?<NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags}</NoteTag>:null}
     </Content>
     </Link>
     </NoteContainer>
