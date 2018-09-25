@@ -71,6 +71,11 @@
 	margin-bottom: 10px;
 }
 
+.NoteCardWrapper{
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .Notes {
 	border: 1px solid lightgray;
 	background-color: #fafafa;

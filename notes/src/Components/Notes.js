@@ -21,7 +21,7 @@ class Notes extends React.Component {
 					onChange={e => this.handleSearchInput(e.target.value)}
 				/>
 				<Tags notes={this.props.notes} />
-				<div className="Notes__wip">
+				<div className="NoteCardWrapper">
 					{this.props.notes
 						.filter(note =>
 							fuzzysearch(this.state.searchTerm, note.title),

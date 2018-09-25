@@ -6,12 +6,7 @@ class NoteCard extends React.Component {
 	render() {
 		const note = this.props.note;
 		return (
-			<div
-				draggable
-				onDragStart={e => this.props.onDragStart(e, note.id)}
-				className="Notes"
-				key={note.id}
-			>
+			<div className="Notes" key={note.id}>
 				<Link key={note.id} to={`/notes/${note.id}`}>
 					<h4 className="Notes__title">
 						{note.title.length > 20
