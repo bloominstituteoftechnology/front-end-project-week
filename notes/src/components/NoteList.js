@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 export default class NoteList extends React.Component{
     render(){
         return(
-            <ul>
+            <div>
                 {this.props.notes.map((note,index) =>{
                     return(
-                        <li key={index}>
+                        <div key={index}>
                             <OneNote title={note.title} content={note.content} />
-                        </li>
+                        </div>
                     )
                 })}
-            </ul>
+            </div>
         )
     }
 }
