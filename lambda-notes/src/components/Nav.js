@@ -30,11 +30,18 @@ class Nav extends React.Component {
 					</div>
 				</header>
 
-				<p>{ this.props.errorMsg }</p>
+				{ this.props.errorMsg && <p>{ this.props.errorMsg }</p> }
 
 				<div className = { `btn-container ${ this.state.toggleMenu ? '' : 'display-none' }` }>
 					<NavLink 
 						exact to = '/' 
+						className = 'btn' 
+						activeClassName = 'active-btn' 
+						onClick = { () => this.setState({ toggleMenu: false }) } 
+					>Home</NavLink>
+
+					<NavLink 
+						to = '/list' 
 						className = 'btn' 
 						activeClassName = 'active-btn' 
 						onClick = { () => this.setState({ toggleMenu: false }) } 

@@ -56,7 +56,7 @@
     display: none;
   }
 }
-@media ( max-width: 540px ) {
+@media ( max-width: 612px ) {
   .App .tablet {
     display: none;
   }
@@ -71,6 +71,9 @@
   overflow-x: hidden;
   color: #4A484A;
   border-right: 1px solid #A8A8A8;
+  animation-name: fade-in-anim;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 .nav header {
   display: flex;
@@ -115,7 +118,7 @@
     width: fit-content;
   }
 }
-@media ( max-width: 540px ) {
+@media ( max-width: 612px ) {
   .nav header {
     width: 100%;
   }
@@ -130,7 +133,7 @@
     margin: 0 1vw;
   }
 }
-@media ( max-width: 540px ) {
+@media ( max-width: 612px ) {
   .nav .btn-container .btn {
     width: 100%;
     padding: 20px 0;
@@ -146,7 +149,7 @@
     width: fit-content;
   }
 }
-@media ( max-width: 540px ) {
+@media ( max-width: 612px ) {
   .nav .btn-container {
     display: block;
     width: 100%;
@@ -164,7 +167,7 @@
     align-items: center;
   }
 }
-@media ( max-width: 540px ) {
+@media ( max-width: 612px ) {
   .nav {
     flex-wrap: nowrap;
     flex-direction: column;
@@ -177,6 +180,10 @@
   display: inline-block;
   background: #F3F3F3;
   width: 75vw;
+  min-height: 100vh;
+  animation-name: fade-in-anim;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 @media ( max-width: 1024px ) {
   .main-content {
@@ -226,7 +233,7 @@
   max-height: 133px;
   overflow: hidden;
 }
-@media ( max-width: 540px ) {
+@media ( max-width: 612px ) {
   .list .note {
     width: 80%;
   }
@@ -284,6 +291,21 @@
   letter-spacing: 1px;
   line-height: 26px;
 }
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.home h1 {
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #4A484A;
+}
+.home .logo {
+  max-width: 400px;
+}
 body {
   margin: 0;
   padding: 0;
@@ -315,7 +337,7 @@ body .save-btn:hover {
     width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
   }
 }
-@media ( max-width: 540px ) {
+@media ( max-width: 612px ) {
   body .save-btn {
     width: calc(89 / 135 * 100vw);
   }
@@ -376,5 +398,13 @@ body #root {
   }
   100% {
     font-size: 94%;
+  }
+}
+@keyframes fade-in-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

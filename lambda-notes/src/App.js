@@ -10,7 +10,8 @@ import {
 	ListView, 
 	CreateNewView, 
 	EditView, 
-	NoteView, 
+	NoteView,
+	HomeView, 
 } from './views';
 
 // Components
@@ -37,15 +38,29 @@ class App extends React.Component {
 				<Nav errorMsg = { errorMsg } />
 
 				<Route 
-					exact path = '/'  
+					exact path = '/' 
+					component = { HomeView }
+				/>
+
+				<Route 
+					path = '/list' 
 					render = { props => <ListView history = { props.history } notes = { notes } /> } 
 				/>
 
-				<Route path = '/create-new' render = { props => <CreateNewView createNote = { createNote } history = { props.history } /> } />
+				<Route 
+					path = '/create-new' 
+					render = { props => <CreateNewView createNote = { createNote } history = { props.history } /> } 
+				/>
 
-				<Route path = '/note/:id' render = { props => <NoteView deleteNote = { deleteNote } history = { props.history } note = { notes.find(note => note._id === props.match.params.id) } /> } />
+				<Route 
+					path = '/note/:id' 
+					render = { props => <NoteView deleteNote = { deleteNote } history = { props.history } note = { notes.find(note => note._id === props.match.params.id) } /> } 
+				/>
 
-				<Route path = '/edit/:id' render = { props => <EditView note = { notes.find(note => note._id === props.match.params.id) } history = { props.history } editNote = { editNote } /> } />
+				<Route 
+					path = '/edit/:id' 
+					render = { props => <EditView note = { notes.find(note => note._id === props.match.params.id) } history = { props.history } editNote = { editNote } /> } 
+				/>
 			</div>
 		);
 	}
@@ -63,4 +78,5 @@ export default connect(
 		deleteNote, 
 		editNote, 
 		getKillerNotes, 
-	})(App);
+	}
+)(App);
