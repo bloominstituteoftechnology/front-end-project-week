@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +23,7 @@ const NavDiv = Styled.div`
     }
 `;
 
-const Nav = (props) => {
+const Nav = () => {
     return (
         <NavDiv>
             <h1>Lambda Notes</h1>
@@ -33,7 +32,5 @@ const Nav = (props) => {
         </NavDiv>
     );
 };
-
-Nav.propTypes = {};
 
 export default Nav;

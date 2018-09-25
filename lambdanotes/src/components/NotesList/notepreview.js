@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 
-import { loremipsum } from '../../assets/loremipsum';
-
 const PreviewDiv = Styled.div`
     background-color: #ffffff;
     padding: 10px;
@@ -24,7 +22,7 @@ const PreviewDiv = Styled.div`
     p {
         font-size: 1.2rem;
         /* styles for ellipse */
-        /* http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
+        /* based on http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
         overflow: hidden;
         position: relative;
         line-height: 2rem;
@@ -53,13 +51,21 @@ const PreviewDiv = Styled.div`
 const NotePreview = (props) => {
     return (
         <PreviewDiv>
-            <h4>A note!{/*{props.somethingOrOther}*/}</h4>
+            <h4>{props.note.title}</h4>
             <hr />
-            <p>{/*{props.somethingOrOther}*/}{loremipsum}</p>
+            <p>{props.note.textBody}</p>
         </PreviewDiv>
     );
 };
 
-NotePreview.propTypes = {};
+NotePreview.propTypes = {
+    note: PropTypes.shape({
+        tags: PropTypes.arrayOf(PropTypes.string),
+        title: PropTypes.string.isRequired,
+        textBody: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+        __v: PropTypes.number
+    })
+};
 
 export default NotePreview;

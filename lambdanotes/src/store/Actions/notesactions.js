@@ -23,10 +23,10 @@ export const getNotes = () => {
     return (dispatch) => {
         dispatch( {type: GETTING_NOTES} );
         Axios
-            .get(dataSource)
+            .get(`${dataSource}/get/all`)
             .then( (response) => {
                 console.log('getNotes:', response);
-                // dispatch( {type: GOT_NOTES, payload: response.data} );
+                dispatch( {type: GOT_NOTES, payload: response.data} );
             })
             .catch( (err) => {
                 dispatch( {type: NOTE_ERROR, payload: err.message} );
@@ -35,7 +35,7 @@ export const getNotes = () => {
 };
 
 export const getSingleNote = () => {
-    
+
 };
 
 export const putNote = () => {
