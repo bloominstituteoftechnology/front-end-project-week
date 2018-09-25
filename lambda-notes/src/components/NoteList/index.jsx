@@ -29,4 +29,8 @@ const NoteList = props => {
   );
 };
 
+MoteList.defaultProps = {
+  notes: []
+};
+
 export default NoteList;
