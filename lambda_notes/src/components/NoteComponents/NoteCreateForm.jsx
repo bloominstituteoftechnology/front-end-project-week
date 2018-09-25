@@ -28,7 +28,7 @@ const Button = Styled.button`
 
 class NoteCreateForm extends Component {
     state = {
-        id: null,
+        tags: [],
         title: '',
         textBody: '',
     };
@@ -37,7 +37,7 @@ class NoteCreateForm extends Component {
         const note = this.props.note;
         if (this.props.isUpdating) {
             this.setState({
-                id: note[0].id,
+                tags: note[0].tags,
                 title: note[0].title,
                 textBody: note[0].textBody,
             });
@@ -52,11 +52,7 @@ class NoteCreateForm extends Component {
             return;
         }
 
-        const ids = this.props.ids + 1;
-
-        this.setState ({
-            id: ids,
-        }, () => {this.props.addNote(e, this.state);});
+        this.props.addNote(e, this.state);
 
         
     }

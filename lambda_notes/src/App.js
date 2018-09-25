@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Styled from 'styled-components';
 
+import axios from 'axios';
 import { Route, withRouter } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation';
@@ -40,21 +41,6 @@ class App extends Component {
       id: 1,
       title: 'Note Title 2',
       textBody: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-    },
-    {
-      id: 2,
-      title: 'Note Title 3',
-      textBody: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 3,
-      title: 'Note Title 4',
-      textBody: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-    },
-    {
-      id: 4,
-      title: 'Note Title 5',
-      textBody: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
     },],
     ids: 4,
     isUpdating: false,
@@ -63,16 +49,22 @@ class App extends Component {
     filteredNotes: null,
   };
 
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState({ notes: response.data });
+      })
+      .catch(err => { console.error('GET_ERROR', err)});
+  }
+
   addNote = (e, note) => {
-    this.setState(prevState => ({
-      filtered: false,
-      notes: [{
-        id: note.id,
-        title: note.title,
-        textBody: note.textBody,
-      }, ...this.state.notes],
-      ids: note.id++,
-    }), () => this.props.history.push('/'));
+    axios.post('https://killer-notes.herokuapp.com/note/create', note)
+      .then(response => {this.fetchData(); this.props.history.push('/');})
+      .catch(err => console.error('POST_ERROR', err))
 
   };
 
