@@ -68,6 +68,7 @@ const NoteContent = styled.p`
 `;
 
 const NotesList = props => {
+  let searchContent = props.notes;
   return (
     <NotesListAttrib>
       <NoteListText>Your Notes:</NoteListText>
@@ -78,7 +79,7 @@ const NotesList = props => {
         </NoteTextContainer>
       ) : (
         <NoteCardContainer>
-          {props.notes.map(note => (
+          {searchContent.map(note => (
             <Link
               to={`/note/${note.id}`}
               key={note.id}
@@ -88,8 +89,8 @@ const NotesList = props => {
                 <NoteTitle>{note.title}</NoteTitle>
                 <Line />
                 <NoteContent>
-                  {note.note.substring(0, 100)}
-                  ...
+                  {note.note.length >= 100 ? note.note.substring(0, 100) +
+                  '...' : note.note}
                 </NoteContent>
               </NoteCard>
             </Link>

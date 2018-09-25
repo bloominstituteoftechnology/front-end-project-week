@@ -95,6 +95,18 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  handleSearchChange = event => {
+    this.setState({ searchQuery: event.target.value });
+  };
+
+  searchHandler = event => {
+    event.preventDefault();
+    const notes = this.state.notes.filter(item => {
+      if (item.note === event.target.value) return notes;
+    });
+    this.setState({ notes });
+  };
+
   render() {
     return (
       <Container className="App">
@@ -102,7 +114,14 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <NotesList {...props} notes={this.state.notes} />}
+          render={props => (
+            <NotesList
+              {...props}
+              notes={this.state.notes}
+              searchNotes={this.searchHandler}
+              onChange={this.handleSearchChange}
+            />
+          )}
         />
         <Route
           exact
