@@ -6,46 +6,64 @@ import Notes from './components/Notes';
 import Note from './components/Note';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
+import axios from 'axios';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-      { id: 0, title: '0', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 1, title: '1', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 2, title: '2', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 3, title: '3', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 4, title: '4', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 5, title: '5', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 6, title: '6', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 7, title: '7', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' },
-      { id: 8, title: '8', content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficutur mollis ...' }
-      ]
+      notes: []
     }
   }
 
-  addNote = (newNote) => {
-    this.setState({
-      notes: [...this.state.notes, newNote]
+  componentDidMount() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    .then(res => {
+      this.setState({
+        notes: res.data
+      })
     })
+    .catch(err => console.log(err));
+  }
+
+  addNote = (newNote) => {
+    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
+      .then(res => {
+        axios.put(`https://killer-notes.herokuapp.com/note/edit/${res.data.success}`, newNote)
+        .then(res => {
+          this.componentDidMount();
+        })
+        .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   deleteNote = (id, event) => {
     // event.preventDefault();
-    const notes = this.state.notes.filter(note => note.id != id)
-    this.setState({
-      notes: notes
-    })
+    // const notes = this.state.notes.filter(note => note._id != id)
+    // this.setState({
+    //   notes: notes
+    // })
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+        this.componentDidMount();
+      })
+      .catch(err => console.log(err));
   }
 
   editNote = (updatedNote) => {
-    const notes = this.state.notes.map(oldNotes => updatedNote.find(editedNotes => editedNotes.id == oldNotes.id) || oldNotes)
-    console.log(notes);
-    this.setState({
-      notes: notes
-    })
+    // const notes = this.state.notes.map(oldNotes => updatedNote.find(editedNotes => editedNotes._id == oldNotes._id) || oldNotes)
+    // console.log(notes);
+    // this.setState({
+    //   notes: notes
+    // })
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${updatedNote._id}`, updatedNote)
+      .then(res => {
+        this.componentDidMount();
+
+      })
+      .catch(err => console.log(err));
   }
 
   render() {

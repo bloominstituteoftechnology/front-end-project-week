@@ -9,9 +9,9 @@ const Notes = props => {
             <div className='notes-container'>
                 {props.notes.map(note => {
                     return (
-                        <NavLink to={`/note/${note.id}`} className='note-container' key={note.id}>
+                        <NavLink to={`/note/${note._id}`} className='note-container' key={note._id}>
                             <h3>{note.title}</h3>
-                            <p>{note.content}</p>
+                            <p>{note.textBody}</p>
                         </NavLink>
                     )
                 })}

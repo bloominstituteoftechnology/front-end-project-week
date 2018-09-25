@@ -7,19 +7,18 @@ class Note extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: null,
+            _id: null,
             title: '',
-            content: ''
+            textBody: ''
         }
     }
 
-    componentDidMount() {
-        const note = this.props.notes.find(note => note.id == this.props.match.params.id);
-        console.log(note);
+    componentWillMount() {
+        const note = this.props.notes.find(note => note._id == this.props.match.params.id);
         this.setState({
-            id: note.id,
+            _id: note._id,
             title: note.title,
-            content: note.content
+            textBody: note.textBody
         })
     }
 
@@ -27,11 +26,11 @@ class Note extends React.Component {
         return (
             <div className='main-view'>
                 <div className='note-nav'>
-                    <NavLink to={`/note-edit/${this.state.id}`} className="note-links">edit</NavLink>
-                    <NavLink to={`/note/${this.state.id}/delete`} className="note-links">delete</NavLink>
+                    <NavLink to={`/note-edit/${this.state._id}`} className="note-links">edit</NavLink>
+                    <NavLink to={`/note/${this.state._id}/delete`} className="note-links">delete</NavLink>
                 </div>
                 <h2>{this.state.title}</h2>
-                <p>{this.state.content}</p>
+                <p>{this.state.textBody}</p>
                 <Route path='/note/:id/delete' render={props => ( <DeleteNote {...props} deleteNote={this.props.deleteNote} /> )} />
             </div>
         )

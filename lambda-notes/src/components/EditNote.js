@@ -6,19 +6,19 @@ class EditNote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: null,
+            _id: null,
             title: '',
-            content: ''
+            textBody: ''
         }
     }
 
+
     componentDidMount() {
-        const note = this.props.notes.find(note => note.id == this.props.match.params.id);
-        console.log(note);
+        const note = this.props.notes.find(note => note._id == this.props.match.params.id);
         this.setState({
-            id: note.id,
+            _id: note._id,
             title: note.title,
-            content: note.content
+            textBody: note.textBody
         })
     }
 
@@ -32,9 +32,9 @@ class EditNote extends React.Component {
         return (
             <div className='main-view'>
                 <h2>Edit Note:</h2>
-                <input type="text" name="title" value={this.state.title} size="75" onChange={this.handleInput} />
-                <textarea rows="12" cols="75" name="content" value={this.state.content} onChange={this.handleInput} />
-                <NavLink to={`/note/${this.state.id}`} onClick={() => this.props.editNote([this.state])} className="button">Update</NavLink>
+                <input type="text" className='title' name="title" value={this.state.title} onChange={this.handleInput} />
+                <textarea className="text-body" name="textBody" value={this.state.textBody} onChange={this.handleInput} />
+                <NavLink to={`/`} onClick={() => this.props.editNote(this.state)} className="button">Update</NavLink>
             </div>
         )
     }
