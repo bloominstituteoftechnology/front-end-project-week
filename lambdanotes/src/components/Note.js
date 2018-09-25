@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NoteCard from './NoteCard';
+// import NoteCard from './NoteCard';
 
 export default class Note extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Note extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    const id = Number(this.props.match.params.id);
+    const id = this.props.match.params.id;
     this.fetchNote(id);
   }
 
@@ -37,7 +37,9 @@ export default class Note extends Component {
           <span>edit</span>
           <span>delete</span>
         </div>
-        <NoteCard />
+        {/* <NoteCard /> */}
+        <h3>{this.state.note.title}</h3>
+        <p>{this.state.note.textBody}</p>
       </div>
     );
     
