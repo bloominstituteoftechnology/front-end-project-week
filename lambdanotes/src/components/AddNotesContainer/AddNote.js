@@ -62,7 +62,11 @@ class AddNote extends Component {
 						</Alert>
 					</div>
 
-					<button onClick={this.addNote} className="savenote-button">
+					<button
+						type="button"
+						onClick={this.addNote}
+						className="savenote-button"
+					>
 						Save
 					</button>
 				</form>
