@@ -1,9 +1,16 @@
-import { FETCHING_NOTES, FETCHED_NOTES, FETCH_NOTES_ERROR } from '../actions';
+import {
+  FETCHING_NOTES,
+  FETCHED_NOTES,
+  FETCH_NOTES_ERROR,
+  FETCH_NOTE,
+  FETCHED_NOTE,
+  FETCH_NOTE_ERROR
+} from '../actions';
 
 // const initialState = {};
 const initialState = {
   notes: [],
-  note: { tags: [], title: '', textBody: '' },
+  // note: { tags: [], title: '', textBody: '' },
   fetching: false,
   error: ''
 };
@@ -25,7 +32,23 @@ const rootReducer = (state = initialState, action) => {
         fetching: false,
         error: `${action.payload}`
       };
-
+    case FETCH_NOTE:
+      return {
+        ...state,
+        fetching: true
+      };
+    case FETCHED_NOTE:
+      return {
+        ...state,
+        note: action.payload,
+        fetching: false
+      };
+    case FETCH_NOTE_ERROR:
+      return {
+        ...state,
+        fetching: false,
+        error: `${action.payload}`
+      };
     default:
       return state;
   }

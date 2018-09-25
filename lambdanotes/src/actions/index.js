@@ -2,9 +2,12 @@ import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
+export const FETCH_NOTES_ERROR = 'ERRORS';
 // export const DELETE_NOTE = 'DELETE_NOTE';
 // export const ADD_NOTE = 'ADD_NOTE';
-export const FETCH_NOTES_ERROR = 'ERRORS';
+export const FETCH_NOTE = 'FETCH_NOTE';
+export const FETCHED_NOTE = 'FETCHED_NOTE';
+export const FETCH_NOTE_ERROR = 'FETCH_NOTE_ERROR';
 
 export const fetchNotes = () => {
   return dispatch => {
@@ -13,11 +16,26 @@ export const fetchNotes = () => {
       .get('https://killer-notes.herokuapp.com/note/get/all')
 
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         dispatch({ type: FETCHED_NOTES, payload: response.data });
       })
 
       .catch(error => dispatch({ type: FETCH_NOTES_ERROR, error: error }));
+  };
+};
+
+export const fetchNote = id => {
+  return dispatch => {
+    dispatch({ type: FETCH_NOTE });
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+
+      .then(response => {
+        // console.log(response.data);
+        dispatch({ type: FETCHED_NOTE, payload: response.data });
+      })
+
+      .catch(error => dispatch({ type: FETCH_NOTE_ERROR, error: error }));
   };
 };
 
