@@ -37,13 +37,19 @@ class EditNote extends React.Component {
             <form  onSubmit={(event) =>{ event.preventDefault(); this.props.editNote(event, this.props.match.params.id, this.state.title, this.state.content)}}>
             <input onChange={this.handleInputChange} type="text" name="title" placeholder="Title" value={this.state.title}/>
             <input onChange={this.handleInputChange} type="text" name="content" placeholder="Note"  value={this.state.content}/>
-            <button onClick={this.handleSubmit} onMouseUp={() => this.props.history.goBack()} color="info" style={{ marginTop: 15 + 'px' }} /*"block" was here*/>Edit</button>
+            <button onClick={this.handleSubmit}  color="info" style={{ marginTop: 15 + 'px' }} /*"block" was here*/>Edit</button>
          </form>
         </div>
         );
       
     }
  }
+
+ /*
+ Our Clipboard
+ From button in render method:
+ onMouseUp={() => this.props.history.goBack()}
+ */
 
 
 export default EditNote;

@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "./components/Sidebar";
 import Notes from "./components/Notes";
@@ -35,17 +35,8 @@ class App extends Component {
         console.error("Server Error", error);
       });
    }
-  getNote = (event => {
-    event.preventDefault();
-    axios
-    .get("http://localhost:2200/api/notes/:id")
-    .then(response => {
-      this.setState({notes: response.data});
-    })
-    .catch(error => {
-      console.error("Server Error",error)
-    });
-  })
+   
+
   
 
   searchHandler = event => {
@@ -62,7 +53,7 @@ class App extends Component {
   };
 
   
-    addNote = (event) => {
+  addNote = (event) => {
     event.preventDefault();
     const newNote = {
       title: this.state.title,
@@ -77,7 +68,7 @@ class App extends Component {
       .then(res => {
       console.log(res.data);
       this.setState({notes: res.data , title: '' , content: ''})
-    })
+      })
     })
       .catch(error => {
       console.error("Server Error", error);
@@ -120,6 +111,7 @@ class App extends Component {
         }
 
         this.setState({ notes });
+        this.props.history.push(`/notes/${noteID}`);
       })
       .catch(err => console.error(err));
   };
@@ -184,7 +176,7 @@ class App extends Component {
     }
   }
 
-export default Authenticate(App);
+export default withRouter(Authenticate(App));
 
 
 // import React, { Component } from "react";
