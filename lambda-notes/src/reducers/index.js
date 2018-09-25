@@ -44,7 +44,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         addingNote: false,
-        notes: action.payload,
+        // notes: action.payload,
       };
     case ADD_NOTE_ERROR:
       return {

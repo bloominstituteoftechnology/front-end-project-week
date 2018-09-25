@@ -25,16 +25,26 @@ export const fetchData = () => {
   };
 };
 
-export const addNote = (newNote) => {
-  return (dispatch) => {
+export const addNote = newNote => {
+  return dispatch => {
     dispatch({ type: INITIALIZE_NOTE_ADD });
-    axios 
-      .post('https://killer-notes.herokuapp.com/note/create', newNote)
-      .then((response) => {
-        fetchData();
-        dispatch({ type: COMPLETE_NOTE_ADD, payload: response.data });
+    axios
+      .post("https://killer-notes.herokuapp.com/note/create", newNote)
+      .then(response => {
+        console.log("Creating note:", response);
+        axios
+          .get("https://killer-notes.herokuapp.com/note/get/all")
+          .then(response => {
+            dispatch({ type: DATA_FETCHED, payload: response.data });
+          })
+          .catch(err => {
+            console.log(err);
+            dispatch({ type: FETCH_ERROR });
+          });
+
+        dispatch({ type: COMPLETE_NOTE_ADD });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
         dispatch({ type: ADD_NOTE_ERROR });
       });

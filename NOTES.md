@@ -1,4 +1,4 @@
-## Notes API
+<!-- ## Notes API
 
 - A server that will deliver notes can be found [here](https://killer-notes.herokuapp.com):
 
@@ -34,4 +34,4 @@ a `PUT` request to this route with the title and text in the req body will edit 
 
 ### https://killer-notes.herokuapp.com/note/delete/id
 
-a `DELETE` request to this route will delete the note with the specified ID.
+a `DELETE` request to this route will delete the note with the specified ID. -->
