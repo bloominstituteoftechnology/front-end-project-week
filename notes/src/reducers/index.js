@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED, POSTING, POSTED, ERROR} from '../actions/index';
+import {FETCHING, FETCHED, POSTING, POSTED, DELETING, DELETED, ERROR} from '../actions/index';
 
 const initialState = {
     fetchingNotes: false,
@@ -51,6 +51,16 @@ export const rootReducer = (state = initialState, action) => {
 
             return Object.assign({}, state, {
                 notePosted: true, postingNote: false, notes: newNotes
+            })
+
+        case DELETING:
+            return Object.assign({}, state, {
+                deletingNote: true
+            })
+
+        case DELETED:
+            return Object.assign({}, state, {
+                deletingNote: false, noteDeleted: true
             })
 
         case ERROR:

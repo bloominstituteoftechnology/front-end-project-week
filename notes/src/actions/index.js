@@ -5,6 +5,8 @@ export const FETCHING = 'FETCHING';
 export const POSTED = 'POSTED';
 export const POSTING = 'POSTING';
 export const ERROR = 'ERROR';
+export const DELETING = 'DELETING';
+export const DELETED = 'DELETED';
 
 export const fetchNotes = () => {
 
@@ -25,13 +27,14 @@ export const fetchNotes = () => {
 export const addNote = note => {
     console.log(note);
 
-    const addFriendRequest = axios.post(`https://killer-notes.herokuapp.com/note/create`, note);
+    const addNoteRequest = axios.post(`https://killer-notes.herokuapp.com/note/create`, note);
 
     return dispatch => {
 
         dispatch({type: POSTING});
 
-        addFriendRequest.then(res => {
+        addNoteRequest.then(res => {
+            console.log(res, 'posted response');
             dispatch({type: POSTED, payload: res.data})
         }).catch(err => {
             console.log(err);
@@ -39,6 +42,23 @@ export const addNote = note => {
         });
 
     }
+   
+}
 
-    
+export const deleteNote = id => {
+
+    const deleteNoteRequest = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
+
+    return dispatch => {
+
+        dispatch({type: DELETING});
+
+        deleteNoteRequest.then(res => {
+            console.log(res.data)
+            dispatch({type: DELETED, payload: res.data})
+        }).catch(err => {
+            console.log(err);
+            dispatch({type: ERROR})
+        })
+    }
 }
