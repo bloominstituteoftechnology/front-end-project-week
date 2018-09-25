@@ -2,12 +2,12 @@ import React from 'react';
 import './Notes.css';
 
 
-function Notes() {
+function Notes(props) {
 return (
     <div className ="card">
-        <h3 className="cardtitle">This is a card</h3>
+        <h3 className="cardtitle">{props.note.title}</h3>
         <hr/>
-        <p>Notes</p>
+        <p>{props.note.note}</p>
     </div>
 )
 }

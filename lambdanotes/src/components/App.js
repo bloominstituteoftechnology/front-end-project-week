@@ -10,7 +10,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
+      notes: [
+        {title: "Homework",
+         note: "Hey, I have stuff to do",    
+         id: 1, 
+      },
+      ],
       note: ''
     };
   }
@@ -24,7 +29,8 @@ class App extends Component {
         <div className="note-view">
         {/* <Router>  */}
         <Switch> 
-          <Route path='/viewcards' component={NoteView}
+          <Route path='/viewcards' 
+          render={(notes) => <NoteView {...notes} notes={this.state.notes}/>}
           />
           <Route path='/createcards' 
           component={CreateNew}
