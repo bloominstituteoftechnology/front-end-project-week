@@ -85,7 +85,7 @@ const collectTarget = connect => ({
 });
 
 const Card = ({
-  note: { _id, title, textBody, tags },
+  note: { id, title, textBody, tags },
   connectDragSource,
   isDragging,
   connectDropTarget,
@@ -111,15 +111,15 @@ const Card = ({
           <div>
             <LinkWrapper
               style={{ display: 'inline-block', margin: '0 1rem 0 0' }}
-              to={`/notes/${_id}`}
-              key={_id}
+              to={`/notes/${id}`}
+              key={id}
             >
               <Button>View</Button>
             </LinkWrapper>
             <LinkWrapper
               style={{ display: 'inline-block', margin: 0 }}
-              to={`/notes/${_id}/edit`}
-              key={_id}
+              to={`/notes/${id}/edit`}
+              key={id}
             >
               <Button>Edit</Button>
             </LinkWrapper>

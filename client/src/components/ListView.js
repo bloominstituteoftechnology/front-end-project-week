@@ -19,9 +19,9 @@ const ListView = ({ notes, ...rest }) => {
       <CardsContainer>
         {notes.map((note, index) => (
           <Card
-            key={note._id}
+            key={note.id}
             note={note}
-            id={note._id}
+            id={note.id}
             index={index}
             {...rest}
           />

@@ -34,7 +34,7 @@ class AddNoteContaier extends Component {
     return (
       <div>
         <SecondaryHeading>Create a New Note</SecondaryHeading>
-        <NotesForm onFormSubmit={this.onFormSubmit} />
+        <NotesForm onFormSubmit={this.onFormSubmit} buttonText="Save" />
       </div>
     );
   }

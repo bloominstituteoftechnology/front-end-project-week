@@ -44,6 +44,7 @@ class EditNoteContainer extends Component {
             ...currentNote,
           }}
           onFormSubmit={this.onFormSubmit}
+          buttonText="Update"
         />
       </div>
     );

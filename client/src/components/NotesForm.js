@@ -138,7 +138,7 @@ class NotesForm extends Component {
             </Tag>
           ))}
         </div>
-        <FormButton>Save</FormButton>
+        <FormButton>{this.props.buttonText}</FormButton>
       </form>
     );
   }

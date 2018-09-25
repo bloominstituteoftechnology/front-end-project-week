@@ -1,7 +1,7 @@
 import { createActions } from 'redux-actions';
 import axios from 'axios';
 
-const API_URL = 'https://killer-notes.herokuapp.com/note';
+const API_URL = 'https://lambda-notes-ash.herokuapp.com/api/notes';
 
 export const {
   fetchNotesRequest,
@@ -52,7 +52,7 @@ export const {
 export const fetchNotes = () => async dispatch => {
   dispatch(fetchNotesRequest());
   try {
-    let response = await axios.get(`${API_URL}/get/all`);
+    let response = await axios.get(`${API_URL}`);
     dispatch(fetchNotesSuccess(response.data));
   } catch (err) {
     console.log(err);
@@ -63,7 +63,7 @@ export const fetchNotes = () => async dispatch => {
 export const fetchOne = id => async dispatch => {
   dispatch(fetchOneRequest());
   try {
-    let response = await axios.get(`${API_URL}/get/${id}`);
+    let response = await axios.get(`${API_URL}/${id}`);
     dispatch(fetchOneSuccess(response.data));
   } catch (err) {
     dispatch(fetchOneFailure(err));
@@ -83,7 +83,7 @@ export const addNote = data => async dispatch => {
 export const editNote = (id, data) => async dispatch => {
   dispatch(editNoteRequest());
   try {
-    let response = await axios.put(`${API_URL}/edit/${id}`, data);
+    let response = await axios.put(`${API_URL}/${id}`, data);
     dispatch(editNoteSuccess(response.data));
   } catch (err) {
     dispatch(editNoteFailure(err));
@@ -93,7 +93,7 @@ export const editNote = (id, data) => async dispatch => {
 export const deleteNote = id => async dispatch => {
   dispatch(deleteNoteRequest());
   try {
-    await axios.delete(`${API_URL}/delete/${id}`);
+    await axios.delete(`${API_URL}/${id}`);
     dispatch(deleteNoteSuccess());
   } catch (err) {
     dispatch(deleteNoteFailure());

@@ -94,7 +94,7 @@ class NoteView extends React.Component {
 
   render() {
     const {
-      note: { _id: id, title, textBody },
+      note: { id, title, textBody },
       onDelete,
     } = this.props;
     return (
