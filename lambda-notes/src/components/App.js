@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     newNote: {
       title: "",
-      content: ""
+      textBody: ""
     }
   }
 
@@ -42,16 +42,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {!this.props.fetchedNote ? (
-          <h1>Loading notes...</h1>
-          ) : (
-          <div>
-            <h1>Notes</h1>
-            <NotesList 
-              notes={this.props.notes}
-            />
-          </div>
-        )}
+        <h1>Notes</h1>
+        <NotesList 
+          notes={this.props.notes}
+        />
       </div>
     );
   }

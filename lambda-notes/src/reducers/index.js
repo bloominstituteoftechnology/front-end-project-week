@@ -7,7 +7,7 @@ const initialState = {
     notes: [
         {
             title: "",
-            content: ""
+            textBody: ""
         }
     ],
     fetchedNotes: false,

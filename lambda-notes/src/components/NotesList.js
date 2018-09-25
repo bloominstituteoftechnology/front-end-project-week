@@ -5,14 +5,15 @@ import NoteUpdate from '../components/NoteUpdate';
 import NoteDelete from '../components/NoteDelete';
 
 function NotesList(props) {
+    console.log(props.notes);
     return (
         <div>
-            {props.notes.map(note => (
+            {props.notes.map(note => 
             <div key={note.id}>
-                <h3>{note.name}</h3>
-                <p>({note.content})</p>
+                <h3>{note.title}</h3>
+                <p>({note.textBody})</p>
             </div>
-            ))}
+            )}
         </div>
     );
 }
