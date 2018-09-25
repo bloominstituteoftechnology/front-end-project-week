@@ -11,10 +11,10 @@ import DragDrop from "./Components/DragDrop";
 
 import "./App.css";
 
-const API_ALL = "http://localhost:8000/notes";
-const API_ADD = "http://localhost:8000/notes";
-const API_DELETE = "http://localhost:8000/notes";
-const API_PUT = "http://localhost:8000/notes";
+const API_ALL = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
+const API_ADD = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
+const API_DELETE = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
+const API_PUT = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
 class App extends Component {
 	state = {
 		notes: [],
