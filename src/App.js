@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 import { withRouter } from 'react-router-dom'
-import NotesBar from './components/NotesBar'
+import SideBar from './components/SideBar'
 import NotesMain from './components/NotesMain'
 import NoteNew from './components/NoteNew'
 import NoteSingle from './components/NoteSingle'
@@ -58,7 +58,7 @@ class App extends Component {
   render() {
     return (
       <Div1 className="App">
-        <NotesBar />
+        <SideBar />
         
         <Route exact path="/" render={() => 
           <NotesMain
@@ -94,21 +94,35 @@ class App extends Component {
 }
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
   html,
   body {
     margin: 0;
     padding: 0;
+    font-size: 62.5%;
   }
   .App {
     width: 100%;
     max-width: 888px;
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid #D6D5D6;
+  }
+  h1 {
+    font-size: 3rem
+  }
+  button {
+    background-color: #24B8BD;
+    color: white;
+    font-size: 1.5rem;
+    width: 190px;
+    padding: 5%;
+    margin-bottom: 8%;
   }
 `
 const Div1 = styled.div`
   display: flex;
 `
-const H1 = styled.h1``
 
 export default withRouter(App)
