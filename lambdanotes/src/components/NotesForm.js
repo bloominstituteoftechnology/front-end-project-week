@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo, removeTodos, getTodos } from '../actions';
+import { addNote } from '../actions';
 
 class NotesForm extends Component {
     state = {
@@ -15,19 +15,9 @@ class NotesForm extends Component {
     };
 
     addTodoHandler = e => {
-        const { text } = this.state;
-        const { title } = this.state;
-        const newTodo = {
-            text,
-            title,
-            completed: false,
-            id: this.props.todos ? this.props.todos.length + text : 0 + text
-        };
-        this.props.addTodo(newTodo);
-        this.setState({
-            text: '',
-            title: ''
-        });
+        e.preventDefault();
+		console.log(this.state);
+		this.props.addNote(this.state);
     };
 
     render() {
@@ -49,22 +39,18 @@ class NotesForm extends Component {
                     placeholder="Notes"
                     onChange={this.handleTodoInput}
                 />
-                <button onClick={this.handleSubmit}>Add Note</button>
+                <button onClick={this.addTodoHandler}>Add Note</button>
             </form>
         );
     }
 }
-// Hey Redux?! Whatever is state in the store, could throw it on Props inside
-// this react component?
+
 const mapStateToProps = state => {
     return {
-        notes: state.notes
+        notes: state.notesReducer.notes,
     };
 };
 
 export default connect(mapStateToProps, {
-    addTodo,
-    toggleTodo,
-    removeTodos,
-    getTodos
+    addNote,
 })(NotesForm);

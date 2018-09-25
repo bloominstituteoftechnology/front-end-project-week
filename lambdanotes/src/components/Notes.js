@@ -1,50 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo, removeTodos, getTodos } from '../actions';
+import { addTodo, toggleTodo, removeTodos, getNotes } from '../actions';
 
 class Notes extends Component {
-    componentDidMount() {
-		this.props.getNotes(this.props.notes);
-	}
-    handleTodoComplete = todoId => {
-      this.props.toggleTodo(todoId);
-    };
   
-    removeTodos = () => {
-      this.props.removeTodos();
-    };
-
+  
     render() {
       return (
-        <div>
-         
-            {this.props.notes.map(todo => {
+        <div >
+        {console.log(typeof this.state.notes)}
+            {/* {this.props.notes.map(note => {
               return (
                 <div>
-                  {todo.text}
-                  {todo.title}
+                  {note.text}
+                  {note.title}
                 </div>
               );
-            })}
-          
-          <button onClick={() => this.removeTodos()}>Delete</button>
+            })} */}
         </div>
+         
       );
+      
     }
   }
   // Hey Redux?! Whatever is state in the store, could throw it on Props inside
   // this react component?
   const mapStateToProps = state => {
-  return {
-    notes: state.notes
-  };
+    
+    return {
+      notes: state.notesReducer.notes,
+    };
 };
 
-
 export default connect(mapStateToProps, {
-    addTodo,
-    toggleTodo,
-    removeTodos,
-    getTodos
+  
   })(Notes);
   

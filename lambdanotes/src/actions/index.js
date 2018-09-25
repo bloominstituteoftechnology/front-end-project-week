@@ -1,34 +1,18 @@
 // Action Types
 export const ADD_NOTES = 'ADD_Notes ';
-export const TOGGLE_NOTES  = 'TOGGLE_Notes ';
-export const REMOVE_NOTES  = 'REMOVE_Notes ';
-export const GET_NOTES  = 'GET_Notes ';
+
 // Action Creators
 
-
-export const addTodo = note => {
+export const addNote= notes => {
   return {
-    type: ADD_NOTES ,
-    payload: note
+    type: ADD_NOTES,
+    payload: notes
   };
 };
 
-export const toggleTodo = id => {
-  return {
-    type: TOGGLE_NOTES,
-    payload: id
-  };
-};
-
-export const removeTodos = () => {
-  return {
-    type: REMOVE_NOTES
-  };
-};
-
-export const getTodos = todos => {
-  return {
-    type: GET_NOTES,
-    payload: todos
-  };
-};
+export const getNote = note =>{
+  return{
+    type:null,
+    payload:null
+  }
+}
