@@ -5,12 +5,14 @@ const Menu = () => {
   return (
     <div className="menu-container">
       <h1>Lambda Notes</h1>
-      <div className="view-notes button">
-        <Link to="/">View Notes</Link>
-      </div>
-      <div className="new-note button">
-        <Link to="/new">Create New Note</Link>
-      </div>
+
+      <Link to="/">
+        <div className="view-notes button">View Notes </div>
+      </Link>
+
+      <Link to="/new">
+        <div className="new-note button">Create New Note </div>
+      </Link>
     </div>
   );
 };

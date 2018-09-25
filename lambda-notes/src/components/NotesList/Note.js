@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Note = props => {
   return (
-    <div className="note">
-      <Link to={`/notes/${props.note.id}`}>
+    <Link to={`/notes/${props.note.id}`}>
+      <div className="note">
         <h2>{props.note.title}</h2>
         <p>{props.note.content}</p>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 

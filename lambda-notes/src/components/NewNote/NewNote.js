@@ -6,7 +6,7 @@ class NewNote extends React.Component {
     this.state = {
       title: "",
       content: "",
-      newNote: { title: "", content: "" }
+      newNote: { title: "", content: "", id: 0 }
     };
   }
 

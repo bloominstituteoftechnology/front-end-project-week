@@ -1,3 +1,41 @@
 .note-view {
   background-color: coral;
 }
+
+/* .popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+} */
+
+/* The actual popup (appears on top) */
+.popuptext {
+  width: 550px;
+  height: 140px;
+  visibility: hidden;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  left: 20%;
+  bottom: 5%;
+
+  border: 1px solid black;
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10 40px;
+}
+.delete {
+  background-color: red;
+}
+
+.show {
+  visibility: visible;
+  /* -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s; */
+}

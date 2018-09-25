@@ -38,6 +38,16 @@ class App extends Component {
       this.setState(...this.state, { notes });
     }
   }
+
+  deleteNote(id) {
+    console.log("delete function called");
+    console.log("state: ");
+    console.log(this.state);
+    const notes = this.state.notes.filter(note => note.id !== id);
+    console.log("notes array: ");
+    console.log(notes);
+    this.setState(...this.state, { notes });
+  }
   render() {
     console.log(this.state.notes);
     return (
@@ -55,7 +65,20 @@ class App extends Component {
             path="/notes/:id"
             render={props => {
               let id = props.match.params.id;
-              return <NoteView note={this.state.notes[id]} />;
+              console.log(id);
+
+              const noteArr = this.state.notes.filter(
+                note => note.id.toString() === id
+              );
+              const note = noteArr[0];
+              console.log(note);
+              return (
+                <NoteView
+                  {...props}
+                  deleteNote={this.deleteNote.bind(this)}
+                  note={note}
+                />
+              );
             }}
           />
           <Route
