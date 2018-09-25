@@ -8,6 +8,7 @@ export const ADDED = 'ADDED';
 export const UPDATING = 'UPDATING';
 export const UPDATED = 'UPDATED';
 export const DELETING = 'DELETING';
+export const DELETED = 'DELETED';
 export const FETCH_ERROR = 'FETCH_ERROR';
 export const ADD_ERROR = 'ADD_ERROR';
 export const UPDATE_ERROR = 'UPDATE_ERROR';
@@ -51,6 +52,17 @@ export const addNewNote = (note) => {
         })
     }
 }
+
+export const deleteNote = noteId => dispatch => {
+    dispatch({ type: DELETING });
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+    .then(response => {
+        dispatch({ type: DELETED, payload: response.data });
+    })
+    .catch(err => {
+        dispatch({ type: DELETE_ERROR, payload: err });
+    });
+};
 
 export const setUpdateNote = id => {
     return {
