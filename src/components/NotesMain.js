@@ -36,6 +36,7 @@ const Div1 = styled.div`
   padding: 1% 3%;
   width: 75%;
   background: #F2F1F2;
+  min-height: 90vh;
 `
 const Div2 = styled.div`
   display: flex;

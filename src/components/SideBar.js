@@ -21,6 +21,7 @@ const Div1 = styled.div`
   border: 1px solid #B7B7B7;
   text-align: center;
   background: #D3D2D3;
+  min-height: 90vh;
 `
 const H1 = styled.h1`
   text-align: left;
