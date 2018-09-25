@@ -5,6 +5,7 @@ import ListView from "../components/listView";
 import { AddNote } from "../components/addNote";
 import { Route } from "react-router-dom";
 import SingleNoteHolder from './SingleNoteHolder';
+import EditNoteHolder from './editNoteHolder'
 
 class App extends Component {
   state = {
@@ -27,7 +28,6 @@ class App extends Component {
     axios
     .get(`https://killer-notes.herokuapp.com/note/get/all`)
     .then(response => {
-      console.log(response);
       this.setState({ notes: response.data });
     })
     .catch(err => {
@@ -48,7 +48,10 @@ class App extends Component {
           path="/notes/:id" 
           render={props=> <SingleNoteHolder {...props} notes={this.state.notes} />}
           />
-          
+           <Route
+          path="/edit/:id" 
+          render={props=> <EditNoteHolder {...props} notes={this.state.notes} />}
+          />
        
       </div>
     );

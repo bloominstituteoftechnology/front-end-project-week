@@ -13,10 +13,10 @@ class AddNoteForm extends Component {
       .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
       .then(response => {
         this.setState({ title: "",
-        text: ""}, () => this.props.history.push("/"));
+        text: ""}, () => this.props.history.push("/edit"));
       })
       .catch(err => {
-        console.log(err);
+        console.log('err');
       });
   };
 

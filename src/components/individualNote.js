@@ -34,6 +34,10 @@ class IndividualNote extends Component {
     console.log("The note is: " + noteID);
   };
 
+  toEdit= () => {
+    const noteID = this.props.match.params.id;
+    this.props.history.push(`/edit/${noteID}`)}
+
   delete = () => {
     console.log(this.state.id)
     axios
@@ -55,7 +59,7 @@ class IndividualNote extends Component {
   render() {
     return (
       <div>
-        <button>edit</button>
+        <button onClick={this.toEdit}>edit</button>
         <button onClick={this.delete} >delete</button>
         <h1>{this.state.title}</h1>
         <h2>{this.state.textBody}</h2>
