@@ -26,15 +26,16 @@ class Authenticate extends React.Component {
             <Title>
                 <H1>Lambda Notes</H1>
                 <Link   to='/auth/register'
-                        style={{padding: '1rem'}}>
-                        Register
+                        style={{padding: '1rem', color: 'white'}}>
+                    Register
                 </Link>
-                <Link to='/auth/login'>Login</Link>
-
+                <Link   to='/auth/login'
+                        style={{padding: '1rem', color: 'white'}}>
+                    Login
+                </Link>
             </Title>
         );
     }
-
 };
 
 export default Authenticate;

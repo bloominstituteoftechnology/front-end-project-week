@@ -37,16 +37,18 @@ class Register extends React.Component {
                 email: email, 
                 password: password 
             })
-             .then( res => console.log( res.data ))
-             .catch( err => console.log( err ));
-        this.setState({ email: '', password: ''});
-        window.location.href='http://localhost:/3000/note/all'
-    }
+             .then( res => { 
+                 console.log(res.data) 
+                 this.setState({ email: '', password: ''});
+                 window.location.href='http://localhost:3000/note/all';           
+                })
+                .catch( err => alert( err ));
+    };
     render() {
         return (
             <Background>
                 <Title>Lambda Notes</Title>
-                <Form>
+                <Form type='submit'>
                     <Input placeholder='email'
                             name='email'
                             type='email'
@@ -55,7 +57,7 @@ class Register extends React.Component {
                             name='password'
                             type='password'
                             onChange={this.handleChange}/>
-                    <Button type='submit' onSubmit={this.submit}>
+                    <Button onClick={this.submit}>
                         Register
                     </Button>
                 </Form>
@@ -63,9 +65,5 @@ class Register extends React.Component {
         );
     };
 };
-
-export const mapStateToProps = state => ({
-    user: state.user,
-})
 
 export default Register;
