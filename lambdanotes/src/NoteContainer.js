@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SidebarContainer from "./components/sidebar/SidebarContainer";
 import "./App.css";
 import { getNotes } from "./components/actions/actions";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import OneNote from "./components/NotesContainer/OneNote";
 
@@ -22,7 +21,12 @@ function NoteContainer(props) {
 			<SidebarContainer />
 			<div className="newNote">
 				<div className="edit-delete">
-					<Link to={`/note/${noteID}/edit`}>edit</Link>
+					<button
+						onClick={() => props.history.push(`/note/${noteID}/edit`)}
+						className="button"
+					>
+						edit
+					</button>
 					<button onClick={props => handleDelete(props)} className="button">
 						delete
 					</button>
