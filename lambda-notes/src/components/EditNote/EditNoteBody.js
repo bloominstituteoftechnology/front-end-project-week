@@ -10,7 +10,7 @@ constructor(props){
         super(props);
         this.state= {
 		title: props.single.title,
-		content: props.single.textBody
+		content: props.single.content
 	};
 
   }
@@ -42,7 +42,7 @@ render() {
 		(<div>
 		<h3 className="delete-note-message">Note successfully edited and saved</h3>
 		<h3 className="single-note-title">{this.props.editedNote.title}</h3>
-                <div className="single-note-container">{this.props.editedNote.textBody}</div>
+                <div className="single-note-container">{this.props.editedNote.content}</div>
 		</div>	
 		
 		) :(    

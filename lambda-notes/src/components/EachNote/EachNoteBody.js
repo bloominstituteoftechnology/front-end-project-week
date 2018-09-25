@@ -35,9 +35,8 @@ deleteNote = event => {
 	const id = this.props.match.params.id;
 	this.toggle();
 	this.props.deleteNoteAction(id);
-	this.props.fetchingSingleNote();
+	//this.props.fetchingSingleNote();
 };
-
 
 render() {
 	return(
@@ -45,12 +44,13 @@ render() {
                 <LambdaLeftDiv />
 		<div className="note-card-container">
 		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(		      <div>
+		
 			<Button className="delete-btn"  onClick={this.toggle}>delete</Button>
 			<Link to={`/editnote/${this.props.match.params.id}`}><Button className="delete-btn">edit</Button></Link>
-			</div>
-)}</div>
-
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-style">
+			
+        
+		
+	<Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-style">
           <ModalHeader toggle={this.toggle}>Are You Sure You Want To Delete This</ModalHeader>
          <ModalFooter> 
             <Button className="delete-modal-btn" onClick={this.deleteNote}>Delete</Button>
@@ -58,8 +58,10 @@ render() {
 	</ModalFooter>
         </Modal>
 		
-		<h3 className="single-note-title">{this.props.single.title}</h3>
-		<div className="single-note-container">{this.props.single.textBody}</div>
+                <h3 className="single-note-title">{this.props.single.title}</h3>
+                <div className="single-note-container">{this.props.single.content}</div>
+		</div>
+ )}</div>
 		</div>
 		</div>
 	);		
