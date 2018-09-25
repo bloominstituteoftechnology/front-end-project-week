@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import App from './App';
+import App from './components/App';
 import { rootReducer } from './reducers';
 
 import './index.css';
@@ -16,7 +16,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <App />
     </Provider>, 
     document.getElementById('root')
