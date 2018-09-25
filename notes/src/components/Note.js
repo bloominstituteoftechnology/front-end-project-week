@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import Modal from './Modal/Modal';
+
+
+
 function Note(props) {
     console.log(props.match.params);
     console.log("in note");
@@ -10,7 +14,7 @@ function Note(props) {
 
     function deleteNote(){
         props.deleteNote(note.id);
-        props.history.push('/');
+        props.history.push('/notes');
     }
 
     return (
@@ -19,13 +23,21 @@ function Note(props) {
                 <h1>{note.title}</h1>
                 <p>{note.content}</p>
             </div>
-            <button className="modify-button" onClick={event => {
+            <button className="plain-button" onClick={event => {
                 event.preventDefault();
                 console.log("clicked open update");
                 props.openUpdateForm(event, note.id)
             }}>edit</button>
+            <button className="plain-button" onClick={event => {
+                props.showModal(event, note.id)
+            }}>delete</button>
 
-            <button className="modify-button" onClick={deleteNote}>delete</button>
+            <Modal show={props.show} className="deleteModal">
+            Are you sure you want to delete this note?
+            <button className="prompt-button" onClick={props.showModal}>nope</button>
+            <button className="prompt-button" onClick={deleteNote}>delete</button> 
+            </Modal>
+           
         </Fragment>
     )
 }

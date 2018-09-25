@@ -6,6 +6,7 @@ import Home from './components/Home';
 import AllNotes from './components/AllNotes';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
+import Modal from './components/Modal/Modal';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
         content: ''
       },
       isUpdating: false,
+      show: false
     };
   }
 
@@ -76,6 +78,13 @@ class App extends Component {
     })
   }
 
+  showModal = () => {
+    this.setState ({
+      ...this.state,
+      show: !this.state.show
+    })
+  }
+
   cancelUpdate = (event) => {
     this.setState({ note: {title: '', content: ''}, isUpdating: false })
   }
@@ -123,6 +132,8 @@ class App extends Component {
           notesList={this.state.notesData}
           deleteNote={this.deleteNote}
           openUpdateForm={this.openUpdateForm}
+          show={this.state.show}
+          showModal={this.showModal}
           />
         )}
         />
@@ -140,6 +151,7 @@ class App extends Component {
           />
           )}
         />
+        <Modal show={this.state.show} />
       </div>
     );
   }

@@ -14,6 +14,11 @@ function NoteForm(props) {
 
     function handleCancel(event) {
         event.preventDefault();
+        if(props.isUpdating) {
+        props.history.push(`/notes/${props.note.id}`)
+        } else {
+            props.history.push(`/notes`)
+        }
         
     }
 
@@ -34,7 +39,8 @@ function NoteForm(props) {
                     placeholder="Note Content"
                     onChange={props.handleChange} />
                 </div>
-                <button className="save-button" onClick={handleSubmit}>{props.isUpdating ? 'Update' : 'Save'}</button>
+                <button className="prompt-button" onClick={handleSubmit}>{props.isUpdating ? 'Update' : 'Save'}</button>
+                <button className="prompt-button" onClick={handleCancel}>Cancel</button>
             </form>
         </Fragment>
     )
