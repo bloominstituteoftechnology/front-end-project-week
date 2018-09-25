@@ -27,7 +27,18 @@ export const addNote = newNote => {
 }
 
 // getNote action creator TODO: fill in logic
-export const getNote = () => {}
+export const getNote = id => {
+  return dispatch => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        dispatch({ type: 'NOTE_FETCHED', payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: 'ERROR', payload: error });
+      });
+  }
+}
 
 // editNote action creator TODO: fill in logic
 export const editNote = editedNote => {}
