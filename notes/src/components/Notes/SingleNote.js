@@ -8,12 +8,20 @@ const SingleNote = (props) => {
   );
   // console.log(note);
 
-  if (!note) return <div />;
+  const handleDelete = () => {
+    console.log('handleDelete');
+    props.deleteData(note._id);
+    props.history.push('/');
+  };
 
+  if (!note) return <div />;
+  console.log(props);
   return (
     <Container>
       <Title>{note.title}</Title>
       <Content>{note.textBody}</Content>
+      <EditButton>edit</EditButton>
+      <DeleteButton onClick={handleDelete}>delete</DeleteButton>
     </Container>
   );
 };
@@ -35,4 +43,25 @@ const Content = styled.p`
   font-size: 1.2rem;
   line-height: 2rem;
   hyphens: auto;
+`;
+
+const StyledButton = styled.button`
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  text-decoration: underline;
+  width: 50px;
+  position: absolute;
+  font-size: 0.8rem;
+  text-align: center;
+`;
+
+const DeleteButton = styled(StyledButton)`
+  right: 100px;
+  top: 30px;
+`;
+
+const EditButton = styled(StyledButton)`
+  right: 160px;
+  top: 30px;
 `;

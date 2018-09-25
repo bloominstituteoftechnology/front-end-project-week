@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchData } from '../actions';
+import { fetchData, deleteData } from '../actions';
 
 import SingleNote from '../components/Notes/SingleNote';
 
@@ -23,5 +23,8 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { fetchData }
+  {
+    fetchData,
+    deleteData,
+  }
 )(SingleNoteView);

@@ -52,3 +52,25 @@ export const addData = (newData) => (dispatch) => {
       dispatch({ type: FETCH_ERROR, payload: error });
     });
 };
+
+export const deleteData = (id) => (dispatch) => {
+  dispatch({ type: DELETING_DATA });
+  const promise = axios.delete(
+    `https://killer-notes.herokuapp.com/note/delete/${id}`
+  );
+  promise
+    .then((response) => {
+      dispatch({ type: DELETED_DATA });
+      return axios
+        .get('https://killer-notes.herokuapp.com/note/get/all')
+        .then((response) => {
+          dispatch({ type: FETCHED_DATA, payload: response.data });
+        })
+        .catch((error) => {
+          dispatch({ type: FETCH_ERROR, payload: error });
+        });
+    })
+    .catch((error) => {
+      dispatch({ type: DELETE_ERROR, payload: error });
+    });
+};
