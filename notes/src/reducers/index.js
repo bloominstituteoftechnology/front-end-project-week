@@ -1,3 +1,5 @@
+import {ADDING, ERROR} from '../actions';
+
 const initialState = {
     notes: [
         {title: 'example title', content: 'example content'},
@@ -9,6 +11,15 @@ const initialState = {
 
 const reducer = (state=initialState, action) =>{
     switch(action.type){
+        case ADDING:
+            return{
+                ...state,
+                notes: state.notes.concat(action.payload)
+            }
+        case ERROR:
+            return{
+                ...state
+            }
         default:
             return state;
     }

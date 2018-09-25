@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {createNote} from '../actions';
 
-export default class AddNote extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            title: '',
-            content: ''
-        }
+class AddNote extends React.Component{
+    state = {
+        title: '',
+        content: ''
     }
 
     handleChange = event =>{
@@ -21,6 +20,7 @@ export default class AddNote extends React.Component{
             content: this.state.content
         }
         this.setState({title: '', content: ''});
+        this.props.createNote(note);
     }
 
     render(){
@@ -45,13 +45,18 @@ export default class AddNote extends React.Component{
                     name='content'
                     onChange={this.handleChange}
                 />
-                <ButtonStyled type='submit'>
+                <ButtonStyled type='submit' onClick={this.addNote}>
                     Save
                 </ButtonStyled>
             </FormStyled>
         )
     }
 }
+
+const mapStateToProps = state =>({
+});
+
+export default connect(mapStateToProps, {createNote})(AddNote);
 
 const ButtonStyled = styled.button`
 `
@@ -70,6 +75,7 @@ const FormStyled = styled.div`
     font-size: 1rem;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 `
 
 const TitleInput = styled.input`
