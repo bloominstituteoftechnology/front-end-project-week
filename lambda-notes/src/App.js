@@ -62,17 +62,33 @@ class App extends Component {
   };
 
   editNewNoteHandler = event => {
-    event.preventDefault();
-    let noteNumberToEdit = parseInt(
+    // event.preventDefault();
+    // let noteNumberToEdit = parseInt(
+    //   event.target.attributes.getNamedItem("notenumber").value,
+    //   10,
+    // );
+    // let notesCopy = this.state.notes.slice();
+    // notesCopy[noteNumberToEdit].title = this.state.title;
+    // notesCopy[noteNumberToEdit].content = this.state.content;
+    // this.setState({ notes: notesCopy, title: "", content: "" });
+    // setTimeout(() => this.setState({ redirect: true }), 1000);
+    // setTimeout(() => this.setState({ redirect: false }), 1000);
+    const id = parseInt(
       event.target.attributes.getNamedItem("notenumber").value,
       10,
     );
-    let notesCopy = this.state.notes.slice();
-    notesCopy[noteNumberToEdit].title = this.state.title;
-    notesCopy[noteNumberToEdit].content = this.state.content;
-    this.setState({ notes: notesCopy, title: "", content: "" });
-    setTimeout(() => this.setState({ redirect: true }), 1000);
-    setTimeout(() => this.setState({ redirect: false }), 1000);
+    const newNote = {
+      title: this.state.title,
+      content: this.state.content,
+    };
+    axios
+      .put(`http://localhost:7000/api/notes/${id}`, newNote)
+      .then(response => {
+        this.setState({ title: "", content: "" });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
   // end new note and modify note handlers
 
