@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import NtsPgeVw from './views/NtsPgeVw';
+import NtsLstVw from './views/NtsLstVw';
+import NtsIdvVw from './views/NtsIdvVw';
+import NtsFrmVw from './views/NtsFrmVw';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Switch>
+          <Route exact path="/" component={NtsPgeVw} />
+          <Route exact path="/nts" component={NtsLstVw} />
+          <Route path="/nts/:id" component={NtsIdvVw} />
+          <Route path="/nts-frm" component={NtsFrmVw} />
+          <Route path="**" component={NtsPgeVw} />
+        </Switch>
       </div>
     );
   }
