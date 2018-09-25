@@ -19,7 +19,7 @@ function NoteForm(props) {
           <input
             type="text"
             value={props.note.title}
-            name="Title"
+            name="title"
             onChange={props.handleChange}
           />
           <span className="highlight" />
@@ -35,7 +35,7 @@ function NoteForm(props) {
           />
           <span className="highlight" />
           <span className="bar" />
-          <label>Text Body</label>
+          <label>textBody</label>
         </div>
         <button className="material-button-raised" onClick={handleSubmit}>
           Submit
