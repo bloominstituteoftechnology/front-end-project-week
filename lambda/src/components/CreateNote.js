@@ -20,7 +20,7 @@ class CreateNote extends React.Component {
         this.setState({ title: "", text: "" });
         this.props.handleData(response.data);
       })
-      .catch(err => console.log(err));
+      .catch(error => console.log(error));
   };
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -48,7 +48,7 @@ class CreateNote extends React.Component {
               value={this.state.text}
             />
           </form>
-          <div className="DivClick" onClick={this.createNote}>
+          <div className="SaveNote" onClick={this.createNote}>
             Save
           </div>
         </div>

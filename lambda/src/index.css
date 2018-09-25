@@ -17,3 +17,35 @@ body {
 .CreateNotes {
   margin: 10px 0;
 }
+.Background-color {
+  background-color: grey;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+}
+.SubmitContainer {
+  padding-left: 170px;
+}
+.InputTitle {
+  background-color: white;
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 1%;
+}
+.InputContent {
+  background-color: white;
+  width: 450px;
+  padding: 1%;
+  height: 200px;
+}
+.SaveNote {
+  text-align: center;
+  padding: 1%;
+  border: solid #005778 0.5px;
+  background-color: #4aacac;
+  color: white;
+  width: 120px;
+  cursor: pointer;
+}
