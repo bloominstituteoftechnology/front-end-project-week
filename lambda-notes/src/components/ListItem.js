@@ -9,7 +9,7 @@ class ListItem extends React.Component {
   render() {
     return (
       <div className="note-card">
-        <Link to={{
+        <Link style={{color: 'black'}} to={{
           pathname: `${this.props.note.title}/${this.props.note._id}`,
           state: {
             note: this.props.note
