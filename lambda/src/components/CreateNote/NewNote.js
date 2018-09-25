@@ -1,10 +1,17 @@
 import React from 'react';
-import { H2, TitleInput, ContentInput, Button } from '../StyledComponents';
+import {
+  H2,
+  TitleInput,
+  ContentInput,
+  Button,
+  TagInput
+} from '../StyledComponents';
 
 class Note extends React.Component {
   state = {
     title: '',
-    textBody: ''
+    textBody: '',
+    tags: ''
   };
 
   onInputChnage = event => {
@@ -14,7 +21,11 @@ class Note extends React.Component {
   };
 
   onSumbit = event => {
-    this.props.addNewNote(this.state);
+    console.log(this.state.tags.split(','));
+    this.props.addNewNote({
+      ...this.state,
+      tags: this.state.tags.split(',')
+    });
   };
 
   render() {
@@ -34,6 +45,12 @@ class Note extends React.Component {
           col="5"
           placeholder="Note Content"
           wrap="soft"
+        />
+        <TagInput
+          onChange={this.onInputChnage}
+          type="text"
+          name="tags"
+          placeholder="Enter the tags (separate them with commas)"
         />
         <Button onClick={this.onSumbit} submit>
           Submit

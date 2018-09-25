@@ -61,7 +61,7 @@ class NoteView extends React.Component {
     if (!this.state.notesAdded) {
       if (this.props.notes.length > 0 && this.state.id) {
         const notes = this.props.notes.filter(
-          note => note._id == this.state.id
+          note => note._id === this.state.id
         )[0];
         this.setState({
           title: notes.title,

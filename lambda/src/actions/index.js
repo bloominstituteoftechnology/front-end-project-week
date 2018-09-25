@@ -1,4 +1,4 @@
-import { testNotes } from '../data';
+// import { testNotes } from '../data';
 import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
