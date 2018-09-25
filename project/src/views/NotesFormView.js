@@ -27,6 +27,12 @@ class NotesFormView extends React.Component {
     });
   };
 
+  handleAddNewNote = event => {
+    event.preventDefault();
+    this.props.addNewNote(this.state.note);
+    this.props.history.push("/notes");
+  };
+
   handleUpdateNote = () => {
     this.props.updateNote(this.state.note);
     this.props.history.push("/notes");
@@ -35,11 +41,11 @@ class NotesFormView extends React.Component {
   render() {
     return (
       <NoteForm
-        {...this.Note}
+        {...this.props}
         note={this.state.note}
-        handleAddNewANote={this.handleAddNewANote}
+        handleAddNewNote={this.handleAddNewNote}
         handleChange={this.handleChange}
-        handleUpdateANote={this.handleUpdateANote}
+        handleUpdateNote={this.handleUpdateNote}
         isUpdating={this.state.isUpdating}
       /> // spread in props --> same as "match={props.match} location={props.location} history={props.history}"
     );

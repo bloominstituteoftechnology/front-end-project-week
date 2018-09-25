@@ -19,14 +19,17 @@ export const UPDATE_NOTE_ERROR = "UPDATE_NOTE_ERROR";
 export const SET_UPDATE_NOTE = "SET_UPDATE_NOTE";
 
 export const getNotes = () => dispatch => {
+  console.log("hi");
   dispatch({ type: NOTES_FETCH_START });
   const promise = axios.get("https://killer-notes.herokuapp.com/note/get/all");
 
   promise
     .then(response => {
+      console.log(response);
       dispatch({ type: NOTES_FETCH_COMPLETE, payload: response.data });
     })
     .catch(err => {
+      console.log(err);
       dispatch({ type: NOTES_FETCH_ERROR, payload: err });
     });
 };
