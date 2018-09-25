@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class NotesMenu extends Component {
-  render() {
-    return )
-      <div>Menu Placeholder</div>
-    )
-  };
+const NotesMenu = () => {
+  return (
+    <div className = 'notes-menu'>
+      <h1>Lambda Notes</h1>
+
+      <Link className = 'link' to = '/'>
+        View Notes
+      </Link>
+
+      <Link className = 'link' to = '/'>
+        Create Note
+      </Link>
+    </div>
+  );
 };
 
 export default NotesMenu;
