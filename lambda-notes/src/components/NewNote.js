@@ -4,6 +4,11 @@ import { Button, Form, Input, Row, Container, Col } from "reactstrap";
 import "./NewNote.css";
 
 const NewNote = props => {
+  const delay = () => {
+    setTimeout(() => {
+      props.history.goBack();
+    }, 100);
+  };
   return (
     <Container className="new-note">
       <Row>
@@ -38,7 +43,7 @@ const NewNote = props => {
           <Col sm="4">
             <Button
               onClick={props.addNote}
-              onMouseUp={() => props.history.goBack()}
+              onMouseUp={() => delay()}
               color="info"
               style={{ marginTop: 15 + "px" }}
               block
