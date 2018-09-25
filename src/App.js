@@ -42,7 +42,7 @@ class App extends Component {
       this.props.getNotes();
       this.props.history.push('/all-notes')
     } else {
-      this.props.history.push('/welcome')
+      this.props.history.push('/welcome/register')
     }
   }
 

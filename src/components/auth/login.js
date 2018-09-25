@@ -5,11 +5,15 @@ import UserForm from './userform.js';
 
 
 export default class Login extends Component{
+    
+    loginUser(userCreds){
+        console.log(userCreds)
+    }
     render(){
         return(
             <LoginDiv>
                 <h1>LoginDiv</h1>
-                <UserForm />
+                <UserForm whenSubmit={this.loginUser} />
             </LoginDiv>
         )
     }
