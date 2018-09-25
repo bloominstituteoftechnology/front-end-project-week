@@ -40,7 +40,7 @@ class EditNote extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.submitHandler}>
+			<form className="EditNote" onSubmit={this.submitHandler}>
 				<h2>Edit Note:</h2>
 				<input
 					className="title-input"
