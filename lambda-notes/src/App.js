@@ -42,14 +42,23 @@ class App extends Component {
 
   addNewNote = event => {
     event.preventDefault();
-    const notes = this.state.notes.slice();
-    notes.push({ 
-      id: Number(Date.now().toString().slice(-2)), 
-      title: this.state.title, 
-      text: this.state.text 
-    });
-    this.setState({ 
-      notes, 
+    axios.post(`${url}`, {
+      title: this.state.title,
+      text: this.state.text
+    })
+      .then(response => {
+        axios.get(`${url}`).then(response => {
+          this.setState({ notes: response.data })
+        })
+      })
+
+    // const notes = this.state.notes.slice();
+    // notes.push({ 
+    //   id: Number(Date.now().toString().slice(-2)), 
+    //   title: this.state.title, 
+    //   text: this.state.text 
+    // });
+    this.setState({  
       id: '',
       title: '',
       text: '' 
