@@ -13,17 +13,20 @@ class App extends Component {
       {
         id: 1537805881051,
         title: "Get a rucksack",
-        text: "Find a nice rucksack that can hold all your backpacking gear."
+        text: "Find a nice rucksack that can hold all your backpacking gear.",
+        tags: ["backpacking", "gear", "capacity"]
       },
       {
         id: 1537805891197,
         title: "Grab a buddy",
-        text: "Find an outdoorsy friend that loves to rough it up."
+        text: "Find an outdoorsy friend that loves to rough it up.",
+        tags: ["backpacking", "friend", "outdoorsy"]
       },
       {
         id: 1537805898669,
         title: "Trailblaze through the wild",
-        text: "Get out there and breathe in nature."
+        text: "Get out there and breathe in nature.",
+        tags: ["backpacking", "nature", "outdoors"]
       },
     ],
     noteUpdate: null

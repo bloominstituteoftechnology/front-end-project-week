@@ -7,15 +7,21 @@ const NotesMain = (props) => {
     <Div1 className="NotesMain">
       <H2>NotesMain Functional Component</H2>
         {
-          props.notes.map(item => 
-            <Div2 key={item.id}>
-              <H3>{item.title}</H3>
-              <P>{item.text.substring(0, 20)}...</P>
-
-              <Link to={`/notes/${item.id}`}>
+          props.notes.map(note => 
+            <Div2 key={note.id}>
+              <H3>{note.title}</H3>
+              <P>{note.text.substring(0, 20)}...</P>
+              <P>Note Tags:<br />
+              {
+                note.tags.map(function(note, index) {
+                  return <span key={`tag${index}`}>{ (index ? ', ' : '') + note }</span>; 
+                })
+              }
+              </P>
+              <Link to={`/notes/${note.id}`}>
                 <Button>View Note</Button>
               </Link>
-              <Button onClick={() => props.deleteNote(item.id)}>Delete Note</Button>
+              <Button onClick={() => props.deleteNote(note.id)}>Delete Note</Button>
             </Div2>
           )
         }
