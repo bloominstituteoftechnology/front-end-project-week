@@ -1,0 +1,16 @@
+div {
+    background: #F2F0F2;
+}
+
+.myNotes h1 {
+    color: #4D4F50;
+    font-size: 25px;
+    display: flex;
+    margin-left: 25px;
+}
+
+
+.notesSection {
+    display: flex;
+    flex-flow: row wrap;
+}

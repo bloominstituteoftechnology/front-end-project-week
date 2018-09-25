@@ -14,13 +14,14 @@ const sendUserError = (msg, res) => {
 };
 
 let notes = [
-  {
-      title: 'Hello',
-      text: 'This is the first note.'
-  }
+    {
+	id: 0,
+	title: 'Hello',
+	text: 'This is the first note.'
+    }
 ];
 server.get('/notes', (req, res) => {
-  res.json(notes);
+    res.json(notes);
 });
 let noteId = 1;
 

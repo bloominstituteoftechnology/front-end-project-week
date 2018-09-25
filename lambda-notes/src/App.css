@@ -35,6 +35,7 @@
     color: #434343;
     font-size: 25px;
     flex-flow: column wrap;
+    height: 100%;
 }
 
 .navbar a {
@@ -50,5 +51,7 @@
 }
 
 .navbar .buttons {
-    height: 400px;
+    min-height: 500px;
+    height: 100%;
+    background: #D2D1D2;
 }

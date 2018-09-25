@@ -4,6 +4,7 @@ import './App.css';
 
 import Notes from './components/notes.js';
 import NewNote from './components/newnote.js';
+import Note from './components/note.js';
 
 import {
     BrowserRouter as Router,
@@ -40,6 +41,7 @@ class App extends Component {
                   <NavLink to="/">View Your Notes</NavLink>
                   <br/>
 		  <NavLink to="/new">+ Create New Note</NavLink>
+                  <br/>
 		</div>
 	      </nav>
 	      <Route
@@ -50,7 +52,7 @@ class App extends Component {
 		}
 		/>
 		<Route path='/new' component={NewNote} />
-		<Route path='/note'/>
+		<Route path='/note/:id' component={Note}/>
 		<Route path='/edit'/>
 	    </div>
 	);
