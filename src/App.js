@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { 
   Route,
-  Redirect 
+  Redirect,
+  
   } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -120,11 +121,16 @@ class App extends Component {
           <Redirect from="/" to="/all-notes" />
           
           {localStorage.getItem('JWT') ? <LeftMenu /> : null}
+
           <div className="right-display">
-          {localStorage.getItem('JWT') ? null : <Route path="/welcome" component={Welcome} /> }
-            <Route
+          
+          {localStorage.getItem('JWT') ?
+          
+          <React.Fragment>
+
+          <Route
               exact
-              path="/all-notes/"
+              path="/all-notes"
               render={ () => {
                 return (
                   <AllNotes
@@ -168,23 +174,30 @@ class App extends Component {
               }}
             ></Route>
 
+            {(this.state.deleteEnabled) ?
+                        (<div className="delete">
+                            <Route
+                              path="/all-notes/:noteId/delete"
+                              render={ (note) => {
+                                return (
+                                  <div>
+                                    <DeleteNote
+                                      deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
+                                  </div>
+                                )
+                              }}
+                            ></Route>
+                          </div>) :
+                      null}
+
+            </React.Fragment>
+           
+           : <Route path="/welcome" component={Welcome} /> }
+          
+            
           </div>
 
-          {(this.state.deleteEnabled) ?
-             (<div className="delete">
-                <Route
-                  path="/all-notes/:noteId/delete"
-                  render={ (note) => {
-                    return (
-                      <div>
-                        <DeleteNote
-                          deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
-                      </div>
-                    )
-                  }}
-                ></Route>
-              </div>) :
-          null}
+          
 
         </AppDiv>
     );//return

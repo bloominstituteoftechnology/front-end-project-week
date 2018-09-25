@@ -22,7 +22,8 @@ class Welcome extends Component{
     createUser = (newUser) => {
         console.log('createuser in welcome.js', this)
         this.props.createUser(newUser);
-        this.props.history.push('/')
+        this.props.history.push('/all-notes')
+
     }
     
     render(props){

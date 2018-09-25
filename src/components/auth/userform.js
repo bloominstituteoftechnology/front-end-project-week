@@ -23,7 +23,7 @@ export default class UserForm extends Component{
     submit = (e) => {
         e.preventDefault();
         this.props.loginOrRegister(this.state)
-
+        
     }
     
     render(){
