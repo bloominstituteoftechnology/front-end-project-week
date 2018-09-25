@@ -18,6 +18,7 @@ export const fetchData = () => {
       axios
       .get(`http://localhost:8000/api/notes`)
       .then(response => {
+          console.log(response.data)
           dispatch({ type: DATA_FETCHED, payload: response.data });
       })
       .catch(error => {
@@ -32,6 +33,7 @@ export const fetchNote = (id) => {
         axios
         .get(`http://localhost:8000/api/notes/${id}`)
         .then(response => {
+            console.log(response.data)
             dispatch({ type: NOTE_FETCHED, payload: response.data });
         })
         .catch(error => {

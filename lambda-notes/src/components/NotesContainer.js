@@ -60,7 +60,7 @@ class NotesContainer extends Component {
         <Sidebar />
       <div className='main-content'>
         <Route
-          exact path="/"
+          exact path="/notes"
           render={(props) => <NotesList
           {...props}
           data={this.state.currentlyDisplayed}
