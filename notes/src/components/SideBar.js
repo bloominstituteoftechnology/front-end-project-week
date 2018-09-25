@@ -12,10 +12,13 @@ const CustomButton = styled.button`
     background: #2AB4AE;
     color: white;
     width: 250px;
+    margin: 0.5rem;
     padding: 1rem;
     font-size: 1rem;
     font-weight: 700;
     text-align: center;
+    border-radius: 100px;
+    border: none;
 `;
 
 class SideBar extends React.Component {
@@ -28,6 +31,12 @@ class SideBar extends React.Component {
                                     padding: '1rem'}}>
                 <Link to="/note/all" style={{ textDecoration: 'none' }}>
                     <H1>Lambda Notes</H1>
+                </Link>
+                <Link to="/auth/register" style={{ textDecoration: 'none' }}>
+                    <CustomButton onClick={this.props.reset}>Register</CustomButton>
+                </Link>
+                <Link to="/auth/login" style={{ textDecoration: 'none' }}>
+                    <CustomButton onClick={this.props.reset}>Login</CustomButton>
                 </Link>
                 <Link to="/note/all" style={{ textDecoration: 'none' }}>
                     <CustomButton onClick={this.props.reset}>View Your Notes</CustomButton>

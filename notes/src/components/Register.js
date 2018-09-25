@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Input, Button } from 'reactstrap';
+import { Input, Button } from 'reactstrap';
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -14,6 +15,7 @@ const Background = styled.div`
 
 const Title = styled.h1`
     margin: 0 auto;
+    padding: 2rem;
     font-size: 4rem;
     font-weight: 800;
     width: 1200px;
@@ -42,26 +44,42 @@ class Register extends React.Component {
                  this.setState({ email: '', password: ''});
                  window.location.href='http://localhost:3000/note/all';           
                 })
-                .catch( err => alert( err ));
+                .catch( err => alert('Invalid email or the email is already registered.'));
     };
     render() {
         return (
             <Background>
-                <Title>Lambda Notes</Title>
-                <Form type='submit'>
+                <div style={{ display: 'flex'}}>
+                    <Title>Lambda Notes</Title>
+                    <Link to='/auth/register' style={{ padding: '0.5rem 1rem', color: 'white' }} >
+                            Register
+                    </Link>
+                    <Link to='/auth/login' style={{ padding: '0.5rem 1rem', color: 'white' }}>
+                            Login
+                    </Link>
+                </div>
+                <form>
                     <Input placeholder='email'
                             name='email'
                             type='email'
+                            style={{ width: '400px', margin: '1rem auto'}}
                             onChange={this.handleChange}/>
                     <Input placeholder='password'
                             name='password'
                             type='password'
+                            style={{ width: '400px', margin: '1rem auto'}}
                             onChange={this.handleChange}/>
-                    <Button onClick={this.submit}>
+                    <Button style={{ 
+                            width: '400px',
+                            margin: '0.5rem 15rem',
+                            color: '#2AB4AE',
+                            background: 'white',
+                            border: 'none' }}
+                            onClick={this.submit}>
                         Register
                     </Button>
-                </Form>
-            </Background>
+                </form>
+        </Background>
         );
     };
 };
