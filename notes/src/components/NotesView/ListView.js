@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NoteItem from "./NoteItem";
+import axios from "axios";
 import "./listview.css";
 
 class ListView extends Component {
@@ -7,14 +8,40 @@ class ListView extends Component {
     super(props);
     this.state = {
       notes: [],
-      tags: props.tags,
+      tags: [],
       activeTag: "all",
       sortedNotes: []
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ notes: nextProps.notes, sortedNotes: nextProps.notes });
+  componentDidMount() {
+    axios
+      .get(`http://localhost:8000/api/notes`)
+      .then(response => {
+        console.log(response.data);
+        let tags = "";
+        let filteredTags = "";
+
+        response.data.forEach(note => {
+          tags += note.tags + ",";
+        });
+
+        tags = tags.slice(0, tags.length - 1);
+        tags = tags.split(",");
+
+        filteredTags = tags.filter((tag, index) => {
+          return tags.indexOf(tag) === index;
+        });
+
+        this.setState({
+          notes: response.data,
+          sortedNotes: response.data,
+          tags: filteredTags
+        });
+      })
+      .catch(err => {
+        console.log("Error retrieving notes");
+      });
   }
 
   tagSelect = e => {
@@ -37,7 +64,6 @@ class ListView extends Component {
   };
 
   render() {
-    console.log(this.state.notes);
     return (
       <div className="list-view">
         <h2>Your Notes: </h2>

@@ -17,8 +17,7 @@ class NewNote extends Component {
   };
 
   editTags = e => {
-    let tags = e.target.value.split(",");
-    this.setState({ [e.target.name]: tags });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   addNoteHandler = e => {

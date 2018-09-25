@@ -1,34 +1,56 @@
-import React , { Component }from 'react';
-import { Link } from 'react-router-dom';
-import './note.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import "./note.css";
 
 class Note extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            deleteToggle: false
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      note: {},
+      tags: [],
+      deleteToggle: false
+    };
+  }
 
-    render() {
-        console.log("Note: " + this.props.note);
-        return (
-            <div className="note">
-                <div className="note-links">
-                    <Link to={`/note/${this.props.note.id}/edit`}>edit</Link>
-                    <a className="delete-btn" onClick={
-                        () => this.props.deleteNote(this.props.note.id)
-                        }>delete
-                    </a>
-                </div>
-                <h2>{this.props.note.title}</h2>
-                <p>{this.props.note.text}</p>
-                <div className="tags"> 
-                    Tags: {this.props.note.tags.map((tag,index) => <span key={index}>{tag}</span>)}
-                </div>
-            </div>
-        );
-    }
+  componentDidMount() {
+    axios
+      .get(`http://localhost:8000/api/notes/${this.props.id}`)
+      .then(response => {
+        console.log(response.data[0]);
+        let tags = response.data[0].tags.split(",");
+        this.setState({
+          note: response.data[0],
+          tags: tags
+        });
+      })
+      .catch(err => {
+        console.log("Error retrieving notes");
+      });
+  }
+  render() {
+    return (
+      <div className="note">
+        <div className="note-links">
+          <Link to={`/note/${this.state.note.id}/edit`}>edit</Link>
+          <a
+            className="delete-btn"
+            onClick={() => this.props.deleteNote(this.state.note.id)}
+          >
+            delete
+          </a>
+        </div>
+        <h2>{this.state.note.title}</h2>
+        <p>{this.state.note.content}</p>
+        <div className="tags">
+          Tags:{" "}
+          {this.state.tags.map((tag, index) => (
+            <span key={index}>{tag}</span>
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Note;

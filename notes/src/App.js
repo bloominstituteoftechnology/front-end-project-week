@@ -13,30 +13,40 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      tags: ["all", "productivity", "utilities", "personal", "goals", "todo"],
+      tags: [],
       deleteModalToggle: false,
       selectedNoteID: null
     };
   }
 
-  componentDidMount() {
+  /* componentDidMount() {
     axios
       .get(`http://localhost:8000/api/notes`)
       .then(response => {
-        console.log(response.data);
-        this.setState({ notes: response.data });
+        let tags = "";
+
+        response.data.forEach(note => {
+          tags += note.tags;
+        });
+
+        tags = tags.split(",").filter((tag, index) => {
+          return tags.indexOf(tag) === index;
+        });
+
+        this.setState({ notes: response.data, tags: tags });
       })
       .catch(err => {
         console.log("Error retrieving notes");
       });
-  }
+  }*/
 
   addNote = note => {
     let notes = this.state.notes.slice();
     let tags = this.state.tags.slice();
+    let newTags = note.tags.split(",");
     console.log(note);
     axios
-      .post(`http://localhost:8000/api/notes`, { note })
+      .post(`http://localhost:8000/api/notes`, note)
       .then(response => {
         console.log(response);
       })
@@ -45,7 +55,7 @@ class App extends Component {
       });
 
     notes = [...this.state.notes, note];
-    note.tags.forEach(tag => {
+    newTags.forEach(tag => {
       if (!tags.includes(tag)) tags.push(tag);
     });
     this.setState({ notes: notes, tags: tags });
@@ -67,8 +77,16 @@ class App extends Component {
   deleteNote = id => {
     let notes = this.state.notes.slice();
     notes = notes.filter(note => note.id !== this.state.selectedNoteID);
-    notes = notes.map((note, index) => ({ ...note, id: index }));
-    this.setState({ notes: notes, deleteModalToggle: false });
+
+    axios
+      .delete(`http://localhost:8000/api/notes${this.state.selectedNoteID}`)
+      .then(response => {
+        console.log(response + " deleted successfully");
+        this.setState({ notes: notes, deleteModalToggle: false });
+      })
+      .catch(err => {
+        console.log("Error deleting note");
+      });
   };
 
   render() {
@@ -100,7 +118,7 @@ class App extends Component {
               path="/note/:id"
               render={({ match }) => (
                 <Note
-                  note={this.state.notes[match.params.id]}
+                  id={match.params.id}
                   deleteNote={this.deleteToggleHandler}
                 />
               )}
