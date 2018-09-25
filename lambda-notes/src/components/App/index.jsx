@@ -10,6 +10,8 @@ import './index.css';
 import '../components.css';
 class App extends Component {
   state = {
+    filteredNotes: [],
+    search: "",
     title: "",
     textBody: ""
   }
