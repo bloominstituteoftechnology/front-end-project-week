@@ -54,7 +54,7 @@ export const deleteNote = noteId => dispatch => {
 };
 
 
-export const updateAvenger = note => dispatch => {
+export const updateNote = note => dispatch => {
     dispatch({ type: UPDATE_NOTE_START });
 
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)

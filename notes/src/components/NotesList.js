@@ -1,6 +1,8 @@
 import React from 'react';
 
+
 function NotesList(props) {
+   
     return (
         <div className="notes-list-wrapper">
             {props.notesList.map(note => (
@@ -11,10 +13,14 @@ function NotesList(props) {
                 {note.title}
                 </h3>
                 <p>({note.textBody})</p>
+                <button>Edit Note</button>
+                <button>Delete Note</button>
             </div>
             ))}
         </div>
     );
 }
+
+
 
 export default NotesList;

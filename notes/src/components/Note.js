@@ -4,7 +4,11 @@ import React from 'react';
 
 function Note(props) {
   console.log(props);
-  return (<div></div>);
+
+  return (
+    <div>
+
+    </div>);
 }
 
 
