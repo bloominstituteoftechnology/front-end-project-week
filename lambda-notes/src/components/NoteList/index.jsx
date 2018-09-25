@@ -18,30 +18,24 @@ class NoteList extends React.Component {
   }
 
   render() {
-    // reverses note array
+    
     let notes = this.props.notes.slice().reverse();
 
-    // if notes are not yet loaded into store, return loading icon
     notes.forEach(note => {
-      // trims regular case note title
       if (note.title.length > 14) {
         note.title = note.title.slice(0, 14) + '...';
       }
-      // trims uppercase note title
       if (note.title.length > 12 && note.title === note.title.toUpperCase()) {
         note.title = note.title.slice(0, 12) + '...';
       }
-      // trims regular case note body
       if (note.textBody.length > 95) {
         note.textBody = note.textBody.slice(0, 95) + '...';
       }
-      // trims uppercase note body
       if (note.textBody.length > 87 && note.textBody === note.textBody.toUpperCase()) {
         note.textBody = note.textBody.slice(0, 87) + '...';
       }
     });
 
-    // creates array of draggable or non-draggable notes, depending on isSortable
     const draggableNotes = notes.map(note => {
       if (this.state.isSortable) {
         return (
@@ -62,7 +56,6 @@ class NoteList extends React.Component {
       }
     }).map(jsx => ({ content: jsx }));
 
-    // returns loading component if notes aren't fetched
     if (this.props.fetchingNotes) {
       return (
         <div>Loading...</div>

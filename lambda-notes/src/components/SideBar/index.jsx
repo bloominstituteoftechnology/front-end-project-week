@@ -8,7 +8,7 @@ const SideBar = props => {
       <div className="sidebar-wrapper">
         <h1>Lambda<br />Notes</h1>
         <Link to="/"><button>View Your Notes</button></Link>
-        <Link to="/notes/add"><button>+ Create Ne Note</button></Link>
+        <Link to="/notes/add"><button>+ Create New Note</button></Link>
         <input
           type="text"
           name="search"
