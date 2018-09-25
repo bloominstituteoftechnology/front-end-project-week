@@ -4,7 +4,6 @@ nav background: #d3d2d3
 nav header text: #414141
 nav button text: #ffffff
 nav buttons: #24b8bd
-nav buttons broder: #acb7b8
 notes list background: #f2f2f2
 note preview background: #ffffff
 note preview text: #000000

@@ -1,16 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Styled from 'styled-components';
 
 import { ContentDiv } from '../../styling/';
 import NotePreview from './notepreview';
 
+const ListDiv = Styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+`;
 
 const NotesList = (props) => {
     return (
         <ContentDiv>
-            <h3>Your Notes:</h3>
-            <NotePreview />
-            <NotePreview />
+            <h2>Your Notes:</h2>
+            <ListDiv>
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                <NotePreview />
+                
+            </ListDiv>
         </ContentDiv>
     );
 };

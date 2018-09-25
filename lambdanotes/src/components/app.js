@@ -18,7 +18,7 @@ class App extends Component {
       <DivBorder>
         <Nav />
         <Route exact path='/' component={NotesList} />
-        <Route path='/editor' component={NoteEditor} />
+        <Route path='/noteeditor' component={NoteEditor} />
         <Route path='/notes/:id' component={Note} />
       </DivBorder>
     );
