@@ -8,8 +8,14 @@ class Note extends Component {
 
     render() {
         return (
-            <div>
-                {this.props.note.textBody}
+            <div className='note-container'>
+                <h3>
+                    Title: {this.props.note.title}
+                </h3>
+                <p>
+                    Note: {this.props.note.textBody}
+                </p>
+
             </div>
         );
     }
