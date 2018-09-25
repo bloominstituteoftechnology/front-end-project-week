@@ -19,7 +19,9 @@ class App extends Component {
       id: '',
       title: '',
       text: '',
-      showModal: false
+      showModal: false,
+      searchQuery: '',
+      searchResults: []
     }
   }
 
@@ -39,6 +41,10 @@ class App extends Component {
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  searchInputChange = (event) => {
+
+  }
 
   addNewNote = event => {
     event.preventDefault();

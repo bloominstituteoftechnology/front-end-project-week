@@ -7,7 +7,9 @@ export const NoteList = props => {
         <div className="notes-wrap" >
             <div className="search-wrap" >
                 <h3 className="your-header" >Your Notes:</h3>
-                <SearchBar  />
+                <SearchBar
+                    
+                />
             </div>
             <div className="notes-container" >
             {props.notes.map(note => {
