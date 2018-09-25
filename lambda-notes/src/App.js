@@ -19,7 +19,7 @@ render() {
     return (
       <div className="App">
       	<Route exact  path="/" component={ViewNotesContainer} />
-        <Route exact path="/createnewnote" render={(props) => <CreateNoteContainer {...props} />} />	   
+        <Route exact path="/add" render={(props) => <CreateNoteContainer {...props} />} />	   
 	<Route exact path="/note/:id" render={(props) => <EachNoteBody {...props} />} />
 	<Route exact path="/editnote/:id" render={(props) => <EditNoteBody {...props} />} />
     
