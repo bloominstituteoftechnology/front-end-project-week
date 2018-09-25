@@ -27,6 +27,17 @@ export default class Note extends Component {
     });
   }
 
+  deleteNote = id => {
+    axios
+    .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then(() => {
+      this.fetchNote()
+    })
+    .catch(err => {
+      console.error(err);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    });
+  }
+
   render() {
     if (!this.state.note) {
       return <div>Loading note...</div>;
@@ -35,7 +46,7 @@ export default class Note extends Component {
       <div className='one-note'>
         <div className='note-action'>
           <span>edit</span>
-          <span>delete</span>
+          <button onClick={()=> this.deleteNote(this.state.note._id)}>delete</button>
         </div>
         {/* <NoteCard /> */}
         <h3>{this.state.note.title}</h3>

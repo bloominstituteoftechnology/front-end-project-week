@@ -17,7 +17,7 @@ export default class NewNote extends Component {
     .post('https://killer-notes.herokuapp.com/note/create', this.state)
     .then(() => 
     this.setState({
-      tags: [],
+      // tags: [],
       title: '',
       textBody: ''
     }))
