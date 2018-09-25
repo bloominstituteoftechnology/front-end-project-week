@@ -3,18 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import NoteList from './components/NoteList';
 import AddNote from './components/AddNote';
+import {connect} from 'react-redux';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      notes: [
-        {title: 'example title', content: 'example content'},
-        {title: 'second title', content:'second example content'},
-      ],
-    };
-  }
-
   render() {
     return (
       <div className="App">
@@ -23,10 +14,15 @@ class App extends Component {
           <h1 className="App-title">Welcome to de Jungle</h1>
         </header>
         <AddNote />
-        <NoteList notes={this.state.notes} />
+        <NoteList notes={this.props.notes} />
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchtoProps = state =>({
+  notes: state.notes,
+  adding: state.adding
+});
+
+export default connect(mapDispatchtoProps)(App);

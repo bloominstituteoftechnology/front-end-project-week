@@ -9,27 +9,56 @@ export default class AddNote extends React.Component{
             content: ''
         }
     }
+
+    handleChange = event =>{
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    addNote = event =>{
+        event.preventDefault();
+        const note = {
+            title: this.state.title,
+            content: this.state.content
+        }
+        this.setState({title: '', content: ''});
+    }
+
     render(){
         return(
             <FormStyled>
+                <FormTitle>
+                    <InnerTitleBox>
+                        Create New Note:
+                    </InnerTitleBox>
+                </FormTitle>
                 <TitleInput
                     type='text'
                     placeholder='Note Title'
                     value={this.state.title}
-                    onChange={this.handleChange}
                     name='title'
+                    onChange={this.handleChange}
                 />
                 <ContentInput
-                    type='text'
+                    rows = '6'
                     placeholder='Note Content'
-                    value={this.state.title}
-                    onChange={this.handleChange}
+                    value={this.state.content}
                     name='content'
+                    onChange={this.handleChange}
                 />
+                <ButtonStyled type='submit'>
+                    Save
+                </ButtonStyled>
             </FormStyled>
         )
     }
 }
+
+const ButtonStyled = styled.button`
+`
+
+const InnerTitleBox = styled.div`
+    justify-content: flex-start;
+`
 
 const FormStyled = styled.div`
     border: 2px solid;
@@ -39,15 +68,22 @@ const FormStyled = styled.div`
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 1rem;
-    position: absoulute;
+    display: flex;
+    flex-wrap: wrap;
 `
 
 const TitleInput = styled.input`
     width: 90%;
 `
 
-const ContentInput = styled.input`
+const ContentInput = styled.textarea`
     width: 90%;
-    height: 270px;
     margin-top: 5px;
+`
+
+const FormTitle = styled.div`
+    font-size: 1.4 rem;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
 `
