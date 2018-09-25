@@ -15,3 +15,9 @@ display:flex;
 *{
 box-sizing:border-box;
 }
+
+.column{
+display:flex;
+flex-direction:column;
+width:100%;
+}

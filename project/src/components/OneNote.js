@@ -9,22 +9,33 @@ deleting:false
 }
 }
 
+deleteQuerry = () => {
+if(this.props.note.poster===this.props.loggedIn || this.props.note.poster==="guest"){this.deleteToggle()}
+else alert('you don\'t have permission to delete this post');
+}
+
 deleteToggle = () => {
 let opposite = !this.state.deleting
 this.setState({deleting:opposite});
-console.log(this.state);
+}
+
+editQuerry = () => {
+if(this.props.note.poster===this.props.loggedIn || this.props.note.poster==="guest"){this.props.editNote(this.props.index)}
+else alert('you don\'t have permission to edit this post');
 }
 	
 render(){
 return(
 <div className="overall">
 <div className="flex">
-<div className="option" onClick={()=>this.props.editNote(this.props.index)}>edit</div>
-<div className="option" onClick={()=>this.deleteToggle()}>delete</div>
+<div className="option" onClick={()=>this.editQuerry()}>edit</div>
+<div className="option" onClick={()=>this.deleteQuerry()}>delete</div>
 </div>
 <div className="contents">
 <div className="title">{this.props.note.title}</div>
 <div>{this.props.note.content}</div>
+<br/>
+<div>By:{this.props.note.poster}</div>
 </div>
 {this.state.deleting ? (
 <React.Fragment>

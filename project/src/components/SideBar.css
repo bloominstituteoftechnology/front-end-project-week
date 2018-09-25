@@ -1,7 +1,7 @@
 .sideBar{
 display:flex;
 flex-direction:column;
-width:15%;
+width:18%;
 background:#b3b3b3;
 min-width:200px;
 border-right:1px solid #808080;
