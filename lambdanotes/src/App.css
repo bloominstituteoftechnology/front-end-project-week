@@ -20,21 +20,20 @@
  
  .noteList {
    background-color: rgb(236, 236, 236);
-    width: 1000px;
+    width: 1200px;
     display: flex;
     flex-wrap: wrap;
 }
 
-.your-header {
+.YourHeader {
   height: 30px;
   width: 100%;
 }
 
- .Single-Note {
+ .SingleNote {
+  width: 300px;
   background-color: white;
   border: 1px solid rgb(158, 158, 158);
-
-  width: 20%;
   height: 222px;
   margin: 15px;
   padding: 0 11px;

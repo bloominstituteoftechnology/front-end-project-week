@@ -16,3 +16,5 @@
         text: 'Grow',
     },
 ]
+
+export default Note;
