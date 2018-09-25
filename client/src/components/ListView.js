@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
-import { SecondaryHeading, LinkWrapper } from '../styles';
+import { SecondaryHeading } from '../styles';
 
 const CardsContainer = styled.div`
   display: flex;

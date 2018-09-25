@@ -103,11 +103,7 @@ class NotesForm extends Component {
           placeholder="Add tag"
           autoComplete="off"
           onKeyDown={event => {
-            const {
-              key,
-              target: { value },
-              target,
-            } = event;
+            const { key, target } = event;
             if (key === 'Enter') {
               event.stopPropagation();
               target.value = '';
