@@ -53,7 +53,7 @@ class App extends Component {
       .post(dataURL, newNote)
       .then(response => {
         this.setState({ title: "", content: "" });
-        setTimeout(() => this.setState({ redirect: true }), 1000);
+        setTimeout(() => this.setState({ redirect: true }), 500);
         // this.forceUpdate();
         // this.props.history.push("/");
       })
@@ -63,17 +63,7 @@ class App extends Component {
   };
 
   editNewNoteHandler = event => {
-    // event.preventDefault();
-    // let noteNumberToEdit = parseInt(
-    //   event.target.attributes.getNamedItem("notenumber").value,
-    //   10,
-    // );
-    // let notesCopy = this.state.notes.slice();
-    // notesCopy[noteNumberToEdit].title = this.state.title;
-    // notesCopy[noteNumberToEdit].content = this.state.content;
-    // this.setState({ notes: notesCopy, title: "", content: "" });
-    // setTimeout(() => this.setState({ redirect: true }), 1000);
-    // setTimeout(() => this.setState({ redirect: false }), 1000);
+    event.preventDefault();
     const id = parseInt(
       event.target.attributes.getNamedItem("notenumber").value,
       10,
@@ -86,6 +76,7 @@ class App extends Component {
       .put(`http://localhost:7000/api/notes/${id}`, newNote)
       .then(response => {
         this.setState({ title: "", content: "" });
+        setTimeout(() => this.setState({ redirect: true }), 500);
       })
       .catch(err => {
         console.log(err);
@@ -101,18 +92,6 @@ class App extends Component {
   };
 
   deleteNoteHandler = event => {
-    // let noteNumberToAvoid = parseInt(
-    //   event.target.attributes.getNamedItem("deletenotenumber").value,
-    //   10,
-    // );
-    // let notesCopy = this.state.notes.slice();
-    // notesCopy = notesCopy.filter(note => {
-    //   return note.id !== noteNumberToAvoid;
-    // });
-    // this.setState({ notes: notesCopy });
-
-    // setTimeout(() => this.setState({ redirect: true }), 1000);
-    // setTimeout(() => this.setState({ redirect: false, isOpen: false }), 1000);
     const id = parseInt(
       event.target.attributes.getNamedItem("deletenotenumber").value,
       10,
@@ -121,11 +100,8 @@ class App extends Component {
       .delete(`http://localhost:7000/api/notes/${id}`)
       .then(response => {
         this.setState({ title: "", content: "" });
-        setTimeout(() => this.setState({ redirect: true }), 1000);
-        setTimeout(
-          () => this.setState({ redirect: false, isOpen: false }),
-          1000,
-        );
+        setTimeout(() => this.setState({ redirect: true }), 500);
+        setTimeout(() => this.setState({ isOpen: false }), 500);
       })
       .catch(err => {
         console.log(err);
