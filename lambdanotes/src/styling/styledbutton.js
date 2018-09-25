@@ -3,7 +3,6 @@ import Styled from 'styled-components';
 export default Styled.div`
     width: 190px;
     height: 45px;
-    /* margin: 10px auto; */
     margin: 10px;
     border: 1px solid #afafaf;
     border-radius: 1px;

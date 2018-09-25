@@ -21,13 +21,14 @@
 			"__v": -1
 		}
 	},
-	"crudStatus": {
+	"status": {
 		"postingNote": false,
 		"postedNote": false,
 		"gettingNotes": false,
 		"gotNotes": false,
 		"puttingNote": false,
 		"putNote": false,
+		"deletePrompt": false,
 		"deletingNote": false,
 		"deletedNote": false,
 		"noteError": ""
@@ -52,7 +53,7 @@ App
 Navigation
 	nav.js
 		insert <NavLink />'s here
-	button maker?
+	styled button template!
 Form
 	noteeditor.js
 	class
@@ -78,3 +79,15 @@ List
 
 Note
 	note.js
+
+Delete Modal
+	deletemodal.js
+
+~~~~~Containers~~~~~
+noteeditorcontainer.js -> noteeditor.js
+	Brings in {notes: ["A Note": {}], editing: {} }
+noteslistcontainer.js -> noteslist.js
+	Brings in {notes: [], status: {} }
+notecontainer.js -> note.js
+	Click on header or div(?) of NotePreview to navigate to a single Note
+	Brings in {notes: ["A Note": {}]}

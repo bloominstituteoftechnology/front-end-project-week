@@ -32,7 +32,7 @@ const Note = (props) => {
             <h2>{/*{props.note.title}*/}Note Title</h2>
             <SizedP>{/*{props.note.textBody}*/}{loremipsum}</SizedP>
             {/* <input name='tags' type='text' /> */}
-            <DeleteModal />
+            {/* <DeleteModal /> */}
         </ContentDiv>
     );
 };

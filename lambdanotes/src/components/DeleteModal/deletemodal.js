@@ -35,8 +35,6 @@ const DeleteHeader = Styled.h4`
     z-index: 99;
     margin: auto;
     font-size: 2rem;
-    /* border: 1px solid black;
-    background-color: green; */
 `;
 
 const ButtonContainer = Styled.div`
@@ -44,8 +42,6 @@ const ButtonContainer = Styled.div`
     height: 70px;
     display: flex;
     justify-content: center;
-    /* border: 1px solid black;
-    background-color: blue; */
 `;
 
 const DeleteModal = (props) => {

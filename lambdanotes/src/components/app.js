@@ -3,9 +3,9 @@ import { Route, withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
 
 import { Nav } from './Nav/';
-import { NotesList } from './NotesList/';
-import { NoteEditor } from './NoteEditor/';
-import { Note } from './Note/';
+import { NotesListContainer } from '../containers/';
+import { NoteEditorContainer } from '../containers/';
+import { NoteContainer } from '../containers/';
 
 const DivBorder = Styled.div`
   margin: 10px;
@@ -17,9 +17,9 @@ class App extends Component {
     return (
       <DivBorder>
         <Nav />
-        <Route exact path='/' component={NotesList} />
-        <Route path='/noteeditor' component={NoteEditor} />
-        <Route path='/notes/:id' component={Note} />
+        <Route exact path='/' component={NotesListContainer} />
+        <Route path='/noteeditor' component={NoteEditorContainer} />
+        <Route path='/notes/:id' component={NoteContainer} />
       </DivBorder>
     );
   }

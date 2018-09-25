@@ -28,7 +28,7 @@ const Nav = (props) => {
     return (
         <NavDiv>
             <h1>Lambda Notes</h1>
-            <NoDecLink exact to='/'><StyledButton buttonColor='aqua'>View Your Notes</StyledButton></NoDecLink>
+            <NoDecLink exact='true' to='/'><StyledButton buttonColor='aqua'>View Your Notes</StyledButton></NoDecLink>
             <NoDecLink to='/noteeditor'><StyledButton buttonColor='aqua'>+ Create New Note</StyledButton></NoDecLink>
         </NavDiv>
     );

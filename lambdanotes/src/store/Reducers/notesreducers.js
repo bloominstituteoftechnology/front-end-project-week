@@ -1,10 +1,13 @@
 import {
-    CREATING_NOTE,
-    CREATED_NOTE,
+    POSTING_NOTE,
+    POSTED_NOTE,
     GETTING_NOTES,
     GOT_NOTES,
-    EDITING_NOTE,
-    EDITED_NOTE,
+    GETTING_SINGLE_NOTE,
+    GOT_SINGLE_NOTE,
+    PUTTING_NOTE,
+    PUT_NOTE,
+    DELETE_PROMPT,
     DELETING_NOTE,
     DELETED_NOTE,
     NOTE_ERROR
@@ -44,24 +47,16 @@ const initialState = {
 			"__v": -1
 		}
     },
-    "noteStatus": {
-        "creatingNote": false,
-        "createdNote": false,
-        "readingNotes": false,
-        "readNotes": false,
-        "updatingNote": false,
-        "updatedNote": false,
-        "deletingNote": false,
-        "deletedNote": false,
-        "noteError": ""
-    },
-	"crudStatus": {
+	"status": {
 		"postingNote": false,
 		"postedNote": false,
 		"gettingNotes": false,
-		"gotNotes": false,
+        "gotNotes": false,
+        "gettingSingleNote": false,
+        "gotSingleNote": false,
 		"puttingNote": false,
-		"putNote": false,
+        "putNote": false,
+        "deletePrompt": false,
 		"deletingNote": false,
 		"deletedNote": false,
 		"noteError": ""
@@ -71,15 +66,30 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type) {
         case NOTE_ERROR:
-            return {...state, noteStatus: {...state.noteStatus, noteError: action.payload}}
-        case CREATING_NOTE:
-        case CREATED_NOTE:
+            return {...state, status: {...state.status, noteError: action.payload}};
+        case POSTING_NOTE:
+            return {...state, status: {...state.status, postingNote: true, postedNote: false}};
+        case POSTED_NOTE:
+            return {...state, status: {...state.status, postingNote: false, postedNote: true}, notes: action.payload};
         case GETTING_NOTES:
+            return {...state, status: {...state.status, gettingNotes: true, gotNotes: false}};
         case GOT_NOTES:
-        case EDITING_NOTE:
-        case EDITED_NOTE:
+            return {...state, status: {...state.status, gettingNotes: false, gotNotes: true}, notes: action.payload};
+        case GETTING_SINGLE_NOTE:
+            return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false}};
+        case GOT_SINGLE_NOTE:
+            // TODO: determine if more state is required for the payload, then update accordingly
+            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true}}
+        case PUTTING_NOTE:
+            return {...state, status: {...state.status, puttingNote: true, putNote: false}};
+        case PUT_NOTE:
+            return {...state, status: {...state.status, puttingNote: false, putNote: true}, notes: action.payload};
+        case DELETE_PROMPT:
+            return {...state, status: {...state.status, deletePrompt: true}};
         case DELETING_NOTE:
+            return {...state, status: {...state.status, deletingNote: true, deletedNote: false}};
         case DELETED_NOTE:
+            return {...state, status: {...state.status, deletingNote: false, deletedNote: true, deletePrompt: false}, notes: action.payload};
         default:
             return state;
     }
