@@ -27,7 +27,7 @@ class GotOne extends React.Component {
         <div className="note-card single-card col-md-12 pos-relative">
         <div className="edit-delete">
           <p className="mx-3">
-            <Link to={{
+            <Link style={{color: 'black', fontWeight: 'bold', fontSize: '0.7rem'}} to={{
               pathname: `/editForm/${title}/${_id}`,
               state: this.props.location.state.note
             }}>Edit</Link>

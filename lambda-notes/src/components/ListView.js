@@ -14,7 +14,7 @@ class ListView extends React.Component {
   
   render() {
     return (
-      <div className="note-card-container">
+      <div className="note-card-container" style={this.props.notes.length < 15 ? {height: '100vh'} : {height: '100%'}}>
         {
           this.props.notes.map(note => {
             return (
