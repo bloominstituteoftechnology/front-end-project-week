@@ -59,5 +59,5 @@ class NoteView extends Component {
 
 export default connect(
   mapStateToProps,
-  {}
+  {fetchNoteId}
 )(NoteView);

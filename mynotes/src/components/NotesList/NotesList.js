@@ -48,5 +48,5 @@ class NotesList extends Component {
 
 export default connect(
   mapStateToProps,
-  {}
+  {fetchNote}
 )(NotesList);
