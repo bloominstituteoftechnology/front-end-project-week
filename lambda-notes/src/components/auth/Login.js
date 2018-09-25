@@ -16,7 +16,7 @@ class Login extends Component {
     submitHandler = e => {
         e.preventDefault();
         axios
-        .post('http://localhost:3300/api/login', this.state)
+        .post('http://localhost:8000/api/login', this.state)
         .then(res => {
             console.log('response', res)
             const {token} = res.data;
@@ -41,16 +41,14 @@ class Login extends Component {
                 value={this.state.username}
                 onChange={this.inputChangeHandler}
                 type="text"
-                className="fas fa-user"
-                placeholder="&#xf007;   Username"
+                placeholder="Username"
                 name="username"
                 />
                 <input
                 value={this.state.password}
                 onChange={this.inputChangeHandler}
                 type="password"
-                className="fas fa-lock"
-                placeholder="&#xf023;   Password"
+                placeholder="Password"
                 name="password"
                 />
                 <button type="submit">Sign In</button>

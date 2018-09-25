@@ -12,11 +12,11 @@ export const NOTE_DELETED = "NOTE_DELETED";
 export const EDIT_NOTE = "EDIT_NOTE";
 export const NOTE_EDITED = "NOTE_EDITED";
 
-export const fetchData = () => {
+export const fetchData = (requestOptions) => {
   return function(dispatch) {
       dispatch({ type: FETCHING_DATA });
       axios
-      .get(`http://localhost:8000/api/notes`)
+      .get(`http://localhost:8000/api/notes`, requestOptions)
       .then(response => {
           console.log(response.data)
           dispatch({ type: DATA_FETCHED, payload: response.data });
@@ -24,7 +24,7 @@ export const fetchData = () => {
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
       })
- }
+    }
 }
 
 export const fetchNote = (id) => {
@@ -40,7 +40,7 @@ export const fetchNote = (id) => {
             dispatch({ type: ERROR, payload: error });
         })
    }
-  }
+}
 
 export const addNewNote = (title, content) => {
   return function(dispatch) {
@@ -59,7 +59,7 @@ export const addNewNote = (title, content) => {
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
       })
- }
+    }
 }
 
 export const deleteNote = id => {
@@ -76,7 +76,7 @@ export const deleteNote = id => {
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
       })
- }
+    }
 }
 
 export const editNote = (title, content, id) => {
@@ -96,5 +96,5 @@ export const editNote = (title, content, id) => {
       .catch(error => {
           dispatch({ type: ERROR, payload: error });
       })
- }
+    }
 }

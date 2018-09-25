@@ -22,7 +22,12 @@ class NotesContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData()
+  const token = localStorage.getItem('token');
+      const requestOptions = {
+          headers: {
+              authorization: token
+          }}
+    this.props.fetchData(requestOptions)
   }
 
   componentWillReceiveProps(props) {
