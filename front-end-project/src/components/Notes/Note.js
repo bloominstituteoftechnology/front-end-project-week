@@ -5,7 +5,7 @@ const Note = props => {
     const {title, content, id} = props.note
     const {selectedTheme} = props
     return(
-        <NoteCardDiv data-theme={selectedTheme} onClick={() => props.history.push(`/notes/${id}`)}>
+        <NoteCardDiv className='note' data-theme={selectedTheme} onClick={() => props.history.push(`/notes/${id}`)}>
             <h2>{title}</h2>
             <hr/>
             <p>{content}</p>

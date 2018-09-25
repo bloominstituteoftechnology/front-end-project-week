@@ -17,7 +17,7 @@ class NoteView extends Component {
       note => note.id === parseInt(this.props.match.params.id, 10)
     );
     const { selectedTheme } = this.props;
-    const { title, content } = note;
+    const { title, content, id } = note;
     const {isDeleting} = this.state
  
     console.log(selectedTheme)
@@ -30,7 +30,7 @@ class NoteView extends Component {
 
         <NoteButton
           data-theme={selectedTheme}
-          onClick={() => this.props.history.push('/notes/:id/create')}
+          onClick={() => this.props.history.push(`/notes/${id}/create`)}
         >
         Update
         </NoteButton>
