@@ -8,9 +8,9 @@ const Note = props => {
 	return (
 		<li className="NoteListPage">
 			<Link to={`/${props.note._id}`} className="note-link">
-				<h4 className="note-title">{props.note.title}</h4>
+				<h3 className="note-title">{props.note.title}</h3>
 				{/* todo: clamp preview text */}
-				<p className="note-preview">{props.note.textbody}</p>
+				<p className="note-preview">{props.note.textBody}</p>
 			</Link>
 		</li>
 	);
