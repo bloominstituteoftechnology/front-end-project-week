@@ -1,7 +1,15 @@
+
 .note-previews-container {
   display: flex;
   flex-wrap: wrap;
+  margin-right: -48.6px;
+}
+
+.note-previews-header-container {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .note-preview-container {
@@ -10,10 +18,11 @@
   border: 1px solid #979797;
   box-sizing: border-box;
   padding: 5px 15px;
-  margin: 10px 0;
+  margin: 10px 30px 10px 0;
   background: #FFFFFF;
   word-break: break-all;
   overflow-wrap: break-word;
+  cursor: pointer;
 }
 
 .note-preview-container:hover {
