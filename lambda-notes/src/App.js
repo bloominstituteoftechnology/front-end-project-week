@@ -132,7 +132,6 @@ class App extends Component {
               <NewNote
                 {...props}
                 preventSubmit={this.preventSubmit}
-                notes={this.state.notes}
                 title={this.state.title}
                 content={this.state.content}
                 addNote={this.addNote}
@@ -146,7 +145,6 @@ class App extends Component {
             render={props => (
               <Note
                 {...props}
-                notes={this.state.notes}
                 deleteNote={this.deleteNote}
               />
             )}
