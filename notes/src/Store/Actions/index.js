@@ -15,14 +15,6 @@ export const collectNotes = () => dispatch => {
     .catch(err => console.log('Unable to Collect Notes: ' + err.message))
 }
 
-// export const assembleNote = (note) => dispatch => {
-//     console.log('Assemble Note');
-//     dispatch({type: ACTIONS.ASSEMBLING_NOTE});
-//     axios.post('https://killer-notes.herokuapp.com/note/create', {...note})
-//     .then(response => (console.log(response.data)))
-//     .catch(err => console.log('Unable to Assemble Note: ' + err.message))
-// }
-
 export const assembleNote = (note) => dispatch => {
     console.log('Assemble Note');
     dispatch({type: ACTIONS.ASSEMBLING_NOTE});
@@ -31,11 +23,11 @@ export const assembleNote = (note) => dispatch => {
     .catch(err => console.log('Unable to Assemble Note: ' + err.message))
 }
 
-export const reviseNote = note => dispatch => {
+export const reviseNote = (noteId, note) => dispatch => {
     console.log('Revise Note');
     dispatch({type: ACTIONS.REVISING_NOTE});
-    axios.put(`http://localhost:3333/api/notes/${note.id}`, {...note})
-    .then(response => (dispatch({type: ACTIONS.NOTE_REVISED, notes: response.data})))
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`, note)
+    .then(response => (dispatch({type: ACTIONS.NOTE_REVISED, note: response.data, noteId: noteId})))
     .catch(err => console.log('Unable to Revise Note: ' + err.message))
 }
 

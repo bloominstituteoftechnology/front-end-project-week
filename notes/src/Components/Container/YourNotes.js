@@ -3,18 +3,14 @@ import { Note } from '../Presentational';
 
 export class YourNotes extends Component {
 
-    componentDidMount(){
-    this.props.collectNotes();
-    }
-
     render() {
         return (
             <div>YOUR NOTES
-                {this.props.notes.map((note, index) => (
+                {this.props.notes.map(note => (
                 <Note 
-                key={"note-"+index} 
+                {...this.props} 
+                key={note._id} 
                 note={note} 
-                expungeNote={this.props.expungeNote}
                 />
                 ))}
             </div>

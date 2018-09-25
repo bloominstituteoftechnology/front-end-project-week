@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
 import './App.css';
-import { YourNotes, Sidebar, Forms } from '../Container/';
+import { YourNotes, Sidebar, Forms, ViewNote } from '../Container/';
 import { Header } from '../Presentational/';
-import { collectNotes, assembleNote, expungeNote } from '../../Store/Actions';
+import { collectNotes, assembleNote, reviseNote, expungeNote } from '../../Store/Actions';
 
 class App extends Component {
 
+  componentDidMount() {
+    this.props.collectNotes();
+    }
 
   render() {
-
-    console.log(this.props);
 
     return (
       <div className="App">
@@ -20,18 +21,28 @@ class App extends Component {
         <Sidebar />
 
         <main className="notes-main">
-          <Route exact path="/forms/:form" render={ props => (
+          <Route path="/forms/:form" render= { props => (
             <Forms {...props} 
-            assembleNote={this.props.assembleNote}
+            assembleNote={this.props.assembleNote} 
+            reviseNote={this.props.reviseNote}
             />
           )}/>
 
-          <Route path="/notes" render={ props => (
+          <Route exact path="/notes" render= { props => (
             <YourNotes 
             {...props} 
             notes={this.props.notes} 
             collectNotes={this.props.collectNotes} 
-            expungeNote={this.props.expungeNote}
+            />
+          )}/>
+
+          <Route path="/notes/note/:id" render= {
+          props => (
+            <ViewNote 
+            {...props} 
+            notes={this.props.notes} 
+            collectNotes={this.props.collectNotes} 
+            expungeNote={this.props.expungeNote} 
             />
           )}/>
         </main>
@@ -45,4 +56,4 @@ const connectStateToProps = state => ({
   notes: state.notes
 })
 
-export default withRouter(connect(connectStateToProps, { collectNotes, assembleNote, expungeNote })(App));
+export default withRouter(connect(connectStateToProps, { collectNotes, assembleNote, reviseNote, expungeNote })(App));

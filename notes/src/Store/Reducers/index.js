@@ -31,7 +31,10 @@ export const reducer = (state = initialState, action) => {
         return {...state, isRevising: true};
 
         case ACTIONS.NOTE_REVISED:
-        return {...state, notes: action.notes, isRevising: false};
+        const index = state.notes.map(note => note._id).indexOf(action.noteId);
+        console.log(index);
+        const updatedNotes = [...state.notes.slice(0, index), {...action.note}, ...state.notes.slice(index + 1)];
+        return {...state, notes: [...updatedNotes], isRevising: false};
 
         // DELETE
         case ACTIONS.EXPUNGING_NOTE:

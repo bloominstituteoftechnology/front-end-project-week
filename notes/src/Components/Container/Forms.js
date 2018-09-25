@@ -5,10 +5,6 @@ import { Route } from 'react-router-dom';
 export class Forms extends Component {
     state = {};
 
-    componentDidMount() {
-
-    }
-
     handleInput = (e) => {
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value
@@ -18,7 +14,7 @@ export class Forms extends Component {
     render() {
         return (
             <div>FORMS
-                <Route path="/forms/assemble" render={props => (
+                <Route exact path="/forms/assemble" render={props => (
                     <AssembleNote 
                     {...props}
                     note={this.state} 
@@ -27,8 +23,13 @@ export class Forms extends Component {
                     formName="assemble"/>
                 )}/>
 
-                <Route path="/forms/revise" render={props => (
-                <ReviseNote />
+                <Route exact path="/forms/revise/:id" render={props => (
+                <ReviseNote 
+                {...props} 
+                note={this.state} 
+                handleInput={this.handleInput} 
+                reviseNote={this.props.reviseNote} 
+                />
                 )}/>
 
 
