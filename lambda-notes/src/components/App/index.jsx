@@ -26,6 +26,20 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  // handle the search change check if any of the data includes the search term
+  handleSearchChange = e => {
+    this.setState({ search: e.target.value });
+    setTimeout(() => {
+      const notes = this.props.notes.filter(note => {
+        return (
+          note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
+          note.textBody.toLowerCase().includes(this.state.search.toLowerCase())
+        )
+      });
+      this.setState({ filteredNotes: notes });
+    }, 1);
+  };
+
   // sends current state of title and textBody to server, resets state, redirects to home page
   handleFormSubmit = e => {
     e.preventDefault();
