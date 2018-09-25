@@ -3,8 +3,8 @@ import React, {  } from 'react';
  
  export const NoteList = props => {
      return (
-         <div className="YourNotes" >
-             <h3 className="YourHeader" >Your Notes:</h3>
+         <div className="Container YourNotes">
+             <h3 className="Header">Your Notes:</h3>
              <div className="noteList">
              {props.notes.map(note => {
              return ( 
@@ -15,7 +15,7 @@ import React, {  } from 'react';
                         key={note.id}
                         className="SingleNote"
                     >
-                        <h3>{note.title}</h3>
+                        <h3 className="note-title">{note.title}</h3>
                     {note.text}
                     </div>
                </Link>

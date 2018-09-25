@@ -9,13 +9,13 @@ export const AddNote = props => {
    }
 
     return (
-       <div className="add-form-wrap" >
-            <h3>Create New Note:</h3>
-    <form  className="add-form" >
-                <input className="add-title-input" placeholder="Title" name="title" onChange={props.handleInputChange} value={props.inputTitle} /> <br/>
-                <textarea className="add-text-input" placeholder="Description" name="text" onChange={props.handleInputChange} value={props.inputText} />
+       <div className="Container AddNote" >
+            <h3 className="Header">Create New Note:</h3>
+              <form  className="add-form" >
+                <input className="title-input" placeholder="Title" name="title" onChange={props.handleInputChange} value={props.inputTitle} /> <br/>
+                <textarea className="text-input" placeholder="Content" name="text" onChange={props.handleInputChange} value={props.inputText} />
                 <div onClick={handleClick} className="save-btn" >Save</div>
-            </form>
+              </form>
         </div>
     )
 }

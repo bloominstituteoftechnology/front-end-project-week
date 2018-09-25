@@ -1,11 +1,16 @@
-.Main-Page {
+.App {
   display: flex;
 }
- .App-header {
+
+a {
+  text-decoration: none;
+}
+
+ .Nav-bar {
   border: 1px solid rgb(158, 158, 158);
   background-color: rgb(209, 209, 209);
   height: 150px;
-  width: 195px;
+  width: 215px;
   padding: 15px;
   color: white;
   display: flex;
@@ -13,28 +18,39 @@
   height:800px;
 }
  .App-title {
-   padding-left: 10px;
+   margin-top: 0;
    color: rgba(20, 20, 20, 0.712);
    font-size: 2.0em;
  }
+
+ .display-right {
+   width: 100%;
+  background-color: rgb(236, 236, 236);
+ }
+
+ .Container {
+   padding: 41px 30px 30px 30px;
+ }
  
  .noteList {
-   background-color: rgb(236, 236, 236);
-    width: 1200px;
     display: flex;
     flex-wrap: wrap;
 }
 
-.YourHeader {
-  height: 30px;
+.Header {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
   width: 100%;
+  color: rgba(20, 20, 20, 0.712);
+  padding-left: 13px;
 }
 
  .SingleNote {
-  width: 300px;
+  width: 200px;
   background-color: white;
   border: 1px solid rgb(158, 158, 158);
-  height: 222px;
+  height: 235px;
   margin: 15px;
   padding: 0 11px;
   padding-bottom: 15px;
@@ -49,11 +65,72 @@
   border-bottom: 1.4px rgb(153, 153, 153) solid;
 }
 
-button {
+.nav-button {
+  text-align: center;
   border: 1px solid rgb(158, 158, 158);
   font-size: 1rem;
   color: white;
-  background-color: rgb(0, 201, 201);
-  padding: 12px 24px;
-  margin: 7px 0;
+  background-color: rgb(0, 187, 187);
+  padding: 10px 10px;
+  margin: 8px 0 14px 0;
+}
+
+.add-form {
+  margin: 30px 15px;
+}
+
+.title-input {
+  font-size: 1.2rem;
+  padding: 8px;
+  width: 40%;
+  margin-bottom: 20px;
+}
+
+.add-text-input {
+  width: 80%;
+  height: 300px;
+}
+
+.save-btn {
+  width: 20%;
+  text-align: center;
+  border: 1px solid rgb(158, 158, 158);
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(0, 187, 187);
+  padding: 10px 10px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.SingleNoteView {
+  padding: 20px 30px 30px 30px;
+}
+
+.view-links {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 70px;
+}
+
+.delete-link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.edit-button {
+  text-decoration: underline;
+}
+
+.text-input {
+  padding: 6px;
+  font-size: 1.1rem;
+  width: 80%;
+  height: 300px;
+}
+
+.NoteText {
+  width: 65%;
+  margin: 27px 0 0 15px;
 }
