@@ -25,6 +25,7 @@ class App extends Component {
       notes: [],
       newTitle: '',
       newNote: '',
+      newTags: '',
       modal: false,
       editing: false
     }

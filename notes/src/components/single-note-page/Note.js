@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import styled from 'styled-components';
+import { Tags } from './Tags';
+
 
 const NoteDiv = styled.div `
   width: 667.5px;
@@ -24,6 +26,7 @@ export const Note = (props) => {
        </Modal>
       <h3>{props.note.title}</h3>
       <p>{props.note.note}</p>
+      {props.note.tags !== null ? <Tags tags={props.note.tags} newTags={props.newTags} removeTag={props.removeTag} /> : null}
     </NoteDiv>
   )
 }
