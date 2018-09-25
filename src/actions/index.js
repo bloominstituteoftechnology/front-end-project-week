@@ -12,6 +12,24 @@ export const NOTE_EDITED = 'NOTE_EDITED';
 export const SORT_NOTE = 'SORT_NOTE';
 export const SENDING_NEW_USERDATA = 'SENDING_NEW_USERDATA';
 export const USER_CREATED = 'USER_CREATED';
+export const SENDING_CREDENTIALS = 'SENDING_CREDENTIALS';
+export const CREDENTIALS_ACCEPTED = 'CREDENTIALS_ACCEPTED';
+
+export const loginUser = (creds) => {
+  return function(dispatch){
+    dispatch({type: SENDING_CREDENTIALS})
+    axios.post('http://localhost:3300/api/welcome/login', creds)
+    .then(res => {
+      localStorage.setItem('JWT', res.data.token)
+      dispatch({type: CREDENTIALS_ACCEPTED, payload: res.data})
+      this.getNotes();
+    })
+    .catch(err => {
+      dispatch({type: ERROR, payload: err})
+    })
+  }
+}
+
 
 export const createUser = (newUser) => {
   console.log(newUser)
@@ -19,15 +37,16 @@ export const createUser = (newUser) => {
     dispatch({type: SENDING_NEW_USERDATA})
     axios.post('http://localhost:3300/api/welcome/register', newUser)
     .then(res => {
-
       localStorage.setItem('JWT', res.data.token)
-      dispatch({type: USER_CREATED, payload: res.data})
+      dispatch({type: USER_CREATED, payload: res.data});
+      this.getNotes();
     })
     .catch(err => {
       dispatch({type: ERROR, payload: err})
     })
   }
 }
+
 
 export const getNotes = () =>  {
   return function(dispatch){

@@ -6,7 +6,6 @@ import UserForm from './userform.js';
 
 export default class Login extends Component{
     
-
     render(){
         return(
             <LoginDiv>

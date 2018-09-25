@@ -10,7 +10,9 @@ import {
           NOTE_EDITED,
            SORT_NOTE,
             SENDING_NEW_USERDATA,
-             USER_CREATED 
+             USER_CREATED,
+             SENDING_CREDENTIALS,
+             CREDENTIALS_ACCEPTED 
            } from '../actions';
 
 const initialState = {
@@ -25,6 +27,18 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch(action.type) {
+
+    case SENDING_CREDENTIALS: 
+      return Object.assign({}, state, {
+        sendingCredentials: true,
+        sucessfulLogin: true,
+      })
+    case CREDENTIALS_ACCEPTED: 
+      return Object.assign({}, state, {
+        sucessfulLogin: true,
+        sendingCredentials: false,
+        token: action.payload.token
+      })
     case SENDING_NEW_USERDATA: 
       return Object.assign({}, state, {
         sendingNewUser: true,

@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 
 import {
     createUser,
+    loginUser,
     } from '../../actions';
 
 class Welcome extends Component{
@@ -28,8 +29,8 @@ class Welcome extends Component{
 
     loginUser = (creds) => {
         console.log('loginuser in welcome.js', creds)
-        // this.props.loginUser(creds);
-        // this.props.history.push('/all-notes')
+        this.props.loginUser(creds);
+        this.props.history.push('/all-notes')
     }
     
     render(props){
@@ -51,7 +52,8 @@ const mapStateToProps = store => {
   }
   
   const mapDispatchToProps = {
-    createUser
+    createUser,
+    loginUser
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome)
