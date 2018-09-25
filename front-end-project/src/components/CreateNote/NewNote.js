@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from "react";
 import styled from "react-emotion";
+import { TransitionGroup } from "react-transition-group";
+import Transition from "react-transition-group/Transition";
+import { TweenMax } from "gsap";
 
 class NewNote extends Component {
   state = {
@@ -18,14 +21,15 @@ class NewNote extends Component {
   sumbitNote = () => {
     const note = {
       title: this.state.titleInput,
-      content: this.state.contentInput
+      textBody: this.state.contentInput,
+      tags: []
     };
     this.props.createNewNote(note);
     this.setState({
       titleInput: "",
       contentInput: ""
     });
-    this.props.history.push(`/notes`)
+    this.props.history.push(`/notes`);
   };
 
   render() {
@@ -33,20 +37,86 @@ class NewNote extends Component {
     const { titleInput, contentInput } = this.state;
     return (
       <NoteForm>
-        <NoteTitle data-theme={selectedTheme}>Create New Note:</NoteTitle>
+        <Transition
+          in={this.props.match.url === "/notes/create"}
+          appear={true}
+          timeout={1000}
+        >
+          {state => {
+            switch (state) {
+              case "entering":
+                TweenMax.staggerFromTo(
+                  ".fade-new",
+                  0.1,
+                  { opacity: 0, x: 25,  },
+                  { opacity: 1, x: 0 },
+                  0.1
+                );
+                
+              case "entered":
+                return null;
+              case "exiting":
+                TweenMax.to(".fade-new", 0.3, { opacity: 0, });
+                return null;
+              case "exited":
+                return null;
+            }
+          }}
+        </Transition>
+
+        <Transition
+          in={titleInput&&contentInput}
+          appear={true}
+          timeout={1000}
+        >
+          {state => {
+            switch (state) {
+              case "entering":
+                TweenMax.staggerFromTo(
+                  ".fade-btn",
+                  0.2,
+                  { opacity: 0, x: 50, display:'block' },
+                  { opacity: 1, x: 0 },
+                  0.1
+                );
+                
+              case "entered":
+                return null;
+              case "exiting":
+                console.log('object');
+                TweenMax.to(".fade-btn", 0.2, { opacity: 0, x:50 });
+                
+              case "exited":
+                //TweenMax.set('.fade-btn', {display:'none'})
+                return null
+            }
+          }}
+        </Transition>
+
+        <NoteTitle data-theme={selectedTheme} className="fade-new">
+          Create New Note:
+        </NoteTitle>
         <NoteInput
+          className="fade-new"
           name="titleInput"
           placeholder={"Note Text"}
           value={titleInput}
           onChange={this.handleInput}
         />
         <NoteText
+          className="fade-new"
           name="contentInput"
           placeholder={"Note Content"}
           value={contentInput}
           onChange={this.handleInput}
         />
-        <NoteButton data-theme={selectedTheme} onClick={this.sumbitNote }>Save</NoteButton>
+        {  <NoteButton
+          className="fade-btn"
+          data-theme={selectedTheme}
+          onClick={this.sumbitNote}
+        >
+          Save
+        </NoteButton>}
       </NoteForm>
     );
   }
@@ -62,6 +132,7 @@ const NoteText = styled("textarea")`
   height: 400px;
 `;
 const NoteButton = styled("div")`
+display:none;
   cursor: pointer;
   margin: 10px 0;
   text-align: center;
@@ -73,9 +144,9 @@ const NoteButton = styled("div")`
   font-weight: bold;
 `;
 
-const NoteTitle = styled('h2') `
+const NoteTitle = styled("h2")`
   color: ${props => props.theme[props["data-theme"]].mainTitle};
-`
+`;
 
 const NoteForm = styled("form")`
   display: flex;

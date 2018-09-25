@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import styled from "react-emotion";
-
+import { TransitionGroup } from "react-transition-group";
+import Transition from "react-transition-group/Transition";
+import { TweenMax } from "gsap";
 
 class Options extends Component {
   state = {
@@ -10,13 +12,14 @@ class Options extends Component {
   render() {
     const { themes } = this.state;
     const { selectedTheme } = this.props;
-    console.log(selectedTheme);
+    console.log(this.props.match.url === `/notes/options`);
     return (
       <Fragment>
-        <NoteTitle data-theme={selectedTheme}>Themes:</NoteTitle>
+        <NoteTitle  className="options" data-theme={selectedTheme}>Themes:</NoteTitle>
         <NoteButtonContainer>
           {themes.map(theme => (
             <NoteButton
+            className="options"
               data-theme={selectedTheme}
               onClick={() => this.props.changeTheme(theme)}
             >
@@ -24,6 +27,26 @@ class Options extends Component {
             </NoteButton>
           ))}
         </NoteButtonContainer>
+        <Transition
+            in={this.props.match.url === `/notes/options`}
+            timeout={1000}
+            appear = {true}
+          >
+            {state => {
+              switch (state) {
+                case 'entering':                
+                  TweenMax.staggerFromTo('.options', 0.2, {opacity:0, x:50}, {opacity:1, x:0}, 0.1)
+                 
+                case 'entered':
+                  return null;
+                case 'exiting':
+             
+                case 'exited':
+                  return null;
+              }
+            }}
+          </Transition>
+
       </Fragment>
     );
   }

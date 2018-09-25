@@ -1,46 +1,70 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import styled from "react-emotion";
+import { TransitionGroup } from "react-transition-group";
+import Transition from "react-transition-group/Transition";
+import { TweenMax } from "gsap";
 
 class UpdateNote extends Component {
-  state = {
-    titleInput: "",
-    contentInput: "",
-    // isEditing: false,
-    // isDeleting: false,
-    show: true
-  };
+  constructor(props) {
+    super(props);
+    console.log(this.props.notes);
+    const note = this.props.notes.find(
+      note => note._id === this.props.match.params.id
+    );
+    this.state = {
+      titleInput: note ? note.title : "",
+      contentInput: note ? note.textBody : "",
+      tagInput: note ? note.tags.join(" ") : "",
+      // isEditing: false,
+      // isDeleting: false,
+      show: true
+    };
+  }
+  // state = {
+  //   titleInput: "",
+  //   contentInput: "",
+  //   tagInput: '',
+  //   // isEditing: false,
+  //   // isDeleting: false,
+  //   show: true
+  // };
 
   handleInput = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state.titleInput);
   };
 
   sumbitNote = id => {
+    console.log(this.state.tagInput.split(" "));
+    const newtags = this.state.tagInput ? this.state.tagInput.split(" ") : []
+
     this.props.updateNote({
-      id: id,
+      _id: id,
       title: this.state.titleInput,
-      content: this.state.contentInput
+      textBody: this.state.contentInput,
+      tags: newtags
+      // tags: this.state.tagInput
+      //   ? this.state.tagInput.split(" ")
+      //   : [...this.note.tags]
     });
   };
 
-  
-
   render() {
-    const note = this.props.notes.find(
-      note => note.id === parseInt(this.props.match.params.id, 10)
-    );
+    // const note = this.props.notes.find(
+    //   note => note.id === parseInt(this.props.match.params.id, 10)
+    // );
     const { selectedTheme } = this.props;
-    // const { id, title, content } = note;
-    const { titleInput, contentInput} = this.state;
-    console.log(selectedTheme)
+
+    const { titleInput, contentInput, tagInput } = this.state;
+    console.log(selectedTheme);
     return (
       <NoteCardDiv>
-        {<NoteTitle data-theme={selectedTheme}>Update Notes:</NoteTitle>}
+        {<NoteTitle className= 'fade-update' data-theme={selectedTheme}>Update Notes:</NoteTitle>}
         {
           <NoteInput
+          className= 'fade-update'
             name={"titleInput"}
             onChange={this.handleInput}
             value={titleInput}
@@ -48,22 +72,58 @@ class UpdateNote extends Component {
         }
         {
           <NoteText
+          className= 'fade-update'
             name={"contentInput"}
             onChange={this.handleInput}
             value={contentInput}
-          />}
-        <NoteButton
+          />
+        }
+        <TagTitle data-theme={selectedTheme}>Tags:</TagTitle>
+        <TagInput
+        className= 'fade-update'
+          name="tagInput"
+          onChange={this.handleInput}
+          value={tagInput}
+        />
+        <NoteButton 
+        className= 'fade-update'
           data-theme={selectedTheme}
           onClick={() => {
             if (titleInput && contentInput) {
-              this.sumbitNote(parseInt(this.props.match.params.id, 10));
+              console.log(this.props.match.params.id);
+              this.sumbitNote(this.props.match.params.id);
             }
-            this.props.history.push('/notes')
-            
+            this.props.history.push("/notes");
           }}
         >
           Sumbit
-        </NoteButton>        
+        </NoteButton>
+        <Transition
+          in={this.props.match.url === `/notes/${this.props.match.params.id}/create`}
+          appear={true}
+          timeout={1000}
+        >
+          {state => {
+            switch (state) {
+              case "entering":
+                TweenMax.staggerFromTo(
+                  ".fade-update",
+                  0.1,
+                  { opacity: 0, x: 25 },
+                  { opacity: 1, x: 0 },
+                  0.1
+                );
+
+              case "entered":
+                return null;
+              case "exiting":
+                TweenMax.to(".fade-update", 0.3, { opacity: 0 });
+                return null;
+              case "exited":
+                return null;
+            }
+          }}
+        </Transition>
       </NoteCardDiv>
     );
   }
@@ -78,6 +138,11 @@ const NoteInput = styled("input")`
   height: 30px;
   margin-bottom: 10px;
 `;
+
+const TagInput = styled(NoteInput)`
+  width: 200px;
+`;
+
 const NoteText = styled("textarea")`
   width: 500px;
   height: 400px;
@@ -95,7 +160,11 @@ const NoteButton = styled("div")`
   font-weight: bold;
 `;
 
-const NoteTitle = styled('h2') `
+const NoteTitle = styled("h2")`
   color: ${props => props.theme[props["data-theme"]].mainTitle};
-`
+`;
+const TagTitle = styled("h3")`
+  color: ${props => props.theme[props["data-theme"]].mainTitle};
+  margin: 15px 0 5px;
+`;
 export default UpdateNote;

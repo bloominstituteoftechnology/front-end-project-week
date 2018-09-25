@@ -3,7 +3,7 @@ import styled from "react-emotion";
 
 class DeleteNote extends Component {
   sumbitDelete = () => {
-    this.props.deleteNote(parseInt(this.props.match.params.id, 10));
+    this.props.deleteNote(this.props.match.params.id);
     this.props.notDeleting();
     this.props.history.push("/notes");
   };
@@ -12,11 +12,12 @@ class DeleteNote extends Component {
     console.log(selectedTheme);
 
     return (
-      <DeleteNoteContainer>
-        <DeleteNoteMenu data-theme={selectedTheme}>
+      <DeleteNoteContainer className="delete-container">
+        <DeleteNoteMenu data-theme={selectedTheme} className='delete-menu'>
           <p>Are you want to delete this button?</p>
           <ButtonDiv>
             <DeleteButton
+            
               data-theme={selectedTheme}
               onClick={this.sumbitDelete}
             >
