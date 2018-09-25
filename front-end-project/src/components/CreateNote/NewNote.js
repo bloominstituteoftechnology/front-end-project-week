@@ -33,7 +33,7 @@ class NewNote extends Component {
     const { titleInput, contentInput } = this.state;
     return (
       <NoteForm>
-        <h2>Create New Note:</h2>
+        <NoteTitle data-theme={selectedTheme}>Create New Note:</NoteTitle>
         <NoteInput
           name="titleInput"
           placeholder={"Note Text"}
@@ -72,6 +72,10 @@ const NoteButton = styled("div")`
   width: 200px;
   font-weight: bold;
 `;
+
+const NoteTitle = styled('h2') `
+  color: ${props => props.theme[props["data-theme"]].mainTitle};
+`
 
 const NoteForm = styled("form")`
   display: flex;

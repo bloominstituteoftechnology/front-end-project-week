@@ -5,6 +5,7 @@ import styled from "react-emotion";
 import NewNote from "./CreateNote/NewNote";
 import NoteView from "./NoteViews/NoteView";
 import UpdateNote from './NoteViews/UpdateNote'
+import Options from "./Options/Options"
 import { Route, Switch, Redirect } from "react-router-dom";
 
 class NoteContainer extends Component {
@@ -45,6 +46,8 @@ class NoteContainer extends Component {
   };
 
   createNewNote = note => {
+    note.id = this.state.notes.length+1;
+    console.log(note);
     this.setState(state => ({
       notes: [...this.state.notes, note]
     }));
@@ -69,13 +72,23 @@ class NoteContainer extends Component {
       return (
         note.id !== id
       )
-    })
+    }).map((note, i) => {
+      note.id = i+1
+      return note
+    })   
+
     this.setState({notes: notes})
   }
 
-  render() {
-    const { notes, selectedTheme } = this.state;
+  changeTheme = theme => {
+    this.setState({
+      selectedTheme: theme
+    })
+  }
 
+  render() {
+    const { notes, selectedTheme} = this.state;
+    console.log(notes);
     return (
       <ContainerDiv data-theme={selectedTheme}>
         <Route
@@ -98,6 +111,10 @@ class NoteContainer extends Component {
                 />
               )}
             />
+
+            <Route exact path="/notes/options" render={props=>(
+              <Options {...props} selectedTheme={selectedTheme} changeTheme={this.changeTheme} />
+            )}/>
 
             <Route
               exact
@@ -150,7 +167,15 @@ const ContainerDiv = styled("div")`
   background: ${props => props.theme[props["data-theme"]].mainBackground};
   h1,
   h2 {
-    color: ${props => props.theme[props["data-theme"]].mainTitle};
+    ${props => {
+      if(props['data-theme'] === 'darkTheme'){
+        return ` color:#fff;`
+      }else{
+        return `color: ${props => props.theme[props["data-theme"]].mainTitle};`
+      }
+    }}
+    
+   
   }
 `;
 

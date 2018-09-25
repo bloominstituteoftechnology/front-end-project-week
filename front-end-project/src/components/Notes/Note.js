@@ -22,6 +22,10 @@ border: 1px solid ${props => props.theme[props['data-theme']].border};
 margin: 0 10px 20px;
 color: ${props => props.theme[props['data-theme']].subTitle};
 background: ${props => props.theme[props['data-theme']].subBackground};
+h2{
+    color: ${props => props.theme[props["data-theme"]].subTitle};
+    font-weight: bold;
+}
 
 `
 

@@ -7,8 +7,8 @@ const Notes = props => {
   
   return (
     <Fragment>
-      <h2>Your Notes:</h2>
-      <NotesDiv >
+      <NoteTitle data-theme={selectedTheme}>Your Notes:</NoteTitle>
+      <NotesDiv data-theme={selectedTheme}>
         {notes.map(note => (
           <Note note={note} selectedTheme={selectedTheme} {...props}/>
         ))}
@@ -20,6 +20,11 @@ const Notes = props => {
 const NotesDiv = styled("div")`
   display: flex;
   flex-wrap: wrap;
+  color: ${props => props.theme[props["data-theme"]].mainTitle};
 `;
+
+const NoteTitle = styled('h2') `
+  color: ${props => props.theme[props["data-theme"]].mainTitle};
+`
 
 export default Notes;

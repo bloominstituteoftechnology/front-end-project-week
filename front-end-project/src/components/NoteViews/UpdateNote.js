@@ -38,7 +38,7 @@ class UpdateNote extends Component {
     console.log(selectedTheme)
     return (
       <NoteCardDiv>
-        {<h2>Update Notes:</h2>}
+        {<NoteTitle data-theme={selectedTheme}>Update Notes:</NoteTitle>}
         {
           <NoteInput
             name={"titleInput"}
@@ -95,4 +95,7 @@ const NoteButton = styled("div")`
   font-weight: bold;
 `;
 
+const NoteTitle = styled('h2') `
+  color: ${props => props.theme[props["data-theme"]].mainTitle};
+`
 export default UpdateNote;

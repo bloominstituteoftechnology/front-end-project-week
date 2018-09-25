@@ -25,7 +25,7 @@ class NoteView extends Component {
       <Fragment>
           {isDeleting && <DeleteNote {...this.props} notDeleting={this.notDeleting}/> }
           <NoteCardDiv>
-          <h2>{title}</h2>
+          <NoteTitle data-theme={selectedTheme}>{title}</NoteTitle>
          <p>{content}</p>
 
         <NoteButton
@@ -50,6 +50,9 @@ const NoteCardDiv = styled("div")`
   width: 500px;
 `;
 
+const NoteTitle = styled('h2') `
+  color: ${props => props.theme[props["data-theme"]].mainTitle};
+`
 
 const NoteButton = styled("div")`
   cursor: pointer;

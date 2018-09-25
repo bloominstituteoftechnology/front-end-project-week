@@ -9,6 +9,7 @@ const NavBar = props => {
       <h1>Lambda Notes</h1>
       <Button data-theme={selectedTheme} onClick={() => props.history.push('/notes')}>View Your Notes</Button>
       <Button data-theme={selectedTheme} onClick={() => props.history.push(`${props.match.url}/create`)}>+ Create New Notes</Button>
+      <Button data-theme={selectedTheme} onClick={() => props.history.push(`${props.match.url}/options`)}>Options</Button>
     </Header>
   );
 };
@@ -23,6 +24,13 @@ const Header = styled("header")`
   left: 0;
   color: ${props => props.theme[props["data-theme"]].mainTitle};
   background-color: ${props => props.theme[props["data-theme"]].nav};
+  ${props =>{
+    if(props['data-theme'] === 'darkTheme'){
+      return `h1{
+        color: #fff
+      }`
+    }
+  }}
   border-right: 1px solid ${props => props.theme[props["data-theme"]].border};
   overflow-x: hidden;
   padding-top: 20px;
