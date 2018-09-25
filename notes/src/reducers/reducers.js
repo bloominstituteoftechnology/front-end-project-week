@@ -8,6 +8,10 @@ import {FETCHING_NOTES,
         UPDATED_NOTE,
         DELETING_NOTE,
         DELETED_NOTE,
+        // REGISTERING_USER,
+        // REGISTERED_USER,
+        // LOGGING_USER,
+        // LOGGED_USER, 
         ERRORS,
         // FILTERING_NOTES,
         // FILTERED_NOTES
@@ -16,6 +20,7 @@ import {FETCHING_NOTES,
 const initialState = {
     notes: [],
     note: [],
+    user: [],
     // filtered: [],
     fetchingNotes: false,
     fetchedNotes: false,
@@ -29,6 +34,10 @@ const initialState = {
     updatedNote: false,
     deletingNote: false,
     deletedNote: false,
+    // registeringUser: false,
+    // registeredUser: false,
+    // loggingUser: false,
+    // loggedUser: false,
     error: null,
 }
 
@@ -56,18 +65,6 @@ export const rootReducer = (state = initialState, action) => {
                 fetchedOneNote: true,
                 note: action.payload[0],
             });
-        // case FILTERING_NOTES:
-        //     return {
-        //         ...state,
-        //         filteringNotes: true,
-        //     }
-        // case FILTERED_NOTES:
-        //     return {
-        //         ...state,
-        //         filteringNotes: false,
-        //         filteredNotes: true,
-        //         filtered: action.payload,
-        //     }
         case ADDING_NOTE:
             return {
                 ...state,
@@ -99,6 +96,25 @@ export const rootReducer = (state = initialState, action) => {
                 deletedNote: true,
                 notes: action.payload,
             })
+        // case REGISTERING_USER:
+        //     return Object.assign({}, state, {
+        //         registeringUser:true,
+        //     })
+        // case REGISTERED_USER:
+        //     return Object.assign({}, state, {
+        //         registeringUser: false,
+        //         registeredUser: true
+        //     })
+        // case LOGGING_USER:
+        //     return Object.assign({}, state, {
+        //         loggingUser:true,
+        //     })
+        // case LOGGED_USER:
+        //     return Object.assign({}, state, {
+        //         loggingUser: false,
+        //         loggedUser: true,
+        //         user: action.payload
+        //     })
         case ERRORS:
             return Object.assign({}, state, {
                 fetchingNotes: false,
@@ -112,3 +128,16 @@ export const rootReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+ // case FILTERING_NOTES:
+        //     return {
+        //         ...state,
+        //         filteringNotes: true,
+        //     }
+        // case FILTERED_NOTES:
+        //     return {
+        //         ...state,
+        //         filteringNotes: false,
+        //         filteredNotes: true,
+        //         filtered: action.payload,
+        //     }

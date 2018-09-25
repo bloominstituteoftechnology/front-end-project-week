@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import SideBar from './components/SideBar';
-import {Switch, Route, Link, withRouter} from 'react-router-dom';
+import { Switch, Route, withRouter} from 'react-router-dom';
 import Authenticate from './components/Authenticate';
+import Register from './components/Register.js';
+import Login from './components/Login.js';
 import SearchBar from './components/SearchBar';
 import ListView from './components/ListView';
 import CreateNote from './components/CreateNote';
@@ -71,14 +73,14 @@ class App extends Component {
     this.props.addNote(this.state.title, this.state.textBody);
     this.setState({title:'', textBody:'',});
     window.location.reload();
-    window.location.href="/get/all";
+    window.location.href="/note/all";
   }
   updateNote = e => {
     e.preventDefault();
     this.props.updateNote(this.state.title,this.state.textBody, e.target.id);
     this.setState({title:'', textBody:'',});
     window.location.reload();
-    window.location.href="/get/all";
+    window.location.href="/note/all";
   }
   componentDidMount(){
     this.props.fetchNotes();
@@ -87,30 +89,32 @@ class App extends Component {
     return (
         <div className='App'>
           {/* ROUTES */}
-          <Route exact path="/" component={ Authenticate } />
-          <Route path='/get' render={(props) => <SideBar {...props}
+          <Route path='/note' render={(props) => <SideBar {...props}
                                               reset={this.reset}/> }/>
-          <Route exact path="/get/all" render={(props) => {
-            if(this.state.filteredResults.length===0){
-              return(
-                <div>
-                  <SearchBar {...props}
-                          searchTitle={this.state.searchTitle}
-                          searchTextBody={this.state.searchTextBody}
-                          handleChange={this.handleChange}
-                          filterByTitle={this.filterByTitle} 
-                          filterByTextBody={this.filterByTextBody} />  
-                  <ListView {...props}
-                          notes={this.props.notes} />
-                </div>
-              )
-            }
-            else {
-                return <FilteredNotes {...props} 
-                        filtered={this.state.filteredResults} />
-            }      
-          }} />
+          <Route exact path="/" component={ Authenticate } />
+          <Route exact path='/auth/register' component={ Register } />
+          <Route exact path='/auth/login' component={ Login } />
           <Switch>
+            <Route exact path="/note/all" render={(props) => {
+              if(this.state.filteredResults.length===0){
+                return(
+                  <div>
+                    <SearchBar {...props}
+                            searchTitle={this.state.searchTitle}
+                            searchTextBody={this.state.searchTextBody}
+                            handleChange={this.handleChange}
+                            filterByTitle={this.filterByTitle} 
+                            filterByTextBody={this.filterByTextBody} />  
+                    <ListView {...props}
+                            notes={this.props.notes} />
+                  </div>
+                )
+              }
+              else {
+                  return <FilteredNotes {...props} 
+                          filtered={this.state.filteredResults} />
+              }      
+            }} />
             <Route exact path="/note/create" render={(props) => 
                 <CreateNote {...props} 
                             title={this.state.title}

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Register from './Register.js';
-import Login from './Login.js';
+
 
 const Title = styled.div`
     font-weight: 800;
@@ -26,14 +25,12 @@ class Authenticate extends React.Component {
         return (
             <Title>
                 <H1>Lambda Notes</H1>
-                <Link   to='/register'
+                <Link   to='/auth/register'
                         style={{padding: '1rem'}}>
                         Register
                 </Link>
-                <Link to='/login'>Login</Link>
-                {/* Routes */}
-                <Route exact path='/register' component={ Register } />
-                <Route exact path='/login' component={ Login } />
+                <Link to='/auth/login'>Login</Link>
+
             </Title>
         );
     }
