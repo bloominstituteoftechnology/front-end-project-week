@@ -4,7 +4,7 @@
   margin-top: 0;
   
 }
-
+/* 
 .nav {
   border: 1px solid black;
   height: 900px;
@@ -12,9 +12,9 @@
   padding: 3%;
   background-color: lightgray;
   /* position: fixed; */
-}
+ 
 
-.nav li{
+/* .nav li{
   list-style-type: none;
   height: 50px;
   width: 200px;
@@ -32,6 +32,6 @@
   text-decoration: none;
   color: white;
 }
-.nav li:hover{
+ .nav li:hover{
   background-color: turquoise;
-}
+}  */

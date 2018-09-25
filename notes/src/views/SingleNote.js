@@ -3,6 +3,7 @@ import NotesList from '../components/NotesList/NotesList';
 import './SingleNote.css';
 import { connect } from 'react-redux';  
 import { deleteNote, setUpdateNote, getNotes } from '../store/actions';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 class SingleNote extends React.Component {
@@ -10,6 +11,7 @@ class SingleNote extends React.Component {
         super(props);
         this.state = {
             note: {},
+            modal: false
             
         };
     }
@@ -29,7 +31,7 @@ class SingleNote extends React.Component {
     }
     
 
-    handleDeleteNote = title => {
+    handleDeleteNote = title => {     
         this.props.deleteNote(this.state.note.title);
         console.log('Title: ', this.state.note.title);
         this.props.history.push('/notes');
@@ -47,6 +49,13 @@ class SingleNote extends React.Component {
             clicked: !this.state.clicked
         });
     }
+
+
+    toggle = () => {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
     
 
     render() {
@@ -57,7 +66,17 @@ class SingleNote extends React.Component {
             
         <div className='active' >
            <div className='buttons'>
-            <button onClick={this.handleDeleteNote}>Delete</button>
+            <button onClick={this.toggle}>Delete</button>
+            <Modal isOpen={this.state.modal} handleDeleteNote= {this.handleDeleteNote} toggle={this.toggle} className='delete-modal'>
+                <ModalHeader handleDeleteNote={this.handleDeleteNote} toggle={this.toggle}>Modal title</ModalHeader>
+                <ModalBody>
+                    Are You Sure?
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={this.handleDeleteNote}>Confirm</Button>{' '}
+                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+            </Modal>
             <button onClick={event => {
                 event.preventDefault();
                 this.goToUpdateNoteForm(event, this.state.note.title)

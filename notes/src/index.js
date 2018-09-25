@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { notesReducer } from  './store/reducers';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
