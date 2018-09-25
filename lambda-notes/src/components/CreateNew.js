@@ -93,33 +93,41 @@ class CreateNew extends React.Component {
 					/>
 
 					<div className = 'tags'>
-						<input 
-							type = 'checkbox' 
-							name = 'grin-beam' 
-							value = 'grin-beam'
-						/>
-						<i className = 'far fa-grin-beam' />
+						<div>
+							<input 
+								type = 'checkbox' 
+								name = 'grin-beam' 
+								value = 'grin-beam'
+							/>
+							<i className = 'far fa-grin-beam' />
+						</div>
 
-						<input 
-							type = 'checkbox' 
-							name = 'angry' 
-							value = 'angry'
-						/>
-						<i className = 'far fa-angry' />
+						<div>
+							<input 
+								type = 'checkbox' 
+								name = 'angry' 
+								value = 'angry'
+							/>
+							<i className = 'far fa-angry' />
+						</div>
 
-						<input 
-							type = 'checkbox' 
-							name = 'grin-squint-tears' 
-							value = 'grin-squint-tears'
-						/>
-						<i className = 'far fa-grin-squint-tears' />
+						<div>
+							<input 
+								type = 'checkbox' 
+								name = 'grin-squint-tears' 
+								value = 'grin-squint-tears'
+							/>
+							<i className = 'far fa-grin-squint-tears' />
+						</div>
 
-						<input 
-							type = 'checkbox' 
-							name = 'frown' 
-							value = 'frown'
-						/>
-						<i className = 'far fa-frown' />
+						<div>
+							<input 
+								type = 'checkbox' 
+								name = 'frown' 
+								value = 'frown'
+							/>
+							<i className = 'far fa-frown' />
+						</div>
 					</div>
 
 					<button className = 'btn save-btn' type = 'submit'>Save</button>

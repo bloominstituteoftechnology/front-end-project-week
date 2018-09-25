@@ -16,7 +16,6 @@
 		.note {
 			border: 1px solid #BFBFBF;
 			border-radius: 5px;
-			width: 12vw;
 			width: calc(-20 / 341 * 100vw + 83244 / 341 * 1px);
 			height: 204px;
 			display: inline-block;
@@ -51,10 +50,6 @@
 				max-height: 133px;
 				overflow: hidden;
 			}
-
-			@media @phone {
-				width: 80%;
-			}
 		} // .list .note-wrapper .note
 
 		.tags-div {
@@ -67,7 +62,8 @@
 		}
 
 		@media @tablet {
-			margin: 50px 5px;
+			padding-bottom: 0;
+			margin: 0 5px;
 		}
 	} // .list .note-wrapper
 } // .list

@@ -224,7 +224,6 @@
 .list .note-wrapper .note {
   border: 1px solid #BFBFBF;
   border-radius: 5px;
-  width: 12vw;
   width: calc(-20 / 341 * 100vw + 83244 / 341 * 1px);
   height: 204px;
   display: inline-block;
@@ -256,11 +255,6 @@
   max-height: 133px;
   overflow: hidden;
 }
-@media ( max-width: 710px ) {
-  .list .note-wrapper .note {
-    width: 80%;
-  }
-}
 .list .note-wrapper .tags-div {
   border: 1px solid #BFBFBF;
   border-top: 0;
@@ -271,7 +265,8 @@
 }
 @media ( max-width: 1024px ) {
   .list .note-wrapper {
-    margin: 50px 5px;
+    padding-bottom: 0;
+    margin: 0 5px;
   }
 }
 .create-new,
@@ -289,9 +284,10 @@
 .create-new .form .tags,
 .edit .form .tags {
   font-size: 30px;
+  width: 43vw;
   display: flex;
-  justify-content: center;
-  padding: 0 0 20px 0;
+  justify-content: space-evenly;
+  padding: 0 0 20px;
 }
 .create-new .form .tags *,
 .edit .form .tags * {
@@ -300,7 +296,7 @@
 .create-new .form .tags input[type=checkbox],
 .edit .form .tags input[type=checkbox] {
   display: inline-block;
-  margin: auto 10px auto 50px;
+  margin: auto 10px auto 20px;
   transform: scale(2, 2);
 }
 .create-new .form .tags .far,
@@ -308,6 +304,12 @@
   display: inline-block;
   width: fit-content;
   text-align: center;
+}
+@media ( max-width: 1024px ) {
+  .create-new .form .tags,
+  .edit .form .tags {
+    width: 80vw;
+  }
 }
 @media ( max-width: 1024px ) {
   .create-new,

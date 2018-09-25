@@ -12,9 +12,10 @@
 	.form {
 		.tags {
 			font-size: 30px;
+			width: 43vw;
 			display: flex;
-			justify-content: center;
-			padding: 0 0 20px 0;
+			justify-content: space-evenly;
+			padding: 0 0 20px;
 
 			* {
 				padding: 0;
@@ -22,7 +23,7 @@
 
 			input[type=checkbox] {
 				display: inline-block;
-				margin: auto 10px auto 50px;
+				margin: auto 10px auto 20px;
 				transform:scale(2, 2);
 			}
 
@@ -30,6 +31,10 @@
 				display: inline-block;
 				width: fit-content;
 				text-align: center;
+			}
+
+			@media @tablet {
+				width: 80vw;
 			}
 		}
 	}
