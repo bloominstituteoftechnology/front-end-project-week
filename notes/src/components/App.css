@@ -1,39 +1,117 @@
-.App {
-  text-align: center;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+  width: 100%;
+  max-width: 890px;
+  margin: auto;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+* {box-sizing: border-box;}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  width: 890px;
+  margin-top: 17px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  display: flex;
+  border: 3px solid black;
+  width: 25%;
+  flex-direction: column;
 }
+
+.app-title {
+  display: flex;
+  border: 3px solid black;
+}
+
 
 .App-title {
-  font-size: 1.5em;
+  padding: 13px;
+  font-size: 2.6rem;
 }
 
-.App-intro {
-  font-size: large;
+.nav-link {
+  margin-left: 17px;
+  border: 1px solid gray;
+  width: 190px;
+  height: 42px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.main-section {
+  display: flex;
+  border: 3px solid black;
+  width: 75%;
+  flex-direction: column;
+  padding: 0 20px;
+  padding-top: 55px;
 }
 
-.delete-button {
-  padding: 14px;
-  width: 150px;
-  height: 45px;
-  margin: auto;
-  border: 1px black solid;
-  background: blue;
-  color: white;
-  box-sizing: border-box;
+.notes-title {
+  font-size: 1.4rem;
+  margin-bottom: 28px;
+  text-decoration: none;
+  color: black;
+ }
+
+.note-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+}
+
+.note {
+  border: 1px solid gray;
+  width: 31%;
+  height: 197px;
+  margin-bottom: 25px;
 }

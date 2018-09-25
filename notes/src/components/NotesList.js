@@ -11,7 +11,8 @@ class NoteList extends Component {
     return this.props
     ?  (
       <div className="note-list">
-          {this.props.noteList.map(note => {
+          {this.props.noteList.filter(item => item.title == 'Note Title')
+            .map(note => {
             return (
               // <Route path='/note-list/:_id' render={props =>
                 <React.Fragment>

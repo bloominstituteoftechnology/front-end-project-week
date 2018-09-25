@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { deleteNote, createNote } from '../actions'
 import { Link, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+
 import './App.css';
 // import Note from './Note';
 
@@ -15,36 +14,28 @@ import './App.css';
 
    render() {
     return !this.props.match.params.id
-    ? (
+    ? (   //big note list
       // <Route
       <div className="note">
-        <h3>{this.props.note.title}</h3>
-        <p>{this.props.note.textBody}</p>
+        <Link to={`/note-list/${this.props.note._id}`}>
+          <h3 className='note-title'>{this.props.note.title}</h3>
+         </Link>
+        <p className='note-textBody'>{this.props.note.textBody}</p>
         {/* <div
           className='delete-button'
           // onClick={this.handleClick}>Delete Me
         ></div> */}
-          <Link to={`/note-list/${this.props.note._id}`}>My Home </Link>
       </div>
     )
-    : this.props.match.params.id === this.props.note._id
-    ? (      <div className="note">
+    : this.props.match.params.id === this.props.note._id  //individual note view
+    ? (   <div className="note">
             <h3>{this.props.note.title}</h3>
             <p>{this.props.note.textBody}</p>
-            <button
-              className='delete-button'
-              onClick={this.handleClick}>Delete Me</button>
-              <Link to={`/note-list/${this.props.note._id}`}> My Home </Link>
+              {/* <Link to={`/note-list/${this.props.note._id}`}> My Home </Link> */}
           </div>
         )
     : ''
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    state: state,
-  }
-}
-
-export default withRouter(connect(mapStateToProps, { deleteNote, createNote })(Note))
+export default Note
