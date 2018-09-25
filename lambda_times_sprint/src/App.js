@@ -8,26 +8,26 @@ import NotesList from './components/NotesList';
 import NoteForm from './components/NoteForm';
 import Note from './components/Note';
 
-
 class App extends Component {
   state = {
     tags: [],
     title: '',
-    textBody: ''
-  }
+    textBody: '',
+};
 
-  componentDidMount() {
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+componentDidMount() {
+  this.fetchNotes();
+}
+
+fetchNotes = ()=> {
+  axios.get('https://killer-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState({ tags: response.data });
       })
       .catch(err => {
         console.log(err);
       });
-
-    // const id = this.props.match.params.id;
-    // this.fetchNote(id); 
-  }
+}
 
   handleChange = event => {
       this.setState({ [event.target.name]: event.target.value });
@@ -44,11 +44,6 @@ class App extends Component {
                                         title: response.data.title,
                                         textBody: response.data.textBody
                                       }))
-  }
-
-  handleDeleteNote = id => {
-    return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => this.setState({ note: response.data }));
   }
 
   render() {
@@ -90,7 +85,7 @@ class App extends Component {
         <Route path="/tags/:id" render={props => 
           <Note 
             {...props}
-            handleDeleteNote={this.handleDeleteNote}
+            fetchNotes={this.fetchNotes}
           />
           } 
         />

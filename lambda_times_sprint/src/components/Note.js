@@ -4,7 +4,9 @@ import axios from 'axios';
 
 class Note extends Component {
     state = {
-      note: null
+      note: null,
+      title: '',
+      textBody: ''
     };
   
 
@@ -29,11 +31,19 @@ class Note extends Component {
   }
 
   handleDelete = e => {
-    // e.preventDefault();
-    this.props.handleDeleteNote(this.id);
-    // if (!this.props.deletingNote) {
-    //   this.props.history.push("/");
-    // }
+    e.preventDefault();
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
+      .then(response => {
+        this.props.fetchNotes();
+        this.setState({ note: response.data,
+                                        title: response.data.title,
+                                        textBody: response.data.textBody });
+        })
+      .catch(error => {
+        console.error(error);
+      });
+  this.props.history.push("/");
   }
 
   render() {

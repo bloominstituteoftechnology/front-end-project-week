@@ -3,7 +3,11 @@ import React from 'react';
 function NoteForm(props) {
     function handleSubmit(event) {
         // event.preventDefault();
+        // if (props.isUpdating) {
+        //     props.handleUpdateNote(props.note.id);
+        // } else {
             props.handleAddNewNote();
+        // }    
     }
 
   return (
@@ -30,7 +34,7 @@ function NoteForm(props) {
           
             <button className="material-button-raised" onClick={handleSubmit}>Save</button>
         </form>
-   
+      
   );
 }
 
