@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 
 import { StyledFormButton, ContentDiv } from '../../styling/';
 
 const LeftButton = Styled(StyledFormButton)`
-    /* quick override of the StyledButton 'margin: 10px auto' */
     & {
         margin: 10px 0;
     }
@@ -22,22 +21,68 @@ const BodyInput = Styled.textarea`
     height: 20vh;
 `;
 
-const NoteEditor = (props) => {
-    return (
-        <ContentDiv>
-            <h2>{/*{props.editing.isEditing ? 'Edit ' : 'Create New '}*/}Note:</h2>
-            <form onSubmit={(event) => event.preventDefault()}>
-                <TitleInput name='title' placeholder='Note Title' />
-                <br />
-                <br />
-                <BodyInput name='textBody' placeholder='Note Content' />
-                <br />
-                <LeftButton buttonColor='aqua'>Save</LeftButton>
-            </form>
-        </ContentDiv>
-    );
+class NoteEditor extends Component {
+    state = {
+        tmpNote: this.props.tmpNote
+    };
+
+    inputHandler = (event) => {
+        this.setState({
+            ...this.state,
+            tmpNote: {
+                ...this.state.tmpNote,
+                [event.target.name]: event.target.value
+            }
+        });
+    };
+
+    submitHandler = (event) => {
+        event.preventDefault();
+        if(this.props.tmpNote._id === '') {
+            this.props.postNote({
+                title: event.target.title.value,
+                textBody: event.target.textBody.value
+            })
+        } else {
+            this.props.putNote(
+                {
+                    title: event.target.title.value,
+                    textBody: event.target.textBody.value
+                },
+                this.state.tmpNote._id
+            )
+        }
+        this.props.history.push('/');
+    };
+
+    render() {
+        return (
+            <ContentDiv>
+                <h2>{this.props.isEditing ? 'Edit ' : 'Create New '}Note:</h2>
+                <form onSubmit={this.submitHandler}>
+                    <TitleInput name='title' value={this.state.tmpNote.title} onChange={this.inputHandler} placeholder='Note Title' />
+                    <br />
+                    <br />
+                    <BodyInput name='textBody' value={this.state.tmpNote.textBody} onChange={this.inputHandler} placeholder='Note Content' />
+                    <br />
+                    <LeftButton buttonColor='aqua'>{this.props.isEditing ? 'Update' : 'Save'}</LeftButton>
+                </form>
+            </ContentDiv>
+        );
+    }
 };
 
-NoteEditor.propTypes = {};
+NoteEditor.propTypes = {
+    isEditing: PropTypes.bool.isRequired,
+    tmpNote: PropTypes.shape({
+        tags: PropTypes.arrayOf(PropTypes.string),
+        title: PropTypes.string.isRequired,
+        textBody: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+        __v: PropTypes.number
+    }).isRequired,
+    postNote: PropTypes.func.isRequired,
+    putNote: PropTypes.func.isRequired
+};
 
 export default NoteEditor;

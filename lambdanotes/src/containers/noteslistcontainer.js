@@ -24,7 +24,7 @@ NotesListContainer.propTypes = {
         textBody: PropTypes.string,
         _id: PropTypes.string,
         __v: PropTypes.number
-    })),
+    })).isRequired,
     status: PropTypes.shape({
         postingNote: PropTypes.bool,
 		postedNote: PropTypes.bool,
@@ -36,7 +36,7 @@ NotesListContainer.propTypes = {
 		deletingNote: PropTypes.bool,
 		deletedNote: PropTypes.bool,
 		noteError: PropTypes.string
-    })
+    }).isRequired
 };
 
 const mapStateToProps = (state) => {

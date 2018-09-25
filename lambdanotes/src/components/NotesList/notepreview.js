@@ -48,6 +48,7 @@ const PreviewDiv = Styled.div`
     }
 `;
 
+// TODO: Make the whole div clickable
 const NotePreview = (props) => {
     return (
         <PreviewDiv>

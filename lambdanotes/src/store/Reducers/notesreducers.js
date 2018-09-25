@@ -10,33 +10,12 @@ import {
     DELETE_PROMPT,
     DELETING_NOTE,
     DELETED_NOTE,
-    NOTE_ERROR
+    NOTE_ERROR,
+    NOTE_TO_EDIT
 } from '../actions/';
 
 const initialState = {
-	"notes": [
-		{
-			"tags": ["tag1", "tag2", "tagN"],
-			"title": "asdf",
-			"textBody": "ghgchfgjhghjghj fgh fgh fgh fthfghfthf fhfhth",
-			"_id": "5ba8145811b7c40014cb7abf",
-			"__v": 0
-        },
-        {
-			"tags": ["tag1", "tag2", "tagN"],
-			"title": "ghjkl",
-			"textBody": "fgfdgfgbfc fdghtybncv jghj fgh fgh fgh fthfghfthf fhfhth",
-			"_id": "5ba85s6sd6tyfd0014cb7abf",
-			"__v": 0
-        },
-        {
-			"tags": ["tag1", "tag2", "tagN"],
-			"title": "qwerty",
-			"textBody": "ghaaaaaaaaaaaahjghj fgh fgh fgh fthfghfthf fhfhth",
-			"_id": "5drftyr51b7c40014cb7abf",
-			"__v": 0
-		}
-    ], 
+	"notes": [], 
 	"editing": {
 		"isEditing": false,
 		"tmpNote": {
@@ -70,7 +49,7 @@ export default (state = initialState, action) => {
         case POSTING_NOTE:
             return {...state, status: {...state.status, postingNote: true, postedNote: false}};
         case POSTED_NOTE:
-            return {...state, status: {...state.status, postingNote: false, postedNote: true}, notes: action.payload};
+            return {...state, status: {...state.status, postingNote: false, postedNote: true}};
         case GETTING_NOTES:
             return {...state, status: {...state.status, gettingNotes: true, gotNotes: false}};
         case GOT_NOTES:
@@ -78,18 +57,20 @@ export default (state = initialState, action) => {
         case GETTING_SINGLE_NOTE:
             return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false}};
         case GOT_SINGLE_NOTE:
-            // TODO: determine if more state is required for the payload, then update accordingly
-            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true}}
+            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true}, notes: [...state.notes, action.payload]};
         case PUTTING_NOTE:
             return {...state, status: {...state.status, puttingNote: true, putNote: false}};
         case PUT_NOTE:
-            return {...state, status: {...state.status, puttingNote: false, putNote: true}, notes: action.payload};
+            return {...state, status: {...state.status, puttingNote: false, putNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: '', textBody: '', _id: '', __v: -1}}, notes: action.payload};
         case DELETE_PROMPT:
             return {...state, status: {...state.status, deletePrompt: true}};
         case DELETING_NOTE:
             return {...state, status: {...state.status, deletingNote: true, deletedNote: false}};
         case DELETED_NOTE:
             return {...state, status: {...state.status, deletingNote: false, deletedNote: true, deletePrompt: false}, notes: action.payload};
+        case NOTE_TO_EDIT:
+            const noteToEdit = state.notes.find( (note) => action.payload === note._id);
+            return {...state, editing: {...state.editing, isEditing: true, tmpNote: {tags: noteToEdit.tags, title: noteToEdit.title, textBody: noteToEdit.textBody, _id: noteToEdit._id, __v: noteToEdit.__v}}};
         default:
             return state;
     }

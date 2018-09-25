@@ -12,11 +12,23 @@ export const DELETE_PROMPT = 'DELETE_PROMPT';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETED_NOTE = 'DELETED_NOTE';
 export const NOTE_ERROR = 'NOTE_ERROR';
+export const NOTE_TO_EDIT = 'NOTE_EDIT';
 
 const dataSource = 'https://killer-notes.herokuapp.com/note';
 
-export const postNote = () => {
-
+export const postNote = (newNote) => {
+    return (dispatch) => {
+        dispatch( {type: POSTING_NOTE} );
+        Axios
+            .post(`${dataSource}/create`, newNote)
+            .then( (response) => {
+                dispatch( {type: POSTED_NOTE, payload: response.data} );
+                // getSingleNote(response.data);
+            })
+            .catch( (err) => {
+                dispatch( {type: NOTE_ERROR, payload: err.message} )
+            });
+    };
 };
 
 export const getNotes = () => {
@@ -25,7 +37,6 @@ export const getNotes = () => {
         Axios
             .get(`${dataSource}/get/all`)
             .then( (response) => {
-                console.log('getNotes:', response);
                 dispatch( {type: GOT_NOTES, payload: response.data} );
             })
             .catch( (err) => {
@@ -34,11 +45,21 @@ export const getNotes = () => {
     };
 };
 
-export const getSingleNote = () => {
-
+export const getSingleNote = (noteId) => {
+    return (dispatch) => {
+        dispatch( {type: GETTING_SINGLE_NOTE} );
+        Axios
+            .get(`${dataSource}/get/${noteId}`)
+            .then( (response) => {
+                dispatch( {type: GOT_SINGLE_NOTE, payload: response.data} );
+            })
+            .catch( (err) => {
+                dispatch( {type: NOTE_ERROR, payload: err.message} );
+            });
+    };
 };
 
-export const putNote = () => {
+export const putNote = (updatedNote, noteId) => {
 
 };
 
@@ -46,6 +67,10 @@ export const deletePrompt = () => {
 
 };
 
-export const deleteNote = () => {
+export const deleteNote = (noteId) => {
 
+};
+
+export const noteToEdit = (noteId) => {
+    return (dispatch) => dispatch( {type: NOTE_TO_EDIT, payload: noteId});
 };

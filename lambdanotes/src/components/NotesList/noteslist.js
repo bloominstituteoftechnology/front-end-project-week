@@ -36,14 +36,14 @@ NotesList.propTypes = {
         __v: PropTypes.number
     })).isRequired,
     status: PropTypes.shape({
-        postingNote: PropTypes.bool,
+        postingNote: PropTypes.bool.isRequired,
 		postedNote: PropTypes.bool,
-		gettingNotes: PropTypes.bool,
+		gettingNotes: PropTypes.bool.isRequired,
 		gotNotes: PropTypes.bool,
-		puttingNote: PropTypes.bool,
+		puttingNote: PropTypes.bool.isRequired,
 		putNote: PropTypes.bool,
 		deletePrompt: PropTypes.bool,
-		deletingNote: PropTypes.bool,
+		deletingNote: PropTypes.bool.isRequired,
 		deletedNote: PropTypes.bool,
 		noteError: PropTypes.string
     })
