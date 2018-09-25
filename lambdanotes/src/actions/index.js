@@ -21,10 +21,10 @@ export const UPDATING_NOTE = 'UPDATING_NOTE';
 export const UPDATED_NOTE = 'UPDATED_NOTE';
 export const UPDATE_NOTE_ERROR = 'UPDATE_NOTE_ERROR';
 
-// Loading state tester
-// function sleep(ms) {
-//   return new Promise(resolve => setTimeout(resolve, ms));
-// }
+// Loading message tester
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 export const getNotes = () => {
 	return dispatch => {
@@ -33,7 +33,8 @@ export const getNotes = () => {
 		axios
 			.get('https://killer-notes.herokuapp.com/note/get/all')
 
-			.then(response => {
+			.then(async response => {
+				await sleep(1000);
 				dispatch({ type: GOT_NOTES, payload: response.data });
 			})
 
@@ -48,7 +49,8 @@ export const getNote = id => {
 		axios
 			.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
 
-			.then(response => {
+			.then(async response => {
+				await sleep(1000);
 				dispatch({ type: GOT_NOTE, payload: response.data });
 			})
 
@@ -63,10 +65,11 @@ export const addNote = note => {
 		axios
 			.post('https://killer-notes.herokuapp.com/note/create', note)
 
-			.then(response => {
+			.then(async () => {
+				await sleep(1000);
 				dispatch({ type: ADDED_NOTE });
 				// return axios.get(`https://killer-notes.herokuapp.com/note/get/${response.data}`);
-				return getNote(response.data);
+				// return getNote(response.data);
 			})
 
 			.catch(error => dispatch({ type: ADD_NOTE_ERROR, payload: error }));
@@ -80,7 +83,8 @@ export const deleteNote = id => {
 		axios
 			.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
 
-			.then(() => {
+			.then(async () => {
+				await sleep(1000);
 				dispatch({ type: DELETED_NOTE });
 			})
 
@@ -98,11 +102,12 @@ export const updateNote = updatedNote => {
 
 		axios
 			.put(
-				`https://killer-notes.herokuapp.com/note/edit/${updatedNote.id}`,
+				`https://killer-notes.herokuapp.com/note/edit/${updatedNote._id}`,
 				updatedNote
 			)
 
-			.then(response => {
+			.then(async response => {
+				await sleep(1000);
 				dispatch({ type: UPDATED_NOTE, payload: response.data });
 			})
 
