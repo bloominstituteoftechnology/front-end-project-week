@@ -37,7 +37,6 @@ const NotePreview = (props) => (
         </Link>
       </NotePreviewDiv>
     </div>
-
   )
 )
 

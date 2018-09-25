@@ -15,7 +15,8 @@ import {
   DeleteNote,
   NewNote,
   NoteDetails,
-  LeftMenu, } from './components';
+  LeftMenu,
+  Welcome, } from './components';
 
 import {
   addNote,
@@ -31,11 +32,18 @@ class App extends Component {
     this.handleDrop = this.handleDrop.bind(this);
     this.state = {
       hideDetails: true,
+      loggedIn: false
     }
   }
 
   componentDidMount = () => {
-    this.props.getNotes();
+    if(this.state.loggedIn){
+      //this should check for token when set up 
+      this.props.getNotes();
+      this.props.history.push('/all-notes')
+    } else {
+      this.props.history.push('/welcome')
+    }
   }
 
   getNoteDetails = (id) => {
@@ -111,9 +119,10 @@ class App extends Component {
     return (
         <AppDiv>
           {/* <Redirect from="/" to="/all-notes" /> */}
-          <LeftMenu />
-
+          
+          {this.state.loggedIn ? <LeftMenu /> : null}
           <div className="right-display">
+          {this.state.loggedIn ? null : <Route path="/welcome" component={Welcome} /> }
             <Route
               exact
               path="/all-notes/"

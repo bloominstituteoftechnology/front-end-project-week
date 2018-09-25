@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
-
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import {reducer} from  './reducers';
 import axios from 'axios';
+
+import App from './App';
 
 axios.defaults.withCredentials = true;
 
