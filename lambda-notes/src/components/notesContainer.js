@@ -1,10 +1,15 @@
 import React, {  } from 'react';
 import {  Link } from "react-router-dom";
+import { SearchBar } from './searchBar';
 
 export const NoteList = props => {
     return (
         <div className="notes-wrap" >
-            <h3 className="your-header" >Your Notes:</h3>
+            <div className="search-wrap" >
+                <h3 className="your-header" >Your Notes:</h3>
+                <SearchBar  />
+            </div>
+            <div className="notes-container" >
             {props.notes.map(note => {
             return ( 
                 <Link to={`/notes/${note.id}`} key={note.id} >
@@ -20,7 +25,9 @@ export const NoteList = props => {
                     </div>
               </Link>
             );
-          })}
+            })}
+            </div>
+
         </div>
     )
 }
