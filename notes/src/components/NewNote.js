@@ -40,7 +40,7 @@ class NewNote extends Component {
             ></input>
             <input
               type='textarea'
-              name='content'
+              name='textBody'
               value={this.state.textBody}
               placeholder='Note Content'
               onChange={this.handleChange}

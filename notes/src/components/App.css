@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.delete-button {
+  padding: 14px;
+  width: 150px;
+  height: 45px;
+  margin: auto;
+  border: 1px black solid;
+  background: blue;
+  color: white;
+  box-sizing: border-box;
+}

@@ -30,7 +30,7 @@ export const createNote = (note) => {
     dispatch({type: SAVING_NOTES});
     axios
       .post(URL+'create', note) //response from the server will be the ID of the new note
-      .then(response => {dispatch({type: NOTES_SAVED, payload:response.data}) })
+      .then(response => { console.log('creating'), dispatch({type: NOTES_SAVED, payload:response.data}) })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
       })
@@ -38,16 +38,19 @@ export const createNote = (note) => {
 }
 
 export const deleteNote = (noteId) => {
-  console.log('delete firing');
+  console.log('step 2');
+  console.log(URL+`delete/${noteId}`);
   return dispatch => {
-    dispatch({type: DELETING_NOTE})
+    // dispatch({type: DELETING_NOTE})
+    console.log('first dispatch fired');
     axios
-    .delete(URL)
-    .then(response =>{
-      dispatch({type: NOTE_DELETED, payload: response.data})
+    .delete(URL+`delete/${noteId}`)
+    .then(response =>{ console.log('axios delete fired');
+      // dispatch({type: NOTE_DELETED, payload: response.data})
     })
     .catch(error => {
       console.error('Wops! Mistake!', error)
     })
+    console.log('axios done');
   }
 }

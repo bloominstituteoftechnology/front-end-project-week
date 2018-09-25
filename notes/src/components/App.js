@@ -7,7 +7,9 @@ import { fetchNotes } from '../actions'
 
 import NotesList from './NotesList'
 import NewNote from './NewNote'
+import Note from './Note'
 // import Header from './Header';
+
 
 
 class App extends Component {
@@ -27,14 +29,24 @@ class App extends Component {
           <Link to='/note-list'> Note List</Link>
           <Link to='/new-note'> New Note </Link>
           <Link to='/smurf-update'> Smurf Update </Link>
+          <Link to='/note-list/5ba96a29d7042d0014318ba9'> One Guy </Link>
+          <Link to='/note-list/5ba903d1d7042d0014318b47'> Two Guys </Link>
+          <Link to='/note-list/5ba9313ed7042d0014318b4d'> Three Guys </Link>
         </header>
         <section className='main-section'>
-          <Route path='/note-list' render={props =>
+          <Route exact path='/note-list' render={props =>
             <NotesList
               {...props}
               noteList={this.props.notes}
              />
            } />
+           <Route path='/note-list/:id' render={props =>
+             <NotesList
+               {...props}
+               noteList={this.props.notes}
+              />
+            } />
+           {/* <Route path='/note-list/:id' component={Note} /> */}
            <Route path='/new-note' render={props =>
              <NewNote
                {...props}
