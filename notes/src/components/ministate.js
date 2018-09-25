@@ -25,22 +25,21 @@ class Ministate extends React.Component {
   addTag = id => {
     if (this.state.tag !== "") {
       this.state.note.tags.push(this.state.tag);
-      axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
-        tags: this.state.note.tags
+      axios.post(`http://localhost:5000/tags/${id}`, {
+        tag: this.state.tag,
+        noteId: id
       });
       this.setState({ tagging: false, tag: "" });
     }
   };
 
-  deleteTag = (id, tagdelete) => { 
+  deleteTag = (tagdelete) => { 
     let tags = this.state.note.tags.filter(tag => {
       if (tag !== tagdelete) {
         return tag;
       }
     });
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
-        tags: tags
-      })
+    axios.delete(`http://localhost:5000/tags/${tagdelete.id}`)
       let note = {...this.state.note, tags: tags}
       // shallow copy, open up note and replace tags with tags
       this.setState({note : note})
@@ -66,9 +65,9 @@ class Ministate extends React.Component {
           {this.state.note.tags.map(tag => (
             <div className="tag">
               <div className="tagx">
-                <p>{tag}</p>
+                <p>{tag.text}</p>
                 <i
-                  onClick={() => this.deleteTag(this.state.note.id, tag)}
+                  onClick={() => this.deleteTag(tag)}
                   class="fas fa-times"
                 />
               </div>
