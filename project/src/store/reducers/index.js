@@ -44,6 +44,9 @@ const notesReducer = (state = initialstate, action) => {
       return { ...state, isDeleting: false, notes: action.payload };
     case DELETE_NOTE_ERROR:
       return { ...state, isDeleting: false, error: action.payload };
+    case SET_UPDATE_NOTE:
+      const note = state.notes.find(note => note.id === action.payload);
+      return { ...state, noteToUpdate: note ? note : null };
     case UPDATE_NOTE_START:
       return { ...state, isUpdating: true };
     case UPDATE_NOTE_COMPLETE:

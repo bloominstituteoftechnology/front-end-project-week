@@ -20,7 +20,7 @@ export const SET_UPDATE_NOTE = "SET_UPDATE_NOTE";
 
 export const getNotes = () => dispatch => {
   dispatch({ type: NOTES_FETCH_START });
-  const promise = axios.get("");
+  const promise = axios.get("https://killer-notes.herokuapp.com/note/get/all");
 
   promise
     .then(response => {
@@ -35,7 +35,7 @@ export const addNewNote = note => dispatch => {
   dispatch({ type: ADD_NOTE_START });
 
   axios
-    .post("", note)
+    .post("https://killer-notes.herokuapp.com/note/create", note)
     .then(response => {
       dispatch({ type: ADD_NOTE_COMPLETE, payload: response.data });
     })
@@ -44,11 +44,11 @@ export const addNewNote = note => dispatch => {
     });
 };
 
-export const deleteNote = note => dispatch => {
+export const deleteNote = noteId => dispatch => {
   dispatch({ type: DELETE_NOTE_START });
 
   axios
-    .delete("", note)
+    .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
     .then(response => {
       dispatch({ type: DELETE_NOTE_COMPLETE, payload: response.data });
     })
@@ -68,7 +68,7 @@ export const updateNote = note => dispatch => {
   dispatch({ type: UPDATE_NOTE_START });
 
   axios
-    .put("", note)
+    .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
     .then(response => {
       dispatch({ type: UPDATE_NOTE_COMPLETE, payload: response.data });
     })

@@ -3,11 +3,6 @@ import { connect } from "react-redux";
 import { addNewNote, updateNote } from "../store/actions";
 import NoteForm from "../components/Note";
 
-const blankFormValues = {
-  title: "",
-  body: ""
-};
-
 class NotesFormView extends React.Component {
   state = {
     note: {
@@ -25,8 +20,8 @@ class NotesFormView extends React.Component {
 
   handleChange = event => {
     this.setState({
-      avenger: {
-        ...this.state.avenger,
+      note: {
+        ...this.state.note,
         [event.target.name]: event.target.value
       }
     });

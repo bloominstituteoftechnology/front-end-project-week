@@ -2,22 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import notesReducer from "./store/reducers";
-import { BrowserRouter as Route } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
+import notesReducer from "./store/reducers";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const store = createStore(notesReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Route>
+  <Router>
+    <Provider store={store}>
       <App />
-    </Route>
-  </Provider>,
+    </Provider>
+  </Router>,
   document.getElementById("root")
 );
-registerServiceWorker();

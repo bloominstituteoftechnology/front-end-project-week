@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { Route, Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Note = props => {
+  console.log(props);
   const note = props.notesList.find(
     note => note.id === parseInt(props.match.params.noteId, 10)
   );
@@ -12,7 +12,7 @@ const Note = props => {
     props.history.push("/notes");
   };
 
-  if (props.isLoading || props.avengersList.length === 0)
+  if (props.isLoading || props.notesList.length === 0)
     return <h2>Loading notes...</h2>;
 
   return (
@@ -23,6 +23,18 @@ const Note = props => {
       </nav>
       <h1>{note.title}</h1>
       <h3>{note.body}</h3>
+      <button
+        className="material-button-raised"
+        onClick={event => {
+          event.preventDefault();
+          props.goToUpdateNoteForm(event, note.id);
+        }}
+      >
+        Update Note
+      </button>
+      <button className="material-button-raised" onClick={handleDelete}>
+        Delete Note
+      </button>
     </Fragment>
   );
 };
