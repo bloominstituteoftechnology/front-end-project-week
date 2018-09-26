@@ -24,12 +24,12 @@ class Ministate extends React.Component {
 
   addTag = id => {
     if (this.state.tag !== "") {
-      this.state.note.tags.push(this.state.tag);
-      axios.post(`http://localhost:5000/tags/${id}`, {
+      let note = {...this.state.note, tags: [...this.state.note.tags, {text: this.state.tag}]}
+      axios.post(`https://agile-woodland-53059.herokuapp.com/tags/${id}`, {
         tag: this.state.tag,
         noteId: id
-      });
-      this.setState({ tagging: false, tag: "" });
+      }).then( () => this.setState({ tagging: false, tag: "", note: note})
+      )
     }
   };
 
@@ -39,7 +39,7 @@ class Ministate extends React.Component {
         return tag;
       }
     });
-    axios.delete(`http://localhost:5000/tags/${tagdelete.id}`)
+    axios.delete(`https://agile-woodland-53059.herokuapp.com/tags/${tagdelete.id}`)
       let note = {...this.state.note, tags: tags}
       // shallow copy, open up note and replace tags with tags
       this.setState({note : note})

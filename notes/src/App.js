@@ -16,7 +16,6 @@ class App extends Component {
       note: {},
       newtitle: "",
       newbody: "",
-      id: 5,
       edittitle: "",
       editbody: "",
       deleting: false,
@@ -28,7 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/notes")
+      .get("https://agile-woodland-53059.herokuapp.com/notes")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -53,11 +52,11 @@ class App extends Component {
 
   noteSubmit = () => {
     axios
-      .post("http://localhost:5000/notes", {
+      .post("https://agile-woodland-53059.herokuapp.com/notes", {
         title: this.state.newtitle,
         text: this.state.newbody
       }).then(()=>{
-        axios.get("http://localhost:5000/notes")
+        axios.get("https://agile-woodland-53059.herokuapp.com/notes")
         .then(response => {
           console.log(response.data);
           this.setState(()=> ({notes: response.data }))
@@ -97,10 +96,10 @@ class App extends Component {
   };
 
   submitEdit = id => {
-    axios.put(`http://localhost:5000/notes/${id}`, {
+    axios.put(`https://agile-woodland-53059.herokuapp.com/notes/${id}`, {
       title: this.state.edittitle,
       text: this.state.editbody}).then(()=>{
-        axios.get("http://localhost:5000/notes")
+        axios.get("https://agile-woodland-53059.herokuapp.com/notes")
         .then(response => {
           this.setState({ notes: response.data })
         })
@@ -117,9 +116,9 @@ class App extends Component {
   };
 
   noteDelete = id => {
-    axios.delete(`http://localhost:5000/notes/${id}`)
+    axios.delete(`https://agile-woodland-53059.herokuapp.com/notes/${id}`)
     .then(()=> {
-      axios.get("http://localhost:5000/notes")
+      axios.get("https://agile-woodland-53059.herokuapp.com/notes")
       .then(response => {
         this.setState({ notes: response.data, deleting: false }) 
       })
