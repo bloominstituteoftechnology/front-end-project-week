@@ -47,6 +47,10 @@
     top: 0;
     left: 0;
     background-color: #D7D7D7;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .appView {
@@ -63,8 +67,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
-
-
 
 .App {
     text-align: center;

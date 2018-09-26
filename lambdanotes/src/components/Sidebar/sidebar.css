@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
 .sidebar-container {
     background: #D3D3D3;
     width: 20%;
     height: 100%;
     border-right: 1px #979797 solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    position: fixed;
 }
 
-.sideBar .title h1{
+
+
+.sideBar .title h1 {
     color: #424343;
     font-size: 30px;
     font-family: 'Roboto', sans-serif;

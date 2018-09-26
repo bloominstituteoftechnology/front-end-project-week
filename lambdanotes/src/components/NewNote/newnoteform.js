@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Sidebar from "../Sidebar/sidebar";
+import SideBar from "../Sidebar/sidebar";
 import { addNote } from "../../actions";
 import { connect } from "react-redux";
 import "./newnoteform.css";
@@ -23,40 +23,26 @@ class NewNoteForm extends Component {
   };
 
   render() {
-    return (
-      <div className="create-page-container">
-        <Sidebar />
+    return <div className="page-container">
+        <SideBar />
         <div className="section-container">
-          <h1 className="notes-title create"> Create New Note: </h1>
-          <form className="create-form">
-            <textarea
-              placeholder="Title"
-              onChange={this.handleInputChange}
-              className="title-input"
-              value={this.state.title}
-              name="title"
-            />
-            <textarea
-              placeholder="Type your note here.."
-              onChange={this.handleInputChange}
-              className="content-input"
-              value={this.state.textBody}
-              name="textBody"
-            />
-            <Link to="/">
-              <button
-                className="create-button"
-                type="button"
-                onClick={() => this.addHandler()}
-              >
-                {" "}
-                Save{" "}
-              </button>
-            </Link>
-          </form>
+          <h1 className="notes-title">Create New Note: </h1>
+          <div className="note-container">
+            <form className="create-form">
+              <textarea placeholder="Title" onChange={this.handleInputChange} className="title-input" value={this.state.title} name="title" />
+              <textarea placeholder="Type your note here.." onChange={this.handleInputChange} className="content-input" value={this.state.textBody} name="textBody" />
+              <textarea placeholder="Note Tags" onChange={this.handleInputChange} className="title-input" value={this.state.title} name="title" />
+
+              <Link to="/">
+                <button className="create-button" type="button" onClick={() => this.addHandler()}>
+                  {" "}
+                  Save{" "}
+                </button>
+              </Link>
+            </form>
+          </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 const mapStateToProps = state => {

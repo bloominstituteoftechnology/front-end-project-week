@@ -13,6 +13,8 @@
 .edit-delete {
     display: flex;
     justify-content: flex-end;
+    font-weight: bold;
+    color: black;
 }
 
 .edit-delete a {
@@ -34,6 +36,7 @@
     width: 100%;
     position: fixed;
     opacity: 0.75;
+    z-index: 999;
 }
 
 .delete-container {
