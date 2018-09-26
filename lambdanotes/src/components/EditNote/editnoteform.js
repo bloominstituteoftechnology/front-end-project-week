@@ -5,15 +5,12 @@ import { connect } from "react-redux";
 import { updateNote } from "../../actions";
 import SideBar from "../Sidebar/sidebar";
 
-const NotesTitle = styled.div`
-margin: 52px 0 0 5%;
-;`
 const EditnoteForm = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-left: 5%;
+  
 `;
 const EditNoteButton = styled.div`
   margin-top: 5px;
@@ -95,7 +92,7 @@ class EditNoteForm extends React.Component {
       <div className="page-container">
         <SideBar />
         <div className="section-container">
-          <h1 className="notes-title">Edit Note: </h1>
+          <h1 className="notes-title">Edit Note:</h1>
           <div className="note-container">
             <EditnoteForm>
               <EditNoteInput
@@ -120,7 +117,7 @@ class EditNoteForm extends React.Component {
                 onChange={this.handleInputChange}
               />
               <Link to="/">
-                <EditNoteButton onClick={this.editNoteObj}>Save</EditNoteButton>
+                <EditNoteButton onClick={this.editNoteObj}>Update</EditNoteButton>
               </Link>
             </EditnoteForm>
           </div>

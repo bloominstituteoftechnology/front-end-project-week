@@ -8,7 +8,7 @@ import Note from "./note";
 class NoteList extends Component {
   componentDidMount() {
     this.props.fetchNotes();
-  } //this.props.fetchNotes();
+  } 
 
   render() {
     return (
@@ -18,7 +18,7 @@ class NoteList extends Component {
           <h1 className="notes-title">Your Notes: </h1>
           <div className="note-container">
             {!this.props.notes.length && (
-              <div>You have no notes! Create a new note to get started.</div>
+              <div><h1>You have no notes! Create a new note to get started.</h1></div>
             )}
             {this.props.notes.map(note => (
               <Note key={note._id} note={note} />

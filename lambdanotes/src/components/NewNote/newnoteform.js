@@ -9,7 +9,8 @@ class NewNoteForm extends Component {
   state = {
     id: -1,
     title: "",
-    textBody: ""
+    textBody: "",
+    tags:""
   };
 
   handleInputChange = e => {
@@ -17,9 +18,9 @@ class NewNoteForm extends Component {
   };
 
   addHandler = () => {
-    const { title, textBody } = this.state;
-    this.props.addNote({ title, textBody });
-    this.setState({ title: "", textBody: "" });
+    const { title, textBody, tags} = this.state;
+    this.props.addNote({ title, textBody, tags });
+    this.setState({ title: "", textBody: "", tags:"" });
   };
 
   render() {
