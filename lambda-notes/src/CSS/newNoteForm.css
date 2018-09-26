@@ -1,5 +1,8 @@
 .save-btn {
   background: rgba(36, 171, 175);
   color: #fff;
+  -webkit-transition: 200ms ease-in-out;
   transition: 200ms ease-in-out;
+  font-size: 1.6rem;
+  font-weight: bold;
 }

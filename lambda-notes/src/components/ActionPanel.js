@@ -10,7 +10,7 @@ class ActionPanel extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2 className="action-panel-title ">Lambda Notes</h2>
+        <h2 className="action-panel-title">Lambda Notes</h2>
         <Link className="btn btn-block link" to="/">
           View Your Notes
         </Link>

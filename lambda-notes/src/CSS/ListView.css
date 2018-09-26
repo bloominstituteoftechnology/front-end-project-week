@@ -1,25 +1,24 @@
 .note-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-content: flex-start;
-  flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   position: relative;
 }
 
 img {
   -webkit-animation: spin 4s linear infinite;
-  -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
   height: 300px;
   position: absolute;
   top: 10%;
   left: 30%;
-}
-
-@-moz-keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg);
-  }
 }
 @-webkit-keyframes spin {
   100% {

@@ -11,7 +11,8 @@
   position: fixed;
   top: 30%;
   left: 50%;
-  transform: translate(-25%, -50%);
+  -webkit-transform: translate(-25%, -50%);
+          transform: translate(-25%, -50%);
   background: #fff;
   padding: 50px;
 }

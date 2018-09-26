@@ -9,6 +9,7 @@
   width: 100%;
   border-radius: 3px;
   border: 1px solid transparent;
+  -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   font-size: 1.6rem;
 }
@@ -16,7 +17,8 @@
 .link:hover, button:hover {
   text-decoration: none;
   color: #fff;
-  filter: brightness(95%);
+  -webkit-filter: brightness(95%);
+          filter: brightness(95%);
 }
 
 .action-container {
