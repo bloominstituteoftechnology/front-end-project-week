@@ -21,7 +21,7 @@ export const fetchNotes = () => {
   return dispatch => {
     // dispatch({ type: FETCHING_NOTE });
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .get(`http://localhost:5000/note/get/all`)
       .then(({ data }) => {
         dispatch({ type: FETCH_NOTE, payload: data });
       })
@@ -34,11 +34,11 @@ export const fetchNotes = () => {
 
 export const fetchNoteId = id => {
   return dispatch => {
-    dispatch({ type: FETCHING_NOTE_ID });
+    // dispatch({ type: FETCHING_NOTE_ID });
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-      .then(res => {
-        dispatch({ type: FETCH_NOTE_ID, payload: res.data });
+      .then(({ data }) => {
+        dispatch({ type: FETCH_NOTE_ID, payload: data.id});
       })
       .catch(err => {
         console.log("Error with fetching id: ", err);
@@ -83,7 +83,7 @@ export const editNote = noteData => {
     dispatch({ type: EDITING_NOTE });
     axios
       .put(
-        `https://killer-notes.herokuapp.com/note/edit/${noteData._id}`,
+        `https://killer-notes.herokuapp.com/note/edit/${noteData.id}`,
         noteData
       )
       .then(res => {

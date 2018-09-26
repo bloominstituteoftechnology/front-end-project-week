@@ -1,35 +1,30 @@
 import {
   DELETE_NOTE,
-  DELETING_NOTE,
   EDIT_NOTE,
-  EDITING_NOTE,
   CREATE_NOTE,
-  CREATING_NOTE,
   FETCH_NOTE,
-  FETCHING_NOTE,
-  FETCHING_NOTE_ID,
   FETCH_NOTE_ID
 } from "../actions";
 
 const initialState = [
   {
-    _id: "asdklfjsodijflsdkf19",
+    id: "asdklfjsodijflsdkf19",
     title: "First Note",
     body: "content info",
     createdat: 157234563211
   },
   {
-    _id: "asdklfjsoyyeewrkwer56903",
+    id: "asdklfjsoyyeewrkwer56903",
     title: "Second Note",
     body: "content info",
     createdat: 157234563222
   },
   {
-    _id: "zaqwsxcderfv0192749",
+    id: "zaqwsxcderfv0192749",
     title: "Third Note",
     body: "content info",
     createdat: 157234563233
-  },
+  }
 ];
 
 const notesReducer = (state = initialState, action) => {
@@ -37,7 +32,7 @@ const notesReducer = (state = initialState, action) => {
   switch (action.type) {
     case DELETE_NOTE:
       state.forEach((item, index) => {
-        if (item._id === action.payload) {
+        if (item.id === action.payload) {
           temp.splice(index, 1);
           return;
         }
@@ -45,7 +40,7 @@ const notesReducer = (state = initialState, action) => {
       return temp;
     case EDIT_NOTE:
       state.forEach((item, index) => {
-        if (item._id === action.payload._id) {
+        if (item.id === action.payload.id) {
           temp.splice(index, 1);
           return;
         }
@@ -55,8 +50,8 @@ const notesReducer = (state = initialState, action) => {
     case CREATE_NOTE:
       temp.push(action.payload);
       return temp;
-    case FETCHING_NOTE:
-      return action.payload._id;
+    case FETCH_NOTE_ID:
+      return action.payload;
     case FETCH_NOTE:
       return action.payload;
     default:

@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import DeleteNote from "../DeleteNote/DeleteNote.js";
-// import { fetchNoteId } from "../../actions";
+import { fetchNoteId } from "../../actions";
 import "./index.css";
 
 const mapStateToProps = state => {
+  // console.log("STATE: ", state);
   return {
     notesArray: state
   };
@@ -17,21 +18,23 @@ class NoteView extends Component {
     matched: []
   };
 
-  componentWillMount() {
+  componentWillMount = () => {
     let routeId = this.props.match.params.id;
-    let matched = this.props.notesArray.filter(item => item._id === routeId);
+    console.log("RouteId: ", routeId);
+    let matched = this.props.notesArray.filter(item => { 
+      console.log('item._id:', item.id, 'bollywoodean:', item.id == routeId);
+      return item.id == routeId;
+    });
+    console.log("Matched: ", matched);
     this.setState({ matched });
-  }
-
-  componentDidMount() {
-    
-  }
+  };
 
   showModal = () => {
     this.setState({ displayDelete: !this.state.displayDelete });
   };
 
   render() {
+    console.log("MATCHED TITLE: ", this.state.matched)
     return (
       <div className="noteView_container">
         <div className="noteView_topContent">
@@ -54,7 +57,7 @@ class NoteView extends Component {
         <DeleteNote
           toggle={this.state.displayDelete}
           showModal={this.showModal}
-          toDelete={this.state.matched[0]._id}
+          toDelete={this.state.matched[0].id}
           history={this.props.history}
         />
       </div>
