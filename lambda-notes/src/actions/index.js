@@ -13,7 +13,7 @@ export const  EDITING_NOTE = " EDITING_NOTE";
 export const FETCHING_CREATE_PAGE = "FETCHING_CREATE_PAGE";
 
 export const fetchingNotesAction = () => {
-	const request = axios.get('https://lambdanotesproject.herokuapp.com/api/notes');
+	const request = axios.get('http://localhost:5000/api/notes');
 
         return (dispatch) => {
         dispatch({type: FETCHING});
