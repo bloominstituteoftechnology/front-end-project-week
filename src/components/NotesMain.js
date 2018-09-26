@@ -1,30 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import Draggable from 'react-draggable'
 
 const NotesMain = (props) => {
+  const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
   return (
     <Div1 className="NotesMain">
       <H2>Your Notes:</H2>
       <Div2>
         {
           props.notes.map(note => 
+            <Draggable handle="strong" {...dragHandlers}>
             <Div3 key={note.id}>
-              <H3>{note.title}</H3>
+              <Div4>
+                <H3>{note.title}</H3>
+                <Strong>
+                  <span role="img" aria-label="Thumbtack">📌</span>
+                </Strong>
+              </Div4>
               <Hr />
               <P>{note.text.substring(0, 105)}...</P>
-              <P2>Tags:&nbsp;
-                {
-                  note.tags.map(function(note, index) {
-                    return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>; 
-                  })
-                }
-                ...
-              </P2>
+                <P2>Tags:&nbsp;
+                  {
+                    note.tags.map(function(note, index) {
+                      return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>
+                    })
+                  }
+                  ...
+                </P2>
               <Link to={`/notes/${note.id}`}>
                 <Button>View Note</Button>
               </Link>
             </Div3>
+            </Draggable>
           )
         }
       </Div2>
@@ -56,16 +65,24 @@ const Div3 = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `
+const Div4 = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 const H2 = styled.h2`
   margin-top: 8%;
 `
 const H3 = styled.h3`
+  font-size: 1.8rem;
   margin: 8% 0 2% 0;
 `
 const P = styled.p``
 const P2 = styled.p`
   font-size: 1.2rem;
   margin: 0;
+`
+const Strong = styled.strong`
+  font-size: 2rem;
 `
 const Button = styled.button`
   width: 50%;
