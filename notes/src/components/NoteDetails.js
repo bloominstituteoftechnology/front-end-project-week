@@ -1,33 +1,24 @@
 import React from 'react';
-import {deleteNote} from '../actions';
+import {deleteNote, fetchSingleNote} from '../actions';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import { Button, Modal, ModalBody } from 'reactstrap';
 
 class NoteDetails extends React.Component {
     
+    componentDidMount(){
+        this.props.fetchSingleNote(this.props.match.params.id);
+    }
+
     constructor(props){
         super(props);
 
         this.state = {
             modal: false,
             deleted: false,
-            currentNote: {}
         }
 
         this.toggle = this.toggle.bind(this);
-
-         
-    props.notes.map(note => {
-        if(note._id === props.match.params.id){
-            let currentNote = Object.assign({}, note);
-            this.state = Object.assign({}, this.state, {
-                currentNote: currentNote
-            })
-            
-        }
-        return null;
-    })
     
     }
 
@@ -46,7 +37,7 @@ class NoteDetails extends React.Component {
 
     handleDelete = event =>{
         event.preventDefault();
-        this.props.deleteNote(this.state.currentNote._id);
+        this.props.deleteNote(this.props.currentNote._id);
         
         this.toggle();
 
@@ -57,17 +48,19 @@ class NoteDetails extends React.Component {
         }
     
     render(){
-
+        
+        console.log(this.props.currentNote);
         
     return (
+
         <div className = 'note-details'>
             <div className = 'edit-delete'>
-            <Link to = {`/notes/edit/${this.state.currentNote._id}`}><span >edit</span></Link>
+            <Link to = {`/notes/edit/${this.props.currentNote._id}`}><span >edit</span></Link>
             <span onClick={this.toggle}>delete</span>
             </div>
 
-            <h1>{this.state.currentNote.title}</h1>
-            <p>{this.state.currentNote.textBody}</p>
+            <h1>{this.props.currentNote.title}</h1>
+            <p>{this.props.currentNote.textBody}</p>
 
            
             <Modal isOpen={this.state.modal} toggle={this.toggle} className='delete-modal'>
@@ -75,7 +68,7 @@ class NoteDetails extends React.Component {
                 Are you sure you want to delete this?
                 <div className = 'modal-buttons'>
                 
-                <Link to = '/'><Button color='danger' onClick={this.handleDelete}>Delete</Button></Link>
+                <Button color='danger' onClick={this.handleDelete}>Delete</Button>
                 <Button color='info' onClick={this.toggle}>No</Button>
                 </div>
             </ModalBody>
@@ -95,11 +88,12 @@ class NoteDetails extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      notes: state.notes
+      currentNote : state.currentNote
     }
   }
   
   export default withRouter(connect(mapStateToProps, {
-    deleteNote
+    deleteNote,
+    fetchSingleNote
   })(NoteDetails));
   

@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED, POSTING, POSTED, EDITING, EDITED, DELETING, DELETED, ERROR} from '../actions/index';
+import {FETCHING, FETCHED, POSTING, POSTED, FETCHING_SINGLE, FETCHED_SINGLE, EDITING, EDITED, DELETING, DELETED, ERROR} from '../actions/index';
 
 const initialState = {
     fetchingNotes: false,
@@ -10,20 +10,10 @@ const initialState = {
     deletingNote: false,
     noteDeleted: false,
     editingNote: false,
-    noteEdited: false
-//     notes: [
-//         {
-//             title: 'Test Note',
-//             content: 'This is a test note. It is meant for display and testing purposes.',
-//             id: 0,
-//         },
-//         {
-//             title: 'Test Note #2',
-//             content: 'This is another test note. You can see this test note now.',
-//             id: 1,
-//         },
-// ],
-//     currentID: 2
+    noteEdited: false,
+    fetchingSingle: false,
+    singleFetched: false,
+    currentNote: {}
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -87,6 +77,17 @@ export const rootReducer = (state = initialState, action) => {
                 notes: updatedNotes
             })
 
+        case FETCHING_SINGLE:
+            return Object.assign({}, state, {
+                fetchingSingle: true
+            })
+
+        case FETCHED_SINGLE:
+            return Object.assign({}, state, {
+                fetchingSingle: false,
+                singleFetched: true,
+                currentNote: action.payload
+            })
 
         default:
             return state;

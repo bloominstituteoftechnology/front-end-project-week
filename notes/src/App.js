@@ -50,10 +50,6 @@ class App extends Component {
 
         </Switch>
 
-        {/* <NoteForm />
-
-        <NoteList notes={this.props.notes}/> */}
-
       </div>
 
       </div>
@@ -67,6 +63,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+    noteDeleted: state.noteDeleted
   }
 }
 
