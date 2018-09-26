@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchNotes, setUpdateNote, deleteNote } from '../actions';
 
 import Note from '../components/Note';
+import DeleteModal from '../components/DeleteModal';
 
 class NoteView extends React.Component {
     componentDidMount() {
@@ -12,7 +13,9 @@ class NoteView extends React.Component {
         }
     }
 
-    handleConfirmDelete = () =
+    handleConfirmDelete = () => {
+
+    }
 
     handleDeleteNote = noteId => {
         this.props.deleteNote(noteId);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import NotesListView from '../views/NotesListView';
 import NoteFormView from '../views/NoteFormView';
@@ -8,18 +9,38 @@ import NoteView from '../views/NoteView';
 import logo from '../logo.svg';
 import '../App.css';
 
+const Button = styled.button`
+
+  background-color: #24B8BD;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  width: 180px;
+  height: 3rem;
+  margin: 1rem;
+`
+
+const Heading = styled.h1`
+  color: #474B4C;
+  text-align: left;
+`
+
 class App extends Component {
   componentDidMount
   render() {
     return (
       <div className="App">
       <div className="sidebar">
-        <h1>Lambda Notes</h1>
+        <Heading>Lambda Notes</Heading>
         <NavLink to="/notes" activeClassName="activeNavButton">
+        <Button>
         View Your Notes
+        </Button>
         </NavLink>
         <NavLink to="/addNote" activeClassName="activeNavButton">
+        <Button>
         + Create New Note
+        </Button>
         </NavLink>
 
         </div>
