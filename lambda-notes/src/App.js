@@ -22,7 +22,7 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:7000/api/notes")
+      .get("https://kyle-notes.herokuapp.com/api/notes")
       .then(response => {
         console.log(response);
         this.setState({
@@ -53,7 +53,7 @@ class App extends Component {
     const { title, content } = this.state;
     const newNote = { title, content };
     axios
-      .post(`http://localhost:7000/api/notes`, newNote)
+      .post(`https://kyle-notes.herokuapp.com/api/notes`, newNote)
       .then(response => {
         this.setState({
           notes: response.data,
@@ -74,7 +74,7 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete(`http://localhost:7000/api/notes/${id}`)
+      .delete(`https://kyle-notes.herokuapp.com/api/notes/${id}`)
       .then(response => {
         this.setState({
           notes: response.data

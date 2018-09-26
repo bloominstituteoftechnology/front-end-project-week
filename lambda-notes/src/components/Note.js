@@ -16,7 +16,7 @@ class Note extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:7000/api/notes/${this.props.match.params.id}`)
+      .get(`https://kyle-notes.herokuapp.com/api/notes/${this.props.match.params.id}`)
       .then(response => {
         this.setState(() => ({
           note: response.data[0]

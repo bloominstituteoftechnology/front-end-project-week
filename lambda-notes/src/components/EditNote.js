@@ -15,7 +15,7 @@ class EditNote extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:7000/api/notes/${this.props.match.params.id}`)
+      .get(`https://kyle-notes.herokuapp.com/api/notes/${this.props.match.params.id}`)
       .then(response => {
         this.setState(() => ({
           note: response.data[0],
@@ -33,7 +33,7 @@ class EditNote extends React.Component {
     const newNote = { title, content };
     axios
       .put(
-        `http://localhost:7000/api/notes/${this.props.match.params.id}`,
+        `https://kyle-notes.herokuapp.com/api/notes/${this.props.match.params.id}`,
         newNote
       )
       .then(response => {
