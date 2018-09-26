@@ -5,7 +5,7 @@ import { getNotes } from "../store/actions";
 
 import NotesList from "../components/NotesList/NotesList";
 
-class NoteListView extends React.Component {
+class NotesListView extends React.Component {
   componentDidMount() {
     this.props.getNotes();
   }
@@ -22,4 +22,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getNotes }
-)(NoteListView);
+)(NotesListView);

@@ -3,7 +3,7 @@ import { Route, NavLink, withRouter } from "react-router-dom";
 import axios from "axios";
 
 import HomeView from "./views/HomeView";
-import NoteListView from "./views/NoteListView";
+import NotesListView from "./views/NotesListView";
 import NoteView from "./views/NoteView";
 import NoteFormView from "./views/NoteFormView";
 
@@ -26,7 +26,7 @@ class App extends React.Component {
           </li>
         </ul>
         <Route exact path="/" component={HomeView} />
-        <Route exact path="/notes" component={NoteListView} />
+        <Route exact path="/notes" component={NotesListView} />
         <Route path="/notes/:noteId" component={NoteView} />
         <Route path="/note-form" component={NoteFormView} />
       </div>

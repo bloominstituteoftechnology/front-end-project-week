@@ -5,16 +5,18 @@ import { addNewNote, updateNote } from "../store/actions";
 
 import NoteForm from "../components/NotesForm/NotesForm";
 
-const blankFormValues = {
+const initialValues = {
   title: "",
-  textBody: ""
+  textBody: "",
+  tags: []
 };
 
 class NoteFormView extends React.Component {
   state = {
     note: {
       title: "",
-      textBody: ""
+      textBody: "",
+      tags: []
     },
     isUpdating: false
   };
@@ -27,12 +29,22 @@ class NoteFormView extends React.Component {
   }
 
   handleChange = event => {
-    this.setState({
-      note: {
-        ...this.state.note,
-        [event.target.name]: event.target.value
-      }
-    });
+    if (event.target.name === "tags") {
+      const tags = event.target.value.split(", ");
+      this.setState({
+        note: {
+          ...this.state.note,
+          tags
+        }
+      });
+    } else {
+      this.setState({
+        note: {
+          ...this.state.note,
+          [event.target.name]: event.target.value
+        }
+      });
+    }
   };
 
   handleAddNewNote = event => {

@@ -13,34 +13,36 @@ function NoteForm(props) {
 
   return (
     <Fragment>
-      <h2>{props.isUpdating ? "Update Note" : "Add New Note"}</h2>
-      <form>
-        <div className="group">
-          <input
-            type="text"
-            value={props.note.title}
-            name="title"
-            onChange={props.handleChange}
-          />
-          <span className="highlight" />
-          <span className="bar" />
-          <label>Title</label>
-        </div>
-        <div className="group">
-          <input
-            type="text"
-            value={props.note.textBody}
-            name="textBody"
-            onChange={props.handleChange}
-          />
-          <span className="highlight" />
-          <span className="bar" />
-          <label>textBody</label>
-        </div>
-        <button className="material-button-raised" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
+      <div className="form-div">
+        <h2 className="form-title">
+          {props.isUpdating ? "Update Note" : "Add New Note"}
+        </h2>
+        <form className="note-form">
+          <div className="group">
+            <input
+              className="update-new-input"
+              type="text"
+              value={props.note.title}
+              name="title"
+              placeholder="Title"
+              onChange={props.handleChange}
+            />
+          </div>
+          <div className="group">
+            <input
+              className="update-new-input body-input"
+              type="text"
+              value={props.note.textBody}
+              name="textBody"
+              placeholder="Note Body"
+              onChange={props.handleChange}
+            />
+          </div>
+          <button className="submit-button" onClick={handleSubmit}>
+            Submit
+          </button>
+        </form>
+      </div>
     </Fragment>
   );
 }
