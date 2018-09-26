@@ -81,7 +81,6 @@ class App extends Component {
         <Route exact path="/" render={() => 
           <NotesMain
             notes={this.state.notes}
-            deleteNote={this.deleteNote}
           />
         }/>
         <Route path="/new" render={() => 

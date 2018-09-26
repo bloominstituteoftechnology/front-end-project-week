@@ -23,7 +23,6 @@ const NotesMain = (props) => {
               <Link to={`/notes/${note.id}`}>
                 <Button>View Note</Button>
               </Link>
-              <Button onClick={() => props.deleteNote(note.id)}>Delete Note</Button>
             </Div3>
           )
         }
@@ -67,6 +66,9 @@ const Button = styled.button`
   padding: 0;
   font-size: 1.2rem;
   margin: 0 auto;
+  &:hover {
+    cursor: pointer;
+  }
 `
 const Hr = styled.hr`
   margin: 0;
