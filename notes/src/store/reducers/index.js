@@ -7,7 +7,8 @@ import { ADD_NOTE,
         NOTE_FETCH_FAILURE,
         ADD_NOTE_START,
         ADD_NOTE_SUCCESS,
-        ADD_NOTE_FAILURE
+        ADD_NOTE_FAILURE,
+        SEARCH_NOTE
 
 
 } from '../actions';
@@ -42,12 +43,15 @@ export const notesReducer = (state=initialState, action) => {
         case SET_UPDATE_NOTE:
         const note = state.notes.find(note => note.title === action.payload)
             return {...state, noteToUpdate: note ? note : null}
-        case UPDATE_NOTE:
-       
-        let noteIndex = state.notes.findIndex(note => note._id == action.payload._id);
-        console.log('noteindex', noteIndex);
-        state.notes[noteIndex] = action.payload;
+        case UPDATE_NOTE:      
+            let noteIndex = state.notes.findIndex(note => note._id == action.payload._id);
+            console.log('noteindex', noteIndex);
+            state.notes[noteIndex] = action.payload;
             return {...state, ...state.notes[noteIndex], noteToUpdate: null}
+        case SEARCH_NOTE:
+            let notes = state.notes.slice();
+            notes = notes.filter(note => note.title.includes(action.payload));
+            return {...state, notes: notes}
         default:
             return state;
     }

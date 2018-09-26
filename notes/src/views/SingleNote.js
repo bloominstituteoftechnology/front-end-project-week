@@ -11,7 +11,7 @@ class SingleNote extends React.Component {
         super(props);
         this.state = {
             note: {},
-            modal: false
+            modal: false,
             
         };
     }
@@ -56,12 +56,13 @@ class SingleNote extends React.Component {
             modal: !this.state.modal
         });
     }
+
     
 
     render() {
         const {title, textBody} = this.state.note
         return(
-            
+                
         <div className='active' >
            <div className='buttons'>
             <button onClick={this.toggle}>Delete</button>

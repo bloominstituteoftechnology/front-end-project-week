@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+export const SEARCH_NOTE = 'SEARCH_NOTE';
 export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const SET_UPDATE_NOTE = 'SET_UPDATE_NOTE';
@@ -58,5 +58,12 @@ export const updateNote = note => {
     return {
         type: UPDATE_NOTE,
         payload: note
+    }
+}
+
+export const searchNote = title => {
+    return {
+        type: SEARCH_NOTE,
+        payload: title
     }
 }
