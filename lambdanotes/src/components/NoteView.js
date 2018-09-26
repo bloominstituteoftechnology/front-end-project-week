@@ -16,6 +16,7 @@ const noteView = (props) => {
           <Notes 
           key ={note.id}
           note ={note}
+          click ={props.clickID}
           />
         ))}
         </div>
