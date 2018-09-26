@@ -10,53 +10,55 @@ class UpdateNote extends Component {
             id: null,
             notes: {
                 id: null,
-                title: '',
-                textBody: ''
+                name: '',
+                content: '' 
             }
         }
     }
 
-// handleTitleUpdate = event => {
-//     this.setState({
-//       notes: {
-//         id: this.state.notes.id,
-//         title: event.target.value,
-//         textBody: this.state.notes.textBody
-//       }
-//     })
-//   }
-  
-//   handleBodyUpdate = event => {
-//     this.setState({
-//       notes: {
-//         id: this.state.notes.id,
-//         title: this.state.notes.title,
-//         textBody: event.target.value
-//       }
-//     })
-//   }
+    handleTitleUpdate = event => {
+        this.setState({
+          notes: {
+            id: this.state.notes.id,
+            name: event.target.value,
+            content: this.state.notes.content
+          }
+        })
+      }
+      
+      handleBodyUpdate = event => {
+        this.setState({
+          notes: {
+            id: this.state.notes.id,
+            name: this.state.notes.name,
+            content: event.target.value
+          }
+        })
+      }
 
-//   handleUpdateNote = () => {
-//       const id = this.props.match.params.id
-//       const notes = {
-//           title: this.state.notes.title,
-//           textBody: this.state.notes.textBody
-//       }
+      handleUpdateNote = () => {
+          const id = this.props.match.params.id
+          const notes = {
+              id: null,
+              name: this.state.notes.name,
+              content: this.state.notes.content
+          }
 
-//       this.setState({
-//             note: {
-//                 id: null, 
-//                 title: '', 
-//                 textBody: ''
-//             }})
+          this.setState({ 
+            id: null, 
+            notes: {
+            name: '',
+            content: ''
+            }
+        })
 
-//     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, notes)
-//     .then( response =>{
-//     console.log(response)
-//     this.props.history.push('/');
-//   })
-//     .catch(err =>console.log(err))
-//   }
+        axios.put(`http://localhost:9000/notes/${id}`, notes)
+        .then(response => {
+            this.props.history.push('/');
+
+        })
+        .catch(err => console.log(err))
+      }
 
 render() {
     console.log(this.state.notes.title)
@@ -68,17 +70,17 @@ render() {
         type = "text" 
         name="title"
         placeholder="Title"
-        value = {this.state.notes.title}
-        onChange = {this.props.handleTitleUpdate}
+        value = {this.state.notes.name}
+        onChange = {this.handleTitleUpdate}
         />
         <textarea type = "text"
         name = "textBody"
         placeholder = "Content"
-        value = {this.state.notes.textBody}
-        onChange = {this.props.handleBodyUpdate}
+        value = {this.state.notes.content}
+        onChange = {this.handleBodyUpdate}
         />
         <Link to ="/notes">
-        <button onClick = {this.props.handleUpdateNote}>
+        <button onClick = {this.handleUpdateNote}>
             Update
         </button>
         </Link>

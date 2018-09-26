@@ -120,13 +120,12 @@ handleUpdateNote =id => {
   }
 
 handleDeleteNote = e => {
-  const id = this.state.id;
-
+  const id = this.match.params.id;
   axios
   .delete(`http://localhost:9000/api/notes/${id}`)
   .then(response => {
-      this.state.history.push('/notes');
       this.setState({id: null });
+      this.state.history.push('/notes');
       this.state.toggleDelete();
       this.state.handleRefresh();
   })
@@ -165,9 +164,10 @@ toggleDeleteNote = () => {
           <Route path = "/edit/:id" render={props=>
           (<UpdateNote {...props}  
             selected = {this.state.selected}
-            handleTitleUpdate = {this.handleTitleUpdate}
-            handleBodyUpdate = {this.handleBodyUpdate}
-            handleUpdateNote = {this.handleUpdateNote} 
+            // handleTitleUpdate = {this.handleTitleUpdate}
+            // handleBodyUpdate = {this.handleBodyUpdate}
+            // handleUpdateNote = {this.handleUpdateNote} 
+            handleRefresh = {this.handleRefresh}
             handleSubmit = {this.handleSubmit} 
             notes = {this.state.notes}
           />
