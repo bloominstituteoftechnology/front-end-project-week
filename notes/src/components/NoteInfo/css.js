@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { zoomIn, slideInLeft } from 'react-animations';
+
+const zoomAnimation = keyframes`${zoomIn}`;
+
+// --------------- end of animations
 
 export const BGColor = styled.div`
   background-color: #ebebeb;
@@ -137,18 +142,19 @@ export const Overlay = styled.div`
   border: solid black 1px;
 `;
 
-export const DeleteDive = styled.div`
-	position: relative;
-	top: 18%;
-	left: 27%;
-	border: solid black 1px;
-	width: 300px;
-	text-align: center;
-	padding: 5%;
-	background-color: white;
-	opacity: 1;
-	z-index: 2
-`;
+// export const DeleteDive = styled.div`
+// 	position: relative;
+// 	top: 18%;
+// 	left: 27%;
+// 	border: solid black 1px;
+// 	width: 300px;
+// 	text-align: center;
+// 	padding: 5%;
+// 	background-color: white;
+// 	opacity: 1;
+// 	z-index: 2;
+// 	animation: 1s ${zoomAnimation};
+// `;
 
 export const DeleteBTN = styled.button`
   margin-top: 15px;

@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import './switchAnimate.css';
 
-import { LinkedContainer, NoteLinks, SubmitContainerL, InputTitleL, InputContentL, DivClickL, Overlay, DeleteDive, DeleteBTN, NoBTN, ButtonFlex, Author } from './css'
+import { LinkedContainer, NoteLinks, SubmitContainerL, InputTitleL, InputContentL, DivClickL, Overlay, DeleteBTN, NoBTN, ButtonFlex, Author } from './css'
 
 class LinkedNote extends React.Component {
 	constructor(props){
@@ -13,6 +14,7 @@ class LinkedNote extends React.Component {
 			toggleLinks: true,
 			editTitle: '',
 			editContent: '',
+			deleteDiv: 'deleteDivIn',
 		};
 	}
 
@@ -33,23 +35,25 @@ class LinkedNote extends React.Component {
 			})
 	}
 
-	toggle1 = () => {
+	toggle = () => {
 		this.setState({
 			toggleEdit: !this.state.toggleEdit,
 			toggleLinks: !this.state.toggleLinks,
 		})
 	}
 
-	toggle2 = () => {
+	deleteIn = () => {
 		this.setState({
 			toggleDelete: !this.state.toggleDelete,
+			deleteDiv: 'deleteDivIn',
 		})
 	}
 
-	toggle3 = () => {
+	deleteOut = () => {
 		this.setState({
-			toggleLinks: !this.state.toggleLinks,
+			deleteDiv: 'deleteDivOut',
 		})
+		setTimeout(() => {this.setState({toggleDelete: !this.state.toggleDelete})}, 600);
 	}
 
 	editNote = () => {
@@ -72,7 +76,7 @@ class LinkedNote extends React.Component {
 				this.props.handleData(response.data);
 			})
 			.catch(error => console.log(error))
-			this.toggle1()
+			this.toggle()
 	}
 
 	deleteNote = () => {
@@ -105,19 +109,19 @@ class LinkedNote extends React.Component {
 					null
 					) :
 					<Overlay>
-						<DeleteDive>
+						<div className={this.state.deleteDiv}>
 							<h3>Are you sure you want to delete this?</h3>
 								<ButtonFlex>
-									<DeleteBTN onClick={this.deleteNote}>Delete</DeleteBTN><NoBTN onClick={this.toggle2}>No</NoBTN>
+									<DeleteBTN onClick={this.deleteNote}>Delete</DeleteBTN><NoBTN onClick={this.deleteOut}>No</NoBTN>
 								</ButtonFlex>
-						</DeleteDive>
+						</div>
 					</Overlay>
 				}
 
 					{this.state.toggleLinks ? (
 						<NoteLinks>
-							<p onClick={this.toggle1}><u>edit</u></p>
-							<p onClick={this.toggle2}><u>delete</u></p>
+							<p onClick={this.toggle}><u>edit</u></p>
+							<p onClick={this.deleteIn}><u>delete</u></p>
 						</NoteLinks> ) : null
 					}
 
