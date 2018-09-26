@@ -7,7 +7,7 @@ import CreateNote from "./components/CreateNote";
 import NoteView from "./components/NoteView";
 import Home from "./components/Home";
 import EditView from "./components/EditView";
-import axios from 'axios';
+import axios from "axios";
 
 const url = "http://localhost:8000/api/notes";
 
@@ -45,48 +45,63 @@ class App extends Component {
   //   });
   //   this.setState({ notes });
   // };
-
-  editNote = id => {
-    const editedNote = {
-      id: parseInt(id),
-      title: this.state.title,
-      content: this.state.content
-    };
-    //THIS TURNS INTO A STRING
-    //interpolated string
-    const notesIndex = this.state.notes.findIndex(note => `${note.id}` === id);
-    //takes in empty array first
-    //2nd takes in what you want to mutate
-    //3rd is the index of array and new value of array
-    //that you want to mutate
-    const newNotes = Object.assign([], this.state.notes, {
-      [notesIndex]: editedNote
-    });
-    console.log("edited", newNotes);
-    this.setState({ notes: newNotes });
+  addNewNote = () => {
+    axios
+      .post(url, { title: this.state.title, content: this.state.content })
+      .then(response => {
+        axios.get(url).then(response => {
+          this.setState({ notes: response.data });
+        });
+        this.setState({ notes: response.data });
+      });
   };
 
-  // deleteNote = () => {
-  //   const notes = this.state.notes;
-  //   notes.splice(this.state.id, 1);
-  //   this.setState({ notes });
+  // editNote = id => {
+  //   const editedNote = {
+  //     id: parseInt(id),
+  //     title: this.state.title,
+  //     content: this.state.content
+  //   };
+  //   //THIS TURNS INTO A STRING
+  //   //interpolated string
+  //   const notesIndex = this.state.notes.findIndex(note => `${note.id}` === id);
+  //   //takes in empty array first
+  //   //2nd takes in what you want to mutate
+  //   //3rd is the index of array and new value of array
+  //   //that you want to mutate
+  //   const newNotes = Object.assign([], this.state.notes, {
+  //     [notesIndex]: editedNote
+  //   });
+  //   this.setState({ notes: newNotes });
   // };
-  //goingToDelete = db.filter(e => e.name === id)
+  editNote = (id, title, content) => {
+    axios
+      .put(url / id, {
+        title: title,
+        content: content
+      })
+      .then(response => {
+        axios.get(url).then(response => {
+          this.setState({ notes: response.data });
+        });
+      });
+  };
 
   // deleteNote = id => {
-  //   this.setState(prevState => {
-  //     notes: prevState.notes.filter(note => note.id != id);
-  //   });
+  //   this.setState(prevState => ({
+  //     notes: prevState.notes.filter(note => {
+  //       console.log("id", id === note.id);
+  //       // console.log('noteId', note.id);
+  //       return note.id != id;
+  //     })
+  //   }));
   // };
-
   deleteNote = id => {
-    this.setState(prevState => ({
-      notes: prevState.notes.filter(note => {
-        console.log("id", id === note.id);
-        // console.log('noteId', note.id);
-        return note.id != id;
-      })
-    }));
+    axios.delete(url/id).then(response => {
+      axios.get(url).then(response => {
+        this.setState({ notes: response.data });
+      });
+    });
   };
 
   render() {

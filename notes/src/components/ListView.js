@@ -13,8 +13,9 @@ export default class ListView extends Component {
             <Link key={notes.id} className="Notes" to={`/notes/${notes.id}`}>
               <div className="notes-cards" key={notes.id}>
                 <Card className="single-cards">
-                  <CardTitle>{notes.title}</CardTitle>
-                  <CardText>{notes.content}</CardText>
+                <CardTitle>id: {notes.id}</CardTitle>
+                  <CardTitle>title: {notes.title}</CardTitle>
+                  <CardText>content: {notes.content}</CardText>
                 </Card>
               </div>
             </Link>
