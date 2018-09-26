@@ -9,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <AppStyle>
+
         <Navigation>
           <h1>Lambda Notes</h1>
           <Link to="/" className="navButton">
@@ -18,6 +19,7 @@ class App extends Component {
             + Create New Note
           </Link>
         </Navigation>
+        
         <Main>
           <Route exact path="/" component={NotesList} />
           <Route
@@ -27,6 +29,7 @@ class App extends Component {
           />
           <Route path="/notes/:id" render={props => <ViewPage {...props} />} />
         </Main>
+
       </AppStyle>
     );
   }

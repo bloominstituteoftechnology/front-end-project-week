@@ -39,7 +39,7 @@ export const noteReducers = (state = initialState, action) => {
       let editNoteLocation = state.notes.findIndex(
         note => note._id === action.payload._id
       );
-      console.log(action.payload.description);
+      
       return {
         notes: [
           ...state.notes.slice(0, editNoteLocation),
@@ -58,7 +58,7 @@ export const noteReducers = (state = initialState, action) => {
         ],
         fetching: false
       };
-      
+
     default:
       return state;
 
