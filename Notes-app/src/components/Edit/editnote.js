@@ -29,7 +29,6 @@ class EditNote extends Component {
     });
     console.log(newNote);
     this.setState({ note: newNote[0], id: id });
-    this.setState({ id: id });
   }
 
   render() {

@@ -58,13 +58,13 @@ export const addNote = newNote => {
 };
 
 export const updateNote = noteEdit => {
-  const promise = axios.put(`${URL}`, `${noteEdit.id}`, noteEdit);
+  const promise = axios.put(`${URL}/${noteEdit.id}`, noteEdit);
   return function(dispatch) {
     dispatch({ type: UPDATING });
     promise
       .then(({ data }) => {
         dispatch({ type: UPDATED, payload: data });
-        dispatch(fetchNotes());
+        dispatch(fetchNote(noteEdit.id));
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
