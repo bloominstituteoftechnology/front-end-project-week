@@ -30,6 +30,7 @@ export const newNote = note => dispatch => {
     .then(res => {
         axios.put(`https://killer-notes.herokuapp.com/note/edit/${res.data.success}`, note)
             .then(res => {
+              console.log('addNew', res.data);
                 dispatch({ type: NOTE_ADDED, payload: res.data })
             })
             .catch(err => {

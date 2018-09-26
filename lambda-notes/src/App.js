@@ -13,19 +13,24 @@ import { connect } from 'react-redux';
 import { fetchNotes, newNote, deleteNote, editNote } from './actions';
 
 class App extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     notes: []
-  //   }
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: []
+
+    }
+  }
 
   componentDidMount() {
     this.props.fetchNotes();
   }
 
+  componentDidUpdate() {
+    this.props.fetchNotes();
+  }
+
   addNote = (note) => {
-    console.log('addNote', note)
+    console.log('addNote', this.props.notes)
     this.props.newNote(note);
   }
 

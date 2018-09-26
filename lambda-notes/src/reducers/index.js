@@ -15,7 +15,7 @@ export const noteReducer = (state = initialState, action) => {
       return Object.assign({}, state, {fetchingNotes:true});
     case NOTES_FETCHED:
       return Object.assign({}, state, {
-        notes: [...state.notes, ...action.payload],
+        notes: action.payload,
         fetchingNotes: false
       });
     case FETCH_ERROR:
@@ -26,15 +26,15 @@ export const noteReducer = (state = initialState, action) => {
     case ADDING_NOTE:
       return {...state, addingNote: true };
     case NOTE_ADDED:
-      return {...state, addingNote: false, notes: action.payload };
+      return {...state, addingNote: false };
     case DELETING_NOTE:
       return {...state, deletingNote: true };
     case NOTE_DELETED:
       return {...state, deletingNote: false };
     case EDITING_NOTE:
-      return {...state, updatingNote: true};
+      return {...state, updatingNote: true };
     case NOTE_EDITED:
-      return {...state, updatingNote: false, notes: action.payload }
+      return {...state, updatingNote: false }
     default:
       return state;
   }
