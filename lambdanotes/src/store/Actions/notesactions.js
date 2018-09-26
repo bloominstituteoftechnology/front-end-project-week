@@ -62,8 +62,20 @@ export const noteToEdit = (noteId) => {
     return (dispatch) => dispatch( {type: NOTE_TO_EDIT, payload: noteId});
 };
 
-export const putNote = (updatedNote, noteId) => {
-
+export const putNote = (updatedNote) => {
+    return (dispatch) => {
+        dispatch( {type: PUTTING_NOTE} );
+        Axios
+            .put(`${dataSource}edit/${updatedNote.id}`, 
+                {title: updatedNote.title, textBody: updatedNote.textBody, tags: updatedNote.tags}
+            )
+            .then( (response) => {
+                dispatch( {type: PUTTED_NOTE, payload: response.data} );
+            })
+            .catch( (err) => {
+                dispatch( {type: NOTE_ERROR, payload: err.message} )
+            });
+    };
 };
 
 export const deletePromptModal = () => {

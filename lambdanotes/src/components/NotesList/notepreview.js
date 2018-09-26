@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 
@@ -49,14 +49,21 @@ const PreviewDiv = Styled.div`
     }
 `;
 
-const NotePreview = (props) => {
-    return (
-        <PreviewDiv onClick={() => props.history.push(`/notes/${props.note._id}`)}>
-            <h4>{props.note.title}</h4>
-            <hr />
-            <p>{props.note.textBody}</p>
-        </PreviewDiv>
-    );
+class NotePreview extends Component {
+    historyPush = () => {
+        this.props.history.push(`/notes/${this.props.note._id}`);
+    };
+
+    render() {
+        return (
+            <PreviewDiv onClick={this.historyPush}>
+                <h4>{this.props.note.title}</h4>
+                <hr />
+                <p>{this.props.note.textBody}</p>
+            </PreviewDiv>
+        );
+    }
+
 };
 
 NotePreview.propTypes = {

@@ -28,6 +28,7 @@
 		"deletePrompt": false,
 		"deletingNote": false,
 		"deletedNote": false,
+		"noteMessage": "",
 		"noteError": ""
 	}
 }
@@ -68,7 +69,8 @@ Form
 List
 	noteslist.js
 	notepreview.js
-		insert <Link />'s here
+		~insert <Link />'s here~
+		history.push(`/notes/${props.note._id}`)
 	link up with redux above noteslist?
 		{
 			notes: {...}
@@ -82,9 +84,9 @@ Delete Modal
 
 ~~~~~Containers~~~~~
 noteeditorcontainer.js -> noteeditor.js
-	Brings in {notes: ["A Note": {}], editing: {} }
+	Brings in { editing: {} }
 noteslistcontainer.js -> noteslist.js
-	Brings in {notes: [], status: {} }
+	Brings in { notes: [], status: {} }
 notecontainer.js -> note.js
 	Click on header or div(?) of NotePreview to navigate to a single Note
-	Brings in {notes: ["A Note": {}], status: {deletePrompt: bool}}
+	Brings in { "A Note": {}, status: {...} }
