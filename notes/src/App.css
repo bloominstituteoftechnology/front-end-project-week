@@ -88,6 +88,7 @@ h1 {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  padding: 0 20px;
 }
 
 .notesInnerDiv a {
@@ -96,7 +97,7 @@ h1 {
 }
 
 .notesListTitle {
-  margin: 30px 0 30px 30px;
+  margin: 30px 0 0px 30px;
   font-size: 22px;
 }
 
@@ -105,7 +106,7 @@ h1 {
   height: 225px;
   border: 1px solid black;
   padding: 10px;
-  margin: 10px 10px 10px 30px;
+  margin: 30px;
   overflow: hidden;
   position: relative;
   line-height: 1.2em;
@@ -214,7 +215,7 @@ h1 {
 .editNote {
   display: flex;
   flex-flow: column wrap;
-  width: 750px;
+  width: 800px;
   border: 1px solid grey;
   min-height: 100vh;
 }
@@ -302,7 +303,7 @@ div.btn-danger.btn-sidebar {
   margin-top: 10px !important;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .sidebar {
     width: 50vw;
     margin: 0 auto;
@@ -331,6 +332,26 @@ div.btn-danger.btn-sidebar {
   h1 {
     margin: 0 auto;
   }
+
+  .singleNoteView {
+    width: 100vw;
+  }
+
+  .createNote {
+    width: 100vw;
+  }
+
+  .editNote {
+    width: 100vw;
+  }
+
+  .createFormTextInput, .createFormTitleInput {
+    width: 80vw;
+  }
+
+  .noteListBox {
+    max-width: 190px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -344,5 +365,13 @@ div.btn-danger.btn-sidebar {
 
   .sidebar {
     width: 100vw;
+  }
+
+  .saveButton {
+    width: 80vw !important;
+  }
+
+  .noteListBox {
+    max-width: 90vw;
   }
 }
