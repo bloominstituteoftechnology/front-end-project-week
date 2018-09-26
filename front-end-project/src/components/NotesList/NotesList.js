@@ -1,57 +1,29 @@
 import React, { Component } from "react";
 import "./index.css";
 import { Link } from 'react-router-dom';
+import Axios from "axios";
 
+const URL = 'http//:localhost:8000/notes/';
 class NotesList extends Component {
   constructor() {
     super();
     this.state = {
-      notesArray: [
-        {
-          _id: "sdlfjsldka12984729",
-          title: "First Note",
-          body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
-          createdAt: "2394879076121"
-        },
-        {
-          _id: "sdlfjsldka12984729",
-          title: "Second Note",
-          body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
-          createdAt: "239487907612123"
-        },
-        {
-          _id: "sdlfjsldka12984729",
-          title: "Third Note",
-          body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
-          createdAt: "2394879076121234"
-        },
-        {
-          _id: "sdlfjslddsfka12984729",
-          title: "Fourth Note",
-          body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
-          createdAt: "239487903876121234"
-        },
-        {
-          _id: "sdlfjsldka12ivn984729",
-          title: "Fifth Note",
-          body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
-          createdAt: "239487009076121234"
-        },
-        {
-          _id: "sdlfjsldka129840376729",
-          title: "Sixth Note",
-          body:
-            " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor purus, condimentum fringilla nunc id",
-          createdAt: "2394871209076121234"
-        }
-      ]
-    };
+     
   }
+}
+
+getNotes = () => {
+  console.log('hi');
+Axios
+  .get('http://localhost:8000/notes')
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
+}
+
+componentDidMount(){
+  this.getNotes();
+  
+}
 
   render() {
     return (
@@ -61,7 +33,7 @@ class NotesList extends Component {
         </div>
         
         <div className="notesList" >
-        {this.state.notesArray.map((note, index) => {
+        {/* {this.state.notesArray.map((note, index) => {
           return (
              <Link to={`/note/${note._id}`} className='unstyled_link'>
             <div className="note" key={note._id}>
@@ -73,7 +45,7 @@ class NotesList extends Component {
             </div>
             </Link>
           );
-        })}
+        })} */}
         </div>
         
       </div>
