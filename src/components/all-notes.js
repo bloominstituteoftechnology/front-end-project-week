@@ -13,7 +13,9 @@ export default class AllNotes extends Component {
 
   componentDidMount(){
     console.log('CDM')
-    if(!localStorage.getItem('JWT')){
+    if(localStorage.getItem('JWT')){
+      //do nothing
+    } else {
       this.props.history.push('/welcome/login')
     }
   }
@@ -47,7 +49,6 @@ export default class AllNotes extends Component {
     );
   }
 }
-
 
 const AllNotesDiv = styled.div`
   display: flex;

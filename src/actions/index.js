@@ -24,7 +24,7 @@ export const loginUser = (creds) => {
     .then(res => {
       localStorage.setItem('JWT', res.data.token)
       dispatch({type: CREDENTIALS_ACCEPTED, payload: res.data})
-      // this.getNotes();
+      this.getNotes();
     })
     .catch(err => {
       dispatch({type: FAILED_LOGIN_ATTEMPT, payload: err})

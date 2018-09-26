@@ -11,9 +11,6 @@ export default class UserForm extends Component{
         };
     }
 
-    componentDidMount(){
-    }
-
     inputHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value

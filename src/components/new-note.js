@@ -3,6 +3,30 @@ import NewForm from './new-form.js';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
+export default class NewNote extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    }
+  }
+
+  render() {
+    console.log(this.props)
+    return (
+      <NewNoteDiv>
+        <div className="links">
+          <Link
+            className="link"
+            to={`/all-notes/`}
+          >back</Link>
+        </div>
+        <h4>Create New Note:</h4>
+        <NewForm button="Create" username={this.props.username} count={this.props.count} newNote={this.props.newNote}></NewForm>
+      </NewNoteDiv>
+    );
+  }
+}
+
 const NewNoteDiv = styled.div`
   ${'' /* border: 1px solid green; */}
   display: flex;
@@ -24,29 +48,3 @@ const NewNoteDiv = styled.div`
     margin: 0 0 10px 10px;
   }
 `;
-
-export default class NewNote extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      // notes: props.notes,
-      // count: props.count
-    }
-  }
-
-  render() {
-    console.log(this.props)
-    return (
-      <NewNoteDiv>
-        <div className="links">
-          <Link
-            className="link"
-            to={`/all-notes/`}
-          >back</Link>
-        </div>
-        <h4>Create New Note:</h4>
-        <NewForm button="Create" username={this.props.username} count={this.props.count} newNote={this.props.newNote}></NewForm>
-      </NewNoteDiv>
-    );
-  }
-}

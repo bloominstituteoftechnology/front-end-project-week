@@ -17,23 +17,21 @@ class Welcome extends Component{
     createUser = async (newUser) => {
         console.log('createuser in welcome.js', this)
          await this.props.createUser(newUser);
-          if (this.props.state.failedRegistrationAttempt){
-                this.props.history.push('/welcome/register')
-            } else {
+        //   if (this.props.state.failedRegistrationAttempt){
+        //         this.props.history.push('/welcome/register')
+        //     } else {
                 this.props.history.push('/all-notes')
-            }
-
-        
+            // }
     }
 
-    loginUser2 = (creds) => {
+    loginUser2 = async (creds) => {
         console.log('loginuser in welcome.js', creds)
-        this.props.loginUser(creds)
-        if(this.props.state.sucessfulLogin){
-            this.props.history.push('/all-notes')
-        } else {
-            this.props.history.push('/welcome/login')
-        }
+        await this.props.loginUser(creds)
+        //  if(this.props.state.sucessfulLogin){
+        //     this.props.history.push('/all-notes')
+        // } else {
+            this.props.history.push('/')
+        // }
     }
 
     render(props){

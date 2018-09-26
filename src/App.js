@@ -120,94 +120,79 @@ class App extends Component {
 
   render() {
     return (
-        <AppDiv>
+      <AppDiv>
+        {localStorage.getItem('JWT') ? <LeftMenu logout={this.logout} /> : null}
+
+        <div className="right-display">
+         {localStorage.getItem('JWT') ?
+            <React.Fragment>
+                <Route
+                    exact
+                    path="/all-notes"
+                    render={ () => {
+                      return (
+                        <AllNotes
+                          sortByLetter={this.sortByLetter}
+                          sortById={this.sortById}
+                          onDrop={this.handleDrop} 
+                          notes={this.props.state.notes}
+                          username={this.props.state.username} />
+                      )
+                    }}
+                  ></Route>
+
+                  <Route
+                    exact
+                    path="/new-note"
+                    render={ () => {
+                      return (
+                        <NewNote
+                          count={this.state.count} username={this.props.state.username} newNote={this.newNote} notes={this.state.notes} />
+                      )
+                    }}
+                  ></Route>
+
+                  <Route
+                    exact={!this.state.deleteEnabled}
+                    path="/all-notes/:noteId"
+                    render={ (note) => {
+                      return (
+                        <NoteDetails
+                          enableDelete={this.enableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
+                      )
+                    }}></Route>
+
+                  <Route
+                    exact
+                    path="/all-notes/:noteId/edit"
+                    render={ (note) => {
+                      return (
+                        <EditNote
+                          count={this.state.count}
+                          editNote={this.editNote} note={this.getNoteDetails(note.match.params.noteId)} />
+                      )
+                    }}
+                  ></Route>
+
+                  {(this.state.deleteEnabled) ?
+                      (<div className="delete">
+                          <Route
+                            path="/all-notes/:noteId/delete"
+                            render={ (note) => {
+                              return (
+                                <div>
+                                  <DeleteNote
+                                    deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
+                                </div>)}}
+                          ></Route>
+                      </div>) :
+                  null}
+              </React.Fragment> :
           
-          {localStorage.getItem('JWT') ? <LeftMenu logout={this.logout} /> : null}
-
-          <div className="right-display">
-          
-          {localStorage.getItem('JWT') ?
-          
-          <React.Fragment>
-
-          <Route
-              exact
-              path="/all-notes"
-              render={ () => {
-                return (
-                  <AllNotes
-                    sortByLetter={this.sortByLetter}
-                    sortById={this.sortById}
-                    onDrop={this.handleDrop} 
-                    notes={this.props.state.notes}
-                    username={this.props.state.username} />
-                )
-              }}
-            ></Route>
-
-            <Route
-              exact
-              path="/new-note"
-              render={ () => {
-                return (
-                  <NewNote
-                    count={this.state.count} username={this.props.state.username} newNote={this.newNote} notes={this.state.notes} />
-                )
-              }}
-            ></Route>
-
-            <Route
-              exact={!this.state.deleteEnabled}
-              path="/all-notes/:noteId"
-              render={ (note) => {
-                return (
-                  <NoteDetails
-                    enableDelete={this.enableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
-                )
-              }}></Route>
-
-            <Route
-              exact
-              path="/all-notes/:noteId/edit"
-              render={ (note) => {
-                return (
-                  <EditNote
-                    count={this.state.count}
-                    editNote={this.editNote} note={this.getNoteDetails(note.match.params.noteId)} />
-                )
-              }}
-            ></Route>
-
-            {(this.state.deleteEnabled) ?
-                        (<div className="delete">
-                            <Route
-                              path="/all-notes/:noteId/delete"
-                              render={ (note) => {
-                                return (
-                                  <div>
-                                    <DeleteNote
-                                      deleteNote={this.deleteNote} disableDelete={this.disableDelete} note={this.getNoteDetails(note.match.params.noteId)} />
-                                  </div>
-                                )
-                              }}
-                            ></Route>
-                          </div>) :
-                      null}
-
-            </React.Fragment>
-           
-           : <Route path="/welcome" component={Welcome}
-          //  render={() => {
-          //    return <Welcome failedLoginAttempt={this.state.failedLoginAttempt}
-          //   /> }}
-            ></Route>}
-          
-            
-          </div>
-
-          
-
-        </AppDiv>
+           <Route path="/welcome" component={Welcome}></Route>}
+        
+        </div>
+      </AppDiv>
     );//return
   }//render
 }

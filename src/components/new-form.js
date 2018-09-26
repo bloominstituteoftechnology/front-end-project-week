@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-
 export default class NewForm extends Component {
   constructor(props){
     super(props);
@@ -55,8 +54,6 @@ export default class NewForm extends Component {
   }
 }
 
-
-
 const NewNoteDiv = styled.div`
   form {
     ${'' /* border: 1px solid red; */}
@@ -78,7 +75,6 @@ const NewNoteDiv = styled.div`
       max-width: 90%;
       font-family: 'Roberto';
       line-height: 20px;
-
     }
     .menu-item{
         width: 30%;

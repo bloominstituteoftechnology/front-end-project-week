@@ -1,21 +1,21 @@
-import { 
+import {
   FETCHING_NOTES,
-   NOTES_RECIEVED,
-    ERROR,
-     NOTE_ADDED,
-      ADDING_NOTE,
-       DELETING_NOTE,
-        NOTE_DELETED,
-         EDITING_NOTE,
-          NOTE_EDITED,
-           SORT_NOTE,
-            SENDING_NEW_USERDATA,
-             USER_CREATED,
-             SENDING_CREDENTIALS,
-             CREDENTIALS_ACCEPTED,
-             FAILED_LOGIN_ATTEMPT,
-             FAILED_REGISTRATION_ATTEMPT,
-           } from '../actions';
+  NOTES_RECIEVED,
+  ERROR,
+  NOTE_ADDED,
+  ADDING_NOTE,
+  DELETING_NOTE,
+  NOTE_DELETED,
+  EDITING_NOTE,
+  NOTE_EDITED,
+  SORT_NOTE,
+  SENDING_NEW_USERDATA,
+  USER_CREATED,
+  SENDING_CREDENTIALS,
+  CREDENTIALS_ACCEPTED,
+  FAILED_LOGIN_ATTEMPT,
+  FAILED_REGISTRATION_ATTEMPT,
+} from '../actions';
 
 const initialState = {
   notes: [],
@@ -25,38 +25,38 @@ const initialState = {
   notesRecieved: false,
   status: '',
   error: null,
+  failedLoginAttempt: false,
 }
 
 export const reducer = (state = initialState, action) => {
-  switch(action.type) {
-
-    case FAILED_REGISTRATION_ATTEMPT: 
+  switch (action.type) {
+    case FAILED_REGISTRATION_ATTEMPT:
       return Object.assign({}, state, {
         failedRegistrationAttempt: true,
       })
-    case FAILED_LOGIN_ATTEMPT: 
+    case FAILED_LOGIN_ATTEMPT:
       return Object.assign({}, state, {
         failedLoginAttempt: true,
       })
-    case SENDING_CREDENTIALS: 
+    case SENDING_CREDENTIALS:
       return Object.assign({}, state, {
         sendingCredentials: true,
         sucessfulLogin: false,
       })
-    case CREDENTIALS_ACCEPTED: 
+    case CREDENTIALS_ACCEPTED:
       return Object.assign({}, state, {
         sucessfulLogin: true,
         failedLoginAttempt: false,
-        failedRegistrationAttempt: false, 
+        failedRegistrationAttempt: false,
         sendingCredentials: false,
         token: action.payload.token,
         username: action.payload.username
       })
-    case SENDING_NEW_USERDATA: 
+    case SENDING_NEW_USERDATA:
       return Object.assign({}, state, {
         sendingNewUser: true,
       })
-    case USER_CREATED: 
+    case USER_CREATED:
       return Object.assign({}, state, {
         sendingNewUser: false,
         failedRegistrationAttempt: false,

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import UserForm from './userform.js';
 
-
 export default class Login extends Component{
     render(){
         console.log(this.props.failed)
