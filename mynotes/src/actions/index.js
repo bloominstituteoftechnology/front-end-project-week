@@ -78,9 +78,9 @@ export const editNote = noteData => {
 export const createNote = noteData => {
   return dispatch => {
     axios
-      .post(`http://localhost:5000/note/create`, noteData)
-      .then(res => {
-        return fetchNotes();
+    .post(`http://localhost:5000/note/create`, noteData)
+    .then(res => {
+      return fetchNotes();
       })
       .catch(err => {
         console.log("Error with create action: ", err);
