@@ -1,33 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Note from './Note';
-
-const NotesContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	margin-top: 14px;
-	flex-wrap: wrap;
-`;
-
-const MainContainer = styled.div`
-	padding: 47px 22px 47px 170px
-	> h2 {
-		font-size: 1.3rem;
-		font-weight: bold;
-		color: #4b4b4b;
-		margin-left: 1.5%;
-	}
-`;
-
-const SearchInput = styled.input`
-  text-align: center;
-  padding: .2%;
-  font-size: 1.2rem;
-  color: grey;
-  margin-left: 31%;
-  width: 200px;
-`;
-
+import { NotesContainer, MainContainer, SearchInput } from './css'
 
 const NoteList = (props) => {
 	return (

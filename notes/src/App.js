@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NoteList from './components/NoteList';
-import SideBar from './components/SideBar';
-import CreateNote from './components/CreateNote'
-import LinkedNote from './components/LinkedNote';
-import Authenticate from './components/Authenticate';
+
+import NoteList from './components/NoteInfo/NoteList';
+import SideBar from './components/SideBar/SideBar';
+import CreateNote from './components/NoteInfo/CreateNote'
+import LinkedNote from './components/NoteInfo/LinkedNote';
+import Authenticate from './components/Authentication/Authenticate';
+
 
 import styled from 'styled-components';
 import { Route } from "react-router-dom";
