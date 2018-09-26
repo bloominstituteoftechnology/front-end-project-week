@@ -6,7 +6,7 @@ export const ERROR_FETCHING_NOTES = "ERROR_FETCHING_NOTES";
 export const ADDED_NOTE = "ADDED_NOTE";
 export const ADDING_NOTE = "ADDING_NOTE";
 export const ERROR_ADDING_NOTE = "ERROR_ADDING_NOTE";
-export const PICK_NOTE_TO_UPDATE = "PICK_NOTE_TO_UPDATE";
+export const PICK_NOTE = "PICK_NOTE";
 export const UPDATED_NOTE = "UPDATED_NOTE";
 export const UPDATING_NOTE = "UPDATING_NOTE";
 export const ERROR_UPDATING_NOTE = "ERROR_UPDATING_NOTE";
@@ -41,28 +41,28 @@ export const addNote = (newNote) => {
 
     axios
       .post('https://killer-notes.herokuapp.com/note/create', newNote)
-      .then(({ response }) => {
+      .then(() => {
         console.log("Hit *then* of addNote");
         dispatch({
-          type: ADDED_NOTE,
-          payload: response.data
+          type: ADDED_NOTE
         });
       })
       .then(
-        axios
-          .get('https://killer-notes.herokuapp.com/note/get/all')
-          .then(response => {
-            dispatch({
-              type: FETCHED_NOTES,
-              payload: response.data
-            });
-          })
-          .catch(error => {
-            dispatch({
-              type: ERROR_FETCHING_NOTES,
-              payload: "ERROR: unable to fetch notes"
-            });
-          })
+        () =>
+          axios
+            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .then(response => {
+              dispatch({
+                type: FETCHED_NOTES,
+                payload: response.data
+              });
+            })
+            .catch(error => {
+              dispatch({
+                type: ERROR_FETCHING_NOTES,
+                payload: "ERROR: unable to fetch notes"
+              });
+            })
       )
       .catch(error => {
         dispatch({
@@ -73,12 +73,12 @@ export const addNote = (newNote) => {
   }
 }
 
-export const setUpdateNote = (_id) => {
+export const pickNoteToUpdate = _id => {
   return {
-    type: PICK_NOTE_TO_UPDATE,
-    payload: _id,
-  };
-};
+    type: PICK_NOTE,
+    payload: _id
+  }
+}
 
 export const updateNote = note => {
   return dispatch => {
@@ -92,22 +92,6 @@ export const updateNote = note => {
           payload: response.data
         });
       })
-      .then(
-        axios
-          .get('https://killer-notes.herokuapp.com/note/get/all')
-          .then(response => {
-            dispatch({
-              type: FETCHED_NOTES,
-              payload: response.data
-            });
-          })
-          .catch(error => {
-            dispatch({
-              type: ERROR_FETCHING_NOTES,
-              payload: "ERROR: unable to fetch notes"
-            });
-          })
-      )
       .catch(error => {
         dispatch({
           type: ERROR_UPDATING_NOTE,
@@ -127,20 +111,21 @@ export const deleteNote = (_id) => {
         dispatch({ type: DELETED_NOTE, _id })
       })
       .then(
-        axios
-        .get('https://killer-notes.herokuapp.com/note/get/all')
-        .then(response => {
-            dispatch({
-              type: FETCHED_NOTES,
-              payload: response.data
-            });
-          })
-        .catch(error => {
-            dispatch({
-              type: ERROR_FETCHING_NOTES,
-              payload: "ERROR: unable to fetch notes"
-            });
-          })
+        () =>
+          axios
+            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .then(response => {
+              dispatch({
+                type: FETCHED_NOTES,
+                payload: response.data
+              });
+            })
+            .catch(error => {
+              dispatch({
+                type: ERROR_FETCHING_NOTES,
+                payload: "ERROR: unable to fetch notes"
+              });
+            })
       )
       .catch(error => {
         dispatch({
