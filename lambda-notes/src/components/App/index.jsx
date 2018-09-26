@@ -12,6 +12,7 @@ class App extends Component {
   state = {
     filteredNotes: [],
     search: "",
+    _id: "",
     title: "",
     textBody: ""
   };

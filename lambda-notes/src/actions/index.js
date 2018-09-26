@@ -21,7 +21,7 @@ export const getNotes = () => {
 export const addNote = newNote => {
   return dispatch => {
     axios
-      .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
+      .post(url, newNote)
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });

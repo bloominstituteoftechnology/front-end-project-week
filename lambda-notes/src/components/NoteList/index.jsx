@@ -46,7 +46,7 @@ class NoteList extends React.Component {
         )
       } else {
         return (
-          <Link to={`/notes/${note._id}`} key={Math.random()}>
+          <Link to={`/notes/${note.id}`} key={Math.random()}>
             <div className="note-preview-container no-drag">
               <h3>{note.title}</h3>
               <p>{note.textBody}</p>

@@ -9,7 +9,8 @@ class Note extends React.Component {
     isEditing: false,
     modalIsOpen: false,
     title: "",
-    textBody: ""
+    textBody: "",
+    id: ""
   }
 
   // sets note id to this.id
