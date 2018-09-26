@@ -17,6 +17,9 @@ class NoteForm extends Component {
       title: '',
       textBody: ''
     });
+    setTimeout(() => {
+      this.props.history.push('/');
+    }, 1000);
   };
 
   changeHandler = event => {
