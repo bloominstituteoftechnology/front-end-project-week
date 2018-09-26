@@ -22,21 +22,23 @@ class App extends Component {
           </Link>
         </Navigation>
         <Main>
-          <TransitionGroup>
+          <TransitionGroup className="transition-group">
             <CSSTransition 
               key={location.key}
-              timeout={300}
+              timeout={{enter: 300, exit: 300}}
               classNames="fade"
             >
-              <Switch location={location}>
-                <Route exact path="/" component={NoteList} />
-                <Route
-                  exact
-                  path="/noteform/:id?"
-                  render={props => <NoteForm {...props} />}
-                />
-                <Route path="/notes/:id" render={props => <ViewPage {...props} />} />
-              </Switch>
+              <section className='route-section'>
+                <Switch location={location}>
+                  <Route exact path="/" component={NoteList} />
+                  <Route
+                    exact
+                    path="/noteform/:id?"
+                    render={props => <NoteForm {...props} />}
+                  />
+                  <Route path="/notes/:id" render={props => <ViewPage {...props} />} />
+                </Switch>
+                </section>
             </CSSTransition>
           </TransitionGroup>
         </Main>
