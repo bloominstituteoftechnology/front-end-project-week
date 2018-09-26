@@ -20,6 +20,7 @@ class AllNotes extends Component {
           name="search"
           onChange={this.props.searchChangeHandler}
           className="noteSearch"
+          style={{ marginLeft: "4rem" }}
         />
         <h2 className="yourNotesTitle">Your Notes:</h2>
         <div className="allNotesDiv">
