@@ -8,19 +8,19 @@ import {
 
 const initialState = [
   {
-    id: "asdklfjsodijflsdkf19",
+    _id: "asdklfjsodijflsdkf19",
     title: "First Note",
     body: "content info",
     createdat: 157234563211
   },
   {
-    id: "asdklfjsoyyeewrkwer56903",
+    _id: "asdklfjsoyyeewrkwer56903",
     title: "Second Note",
     body: "content info",
     createdat: 157234563222
   },
   {
-    id: "zaqwsxcderfv0192749",
+    _id: "zaqwsxcderfv0192749",
     title: "Third Note",
     body: "content info",
     createdat: 157234563233
@@ -40,7 +40,7 @@ const notesReducer = (state = initialState, action) => {
       return temp;
     case EDIT_NOTE:
       state.forEach((item, index) => {
-        if (item.id === action.payload.id) {
+        if (item.id === action.payload._id) {
           temp.splice(index, 1);
           return;
         }

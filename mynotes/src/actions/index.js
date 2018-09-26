@@ -38,7 +38,7 @@ export const fetchNoteId = id => {
     axios
       .get(`http://localhost:5000/note/get/${id}`)
       .then(({ data }) => {
-        dispatch({ type: FETCH_NOTE_ID, payload: data.id});
+        dispatch({ type: FETCH_NOTE_ID, payload: data._id});
       })
       .catch(err => {
         console.log("Error with fetching id: ", err);
@@ -83,7 +83,7 @@ export const editNote = noteData => {
     dispatch({ type: EDITING_NOTE });
     axios
       .put(
-        `http://localhost:5000/note/edit/${noteData.id}`,
+        `http://localhost:5000/note/edit/${noteData._id}`,
         noteData
       )
       .then(res => {

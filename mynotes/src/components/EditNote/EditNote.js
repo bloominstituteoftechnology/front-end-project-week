@@ -16,7 +16,7 @@ class EditNote extends Component {
 
   componentWillMount() {
     let routeId = this.props.match.params.id;
-    let matched = this.props.notesArray.filter(item => item.id == routeId);
+    let matched = this.props.notesArray.filter(item => item._id == routeId);
     this.setState({ matched });
   }
 
