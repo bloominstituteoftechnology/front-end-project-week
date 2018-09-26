@@ -10,7 +10,7 @@ import {
 // const initialState = {};
 const initialState = {
   notes: [],
-  // note: { tags: [], title: '', textBody: '' },
+  note: { tags: [], title: '', textBody: '' },
   fetching: false,
   error: ''
 };
