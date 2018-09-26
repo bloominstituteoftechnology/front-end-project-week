@@ -18,8 +18,11 @@ class NotesPage extends Component {
       clicked: 0,
 
       editName: '',
-      editText: ''
+      editText: '',
+
+      logout: props.logout
     }
+    console.log(props)
   }
 
   newNote = e => {
@@ -62,11 +65,15 @@ class NotesPage extends Component {
     this.setState({ notes: notes, editName: '', editText: '' })
   }
 
+  logout = e => {
+    localStorage.removeItem('jwt')
+  }
+
 
   render() {
     return (
       <NoteApp>
-        <NotesContainer editSubmit={this.editSubmit} clicked={this.state.clicked} viewClick={this.viewClick} note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} delete={this.deleteNote} />
+        <NotesContainer logout={this.state.logout}editSubmit={this.editSubmit} clicked={this.state.clicked} viewClick={this.viewClick} note={this.state.notes} addNote={this.addNote} newNote={this.newNote} noteName={this.state.noteName} noteText={this.state.noteText} delete={this.deleteNote} />
 
       </NoteApp>
     );

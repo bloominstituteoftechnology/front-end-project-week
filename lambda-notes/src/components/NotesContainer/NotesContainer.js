@@ -21,7 +21,7 @@ background: #f2f1f2;
 
 const NotesContainer = (props) => {
     return (<Notes className='row'>
-        <Route path='/' render={routerProps => <SideNav {...routerProps} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
+        <Route path='/' render={routerProps => <SideNav {...routerProps} logout={props.logout} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
         <Route exact path='/' render={routerProps => <Note {...routerProps} viewClick={props.viewClick} clicked={props.clicked} note={props.note} />} />
         <Route exact path='/create' render={routerProps => <CreateNote {...routerProps} addNote={props.addNote} newNote={props.newNote} noteText={props.noteText} noteName={props.noteName} />} />
         <Route path='/view/:id' render={routerProps => <ViewNote clicked={props.clicked} viewClick={props.viewClick} {...routerProps} delete={props.delete} note={props.note} />} />

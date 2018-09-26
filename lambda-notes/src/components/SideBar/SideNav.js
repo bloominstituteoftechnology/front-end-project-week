@@ -30,13 +30,14 @@ margin-top: 15%;
 `
 
 
-const SideNav = () => {
+const SideNav = (props) => {
     return (<Side className='col-2'>
 
         <Header> Lambda <br /> Notes</Header>
         <NavLink to="/"><Button>View Your Notes</Button></NavLink>
         <br />
         <NavLink to="/create"><Button>+ Create New Notes</Button></NavLink>
+        <Button onClick={props.logout}>Log Out</Button>
 
     </Side>);
 }
