@@ -1,14 +1,20 @@
-.note-view {
-  background-color: coral;
+.note-heading {
+  font-size: 24px;
+  margin: 20px 30px;
 }
 
-/* .popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-} */
+.note-paragraph {
+  margin: 20px 25px;
+}
 
-/* The actual popup (appears on top) */
+.note-links {
+  color: black;
+  text-decoration: underline;
+  text-align: right;
+  margin: 20px 10px;
+}
+
+/* The delete popup (appears on top) */
 .popuptext {
   width: 550px;
   height: 140px;

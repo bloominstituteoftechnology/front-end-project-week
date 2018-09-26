@@ -5,9 +5,12 @@ import Note from "./Note";
 const NotesList = props => {
   return (
     <div className="notes-container">
-      {props.notes.map(note => (
-        <Note note={note} />
-      ))}
+      <h1>Your Notes:</h1>
+      <div className="notes-blocks">
+        {props.notes.map(note => (
+          <Note note={note} />
+        ))}
+      </div>
     </div>
   );
 };

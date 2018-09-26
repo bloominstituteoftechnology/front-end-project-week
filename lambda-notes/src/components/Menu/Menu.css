@@ -1,11 +1,17 @@
 .menu-container {
-  width: 20%;
-  height: 600px;
+  width: 33%;
+  min-height: 600px;
   background-color: lightgray;
   color: black;
+  border: 1px solid black;
 }
 
 a {
   text-decoration: none;
   color: white;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 20px;
 }

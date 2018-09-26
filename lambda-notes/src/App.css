@@ -1,18 +1,40 @@
 .App {
-  max-width: 880px;
+  max-width: 990px;
   display: flex;
   margin: 0 auto;
 }
 
+.container {
+  width: 100%;
+}
+
+.notes-container {
+  max-width: 740px;
+  width: 100%;
+  min-height: 600px;
+  margin: 0 auto;
+  border: 1px solid black;
+  background-color: whitesmoke;
+}
+
+.notes-container h1 {
+  /* why is this not getting applied? */
+  margin: 20px 25px;
+  margin-top: 40px;
+  font-size: 24px;
+  color: black;
+}
+
 .button {
-  width: 150px;
-  height: 30px;
+  width: 200px;
+  height: 35px;
   padding-top: 10px;
   text-align: center;
   margin: 20px 10px;
   background-color: #30b8bc;
   color: white;
   cursor: pointer;
+  font-weight: bold;
   font-size: 18px;
 
   border: 1px solid gray;

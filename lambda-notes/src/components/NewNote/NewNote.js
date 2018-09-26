@@ -1,5 +1,6 @@
 import React from "react";
 import DeleteNote from "../NoteView/DeleteNote";
+import "./NewNote.css";
 
 class NewNote extends React.Component {
   constructor() {
@@ -45,33 +46,40 @@ class NewNote extends React.Component {
 
   render() {
     {
-      console.log(this.state);
+      console.log(this.props);
     }
     return (
-      <form>
-        <input
-          type="text"
-          onChange={e => this.handleInput(e)}
-          value={this.state.title}
-          name="title"
-          placeholder="Note title"
-        />
-        <input
-          type="text"
-          onChange={e => this.handleInput(e)}
-          value={this.state.content}
-          name="content"
-          placeholder="Note content"
-        />
-        <button
-          onClick={e => {
-            this.handleSubmit(e);
-          }}
-          className="button"
-        >
-          Save
-        </button>
-      </form>
+      <div className="notes-container">
+        <h1>{this.props.isUpdatingNote ? `Edit Note:` : `Create New Note:`}</h1>
+        <form className="note-form">
+          <input
+            className="note-title"
+            type="text"
+            onChange={e => this.handleInput(e)}
+            value={this.state.title}
+            name="title"
+            placeholder="Note title"
+            autocomplete="off"
+          />
+          <textarea
+            className="note-content"
+            type="text"
+            onChange={e => this.handleInput(e)}
+            value={this.state.content}
+            name="content"
+            placeholder="Note content"
+            autocomplete="off"
+          />
+          <button
+            onClick={e => {
+              this.handleSubmit(e);
+            }}
+            className="button submit"
+          >
+            Save
+          </button>
+        </form>
+      </div>
     );
   }
 }

@@ -33,25 +33,29 @@ class NoteView extends React.Component {
   }
   render() {
     return (
-      <div className="note-view">
-        <Link
-          onClick={e => this.editNote(e)}
-          to={`/notes/${this.props.note.id}/edit`}
-        >
-          Edit
-        </Link>
+      <div className="notes-container">
+        <div className="note-links">
+          <Link
+            className="note-links"
+            onClick={e => this.editNote(e)}
+            to={`/notes/${this.props.note.id}/edit`}
+          >
+            Edit
+          </Link>
 
-        <Link
-          onClick={e => {
-            e.preventDefault();
-            this.toggleDeletePopUp();
-          }}
-          to={`/notes/${this.props.note.id}/delete`}
-        >
-          Delete
-        </Link>
-        <h1>{this.props.note.title}</h1>
-        <p>{this.props.note.content}</p>
+          <Link
+            className="note-links"
+            onClick={e => {
+              e.preventDefault();
+              this.toggleDeletePopUp();
+            }}
+            to={`/notes/${this.props.note.id}/delete`}
+          >
+            Delete
+          </Link>
+        </div>
+        <h1 className="note-heading">{this.props.note.title}</h1>
+        <p className="note-paragraph">{this.props.note.content}</p>
 
         <div className={`popup`}>
           <span
