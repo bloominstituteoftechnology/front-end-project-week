@@ -36,6 +36,18 @@ display: flex;
 align-items: center;
 justify-content: center;
 `
+const LogOutButton=styled.div`
+width: 80%;
+margin: 0 auto;
+margin-top: 20px;
+height: 40px;
+background-color: #0db5ba;
+color:#FFF;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
 class SideBar extends React.Component{
     viewNotes=()=>{
         this.props.history.push('/notes')
@@ -43,12 +55,17 @@ class SideBar extends React.Component{
     createNewNote=()=>{
         this.props.history.push('/create');
     }
+    logout=()=>{
+        localStorage.removeItem('jwt');
+        this.props.history.push('/signin');
+    }
     render() {
     return(
         <SideBaR>
         <SideBarHeading>Lambda<br/>Notes</SideBarHeading>
         <ViewButton onClick={this.viewNotes}>View Your Notes</ViewButton>
         <CreateButton onClick={this.createNewNote}>+ Create New Note</CreateButton>
+        <LogOutButton onClick={this.logout}>Log Out</LogOutButton>
         </SideBaR>
         )
     }

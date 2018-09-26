@@ -48,7 +48,7 @@ const ModalInfo=styled.div`
 max-width: 620px;
 width: 100%;
 height: 190px;
-margin-left: 26.4%;
+margin-left: 28.2%;
 background-color: #FFF;
 border: 1px solid #424242;
 `

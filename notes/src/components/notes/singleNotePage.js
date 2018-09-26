@@ -8,7 +8,7 @@ import ReactMarkdown from 'react-markdown';
 
 const SingleNote=styled.div`
 background-color: #ddd;
-width: 100%;
+width: 75%;
 text-align: left;
 `
 const Note=styled.div`
