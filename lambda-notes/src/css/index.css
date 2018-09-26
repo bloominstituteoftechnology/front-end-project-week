@@ -239,6 +239,9 @@
 .list .search-wrapper .delete-all-btn {
   background-color: #D1001A;
 }
+.list .search-wrapper .csv-link {
+  background-color: green;
+}
 .list .search-wrapper input {
   border-radius: 5px;
   padding: 0 5px;
@@ -341,9 +344,11 @@
   display: flex;
   justify-content: space-evenly;
   width: fit-content;
+  padding-top: 0;
 }
 .list .note-wrapper .tags-div * {
   margin: 0 5px;
+  padding-top: 0;
 }
 @media ( max-width: 1024px ) {
   .list .note-wrapper {
@@ -414,6 +419,7 @@
 .note-view {
   margin: 20px;
   margin-bottom: 200px;
+  max-width: 47vw;
 }
 .note-view .edit-delete-wrapper {
   text-align: right;
@@ -432,6 +438,10 @@
   text-decoration: underline;
   color: black;
   cursor: pointer;
+}
+.note-view h2,
+.note-view p {
+  word-wrap: break-word;
 }
 .note-view h2 {
   margin-top: 24px;
@@ -580,6 +590,10 @@ body {
   font-family: sans-serif;
   display: flex;
   justify-content: center;
+}
+body p,
+body h2 {
+  overflow: hidden;
 }
 body .btn {
   background-color: #2AC1C5;

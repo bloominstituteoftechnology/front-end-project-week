@@ -3,6 +3,7 @@ import React from 'react';
 
 // Dependencies
 import fuzzysearch from 'fuzzysearch';
+import { CSVLink } from 'react-csv';
 
 // Components
 import { Note } from '../../components';
@@ -101,6 +102,19 @@ class ListView extends React.Component {
 	}
 
 	render() {
+		const csvHeaders = [
+			{label: 'Version', key: '__v'},
+			{label: 'Tags', key: 'tags'},
+			{label: 'ID', key: '_id'},
+			{label: 'Title', key: 'title'},
+			{label: 'Body', key: 'textBody'},
+		];
+		const csvData = [];
+
+		for (let i = 0; i < this.props.notes.length; i++) {
+			csvData.push(this.props.notes[i]);
+		}
+
 		return(
 			<div className = 'main-content'>
 				<div className = 'list'>
@@ -109,6 +123,13 @@ class ListView extends React.Component {
 						{ (this.state.search.exactSearch || this.state.search.fuzzySearch) && <p className = 'search-note lengthen-anim'> All searches are case sensitive</p> }
 						<div>
 							<button className = 'btn delete-all-btn' onClick = { e => this.toggleDeleteAllModal(e) }>Delete All Notes</button>
+
+							<CSVLink 
+								headers = { csvHeaders }
+								data = { csvData } 
+								filename = { `${ this.props.username }-notes.csv` } 
+								className = 'btn csv-link' 
+							>Export as CSV</CSVLink>
 
 							<button className = 'btn' name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
 

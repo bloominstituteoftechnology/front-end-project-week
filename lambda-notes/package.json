@@ -9,6 +9,7 @@
     "less": "^3.8.1",
     "less-watch-compiler": "^1.11.3",
     "react": "^16.5.2",
+    "react-csv": "^1.0.15-RC2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
