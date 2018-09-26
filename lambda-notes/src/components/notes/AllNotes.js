@@ -6,13 +6,14 @@ import "../../css/allnotes.css";
 class AllNotes extends Component {
   constructor(props) {
     super(props);
-    console.log("ALLNOTES", props);
     this.state = {
       allNotes: props.notes,
+      search: props.search,
     };
   }
 
   render() {
+    console.log("ALLNOTES", this.state.search);
     return (
       <div className="mainNotesPageDiv">
         {/* {() => this.props.renderRedirect()}; */}

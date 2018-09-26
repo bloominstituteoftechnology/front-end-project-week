@@ -146,6 +146,7 @@ class App extends Component {
               <AllNotes
                 {...props}
                 notes={this.state.notes}
+                search={this.state.search}
                 renderRedirect={this.renderRedirect}
                 searchChangeHandler={this.searchChangeHandler}
               />
