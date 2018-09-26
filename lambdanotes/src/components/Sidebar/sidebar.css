@@ -1,16 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .sidebar-container {
-    background: #D8D8D8;
+    background: #D3D3D3;
     width: 20%;
     height: 100%;
     border-right: 1px #979797 solid;
 }
 
-.title {
-    color: #4A4A4A;
-    font-size: 16px;
+.sideBar .title h1{
+    color: #424343;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     padding-top: 10px;
-    padding-left: 4%;
+    padding-left: 6%;
     margin-bottom: 20px;
 }
 
@@ -26,9 +29,8 @@
     color: #FFFFFF;
     border: unset;
     border: 1px #979797 solid;
-    width: 85%;
+    width: 80%;
     margin: 0 7.5% 15px;
     padding: 8px;
+    justify-content: center;
 }
-
-

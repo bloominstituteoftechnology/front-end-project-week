@@ -1,4 +1,4 @@
-/* //@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 .App {
     text-align: center;
 }
@@ -22,14 +22,14 @@
     font-size: large;
 }
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
     }
     to {
         transform: rotate(360deg);
     }
-}
+} */
 
 * {
     box-sizing: content-box;
@@ -43,16 +43,10 @@
     border-right: 1px black solid;
     height: 100%;
     width: 25%;
-    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: #D7D7D7;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
 }
 
 .appView {
@@ -70,40 +64,7 @@ body {
     justify-content: space-between;
 }
 
-/* The Modal (background) */
 
-/*
-
-
-
-/* Modal Content */
-
-/*
-.modal-content {
-    background-color: #fefefe;
-    margin: 0 auto;
-    padding: 20px;
-    width: 80%;
-}
-/*
-.modal-options {
-    display: flex;
-    flex-direction: row;
-    background-color: #fefefe;
-    margin: 0 auto;
-    padding: 20px;
-    width: 80%;
-}
-/*
-.modalData {
-    border: 2px solid black;
-    background-color: #fefefe;
-    margin: 0 auto;
-    padding: 20px;
-    width: 80%;
-}
-
-*/
 
 .App {
     text-align: center;

@@ -28,10 +28,10 @@
     margin: 30px 0 0 5%;
 }
 
-.delete-overlay {
+.App-container .card-page-container .delete-overlay {
     background: #9da7b1;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     position: fixed;
     opacity: 0.75;
 }

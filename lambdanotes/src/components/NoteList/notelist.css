@@ -2,6 +2,7 @@
     display: flex;
     min-height: 800px;
     width: 100vw;
+    font-family: 'Roboto', sans-serif;
 }
 
 .section-container {
@@ -21,31 +22,35 @@
 
 .notes-title {
     color: #4A4A4A;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     line-height: 0.90;
-    margin: 52px 0 0 9%;
+    margin: 50px 0 25px 10%;
     width: 100%;
 }
 
 .note {
-    width: 25%;
-    height: 205px;
+    width: 23%;
+    height: 230px;
     border: 1px #979797 solid;
     padding: 0px 3% 0 3%;
-    margin: 20px 0 0px 0px;
+    margin-right: 3%;
+    margin-bottom: 20px;
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
 }
 
 .note h3 {
     margin: 10px 0 10px 0px;
     border-bottom: 1px #979797 solid;
     padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-overflow: ellipsis
 }
 
 .note a {
     font-family: 'Raleway', sans-serif;
 }
-
