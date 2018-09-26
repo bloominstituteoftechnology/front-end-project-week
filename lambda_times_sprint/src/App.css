@@ -1,5 +1,8 @@
 .App {
-  display: flex;;
+  display: flex;
+  max-width: 810px;
+  border: 1px solid black;
+  background: #F3F3F3;
 }
 
 .App-logo {
@@ -15,7 +18,9 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.7em;
+  margin-left: 14px;
+  margin-right: 66px;
 }
 
 .App-intro {
@@ -29,4 +34,85 @@
 
 .notes-section {
   margin-left: 100px;
+}
+
+.App .sidebar {
+  background-color: #D7D7D7;
+  background-color: #D7D7D7;
+  border: 1px solid black;
+}
+
+a {
+  text-decoration: none;
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+  font-size: .9em;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 90px;
+
+}
+
+li {
+  border: 1px solid black;
+  text-align: center;
+  background-color: #2AC0C4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 15px;
+}
+
+.notes-section {
+  margin-left: 38px;
+  margin-top: 22px;
+}
+
+.note-list-wrapper {
+  /* width: 605px; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h2 {
+  font-size: 1.35em;
+}
+
+.notes-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-card {
+  border: 1px solid black;
+  background: #FFFFFF;
+  width: 176px;
+  height: 186px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.2em;
+  color: black;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+
+.text-body {
+  color: black;
+  font-size: .9em;
+  border-top: 1px solid black;
+  margin: 15px;
+  padding-top: 10px;
 }

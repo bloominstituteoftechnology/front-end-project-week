@@ -10,6 +10,7 @@ function NotesList(props) {
     return (
         <div className="notes-list-wrapper">
           <h2>Your Notes:</h2>
+          <div className="notes-card-wrapper">
             {props.notesList.map(note => (
             // <div className="note-card" key={tag.id}>
                 
@@ -24,6 +25,7 @@ function NotesList(props) {
                 <p>({tag.textBody})</p>
             </div> */
             ))}
+            </div>
         </div>
     );
 }
@@ -33,7 +35,7 @@ function NoteDetails({ note }) {
   return (
     <div className="note-card">
 
-      <h2>{title}</h2>
+      <h2 className="title">{title}</h2>
       <div className="text-body">{textBody}</div>
     
       </div>

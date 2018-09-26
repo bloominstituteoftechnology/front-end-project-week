@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+
+import Modal from 'react-modal';
 import NoteForm from './NoteForm';
+
 class Note extends Component {
     state = {
       note: null,
       title: '',
       textBody: '',
-      isEditing: false
+      isEditing: false,
+      modalIsOpen: false
     };
   
 
@@ -30,6 +34,18 @@ class Note extends Component {
   get id() {
     return this.props.match.params.id;
   }
+
+  // activates delete modal
+  openModal = e => {
+    e.preventDefault();
+    this.setState({ modalIsOpen: true });
+  }
+
+  // deactivates delete modal
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  }
+
 
   handleDelete = e => {
     e.preventDefault();
