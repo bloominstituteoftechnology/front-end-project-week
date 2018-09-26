@@ -52,16 +52,16 @@ class UpdateNote extends Component {
             }
         })
 
-        axios.put(`http://localhost:9000/notes/${id}`, notes)
+        axios.put(`http://localhost:9000/api/notes/${id}`, notes)
         .then(response => {
+            console.log('history in UpdateNote', this.history)
             this.props.history.push('/');
-
         })
         .catch(err => console.log(err))
       }
 
 render() {
-    console.log(this.state.notes.title)
+    console.log('state in UpdateNote render',this.state)
     return(
     <div className = "edit-note-container" >
         <h2> Edit Note</h2>
