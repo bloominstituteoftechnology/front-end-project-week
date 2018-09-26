@@ -57,21 +57,26 @@ class App extends Component {
       <div className="container">
         <Sidebar
           search={this.state.search}
-          handleSearchChange={this.handleSearchChange} notes={this.props.notes}
+          handleSearchChange={this.handleSearchChange}
+          notes={
+            this.state.filteredNotes.length > 0
+              ? this.state.filteredNotes
+              : this.props.notes
+          }
         />
 
         <Route
           exact
           path="/"
           render={props => (
-              <NoteList
-                notes={
-                  this.state.filteredNotes.length > 0
-                    ? this.state.filteredNotes
-                    : this.props.notes
-                }
-                fetchingNotes={this.props.fetchingNotes}
-              />
+            <NoteList
+              notes={
+                this.state.filteredNotes.length > 0
+                  ? this.state.filteredNotes
+                  : this.props.notes
+              }
+              fetchingNotes={this.props.fetchingNotes}
+            />
           )}
         />
 

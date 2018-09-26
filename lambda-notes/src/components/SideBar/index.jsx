@@ -19,7 +19,7 @@ const SideBar = props => {
           value={props.search}
           onChange={props.handleSearchChange}
         />
-        <CSVLink className="csv-export" data={props.notes}>Export All Notes</CSVLink>
+        <CSVLink className="csv-export" filename={"notes-export.csv"}data={props.notes}>Export To CSV</CSVLink>
       </div>
     </div>
   );
