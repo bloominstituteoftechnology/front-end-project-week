@@ -375,3 +375,14 @@ div.btn-danger.btn-sidebar {
     max-width: 90vw;
   }
 }
+
+@media (max-width: 800px) {
+  .modal-content {
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+  }
+
+  .modal-btn {
+    width: 45vw;
+  }
+}

@@ -38,8 +38,8 @@ class SingleNoteView extends Component {
                             <ModalHeader toggle={this.modalToggle}></ModalHeader>
                             <ModalBody>Are you sure you want to delete this?</ModalBody>
                             <ModalFooter>
-                                <Button color="danger" onClick={() => this.delete(foundNote.id)}>Delete</Button>
-                                <Button color="info" onClick={this.modalToggle}>No</Button>
+                                <Button color="danger" className="modal-btn" onClick={() => this.delete(foundNote.id)}>Delete</Button>
+                                <Button color="info" className="modal-btn" onClick={this.modalToggle}>No</Button>
                             </ModalFooter>
                         </Modal>
                     </div>
