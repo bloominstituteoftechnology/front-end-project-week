@@ -1,24 +1,14 @@
 {
   "notes": [
     {
-      "title": "Note Title 2",
-      "textBody": "uhuih ghuihgiuhnuihjuih  hnjjhn jhn",
-      "id": 1
-    },
-    {
       "title": "Note Title 3",
       "textBody": "uhuihhnjoki  uijhniokjn oij u h",
       "id": 2
     },
     {
-      "title": "Note Title 4",
-      "textBody": "uhuihio j oikjm jkjoiji",
-      "id": 3
-    },
-    {
-      "title": "New Note Title",
-      "textBody": "dfsgjiorksw rigj rekigfj rokigfj",
-      "id": 4
+      "id": 3,
+      "title": "mymy",
+      "textBody": "some new note i made"
     }
   ]
 }

@@ -41,6 +41,7 @@ class Note extends React.Component {
     e.preventDefault();
     this.props.editNote({ id: this.id, title: this.state.title, textBody: this.state.textBody });
     this.setState({ isEditing: false,
+                    id: this.props.id,
                     title: this.props.note.title,
                     textBody: this.props.note.textBody });
   }

@@ -47,7 +47,7 @@ export const getNote = id => {
 export const editNote = editedNote => {
   return dispatch => {
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${editedNote.id}`, editedNote)
+      .put(`${url}${editedNote.id}`, editedNote)
       .then(response => {
         dispatch({ type: 'NOTE_EDITED', payload: response.data });
       })
