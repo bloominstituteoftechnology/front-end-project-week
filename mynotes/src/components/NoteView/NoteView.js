@@ -35,6 +35,12 @@ class NoteView extends Component {
 
   render() {
     console.log("MATCHED TITLE: ", this.state.matched)
+    // Property of the Lord of Zooms Mister Ronald
+    if (!this.state.matched[0]) {
+      this.props.history.push('/');
+      return null;
+    }
+    // Back to minion James' code
     return (
       <div className="noteView_container">
         <div className="noteView_topContent">

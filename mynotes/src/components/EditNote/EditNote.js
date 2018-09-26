@@ -16,7 +16,7 @@ class EditNote extends Component {
 
   componentWillMount() {
     let routeId = this.props.match.params.id;
-    let matched = this.props.notesArray.filter(item => item._id == routeId);
+    let matched = this.props.notesArray.filter(item => item.id == routeId);
     this.setState({ matched });
   }
 
@@ -44,7 +44,7 @@ class EditNote extends Component {
             className="createNote_title"
             value={this.state.matched[0].title}
             onChange={this.handleChange}
-          />
+            />
           <textarea
             className="createNote_body"
             name="body"

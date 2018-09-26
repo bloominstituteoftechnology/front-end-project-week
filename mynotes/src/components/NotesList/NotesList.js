@@ -24,7 +24,7 @@ class NotesList extends Component {
 
   generateNotes = (what) => {
     return (
-      <Link to={`/note/${what._id}`} className="unstyled_link" key={what._id}>
+      <Link to={`/note/${what.id}`} className="unstyled_link" key={what.id}>
         <div className="note">
           <div>
             <h4>{what.title}</h4>

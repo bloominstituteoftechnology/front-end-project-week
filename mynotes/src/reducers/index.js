@@ -40,7 +40,7 @@ const notesReducer = (state = initialState, action) => {
       return temp;
     case EDIT_NOTE:
       state.forEach((item, index) => {
-        if (item.id === action.payload._id) {
+        if (item.id === action.payload.id) {
           temp.splice(index, 1);
           return;
         }

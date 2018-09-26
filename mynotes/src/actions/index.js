@@ -49,7 +49,6 @@ export const fetchNoteId = id => {
 
 export const deleteNote = id => {
   return dispatch => {
-    dispatch({ type: DELETING_NOTE });
     axios
       .delete(`http://localhost:5000/note/delete/${id}`)
       .then(res => {
@@ -64,11 +63,10 @@ export const deleteNote = id => {
 
 export const editNote = noteData => {
   return dispatch => {
-    dispatch({ type: EDITING_NOTE });
     axios
-      .put(`http://localhost:5000/note/edit/${noteData._id}`, noteData)
-      .then(res => {
-        dispatch({ type: EDIT_NOTE });
+      .put(`http://localhost:5000/note/edit/${noteData.id}`, noteData)
+      .then(({ data }) => {
+        return fetchNotes();
       })
       .catch(err => {
         console.log("Error with edit action: ", err);
@@ -79,11 +77,10 @@ export const editNote = noteData => {
 
 export const createNote = noteData => {
   return dispatch => {
-    dispatch({ type: CREATING_NOTE });
     axios
       .post(`http://localhost:5000/note/create`, noteData)
       .then(res => {
-        dispatch({ type: CREATE_NOTE, payload: noteData });
+        return fetchNotes();
       })
       .catch(err => {
         console.log("Error with create action: ", err);
