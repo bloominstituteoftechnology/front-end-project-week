@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Route, NavLink, withRouter} from 'react-router-dom';
 
 import NoteListView from './views/NoteListView';
+import NoteFormView from './views/NoteFormView';
+import NoteView from './views/NoteView';
 
 import './App.css';
 
-class App extends Component {
+
+
+class App extends React.Component {
+  
   render() {
     return (
       <div className='App'>
@@ -17,14 +22,16 @@ class App extends Component {
           </div>
 
           <div>
-            <NavLink exact to='/'>+ Create New Note</NavLink>
+            <NavLink to='/CreateNote'>+ Create New Note</NavLink>
           </div>
         </div>
 
-        <h3>Your Notes:</h3>
+        
       <Route exact path='/' component = {NoteListView} />
+      <Route  path='/notes/:noteId' component={NoteView}/>
+      <Route  path='/CreateNote' component={NoteFormView}/>
       </div>
-    )
+    );
   }
 }
 

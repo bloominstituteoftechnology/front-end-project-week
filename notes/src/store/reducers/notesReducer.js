@@ -2,26 +2,37 @@ import{
     NOTES_FETCH_START,
     NOTES_FETCH_COMPLETE,
     NOTES_FETCH_FAILURE,
+
     ADD_NOTE_START,
     ADD_NOTE_COMPLETE,
     ADD_NOTE_FAILURE,
+
     DELETE_NOTE_START,
     DELETE_NOTE_COMPLETE,
     DELETE_NOTE_FAILURE,
+
     EDIT_NOTE_START,
     EDIT_NOTE_COMPLETE,
     EDIT_NOTE_FAILURE,
+
     SET_EDIT_NOTE,
+
+    GET_NOTE_START,
+    GET_NOTE_COMPLETE,
+    GET_NOTE_FAILURE,
+
 } from '../actions'
 
 const initialState = {
-    notes: [],
     addingNote: false,
+    notes: [],
+    note: {},
     isLoading: false,
+    // isLoaded: false,
     isDeleting: false,
     isEditing: false,
-    noteToEdit:null,
-    error:'',
+    error: '',
+    noteToEdit: null,
 };
 
 export const notesReducer = (state = initialState, action) =>{
@@ -34,6 +45,13 @@ export const notesReducer = (state = initialState, action) =>{
         case NOTES_FETCH_FAILURE:
             console.log(action.payload);
             return { ...state, isLoading: false, error: action.payload };
+
+        // case GET_NOTE_START:
+        //     return { ...state, isLoaded: true };
+        // case GET_NOTE_COMPLETE:
+        //     return { ...state, isLoaded: false, note: action.payload };
+        // case GET_NOTE_FAILURE: 
+        //     return { ...state, isLoaded: false, error: action.payload };
 
         case ADD_NOTE_START:
             return { ...state, addingNote: true };
@@ -52,7 +70,7 @@ export const notesReducer = (state = initialState, action) =>{
             return { ...state, isDeleting: false, error: action.payload };
 
         case SET_EDIT_NOTE:
-            const note = state.notes.find(note => note.id === action.payload);
+            const note = state.notes.find(note => note._id === action.payload);
             return { ...state, noteToEdit: note ? note : null }
 
         case EDIT_NOTE_START:

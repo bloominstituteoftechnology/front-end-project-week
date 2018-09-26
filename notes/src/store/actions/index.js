@@ -2,6 +2,10 @@ export {
     NOTES_FETCH_START,
     NOTES_FETCH_COMPLETE,
     NOTES_FETCH_FAILURE,
+
+    // GET_NOTE_START,
+    // GET_NOTE_COMPLETE,
+    // GET_NOTE_FAILURE,
     
     ADD_NOTE_START,
     ADD_NOTE_COMPLETE,
@@ -18,6 +22,7 @@ export {
     SET_EDIT_NOTE,
     
     getNotes,
+    getNote,
     addNewNote,
     deleteNote,
     setEditNote,
