@@ -12,12 +12,13 @@
   text-decoration: underline;
   text-align: right;
   margin: 20px 10px;
+  font-weight: bold;
 }
 
 /* The delete popup (appears on top) */
 .popuptext {
   width: 550px;
-  height: 140px;
+  height: 150px;
   visibility: hidden;
   background-color: white;
   color: black;
@@ -25,8 +26,8 @@
   padding: 8px 0;
   position: absolute;
   z-index: 1;
-  left: 20%;
-  bottom: 5%;
+  left: 28%;
+  bottom: 35%;
 
   border: 1px solid black;
 }

@@ -11,6 +11,11 @@ class NoteView extends React.Component {
     this.state = { deleteNote: false };
   }
 
+  componentDidMount() {
+    if (!this.props.note) {
+      // this.props.history.push("/");
+    }
+  }
   editNote(e) {
     // e.preventDefault();
     // console.log("edit note : " + this.props.note.title);
@@ -33,14 +38,16 @@ class NoteView extends React.Component {
   }
   render() {
     return (
-      <div className="notes-container">
+      <div
+        className={`notes-container ${this.state.deleteNote ? `opaque` : ``}`}
+      >
         <div className="note-links">
           <Link
             className="note-links"
             onClick={e => this.editNote(e)}
             to={`/notes/${this.props.note.id}/edit`}
           >
-            Edit
+            edit
           </Link>
 
           <Link
@@ -51,7 +58,7 @@ class NoteView extends React.Component {
             }}
             to={`/notes/${this.props.note.id}/delete`}
           >
-            Delete
+            delete
           </Link>
         </div>
         <h1 className="note-heading">{this.props.note.title}</h1>
