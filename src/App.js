@@ -28,7 +28,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:2200/")
+      .get("https://alee-lambdanotes.herokuapp.com")
       .then(response => {
         const newNotes = response.data;
         const newState = Object.assign({}, this.state, { notes: newNotes });
@@ -39,7 +39,7 @@ class App extends Component {
 
   componentDidUpdate() {
     axios
-      .get("http://localhost:2200/")
+      .get("https://alee-lambdanotes.herokuapp.com/")
       .then(response => {
         const newNotes = response.data;
         const newState = Object.assign({}, this.state, { notes: newNotes });
@@ -57,7 +57,7 @@ class App extends Component {
     const arr = this.state.notes.slice();
     if (this.state.title && this.state.note) {
       axios
-        .post("http://localhost:2200/form", {
+        .post("https://alee-lambdanotes.herokuapp.com/form", {
           title: this.state.title,
           note: this.state.note,
           edittoggle: this.state.edittoggle
@@ -88,7 +88,7 @@ class App extends Component {
 
   deleteHandler = id => {
     axios
-      .delete(`http://localhost:2200/note/${id}`)
+      .delete(`https://alee-lambdanotes.herokuapp.com/note/${id}`)
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -141,18 +141,6 @@ class App extends Component {
               Redirect={this.state.Redirect}
             />
           )}
-        />
-        {/* <Route
-          path="/note/:id/edit"
-          render={props => (
-            <NoteFormEdit
-              {...props}
-              notes={this.state.notes}
-              handleNoteChange={this.handleNoteChange}
-              addHandler={this.addHandler}
-              Redirect={this.state.Redirect}
-            />
-          )} */}
         />
       </Container>
     );
