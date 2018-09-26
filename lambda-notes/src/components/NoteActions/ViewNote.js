@@ -45,8 +45,6 @@ class ViewNote extends Component {
             delete: props.delete,
             clicked: props.clicked
         }
-        console.log(this.state.note[this.state.clicked].noteName)
-        console.log(this.state.id)
     }
 
     componentDidMount() {
