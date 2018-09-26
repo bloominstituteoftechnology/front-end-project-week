@@ -6,7 +6,7 @@ import React from 'react';
 
 function Note(props) {
     const note = props.notesList.find(
-        note => note._id === parseInt(props.match.params.noteId, 10));
+        note => note._id === props.match.params.noteId);
 
     function handleDelete() {
         props.handleDeleteNote(note._id);
@@ -19,19 +19,15 @@ function Note(props) {
         
             <div>
                 <div>
-                    
                     <h1>{note.title}</h1>
-                    <p>{note.textBody}</p>
-                    
-                 
-                    
+                    <p>{note.textBody}</p>                    
                 </div>
 
                 <div>
-                    <p onClick={ event => {
+                    <button onClick={ event => {
                          props.goToEditNoteForm(event, note._id)
-                         }} >Edit</p>
-                    <p onClick={handleDelete}>Delete</p>          
+                         }} >Edit</button>
+                    <button onClick={handleDelete}>Delete</button>          
                 </div>
 
             </div>

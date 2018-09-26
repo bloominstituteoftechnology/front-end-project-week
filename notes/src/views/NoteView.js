@@ -1,14 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getNote,deleteNote,setEditNote} from '../store/actions';
+import {getNotes,deleteNote,editNote} from '../store/actions';
 
 import Note from '../components/Note/Note';
 
 class NoteView extends React.Component {
     componentDidMount() {
         if (this.props.notesList.length === 0) {
-            this.props.getNote();
+            this.props.getNotes();
         }
     }
 
@@ -18,7 +18,7 @@ class NoteView extends React.Component {
 
     goToEditNoteForm = (event, id) => {
         event.preventDefault();
-        this.props.setEditNote(id);
+        this.props.editNote(id);
         this.props.history.push('/CreateNote');
     }
 
@@ -40,4 +40,4 @@ const mapStateToProps = state => ({
     isLoading: state.isLoading,
 });
 
-export default connect(mapStateToProps, {getNote,deleteNote,setEditNote})(NoteView);
+export default connect(mapStateToProps, {getNotes,deleteNote,editNote})(NoteView);

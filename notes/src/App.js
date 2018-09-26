@@ -14,15 +14,15 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        <div>
-          <h1>Lambda Notes</h1>
+        <div className='sideBar'>
+          <h1 className='LambdaNotes'>Lambda Notes</h1>
           
-          <div>
-            <NavLink exact to='/'>View Your Notes</NavLink>
+          <div className='buttonViewDiv'>
+            <NavLink className='buttonView' exact to='/'>View Your Notes</NavLink>
           </div>
 
-          <div>
-            <NavLink to='/CreateNote'>+ Create New Note</NavLink>
+          <div className='buttonViewDiv'>
+            <NavLink className='buttonView' to='/CreateNote'>+ Create New Note</NavLink>
           </div>
         </div>
 

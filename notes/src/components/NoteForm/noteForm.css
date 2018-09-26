@@ -1,0 +1,22 @@
+.textBody{
+    /* background: red; */
+    width: 80%;
+    margin-bottom: 15px;
+    border: 1px solid gray;
+}
+
+.formView{
+    width: 85%;
+    text-align: initial;
+    /* margin-left: 5%; */
+    background: lightgray;
+}
+
+.saveButton {
+    background: cadetblue;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    width:15%;
+    border: 1px solid gray;
+}

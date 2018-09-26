@@ -9,6 +9,7 @@ function NotesList(props) {
     return (
         <div className='notesBoxesv1'>
             <h3>Your Notes:</h3>
+            
             {props.notesList.map(note =>(
                 <div className='notesBoxes' key={note._id} onClick={() => props.history.push(`/notes/${note._id}`)}>
                     <h1>{note.title}</h1>

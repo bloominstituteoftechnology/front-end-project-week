@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  
 }
 
 .App-logo {
@@ -26,3 +28,26 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* the css for the sideBar */
+.sideBar {
+  background:darkgrey;
+  width: 15%;
+
+}
+
+.buttonView{
+  /* background: teal; */
+  text-decoration: none;
+  color:white;
+  /* padding:10px; */
+  /* margin:10px; */
+}
+
+.buttonViewDiv{
+  background: cadetblue;
+  padding:10px;
+  margin:10px;
+  border: 1px solid gray;
+}
+

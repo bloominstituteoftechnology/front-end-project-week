@@ -17,9 +17,9 @@ import{
 
     SET_EDIT_NOTE,
 
-    GET_NOTE_START,
-    GET_NOTE_COMPLETE,
-    GET_NOTE_FAILURE,
+    // GET_NOTE_START,
+    // GET_NOTE_COMPLETE,
+    // GET_NOTE_FAILURE,
 
 } from '../actions'
 
@@ -77,7 +77,6 @@ export const notesReducer = (state = initialState, action) =>{
             return { ...state, isEditing: true };
         case EDIT_NOTE_COMPLETE:
             return { ...state, isEditing:false, notes: action.payload };
-
         case EDIT_NOTE_FAILURE:
             console.log(action.payload);
             return { ...state, isEditing: false, error: action.payload };

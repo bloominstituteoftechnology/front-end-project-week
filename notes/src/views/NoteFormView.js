@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addNewNote, editNote} from '../store/actions'
+import {addNewNote, setEditNote} from '../store/actions'
 
 import NoteForm from '../components/NoteForm/NoteForm';
 
@@ -38,7 +38,7 @@ class NoteFormView extends React.Component {
     }
 
     handleEditNote = () => {
-        this.props.editNote(this.state.note);
+        this.props.setEditNote(this.state.note);
         this.props.history.push('/')
     }
 
@@ -60,4 +60,4 @@ const mapStateToProps = state => ({
     noteToEdit: state.noteToEdit,
 });
 
-export default connect(mapStateToProps,{addNewNote, editNote})(NoteFormView);
+export default connect(mapStateToProps,{addNewNote, setEditNote})(NoteFormView);

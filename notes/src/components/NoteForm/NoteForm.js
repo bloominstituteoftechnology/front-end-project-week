@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+import './noteForm.css'
 
 function NoteForm(props){
     function handleSubmit(event) {
@@ -15,30 +16,32 @@ function NoteForm(props){
 
     return (
         <Fragment>
-                <h2>{props.isEditing ? 'Edit Note' : 'Add New Note'}</h2>
-            <form>
+                {/* <h2>{props.isEditing ? 'Edit Note' : 'Create New Notes'}</h2> */}
+            <form className='formView'>
                 <div>
-                    <h3>Create New Notes:</h3>
+                    {/* <h3>Create New Notes:</h3> */}
+                    <h2>{props.isEditing ? 'Edit Note:' : 'Create New Notes:'}</h2>
                     <input
-                    type='text'
-                    value={props.note.title}
-                    name='title'
-                    placeholder='Note Title'
-                    onChange={props.handleChange}
+                        type='text'
+                        value={props.note.title}
+                        name='title'
+                        placeholder='Note Title'
+                        onChange={props.handleChange}
                     />
                 </div>
 
-                <div>
+                <div >
                     <input
-                    type='text'
-                    value={props.note.textBody}
-                    name='textBody'
-                    placeholder='Note Content'
-                    onChange={props.handleChange}
+                        className='textBody'
+                        type='text'
+                        value={props.note.textBody}
+                        name='textBody'
+                        placeholder='Note Content'
+                        onChange={props.handleChange}
                     />
                 </div>
                     
-                <button onClick={handleSubmit}>Save</button>
+                <div className='saveButton' onClick={handleSubmit}>Save</div>
                 
             </form>
         </Fragment>

@@ -22,7 +22,7 @@ export {
     SET_EDIT_NOTE,
     
     getNotes,
-    getNote,
+    // getNote,
     addNewNote,
     deleteNote,
     setEditNote,
