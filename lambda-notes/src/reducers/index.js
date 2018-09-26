@@ -56,7 +56,6 @@ export const rootReducer = (state = initialState, action) => {
         console.log("ADDED_NOTES");
             return {
                 ...state,
-                notes: action.payload,
                 addingNotes: false
             }
         case ERROR_ADDING_NOTE:
@@ -86,7 +85,6 @@ export const rootReducer = (state = initialState, action) => {
         console.log("UPDATED_NOTES");
             return {
                 ...state,
-                notes: action.payload,
                 updatingNotes: false
             }
         case ERROR_UPDATING_NOTE:
@@ -109,7 +107,6 @@ export const rootReducer = (state = initialState, action) => {
         console.log("DELETED_NOTES");
             return {
                 ...state,
-                notes: action.payload,
                 deletingNotes: false
             }
         case ERROR_DELETING_NOTE:
