@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import Note from './Note';
+// import Note from './Note';
 
 function NotesList(props) {
     if (!props.notesList || !props.notesList.length) {

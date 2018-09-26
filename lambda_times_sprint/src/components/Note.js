@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import NoteForm from './NoteForm';
 
 class Note extends Component {
