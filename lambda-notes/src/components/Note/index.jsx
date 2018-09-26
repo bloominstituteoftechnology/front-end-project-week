@@ -109,7 +109,7 @@ class Note extends React.Component {
         <h2>{this.props.note.title.length > 30 ?
              this.props.note.title.slice(0, 30) + '...' :
              this.props.note.title}</h2>
-        <div className="note-body">{this.props.note.textBody}</div>
+        <div className="note-body"><Markdown escapeHtml={true} source={this.props.note.textBody} /></div>
       </div>
     )
   }
