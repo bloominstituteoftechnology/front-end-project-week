@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import EditView from "./components/EditView";
 import axios from "axios";
 
+
 const url = "http://localhost:8000/api/notes";
 
 class App extends Component {
