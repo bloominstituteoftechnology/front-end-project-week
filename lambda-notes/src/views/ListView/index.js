@@ -106,6 +106,7 @@ class ListView extends React.Component {
 				<div className = 'list'>
 					<div className = 'search-wrapper'>
 						{ this.state.errorMsg && <p>{ this.state.errorMsg }</p> }
+						{ (this.state.search.exactSearch || this.state.search.fuzzySearch) && <p className = 'search-note lengthen-anim'> All searches are case sensitive</p> }
 						<div>
 							<button className = 'btn delete-all-btn' onClick = { e => this.toggleDeleteAllModal(e) }>Delete All Notes</button>
 

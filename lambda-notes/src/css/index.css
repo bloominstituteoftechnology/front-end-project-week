@@ -220,6 +220,13 @@
   flex-direction: column;
   width: 100%;
 }
+.list .search-wrapper .search-note {
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .list .search-wrapper .search {
   display: flex;
   justify-content: start;
