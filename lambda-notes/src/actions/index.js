@@ -1,10 +1,13 @@
 import axios from 'axios'
 
+// some variables
+const url = 'http://localhost:5500/notes/';
+
 // getNotes action creator
 export const getNotes = () => {
   return dispatch => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .get(url)
       .then(response => {
         dispatch({ type: 'NOTES_FETCHED', payload: response.data });
       })
@@ -30,7 +33,7 @@ export const addNote = newNote => {
 export const getNote = id => {
   return dispatch => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .get(`${url}${id}`)
       .then(response => {
         dispatch({ type: 'NOTE_FETCHED', payload: response.data });
       })
@@ -59,7 +62,7 @@ export const editNote = editedNote => {
 export const deleteNote = id => {
   return dispatch => {
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`${url}${id}`)
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });
