@@ -10,6 +10,7 @@ import NoteView from './notes/NoteView';
 
 const AppWrapper = styled.div`
   display: flex;
+  background: #f2f1f2;
 `;
 
 const App = () => {
