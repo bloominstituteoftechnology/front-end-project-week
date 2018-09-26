@@ -213,6 +213,11 @@
   flex-wrap: wrap;
   margin: 42px 26px 120px 26px;
 }
+.list .search {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
 @media ( max-width: 710px ) {
   .list h2 {
     padding: 0;
@@ -254,6 +259,11 @@
   margin-top: 1px;
   max-height: 133px;
   overflow: hidden;
+}
+.list .note-wrapper .note p .highlight {
+  background: blue;
+  border-radius: 4px;
+  color: white;
 }
 .list .note-wrapper .tags-div {
   border: 1px solid #BFBFBF;

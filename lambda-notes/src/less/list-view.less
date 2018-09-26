@@ -4,6 +4,12 @@
 	flex-wrap: wrap;
 	margin: 42px 26px 120px 26px;
 
+	.search {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+	}
+
 	h2 {
 		@media @phone {
 			padding: 0;
@@ -49,6 +55,12 @@
 				margin-top: 1px;
 				max-height: 133px;
 				overflow: hidden;
+
+				.highlight {
+					background: blue;
+					border-radius: 4px;
+					color: white;
+				}
 			}
 		} // .list .note-wrapper .note
 
