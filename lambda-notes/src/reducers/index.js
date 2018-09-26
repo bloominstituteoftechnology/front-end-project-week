@@ -1,59 +1,66 @@
-/*
-  Be sure to import in all of the action types from `../actions`
-*/
 import {
-  FETCHING_DATA,
+  ADD_NOTE,
+  DELETE_NOTE,
+  EDIT_NOTE,
+  FETCH_DATA,
   DATA_FETCHED,
-  FETCH_ERROR,
-  INITIALIZE_NOTE_ADD,
-  COMPLETE_NOTE_ADD,
-  ADD_NOTE_ERROR,
-} from '../actions';
-
+  ERROR
+} from "../actions";
 
 const initialState = {
   notes: [],
-  fetchingData: false,
-  dataFetched: false,
-  addingNote: false,
-  error: '',
+  fetching: false,
+  success: false,
+  error: null
 };
 
-export const notesReducer = (state = initialState, action) => {
+export const noteReducers = (state = initialState, action) => {
   switch (action.type) {
-    case FETCHING_DATA:
-      return { ...state, fetchingData: true };
+
+    case FETCH_DATA:
+      return { ...state, fetching: true };
+    case ERROR:
+      return { ...state, error: "Error" + action.err };
     case DATA_FETCHED:
+      return { ...state, notes: action.payload, fetching: false };
+    case ADD_NOTE:
+      const newNote = { ...action.payload };
       return {
-        ...state,
-        notes: action.payload,
-        fetchingData: false,
-        dataFetched: true,
+        notes: [
+          ...state.notes,
+          {
+            ...newNote
+          }
+        ],
+        fetching: false
       };
-    case FETCH_ERROR:
+
+    case EDIT_NOTE:
+      let editNoteLocation = state.notes.findIndex(
+        note => note._id === action.payload._id
+      );
+      console.log(action.payload.description);
       return {
-        ...state,
-        error: 'Error fetching data',
+        notes: [
+          ...state.notes.slice(0, editNoteLocation),
+          { ...action.payload },
+          ...state.notes.slice(editNoteLocation + 1)
+        ],
+        fetching: false
       };
-    case INITIALIZE_NOTE_ADD:
+
+      case DELETE_NOTE:
+      let noteLocation = state.notes.findIndex(note => note._id === action.id);
       return {
-        ...state,
-        addingNote: true,
+        notes: [
+          ...state.notes.slice(0, noteLocation),
+          ...state.notes.slice(noteLocation + 1)
+        ],
+        fetching: false
       };
-    case COMPLETE_NOTE_ADD:
-      return {
-        ...state,
-        addingNote: false,
-        // notes: action.payload,
-      };
-    case ADD_NOTE_ERROR:
-      return {
-        ...state,
-        error: 'Error adding note',
-        addingNote: false,
-      };
+      
     default:
       return state;
+
   }
-  
 };

@@ -1,85 +1,34 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import './styles/App.css';import './App.css';
-import { fetchData, addNote} from './actions';
-import NotesList from './components/NotesList';
-import NoteForm from './components/NoteForm';
+import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
+import { AppStyle, Navigation, Main } from "./components/styling/AppWideStyling";
+import NotesList from "./components/functional/NotesList";
+import NoteForm from "./components/functional/NoteForm";
+import ViewPage from "./components/functional/ViewPage";
 
 class App extends Component {
-
-  state = {
-    inputData: {
-      tags: [],
-      title: '',
-      textBody: '',
-    },
-  };
-
-  componentDidMount() {
-    this.props.fetchData();
-  }
-  
-  handleInput = (event) => {
-    this.setState({
-      inputData: {
-        ...this.state.inputData,
-        [event.target.name]: event.target.value,
-      },
-    });
-  };
-
-  handleAdd = (event) => {
-    event.preventDefault();
-    this.props.addNote(this.state.inputData);
-    this.resetForm();
-  };
-
-  resetForm() {
-    this.setState({
-      inputData: {
-        tags: [],
-        title: '',
-        textBody: '',
-      },
-    });
-  }
-
   render() {
     return (
-      <div className="App">
-        {!this.props.dataFetched ? (
-          <h1>Loading notes, please wait...</h1>
-        ) : (
-          <React.Fragment>
-            <NoteForm
-              inputData={this.state.inputData}
-              handleInput={this.handleInput}
-              handleAdd={this.handleAdd}
-            />
-            <NotesList notes={this.props.notes}
-            />
-          </React.Fragment>
-        )}
-      </div>
+      <AppStyle>
+        <Navigation>
+          <h1>Lambda Notes</h1>
+          <Link to="/" className="link">
+            View Your Notes
+          </Link>
+          <Link to="/noteform" className="link">
+            + Create New Note
+          </Link>
+        </Navigation>
+        <Main>
+          <Route exact path="/" component={NotesList} />
+          <Route
+            exact
+            path="/noteform/:id?"
+            render={props => <NoteForm {...props} />}
+          />
+          <Route path="/notes/:id" render={props => <ViewPage {...props} />} />
+        </Main>
+      </AppStyle>
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    fetchingData: state.fetchingData,
-    dataFetched: state.dataFetched,
-    addingNote: state.addingNote,
-    updatingNote: state.updatingNote,
-    notes: state.notes,
-    error: state.error,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  {
-    fetchData,
-    addNote,
-  }
-)(App);
+export default App;
