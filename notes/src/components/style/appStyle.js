@@ -20,13 +20,25 @@ export const Navigation = styled.div`
     display: block;
     border: 1px solid gray;
     background: #24B8BD;
-    color: white;
+    color: #FFF;
     margin-bottom: 20px;
     padding: 10px 6%;
     text-align: center
     font-weight: bold;
     font-size: 1.6rem;
+    border-radius: 2px;
+    transition: background 0.2s ease-out,  color 0.2s ease-out, box-shadow 0.7s ease;
+
+    &:hover {
+      box-shadow: inset 0px 0px 1px 2px gray;
+    }
+
+    &:active {
+      background: #FFF;
+      color: #24B8BD;
+    }
   }
+
 `;
 
 export const Main = styled.div`

@@ -44,3 +44,22 @@ p, a {
   font-size: 1.4rem;
   text-decoration: none;
 }
+
+.fade-enter {
+  opacity: 0;
+}
+
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}

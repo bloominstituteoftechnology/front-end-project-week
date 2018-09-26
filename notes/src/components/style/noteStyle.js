@@ -16,11 +16,20 @@ export const NoteAlign = styled.div`
 
 export const NoteStyle = styled.div`
   background: #ffffff;
-
   border: 1px solid #d3d2d3;
   padding: 5px 10%;
   margin-top: 20px;
   height: 270px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    box-shadow: 0px 1px 17px 6px lightgrey;
+    transform: scale(1.01);
+  }
+
+  &:active {
+    background: #EEEDEE;
+  }
 
   h3 {
     border-bottom: 1px solid #d3d2d3;

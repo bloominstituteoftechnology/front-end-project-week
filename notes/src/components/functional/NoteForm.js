@@ -21,8 +21,11 @@ class NoteForm extends React.Component {
     });
   };
 
-  componentDidMount() {
-    this.filterProps();
+  componentDidUpdate() {
+    setTimeout(() => {
+      this.filterProps();
+    }, 5)
+    
   }
 
   componentWillReceiveProps() {
