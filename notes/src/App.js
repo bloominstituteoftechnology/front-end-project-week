@@ -19,19 +19,20 @@ class App extends Component {
     remove: false
   }
 }
-// componentDidMount(){
-//   axios
-//   .get('http://localhost:9000/api/notes')
-//   .then(response =>{
-//     console.log('data from axios request', response.data)
-//     console.log(this.state)
-//     this.setState({notes: response.data})
-//     console.log(this.state)
-//   })
-//   .catch(err => {
-//     console.log(err)
-//   })
-// }
+
+getNotes = () => {
+  axios
+  .get('http://localhost:9000/api/notes')
+  .then(response =>{
+    console.log('data from axios request', response.data)
+    console.log(this.state)
+    this.setState({notes: response.data})
+    console.log(this.state)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
 
 handleSubmit = data => this.setState({note: data});
 
@@ -79,7 +80,7 @@ handleRefresh = () => {
   axios
   .get('http://localhost:9000/api/notes')
   .then(response => {
-    this.setState({notes: response.date});
+    this.setState({notes: response.data});
   })
   .catch(err => console.log(err));
 }
@@ -104,8 +105,6 @@ handleBodyUpdate = event => {
   })
 }
 
-
-
 handleDeleteNote = e => {
   const id = this.match.params.id;
   axios
@@ -120,24 +119,35 @@ handleDeleteNote = e => {
 }
 
 toggleDeleteNote = () => {
-  this.setState({ remove: !this.state.remove })
+  this.setState({ remove: !this.state.remove });
 }
 
   render() {
     //console.log('logging state in App',this.state);
     return (
       <div className = "app">
-        <Route path = "/" component={NavBar} />
-        {/* <Route path = "/" component={WelcomePage} /> */}
+        <Route path = "/" render = {props =>
+        (< NavBar {...props}
+          getNotes = {this.getNotes}
+          notes = {this.state.notes}
+        />)}
+        />
         
         <Route path = "/notes" render={props =>
         (<NotesList {...props}
-        notes={this.state.notes} 
+          getNotes = {this.getNotes}
+          notes={this.state.notes} 
         />
         )}
         />
 
-        <Route path = "/form" component={NewNoteForm} />
+        <Route path = "/form" render = {props =>
+        (<NewNoteForm {...props}
+          getNotes = {this.getNotes}
+          notes = {this.state.notes}
+          />
+        )}
+        />
 
      {/* <Route path = "/form" render={props =>
         (<NewNoteForm {...props}

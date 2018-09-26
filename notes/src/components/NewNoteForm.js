@@ -21,13 +21,9 @@ componentDidMount() {
     console.log('logging state in componentDidMount', this.state)
 };
 
-componentWillUnmount() {
-    localStorage.setItem('name', this.state.name);
-    localStorage.setItem('content', this.state.content);
-};
-
-// handleChange = event => {
-//     this.setState({ [event.target.name]: event.target.value });
+// componentWillUnmount() {
+//     localStorage.setItem('name', this.state.name);
+//     localStorage.setItem('content', this.state.content);
 // };
 
 
@@ -43,7 +39,6 @@ handleTitleUpdate = event => {
     })
   }
 
-
 handleAddNote = () => {
     const note = {
         name: this.state.name,
@@ -52,14 +47,12 @@ handleAddNote = () => {
 
     axios
     .post(`http://localhost:9000/api/notes`, note)
-    .then(response => {
-        console.log('history in NewNoteForm', this.history)
-        this.setState({
-            name: '',
-            content: ''
-        })
-        this.props.history.push('/notes');
+    .then(response => 
+        {this.props.getNotes})
+        .then(response => {
+            this.props.history.push('/notes')
     })
+    .then(this.props.history.push('/notes'))
     .catch(err => console.log(err))
 }
 

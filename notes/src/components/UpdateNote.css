@@ -1,6 +1,6 @@
 .edit-note-container{
     display: flex;
-    width: 80%;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -25,7 +25,6 @@ form input{
     border-radius: 12px;
 }
 
-
 form textarea{
     height: 200px;
     width: 80%;
@@ -42,7 +41,6 @@ form input::placeholder{
     vertical-align: top;
     font-family: 'Roboto', sans-serif;
 }
-
 
 button{
     padding: 20px;
