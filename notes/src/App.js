@@ -11,10 +11,8 @@ import DragDrop from "./Components/DragDrop";
 
 import "./App.css";
 
-const API_ALL = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
-const API_ADD = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
-const API_DELETE = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
-const API_PUT = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
+// const API = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
+const API = "http://localhost:8000/notes";
 class App extends Component {
 	state = {
 		notes: [],
@@ -24,7 +22,7 @@ class App extends Component {
 
 	componentDidMount() {
 		this.setState({ loading: true });
-		axios.get(API_ALL).then(response => {
+		axios.get(API).then(response => {
 			this.setState({ notes: response.data.message, loading: false });
 		});
 	}
@@ -42,7 +40,7 @@ class App extends Component {
 
 	handleAddNote = note => {
 		this.setState({ loading: true });
-		axios.post(API_ADD, note).then(response => {
+		axios.post(API, note).then(response => {
 			this.setState(prevState => ({
 				notes: [
 					...prevState.notes,
@@ -56,7 +54,7 @@ class App extends Component {
 	handleDeleteNote = id => {
 		this.setState({ deleting: true });
 
-		axios.delete(`${API_DELETE}/${id}`).then(() => {
+		axios.delete(`${API}/${id}`).then(() => {
 			this.setState(prevState => ({
 				notes: prevState.notes.filter(note => note.id !== Number(id)),
 				deleting: false,
@@ -66,7 +64,7 @@ class App extends Component {
 
 	handleEditNote = (id, edited) => {
 		this.setState({ loading: true });
-		axios.put(`${API_PUT}/${id}`, edited).then(response => {
+		axios.put(`${API}/${id}`, edited).then(response => {
 			this.setState(prevState => ({
 				notes: prevState.notes.map(note => {
 					if (note.id == response.data.message.id) {
