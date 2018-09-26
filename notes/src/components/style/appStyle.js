@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const AppStyle = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 export const Navigation = styled.div`
   position: fixed;
@@ -27,10 +27,10 @@ export const Navigation = styled.div`
     font-weight: bold;
     font-size: 1.6rem;
   }
-`
+`;
 
 export const Main = styled.div`
-  background: #F2F1F2;
+  background: #f2f1f2;
   margin-left: 20%;
   width: 80%;
-`
+`;

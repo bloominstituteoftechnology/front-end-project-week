@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Form = styled.div`
   margin: 50px 5%;
@@ -6,17 +6,17 @@ export const Form = styled.div`
   h2 {
     margin-bottom: 20px;
   }
-`
+`;
 
 export const Input = styled.input`
   display: block;
   margin-bottom: 20px;
   padding: 10px 2%;
   width: 50%;
-  border: 1px solid #D3D2D3;
+  border: 1px solid #d3d2d3;
   border-radius: 4px;
   font-size: 1.5rem;
-`
+`;
 
 export const Textarea = styled.textarea`
   display: block;
@@ -27,7 +27,7 @@ export const Textarea = styled.textarea`
   border-radius: 4px;
   width: 100%
   font-size: 1.6rem;
-`
+`;
 
 export const Button = styled.button`
   border: 1px solid  #D3D2D3;
@@ -38,4 +38,4 @@ export const Button = styled.button`
   text-align: center
   font-weight: bold;
   font-size: 1.6rem;
-`
+`;

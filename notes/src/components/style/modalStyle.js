@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -6,8 +6,8 @@ export const ModalContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0 , 0.6)
-`
+  background: rgba(0, 0, 0, 0.6);
+`;
 
 export const ModalMain = styled.div`
   background: lightgray;
@@ -23,7 +23,7 @@ export const ModalMain = styled.div`
     font-size: 1.7rem;
     padding: 5px 0;
   }
-`
+`;
 
 export const Button = styled.button`
   width: 45%;
@@ -31,13 +31,13 @@ export const Button = styled.button`
   padding: 13px 2%;
   color: white;
   font-weight: bold;
-  border: 1px solid #B8CACB;
-`
+  border: 1px solid #b8cacb;
+`;
 
 export const DeleteButton = styled(Button)`
-  background: #CA001A;
-`
+  background: #ca001a;
+`;
 
 export const NoButton = styled(Button)`
-  background: #24B8BD;
-`
+  background: #24b8bd;
+`;
