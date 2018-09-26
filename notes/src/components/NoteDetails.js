@@ -73,8 +73,11 @@ class NoteDetails extends React.Component {
             <Modal isOpen={this.state.modal} toggle={this.toggle} className='delete-modal'>
             <ModalBody>
                 Are you sure you want to delete this?
-                <Button color='info' onClick={this.toggle}>Cancel</Button>
-                <Link to = '/'><Button color='danger' onClick={this.handleDelete}>DELETE</Button></Link>
+                <div className = 'modal-buttons'>
+                
+                <Link to = '/'><Button color='danger' onClick={this.handleDelete}>Delete</Button></Link>
+                <Button color='info' onClick={this.toggle}>No</Button>
+                </div>
             </ModalBody>
             </Modal>
 

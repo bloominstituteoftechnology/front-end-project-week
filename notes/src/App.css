@@ -176,6 +176,37 @@ body {
 
 
 /************************************************************************************/
+/* DELETE MODAL STYLES */
+/************************************************************************************/
+
+
+.modal-content {
+  border-radius: 0px !important;
+  padding: 20px;
+}
+
+.modal-body {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-buttons button {
+  margin: 20px 10px;
+  padding: 5px 0px;
+  width: 150px;
+  border-radius: 0px;
+}
+
+
+/************************************************************************************/
 /* ADD NOTE FORM */
 /************************************************************************************/
 
