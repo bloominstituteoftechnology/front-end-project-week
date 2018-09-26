@@ -44,6 +44,7 @@ class Notes extends React.Component {
         }
     }
     componentDidMount() {
+        
         localStorage.setItem('location',this.props.location.pathname);
         const sortOption=localStorage.getItem('sortOption');
         const token=localStorage.getItem('jwt');

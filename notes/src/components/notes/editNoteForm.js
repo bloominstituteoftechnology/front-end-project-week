@@ -76,6 +76,7 @@ class EditNoteForm extends React.Component{
         }
     }
     editNoteObj=()=>{
+        
         const editedNote={
             title:this.state.title,
             textBody: this.state.content,

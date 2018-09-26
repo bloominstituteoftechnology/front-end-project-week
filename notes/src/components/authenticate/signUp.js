@@ -10,6 +10,9 @@ class SignUp extends React.Component{
             password:''
         }
     }
+    componentDidMount() {
+        localStorage.setItem('location',this.props.location.pathname);
+    }
     onChangeHandler=(e)=>{
         this.setState({[e.target.name]:e.target.value})
     }

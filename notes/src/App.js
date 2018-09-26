@@ -14,7 +14,13 @@ class App extends Component {
   
   componentDidMount(){
     const jwt=localStorage.getItem('jwt');
-    jwt?this.props.history.push('/notes'):this.props.history.push('/signin');
+    if (jwt===null && localStorage.getItem('location')!=='/signup') {
+      this.props.history.push('/signin');
+    } else if (localStorage.getItem('location')==='/signup') {
+      this.props.history.push('/signup');
+    } else {
+      this.props.history.push(localStorage.getItem('location'));
+    }
   }
   
   render() {
@@ -22,10 +28,10 @@ class App extends Component {
       return (
         <div className="App">
           <SideBar/>
-          <Route exact path='/notes' component={Notes}/>
-          <Route exact path='/create' component={NewNote}/>
-          <Route exact path='/notes/:noteId' component={SingleNotePage} />
-          <Route exact path='/notes/:noteId/edit' component={EditNoteForm}/>
+            <Route exact path='/notes' component={Notes}/>
+            <Route exact path='/create' component={NewNote}/>
+            <Route exact path='/notes/:noteId' component={SingleNotePage} />
+            <Route exact path='/notes/:noteId/edit' component={EditNoteForm}/>
         </div>
         );
        } else {

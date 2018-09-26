@@ -58,10 +58,9 @@ class NewNote extends React.Component{
     handleInputChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
     }
-    componentDidMount() {
-        localStorage.setItem('location',this.props.location.pathname);
-    }
     createnewNoteObj=()=>{
+        
+        localStorage.setItem('location',this.props.location.pathname);
         if (this.state.title.length>0 && this.state.content.length>0){
         const newNote={
             title:this.state.title,
