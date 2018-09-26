@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody, CardTitle, CardColumns } from 'reactstrap';
 
 class Note extends Component {
     render() {
         return (
-            <Card>
-                <CardBody>
-                    <CardTitle>{this.props.title}</CardTitle>
-                    <CardText>{this.props.content}</CardText>
-                </CardBody>
-            </Card>
+            <div className="note-card">
+                <div className="card-body">
+                    <h5 className="card-title">{this.props.title}</h5>
+                    <p>{this.props.content}</p>
+                </div>
+            </div>
         )
     }
 }

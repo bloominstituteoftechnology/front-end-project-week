@@ -15,15 +15,19 @@ class Notes extends Component {
         return (
             <div className="home">
             <h3>Your Notes:</h3>
-                {this.props.notes.map(note => {
-                    return (
-                        <div className="note" key={note._id}>
-                            <Link to={`/notes/${note._id}`}>
-                                <Note title={note.title} content={note.textBody} />
-                            </Link>
-                        </div>
-                    )
-                })}
+                <div className="home-note-container">
+                    {this.props.notes.map(note => {
+                        return (
+                            
+                                <div className="note" key={note._id}>
+                                    <Link to={`/notes/${note._id}`}>
+                                        <Note title={note.title} content={note.textBody} />
+                                    </Link>
+                                </div>
+                            
+                        )
+                    })}
+                </div>
             </div>
         )
     }

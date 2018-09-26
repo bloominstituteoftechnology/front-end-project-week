@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  background: #F2F1F2;
 }
 
 a {
@@ -154,16 +155,29 @@ button {
   display: flex;
 }
 
-.card {
+.note-card {
   border: 1px solid #BDBDBD;
-  width: 30%;
+  width: 100%;
   margin: 0.4rem;
   display: flex;
   justify-content: center;
+  background-color: #fff;
 }
+.note-card .card-body {
+  padding: 12px;
+}
+
 
 .card-title {
   font-weight: bold;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 1px solid #BDBDBD;
+  font-size: 1.25rem;
+}
+
+.home-note-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 15px;
 }
