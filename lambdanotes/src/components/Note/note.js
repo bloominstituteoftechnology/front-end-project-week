@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 
@@ -22,41 +22,46 @@ const SizedP = Styled.p`
     font-size: 1.5rem;
 `;
 
-const Note = (props) => {
-    return (
-        props.status.gettingSingleNote ?
-            <ContentDiv>
-                <StatusP statusType='good'>Please wait while we retrieve the note. :)</StatusP>
-            </ContentDiv>
-        : props.status.noteError !== '' ?
-            <ContentDiv>
-                <StatusP statusType='error'>{props.status.noteError}</StatusP>
-            </ContentDiv>
-        : props.status.noteMessage !== '' ?
-            <ContentDiv>
-                <StatusP statusType='good'>{props.status.noteMessage}</StatusP>
-            </ContentDiv>
-        : props.note.__v === undefined ?
-            <StatusP statusType='warning'>Note may no longer exist. :(</StatusP>
-        :
-            <ContentDiv>
-                <ManipDiv>
-                    <DecoSpan>edit</DecoSpan>
-                    <DecoSpan onClick={props.deletePromptModal}>delete</DecoSpan>
-                </ManipDiv>
-                <h2>{props.note.title}</h2>
-                <SizedP>{props.note.textBody}</SizedP>
-                {props.status.deletePrompt ?
-                    <DeleteModal 
-                        noteId={props.note._id} 
-                        deletePromptModal={props.deletePromptModal} 
-                        deleteNote={props.deleteNote} 
-                    />
-                :
-                    null
-                }
-            </ContentDiv>
-    );
+class Note extends Component {
+    editHandler = () => {
+        this.props.noteToEdit(this.props.note._id);
+        setTimeout(() => this.props.history.push('/noteeditor'), 1000);
+    };
+
+    render() {
+        return (
+            this.props.status.gettingSingleNote ?
+                <ContentDiv>
+                    <StatusP statusType='good'>Please wait while we retrieve the note. :)</StatusP>
+                </ContentDiv>
+            : this.props.status.noteError !== '' ?
+                <ContentDiv>
+                    <StatusP statusType='error'>{this.props.status.noteError}</StatusP>
+                </ContentDiv>
+            : this.props.status.noteMessage !== '' ?
+                <ContentDiv>
+                    <StatusP statusType='good'>{this.props.status.noteMessage}</StatusP>
+                </ContentDiv>
+            :
+                <ContentDiv>
+                    <ManipDiv>
+                        <DecoSpan onClick={this.editHandler}>edit</DecoSpan>
+                        <DecoSpan onClick={this.props.deletePromptModal}>delete</DecoSpan>
+                    </ManipDiv>
+                    <h2>{this.props.note.title}</h2>
+                    <SizedP>{this.props.note.textBody}</SizedP>
+                    {this.props.status.deletePrompt ?
+                        <DeleteModal 
+                            noteId={this.props.note._id} 
+                            deletePromptModal={this.props.deletePromptModal} 
+                            deleteNote={this.props.deleteNote} 
+                        />
+                    :
+                        null
+                    }
+                </ContentDiv>
+        );
+    }
 };
 
 Note.propTypes = {
@@ -82,6 +87,7 @@ Note.propTypes = {
         noteMessage: PropTypes.string,
 		noteError: PropTypes.string
     }),
+    noteToEdit: PropTypes.func,
     deletePromptModal: PropTypes.func,
     deleteNote: PropTypes.func
 };

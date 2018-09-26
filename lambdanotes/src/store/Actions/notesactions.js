@@ -66,7 +66,7 @@ export const putNote = (updatedNote) => {
     return (dispatch) => {
         dispatch( {type: PUTTING_NOTE} );
         Axios
-            .put(`${dataSource}edit/${updatedNote.id}`, 
+            .put(`${dataSource}edit/${updatedNote._id}`, 
                 {title: updatedNote.title, textBody: updatedNote.textBody, tags: updatedNote.tags}
             )
             .then( (response) => {
@@ -88,7 +88,7 @@ export const deleteNote = (noteId) => {
         Axios
             .delete(`${dataSource}delete/${noteId}`)
             .then( (response) => {
-                dispatch( {type: DELETED_NOTE, payload: response.data.success} );
+                dispatch( {type: DELETED_NOTE, payload: response.data} );
             })
             .catch( (err) => {
                 dispatch( {type: NOTE_ERROR, payload: err.message} );

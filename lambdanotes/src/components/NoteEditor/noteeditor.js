@@ -38,23 +38,28 @@ class NoteEditor extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        if(this.props.tmpNote._id === '') {
+        if(this.props.isEditing === false) {
             this.props.postNote({
                 title: event.target.title.value,
                 textBody: event.target.textBody.value
-            })
+            });
+            // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the POST to finish before calling history.push
+            setTimeout(() => this.props.history.push('/'), 1000);
         } else {
-            this.props.putNote(
-                {
-                    title: event.target.title.value,
-                    textBody: event.target.textBody.value
-                },
-                this.state.tmpNote._id
-            )
+            const tmpNote = this.props.tmpNote;
+            const tagsCheck = this.state.tmpNote.tags.filter( (tag, i) => tag === tmpNote.tags[i]);
+            if(tmpNote.title !== this.state.tmpNote.title || tmpNote.textBody !== this.state.tmpNote.textBody || tagsCheck.length !== tmpNote.tags.length) {
+                this.props.putNote(
+                    {
+                        title: this.state.tmpNote.title,
+                        textBody: this.state.tmpNote.textBody,
+                        tags: this.state.tmpNote.tags,
+                        _id: this.state.tmpNote._id
+                    }
+                );
+            }
+            setTimeout(() => this.props.history.push(`/notes/${this.state.tmpNote._id}`), 1000);
         }
-        // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the POST to finish before calling history.push
-        this.props.getNotes();
-        setTimeout(() => this.props.history.push('/'), 1000);
     };
 
     render() {

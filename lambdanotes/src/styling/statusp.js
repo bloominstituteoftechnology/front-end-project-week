@@ -5,9 +5,9 @@ export default Styled.p`
     color: ${(props) => {
         switch(props.statusType) {
             case 'error':
-                return '#ff0000';
+                return '#ca001a';
             case 'good':
-                return '#00ff00';
+                return '#24b8bd';
             case 'warning':
                 return '#cc9933'
             default:

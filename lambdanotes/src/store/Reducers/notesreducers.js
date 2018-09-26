@@ -52,12 +52,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type) {
+        //~~~~~Error Handling~~~~~//
         case NOTE_ERROR:
-            return {...state, status: {...state.status, postingNote: false, gettingNotes: false, gettingSingleNote: false, puttingNote: false, deletingNote: false, noteError: action.payload}};
+            return {...state, status: {...state.status, postingNote: false, gettingNotes: false, gettingSingleNote: false, puttingNote: false, deletingNote: false, noteMessage: "", noteError: action.payload}};
+        //~~~~~POST Handling~~~~~//
         case POSTING_NOTE:
-            return {...state, status: {...state.status, postingNote: true, postedNote: false}};
+            return {...state, status: {...state.status, postingNote: true, postedNote: false, noteMessage: "", noteError: ""}};
         case POSTED_NOTE:
             return {...state, status: {...state.status, postingNote: false, postedNote: true}};
+        //~~~~~GET Handling~~~~~//
         case GETTING_NOTES:
             return {...state, status: {...state.status, gettingNotes: true, gotNotes: false, noteMessage: "", noteError: ""}};
         case GOT_NOTES:
@@ -65,20 +68,29 @@ export default (state = initialState, action) => {
         case GETTING_SINGLE_NOTE:
             return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false, noteMessage: "", noteError: ""}};
         case GOT_SINGLE_NOTE:
-            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true}, noteViewer: {...action.payload}};
+            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true, noteError: action.payload.errorMessage ? action.payload.errorMessage : ""}, noteViewer: {...action.payload}};
+        //~~~~~PUT Handling~~~~~//
+        case NOTE_TO_EDIT:
+            const noteToEdit = state.notes.find( (note) => action.payload === note._id);
+            return {...state, editing: {...state.editing, isEditing: true, tmpNote: {...noteToEdit}}};
         case PUTTING_NOTE:
-            return {...state, status: {...state.status, puttingNote: true, puttedNote: false}};
+            return {...state, status: {...state.status, puttingNote: true, puttedNote: false, noteMessage: "", noteError: ""}};
         case PUTTED_NOTE:
-            return {...state, status: {...state.status, puttingNote: false, puttedNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: "", textBody: "", _id: "", __v: -1}}, notes: action.payload};
+            const spliceId = state.notes.find( (note, i) => {
+                if(note._id === action.payload._id) return i;
+                return null;
+            });
+            let tmpNotes = [...state.notes];
+            tmpNotes.splice(spliceId, 1, action.payload);
+            return {...state, status: {...state.status, puttingNote: false, puttedNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: "", textBody: "", _id: "", __v: -1}}, notes: [...tmpNotes]};
+        //~~~~~DELETE Handling~~~~~//
         case DELETE_PROMPT:
             return {...state, status: {...state.status, deletePrompt: !state.status.deletePrompt}};
         case DELETING_NOTE:
-            return {...state, status: {...state.status, deletingNote: true, deletedNote: false}};
+            return {...state, status: {...state.status, deletingNote: true, deletedNote: false, noteMessage: "", noteError: ""}};
         case DELETED_NOTE:
-            return {...state, status: {...state.status, deletingNote: false, deletedNote: true, deletePrompt: false, noteMessage: action.payload}};
-        case NOTE_TO_EDIT:
-            const noteToEdit = state.notes.find( (note) => action.payload === note._id);
-            return {...state, editing: {...state.editing, isEditing: true, tmpNote: {tags: noteToEdit.tags, title: noteToEdit.title, textBody: noteToEdit.textBody, _id: noteToEdit._id, __v: noteToEdit.__v}}};
+            return {...state, status: {...state.status, deletingNote: false, deletedNote: true, deletePrompt: false}};
+        //~~~~~default~~~~~//
         default:
             return state;
     }
