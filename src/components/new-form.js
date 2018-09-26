@@ -2,44 +2,6 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-const NewNoteDiv = styled.div`
-  form {
-    ${'' /* border: 1px solid red; */}
-    background-color: #F3F3F3;
-    display: flex;
-    flex-direction: column;
-    .input {
-      margin: 10px;
-      padding: 10px;
-      color: gray;
-      border-radius: 3px;
-    }
-    #title{
-      width: 40%;
-    }
-    #textBody{
-      height: 400px;
-      text-emphasis: wrap;
-      max-width: 90%;
-      font-family: 'Roberto';
-      line-height: 20px;
-
-    }
-    .menu-item{
-
-        width: 30%;
-        padding: 15px;
-        margin: 5px;
-        text-align: center;
-        text-decoration: none;
-        color: white;
-        background-color: #2AC0C4;
-        font-weight: bold;
-        border: 1px solid lightgray;
-      }
-  }
-}
-`;
 
 export default class NewForm extends Component {
   constructor(props){
@@ -51,6 +13,7 @@ export default class NewForm extends Component {
   }
 
   sendToApp = (e) => {
+    console.log(this.state)
     this.props.newNote(this.state)
   }
 
@@ -91,3 +54,43 @@ export default class NewForm extends Component {
     );
   }
 }
+
+
+
+const NewNoteDiv = styled.div`
+  form {
+    ${'' /* border: 1px solid red; */}
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+    .input {
+      margin: 10px;
+      padding: 10px;
+      color: gray;
+      border-radius: 3px;
+    }
+    #title{
+      width: 40%;
+    }
+    #textBody{
+      height: 400px;
+      text-emphasis: wrap;
+      max-width: 90%;
+      font-family: 'Roberto';
+      line-height: 20px;
+
+    }
+    .menu-item{
+        width: 30%;
+        padding: 15px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #2AC0C4;
+        font-weight: bold;
+        border: 1px solid lightgray;
+      }
+  }
+}
+`;

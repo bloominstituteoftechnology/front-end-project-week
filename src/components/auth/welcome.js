@@ -14,17 +14,26 @@ import {
 
 class Welcome extends Component{
 
-    createUser = (newUser) => {
+    createUser = async (newUser) => {
         console.log('createuser in welcome.js', this)
-        this.props.createUser(newUser);
-        this.props.history.push('/all-notes')
+         await this.props.createUser(newUser);
+          if (this.props.state.failedRegistrationAttempt){
+                this.props.history.push('/welcome/register')
+            } else {
+                this.props.history.push('/all-notes')
+            }
+
         
     }
 
-    loginUser = (creds) => {
+    loginUser2 = (creds) => {
         console.log('loginuser in welcome.js', creds)
-        this.props.loginUser(creds);
-        this.props.history.push('/all-notes')
+        this.props.loginUser(creds)
+        if(this.props.state.sucessfulLogin){
+            this.props.history.push('/all-notes')
+        } else {
+            this.props.history.push('/welcome/login')
+        }
     }
 
     render(props){
@@ -33,9 +42,9 @@ class Welcome extends Component{
             <WelcomeDiv>
                 <Route path="/" component={Header} />
                 <Route path="/welcome/login" render={() => {
-                    return <Login failed={(this.props.state.failedLoginAttempt)? true : false} loginUser={this.loginUser} />}} />
+                    return <Login failed={(this.props.state.failedLoginAttempt)? true : false} loginUser={this.loginUser2} />}} />
                 <Route path="/welcome/register" render={() => {
-                    return <Register failed={(this.props.state.failedRegistrationAttempt)? true : false} createUser={this.createUser} />}} />
+                    return <Register failed={this.props.state.failedRegistrationAttempt} createUser={this.createUser} />}} />
             </WelcomeDiv>
         )
     }

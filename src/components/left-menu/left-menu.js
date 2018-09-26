@@ -13,7 +13,7 @@ export default class LeftMenu extends Component {
     return (
       <LeftMenuDiv>
         <h1>Lambda Notes</h1>
-        <Link className={this.state.allNotesSelected ? "current menu-item" : "menu-item"}  to="/all-notes" style={this.props}>View Your Notes</Link>
+        <Link className={this.state.allNotesSelected ? "current menu-item" : "menu-item"}  to="/all-notes" style={this.props}>View All Your Notes</Link>
         {/* <Link draggable className="menu-item" to="/all-notes">View Your Notes</Link> */}
         <Link className="menu-item" to="/new-note">+ Create New Note</Link>
         <div className="menu-item" onClick={this.download} >Download CSV</div>

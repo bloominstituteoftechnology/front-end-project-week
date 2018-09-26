@@ -45,7 +45,7 @@ export default class NewNote extends Component {
           >back</Link>
         </div>
         <h4>Create New Note:</h4>
-        <NewForm button="Create" count={this.props.count} newNote={this.props.newNote}></NewForm>
+        <NewForm button="Create" username={this.props.username} count={this.props.count} newNote={this.props.newNote}></NewForm>
       </NewNoteDiv>
     );
   }

@@ -47,6 +47,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         sucessfulLogin: true,
         failedLoginAttempt: false,
+        failedRegistrationAttempt: false, 
         sendingCredentials: false,
         token: action.payload.token,
         username: action.payload.username

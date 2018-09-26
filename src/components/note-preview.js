@@ -23,6 +23,7 @@ const NotePreview = (props) => (
                 <h3>{props.note.title}</h3>
                 <p>{props.note.textBody}</p>
                 <p>Index: {props.index}</p>
+                <p>{props.note.userId}</p>
               </div>
 
               {/* <div className="tags">

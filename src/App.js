@@ -151,7 +151,7 @@ class App extends Component {
               render={ () => {
                 return (
                   <NewNote
-                    count={this.state.count} newNote={this.newNote} notes={this.state.notes} />
+                    count={this.state.count} username={this.props.state.username} newNote={this.newNote} notes={this.state.notes} />
                 )
               }}
             ></Route>
