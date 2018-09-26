@@ -7,19 +7,16 @@ import DeleteModal from './DeleteModal';
 class NotePage extends Component {
 
     componentDidMount() {
-        const token = localStorage.getItem('token');
-        const requestOptions = {
-          headers: {
-              authorization: token
-          }}
+        const token = this.props.getToken();
         const id = parseInt(this.props.match.params.id, 10);
         if (Number.isInteger(id)) {
-            this.props.fetchNote(id, requestOptions);
+            this.props.fetchNote(id, token);
         }
     }
 
     deleteNote = (id) => {
-        this.props.deleteNote(id);
+        const token = this.props.getToken();
+        this.props.deleteNote(id, token);
         }
 
     render () {

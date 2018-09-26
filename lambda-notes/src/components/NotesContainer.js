@@ -21,13 +21,19 @@ class NotesContainer extends Component {
     this.onInputChange = this.onInputChange.bind(this);
   }
 
-  componentDidMount() {
+  getToken() {
     const token = localStorage.getItem('token');
     const requestOptions = {
         headers: {
             authorization: token
-        }}
-    this.props.fetchData(requestOptions)
+        }
+      }
+    return requestOptions;
+  };
+
+  componentDidMount() {
+    const token = this.getToken();
+    this.props.fetchData(token);
   }
 
   componentWillReceiveProps(props) {
@@ -39,17 +45,14 @@ class NotesContainer extends Component {
   };
 
   addNewNote = (e) => {
-    // const token = localStorage.getItem('token');
-    // const requestOptions = {
-    //     headers: {
-    //         authorization: token
-    //     }}
     e.preventDefault();
-    this.props.addNewNote(this.state.title, this.state.content);
+    const token = this.getToken();
+    this.props.addNewNote(this.state.title, this.state.content, token);
   };
 
   editNote = (id) => {
-    this.props.editNote(this.state.title, this.state.content, id);
+    const token = this.getToken();
+    this.props.editNote(this.state.title, this.state.content, id, token);
   }
 
   //searchbar input change handler
@@ -88,7 +91,8 @@ class NotesContainer extends Component {
         <Route
           exact path="/notes/:id"
           render={(props) => <NotePage
-          {...props}  />}
+          {...props}
+          getToken={this.getToken}  />}
           />
         <Route
           path="/notes/:id/edit-note"
