@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from "react-emotion";
 
-import Note from '../components/notes/Note';
-import SearchNotes from '../components/search/SearchNotes';
-import searchBar from '../searchBar.js';
+import Note from '../notes/Note';
+import SearchNotes from '../search/SearchNotes';
+import searchBar from '../../searchBar';
 
 
 const Container = styled("div")`
@@ -87,6 +87,8 @@ class NotesContainer extends Component {
   }
 
   render() {
+
+    
     let filteredPosts = this.props.notes.filter(note => {
       return (
         note.title

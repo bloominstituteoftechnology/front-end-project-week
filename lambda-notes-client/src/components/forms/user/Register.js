@@ -51,10 +51,10 @@ class Register extends Component {
       }
       axios.get('http://localhost:8000/protected/notes', reqOptions)
       .then(res => {
-        console.log('reg',res.data)
         // update notes state
-        this.props.updateNotesHandler(res.data)
-        this.props.history.push('/notes')
+        this.props.isLoggedIn(true);
+        this.props.updateNotesHandler(res.data);
+        this.props.history.push('/notes');
       })
       .catch(err => {
         console.log(err)
@@ -68,7 +68,6 @@ class Register extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Main>
         <h2>Register</h2>

@@ -50,10 +50,10 @@ class Login extends Component {
       }
       axios.get('http://localhost:8000/protected/notes', reqOptions)
       .then(res => {
-        console.log('log',res.data)
         // update notes state
-        this.props.updateNotesHandler(res.data)
-        this.props.history.push('/notes')
+        this.props.isLoggedIn(true);
+        this.props.updateNotesHandler(res.data);
+        this.props.history.push('/notes');
       })
       .catch(err => {
         console.log(err)

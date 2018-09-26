@@ -10,10 +10,10 @@ import { updateNotes } from './store/actions';
 
 
 import Home from './Home';
-import NotesContainer from './containers/NotesContainer';
-import AddNoteForm from './components/forms/AddNoteForm';
+import NotesContainer from './components/containers/NotesContainer';
+import AddNoteForm from './components/forms/notes/AddNoteForm';
 import NoteDescription from './components/notes/NoteDescription';
-import EditNoteForm from './components/forms/EditNoteForm';
+import EditNoteForm from './components/forms/notes/EditNoteForm';
 
 
 const MainContainer = styled("div")`
@@ -73,7 +73,8 @@ const MainContainer = styled("div")`
 class App extends Component {
   state = {
     atHomePage: false,
-    isModalOpen: false
+    isModalOpen: false,
+    isLoggedIn: false
   }
 
   componentDidMount() {
@@ -86,6 +87,9 @@ class App extends Component {
       }
       axios.get('http://localhost:8000/protected/notes', reqOptions)
       .then(res => {
+        this.setState(prevState => {
+          return { isLoggedIn: true }
+        })
         this.props.updateNotesHandler(res.data)
       })
       .catch(err => {
@@ -97,12 +101,22 @@ class App extends Component {
   }
 
   logout = () => {
+    localStorage.removeItem('jwt')
+    this.setState(prevState => {
+      return { isLoggedIn: false }
+    })
     this.props.history.push('/')
   }
 
   atHomeToggle = () => {
     this.setState(prevState => {
       return { atHomePage: !prevState.atHomePage }
+    })
+  }
+  
+  isLoggedInToggle = (bool) => {
+    this.setState(prevState => {
+      return { isLoggedIn: bool }
     })
   }
 
@@ -113,6 +127,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.isLoggedIn)
     return (
         <MainContainer>
           <header className="main-header">
@@ -134,7 +149,13 @@ class App extends Component {
                   Log Out
                   </button>
                 </div>
-              ) : null}
+              ) : !this.state.isLoggedIn ? (
+                  null
+              ) : (
+                <NavLink className="link" exact strict to="/notes">
+                  View Your Notes
+                </NavLink>
+              )} 
             </nav>
           </header>
 
@@ -144,7 +165,11 @@ class App extends Component {
             strict
             path="/"
             render={props => (
-              <Home {...props} atHomeToggle={this.atHomeToggle} />
+              <Home 
+                {...props} 
+                atHomeToggle={this.atHomeToggle} 
+                isLoggedIn={this.isLoggedInToggle} 
+              />
             )}
           />
 

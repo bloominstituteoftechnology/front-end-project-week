@@ -42,7 +42,6 @@ const Note = props => {
     }
   }
 
-  console.log(props)
 
   return (
     <Link className="article-note__linked" to={`/notes/${props.id}`}>

@@ -9,7 +9,7 @@ import DeleteModal from '../modals/DeleteModal';
 const Main = styled("main")`
   margin-left: 25%;
   width: 75%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 25px 33px 20px 35px;
 
   .links-header {

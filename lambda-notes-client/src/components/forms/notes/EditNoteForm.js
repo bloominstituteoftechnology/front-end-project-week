@@ -3,13 +3,14 @@ import styled from "react-emotion";
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { updateNotes } from '../../store/actions'; 
+import { updateNotes } from '../../../store/actions'; 
+
 
 
 const Main = styled("main")`
   margin-left: 25%;
   width: 75%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 80px 45px 80px 35px;
   
   form {
@@ -37,7 +38,7 @@ const Main = styled("main")`
     .desc-input-container {
       textarea {
         margin-top: 19px;
-        padding: 27px 27px 27px 29px;
+        padding: 27px;
         width: 100%;
         height: 468px;
         resize: none;
@@ -71,7 +72,7 @@ const Main = styled("main")`
 `;
 
 
-class AddNoteForm extends Component {
+class EditNoteForm extends Component {
   state = {
     title: '',
     content: ''
@@ -79,11 +80,13 @@ class AddNoteForm extends Component {
 
   handleOnChange = e => this.setState({[e.target.name]: e.target.value});
 
-  handleAddNote = (e) => {
+  handleEditNote = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('jwt')
 
-    const content = {
+    const {id} = this.props.match.params;
+
+    let content = {
       title: this.state.title,
       content: this.state.content
     }
@@ -94,7 +97,7 @@ class AddNoteForm extends Component {
       }
     }
 
-    axios.post('http://localhost:8000/protected/notes', content, reqOptions)
+    axios.put(`http://localhost:8000/protected/notes/${id}`, content, reqOptions)
     .then(res => {
       axios.get('http://localhost:8000/protected/notes', reqOptions)
       .then(res => {
@@ -112,28 +115,28 @@ class AddNoteForm extends Component {
   render() {
     return (
       <Main>
-        <form action="submit" onSubmit={this.handleAddNote}>
-          <h2>Create New Note:</h2>
+        <form action="submit" onSubmit={this.handleEditNote}>
+          <h2>Edit Note:</h2>
           <div className="title-input-container">
-            <input 
+            <input
               type="text"
               placeholder="Note Title"
-              name="title" 
-              value={this.state.title} 
+              name="title"
+              value={this.state.title}
               onChange={this.handleOnChange}
               required
             />
           </div>
           <div className="desc-input-container">
-            <textarea 
+            <textarea
               type="text"
               placeholder="Note Content"
-              name="content" 
-              value={this.state.content} 
+              name="content"
+              value={this.state.content}
               onChange={this.handleOnChange}
             />
           </div>
-          <button type="submit">Save</button>
+          <button type="submit">Update</button>
         </form>
       </Main>
     );
@@ -149,4 +152,5 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(AddNoteForm);
+)(EditNoteForm);
+

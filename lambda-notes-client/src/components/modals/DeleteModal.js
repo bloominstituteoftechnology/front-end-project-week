@@ -94,9 +94,11 @@ class DeleteModal extends React.Component {
       })
       .catch(err => {
         console.log(err)
-      })
+      });
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+    });
   };
 
   handleClose = () => this.props.handleModal();

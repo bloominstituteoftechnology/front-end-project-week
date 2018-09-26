@@ -8,7 +8,7 @@ import Login from './components/forms/user/Login';
 const Main = styled("div")`
   margin-left: 25%;
   width: 75%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -33,7 +33,7 @@ class Home extends Component {
   }
 
   componentWillUnmount() {
-    this.props.atHomeToggle()
+    this.props.atHomeToggle();
   }
 
   render() {
