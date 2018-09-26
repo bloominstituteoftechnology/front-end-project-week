@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NoteCard from './NoteCard';
 
-class List extends Component {
+class ViewList extends Component {
   componentWillMount() {
     this.props.getNotes();
   }
@@ -30,4 +30,4 @@ class List extends Component {
   }
 }
 
-export default List;
+export default ViewList;

@@ -18,6 +18,15 @@ class Note extends Component {
     this.props.submitTag(formData, this.props.note.id)
     this.props.closeTagForm();
   }
+
+  onViewSubmit(e) {
+    e.preventDefault();
+    const formData = {
+      title: this.title.value,
+      content: this.content.value
+    };
+    this.props.submitNote(formData, this.props.note.id);
+  }
   
   renderTagForm(note) {
     if ( note.id !== undefined) {
@@ -25,12 +34,12 @@ class Note extends Component {
         return (
           <span>
             Tag your note:
-            <i 
-              className="tag-button material-icons"
+            <button 
+              className=""
               onClick={() => this.props.showTagForm()}
             >
-              add circle
-            </i>
+              Add Tag
+            </button>
           </span>
         );
       } else {
@@ -69,7 +78,7 @@ class Note extends Component {
     const { note, closeTagForm } = this.props;
     return(
       <div className="note-container">
-        <h2>Edit This Note</h2>
+        <h2>Create New Note</h2>
         <form
           className="note-form"
           onSubmit={(e) => this.onSubmit(e)}

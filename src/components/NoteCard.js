@@ -10,12 +10,14 @@ class NoteCard extends Component {
   }
 
   render() {
-    const { note, getNote, deleteNote } = this.props;
+    const { note, getNote, deleteNote, viewNote, } = this.props;
     return(
-      <div className="note-card-container">
+      <div className="note-card-container" onClick={() => getNote(note.id)}>
+      {this.setState.viewNote = true}
         <div className="note-card-title">
           {note.title}
         </div>
+        <div className="line"></div>
         <div className="note-card-content">
           {note.content}
         </div>
@@ -28,6 +30,9 @@ class NoteCard extends Component {
         <span className="note-card-edit" onClick={() => getNote(note.id)}>
           <button className="">Edit</button>
         </span>
+        {/* <button className="nav-button" onClick={() => getNote(note.id)} >
+          { viewNote ? 'Cancel' :  'View Note' }
+        </button>  */}
       </div>
     );
   }
