@@ -1,18 +1,14 @@
-.notes-page{
-    display: flex;
- 
-}
 
+.search input{
+    border-radius: 10px;
+    color: gray; 
+}
 
 .notes-page .notes  {
     display: flex;
-    /* flex-direction: row; 
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center; */
-    flex-flow: row wrap;
-    text-align: center;
-
+    align-content: center;
 }
 
 .notes-page .notes :hover {
@@ -47,13 +43,13 @@ font-weight:bold;
     margin: 10px 15px;
     padding-bottom: 5px;
     border-bottom: 2px solid #A6A6A6;
-    font-family: 'SinkinSans100Thin'; 
+    font-family: 'Nixie One', cursive;
     font-weight: bold; 
     font-style: normal;
 }
 
 .notes .text p{
-    font-family: 'SchoolCursiveRegular'; 
+    font-family: 'Herr Von Muellerhoff', cursive;
     font-weight: normal; 
     font-style: normal;
     font-size: 25px;

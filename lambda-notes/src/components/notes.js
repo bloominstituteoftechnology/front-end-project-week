@@ -9,10 +9,11 @@ const searchingFor = term => {
 };
 
 const Notes = props => {
-  console.log(props.notes);
+console.log(props.notes);
   return (
-    <div className="notes-page">
-      <h2 className="page-title">Your Notes:</h2>
+   <div className="notes-page">
+    <i className="fas fa-sign-out-alt" onClick={props.logOut} />
+     <h2 className="page-title">Your Notes:</h2>
       <div className="search">
         <input
           onChange={props.searchHandler}
@@ -23,7 +24,7 @@ const Notes = props => {
         />
       </div>
 
-      <i className="fas fa-sign-out-alt" onClick={props.logOut} />
+
 
       <div className="notes">
         
