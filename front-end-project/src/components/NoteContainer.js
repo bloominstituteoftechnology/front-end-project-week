@@ -52,7 +52,9 @@ class NoteContainer extends Component {
       //     tags: []
       //   }
     ],
-    selectedTheme: "standardTheme"
+    selectedTheme: "standardTheme",
+    backupNotes: [],
+    sortOptions: ['A-Z', 'Z-A']
   };
 
   createNewNote = note => {
@@ -75,60 +77,131 @@ class NoteContainer extends Component {
     });
   };
   deleteNote = id => {
-    const notes = this.state.notes
-      .filter(note => {
-        return note._id !== id;
-      })
-      
+    const notes = this.state.notes.filter(note => {
+      return note._id !== id;
+    });
 
     this.setState({ notes: notes });
   };
+  //----------------------------------------------------------------------Filters
+  filterByChar = event => {
+    event.preventDefault()
+    let value = event.target.value;
+    console.log(value);
+    console.log('notes',this.state.notes)
+    console.log('backup',this.state.backupNotes)
+
+    this.setState(state => {
+      return {
+        
+        notes: state.backupNotes.filter(note => {
+          console.log(note.title.toUpperCase().indexOf(value.toUpperCase()))
+          return (note.title.toUpperCase().indexOf(value.toUpperCase()) > -1);
+        })
+      };
+    });
+  };
 
   filterByTags = tag => {
-    const notes = this.state.notes
-    .filter(note => {
-      return note.tags.includes(tag)
-    })
-
+    const notes = this.state.notes.filter(note => {
+      return note.tags.includes(tag);
+    });
+    
     this.setState({
-      notes: notes
-    })
-  }
+      notes: notes,      
+    });
+  };
+//--------------------------------------------------------------------------Sorting
 
+sortBy = sortOption => {
+  switch(sortOption){
+    case 'A-Z':
+    this.setState({
+      notes: this.state.backupNotes.sort((a,b) =>{
+        let nameA = a.title.toUpperCase();
+        let nameB = b.title.toUpperCase();
+        if(nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB){
+          return 1;
+        }
+        return 0;
+      })
+    })
+    break;
+
+    case 'Z-A':
+    this.setState({
+      notes: this.state.backupNotes.sort((a,b) =>{
+        let nameA = a.title.toUpperCase();
+        let nameB = b.title.toUpperCase();
+        if(nameA < nameB) {
+          return 1;
+        }
+        if (nameA > nameB){
+          return -1;
+        }
+        return 0;
+      })
+    })
+    break
+  }
+}
+
+
+
+
+//-----------------------------------------------------------------------------------Theme-Related Functions
   changeTheme = theme => {
     this.setState({
       selectedTheme: theme
     });
   };
-
-  componentDidMount() {
+//-----------------------------------------------------------------------------------Axios Data calls
+  fetchData = () => {
+    console.log(this.state);
     axios
       .get("https://killer-notes.herokuapp.com/note/get/all")
       .then(response => {
+        console.log(response.data);
         this.setState({
-          notes: response.data
+          notes: response.data,
+          backupNotes: response.data
         });
       })
       .catch(err => {
         console.log(err);
       });
-      console.log(this.state.notes);
+  };
+  //-----------------------------------------------------------------------------------Life-Hooks
+  componentDidMount() {
+    this.fetchData();
   }
 
   render() {
-    const { notes, selectedTheme } = this.state;
+    const { notes, selectedTheme, sortOptions } = this.state;//------------------------Deconstruction
     return (
       <ContainerDiv data-theme={selectedTheme}>
         <Route
           strict
           path="/notes"
-          render={props => <NavBar {...props} selectedTheme={selectedTheme} />}
+          //------------------------------------------------------NavBar
+          render={props => (
+            <NavBar
+              {...props}
+              fetchData={this.fetchData}
+              selectedTheme={selectedTheme}
+              filterByChar={this.filterByChar}
+            />
+          )}
         />
         <ContentContainer>
           <Switch>
             <Route
               exact
               path="/notes/create"
+              //------------------------------------------------------Create New Notes
               render={props => (
                 <NewNote
                   {...props}
@@ -140,6 +213,7 @@ class NoteContainer extends Component {
             <Route
               exact
               path="/notes/options"
+              //------------------------------------------------------Options
               render={props => (
                 <Options
                   {...props}
@@ -152,6 +226,7 @@ class NoteContainer extends Component {
               exact
               strict
               path="/notes/:id/create"
+              //------------------------------------------------------UpdateNote
               render={props => (
                 <UpdateNote
                   {...props}
@@ -164,6 +239,7 @@ class NoteContainer extends Component {
             <Route
               exact
               path="/notes/:id/"
+              //------------------------------------------------------NoteView
               render={props => (
                 <NoteView
                   {...props}
@@ -177,8 +253,17 @@ class NoteContainer extends Component {
             <Route
               exact
               path="/notes"
+              //------------------------------------------------------Notes main page
               render={props => (
-                <Notes notes={notes} {...props} filterByTags={this.filterByTags} selectedTheme={selectedTheme} />
+                <Notes
+                sortBy={this.sortBy}
+                  notes={notes}
+                  sortOptions={sortOptions}
+                  
+                  {...props}
+                  filterByTags={this.filterByTags}
+                  selectedTheme={selectedTheme}
+                />
               )}
             />
             <Redirect to="/notes" />
@@ -211,8 +296,9 @@ const ContainerDiv = styled("div")`
 
 const ContentContainer = styled("div")`
   margin-top: 4%;
-  margin-left: 20%;
-  width: 100%;
+  margin-left: 300px;
+  max-width: 1110px;
+  width:100%;
 `;
 
 export default NoteContainer;

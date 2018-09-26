@@ -2,7 +2,7 @@ import React from "react";
 import styled from "react-emotion";
 
 const Tag = props => {
-    console.log(props);
+   
   const { tag, selectedTheme, filterByTag } = props;
   return (
     <TagContainer
@@ -17,7 +17,7 @@ const Tag = props => {
 export default Tag;
 
 const TagContainer = styled("div")`
-  border-radius: 45%;
+  border-radius: 9%;
   padding: 7px;
   border: 1px solid ${props => props.theme[props["data-theme"]].border};
   color: ${props => props.theme[props["data-theme"]].subBackground};

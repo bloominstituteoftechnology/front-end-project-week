@@ -1,19 +1,23 @@
 import React from 'react'
 import styled from 'react-emotion'
 import Tag from './Tag';
+import { TransitionGroup } from "react-transition-group";
+import Transition from "react-transition-group/Transition";
+import { TweenMax } from "gsap";
 
 const Note = props => {
     const {title, textBody, _id, tags} = props.note
     const {selectedTheme} = props
     return(
         <NoteCardDiv className='stagger' data-theme={selectedTheme} >
+        
         <span onClick={() => props.history.push(`/notes/${_id}`)}>
             <h2>{title}</h2>
             <hr/>
             <NoteContent>{textBody}</NoteContent>
             </span>
             <TagContainer>
-                {tags.map(tag => <Tag tag={tag} {...props}/>)}
+                {tags.map(tag => tag ? <Tag tag={tag} {...props}/> : null)}
             </TagContainer>
             
         </NoteCardDiv>
@@ -23,7 +27,7 @@ const Note = props => {
 const NoteCardDiv = styled('div')`
 overflow:hidden;
 padding: 10px 10px 60px;
-
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 width: 30%;
 height: 200px;
 border: 1px solid ${props => props.theme[props['data-theme']].border};

@@ -4,13 +4,15 @@ import styled from "react-emotion";
 import { TransitionGroup } from "react-transition-group";
 import Transition from "react-transition-group/Transition";
 import { TweenMax } from "gsap";
+import Sort from "../Sort/Sort";
 
 const Notes = props => {
   const { notes, selectedTheme } = props;
   console.log(notes);
   return (
     <Fragment>
-      <Transition
+      <Sort {...props} />
+      {/* <Transition
         in={props.match.url === "/notes"}
         appear={true}
         timeout={1000}
@@ -21,8 +23,9 @@ const Notes = props => {
               TweenMax.staggerFromTo(
                 ".stagger",
                 0.1,
-                { opacity: 0, x: 25 },
-                { opacity: 1, x: 0 },
+                { opacity: 0, x: 25, boxShadow: '0px 8px 16px 0px rgba(0, 0, 0, 0.0)' },
+                { opacity: 1, x: 0, boxShadow: '0px 8px 16px 0px rgba(0, 0, 0, 0.2)' },
+                
                 0.1
               );
             case "entered":
@@ -34,20 +37,20 @@ const Notes = props => {
               return null;
           }
         }}
-      </Transition>
+      </Transition> */}
       <NoteTitle data-theme={selectedTheme}>Your Notes:</NoteTitle>
       <NotesDiv data-theme={selectedTheme}>
         {notes.map(note => (
-          <Fragment>
-            <Note note={note} selectedTheme={selectedTheme} {...props} />
-          </Fragment>
+          <Note note={note} selectedTheme={selectedTheme} {...props}>
+            
+          </Note>
         ))}
       </NotesDiv>
     </Fragment>
   );
 };
 
-const NotesDiv = styled("div")`
+const NotesDiv = styled('div')`
   display: flex;
   flex-wrap: wrap;
   width: 100%;

@@ -41,10 +41,11 @@ class UpdateNote extends Component {
     const newtags = this.state.tagInput ? this.state.tagInput.split(" ") : []
 
     this.props.updateNote({
+      tags: newtags,
       _id: id,
       title: this.state.titleInput,
       textBody: this.state.contentInput,
-      tags: newtags
+      
       // tags: this.state.tagInput
       //   ? this.state.tagInput.split(" ")
       //   : [...this.note.tags]
