@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Modal from './Modal/Modal';
 import '../App.css';
-import axios from 'axios';
 
 
 export default class Note extends React.Component {
@@ -13,28 +12,26 @@ export default class Note extends React.Component {
             note: null
         };
     }
-
     
     componentDidMount() {
-        console.log("noteId", this.props.match.params.noteId)
-        console.log("notesData",this.props.notesData)
-        const note = this.props.notesData.find(note => note.id === parseInt(this.props.match.params.noteId, 10)
-     );
-       console.log("note", note);
-       const id = note.id;
-       console.log("id", id);
+        if(this.props.notesData) {
+        const note = this.props.notesData.find(note => note.id === parseInt(this.props.match.params.noteId, 10));
        this.getNotes(note);
+        }
     }
 
-    componentDidUpdate(prevProps) {
-        console.log(prevProps)
-    }
+     componentDidUpdate(prevProps) {
+        if(this.props.notesData !== prevProps.notesData) {
+            const note = this.props.notesData.find(note => note.id === parseInt(this.props.match.params.noteId, 10));
+            this.getNotes(note);
+        }
+     }
 
     getNotes = note => {
         this.setState({ note: note })
     }
 
-        deleteNote = () => {
+    deleteNote = () => {
         this.props.deleteNote(this.state.note.id);
         this.props.history.push('/notes');
     }
@@ -42,7 +39,7 @@ export default class Note extends React.Component {
 
     render() {
         if (!this.state.note) {
-            return <div>Fetching your note...</div>;
+            return <div >Fetching your note...</div>;
         }
 
         return (
@@ -66,10 +63,16 @@ export default class Note extends React.Component {
                     </div>
                 </div>
     
-                <Modal show={this.props.show} className="deleteModal">
-                Are you sure you want to delete this note?
-                <button className="blueButton" onClick={this.props.showModal}>nope</button>
-                <button className="prompt-button" onClick={this.deleteNote}>delete</button> 
+                <Modal show={this.props.show}>
+                
+                <div className="modal-content">
+                <p>Are you sure you want to delete this note?</p>
+                <div className="modalButtons">
+                <button className="blueButton" onClick={this.props.showModal}>No</button>
+                <button className="redButton" onClick={this.deleteNote}>Delete</button> 
+                </div>
+                </div>
+             
                 </Modal>
                
             </Fragment>

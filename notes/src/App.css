@@ -19,6 +19,7 @@
   margin-bottom: 20px;
   width: 180px;
   padding: 11px;
+  color: white;
 }
 
 
@@ -36,6 +37,16 @@
   color: #414141;
 }
 
+.redButton {
+  list-style: none;
+  border: 1px solid #C8C8C8;
+  text-align: center;
+  background-color: #CA001A;
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 11px;
+  color: white;
+}
 
 ul {
   padding: 0px;
@@ -187,7 +198,7 @@ ul {
 /* FORM STYLES */
 
 .note-form {
-  border: 2px solid lime;
+  /* border: 2px solid lime; */
   display: flex;
   flex-direction: column;
   width: 75%;
@@ -199,7 +210,7 @@ ul {
 }
 
 .note-form form {
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
   display: flex;
   flex-direction: column;
   margin-left: 25px;
@@ -215,4 +226,28 @@ ul {
   width: 90%;
   /* height: 100%; */
   margin-bottom: 20px;
+}
+
+/* MODAL STYLES */
+
+.delete-modal {
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal .modal-content {
+  background: #F1F2F1;
+  border: 2px solid #C8C8C8;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  position: absolute;
 }

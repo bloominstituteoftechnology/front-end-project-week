@@ -6,7 +6,7 @@ export default class Modal extends React.Component {
             return null;
         }
         return (
-            <div>
+            <div className="delete-modal">
                 {this.props.children}
             </div>
         )

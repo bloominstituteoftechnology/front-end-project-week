@@ -44,8 +44,8 @@ function NoteForm(props) {
                     rows="23"
                     onChange={props.handleChange}></textarea>
                 <div className="buttons">  
-                <button className="blueButton" onClick={handleSubmit}>{props.isUpdating ? 'Update' : 'Save'}</button>
-                <button className="blueButton" onClick={handleCancel}>Cancel</button>
+                <button className="blueButton" onClick={handleSubmit}><a>{props.isUpdating ? 'Update' : 'Save'}</a></button>
+                <button className="blueButton" onClick={handleCancel}><a>Cancel</a></button>
                 </div>
             </form>
             </div>

@@ -15,10 +15,10 @@ class App extends Component {
     super();
     this.state = {
       notesData: [],
-      // note: {
-      //   title: '',
-      //   content: ''
-      // },
+      note: {
+        title: '',
+        content: ''
+      },
       isUpdating: false,
       show: false
     };
@@ -132,9 +132,10 @@ class App extends Component {
         path="/notes"
         render={props => (
          <AllNotes {...props}
-         notesList={this.state.notesData}
+         notesData={this.state.notesData}
          truncate={this.truncate}
          />
+        
        )}
        />
        <Route
