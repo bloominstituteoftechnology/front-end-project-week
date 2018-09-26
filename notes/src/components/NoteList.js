@@ -1,6 +1,9 @@
 import React from 'react';
 import Note from './Note';
 import {withRouter, Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+
 
 const NoteList = (props) => {
     return (
@@ -18,4 +21,10 @@ const NoteList = (props) => {
     )
 }
 
-export default withRouter(NoteList);
+const mapStateToProps = () => {
+    return {
+    }
+  }
+  
+  export default withRouter(connect(mapStateToProps, {
+  })(NoteList));

@@ -1,4 +1,6 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 const Note = (props) => {
     return (
@@ -10,4 +12,11 @@ const Note = (props) => {
     )
 }
 
-export default Note;
+
+const mapStateToProps = () => {
+    return {
+    }
+  }
+  
+  export default withRouter(connect(mapStateToProps, {
+  })(Note));

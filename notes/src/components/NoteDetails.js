@@ -49,8 +49,6 @@ class NoteDetails extends React.Component {
     
     render(){
         
-        console.log(this.props.currentNote);
-        
     return (
 
         <div className = 'note-details'>

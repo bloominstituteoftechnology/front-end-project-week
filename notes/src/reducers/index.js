@@ -28,7 +28,9 @@ export const rootReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 fetchingNotes: false, 
                 notesFetched: true,
-                notes: action.payload
+                notes: action.payload,
+                currentNote: {},
+                singleFetched: false
             })
 
         case POSTING:
@@ -53,8 +55,11 @@ export const rootReducer = (state = initialState, action) => {
             })
 
         case DELETED:
+            let afterNotes = state.notes.map(note => {
+                return note;
+            });
             return Object.assign({}, state, {
-                deletingNote: false, noteDeleted: true
+                deletingNote: false, noteDeleted: true, notes: afterNotes
             })
 
         case ERROR:

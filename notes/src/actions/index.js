@@ -30,8 +30,6 @@ export const fetchNotes = () => {
 }
 
 export const addNote = note => {
-    console.log(note);
-
     const addNoteRequest = axios.post(`https://killer-notes.herokuapp.com/note/create`, note);
 
     return dispatch => {
@@ -39,7 +37,6 @@ export const addNote = note => {
         dispatch({type: POSTING});
 
         addNoteRequest.then(res => {
-            console.log(res, 'posted response');
             dispatch({type: POSTED, payload: res.data})
         }).catch(err => {
             console.log(err);
@@ -92,7 +89,6 @@ export const fetchSingleNote = (id) => {
         dispatch({type: FETCHING_SINGLE});
 
         fetchSingleRequest.then(res => {
-            console.log(res.data);
             dispatch({type: FETCHED_SINGLE, payload: res.data})
         }).catch(err => {
             console.log(err);
