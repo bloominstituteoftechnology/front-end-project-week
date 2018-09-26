@@ -7,6 +7,7 @@ import '@zendeskgarden/react-toggles/dist/styles.css';
 
 import {ThemeProvider} from '@zendeskgarden/react-theming';
 import { Toggle, Label } from '@zendeskgarden/react-toggles';
+import Markdown from 'react-markdown';
 
 class NoteList extends React.Component {
   state = {
