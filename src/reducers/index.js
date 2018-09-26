@@ -57,7 +57,8 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         fetchingNotes: false,
         notesRecieved: true,
-        notes: action.payload,
+        notes: action.payload.allUserNotes,
+        user: action.payload.username
       })
     case ADDING_NOTE:
       return Object.assign({}, state, {

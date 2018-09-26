@@ -35,8 +35,8 @@ class App extends Component {
 
   componentDidMount = () => {
     if(localStorage.getItem('JWT')){
-      //this should check for token when set up 
       this.props.getNotes();
+      //get username to display on page 
       this.props.history.push('/all-notes')
     } else {
       this.props.history.push('/welcome/')
