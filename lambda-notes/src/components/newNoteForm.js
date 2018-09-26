@@ -27,7 +27,7 @@ class NewNoteForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="form-group" style={{height: '100vh'}}>
+      <form onSubmit={this.handleSubmit} className="form-group" style={{height: '100vh', padding: '20px'}}>
         <h2>Create New Note:</h2>
         <input onChange={this.onChangeHandler} name="title" type="text" placeholder="Title" className="form-control my-3"/>
         <textarea onChange={this.onChangeHandler} name="textBody" type="text" placeholder="Text Body" className="form-control my-3" rows="10" cols="30"/>

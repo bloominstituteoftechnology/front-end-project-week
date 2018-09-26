@@ -26,7 +26,7 @@ class EditNoteForm extends React.Component {
   render() {
     const {textBody, title} = this.props.location.state;
     return (
-      <form onSubmit={this.handleSubmit} className="form-group" style={{height: '100vh'}}>
+      <form onSubmit={this.handleSubmit} className="form-group" style={{height: '100vh', padding: '20px'}}>
         <h2>Edit Note:</h2>
         <input onChange={this.onChangeHandler} name="title" type="text" placeholder="Title" className="form-control my-3" defaultValue={title} />
         <textarea onChange={this.onChangeHandler} name="textBody" type="text" placeholder="Text Body" className="form-control my-3" rows="10" cols="30" defaultValue={textBody}/>
