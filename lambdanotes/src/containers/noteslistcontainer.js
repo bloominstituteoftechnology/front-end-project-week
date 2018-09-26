@@ -12,7 +12,7 @@ class NotesListContainer extends Component {
 
     render() {
         return (
-            <NotesList notes={this.props.notes} status={this.props.status} />
+            <NotesList {...this.props} notes={this.props.notes} status={this.props.status} />
         );
     }
 };

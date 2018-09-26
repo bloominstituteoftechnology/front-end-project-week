@@ -27,7 +27,7 @@
 		"gettingNotes": false,
 		"gotNotes": false,
 		"puttingNote": false,
-		"putNote": false,
+		"puttedNote": false,
 		"deletePrompt": false,
 		"deletingNote": false,
 		"deletedNote": false,

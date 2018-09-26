@@ -6,7 +6,7 @@ import {
     GETTING_SINGLE_NOTE,
     GOT_SINGLE_NOTE,
     PUTTING_NOTE,
-    PUT_NOTE,
+    PUTTED_NOTE,
     DELETE_PROMPT,
     DELETING_NOTE,
     DELETED_NOTE,
@@ -34,7 +34,7 @@ const initialState = {
         "gettingSingleNote": false,
         "gotSingleNote": false,
 		"puttingNote": false,
-        "putNote": false,
+        "puttedNote": false,
         "deletePrompt": false,
 		"deletingNote": false,
 		"deletedNote": false,
@@ -45,7 +45,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type) {
         case NOTE_ERROR:
-            return {...state, status: {...state.status, noteError: action.payload}};
+            return {...state, status: {...state.status, postingNote: false, gettingNotes: false, gettingSingleNote: false, puttingNote: false, deletingNote: false, noteError: action.payload}};
         case POSTING_NOTE:
             return {...state, status: {...state.status, postingNote: true, postedNote: false}};
         case POSTED_NOTE:
@@ -59,9 +59,9 @@ export default (state = initialState, action) => {
         case GOT_SINGLE_NOTE:
             return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true}, notes: [...state.notes, action.payload]};
         case PUTTING_NOTE:
-            return {...state, status: {...state.status, puttingNote: true, putNote: false}};
-        case PUT_NOTE:
-            return {...state, status: {...state.status, puttingNote: false, putNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: '', textBody: '', _id: '', __v: -1}}, notes: action.payload};
+            return {...state, status: {...state.status, puttingNote: true, puttedNote: false}};
+        case PUTTED_NOTE:
+            return {...state, status: {...state.status, puttingNote: false, puttedNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: '', textBody: '', _id: '', __v: -1}}, notes: action.payload};
         case DELETE_PROMPT:
             return {...state, status: {...state.status, deletePrompt: true}};
         case DELETING_NOTE:

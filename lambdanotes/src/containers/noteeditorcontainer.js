@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { postNote, putNote } from '../store/actions/'
+import { postNote, getNotes, putNote } from '../store/actions/'
 
 import { NoteEditor } from '../components/NoteEditor/';
 
 class NoteEditorContainer extends Component {
-    componentDidMount() {};
+    componentDidMount() {
+        this.props.getNotes();
+    };
 
     render() {
         return (
@@ -14,7 +16,10 @@ class NoteEditorContainer extends Component {
                 {...this.props}
                 tmpNote={this.props.editing.tmpNote} 
                 isEditing={this.props.editing.isEditing} 
-                postNote={this.props.postNote} 
+                // postedNote={this.props.postedNote}
+                // puttedNote={this.props.puttedNote}
+                postNote={this.props.postNote}
+                getNotes={this.props.getNotes}
                 putNote={this.props.putNote} 
             />
         );
@@ -33,13 +38,17 @@ NoteEditorContainer.propTypes = {
         })
     }),
     postNote: PropTypes.func,
+    getNotes: PropTypes.func,
     putNote: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
     return {
-        editing: state.notesReducers.editing
+
+        editing: state.notesReducers.editing,
+        // postingNote: state.notesReducers.status.postingNote,
+        // puttingNote: state.notesReducers.status.puttingNote
     };
 };
 
-export default connect(mapStateToProps, { postNote, putNote })(NoteEditorContainer);
+export default connect(mapStateToProps, { postNote, getNotes, putNote })(NoteEditorContainer);

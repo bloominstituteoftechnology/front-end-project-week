@@ -52,6 +52,8 @@ class NoteEditor extends Component {
                 this.state.tmpNote._id
             )
         }
+        // Can we delay the history push long enough for the new note to be available from the API? Let an extra getNotes() decide!
+        this.props.getNotes();
         this.props.history.push('/');
     };
 
@@ -82,6 +84,7 @@ NoteEditor.propTypes = {
         __v: PropTypes.number
     }).isRequired,
     postNote: PropTypes.func.isRequired,
+    getNotes: PropTypes.func.isRequired,
     putNote: PropTypes.func.isRequired
 };
 

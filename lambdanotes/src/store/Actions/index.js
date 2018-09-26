@@ -10,7 +10,7 @@ export {
     GOT_SINGLE_NOTE,
     putNote,
     PUTTING_NOTE,
-    PUT_NOTE,
+    PUTTED_NOTE,
     deletePrompt,
     DELETE_PROMPT,
     deleteNote,

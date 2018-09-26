@@ -1,13 +1,13 @@
 import Axios from 'axios';
 
-export const POSTING_NOTE = 'CREATING_NOTE';
-export const POSTED_NOTE = 'CREATED_NOTE';
+export const POSTING_NOTE = 'POSTING_NOTE';
+export const POSTED_NOTE = 'POSTED_NOTE';
 export const GETTING_NOTES = 'GETTING_NOTES';
 export const GOT_NOTES = 'GOT_NOTES';
 export const GETTING_SINGLE_NOTE = 'GETTING_SINGLE_NOTE';
 export const GOT_SINGLE_NOTE = 'GOT_SINGLE_NOTE';
-export const PUTTING_NOTE = 'EDITING_NOTE';
-export const PUT_NOTE = 'EDITED_NOTE';
+export const PUTTING_NOTE = 'PUTTING_NOTE';
+export const PUTTED_NOTE = 'PUTTED_NOTE';
 export const DELETE_PROMPT = 'DELETE_PROMPT';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETED_NOTE = 'DELETED_NOTE';
@@ -22,11 +22,10 @@ export const postNote = (newNote) => {
         Axios
             .post(`${dataSource}/create`, newNote)
             .then( (response) => {
-                dispatch( {type: POSTED_NOTE, payload: response.data} );
-                // getSingleNote(response.data);
+                dispatch( {type: POSTED_NOTE, payload: response.data.success} );
             })
             .catch( (err) => {
-                dispatch( {type: NOTE_ERROR, payload: err.message} )
+                dispatch( {type: NOTE_ERROR, payload: err.message} );
             });
     };
 };

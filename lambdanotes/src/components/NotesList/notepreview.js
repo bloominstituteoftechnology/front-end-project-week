@@ -27,7 +27,7 @@ const PreviewDiv = Styled.div`
         position: relative;
         line-height: 2rem;
         /* line-height * # of lines */
-        max-height: 14rem;
+        max-height: 12rem;
         text-align: justify;
         margin-right: -1rem;
         padding-right: 1rem;
