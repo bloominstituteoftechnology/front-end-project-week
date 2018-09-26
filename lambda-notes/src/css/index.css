@@ -193,6 +193,8 @@
   animation-name: fade-in-anim;
   animation-duration: 2s;
   animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
 }
 @media ( max-width: 1024px ) {
   .main-content {
@@ -439,6 +441,11 @@
   color: black;
   cursor: pointer;
 }
+@media ( max-width: 1024px ) {
+  .note-view .edit-delete-wrapper {
+    padding-top: 40px;
+  }
+}
 .note-view h2,
 .note-view p {
   word-wrap: break-word;
@@ -446,10 +453,21 @@
 .note-view h2 {
   margin-top: 24px;
 }
+@media ( max-width: 710px ) {
+  .note-view h2 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
 .note-view p {
   text-align: left;
   letter-spacing: 1px;
   line-height: 26px;
+}
+@media ( max-width: 1024px ) {
+  .note-view {
+    max-width: 80vw;
+  }
 }
 .home {
   display: flex;

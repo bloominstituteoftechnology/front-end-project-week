@@ -23,6 +23,10 @@
 				cursor: pointer;
 			}
 		}
+
+		@media @tablet {
+			padding-top: 40px;
+		}
 	}
 
 	h2, p {
@@ -31,11 +35,20 @@
 
 	h2 {
 		margin-top: 24px;
+
+		@media @phone {
+			margin-top: 0;
+			padding-top: 0;
+		}
 	}
 
 	p {
 		text-align: left;
 		letter-spacing: 1px;
 		line-height: 26px;
+	}
+
+	@media @tablet {
+		max-width: 80vw;
 	}
 }
