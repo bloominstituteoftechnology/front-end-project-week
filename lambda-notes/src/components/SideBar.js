@@ -1,13 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const SideBar = () => {
     return(
-        <div>
+        <div className="side-bar">
             <h1>Lambda Notes</h1>
-            <button>View Your Notes</button>
-            <button>+Create New Note</button>
+            <Link to="/">View Your Notes</Link>
+            <Link to="/add-note">+Create New Note</Link>
         </div>
     )
 }
 
 export default SideBar;
+

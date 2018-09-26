@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import SideBar from './components/SideBar';
 import Notes from './components/Notes';
+import NoteForm from './components/NoteForm';
 
 class App extends Component {
   constructor(props){
@@ -22,7 +24,7 @@ class App extends Component {
 
   postNote = (newNote) => {
     axios
-      .post("https://killer-notes.herokuapp.com/note/edit/id", newNote)
+      .post("https://killer-notes.herokuapp.com/note/create", newNote)
       .then(res => this.setState({ notes: res.data }, this.props.history.push('/')))
       .catch(err => {console.log(err)});
   }
@@ -32,7 +34,8 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar />
-        <Notes notes={this.state.notes} />
+        <Route exact path="/" render={() => <Notes notes={this.state.notes} />} />
+        <Route path="add-note" render={(props)=> <NoteForm notes={this.state.notes} postNote={this.postNote} />}/>
       </div>
     );
   }

@@ -1,0 +1,16 @@
+.all-notes{
+    width: 70%;
+    position: absolute;
+    height: 100%;
+    background: rgb(139, 9, 118);
+    display: flex;
+    flex-wrap: wrap;
+    left: 461px;
+}
+
+.single-note{
+    width: 25%;
+    border: 1.25px black solid;
+    margin: 10px;
+   
+}
