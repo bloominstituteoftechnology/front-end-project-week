@@ -1,7 +1,6 @@
 import React from 'react';
 import SideBar from "../sidebar";
-import IndividualNote from './individualNote';
-import ModalExample from './modal';
+import IndividualNote from './individualNote'; 
 
 const SingleNoteHolder = props => {
   return (

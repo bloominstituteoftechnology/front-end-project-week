@@ -1,6 +1,5 @@
 import React from "react";
 import SideBar from "../sidebar";
-import ListView from "../ListView/listView";
 import NoteSearch from "../NoteSearch/noteSearch";
 import styled from "styled-components";
 //nd-project-week/src/components/NoteSearch/noteSearch.js

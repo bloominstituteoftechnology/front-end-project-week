@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ModalExample from "./modal";
 
 const SingleNoteContainer = styled.div`
-  width: 100%;
+  width: 80%;
   min-height: 100vh;
 
   height: 100%;
@@ -36,8 +36,8 @@ const NoteText = styled.p`
 
 class IndividualNote extends Component {
   state = {
-    title: "",
-    textBody: "",
+    title: "eohg",
+    textBody: "gdfhfg",
     id: "",
     modal: false,
     backdrop: true
@@ -45,9 +45,9 @@ class IndividualNote extends Component {
 
   componentDidMount() {
     const noteID = this.props.match.params.id;
-    this.setState({id: noteID});
+    this.setState({id: noteID}, () => console.log('state: ' + this.state.id));
     this.getNote(noteID);
-    console.log(noteID);
+
   }
 
   getNote = noteID => {
@@ -59,42 +59,25 @@ class IndividualNote extends Component {
           textBody: response.data.textBody,
           id: response.data._id
         });
-        console.log(response.data);
       })
       .catch(err => {
         console.log(err);
       });
-    console.log("The note is: " + this.state.id);
+      console.log('id: ' + this.state.id);
+      console.log('title: ' + this.state.title);
+      console.log('text: ' + this.state.textBody)
   };
 
   toEdit= () => {
     const noteID = this.props.match.params.id;
     this.props.history.push(`/edit/${noteID}`)}
 
-  delete = () => {
-    console.log(this.state.id);
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.state.id}`)
-      .then(response => {
-        console.log(response);
-        this.setState(
-          {
-            title: response.data.title,
-            textBody: response.data.textBody
-          },
-          () => this.props.history.push("/")
-        );
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
   render() {
     return (
       <SingleNoteContainer>
         <EditDeleteDiv>
           <EditDeleteButton onClick={this.toEdit}>edit</EditDeleteButton>
-          <ModalExample props={this.props} id={this.noteID}/>
+          <ModalExample delete={this.delete} props={this.props} id={this.props.match.params.id}/>
         </EditDeleteDiv >
         <NoteTitle>{this.state.title}</NoteTitle>
         <NoteText>{this.state.textBody}</NoteText>

@@ -10,7 +10,7 @@ justify-content: flex-start
 
 min-height: 100vh;
 height:100%;
-width: 90%;
+width: 80%;
 margin: 0 auto;
 `;
 

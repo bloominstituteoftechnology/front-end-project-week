@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"; 
 import styled from "styled-components";
 
 const NotesContainer = styled.div`
@@ -7,7 +6,7 @@ const NotesContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   min-height: 100vh;
-  width: 100%;
+  width: 80%;
   height: auto;
   background-color: #f2f0f2;
 `;
