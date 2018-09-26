@@ -15,7 +15,14 @@ import {
 } from '../actions/';
 
 const initialState = {
-	"notes": [], 
+    "notes": [],
+    "noteViewer": {
+        "tags": [],
+        "title": "",
+        "textBody": "",
+        "_id": "",
+        "__v": -1
+    },
 	"editing": {
 		"isEditing": false,
 		"tmpNote": {
@@ -57,7 +64,7 @@ export default (state = initialState, action) => {
         case GETTING_SINGLE_NOTE:
             return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false}};
         case GOT_SINGLE_NOTE:
-            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true}, notes: [...state.notes, action.payload]};
+            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true}, noteViewer: {...action.payload}};
         case PUTTING_NOTE:
             return {...state, status: {...state.status, puttingNote: true, puttedNote: false}};
         case PUTTED_NOTE:

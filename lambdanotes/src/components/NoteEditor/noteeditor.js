@@ -54,7 +54,7 @@ class NoteEditor extends Component {
         }
         // Can we delay the history push long enough for the new note to be available from the API? Let an extra getNotes() decide!
         this.props.getNotes();
-        this.props.history.push('/');
+        setTimeout( () => this.props.history.push('/'), 1000);
     };
 
     render() {

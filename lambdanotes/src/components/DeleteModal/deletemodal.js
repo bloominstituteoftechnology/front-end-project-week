@@ -58,6 +58,9 @@ const DeleteModal = (props) => {
     );
 };
 
-DeleteModal.propTypes = {};
+DeleteModal.propTypes = {
+    id: PropTypes.string,
+    deleteNote: PropTypes.func
+};
 
 export default DeleteModal;

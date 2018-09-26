@@ -1,16 +1,13 @@
 ~~~~~Store~~~~~
 {
-	"notes": [
-		{
-			"tags": ["tag1", "tag2", "tagN"],
-			"title": "asdf",
-			"textBody": "ghgchfgjhghjghj fgh fgh fgh fthfghfthf fhfhth",
-			"_id": "5ba8145811b7c40014cb7abf",
-			"__v": 0
-		},
-		{...},
-		{...}
-	], 
+	"notes": [],
+	"noteViewer": {
+        "tags": [],
+        "title": "",
+        "textBody": "",
+        "_id": "",
+        "__v": -1
+    },
 	"editing": {
 		"isEditing": false,
 		"tmpNote": {
@@ -90,4 +87,4 @@ noteslistcontainer.js -> noteslist.js
 	Brings in {notes: [], status: {} }
 notecontainer.js -> note.js
 	Click on header or div(?) of NotePreview to navigate to a single Note
-	Brings in {notes: ["A Note": {}]}
+	Brings in {notes: ["A Note": {}], status: {deletePrompt: bool}}

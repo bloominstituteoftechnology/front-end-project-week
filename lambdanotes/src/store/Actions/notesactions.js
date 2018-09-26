@@ -14,13 +14,13 @@ export const DELETED_NOTE = 'DELETED_NOTE';
 export const NOTE_ERROR = 'NOTE_ERROR';
 export const NOTE_TO_EDIT = 'NOTE_EDIT';
 
-const dataSource = 'https://killer-notes.herokuapp.com/note';
+const dataSource = 'https://killer-notes.herokuapp.com/note/';
 
 export const postNote = (newNote) => {
     return (dispatch) => {
         dispatch( {type: POSTING_NOTE} );
         Axios
-            .post(`${dataSource}/create`, newNote)
+            .post(`${dataSource}create`, newNote)
             .then( (response) => {
                 dispatch( {type: POSTED_NOTE, payload: response.data.success} );
             })
@@ -34,7 +34,7 @@ export const getNotes = () => {
     return (dispatch) => {
         dispatch( {type: GETTING_NOTES} );
         Axios
-            .get(`${dataSource}/get/all`)
+            .get(`${dataSource}get/all`)
             .then( (response) => {
                 dispatch( {type: GOT_NOTES, payload: response.data} );
             })
@@ -48,7 +48,7 @@ export const getSingleNote = (noteId) => {
     return (dispatch) => {
         dispatch( {type: GETTING_SINGLE_NOTE} );
         Axios
-            .get(`${dataSource}/get/${noteId}`)
+            .get(`${dataSource}get/${noteId}`)
             .then( (response) => {
                 dispatch( {type: GOT_SINGLE_NOTE, payload: response.data} );
             })

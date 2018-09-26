@@ -10,10 +10,11 @@ const PreviewDiv = Styled.div`
     border-radius: 1px;
     width: 200px;
     height: 200px;
+    overflow: hidden;
+    cursor: pointer;
     h4 {
         font-size: 1.6rem;
         font-weight: bold;
-        cursor: pointer;
     }
     hr {
         width: 180px;
@@ -48,10 +49,9 @@ const PreviewDiv = Styled.div`
     }
 `;
 
-// TODO: Make the whole div clickable
 const NotePreview = (props) => {
     return (
-        <PreviewDiv>
+        <PreviewDiv onClick={() => props.history.push(`/notes/${props.note._id}`)}>
             <h4>{props.note.title}</h4>
             <hr />
             <p>{props.note.textBody}</p>

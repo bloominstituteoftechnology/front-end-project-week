@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 
-import { ContentDiv } from '../../styling/';
+import { ContentDiv, StatusP } from '../../styling/';
 import NotePreview from './notepreview';
 
 const ListDiv = Styled.div`
@@ -18,9 +18,11 @@ const NotesList = (props) => {
             <h2>Your Notes:</h2>
             <ListDiv>
                 {props.status.postingNotes || props.status.gettingNotes || props.status.puttingNote || props.status.deletingNote ? 
-                    <p>Retrieving updated notes. Please wait. :)</p>
+                    <StatusP statusType='good'>Retrieving updated notes. Please wait. :)</StatusP>
+                :props.status.noteError !== '' ?
+                    <StatusP statusType='error'>{props.status.noteError}</StatusP>
                 :
-                    props.notes.map( (note) => <NotePreview note={note} key={note._id} />)
+                    props.notes.map( (note) => <NotePreview {...props} note={note} key={note._id} />)
                 }
             </ListDiv>
         </ContentDiv>
@@ -39,7 +41,9 @@ NotesList.propTypes = {
         postingNote: PropTypes.bool.isRequired,
 		postedNote: PropTypes.bool,
 		gettingNotes: PropTypes.bool.isRequired,
-		gotNotes: PropTypes.bool,
+        gotNotes: PropTypes.bool,
+        gettingSingleNote: PropTypes.bool,
+        gotSingleNote: PropTypes.bool,
 		puttingNote: PropTypes.bool.isRequired,
 		putNote: PropTypes.bool,
 		deletePrompt: PropTypes.bool,
