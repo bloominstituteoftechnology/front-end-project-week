@@ -3,8 +3,9 @@
    License: none (public domain)
 */
 
-/* CSS RESET */
-
+/************************************************************************************/
+/* BEGIN CSS RESET */
+/************************************************************************************/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,9 +49,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+/************************************************************************************/
 /* END CSS RESET */
+/************************************************************************************/
 
+/************************************************************************************/
+/* BODY AND CONTAINER */
+/************************************************************************************/
 body {
   background: white;
 }
@@ -62,7 +67,12 @@ body {
   flex-flow: row nowrap;
   height: 100vh;
   overflow: hidden;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+/************************************************************************************/
+/* NAVIGATION */
+/************************************************************************************/
 
 .navigation {
   width: 20%;
@@ -84,10 +94,21 @@ body {
   text-align: center;
 }
 
+/************************************************************************************/
+/* APPLICATION */
+/************************************************************************************/
 .application {
   width: 80%;
   background: #f2f1f2;
   padding: 20px;
+}
+
+/************************************************************************************/
+/* NOTE LIST VIEW */
+/************************************************************************************/
+.note-list-container h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .note-list {
@@ -95,6 +116,7 @@ body {
   flex-flow: row wrap;
   width: 100%;
   justify-content: space-between;
+  align-content: baseline;
   overflow: auto;
   height: 100vh;
 }
@@ -111,20 +133,51 @@ body {
   cursor: pointer;
 }
 
+.note-divider {
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+  margin: 5px 0px;
+}
+
 .note-container {
   width: 100%;
   background: white;
   border: 2px solid #d7d7d7;
-  height: 200px;
-  margin: 20px 0px;
+  height: 250px;
   padding: 10px;
   overflow: auto;
+  margin: 10px 0px;
+}
+
+/************************************************************************************/
+/* NOTE DETAILS VIEW */
+/************************************************************************************/
+.edit-delete {
+  text-align: right;
+  font-weight: bold;
 }
 
 .note-title {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1rem;
 }
+
+.note-details h1{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.edit-delete span {
+  margin: 10px;
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
+
+/************************************************************************************/
+/* ADD NOTE FORM */
+/************************************************************************************/
 
 .note-form-container h1 {
   font-size: 1rem;
@@ -138,14 +191,48 @@ body {
 .note-form-container form input {
   max-width: 50%;
   margin: 10px 0px;
+  padding: 10px;
 }
 
 .note-form-container form textarea {
   height: 50vh;
   margin: 10px 0px;
+  padding: 20px;
 }
 
 .note-form-container form button {
+  margin: 10px 0px;
+  max-width: 25%;
+  background: #24b8bd;
+  color: white;
+  padding: 10px;
+}
+
+/************************************************************************************/
+/* EDIT NOTE FORM */
+/************************************************************************************/
+.note-edit-container h1 {
+  font-size: 1rem;
+}
+
+.note-edit-container form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.note-edit-container form input {
+  max-width: 50%;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.note-edit-container form textarea {
+  height: 50vh;
+  margin: 10px 0px;
+  padding: 20px;
+}
+
+.note-edit-container form button {
   margin: 10px 0px;
   max-width: 25%;
   background: #24b8bd;

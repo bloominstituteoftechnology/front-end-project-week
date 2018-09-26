@@ -48,12 +48,14 @@ class EditNote extends React.Component {
 
     render() {
         return(
-            <div>This is the edit page
-                <form onSubmit = {this.handleSubmit}>
+            <div className = 'note-edit-container'>
+            
+            <form onSubmit = {this.handleSubmit}>
             <input type = 'text' onChange={this.handleInput} name = 'title' value={this.state.title}></input>
-            <input type = 'text' onChange={this.handleInput} name='textBody' value={this.state.textBody}></input>
-            <button type='submit'>Submit Edits</button>
+            <textarea onChange={this.handleInput} name='textBody' value={this.state.textBody}></textarea>
+            <button type='submit'>Update</button>
             </form>
+            
             </div>
         )
     }

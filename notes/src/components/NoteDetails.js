@@ -60,14 +60,16 @@ class NoteDetails extends React.Component {
 
         
     return (
-        <div>
+        <div className = 'note-details'>
+            <div className = 'edit-delete'>
+            <Link to = {`/notes/edit/${this.state.currentNote._id}`}><span >edit</span></Link>
+            <span onClick={this.toggle}>delete</span>
+            </div>
+
             <h1>{this.state.currentNote.title}</h1>
             <p>{this.state.currentNote.textBody}</p>
 
-            <Link to = {`/notes/edit/${this.state.currentNote._id}`}><Button color = 'info'>EDIT</Button></Link>
-
-
-            <Button color='danger' onClick={this.toggle}>DELETE</Button>
+           
             <Modal isOpen={this.state.modal} toggle={this.toggle} className='delete-modal'>
             <ModalBody>
                 Are you sure you want to delete this?
