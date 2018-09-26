@@ -11,28 +11,30 @@ const NotesMain = (props) => {
       <Div2>
         {
           props.notes.map(note => 
-            <Draggable handle="strong" {...dragHandlers}>
-            <Div3 key={note.id}>
-              <Div4>
-                <H3>{note.title}</H3>
-                <Strong>
-                  <span role="img" aria-label="Thumbtack">📌</span>
-                </Strong>
-              </Div4>
-              <Hr />
-              <P>{note.text.substring(0, 105)}...</P>
-                <P2>Tags:&nbsp;
-                  {
-                    note.tags.map(function(note, index) {
-                      return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>
-                    })
-                  }
-                  ...
-                </P2>
-              <Link to={`/notes/${note.id}`}>
-                <Button>View Note</Button>
-              </Link>
+            <Draggable key={note.id} handle="strong" {...dragHandlers}>
+
+            <Div3>
+                <Div4>
+                  <H3>{note.title}</H3>
+                  <Strong>
+                    <span role="img" aria-label="Thumbtack">📌</span>
+                  </Strong>
+                </Div4>
+                <Hr />
+                <P>{note.text.substring(0, 60)}...</P>
+                  <P2>Tags:&nbsp;
+                    {
+                      note.tags.map(function(note, index) {
+                        return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>
+                      })
+                    }
+                    ...
+                  </P2>
+                <Link to={`/notes/${note.id}`}>
+                  <Button>View Note</Button>
+                </Link>
             </Div3>
+
             </Draggable>
           )
         }
