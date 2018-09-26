@@ -67,7 +67,7 @@ class App extends Component {
   submitChange = id => {
     axios.put(`http://localhost:5000/notes/${id}`, {
       title: this.state.edittitle,
-      text: this.state.edittext}).then(()=>{
+      content: this.state.edittext}).then(()=>{
         axios.get("http://localhost:5000/notes")
         .then(response => {
           this.setState({ notes: response.data })
