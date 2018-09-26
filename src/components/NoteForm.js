@@ -29,19 +29,20 @@ class NoteForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    const formattedTags = this.state.tags.split(",").map(word => word.trim())
+
     if (this.state.editing) {
       const updatedNote = {
         id: this.props.noteUpdate.id,
         title: this.state.title,
         text: this.state.text,
-        tags: this.state.tags
+        tags: formattedTags
       }
       this.props.updateNote(updatedNote)
       this.props.history.push("/")
       this.setState({ editing: false })
     }
     else {
-      const formattedTags = this.state.tags.split(",").map(word => word.trim())
       const newNote = {
         id: Date.now(),
         title: this.state.title,

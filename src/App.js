@@ -64,7 +64,7 @@ class App extends Component {
     updatedNote.title = targetNote.title
     updatedNote.text = targetNote.text
     updatedNote.tags = targetNote.tags
-    const notes = [updatedNote, ...currentList]
+    const notes = [...currentList, updatedNote]
     this.setState({ notes })
   }
 
