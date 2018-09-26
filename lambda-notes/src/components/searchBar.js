@@ -3,13 +3,14 @@ import React, {  } from 'react';
 export const SearchBar = props => {
 
     return (
-        <form className="search-form" >
+        <form className="search-form" onSubmit={props.filterNotes} >
             <input 
-                // name="searchInput"
+                name="searchQuery"
                 value={props.searchQuery}
-                onChange={props.searchInputChange}
+                onChange={props.handleInputChange}
                 placeholder='Search Notes' 
-                className="search-bar" />
+                className="search-bar" 
+            />
         </form>
     )
 }

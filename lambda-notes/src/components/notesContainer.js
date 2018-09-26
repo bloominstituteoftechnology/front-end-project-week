@@ -9,7 +9,7 @@ export const NoteList = props => {
                 <h3 className="your-header" >Your Notes:</h3>
                 <SearchBar
                     searchQuery={props.searchQuery}
-                    searchInputChange={props.searchInputChange}
+                    handleInputChange={props.handleInputChange}
                 />
             </div>
             <div className="notes-container" >
