@@ -1,11 +1,14 @@
 import React from "react";
 import axios from "axios";
+import SideView from "./SideView";
+import NotesForm from "./NotesForm";
+import CreateNote from "./CreateNote";
 
 class SelectedNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: null,
+      note: "",
       toggleUpdate: true,
       toggleDelete: true,
       toggleLinks: true,
@@ -19,9 +22,9 @@ class SelectedNote extends React.Component {
     this.getNote(noteId);
   }
 
-  getNote = () => {
+  getNote = noteId => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/id`)
+      .get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
       .then(response => {
         this.setState(() => ({ note: response.data }));
       })
@@ -29,7 +32,7 @@ class SelectedNote extends React.Component {
         console.log(error);
       });
   };
-  delete = () => {
+  unDelete = () => {
     this.setState({ toggleDelete: !this.state.toggleDelete });
   };
   editButtons = () => {
@@ -45,10 +48,7 @@ class SelectedNote extends React.Component {
       text: this.state.updateContent
     };
     axios
-      .put(
-        `https://killer-notes.herokuapp.com/note/edit/${this.id}`,
-        updatedNote
-      )
+      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote)
       .then(response => {
         this.setState({
           editTitle: "",
@@ -61,7 +61,7 @@ class SelectedNote extends React.Component {
   };
   deleteNote = id => {
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
         this.props.handleInfo(response.data);
       })
@@ -72,42 +72,47 @@ class SelectedNote extends React.Component {
   };
   render() {
     return (
-      <div className="NoteContainer">
-        {this.state.toggleDelete ? null : (
-          <div className="DeleteDiv">
-            <h2>You are about to delete this Note</h2>
-            <button className="delete" onClick={this.deleteNote}>
-              Do It
-            </button>
-            <button className="dont" onClick={this.delete}>
-              Don't
-            </button>
-          </div>
-        )}
-        {this.state.toggleLinks ? (
-          <div className="optionLinks">
-            <h4 onClick={this.editButtons}>Edit</h4>
-            <h4 onClick={this.delete}>Delete</h4>
-          </div>
-        ) : null}
-        {this.state.toggleUpdate ? (
-          <div>
-            <h1>{this.title}</h1>
-            <h3>{this.text}</h3>
-          </div>
-        ) : (
-          <div className="EditContainer">
-            <h2>Edit Note</h2>
-            <form>
-              <div
-                className="InputTitle"
-                type="text"
-                placeholder="Title"
-                onChange={this.handleChange}
-                name="editTitle"
-                value={this.state.editTitle}
-              >
-                <div
+      <div className="Background-color">
+        <div className="NoteContainer">
+          {this.state.note.title}
+          {this.state.note.textBody}
+          {/* {this.state.toggleDelete ? null : (
+            <div className="DeleteDiv">
+              <h2>You are about to delete this Note</h2>
+              <button className="delete" onClick={this.deleteNote}>
+                Do It
+              </button>
+              <button className="dont" onClick={this.unDelete}>
+                Don't
+              </button>
+            </div>
+          )}
+          {this.state.toggleLinks ? (
+            <div className="OptionLinks">
+              <h4 onClick={this.editButtons}>Edit</h4>
+              <h4 onClick={this.delete}>Delete</h4>
+            </div>
+          ) : null}
+          {this.state.toggleUpdate ? (
+            <div>
+              <h1>{this.title}</h1>
+              <h3>{this.text}</h3>
+            </div>
+          ) : (
+            <div className="EditContainer">
+              <h2>Edit Note</h2>
+              {this.state.note.title}
+              {this.state.note.textBody}
+              <form>
+                <input
+                  className="InputTitle"
+                  type="text"
+                  placeholder="Title"
+                  onChange={this.handleChange}
+                  name="editTitle"
+                  value={this.state.editTitle}
+                />
+                <input
                   className="InputContent"
                   type="text"
                   placeholder="Content"
@@ -115,13 +120,13 @@ class SelectedNote extends React.Component {
                   name="editContent"
                   value={this.state.editContent}
                 />
+              </form>
+              <div className="UpdateNote" onClick={this.updateNote}>
+                Update Note
               </div>
-            </form>
-            <div className="UpdateNote" onClick={this.updateNote}>
-              Update Note
             </div>
-          </div>
-        )}
+          )} */}
+        </div>
       </div>
     );
   }

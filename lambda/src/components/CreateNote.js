@@ -12,13 +12,14 @@ class CreateNote extends React.Component {
   createNote = () => {
     const note = {
       title: this.state.title,
-      text: this.state.text
+      textBody: this.state.text
     };
     axios
       .post("https://killer-notes.herokuapp.com/note/create", note)
       .then(response => {
-        this.setState({ title: "", text: "" });
-        this.props.handleData(response.data);
+        this.setState({ title: "", text: "" }),
+          () => this.props.history.push("/");
+        this.props.handleChange(response.data);
       })
       .catch(error => console.log(error));
   };
@@ -31,7 +32,7 @@ class CreateNote extends React.Component {
         <div className="SubmitContainer">
           <h3>Create New Note:</h3>
           <form>
-            <div
+            <input
               className="InputTitle"
               type="text"
               placeholder="Note Title"
@@ -39,7 +40,7 @@ class CreateNote extends React.Component {
               name="title"
               value={this.state.title}
             />
-            <div
+            <input
               className="InputContent"
               type="text"
               placeholder="Note Content"
@@ -48,9 +49,9 @@ class CreateNote extends React.Component {
               value={this.state.text}
             />
           </form>
-          <div className="SaveNote" onClick={this.createNote}>
+          <button className="SaveNote" onClick={this.createNote}>
             Save
-          </div>
+          </button>
         </div>
       </div>
     );

@@ -18,12 +18,11 @@ body {
   margin: 10px 0;
 }
 .Background-color {
-  background-color: grey;
+  background-color: #bebebe;
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: 1;
-  overflow: auto;
 }
 .SubmitContainer {
   padding-left: 170px;
