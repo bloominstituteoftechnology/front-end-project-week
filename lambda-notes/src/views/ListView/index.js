@@ -6,6 +6,7 @@ import { Note } from '../../components';
 
 class ListView extends React.Component {
 	state = {
+		errorMsg: '',
 		search: {
 			exactSearch: false,
 			fuzzySearch: false,
@@ -27,6 +28,7 @@ class ListView extends React.Component {
 
 		this.setState({
 			...this.state,
+			errorMsg: '',
 			search: newSearch,
 			input: { ...this.state.input },
 		});
@@ -36,6 +38,15 @@ class ListView extends React.Component {
 		e.preventDefault();
 		const newInput = { ...this.state.input };
 
+		if (e.target.value.length > 85) {
+			return this.setState({
+				...this.state,
+				errorMsg: 'Error: Search term cannot be more than 85 characters long.',
+				search: { ...this.state.search },
+				input: newInput,
+			});
+		}
+
 		for (let key in newInput) {
 			if (key === e.target.name) newInput[key] = e.target.value;
 			else newInput[key] = '';
@@ -43,11 +54,10 @@ class ListView extends React.Component {
 
 		this.setState({
 			...this.state,
+			errorMsg: '',
 			search: { ...this.state.search },
 			input: newInput,
 		});
-
-
 	}
 
 	render() {
@@ -55,6 +65,7 @@ class ListView extends React.Component {
 			<div className = 'main-content'>
 				<div className = 'list'>
 					<div className = 'search-wrapper'>
+						{ this.state.errorMsg && <p>{ this.state.errorMsg }</p> }
 						<button name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
 
 						<button name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
