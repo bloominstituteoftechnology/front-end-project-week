@@ -5,6 +5,8 @@ import { getNotes } from '../actions';
 import { connect } from 'react-redux';
 import NoteForm from './NoteForm';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
+import Note from './Note';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +19,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getNotes();
+  }
+
+  getNotes = () => {
     axios
     .get('https://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
@@ -27,8 +33,12 @@ class App extends Component {
     });
   }
 
-  createNote = () => {
-    const newNote = { title: this.state.noteTitleInput, textBody: this.state.noteBodyInput };
+  createNote = event => {
+    event.preventDefault();
+    const newNote = { 
+      title: this.state.noteTitleInput, 
+      textBody: this.state.noteBodyInput, 
+    };
     
     axios
     .post(
@@ -37,12 +47,13 @@ class App extends Component {
     )
     .then(response => {
       console.log('hey');
-      this.setState(() => ({ notes: response.data }));
+      console.log(`POST REPONSE: `, response.data);
+      this.getNotes();
     })
     .catch(error => {
       console.error('Server Error', error);
     });
-  }
+  };
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -53,7 +64,7 @@ class App extends Component {
     return (
       <div className="App">
      
-      <form onSubmit={() => this.createNote()}>
+        <form onSubmit={this.createNote}>
 
           <input 
               name='noteTitleInput'
@@ -75,7 +86,10 @@ class App extends Component {
               Create Note
           </button>
         </form>
-       <NotesList notes={this.state.notes} />
+        <NotesList notes={this.state.notes} />
+        <Route exact path='/' component={NotesList} />
+        <Route path='/notes/:_id' component={Note} />
+        
       </div>
     );
   }

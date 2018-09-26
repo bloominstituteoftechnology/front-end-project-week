@@ -8,6 +8,7 @@ import logger from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 // const reduxDevTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
@@ -27,5 +28,10 @@ import rootReducer from './reducers';
 //     document.getElementById('root')  
 // );
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>, 
+  document.getElementById('root')
+);
 registerServiceWorker();
