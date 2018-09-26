@@ -14,7 +14,7 @@ function NoteContainer(props) {
     <div class = 'note-list-wrapper'>
       {props.notesList.map(note => (
         <div className = 'note-card' key = {note.id}>
-          <h3 onClick = {() => props.history.push(`/${note.id}`)}>{note.title}</h3>
+          <h3 onClick = {() => props.history.push(`notes/${note.id}`)}>{note.title}</h3>
           <p>{note.body}</p>
         </div>
       ))}
