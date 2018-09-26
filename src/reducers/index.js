@@ -48,7 +48,8 @@ export const reducer = (state = initialState, action) => {
         sucessfulLogin: true,
         failedLoginAttempt: false,
         sendingCredentials: false,
-        token: action.payload.token
+        token: action.payload.token,
+        username: action.payload.username
       })
     case SENDING_NEW_USERDATA: 
       return Object.assign({}, state, {
@@ -59,6 +60,7 @@ export const reducer = (state = initialState, action) => {
         sendingNewUser: false,
         failedRegistrationAttempt: false,
         userCreated: true,
+        username: action.payload.username,
         token: action.payload.token
       })
     case FETCHING_NOTES:

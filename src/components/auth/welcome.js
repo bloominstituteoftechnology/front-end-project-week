@@ -17,18 +17,16 @@ class Welcome extends Component{
     createUser = (newUser) => {
         console.log('createuser in welcome.js', this)
         this.props.createUser(newUser);
-        // this.props.history.push('/all-notes')
+        this.props.history.push('/all-notes')
         
     }
 
     loginUser = (creds) => {
         console.log('loginuser in welcome.js', creds)
         this.props.loginUser(creds);
-        // this.props.history.push('/all-notes')
+        this.props.history.push('/all-notes')
     }
 
-    
-    
     render(props){
         console.log(this.props)
         return(

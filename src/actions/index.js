@@ -28,8 +28,7 @@ export const loginUser = (creds) => {
       this.getNotes();
     })
     .catch(err => {
-      dispatch({type: FAILED_LOGIN_ATTEMPT})
-      dispatch({type: ERROR, payload: err})
+      dispatch({type: FAILED_LOGIN_ATTEMPT, payload: err})
     })
   }
 }
@@ -42,11 +41,12 @@ export const createUser = (newUser) => {
     .then(res => {
       localStorage.setItem('JWT', res.data.token)
       dispatch({type: USER_CREATED, payload: res.data});
+      console.log(this)
       this.getNotes();
     })
     .catch(err => {
-      dispatch({type: FAILED_REGISTRATION_ATTEMPT})
-      dispatch({type: ERROR, payload: err})
+      dispatch({type: FAILED_REGISTRATION_ATTEMPT, payload: err})
+
     })
   }
 }

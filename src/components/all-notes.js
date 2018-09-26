@@ -12,7 +12,7 @@ export default class AllNotes extends Component {
   }
 
   componentDidMount(){
-    console.log('CDM all-notes')
+    console.log('CDM')
     if(!localStorage.getItem('JWT')){
       return <Redirect to='/welcome' />
     }
