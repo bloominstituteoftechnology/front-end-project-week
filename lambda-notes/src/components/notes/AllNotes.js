@@ -13,7 +13,7 @@ class AllNotes extends Component {
   }
 
   render() {
-    console.log("ALLNOTES", this.state.search);
+    console.log("ALLNOTES", this.props.search);
     return (
       <div className="mainNotesPageDiv">
         {/* {() => this.props.renderRedirect()}; */}
