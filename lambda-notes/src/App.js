@@ -59,9 +59,11 @@ class App extends Component {
     };
 
   editHandler = id => {
+    console.log(this.state)
     let notecopy = this.state.notes.slice();
     let editnote = notecopy.find(note => note.id == id);
-    this.setState({ edittitle: editnote.title, edittext: editnote.text });
+    this.setState({ edittitle: editnote.title, edittext: editnote.content });
+    console.log(this.state)
   };
 
   submitChange = id => {
