@@ -60,8 +60,8 @@ h1 {
   padding: 10px;
   border: 1px solid darkgrey !important;
   margin: 6px;
-  margin-top: 25px !important;
-  margin-bottom: 25px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,7 @@ h1 {
 .notesOuterDiv {
   display: flex;
   flex-flow: column wrap;
-  width: 750px;
+  width: 800px;
   border: 1px solid grey;
   min-height: 100vh;
 }
@@ -105,7 +105,7 @@ h1 {
   height: 225px;
   border: 1px solid black;
   padding: 10px;
-  margin-bottom: 30px;
+  margin: 10px 10px 10px 30px;
   overflow: hidden;
   position: relative;
   line-height: 1.2em;
@@ -142,7 +142,7 @@ h1 {
 }
 
 .createNote {
-  width: 750px;
+  width: 800px;
   min-height: 100vh;
 }
 
@@ -188,7 +188,7 @@ h1 {
 .singleNoteView {
   display: flex;
   flex-flow: column wrap;
-  width: 750px;
+  width: 800px;
   border: 1px solid grey;
   min-height: 100vh;
   padding: 30px;
@@ -232,21 +232,24 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 .btn-danger, .btn-info {
   width: 215px !important;
   border-radius: 0 !important;
+  height: 50px !important;
 }
 
 .btn-info {
   background-color: #25B8BD !important;
   padding-left: 10px !important;
+  margin: 0 auto !important;
 }
 
 .modal-footer {
   display: flex !important;
+  flex-flow: row nowrap !important;
   justify-content: center !important;
   padding-bottom: 40px !important;
 }
@@ -288,4 +291,58 @@ h1 {
   color: black !important;
   text-decoration: none !important;
   width: 100px !important;
+  margin: 0 10px 0 10px;
+}
+
+.btn-sidebar {
+  margin: 20px auto;
+}
+
+div.btn-danger.btn-sidebar {
+  margin-top: 10px !important;
+}
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 50vw;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .notesOuterDiv {
+    width: 100vw;
+  }
+
+  .notesInnerDiv {
+    flex-flow: row wrap;
+  }
+
+  .sorting {
+    flex-flow: row wrap;
+  }
+
+  .sort-btn {
+    width: 13% !important;
+  }
+
+  h1 {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .sort-btn {
+    width: 25% !important;
+  }
+
+  .btn-sidebar {
+    width: 100% !important;
+  }
+
+  .sidebar {
+    width: 100vw;
+  }
 }
