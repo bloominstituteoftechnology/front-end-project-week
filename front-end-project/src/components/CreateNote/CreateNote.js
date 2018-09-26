@@ -1,8 +1,24 @@
 import React, { Component } from "react";
 import "./index.css";
+import axios from 'axios';
 
 class CreateNote extends Component {
-  state = {};
+  state = {
+    response:''
+  };
+  createNotes = () => {
+    console.log('hi');
+  
+  axios
+    .post('http://localhost:8000/notes')
+    .then(response => this.setState({response: response.data}))
+    .catch(error => console.log(error));
+  }
+  
+  componentDidMount(){
+    this.createNotes();
+    
+  }
   render() {
     return (
       <div classname="noteView_container">

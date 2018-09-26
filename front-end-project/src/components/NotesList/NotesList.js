@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 import "./index.css";
 import { Link } from 'react-router-dom';
-import Axios from "axios";
+import axios from "axios";
 
 const URL = 'http//:localhost:8000/notes/';
 class NotesList extends Component {
   constructor() {
     super();
     this.state = {
-     
+     notes: [],
   }
 }
 
 getNotes = () => {
   console.log('hi');
-Axios
+
+axios
   .get('http://localhost:8000/notes')
-  .then(response => console.log(response))
+  .then(response => this.setState({notes: response.data}))
   .catch(error => console.log(error));
 }
 
@@ -33,7 +34,7 @@ componentDidMount(){
         </div>
         
         <div className="notesList" >
-        {/* {this.state.notesArray.map((note, index) => {
+        {this.state.notes.map((note, index) => {
           return (
              <Link to={`/note/${note._id}`} className='unstyled_link'>
             <div className="note" key={note._id}>
@@ -45,7 +46,7 @@ componentDidMount(){
             </div>
             </Link>
           );
-        })} */}
+        })}
         </div>
         
       </div>
