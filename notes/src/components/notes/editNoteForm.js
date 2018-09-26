@@ -76,11 +76,14 @@ class EditNoteForm extends React.Component{
         }
     }
     editNoteObj=()=>{
-        
+        let tags=this.state.tags.replace(/,/g,'').replace(/\s+/g,' ').replace(/\s/g,', ');
+        if (tags[tags.length-2]===',') {
+            tags=tags.substring(0,tags.length-2);
+        }
         const editedNote={
             title:this.state.title,
             textBody: this.state.content,
-            tags:this.state.tags.replace(/ /g,', ')
+            tags: tags
         }
         this.props.updateNote(this.state.id,editedNote,this.props.history);
     }
