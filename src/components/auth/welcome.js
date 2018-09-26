@@ -17,7 +17,7 @@ class Welcome extends Component{
     createUser = (newUser) => {
         console.log('createuser in welcome.js', this)
         this.props.createUser(newUser);
-        this.props.history.push('/all-notes')
+        // this.props.history.push('/all-notes')
         
     }
 
@@ -37,7 +37,7 @@ class Welcome extends Component{
                 <Route path="/welcome/login" render={() => {
                     return <Login failed={(this.props.state.failedLoginAttempt)? true : false} loginUser={this.loginUser} />}} />
                 <Route path="/welcome/register" render={() => {
-                    return <Register createUser={this.createUser} />}} />
+                    return <Register failed={(this.props.state.failedRegistrationAttempt)? true : false} createUser={this.createUser} />}} />
             </WelcomeDiv>
         )
     }

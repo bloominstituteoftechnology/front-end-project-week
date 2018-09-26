@@ -15,6 +15,7 @@ export const USER_CREATED = 'USER_CREATED';
 export const SENDING_CREDENTIALS = 'SENDING_CREDENTIALS';
 export const CREDENTIALS_ACCEPTED = 'CREDENTIALS_ACCEPTED';
 export const FAILED_LOGIN_ATTEMPT = 'FAILED_LOGIN_ATTEMPT';
+export const FAILED_REGISTRATION_ATTEMPT = 'FAILED_REGISTRATION_ATTEMPT';
 
 
 export const loginUser = (creds) => {
@@ -44,6 +45,7 @@ export const createUser = (newUser) => {
       this.getNotes();
     })
     .catch(err => {
+      dispatch({type: FAILED_REGISTRATION_ATTEMPT})
       dispatch({type: ERROR, payload: err})
     })
   }
@@ -73,7 +75,6 @@ export const getNotes = () =>  {
     } else {
       dispatch({type: ERROR, payload: 'there was no token found'})      
     }
-      
   }
 }
 

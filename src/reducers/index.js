@@ -14,6 +14,7 @@ import {
              SENDING_CREDENTIALS,
              CREDENTIALS_ACCEPTED,
              FAILED_LOGIN_ATTEMPT,
+             FAILED_REGISTRATION_ATTEMPT,
            } from '../actions';
 
 const initialState = {
@@ -29,6 +30,10 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch(action.type) {
 
+    case FAILED_REGISTRATION_ATTEMPT: 
+      return Object.assign({}, state, {
+        failedRegistrationAttempt: true,
+      })
     case FAILED_LOGIN_ATTEMPT: 
       return Object.assign({}, state, {
         failedLoginAttempt: true,
@@ -41,6 +46,7 @@ export const reducer = (state = initialState, action) => {
     case CREDENTIALS_ACCEPTED: 
       return Object.assign({}, state, {
         sucessfulLogin: true,
+        failedLoginAttempt: false,
         sendingCredentials: false,
         token: action.payload.token
       })
@@ -51,6 +57,7 @@ export const reducer = (state = initialState, action) => {
     case USER_CREATED: 
       return Object.assign({}, state, {
         sendingNewUser: false,
+        failedRegistrationAttempt: false,
         userCreated: true,
         token: action.payload.token
       })
