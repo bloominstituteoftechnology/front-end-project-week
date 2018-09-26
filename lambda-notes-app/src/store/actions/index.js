@@ -25,6 +25,7 @@ export const fetchNotes = () => {
 
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
       .then(res => {
+        console.log('success fetch');
         dispatch({ type: SUCCESS_FETCHING_NOTES, payload: res.data })
       })
       .catch(err => {
