@@ -24,6 +24,11 @@ class App extends Component {
     this.props.fetchNotes()
   }
 
+  componentDidUpdate() {
+    this.props.state.notesSaved ? this.props.fetchNotes() : console.log('notes saved!');
+    // this.props.fetchNotes()
+  }
+
   handleFilter = e => {
     this.setState({ [e.target.name] : e.target.value})
   }

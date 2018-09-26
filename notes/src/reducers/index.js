@@ -30,14 +30,15 @@ export const notesReducer = (state = initState, action) => {
     case FETCHING_NOTES:
       return {
         ...state,
-        fetchingNotes: true
+        fetchingNotes: true,
+        notesSaved: false
       }
     case NOTES_FETCHED:
       return {
         ...state,
         fetchingNotes: false,
         notes: action.payload,
-        notesFetched: true
+        notesFetched: true,
       }
     case NOTES_SAVED:
       return {
