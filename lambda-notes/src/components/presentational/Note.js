@@ -2,13 +2,11 @@ import React from "react";
 import { NoteStyling } from "../styling/NoteStyling";
 
 function Note(props) {
-  const description = props.note.textBody;
-  const title = props.note.title;
   return (
     <NoteStyling>
-      <h3>{title}</h3>
+      <h3>{props.note.title}</h3>
       <p>
-        {description}
+        {props.note.textBody}
       </p>
     </NoteStyling>
   );

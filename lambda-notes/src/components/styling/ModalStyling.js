@@ -7,7 +7,7 @@ export const ModalContainer = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 `;
-export const ModalMain = styled.div`
+export const ModalContent = styled.div`
   background: lightgray;
   position: fixed;
   top: 25%;

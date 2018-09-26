@@ -1,7 +1,7 @@
 import React from "react";
 import {
   ModalContainer,
-  ModalMain,
+  ModalContent,
   DeleteButton,
   NoButton
 } from "../styling/ModalStyling";
@@ -9,13 +9,13 @@ import {
 function Modal(props) {
   return (
     <ModalContainer style={{ display: props.showModal ? "block" : "none" }}>
-      <ModalMain>
+      <ModalContent>
         <h5>Are you sure you want to delete this?</h5>
         <DeleteButton onClick={event => props.deleteClick(event)}>
           Delete
         </DeleteButton>
         <NoButton onClick={props.toggleModal}>No</NoButton>
-      </ModalMain>
+      </ModalContent>
     </ModalContainer>
   );
 }
