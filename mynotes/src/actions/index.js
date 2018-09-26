@@ -38,7 +38,7 @@ export const fetchNoteId = id => {
     axios
       .get(`http://localhost:5000/note/get/${id}`)
       .then(({ data }) => {
-        dispatch({ type: FETCH_NOTE_ID, payload: data._id});
+        dispatch({ type: FETCH_NOTE_ID, payload: data._id });
       })
       .catch(err => {
         console.log("Error with fetching id: ", err);
@@ -46,14 +46,6 @@ export const fetchNoteId = id => {
       });
   };
 };
-
-// export const deleteNote = id => {
-//   // const del = axios.delete("https://killer-notes.herokuapp.com/note/delete/id");
-//   return {
-//     type: DELETE_NOTE,
-//     payload: id
-//   };
-// };
 
 export const deleteNote = id => {
   return dispatch => {
@@ -70,22 +62,11 @@ export const deleteNote = id => {
   };
 };
 
-// export const editNote = noteData => {
-//   // const edit = axios.put("https://killer-notes.herokuapp.com/note/edit/id");
-//   return {
-//     type: EDIT_NOTE,
-//     payload: noteData
-//   };
-// };
-
 export const editNote = noteData => {
   return dispatch => {
     dispatch({ type: EDITING_NOTE });
     axios
-      .put(
-        `http://localhost:5000/note/edit/${noteData._id}`,
-        noteData
-      )
+      .put(`http://localhost:5000/note/edit/${noteData._id}`, noteData)
       .then(res => {
         dispatch({ type: EDIT_NOTE });
       })
@@ -95,14 +76,6 @@ export const editNote = noteData => {
       });
   };
 };
-
-// export const createNote = noteData => {
-//   // const create = axios.post("https://killer-notes.herokuapp.com/note/create");
-//   return {
-//     type: CREATE_NOTE,
-//     payload: noteData
-//   };
-// };
 
 export const createNote = noteData => {
   return dispatch => {
@@ -118,35 +91,3 @@ export const createNote = noteData => {
       });
   };
 };
-
-//===============================================================================================================================//
-
-// export const fetchNote = noteData => {
-//   const fetch = axios.get("https://killer-notes.herokuapp.com/note/get/all");
-//   return dispatch => {
-//     dispatch({ type: FETCHING_NOTE });
-//     fetch
-//       .then(response => {
-//         dispatch({ type: FETCH_NOTE, payload: response.data });
-//       })
-//       .catch(err => {
-//         console.log("Errror with fetch action: ", err);
-//         dispatch({ type: ERROR, payload: "Error with fetch note" });
-//       });
-//   };
-// };
-
-// export const fetchNoteId = noteData => {
-//   const fetchId = axios.get("https://killer-notes.herokuapp.com/note/get/id");
-//   return dispatch => {
-//     dispatch({ type: FETCHING_NOTE_ID });
-//     fetchId
-//       .then(response => {
-//         dispatch({ type: FETCH_NOTE_ID, payload: response.data });
-//       })
-//       .catch(err => {
-//         console.log("Error with fetch ID action: ", err);
-//         dispatch({ type: ERROR, payload: "Error with fetc ID note" });
-//       });
-//   };
-// };

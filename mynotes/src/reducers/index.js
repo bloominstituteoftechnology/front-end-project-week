@@ -8,19 +8,19 @@ import {
 
 const initialState = [
   {
-    _id: "asdklfjsodijflsdkf19",
+    id: "asdklfjsodijflsdkf19",
     title: "First Note",
     body: "content info",
     createdat: 157234563211
   },
   {
-    _id: "asdklfjsoyyeewrkwer56903",
+    id: "asdklfjsoyyeewrkwer56903",
     title: "Second Note",
     body: "content info",
     createdat: 157234563222
   },
   {
-    _id: "zaqwsxcderfv0192749",
+    id: "zaqwsxcderfv0192749",
     title: "Third Note",
     body: "content info",
     createdat: 157234563233
