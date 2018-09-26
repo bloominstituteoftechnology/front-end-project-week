@@ -12,6 +12,8 @@ class NoteView extends React.Component {
         }
     }
 
+    handleConfirmDelete = () =
+
     handleDeleteNote = noteId => {
         this.props.deleteNote(noteId);
     }

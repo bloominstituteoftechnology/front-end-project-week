@@ -15,8 +15,8 @@ export default function Note(props) {
     return (
         <div className="note-view">
         <div className="note-options">
-        <p onClick={(event) => props.goToUpdateNoteForm(event, note._id)}>edit</p>
-        <p onClick={handleDelete}>delete</p>
+        <p onClick={(event) => props.goToUpdateNoteForm(event, note._id)}>edit </p>
+        <p onClick={handleDelete}> delete</p>
         </div>
         <h2>{note.title}</h2>
         <p>{note.textBody}</p>

@@ -51,7 +51,7 @@ class NoteFormView extends React.Component {
             handleAddNewNote={this.handleAddNewNote}
             handleChange={this.handleChange}
             handleUpdateNote={this.handleUpdateNote}
-            isUpdating={this.state.isUpdating}
+            updatingNote={this.state.updatingNote}
             />
         );
     }
@@ -61,4 +61,4 @@ const mapStateToProps = state => ({
     noteToUpdate: state.noteToUpdate,
 });
 
-export default connect(mapStateToProps, { addNewNote, setUpdateNote, updateNote })(NoteFormView);
+export default connect(mapStateToProps, { addNewNote, updateNote })(NoteFormView);
