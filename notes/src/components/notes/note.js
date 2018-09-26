@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
 
 const NoteContainer=styled.div`
 width: 30%;
@@ -53,8 +52,8 @@ const Note=(props)=><NoteContainer>
     <h3>{props.data.title}</h3>
     <Rule/>
     {props.data.textBody.length<100?
-    <ReactMarkdown source={props.data.textBody}/>:
-    <ReactMarkdown source={props.data.textBody.slice(0,101)+'...'}/>}
+    <p>{props.data.textBody}</p>:
+    <p>{props.data.textBody.slice(0,101)+'...'}</p>}
     {props.data.tags!==null?<NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags}</NoteTag>:null}
     </Content>
     </Link>
