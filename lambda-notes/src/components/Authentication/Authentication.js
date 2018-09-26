@@ -29,7 +29,7 @@ const Authenticate = Posts =>
             if (name.length > 0) {
                 this.setState({ LoggedIn: true })
             }
-            axios.post('http://localhost:3500/api/register', (this.state))
+            axios.post('http://localhost:3500/api/register', this.state )
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem('jwt', res.data.token)
@@ -47,7 +47,7 @@ const Authenticate = Posts =>
             if (name.length > 0) {
                 this.setState({ LoggedIn: true })
             }
-            axios.post('http://localhost:3500/api/login', (this.state))
+            axios.post('http://localhost:3500/api/login', this.state )
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem('jwt', res.data.token)
