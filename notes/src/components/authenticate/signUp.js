@@ -23,7 +23,7 @@ class SignUp extends React.Component{
             password:this.state.password
         }
         axios
-            .post('http://localhost:9000/api/register',newUser)
+            .post('https://notes-lambda.herokuapp.com/api/register',newUser)
             .then(res=>{
                 localStorage.setItem('jwt',res.data);
                 this.props.history.push('/notes');
