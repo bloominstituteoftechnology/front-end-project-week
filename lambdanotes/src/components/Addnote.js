@@ -9,8 +9,8 @@ class AddNote extends React.Component {
     super(props);
     this.state = {
       id: null,
-      newtitle: "",
-      newtext: ""
+      title: "",
+      body: ""
     };
   }
 
