@@ -2,6 +2,7 @@ import axios from 'axios'
 
 // some variables
 const url = 'http://localhost:5500/notes/';
+const userUrl = null;
 
 // getNotes action creator
 export const getNotes = () => {
