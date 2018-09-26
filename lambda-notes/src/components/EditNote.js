@@ -2,47 +2,41 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
-class NewNote extends Component {
+class EditNote extends Component {
     state={
         title:'',
         content:'',
-        isUpdating: false
+    }
+
+    componentDidMount(){
+        if(this.props.editNote) {
+            this.setState({
+                isUpdating:true,
+                title:this.props.isUpdating.title,
+                content:this.props.isUpdating.content,
+                
+            })
+        }
     }
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit = e => {
+    editNote = e => {
         e.preventDefault();
-        // if (this.state.isUpdating) {
-        //     const editedNote={
-        //         id:this.props.isUpdating.id,
-        //         title: this.state.title,
-        //         content: this.state.content
-        //     }
-        //     this.props.isUpdating(editedNote)
-        // }else{
-            const newNote = {
-                title: this.state.title,
-                content: this.state.content,
-                id: Date.now(),
-            }
-            const emptyNote ={
-                title:'',
-                content:'',
-            }
-            this.props.createNote(newNote)
-            this.setState(emptyNote)
-            this.props.history.push('/list-view')
-        
-        // }
+        const editedNote={
+            id:this.props.id,
+            title: this.state.title,
+            content: this.state.content
+        }
+        this.props.editNote(editedNote)
     }
-
+    
     render(){
         return(
             <Form>
-                <H2>Create New Note:</H2>
+                <H2>Edit Note:</H2>
                 <InputTitle
                     type='text'
                     placeholder='Note Title...'
@@ -57,7 +51,7 @@ class NewNote extends Component {
                      value={this.state.content}  
                      onChange={this.handleChange}             
                 />
-                <Button onClick={this.handleSubmit}>Save</Button>
+                <Button onClick={this.editNote}>Update</Button>
             </Form>
         )
     }
@@ -100,4 +94,4 @@ const Button = styled.button`
     border: 1px solid grey;
 `;
 
-export default withRouter(NewNote);
+export default withRouter(EditNote);

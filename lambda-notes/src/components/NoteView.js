@@ -1,5 +1,5 @@
 import React from 'react';
-// import {NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 const NoteView = props => {
@@ -11,11 +11,13 @@ const NoteView = props => {
     
     return (
         <div>
-            {/* <NavLink>
-                <button onClick={() => props.updateNote(Number(note.id))}>edit</button>
-            </NavLink> */}
             <div>
-                <button onClick={()=>props.deleteNote(note.id)}>delete</button>
+            <NavLink to={`/edit-view/${note.id}`}>
+                <div onClick={() => props.editNote(note.id)}>edit</div>
+            </NavLink>
+                <NavLink to="/list-view">
+                    <div onClick={()=>props.deleteNote(note.id)}>delete</div>
+                </NavLink>
             </div>            
             <div>
                 <h2>{note.title}</h2>

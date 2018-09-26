@@ -6,6 +6,8 @@ import NoteList from './components/NoteList';
 import NewNote from './components/NewNote';
 import SideBar from './components/SideBar';
 import NoteView from './components/NoteView';
+import EditNote from './components/EditNote';
+
 
 class App extends Component {
   state={
@@ -15,16 +17,25 @@ class App extends Component {
         title: 'Note Title',
         content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis',
       }
-    ]
+    ],
+    isUpdating:false
   }
 
   createNote = newNote => {
     this.setState({notes:[...this.state.notes, newNote]})
   }
 
+  // editNote = (selectedNote) => {
+  //   console.log('editnote:', selectedNote)
+  //     let currentNote=this.state.notes.filter(note => note.id !== selectedNote.id)
+  //     let editedNote=this.state.notes.find(note => note.id == selectedNote.id)[0]
+  //     editedNote.title=selectedNote.title
+  //     editedNote.content=selectedNote.content
+  //     this.setState({editedNote, ...currentNote})
+  // }
+
   deleteNote = id => {
     this.setState({notes: this.state.notes.filter(note => note.id !== id)});
-    this.props.history.push('/list-view');
   }
 
   render(){
@@ -41,7 +52,10 @@ class App extends Component {
             <NewNote {...props} createNote={this.createNote} />
           } />
           <Route path="/note-view/:id" render={props =>
-            <NoteView {...props} notes={this.state.notes} deleteNote={this.deleteNote} />
+            <NoteView {...props} notes={this.state.notes} editNote={this.editNote} deleteNote={this.deleteNote} />
+          } />
+          <Route path="/edit-view/:id" render={props => 
+            <EditNote {...props} isUpdating={this.state.isUpdating} editNote={this.editNote} />
           } />
         </MainContent>    
       </AppContainer> 
