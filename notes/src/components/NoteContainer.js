@@ -11,22 +11,27 @@ function NoteContainer(props) {
   }
 
   return (
-    <div class = 'note-list-wrapper'>
-      {props.notesList.map(note => (
-        <div className = 'note-card' key = {note.id}>
-          <h3 onClick = {() => props.history.push(`notes/${note.id}`)}>{note.title}</h3>
-          <p>{note.body}</p>
-        </div>
-      ))}
-    </div>
-  )
-};
+
+       <div className = 'notes-list-wrapper'>
+         <h3>Your Notes:</h3>
+             <div className = 'all-notes'>
+             {props.notesList.map(note => (
+                 <div className = 'note-card' key = {note.id} onClick = {() => props.history.push(`notes/${note.id}`)}>
+                     <h4>
+                     {note.title}
+                     </h4>
+                     <p>{props.truncate(note.content)}</p>
+                 </div>
+             ))}
+             </div>
+       </div>
+   )
+}
 
 NoteContainer.propTypes = {
-  notesList: PropTypes.array,
-  history: PropTypes.shape({
-    push: PropTypes.func
-  })
-};
-
+   notesList: PropTypes.array,
+   history: PropTypes.shape({
+       push: PropTypes.func
+   })
+}
 export default NoteContainer;
