@@ -10,14 +10,30 @@ import NoteDetails from './components/NoteDetails';
 
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
-class App extends Component {
 
+
+class App extends Component {
+  
   componentDidMount(){
     this.props.fetchNotes();
   }
 
-  render() {
+  componentDidUpdate(){
+    if(this.props.needsRefresh === true){
+
+      setTimeout(() => window.location.reload(), 1500);
+      
+    }
+  }
+  
+
+  // constructor(props){
     
+  // super(props);
+  // }
+
+  render() {
+
     return (
       <div className="App">
 
@@ -64,7 +80,8 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     noteDeleted: state.noteDeleted,
-    notesFetched: state.notesFetched
+    notesFetched: state.notesFetched,
+    needsRefresh: state.needsRefresh
   }
 }
 

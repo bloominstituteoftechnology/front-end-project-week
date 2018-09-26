@@ -13,7 +13,8 @@ const initialState = {
     noteEdited: false,
     fetchingSingle: false,
     singleFetched: false,
-    currentNote: {}
+    currentNote: {},
+    needsRefresh: false
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -55,11 +56,8 @@ export const rootReducer = (state = initialState, action) => {
             })
 
         case DELETED:
-            let afterNotes = state.notes.map(note => {
-                return note;
-            });
             return Object.assign({}, state, {
-                deletingNote: false, noteDeleted: true, notes: afterNotes
+                deletingNote: false, noteDeleted: true, needsRefresh: true
             })
 
         case ERROR:
