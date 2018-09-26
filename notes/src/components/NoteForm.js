@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addNote} from '../actions/index';
+import {withRouter} from 'react-router-dom';
 
 class NoteForm extends React.Component {
     constructor(props){
@@ -40,11 +41,11 @@ class NoteForm extends React.Component {
 
     render(){
         return(
-            <div>
-                NOTE FORM
+            <div className = 'note-form-container'>
+            <h1>Create New Note:</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleInput} type = 'text' placeholder = 'Note Title' name='title' value={this.state.title}></input>
-                    <input type='text' onChange={this.handleInput} placeholder = 'Note Content' name='textBody' value={this.state.textBody}></input>
+                    <textarea onChange={this.handleInput} placeholder = 'Note Content' name='textBody' value={this.state.textBody}></textarea>
                     <button type = 'submit'>Add Note</button>
                 </form>
             </div>
@@ -58,7 +59,7 @@ const mapStateToProps = state => {
     }
   }
   
-  export default connect(mapStateToProps, {
+  export default withRouter(connect(mapStateToProps, {
     addNote
-  })(NoteForm);
+  })(NoteForm));
   

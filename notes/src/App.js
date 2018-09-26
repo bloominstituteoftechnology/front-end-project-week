@@ -16,10 +16,8 @@ class App extends Component {
     this.props.fetchNotes();
   }
 
-  
-
-
   render() {
+    
     return (
       <div className="App">
 

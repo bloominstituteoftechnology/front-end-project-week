@@ -11,7 +11,7 @@ import {rootReducer} from './reducers/index';
 import {BrowserRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk, logger));
 
 ReactDOM.render(<BrowserRouter><Provider store={store}><App /></Provider></BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();

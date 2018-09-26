@@ -4,8 +4,6 @@ import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import { Button, Modal, ModalBody } from 'reactstrap';
 
-let currentNote = {};
-
 class NoteDetails extends React.Component {
     
     constructor(props){
@@ -13,18 +11,23 @@ class NoteDetails extends React.Component {
 
         this.state = {
             modal: false,
-            deleted: false
+            deleted: false,
+            currentNote: {}
         }
 
         this.toggle = this.toggle.bind(this);
 
          
-    {props.notes.map(note => {
+    props.notes.map(note => {
         if(note._id === props.match.params.id){
-            currentNote = Object.assign({}, note);
-            return currentNote;
+            let currentNote = Object.assign({}, note);
+            this.state = Object.assign({}, this.state, {
+                currentNote: currentNote
+            })
+            
         }
-    })}
+        return null;
+    })
     
     }
 
@@ -43,7 +46,7 @@ class NoteDetails extends React.Component {
 
     handleDelete = event =>{
         event.preventDefault();
-        this.props.deleteNote(currentNote._id);
+        this.props.deleteNote(this.state.currentNote._id);
         
         this.toggle();
 
@@ -58,10 +61,10 @@ class NoteDetails extends React.Component {
         
     return (
         <div>
-            <h1>{currentNote.title}</h1>
-            <p>{currentNote.textBody}</p>
+            <h1>{this.state.currentNote.title}</h1>
+            <p>{this.state.currentNote.textBody}</p>
 
-            <Link to = {`/notes/edit/${currentNote._id}`}><Button color = 'info'>EDIT</Button></Link>
+            <Link to = {`/notes/edit/${this.state.currentNote._id}`}><Button color = 'info'>EDIT</Button></Link>
 
 
             <Button color='danger' onClick={this.toggle}>DELETE</Button>

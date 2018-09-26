@@ -1,26 +1,29 @@
 import React from 'react';
 import {editNote} from '../actions';
 import {connect} from 'react-redux';
-import {withRouter, Link} from 'react-router-dom';
-
-let currentNote = {};
+import {withRouter} from 'react-router-dom';
 
 class EditNote extends React.Component {
     constructor(props){
         super(props)
-    
-        {props.notes.map(note => {
-            if(note._id === props.match.params.id){
-                
-                currentNote = Object.assign({}, note);
-            }
-        })}
 
         this.state = {
-            title: currentNote.title,
-            textBody: currentNote.textBody
+            title: '',
+            textBody: '',
+            currentNote: {}
         }
-    
+
+        props.notes.map(note => {
+            if(note._id === props.match.params.id){
+                let currentNote = Object.assign({}, note);
+                this.state = Object.assign({}, this.state, {
+                    title: currentNote.title,
+                    textBody: currentNote.textBody,
+                    currentNote: currentNote
+                })
+            }
+            return null;
+        })
     }
 
     handleInput = (event) => {
@@ -39,7 +42,7 @@ class EditNote extends React.Component {
             textBody: this.state.textBody,
         }
 
-        this.props.editNote(currentNote._id, newNote);
+        this.props.editNote(this.state.currentNote._id, newNote);
 
     }
 
