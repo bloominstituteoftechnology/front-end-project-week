@@ -10,29 +10,36 @@ export default class Note extends React.Component {
         super(props);
         this.state = {
             note: null
-        };
     }
+}
     
     componentDidMount() {
+        console.log("this.props:", this.props);
+        console.log("this.props.notesData:", this.props.notesData);
         if(this.props.notesData) {
-        const note = this.props.notesData.find(note => note.id === parseInt(this.props.match.params.noteId, 10));
-       this.getNotes(note);
+//        const note = this.props.notesData.find(note => note._id === parseInt(this.props.match.params.noteId, 10));
+        const currentNote = this.props.notesData.find(note => note._id === this.props.match.params.noteId);
+        console.log("note:", currentNote);
+        console.log("this.state.note:", this.state.note)
+        this.setState({ note: currentNote }, () => console.log("after setState:", this.state.note));
+        
         }
     }
 
      componentDidUpdate(prevProps) {
-        if(this.props.notesData !== prevProps.notesData) {
-            const note = this.props.notesData.find(note => note.id === parseInt(this.props.match.params.noteId, 10));
-            this.getNotes(note);
+        if(JSON.stringify(this.props.notesData) !== JSON.stringify(prevProps.notesData)) {
+            //const note = this.props.notesData.find(note => note._id === parseInt(this.props.match.params.noteId, 10));
+            const currentNote = this.props.notesData.find(note => note._id === this.props.match.params.noteId);
+            this.setState({ note: currentNote })
         }
      }
 
-    getNotes = note => {
-        this.setState({ note: note })
-    }
+    // getNotes = note => {
+    //     this.setState({ note: note })
+    // }
 
     deleteNote = () => {
-        this.props.deleteNote(this.state.note.id);
+        this.props.deleteNote(this.state.note._id);
         this.props.history.push('/notes');
     }
 
@@ -49,16 +56,16 @@ export default class Note extends React.Component {
                 <a className="plain-button" onClick={event => {
                     event.preventDefault();
                     console.log("clicked open update");
-                    this.props.openUpdateForm(event, this.state.note.id)
+                    this.props.openUpdateForm(event, this.state.note._id)
                 }}>edit</a>
                 <a className="plain-button" onClick={event => {
-                    this.props.showModal(event, this.state.note.id)
+                    this.props.showModal(event, this.state.note._id)
                 }}>delete</a>
                 
                 </div>
                     <div className="note-info-wrapper">
                     <h1>{this.state.note.title}</h1>
-                    <p>{this.state.note.content}</p>
+                    <p>{this.state.note.textBody}</p>
                 
                     </div>
                 </div>

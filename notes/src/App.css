@@ -62,7 +62,7 @@ ul {
 }
 
 .navbar {
-  position: fixed;
+  /* position: fixed; */
   justify-content: flex-start;
   background: #D3D2D3;
   border-right: 1px #C8C8C8;
@@ -144,12 +144,14 @@ ul {
   /* border: 1px solid lime; */
   margin: 0;
   font-size: 20px;
+  word-wrap: break-word;
 }
 
 .note-card p {
 
   font-size: 14px;
   padding: 5px;
+  word-wrap: break-word;
 }
 
 /* SINGLE NOTE VIEW */

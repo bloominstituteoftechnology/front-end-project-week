@@ -6,7 +6,7 @@ function NoteForm(props) {
         event.preventDefault();
 
         if (props.isUpdating) {
-            props.updateNote(props.note.id);
+            props.updateNote(props.note._id);
         } else {
             props.addNewNote();
         }
@@ -15,7 +15,7 @@ function NoteForm(props) {
     function handleCancel(event) {
         event.preventDefault();
         if(props.isUpdating) {
-        props.history.push(`/notes/${props.note.id}`)
+        props.history.push(`/notes/${props.note._id}`)
         } else {
             props.history.push(`/notes`)
         }
@@ -37,8 +37,8 @@ function NoteForm(props) {
                     onChange={props.handleChange} />
                     <textarea type="text"
                     value={props.note.textBody}
-                    name="content"
-                    className="content"
+                    name="textBody"
+                    className="textBody"
                     placeholder="Note Content"
                     cols="30"
                     rows="23"
