@@ -43,8 +43,15 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  searchInputChange = (event) => {
-    
+  filterNotes = (event) => {
+    let filtered = this.state.notes.filter(note => 
+    note.title.toLowerCase().includes(event.target.value.toLowerCase()) ||
+    note.text.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    this.setState({
+      // searchQuery: '',
+      searchResults: filtered
+    });
   }
 
   addNewNote = event => {
@@ -122,7 +129,7 @@ class App extends Component {
           <Link to="/add" ><div className="nav-button" >+ Create New Note</div></Link>
         </div>
         <div className="display-right" >
-          <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} searchQuery={this.state.searchQuery} handleInputChange={this.handleInputChange} />)} />
+          <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} searchQuery={this.state.searchQuery} handleInputChange={this.handleInputChange} filterNotes={this.filterNotes} />)} />
           <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} modalToggle={this.modalToggle} showModal={this.state.showModal} deleteNote={this.deleteNote} /> )} />
           <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
           <Route exact path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} editNoteSubmit={this.editNoteSubmit} />)}  />

@@ -3,7 +3,7 @@ import React, {  } from 'react';
 export const SearchBar = props => {
 
     return (
-        <form className="search-form" onSubmit={props.filterNotes} >
+        <form className="search-form" onChange={props.filterNotes} >
             <input 
                 name="searchQuery"
                 value={props.searchQuery}

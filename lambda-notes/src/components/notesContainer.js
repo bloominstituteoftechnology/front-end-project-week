@@ -10,6 +10,7 @@ export const NoteList = props => {
                 <SearchBar
                     searchQuery={props.searchQuery}
                     handleInputChange={props.handleInputChange}
+                    filterNotes={props.filterNotes}
                 />
             </div>
             <div className="notes-container" >
