@@ -1,51 +1,41 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 import Nav from './components/Nav';
 import EditNote from './components/EditNote';
 import CreateNote from './components/CreateNote';
 import Note from './components/Note';
 import { Route } from 'react-router-dom';
 import NoteList from './components/NoteList';
-import DeleteConfirm from './components/DeleteConfirm'
+import DeleteConfirm from './components/DeleteConfirm';
+import axios from 'axios';
 
 
 class App extends Component {
   state = {
-    notes: [],
-    fetching: false,
     deleteConfirm: false
   }
 
   toggleDelete = () => {
     this.setState({ deleteConfirm: !this.state.deleteConfirm})
   }
+  
 
-  componentDidMount() {
-    this.setState({
-      fetching: true
-    })
+  deleteNote = _id => {
     axios
-    .get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => this.setState({notes: response.data, fetching: false}))
+    .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
     .catch(err => console.log(err))
-  }
-
-  handleDeleteConfirm = () => {
-    this.setState({deleteConfirm: !this.state.deleteConfirm})
-  }
-
-  //navigation bar always shows, container will hold everything else and routes
+  } 
 
   render() {
     return (
       <div className='App'>
         <Nav />
-        <Route exact path='/'render={() => <NoteList notes={this.state.notes} />}/>
-        <Route exact path='/notes/:_id' render={props => <Note {...props} toggleDelete={this.toggleDelete}/>} />
+        <Route exact path='/' render={() => <NoteList />}/>
+        <Route exact path='/notes/:_id' render={props => <Note {...props} toggleDelete={this.toggleDelete} deleteNote={this.deleteNote}/>} />
+        <Route exact path='/notes/:_id/delete' render={props => <Note {...props} toggleDelete={this.toggleDelete}/>} />
         <Route path='/notes/:_id/edit' component={EditNote} />
         <Route exact path="/create" render={props => <CreateNote {...props} />} /> 
-        <Route exact path ='/notes/:_id/delete' render={props => <DeleteConfirm {...props} deleteConfirm={this.state.deleteConfirm} toggleDelete={this.toggleDelete}/>} />
+        <Route exact path ='/notes/:_id/delete' render={props => <DeleteConfirm {...props} deleteNote={this.deleteNote} deleteConfirm={this.state.deleteConfirm} toggleDelete={this.toggleDelete}/>} />
       </div>
     );
   }

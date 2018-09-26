@@ -5,19 +5,19 @@ class EditNote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            text: '',
+            title: this.props.location.state.title,
+            textBody: this.props.location.state.textBody,
         };
     }
 
     editNote = () => {
+        const id = this.props.location.state._id
         axios
-            .post("https://killer-notes.herokuapp.com/note/create", this.state)
-            .then(
-                this.setState({ title: '', text: '' })
+            .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
+            .then(() =>
+                this.props.history.push(`/notes/${id}`)
             )
             .catch(error => console.log(error));
-        this.props.history.push("/")
     }
 
     handleChange = event => {
@@ -43,8 +43,8 @@ class EditNote extends React.Component {
                         className="create-text"
                         placeholder='Note Info'
                         onChange={this.handleChange}
-                        name="text"
-                        value={this.state.text}
+                        name="textBody"
+                        value={this.state.textBody}
                     />
                 </form>
                 <div>
@@ -57,6 +57,4 @@ class EditNote extends React.Component {
 }
 
 export default EditNote;
-
-
 

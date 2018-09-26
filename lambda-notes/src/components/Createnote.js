@@ -6,35 +6,20 @@ class CreateNote extends React.Component {
         super(props);
         this.state = {
             title: '',
-            text: '',
+            textBody: '',
         };
     }
 
-    addNote = () => {
-
-        // axios({
-        //     method: 'post',
-        //     url: "https://killer-notes.herokuapp.com/note/create",
-        //     data: {
-        //         title: `${this.state.title}`,
-        //         text: `${this.state.text}`,
-        //     }
-        // })
-      
-        //   this.setState({
-        //     title: '',
-        //     text: '',
-            
-        //   });
-        //   this.props.history.push("/")
-        // }
+    addNote = event => {
+        event.preventDefault();
         axios
             .post("https://killer-notes.herokuapp.com/note/create", this.state)
-            .then(
-                this.setState({ title: '', text: '' })
+            .then(response => {
+                console.log(response);
+                this.props.history.push("/")
+            }
             )
             .catch(error => console.log(error));
-        this.props.history.push("/")
     }
 
     handleChange = event => {
@@ -60,8 +45,8 @@ class CreateNote extends React.Component {
                         className="create-text"
                         placeholder='Note Info'
                         onChange={this.handleChange}
-                        name="text"
-                        value={this.state.text}
+                        name="textBody"
+                        value={this.state.textBody}
                     />
                 </form>
                 <div>

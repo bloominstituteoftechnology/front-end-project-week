@@ -37,8 +37,8 @@ export default class Note extends Component {
     return (
       <div className="note">
         <div className="noteHeader">
-          <Link to={`/notes/${this.state.note._id}/edit`} className='editz'>Edit</Link>
-          <Link to={`/notes/${this.state.note._id}/delete`} className='editz' onClick={this.props.toggleDelete}>Delete</Link>
+          <Link to={{ pathname: `/notes/${this.state.note._id}/edit`, state: this.state.note}} className='editz'>Edit</Link>
+          <Link to={{ pathname: `/notes/${this.state.note._id}/delete`, state: this.state.note}} className='editz' onClick={this.props.toggleDelete}>Delete</Link>
         </div>
         <div className='noteBody'>
           <h1>{title}</h1>
@@ -46,6 +46,5 @@ export default class Note extends Component {
         </div>
       </div>
     )
-
   }
 }
