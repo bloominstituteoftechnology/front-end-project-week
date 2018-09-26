@@ -1,28 +1,44 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import styled from "react-emotion";
 
 class CheckList extends Component {
-    state = {
-        checklist: []
-    }
-    addChecklist= () => {
-        const {checklist} = this.state
-        this.setState({checklist: checklist.push(event.target.value)})
-        event.target.value=''
-    }
-    
+  
 
-    render(){
-        const {checklist} = this.state
-        return(
-            <div>
-                <h2>CheckList</h2>
-                <ul>
-                    {checklist.map(check => <li>{check}</li>)}
-                </ul>
-                <input onChange={this.addChecklist}/>
-            </div>
-        )
-    }
+  addChecklist = event => {
+    event.preventDefault()    
+    const { note , addChecklist } = this.props;
+    addChecklist(note)
+  };
+
+  render() {
+   
+    const { note, checklist } = this.props;
+
+    return (
+      <CheckListContainer>
+        <h2>CheckList</h2>
+        <button onClick={this.addChecklist}>sumbit</button>
+        <div>
+          {checklist.map(checkitem => (
+            <p onClick={() => this.props.history.push(`/notes/${checkitem._id}`)}>{checkitem.title}</p>
+          ))}
+        </div>
+
+        
+      </CheckListContainer>
+    );
+  }
 }
 
-export default CheckList
+const CheckListContainer = styled("div")`
+  display: flex;
+
+  flex-direction: column;
+  text-align: center;
+`;
+
+const NoteTitle = styled("h2")`
+  color: ${props => props.theme[props["data-theme"]].mainTitle};
+`;
+
+export default CheckList;

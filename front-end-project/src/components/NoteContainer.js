@@ -14,51 +14,15 @@ import { TweenMax } from "gsap";
 
 class NoteContainer extends Component {
   state = {
-    notes: [
-      //   {
-      //     id: 1,
-      //     title: "Note1",
-      //     content: lorem,
-      //     tags: []
-      //   },
-      //   {
-      //     id: 2,
-      //     title: "Note2",
-      //     content: lorem,
-      //     tags: []
-      //   },
-      //   {
-      //     id: 3,
-      //     title: "Note3",
-      //     content: lorem,
-      //     tags: []
-      //   },
-      //   {
-      //     id: 4,
-      //     title: "Note4",
-      //     content: lorem,
-      //     tags: []
-      //   },
-      //   {
-      //     id: 5,
-      //     title: "Note5",
-      //     content: lorem,
-      //     tags: []
-      //   },
-      //   {
-      //     id: 6,
-      //     title: "Note6",
-      //     content: lorem,
-      //     tags: []
-      //   }
-    ],
+    notes: [],
     selectedTheme: "standardTheme",
     backupNotes: [],
-    sortOptions: ['A-Z', 'Z-A']
+    sortOptions: ['A-Z', 'Z-A'],
+    checklist: []
   };
-
+//-------------------------------------------------------Create, Update, Delete Notes
   createNewNote = note => {
-    note.id = this.state.notes.length + 1;
+    //note.id = this.state.notes.length + 1;
     this.setState(state => ({
       notes: [...this.state.notes, note]
     }));
@@ -148,6 +112,23 @@ sortBy = sortOption => {
     break
   }
 }
+//----------------------------------------------------------------------------------CheckList Functions
+
+addChecklist = note => {
+
+const {checklist} = this.state
+
+  const newList = [...checklist, note];
+  
+  if (!checklist.some(checkitem => checkitem._id === note._id)) { 
+    this.setState({ checklist: newList }); 
+  }else{
+    this.setState({
+      checklist: newList.filter(checkitem => checkitem._id !== note._id)
+    })
+  }
+
+}
 
 
 
@@ -179,8 +160,8 @@ sortBy = sortOption => {
     this.fetchData();
   }
 
-  render() {
-    const { notes, selectedTheme, sortOptions } = this.state;//------------------------Deconstruction
+  render() {//------------------------------------------------------Components
+    const { notes, selectedTheme, sortOptions, checklist } = this.state;//------------------------Deconstruction
     return (
       <ContainerDiv data-theme={selectedTheme}>
         <Route
@@ -243,10 +224,12 @@ sortBy = sortOption => {
               render={props => (
                 <NoteView
                   {...props}
+                  addChecklist={this.addChecklist}
                   selectedTheme={selectedTheme}
                   updateNote={this.updateNote}
                   deleteNote={this.deleteNote}
                   notes={notes}
+                  checklist= {checklist}
                 />
               )}
             />
@@ -295,6 +278,7 @@ const ContainerDiv = styled("div")`
 `;
 
 const ContentContainer = styled("div")`
+
   margin-top: 4%;
   margin-left: 300px;
   max-width: 1110px;

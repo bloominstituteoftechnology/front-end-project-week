@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import styled from "react-emotion";
 import DeleteNote from "./DeleteNote";
+import CheckList from './CheckList'
 import { TransitionGroup } from "react-transition-group";
 import Transition from "react-transition-group/Transition";
 import { TweenMax } from "gsap";
@@ -38,7 +39,7 @@ class NoteView extends Component {
 
     if (note) {
       return (
-        <Fragment>
+        <NoteCardContainer>
           {isDeleting && (
             <DeleteNote {...this.props} notDeleting={this.notDeleting} />
           )}
@@ -59,6 +60,7 @@ class NoteView extends Component {
               Delete
             </NoteButton>
           </NoteCardDiv>
+          <CheckList {...this.props} note={note}/>
           <Transition
             in={isDeleting}
             appear={true}
@@ -111,8 +113,8 @@ class NoteView extends Component {
                   return null;
               }
             }}
-          </Transition>
-        </Fragment>
+          </Transition>         
+        </NoteCardContainer>
       );
     } else {
       return <Fragment />;
@@ -127,6 +129,10 @@ const NoteCardDiv = styled("div")`
 const NoteTitle = styled("h2")`
   color: ${props => props.theme[props["data-theme"]].mainTitle};
 `;
+
+const NoteCardContainer = styled('div')`
+display:flex;
+`
 
 const NoteButton = styled("div")`
   cursor: pointer;
