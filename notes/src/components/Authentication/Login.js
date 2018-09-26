@@ -1,7 +1,6 @@
 import React from 'react';
 import LoginDiv from './Css.js';
 
-
 class Login extends React.Component {
 	constructor(props){
 		super(props);

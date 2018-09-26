@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 
 import { LinkedContainer, NoteLinks, SubmitContainerL, InputTitleL, InputContentL, DivClickL, Overlay, DeleteDive, DeleteBTN, NoBTN, ButtonFlex, Author } from './css'
 

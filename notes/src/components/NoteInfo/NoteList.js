@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Note from './Note';
 import { NotesContainer, MainContainer, SearchInput } from './css'
 
@@ -27,5 +26,3 @@ const NoteList = (props) => {
 }
 
 export default NoteList;
-
-//<div>{props.dataList.map((post) => <Post post={post} key={post.id} id={post.id} UP={props.upLikes} />)}</div>
