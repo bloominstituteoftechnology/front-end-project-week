@@ -4,8 +4,8 @@ function NoteForm(props) {
   return (
         <form>
             <div className="group">
-            <h2>Create New Note:</h2>
-            <h2>Edit Note:</h2>
+            <h2 className="create-note">Create New Note:</h2>
+            <h2 className="edit-note">Edit Note:</h2>
                 <input 
                     type="text" 
                     placeholder="Note title"
@@ -15,7 +15,7 @@ function NoteForm(props) {
                 />
             </div>
             <div className="group">
-                <textarea rows="10" cols="30" 
+                <textarea rows="25" cols="75" 
                     type="text" 
                     placeholder="Note Content"
                     value={props.textBody} 

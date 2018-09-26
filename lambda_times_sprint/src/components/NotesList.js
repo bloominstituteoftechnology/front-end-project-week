@@ -8,6 +8,7 @@ function NotesList(props) {
         return <h1>No notes found. Fetching data...</h1>
     }
     return (
+        <div className="note-section">
         <div className="notes-list-wrapper">
           <h2>Your Notes:</h2>
           <div className="notes-card-wrapper">
@@ -23,6 +24,7 @@ function NotesList(props) {
             </div>
             ))}
             </div>
+        </div>
         </div>
     );
 }

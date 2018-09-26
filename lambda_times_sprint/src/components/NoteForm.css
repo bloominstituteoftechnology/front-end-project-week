@@ -1,15 +1,33 @@
-/* .title {
-  font-size: 1.2em;
-  color: black;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 5px;
+.create-note {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
-.text-body {
-  color: black;
-  font-size: .9em;
-  border-top: 1px solid black;
-  margin: 15px;
-  padding-top: 10px;
-} */
+.edit-note {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+input[type=text], select {
+  width: 58%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  font-family: sans-serif;
+  width: 94%;
+  margin-top: 15px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
