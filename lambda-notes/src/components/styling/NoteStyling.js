@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const NotesContainer = styled.div`
   margin: 50px 10%;
 `;
-export const NoteAlign = styled.div`
+export const NotesLayout = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

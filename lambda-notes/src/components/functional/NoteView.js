@@ -11,6 +11,7 @@ class NoteView extends React.Component {
   };
 
   filterProps = () => {
+    //map through all the notes and load up the one that correctly corresponds with the ID of the note clicked
     this.props.notes.forEach(note => {
       if (this.props.match.params.id === note._id) {
         this.setState({ note: note });
@@ -23,6 +24,7 @@ class NoteView extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // males sure that the correct note is always displaying even if the state updates
     if (this.props.notes !== prevProps.notes) {
       this.filterProps();
     }
@@ -35,6 +37,7 @@ class NoteView extends React.Component {
 
   deleteClick = event => {
     event.preventDefault();
+    //Feed the note id to the deleteNote fxn
     this.props.deleteNote(this.state.note._id);
     //after successful deletion, go back to main note page
     this.props.history.goBack();

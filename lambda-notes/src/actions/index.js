@@ -6,7 +6,7 @@ export const FETCH_DATA = "FETCH_DATA";
 export const DATA_FETCHED = "DATA_FETCHED";
 export const ERROR = "ERROR";
 
-//
+
 export const getData = () => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
@@ -29,24 +29,25 @@ export const addNote = note => {
         dispatch({
           type: ADD_NOTE,
           payload: {
+            //the payload you're giving the API to populate the new note
             title: note.title,
             textBody: note.textBody,
-            id: timeStamp //this part acts weird, go back and fix this
+            id: timeStamp //using a timestamp as the ID as it's unique enough
           }, 
         })
       )
       .then(
+        // Re-GET all the notes, with the newly added one included
         axios.get("https://killer-notes.herokuapp.com/note/get/all")
         .then(response => dispatch({ type: DATA_FETCHED, payload: response.data }))
-      )
-      .catch(err => dispatch({ type: ERROR, err }));
+      ).catch(err => dispatch({ type: ERROR, err }));
   };
 
 };
 
 export const deleteNote = id => {
-
-  console.log('the id:' + id);
+  //feed in the note id from the deleteClick event in NoteView.js
+  console.log('the id of the note we shall delete:' + id);
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
@@ -59,10 +60,10 @@ export const deleteNote = id => {
 
 export const editNote = note => {
 
-  console.log('the note is:' + note);
+  console.log('the note being edited is:' + note);
   return dispatch => {
     dispatch({ type: FETCH_DATA });
-    axios
+    axios //Ping the edit fxn of the API with the newly modified note object
       .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
       .then(response => dispatch({ type: EDIT_NOTE, payload: response.data }))
       .catch(err => dispatch({ type: ERROR, err }));
