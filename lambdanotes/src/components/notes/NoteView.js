@@ -56,7 +56,7 @@ const NoteWrapper = styled.div`
   font-size: 18px;
   width: 100%;
   background: white;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   padding: 5px 15px 20px 15px;
 `;
 
