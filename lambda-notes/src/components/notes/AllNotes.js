@@ -8,7 +8,6 @@ class AllNotes extends Component {
     super(props);
     this.state = {
       allNotes: props.notes,
-      search: props.search,
     };
   }
 
@@ -27,6 +26,9 @@ class AllNotes extends Component {
         <h2 className="yourNotesTitle">Your Notes:</h2>
         <div className="allNotesDiv">
           {this.props.notes.map(note => {
+            if (note.title.toLowerCase().indexOf(search.toLowerCase()) === 0) {
+              note.style = { display: "hidden" };
+            }
             return (
               <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
                 <h2>
@@ -44,6 +46,26 @@ class AllNotes extends Component {
               </Link>
             );
           })}
+          {/* working map below */}
+          {/* {this.props.notes.map(note => {
+            
+            return (
+              <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
+                <h2>
+                  {note.title.length > 12
+                    ? note.title.substring(0, 12) + "..."
+                    : note.title}
+                </h2>
+                <div className="noteContent">
+                  <p>
+                    {note.content.length > 50
+                      ? note.content.substring(0, 50) + "..."
+                      : note.content}
+                  </p>
+                </div>
+              </Link>
+            );
+          })} */}
         </div>
       </div>
     );
