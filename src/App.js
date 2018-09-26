@@ -53,7 +53,7 @@ class App extends Component {
   };
 
   addHandler = event => {
-    // event.preventDefault();
+    event.preventDefault();
     const arr = this.state.notes.slice();
     if (this.state.title && this.state.note) {
       axios
