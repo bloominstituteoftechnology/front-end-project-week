@@ -7,88 +7,38 @@ import CreateNote from "./components/CreateNote";
 import NoteView from "./components/NoteView";
 import Home from "./components/Home";
 import EditView from "./components/EditView";
+import axios from 'axios';
+
+const url = "http://localhost:8000/api/notes";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          id: 1,
-          title: "hi",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 2,
-          title: "these",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 3,
-          title: "are",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 4,
-          title: "my",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 5,
-          title: "notes",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 6,
-          title: "lorem!",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 7,
-          title: "ipsum!",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 8,
-          title: "conan!",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        },
-        {
-          id: 9,
-          title: "dimsum!",
-          content:
-            "Lorem ipsum donair pizza. Mauris poris blastis das ist fakedata. Morbi pellenthesque a bunch of latin words."
-        }
-      ]
+      notes: [],
+      id: "",
+      title: "",
+      content: ""
     };
+  }
+
+  componentDidMount() {
+    axios.get(url).then(response => {
+      console.log(response);
+      this.setState({
+        notes: response.data
+      });
+    });
   }
 
   handleTextInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addNewNote = () => {
-    const notes = this.state.notes.slice();
-    // event.preventDefault();
-    notes.push({
-      id: notes.length + 1,
-      title: this.state.title,
-      content: this.state.content
-    });
-    this.setState({ notes });
-  };
-
-  // editNote = () => {
+  // addNewNote = () => {
   //   const notes = this.state.notes.slice();
-  //   notes.map({
+  //   // event.preventDefault();
+  //   notes.push({
   //     id: notes.length + 1,
   //     title: this.state.title,
   //     content: this.state.content
@@ -132,9 +82,9 @@ class App extends Component {
   deleteNote = id => {
     this.setState(prevState => ({
       notes: prevState.notes.filter(note => {
-        console.log('id', id === note.id);
+        console.log("id", id === note.id);
         // console.log('noteId', note.id);
-        note.id != id;
+        return note.id != id;
       })
     }));
   };
