@@ -21,6 +21,7 @@ export {
     getNote,
     addNewNote,
     deleteNote,
+    deleteAllNotes,
     setUpdateNote,
     updateNote,
 } from './notesActions';

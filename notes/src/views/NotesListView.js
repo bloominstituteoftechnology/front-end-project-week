@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getNotes, deleteNote } from '../actions';
+import { getNotes, deleteNote} from '../actions';
 
 import NotesList from '../components/NotesList';
 
@@ -13,7 +13,9 @@ class NotesListView extends React.Component {
 
     render() {
         return (
+            <div>
             <NotesList {...this.props} />
+            </div>
         );
     }
 }
