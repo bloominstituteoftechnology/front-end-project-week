@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import Draggable from 'react-draggable';
-import ReactPaginate from 'react-paginate';
+import {Responsive, WidthProvider} from 'react-grid-layout';
+require('../../node_modules/react-grid-layout/css/styles.css');
+require('../../node_modules/react-resizable/css/styles.css');
 
 const ReactMarkdown = require('react-markdown');
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const List = styled.div`
     background: #F1F1F1;
@@ -69,63 +71,50 @@ class ListView extends React.Component{
         const indexOfLastNote = currentPage * notesPerPage;
         const indexOfFirstNote = indexOfLastNote - notesPerPage;
         const currentNotes = this.props.notes.slice(indexOfFirstNote, indexOfLastNote);
-        const renderNotes = currentNotes.map(note => {
-            return(
-                 <NoteOverview style={{display: 'grid',
-                                        gridTemplateColumns: 'repeat(3, 1fr)',
-                                        gridGap: '50px',
-                                        gridAutoRows: 'minMax(100px, auto)'}}>
-                    <Draggable>      
-                        <SmallNote key={note.id}>
-                            <Title>{note.title}</Title>
-                            <Link to={`/note/${note.id}`}
-                                    style={{ textDecoration: 'none',
-                                            color: 'black' }}>
-                                <Content>
-                                    <ReactMarkdown source={note.textBody} />
-                                </Content>
-                            </Link>
-                        </SmallNote>
-                    </Draggable>        
-                </NoteOverview>
-        )});
         const pageNumbers = [];
         for ( let i = 1; i <= Math.ceil(totalNotes/notesPerPage); i++) {
             pageNumbers.push(i);
         }
         const renderPageNumbers = pageNumbers.map(num => {
-            return ( <li key={num} id={num} onClick={this.handlePageChange}>
-                {num}
-                </li>
-                )
+            return (
+                <ul key={num} 
+                    id={num} 
+                    onClick={this.handlePageChange}
+                    style={{ color: '#2AB4AE', textDecoration: 'underline', position:'center'}}>
+                    {num}
+                </ul>
+            );
         });
+        let layout = [
+            {i: 'box', x: 0, y: 0, w: 5, h: 3}
+        ];
+        const renderNotes = currentNotes.map(note => {
+            return(
+                <ResponsiveGridLayout className='layout'
+                    layout={layout}
+                    breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
+                    cols={{lg: 4, md: 4, sm: 4, xs: 4, xxs: 2}}
+                    rowHeight={250}
+                    width={1200}
+                    autoSize={true}> 
+                    <SmallNote key={note.id}>
+                        <Title>{note.title}</Title>
+                        <Link to={`/note/${note.id}`}
+                                style={{ textDecoration: 'none',
+                                        color: 'black' }}>
+                            <Content>
+                                <ReactMarkdown source={note.textBody} />
+                            </Content>
+                        </Link>
+                    </SmallNote>
+                </ResponsiveGridLayout>   
+        )});
         return(
             <div>
                 <List>
                     <H2>Your Notes:</H2>
-                    {renderPageNumbers}
+                    <div style={{display:'flex'}}>{renderPageNumbers}</div>
                     {renderNotes}
-                    {/* <NoteOverview style={{display: 'grid',
-                                        gridTemplateColumns: 'repeat(3, 1fr)',
-                                        gridGap: '10px',
-                                        gridAutoRows: 'minMax(100px, auto)'}}>
-                        {this.props.notes.map(note => {
-                            return(
-                                <Draggable>      
-                                    <SmallNote key={note.id}>
-                                        <Title>{note.title}</Title>
-                                        <Link to={`/note/${note.id}`}
-                                                style={{ textDecoration: 'none',
-                                                        color: 'black' }}>
-                                            <Content>
-                                                <ReactMarkdown source={note.textBody} />
-                                            </Content>
-                                        </Link>
-                                    </SmallNote>
-                                </Draggable>
-                            );
-                        })}
-                    </NoteOverview> */}
                 </List>
             </div>
         );
