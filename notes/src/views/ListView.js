@@ -7,7 +7,9 @@ import List from "../components/List";
 
 class ListView extends React.Component {
   componentDidMount() {
-    this.props.getNotes();
+    setTimeout(() => {
+      this.props.getNotes();
+    }, 1000);
   }
 
   render() {

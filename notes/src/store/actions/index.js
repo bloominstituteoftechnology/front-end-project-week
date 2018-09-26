@@ -9,7 +9,7 @@ export const NOTES_DELETE_ERROR = "NOTES_DELETE_ERROR";
 export const NOTES_ADD_START = "NOTES_ADD_START";
 export const NOTES_ADD_COMPLETE = "NOTES_ADD_COMPLETE";
 export const NOTES_ADD_ERROR = "NOTES_ADD_ERROR";
-export const NOTE_TO_UPDATE = "NOTE_TO_UPDATE";
+export const SET_UPDATE_NOTE = "SET_UPDATE_NOTE";
 export const NOTES_UPDATE_START = "NOTES_UPDATE_START";
 export const NOTES_UPDATE_COMPLETE = "NOTES_UPDATE_COMPLETE";
 export const NOTES_UPDATE_ERROR = "NOTES_UPDATE_ERROR";
@@ -43,9 +43,9 @@ export const addNewNote = note => dispatch => {
     });
 };
 
-export const noteToUpdate = id => {
+export const setUpdateNote = id => {
   return {
-    type: NOTE_TO_UPDATE,
+    type: SET_UPDATE_NOTE,
     payload: id
   };
 };
@@ -53,7 +53,7 @@ export const noteToUpdate = id => {
 export const updateNote = note => dispatch => {
   dispatch({ type: NOTES_UPDATE_START });
   axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
+    .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
     .then(response => {
       dispatch({ type: NOTES_UPDATE_COMPLETE, payload: response.data });
     })

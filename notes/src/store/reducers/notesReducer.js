@@ -8,7 +8,7 @@ import {
   NOTES_ADD_START,
   NOTES_ADD_COMPLETE,
   NOTES_ADD_ERROR,
-  NOTE_TO_UPDATE,
+  SET_UPDATE_NOTE,
   NOTES_UPDATE_START,
   NOTES_UPDATE_COMPLETE,
   NOTES_UPDATE_ERROR
@@ -52,7 +52,8 @@ export const notesReducer = (state = initialState, action) => {
     case NOTES_ADD_ERROR:
       console.log(action.payload);
     case SET_UPDATE_NOTE:
-      const note = state.notes.find(note => note.id === action.payload);
+      const note = state.notes.find(note => note._id === action.payload);
+      console.log("note in reduc", note);
       return { ...state, noteToUpdate: note ? note : null };
     case NOTES_UPDATE_START:
       return { ...state, updatingNote: true };

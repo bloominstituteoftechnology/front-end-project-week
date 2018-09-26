@@ -13,7 +13,6 @@ class CreateEditNoteView extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     if (this.props.noteToUpdate) {
       this.setState({ updatingNote: true, note: this.props.noteToUpdate });
     }

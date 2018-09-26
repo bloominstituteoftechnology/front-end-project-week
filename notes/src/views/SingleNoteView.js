@@ -3,7 +3,7 @@ import SingleNote from "../components/SingleNote";
 
 import { connect } from "react-redux";
 
-import { getNotes, deleteNote, noteToUpdate } from "../store/actions";
+import { getNotes, deleteNote, setUpdateNote } from "../store/actions";
 
 class SingleNoteView extends React.Component {
   componentDidMount() {
@@ -12,7 +12,9 @@ class SingleNoteView extends React.Component {
 
   goToUpdateForm = (event, id) => {
     event.preventDefault();
-    this.props.noteToUpdate(id);
+    console.log("single id", id);
+    this.props.setUpdateNote(id);
+    this.props.history.push("/create-note");
   };
 
   handleDeleteNote = noteId => {
@@ -42,5 +44,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getNotes, deleteNote, noteToUpdate }
+  { getNotes, deleteNote, setUpdateNote }
 )(SingleNoteView);

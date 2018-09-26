@@ -18,7 +18,8 @@ export default function SingleNote(props) {
       <button
         onClick={event => {
           event.preventDefault();
-          props.goToUpdateForm(event, note.id);
+          console.log("NOTE ID", note._id);
+          props.goToUpdateForm(event, note._id);
         }}
       >
         Edit
