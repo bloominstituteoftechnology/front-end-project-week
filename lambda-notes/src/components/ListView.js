@@ -7,6 +7,7 @@ import { getNotes } from "../actions";
 
 // Components
 import ListItem from "./ListItem";
+import Search from './Search';
 
 // CSS
 import "../CSS/ListView.css";
@@ -19,12 +20,17 @@ class ListView extends React.Component {
     this.props.getNotes();
   }
 
+  filterResult = (term) => {
+    this.props.notes.filter(note => note.title.includes(term));
+  }
+
   render() {
     return (
       this.props.isFetching ? 
       <img src={clippy} alt="clippy"/>
       :
       <div>
+        <Search filterResult={this.filterResult} />
         <h2 className="text-center">Your Notes: </h2>
         <div
           className="note-card-container"

@@ -10,6 +10,7 @@
   border-radius: 3px;
   border: 1px solid transparent;
   transition: all 200ms ease-in-out;
+  font-size: 1.6rem;
 }
 
 .link:hover, button:hover {
