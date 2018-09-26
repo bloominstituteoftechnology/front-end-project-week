@@ -13,6 +13,7 @@ const SideBarNav = () => {
   return (
     <SideBarNavWrapper className="SideBarNav">
       <Link to="/">View Your Notes</Link>
+      <Link to="/addnote">Add Note</Link>
     </SideBarNavWrapper>
   );
 };
