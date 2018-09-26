@@ -32,6 +32,7 @@ class CreateEditNoteView extends React.Component {
     event.preventDefault();
     console.log("handle add new note");
     this.props.addNewNote(this.state.note);
+    this.props.history.push("/");
   };
 
   handleUpdateNote = () => {

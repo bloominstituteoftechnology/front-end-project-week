@@ -8,6 +8,7 @@ import {
   NOTES_ADD_START,
   NOTES_ADD_COMPLETE,
   NOTES_ADD_ERROR,
+  NOTE_TO_UPDATE,
   NOTES_UPDATE_START,
   NOTES_UPDATE_COMPLETE,
   NOTES_UPDATE_ERROR
@@ -17,9 +18,10 @@ const initialState = {
   notes: [],
 
   fetchingNotes: false,
-  deletingNotes: false,
+  deletingNote: false,
   addingNote: false,
   updatingNote: false,
+  noteToUpdate: null,
 
   error: null
 };
@@ -36,7 +38,11 @@ export const notesReducer = (state = initialState, action) => {
     case NOTES_DELETE_START:
       return { ...state, deletingNote: true };
     case NOTES_DELETE_COMPLETE:
-      return { ...state, deletingNote: false, notes: action.payload };
+      return {
+        ...state,
+        deletingNote: false,
+        notes: action.payload
+      };
     case NOTES_DELETE_ERROR:
       console.log(action.payload);
     case NOTES_ADD_START:
@@ -45,6 +51,9 @@ export const notesReducer = (state = initialState, action) => {
       return { ...state, addingNote: false, notes: action.payload };
     case NOTES_ADD_ERROR:
       console.log(action.payload);
+    case SET_UPDATE_NOTE:
+      const note = state.notes.find(note => note.id === action.payload);
+      return { ...state, noteToUpdate: note ? note : null };
     case NOTES_UPDATE_START:
       return { ...state, updatingNote: true };
     case NOTES_UPDATE_COMPLETE:

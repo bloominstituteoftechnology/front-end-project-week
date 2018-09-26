@@ -9,6 +9,7 @@ export const NOTES_DELETE_ERROR = "NOTES_DELETE_ERROR";
 export const NOTES_ADD_START = "NOTES_ADD_START";
 export const NOTES_ADD_COMPLETE = "NOTES_ADD_COMPLETE";
 export const NOTES_ADD_ERROR = "NOTES_ADD_ERROR";
+export const NOTE_TO_UPDATE = "NOTE_TO_UPDATE";
 export const NOTES_UPDATE_START = "NOTES_UPDATE_START";
 export const NOTES_UPDATE_COMPLETE = "NOTES_UPDATE_COMPLETE";
 export const NOTES_UPDATE_ERROR = "NOTES_UPDATE_ERROR";
@@ -42,9 +43,15 @@ export const addNewNote = note => dispatch => {
     });
 };
 
+export const noteToUpdate = id => {
+  return {
+    type: NOTE_TO_UPDATE,
+    payload: id
+  };
+};
+
 export const updateNote = note => dispatch => {
   dispatch({ type: NOTES_UPDATE_START });
-
   axios
     .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
     .then(response => {
@@ -55,21 +62,19 @@ export const updateNote = note => dispatch => {
     });
 };
 
-export const deleteNote = id => {
-  return dispatch => {
-    dispatch({ type: NOTES_DELETE_START });
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        console.log(response);
-        dispatch({
-          type: NOTES_DELETE_COMPLETE,
-          payload: response.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        dispatch({ type: NOTES_DELETE_ERROR, payload: err });
+export const deleteNote = id => dispatch => {
+  dispatch({ type: NOTES_DELETE_START });
+  axios
+    .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log(response);
+      dispatch({
+        type: NOTES_DELETE_COMPLETE,
+        payload: response.data
       });
-  };
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: NOTES_DELETE_ERROR, payload: err });
+    });
 };
