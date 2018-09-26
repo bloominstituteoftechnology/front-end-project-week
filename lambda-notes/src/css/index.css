@@ -286,10 +286,13 @@
     width: 100%;
   }
 }
+.list h2 {
+  padding: 20px 0 0 0;
+}
 @media ( max-width: 710px ) {
   .list h2 {
-    padding: 20px 0 0 0;
     text-align: center;
+    margin-bottom: 0;
   }
 }
 .list .note-wrapper {
@@ -421,7 +424,7 @@
 .note-view {
   margin: 20px;
   margin-bottom: 200px;
-  max-width: 47vw;
+  width: 47vw;
 }
 .note-view .edit-delete-wrapper {
   text-align: right;
@@ -466,7 +469,7 @@
 }
 @media ( max-width: 1024px ) {
   .note-view {
-    max-width: 80vw;
+    width: 80vw;
   }
 }
 .home {
