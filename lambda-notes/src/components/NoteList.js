@@ -12,7 +12,7 @@ const NoteList = props => {
                     <NoteCard key={note.id}>
                         <NavLink to={`/note-view/${note.id}`}>
                             <H3>{note.title}</H3>
-                            <P>{note.content} ...</P>
+                             <P>{note.content} ...</P>
                         </NavLink>  
                     </NoteCard> 
                 )}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
 import NoteList from './components/NoteList';
@@ -22,6 +22,11 @@ class App extends Component {
     this.setState({notes:[...this.state.notes, newNote]})
   }
 
+  deleteNote = id => {
+    this.setState({notes: this.state.notes.filter(note => note.id !== id)});
+    this.props.history.push('/list-view');
+  }
+
   render(){
     return(
       <AppContainer>
@@ -36,7 +41,7 @@ class App extends Component {
             <NewNote {...props} createNote={this.createNote} />
           } />
           <Route path="/note-view/:id" render={props =>
-            <NoteView {...props} notes={this.state.notes} />
+            <NoteView {...props} notes={this.state.notes} deleteNote={this.deleteNote} />
           } />
         </MainContent>    
       </AppContainer> 
@@ -65,4 +70,4 @@ const MainContent = styled.div`
 
 
 
-export default App;
+export default withRouter(App);
