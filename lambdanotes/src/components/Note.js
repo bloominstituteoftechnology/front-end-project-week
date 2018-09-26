@@ -39,7 +39,7 @@ export default class Note extends Component {
     });
   } 
 
-    editNote = id => {
+  editNote = id => {
     axios
     .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
     .then(() => this.fetchNote(),
@@ -50,6 +50,10 @@ export default class Note extends Component {
     .catch(err => {
       console.error(err);
     });
+  }
+
+  handleInput = event => {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {

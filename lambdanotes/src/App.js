@@ -6,35 +6,39 @@ import NoteList from './components/NoteList';
 import Note from './components/Note';
 import NewNote from './components/NewNote';
 import EditNote from './components/EditNote';
+import styled from 'styled-components';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       notes: [],
+      note: null,
       updated: false
     };
   }
 
   render() {
     return (
-      <div className="App">
+      <AppDiv>
         <Navigation />
         <div className='note-container'>
-          {/* <Route exact path='/' render={props => (
-            <NoteList {...props} />
-          )} /> */}
           <Route exact path='/' component={NoteList} />
           <Route exact path='/notes/:id' render={props => (
             <Note {...props} /> 
           )} />
-          {/* <Route path='/notes/:id' component={Note} /> */}
           <Route path='/new' component={NewNote} />
           <Route path='/notes/edit/:id' render={props => (<EditNote {...props} />)} />
         </div>
-      </div>
+      </AppDiv>
     );
   }
 }
 
 export default App;
+
+const AppDiv = styled.div`
+  display: flex;
+
+
+`

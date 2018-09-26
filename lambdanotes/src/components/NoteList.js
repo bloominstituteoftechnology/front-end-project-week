@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NoteCard from './NoteCard';
 import '../App.css';
+import styled from 'styled-components';
 
 export default class NoteList extends Component {
   constructor(props) {
@@ -24,11 +25,18 @@ export default class NoteList extends Component {
 
   render() {
     return(
-      <div className='note-list'>
+      <ListDive>
         {this.state.notes.map((n,i) => (
           <NoteCard key={i} note={n} />)
         )}
-      </div>
+      </ListDive>
     );
   }
 }
+
+const ListDive = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F3F3F3;
+  border: 1px solid #BEBEBE;
+`

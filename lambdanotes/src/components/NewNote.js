@@ -5,7 +5,6 @@ export default class NewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // tags: ["tag", "otherTag"],
       title: '',
       textBody: ''
     };
@@ -17,7 +16,6 @@ export default class NewNote extends Component {
     .post('https://killer-notes.herokuapp.com/note/create', this.state)
     .then(() => 
     this.setState({
-      // tags: [],
       title: '',
       textBody: ''
     }))
@@ -34,7 +32,7 @@ export default class NewNote extends Component {
     return(
       <div className='new-note'>
         <h3>Create New Note:</h3>
-        <form onSubmit={this.addNewNote} >
+        <form onSubmit={this.addNewNote}>
           <input 
             type='text'
             onChange={this.handleInput}

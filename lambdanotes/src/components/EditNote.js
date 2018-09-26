@@ -10,25 +10,10 @@ export default class EditNote extends Component {
     };
   }
 
-  fetchNote = id => {
-    axios
-    .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-    .then(res => {
-      this.setState(() => ({ title: res.data.title, textBody: res.data.textBody }));
-    })
-    .catch(err => {
-      console.error(err);
-    });
-  }
-
   editNote = id => {
     axios
     .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
-    .then(() => this.fetchNote(res),
-    this.setState({
-      title: res.data.title,
-      textBody: res.data.textBody
-    }))
+    .then(() => this.fetchNote())
     .catch(err => {
       console.error(err);
     });
