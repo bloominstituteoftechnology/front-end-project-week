@@ -126,7 +126,7 @@ export const deleteAll = (allIds, history) => dispatch => {
 				});
 			})
 			.then(() => getKillerNotes()(dispatch))
-			.then(() => history.push('/list'))
+			.then(() => history.push('/'))
 			.catch(err => {
 				console.log(err);
 				dispatch({
