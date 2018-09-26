@@ -25,6 +25,8 @@ class App extends Component {
       successModal: false,
       // redirect
       redirect: false,
+      // searchbar
+      search: "",
     };
   }
   componentDidMount() {
@@ -40,6 +42,10 @@ class App extends Component {
 
   // new note and modify note handlers
   inputChangeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  searchChangeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -121,6 +127,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("ALL NOTES SEARCH BAR", this.state.search);
     if (this.state.loadedData === false) {
       return (
         <div>
@@ -140,6 +147,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 renderRedirect={this.renderRedirect}
+                searchChangeHandler={this.searchChangeHandler}
               />
             )}
           />

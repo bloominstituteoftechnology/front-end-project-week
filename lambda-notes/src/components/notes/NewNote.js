@@ -20,13 +20,13 @@ class NewNote extends Component {
           onSubmit={this.props.submitNewNoteHandler}
         >
           <input
-            placehold="Note Title"
+            placeholder="Note Title"
             name="title"
             onChange={this.props.inputChangeHandler}
             className="inputTitle"
           />
           <textarea
-            placehold="Note Content"
+            placeholder="Note Content"
             name="content"
             onChange={this.props.inputChangeHandler}
             className="inputContent"
