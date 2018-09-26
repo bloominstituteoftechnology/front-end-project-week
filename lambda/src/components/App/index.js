@@ -1,72 +1,78 @@
 import React, { Component } from 'react';
-import '../components.css';
-import './index.css';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Form from '../Form';
 import Note from '../Note';
 import NoteList from '../NoteList';
 import Sidebar from '../SideBar';
+import { getNotes, addNote } from '../../actions';
+import './index.css';
+import '../components.css';
 
 class App extends Component {
   state = {
-    notes: [],
+    filteredNotes: [],
+    search: '',
     title: '',
     textBody: ''
   };
 
-  // component did mount and refecth the notes from the api
+  // fetches all notes from server and passes them to store
   componentDidMount() {
-    this.refetchNotes();
+    this.props.getNotes();
   }
 
-  // refetch notes
-  refetchNotes = () => {
-    axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
-      .then(response => {
-        this.setState({ notes: response.data });
-      })
-      .catch(error => console.log(error));
-  };
-
-  // handle input change
+  // adjusts state of title and textBody whenever there is new input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // handle form submit
+  // handle the search change check if any of the data includes the search term
+  handleSearchChange = e => {
+    this.setState({ search: e.target.value });
+    setTimeout(() => {
+      const notes = this.props.notes.filter(note => {
+        return (
+          note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
+          note.textBody.toLowerCase().includes(this.state.search.toLowerCase())
+        );
+      });
+      this.setState({ filteredNotes: notes });
+    }, 1);
+  };
+
+  // sends current state of title and textBody to server, resets state, redirects to home page
   handleFormSubmit = e => {
     e.preventDefault();
-
-    const newNote = {
+    this.props.addNote({
       title: this.state.title,
       textBody: this.state.textBody
-    };
-
-    axios
-      .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
-      .then(response => {
-        this.refetchNotes();
-        this.setState({
-          title: '',
-          textBody: ''
-        });
-      })
-      .catch(error => console.log(error));
-
+    });
+    this.setState({ title: '', textBody: '' });
     this.props.history.push('/');
   };
 
   render() {
     return (
       <div className="container">
-        <Sidebar />
+        <Sidebar
+          search={this.state.search}
+          handleSearchChange={this.handleSearchChange}
+        />
 
         <Route
           exact
           path="/"
-          render={props => <NoteList notes={this.state.notes} />}
+          render={props => (
+            <NoteList
+              notes={
+                this.state.filteredNotes.length > 0
+                  ? this.state.filteredNotes
+                  : this.props.notes
+              }
+              fetchingNotes={this.props.fetchingNotes}
+            />
+          )}
         />
 
         <Switch>
@@ -83,16 +89,23 @@ class App extends Component {
             )}
           />
 
-          <Route
-            path="/notes/:id"
-            render={props => (
-              <Note {...props} refetchNotes={this.refetchNotes} />
-            )}
-          />
+          <Route path="/notes/:id" render={props => <Note {...props} />} />
         </Switch>
       </div>
     );
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes, addNote }
+  )(App)
+);
