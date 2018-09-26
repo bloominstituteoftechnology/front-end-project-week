@@ -7,7 +7,9 @@ import Note from '../components/Note';
 
 class NoteView extends React.Component {
     componentDidMount() {
-        this.props.getNote(noteId);
+        if (this.props.notesList.length === 0) {
+            this.props.getNotes();
+        }
     }
 
     handleDeleteNote = noteId => {

@@ -8,7 +8,7 @@ function Note(props) {
   const note = props.notesList.find(note=> note._id === parseInt(props.match.params.noteId), 10);
 
   function handleDelete() {
-    props.handleDeleteNote(noteId);
+    props.handleDeleteNote(note);
     props.history.push('/notes');
   }
 
