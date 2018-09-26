@@ -12,13 +12,14 @@ const NotesMain = (props) => {
             <Div3 key={note.id}>
               <H3>{note.title}</H3>
               <Hr />
-              <P>{note.text.substring(0, 150)}...</P>
+              <P>{note.text.substring(0, 105)}...</P>
               <P2>Tags:&nbsp;
                 {
                   note.tags.map(function(note, index) {
-                    return <span key={`tag${index}`}>{ (index ? ', ' : '') + note }</span>; 
+                    return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>; 
                   })
                 }
+                ...
               </P2>
               <Link to={`/notes/${note.id}`}>
                 <Button>View Note</Button>
@@ -50,6 +51,10 @@ const Div3 = styled.div`
   margin-bottom: 4%;
   padding: 0 2%;
   background: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 const H2 = styled.h2`
   margin-top: 8%;
@@ -60,12 +65,13 @@ const H3 = styled.h3`
 const P = styled.p``
 const P2 = styled.p`
   font-size: 1.2rem;
+  margin: 0;
 `
 const Button = styled.button`
   width: 50%;
   padding: 0;
   font-size: 1.2rem;
-  margin: 0 auto;
+  margin: 5% auto;
   &:hover {
     cursor: pointer;
   }

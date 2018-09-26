@@ -24,8 +24,8 @@ class App extends Component {
       },
       {
         id: 1537905924075,
-        title: "Trailblaze through the wild",
-        text: "Get out there and breathe in nature.",
+        title: "Wild Trailblazing",
+        text: "Get out there and breathe in nature. Throw on those hiking boots!",
         tags: ["backpacking", "nature", "outdoors"]
       },
       {
@@ -36,8 +36,8 @@ class App extends Component {
       },
       {
         id: 1537905943717,
-        title: "Trailblaze through the wild",
-        text: "Get out there and breathe in nature.",
+        title: "Wild Trailblazing",
+        text: "Get out there and breathe in nature. Throw on those hiking boots",
         tags: ["backpacking", "nature", "outdoors"]
       },
       {
@@ -144,7 +144,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.5rem;
     width: 190px;
     padding: 5%;
-    margin-bottom: 8%;
     border-radius: 2px;
   }
 `

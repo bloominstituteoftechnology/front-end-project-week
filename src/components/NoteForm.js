@@ -42,7 +42,7 @@ class NoteForm extends Component {
       this.props.history.push("/")
       this.setState({ editing: false })
     }
-    else {
+    else if (this.state.text.length > 50) {
       const newNote = {
         id: Date.now(),
         title: this.state.title,
@@ -58,6 +58,9 @@ class NoteForm extends Component {
       this.setState(emptyNote)
       this.props.history.push("/")
     }
+    else if (this.state.text.length < 50) {
+      alert("Minimum of 50 characters required for the text area.")
+    }
   }
 
   render() {
@@ -71,6 +74,7 @@ class NoteForm extends Component {
             placeholder="Title"
             value={this.state.title}
             onChange={this.handleChange}
+            maxLength="15"
             required
           />
           <Textarea
@@ -79,6 +83,8 @@ class NoteForm extends Component {
             placeholder="Text"
             value={this.state.text}
             onChange={this.handleChange}
+            pattern=".{50, 0}"
+            title="50 characters minimum"
             required
           />
           <Input2
