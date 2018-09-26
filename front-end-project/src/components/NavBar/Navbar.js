@@ -13,7 +13,7 @@ class NavBar extends Component {
     
   }
   render() {
-    const { selectedTheme, fetchData, filterByChar } = this.props;
+    const { selectedTheme, filterByChar } = this.props;
     return (
       <Header data-theme={selectedTheme}>
         <h1>Lambda Notes</h1>
@@ -45,7 +45,7 @@ class NavBar extends Component {
         <Button
         //--------------------------------------------------------Reset Search Button
           data-theme={selectedTheme}
-          onClick={() => this.props.fetchData()}
+          //onClick={() => this.props.fetchData()}
         >
           
           Reset Search

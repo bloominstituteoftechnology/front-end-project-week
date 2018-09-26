@@ -8,7 +8,7 @@ import Sort from "../Sort/Sort";
 
 const Notes = props => {
   const { notes, selectedTheme } = props;
-  console.log(notes);
+  
   return (
     <Fragment>
       <Sort {...props} />

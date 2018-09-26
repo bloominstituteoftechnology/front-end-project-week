@@ -11,20 +11,22 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { TransitionGroup } from "react-transition-group";
 import Transition from "react-transition-group/Transition";
 import { TweenMax } from "gsap";
+import {dummydata} from './dummydata'
 
 class NoteContainer extends Component {
   state = {
     notes: [],
     selectedTheme: "standardTheme",
     backupNotes: [],
-    sortOptions: ['A-Z', 'Z-A'],
+    sortOptions: ['A-Z', 'Z-A', 'Reset'],
     checklist: []
   };
 //-------------------------------------------------------Create, Update, Delete Notes
   createNewNote = note => {
     //note.id = this.state.notes.length + 1;
     this.setState(state => ({
-      notes: [...this.state.notes, note]
+      notes: [...this.state.notes, note],
+      backupNotes: [...this.state.backupNotes, note]
     }));
   };
   updateNote = newNote => {
@@ -36,16 +38,29 @@ class NoteContainer extends Component {
         return note;
       }
     });
+
+     const backupNotes = this.state.backupNotes.map(note => {
+      if (note._id === newNote._id) {
+        console.log("hi");
+        return newNote;
+      } else {
+        return note;
+      }
+    });
     this.setState({
-      notes: notes
+      notes: notes,
+      backupNotes:backupNotes
     });
   };
   deleteNote = id => {
     const notes = this.state.notes.filter(note => {
       return note._id !== id;
     });
+    const backupNotes = this.state.backupNotes.filter(note => {
+      return note._id !== id;
+    });
 
-    this.setState({ notes: notes });
+    this.setState({ notes: notes, backupNotes:backupNotes });
   };
   //----------------------------------------------------------------------Filters
   filterByChar = event => {
@@ -81,7 +96,7 @@ sortBy = sortOption => {
   switch(sortOption){
     case 'A-Z':
     this.setState({
-      notes: this.state.backupNotes.sort((a,b) =>{
+      notes: this.state.notes.sort((a,b) =>{
         let nameA = a.title.toUpperCase();
         let nameB = b.title.toUpperCase();
         if(nameA < nameB) {
@@ -97,7 +112,7 @@ sortBy = sortOption => {
 
     case 'Z-A':
     this.setState({
-      notes: this.state.backupNotes.sort((a,b) =>{
+      notes: this.state.notes.sort((a,b) =>{
         let nameA = a.title.toUpperCase();
         let nameB = b.title.toUpperCase();
         if(nameA < nameB) {
@@ -109,7 +124,20 @@ sortBy = sortOption => {
         return 0;
       })
     })
-    break
+    break;
+
+    case 'Reset':
+    
+    const sortedNotes = this.state.backupNotes.filter(note =>{
+      
+      return this.state.notes.includes(note)
+    })
+    
+    this.setState({
+      notes: sortedNotes
+     
+    })
+    break;
   }
 }
 //----------------------------------------------------------------------------------CheckList Functions
@@ -141,23 +169,30 @@ const {checklist} = this.state
   };
 //-----------------------------------------------------------------------------------Axios Data calls
   fetchData = () => {
-    console.log(this.state);
-    axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(response => {
-        console.log(response.data);
-        this.setState({
-          notes: response.data,
-          backupNotes: response.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+   this.setState({
+     notes: dummydata,
+     backupNotes: dummydata
+   })
+    // axios
+    //   .get("https://killer-notes.herokuapp.com/note/get/all")
+    //   .then(response => {
+    //     console.log(response.data);
+    //     this.setState({
+    //       notes: response.data,
+    //       backupNotes: response.data
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   };
   //-----------------------------------------------------------------------------------Life-Hooks
   componentDidMount() {
-    this.fetchData();
+    //this.fetchData();
+    this.setState({
+      notes: dummydata,
+      backupNotes: dummydata
+    })
   }
 
   render() {//------------------------------------------------------Components

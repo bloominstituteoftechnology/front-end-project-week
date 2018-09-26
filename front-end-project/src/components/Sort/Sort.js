@@ -9,7 +9,7 @@ const Sort = props => {
         <DropdownBtn data-theme={selectedTheme}>Sort By:</DropdownBtn>
         <DropdownContent data-theme={selectedTheme}>
           {sortOptions.map(sortOption => (
-            <a onClick={() => sortBy(sortOption)}>{sortOption}</a>
+            <a onClick={() => {sortBy(sortOption);}}>{sortOption}</a>
           ))}
         </DropdownContent>
       </Dropdown>

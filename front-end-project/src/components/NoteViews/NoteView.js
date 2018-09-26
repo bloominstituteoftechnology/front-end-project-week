@@ -17,12 +17,11 @@ class NoteView extends Component {
   };
 
   render() {
-    console.log(this.props.notes);
-    console.log(this.props.match.params.id);
+    
     const note =
       this.props.notes &&
       this.props.notes.find(note => note._id === this.props.match.params.id);
-    console.log(note);
+    
     const { selectedTheme } = this.props;
     // let title = ''
     // let textBody = ''
@@ -35,7 +34,7 @@ class NoteView extends Component {
       : { title: "", textBody: "", _id: "" };
     const { isDeleting } = this.state;
 
-    console.log(this.props.match.url === `/notes/${this.props.match.params.id}`)
+   
 
     if (note) {
       return (
