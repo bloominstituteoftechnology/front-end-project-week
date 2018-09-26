@@ -19,12 +19,7 @@ const List = styled.div`
 const H2 = styled.h2`
     z-index:1;
 `;
-const NoteOverview = styled.div`
-    display: flex;
-    background: #F1F1F1;
-    max-width: 900px;
-    justfiy-content: space-around;
-`;
+
 const SmallNote = styled.div`
     height: 250px;
     width: 250px;
@@ -86,35 +81,36 @@ class ListView extends React.Component{
             );
         });
         let layout = [
-            {i: 'box', x: 0, y: 0, w: 5, h: 3}
+            {i: 'box', x: 0, y: 0, w: 4, h: 4}
         ];
         const renderNotes = currentNotes.map(note => {
             return(
-                <ResponsiveGridLayout className='layout'
-                    layout={layout}
-                    breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-                    cols={{lg: 4, md: 4, sm: 4, xs: 4, xxs: 2}}
-                    rowHeight={250}
-                    width={1200}
-                    autoSize={true}> 
-                    <SmallNote key={note.id}>
-                        <Title>{note.title}</Title>
-                        <Link to={`/note/${note.id}`}
-                                style={{ textDecoration: 'none',
-                                        color: 'black' }}>
-                            <Content>
-                                <ReactMarkdown source={note.textBody} />
-                            </Content>
-                        </Link>
-                    </SmallNote>
-                </ResponsiveGridLayout>   
-        )});
+                <SmallNote key={note.id}>
+                    <Title>{note.title}</Title>
+                    <Link to={`/note/${note.id}`}
+                            style={{ textDecoration: 'none',
+                                    color: 'black' }}>
+                        <Content>
+                            <ReactMarkdown source={note.textBody} />
+                        </Content>
+                    </Link>
+                </SmallNote>
+            )
+        });
         return(
             <div>
                 <List>
                     <H2>Your Notes:</H2>
                     <div style={{display:'flex'}}>{renderPageNumbers}</div>
-                    {renderNotes}
+                    <ResponsiveGridLayout className='layout'
+                    layout={layout}
+                    breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
+                    cols={{lg: 4, md: 4, sm: 4, xs: 4, xxs: 2}}
+                    rowHeight={250}
+                    width={1200}
+                    autoSize={true}>
+                        {renderNotes}  
+                    </ResponsiveGridLayout>  
                 </List>
             </div>
         );
