@@ -66,7 +66,7 @@ class EditNoteForm extends React.Component{
                 content:this.props.note.textBody,
                 id:this.props.note.id,
                 tags:this.props.note.tags?this.props.note.tags.replace(/,/g,''):''}
-            ,()=>localStorage.setItem('note',JSON.stringify(this.props.note)));
+            ,()=>localStorage.setItem('note',JSON.stringify(this.state)));
         } else {
             const note=JSON.parse(localStorage.getItem('note'));
             this.setState({title:note.title,
