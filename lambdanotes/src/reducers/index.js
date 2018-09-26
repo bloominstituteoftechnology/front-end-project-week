@@ -7,7 +7,10 @@ import {
   FETCH_NOTE_ERROR,
   NOTE_ADD,
   NOTE_ADDED,
-  NOTE_ADD_ERROR
+  NOTE_ADD_ERROR,
+  DELETE_NOTE,
+  DELETEED_NOTE,
+  DELETE_NOTE_ERROR
 } from '../actions';
 
 // const initialState = {};
@@ -60,7 +63,7 @@ const rootReducer = (state = initialState, action) => {
     case NOTE_ADDED:
       return {
         ...state,
-        notes: action.payload,
+        // notes: action.payload,
         fetching: false
       };
     case NOTE_ADD_ERROR:

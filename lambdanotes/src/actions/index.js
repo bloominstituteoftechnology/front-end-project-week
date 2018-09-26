@@ -10,6 +10,9 @@ export const FETCH_NOTE_ERROR = 'FETCH_NOTE_ERROR';
 export const NOTE_ADD = 'NOTE_ADD';
 export const NOTE_ADDED = 'NOTE_ADDED';
 export const NOTE_ADD_ERROR = 'NOTE_ADD_ERROR';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETED_NOTE = 'DELETED_NOTE';
+export const DELETE_NOTE_ERROR = 'DELETE_NOTE_ERROR';
 
 export const fetchNotes = () => {
   return dispatch => {
@@ -53,5 +56,21 @@ export const addNote = note => {
       })
 
       .catch(error => dispatch({ type: NOTE_ADD_ERROR, error: error }));
+  };
+};
+
+export const deleteNote = id => {
+  return dispatch => {
+    dispatch({ type: DELETE_NOTE });
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log(response.data);
+        dispatch({ type: DELETED_NOTE, payload: response.data });
+      })
+      // .then( () => {
+      //   dispatch({ browserHistory.push(myPath); })
+      // })
+      .catch(error => dispatch({ type: DELETE_NOTE_ERROR, error: error }));
   };
 };
