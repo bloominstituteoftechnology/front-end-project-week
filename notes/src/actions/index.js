@@ -7,6 +7,9 @@ export const POSTING = 'POSTING';
 export const ERROR = 'ERROR';
 export const DELETING = 'DELETING';
 export const DELETED = 'DELETED';
+export const EDITING = 'EDITING';
+export const EDITED = 'EDITED';
+
 
 export const fetchNotes = () => {
 
@@ -54,8 +57,25 @@ export const deleteNote = id => {
         dispatch({type: DELETING});
 
         deleteNoteRequest.then(res => {
-            console.log(res.data)
             dispatch({type: DELETED, payload: res.data})
+        }).catch(err => {
+            console.log(err);
+            dispatch({type: ERROR})
+        })
+    }
+}
+
+export const editNote = (id, newNote) => {
+
+    const editNoteRequest = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newNote);
+
+    return dispatch => {
+
+        dispatch({type: EDITING});
+
+        editNoteRequest.then(res => {
+            console.log(res.data);
+            dispatch({type: EDITED, payload: res.data})
         }).catch(err => {
             console.log(err);
             dispatch({type: ERROR})

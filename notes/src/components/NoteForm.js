@@ -13,10 +13,6 @@ class NoteForm extends React.Component {
         }
     }
 
-    // componentDidMount(){
-        
-    // }
-
     handleInput = (event) => {
         event.preventDefault();
         this.setState({

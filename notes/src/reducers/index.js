@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED, POSTING, POSTED, DELETING, DELETED, ERROR} from '../actions/index';
+import {FETCHING, FETCHED, POSTING, POSTED, EDITING, EDITED, DELETING, DELETED, ERROR} from '../actions/index';
 
 const initialState = {
     fetchingNotes: false,
@@ -9,6 +9,8 @@ const initialState = {
     notes: [],
     deletingNote: false,
     noteDeleted: false,
+    editingNote: false,
+    noteEdited: false
 //     notes: [
 //         {
 //             title: 'Test Note',
@@ -50,7 +52,9 @@ export const rootReducer = (state = initialState, action) => {
             });
 
             return Object.assign({}, state, {
-                notePosted: true, postingNote: false, notes: newNotes
+                notePosted: true, 
+                postingNote: false, 
+                notes: newNotes
             })
 
         case DELETING:
@@ -68,6 +72,21 @@ export const rootReducer = (state = initialState, action) => {
                 error: "Operation failed."
             })
         
+        case EDITING:
+            return Object.assign({}, state, {
+                editingNote: true
+            })
+
+        case EDITED:
+            let updatedNotes = state.notes.map(note => {
+                return note;
+            });
+            return Object.assign({}, state, {
+                editingNote: false, 
+                noteEdited: true,
+                notes: updatedNotes
+            })
+
 
         default:
             return state;

@@ -2,7 +2,7 @@ import React from 'react';
 import {deleteNote} from '../actions';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody } from 'reactstrap';
 
 let currentNote = {};
 
@@ -21,8 +21,8 @@ class NoteDetails extends React.Component {
          
     {props.notes.map(note => {
         if(note._id === props.match.params.id){
-            
             currentNote = Object.assign({}, note);
+            return currentNote;
         }
     })}
     
@@ -60,6 +60,8 @@ class NoteDetails extends React.Component {
         <div>
             <h1>{currentNote.title}</h1>
             <p>{currentNote.textBody}</p>
+
+            <Link to = {`/notes/edit/${currentNote._id}`}><Button color = 'info'>EDIT</Button></Link>
 
 
             <Button color='danger' onClick={this.toggle}>DELETE</Button>
