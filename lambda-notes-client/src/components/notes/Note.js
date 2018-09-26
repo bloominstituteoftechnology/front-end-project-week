@@ -1,11 +1,10 @@
 import React from 'react';
-import '../../index.css';
-
 import { Link } from 'react-router-dom';
+
+import '../../index.css';
 
 
 const Note = props => {
-
 
   function shortenTitle (title) {
     let arr = [];
@@ -42,14 +41,17 @@ const Note = props => {
     }
   }
 
-
   return (
-    <Link className="article-note__linked" to={`/notes/${props.urlTitle}`}>
+    <Link 
+      className="article-note__linked" 
+      to={`/notes/${props.urlTitle}`}
+    >
       <h3>{shortenTitle(props.title)}</h3>
       <hr className="underline" />
       <p>{shortenDesc(props.description)}</p>
     </Link>
   );
 }
+
 
 export default Note;
