@@ -20,7 +20,7 @@ const SingleNote = (props) => {
             </Link>
             </div>
             <div className="statement">
-            <h2>Props . Title</h2>
+            <h2>Note Title</h2>
             </div>
             <div className="cards">
             <p>Note Content</p>

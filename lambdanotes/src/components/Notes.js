@@ -8,7 +8,7 @@ import './Notes.css';
 //   }
 
 function Notes(props) {
-    // console.log({clickID});
+    console.log(props);
 return (  
 
     <div className ="card">

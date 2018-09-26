@@ -4,6 +4,7 @@ import SideBar from './SideBar';
 import NoteView from './NoteView';
 import CreateNew from './CreateNew';
 import SingleNote from './SingleNote'
+import EditNote from './EditNote';
 // import Notes from './Notes';
 import axios from 'axios';
 import './App.css';
@@ -18,6 +19,7 @@ class App extends Component {
         title: '',
         textBody: '',
       },
+      note:''
     };
   }
 
@@ -46,21 +48,34 @@ class App extends Component {
      })
    }
 
-    Submit = event  => {
-      event.preventDefault();
-      const notes = this.state.notes.slice();
-      notes.push({ title: this.notes.title, note: this.notes.note, id: Date.now() });
-      this.setState({ notes, note:''});
-  }
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({
+      note: {
+        ...this.state.note,
+        [event.target.name]: event.target.value,
+      }
+      
+    });
+  };
 
-    // clickID = (note, e) => {
-    //   event.preventDefault();
-    //   e.target.value, note
-    // }
+
+  handleAddNewNote = event => {
+    event.preventDefault();
+    console.log('firing');
+    axios
+    .post('https://killer-notes.herokuapp.com/note/create', this.state.note)
+    .then(response => this.setState({note: response.data }));
+  };
+
+    clickID = (event) => {
+      event.preventDefault();
+      return [event.target.id]
+    }
 
 
   render() {
-    // console.log(this.state.notes);
+    console.log(this.state.notes);
     return (
       // <Router>
       <div className="App">
@@ -75,18 +90,26 @@ class App extends Component {
           notes={this.state.notes}
           />}
           />
-          {/* //Comeback and check on lines 53 and 57// */}
           <Route path='/createcards'
           render={(props) => 
-          <CreateNew {...props} 
-          notes={this.state.notes} 
-          handleSubmit= {this.handleSubmit}/>} 
-          component={CreateNew}
+          <CreateNew {...props}
+            handleAddNewNote={this.handleAddNewNote}
+            handleChange={this.handleChange}
+            notes={this.state.notes}
+            note={this.state.note} 
+            handleSubmit={this.handleSubmit}/>}
           />
           <Route path="/notes/:id"
           render={(props) => 
-          <SingleNote {...props} notes={this.state.notes}/>}
+          <SingleNote {...props} 
+          notes={this.state.notes}/>}
          />
+          <Route path='/editcard'
+          render={(props) => 
+          <EditNote {...props}
+          notes={this.state.props}/>}
+          />
+
         </Switch>
         </div>
       </div>
