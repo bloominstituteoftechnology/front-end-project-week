@@ -25,10 +25,6 @@ class App extends Component {
     this.props.fetchNotes();
   }
 
-  componentDidUpdate() {
-    this.props.fetchNotes();
-  }
-
   addNote = (note) => {
     console.log('addNote', this.props.notes)
     this.props.newNote(note);
@@ -50,13 +46,13 @@ class App extends Component {
         <SideBar />
         {/* Routes based on SideBar navigations or main-view navigations - note, edit, delete */}
         {/* main-view with all notes */}
-        <Route exact path='/' render={props => ( <Notes {...props} notes={this.props.notes} /> )} />
+        <Route exact path='/' component={Notes} />
         {/* main-view with specific note, contains DeleteNote component */}
-        <Route path='/note/:id' render={props => ( <Note {...props} notes={this.props.notes} deleteNote={this.deleteNote} /> )} />
+        <Route path='/note/:id' render={props => ( <Note {...props} deleteNote={this.deleteNote} /> )} />
         {/* main-view create note goes here, class component */}
-        <Route exact path='/create-note' render={props => ( <CreateNote {...props} notes={this.props.notes} addNote={this.addNote} /> )} />
+        <Route exact path='/create-note' render={props => ( <CreateNote {...props} addNote={this.addNote} /> )} />
         {/* main-view edit note goes here, class component */}
-        <Route exact path='/note-edit/:id' render={props => ( <EditNote {...props} notes={this.props.notes} editNote={this.editNote} /> )} /> 
+        <Route exact path='/note-edit/:id' render={props => ( <EditNote {...props} editNote={this.editNote} /> )} /> 
     </div>
     );
   }

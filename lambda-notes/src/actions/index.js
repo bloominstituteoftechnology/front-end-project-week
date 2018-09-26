@@ -28,15 +28,15 @@ export const newNote = note => dispatch => {
 
   axios.post('https://killer-notes.herokuapp.com/note/create', note)
     .then(res => {
-        axios.put(`https://killer-notes.herokuapp.com/note/edit/${res.data.success}`, note)
-            .then(res => {
+        // axios.put(`https://killer-notes.herokuapp.com/note/edit/${res.data.success}`, note)
+        //     .then(res => {
               console.log('addNew', res.data);
                 dispatch({ type: NOTE_ADDED, payload: res.data })
             })
             .catch(err => {
                 dispatch({ type: FETCH_ERROR, payload: err })
             })
-    })
+    
     .catch(err => {
       console.log('newNote', note);
       dispatch({ type: FETCH_ERROR, payload: err })

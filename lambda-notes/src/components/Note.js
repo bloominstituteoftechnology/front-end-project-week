@@ -16,13 +16,15 @@ class Note extends React.Component {
     }
 
     componentDidMount() {
-    
+        this.props.fetchNotes();
+        setTimeout(() => {
         const note = this.props.notes.find(note => note._id == this.props.match.params.id);
         this.setState({
             _id: note._id,
             title: note.title,
             textBody: note.textBody
         })
+        }, 1000);
     }
 
     render() {

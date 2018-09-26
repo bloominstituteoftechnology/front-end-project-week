@@ -1,6 +1,8 @@
 import React from 'react';
 import '../App.css';
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { fetchNotes } from '../actions';
 
 class EditNote extends React.Component {
     constructor(props) {
@@ -14,12 +16,15 @@ class EditNote extends React.Component {
 
 
     componentDidMount() {
+        this.props.fetchNotes();
+        setTimeout(() => {
         const note = this.props.notes.find(note => note._id == this.props.match.params.id);
         this.setState({
             _id: note._id,
             title: note.title,
             textBody: note.textBody
         })
+        }, 1000);
     }
 
     handleInput = (event, props) => {
@@ -40,4 +45,10 @@ class EditNote extends React.Component {
     }
 }
 
-export default EditNote; 
+const mapStateToProps = state => {
+    return {
+        notes: state.notes
+    }
+}
+
+export default connect(mapStateToProps, {fetchNotes})(EditNote); 
