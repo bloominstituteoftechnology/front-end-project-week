@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const Search = styled.input`
   width: 250px;

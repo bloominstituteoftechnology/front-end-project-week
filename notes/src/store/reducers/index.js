@@ -1,4 +1,4 @@
-import { ADD_NOTE, 
+import { 
         DELETE_NOTE, 
         SET_UPDATE_NOTE, 
         UPDATE_NOTE, 
@@ -44,7 +44,7 @@ export const notesReducer = (state=initialState, action) => {
         const note = state.notes.find(note => note.title === action.payload)
             return {...state, noteToUpdate: note ? note : null}
         case UPDATE_NOTE:      
-            let noteIndex = state.notes.findIndex(note => note._id == action.payload._id);
+            let noteIndex = state.notes.findIndex(note => note._id === action.payload._id);
             console.log('noteindex', noteIndex);
             state.notes[noteIndex] = action.payload;
             return {...state, ...state.notes[noteIndex], noteToUpdate: null}

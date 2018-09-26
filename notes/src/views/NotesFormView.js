@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { addNote, updateNote } from '../store/actions';
 import NotesForm from '../components/NotesForm/NotesForm';
 
-let nextId = 0;
+// let nextId = 0;
 
-function getNewId() {
-  return nextId++;
-}
+// function getNewId() {
+//   return nextId++;
+// }
 
 class NotesFormView extends React.Component {
     state={

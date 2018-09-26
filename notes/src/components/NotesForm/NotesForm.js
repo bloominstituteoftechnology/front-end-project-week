@@ -13,7 +13,7 @@ function NotesForm(props) {
     }
 
     return (
-        <Fragment className='overall-container'>
+        <Fragment>
             
             <form className='form-container'>
             <h2>{props.isUpdating ? 'Update Note' : 'Create New Note'}</h2>

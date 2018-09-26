@@ -19,7 +19,7 @@ class NotesListView extends React.Component {
         }
     
     componentDidMount() {
-        this.props.notesList;
+        // this.props.notesList;
         if(this.props.notesList.length === 0){
             this.props.getNotes();
         }

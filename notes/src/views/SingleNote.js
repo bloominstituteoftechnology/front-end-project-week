@@ -1,9 +1,9 @@
 import React from "react";
-import NotesList from '../components/NotesList/NotesList';
+
 import './SingleNote.css';
 import { connect } from 'react-redux';  
 import { deleteNote, setUpdateNote, getNotes } from '../store/actions';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 
 class SingleNote extends React.Component {

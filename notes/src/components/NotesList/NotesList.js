@@ -49,10 +49,10 @@ function NotesList(props) {
     
     return (
         <div className='note-container'>
-            {props.notesList.map(note => (  
-                <Note>
+            {props.notesList.map((note, index) => (  
+                <Note key={index}>
                    <NavLink to={`notes/${note.title}`} activeClassName='active'>      
-                    <SingleNote key={note.title} noteId={note.title} {...props} note={note}/>      
+                    <SingleNote  noteId={note.title} {...props} note={note}/>      
                     </NavLink>  
                 </Note> 
             ))}
