@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
+import axios from 'axios';
 
 import Login from './login';
 import Register from './register';
@@ -14,24 +15,20 @@ import {
 
 class Welcome extends Component{
 
-    createUser = async (newUser) => {
+    createUser = (newUser) => {
         console.log('createuser in welcome.js', this)
-         await this.props.createUser(newUser);
-        //   if (this.props.state.failedRegistrationAttempt){
-        //         this.props.history.push('/welcome/register')
-        //     } else {
-                this.props.history.push('/all-notes')
-            // }
+        axios.post('http://localhost:3333/api/welcome/register', newUser).then(res => {
+            localStorage.setItem('JWT', res.data.token)
+            this.props.history.push('/all-notes')
+        }).catch(err => {console.log(err.message)})
     }
 
-    loginUser2 = async (creds) => {
+    loginUser2 =  (creds) => {
         console.log('loginuser in welcome.js', creds)
-        await this.props.loginUser(creds)
-        //  if(this.props.state.sucessfulLogin){
-        //     this.props.history.push('/all-notes')
-        // } else {
-            this.props.history.push('/')
-        // }
+        axios.post('http://localhost:3333/api/welcome/login', creds).then(res => {
+            localStorage.setItem('JWT', res.data.token)
+            this.props.history.push('/all-notes')
+        }).catch(err => {console.log(err.message)})
     }
 
     render(props){

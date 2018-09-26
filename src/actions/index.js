@@ -17,38 +17,38 @@ export const CREDENTIALS_ACCEPTED = 'CREDENTIALS_ACCEPTED';
 export const FAILED_LOGIN_ATTEMPT = 'FAILED_LOGIN_ATTEMPT';
 export const FAILED_REGISTRATION_ATTEMPT = 'FAILED_REGISTRATION_ATTEMPT';
 
-export const loginUser = (creds) => {
-  return function(dispatch){
-    dispatch({type: SENDING_CREDENTIALS})
-    axios.post('http://localhost:3333/api/welcome/login', creds)
-    .then(res => {
-      localStorage.setItem('JWT', res.data.token)
-      dispatch({type: CREDENTIALS_ACCEPTED, payload: res.data})
-      this.getNotes();
-    })
-    .catch(err => {
-      dispatch({type: FAILED_LOGIN_ATTEMPT, payload: err})
-    })
-  }
-}
+// export const loginUser = (creds) => {
+//   return function(dispatch){
+//     dispatch({type: SENDING_CREDENTIALS})
+//     axios.post('http://localhost:3333/api/welcome/login', creds)
+//     .then(res => {
+//       localStorage.setItem('JWT', res.data.token)
+//       dispatch({type: CREDENTIALS_ACCEPTED, payload: res.data})
+//       this.getNotes();
+//     })
+//     .catch(err => {
+//       dispatch({type: FAILED_LOGIN_ATTEMPT, payload: err})
+//     })
+//   }
+// }
 
-export const createUser = (newUser) => {
-  // console.log(newUser)
-  return function(dispatch){
-    dispatch({type: SENDING_NEW_USERDATA})
-    axios.post('http://localhost:3333/api/welcome/register', newUser)
-    .then(res => {
-      localStorage.setItem('JWT', res.data.token)
-      dispatch({type: USER_CREATED, payload: res.data});
-      console.log(this)
-      this.getNotes();
-    })
-    .catch(err => {
-      dispatch({type: FAILED_REGISTRATION_ATTEMPT, payload: err})
+// export const createUser = (newUser) => {
+//   // console.log(newUser)
+//   return function(dispatch){
+//     dispatch({type: SENDING_NEW_USERDATA})
+//     axios.post('http://localhost:3333/api/welcome/register', newUser)
+//     .then(res => {
+//       localStorage.setItem('JWT', res.data.token)
+//       dispatch({type: USER_CREATED, payload: res.data});
+//       console.log(this)
+//       this.getNotes();
+//     })
+//     .catch(err => {
+//       dispatch({type: FAILED_REGISTRATION_ATTEMPT, payload: err})
 
-    })
-  }
-}
+//     })
+//   }
+// }
 
 
 export const getNotes = () =>  {
