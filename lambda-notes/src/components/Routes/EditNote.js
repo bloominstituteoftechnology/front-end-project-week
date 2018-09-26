@@ -17,14 +17,14 @@ class EditNote extends Component {
         this.state = {
             notes: [],
             title: '',
-            textBody: ''
+            content: ''
         }
     };
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        let note = this.props.notes.find(note => id === note._id.toString())
-        this.setState({ title: note.title, textBody: note.textBody })
+        let note = this.props.notes.find(note => id === note.id.toString())
+        this.setState({ title: note.title, content: note.content })
         console.log(note)
 
     }
@@ -37,7 +37,7 @@ class EditNote extends Component {
         e.preventDefault();
         const editedNote = {
             title: this.state.title,
-            textBody: this.state.textBody
+            content: this.state.content
 
         }
         this.props.editNote(editedNote, this.props.match.params.id);
@@ -57,8 +57,8 @@ class EditNote extends Component {
                         onChange={this.handleInputChange}
                     /><br />
                     <input
-                        name='textBody'
-                        value={this.state.textBody}
+                        name='content'
+                        value={this.state.content}
                         type="text"
                         onChange={this.handleInputChange}
                     /><br />

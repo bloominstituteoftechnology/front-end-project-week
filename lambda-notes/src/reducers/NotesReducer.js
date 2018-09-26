@@ -46,7 +46,7 @@ export const notesReducer = (state = initialState, action) => {
                 ...state,
                 updatingNote: false,
                 notes: state.notes.map((note) => {
-                    if (note._id === action.payload._id) {
+                    if (note.id === action.payload.id) {
                         return action.payload;
                     }
                     return note;

@@ -41,7 +41,7 @@ export const createNote = (note) => {
             type: ADD_NOTE
         })
         axios
-            .post('https://killer-notes.herokuapp.com/note/create', note)
+            .post(`${URL}`, note)
             .then(response => {
                 dispatch({
                     type: ADDED,
@@ -63,7 +63,7 @@ export const editNote = (note, id) => {
             type: UPDATE_NOTES
         })
         axios
-            .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+            .put(`${URL}/${id}`, note)
             .then(response => {
                 dispatch({
                     type: UPDATED,
@@ -85,7 +85,7 @@ export const deleteNote = (note, id) => {
             type: DELETE_NOTE,
         })
         axios
-            .delete(`https://killer-notes.herokuapp.com/note/delete/id/${id}`, note)
+            .delete(`${URL}/${id}`, note)
             .then(response => {
                 dispatch({
                     type: DELETED,

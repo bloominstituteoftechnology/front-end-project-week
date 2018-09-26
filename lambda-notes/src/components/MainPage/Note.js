@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -12,12 +12,12 @@ height: 150px;
 `
 
 function SingleNote({ note }) {
-    const { _id, title, textBody } = note;
+    const { id, title, content } = note;
     return (
-        <Link to={`/view-note/${_id}`}>
+        <Link to={`/notes/${id}`}>
             <NoteContainer>
                 <div className='headline'>{title}</div>
-                <div className='content'>{textBody}</div>
+                <div className='content'>{content}</div>
             </NoteContainer>
         </Link>
     );

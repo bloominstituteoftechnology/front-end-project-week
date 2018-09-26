@@ -25,22 +25,22 @@ class NoteViewer extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        const note = this.props.notes.filter(note => id === note._id.toString())
+        const note = this.props.notes.filter(note => id === note.id.toString())
         this.setState({ note: note[0] })
 
     }
 
     render() {
         console.log(this.state)
-        const { title, textBody, _id } = this.state.note;
+        const { title, content, id } = this.state.note;
         return (
             < Main >
-                <Link to={`/edit-note/${_id}`}><div>edit</div></Link>
+                <Link to={`/edit-note/${id}`}><div>edit</div></Link>
                 <Link to='/delete-note'><div>delete</div></Link>
                 <div>
                     <NoteContainer>
                         <h1>{title}</h1>
-                        <div>{textBody}</div>
+                        <div>{content}</div>
                     </NoteContainer>
                 </div>
             </Main>

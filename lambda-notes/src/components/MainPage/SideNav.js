@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Sidebar = styled.div`
 padding: 30px;
-width: 20%;
+width: 10%;
 height: 100%;
 display: flex;
 justify-content:left;

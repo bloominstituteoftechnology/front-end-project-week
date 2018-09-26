@@ -26,7 +26,7 @@ class ViewNotes extends Component {
             < Main >
                 <Header><h1>Your Notes:</h1></Header>
                 {this.props.notes.map(note => (
-                    <SingleNote key={note._id} note={note} />
+                    <SingleNote key={note.id} note={note} />
                 ))}
             </Main >
         );

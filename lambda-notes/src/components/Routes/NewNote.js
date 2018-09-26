@@ -14,7 +14,7 @@ class NewNote extends Component {
     state = {
         tags: '',
         title: '',
-        textBody: '',
+        content: '',
     };
 
     handleInputChange = e => {
@@ -22,9 +22,9 @@ class NewNote extends Component {
     };
 
     handleAddNote = () => {
-        const { title, textBody } = this.state;
-        this.props.createNote({ title, textBody });
-        this.setState({ title: '', textBody: '' });
+        const { title, content } = this.state;
+        this.props.createNote({ title, content });
+        this.setState({ title: '', content: '' });
     }
 
     render() {
@@ -40,8 +40,8 @@ class NewNote extends Component {
                         onChange={this.handleInputChange}
                     /><br />
                     <input
-                        name='textBody'
-                        value={this.state.textBody}
+                        name='content'
+                        value={this.state.content}
                         type="text"
                         placeholder="Note content"
                         onChange={this.handleInputChange}
