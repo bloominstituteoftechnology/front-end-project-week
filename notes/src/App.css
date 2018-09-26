@@ -178,7 +178,6 @@ ul {
 /* form */
 
 .note-form {
-  border: 2px solid lime;
   display: flex;
   flex-direction: column;
   width: 75%;
@@ -190,7 +189,6 @@ ul {
 }
 
 .note-form form {
-  border: 2px solid purple;
   display: flex;
   flex-direction: column;
   margin-left: 25px;
