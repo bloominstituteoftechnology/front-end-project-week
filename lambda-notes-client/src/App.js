@@ -173,6 +173,7 @@ class App extends Component {
                 {...props} 
                 atHomeToggle={this.atHomeToggle} 
                 isLoggedIn={this.isLoggedInToggle} 
+                isLoggedInState={this.state.isLoggedIn}
               />
             )}
           />

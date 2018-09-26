@@ -40,10 +40,14 @@ class Home extends Component {
     return (
       <Main>
         <h1>Welcome</h1>
-        <div>
-          <Login {...this.props} />
-          <Register {...this.props} />
-        </div>
+        {this.props.isLoggedInState ?
+          null
+          :
+          <div>
+            <Login {...this.props} />
+            <Register {...this.props} />
+          </div>
+        }
       </Main>
     );
   }
