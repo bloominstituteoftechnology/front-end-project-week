@@ -213,14 +213,68 @@
   flex-wrap: wrap;
   margin: 42px 26px 120px 26px;
 }
-.list .search {
+.list .search-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
   width: 100%;
+}
+.list .search-wrapper .search {
+  display: flex;
+  justify-content: start;
+}
+.list .search-wrapper .btn {
+  padding: 1.05vh 0.9vw;
+  margin-right: 5px;
+  margin-bottom: 8px;
+}
+.list .search-wrapper input {
+  border-radius: 5px;
+  padding: 0 5px;
+}
+@keyframes lengthen-anim {
+  0% {
+    max-width: 1%;
+    min-width: 1%;
+  }
+  100% {
+    max-width: 100%;
+  }
+}
+.list .search-wrapper .lengthen-anim {
+  animation-name: lengthen-anim;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@media ( max-width: 1024px ) {
+  .list .search-wrapper {
+    padding: 0;
+  }
+  .list .search-wrapper .btn {
+    padding: 2.05vh 0.9vw;
+  }
+  .list .search-wrapper input {
+    min-width: 205px;
+    min-height: 60px;
+  }
+  .list .search-wrapper * {
+    padding: 0;
+  }
+}
+@media ( max-width: 710px ) {
+  .list .search-wrapper {
+    display: block;
+  }
+  .list .search-wrapper .btn,
+  .list .search-wrapper input {
+    width: 100%;
+  }
 }
 @media ( max-width: 710px ) {
   .list h2 {
-    padding: 0;
+    padding: 20px 0 0 0;
+    text-align: center;
   }
 }
 .list .note-wrapper {
@@ -260,7 +314,7 @@
   max-height: 133px;
   overflow: hidden;
 }
-.list .note-wrapper .note p .highlight {
+.list .note-wrapper .note .highlight {
   background: blue;
   border-radius: 4px;
   color: white;

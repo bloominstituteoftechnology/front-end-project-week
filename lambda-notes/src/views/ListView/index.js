@@ -72,13 +72,16 @@ class ListView extends React.Component {
 				<div className = 'list'>
 					<div className = 'search-wrapper'>
 						{ this.state.errorMsg && <p>{ this.state.errorMsg }</p> }
-						<button name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
+						<div>
+							<button className = 'btn' name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
 
-						<button name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
+							<button className = 'btn' name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
+						</div>
 
 						{ this.state.search.exactSearch && 
 							<div className = 'search'>
 								<input 
+									className = 'lengthen-anim' 
 									name = 'exactInput' 
 									placeholder = 'Search for exact terms...' 
 									value = { this.state.input.exactInput } 
@@ -90,6 +93,7 @@ class ListView extends React.Component {
 						{ this.state.search.fuzzySearch && 
 							<div className = 'search'>
 								<input 
+									className = 'lengthen-anim' 
 									name = 'fuzzyInput' 
 									placeholder = 'Search for fuzzy terms...' 
 									value = { this.state.input.fuzzyInput } 

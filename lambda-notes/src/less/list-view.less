@@ -4,15 +4,70 @@
 	flex-wrap: wrap;
 	margin: 42px 26px 120px 26px;
 
-	.search {
+	.search-wrapper {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
+		align-items: flex-end;
+		flex-direction: column;
 		width: 100%;
-	}
+
+		.search {
+			display: flex;
+			justify-content: start;
+		}
+
+		.btn {
+			padding: 1.05vh 0.9vw;
+			margin-right: 5px;
+			margin-bottom: 8px;
+		}
+
+		input {
+			border-radius: 5px;
+			padding: 0 5px;
+		}
+
+		@keyframes lengthen-anim {
+			0% {max-width: 1%; min-width: 1%;}
+			100% {max-width: 100%;}
+		}
+
+		.lengthen-anim {
+			animation-name: lengthen-anim;
+			animation-duration: 0.5s;
+			animation-fill-mode: forwards;
+		}
+
+		@media @tablet {
+			padding: 0;
+
+			.btn {
+				padding: 2.05vh 0.9vw;
+			}
+
+			input {
+				min-width: 205px;
+				min-height: 60px;
+			}
+
+			* {
+				padding: 0;
+			}
+		}
+
+		@media @phone {
+			display: block;
+
+			.btn, input {
+				width: 100%;
+			}
+		}
+	} // .list .search-wrapper
 
 	h2 {
 		@media @phone {
-			padding: 0;
+			padding: 20px 0 0 0;
+			text-align: center;
 		}
 	}
 
@@ -55,12 +110,12 @@
 				margin-top: 1px;
 				max-height: 133px;
 				overflow: hidden;
+			}
 
-				.highlight {
-					background: blue;
-					border-radius: 4px;
-					color: white;
-				}
+			.highlight {
+				background: blue;
+				border-radius: 4px;
+				color: white;
 			}
 		} // .list .note-wrapper .note
 

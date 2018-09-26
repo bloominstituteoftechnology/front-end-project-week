@@ -14,9 +14,9 @@ const Note = props => {
 		<div className = 'note-wrapper'>
 			<div onClick = { () => history.push(`/note/${ note._id }`) } className = 'note'>
 				{ 
-					exactInput && note.title.includes(exactInput) ? (note.title.length > 11 ? <p><span className = 'highlight'>{ note.title.substr(note.title.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.title.substr(note.title.indexOf(exactInput)).slice(exactInput.length, 11) + '...' }</p> : <p><span className = 'highlight'>{ note.title.substr(note.title.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.title.substr(note.title.indexOf(exactInput)).slice(exactInput.length) }</p>) : 
+					exactInput && note.title.includes(exactInput) ? (note.title.length > 11 ? <h3><span className = 'highlight'>{ note.title.substr(note.title.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.title.substr(note.title.indexOf(exactInput)).slice(exactInput.length, 11) + '...' }</h3> : <h3><span className = 'highlight'>{ note.title.substr(note.title.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.title.substr(note.title.indexOf(exactInput)).slice(exactInput.length) }</h3>) : 
 
-					(note.title.length > 11 ? <p>{ note.title.slice(0, 11) + '...' }</p> : <p>{ note.title }</p>)
+					(note.title.length > 11 ? <h3>{ note.title.slice(0, 11) + '...' }</h3> : <h3>{ note.title }</h3>)
 				}
 
 				<hr />
