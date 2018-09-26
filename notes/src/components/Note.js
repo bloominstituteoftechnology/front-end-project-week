@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal/Modal';
+import '../App.css';
 
  function Note(props) {
-    console.log(props);
     const note = props.notesList.find(note => note.id === parseInt(props.match.params.noteId, 10)
     );
 
@@ -28,7 +28,7 @@ import Modal from './Modal/Modal';
               props.showModal(event, note.id)
           }}>Delete Note</button>
 
-          <Modal show={props.show} className="deleteModal">
+          <Modal show = {props.show} className = 'deleteModal'>
           Are you sure you want to delete this note?
           <button className = 'prompt-button' onClick = {props.showModal}>Yes, proceed</button>
           <button className = 'prompt-button' onClick = {deleteNote}>No</button>
@@ -38,15 +38,15 @@ import Modal from './Modal/Modal';
       )
 };
 
- Note.propTypes = {
-    match: PropTypes.shape({
-        params: PropTypes.shape({
-            avengerId: PropTypes.string
-        })
-    }),
-    notesList: PropTypes.array,
-    deleteNote: PropTypes.func,
-    openUpdateForm: PropTypes.func
-};
+//  Note.propTypes = {
+//     match: PropTypes.shape({
+//         params: PropTypes.shape({
+//             avengerId: PropTypes.string
+//         })
+//     }),
+//     notesList: PropTypes.array,
+//     deleteNote: PropTypes.func,
+//     openUpdateForm: PropTypes.func
+// };
 
 export default Note;

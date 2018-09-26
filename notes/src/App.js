@@ -47,7 +47,6 @@ class App extends Component {
 
   addNewNote = event => {
     //event.preventDefault();
-    console.log('adding new');
     axios.post('http://localhost:5000/notes', this.state.note)
     .then(response => this.setState({ notesData: response.data, note: { title: '', content: ''} },
     () => this.props.history.push('/notes')))
@@ -61,7 +60,6 @@ class App extends Component {
   openUpdateForm = (event, id) => {
     event.preventDefault();
 
-    //open update form
     const noteToUpdate = this.state.notesData.find(note => note.id === id);
     this.setState ({ isUpdating: true, note: noteToUpdate },
       () => this.props.history.push('/note-form'));
