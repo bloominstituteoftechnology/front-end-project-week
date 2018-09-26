@@ -15,7 +15,7 @@ class NotesFormView extends React.Component {
         note: {
             title: '',
             textBody: '',
-            _id: null
+            // _id: null
         },
         isUpdating: false,
     };
@@ -48,8 +48,8 @@ class NotesFormView extends React.Component {
         }
     }
 
-    handleAddNewNote = event => {
-        event.preventDefault();
+    handleAddNewNote = () => {
+        console.log('newnote', this.state.note);
         this.props.addNote(this.state.note);
         this.props.history.push('/notes');
     }

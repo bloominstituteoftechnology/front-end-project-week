@@ -33,7 +33,7 @@ export const addNote = note => dispatch => {
 
     axios.post('https://killer-notes.herokuapp.com/note/create', note)
         .then(response => {
-            dispatch({ type: ADD_NOTE_SUCCESS, payload: response.data});
+            dispatch({ type: ADD_NOTE_SUCCESS, payload: {...note, _id: response.data.success}});
         }).catch(err => {
             dispatch({ type: ADD_NOTE_FAILURE, payload: err });
         });

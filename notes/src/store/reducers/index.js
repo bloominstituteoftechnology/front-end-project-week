@@ -33,7 +33,8 @@ export const notesReducer = (state=initialState, action) => {
         case ADD_NOTE_START:
             return { ...state, addingNote: true };
         case ADD_NOTE_SUCCESS:
-            return { ...state, addingNote: false, notes: action.payload };
+        console.log('action payload', action);
+            return { ...state, addingNote: false, notes: [...state.notes , action.payload]  };
         case ADD_NOTE_FAILURE:
             console.log(action.payload);
             return { ...state, addingNote: false, error: action.payload };

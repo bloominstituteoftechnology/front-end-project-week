@@ -22,7 +22,7 @@ class NotesListView extends React.Component {
         // this.props.notesList;
         if(this.props.notesList.length === 0){
             this.props.getNotes();
-        }
+        } 
     }
 
     searchNotes = event => {

@@ -50,7 +50,7 @@ class App extends Component {
         <Nav>
           <h1>Lambda Notes</h1>
           <li>
-            <NavLink exact to='/notes'>
+            <NavLink to='/notes'>
               View Your Notes
             </NavLink>
           </li>
