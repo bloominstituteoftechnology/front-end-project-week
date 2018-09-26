@@ -36,7 +36,8 @@ NotesListContainer.propTypes = {
 		putNote: PropTypes.bool,
 		deletePrompt: PropTypes.bool,
 		deletingNote: PropTypes.bool,
-		deletedNote: PropTypes.bool,
+        deletedNote: PropTypes.bool,
+        noteMessage: PropTypes.string,
 		noteError: PropTypes.string
     }).isRequired
 };

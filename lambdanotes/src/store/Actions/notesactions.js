@@ -58,18 +58,28 @@ export const getSingleNote = (noteId) => {
     };
 };
 
+export const noteToEdit = (noteId) => {
+    return (dispatch) => dispatch( {type: NOTE_TO_EDIT, payload: noteId});
+};
+
 export const putNote = (updatedNote, noteId) => {
 
 };
 
-export const deletePrompt = () => {
-
+export const deletePromptModal = () => {
+    return (dispatch) => dispatch( {type: DELETE_PROMPT} );
 };
 
 export const deleteNote = (noteId) => {
-
-};
-
-export const noteToEdit = (noteId) => {
-    return (dispatch) => dispatch( {type: NOTE_TO_EDIT, payload: noteId});
+    return (dispatch) => {
+        dispatch( {type: DELETING_NOTE} );
+        Axios
+            .delete(`${dataSource}delete/${noteId}`)
+            .then( (response) => {
+                dispatch( {type: DELETED_NOTE, payload: response.data.success} );
+            })
+            .catch( (err) => {
+                dispatch( {type: NOTE_ERROR, payload: err.message} );
+            });
+    };
 };

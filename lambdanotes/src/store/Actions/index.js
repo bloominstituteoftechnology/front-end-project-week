@@ -11,7 +11,7 @@ export {
     putNote,
     PUTTING_NOTE,
     PUTTED_NOTE,
-    deletePrompt,
+    deletePromptModal,
     DELETE_PROMPT,
     deleteNote,
     DELETING_NOTE,

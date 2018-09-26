@@ -50,8 +50,8 @@ const DeleteModal = (props) => {
             <DeletePrompt>
                 <DeleteHeader>Are you sure you want to delete this?</DeleteHeader>
                 <ButtonContainer>
-                    <StyledButton buttonColor='red'>Delete</StyledButton>
-                    <StyledButton buttonColor='aqua'>No</StyledButton>
+                    <StyledButton buttonColor='red' onClick={() => props.deleteNote(props.noteId)}>Delete</StyledButton>
+                    <StyledButton buttonColor='aqua' onClick={props.deletePromptModal}>No</StyledButton>
                 </ButtonContainer>
             </DeletePrompt>
         </DeleteBackground>
@@ -59,8 +59,9 @@ const DeleteModal = (props) => {
 };
 
 DeleteModal.propTypes = {
-    id: PropTypes.string,
-    deleteNote: PropTypes.func
+    noteId: PropTypes.string.isRequired,
+    deletePromptModal: PropTypes.func.isRequired,
+    deleteNote: PropTypes.func.isRequired
 };
 
 export default DeleteModal;

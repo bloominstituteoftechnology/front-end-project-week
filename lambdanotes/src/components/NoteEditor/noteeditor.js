@@ -52,9 +52,9 @@ class NoteEditor extends Component {
                 this.state.tmpNote._id
             )
         }
-        // Can we delay the history push long enough for the new note to be available from the API? Let an extra getNotes() decide!
+        // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the POST to finish before calling history.push
         this.props.getNotes();
-        setTimeout( () => this.props.history.push('/'), 1000);
+        setTimeout(() => this.props.history.push('/'), 1000);
     };
 
     render() {

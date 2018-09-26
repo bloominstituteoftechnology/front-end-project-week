@@ -32,19 +32,26 @@ const Note = (props) => {
             <ContentDiv>
                 <StatusP statusType='error'>{props.status.noteError}</StatusP>
             </ContentDiv>
+        : props.status.noteMessage !== '' ?
+            <ContentDiv>
+                <StatusP statusType='good'>{props.status.noteMessage}</StatusP>
+            </ContentDiv>
         : props.note.__v === undefined ?
             <StatusP statusType='warning'>Note may no longer exist. :(</StatusP>
         :
             <ContentDiv>
                 <ManipDiv>
                     <DecoSpan>edit</DecoSpan>
-                    <DecoSpan>delete</DecoSpan>
+                    <DecoSpan onClick={props.deletePromptModal}>delete</DecoSpan>
                 </ManipDiv>
                 <h2>{props.note.title}</h2>
                 <SizedP>{props.note.textBody}</SizedP>
-                {/* <input name='tags' type='text' /> */}
                 {props.status.deletePrompt ?
-                    <DeleteModal />
+                    <DeleteModal 
+                        noteId={props.note._id} 
+                        deletePromptModal={props.deletePromptModal} 
+                        deleteNote={props.deleteNote} 
+                    />
                 :
                     null
                 }
@@ -71,9 +78,11 @@ Note.propTypes = {
 		putNote: PropTypes.bool,
 		deletePrompt: PropTypes.bool,
 		deletingNote: PropTypes.bool,
-		deletedNote: PropTypes.bool,
+        deletedNote: PropTypes.bool,
+        noteMessage: PropTypes.string,
 		noteError: PropTypes.string
     }),
+    deletePromptModal: PropTypes.func,
     deleteNote: PropTypes.func
 };
 
