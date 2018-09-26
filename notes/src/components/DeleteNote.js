@@ -16,9 +16,12 @@ class DeleteNote extends Component {
         return (
                 <div className = "delete-note-container">
                 <div className = 'delete-note'>
+                    
                     <h2> Are you sure you want to delete this?</h2>
+                    <div className = "buttons">
                     <button onClick = {this.props.handleDeleteNote}> Yes </button>
                     <button onClick = {this.props.toggleDeleteNote}> No </button>
+                    </div>
                 </div>
                 </div>
         )

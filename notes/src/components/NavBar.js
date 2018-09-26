@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './NavBar.css'
 
 const NavBar = (props) => {
-    console.log('logging props in navbar', props)
+
     return (
         <div className = "nav-bar">
             <h1 className = "nav-bar-header">

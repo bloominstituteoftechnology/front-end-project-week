@@ -13,7 +13,10 @@ import './App.css';
 class App extends Component {
   state = {
     notes: [],
-    note: {}
+    selected: {},
+    name: '',
+    content: '',
+    remove: false
   }
 
 componentDidMount(){
@@ -21,36 +24,65 @@ componentDidMount(){
   .get('http://localhost:9000/api/notes')
   .then(response =>{
     console.log('data from axios request', response.data)
-    console.log(this.state.notes)
+    console.log(this.state)
     this.setState({notes: response.data})
+    console.log(this.state)
   })
   .catch(err => {
     console.log(err)
   })
 }
 
-handleSubmit = data => this.setState({notes: data});
+handleSubmit = data => this.setState({note: data});
 
 handleChange = event => {
-  console.log('logging state in handleChange', this.state)
   this.setState({ [event.target.name]: event.target.value})
 }
 
-handleAddNote = event => {
-  const notes = this.state.notes.slice();
-  notes.push({name: this.state.name, 
-    content: this.state.content, 
-    id: Date.now() });
-    console.log('logging state in handleAddNote', this.state)
+handleContent = event => {
   this.setState({
-    notes, 
-    name: '', 
-    content: ''
-  });
+    selected: {
+      id: this.state.selected.id,
+      name: this.state.selected.name,
+      content: event.target.value
+    }
+  })
+}
+
+handleAddNote = event => {
+  event.preventDefault();
+    const note = {
+        name: this.state.name,
+        content: this.state.content
+    };
+    
+    console.log('note', note)
+
+    axios
+    .post('http://localhost:9000/api/notes', note)
+    .then(response => {
+        this.setState({
+          name: '',
+          content: ''
+      })
+      this.handleSubmit(response.data);
+    })
+    .catch(err =>
+  console.log(err));
+
 }
 
 handleSelectNote = note => {
   this.setState({selected: note});
+}
+
+handleRefresh = () => {
+  axios
+  .get('http://localhost:9000/api/notes')
+  .then(response => {
+    this.setState({notes: response.date});
+  })
+  .catch(err => console.log(err));
 }
 
 handleTitleUpdate = event => {
@@ -87,14 +119,16 @@ handleUpdateNote =id => {
     this.setState({ notes, selected: {} });
   }
 
-handleDeleteNote = (id) => {
-  const newState = this.state.notes.filter((note => note.id !== id))
+handleDeleteNote = e => {
+  const id = this.state.id;
+
   axios
   .delete(`http://localhost:9000/api/notes/${id}`)
   .then(response => {
-      this.setState({ notes: newState });
-      this.state.toggleDelete();
       this.state.history.push('/notes');
+      this.setState({id: null });
+      this.state.toggleDelete();
+      this.state.handleRefresh();
   })
   .catch(err => console.log(err))
 }
@@ -104,7 +138,7 @@ toggleDeleteNote = () => {
 }
 
   render() {
-    console.log('logging state in App',this.state);
+    //console.log('logging state in App',this.state);
     return (
       <div className = "app">
         <Route path = "/" component={NavBar} />
@@ -127,7 +161,6 @@ toggleDeleteNote = () => {
           notes = {this.state.notes}/>
           )}
           />
-
 
           <Route path = "/edit/:id" render={props=>
           (<UpdateNote {...props}  
