@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import './components/NotesList.css';
+import './components/NoteForm.css';
+import './components/Note.css';
 
 import { Route, NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';

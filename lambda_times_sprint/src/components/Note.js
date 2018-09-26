@@ -137,8 +137,8 @@ class Note extends Component {
           <h5 onClick={this.openModal}>delete</h5>
         </div>
 
-        <h2>{title}</h2>
-        <div>{textBody}</div>
+        <h2 className="note-title">{title}</h2>
+        <div className="note-text-body">{textBody}</div>
 
       </div>
 

@@ -11,22 +11,17 @@ function NotesList(props) {
         <div className="notes-list-wrapper">
           <h2>Your Notes:</h2>
           <div className="notes-card-wrapper">
-          <div className="note-card">
             {props.notesList.map(note => (
-            // <div className="note-card" key={tag.id}>
+            <div className="note-card">
                 
-                /* <h3 */
-                // onClick={() => props.history.push(`/tags/${note._id}`)}
+               
                 <Link to={`/tags/${note._id}`} >
                 <NoteDetails note={note} />
               </Link>
                 
-                /* {tag.title}
-                </h3>
-                <p>({tag.textBody})</p>
-            </div> */
-            ))}
+             
             </div>
+            ))}
             </div>
         </div>
     );
