@@ -13,7 +13,8 @@ class Notes extends Component {
             return (<div></div>)
         }
         return (
-            <div>
+            <div className="home">
+            <h3>Your Notes:</h3>
                 {this.props.notes.map(note => {
                     return (
                         <div className="note" key={note._id}>
@@ -23,7 +24,6 @@ class Notes extends Component {
                         </div>
                     )
                 })}
-                <Link to="/notes/add">Add</Link>
             </div>
         )
     }

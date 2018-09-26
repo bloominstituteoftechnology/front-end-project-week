@@ -1,28 +1,169 @@
 .App {
+  max-width: 880px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+a {
+  color: #252120;
+}
+
+a:hove {
+  text-decoration: none;
+}
+
+button {
+  margin: 12px;
+  width: 200px;
+}
+
+.navbar {
+  position: fixed;
+  width: 25%;
+  height: 100%;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #D3D2D3;
+  
+}
+
+.navbar-brand {
+  font-size: 2.1rem;
+  color: #414141;
+  font-weight: bold;
+  line-height: 1.0;
+}
+
+.nav-item {
+  width: 100%;
+  background-color: #24B8BD;
+  border: 1px solid grey;
+  margin: .5rem 0;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.nav-item a {
   color: white;
+  font-weight: bold;
 }
 
-.App-title {
-  font-size: 1.5em;
+.home {
+  width: 75%;
+  margin: 0 0 0 25%;
+  background-color: #F2F1F2;
+  padding: 15px;
 }
 
-.App-intro {
-  font-size: large;
+.home h3 {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.note-container {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #F2F1F2;
+  padding: 20px 10px;
+  height: 100%;
+}
+
+.note-container h3 {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.home .note-container {
+  width: 100%;
+}
+
+.form-container {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #F2F1F2;
+  padding: 20px 10px;
+  height: 100%;
+}
+
+.form-container h3 {
+  margin-left: 20px;
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.note-form {
+  width: 80%;
+  margin: 0 0 0 20px;
+}
+
+.note-form input {
+  width: 60%;
+}
+
+.note-form textarea {
+  width: 100%;
+  height: 300px;
+}
+
+.main-button {
+  margin: 0;
+  width: 200px;
+  background-color: #24B8BD;
+  color: white;
+  border: 1px solid grey;
+}
+
+.note-view {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #F2F1F2;
+  padding: 20px 10px;
+  height: 100%;
+}
+
+.note-view .header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-view .header a {
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #5B5C60;
+}
+
+.note-view .note-content {
+  margin-left: 20px;
+}
+
+.note-view .note-content h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-container {
+  display: flex;
+}
+
+.card {
+  border: 1px solid #BDBDBD;
+  width: 30%;
+  margin: 0.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card-title {
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #BDBDBD;
 }

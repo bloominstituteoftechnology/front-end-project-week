@@ -3,9 +3,10 @@ import './App.css';
 import * as actions from './actions';
 import Notes from  './components/Notes'
 import { connect } from 'react-redux';
-import { withRouter, Route } from 'react-router-dom';
+import { withRouter, Route, Link } from 'react-router-dom';
 import ViewNote from './components/ViewNote';
 import NewNoteForm from './components/NewNoteForm';
+import { Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 
 class App extends Component {
   componentDidMount = () => {
@@ -15,9 +16,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          <h1 className="App-title">Lambda Notes</h1>
-          <Route exact path="/" render={props => (
+        <Navbar>
+          <NavbarBrand>Lambda<br/>Notes</NavbarBrand>
+          <Nav>
+            <NavItem>
+              <NavLink>
+                <Link to="/">View Your Notes</Link>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <Link to="/note/add">+ Create New Note</Link>
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Navbar>
+        <Route exact path="/" render={props => (
               <Notes {...props} notes={this.props.notes} fetchNotes={this.props.fetchNotes} fetchingNotes={this.props.fetchingNotes}/>
             )}
           />
@@ -29,7 +43,6 @@ class App extends Component {
               <ViewNote {...props} note={this.props.note} />
             )}
           />
-        </div>
       </div>
     );
   }

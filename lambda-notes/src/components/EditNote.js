@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 class EditNote extends Component {
     constructor(props) {
@@ -23,29 +24,37 @@ class EditNote extends Component {
             content: this.state.content
         }
         this.props.updateNote(updatedNote);
+        this.props.onCancel();
     }
 
     render() {
         return (
-            <form onSubmit={this.updateNote}> 
-                <input
-                    type="text"
-                    name="title"
-                    onChange={this.handleChange}
-                    value={this.state.title}
-                    placeholder="Title"
-                    required
-                />
-                <textarea 
-                    name="content" 
-                    onChange={this.handleChange} 
-                    value={this.state.content}
-                    placeholder="Note..."
-                    required
-                />
-                <button>Edit</button>
-                <button onClick={this.props.onCancel}>Cancel</button>
-            </form>
+            <Form onSubmit={this.updateNote}>
+                <FormGroup>
+                    <Input
+                        type="text"
+                        name="title"
+                        id="title"
+                        onChange={this.handleChange}
+                        value={this.state.title}
+                        placeholder="Title"
+                        required
+                    />
+                </FormGroup> 
+                <FormGroup>
+                    <Input 
+                        type="textarea"
+                        name="content" 
+                        id="content"
+                        onChange={this.handleChange} 
+                        value={this.state.content}
+                        placeholder="Note..."
+                        required
+                    />
+                </FormGroup>                
+                <Button className="main-button">Update</Button>
+                <Button color="danger" onClick={this.props.onCancel}>Cancel</Button>
+            </Form>
         )
     }
 }

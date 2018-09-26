@@ -1,8 +1,7 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { viewNote, deleteNote, updateNote } from '../actions';
-import Note from './Note';
 import EditNote from './EditNote';
 
 class ViewNote extends Component {
@@ -35,19 +34,21 @@ class ViewNote extends Component {
             </div>)
         }
         return (
-            <div>
-                <Note
-                    title={this.props.note.title}
-                    content={this.props.note.textBody}
-                />
-                <button onClick={this.toggleUpdate}>edit</button>
-                <button onClick={this.deleteNote}>delete</button>
-                {this.state.updateLive !== false
+            <div className="note-view">
+                <div className="header">
+                    <a onClick={this.toggleUpdate}>edit</a>
+                    <a onClick={this.deleteNote}>delete</a>
+                </div>
+                <div className="note-content">
+                    <h3>{this.props.note.title}</h3>
+                    <p>{this.props.note.textBody}</p>
+                </div>
+                               
+                {this.state.updateActive !== false
                     ? <EditNote onCancel={this.toggleUpdate} title={this.props.note.title} content={this.props.note.textBody} 
                                 updateNote={this.props.updateNote} id={this.props.match.params.id} />
                     : null
                 }
-                <Link to="/">Back</Link>
             </div>
         )
     }
