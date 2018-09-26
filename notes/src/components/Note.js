@@ -13,7 +13,7 @@ class Note extends Component {
                     Title: {this.props.note.title}
                 </h3>
                 <p>
-                    Note: {this.props.note.textBody}
+                    Body: {this.props.note.textBody}
                 </p>
 
             </div>

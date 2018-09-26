@@ -1,29 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Note from './Note';
+import { connect } from 'react-redux';
 
 class NotesList extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         notes: [],
-    //     }
-    // }
-
-    componentDidMount() {
-        // axios
-        // .get('https://killer-notes.herokuapp.com/note/get/all')
-        // .then(response => {
-        //     this.setState(() => ({ notes: response.data }));
-        //     console.log(response.data);
-        // })
-        // .catch(error => {
-        // console.error('Server Error', error);
-        // });
-        this.props.getNotes();
-    }
-
-    
+        
     render() {
         return (
             <div className='notes-list'>
@@ -31,19 +12,23 @@ class NotesList extends Component {
                     My Notes:
                 </h1>
                 {this.props.notes.map(note => (
-                    <Note key={note.id} note={note} />
+                    <Note key={note._id} note={note} />
                 ))}
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    const { notesReducer } = state;
-    return {
-        notes: state.notes,
-        getNotes: notesReducer.getNotes,
-    };
-}
+// const mapStateToProps = state => {
+//     const { notesReducer } = state;
+//     return {
+//         notes: state.notes,
+//         getNotes: notesReducer.getNotes,
+//     };
+// }
 
+// export default connect(
+//     mapStateToProps,
+//     {}
+// );
 export default NotesList;
