@@ -7,19 +7,21 @@ import SingleNote from './views/SingleNote';
 import styled from 'styled-components';
 
 const Nav = styled.div`
-  border: 1px solid black;
+  
   height: 900px;
   margin-top: 0;
   padding: 3%;
   background-color: lightgray;
+  box-shadow: 5px 5px 10px lightslategray;
+  
 
   li{
     list-style-type: none;
   height: 50px;
   width: 200px;
-  border: 1px solid gray;
+  border: none;
   background-color: lightseagreen;
-  margin: 2%;
+  margin: 6%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,11 +30,16 @@ const Nav = styled.div`
 
   &:hover{
     background-color: turquoise;
+    box-shadow: 5px 5px 5px darkgray;
   }
   }
   a{
     text-decoration: none;
      color: white;
+     &:hover{
+      text-decoration: none;
+      color: white;
+     }
   }
 `
 

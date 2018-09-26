@@ -32,6 +32,9 @@
     flex-direction: column;
     
 }
+.active a:hover{
+    text-decoration: none;
+}
 
 .hidden{
     display: none;
@@ -39,4 +42,13 @@
 
 .buttons{
     align-self: flex-end;
+}
+
+#modalfooter{
+    display: flex;
+    justify-content: center;
+}
+
+.modalbutton{
+    width: 150px;
 }

@@ -1,12 +1,13 @@
 .note-container{
-    width: 90%;
-    padding: 5%;
+    width: 100%;
+    padding: 3% 2%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
 }
 
-.single-notes{
+/* .single-notes{
     margin: 2% 1%;
     display: flex;
     flex-direction: row;
@@ -39,4 +40,4 @@
 
 .single-notes button{
     display: none;
-}
+} */

@@ -40,10 +40,10 @@ export const addNote = note => dispatch => {
 
 }
 
-export const deleteNote = title => {
+export const deleteNote = _id => {
     return {
         type: DELETE_NOTE,
-        title
+        _id
     }
 }
 

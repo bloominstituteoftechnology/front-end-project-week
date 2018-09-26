@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(notesReducer, compose(applyMiddleware(thunk, logger), reduxDevToolsHook));
+const store = createStore(notesReducer, compose(applyMiddleware(thunk), reduxDevToolsHook));
 
 ReactDOM.render(
     <Provider store={store}>

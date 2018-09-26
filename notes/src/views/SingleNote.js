@@ -27,13 +27,13 @@ class SingleNote extends React.Component {
         if(!foundNote) return;
         this.setState({ note: foundNote});
 
-        this.props.getNotes();
+        // this.props.getNotes();
     }
     
 
-    handleDeleteNote = title => {     
-        this.props.deleteNote(this.state.note.title);
-        console.log('Title: ', this.state.note.title);
+    handleDeleteNote = () => {     
+        this.props.deleteNote(this.state.note._id);
+        console.log('Title: ', this.state.note._id);
         this.props.history.push('/notes');
     }
 
@@ -59,22 +59,19 @@ class SingleNote extends React.Component {
     
 
     render() {
-        console.log(this.props);
         const {title, textBody} = this.state.note
-        console.log('note-key',this.state.note._id);
         return(
             
         <div className='active' >
            <div className='buttons'>
             <button onClick={this.toggle}>Delete</button>
             <Modal isOpen={this.state.modal} handleDeleteNote= {this.handleDeleteNote} toggle={this.toggle} className='delete-modal'>
-                <ModalHeader handleDeleteNote={this.handleDeleteNote} toggle={this.toggle}>Modal title</ModalHeader>
                 <ModalBody>
-                    Are You Sure?
+                    Are you sure you want to delete this?
                 </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={this.handleDeleteNote}>Confirm</Button>{' '}
-                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                <ModalFooter id='modalfooter'>
+                    <Button color="danger" onClick={this.handleDeleteNote} className='modalbutton'>Confirm</Button>{' '}
+                    <Button color="info" onClick={this.toggle} className='modalbutton'>Cancel</Button>
           </ModalFooter>
             </Modal>
             <button onClick={event => {

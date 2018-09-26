@@ -37,7 +37,8 @@ export const notesReducer = (state=initialState, action) => {
             console.log(action.payload);
             return { ...state, addingNote: false, error: action.payload };
         case DELETE_NOTE:
-            return ({...state, notes: state.notes.filter(note => action.title !== note.title)});
+        console.log(action._id);
+            return ({...state, notes: state.notes.filter(note => note._id !== action._id)});
         case SET_UPDATE_NOTE:
         const note = state.notes.find(note => note.title === action.payload)
             return {...state, noteToUpdate: note ? note : null}
