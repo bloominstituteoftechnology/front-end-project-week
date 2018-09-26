@@ -10,7 +10,7 @@ export default class NoteList extends React.Component{
                 {this.props.notes.map((note,index) =>{
                     return(
                         <div key={index}>
-                            <OneNote title={note.title} content={note.content} />
+                            <OneNote title={note.title} content={note.content} index={index}/>
                         </div>
                     )
                 })}

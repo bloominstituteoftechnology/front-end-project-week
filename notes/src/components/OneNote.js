@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {viewNote} from '../actions';
 
-export default class OneNote extends React.Component{
+class OneNote extends React.Component{
+    view = event =>{
+        event.preventDefault();
+        this.props.viewNote(this.props.index);
+    }
+
     render(){
         return(
-            <StyledNote>
+            <StyledNote onClick={this.view}>
                 <StyledTitle>
                     {this.props.title}
                 </StyledTitle>
@@ -16,6 +23,11 @@ export default class OneNote extends React.Component{
         )
     }
 }
+
+const mapStateToProps = state =>({
+});
+
+export default connect(mapStateToProps, {viewNote})(OneNote);
 
 OneNote.propType = {
     title: PropTypes.string,

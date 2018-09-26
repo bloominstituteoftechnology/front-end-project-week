@@ -1,4 +1,4 @@
-import {ADDING, ERROR} from '../actions';
+import {ADDING, VIEWING, ERROR} from '../actions';
 
 const initialState = {
     notes: [
@@ -6,6 +6,8 @@ const initialState = {
         {title: 'second title', content:'second example content'},
     ],
     adding: false,
+    viewing: false,
+    index: -1,
     error: null
 }
 
@@ -15,6 +17,12 @@ const reducer = (state=initialState, action) =>{
             return{
                 ...state,
                 notes: state.notes.concat(action.payload)
+            }
+        case VIEWING:
+            return{
+                ...state,
+                viewing: true,
+                index: action.payload
             }
         case ERROR:
             return{
