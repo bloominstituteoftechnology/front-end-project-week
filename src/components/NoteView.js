@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {Button} from 'reactstrap';
 import axios from 'axios';
 import styled from 'styled-components';
 import DeleteModal from './DeleteModal';
@@ -101,7 +102,7 @@ class NoteView extends Component {
         return ( 
             <ViewNote>
                 <ButtonsContainer>
-                <Link to={`/edit-note/${this.state.id}`}> Edit </Link>
+                <Button color='link'><Link to={`/edit-note/${this.state.id}`}> Edit </Link></Button>
                 <DeleteModal delete={() => this.delete(this.state.id)} title={this.state.title}/>
                 </ButtonsContainer>
                 <h1>{this.state.title}</h1>

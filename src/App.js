@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
 import styled from 'styled-components';
-import SideNav from './components/SideNav';
+import Navigation from './components/Navigation';
 import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
 import NoteView from './components/NoteView';
@@ -12,8 +12,8 @@ const Application = styled.div`
 
   max-width: 1024px;
   width: 100%;
-  margin: 20px auto 0 auto;
-  display: flex;
+  margin: 0 auto; 
+
 `
 
 const URL = 'http://localhost:9000/notes/';
@@ -55,7 +55,7 @@ handleSearch = (event) => {
     return (
       <Application>
         
-        <SideNav {...this.props} notes={this.state.notes}/>
+        <Navigation {...this.props} notes={this.state.notes}/>
         <Route path='/add-note' component={NewNote} />
         <Route exact path='/notes' render={(props) => (
           <NotesList {...props} notes={this.state.notes} 

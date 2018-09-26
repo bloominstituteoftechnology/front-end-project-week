@@ -1,38 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-
-const Pag = styled.ul`
-    display: flex;
-    justify-content: center;
-    color: #505050;
-
-    > li {
-    display: flex;
-    list-style: none;
-    margin: 0 0 0 10px;
-    padding: 0;
-
-      > a {
-        display: flex;
-        height: 50px;
-        width: 50px;
-        border: 1px solid #777;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        &:hover {
-          background: #f8f8f8;
-          color: white;
-        }
-      }
-      &.active {
-          background: #f8f8f8;
-          color: black;
-        }
-
-    }
-
-`
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 
 /* Pagination Component 
@@ -42,7 +9,7 @@ const defaultProps = {
   initialPage: 1
 }
 
-class Pagination extends Component {
+class Paginations extends Component {
   constructor(props) {
       super(props);
       this.state = { pager: {} };
@@ -142,29 +109,29 @@ class Pagination extends Component {
       }
 
       return (
-          <Pag>
-              <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                  <a onClick={() => this.setPage(1)}>First</a>
-              </li>
-              <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                  <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
-              </li>
+          <Pagination style={{ backgroundColor: '#333', borderColor: '#333', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', }} >
+              <PaginationItem className={pager.currentPage === 1 ? 'disabled' : ''}>
+                  <PaginationLink onClick={() => this.setPage(1)}>First</PaginationLink>
+              </PaginationItem>
+              <PaginationItem className={pager.currentPage === 1 ? 'disabled' : ''}>
+                  <PaginationLink onClick={() => this.setPage(pager.currentPage - 1)}>Previous</PaginationLink>
+              </PaginationItem>
               {pager.pages.map((page, index) =>
-                  <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-                      <a onClick={() => this.setPage(page)}>{page}</a>
-                  </li>
+                  <PaginationItem key={index} className={pager.currentPage === page ? 'active' : ''}>
+                      <PaginationLink onClick={() => this.setPage(page)}>{page}</PaginationLink>
+                  </PaginationItem>
               )}
-              <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                  <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
-              </li>
-              <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                  <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
-              </li>
-          </Pag>
+              <PaginationItem className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+                  <PaginationLink onClick={() => this.setPage(pager.currentPage + 1)}>Next</PaginationLink>
+              </PaginationItem>
+              <PaginationItem className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+                  <PaginationLink onClick={() => this.setPage(pager.totalPages)}>Last</PaginationLink>
+              </PaginationItem>
+          </Pagination>
       );
   }
 }
 
-Pagination.defaultProps = defaultProps;
+Paginations.defaultProps = defaultProps;
 
-export default Pagination;
+export default Paginations;
