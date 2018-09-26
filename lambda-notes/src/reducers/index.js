@@ -53,7 +53,7 @@ export default (state = initialState, action) => {
         error: action.payload
       })
     case DELETE_NOTE_SUCCESS:
-      return Object.assign({}, state, {deleted: true});
+      return Object.assign({}, state, {deleted: true });
     case DELETE_NOTE_FAILURE:
       return Object.assign({}, state, {
         error: action.payload,

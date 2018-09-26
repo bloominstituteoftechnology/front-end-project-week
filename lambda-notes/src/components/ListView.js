@@ -12,11 +12,11 @@ import ListItem from './ListItem';
 import '../CSS/ListView.css';
 
 class ListView extends React.Component {
-  
+
   componentDidMount() {
     this.props.getNotes();
   }
-  
+
   render() {
     return (
       <div>
