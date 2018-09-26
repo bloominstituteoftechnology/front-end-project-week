@@ -11,27 +11,27 @@ import DeleteNote from './components/DeleteNote';
 import './App.css';
 
 class App extends Component {
-  state = {
+  constructor(){
+    super();
+  this.state = {
     notes: [],
     selected: {},
-    name: '',
-    content: '',
     remove: false
   }
-
-componentDidMount(){
-  axios
-  .get('http://localhost:9000/api/notes')
-  .then(response =>{
-    console.log('data from axios request', response.data)
-    console.log(this.state)
-    this.setState({notes: response.data})
-    console.log(this.state)
-  })
-  .catch(err => {
-    console.log(err)
-  })
 }
+// componentDidMount(){
+//   axios
+//   .get('http://localhost:9000/api/notes')
+//   .then(response =>{
+//     console.log('data from axios request', response.data)
+//     console.log(this.state)
+//     this.setState({notes: response.data})
+//     console.log(this.state)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
+// }
 
 handleSubmit = data => this.setState({note: data});
 
@@ -49,28 +49,27 @@ handleContent = event => {
   })
 }
 
-handleAddNote = event => {
-  event.preventDefault();
-    const note = {
-        name: this.state.name,
-        content: this.state.content
-    };
+// handleAddNote = event => {
+//   event.preventDefault();
+//     const note = {
+//         name: this.state.name,
+//         content: this.state.content
+//     };
     
-    console.log('note', note)
+//     console.log('note', note)
 
-    axios
-    .post('http://localhost:9000/api/notes', note)
-    .then(response => {
-        this.setState({
-          name: '',
-          content: ''
-      })
-      this.handleSubmit(response.data);
-    })
-    .catch(err =>
-  console.log(err));
-
-}
+//     axios
+//     .post('http://localhost:9000/api/notes', note)
+//     .then(response => {
+//         this.setState({
+//           name: '',
+//           content: ''
+//       })
+//       this.handleSubmit(response.data);
+//     })
+//     .catch(err =>
+//   console.log(err));
+// }
 
 handleSelectNote = note => {
   this.setState({selected: note});
@@ -150,7 +149,9 @@ toggleDeleteNote = () => {
         )}
         />
 
-     <Route path = "/form" render={props =>
+        <Route path = "/form" component={NewNoteForm} />
+
+     {/* <Route path = "/form" render={props =>
         (<NewNoteForm {...props}
           name = {this.state.name}
           content = {this.state.content}
@@ -159,7 +160,7 @@ toggleDeleteNote = () => {
           handleSubmit = {this.handleSubmit}
           notes = {this.state.notes}/>
           )}
-          />
+          /> */}
 
           <Route path = "/edit/:id" render={props=>
           (<UpdateNote {...props}  

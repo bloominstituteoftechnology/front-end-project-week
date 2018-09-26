@@ -47,12 +47,13 @@ class UpdateNote extends Component {
           this.setState({ 
             id: null, 
             notes: {
-            name: '',
-            content: ''
+                name: '',
+                content: ''
             }
         })
 
-        axios.put(`http://localhost:9000/api/notes/${id}`, notes)
+        axios
+        .put(`http://localhost:9000/api/notes/${id}`, notes)
         .then(response => {
             console.log('history in UpdateNote', this.history)
             this.props.history.push('/');
