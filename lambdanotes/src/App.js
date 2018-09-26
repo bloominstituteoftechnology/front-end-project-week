@@ -21,7 +21,8 @@ class App extends Component {
       title: "",
       id: null,
       edittoggle: false,
-      Redirect: false
+      Redirect: false,
+      input: ''
     };
   }
 
@@ -96,15 +97,7 @@ class App extends Component {
   };
 
   handleSearchChange = event => {
-    this.setState({ searchQuery: event.target.value });
-  };
-
-  searchHandler = event => {
-    event.preventDefault();
-    const notes = this.state.notes.filter(item => {
-      if (item.note === event.target.value) return notes;
-    });
-    this.setState({ notes });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -118,8 +111,8 @@ class App extends Component {
             <NotesList
               {...props}
               notes={this.state.notes}
-              searchNotes={this.searchHandler}
-              onChange={this.handleSearchChange}
+              handleSearchChange={this.handleSearchChange}
+              input={this.state.input}
             />
           )}
         />

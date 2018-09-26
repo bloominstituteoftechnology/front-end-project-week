@@ -8,12 +8,27 @@ const NoteTextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+const NoteListHeader = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
 
 const NoteListText = styled.h4`
   color: #414141;
+  width: 50%;
   text-align: left;
   margin: 30px 5%;
 `;
+
+const NoteListSearch = styled.input`
+  width: 300px;
+  height: 30px;
+  padding-left: 10px;
+  border: 2px solid #a6a6a6;
+  
+`;
+
 const NoteListMessage = styled.h4`
   color: #414141;
 `;
@@ -68,10 +83,23 @@ const NoteContent = styled.p`
 `;
 
 const NotesList = props => {
-  let searchContent = props.notes;
+  const searchItem = props.notes.filter((note) => {
+    console.log(note.note)
+  return note.note.toLowerCase().indexOf(props.input.toLowerCase()) !== -1
+  });
   return (
     <NotesListAttrib>
-      <NoteListText>Your Notes:</NoteListText>
+      <NoteListHeader>
+        <NoteListText>Your Notes:</NoteListText>
+        <NoteListSearch
+          placeholder="Search"
+          type="text"
+          name="input"
+          value={props.input}
+          onChange={props.handleSearchChange}
+        />
+      </NoteListHeader>
+
       {props.notes.length === 0 ? (
         <NoteTextContainer>
           <NoteListMessage>No notes are available...</NoteListMessage>
@@ -79,7 +107,7 @@ const NotesList = props => {
         </NoteTextContainer>
       ) : (
         <NoteCardContainer>
-          {searchContent.map(note => (
+          {searchItem.map(note => (
             <Link
               to={`/note/${note.id}`}
               key={note.id}
@@ -89,8 +117,9 @@ const NotesList = props => {
                 <NoteTitle>{note.title}</NoteTitle>
                 <Line />
                 <NoteContent>
-                  {note.note.length >= 100 ? note.note.substring(0, 100) +
-                  '...' : note.note}
+                  {note.note.length >= 100
+                    ? note.note.substring(0, 100) + "..."
+                    : note.note}
                 </NoteContent>
               </NoteCard>
             </Link>
