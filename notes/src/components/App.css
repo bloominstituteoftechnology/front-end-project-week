@@ -15,7 +15,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	/* font: inherit; */
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -50,53 +50,112 @@ table {
 	border-spacing: 0;
 }
 
-* {box-sizing: border-box;}
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/* Remove excess padding and border in Firefox 4+ */
+&::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+
+
 
 .App {
   display: flex;
   flex-direction: row;
-  width: 890px;
+  width: 888px;
   margin-top: 17px;
+	border: 1px solid black;
 }
 
 .App-header {
   display: flex;
-  border: 3px solid black;
-  width: 25%;
+  width: 24.85%;
   flex-direction: column;
+	border-right: 1px solid black;
+	align-items: flex-start;
+	padding: 0 13px;
 }
 
 .app-title {
   display: flex;
-  border: 3px solid black;
+  border: 1px solid black;
 }
 
 
 .App-title {
-  padding: 13px;
-  font-size: 2.6rem;
+	padding: 13px 0;
+	padding-top: 18px;
+	font-size: 2.2rem;
+	line-height: 30px;
+	letter-spacing: .8px;
+	margin-bottom: 16px;
 }
 
 .nav-link {
-  margin-left: 17px;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2px;
   border: 1px solid gray;
   width: 190px;
   height: 42px;
+	margin-bottom: 19px;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: lightblue;
+	color: white;
+	font-size: .96rem;
 }
 
 .main-section {
   display: flex;
-  border: 3px solid black;
   width: 75%;
   flex-direction: column;
-  padding: 0 20px;
-  padding-top: 55px;
+  padding: 0 19px;
+	position: relative;
 }
 
 .notes-title {
-  font-size: 1.4rem;
-  margin-bottom: 28px;
- }
+	font-size: 1.3rem;
+  margin: 55px 8px 31px;
+  font-weight: bold;
+
+	}
+
+.search-filter {
+		position: absolute;
+    right: 4%;
+    top: 54px;
+    width: 193px;
+	}
 
 .note-list {
   display: flex;
@@ -105,31 +164,128 @@ table {
   justify-content: space-around;
   display: flex;
   flex-direction: row;
+	margin-left: 3px;
 }
 
 .note {
   border: 1px solid gray;
-  width: 31%;
+  width: 193px;
   height: 197px;
   margin-bottom: 25px;
+	padding: 12px 20px 18px 16px;
 }
 
-.delete-modal{
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
+.note-title {
+	border-bottom: 2px solid gray;
+	height: 25px;
+	font-size: 1.1rem;
+	letter-spacing: .5px;
+	color: black;
 }
 
-.modal-overlay{
-  background-color: gray;
-  opacity: 0.6;
-  height: 100%;
-  width: 100%;
+a {text-decoration: none; color:black; }
+
+.note-textBody {
+	font-size: .79rem;
+	margin-top: 6px;
+	letter-spacing: 1px;
+	line-height: 22px;
 }
 
-.confirmation-box{
 
+
+.new-note {
+  padding: 0px 10px 0 8px;
+}
+
+.note-form{
+	display: flex;
+	flex-direction: column;
+}
+
+.input-title{
+	width: 357px;
+  height: 44px;
+  border-radius: 5px;
+  margin-bottom: 13px;
+}
+
+.input-textBody{
+	width: 100%;
+  height: 349px;
+  border-radius: 5px;
+  margin-bottom: 13px;
+}
+
+.note-options{
+	position: absolute;
+  right: 4.8%;
+  top: 16px;
+  font-size: 0.9rem;
+  text-decoration: underline;
+	font-weight: bold;
+}
+
+.delete-button {
+	margin-left: 12px;
+	text-decoration: underline;
+}
+
+.note-full-view .notes-title{
+	margin-left: 4px;
+}
+
+.notes-full-text{
+	font-size: .9rem;
+	padding: 0px 4px;
+	line-height: 25px;
+	margin-top: -3px;
+
+}
+
+.delete-modal {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
+.modal-overlay {
+	  position: absolute;
+    background-color: gray;
+    opacity: 0.6;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.confirmation-box {
+	position: absolute;
+	top: 21%;
+	width: 533px;
+	background: white;
+	border: 1px solid black;
+	height: 181px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+.confirmation-message {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	margin-top: 46px;
+	font-size: 0.95rem;
+}
+
+.confirmation-button {
+	width: 190px;
+	border: 1px solid gray;
+	height: 42px;
 }

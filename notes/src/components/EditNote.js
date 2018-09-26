@@ -32,7 +32,7 @@ class NewNote extends Component {
     let ans = this.props.noteList.find(item => item._id = this.props.match.params.id)
     return (
       <React.Fragment>
-      <h2> Edit Note: </h2>
+      <h2 className='notes-title'> Edit Note:</h2>
       <NoteForm
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}

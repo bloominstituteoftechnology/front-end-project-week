@@ -17,7 +17,7 @@ import SearchBar from './SearchBar.js'
 class App extends Component {
 
   state = {
-    filter: 'Note',
+    filter: '',
   }
 
   componentDidMount() {
@@ -43,10 +43,10 @@ class App extends Component {
         <section className='main-section'>
           <Route exact path='/note-list' render={props =>
             <React.Fragment>
-              <h2 className='notes-title'> Your Notes: </h2>
-              <SearchBar
-                handleFilter={this.handleFilter}
-                filter={this.state.filter} />
+                <h2 className='notes-title'> Your Notes: </h2>
+                <SearchBar
+                  handleFilter={this.handleFilter}
+                  filter={this.state.filter} />
               <NotesList
                 {...props}
                 noteList={this.props.notes}
@@ -63,6 +63,7 @@ class App extends Component {
              <NotesList
                {...props}
                noteList={this.props.notes}
+               filter={this.state.filter}
               />
               </React.Fragment>
             } />

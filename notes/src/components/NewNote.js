@@ -7,8 +7,8 @@ import NoteForm from './NoteForm'
 
 class NewNote extends Component {
   state = {
-    title: 'Luisan',
-    textBody: 'this is my test'
+    title: 'Note Title',
+    textBody: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a efficitur mollis ..'
   }
 
   handleChange = (event) => {
@@ -22,14 +22,14 @@ class NewNote extends Component {
       textBody: this.state.textBody,
     }
     this.props.createNote(newNote)
-    this.setState({ title:'', textBody:'' })
+    this.setState({ title:'Note Title', textBody:'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a efficitur mollis ..' })
 
   }
 
   render() {
     return (
       <React.Fragment>
-      <h2> Create New Note: </h2>
+      <h2 className='notes-title'> Create New Note: </h2>
       <NoteForm
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}

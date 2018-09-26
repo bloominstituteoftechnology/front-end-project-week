@@ -28,9 +28,9 @@ import './App.css';
       </div>
     )
     : this.props.match.params.id === this.props.note._id  //individual note view
-    ? (   <div className="note">
-            <h3>{this.props.note.title}</h3>
-            <p>{this.props.note.textBody}</p>
+    ? (   <div className="note-full-view">
+            <h3 class='notes-title'>{this.props.note.title}</h3>
+            <p className='notes-full-text'>{this.props.note.textBody}</p>
               {/* <Link to={`/note-list/${this.props.note._id}`}> My Home </Link> */}
           </div>
         )

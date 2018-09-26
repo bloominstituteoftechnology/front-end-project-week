@@ -22,10 +22,10 @@ class NoteOptions extends Component {
     if (ans) {
       return(
         <div className="note-options">
-          <NavLink to={`/edit-note/${ans._id}`}> edit </NavLink>
+          <NavLink to={`/edit-note/${ans._id}`}>edit</NavLink>
           <button
             className='delete-button'
-            onClick={this.handleModal}>Delete Me</button>
+            onClick={this.handleModal}>delete</button>
             {
               this.state.showModal &&
               <DeleteModal

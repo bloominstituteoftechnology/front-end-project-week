@@ -16,9 +16,11 @@ class DeleteModal extends Component {
       <div className='delete-modal'>
         <div className='modal-overlay' onClick={this.props.handleModal}>
           <div className='confirmation-box'>
-            <p>Are you sure you want to delete this?</p>
-            <button onClick={this.handleDelete}>Delete</button>
-            <button onClick={this.props.handleModal}>No</button>
+            <p className='confirmation-message'>Are you sure you want to delete this?</p>
+            <button className='confirmation-button delete'
+              onClick={this.handleDelete}>Delete</button>
+            <button className='confirmation-button cancel'
+              onClick={this.props.handleModal}>No</button>
           </div>
         </div>
       </div>
