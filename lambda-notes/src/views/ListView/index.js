@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// Dependencies
+import fuzzysearch from 'fuzzysearch';
+
 // Components
 import { Note } from '../../components';
 
@@ -30,7 +33,10 @@ class ListView extends React.Component {
 			...this.state,
 			errorMsg: '',
 			search: newSearch,
-			input: { ...this.state.input },
+			input: { 
+				exactInput: '',
+				fuzzyInput: '',
+			},
 		});
 	}
 
@@ -96,10 +102,15 @@ class ListView extends React.Component {
 					<h2>{ this.props.username }'s Notes:</h2>
 
 					{ 
-						(this.state.search.exactSearch && (this.props.notes.filter((note) => {
+						(this.state.search.exactSearch && (this.props.notes.filter(note => {
 							if ((note.title.indexOf(this.state.input.exactInput) !== -1) || (note.textBody.indexOf(this.state.input.exactInput) !== -1)) return true;
 							else return false;
-						}).map((note, i) => <Note history = { this.props.history } key = { i } exactInput = { this.state.input.exactInput } note = { note } />)) ) || 
+						}).map((note, i) => <Note history = { this.props.history } key = { i } exactInput = { this.state.input.exactInput } note = { note } />))) || 
+
+						(this.state.search.fuzzySearch && (this.props.notes.filter(note => {
+							if (fuzzysearch(this.state.input.fuzzyInput, note.title) || fuzzysearch(this.state.input.fuzzyInput, note.textBody)) return true;
+							else return false;
+						}).map((note, i) => <Note history = { this.props.history } key = { i } note = { note } />))) || 
 
 						(this.props.notes.map((note, i) => <Note history = { this.props.history } key = { i } note = { note } />)) 
 					}
