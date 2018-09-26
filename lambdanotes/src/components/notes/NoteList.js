@@ -9,6 +9,7 @@ const NoteCardWrapper = styled.div`
   border: 1px solid #c8c7c8;
   font-size: 18px;
   width: 295px;
+  height: 240px;
   background: white;
   margin-bottom: 25px;
   padding: 5px 15px 20px 15px;
