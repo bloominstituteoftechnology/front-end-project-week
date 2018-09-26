@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getNotes } from "../store/actions";
+import { getNotes, deleteNote } from "../actions";
 
-import NotesList from "../components/NotesList/NotesList";
+import NotesList from "../components/NotesList";
 
 class NotesListView extends React.Component {
   componentDidMount() {
@@ -11,7 +11,11 @@ class NotesListView extends React.Component {
   }
 
   render() {
-    return <NotesList {...this.props} />;
+    return (
+      <div>
+        <NotesList {...this.props} />
+      </div>
+    );
   }
 }
 
@@ -21,5 +25,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getNotes }
+  { getNotes, deleteNote }
 )(NotesListView);

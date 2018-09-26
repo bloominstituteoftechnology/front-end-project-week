@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import "../App.css";
 
 function NoteForm(props) {
   function handleSubmit(event) {

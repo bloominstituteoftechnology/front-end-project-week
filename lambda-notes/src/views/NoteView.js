@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getNotes, deleteNote, setUpdateNote } from "../store/actions";
+import { getNotes, deleteNote, setUpdateNote, getNote } from "../actions";
 
-import Note from "../components/Note/Note";
+import Note from "../components/Note";
 
 class NoteView extends React.Component {
   componentDidMount() {
@@ -30,21 +30,19 @@ class NoteView extends React.Component {
         isLoading={this.props.isLoading}
         handleDeleteNote={this.handleDeleteNote}
         goToUpdateNoteForm={this.goToUpdateNoteForm}
-      /> // spread in props --> same as "match={props.match} location={props.location} history={props.history}"
+        note={this.props.note}
+      />
     );
   }
 }
 
 const mapStateToProps = state => ({
   notesList: state.notes,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  note: state.note
 });
-
-// const mapDispatchToProps = dispatch => ({
-//     deleteAvengerOnProps: () => deleteAvenger(id),
-// })
 
 export default connect(
   mapStateToProps,
-  { getNotes, deleteNote, setUpdateNote }
+  { getNotes, deleteNote, setUpdateNote, getNote }
 )(NoteView);

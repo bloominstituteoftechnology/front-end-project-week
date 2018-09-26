@@ -1,27 +1,24 @@
 import React from "react";
-import { Route, NavLink, withRouter } from "react-router-dom";
-import axios from "axios";
-
+import { NavLink, Route, withRouter } from "react-router-dom";
 import HomeView from "./views/HomeView";
 import NotesListView from "./views/NotesListView";
 import NoteView from "./views/NoteView";
 import NoteFormView from "./views/NoteFormView";
-
 import "./App.css";
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ul className="navbar">
+        <ul className="nav-bar">
           <li>
-            <NavLink to="/notes" activeClassName="activeNavButton">
-              Notes
+            <NavLink exact to="/" activeClassName="activeNavButton">
+              Home
             </NavLink>
           </li>
           <li>
             <NavLink to="/note-form" activeClassName="activeNavButton">
-              Add New Note
+              Add Note
             </NavLink>
           </li>
         </ul>

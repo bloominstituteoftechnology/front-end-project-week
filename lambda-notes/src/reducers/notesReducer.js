@@ -1,17 +1,17 @@
 import {
-  NOTE_FETCH_START,
-  NOTE_FETCH_COMPLETE,
-  NOTE_FETCH_FAILURE,
+  NOTES_FETCH_START,
+  NOTES_FETCH_SUCCESS,
+  NOTES_FETCH_FAILURE,
   ADD_NOTE_START,
-  ADD_NOTE_COMPLETE,
+  ADD_NOTE_SUCCESS,
   ADD_NOTE_FAILURE,
   DELETE_NOTE_START,
-  DELETE_NOTE_COMPLETE,
+  DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAILURE,
+  SET_UPDATE_NOTE,
   UPDATE_NOTE_START,
-  UPDATE_NOTE_COMPLETE,
-  UPDATE_NOTE_FAILURE,
-  SET_UPDATE_NOTE
+  UPDATE_NOTE_SUCCESS,
+  UPDATE_NOTE_FAILURE
 } from "../actions";
 
 const initialState = {
@@ -21,28 +21,29 @@ const initialState = {
   isDeleting: false,
   isUpdating: false,
   error: "",
-  noteToUpdate: null
+  noteToUpdate: null,
+  note: {}
 };
 
 export const notesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case NOTE_FETCH_START:
+    case NOTES_FETCH_START:
       return { ...state, isLoading: true };
-    case NOTE_FETCH_COMPLETE:
+    case NOTES_FETCH_SUCCESS:
       return { ...state, isLoading: false, notes: action.payload };
-    case NOTE_FETCH_FAILURE:
+    case NOTES_FETCH_FAILURE:
       console.log(action.payload);
       return { ...state, isLoading: false, error: action.payload };
     case ADD_NOTE_START:
       return { ...state, addingNote: true };
-    case ADD_NOTE_COMPLETE:
+    case ADD_NOTE_SUCCESS:
       return { ...state, addingNote: false, notes: action.payload };
     case ADD_NOTE_FAILURE:
       console.log(action.payload);
       return { ...state, addingNote: false, error: action.payload };
     case DELETE_NOTE_START:
       return { ...state, isDeleting: true };
-    case DELETE_NOTE_COMPLETE:
+    case DELETE_NOTE_SUCCESS:
       return { ...state, isDeleting: false, notes: action.payload };
     case DELETE_NOTE_FAILURE:
       console.log(action.payload);
@@ -52,7 +53,7 @@ export const notesReducer = (state = initialState, action) => {
       return { ...state, noteToUpdate: note ? note : null };
     case UPDATE_NOTE_START:
       return { ...state, isUpdating: true };
-    case UPDATE_NOTE_COMPLETE:
+    case UPDATE_NOTE_SUCCESS:
       return { ...state, isUpdating: false, notes: action.payload };
     case UPDATE_NOTE_FAILURE:
       console.log(action.payload);

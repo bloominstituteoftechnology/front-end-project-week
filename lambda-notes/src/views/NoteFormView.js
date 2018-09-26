@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addNewNote, updateNote } from "../store/actions";
+import { addNewNote, updateNote } from "../actions";
 
-import NoteForm from "../components/NotesForm/NotesForm";
+import NoteForm from "../components/NoteForm";
 
-const initialValues = {
+const defaultValues = {
   title: "",
   textBody: "",
   tags: []
@@ -49,6 +49,7 @@ class NoteFormView extends React.Component {
 
   handleAddNewNote = event => {
     event.preventDefault();
+    console.log("it working :)");
     this.props.addNewNote(this.state.note);
     this.props.history.push("/notes");
   };
@@ -67,7 +68,7 @@ class NoteFormView extends React.Component {
         handleChange={this.handleChange}
         handleUpdateNote={this.handleUpdateNote}
         isUpdating={this.state.isUpdating}
-      /> // spread in props --> same as "match={props.match} location={props.location} history={props.history}"
+      />
     );
   }
 }
