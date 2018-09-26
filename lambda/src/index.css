@@ -48,3 +48,8 @@ body {
   width: 120px;
   cursor: pointer;
 }
+.Notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}

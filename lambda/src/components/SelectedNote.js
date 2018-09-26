@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import SideView from "./SideView";
-import NotesForm from "./NotesForm";
-import CreateNote from "./CreateNote";
+// import SideView from "./SideView";
+// import NotesForm from "./NotesForm";
+// import CreateNote from "./CreateNote";
 
 class SelectedNote extends React.Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class SelectedNote extends React.Component {
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
       .then(response => {
+        console.log("HELLO FROM GET - RESPONSE IS: ", response.data);
         this.setState(() => ({ note: response.data }));
       })
       .catch(error => {
@@ -63,6 +64,7 @@ class SelectedNote extends React.Component {
     axios
       .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
+        console.log("HELLO FROM DELETE: ", response.data);
         this.props.handleInfo(response.data);
       })
       .catch(error => console.log(error));

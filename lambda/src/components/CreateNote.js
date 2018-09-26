@@ -17,9 +17,10 @@ class CreateNote extends React.Component {
     axios
       .post("https://killer-notes.herokuapp.com/note/create", note)
       .then(response => {
-        this.setState({ title: "", text: "" }),
-          () => this.props.history.push("/");
-        this.props.handleChange(response.data);
+        this.setState({ title: "", text: "" });
+        console.log("THIS IS THE RESPONSE: ", response.data);
+        this.props.history.push("/notes");
+        // this.props.handleChange(response.data);
       })
       .catch(error => console.log(error));
   };
