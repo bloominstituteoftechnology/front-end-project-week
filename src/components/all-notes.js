@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Redirect } from 'react';
 import styled from 'styled-components';
 import NotePreview from './note-preview.js';
 
@@ -11,10 +11,17 @@ export default class AllNotes extends Component {
     }
   }
 
+  componentDidMount(){
+    console.log('CDM all-notes')
+    if(!localStorage.getItem('JWT')){
+      return <Redirect to='/welcome' />
+    }
+  }
+
   render(props) {    
     return (
       <AllNotesDiv>
-        <h3>Your Notes:</h3>
+        <h3>{` Hello ${this.props.username},`}</h3>
         <div className="sort">
           <h4>Sort by:</h4>
             <button onClick={this.props.sortByLetter}>A->Z</button>

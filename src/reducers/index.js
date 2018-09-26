@@ -12,7 +12,8 @@ import {
             SENDING_NEW_USERDATA,
              USER_CREATED,
              SENDING_CREDENTIALS,
-             CREDENTIALS_ACCEPTED 
+             CREDENTIALS_ACCEPTED,
+             FAILED_LOGIN_ATTEMPT,
            } from '../actions';
 
 const initialState = {
@@ -28,10 +29,14 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch(action.type) {
 
+    case FAILED_LOGIN_ATTEMPT: 
+      return Object.assign({}, state, {
+        failedLoginAttempt: true,
+      })
     case SENDING_CREDENTIALS: 
       return Object.assign({}, state, {
         sendingCredentials: true,
-        sucessfulLogin: true,
+        sucessfulLogin: false,
       })
     case CREDENTIALS_ACCEPTED: 
       return Object.assign({}, state, {
@@ -58,7 +63,7 @@ export const reducer = (state = initialState, action) => {
         fetchingNotes: false,
         notesRecieved: true,
         notes: action.payload.allUserNotes,
-        user: action.payload.username
+        username: action.payload.username
       })
     case ADDING_NOTE:
       return Object.assign({}, state, {

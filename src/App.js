@@ -138,7 +138,9 @@ class App extends Component {
                   <AllNotes
                     sortByLetter={this.sortByLetter}
                     sortById={this.sortById}
-                    onDrop={this.handleDrop} notes={this.props.state.notes} />
+                    onDrop={this.handleDrop} 
+                    notes={this.props.state.notes}
+                    username={this.props.state.username} />
                 )
               }}
             ></Route>
@@ -194,7 +196,11 @@ class App extends Component {
 
             </React.Fragment>
            
-           : <Route path="/welcome" component={Welcome} /> }
+           : <Route path="/welcome" component={Welcome}
+          //  render={() => {
+          //    return <Welcome failedLoginAttempt={this.state.failedLoginAttempt}
+          //   /> }}
+            ></Route>}
           
             
           </div>

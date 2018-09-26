@@ -14,6 +14,8 @@ export const SENDING_NEW_USERDATA = 'SENDING_NEW_USERDATA';
 export const USER_CREATED = 'USER_CREATED';
 export const SENDING_CREDENTIALS = 'SENDING_CREDENTIALS';
 export const CREDENTIALS_ACCEPTED = 'CREDENTIALS_ACCEPTED';
+export const FAILED_LOGIN_ATTEMPT = 'FAILED_LOGIN_ATTEMPT';
+
 
 export const loginUser = (creds) => {
   return function(dispatch){
@@ -25,6 +27,7 @@ export const loginUser = (creds) => {
       this.getNotes();
     })
     .catch(err => {
+      dispatch({type: FAILED_LOGIN_ATTEMPT})
       dispatch({type: ERROR, payload: err})
     })
   }
@@ -60,6 +63,7 @@ export const getNotes = () =>  {
       }
       axios.get('http://localhost:3300/api/notes/all', authHeader)
         .then(res => {
+          console.log(res)
           //convert tags from strings to array here and pass it back 
         dispatch({type: NOTES_RECIEVED, payload: res.data})
       })
