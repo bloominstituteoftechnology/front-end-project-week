@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
-import { AppStyle, Navigation, Main } from "./components/styling/AppWideStyling";
+import { AppContainer, Navigation, NotesListContainer } from "./components/styling/AppWideStyling";
 import NotesList from "./components/functional/NotesList";
 import NoteForm from "./components/functional/NoteForm";
 import ViewPage from "./components/functional/ViewPage";
@@ -8,7 +8,7 @@ import ViewPage from "./components/functional/ViewPage";
 class App extends Component {
   render() {
     return (
-      <AppStyle>
+      <AppContainer>
 
         <Navigation>
           <h1>Lambda Notes</h1>
@@ -19,8 +19,8 @@ class App extends Component {
             + Create New Note
           </Link>
         </Navigation>
-        
-        <Main>
+
+        <NotesListContainer>
           <Route exact path="/" component={NotesList} />
           <Route
             exact
@@ -28,9 +28,9 @@ class App extends Component {
             render={props => <NoteForm {...props} />}
           />
           <Route path="/notes/:id" render={props => <ViewPage {...props} />} />
-        </Main>
+        </NotesListContainer>
 
-      </AppStyle>
+      </AppContainer>
     );
   }
 }

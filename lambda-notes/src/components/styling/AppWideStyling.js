@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const AppStyle = styled.div`
+export const AppContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
@@ -24,7 +24,7 @@ export const Navigation = styled.div`
     font-size: 1.5rem;
   }
 `;
-export const Main = styled.div`
+export const NotesListContainer = styled.div`
   background: #f2f1f2;
   margin-left: 20%;
   width: 80%;
