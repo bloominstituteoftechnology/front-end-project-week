@@ -5,12 +5,14 @@ import { Route } from 'react-router-dom';
 import NoteList from './components/NoteList';
 import Note from './components/Note';
 import NewNote from './components/NewNote';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      notes: []
+      notes: [],
+      updated: false
     };
   }
 
@@ -23,11 +25,12 @@ class App extends Component {
             <NoteList {...props} />
           )} /> */}
           <Route exact path='/' component={NoteList} />
-          <Route path='/notes/:id' render={props => (
+          <Route exact path='/notes/:id' render={props => (
             <Note {...props} /> 
           )} />
           {/* <Route path='/notes/:id' component={Note} /> */}
           <Route path='/new' component={NewNote} />
+          <Route path='/notes/edit/:id' render={props => (<EditNote {...props} />)} />
         </div>
       </div>
     );

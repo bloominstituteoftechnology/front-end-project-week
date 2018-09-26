@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class NewNote extends Component {
+export default class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // tags: ["tag", "otherTag"],
       title: '',
-      textBody: ''
+      textBody: '',
     };
   }
 
-  addNewNote = event => {
-    event.preventDefault();
+  fetchNote = id => {
     axios
-    .post('https://killer-notes.herokuapp.com/note/create', this.state)
-    .then(() => 
+    .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+    .then(res => {
+      this.setState(() => ({ title: res.data.title, textBody: res.data.textBody }));
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  }
+
+  editNote = id => {
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
+    .then(() => this.fetchNote(res),
     this.setState({
-      // tags: [],
-      title: '',
-      textBody: ''
+      title: res.data.title,
+      textBody: res.data.textBody
     }))
     .catch(err => {
       console.error(err);
@@ -33,8 +41,8 @@ export default class NewNote extends Component {
   render() {
     return(
       <div className='new-note'>
-        <h3>Create New Note:</h3>
-        <form onSubmit={this.addNewNote} >
+        <h3>Edit Note:</h3>
+        <form onSubmit={this.editNote}>
           <input 
             type='text'
             onChange={this.handleInput}
@@ -49,7 +57,7 @@ export default class NewNote extends Component {
             value={this.state.textBody}
             name='textBody'
           />
-          <button type='submit'>Save</button>
+          <button type='submit'>Update</button>
         </form>
       </div>
     );

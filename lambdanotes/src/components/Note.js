@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // import NoteCard from './NoteCard';
 
 export default class Note extends Component {
@@ -31,10 +32,23 @@ export default class Note extends Component {
     axios
     .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
     .then(() => {
-      this.fetchNote()
+      this.fetchNote(), this.props.history.push('/')
     })
     .catch(err => {
-      console.error(err);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+      console.error(err);          
+    });
+  } 
+
+    editNote = id => {
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
+    .then(() => this.fetchNote(),
+    this.setState({
+      title: '',
+      textBody: ''
+    }))
+    .catch(err => {
+      console.error(err);
     });
   }
 
@@ -45,7 +59,7 @@ export default class Note extends Component {
     return(
       <div className='one-note'>
         <div className='note-action'>
-          <span>edit</span>
+          <Link to={`notes/edit/${this.state.note._id}`}>edit</Link>
           <button onClick={()=> this.deleteNote(this.state.note._id)}>delete</button>
         </div>
         {/* <NoteCard /> */}
