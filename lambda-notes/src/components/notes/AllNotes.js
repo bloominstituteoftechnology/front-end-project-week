@@ -27,9 +27,7 @@ class AllNotes extends Component {
         <div className="allNotesDiv">
           {this.props.notes.map(note => {
             if (
-              note.title
-                .toLowerCase()
-                .indexOf(this.props.search.toLowerCase()) === 0
+              note.title.toLowerCase().includes(this.props.search.toLowerCase())
             ) {
               note.style = { display: "hidden" };
             }
