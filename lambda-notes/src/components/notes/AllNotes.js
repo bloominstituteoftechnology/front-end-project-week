@@ -26,11 +26,8 @@ class AllNotes extends Component {
         <h2 className="yourNotesTitle">Your Notes:</h2>
         <div className="allNotesDiv">
           {this.props.notes.map(note => {
-            if (
-              note.title.toLowerCase().includes(this.props.search.toLowerCase())
-            ) {
-              note.style = { display: "hidden" };
-            }
+            console.log("NOTE", note);
+            console.log("Search", this.props.search);
             return (
               <Link to={`/notes/${note.id}`} className="noteCard" key={note.id}>
                 <h2>
