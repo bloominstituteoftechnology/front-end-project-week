@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
 import { YourNotes, Sidebar, Forms, ViewNote } from '../Container/';
-import { Header } from '../Presentational/';
 import { collectNotes, assembleNote, reviseNote, expungeNote } from '../../Store/Actions';
 import { Container, NotesMain } from '../Styles';
+import { BasicLayout } from '../Container/grid';
 
 class App extends Component {
 
@@ -45,6 +45,9 @@ class App extends Component {
             expungeNote={this.props.expungeNote} 
             />
           )}/>
+
+          <Route path="/basic" render= {
+          props => (<BasicLayout notes={this.props.notes} />)}/>
         </NotesMain>
         </Container>
 
