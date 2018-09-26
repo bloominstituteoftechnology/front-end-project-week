@@ -35,6 +35,12 @@ const Header = Styled.header`
         margin-left: 10%;
     }
 
+    h3 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 5%;
+    }
+
     button {
         width: 95%;
         background-color: #2ac0c4;
@@ -87,6 +93,10 @@ class Navigation extends Component {
                 </Search>
                 <NavLink to="/"><Button type="button" onClick={event => this.props.isUpdate(event)}>View Your Notes</Button></NavLink>
                 <NavLink to="/create-note"><Button type="button" onClick={event => this.props.isUpdate(event)}>+ Create A New Note</Button></NavLink>
+                <br />
+                <h3>Sort Notes</h3>
+                <Button type="button" onClick={event => this.props.sortList(event, 'front')}>A-Z</Button>
+                <Button type="button" onClick={event => this.props.sortList(event, 'back')}>Z-A</Button>
             </Header>
         )
     }

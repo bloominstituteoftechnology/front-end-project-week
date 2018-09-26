@@ -91,11 +91,23 @@ class App extends Component {
 
   }
 
+  sortList = (e, sorting) => {
+    e.preventDefault();
+    const notes = this.state.notes.sort((a,b) => {return a.title.toLowerCase().localeCompare(b.title.toLowerCase());});
+
+    switch(sorting) {
+      case 'front':
+        return this.setState({notes});
+      case 'back':
+        return this.setState({notes: notes.reverse()})
+    }
+  }
+
   render() {
     return (
       <Wrapper>
         <SideNav>
-          <Navigation isUpdate={this.isUpdate} handleSearch={this.handleSearch} />
+          <Navigation isUpdate={this.isUpdate} handleSearch={this.handleSearch} sortList={this.sortList} />
         </SideNav>
         <Content>
           <Route exact path="/" render={ props =>

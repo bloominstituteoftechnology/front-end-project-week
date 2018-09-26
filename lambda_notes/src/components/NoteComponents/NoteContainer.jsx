@@ -7,12 +7,18 @@ const Wrapper = Styled.div`
     margin-top: 80px;
     background-color: #f3f3f3;
     color: white;
+
 `;
 
 const Header = Styled.header`
     font-weight: bold;
     padding-left: 1%;
     color: #4a494a;
+
+    h1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
     
 `;
 
