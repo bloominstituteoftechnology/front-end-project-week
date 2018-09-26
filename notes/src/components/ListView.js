@@ -55,24 +55,57 @@ class ListView extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            activePage: 1
+            currentPage: 1,
+            notesPerPage: 3,
         }
+        this.handlePageChange = this.handlePageChange.bind();
     }
-    handlePageChange(pageNumber) {
-        this.setState({ activePage: pageNumber })
+    handlePageChange = e => {
+        this.setState({ currentPage: Number(e.target.id)})
     }
     render(){
         let totalNotes = this.props.notes.length;
+        const { currentPage, notesPerPage } = this.state;
+        const indexOfLastNote = currentPage * notesPerPage;
+        const indexOfFirstNote = indexOfLastNote - notesPerPage;
+        const currentNotes = this.props.notes.slice(indexOfFirstNote, indexOfLastNote);
+        const renderNotes = currentNotes.map(note => {
+            return(
+                 <NoteOverview style={{display: 'grid',
+                                        gridTemplateColumns: 'repeat(3, 1fr)',
+                                        gridGap: '50px',
+                                        gridAutoRows: 'minMax(100px, auto)'}}>
+                    <Draggable>      
+                        <SmallNote key={note.id}>
+                            <Title>{note.title}</Title>
+                            <Link to={`/note/${note.id}`}
+                                    style={{ textDecoration: 'none',
+                                            color: 'black' }}>
+                                <Content>
+                                    <ReactMarkdown source={note.textBody} />
+                                </Content>
+                            </Link>
+                        </SmallNote>
+                    </Draggable>        
+                </NoteOverview>
+        )});
+        const pageNumbers = [];
+        for ( let i = 1; i <= Math.ceil(totalNotes/notesPerPage); i++) {
+            pageNumbers.push(i);
+        }
+        const renderPageNumbers = pageNumbers.map(num => {
+            return ( <li key={num} id={num} onClick={this.handlePageChange}>
+                {num}
+                </li>
+                )
+        });
         return(
             <div>
                 <List>
                     <H2>Your Notes:</H2>
-                    <ReactPaginate  pageCount={Math.ceil(totalNotes/3)}
-                                    pageRangeDisplayed={5}
-                                    marginPagesDisplayed={2}
-                                    onPageChange={this.handlePageChange}
-                                    itemCountsPerPage={3} />
-                    <NoteOverview style={{display: 'grid',
+                    {renderPageNumbers}
+                    {renderNotes}
+                    {/* <NoteOverview style={{display: 'grid',
                                         gridTemplateColumns: 'repeat(3, 1fr)',
                                         gridGap: '10px',
                                         gridAutoRows: 'minMax(100px, auto)'}}>
@@ -92,7 +125,7 @@ class ListView extends React.Component{
                                 </Draggable>
                             );
                         })}
-                    </NoteOverview>
+                    </NoteOverview> */}
                 </List>
             </div>
         );
