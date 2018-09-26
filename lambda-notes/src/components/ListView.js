@@ -15,20 +15,29 @@ import "../CSS/ListView.css";
 import clippy from '../Images/clippy.jpg';
 
 class ListView extends React.Component {
+  state = {
+    term: '',
+  }
+
   componentDidMount() {
     this.props.getNotes();
   }
 
-  filterResult = (term) => {
-    this.props.notes.filter(note => note.title.includes(term));
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
   }
 
   render() {
+    const { term } = this.state;
     return (
       this.props.isFetching ? 
       <img src={clippy} alt="clippy"/>
       :
       <div>
+        <div className="filter-results-container">
+          <h2 className="filter-results-container-title">Filter Notes</h2>
+          <input placeholder="Search by note title or text body..." className="filter-results-container-input" type="text" name="term" onChange={this.handleChange} />
+        </div>
         <h2 className="text-center">Your Notes: </h2>
         <div
           className="note-card-container"
@@ -38,7 +47,15 @@ class ListView extends React.Component {
               : { height: "100%" }
           }
         >
-          {this.props.notes.map(note => {
+          {this.props.notes.filter((note) => {
+            if(term.trim()) {
+              if(note.title.toLowerCase().includes(term.toLowerCase()) || note.textBody.toLowerCase().includes(term.toLowerCase())) {
+                return note;
+              }
+            } else {
+              return note;
+            }
+          }).map(note => {
             return <ListItem note={note} key={note._id} />;
           })}
         </div>

@@ -32,3 +32,18 @@ img {
     transform: rotate(360deg);
   }
 }
+
+.filter-results-container {
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 20px;
+  margin: 0 0 20px;
+}
+
+.filter-results-container-input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
