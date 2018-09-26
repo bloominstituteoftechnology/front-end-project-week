@@ -21,7 +21,7 @@ export const Tags = (props) => {
       <form onSubmit={(event) => {props.submitTags(props.id); event.preventDefault(); props.history.push(`/notes/${props.id}`)}}>
         <TagsInput name='newTags' placeholder='Add tags separated by a space, click to remove' onChange={props.change} value={props.newTags} />
       </form>
-      {tags.map(item => <Tag tag={item} tags={tags} removeTag={props.removeTag} id={props.id} history={props.history} />)}
+      {tags.map(item => <Tag tag={item} tags={tags} key={tags.indexOf(item)} removeTag={props.removeTag} id={props.id} history={props.history} />)}
     </TagsCont>
   )
 }
