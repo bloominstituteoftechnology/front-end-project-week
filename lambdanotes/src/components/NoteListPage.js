@@ -1,12 +1,40 @@
 // Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled, { css } from 'styled-components';
 // Components
 import Note from './Note';
 // Actions
 import { getNotes } from '../actions';
 // Styles
 import '../styles/NoteListPage.css';
+
+const PageContainer = styled.div`
+	padding: 56px 8px 0 28px;
+`;
+
+const PageTitle = styled.h2`
+	font-size: 2rem;
+	font-weight: bold;
+	color: #4a494a;
+	margin-bottom: 30px;
+`;
+
+const StatusMessage = styled.h4`
+	font-size: 1.6rem;
+
+	${props =>
+		props.error &&
+		css`
+			color: red;
+		`};
+`;
+
+const NoteList = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	/* justify-content: space-between; */
+`;
 
 class NoteListPage extends Component {
 	componentDidMount() {
@@ -15,24 +43,22 @@ class NoteListPage extends Component {
 
 	render() {
 		return (
-			<div className="NoteListPage">
+			<PageContainer>
+				<PageTitle>Your Notes:</PageTitle>
 				{this.props.gettingNotes ? (
-					<h4 className="loading-message">Loading notes...</h4>
+					<StatusMessage>Loading notes...</StatusMessage>
 				) : this.props.notes.length ? (
-					<React.Fragment>
-						<h2 className="note-page-title">Your Notes:</h2>
-						<ul className="note-list">
-							{this.props.notes.map(note => (
-								<Note key={note._id} note={note} />
-							))}
-						</ul>
-					</React.Fragment>
+					<NoteList>
+						{this.props.notes.map(note => (
+							<Note key={note._id} note={note} />
+						))}
+					</NoteList>
 				) : !this.props.error ? (
-					<h4 className="empty-message">'No notes to display.'</h4>
+					<StatusMessage>No notes to display.</StatusMessage>
 				) : (
-					<h4 className="error-message">{this.props.error}</h4>
+					<StatusMessage error>{this.props.error}</StatusMessage>
 				)}
-			</div>
+			</PageContainer>
 		);
 	}
 }
