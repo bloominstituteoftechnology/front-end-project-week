@@ -15,14 +15,16 @@ class App extends Component {
     super();
     this.state = {
       notesData: [],
+
       note: {
         title: '',
         content: ''
       },
+
       isUpdating: false,
       show: false
     };
-  }
+  };
 
   componentDidMount() {
     axios
@@ -45,7 +47,7 @@ class App extends Component {
     });
   }
 
-  addNewNote = event => {
+  addNewNote = (event) => {
     //event.preventDefault();
     axios.post('http://localhost:5000/notes', this.state.note)
     .then(response => this.setState({ notesData: response.data, note: { title: '', content: ''} },
@@ -132,7 +134,7 @@ class App extends Component {
           path = '/notes'
           render = {props => (
            <NoteContainer {...props}
-           notesList = {this.state.notesData}
+           notesData = {this.state.notesData}
            truncate = {this.truncate}
            />
          )}
@@ -143,7 +145,7 @@ class App extends Component {
           render = {props => (
             <Note
             {...props}
-            notesList = {this.state.notesData}
+            notesData = {this.state.notesData}
             deleteNote = {this.deleteNote}
             openUpdateForm = {this.openUpdateForm}
             show = {this.state.show}
