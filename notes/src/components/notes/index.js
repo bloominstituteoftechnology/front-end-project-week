@@ -46,7 +46,13 @@ class Notes extends React.Component {
     componentDidMount() {
         localStorage.setItem('location',this.props.location.pathname);
         const sortOption=localStorage.getItem('sortOption');
-        sortOption?this.setState({sortOption:sortOption},()=>this.props.getNotes()):this.props.getNotes();
+        const token=localStorage.getItem('jwt');
+        const reqOptions={
+            headers:{
+                Authorization:token
+            }
+        }
+        sortOption?this.setState({sortOption:sortOption},()=>this.props.getNotes(reqOptions)):this.props.getNotes(reqOptions);
     }
     inputChange=(e)=>{
         this.setState({[e.target.name]:e.target.value},()=>{this.filterNotes();});

@@ -11,8 +11,8 @@ export const DELETEDNOTE='DELETEDNOTE';
 export const UPDATINGNOTE='UPDATINGNOTE';
 export const UPDATEDNOTE='UPDATEDNOTE';
 
-export const getNotes=()=>{
-  const request=axios.get('http://localhost:9000/note/get/all');
+export const getNotes=(options)=>{
+  const request=axios.get('http://localhost:9000/api/notes',options);
   return function (dispatch){
     dispatch({type:'FETCHINGNOTES'});
     request.then(data=>{dispatch({type:'FETCHEDNOTES',payload:data.data})})
