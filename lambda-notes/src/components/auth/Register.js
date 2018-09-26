@@ -16,7 +16,7 @@ class Register extends Component {
     submitHandler = e => {
         e.preventDefault();
         axios
-        .post('http://localhost:8000/api/register', this.state)
+        .post('https://lambda-notes-api.herokuapp.com/api/register', this.state)
         .then(res => {
             //console.log('response', res)
             const {token} = res.data;

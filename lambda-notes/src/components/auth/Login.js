@@ -16,7 +16,7 @@ class Login extends Component {
     submitHandler = e => {
         e.preventDefault();
         axios
-        .post('http://localhost:8000/api/login', this.state)
+        .post('https://lambda-notes-api.herokuapp.com/api/login', this.state)
         .then(res => {
             //console.log('response', res)
             const {token} = res.data;

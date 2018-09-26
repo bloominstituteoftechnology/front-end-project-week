@@ -16,7 +16,7 @@ export const fetchData = (token) => {
   return function(dispatch) {
       dispatch({ type: FETCHING_DATA });
       axios
-      .get(`http://localhost:8000/api/notes`, token)
+      .get(`https://lambda-notes-api.herokuapp.com/api/notes`, token)
       .then(response => {
           //console.log(response.data)
           dispatch({ type: DATA_FETCHED, payload: response.data });
@@ -31,7 +31,7 @@ export const fetchNote = (id, token) => {
     return function(dispatch) {
         dispatch({ type: FETCHING_NOTE });
         axios
-        .get(`http://localhost:8000/api/notes/${id}`, token)
+        .get(`https://lambda-notes-api.herokuapp.com/api/notes/${id}`, token)
         .then(response => {
             //console.log(response.data)
             dispatch({ type: NOTE_FETCHED, payload: response.data });
@@ -46,7 +46,7 @@ export const addNewNote = (title, content, token) => {
   return function(dispatch) {
       dispatch({ type: ADD_NOTE });
       axios
-     .post(`http://localhost:8000/api/notes`, {
+     .post(`https://lambda-notes-api.herokuapp.com/api/notes`, {
       title: title,
       textBody: content
       }, token)
@@ -66,7 +66,7 @@ export const deleteNote = (id, token) => {
   return function(dispatch) {
       dispatch({ type: DELETE_NOTE });
       axios
-     .delete(`http://localhost:8000/api/notes/${id}`, token)
+     .delete(`https://lambda-notes-api.herokuapp.com/api/notes/${id}`, token)
       .then(() => {
           dispatch({ type: NOTE_DELETED });
       })
@@ -83,7 +83,7 @@ export const editNote = (title, content, id, token) => {
   return function(dispatch) {
       dispatch({ type: EDIT_NOTE });
       axios
-      .put(`http://localhost:8000/api/notes/${id}`, {
+      .put(`https://lambda-notes-api.herokuapp.com/api/notes/${id}`, {
         title: title,
         textBody: content
         }, token)
