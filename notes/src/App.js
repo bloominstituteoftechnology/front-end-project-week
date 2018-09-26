@@ -15,10 +15,10 @@ class App extends Component {
     super();
     this.state = {
       notesData: [],
-      note: {
-        title: '',
-        content: ''
-      },
+      // note: {
+      //   title: '',
+      //   content: ''
+      // },
       isUpdating: false,
       show: false
     };
@@ -59,8 +59,6 @@ class App extends Component {
 
   openUpdateForm = (event, id) => {
     event.preventDefault();
-    
-    //open update form
     const noteToUpdate = this.state.notesData.find(note => note.id === id);
     this.setState ({ isUpdating: true, note: noteToUpdate },
       () => this.props.history.push('/note-form'));
@@ -93,6 +91,8 @@ class App extends Component {
     let val = '';
     if(content.length > 200) {
         val = `${content.slice(0,197)}...`
+    } else {
+      val = content;
     }
     return val;
   }
@@ -143,7 +143,7 @@ class App extends Component {
         render={props => (
           <Note 
           {...props}
-          notesList={this.state.notesData}
+          notesData={this.state.notesData}
           deleteNote={this.deleteNote}
           openUpdateForm={this.openUpdateForm}
           show={this.state.show}

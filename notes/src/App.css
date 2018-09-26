@@ -168,7 +168,7 @@ ul {
 .note-info-wrapper {
   width: 90%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   /* border: 2px solid turquoise; */
   margin: 5px 25px;
 }
@@ -206,12 +206,13 @@ ul {
 }
 
 .note-form .title {
-  width: 50%;
-  height: 50px;
-  margin-bottom: 20px;
+  width: 55%;
+  height: 40px;
+  margin: 10px 0 20px 0;
 }
 
-/* .note-form .content {
-  width: 50%;
-  height: 70%;;
-} */
+.note-form .content {
+  width: 90%;
+  /* height: 100%; */
+  margin-bottom: 20px;
+}

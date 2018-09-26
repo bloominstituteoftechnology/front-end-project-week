@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-let nextId = 2;
+let nextId = 6
 
 function getNewId() {
   return nextId++;

@@ -41,7 +41,7 @@ function NoteForm(props) {
                     className="content"
                     placeholder="Note Content"
                     cols="30"
-                    rows="5"
+                    rows="23"
                     onChange={props.handleChange}></textarea>
                 <div className="buttons">  
                 <button className="blueButton" onClick={handleSubmit}>{props.isUpdating ? 'Update' : 'Save'}</button>
