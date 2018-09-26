@@ -1,13 +1,42 @@
 // Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 // Components
 import EditNote from './EditNote';
 import DeleteNoteModal from './DeleteNoteModal';
 // Actions
 import { getNote } from '../actions';
 // Styles
-import '../styles/NotePage.css';
+import {
+	PageContainer,
+	PageTitle,
+	StatusMessage
+} from '../styles/SharedStyles';
+
+const ButtonContainer = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 18px;
+`;
+
+const EditButton = styled.button`
+	font-size: 1.4rem;
+	font-weight: bold;
+	text-decoration: underline;
+	color: #4a494a;
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+`;
+
+const NoteBody = styled.p`
+	overflow: hidden;
+	font-size: 1.3rem;
+	line-height: 2.2rem;
+	color: #4a494a;
+`;
 
 class NotePage extends Component {
 	state = {};
@@ -31,34 +60,37 @@ class NotePage extends Component {
 
 	render() {
 		return (
-			<div className="NotePage">
+			<PageContainer>
 				{!this.state.edit ? (
 					<React.Fragment>
-						<button
-							className="edit-note-button"
-							name="edit"
-							onClick={this.clickHandler}
-						>
-							edit
-						</button>
-						<button
-							className="delete-note-button"
-							name="delete"
-							onClick={this.clickHandler}
-						>
-							delete
-						</button>
+						<ButtonContainer>
+							<EditButton name="edit" onClick={this.clickHandler}>
+								edit
+							</EditButton>
+							<EditButton name="delete" onClick={this.clickHandler}>
+								delete
+							</EditButton>
+						</ButtonContainer>
 						{this.props.gettingNote ? (
-							<h4 className="loading-message">Loading note...</h4>
+							<React.Fragment>
+								<PageTitle note>Loading note...</PageTitle>
+								<StatusMessage>Loading note...</StatusMessage>
+							</React.Fragment>
 						) : this.props.updatingNote ? (
-							<h4 className="updating-message">Updating note...</h4>
+							<React.Fragment>
+								<PageTitle note>Loading note...</PageTitle>
+								<StatusMessage>Updating note...</StatusMessage>
+							</React.Fragment>
 						) : !this.props.error ? (
 							<React.Fragment>
-								<h2 className="note-page-title">{this.props.note.title}</h2>
-								<p className="note-page-text">{this.props.note.textBody}</p>
+								<PageTitle note>{this.props.note.title}</PageTitle>
+								<NoteBody>{this.props.note.textBody}</NoteBody>
 							</React.Fragment>
 						) : (
-							<h4 className="error-message">{this.props.error}</h4>
+							<React.Fragment>
+								<PageTitle note>Failed to load note</PageTitle>
+								<StatusMessage error>{this.props.error}</StatusMessage>
+							</React.Fragment>
 						)}
 					</React.Fragment>
 				) : (
@@ -70,7 +102,7 @@ class NotePage extends Component {
 						returnToNote={this.returnToNote}
 					/>
 				)}
-			</div>
+			</PageContainer>
 		);
 	}
 }

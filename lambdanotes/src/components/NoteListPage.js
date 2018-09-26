@@ -1,34 +1,21 @@
 // Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 // Components
 import Note from './Note';
 // Actions
 import { getNotes } from '../actions';
 // Styles
-import '../styles/NoteListPage.css';
+import {
+	PageContainer,
+	PageTitle,
+	StatusMessage
+} from '../styles/SharedStyles';
 
-const PageContainer = styled.div`
-	padding: 56px 8px 0 28px;
-`;
-
-const PageTitle = styled.h2`
-	font-size: 2rem;
-	font-weight: bold;
-	color: #4a494a;
-	margin-bottom: 30px;
-`;
-
-const StatusMessage = styled.h4`
-	font-size: 1.6rem;
-
-	${props =>
-		props.error &&
-		css`
-			color: red;
-		`};
-`;
+// const ListContainer = styled.div`
+// 	padding: 56px 8px 0 28px;
+// `;
 
 const NoteList = styled.div`
 	display: flex;
@@ -43,7 +30,7 @@ class NoteListPage extends Component {
 
 	render() {
 		return (
-			<PageContainer>
+			<PageContainer list>
 				<PageTitle>Your Notes:</PageTitle>
 				{this.props.gettingNotes ? (
 					<StatusMessage>Loading notes...</StatusMessage>
