@@ -37,8 +37,8 @@ export const fetchingSingleNote = (id) => {
         dispatch({type: FETCHING});
 
         request.then(response => {
-        dispatch({type: FETCHED_SINGLE_NOTE, note: response.data});
-    })
+    	dispatch({type: FETCHED_SINGLE_NOTE, note: response.data});
+	})
 
         .catch(err => {
         dispatch({type: ERROR, error: err});
@@ -46,6 +46,28 @@ export const fetchingSingleNote = (id) => {
     });
   };
 };
+
+
+export const searchAction = (search) =>{
+	const request = axios.get(`http://localhost:5000/api/notes/search/${search}`);
+
+        return (dispatch) => {
+        dispatch({type: FETCHING});
+
+        request.then(response => {
+        dispatch({type: FETCHED, notes: response.data});
+    })
+
+        .catch(err => {
+        dispatch({type: ERROR, error: err});
+
+    });
+  };
+
+};
+
+
+
 
 export const fetchingCreatePage = () => {
 	return (dispatch) => {

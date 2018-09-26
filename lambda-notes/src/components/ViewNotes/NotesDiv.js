@@ -4,8 +4,9 @@ import { Row, CardImg, Card, CardTitle, CardText, CardDeck,
  CardSubtitle, CardBody } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import {fetchingNotesAction} from "../../actions";
+import {fetchingNotesAction, searchAction} from "../../actions";
 import LambdaLeftDiv from './LambdaLeftDiv';
+import Search from './Search';
 
 class NotesDiv extends React.Component {
 
@@ -23,37 +24,13 @@ componentDidMount() {
 }
 
 
-changeHandler = event => {
-//	this.setState({[event.target.name]: event.target.value});
-	let notesArray =this.state.notesArray.slice();
-	notesArray = notesArray.filter(item => {
-		if(item.title.includes(event.target.value))
-                {
-                        return item;
-                }
-                });
-                 this.setState({ notesArray:  notesArray});
-};
-
-
-
-/*searchHandler =event => {
-	this.props.
-	   <button onClick={this.searchHandler}>Search</button>
-};
-<form>
-        <input className="search-bar" onChange={this.changeHandler} type="text" name="search" placeholder="search"  />
-        </form>
-*/
-
-
 
 /*componentDidUpdate(prevProps,  prevState) {
 	console.log('here');
 	console.log(prevProps);
-	if (prevProps.notes !== this.props.notes){;
-		
-		this.setState({notesArray: this.props.notes});
+	if (prevProps.notes !== this.props.notes){
+		this.props.fetchingNotesAction();
+		//this.setState({notesArray: this.props.notes});
 	}
 }*/
 
@@ -68,7 +45,8 @@ render() {
 
 
 	<div className="note-card-container">
-        		
+        <Search />
+
 	<div>{this.props.fetching ? (
           null
         ) :(
@@ -77,7 +55,8 @@ render() {
 	<h3 className="card-body-title">Your Notes:</h3>
 	
 	<CardDeck>{this.props.notes.map(note =>{
-      return(	
+
+     	return(	
 	<Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`} onClick={window.scrollTo(0, 0)} key={note.id}><div>
 	<Card className="note-card">
 	  <CardBody>
@@ -112,4 +91,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, {fetchingNotesAction})(NotesDiv);
+export default connect(mapStateToProps, {fetchingNotesAction, searchAction})(NotesDiv);
