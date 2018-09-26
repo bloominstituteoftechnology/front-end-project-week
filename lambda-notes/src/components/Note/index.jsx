@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Form from '../Form';
 import Modal from 'react-modal';
 import { getNote, getNotes, editNote, deleteNote } from '../../actions';
+import Markdown from 'react-markdown';
 
 class Note extends React.Component {
   state = {
