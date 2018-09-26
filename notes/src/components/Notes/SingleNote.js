@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import DeleteModal from './DeleteModal';
+
 const SingleNote = (props) => {
   // console.log(props);
   const note = props.notes.find(
@@ -9,20 +11,15 @@ const SingleNote = (props) => {
   );
   // console.log(note);
 
-  const handleDelete = () => {
-    console.log('handleDelete');
-    props.deleteData(note._id);
-    props.history.push('/');
-  };
-
   if (!note) return <div />;
-  // console.log(props);
+  console.log('SingleNote', props.isModalVisible);
   return (
     <Container>
       <Title>{note.title}</Title>
       <Content>{note.textBody}</Content>
       <EditLink to={`/note/${note._id}/edit`}>edit</EditLink>
-      <DeleteButton onClick={handleDelete}>delete</DeleteButton>
+      <DeleteButton onClick={props.handleModalVisible}>delete</DeleteButton>
+      <DeleteModal {...props} note={note} />
     </Container>
   );
 };

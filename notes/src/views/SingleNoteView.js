@@ -6,14 +6,32 @@ import { fetchData, deleteData } from '../actions';
 import SingleNote from '../components/Notes/SingleNote';
 
 class SingleNoteView extends Component {
+  state = {
+    isModalVisible: false,
+  };
+
   componentDidMount() {
     if (this.props.notes.length === 0) {
       this.props.fetchData();
     }
   }
 
+  handleModalVisible = () => {
+    const visible = this.state.isModalVisible;
+    this.setState({
+      isModalVisible: !visible,
+    });
+  };
+
   render() {
-    return <SingleNote {...this.props} />;
+    // console.log('SingleNoteView', this.state.isModalVisible);
+    return (
+      <SingleNote
+        {...this.props}
+        {...this.state}
+        handleModalVisible={this.handleModalVisible}
+      />
+    );
   }
 }
 
