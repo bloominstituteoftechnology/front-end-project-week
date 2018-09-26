@@ -28,6 +28,7 @@ const NoteTitle = styled.h3`
 `;
 
 const NoteBody = styled.p`
+	overflow: hidden;
 	font-size: 1.3rem;
 	line-height: 2.2rem;
 `;
