@@ -27,6 +27,7 @@ export const createNote = (note) => {
     axios
       .post('https://killer-notes.herokuapp.com/note/create', note)
       .then(resp => dispatch({type: CREATING_NOTE_SUCESSFULL, payload: resp.data}))
+      .then(() => getNotes()(dispatch))
       .catch(err => dispatch({type: CREATING_NOTE_FAILURE, payload: new Error(err)}));
   }
 }
