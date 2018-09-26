@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 
-// import Modal from 'react-modal';
+import Modal from 'react-modal';
 import NoteForm from './NoteForm';
 
 class Note extends Component {
-    state = {
-      note: null,
-      title: '',
-      textBody: '',
-      isEditing: false,
-      modalIsOpen: false
-    };
-  
+  state = {
+    note: null,
+    title: '',
+    textBody: '',
+    isEditing: false,
+    modalIsOpen: false
+  };
+
 
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -53,14 +53,16 @@ class Note extends Component {
       .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
       .then(response => {
         this.props.fetchNotes();
-        this.setState({ note: response.data,
-                        title: response.data.title,
-                        textBody: response.data.textBody });
-        })
+        this.setState({
+          note: response.data,
+          title: response.data.title,
+          textBody: response.data.textBody
+        });
+      })
       .catch(error => {
         console.error(error);
       });
-  this.props.history.push("/");
+    this.props.history.push("/");
   }
 
   handleEditInputChange = e => {
@@ -80,10 +82,10 @@ class Note extends Component {
       .then(response => {
         this.props.fetchNotes();
         this.setState({
-                        note: response.data,
-                        title: response.data.title,
-                        textBody: response.data.textBody,
-                        isEditing: false
+          note: response.data,
+          title: response.data.title,
+          textBody: response.data.textBody,
+          isEditing: false
         });
       })
       .catch(error => {
@@ -91,40 +93,55 @@ class Note extends Component {
       });
   };
 
-toggleEdit = e => {
-  e.preventDefault();
-  this.setState({ isEditing: true});
-}
+  toggleEdit = e => {
+    e.preventDefault();
+    this.setState({ isEditing: true });
+  }
 
   render() {
-    if(!this.state.note) {
-      return(<div>Loading Note...</div>);
+    if (!this.state.note) {
+      return (<div>Loading Note...</div>);
     }
-  
+
     const { title, textBody } = this.state.note;
 
-     if (this.state.isEditing) {
+    if (this.state.isEditing) {
       return (
-        <NoteForm 
-              title={this.state.title}
-              textBody={this.state.textBody}
-              handleEditNote={this.handleEditNote}
-              handleInputChange={this.handleEditInputChange}
+        <NoteForm
+          type={"edit"}
+          title={this.state.title}
+          textBody={this.state.textBody}
+          handleEditNote={this.handleEditNote}
+          handleInputChange={this.handleEditInputChange}
         />
       );
     }
 
-    return(
-     
-      <div className="note-card">
+    return (
+      <div className="note-container">
+        <Modal isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          className="modal"
+          overlayClassName="overlay"
+        >
+          <h3>Are you sure you want to delete this?</h3>
+          <div className="modal-buttons">
+            <button onClick={this.handleDelete}>Delete</button>
+            <button onClick={this.closeModal}>No</button>
+          </div>
+        </Modal>
 
-      <h2>{title}</h2>
-      <div className="movie-director">{textBody}</div>
+        <div className="edit-delete-container">
+          <h5 onClick={this.toggleEdit}>edit</h5>
+          <h5 onClick={this.openModal}>delete</h5>
+        </div>
 
-      <button className="delete-edit-btn" onClick={this.toggleEdit}>edit</button>
-      <button className="delete-edit-btn" onClick={this.handleDelete}>delete</button>
-    
+        <h2>{title}</h2>
+        <div>{textBody}</div>
+
       </div>
+
     );
   }
 }

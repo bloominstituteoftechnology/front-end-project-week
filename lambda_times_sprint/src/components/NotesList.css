@@ -1,0 +1,19 @@
+.note-list-wrapper {
+  /* width: 605px; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.notes-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-card {
+  border: 1px solid black;
+  background: #FFFFFF;
+  width: 176px;
+  height: 186px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}

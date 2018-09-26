@@ -5,6 +5,7 @@ function NoteForm(props) {
         <form>
             <div className="group">
             <h2>Create New Note:</h2>
+            <h2>Edit Note:</h2>
                 <input 
                     type="text" 
                     placeholder="Note title"

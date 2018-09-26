@@ -33,7 +33,9 @@
 }
 
 .notes-section {
+  width: 68%;
   margin-left: 100px;
+  margin-top: 38px;
 }
 
 .App .sidebar {
@@ -78,29 +80,29 @@ li {
   margin-top: 22px;
 }
 
-.note-list-wrapper {
+/* .note-list-wrapper {
   /* width: 605px; */
-  display: flex;
+ /* display: flex;
   flex-wrap: wrap;
-}
+/*} */
 
 h2 {
   font-size: 1.35em;
 }
 
-.notes-card-wrapper {
+/* .notes-card-wrapper {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
-.note-card {
+/* .note-card {
   border: 1px solid black;
   background: #FFFFFF;
   width: 176px;
   height: 186px;
   margin-right: 15px;
   margin-bottom: 20px;
-}
+} */
 
 .title {
   font-size: 1.2em;
