@@ -57,7 +57,7 @@ class ViewPage extends React.Component {
         <Button onClick={this.editClick} className="left">
           edit
         </Button>
-        <Button onClick={this.deleteConfirmationModal}>delete</Button>
+        <Button onClick={this.toggleModal}>delete</Button>
         <div>
           <h3>{this.state.note.title}</h3>
           {description.map((descript, index) => {
@@ -66,7 +66,7 @@ class ViewPage extends React.Component {
         </div>
         <Modal
           showModal={this.state.showModal}
-          toggleModal={this.deleteConfirmationModal}
+          toggleModal={this.toggleModal}
           deleteClick={this.deleteClick}
         />
       </ViewContainer>

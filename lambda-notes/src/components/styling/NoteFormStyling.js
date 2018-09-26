@@ -14,6 +14,7 @@ export const Input = styled.input`
   border-radius: 4px;
   font-size: 1.5rem;
 `;
+
 export const TextField = styled.textarea`
   display: block;
   font-family: sans-serif;
@@ -24,6 +25,7 @@ export const TextField = styled.textarea`
   width: 100%
   font-size: 1.6rem;
 `;
+
 export const Button = styled.button`
   border: 1px solid  #D3D2D3;
   background: #24B8BD;
