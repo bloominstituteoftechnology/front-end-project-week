@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './SingleNote.css';
 
 
@@ -7,8 +8,16 @@ const SingleNote = (props) => {
     return (
         <div className="cards-container">
         <div className="links">
-        <button className="edit"><span>edit</span></button>
-        <button className="delete"><span>delete</span></button>
+        <Link to ="/editcard">
+        <button className="edit">
+        <span>edit</span>
+        </button>
+        </Link>
+        <Link to ="/deletecard">
+        <button className="delete">
+        <span>delete</span>
+        </button>
+        </Link>
         </div>
           <div className="statement">
           <h2>Note Name</h2>

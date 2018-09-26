@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './SideBar.css';
 
 import logo from '/Users/josephbradley/Desktop/practice-dir/front-end-project-week/lambdanotes/src/assets/lambda.png';
