@@ -20,7 +20,7 @@ function NoteContainer(props) {
                      <h4>
                      {note.title}
                      </h4>
-                     <p>{props.truncate(note.content)}</p>
+                     <p>{note.content}</p>
                  </div>
              ))}
              </div>

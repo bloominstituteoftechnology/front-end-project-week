@@ -90,14 +90,6 @@ class App extends Component {
     this.setState({ note: {title: '', content: ''}, isUpdating: false })
   }
 
-  truncate = (content) => { /* might try a different method for long notes if time permits */
-    let val = '';
-    if(content.length > 200) {
-        val = `${content.slice(0,197)}...`
-    }
-    return val;
-  }
-
   render() {
     return (
       <div className = 'App'>
@@ -134,7 +126,7 @@ class App extends Component {
           path = '/notes'
           render = {props => (
            <NoteContainer {...props}
-           notesData = {this.state.notesData}
+           notesList = {this.state.notesData}
            truncate = {this.truncate}
            />
          )}
@@ -145,7 +137,7 @@ class App extends Component {
           render = {props => (
             <Note
             {...props}
-            notesData = {this.state.notesData}
+            notesList = {this.state.notesData}
             deleteNote = {this.deleteNote}
             openUpdateForm = {this.openUpdateForm}
             show = {this.state.show}

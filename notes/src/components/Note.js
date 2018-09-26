@@ -21,10 +21,10 @@ function Note(props) {
                 <a className = 'plain-button' onClick = {event => {
                     event.preventDefault();
                     props.openUpdateForm(event, note.id)
-                }}>edit</a>
+                }}>Edit note</a>
                 <a className = 'plain-button' onClick = {event => {
                     props.showModal(event, note.id)
-                }}>delete</a>
+                }}>Delete note</a>
 
               </div>
                   <div className = 'note-info-wrapper'>
