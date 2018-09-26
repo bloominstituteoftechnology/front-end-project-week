@@ -62,10 +62,10 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         />
         <Button type="submit" onClick={this.handleSubmit}>
-          {urlPath === "/noteform" ? "Save" : "Upadate"}
+          {urlPath === "/noteform" ? "Save" : "Update"}
         </Button>
       </Form>
-      
+
     );
   }
 }

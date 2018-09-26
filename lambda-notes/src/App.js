@@ -11,10 +11,10 @@ class App extends Component {
       <AppStyle>
         <Navigation>
           <h1>Lambda Notes</h1>
-          <Link to="/" className="link">
+          <Link to="/" className="navButton">
             View Your Notes
           </Link>
-          <Link to="/noteform" className="link">
+          <Link to="/noteform" className="navButton">
             + Create New Note
           </Link>
         </Navigation>
