@@ -58,6 +58,7 @@ class App extends Component {
 
 		axios.delete(`${API_DELETE}/${id}`).then(() => {
 			this.setState(prevState => ({
+				notes: prevState.notes.filter(note => note.id !== Number(id)),
 				deleting: false,
 			}));
 		});
@@ -68,8 +69,8 @@ class App extends Component {
 		axios.put(`${API_PUT}/${id}`, edited).then(response => {
 			this.setState(prevState => ({
 				notes: prevState.notes.map(note => {
-					if (note.id == response.data.id) {
-						return response.data;
+					if (note.id == response.data.message.id) {
+						return response.data.message;
 					} else {
 						return note;
 					}
