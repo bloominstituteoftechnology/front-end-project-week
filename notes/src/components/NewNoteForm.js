@@ -26,9 +26,23 @@ componentWillUnmount() {
     localStorage.setItem('content', this.state.content);
 };
 
-handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-};
+// handleChange = event => {
+//     this.setState({ [event.target.name]: event.target.value });
+// };
+
+
+handleTitleUpdate = event => {
+    this.setState({
+        name: event.target.value,
+    })
+  }
+  
+  handleBodyUpdate = event => {
+    this.setState({
+        content: event.target.value
+    })
+  }
+
 
 handleAddNote = () => {
     const note = {
@@ -50,20 +64,21 @@ handleAddNote = () => {
 }
 
     render(){
+        console.log('name in render',this.state.name)
     return (
         <div className = "new-note-container">
             <form onSubmit = {this.handleAddNote}>
                 <h2> Create New Note:
                 </h2>
                 <input 
-                onChange = {this.handleChange} 
+                onChange = {this.handleTitleUpdate} 
                 value = {this.state.name}
                 className = "note-title-input"
                 type="text"
                 placeholder="Note Title" 
                 />
                 <textarea
-                onChange = {this.handleChange} 
+                onChange = {this.handleBodyUpdate} 
                 value = {this.state.content}
                 className = "note-content-input"
                 type = "text"

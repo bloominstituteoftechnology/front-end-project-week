@@ -7,10 +7,23 @@ class DeleteNote extends Component {
         super(props);
         console.log('props in DeleteNote', this.props)
         this.state = {
-            notes: this.props.notes,
+            id: null
         }
-        console.log(this.props.notes)
     }
+
+    handleDeleteNote = e => {
+        const id = this.props.match.params.id;
+        console.log('logging params.id in delete',this.props.match.params.id)
+        axios
+        .delete(`http://localhost:9000/api/notes/${id}`)
+        .then(response => {
+            this.setState({id: null });
+            this.props.toggleDeleteNote();
+            this.props.history.push('/notes');
+        })
+        .catch(err => console.log(err))
+      }
+
 
     render() {
         return (
@@ -19,7 +32,7 @@ class DeleteNote extends Component {
                     
                     <h2> Are you sure you want to delete this?</h2>
                     <div className = "buttons">
-                    <button onClick = {this.props.handleDeleteNote}> Yes </button>
+                    <button onClick = {this.handleDeleteNote}> Yes </button>
                     <button onClick = {this.props.toggleDeleteNote}> No </button>
                     </div>
                 </div>

@@ -29,7 +29,6 @@ render() {
         {this.state.notes.map(note => {
             console.log(this.state);
             console.log(this.state.notes);
-            console.log(this.state.note);
             return(
                 <div key = {note.id} className = "note-container">
                 <div className = "note">

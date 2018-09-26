@@ -56,7 +56,7 @@ class UpdateNote extends Component {
         .put(`http://localhost:9000/api/notes/${id}`, notes)
         .then(response => {
             console.log('history in UpdateNote', this.history)
-            this.props.history.push('/');
+            this.props.history.push('/notes');
         })
         .catch(err => console.log(err))
       }
@@ -66,7 +66,7 @@ render() {
     return(
     <div className = "edit-note-container" >
         <h2> Edit Note</h2>
-    <form> 
+    <form onSubmit = {this.handleUpdateNote}> 
         <input 
         type = "text" 
         name="title"

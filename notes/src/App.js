@@ -104,19 +104,7 @@ handleBodyUpdate = event => {
   })
 }
 
-handleUpdateNote =id => {
-    const notes = this.state.notes.slice();
-    for (let i=0; i<notes.length; i++){
-      if (notes[i].id === Number(id)) {
-        notes[i] = {
-          id: this.state.selected.id,
-          name: this.state.selected.name,
-          content: this.state.selected.content
-        };
-      }
-    }
-    this.setState({ notes, selected: {} });
-  }
+
 
 handleDeleteNote = e => {
   const id = this.match.params.id;
@@ -178,21 +166,16 @@ toggleDeleteNote = () => {
           <Route path = "/note/:id" render={props =>
           (<NoteView {...props}
             handleSelectNote = {this.handleSelectNote}
-            toggleDelete = {this.toggleDelete}
+            toggleDeleteNote = {this.toggleDeleteNote}
             notes={this.state.notes}           
           />
           )}
           />
-
-          <Route path = "/delete/:id" render = {props =>
-          (<DeleteNote {...props}
-          handleSelectNote = {this.handleSelectNote}
-          toggleDeleteNote = {this.toggleDeleteNote} 
-          notes={this.state.notes}
-          />
-          )}
-        />
           
+          {this.state.remove ? (<Route path="/delete/:id" render={props => 
+            (<DeleteNote {...props} 
+            handleSelectNote={this.handleSelectNote} 
+            toggleDeleteNote={this.toggleDeleteNote} />)} />) : null}
           
       </div>
       )
