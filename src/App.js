@@ -68,6 +68,7 @@ class App extends Component {
       .then(res => {
       console.log(res.data);
       this.setState({notes: res.data , title: '' , content: ''})
+      this.props.history.push('/');
       })
     })
       .catch(error => {
