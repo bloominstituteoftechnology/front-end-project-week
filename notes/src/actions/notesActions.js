@@ -4,6 +4,10 @@ export const NOTES_FETCH_START = 'NOTES_FETCH_START';
 export const NOTES_FETCH_SUCCESS = 'NOTES_FETCH_SUCCESS';
 export const NOTES_FETCH_FAILURE = 'NOTES_FETCH_FAILURE';
 
+export const NOTE_FETCH_START='NOTE_FETCH_START';
+export const NOTE_FETCH_SUCCESS='NOTE_FETCH_SUCCESS';
+export const NOTE_FETCH_FAILURE='NOTE_FETCH_FAILURE';
+
 export const ADD_NOTE_START = 'ADD_NOTE_START';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
@@ -30,6 +34,19 @@ export const getNotes = () => dispatch => {
         .catch(err => {
             dispatch({ type: NOTES_FETCH_FAILURE, payload: err });
         });
+};
+
+export const getNote = ()=> dispatch => {
+    dispatch({type: NOTE_FETCH_START});
+    const promise = axios.get(`https://killer-notes.herokuapp.com/note/get/${noteId}`);
+
+    promise
+        .then(response=> {
+            dispatch({type: NOTE_FETCH_SUCCESS, payload: response.data});
+        })
+        .catch(err=> {
+            dispatch({type: NOTE_FETCH_FAILURE, payload: err});
+        })
 };
 
 export const addNewNote = note => dispatch => {
@@ -65,7 +82,7 @@ export const setUpdateNote = id => {
 export const updateNote = note => dispatch => {
     dispatch({ type: UPDATE_NOTE_START });
 
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
         .then(response => {
             dispatch({ type: UPDATE_NOTE_SUCCESS, payload: response.data });
         })

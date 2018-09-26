@@ -4,7 +4,7 @@ import '../App.css';
 
 function Home() {
   return (
-    <div>
+    <div className='home-div'>
         <h1 className='title'>Lambda Notes</h1>
        <div className='notes-link'> 
           <Link to="/notes" 

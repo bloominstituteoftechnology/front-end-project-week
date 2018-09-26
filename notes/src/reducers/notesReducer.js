@@ -2,6 +2,9 @@ import {
     NOTES_FETCH_START,
     NOTES_FETCH_SUCCESS,
     NOTES_FETCH_FAILURE,
+    NOTE_FETCH_START,
+    NOTE_FETCH_SUCCESS,
+    NOTE_FETCH_FAILURE,
     ADD_NOTE_START,
     ADD_NOTE_SUCCESS,
     ADD_NOTE_FAILURE,
@@ -22,6 +25,7 @@ const initialState = {
     isUpdating: false,
     error: '',
     noteToUpdate: null,
+    note: {}
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -31,6 +35,13 @@ export const notesReducer = (state = initialState, action) => {
         case NOTES_FETCH_SUCCESS:
             return { ...state, isLoading: false, notes: action.payload };
         case NOTES_FETCH_FAILURE:
+            console.log(action.payload);
+            return { ...state, isLoading: false, error: action.payload };
+        case NOTE_FETCH_START:
+            return { ...state, isLoading: true };
+        case NOTE_FETCH_SUCCESS:
+            return { ...state, isLoading: false, note: action.payload };
+        case NOTE_FETCH_FAILURE:
             console.log(action.payload);
             return { ...state, isLoading: false, error: action.payload };
         case ADD_NOTE_START:

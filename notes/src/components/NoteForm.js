@@ -14,6 +14,7 @@ function NoteForm(props) {
 
   return (
     <Fragment>
+        <div className='form-div'>
         <h2 className='form-title'>{props.isUpdating ? 'Update Note' : 'Add New Note'}</h2>
         <form className='note-form'>
             <div className="group">
@@ -38,6 +39,7 @@ function NoteForm(props) {
             </div>
             <button className="submit-button" onClick={handleSubmit}>Submit</button>
         </form>
+        </div>
     </Fragment>
   );
 }

@@ -5,7 +5,7 @@
   margin: 0 auto;
   font-family: 'Courier New', Courier, monospace;
   border: 1px solid lightgray;
-  height: 1500px;
+  overflow: auto;
   margin-top: 30px;
   margin-bottom: 30px;
   box-shadow: 0px 5px 5px;
@@ -17,6 +17,17 @@
   to { transform: rotate(360deg); }
 }
 
+.home-div {
+  height: 100vh;
+}
+
+.form-div {
+  height: 100vh;
+}
+
+.note-div {
+  height: 100vh;
+}
 
 ul {
   list-style: none;
@@ -67,6 +78,7 @@ li:hover {
   width: 80%;
   margin-left: 11%;
   margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .notecard {

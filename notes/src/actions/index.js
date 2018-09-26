@@ -3,6 +3,10 @@ export {
     NOTES_FETCH_SUCCESS,
     NOTES_FETCH_FAILURE,
 
+    NOTE_FETCH_START,
+    NOTE_FETCH_SUCCESS,
+    NOTE_FETCH_FAILURE,
+
     ADD_NOTE_START,
     ADD_NOTE_SUCCESS,
     ADD_NOTE_FAILURE,
@@ -18,6 +22,7 @@ export {
     UPDATE_NOTE_FAILURE,
 
     getNotes,
+    getNote,
     addNewNote,
     deleteNote,
     setUpdateNote,
