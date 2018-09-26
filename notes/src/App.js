@@ -25,7 +25,7 @@ class App extends Component {
           <TransitionGroup className="transition-group">
             <CSSTransition 
               key={location.key}
-              timeout={{enter: 300, exit: 300}}
+              timeout={{enter: 400, exit: 400}}
               classNames="fade"
             >
               <section className='route-section'>
