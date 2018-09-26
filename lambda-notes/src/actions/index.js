@@ -13,11 +13,15 @@ export const UPDATE_FAILURE = "UPDATE_FAILURE";
 
 export const getNotes = () => {
   return dispatch => {
-    dispatch({type: FETCHING_NOTES});
-    axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(resp => dispatch({type: FETCHING_NOTES_SUCCESSFUL, payload: resp.data}))
-      .catch(err => dispatch({type: FETCHING_NOTES_FAILURE, payload: new Error(err)}));
+    setTimeout(() => {
+      dispatch({type: FETCHING_NOTES});
+      setTimeout(() => {
+        axios
+        .get('https://killer-notes.herokuapp.com/note/get/all')
+        .then(resp => dispatch({type: FETCHING_NOTES_SUCCESSFUL, payload: resp.data}))
+        .catch(err => dispatch({type: FETCHING_NOTES_FAILURE, payload: new Error(err)}));
+      }, 3000)
+    })
   }
 }
 
