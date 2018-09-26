@@ -1,7 +1,8 @@
-import { createActions } from 'redux-actions';
-import axios from 'axios';
+import { createActions } from "redux-actions";
+import axios from "axios";
 
-const API_URL = 'https://lambda-notes-ash.herokuapp.com/api/notes';
+// const API_URL = 'https://lambda-notes-ash.herokuapp.com/api/notes';
+const API_URL = "http://localhost:4000/api/notes";
 
 export const {
   fetchNotesRequest,
@@ -20,21 +21,21 @@ export const {
   deleteNoteSuccess,
   deleteNoteFailure,
 } = createActions(
-  'FETCH_NOTES_REQUEST',
-  'FETCH_NOTES_SUCCESS',
-  'FETCH_NOTES_FAILURE',
-  'FETCH_ONE_REQUEST',
-  'FETCH_ONE_SUCCESS',
-  'FETCH_ONE_FAILURE',
-  'ADD_NOTE_REQUEST',
-  'ADD_NOTE_SUCCESS',
-  'ADD_NOTE_FAILURE',
-  'EDIT_NOTE_REQUEST',
-  'EDIT_NOTE_SUCCESS',
-  'EDIT_NOTE_FAILURE',
-  'DELETE_NOTE_REQUEST',
-  'DELETE_NOTE_SUCCESS',
-  'DELETE_NOTE_FAILURE',
+  "FETCH_NOTES_REQUEST",
+  "FETCH_NOTES_SUCCESS",
+  "FETCH_NOTES_FAILURE",
+  "FETCH_ONE_REQUEST",
+  "FETCH_ONE_SUCCESS",
+  "FETCH_ONE_FAILURE",
+  "ADD_NOTE_REQUEST",
+  "ADD_NOTE_SUCCESS",
+  "ADD_NOTE_FAILURE",
+  "EDIT_NOTE_REQUEST",
+  "EDIT_NOTE_SUCCESS",
+  "EDIT_NOTE_FAILURE",
+  "DELETE_NOTE_REQUEST",
+  "DELETE_NOTE_SUCCESS",
+  "DELETE_NOTE_FAILURE"
 );
 
 export const {
@@ -43,10 +44,10 @@ export const {
   sortDescending,
   moveItem,
 } = createActions(
-  'UPDATE_SEARCH_TERM',
-  'SORT_ASCENDING',
-  'SORT_DESCENDING',
-  'MOVE_ITEM',
+  "UPDATE_SEARCH_TERM",
+  "SORT_ASCENDING",
+  "SORT_DESCENDING",
+  "MOVE_ITEM"
 );
 
 export const fetchNotes = () => async dispatch => {

@@ -1,14 +1,16 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Button = styled.button`
   padding: 1rem;
   text-align: center;
-  font-size: inherit;
-  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
   color: #fafafa;
   background-color: #26a69a;
   border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
   display: inline-block;
   cursor: pointer;
   transition: all 0.2s;
@@ -44,6 +46,7 @@ export const Tag = styled.span`
   background-color: #757575;
   color: #fafafa;
   padding: 0.5rem;
+  border-radius: 5px;
 
   &:not(:last-child) {
     margin-right: 1rem;

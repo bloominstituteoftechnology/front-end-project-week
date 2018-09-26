@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
+import React from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
 
-import { updateSearchTerm } from '../actions';
+import { updateSearchTerm } from "../actions";
 
 const InputWrapper = styled.div`
   margin-bottom: 3rem;
@@ -14,10 +14,10 @@ const SearchInput = styled.input`
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 2px solid transparent;
+  border: 3px solid transparent;
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 2px;
+  border-radius: 5px;
   font-size: inherit;
   color: inherit;
   font-family: inherit;
@@ -51,7 +51,7 @@ const SearchLabel = styled.label`
 const SearchBar = ({ updateSearchTerm, term }) => {
   return (
     <InputWrapper>
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: "relative" }}>
         <SearchInput
           type="text"
           placeholder="Search"
@@ -67,5 +67,5 @@ const SearchBar = ({ updateSearchTerm, term }) => {
 
 export default connect(
   ({ term }) => ({ term }),
-  { updateSearchTerm },
+  { updateSearchTerm }
 )(SearchBar);

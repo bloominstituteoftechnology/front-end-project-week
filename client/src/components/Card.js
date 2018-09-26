@@ -1,17 +1,18 @@
-import React from 'react';
-import { findDOMNode } from 'react-dom';
-import styled from 'styled-components';
-import ReactMarkdown from 'react-markdown';
-import { Button, LinkWrapper } from '../styles';
-import { DragSource, DropTarget } from 'react-dnd';
+import React from "react";
+import { findDOMNode } from "react-dom";
+import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
+import { Button, LinkWrapper } from "../styles";
+import { DragSource, DropTarget } from "react-dnd";
 
-import { Tag } from '../styles';
+import { Tag } from "../styles";
 
 const StyledCard = styled.div`
   padding: 3rem;
   box-shadow: ${props =>
-    props.isDragging ? 'none' : '0 2rem 4rem rgba(0, 0, 0, 0.2)'};
+    props.isDragging ? "none" : "0 2rem 4rem rgba(0, 0, 0, 0.2)"};
   background-color: #fafafa;
+  border-radius: 5px;
   width: 32rem;
   height: 32rem;
   display: flex;
@@ -35,7 +36,7 @@ const CardTitle = styled.h3`
 `;
 
 const CardBody = styled.div`
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
@@ -97,8 +98,8 @@ const Card = ({
           <HideOverflow>
             <CardTitle>{title}</CardTitle>
             {tags.length > 0 && (
-              <div style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
-                Tags:{' '}
+              <div style={{ fontSize: "1.2rem", marginBottom: "1rem" }}>
+                Tags:{" "}
                 {tags.map(tag => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
@@ -110,14 +111,14 @@ const Card = ({
           </HideOverflow>
           <div>
             <LinkWrapper
-              style={{ display: 'inline-block', margin: '0 1rem 0 0' }}
+              style={{ display: "inline-block", margin: "0 1rem 0 0" }}
               to={`/notes/${id}`}
               key={id}
             >
               <Button>View</Button>
             </LinkWrapper>
             <LinkWrapper
-              style={{ display: 'inline-block', margin: 0 }}
+              style={{ display: "inline-block", margin: 0 }}
               to={`/notes/${id}/edit`}
               key={id}
             >
@@ -125,11 +126,11 @@ const Card = ({
             </LinkWrapper>
           </div>
         </StyledCard>
-      </div>,
-    ),
+      </div>
+    )
   );
 };
 
-export default DropTarget('CARD', cardTarget, collectTarget)(
-  DragSource('CARD', cardSource, collectSource)(Card),
+export default DropTarget("CARD", cardTarget, collectTarget)(
+  DragSource("CARD", cardSource, collectSource)(Card)
 );
