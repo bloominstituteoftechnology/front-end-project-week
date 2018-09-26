@@ -5,7 +5,7 @@ export const Form = styled.div`
     margin-bottom: 20px;
   }
 `;
-export const Input = styled.input`
+export const TitleField = styled.input`
   display: block;
   margin-bottom: 20px;
   padding: 10px 2%;
@@ -15,7 +15,7 @@ export const Input = styled.input`
   font-size: 1.5rem;
 `;
 
-export const TextField = styled.textarea`
+export const DescriptionField = styled.textarea`
   display: block;
   font-family: sans-serif;
   height: 300px;
