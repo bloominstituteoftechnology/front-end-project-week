@@ -44,8 +44,7 @@ export default class Note extends Component {
       <div className="note">
         <div className="noteHeader">
           <Link to={{ pathname: `/notes/${this.state.note._id}/edit`, state: this.state.note}} className='editz'>Edit</Link>
-          {/* <Link to={{ pathname: `/notes/${this.state.note._id}/delete`, state: {note: this.state.note, deleteConfirm: this.state.deleteConfirm} }} onClick={this.toggleDelete} className='editz'>Delete</Link> */}
-        <button className='editz' onClick={this.toggleDelete}>Delete</button>
+          <button className='editz' onClick={this.toggleDelete}>Delete</button>
         </div>
         <div className='noteBody'>
           <h1>{title}</h1>
