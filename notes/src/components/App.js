@@ -28,21 +28,20 @@ class App extends Component {
   }
 
   createNote = () => {
-    const title = this.state.noteTitleInput;
-    const body = this.state.noteBodyInput;
+    const newNote = { title: this.state.noteTitleInput, textBody: this.state.noteBodyInput };
     
     axios
     .post(
       'https://killer-notes.herokuapp.com/note/create', 
-      { title: this.state.noteTitleInput, textBody: this.state.noteBodyInput }
+      newNote
     )
     .then(response => {
-      // this.setState(() => ({ notes: response.data }));
-      console.log(response);
+      console.log('hey');
+      this.setState(() => ({ notes: response.data }));
     })
     .catch(error => {
       console.error('Server Error', error);
-      });
+    });
   }
 
   handleInputChange = event => {
@@ -53,10 +52,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {/* <NoteForm 
-        createNote={this.createNote}
-      /> */}
-      <form onSubmit={this.createNote}>
+     
+      <form onSubmit={() => this.createNote()}>
 
           <input 
               name='noteTitleInput'
