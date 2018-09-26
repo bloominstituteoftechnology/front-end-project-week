@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Note extends Component {
+const Note = () => {
   render() {
     return (
-      <div>Note placeholder</div>
+      <div>Note placeholder during setup</div>
     )
   };
 };

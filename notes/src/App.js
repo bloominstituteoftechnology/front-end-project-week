@@ -1,57 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom';
-
-import Note from './components/Note';
-import NotesList from './components/NotesList';
-import NotesMenu from './components/NotesMenu';
-import AddNote from './components/AddNote';
-import EditNote from './components/EditNote';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      notes: [],
-      noteTitle: '',
-      noteText: '',
-      id: null
-    };
-  }
-
-  inputHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  publishNote = () => {
-    let single = this.state.notes[this.state.notes.length - 1].id;
-    this.setState({ id: single }, () => {
-      let notes = this.state.notes.slice();
-      let id = this.state.id;
-      if (this.state.singletitle !== '' || this.state.singlebody !== '') { /* checking to make sure that at least one field has input */
-        id++;
-        notes.push({ id: id, title: this.state.singletitle, text: this.state.singlebody });
-        this.setState({ notes, singletitle: '', singlebody: '', id }); /* reset state to allow for new note input */
-      }
-    });
-  };
-
   render() {
     return (
       <div className="App">
-        <NotesMenu />
-
-        <Route exact path = '/'
-          render = {props => <NotesList {...props} notes = {this.state.notes} />}
-        />
-        <Route exact path = '/addnote'
-          render = {props => (<AddNote {...props} inputHandler = {this.inputHandler} publishNote = {this.publishNote} />
-          )}
-        />
-        <Route exact path = '/notes/:id'
-          render = {props => <EditNote {...props} notes = {this.state.notes} />}
-        />
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
       </div>
     );
   }
