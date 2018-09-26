@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import NotesPage from '../notes/NotesPage';
+// import NotesPage from '../notes/NotesPage';
 
 const SideBarNavWrapper = styled.div`
   display: flex;
