@@ -75,34 +75,45 @@ const Main = styled("main")`
 class EditNoteForm extends Component {
   state = {
     title: '',
-    content: ''
+    content: '',
+    id: ''
   }
 
-  handleOnChange = e => this.setState({[e.target.name]: e.target.value});
+  componentDidMount() {
+    if (this.props.notes.length > 0) {
+      let note = this.props.notes.filter(
+        item => item.urlTitle === this.props.match.params.id
+      );
+      const {id, title, description} = note[0]
+      this.setState({title, content: description, id})
+    } else {
+      this.props.history.push(`/notes`)
+    }
+  }
+
+  handleOnChange = e => {
+    this.setState({[e.target.name]: e.target.value})
+  };
 
   handleEditNote = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('jwt')
-
-    const {id} = this.props.match.params;
-
+    const {id} = this.state;
     let content = {
       title: this.state.title,
       content: this.state.content
     }
-
     const reqOptions = {
       headers: {
         Authorization: token,
       }
     }
-
     axios.put(`http://localhost:8000/protected/notes/${id}`, content, reqOptions)
     .then(res => {
       axios.get('http://localhost:8000/protected/notes', reqOptions)
       .then(res => {
         this.props.updateNotesHandler(res.data)
-        this.props.history.push('/notes')
+        this.props.history.push(`/notes`)
       })
       .catch(err => {
         console.log(err)
@@ -143,6 +154,10 @@ class EditNoteForm extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  notes: state.notes
+});
+
 const mapDispatchToProps = dispatch => ({
   updateNotesHandler: lePackage => {
     dispatch(updateNotes(lePackage));
@@ -150,7 +165,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(EditNoteForm);
 

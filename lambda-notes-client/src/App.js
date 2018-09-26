@@ -127,7 +127,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.isLoggedIn)
     return (
         <MainContainer>
           <header className="main-header">
@@ -152,10 +151,15 @@ class App extends Component {
               ) : !this.state.isLoggedIn ? (
                   null
               ) : (
-                <NavLink className="link" exact strict to="/notes">
-                  View Your Notes
-                </NavLink>
-              )} 
+                <div>
+                  <NavLink className="link" exact strict to="/notes">
+                    View Your Notes
+                  </NavLink>
+                  <button className="link" onClick={this.logout}>
+                    Log Out
+                  </button>
+                </div>
+              )}
             </nav>
           </header>
 

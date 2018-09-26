@@ -90,9 +90,8 @@ class NoteDescription extends React.Component {
 
   
   render() {
-  
     let note = this.props.notes.filter(
-      item => item.id === parseInt(this.props.match.params.id, 10)
+      item => item.urlTitle === this.props.match.params.id
     );
 
     if (note.length === 0) {
@@ -103,7 +102,7 @@ class NoteDescription extends React.Component {
   
           {/*Body - handles modal*/}
           <header className="links-header">
-            <Link className="link" to={`/notes/${note[0].id}/edit`}>
+            <Link className="link" to={`/notes/${note[0].urlTitle}/edit`}>
               edit
             </Link>
             <a className="link" onClick={this.props.handleModal}>

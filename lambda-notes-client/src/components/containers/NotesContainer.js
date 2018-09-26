@@ -135,6 +135,7 @@ class NotesContainer extends Component {
                 key={index}
                 id={item.id}
                 title={item.title}
+                urlTitle={item.urlTitle}
                 description={item.description}
                 deleteNote={this.deleteNote}
               />

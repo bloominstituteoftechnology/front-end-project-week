@@ -44,7 +44,7 @@ const Note = props => {
 
 
   return (
-    <Link className="article-note__linked" to={`/notes/${props.id}`}>
+    <Link className="article-note__linked" to={`/notes/${props.urlTitle}`}>
       <h3>{shortenTitle(props.title)}</h3>
       <hr className="underline" />
       <p>{shortenDesc(props.description)}</p>
