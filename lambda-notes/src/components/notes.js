@@ -19,9 +19,8 @@ class Notes extends Component {
               <h1>Your Notes:</h1>
               <section className="notesSection">
 		{this.props.notes.map(note => {
-		    console.log(note);
+		    // console.log(note);
 		    return (
-			// <Link to={`/notes/${note.id}`}>
 			<Link key={note.id} to={{pathname:`/notes/${note.id}`, state:{note}}} >
 			<Note
 			  key={note.id}

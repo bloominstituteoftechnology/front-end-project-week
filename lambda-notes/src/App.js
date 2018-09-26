@@ -6,7 +6,7 @@ import Notes from './components/notes.js';
 import NewNote from './components/newnote.js';
 import Note from './components/note.js';
 import Expand from './components/expand.js';
-
+import Edit from './components/edit.js';
 import {
     BrowserRouter as Router,
     Route,
@@ -45,9 +45,10 @@ class App extends Component {
                   <br/>
 		</div>
 	      </nav>
-	      <Route exact path='/' render={ () => <Notes notes={this.state.notes} /> } />
+	      <Route exact path='/' render={ (props) => <Notes {...props} notes={this.state.notes} /> } />
 		<Route path='/new' component={NewNote} />
-                <Route path='/notes/:id' component={Expand} />
+                <Route exact path='/notes/:id' component={Expand} />
+		<Route path='/notes/:id/edit' render={ (props) => <Edit {...props} notes={this.state.notes} /> } />
 	    </div>
 	);
     }
