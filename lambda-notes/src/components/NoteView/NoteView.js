@@ -55,7 +55,7 @@ class NoteView extends React.Component {
 
         <div className={`popup`}>
           <span
-            class={`popuptext ${this.state.deleteNote ? `show` : ``}`}
+            className={`popuptext ${this.state.deleteNote ? `show` : ``}`}
             id="myPopup"
           >
             Are you sure you want to delete this?

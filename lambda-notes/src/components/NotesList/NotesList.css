@@ -1,5 +1,6 @@
 .notes-container {
-  max-width: 880px;
+  max-width: 725px;
+  width: 725px;
   margin: 0 auto;
   border: 1px solid green;
   display: flex;
@@ -8,7 +9,7 @@
 }
 
 .note {
-  width: 200px;
+  width: 195px;
   height: 200px;
   margin: 20px;
   background-color: coral;

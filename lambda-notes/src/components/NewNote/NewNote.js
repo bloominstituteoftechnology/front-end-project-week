@@ -35,6 +35,7 @@ class NewNote extends React.Component {
     if (this.props.isUpdatingNote) {
       console.log("to update: ");
       this.props.updateNote(note);
+      this.props.history.push("/");
     } else {
       console.log("to add new note");
       this.props.addNewNote(note);
