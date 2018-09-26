@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { fetchNote } from '../../actions';
+import { fetchNote, deleteNote } from '../../actions';
 
 class NoteView extends Component {
   state = {
@@ -24,10 +24,18 @@ class NoteView extends Component {
         {this.props.fetching ? (
           <p>Reticulating Splines...</p>
         ) : (
-          <NoteWrapper className="NoteList">
-            <NoteTitle className="note-title">
-              {this.props.note.title}
-            </NoteTitle>
+          <NoteWrapper>
+            <NoteEditDelete>
+              <nav>
+                <a
+                  href="#"
+                  onClick={this.props.deleteNote(this.props.note._id)}
+                >
+                  Delete Note
+                </a>
+              </nav>
+            </NoteEditDelete>
+            <NoteTitle>{this.props.note.title}</NoteTitle>
             <div className="note-textbody">{this.props.note.textBody}</div>
           </NoteWrapper>
         )}
@@ -45,7 +53,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchNote }
+  { fetchNote, deleteNote }
 )(NoteView);
 
 const NoteWrapper = styled.div`
@@ -58,6 +66,11 @@ const NoteWrapper = styled.div`
   background: white;
   /* margin-bottom: 25px; */
   padding: 5px 15px 20px 15px;
+`;
+const NoteEditDelete = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
 `;
 
 const NoteTitle = styled.h3`
