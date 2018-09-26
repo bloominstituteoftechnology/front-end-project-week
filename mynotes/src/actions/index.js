@@ -48,8 +48,8 @@ export const fetchNoteId = id => {
 };
 
 export const deleteNote = id => {
-  return dispatch => {
-    axios
+  return async dispatch => {
+    await axios
       .delete(`http://localhost:5000/note/delete/${id}`)
       .then(res => {
         dispatch({ type: DELETE_NOTE });
@@ -62,8 +62,8 @@ export const deleteNote = id => {
 };
 
 export const editNote = noteData => {
-  return dispatch => {
-    axios
+  return async dispatch => {
+    await axios
       .put(`http://localhost:5000/note/edit/${noteData.id}`, noteData)
       .then(({ data }) => {
         return fetchNotes();
@@ -76,8 +76,8 @@ export const editNote = noteData => {
 };
 
 export const createNote = noteData => {
-  return dispatch => {
-    axios
+  return async dispatch => {
+    await axios
     .post(`http://localhost:5000/note/create`, noteData)
     .then(res => {
       return fetchNotes();
