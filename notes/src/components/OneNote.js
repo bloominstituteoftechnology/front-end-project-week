@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {viewNote} from '../actions';
+import {NoteStyled, TitleStyled} from './style';
 
 class OneNote extends React.Component{
     view = event =>{
@@ -12,14 +12,14 @@ class OneNote extends React.Component{
 
     render(){
         return(
-            <StyledNote onClick={this.view}>
-                <StyledTitle>
+            <NoteStyled onClick={this.view}>
+                <TitleStyled>
                     {this.props.title}
-                </StyledTitle>
+                </TitleStyled>
                 <div className='noteContent'>
                     {this.props.content}
                 </div>
-            </StyledNote>
+            </NoteStyled>
         )
     }
 }
@@ -33,18 +33,3 @@ OneNote.propType = {
     title: PropTypes.string,
     content: PropTypes.string,
 }
-
-const StyledNote = styled.div`
-    border: 2px solid;
-    margin: auto;
-    width: 30%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 1rem;
-`
-
-const StyledTitle = styled.div`
-    border-bottom: 1px solid;
-    font-weight: bold;
-    font-size: 1.2rem;
-`

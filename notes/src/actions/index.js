@@ -8,8 +8,8 @@ export const createNote = note =>{
     }
 }
 
-export const viewNote = () =>{
+export const viewNote = index =>{
     return dispatch =>{
-        dispatch({type:VIEWING})
+        dispatch({type:VIEWING, payload: index})
     }
 }

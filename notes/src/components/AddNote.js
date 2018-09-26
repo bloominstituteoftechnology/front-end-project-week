@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {createNote} from '../actions';
+import {ButtonStyled, InnerTitleBox, FormStyled, TitleInput, ContentInput, FormTitle} from './style';
 
 class AddNote extends React.Component{
     state = {
@@ -57,39 +57,3 @@ const mapStateToProps = state =>({
 });
 
 export default connect(mapStateToProps, {createNote})(AddNote);
-
-const ButtonStyled = styled.button`
-`
-
-const InnerTitleBox = styled.div`
-    justify-content: flex-start;
-`
-
-const FormStyled = styled.div`
-    border: 2px solid;
-    margin: auto;
-    width: 35%;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-`
-
-const TitleInput = styled.input`
-    width: 90%;
-`
-
-const ContentInput = styled.textarea`
-    width: 90%;
-    margin-top: 5px;
-`
-
-const FormTitle = styled.div`
-    font-size: 1.4 rem;
-    font-weight: bold;
-    width: 100%;
-    display: flex;
-`
