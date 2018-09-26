@@ -1,12 +1,25 @@
 import React,{ Component } from 'react';
 import './Login.css';
+import posed from 'react-pose';
+
+const Fader = posed.div({
+gone:{ opacity:0 },
+back:{ opacity:1 }
+});
 
 class Login extends Component {
 constructor(props){
 super(props);
 this.state={
-userName:''
+userName:'',
+isVisable:false,
 }
+}
+
+componentDidMount(){
+setTimeout(()=>{
+	this.setState({isVisable:!this.state.isVisable});
+},100);
 }
 
 changeHandler = (e) => {
@@ -22,7 +35,7 @@ else{alert('No such user exists!')}
 render(){
 	console.log();
 return(
-<div className="loginScreen">
+<Fader className="loginScreen" pose={this.state.isVisable?'back':'gone'}>
 <div>
 <form onSubmit={(e)=>this.submitQuerry(e)} className="flex_row">
 <input name="userName" value={this.state.userName} onChange={(e)=>this.changeHandler(e)} placeholder="username" />
@@ -30,9 +43,10 @@ return(
 </form>
 </div>
 <div className="cooking" onClick={()=>this.props.login('guest')}>continue as guest</div>
-</div>
+</Fader>
 )
 }
 }
 
 export default Login
+

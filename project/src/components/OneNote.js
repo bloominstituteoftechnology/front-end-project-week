@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './OneNote.css';
+import Modal from './Modal';
 
 class OneNote extends Component {
 constructor(props){
@@ -36,18 +37,10 @@ return(
 <div>{this.props.note.content}</div>
 <br/>
 <div>By:{this.props.note.poster}</div>
+<br/>
 </div>
 {this.state.deleting ? (
-<React.Fragment>
-<div className="shade"></div>
-<div className="popUp">
-<div className="text">Are you sure you want to delete this?</div>
-<div className="options">
-<div className="select red" onClick={()=>this.props.deleteNote(this.props.index)}>Delete</div>
-<div className="select" onClick={()=>this.deleteToggle()}>No</div>
-</div>
-</div>
-</React.Fragment>
+<Modal deleteNote={this.props.deleteNote} deleteToggle={this.deleteToggle} />
 ):(
 null	
 )

@@ -9,6 +9,7 @@ import Login from './components/Login';
 import TopBar from './components/topBar'
 
 class App extends Component {
+
   render() {
 	if(this.props.loggedIn){
     return (
