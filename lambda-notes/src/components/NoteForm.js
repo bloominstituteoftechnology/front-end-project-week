@@ -10,4 +10,17 @@ class NoteForm extends React.Component{
             id:""
         }
     }
+
+    render(){
+        return(
+            <div>
+                <div>
+                <input type="text" placeholder="Title" />
+                <input type="textbox" placeholder="notes" />
+                </div>
+            </div>
+        )
+    }
 }
+
+export default NoteForm;

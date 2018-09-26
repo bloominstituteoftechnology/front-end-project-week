@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
+import SideBar from './components/SideBar';
+import Notes from './components/Notes';
 
 class App extends Component {
   constructor(props){
@@ -14,13 +16,13 @@ class App extends Component {
   componentDidMount(){
     axios
       .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(response => this.setState({notess: response.data}))
+      .then(response => this.setState({notes: response.data}))
       .catch(err => console.log(err))
   }
 
-  postSmurf = (newNote) => {
+  postNote = (newNote) => {
     axios
-      .post(API, newNote)
+      .post("https://killer-notes.herokuapp.com/note/edit/id", newNote)
       .then(res => this.setState({ notes: res.data }, this.props.history.push('/')))
       .catch(err => {console.log(err)});
   }
@@ -29,13 +31,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <SideBar />
+        <Notes notes={this.state.notes} />
       </div>
     );
   }
