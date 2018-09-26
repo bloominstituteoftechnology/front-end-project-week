@@ -4,7 +4,10 @@ import {
   FETCH_NOTES_ERROR,
   FETCH_NOTE,
   FETCHED_NOTE,
-  FETCH_NOTE_ERROR
+  FETCH_NOTE_ERROR,
+  NOTE_ADD,
+  NOTE_ADDED,
+  NOTE_ADD_ERROR
 } from '../actions';
 
 // const initialState = {};
@@ -44,6 +47,23 @@ const rootReducer = (state = initialState, action) => {
         fetching: false
       };
     case FETCH_NOTE_ERROR:
+      return {
+        ...state,
+        fetching: false,
+        error: `${action.payload}`
+      };
+    case NOTE_ADD:
+      return {
+        ...state,
+        fetching: true
+      };
+    case NOTE_ADDED:
+      return {
+        ...state,
+        notes: action.payload,
+        fetching: false
+      };
+    case NOTE_ADD_ERROR:
       return {
         ...state,
         fetching: false,
