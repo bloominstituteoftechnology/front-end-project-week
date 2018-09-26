@@ -10,14 +10,14 @@ import logo from '../logo.svg';
 import '../App.css';
 
 const Button = styled.button`
-
+  text-align: center;
   background-color: #24B8BD;
   color: #fff;
   font-size: 18px;
   font-weight: bold;
   width: 180px;
   height: 3rem;
-  margin: 1rem;
+  margin: 0.5rem 0;
 `
 
 const Heading = styled.h1`
