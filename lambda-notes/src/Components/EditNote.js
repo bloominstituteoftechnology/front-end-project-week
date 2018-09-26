@@ -16,11 +16,11 @@ const EditNote = props => {
         />
         <textarea
           onChange={props.inputHandler}
-          name="editbody"
+          name="edittext"
           className="input-body"
-          defaultValue={props.editbody}
+          defaultValue={props.edittext}
         />
-        <Link className="save" to="/">
+        <Link className="save" to={`/notes/${props.match.params.id}`}>
           <button onClick={() => props.submitChange(props.match.params.id)}>
             Update
           </button>

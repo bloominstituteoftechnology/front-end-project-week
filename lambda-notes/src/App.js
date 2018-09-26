@@ -26,7 +26,9 @@ class App extends Component {
   componentDidMount() {
     axios
       .get("http://localhost:5000/notes")
+
       .then(response => {
+        console.log('response', response)
         this.setState(() => ({ notes: response.data }));
       })
        .catch(error => {
@@ -39,13 +41,13 @@ class App extends Component {
   };
 
 
-  noteSubmit = () => {
+  submitNote= () => {
     axios
       .post("http://localhost:5000/notes", {
-        title: this.state.newtitle,
-        text: this.state.newbody
+        title: this.state.notetitle,
+        content: this.state.notebody
       }).then(()=>{
-        axios.get("http://localhost:5000notes")
+        axios.get("http://localhost:5000/notes")
         .then(response => {
           console.log(response.data);
           this.setState(()=> ({notes: response.data }))
@@ -59,13 +61,13 @@ class App extends Component {
   editHandler = id => {
     let notecopy = this.state.notes.slice();
     let editnote = notecopy.find(note => note.id == id);
-    this.setState({ edittitle: editnote.title, editbody: editnote.text });
+    this.setState({ edittitle: editnote.title, edittext: editnote.text });
   };
 
-  submitEdit = id => {
+  submitChange = id => {
     axios.put(`http://localhost:5000/notes/${id}`, {
       title: this.state.edittitle,
-      text: this.state.editbody}).then(()=>{
+      text: this.state.edittext}).then(()=>{
         axios.get("http://localhost:5000/notes")
         .then(response => {
           this.setState({ notes: response.data })
@@ -129,13 +131,13 @@ class App extends Component {
         />
         <Route
           exact
-          path="/notes/editnote/:id"
+          path="/notes/edit/:id"
           render={props => (
             <EditNote
               {...props}
               inputHandler={this.inputHandler}
               submitChange={this.submitChange}
-              editbody={this.state.editbody}
+              edittext={this.state.edittext}
               edittitle={this.state.edittitle}
               notes={this.state.notes}
             />

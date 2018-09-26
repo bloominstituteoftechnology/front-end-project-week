@@ -12,7 +12,7 @@ const NoteList = props => {
             <div className="note">
               <div className="note-contents">
                 <p className="title">{note.title}</p>
-                <p>{note.text}</p>
+                <p>{note.content}</p>
               </div>
             </div>
           </Link>
