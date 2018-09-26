@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import '../App.css';
 
 import { getNote } from '../store/actions';
@@ -19,23 +20,22 @@ class NoteView extends React.Component {
     }
 
     render() {
+        // console.log(this.props.noteOnProps['_id']) 
         return (
-          
-            <div className="display-panel">
-                {console.log(this.props.noteOnProps)}
-                <h2 className="note-title">{this.props.noteOnProps.title}</h2>
-                <p className="note-textBody">{this.props.noteOnProps.textBody}</p>
+            <div>
+                <div className="edit-delete-links">
+                    <h3 onClick={()=>{this.props.history.push(`/edit/${this.props.noteOnProps['_id']}`)}}>Edit</h3>
+                    <h3 onClick={event=>{}}>Delete</h3> 
+                </div>
+                
+                <div className="display-panel">
+                    <h2 className="note-title">{this.props.noteOnProps.title}</h2>
+                    <p className="note-textBody">{this.props.noteOnProps.textBody}</p>
+
+                </div>
 
             </div>
-            
 
-            // <Note 
-            //   {...this.props} 
-            //   noteList={this.props.noteList} 
-            //   isLoading={this.props.isLoading}
-            //   handleDeleteNote={this.handleDeleteNote}
-            //   goToUpdateNoteForm=    {this.goToUpdateNoteForm}
-            // /> // spread in props --> same as "match={props.match} location={props.location} history={props.history}"
         );
     }
 }

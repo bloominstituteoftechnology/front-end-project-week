@@ -4,6 +4,7 @@ import './App.css';
 import NoteListView from './views/NoteListView';
 import NoteView from './views/NoteView';
 import CreateNoteView from './views/CreateNoteView';
+import EditView from './views/EditView';
 
 class App extends Component {
   render() {
@@ -26,6 +27,8 @@ class App extends Component {
                     component={NoteView}/>
             <Route  path='/create-note'
                     component={CreateNoteView}/>
+            <Route  path='/edit/:id'
+                    component={EditView}/>
         </div>
         
       </div>

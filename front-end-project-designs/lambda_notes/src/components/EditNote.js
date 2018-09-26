@@ -1,10 +1,15 @@
 import  React from 'react';
 import './Note.css';
 
-const CreateNote = props =>{
+const EditNote = props =>{
+
+    const whatever=event =>{
+        event.preventDefault();
+         console.log("whatever");
+    }
     return (
         <div className="create-edit-form">
-            <h1>Create New Note:</h1>
+            <h1>Edit Note:</h1>
             {/* {console.log(props)} */}
             {/* <form> */}
                 <input  type="text"
@@ -18,7 +23,9 @@ const CreateNote = props =>{
                         value={props.note.textBody}
                         onChange={props.handleInput}/>
                 <button className="save-input-button"
-                        onClick={props.handleAddNewNote}>Save</button>
+                        onClick={   //() => console.log(props)
+                             props.handleEditNote
+                            }>Save</button>
             {/* </form> */}
           
         </div>
@@ -26,4 +33,4 @@ const CreateNote = props =>{
     )
 }
 
-export default CreateNote;
+export default EditNote;

@@ -11,7 +11,17 @@ export {
     NOTE_GET_COMPLETE,
     NOTE_GET_FAILURE,
 
+    NOTE_EDIT_START,
+    NOTE_EDIT_COMPLETE,
+    NOTE_EDIT_FAILURE,
+
+    DELETE_NOTE_START,
+    DELETE_NOTE_COMPLETE,
+    DELETE_NOTE_FAILURE,
+
     getNoteList,
     addNewNote,
-    getNote
+    getNote,
+    editNote,
+    deleteNote
 } from './notesActions';

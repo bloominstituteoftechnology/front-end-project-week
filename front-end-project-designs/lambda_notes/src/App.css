@@ -40,15 +40,28 @@
   flex-direction: column;
   align-items: center;
 }
- .navigation-panel button{
+.navigation-panel button{
    background-color: #24B8BD;
    width: 130px;
    height: 30px;
- }
+   color: white;
+}
 
- .display-panel{
-   /* width:inherit; */
-   
+.display-panel{
    width: 100%;
    background-color: #F2F1F2;
- }
+}
+
+.edit-delete-links {
+  display: flex;
+  justify-content: flex-end;
+
+  font-size: 12px;
+
+}
+
+.edit-delete-links h3:hover{
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}

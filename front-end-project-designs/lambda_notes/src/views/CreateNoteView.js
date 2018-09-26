@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import CreateNote from '../components/CreateNote';
-import { addNewNote, updateAvenger } from '../store/actions';
+import { addNewNote } from '../store/actions';
 
 class CreateNoteView extends React.Component {
     constructor(props){
@@ -10,8 +10,8 @@ class CreateNoteView extends React.Component {
             note:{
                 title: "",
                 textBody: "",
-            },
-            isUpdate: false
+            }
+            // isUpdate: false
         }
     }
 
@@ -23,7 +23,6 @@ class CreateNoteView extends React.Component {
     //   }
 
     handleInput = event =>{
-        event.preventDefault();
         this.setState({ ...this.state,
                         note:{...this.state.note, [event.target.name]: event.target.value}});
 
@@ -32,7 +31,8 @@ class CreateNoteView extends React.Component {
     handleAddNewNote = event => {
         event.preventDefault();
         // console.log(this.state.note);
-        this.props.addNewNote(this.state.note,this.props.history);
+        this.props.addNewNote(this.state.note);
+        this.props.history.push("/");
     }
 
     // handleUpdateNote = () => {
@@ -60,5 +60,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect( mapStateToProps,
-                        {addNewNote //,updateAvenger
-                        })(CreateNoteView);
+                        {addNewNote})(CreateNoteView);

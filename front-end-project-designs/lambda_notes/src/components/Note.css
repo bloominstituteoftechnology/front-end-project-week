@@ -31,6 +31,32 @@
     font-size: 14px;
 }
 
-.create-update-form {
+.create-edit-form {
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.create-edit-form h1{
+    font-size: 20px;
+}
+
+.create-edit-form .title-input{
+    width: 400px;
+}
+
+.create-edit-form .textBody-input {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.save-input-button {
+    width: 130px;
+    height: 30px;
+    background-color: #24B8BD;
+    color: white;
 }

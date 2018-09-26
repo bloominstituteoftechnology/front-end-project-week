@@ -11,6 +11,7 @@ class NoteListView extends React.Component {
     }
 
     render() {
+        console.log(this.props.noteList);   
         return ( 
             <div className="notelist-view-container">
                 <NoteList {...this.props}/>               
