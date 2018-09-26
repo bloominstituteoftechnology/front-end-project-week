@@ -2,29 +2,56 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { fetchData } from '../actions';
+import { fetchData, searchData } from '../actions';
 
+import Search from '../components/Notes/Search';
 import NoteCard from '../components/Notes/NoteCard';
 
 class NotesView extends Component {
+  state = {
+    searchInput: '',
+  };
+
   componentDidMount() {
     if (this.props.notes.length === 0) {
       this.props.fetchData();
     }
   }
 
+  handleInput = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleSearch = (event) => {
+    event.preventDefault();
+    console.log('handleSearch');
+    this.state.searchInput === ''
+      ? this.props.fetchData()
+      : this.props.searchData(this.state.searchInput);
+  };
+
   render() {
-    // console.log(this.props);
-    if (this.props.notes.length === 0) {
-      return <h1>loading notes...</h1>;
+    if (this.props.fetchingData) {
+      return <Title>Loading notes...</Title>;
     }
     return (
       <Container>
+        <Search
+          handleInput={this.handleInput}
+          handleSearch={this.handleSearch}
+          {...this.state}
+        />
         <Title> Your Notes:</Title>
         <List>
-          {this.props.notes.map((note) => {
-            return <NoteCard note={note} key={note._id} />;
-          })}
+          {this.props.notes.length === 0 ? (
+            <Title>No notes to see! Go add some!</Title>
+          ) : (
+            this.props.notes.map((note) => {
+              return <NoteCard note={note} key={note._id} />;
+            })
+          )}
         </List>
       </Container>
     );
@@ -35,12 +62,16 @@ const mapStateToProps = (state) => {
   // console.log(state);
   return {
     notes: state.notesReducer.notes,
+    fetchingData: state.notesReducer.fetchingData,
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchData }
+  {
+    fetchData,
+    searchData,
+  }
 )(NotesView);
 
 const Container = styled.div`

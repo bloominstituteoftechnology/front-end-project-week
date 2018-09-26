@@ -16,6 +16,8 @@ export const EDITING_DATA = 'EDITING_DATA';
 export const EDITED_DATA = 'EDITED_DATA';
 export const EDIT_ERROR = 'EDIT_ERROR';
 
+export const SEARCH_DATA = 'SEARCH_DATA';
+
 export const fetchData = () => (dispatch) => {
   dispatch({ type: FETCHING_DATA });
   const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
@@ -96,4 +98,8 @@ export const editData = (note, id) => (dispatch) => {
     .catch((error) => {
       dispatch({ type: DELETE_ERROR, payload: error });
     });
+};
+
+export const searchData = (searchInput) => {
+  return { type: SEARCH_DATA, payload: searchInput };
 };

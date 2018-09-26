@@ -11,6 +11,7 @@ import {
   EDITING_DATA,
   EDITED_DATA,
   EDIT_ERROR,
+  SEARCH_DATA,
 } from '../actions';
 
 const initialState = {
@@ -31,10 +32,11 @@ export const notesReducer = (state = initialState, action) => {
         error: null,
       };
     case FETCHED_DATA:
+      const length = action.payload.length;
       return {
         ...state,
         fetchingData: false,
-        notes: action.payload,
+        notes: action.payload.slice(length - 100, length),
         error: null,
       };
     case FETCH_ERROR:
@@ -91,6 +93,15 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         editingData: false,
+      };
+    case SEARCH_DATA:
+      return {
+        ...state,
+        notes: state.notes.filter(
+          (note) =>
+            note.title.includes(action.payload) ||
+            note.textBody.includes(action.payload)
+        ),
       };
     default:
       return state;
