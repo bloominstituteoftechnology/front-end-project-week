@@ -191,6 +191,8 @@
   margin: 0 5px;
 }
 
+
+
 .noteHeader {
   display: flex;
   justify-content: flex-end;
@@ -198,8 +200,16 @@
 
 .editz {
   padding: 10px;
+  background:none!important;
+  color:blue;
+  border:none; 
+  padding:0!important;
+  font: inherit;
+  text-decoration: underline;
+  /*border is optional*/
+  border: none; 
+  cursor: pointer;
 }
-
 
 .delete-buttons {
   display: flex;

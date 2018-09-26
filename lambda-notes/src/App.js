@@ -12,19 +12,18 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    deleteConfirm: false
+    // deleteConfirm: false
   }
 
-  toggleDelete = () => {
-    this.setState({ deleteConfirm: !this.state.deleteConfirm})
-  }
-  
+  // toggleDelete = () => {
+  //   this.setState({ deleteConfirm: !this.state.deleteConfirm})
+  // }
 
-  deleteNote = _id => {
-    axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
-    .catch(err => console.log(err))
-  } 
+  // deleteNote = _id => {
+  //   axios
+  //   .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
+  //   .catch(err => console.log(err))
+  // } 
 
   render() {
     return (
@@ -32,10 +31,8 @@ class App extends Component {
         <Nav />
         <Route exact path='/' render={() => <NoteList />}/>
         <Route exact path='/notes/:_id' render={props => <Note {...props} toggleDelete={this.toggleDelete} deleteNote={this.deleteNote}/>} />
-        <Route exact path='/notes/:_id/delete' render={props => <Note {...props} toggleDelete={this.toggleDelete}/>} />
-        <Route path='/notes/:_id/edit' component={EditNote} />
+        <Route exact path='/notes/:_id/edit' component={EditNote} />
         <Route exact path="/create" render={props => <CreateNote {...props} />} /> 
-        <Route exact path ='/notes/:_id/delete' render={props => <DeleteConfirm {...props} deleteNote={this.deleteNote} deleteConfirm={this.state.deleteConfirm} toggleDelete={this.toggleDelete}/>} />
       </div>
     );
   }

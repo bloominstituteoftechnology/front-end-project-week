@@ -50,7 +50,6 @@ class EditNote extends React.Component {
                 <div>
                     <button className="add-button" onClick={this.editNote}>Update</button>
                 </div>
-
             </div>
         )
     }
