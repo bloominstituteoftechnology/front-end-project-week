@@ -15,13 +15,13 @@ class AllNotes extends Component {
     return (
       <div className="mainNotesPageDiv">
         {/* {() => this.props.renderRedirect()}; */}
-        <input
+        {/* <input
           placeholder="Find your note..."
           name="search"
           onChange={this.props.searchChangeHandler}
           className="noteSearch"
           style={{ marginLeft: "4rem" }}
-        />
+        /> */}
         <h2 className="yourNotesTitle">Your Notes:</h2>
         <div className="allNotesDiv">
           {this.props.notes.map(note => {

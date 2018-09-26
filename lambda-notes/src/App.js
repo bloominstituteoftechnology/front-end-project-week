@@ -127,7 +127,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("ALL NOTES SEARCH BAR", this.state.search);
     if (this.state.loadedData === false) {
       return (
         <div>
