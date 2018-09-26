@@ -45,22 +45,26 @@ p, a {
   text-decoration: none;
 }
 
-.fade-enter {
+.slide-enter {
   opacity: 0.01;
+  transform: translate(-1000px);
 }
 
-.fade-enter.fade-enter-active {
+.slide-enter.slide-enter-active {
   opacity: 1;
-  transition: opacity 300ms ease-in;
+  transform: translate(0);
+  transition: all 0.7s ease-in;
 }
 
-.fade-exit {
+.slide-exit {
   opacity: 1;
+  transform: translate(0);
 }
 
-.fade-exit.fade-exit-active {
+.slide-exit.slide-exit-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transform: translate(1000px);
+  transition: all 0.7s ease-in;
 }
 
 div.transtion-group {
@@ -69,7 +73,7 @@ div.transtion-group {
 
 section.route-section {
   position: absolute;
-  width: 84%;
+  width: 82%;
   top: 0;
-  right: -26px;
+  right: 0;
 }

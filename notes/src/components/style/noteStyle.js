@@ -66,10 +66,10 @@ export const Button = styled.button`
   outline: none;
   position: absolute;
   top: 10px;
-  right: 40px;
+  right: 50px;
   font-size: 1.5rem;
 
   &.left {
-    right: 90px;
+    right: 100px;
   }
 `;

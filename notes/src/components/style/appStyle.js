@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const AppStyle = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   display: flex;
   justify-content: space-between;
 `;
@@ -11,6 +16,8 @@ export const Navigation = styled.div`
   background: #D3D2D3;
   padding: 0 2%; 
   height: 100vh;
+  z-index: 5;
+  overflow-x: hidden;
 
   h1 {
     padding: 20px 0;

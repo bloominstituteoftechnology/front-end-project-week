@@ -25,8 +25,8 @@ class App extends Component {
           <TransitionGroup className="transition-group">
             <CSSTransition 
               key={location.key}
-              timeout={{enter: 400, exit: 400}}
-              classNames="fade"
+              timeout={{enter: 700, exit: 700}}
+              classNames="slide"
             >
               <section className='route-section'>
                 <Switch location={location}>
