@@ -8,13 +8,13 @@ export const START_ADD_NOTE = 'START_ADD_NOTE';
 export const SUCCESS_ADD_NOTE = 'SUCCESS_ADD_NOTE';
 export const FAILURE_ADD_NOTE = 'FAILURE_ADD_NOTE';
 
-export const START_UPDATE_NOTE = 'START_UPDATE_NOTE';
-export const SUCCESS_UPDATE_NOTE = 'SUCCESS_UPDATE_NOTE';
-export const FAILURE_UPDATE_NOTE = 'FAILURE_UPDATE_NOTE';
-
 export const START_DELETE_NOTE = 'START_DELETE_NOTE';
 export const SUCCESS_DELETE_NOTE = 'SUCCESS_DELETE_NOTE';
 export const FAILURE_DELETE_NOTE = 'FAILURE_DELETE_NOTE';
+
+export const START_UPDATE_NOTE = 'START_UPDATE_NOTE';
+export const SUCCESS_UPDATE_NOTE = 'SUCCESS_UPDATE_NOTE';
+export const FAILURE_UPDATE_NOTE = 'FAILURE_UPDATE_NOTE';
 
 
 export const SET_UPDATE_NOTE = 'SET_UPDATE_NOTE';
@@ -64,4 +64,16 @@ export const setUpdateNote = id => {
     payload: id
   };
 };
+
+export const updateNote = note => dispatch => {
+  dispatch({ type: START_UPDATE_NOTE })
+
+  axios.put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
+    .then(res => {
+      dispatch({ type: SUCCESS_UPDATE_NOTE, payload: res.data })
+    })
+    .catch(err => {
+      dispatch({ type: FAILURE_UPDATE_NOTE, payload: err })
+    });
+}
   

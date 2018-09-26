@@ -5,20 +5,25 @@ import {
   SUCCESS_FETCHING_NOTES,
   FAIL_FETCHING_NOTES,
 
+
   START_ADD_NOTE,
   SUCCESS_ADD_NOTE,
-  FAILURE_ADD_NOTE,
-
-  START_UPDATE_NOTE,
-  SUCCESS_UPDATE_NOTE,
-  FAILURE_UPDATE_NOTE,
+  FAILURE_ADD_NOTE,  
 
 
   START_DELETE_NOTE,
   SUCCESS_DELETE_NOTE,
   FAILURE_DELETE_NOTE,
 
-  SET_UPDATE_NOTE
+
+  SET_UPDATE_NOTE,
+
+
+  START_UPDATE_NOTE,
+  SUCCESS_UPDATE_NOTE,
+  FAILURE_UPDATE_NOTE,
+
+
 
 } from '../actions';
 
@@ -28,7 +33,8 @@ const initialState = {
   addingNote: false,
   noteToUpdate: null, // noteToUpdate
   deletingNote: false, // isDeleting in lecture
-  error: ''
+  error: '',
+  isUpdating: false,
 }
 
 export const notesReducer = (state = initialState, action) => {
@@ -74,9 +80,24 @@ export const notesReducer = (state = initialState, action) => {
     return {...state, deletingNote: false, error: action.payload  };
 
 
+
+
   case SET_UPDATE_NOTE:
     const note = state.notes.find(note => note._id === action.payload);
     return {...state, noteToUpdate: note ? note : null }
+
+
+
+
+  case START_UPDATE_NOTE:
+    return {...state, isUpdating: true };
+
+  case SUCCESS_UPDATE_NOTE:
+    return {...state, isUpdating: false, notes: action.payload };
+
+  case FAILURE_UPDATE_NOTE:
+    console.log(action.payload)
+    return {...state, isUpdating: false, error: action.payload  };
 
 
     default:

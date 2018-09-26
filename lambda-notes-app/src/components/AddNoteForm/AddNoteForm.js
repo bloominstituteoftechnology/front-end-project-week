@@ -5,7 +5,12 @@ export const AddNoteForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.handleAddNewNote(event);
+    
+    if (props.isUpdating) {
+      props.handleUpdateNote()
+    } else {
+      props.handleAddNewNote(event);
+    }
   }
 
   return (
