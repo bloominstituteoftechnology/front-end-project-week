@@ -3,7 +3,7 @@ import { Route, Link } from "react-router-dom";
 import { AppContainer, Navigation, NotesListContainer } from "./components/styling/AppWideStyling";
 import NotesList from "./components/functional/NotesList";
 import NoteForm from "./components/functional/NoteForm";
-import ViewPage from "./components/functional/ViewPage";
+import NoteView from "./components/functional/NoteView";
 
 class App extends Component {
   render() {
@@ -27,7 +27,7 @@ class App extends Component {
             path="/noteform/:id?"
             render={props => <NoteForm {...props} />}
           />
-          <Route path="/notes/:id" render={props => <ViewPage {...props} />} />
+          <Route path="/notes/:id" render={props => <NoteView {...props} />} />
         </NotesListContainer>
 
       </AppContainer>

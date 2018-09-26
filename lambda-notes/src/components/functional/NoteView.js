@@ -4,7 +4,7 @@ import { deleteNote, getData } from "../../actions";
 import Modal from "../presentational/Modal";
 import { Button, ViewContainer } from "../styling/NoteStyling";
 
-class ViewPage extends React.Component {
+class NoteView extends React.Component {
   state = {
     note: {},
     showModal: false
@@ -83,4 +83,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { deleteNote, getData }
-)(ViewPage);
+)(NoteView);
