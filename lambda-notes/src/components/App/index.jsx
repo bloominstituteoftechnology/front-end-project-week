@@ -55,21 +55,23 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-         <Sidebar search={this.state.search}
-                 handleSearchChange={this.handleSearchChange} />
+        <Sidebar
+          search={this.state.search}
+          handleSearchChange={this.handleSearchChange} notes={this.props.notes}
+        />
 
         <Route
           exact
           path="/"
           render={props => (
-            <NoteList
-              notes={
-                this.state.filteredNotes.length > 0
-                  ? this.state.filteredNotes
-                  : this.props.notes
-              }
-              fetchingNotes={this.props.fetchingNotes}
-            />
+              <NoteList
+                notes={
+                  this.state.filteredNotes.length > 0
+                    ? this.state.filteredNotes
+                    : this.props.notes
+                }
+                fetchingNotes={this.props.fetchingNotes}
+              />
           )}
         />
 

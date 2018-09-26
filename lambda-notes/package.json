@@ -7,6 +7,7 @@
     "@zendeskgarden/react-toggles": "^3.3.7",
     "axios": "^0.18.0",
     "react": "^16.5.2",
+    "react-csv": "^1.0.15-RC2",
     "react-dom": "^16.5.2",
     "react-drag-sortable": "^1.0.6",
     "react-markdown": "^3.6.0",

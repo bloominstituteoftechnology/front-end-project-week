@@ -1,14 +1,9 @@
 {
   "notes": [
     {
-      "id": 2,
-      "title": "Edited Note",
-      "textBody": "uhuihhnjoki  uijhniokjn oij u h"
-    },
-    {
-      "title": "My new note",
-      "textBody": "srjgfreigjt iegj reigje rogkijer ogki",
-      "id": 3
+      "id": 0,
+      "title": "Note One",
+      "textBody": "Some filler text"
     }
   ]
 }
