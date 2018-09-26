@@ -36,7 +36,7 @@ function NoteForm(props) {
                     rows="1"
                     onChange={props.handleChange} />
                     <textarea type="text"
-                    value={props.note.content}
+                    value={props.note.textBody}
                     name="content"
                     className="content"
                     placeholder="Note Content"

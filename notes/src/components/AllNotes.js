@@ -16,11 +16,11 @@ function AllNotes(props) {
         <h3>Your Notes:</h3>
             <div className="all-notes">
             {props.notesData.map(note => (
-                <div className="note-card" key={note.id} onClick={() => props.history.push(`notes/${note.id}`)}>
+                <div className="note-card" key={note._id} onClick={() => props.history.push(`notes/${note.id}`)}>
                     <h4>
                     {note.title}
                     </h4>
-                    <p>{props.truncate(note.content)}</p>
+                    <p>{props.truncate(note.textBody)}</p>
                 </div> 
             ))}
             </div>

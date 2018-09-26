@@ -62,6 +62,7 @@ ul {
 }
 
 .navbar {
+  position: fixed;
   justify-content: flex-start;
   background: #D3D2D3;
   border-right: 1px #C8C8C8;

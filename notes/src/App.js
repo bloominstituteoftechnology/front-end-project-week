@@ -17,7 +17,7 @@ class App extends Component {
       notesData: [],
       note: {
         title: '',
-        content: ''
+        textBody: ''
       },
       isUpdating: false,
       show: false
@@ -25,7 +25,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/notes')
+    //axios.get('http://localhost:5000/notes')
+    axios.get('http://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
       this.setState({ notesData: response.data, isUpdating: false })
     })
@@ -48,7 +49,7 @@ class App extends Component {
     //event.preventDefault();
     console.log('adding new');
     axios.post('http://localhost:5000/notes', this.state.note)
-    .then(response => this.setState({ notesData: response.data, note: { title: '', content: ''} },
+    .then(response => this.setState({ notesData: response.data, note: { title: '', textBody: ''} },
     () => this.props.history.push('/notes')))
   }
 
@@ -70,7 +71,7 @@ class App extends Component {
       this.setState({
         notesData: response.data,
         isUpdating: false,
-        note: { title: '', content: '' },
+        note: { title: '', textBody: '' },
       });
       this.props.history.push(`/notes/${noteId}`)
     })
@@ -84,15 +85,15 @@ class App extends Component {
   }
 
   cancelUpdate = (event) => {
-    this.setState({ note: {title: '', content: ''}, isUpdating: false })
+    this.setState({ note: {title: '', textBody: ''}, isUpdating: false })
   }
 
-  truncate = (content) => {
+  truncate = (textBody) => {
     let val = '';
-    if(content.length > 200) {
-        val = `${content.slice(0,197)}...`
+    if(textBody.length > 200) {
+        val = `${textBody.slice(0,197)}...`
     } else {
-      val = content;
+      val = textBody;
     }
     return val;
   }
