@@ -11,17 +11,17 @@ import React from 'react';
                  { props.showModal && (
                  <div className="modal-wrap" >
                     <div className="modal-content" >
-                        <h3 className="Header">Are you sure you want to delete this?</h3>
-                        <div className="modal-btn-wrap" >
-                            <Link to=""> <div className="modal-btn-delete" onClick={() =>{props.deleteNote(denoted.id); props.modalToggle();}}  >Delete</div ></Link>
-                            <div className="modal-btn-no" onClick={() => props.modalToggle()} >No</div >
+                        <h3 className="Header ModalHeader">Are you sure you want to delete this?</h3>
+                        <div className="modal-buttons" >
+                            <Link to=""> <div className="delete-button" onClick={() =>{props.deleteNote(denoted.id); props.modalToggle();}}  >Delete</div ></Link>
+                            <div className="no-button" onClick={() => props.modalToggle()} >No</div >
                         </div>
                     </div>
                 </div> )}
                 <div className="view-links" >
-                    <Link className="edit-button" to={`/notes/${denoted.id}/edit`} >edit</Link>
+                    <Link className="edit-button" to={`/notes/${denoted.id}/edit`}>edit</Link>
                     &nbsp; &nbsp;
-                    <div className="delete-link" onClick={() => props.modalToggle()} >delete</div>
+                    <div className="delete-link" onClick={() => props.modalToggle()}>delete</div>
                 </div>
                  <h3 className="Header">{denoted.title}</h3>
                  <p className="NoteText" >{denoted.text}</p>

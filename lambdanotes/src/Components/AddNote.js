@@ -5,7 +5,7 @@ export const AddNote = props => {
     const handleClick = (event) => {
         event.preventDefault();
        props.addNewNote(event);
-       props.history.push("/");
+       props.history.push("/notes");
    }
 
     return (

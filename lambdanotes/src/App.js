@@ -73,11 +73,11 @@ class App extends Component {
       <div className="App">
         <div className="Nav-bar">
           <h1 className="App-title">Lambda <br/> Notes</h1>
-          <Link to="/" ><div className="nav-button" >View Your Notes</div ></Link>
+          <Link to="/notes" ><div className="nav-button" >View Your Notes</div ></Link>
           <Link to="/add" ><div className="nav-button" >+ Create New Note</div></Link>
         </div>
         <div className="display-right" >
-          <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
+          <Route exact path="/notes" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
           <Route exact path="/notes/:id" render={props => (<NoteView {...props} notes={this.state.notes} modalToggle={this.modalToggle} showModal={this.state.showModal} deleteNote={this.deleteNote} /> )} />
           <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
           <Route exact path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} editNoteSubmit={this.editNoteSubmit} />)}  />
