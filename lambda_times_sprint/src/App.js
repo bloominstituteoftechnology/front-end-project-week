@@ -29,7 +29,7 @@ fetchNotes = ()=> {
       });
 }
 
-  handleChange = event => {
+  handleInputChange = event => {
       this.setState({ [event.target.name]: event.target.value });
     }
 
@@ -76,9 +76,11 @@ fetchNotes = ()=> {
           render={props => (
           <NoteForm 
             {...props} 
-            note={this.state.tags} 
+            
+            title={this.state.title}
+            textBody={this.state.textBody}
             handleAddNewNote={this.handleAddNewNote}
-            handleChange={this.handleChange}    
+            handleInputChange={this.handleInputChange} 
           /> 
           )}
         />

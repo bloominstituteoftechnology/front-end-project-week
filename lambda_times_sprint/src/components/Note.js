@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-
+import NoteForm from './NoteForm';
 class Note extends Component {
     state = {
       note: null,
       title: '',
-      textBody: ''
+      textBody: '',
+      isEditing: false
     };
   
 
@@ -37,8 +38,8 @@ class Note extends Component {
       .then(response => {
         this.props.fetchNotes();
         this.setState({ note: response.data,
-                                        title: response.data.title,
-                                        textBody: response.data.textBody });
+                        title: response.data.title,
+                        textBody: response.data.textBody });
         })
       .catch(error => {
         console.error(error);
@@ -46,12 +47,57 @@ class Note extends Component {
   this.props.history.push("/");
   }
 
+  handleEditInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleEditNote = e => {
+    e.preventDefault();
+
+    const editedNote = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    }
+
+    axios
+      .put(`https://killer-notes.herokuapp.com/note/edit/${this.id}`, editedNote)
+      .then(response => {
+        this.props.fetchNotes();
+        this.setState({
+                        note: response.data,
+                        title: response.data.title,
+                        textBody: response.data.textBody,
+                        isEditing: false
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+toggleEdit = e => {
+  e.preventDefault();
+  this.setState({ isEditing: true});
+}
+
   render() {
     if(!this.state.note) {
       return(<div>Loading Note...</div>);
     }
   
     const { title, textBody } = this.state.note;
+
+     if (this.state.isEditing) {
+      return (
+        <NoteForm 
+              title={this.state.title}
+              textBody={this.state.textBody}
+              handleEditNote={this.handleEditNote}
+              handleInputChange={this.handleEditInputChange}
+        />
+      );
+    }
+
     return(
      
       <div className="note-card">
@@ -59,8 +105,8 @@ class Note extends Component {
       <h2>{title}</h2>
       <div className="movie-director">{textBody}</div>
 
-      {/* <button>edit</button> */}
-      <button className="delete-btn" onClick={this.handleDelete}>delete</button>
+      <button className="delete-edit-btn" onClick={this.toggleEdit}>edit</button>
+      <button className="delete-edit-btn" onClick={this.handleDelete}>delete</button>
     
       </div>
     );

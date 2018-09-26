@@ -1,15 +1,6 @@
 import React from 'react';
 
 function NoteForm(props) {
-    function handleSubmit(event) {
-        // event.preventDefault();
-        // if (props.isUpdating) {
-        //     props.handleUpdateNote(props.note.id);
-        // } else {
-            props.handleAddNewNote();
-        // }    
-    }
-
   return (
         <form>
             <div className="group">
@@ -17,22 +8,23 @@ function NoteForm(props) {
                 <input 
                     type="text" 
                     placeholder="Note title"
-                    value={props.note.title} 
+                    value={props.title} 
                     name="title" 
-                    onChange={props.handleChange} 
+                    onChange={props.handleInputChange} 
                 />
             </div>
             <div className="group">
                 <textarea rows="10" cols="30" 
                     type="text" 
                     placeholder="Note Content"
-                    value={props.note.textBody} 
+                    value={props.textBody} 
                     name="textBody" 
-                    onChange={props.handleChange} 
+                    onChange={props.handleInputChange} 
                 />
             </div>
           
-            <button className="material-button-raised" onClick={handleSubmit}>Save</button>
+            <button className="material-button-raised" onClick={props.handleAddNewNote}>Save</button>
+            <button className="material-button-raised" onClick={props.handleEditNote}>Update</button>
         </form>
       
   );
