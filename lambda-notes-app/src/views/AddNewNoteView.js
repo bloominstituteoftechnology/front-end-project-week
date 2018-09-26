@@ -16,7 +16,8 @@ class AddNewNoteView extends React.Component {
     note: {
       title: '',
       textBody: ''
-    }
+    },
+    isUpdating: false,
 
   }
 
@@ -38,6 +39,11 @@ class AddNewNoteView extends React.Component {
     this.props.history.push('/notes');
   }
 
+  // handleUpdateNote = () => {
+  //   this.props.updateNote(this.state.note);
+  //   this.props.history.push('/notes');
+  // }
+
   render() {
     return (
       <AddNoteForm 
@@ -45,6 +51,7 @@ class AddNewNoteView extends React.Component {
         note={this.state.note}
         handleInput={this.handleInput}
         handleAddNewNote={this.handleAddNewNote}
+        // isUpdating={this.state.isUpdating}
       />
     )
   }
@@ -52,6 +59,7 @@ class AddNewNoteView extends React.Component {
 
 const mapStateToProps = state => ({
   // update here
+
 })
 
 export default connect(mapStateToProps, { addNote })(AddNewNoteView);

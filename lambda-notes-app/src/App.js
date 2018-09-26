@@ -24,14 +24,14 @@ class App extends Component {
           <NavLink exact to='/notes'>View Your Notes</NavLink>
         </li>
         <li>
-          <NavLink exact to='/add-note'>+ Create New Note</NavLink>
+          <NavLink exact to='/note-form'>+ Create New Note</NavLink>
         </li>
       </ul>
      </div>      
 
       <Route exact path='/' component={HomeView} />
       <Route exact path='/notes' component={NoteListView} />
-      <Route exact path='/add-note' component={AddNewNoteView} />
+      <Route exact path='/note-form' component={AddNewNoteView} />
       <Route path='/notes/:noteId' component={SingleNoteView} />
      </div>
    )

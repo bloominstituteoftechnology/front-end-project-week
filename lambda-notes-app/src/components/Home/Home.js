@@ -6,7 +6,7 @@ const Home = () => {
     <div className='home-view-component'>
       <h3>Notes</h3>
       
-      <Link to ='/notes'>Lets Grind</Link>
+      <Link to ='/notes'>Lets Study!</Link>
     </div>
   );
 }
