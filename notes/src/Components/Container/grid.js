@@ -65,6 +65,12 @@ import GridLayout from 'react-grid-layout';
 //   }
 // }
 
+const ThisComponent = (props) => {
+return (
+    <div style={{backgroundColor: "tomato"}} key={props.note._id.toString()}>{props.note.title}</div>
+)
+}
+
 export class BasicLayout extends React.Component {
     render() {
       // layout is an array of objects, see the demo for more complete usage
@@ -82,7 +88,7 @@ export class BasicLayout extends React.Component {
           <div style={{backgroundColor: "tomato"}} key="b">b</div>
           <div style={{backgroundColor: "tomato"}} key="c">c</div> */}
 
-          {this.props.notes.map((note, index) => <div style={{backgroundColor: "tomato"}} key={note._id.toString()}>{note.title}</div>)}
+          {this.props.notes.map((note, index) => <ThisComponent key={note._id.toString()} note={note}/>)}
         </GridLayout>
       )
     }

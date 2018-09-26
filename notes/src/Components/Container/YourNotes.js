@@ -9,23 +9,32 @@ export class YourNotes extends Component {
 
     render() {
 
-        var layout = [
-            {i: "1", x: 0, y: 0, w: 1, h: 2, static: true},
-            {i: "2", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4},
-            {i: "3", x: 4, y: 0, w: 1, h: 2}
-          ];
+        var layout2 = this.props.notes.map((note, index) => {return {i: note._id.toString(), x: (index) * 2, y: 0, w: 2, h: 6}});
+
 
         return (
             <article className="your-notes">
                 <h2>Your Notes</h2>
-                <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
+                <GridLayout className="layout" layout={layout2} cols={12} rowHeight={30} width={1200}>
                 {this.props.notes.map((note, id) => (
-                <Note 
-                {...this.props} 
-                key={note._id} 
-                note={note} 
-                id={id.toString()}
-                />
+                    <div 
+                    id={note._id.toString()} 
+                    key={note._id.toString()}  
+                    className="note"
+                    >
+                        <div className="note-container">
+                            <h3>{note.title}</h3>
+                            <p style={{fontSize:!this.props.match.params.id ? "14px" : '16px'}}>{note.textBody}</p>
+                            {this.props.match.params.id ? <div className="button delete">Delete Me</div> : ""}
+                            {this.props.match.params.id ? <div className="button update">Update Me</div> : ""}
+                        </div>
+                    </div>
+                // <Note 
+                // {...this.props} 
+                // key={note._id.toString()} 
+                // note={note} 
+                // id={note._id.toString()}
+                // />
                 ))}
                 </GridLayout>
             </article>
