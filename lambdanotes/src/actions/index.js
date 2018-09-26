@@ -31,8 +31,8 @@ export const fetchNote = id => {
       .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
 
       .then(response => {
-        // console.log(response.data);
         dispatch({ type: FETCHED_NOTE, payload: response.data });
+        console.log(response.data);
       })
 
       .catch(error => dispatch({ type: FETCH_NOTE_ERROR, error: error }));
