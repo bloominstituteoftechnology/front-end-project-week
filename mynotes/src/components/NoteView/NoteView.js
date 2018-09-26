@@ -23,6 +23,10 @@ class NoteView extends Component {
     this.setState({ matched });
   }
 
+  componentDidMount() {
+    
+  }
+
   showModal = () => {
     this.setState({ displayDelete: !this.state.displayDelete });
   };
@@ -60,5 +64,5 @@ class NoteView extends Component {
 
 export default connect(
   mapStateToProps,
-  {}
+  { fetchNoteId }
 )(NoteView);

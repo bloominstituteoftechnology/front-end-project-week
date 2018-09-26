@@ -1,31 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import { fetchNote } from "../../actions";
+import { fetchNotes } from "../../actions";
 import "./index.css";
 
 const mapStateToProps = state => {
+  // console.log("STATE: ", state);
   return {
     notesArray: state
   };
 };
 
 class NotesList extends Component {
-  state = {};
-
+  
   componentWillMount() {
     let reversed = Array.from(this.props.notesArray).reverse();
     this.setState({ notesArray: reversed });
   }
 
-  generateNotes = (what, where) => {
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
+
+  generateNotes = (what) => {
     return (
       <Link to={`/note/${what._id}`} className="unstyled_link" key={what._id}>
         <div className="note">
           <div>
             <h4>{what.title}</h4>
             <div className="blackline"/>
-            <p>{what.body}</p>
+            <p>{what.textBody}</p>
           </div>
         </div>
       </Link>
@@ -33,14 +37,14 @@ class NotesList extends Component {
   };
 
   render() {
-    // console.log("Props NoteList", this.props);
+    // console.log("This state.notes", this.props.notesArray);
     return (
       <div className="notesList_container">
         <div>
           <h3 className="content_header">Your Notes:</h3>
         </div>
         <div className="notesList">
-          {this.state.notesArray.map(this.generateNotes)}
+          {this.props.notesArray.map(this.generateNotes)}
         </div>
       </div>
     );
@@ -49,5 +53,5 @@ class NotesList extends Component {
 
 export default connect(
   mapStateToProps,
-  {}
+  { fetchNotes }
 )(NotesList);

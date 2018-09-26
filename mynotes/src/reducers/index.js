@@ -1,8 +1,13 @@
 import {
   DELETE_NOTE,
+  DELETING_NOTE,
   EDIT_NOTE,
+  EDITING_NOTE,
   CREATE_NOTE,
+  CREATING_NOTE,
   FETCH_NOTE,
+  FETCHING_NOTE,
+  FETCHING_NOTE_ID,
   FETCH_NOTE_ID
 } from "../actions";
 
@@ -24,7 +29,7 @@ const initialState = [
     title: "Third Note",
     body: "content info",
     createdat: 157234563233
-  }
+  },
 ];
 
 const notesReducer = (state = initialState, action) => {
@@ -50,6 +55,10 @@ const notesReducer = (state = initialState, action) => {
     case CREATE_NOTE:
       temp.push(action.payload);
       return temp;
+    case FETCHING_NOTE:
+      return action.payload._id;
+    case FETCH_NOTE:
+      return action.payload;
     default:
       return state;
   }
