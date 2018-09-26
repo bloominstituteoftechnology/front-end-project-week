@@ -41,16 +41,16 @@ class NoteList extends React.Component {
       if (this.state.isSortable) {
         return (
           <div className="note-preview-container" key={Math.random()}>
-            <h3>{note.title}</h3>
-            <p>{note.textBody}</p>
+            <h3><Markdown escapeHtml={true} source={note.title} /></h3>
+            <p><Markdown escapeHtml={true} source={note.textBody} /></p>
           </div>
         )
       } else {
         return (
           <Link to={`/notes/${note.id}`} key={Math.random()}>
             <div className="note-preview-container no-drag">
-              <h3>{note.title}</h3>
-              <p>{note.textBody}</p>
+              <h3><Markdown escapeHtml={true} source={note.title} /></h3>
+              <p><Markdown escapeHtml={true} source={note.textBody} /></p>
             </div>
           </Link>
         )
