@@ -18,7 +18,7 @@ class App extends Component {
         <div className='right-side'>
           <Route exact path='/' component={Notes} />
           <Route exact path='/create-note' component={NotesForm} />
-          <Route path="/note/get/:id" component={SingleNoteView} />
+          <Route path="/note/:id" component={SingleNoteView} />
         </div>
 
       </div>

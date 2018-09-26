@@ -28,8 +28,15 @@
 
 .left-side{
   background-color: #D7D7D7;
- 
+  max-width: 200px;
+  width: 100%;
 }
+.right-side{
+  background-color: #F2F1F2;
+  max-width: 800px;
+  width: 100%;
+}
+
 .side-bar{
    display: flex;
   flex-direction: column;
@@ -49,6 +56,7 @@ height:100%;
 display: flex;
 flex-direction:row;
 flex-wrap: wrap;
+
 }
 .notesDisplay{
   border: 1px solid black;
@@ -72,6 +80,10 @@ flex-wrap: wrap;
   .Column-Layout{
     display: flex;
     flex-direction: column;
+  }
+
+  .side-bar{
+    height: 1000px;;
   }
 
 @keyframes App-logo-spin {

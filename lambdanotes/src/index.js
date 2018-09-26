@@ -5,13 +5,13 @@ import App from './components/App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import rootReducer from './reducers';
+import { notesReducer } from './reducers';
 import thunk from 'redux-thunk';
 
 const reduxDevtools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const store = createStore(
-    rootReducer,compose(applyMiddleware(thunk), reduxDevtools)
+    notesReducer,compose(applyMiddleware(thunk), reduxDevtools)
 );
 
 

@@ -25,6 +25,9 @@ export const INITIALIZE_NOTE_ADD = 'INITIALIZE_NOTE_ADD';
 export const COMPLETE_NOTE_ADD = 'COMPLETE_NOTE_ADD';
 export const ADD_NOTE_ERROR = 'ADD_NOTE_ERROR';
 
+export const VIEWING_NOTE = 'VIEWING_NOTE';
+export const VIEWED_NOTE = 'VIEWED_NOTE';
+export const ERROR = 'ERROR';
 
 export const fetchData = () => {
   return (dispatch) => {
@@ -40,6 +43,7 @@ export const fetchData = () => {
       });
   };
 };
+
 export const addNote = (notes) => {
   return (dispatch) => {
     dispatch({ type: INITIALIZE_NOTE_ADD });
@@ -55,3 +59,17 @@ export const addNote = (notes) => {
   };
 }; 
 
+
+export const getNote = id => {
+  return dispatch => {
+      dispatch({ type: VIEWING_NOTE });
+       axios
+          .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+          .then(res => {
+              dispatch ({ type: VIEWED_NOTE, payload: res.data });
+          })
+          .catch(err => {
+              dispatch({ type:ERROR, payload: err });
+          })
+  }
+}
