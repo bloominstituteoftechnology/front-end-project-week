@@ -23,6 +23,7 @@ import {
 	deleteNote, 
 	editNote, 
 	getKillerNotes, 
+	deleteAll, 
 } from './store/actions';
 
 class App extends React.Component {
@@ -31,7 +32,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { notes, createNote, deleteNote, editNote, errorMsg, username } = this.props;
+		const { notes, createNote, deleteNote, editNote, errorMsg, username, deleteAll } = this.props;
 
 		return (
 			<div className = 'App'>
@@ -44,7 +45,7 @@ class App extends React.Component {
 
 				<Route 
 					path = '/list' 
-					render = { props => <ListView history = { props.history } username = { username } notes = { notes } /> } 
+					render = { props => <ListView deleteAll = { deleteAll } history = { props.history } username = { username } notes = { notes } /> } 
 				/>
 
 				<Route 
@@ -78,5 +79,6 @@ export default connect(
 		deleteNote, 
 		editNote, 
 		getKillerNotes, 
+		deleteAll, 
 	}
 )(App);

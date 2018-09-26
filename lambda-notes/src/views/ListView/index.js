@@ -7,6 +7,10 @@ import fuzzysearch from 'fuzzysearch';
 // Components
 import { Note } from '../../components';
 
+// Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, ModalBody } from 'reactstrap';
+
 class ListView extends React.Component {
 	state = {
 		errorMsg: '',
@@ -17,7 +21,12 @@ class ListView extends React.Component {
 		input: {
 			exactInput: '',
 			fuzzyInput: '',
-		}
+		},
+		btnClass: {
+			exact: '',
+			fuzzy: '',
+		},
+		deleteAllModal: false,
 	};
 
 	toggleSearch = e => {
@@ -37,6 +46,7 @@ class ListView extends React.Component {
 				exactInput: '',
 				fuzzyInput: '',
 			},
+			btnClass: { ...this.state.btnClass },
 		});
 	}
 
@@ -50,6 +60,7 @@ class ListView extends React.Component {
 				errorMsg: 'Error: Search term cannot be more than 85 characters long.',
 				search: { ...this.state.search },
 				input: newInput,
+				btnClass: { ...this.state.btnClass },
 			});
 		}
 
@@ -63,6 +74,29 @@ class ListView extends React.Component {
 			errorMsg: '',
 			search: { ...this.state.search },
 			input: newInput,
+			btnClass: { ...this.state.btnClass },
+		});
+	}
+
+	handleDeleteAll = () => {
+		const allIds = [];
+
+		for (let i = 0; i < this.props.notes.length; i++) {
+			allIds.push(this.props.notes[i]._id);
+		}
+
+		this.props.deleteAll(allIds, this.props.history);
+	}
+
+	toggleDeleteAllModal = e => {
+		e.preventDefault();
+
+		this.setState({
+			...this.state,
+			search: { ...this.state.search },
+			input: { ...this.state.input },
+			btnClass: { ...this.state.btnClass },
+			deleteAllModal: !this.state.deleteAllModal,
 		});
 	}
 
@@ -73,9 +107,34 @@ class ListView extends React.Component {
 					<div className = 'search-wrapper'>
 						{ this.state.errorMsg && <p>{ this.state.errorMsg }</p> }
 						<div>
+							<button className = 'btn delete-all-btn' onClick = { e => this.toggleDeleteAllModal(e) }>Delete All Notes</button>
+
 							<button className = 'btn' name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
 
 							<button className = 'btn' name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
+						</div>
+
+						<div>
+							<Modal 
+								centered={ true } 
+								isOpen={ this.state.deleteAllModal } 
+								toggle={ this.toggleDeleteAllModal } 
+							>
+								<ModalBody>
+									<p>Are you sure you want to delete all your notes? This action cannot be undone.</p>
+
+									<div className = 'modal-btns'>
+										<div 
+											className = 'btn save-btn delete-btn' 
+											onClick = { this.handleDeleteAll } 
+										>Yes, Delete All Notes</div>
+										<div 
+											className = 'btn save-btn no-btn' 
+											onClick = { this.toggleDeleteAllModal } 
+										>No</div>
+									</div>
+								</ModalBody>
+							</Modal>
 						</div>
 
 						{ this.state.search.exactSearch && 

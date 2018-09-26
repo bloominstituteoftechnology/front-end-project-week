@@ -18,6 +18,10 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETING_NOTE_COMPLETE = 'DELETING_NOTE_COMPLETE';
 export const DELETING_NOTE_ERROR = 'DELETING_NOTE_ERROR';
 
+export const DELETING_ALL = 'DELETING_ALL';
+export const DELETING_ALL_COMPLETE = 'DELETING_ALL_COMPLETE';
+export const DELETING_ALL_ERROR = 'DELETING_ALL_ERROR';
+
 export const getKillerNotes = () => dispatch => {
 	dispatch({ 
 		type: GETTING_KILLER_NOTES, 
@@ -103,4 +107,31 @@ export const deleteNote = (id, history) => dispatch => {
 				payload: err, 
 			});
 		})
+}
+
+export const deleteAll = (allIds, history) => dispatch => {
+	dispatch({
+		type: DELETING_ALL, 
+	});
+
+	for (let i = 0; i < allIds.length - 1; i++) {
+		axios
+			.delete(`https://killer-notes.herokuapp.com/note/delete/${ allIds[i] }`)
+	}
+		axios
+			.delete(`https://killer-notes.herokuapp.com/note/delete/${ allIds[allIds.length - 1] }`)
+			.then(res => {
+				dispatch({
+					type: DELETING_ALL_COMPLETE, 
+				});
+			})
+			.then(() => getKillerNotes()(dispatch))
+			.then(() => history.push('/list'))
+			.catch(err => {
+				console.log(err);
+				dispatch({
+					type: DELETING_ALL_ERROR, 
+					payload: err, 
+				});
+			})
 }

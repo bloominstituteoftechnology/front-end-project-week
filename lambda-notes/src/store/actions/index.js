@@ -15,10 +15,15 @@ import {
 	DELETING_NOTE_COMPLETE, 
 	DELETING_NOTE_ERROR, 
 
+	DELETING_ALL, 
+	DELETING_ALL_COMPLETE, 
+	DELETING_ALL_ERROR, 
+
 	getKillerNotes, 
 	createNote, 
 	editNote, 
 	deleteNote, 
+	deleteAll, 
 } from './NotesActions';
 
 export { 
@@ -38,8 +43,13 @@ export {
 	DELETING_NOTE_COMPLETE, 
 	DELETING_NOTE_ERROR, 
 
+	DELETING_ALL, 
+	DELETING_ALL_COMPLETE, 
+	DELETING_ALL_ERROR, 
+
 	getKillerNotes, 
 	createNote, 
 	editNote, 
 	deleteNote, 
+	deleteAll, 
 };

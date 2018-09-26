@@ -15,6 +15,10 @@ import {
 	DELETING_NOTE, 
 	DELETING_NOTE_COMPLETE, 
 	DELETING_NOTE_ERROR, 
+
+	DELETING_ALL,
+	DELETING_ALL_COMPLETE,
+	DELETING_ALL_ERROR,
 } from '../actions';
 
 // Initial State
@@ -67,11 +71,13 @@ export const NotesReducer = (state = initialState, action) => {
 			};
 		}
 
-		// DELETING_NOTE
+		// DELETING_NOTE and DELETING_ALL
+		case DELETING_ALL:
 		case DELETING_NOTE: {
 			return state;
 		}
-	
+
+		case DELETING_ALL_COMPLETE:
 		case DELETING_NOTE_COMPLETE: {
 			return { 
 				...state, 
@@ -81,6 +87,7 @@ export const NotesReducer = (state = initialState, action) => {
 		}
 
 		// ERRORS
+		case DELETING_ALL_ERROR:
 		case DELETING_NOTE_ERROR:
 		case EDITTING_NOTE_ERROR:
 		case CREATING_NOTE_ERROR:

@@ -159,7 +159,7 @@
   }
 }
 .nav .btn-container .logout-btn {
-  background: darkred;
+  background: #2202af;
   color: white;
 }
 .nav .btn-container .logout-btn:hover {
@@ -229,6 +229,9 @@
   margin-right: 5px;
   margin-bottom: 8px;
 }
+.list .search-wrapper .delete-all-btn {
+  background-color: #D1001A;
+}
 .list .search-wrapper input {
   border-radius: 5px;
   padding: 0 5px;
@@ -279,6 +282,10 @@
 }
 .list .note-wrapper {
   padding-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 .list .note-wrapper .note {
   border: 1px solid #BFBFBF;
@@ -326,6 +333,10 @@
   font-size: 30px;
   display: flex;
   justify-content: space-evenly;
+  width: fit-content;
+}
+.list .note-wrapper .tags-div * {
+  margin: 0 5px;
 }
 @media ( max-width: 1024px ) {
   .list .note-wrapper {
@@ -597,8 +608,11 @@ body .modal-body {
   border: 1px solid black;
   padding: 40px 0;
 }
-body .modal-body .modal-btns * {
+body .modal-body * {
   margin: 0 20px;
+}
+body .modal-body p {
+  margin-bottom: 10px;
 }
 body .modal-body .modal-btns .delete-btn {
   background-color: #D1001A;

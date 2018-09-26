@@ -22,6 +22,10 @@
 			margin-bottom: 8px;
 		}
 
+		.delete-all-btn {
+			background-color: #D1001A;
+		}
+
 		input {
 			border-radius: 5px;
 			padding: 0 5px;
@@ -73,6 +77,10 @@
 
 	.note-wrapper {
 		padding-bottom: 30px;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		align-items: center;
 
 		.note {
 			border: 1px solid #BFBFBF;
@@ -126,6 +134,11 @@
 			font-size: 30px;
 			display: flex;
 			justify-content: space-evenly;
+			width: fit-content;
+
+			* {
+				margin: 0 5px;
+			}
 		}
 
 		@media @tablet {
