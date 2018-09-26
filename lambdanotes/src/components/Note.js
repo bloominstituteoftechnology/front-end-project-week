@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-// import NoteCard from './NoteCard';
 
 export default class Note extends Component {
   constructor(props) {
@@ -31,8 +30,7 @@ export default class Note extends Component {
   deleteNote = id => {
     axios
     .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-    .then(() => {
-      this.fetchNote(), this.props.history.push('/')
+    .then(() => {this.props.history.push('/')
     })
     .catch(err => {
       console.error(err);          
@@ -63,11 +61,9 @@ export default class Note extends Component {
     return(
       <div className='one-note'>
         <div className='note-action'>
-          {/* <Link to={`/notes/${this.state.note._id}/edit`} >edit</Link> */}
-          <Link to={{ pathname: `/notes/${this.state.note._id}/edit`, state: this.state.note}} >edit</Link>
-          <button onClick={()=> this.deleteNote(this.state.note._id)}>delete</button>
+          <Link to={`/notes/${this.state.note._id}/edit`}>edit</Link>
+          <div style={{textDecoration: 'underline'}}onClick={()=> this.deleteNote(this.state.note._id)}>delete</div>
         </div>
-        {/* <NoteCard /> */}
         <h3>{this.state.note.title}</h3>
         <p>{this.state.note.textBody}</p>
       </div>

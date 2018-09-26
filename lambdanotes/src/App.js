@@ -27,8 +27,8 @@ class App extends Component {
             <Note {...props} /> 
           )} />
           <Route path='/new' component={NewNote} />
-          <Route path='/notes/:id/edit' render={props => (<EditNote {...props} />)} />
-          {/* <Route path='/notes/:id/edit' component={EditNote} /> */}
+          {/* <Route path='/notes/:id/edit' render={props => (<EditNote {...props} />)} /> */}
+          <Route path='/notes/:id/edit' component={EditNote} />
         </div>
       </AppDiv>
     );

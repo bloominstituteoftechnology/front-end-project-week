@@ -5,15 +5,17 @@ export default class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.title,
-      textBody: this.props.textBody 
+      _id: this.props.match.params.id,
+      title:'',
+      textBody: '' 
     };
   }
 
-  editNote = id => {
+  editNote = (e) => {
+    e.preventDefault();
     axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
-    .then(() => this.fetchNote())
+   .put(`https://killer-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state)
+    .then(() => this.props.history.push(`/notes/${this.props.match.params.id}`))
     .catch(err => {
       console.error(err);
     });

@@ -44,8 +44,7 @@ const ListDive = styled.div`
   flex-direction: column;
   background-color: #F3F3F3;
   border: 1px solid #BEBEBE;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0 30px;
 
   h3 {
     color: #4A494A;
