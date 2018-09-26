@@ -10,10 +10,9 @@ class NoteCard extends Component {
   }
 
   render() {
-    const { note, getNote, deleteNote, viewNote, } = this.props;
+    const { note, getNote, deleteNote, getOneNote} = this.props;
     return(
-      <div className="note-card-container" onClick={() => getNote(note.id)}>
-      {this.setState.viewNote = true}
+      <div className="note-card-container" onClick={() => getOneNote(note.id)}>
         <div className="note-card-title">
           {note.title}
         </div>

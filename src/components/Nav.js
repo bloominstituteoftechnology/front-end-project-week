@@ -12,7 +12,6 @@ class Nav extends Component {
         </button> 
         <button className="nav-button" onClick={() => toggleHome()} >
         { viewNote ? 'View Your Notes' :  'View Your Notes' }
-        {this.setState.viewNote = true}
         </button> 
       </div>
     );

@@ -3,7 +3,6 @@ import './App.css';
 import Nav from './components/Nav';
 import List from './components/List';
 import Note from './components/Note';
-import ViewList from './components/ViewList';
 import axios from 'axios';
 import urlFor from './helpers/urlFor';
 import Flash from './components/Flash';
@@ -12,6 +11,7 @@ class NoteApp extends Component {
   constructor() {
     super();
     this.state = {
+      singleNoteView: true,
       viewNote: true,
       showNote: false,
       notes: [],
@@ -24,12 +24,17 @@ class NoteApp extends Component {
   toggleNote = () => {
     this.setState({
       showNote: ! this.state.showNote,
+      viewNote: true,
+      singleNoteView: false,
       note: {}
     })
   }
+
   toggleHome = () => {
     this.setState({
-      viewNote: ! this.state.viewNote,
+      viewNote: ! this.state.showNote,
+      showNote:  this.state.showNote,
+      singleNoteView: false,
       note: {}
     })
   }
@@ -41,6 +46,11 @@ class NoteApp extends Component {
   }
 
   getNote = (id) => {
+    axios.get(urlFor(`notes/${id}`))
+    .then((res) => this.setState({note: res.data, showNote: true }) )
+    .catch((err) => console.log(err.response.data) );
+  }
+  getOneNote = (id) => {
     axios.get(urlFor(`notes/${id}`))
     .then((res) => this.setState({note: res.data, showNote: true }) )
     .catch((err) => console.log(err.response.data) );
@@ -105,17 +115,18 @@ class NoteApp extends Component {
   }
 
   render() {
-    const { showNote,viewNote, notes, note, newTag, error } = this.state;
+    const { showNote,viewNote,singleNoteView, notes, note, newTag, error } = this.state;
 
     return (
       <div className="App">
         <Nav 
         toggleNote={this.toggleNote} showNote={showNote}
         toggleHome={this.toggleHome} viewNote={viewNote}
+        toggleNoteView={this.toggleNoteView} singleNoteView={singleNoteView}
          />
         {error && <Flash error={error} resetError={this.resetError} />}
         <br />
-        { showNote && viewNote ?
+        { showNote && viewNote?
             <Note
               note={note}
               newTag={newTag}
@@ -130,6 +141,7 @@ class NoteApp extends Component {
               getNotes={this.getNotes}
               notes={notes}
               getNote={this.getNote}
+              getOneNote={this.getOneNote}
               deleteNote={this.deleteNote}
             />
              }

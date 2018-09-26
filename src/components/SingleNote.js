@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Note extends Component {
+class SingleNote extends Component {
   onSubmit(e) {
     e.preventDefault();
     const formData = {
@@ -116,4 +116,4 @@ class Note extends Component {
   }
 }
 
-export default Note;
+export default SingleNote;
