@@ -46,3 +46,10 @@ img {
   border-radius: 3px;
   border: 1px solid transparent;
 }
+
+.ascending, .descending {
+  background: rgba(36, 171, 175);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}

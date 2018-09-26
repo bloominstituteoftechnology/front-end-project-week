@@ -12,31 +12,74 @@ import ListItem from "./ListItem";
 import "../CSS/ListView.css";
 
 // Images
-import clippy from '../Images/clippy.jpg';
+import clippy from "../Images/clippy.jpg";
 
 class ListView extends React.Component {
   state = {
-    term: '',
-  }
+    term: "",
+  };
 
   componentDidMount() {
     this.props.getNotes();
   }
 
-  handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value});
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  compareAscending = (a, b) => {
+    const genreA = a.title.toUpperCase();
+    const genreB = b.title.toUpperCase();
+  
+    let comparison = 0;
+    if (genreA > genreB) {
+      comparison = 1;
+    } else if (genreA < genreB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  compareDescending = (a, b) => {
+    const genreA = a.title.toUpperCase();
+    const genreB = b.title.toUpperCase();
+  
+    let comparison = 0;
+    if (genreA > genreB) {
+      comparison = -1;
+    } else if (genreA < genreB) {
+      comparison = 1;
+    }
+    return comparison;
+  }
+
+  handleAscending = () => {
+    this.props.notes.sort(this.compareAscending);
+    this.forceUpdate();
+  }
+
+  handleDescending = () => {
+    this.props.notes.sort(this.compareDescending);
+    this.forceUpdate();
   }
 
   render() {
     const { term } = this.state;
-    return (
-      this.props.isFetching ? 
-      <img src={clippy} alt="clippy"/>
-      :
+    return this.props.isFetching ? (
+      <img src={clippy} alt="clippy" />
+    ) : (
       <div>
         <div className="filter-results-container">
           <h2 className="filter-results-container-title">Filter Notes</h2>
-          <input placeholder="Search by note title or text body..." className="filter-results-container-input" type="text" name="term" onChange={this.handleChange} />
+          <input
+            placeholder="Search by note title or text body..."
+            className="filter-results-container-input"
+            type="text"
+            name="term"
+            onChange={this.handleChange}
+          />
+          <button className="btn btn-lg p-3 ascending" onClick={this.handleAscending}>Ascending</button>
+          <button className="btn btn-lg p-3 m-5 descending" onClick={this.handleDescending}>Descending</button>
         </div>
         <h2 className="text-center">Your Notes: </h2>
         <div
@@ -47,17 +90,22 @@ class ListView extends React.Component {
               : { height: "100%" }
           }
         >
-          {this.props.notes.filter((note) => {
-            if(term.trim()) {
-              if(note.title.toLowerCase().includes(term.toLowerCase()) || note.textBody.toLowerCase().includes(term.toLowerCase())) {
+          {this.props.notes
+            .filter(note => {
+              if (term.trim()) {
+                if (
+                  note.title.toLowerCase().includes(term.toLowerCase()) ||
+                  note.textBody.toLowerCase().includes(term.toLowerCase())
+                ) {
+                  return note;
+                }
+              } else {
                 return note;
               }
-            } else {
-              return note;
-            }
-          }).map(note => {
-            return <ListItem note={note} key={note._id} />;
-          })}
+            })
+            .map(note => {
+              return <ListItem note={note} key={note._id} />;
+            })}
         </div>
       </div>
     );

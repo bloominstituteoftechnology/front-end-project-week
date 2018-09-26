@@ -12,6 +12,7 @@
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   font-size: 1.6rem;
+  font-weight: bold;
 }
 
 .link:hover, button:hover {
