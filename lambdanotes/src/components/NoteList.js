@@ -26,17 +26,36 @@ export default class NoteList extends Component {
   render() {
     return(
       <ListDive>
+        <h3>Your Notes:</h3>
+        <div className='list-view'>
         {this.state.notes.map((n,i) => (
           <NoteCard key={i} note={n} />)
         )}
+        </div>
       </ListDive>
     );
   }
 }
 
 const ListDive = styled.div`
+  box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
+  min-height: 1000px;
+  flex-direction: column;
   background-color: #F3F3F3;
   border: 1px solid #BEBEBE;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  h3 {
+    color: #4A494A;
+    margin-top: 50px;
+  }
+
+  .list-view {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    justify-content: space-between;
+  }
 `

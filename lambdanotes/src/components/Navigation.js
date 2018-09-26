@@ -16,11 +16,14 @@ export default class Navigation extends Component {
 }
 
 const NavDiv = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 250px;
+  min-height: 1000px;
   background-color: #D7D7D7
   padding-left: 15px;
+  padding-right: 15px;
   border: 1px solid #BEBEBE;
 
   h1 {
@@ -32,7 +35,7 @@ const NavDiv = styled.div`
   .button {
     box-sizing: border-box;
     height: 50px;
-    width: 235px;
+    width: 220px;
     background-color: #2AC0C4;
     color: #FFFFFF;
     text-decoration: none;

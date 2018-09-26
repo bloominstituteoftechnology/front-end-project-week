@@ -5,8 +5,8 @@ export default class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      textBody: '',
+      title: this.props.title,
+      textBody: this.props.textBody 
     };
   }
 
@@ -24,6 +24,7 @@ export default class EditNote extends Component {
   }
 
   render() {
+    console.log(this.props);
     return(
       <div className='new-note'>
         <h3>Edit Note:</h3>

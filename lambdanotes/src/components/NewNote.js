@@ -14,11 +14,7 @@ export default class NewNote extends Component {
     event.preventDefault();
     axios
     .post('https://killer-notes.herokuapp.com/note/create', this.state)
-    .then(() => 
-    this.setState({
-      title: '',
-      textBody: ''
-    }))
+    .then(() => this.props.history.push('/'))
     .catch(err => {
       console.error(err);
     });

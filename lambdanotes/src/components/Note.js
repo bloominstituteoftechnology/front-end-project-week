@@ -39,22 +39,22 @@ export default class Note extends Component {
     });
   } 
 
-  editNote = id => {
-    axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
-    .then(() => this.fetchNote(),
-    this.setState({
-      title: '',
-      textBody: ''
-    }))
-    .catch(err => {
-      console.error(err);
-    });
-  }
+  // editNote = id => {
+  //   axios
+  //   .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
+  //   .then(() => this.fetchNote(),
+  //   this.setState({
+  //     title: '',
+  //     textBody: ''
+  //   }))
+  //   .catch(err => {
+  //     console.error(err);
+  //   });
+  // }
 
-  handleInput = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  // handleInput = event => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // }
 
   render() {
     if (!this.state.note) {
@@ -63,7 +63,8 @@ export default class Note extends Component {
     return(
       <div className='one-note'>
         <div className='note-action'>
-          <Link to={`notes/edit/${this.state.note._id}`}>edit</Link>
+          {/* <Link to={`/notes/${this.state.note._id}/edit`} >edit</Link> */}
+          <Link to={{ pathname: `/notes/${this.state.note._id}/edit`, state: this.state.note}} >edit</Link>
           <button onClick={()=> this.deleteNote(this.state.note._id)}>delete</button>
         </div>
         {/* <NoteCard /> */}

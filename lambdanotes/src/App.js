@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       notes: [],
       note: null,
-      updated: false
     };
   }
 
@@ -28,7 +27,8 @@ class App extends Component {
             <Note {...props} /> 
           )} />
           <Route path='/new' component={NewNote} />
-          <Route path='/notes/edit/:id' render={props => (<EditNote {...props} />)} />
+          <Route path='/notes/:id/edit' render={props => (<EditNote {...props} />)} />
+          {/* <Route path='/notes/:id/edit' component={EditNote} /> */}
         </div>
       </AppDiv>
     );
