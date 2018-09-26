@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import './styles/App.css';
 import Nav from './components/Nav';
-import NotesView from './views/NotesView';
-import NoteFormView from './views/NoteFormView';
-import SingleNoteView from './views/SingleNoteView';
+import Routes from './components/Routes';
 
 class App extends Component {
   render() {
@@ -14,15 +12,7 @@ class App extends Component {
       <React.Fragment>
         <Container>
           <Nav />
-          <Content>
-            <Route exact path="/" component={NotesView} />
-            <Route path="/addnote" component={NoteFormView} />
-            <Route exact path="/note/:noteId" component={SingleNoteView} />
-            <Route
-              path="/note/:noteId/edit"
-              render={(props) => <NoteFormView {...props} editForm={true} />}
-            />
-          </Content>
+          <Routes />
         </Container>
         <BackGround />
       </React.Fragment>
@@ -36,13 +26,6 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   margin: auto;
-  height: 100%;
-`;
-
-const Content = styled.div`
-  width: 80%;
-  margin-left: 20%;
-  padding: 50px 3%;
 `;
 
 const BackGround = styled.div`
