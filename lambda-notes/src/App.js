@@ -9,7 +9,7 @@ import { AddNote } from './components/addNote';
 import  EditNote  from './components/editNote';
 import axios from 'axios';
 
-const url = 'http://localhost:8000/api/notes';
+const url = 'http://localhost:3333/api/notes';
 
 class App extends Component {
   constructor() {
@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get('http://localhost:8000/api/notes').then(response => {
+    axios.get('http://localhost:3333/api/notes').then(response => {
       console.log(response);
       this.setState({
         notes: response.data,
