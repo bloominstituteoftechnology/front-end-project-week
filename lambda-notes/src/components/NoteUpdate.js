@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Sidebar from './Sidebar';
 
+import './NoteForms.css';
+
 class NoteUpdate extends Component {
     constructor(props) {
         super(props);
@@ -19,38 +21,43 @@ class NoteUpdate extends Component {
             ...this.state,
             [event.target.name]: event.target.value
         })
-      }
+    }
 
     render() {
         return (
-            <div>
+            <div className="page-container">
                 <Sidebar />
-                <h1>Edit Note:</h1>
-                <form>
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="Note Title"
-                        onChange={this.handleInput}
-                        value={this.state.title}
-                    />
+                <div className="section-container">
+                    <h1>Edit Note:</h1>
+                    <form className="form">
+                        <input
+                            className="title"
+                            type="text"
+                            name="title"
+                            placeholder="Note Title"
+                            onChange={this.handleInput}
+                            value={this.state.title}
+                        />
 
-                    <input
-                        type="text"
-                        name="textBody"
-                        placeholder="Note Content"
-                        onChange={this.handleInput}
-                        value={this.state.textBody}
-                    />
-                    <button onClick={this.props.updateNote(this.state)}>Submit</button>
-                </form>
+                        <textarea
+                            className="textBody"
+                            rows="25"
+                            type="text"
+                            name="textBody"
+                            placeholder="Note Content"
+                            onChange={this.handleInput}
+                            value={this.state.textBody}
+                        />
+                        <button onClick={this.props.updateNote(this.state)}>Submit</button>
+                    </form>
+                </div>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return{
+    return {
         note: state.singleFetchedNote
     }
 }
