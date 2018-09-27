@@ -16,8 +16,11 @@ import {
 
 import axios from "axios";
 
+const productionUrl = "https://jonathanhollowaynote.herokuapp.com/notes";
+//const developmentUrl = "http://localhost:8080/notes";
+
 export const fetchingNotes = () => {
-  const promise = axios.get("http://localhost:8080/notes");
+  const promise = axios.get(productionUrl);
   return dispatch => {
     dispatch({ type: GETTING_NOTES });
     promise
@@ -31,7 +34,7 @@ export const fetchingNotes = () => {
 };
 
 export const addingNote = note => {
-  const promise = axios.post("http://localhost:8080/notes", note);
+  const promise = axios.post(productionUrl, note);
   return dispatch => {
     dispatch({ type: ADDING_NOTE });
     promise
@@ -45,7 +48,7 @@ export const addingNote = note => {
 };
 
 export const updatingNote = (id, note) => {
-  const promise = axios.put(`http://localhost:8080/notes/${id}`, note);
+  const promise = axios.put(`${productionUrl}/${id}`, note);
   return dispatch => {
     dispatch({ type: UPDATING_NOTE });
     promise
@@ -59,7 +62,7 @@ export const updatingNote = (id, note) => {
 };
 
 export const deletingNote = id => {
-  const promise = axios.delete(`http://localhost:8080/notes/${id}`);
+  const promise = axios.delete(`${productionUrl}/${id}`);
   return dispatch => {
     dispatch({ type: DELETING_NOTE });
     promise
