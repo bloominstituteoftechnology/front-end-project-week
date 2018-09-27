@@ -2,8 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {NoteStyled, TitleStyled} from './style';
+import {editNote} from '../actions';
 
 class ViewNote extends React.Component{
+    edit = event =>{
+        event.preventDefault();
+        this.props.editNote(this.props.index);
+    }
+
+    // goHome = event =>{
+    //     event.preventDefault();
+    //     this.props.goHome();
+    // }
     
     render(){
         return(
@@ -12,8 +22,7 @@ class ViewNote extends React.Component{
                     <TitleStyled>
                         {this.props.notes[this.props.index].title}
                     </TitleStyled>
-                    <button type='submit' onClick={this.editNote}>Edit</button>
-                    <button type='submit' onClick={this.goHome}>Back</button>
+                    <button type='submit' onClick={this.edit}>Edit</button>
                     <div className='noteContent'>
                         {this.props.notes[this.props.index].content}
                     </div>
@@ -28,7 +37,7 @@ const mapDispatchtoProps = state =>({
     index: state.index
 });
 
-export default connect(mapDispatchtoProps)(ViewNote);
+export default connect(mapDispatchtoProps, {editNote})(ViewNote);
 
 ViewNote.propType = {
     index: PropTypes.number

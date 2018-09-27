@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const PageWrapper = styled.div`
+    display: flex;
+`
+export const Body = styled.div`
+    width: 100%;
+`
+
 export const ButtonStyled = styled.button`
 `
 

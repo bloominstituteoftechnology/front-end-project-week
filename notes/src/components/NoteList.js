@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 //import styled from 'styled-components';
 
 export default class NoteList extends React.Component{
+    push = address =>{
+        this.props.history.push(address);
+    }
+    
     render(){
         return(
             <div>

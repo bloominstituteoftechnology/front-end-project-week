@@ -5,6 +5,9 @@ import NoteList from './components/NoteList';
 import AddNote from './components/AddNote';
 import ViewNote from './components/ViewNote';
 import {connect} from 'react-redux';
+import {Route, withRouter} from 'react-router-dom';
+import Navigation from './components/Navigation';
+import {PageWrapper, Body} from './components/style';
 
 class App extends Component {
   render() {
@@ -14,14 +17,18 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to de Jungle</h1>
         </header>
-        {(this.props.viewing) ? (
-          <ViewNote index={this.props.index} />
-        ) : (
-          <div>
-            <AddNote />
-            <NoteList notes={this.props.notes} />
-          </div>
-        )}
+        <PageWrapper>
+          <Navigation />
+          <Body>
+            <Route exact path={'/'}
+              render={(props) => <NoteList notes={this.props.notes} />}
+            />
+            <Route path={'/add-note'} component={AddNote} />
+            <Route path={'/view-note'}
+              render={(props) => <ViewNote index={this.props.index} />}
+            />
+          </Body>
+        </PageWrapper>
       </div>
     );
   }
@@ -31,7 +38,8 @@ const mapDispatchtoProps = state =>({
   notes: state.notes,
   adding: state.adding,
   viewing: state.viewing,
-  index: state.index
+  index: state.index,
+  editing: state.editing
 });
 
-export default connect(mapDispatchtoProps)(App);
+export default withRouter(connect(mapDispatchtoProps)(App));
