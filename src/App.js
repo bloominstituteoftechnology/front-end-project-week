@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
 import axios from "axios";
-import Header from "./components/Header"
 import Sidebar from "./components/Sidebar";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
@@ -67,7 +66,7 @@ class App extends Component {
     .then(res => {
       console.log(res);
       axios
-      .get("http://http:/localhost:2200")
+      .get("http://localhost:2200/api/notes")
       .then(res => {
       console.log(res.data);
       this.setState({notes: res.data , title: '' , content: ''})
@@ -98,44 +97,36 @@ class App extends Component {
     )}
 
 
-  editNote = (event, noteID ,title, content) => {
-    event.preventDefault();
-
-    const editedNote = { title, content };
-
-    axios
-      .put(`http://localhost:2200/api/notes/${noteID}`, editedNote)
-      .then(res => {
-        const editedNote = res.data;
-
-        const notes = this.state.notes.slice();
-        for (let i = 0; i < notes.length; i++) {
-          if (notes[i].id === editedNote.id) {
-            notes[i] = editedNote;
+    editNote = (event, noteID ,title, content) => {
+      event.preventDefault();
+  
+      const editedNote = { title, content };
+  
+      axios
+        .put(`http://localhost:2200/api/notes/${noteID}`, editedNote)
+        .then(res => {
+          // const editedNote = res.data;
+  
+          const notes = this.state.notes.slice();
+          for (let i = 0; i < notes.length; i++) {
+            if (notes[i].id == noteID) {
+              notes[i] = editedNote;
+            }
           }
-        }
+  
+          this.setState({ notes }, () =>  this.props.history.push(`/notes`));
+         
+        })
+        .catch(err => console.error(err));
+    };
+  
 
-        this.setState({ notes }, () =>  this.props.history.push(`/notes`));
-       
-      })
-      .catch(err => console.error(err));
-  };
 
-  // async componentDidMount() {
-  //  const apiURL = process.env.REACT_APP_API;
-  //   try {
-  //     const response = await axios.get(apiURL);
-  //     const { secret, values} = response.data;
-  //     this.setState({secret , values});
-  //   } catch (ex) {
-  //   console.error('error',ex);
-  //   }
-  // }
 
   render() {
     return (
       <div className="App">
-      <Header/>
+      {/* <Header/> */}
        <Route 
           exact path = "/login" 
           component = {Login}> 
@@ -217,11 +208,7 @@ export default withRouter(App);
 
 
 
-    {/* <h3>{this.state.secret}</h3>
-      <div className="secret">{process.env.REACT_APP_SECRET}</div>
-      <ul>
-        {this.state.values.map(value => (<li key={value}>{value}</li>))}
-        </ul> */}
+
 
 
 
