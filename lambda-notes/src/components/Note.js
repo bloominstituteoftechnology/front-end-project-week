@@ -8,7 +8,7 @@ const Note = props => {
     return (
         <div className="note">
             <h2 className="note-title">{props.note.title}</h2>
-            <p className="note-textBody">({props.note.textBody})</p>
+            <p className="note-textBody">{props.note.textBody}</p>
             {/* <button onClick={() => props.deleteNote(props.note._id)}>Delete Note</button>
             <Link to='/notes/${:note._id}/update' >Update Note</Link> */}
         </div>

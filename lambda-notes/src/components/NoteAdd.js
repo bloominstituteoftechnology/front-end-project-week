@@ -1,8 +1,11 @@
 import React from 'react';
 
+import Sidebar from './Sidebar';
+
 const NoteAdd = props => {
     return (
         <div>
+            <Sidebar />
             <h1>Add New Note</h1>
             <form>
                 <label>Title</label>

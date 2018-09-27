@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import { fetchNotes, addNote, updateNote, deleteNote } from '../actions';
 
 import NotesList from '../components/NotesList';
+import Note from '../components/Note';
 import NoteAdd from '../components/NoteAdd';
 import NoteUpdate from '../components/NoteUpdate';
 import Sidebar from '../components/Sidebar';
@@ -48,14 +50,25 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Sidebar />
+      <div className="App-container">
 
-        <NotesList 
-          notes={this.props.notes}
-          deleteNote={this.props.deleteNote}
-          updateNote={this.props.updateNote}
-        />
+        <Route exact path="/" render={ (props) => {
+          return(<NotesList {...props} 
+            notes={this.props.notes} 
+            deleteNote={this.props.deleteNote} 
+            updateNote={this.props.updateNote} 
+            />)
+        }} />
+
+        <Route path='/create' render={props => {
+          return(<NoteAdd {...props}
+            newNote={this.state.newNote}
+            handleInput={this.handleInput}
+            addNote={this.addNote}
+            />)
+        }} />
+        <Route path='/note/:_id' component={Note} />
+        <Route path='/edit/:_id' component={NoteUpdate} />
         
         {/* <NoteAdd 
           newNote={this.state.newNote}
