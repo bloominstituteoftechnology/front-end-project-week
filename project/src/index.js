@@ -3,19 +3,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import logger from "redux-logger";
-import notesReducer from "./store/reducers";
+import { createStore, applyMiddleware, compose } from "redux";
 import { BrowserRouter as Router } from "react-router-dom";
+import { notesReducer } from "./store/reducers";
+import thunk from "redux-thunk";
 
-const store = createStore(notesReducer, applyMiddleware(thunk, logger));
+const store = createStore(notesReducer, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router>
       <App />
-    </Provider>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );

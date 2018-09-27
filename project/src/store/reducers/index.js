@@ -5,57 +5,62 @@ import {
   ADD_NOTE_START,
   ADD_NOTE_COMPLETE,
   ADD_NOTE_ERROR,
-  DELETE_NOTE_START,
-  DELETE_NOTE_COMPLETE,
-  DELETE_NOTE_ERROR,
-  SET_UPDATE_NOTE,
-  UPDATE_NOTE_START,
-  UPDATE_NOTE_COMPLETE,
-  UPDATE_NOTE_ERROR
+  VIEW_NOTE_START,
+  VIEW_NOTE_COMPLETED,
+  SET_UPDATE_NOTE
 } from "../actions";
 
-const initialstate = {
+const initialState = {
   notes: [],
+  fetchingData: false,
+  dataFetched: false,
   addingNote: false,
-  isLoading: false,
-  isDeleting: false,
-  isUpdating: false,
+  updatingNote: false,
+  error: "",
   noteToUpdate: null,
-  error: ""
+  note: []
 };
 
-const notesReducer = (state = initialstate, action) => {
+export const notesReducer = (state = initialState, action) => {
   switch (action.type) {
     case NOTES_FETCH_START:
-      return { ...state, isLoading: true };
+      return { ...state, fetchingData: true };
+
     case NOTES_FETCH_COMPLETE:
-      return { ...state, isLoading: false, notes: action.payload };
+      return {
+        ...state,
+        notes: action.payload,
+        fetchingData: false,
+        dataFetched: true
+      };
+
     case NOTES_FETCH_ERROR:
-      return { ...state, isLoading: false, error: action.payload };
+      return { ...state, error: "Error fetching data" };
+
     case ADD_NOTE_START:
-      return { ...state, isLoading: true };
+      return { ...state, addingNote: true };
+
     case ADD_NOTE_COMPLETE:
-      return { ...state, isLoading: false, notes: action.payload };
+      return { ...state, addingNote: false, note: action.payload };
+
     case ADD_NOTE_ERROR:
-      return { ...state, isLoading: false, error: action.payload };
-    case DELETE_NOTE_START:
-      return { ...state, isDeleting: true };
-    case DELETE_NOTE_COMPLETE:
-      return { ...state, isDeleting: false, notes: action.payload };
-    case DELETE_NOTE_ERROR:
-      return { ...state, isDeleting: false, error: action.payload };
+      return { ...state, error: "Error adding note", addingNote: false };
+
+    case VIEW_NOTE_START:
+      return {
+        ...state,
+        viewingNote: true
+      };
+    case VIEW_NOTE_COMPLETED:
+      return {
+        ...state,
+        viewingNote: false,
+        note: action.payload
+      };
     case SET_UPDATE_NOTE:
-      const note = state.notes.find(note => note.id === action.payload);
+      const note = state.notes.find(note => note._id === action.payload);
       return { ...state, noteToUpdate: note ? note : null };
-    case UPDATE_NOTE_START:
-      return { ...state, isUpdating: true };
-    case UPDATE_NOTE_COMPLETE:
-      return { ...state, isUpdating: false, notes: action.payload };
-    case UPDATE_NOTE_ERROR:
-      return { ...state, isUpdating: false, error: action.payload };
     default:
       return state;
   }
 };
-
-export default notesReducer;

@@ -1,22 +1,44 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getNotes } from "../store/actions";
 import { Link } from "react-router-dom";
-import Note from "./Note";
+import "../App.css";
 
-const NotesList = props => {
-  if (!props.notesList || !props.notesList.length) {
-    return <h1>No notes :(</h1>;
+class Notes extends Component {
+  componentDidMount() {
+    this.props.getNotes();
   }
-  return (
-    <div className="notes-list-wrapper">
-      {props.notesList.map(note => (
-        <div className="note-card" key={note._id}>
-          <Link to={`/notes/${note._id}`}>
-            <Note note={note} />
-          </Link>
+
+  render() {
+    return (
+      <div className="listDisplay">
+        <h1>Your Notes</h1>
+        <div className="noteDisplay">
+          {this.props.notes.map(note => {
+            return (
+              <Link to={`/note/${note._id}`}>
+                <div className="notesDisplay" key={note._id}>
+                  <h1>{note.title}</h1>
+                  <p>{note.textBody}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
 };
 
-export default NotesList;
+export default connect(
+  mapStateToProps,
+  {
+    getNotes
+  }
+)(Notes);

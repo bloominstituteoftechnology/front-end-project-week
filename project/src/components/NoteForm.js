@@ -1,40 +1,103 @@
-import React, { Fragment } from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addNewNote, updateNote } from "../store/actions";
+import "../App.css";
 
-const NoteForm = props => {
-  const handleSubmit = event => {
-    if (props.isUpdating) {
-      props.handleUpdateNote();
+class NoteForm extends Component {
+  state = {
+    note: {
+      title: "",
+      textBody: "",
+      _id: ""
+    },
+    updatingNote: false
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.updatingNote) {
+      this.handleUpdateNote();
     } else {
-      props.handleAddNewNote(event);
+      this.handleAddNewNote(event);
     }
   };
 
-  return (
-    <Fragment>
-      <h2>{props.isUpdating ? "Update Note" : "Add New Note"}</h2>
-      <form>
-        <div>
+  handleChange = event => {
+    this.setState({
+      note: {
+        ...this.state.note,
+        [event.target.name]: event.target.value
+      }
+    });
+  };
+
+  addTodoHandler = e => {
+    e.preventDefault();
+    this.props.addNewNote(this.state);
+    this.props.history.push("/notes");
+  };
+
+  componentDidMount() {
+    if (this.props.noteToUpdate) {
+      this.setState({
+        updatingNote: true,
+        note: this.props.noteToUpdate
+      });
+    }
+  }
+
+  handleUpdateNote = () => {
+    console.log(this.state.note);
+    this.props.updateNote(this.state.note);
+    // this.props.history.push("/notes");
+  };
+
+  handleAddNewNote = event => {
+    event.preventDefault();
+    this.props.addNewNote(this.state.note);
+    this.props.history.push("/notes");
+  };
+  render() {
+    return (
+      <React.Fragment>
+        <h2 className="edit-delete">
+          {this.props.updatingNote ? "Edit Note:" : "Create New Note:"}
+        </h2>
+        <form className="Column-Layout">
           <input
+            className="input-title"
+            value={this.state.note.title}
+            name="title"
             type="text"
-            placeholder="Enter Title"
-            value={props.note.title}
-            name="name"
-            onChange={props.handleChange}
+            placeholder="Note Title"
+            onChange={this.handleChange}
           />
-        </div>
-        <div>
           <input
-            type="text"
-            placeholder="Enter Text"
-            value={props.note.textBody}
+            className="input-body"
+            value={this.state.note.textBody}
             name="textBody"
-            onChange={props.handleChange}
+            type="text"
+            placeholder="Note Content"
+            onChange={this.handleChange}
           />
-        </div>
-        <button onClick={handleSubmit}>Submit</button>
-      </form>
-    </Fragment>
-  );
+          <h3 onClick={this.handleSubmit}>Submit</h3>
+        </form>
+      </React.Fragment>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    noteToUpdate: state.noteToUpdate
+  };
 };
 
-export default NoteForm;
+export default connect(
+  mapStateToProps,
+  {
+    addNewNote,
+    updateNote
+  }
+)(NoteForm);
