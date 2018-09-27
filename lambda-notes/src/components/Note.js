@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { MarkdownPreview } from 'react-marked-markdown';
 
 class Note extends Component {
     render() {
@@ -6,7 +7,7 @@ class Note extends Component {
             <div className="note-card">
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title.substring(0, 20)}</h5>
-                    <p>{this.props.content.substring(0, 100)}</p>
+                    <MarkdownPreview value={this.props.content.substring(0, 100)} />
                 </div>
             </div>
         )

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { viewNote, deleteNote, updateNote } from '../actions';
 import EditNote from './EditNote';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { MarkdownPreview } from 'react-marked-markdown';
 
 class ViewNote extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ class ViewNote extends Component {
                 </div>
                 <div className="note-content">
                     <h3>{this.props.note.title}</h3>
-                    <p>{this.props.note.textBody}</p>
+                    <MarkdownPreview value={this.props.note.textBody}/>
                 </div>
                                
                 {this.state.updateActive !== false
@@ -60,7 +61,7 @@ class ViewNote extends Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Are you sure you want to delete this note?</ModalHeader>
                     <ModalBody>
-                        <Button onClick={this.deleteNote} color="danger">Delete</Button>{' '}
+                        <Button onClick={this.deleteNote} color="danger">Delete</Button>
                         <Button onClick={this.toggleModal} className="main-button">No</Button>
                     </ModalBody>
                 </Modal>
