@@ -65,38 +65,35 @@ class App extends Component {
   }
 
   newNote = (newNote) => {
-    // this.props.addNote(newNote);
-    if(localStorage.getItem('JWT')){
-      const token = localStorage.getItem('JWT')
-      const authHeader = {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          Authorization: token,    
-        } 
-      }
-    axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/', (newNote), authHeader)
-    // axios.post('http://localhost:3333/api/notes/', (newNote), authHeader)
-    .then(res => {
-      this.props.history.push('/all-notes')
-      this.props.getNotes();
-    }).catch(err => console.log(err.message))
-  }else {
-    console.log('need to include toekn in request')
-  }
+      // this.props.addNote(newNote);
+      if(localStorage.getItem('JWT')){
+        const token = localStorage.getItem('JWT')
+        const authHeader = {
+          headers: {
+            Authorization: token,    
+          } 
+        }
+      axios.post('http://localhost:3333/api/notes/', (newNote), authHeader)
+      // axios.post('http://localhost:3333/api/notes/', (newNote), authHeader)
+      .then(res => {
+        this.props.history.push('/all-notes')
+        this.props.getNotes();
+      }).catch(err => console.log(err.message))
+    } else {
+      console.log('need to include toekn in request')
+    }
   }
 
   editNote = (noteEdit) => {
-    console.log('noteEdit', noteEdit)
     // this.props.editNote(noteEdit)//this is the redux one: 
     if(localStorage.getItem('JWT')){
       const token = localStorage.getItem('JWT')
       const authHeader = {
         headers: {
-          'Access-Control-Allow-Origin': '*',
           Authorization: token,    
         } 
       }
-      axios.put(`https://lambda-notes-backend-mjk.herokuapp.com/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
+      axios.put(`http://localhost:3333/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
       // axios.put(`http://localhost:3333/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
       .then(res => {
         this.props.history.push('/all-notes')
@@ -115,19 +112,18 @@ class App extends Component {
       const token = localStorage.getItem('JWT')
       const authHeader = {
         headers: {
-          'Access-Control-Allow-Origin': '*',
           Authorization: token,    
         } 
       }
-    axios.delete(`https://lambda-notes-backend-mjk.herokuapp.com/api/notes/${id}`, authHeader)
-    // axios.delete(`http://localhost:3333/api/notes/${id}`, authHeader)
-    .then(res => {
-      this.props.history.push('/all-notes')
-      this.props.getNotes();
-    }).catch(err => console.log(err.message))
-  }else {
-    console.log('need to include a valid token in request')
-  }
+      axios.delete(`http://localhost:3333/api/notes/${id}`, authHeader)
+      // axios.delete(`http://localhost:3333/api/notes/${id}`, authHeader)
+      .then(res => {
+        this.props.history.push('/all-notes')
+        this.props.getNotes();
+      }).catch(err => console.log(err.message))
+    } else {
+     console.log('need to include a valid token in request')
+    }
   }
 
   sortById = (e) => {
@@ -257,9 +253,9 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = {
   getNotes,
-  addNote,
-  deleteNote,
-  editNote,
+  // addNote,
+  // deleteNote,
+  // editNote,
   sortNote,
 }
  export default DragDropContext(HTML5Backend)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));

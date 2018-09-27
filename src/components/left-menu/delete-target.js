@@ -16,7 +16,6 @@ const DeleteTarget = (props) => (
         textDecoration: "none",
         cursor: "default"
       }}
-
       >
       Drag to Delete
     </div>
@@ -31,9 +30,6 @@ const specObj = {
   //this is a good place to call redux(flux) actions
   hover(props, component){
     // console.log(props.highlighted)
-
-
-
   },
 
   drop(props) {

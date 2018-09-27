@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -9,15 +8,16 @@ import Login from './login';
 import Register from './register';
 import Header from './header';
 
-import {
-    createUser,
-    loginUser,
-    } from '../../actions';
+// import {
+//     createUser,
+//     loginUser,
+//     } from '../../actions';
     
 class Welcome extends Component{
     
     createUser = (newUser) => {
         console.log('createuser in welcome.js', newUser)
+
         axios.post('http://localhost:3333/api/welcome/register/', newUser).then(res => {
             console.log(res)
             localStorage.setItem('JWT', res.data.token)
@@ -27,7 +27,7 @@ class Welcome extends Component{
         }).catch(err => {console.log(err.message)})
     }
 
-    loginUser2 =  (creds) => {
+    loginUser2 = (creds) => {
         // console.log('loginuser in welcome.js', creds)
         axios.post('http://localhost:3333/api/welcome/login', creds).then(res => {
             localStorage.setItem('JWT', res.data.token)
@@ -56,8 +56,8 @@ const mapStateToProps = store => {
   }
   
   const mapDispatchToProps = {
-    createUser,
-    loginUser
+    // createUser,
+    // loginUser
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome)
