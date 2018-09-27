@@ -7,12 +7,18 @@ import Note from "./Components/Note";
 import AddNote from "./Components/AddNote";
 import Sidebar from "./Components/Sidebar";
 import FilteredNotes from "./Components/FilteredNotes";
-import DragDrop from "./Components/DragDrop";
+import Register from "./Components/Register";
+import Login from "./Components/Login";
 
 import "./App.css";
 
-// const API = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
-const API = "http://localhost:8000/notes";
+const API = "https://lambda-notes-backend-trevor.herokuapp.com/notes/";
+const REG_API =
+	"https://lambda-notes-backend-trevor.herokuapp.com/auth/register/";
+const LOG_API = "https://lambda-notes-backend-trevor.herokuapp.com/auth/login/";
+// const API = "http://localhost:8000/notes";
+// const REG_API = "http://localhost:8000/auth/register";
+// const LOG_API = "http://localhost:8000/auth/login";
 class App extends Component {
 	state = {
 		notes: [],
@@ -22,25 +28,54 @@ class App extends Component {
 
 	componentDidMount() {
 		this.setState({ loading: true });
-		axios.get(API).then(response => {
+		axios({
+			method: "GET",
+			url: API,
+			headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+		}).then(response => {
 			this.setState({ notes: response.data.message, loading: false });
 		});
 	}
 
-	// componentDidUpdate(prevState) {
-	// 	if (
-	// 		this.state.deleting !== prevState.deleting &&
-	// 		!this.state.deleting
-	// 	) {
-	// 		axios.get(API_ALL).then(response => {
-	// 			this.setState({ notes: response.data.message, loading: false });
-	// 		});
-	// 	}
-	// }
+	handleRegister = user => {
+		axios
+			.post(REG_API, user)
+			.then(response => {
+				// if (!response.data.token) {
+				// 	return json({ error: true, message: "No token found" });
+				// }
+
+				localStorage.setItem("token", response.data.token);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+
+	handleLogin = user => {
+		axios
+			.post(LOG_API, user)
+			.then(response => {
+				localStorage.setItem("token", response.data.token);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
 
 	handleAddNote = note => {
 		this.setState({ loading: true });
-		axios.post(API, note).then(response => {
+		console.log(note);
+		axios({
+			method: "POST",
+			url: API,
+			headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+			data: note,
+		}).then(response => {
 			this.setState(prevState => ({
 				notes: [
 					...prevState.notes,
@@ -54,7 +89,13 @@ class App extends Component {
 	handleDeleteNote = id => {
 		this.setState({ deleting: true });
 
-		axios.delete(`${API}/${id}`).then(() => {
+		axios({
+			method: "DELETE",
+			url: `${API}/${id}`,
+			headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+		}).then(() => {
 			this.setState(prevState => ({
 				notes: prevState.notes.filter(note => note.id !== Number(id)),
 				deleting: false,
@@ -64,11 +105,18 @@ class App extends Component {
 
 	handleEditNote = (id, edited) => {
 		this.setState({ loading: true });
-		axios.put(`${API}/${id}`, edited).then(response => {
+		axios({
+			method: "PUT",
+			url: `${API}/${id}`,
+			headers: {
+				authorization: "Bearer " + localStorage.getItem("token"),
+			},
+			data: edited,
+		}).then(response => {
 			this.setState(prevState => ({
 				notes: prevState.notes.map(note => {
-					if (note.id == response.data.message.id) {
-						return response.data.message;
+					if (note.id == response) {
+						return { ...edited, id: note.id };
 					} else {
 						return note;
 					}
@@ -82,7 +130,16 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Sidebar />
-				<Route exact path="/" render={() => <DragDrop />} />
+				<Route
+					exact
+					path="/"
+					render={() => <Register onSubmit={this.handleRegister} />}
+				/>
+				<Route
+					exact
+					path="/login"
+					render={() => <Login onSubmit={this.handleLogin} />}
+				/>
 				<Route
 					exact
 					path="/notes"
