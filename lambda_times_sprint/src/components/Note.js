@@ -31,6 +31,7 @@ class Note extends Component {
       });
   };
 
+  // sets note id to this.id for use in deleting
   get id() {
     return this.props.match.params.id;
   }
@@ -46,7 +47,7 @@ class Note extends Component {
     this.setState({ modalIsOpen: false });
   }
 
-
+// allows us to delete and update state
   handleDelete = e => {
     e.preventDefault();
     axios
@@ -65,10 +66,12 @@ class Note extends Component {
     this.props.history.push("/");
   }
 
+  // changes title and textBody on state when an edcit happens
   handleEditInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  // allows us to edit and update state
   handleEditNote = e => {
     e.preventDefault();
 
@@ -93,6 +96,7 @@ class Note extends Component {
       });
   };
 
+  // allows us to edit the current note
   toggleEdit = e => {
     e.preventDefault();
     this.setState({ isEditing: true });
@@ -103,6 +107,7 @@ class Note extends Component {
       return (<div>Loading Note...</div>);
     }
 
+    // if edit mode is toggled, it returns the edit form
     const { title, textBody } = this.state.note;
     if (this.state.isEditing) {
       return (

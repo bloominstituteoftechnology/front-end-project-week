@@ -22,6 +22,7 @@ componentDidMount() {
   this.fetchNotes();
 }
 
+// allows us to get all the notes data from the API
 fetchNotes = ()=> {
   axios.get('https://killer-notes.herokuapp.com/note/get/all')
       .then(response => {
@@ -32,10 +33,12 @@ fetchNotes = ()=> {
       });
 }
 
+// allows us to add title and textBody info for new note created on state
   handleInputChange = event => {
       this.setState({ [event.target.name]: event.target.value });
     }
 
+// allows us to create a new note and post it to the API
   handleAddNewNote = event => {
     console.log('firing')
 
