@@ -76,10 +76,18 @@ export const fetchNotes = () => async (dispatch, getState) => {
   }
 };
 
-export const fetchOne = id => async dispatch => {
+export const fetchOne = id => async (dispatch, getState) => {
   dispatch(fetchOneRequest());
   try {
-    let response = await axios.get(`${API_URL}notes/${id}`);
+    let response = await axios({
+      method: 'GET',
+      url: `${API_URL}notes/${id}`,
+      headers: {
+        authorization: `Bearer ${getState().token}`,
+      },
+    });
+    if (response.data.error)
+      return dispatch(fetchOneFailure(response.data.error));
     dispatch(fetchOneSuccess(response.data));
   } catch (err) {
     dispatch(fetchOneFailure(err));
