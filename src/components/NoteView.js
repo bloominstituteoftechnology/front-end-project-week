@@ -31,7 +31,7 @@ const Content = styled.div`
 `
 
 
-const URL = 'http://localhost:9000/notes/';
+const URL = 'http://localhost:3300/notes/';
 
 class NoteView extends Component {
     constructor(props) {

@@ -11,7 +11,7 @@ import Login from './components/Login';
 
 const jwtDecode = require('jwt-decode');
 
-const URL = 'http://localhost:9000/notes/';
+const URL = 'http://localhost:3300/notes/';
 
 class App extends Component {
   constructor(props){
