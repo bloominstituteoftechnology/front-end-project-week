@@ -27,7 +27,6 @@ class NewNote extends Component {
             this.props.createNote(newNote)
             this.setState(emptyNote)
             this.props.history.push('/list-view')
-        
     }
 
     render(){

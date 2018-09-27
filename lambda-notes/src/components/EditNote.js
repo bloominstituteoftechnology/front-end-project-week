@@ -37,6 +37,7 @@ class EditNote extends Component {
             console.log('handleSubmit:', editedNote)
             this.props.editingNote(editedNote)
             console.log('this1:', this.props.editingNote)
+            this.props.history.push('/list-view')
         }
     }
     
