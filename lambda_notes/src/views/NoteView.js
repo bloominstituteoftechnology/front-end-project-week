@@ -14,6 +14,10 @@ class NoteView extends Component {
         };
     };
 
+    componentDidUpdate() {
+        this.props.getNotes();
+    }
+
     handleDeleteNote = id => {
         console.log('DELETE', id)
         this.props.deleteNote(id);
@@ -27,6 +31,7 @@ class NoteView extends Component {
 
     toggle = e => {
         e.preventDefault();
+        console.log('TOGGLE');
         this.setState({modal14: !this.state.modal14});
     }
 

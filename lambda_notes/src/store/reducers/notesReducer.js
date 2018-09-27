@@ -15,6 +15,8 @@ import {
     UPDATE_NOTE_FAILURE,
     SEARCH_NOTE,
     SEARCH_NOTE_OFF,
+    SORT_NOTES_FRONT,
+    SORT_NOTES_BACK,
 } from '../actions';
 
 const initialState = {
@@ -27,6 +29,8 @@ const initialState = {
     noteToUpdate: null,
     filtered: false,
     filteredNotes: null,
+    sorted: false,
+    sort: null,
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -34,7 +38,19 @@ export const notesReducer = (state = initialState, action) => {
         case NOTES_FETCH_START:
             return { ...state, isLoading: true };
         case NOTES_FETCH_COMPLETE:
-            return { ...state, isLoading: false, notes: action.payload };
+            const noteList = action.payload.sort((a,b) => {return a.title.toLowerCase().localeCompare(b.title.toLowerCase());});
+            
+            if (state.sorted) {
+                if (state.sort === 'front') {
+                    return { ...state, isLoading: false, notes: noteList };
+                } else if (state.sort === 'back') {
+                    return { ...state, isLoading: false, notes: noteList.reverse() };
+                } else {
+                    return { ...state, isLoading: false, notes: action.payload };
+                }
+            } else {
+                return { ...state, isLoading: false, notes: action.payload };
+            }
         case NOTES_FETCH_FAILURE:
             console.log(action.payload);
             return { ...state, isLoading: false, error: action.payload };
@@ -67,6 +83,10 @@ export const notesReducer = (state = initialState, action) => {
             return { ...state, filtered: true, filteredNotes: action.payload };
         case SEARCH_NOTE_OFF:
             return { ...state, filtered: false }
+        case SORT_NOTES_FRONT:
+            return { ...state, sorted: true, sort: 'front', notes: action.payload }
+        case SORT_NOTES_BACK:
+            return { ...state, sorted: true, sort: 'back', notes: action.payload }
         default:
             return state;
     }

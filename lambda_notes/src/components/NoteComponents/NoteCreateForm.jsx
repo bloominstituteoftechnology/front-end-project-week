@@ -42,7 +42,7 @@ function NoteCreateForm(props) {
         <Wrapper>
             <form>
                 <p className="h4 mb-4">{props.isUpdating ? 'Edit Note:' : 'Create New Note:'}</p>
-                <input type="text" placeholder="Note Title" name="title" id="defaultFormContactNameEx" className="form-control" value={props.note.title} onChange={props.handleChange}/>
+                <input type="text" placeholder="Note Title" name="title" id="defaultFormContactNameEx" className="form-control" defaultValue={props.note.title} onChange={props.handleChange}/>
                 <br />
                 <input type="text" placeholder="Note Tags (Seperate with a , )" name="tags" id="defaultFormContactNameEx" className="form-control" value={props.note.tags} onChange={props.handleChange}/>
                 <br/>

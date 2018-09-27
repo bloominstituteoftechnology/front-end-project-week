@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FormInline, Fa } from 'mdbreact';
 import Styled from 'styled-components';
 import { connect } from 'react-redux';
-import { toggleUpdateNote, searchNote, searchNoteOff } from '../../store/actions';
+import { toggleUpdateNote, searchNote, searchNoteOff, sortNotesFront, sortNotesBack } from '../../store/actions';
 
 const Header = Styled.header`
     height: 100%;
@@ -69,7 +69,6 @@ class Navigation extends Component {
     
 
     handleSubmit = e => {
-        console.log('E',e);
         if (e === '' || e === undefined || e.lenght === 0) {this.searchNoteOff};
         let updatedList = this.props.notes.filter(item => {
             return item.title.toLowerCase().search(e.toLowerCase()) !== -1;
@@ -80,6 +79,18 @@ class Navigation extends Component {
     handleChange = e => {
         this.setState({ inputValue: e.target.value}, () => this.handleSubmit(this.state.inputValue));
     }
+
+    sortList = (e, sorting) => {
+        e.preventDefault();
+        switch(sorting) {
+            case 'front':
+                return this.props.sortNotesFront(this.props.notes);
+            case 'back':
+                return this.props.sortNotesBack(this.props.notes);
+            default:
+                return this.props.sortNotesFront(this.props.notes);
+        }
+      }
 
     render() {
         return (
@@ -96,8 +107,8 @@ class Navigation extends Component {
                 <NavLink to="/form"><Button type="button" onClick={this.props.toggleUpdateNote}>+ Create A New Note</Button></NavLink>
                 <br />
                 <h3>Sort Notes</h3>
-                <Button type="button" onClick={event => this.props.sortList(event, 'front')}>A-Z</Button>
-                <Button type="button" onClick={event => this.props.sortList(event, 'back')}>Z-A</Button>
+                <NavLink to="/" ><Button type="button" onClick={event => this.sortList(event, 'front')}>A-Z</Button></NavLink>
+                <Button type="button" onClick={event => this.sortList(event, 'back')}>Z-A</Button>
             </Header>
         )
     }
@@ -109,4 +120,4 @@ const mapStateToProps = state => ({
   notes: state.notes,  
 });
 
-export default connect(mapStateToProps, { toggleUpdateNote, searchNote, searchNoteOff })(Navigation)
+export default connect(mapStateToProps, { toggleUpdateNote, searchNote, searchNoteOff, sortNotesFront, sortNotesBack })(Navigation)

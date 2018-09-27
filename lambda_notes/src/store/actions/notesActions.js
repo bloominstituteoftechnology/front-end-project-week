@@ -21,6 +21,9 @@ export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 export const SEARCH_NOTE = 'SEARCH_NOTE';
 export const SEARCH_NOTE_OFF = 'SEARCH_NOTE_OFF';
 
+export const SORT_NOTES_FRONT = 'SORT_NOTES_FRONT';
+export const SORT_NOTES_BACK = 'SORT_NOTES_BACK';
+
 export const getNotes = () => dispatch => {
     dispatch({ type: NOTES_FETCH_START });
     
@@ -87,9 +90,21 @@ export const toggleUpdateNote = () => dispatch => {
 };
 
 export const searchNote = note => dispatch => {
-    dispatch({ type: SEARCH_NOTE, payload: note })
+    dispatch({ type: SEARCH_NOTE, payload: note });
 };
 
 export const searchNoteOff = () => dispatch => {
-    dispatch({ type: SEARCH_NOTE_OFF })
+    dispatch({ type: SEARCH_NOTE_OFF });
 };
+
+export const sortNotesFront = notes => dispatch => {
+
+    const noteList = notes.sort((a,b) => {return a.title.toLowerCase().localeCompare(b.title.toLowerCase());});
+    return dispatch({ type: SORT_NOTES_FRONT, payload: noteList});
+}
+
+export const sortNotesBack = notes => dispatch => {
+
+    const noteList = notes.sort((a,b) => {return a.title.toLowerCase().localeCompare(b.title.toLowerCase());}).reverse();
+    return dispatch({ type: SORT_NOTES_BACK, payload: noteList});
+}

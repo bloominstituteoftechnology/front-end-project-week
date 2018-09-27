@@ -47,6 +47,7 @@ const Content = Styled.div`
     text-overflow: ellipsis;
     width: 100%;
     height: 70%;
+    white-space: pre-line;
 `;
 
 function Note(props) {

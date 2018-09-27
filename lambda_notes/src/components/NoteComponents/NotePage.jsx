@@ -8,6 +8,7 @@ const Wrapper = Styled.div`
     padding-left: 3%;
     color: #4a494a;
     background-color: #f3f3f3;
+    white-space: pre-line;
 
 `;
 
@@ -65,45 +66,56 @@ const ModalButtons = Styled.div`
     justify-content: space-evenly;
 `;
 
-function NotePage(props) {
-    const note = props.notes.find(
-        note => note._id === props.match.params.id
-    );
+class NotePage extends React.Component {
+    state = {
+        modal14: false,
+        note: {},
+    }
 
-    let tags = '';
+    componentDidMount() {
+        const note = this.props.notes.find(
+            note => note._id === this.props.match.params.id
+        );
 
-    function handleDelete() {
-        props.handleDeleteNote(note._id);
-        props.history.push('/');
+        this.setState({ note });
+    }
+
+    handleDelete = () => {
+        this.props.handleDeleteNote(this.state.note._id);
+        this.props.history.push('/');
     };
 
-    if (props.isLoading || props.notes.length === 0) return <h2>Loading Notes... Pleas grab some coffee</h2>
-    tags = note.tags.join(', ');
+    toggle = e => {
+        e.preventDefault();
+        console.log('TOGGLE');
+        this.setState({modal14: !this.state.modal14});
+    }
+
+    render() {
+        return (
+            <Wrapper>
+                <Header>
+                    <LinkD><NavLink to="/form" onClick={event => this.props.goToForm(event, this.state.note._id)} style={{color: "#4a494a" }}>Edit</NavLink></LinkD>
+                    <LinkD><NavLink to="/" onClick={this.toggle} style={{color: "#4a494a" }}>Delete</NavLink></LinkD>
+                </Header>
+                <h1>{this.state.note.title}</h1>
+                <h5>Tags: {this.state.note.tags}</h5>
+                <br />
+                <h5>Summary</h5>
+                <p>{this.state.note.textBody}</p>
     
-
-    return (
-        <Wrapper>
-            <Header>
-                <LinkD><NavLink to="/form" onClick={event => props.goToForm(event, note._id)} style={{color: "#4a494a" }}>Edit</NavLink></LinkD>
-                <LinkD><NavLink to="/" onClick={props.toggle} style={{color: "#4a494a" }}>Delete</NavLink></LinkD>
-            </Header>
-            <h1>{note.title}</h1>
-            <h5>Tags: {tags}</h5>
-            <br />
-            <h5>Summary</h5>
-            <p>{note.textBody}</p>
-
-            <Modal isOpen={props.modal14} toggle={props.toggle} centered>
-            <ModalContainer>
-                Are you sure you want to delete this?
-                <ModalButtons>
-                <ButtonDanger onClick={handleDelete}>Delete</ButtonDanger>
-                <Button onClick={props.toggle}>No</Button>
-                </ModalButtons>
-            </ModalContainer>
-            </Modal>
-        </Wrapper>
-    )
+                <Modal isOpen={this.state.modal14} toggle={this.toggle} centered>
+                <ModalContainer>
+                    Are you sure you want to delete this?
+                    <ModalButtons>
+                    <ButtonDanger onClick={this.handleDelete}>Delete</ButtonDanger>
+                    <Button onClick={this.toggle}>No</Button>
+                    </ModalButtons>
+                </ModalContainer>
+                </Modal>
+            </Wrapper>
+        )
+    }
 }
 
 export default NotePage;

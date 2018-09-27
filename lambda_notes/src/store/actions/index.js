@@ -20,6 +20,8 @@ export {
 
     SEARCH_NOTE,
     SEARCH_NOTE_OFF,
+    SORT_NOTES_FRONT,
+    SORT_NOTES_BACK,
 
     getNotes,
     addNewNote,
@@ -29,4 +31,6 @@ export {
     toggleUpdateNote,
     searchNote,
     searchNoteOff,
+    sortNotesFront,
+    sortNotesBack,
 } from './notesActions';
