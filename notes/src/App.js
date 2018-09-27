@@ -102,12 +102,11 @@ class App extends Component {
 
   /* Dropdown/sort methods */
 
+  // drag sort methods
   onSortEnd = ({ oldIndex, newIndex }) => {
-    const { id } = this.state.notes[oldIndex];
-    const id2 = this.state.notes[newIndex].id;
-    this.switch(id, id2);
+    const { notes } = this.state;
+    this.switch(notes[oldIndex].id, notes[newIndex].id);
   };
-
   switch = (id, id2) => {
     axios.put(`${URL}/${id}/${id2}`)
       .then(() => {
@@ -138,7 +137,7 @@ class App extends Component {
         }
       };
     }
-    else { // asc
+    else { // asc.
       sortCb = (a, b) => {
         const pa = parse(a);
         const pb = parse(b);
@@ -177,7 +176,7 @@ class App extends Component {
 
     this.toggleDropdown();
     this.setState({
-      notes: this.state.notes.sort().sort(sortCb)
+      notes: this.state.notes.sort(sortCb)
     });
   };
 
@@ -192,7 +191,6 @@ class App extends Component {
   clone = () => {
     const { notes, note } = this.state;
     const { title, text } = note;
-    if (title === '') return null;
     axios.post(URL, { title, text })
       .then(({ data }) => {
         this.setState({
