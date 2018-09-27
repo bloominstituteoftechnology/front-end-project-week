@@ -28,6 +28,7 @@ const Nav = () => {
         <NavDiv>
             <h1>Lambda Notes</h1>
             <NoDecLink exact='true' to='/'><StyledButton buttonColor='aqua'>View Your Notes</StyledButton></NoDecLink>
+            {/* <NoDecLink to='/tags'><StyledButton buttonColor='aqua'>Tag Cloud</StyledButton></NoDecLink> */}
             <NoDecLink to='/noteeditor'><StyledButton buttonColor='aqua'>+ Create New Note</StyledButton></NoDecLink>
         </NavDiv>
     );

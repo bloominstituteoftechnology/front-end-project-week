@@ -39,7 +39,7 @@ const mapStateToProps = (state) => {
         isEditing: state.notesReducers.editing.isEditing,
         tmpNote: {
             ...state.notesReducers.editing.tmpNote,
-            tags: state.notesReducers.editing.tmpNote.tags.join()
+            tags: state.notesReducers.editing.tmpNote.tags.join() // Makes working with the tags in the form easier. Eventually gets reconstituted to an array in the submitHandler in NoteEditor.
         }
     };
 };

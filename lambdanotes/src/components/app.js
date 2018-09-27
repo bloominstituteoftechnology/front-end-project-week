@@ -20,6 +20,8 @@ class App extends Component {
         <Route exact path='/' component={NotesListContainer} />
         <Route path='/noteeditor' component={NoteEditorContainer} />
         <Route path='/notes/:id' component={NoteContainer} />
+        {/* <Route path='/tags' component={} /> */}
+        {/* <Route path='/tags/:tag' component={} /> */}
       </DivBorder>
     );
   }

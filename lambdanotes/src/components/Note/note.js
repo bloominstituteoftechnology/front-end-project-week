@@ -23,6 +23,11 @@ const SizedP = Styled.p`
     white-space: pre-wrap;
 `;
 
+const BoldSpan = Styled.span`
+    font-size: 1.5rem;
+    font-weight: bold;
+`;
+
 class Note extends Component {
     editHandler = () => {
         this.props.noteToEdit(this.props.note._id);
@@ -52,6 +57,8 @@ class Note extends Component {
                     </ManipDiv>
                     <h2>{this.props.note.title}</h2>
                     <SizedP>{this.props.note.textBody}</SizedP>
+                    <br /><br />
+                    <SizedP><BoldSpan>Tags:</BoldSpan> {this.props.note.tags.join(', ')}</SizedP>
                     {this.props.status.deletePrompt ?
                         <DeleteModal 
                             noteId={this.props.note._id} 

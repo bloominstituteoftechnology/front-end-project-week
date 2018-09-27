@@ -35,16 +35,6 @@ class NoteEditor extends Component {
     };
 
     inputHandler = (event) => {
-        if(event.target.name === 'tags') {
-            const tagsArray = event.target.value.split(',');
-            this.setState({
-                ...this.state,
-                tmpNote: {
-                    ...this.state.tmpNote,
-                    [event.target.name]: tagsArray
-                }
-            });
-        }
         this.setState({
             ...this.state,
             tmpNote: {
@@ -56,28 +46,28 @@ class NoteEditor extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        if(this.props.isEditing === false) {
-            this.props.postNote({
-                title: event.target.title.value,
-                textBody: event.target.textBody.value
-            });
-            // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the POST to finish before calling history.push
-            setTimeout(() => this.props.history.push('/'), 1000);
-        } else {
-            const tmpNote = this.props.tmpNote;
-            const tagsCheck = this.state.tmpNote.tags.filter( (tag, i) => tag === tmpNote.tags[i]);
-            if(tmpNote.title !== this.state.tmpNote.title || tmpNote.textBody !== this.state.tmpNote.textBody || tagsCheck.length !== tmpNote.tags.length) {
+        if(this.props.tmpNote.title !== this.state.tmpNote.title || this.props.tmpNote.textBody !== this.state.tmpNote.textBody || this.props.tmpNote.tags !== this.state.tmpNote.tags) {
+            const stateTagsArray = this.state.tmpNote.tags.split(',');
+            if(this.props.isEditing === false) {
+                this.props.postNote({
+                    title: this.state.tmpNote.title,
+                    textBody: this.state.tmpNote.textBody,
+                    tags: stateTagsArray
+                });
+                // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the POST to finish before calling history.push
+                setTimeout(() => this.props.history.push('/'), 1000);
+            } else {
                 this.props.putNote(
                     {
                         title: this.state.tmpNote.title,
                         textBody: this.state.tmpNote.textBody,
-                        tags: this.state.tmpNote.tags,
+                        tags: stateTagsArray,
                         _id: this.state.tmpNote._id
                     }
                 );
+                // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the PUT to finish before calling history.push
+                setTimeout(() => this.props.history.push(`/notes/${this.state.tmpNote._id}`), 1000);
             }
-            // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the PUT to finish before calling history.push
-            setTimeout(() => this.props.history.push(`/notes/${this.state.tmpNote._id}`), 1000);
         }
     };
 
@@ -92,7 +82,7 @@ class NoteEditor extends Component {
                     <br />
                     <BodyInput name='textBody' value={this.state.tmpNote.textBody} onChange={this.inputHandler} placeholder='Note Content' />
                     <br />
-                    <TitleInput name='tags' value={this.state.tmpNote.tags} onChange={this.inputHandler} placeholder='Tags'></TitleInput>
+                    <TitleInput name='tags' value={this.state.tmpNote.tags} onChange={this.inputHandler} placeholder='Tags separated by comma'></TitleInput>
                     {/* TODO: Flash of 'Save' after sending PUT request, but before history.push */}
                     <LeftButton buttonColor='aqua'>{this.props.isEditing ? 'Update' : 'Save'}</LeftButton>
                 </form>
