@@ -14,7 +14,7 @@ class Navation extends React.Component{
         return(
             <NavStyled>
                 <AppHeader>
-                    Lambda Notes
+                    Lambda <br/> Notes
                 </AppHeader>
                 <NavButton onClick={this.goHome}>
                     <Link to={'/'}>View Your Notes</Link>

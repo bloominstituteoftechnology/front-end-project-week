@@ -1,24 +1,27 @@
 import React from 'react';
 import OneNote from './OneNote';
 import PropTypes from 'prop-types';
-//import styled from 'styled-components';
+import {ComponentHeader, ComponentBody} from './style';
 
 export default class NoteList extends React.Component{
     push = address =>{
         this.props.history.push(address);
     }
-    
+
     render(){
         return(
-            <div>
-                {this.props.notes.map((note,index) =>{
-                    return(
-                        <div key={index}>
-                            <OneNote title={note.title} content={note.content} index={index}/>
-                        </div>
-                    )
-                })}
-            </div>
+            <ComponentBody>
+                <ComponentHeader>
+                    Your Notes:
+                </ComponentHeader>
+                <div className='Notes'>
+                    {this.props.notes.map((note,index) =>{
+                        return(
+                            <OneNote title={note.title} content={note.content} index={index} key={index}/>
+                        )
+                    })}
+                </div>
+            </ComponentBody>
         )
     }
 }

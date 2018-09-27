@@ -1,14 +1,31 @@
 import styled from 'styled-components';
 
+export const ComponentBody = styled.div`
+    width: 94%;
+    margin: auto 3%;
+    .Notes{
+        display: flex;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+`
+
+export const ComponentHeader = styled.div`
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 50px;
+`
+
 export const NavStyled = styled.div`
     height: 100%;
     border: 1px solid;
     background-color: #CDCCCD;
-    width: 25%;
+    width: 22%;
 `
 
 export const AppHeader = styled.div`
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-align: left;
     font-weight: bold;
     line-height: 1;
@@ -34,6 +51,8 @@ export const PageWrapper = styled.div`
 `
 export const Body = styled.div`
     width: 100%;
+    border: 1px solid;
+    background-color: #F0EFF0;
 `
 
 export const ButtonStyled = styled.button`
@@ -57,12 +76,22 @@ export const FormStyled = styled.div`
 `
 
 export const TitleInput = styled.input`
-    width: 90%;
+    width: 100%;
+    height: 25px;
+    padding-left: 10px;
+    border-radius: 3px;
+    border: 1px #CDCDCD solid;
+    margin-top: 20px;
 `
 
 export const ContentInput = styled.textarea`
-    width: 90%;
-    margin-top: 5px;
+    width: 100%;
+    border-radius: 3px;
+    margin-top: 15px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 3px;
+    border: 1px #CDCDCD solid;
 `
 
 export const FormTitle = styled.div`
@@ -73,16 +102,24 @@ export const FormTitle = styled.div`
 `
 
 export const NoteStyled = styled.div`
-    border: 2px solid;
+    border: 2px #CDCDCD solid;
     margin: auto;
     width: 30%;
     padding: 10px;
     margin-top: 10px;
     font-size: 1rem;
+    height: 200px;
+    background-color: #FFFFFF;
+    text-align: left;
+    border-radius: 3px;
+    .noteContent{
+        padding-top: 5px;
+    }
 `
 
 export const TitleStyled = styled.div`
     border-bottom: 1px solid;
     font-weight: bold;
     font-size: 1.2rem;
+    padding-bottom: 5px;
 `

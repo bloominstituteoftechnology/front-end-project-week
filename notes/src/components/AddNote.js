@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createNote} from '../actions';
-import {ButtonStyled, InnerTitleBox, FormStyled, TitleInput, ContentInput, FormTitle} from './style';
+import {ButtonStyled, InnerTitleBox, FormStyled, TitleInput, ContentInput, FormTitle, ComponentBody, ComponentHeader} from './style';
 
 class AddNote extends React.Component{
     state = {
@@ -25,12 +25,10 @@ class AddNote extends React.Component{
 
     render(){
         return(
-            <FormStyled>
-                <FormTitle>
-                    <InnerTitleBox>
-                        Create New Note:
-                    </InnerTitleBox>
-                </FormTitle>
+            <ComponentBody>
+                <ComponentHeader>
+                    Create New Note:
+                </ComponentHeader>
                 <TitleInput
                     type='text'
                     placeholder='Note Title'
@@ -48,7 +46,7 @@ class AddNote extends React.Component{
                 <ButtonStyled type='submit' onClick={this.addNote}>
                     Save
                 </ButtonStyled>
-            </FormStyled>
+            </ComponentBody>
         )
     }
 }

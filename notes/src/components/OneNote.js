@@ -17,12 +17,12 @@ class OneNote extends React.Component{
         }
         return(
             <NoteStyled onClick={this.view}>
-            <TitleStyled>
-                {this.props.title}
-            </TitleStyled>
-            <div className='noteContent'>
-                {this.props.content}
-            </div>
+                <TitleStyled>
+                    {this.props.title}
+                </TitleStyled>
+                <div className='noteContent'>
+                    {this.props.content}
+                </div>
             </NoteStyled>
         )
     }
