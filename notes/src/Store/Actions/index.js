@@ -19,7 +19,7 @@ export const assembleNote = (note) => dispatch => {
     console.log('Assemble Note');
     dispatch({type: ACTIONS.ASSEMBLING_NOTE});
     axios.post('https://killer-notes.herokuapp.com/note/create', {...note})
-    .then(response => (dispatch({type: ACTIONS.NOTE_ASSEMBLED, note: {_id: response.data, ...note}})))
+    .then(response => (dispatch({type: ACTIONS.NOTE_ASSEMBLED, note: {_id: response.data.success, ...note}})))
     .catch(err => console.log('Unable to Assemble Note: ' + err.message))
 }
 
