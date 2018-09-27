@@ -12,47 +12,47 @@ class App extends Component {
     notes: [
       {
         id: 1537805881051,
-        title: "Get a rucksack",
+        title: "1. Get a rucksack",
         text: "Find a nice rucksack that can hold all your backpacking gear.",
-        tags: ["backpacking", "gear", "capacity"]
+        tags: ["all", "gear", "capacity"]
       },
       {
         id: 1537805891197,
-        title: "Grab a buddy",
+        title: "2. Grab a buddy",
         text: "Find an outdoorsy friend that loves to rough it up.",
-        tags: ["backpacking", "outsdoorsy", "friend"]
+        tags: ["all", "outsdoorsy", "friend"]
       },
       {
         id: 1537905924075,
-        title: "Wild Trailblazing",
+        title: "3. Trailblazing",
         text: "Get out there and breathe in nature. Throw on those hiking boots!",
-        tags: ["backpacking", "nature", "outdoors"]
+        tags: ["all", "nature", "outdoors"]
       },
       {
         id: 1537905911476,
-        title: "Grab a buddy",
-        text: "Find an outdoorsy friend that loves to rough it up.",
-        tags: ["backpacking", "outsdoorsy", "friend"]
+        title: "4. Go to the store",
+        text: "Read reviews online and find the rucksack that best fits your needs.",
+        tags: ["all", "gear", "store"]
       },
       {
         id: 1537905943717,
-        title: "Wild Trailblazing",
-        text: "Get out there and breathe in nature. Throw on those hiking boots",
-        tags: ["backpacking", "nature", "outdoors"]
+        title: "5. Find a buddy",
+        text: "Go with hiking groups and find a new backpacking buddy.",
+        tags: ["all", "friend", "hiking groups"]
       },
       {
         id: 1537905962795,
-        title: "Get a rucksack",
-        text: "Find a nice rucksack that can hold all your backpacking gear.",
-        tags: ["backpacking", "gear", "capacity"]
+        title: "6. Backpacking",
+        text: "Plan out your trip and head to the woods to set off on a wild adventure.",
+        tags: ["all", "nature", "adventure"]
       }
     ],
-    tags: ["backpacking", "gear", "capacity", "nature", "outdoors", "outsdoorsy", "friend"],
+    filteredNotes: [],
+    tags: ["all", "gear", "capacity", "nature", "outdoors", "outsdoorsy", "friend", "hiking groups", "store", "adventure"],
     noteUpdate: null
   }
 
   addNote = (newNote) => {
-    console.log(newNote)
     this.setState({ notes: [ ...this.state.notes, newNote], tags: [...this.state.tags, ...newNote.tags] })
   }
 
@@ -75,6 +75,16 @@ class App extends Component {
     this.setState({ notes: this.state.notes.filter(note => note.id !== noteId) })
   }
 
+  filterNotes = (e, tagName) => {
+    e.preventDefault()
+
+    const filteredNotes = [...this.state.notes].filter(note =>
+      note.tags.includes(tagName)
+    )
+
+    this.setState({ filteredNotes })
+  }
+
   render() {
     return (
       <Div1 className="App">
@@ -83,7 +93,9 @@ class App extends Component {
         <Route exact path="/" render={() => 
           <NotesMain
             notes={this.state.notes}
+            filteredNotes={this.state.filteredNotes}
             tags={this.state.tags}
+            filterNotes={this.filterNotes}
           />
         }/>
         <Route path="/new" render={() => 

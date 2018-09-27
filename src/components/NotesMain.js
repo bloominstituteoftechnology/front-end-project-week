@@ -5,12 +5,17 @@ import Draggable from 'react-draggable'
 
 const NotesMain = (props) => {
   const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
+  const check = props.filteredNotes.length
+  console.log(check)
+
+  const viewRender = props.filteredNotes.length === 0 ? props.notes : props.filteredNotes
+
   return (
     <Div1 className="NotesMain">
       <H2>Your Notes:</H2>
       <Div2>
         {
-          props.notes.map(note => 
+          viewRender.map(note => 
             <Draggable key={note.id} handle="strong" {...dragHandlers}>
               <Div3>
                   <Div4>
@@ -36,12 +41,21 @@ const NotesMain = (props) => {
             </Draggable>
           )
         }
-
-        <Div5>
-          <H2>All tags:</H2>
-          <P>{props.tags.join(", ")}</P>
-        </Div5>
       </Div2>
+
+      <Div5>
+        <H2>All tags:</H2>
+        { 
+          props.tags.map(function(tag, index) {
+            return <Span1 
+              key={`tag${index}`} 
+              onClick={(e) => props.filterNotes(e, tag)}
+            >
+              { ((index ? ', ' : '') + tag) }
+            </Span1>
+          })
+        }
+      </Div5>
     </Div1>
   )
 }
@@ -54,7 +68,7 @@ const Div1 = styled.div`
 `
 const Div2 = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 `
 const Div3 = styled.div`
@@ -74,7 +88,10 @@ const Div4 = styled.div`
   display: flex;
   justify-content: space-between;
 `
-const Div5 = styled.div``
+const Div5 = styled.div`
+  display: block;
+  width: 100%;
+`
 const H2 = styled.h2`
   margin-top: 8%;
 `
@@ -101,6 +118,11 @@ const Button = styled.button`
 `
 const Hr = styled.hr`
   margin: 0;
+`
+const Span1 = styled.span`
+  font-size: 1.6rem;
+  text-decoration: underline;
+  color: blue;
 `
 
 export default NotesMain
