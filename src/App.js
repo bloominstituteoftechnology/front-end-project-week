@@ -7,7 +7,8 @@ import Notes from "./components/Notes";
 import Note from "./components/Note";
 import NewNoteForm from "./components/NewNoteForm";
 import EditNote from "./components/EditNote";
-import Authenticate from "./Authenticate";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 import "./App.css";
 
 class App extends Component {
@@ -19,11 +20,13 @@ class App extends Component {
       title: "",
       content: "",
       term: ""
+      // secret: 'no secret',
+      // values: []
     };
   }
 
   componentDidMount() {
-    const user = localStorage.getItem("user");
+    const user = localStorage.getItem("jwt");
     this.setState({ username: user });
 
     axios
@@ -43,10 +46,9 @@ class App extends Component {
     this.setState({ term: event.target.value });
   };
 
-  logOut() {
-    localStorage.removeItem("user");
-    window.location.reload();
-  }
+
+
+
 
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -86,7 +88,7 @@ class App extends Component {
       .then(res => {
         console.log(res.data);
         this.setState({ notes: res.data });
-        this.props.history.push('/');
+        this.props.history.push('/notes');
       })
       .catch(error => {
         console.error("Server Error", error);
@@ -112,19 +114,42 @@ class App extends Component {
           }
         }
 
-        this.setState({ notes });
-        this.props.history.push(`/notes/${noteID}`);
+        this.setState({ notes }, () =>  this.props.history.push(`/notes`));
+       
       })
       .catch(err => console.error(err));
   };
 
+  // async componentDidMount() {
+  //  const apiURL = process.env.REACT_APP_API;
+  //   try {
+  //     const response = await axios.get(apiURL);
+  //     const { secret, values} = response.data;
+  //     this.setState({secret , values});
+  //   } catch (ex) {
+  //   console.error('error',ex);
+  //   }
+  // }
+
   render() {
     return (
       <div className="App">
-        <Sidebar />
+       <Route 
+          exact path = "/login" 
+          component = {Login}> 
+       </Route>
+        <Route 
+        exact path = "/signup" 
+        component = {Signup}>
+        </Route>
+      <Route
+      path = "/notes"
+      component={Sidebar}>
+       </Route>
+    
         <Route
           exact
-          path="/"
+          path="/notes"
           render={props => (
             <Notes
               {...props}
@@ -137,7 +162,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/create-new-note"
+          path="/notes/create-new-note"
           render={props => (
             <NewNoteForm
               {...props}
@@ -150,7 +175,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/notes/:id"
+          path="/notes/note/:id"
           render={props => (
             <Note
               {...props}
@@ -164,7 +189,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/notes/:id/edit"
+          path="/notes/note/:id/edit"
           render={props => (
             <EditNote
               {...props}
@@ -176,16 +201,25 @@ class App extends Component {
       </div>
       );
     }
-  }
 
-export default withRouter(Authenticate(App));
+    logOut = event => {
+      localStorage.removeItem('jwt');
+      this.props.history.push('/login');
+    };
+ }
+
+export default withRouter(App);
 
 
 
 
 
 
-
+    {/* <h3>{this.state.secret}</h3>
+      <div className="secret">{process.env.REACT_APP_SECRET}</div>
+      <ul>
+        {this.state.values.map(value => (<li key={value}>{value}</li>))}
+        </ul> */}
 
 
 

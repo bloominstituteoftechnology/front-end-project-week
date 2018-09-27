@@ -57,7 +57,7 @@ class Note extends React.Component {
               style={{
                 color: "black"
               }}
-              to={`/notes/${this.state.note.id}/edit`}
+              to={`/notes/note/${this.state.note.id}/edit`}
             >
               {" "}
               <i className="fas fa-edit"> </i>

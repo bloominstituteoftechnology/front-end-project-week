@@ -8,6 +8,9 @@ const searchingFor = term => {
   };
 };
 
+
+
+
 const Notes = props => {
 console.log(props.notes);
   return (
@@ -29,7 +32,7 @@ console.log(props.notes);
       <div className="notes">
         
          {props.notes.filter(searchingFor(props.term)).map(note => ( 
-          <Link key={note.id} to={`/notes/${note.id}`}>
+          <Link key={note.id} to={`/notes/note/${note.id}`}>
             <div className="text">
               <h3>{note.title}</h3>
               <p>{note.content}</p>
