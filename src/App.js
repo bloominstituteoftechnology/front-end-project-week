@@ -31,7 +31,7 @@ class App extends Component {
     this.setState({ username: user });
 
     axios
-      .get("https://lambdanotes-backend.herokuapp.com/api/notes")
+      .get("http://localhost:2200/api/notes")
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -67,7 +67,7 @@ class App extends Component {
     .then(res => {
       console.log(res);
       axios
-      .get("https://lambdanotes-backend.herokuapp.com/api/notes")
+      .get("http://http:/localhost:2200")
       .then(res => {
       console.log(res.data);
       this.setState({notes: res.data , title: '' , content: ''})
@@ -82,7 +82,7 @@ class App extends Component {
 
   deleteNote = (noteID) => {
     axios
-    .delete(`https://lambdanotes-backend.herokuapp.com/api/notes/${noteID}`)
+    .delete(`http://localhost:2200/api/notes/${noteID}`)
     .then(res => {
       axios
       .get("http://localhost:2200/api/notes")
@@ -104,7 +104,7 @@ class App extends Component {
     const editedNote = { title, content };
 
     axios
-      .put(`https://lambdanotes-backend.herokuapp.com/api/notes/${noteID}`, editedNote)
+      .put(`http://localhost:2200/api/notes/${noteID}`, editedNote)
       .then(res => {
         const editedNote = res.data;
 
