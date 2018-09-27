@@ -15,16 +15,16 @@ class App extends Component {
    return (     
      <div className='App'>
      <div className='navbar'>
-      <h1>Lambda Notes</h1>
+      <h1 className='app-title'>Lambda<br/>Notes</h1>
       <ul className='navbar-list'>
-        <li>
-          <NavLink exact to='/'>Home</NavLink>
+        <li className='button-list-el'>
+          <NavLink exact to='/' className='navbar-buttons-1'>Home</NavLink>
         </li>
-        <li>
-          <NavLink exact to='/notes'>View Your Notes</NavLink>
+        <li className='button-list-el'>
+          <NavLink exact to='/notes' className='navbar-buttons-2'>View Your Notes</NavLink>
         </li>
-        <li>
-          <NavLink exact to='/note-form'>+ Create New Note</NavLink>
+        <li className='button-list-el'>
+          <NavLink exact to='/note-form' className='navbar-buttons-3'>+ Create New Note</NavLink>
         </li>
       </ul>
      </div>      

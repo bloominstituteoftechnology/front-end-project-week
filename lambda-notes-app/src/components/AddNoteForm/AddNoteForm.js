@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './AddNoteForm.css';
 
 export const AddNoteForm = props => {
 
@@ -15,8 +15,10 @@ export const AddNoteForm = props => {
 
   return (
     <div className='add-a-note-form'>
+    <h1 className='add-a-note-header'>Create New Note:</h1>
       <form>
         <input
+          className='title-input'
           type='text'
           value={props.note.title}
           name='title'
@@ -24,7 +26,8 @@ export const AddNoteForm = props => {
           placeholder='Note Title'
         />
 
-        <input          
+        <textarea  
+          className='note-body-input'        
           value={props.note.textBody}
           name='textBody'          
           placeholder='Note Content'
@@ -33,7 +36,7 @@ export const AddNoteForm = props => {
           onChange={props.handleInput}
         />
 
-        <button onClick={handleSubmit}>Save</button>
+        <button className='save-button' onClick={handleSubmit}>Save</button>
 
 
       </form>
