@@ -64,7 +64,7 @@ class Note extends Component {
       .put(`https://alee-lambdanotes.herokuapp.com/note/${this.props.match.params.id}`, {
         title: this.state.title,
         note: this.state.note,
-        edittoggle: false
+        // edittoggle: false
       })
       .then(res => {
         console.log(res);
