@@ -37,12 +37,12 @@ class MainContent extends Component {
     .catch(error => console.log(error));
     }
 
-    componentWillMount(){
-        this.getNoteView();
-        let routeId = this.props.match.params.id;
-        let matched= this.state.notes.filter((item) => item._id === routeId);
-        this.setState({matched});
-      }
+    // componentDidMount(){
+    //     this.getNoteView();
+    //     let routeId = this.props.match.params.id;
+    //     let matched= this.state.notes.filter((item) => item._id === routeId);
+    //     this.setState({matched});
+    //   }
       
         showModal = () => {
           this.setState({displayDelete: !this.state.displayDelete})
@@ -57,9 +57,9 @@ class MainContent extends Component {
             .catch(error => console.log(error));
           }
           
-          componentDidUpdate(){
-            this.editNote();
-          }
+        //   componentDidUpdate(){
+        //     this.editNote();
+        //   }
 
     createNote = () => {
             console.log('hi');
@@ -70,9 +70,9 @@ class MainContent extends Component {
             .catch(error => console.log(error));
           }
           
-          componentDidMount(){
-            this.createNote();
-          }
+        //   componentDidMount(){
+        //     this.createNote();
+        //   }
 
     deleteNote = () => {
             console.log('hi');
@@ -83,9 +83,9 @@ class MainContent extends Component {
             .catch(error => console.log(error));
           }
           
-          componentWillUnmount(){
-            this.deleteNote();
-          }
+        //   componentWillUnmount(){
+        //     this.deleteNote();
+        //   }
 
     render() { 
         return ( 

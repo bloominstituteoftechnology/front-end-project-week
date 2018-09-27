@@ -16,8 +16,8 @@ class NotesList extends Component {
         <div className="notesList" >
         {this.props.notes.map((note, index) => {
           return (
-             <Link to={`/note/${note._id}`} className='unstyled_link'>
-            <div className="note" key={note._id}>
+             <Link to={`/note/${note.id}`} className='unstyled_link'>
+            <div className="note" key={note.id}>
               <div>
                 <h4>{note.title}</h4>
                 <hr />
