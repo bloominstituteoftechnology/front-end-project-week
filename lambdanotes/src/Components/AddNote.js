@@ -1,6 +1,5 @@
 import React from 'react';
  
- 
 export const AddNote = props => {
     const handleClick = (event) => {
         event.preventDefault();

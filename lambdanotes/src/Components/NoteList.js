@@ -1,5 +1,5 @@
-import React, {  } from 'react';
- import {  Link } from "react-router-dom";
+import React from 'react';
+import {  Link } from "react-router-dom";
  
  export const NoteList = props => {
      return (
@@ -10,8 +10,8 @@ import React, {  } from 'react';
              return ( 
                  <Link to={`/notes/${note.id}`} key={note.id} >
                      <div 
-                         title={note.title}
-                         text={note.text}
+                        title={note.title}
+                        text={note.text}
                         key={note.id}
                         className="SingleNote"
                     >

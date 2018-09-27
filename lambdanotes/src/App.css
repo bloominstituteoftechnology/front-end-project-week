@@ -146,11 +146,10 @@ a {
   border: 1px solid black;
   background: white;
   text-align: center;
-  width: 47%;
+  width: 540px;
   padding: 20px;
-  position: absolute;
-  top: 181px;
-  left: 330px;
+  position: fixed;
+  margin: 162px 0 0 0;
 }
 
 .ModalHeader {
