@@ -3,6 +3,14 @@ import styled from 'styled-components';
 
 import Note from './Note';
 
+const Tags = styled.p`
+background-color: orange;
+justify-content: center;
+align-items: center;
+color: white;
+border-radius: 5px;
+`
+
 const LineBreak = styled.div`
 border: 1px solid gray;
 width: 90%;
@@ -22,6 +30,7 @@ export default function NotesList(props) {
             onClick={() => props.history.push(`/notes/${note._id}`)}>
             <h2>{note.title}</h2>
             <LineBreak />
+            <Tags>{note.tags}</Tags>
             <p>{note.textBody}</p>
             </div>
         ))}

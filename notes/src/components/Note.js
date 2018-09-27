@@ -14,6 +14,15 @@ color: #474B4C;
 const NoteBody = styled.p`
 color: #474B4C;
 `
+
+const NoteTag = styled.p`
+display: flex;
+background-color: orange;
+color: white;
+width: 10%;
+border-radius: 5px;
+`
+
 export default function Note(props) {
     const note = props.notes.find(note => note._id === props.match.params.noteId);
 
@@ -36,6 +45,7 @@ export default function Note(props) {
         </div>
         <NoteTitle>{note.title}</NoteTitle>
         <NoteBody>{note.textBody}</NoteBody>
+        <NoteTag>{note.tags}</NoteTag>
         </div>
     )
 }

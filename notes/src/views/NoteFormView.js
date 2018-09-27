@@ -10,7 +10,8 @@ class NoteFormView extends React.Component {
         note: {
             title: '',
             textBody: '',
-            _id: ''
+            _id: '',
+            tags: [],
         },
         updatingNote: false,
     };
@@ -29,6 +30,14 @@ class NoteFormView extends React.Component {
                 [event.target.name]: event.target.value,
             }
         });
+    }
+
+    handleTagsChange = event => {
+        this.setState({
+            note: {
+                tags: [event.target.value.split(',')]
+            }
+        })
     }
 
     handleAddNewNote = event => {
@@ -50,6 +59,7 @@ class NoteFormView extends React.Component {
             note={this.state.note}
             handleAddNewNote={this.handleAddNewNote}
             handleChange={this.handleChange}
+            handleTagsChange={this.handleTagsChange}
             handleUpdateNote={this.handleUpdateNote}
             updatingNote={this.state.updatingNote}
             />

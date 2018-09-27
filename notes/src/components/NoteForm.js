@@ -20,6 +20,12 @@ border-radius: 3px;
 margin-button: 1rem;
 `
 
+const NoteTagsField = styled.input`
+text-align: left;
+display: flex;
+width: 40%;
+`
+
 const Button = styled.button`
   text-align: center;
   background-color: #24B8BD;
@@ -62,6 +68,13 @@ function NoteForm(props) {
                     placeholder="Note Content"
                     onChange={props.handleChange}
                 />
+                <NoteTagsField
+                    type="text"
+                    value={props.note.tags}
+                    name="tags"
+                    placeholder="Note Tags"
+                    onChange={props.handleChange}
+                    />
                 <Button className="button" onClick={handleSubmit}>{props.updatingNote ? 'Update' : 'Save'}</Button>
             </form>
         </Fragment>
