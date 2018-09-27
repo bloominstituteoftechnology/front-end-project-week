@@ -18,13 +18,13 @@ class Register extends Component {
         axios
         .post('https://lambda-notes-api.herokuapp.com/api/register', this.state)
         .then(res => {
-            //console.log('response', res)
+            console.log('response', res)
             const {token} = res.data;
             localStorage.setItem('token', token);
             this.props.history.push('/notes');
         })
         .catch(err => {
-            console.error('Axios error:', err);
+            console.log('Axios error:', err);
         });
     }
 
