@@ -34,3 +34,13 @@
     height: 10rem;
     overflow: hidden;
 }
+
+.unstyledLink {
+    text-decoration: none;
+    color: rgb(66,66,66);
+  }
+  
+  .unstyledLink :visited {
+    text-decoration: none;
+    color: rgb(66,66,66);
+  }
