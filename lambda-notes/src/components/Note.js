@@ -25,21 +25,21 @@ class Note extends Component {
         } else {
             const id = Number(this.props.match.params.id.replace(':', ''));
             const note = this.props.fetchNote(id);
-            console.log(this.props);
+            console.log(this.props.id);
             return (
                 <div className='note-view-container'>
                     <div className='note-view-top'>
                         <h3 className='note-title'>
-                            {note.title}
+                            {/* {note.title} */}
                         </h3>
                         <div>
-                            <Link to="/Edit"><a href='#' className='edit-delete'>edit</a></Link>
+                            <Link to="/edit"><a href='#' className='edit-delete'>edit</a></Link>
                             <a href='#' className='edit-delete' onClick={this.props.deleteNoteHandler}>delete</a>
                         </div>
                     </div>
                     <div className='note-view-body'>
                         <p>
-                            {note.content}
+                            {/* {note.content} */}
                         </p>  
                     </div>
                     <Delete 

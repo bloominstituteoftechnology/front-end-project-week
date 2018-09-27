@@ -10,7 +10,7 @@ const Navigation = () => {
           <Link to="/notes">View Your Notes</Link>
         </div>
         <div className='nav-button'>
-          <Link to="/Create">+ Create New Note</Link>
+          <Link to="/create">+ Create New Note</Link>
         </div>
       </div>
     </div>

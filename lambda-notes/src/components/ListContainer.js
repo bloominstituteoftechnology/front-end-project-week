@@ -10,7 +10,6 @@ class ListContainer extends React.Component {
       super();
       this.state = {
         displayDelete: false,
-        notes: [],
         title: '',
         content: '',
         
@@ -52,9 +51,9 @@ class ListContainer extends React.Component {
     render() {
       return (
         <div>
-          <Route exact path="/notes" render={(props) => <List {...props} list={this.state.list}/>} />
+          <Route exact path="/notes" render={(props) => <List {...props} notes={this.state.notes}/>} />
           {/* <Route exact path= '/notes' component={List} /> */}
-          <Route path="/Create" render={(props) => 
+          <Route path="/create" render={(props) => 
             <Create {...props} 
               handleAddNoteSubmit={this.handleAddNoteSubmit} 
               handleTaskChange={this.handleTaskChange} 
@@ -62,7 +61,7 @@ class ListContainer extends React.Component {
               content={this.state.content}
             />
           } />
-          <Route path="/Edit" render={(props) => 
+          <Route path="/edit" render={(props) => 
             <Edit {...props} 
               updateNoteHandler={this.updateNoteHandler}
               handleTaskChange={this.handleTaskChange} 
@@ -70,7 +69,7 @@ class ListContainer extends React.Component {
               content={this.state.content}
             />
           } />
-          <Route path="/Note/:id" render={(props) => 
+          <Route path="/note/:id" render={(props) => 
             <Note {...props} 
               fetchNote={this.fetchNote} 
               showModal={this.showModal}

@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class List extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
+            notes: []
         }
     }
     render() {
@@ -14,7 +15,7 @@ class List extends Component {
             <div>
                 <h3>Your Notes:</h3>
                 {this.state.notes.map((note, index) => 
-                    <Link to={`/Note/${note.id}`}> <Note key={index} data={note} /> </Link>
+                    <Link to={`/note/${note.id}`}> <Note key={index} data={note} /> </Link>
                 )}                   
             </div>
         );
