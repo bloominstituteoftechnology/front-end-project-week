@@ -8,8 +8,16 @@ import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { rootReducer } from "./reducers";
-
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+// import { loadState, saveState } from "./localStorage.js";
+// const persistedState = loadState();
+const store = createStore(
+  rootReducer,
+  // persistedState,
+  applyMiddleware(thunk, logger)
+);
+// store.subscribe(() => {
+//   saveState(store.getState());
+// });
 
 ReactDOM.render(
   <Provider store={store}>

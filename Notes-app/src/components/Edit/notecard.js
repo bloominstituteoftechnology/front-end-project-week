@@ -40,7 +40,7 @@ export class NoteCard extends Component {
     this.props.deleteNote(this.props.note.id);
   }
   render() {
-    // console.log(this.props.note[0].title);
+    console.log(this.props.notes);
     return (
       <div className="card-container">
         {this.state.deleteForm ? (
@@ -71,6 +71,7 @@ export class NoteCard extends Component {
             <Link to={`/edit/${this.state.id}`}>edit</Link>
             <a onClick={() => this.showDeleteHandler()}> delete </a>
           </div>
+
           <h1 className="notes-title">{this.props.note.title}</h1>
           <a className="note-content">{this.props.note.textBody}</a>
         </section>

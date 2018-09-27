@@ -33,20 +33,20 @@ class EditNote extends Component {
 
   render() {
     return (
-      <div className="new-page">
+      <div className="card-container">
         <SideBar />
-        <section>
-          <h1 className="notes-title create"> Edit Note: </h1>
-          <form>
+        <section className="card">
+          <h1 className="new-title"> Edit Note: </h1>
+          <form className="new-form">
             <input
-              className="input"
+              className="new-input"
               placeholder={this.state.note.title}
               onChange={this.handleInputChange}
               value={this.state.title}
               name="title"
             />
             <input
-              className="content"
+              className="body-text"
               placeholder={this.state.note.textBody}
               onChange={this.handleInputChange}
               value={this.state.textBody}
@@ -55,7 +55,7 @@ class EditNote extends Component {
 
             <Link to={`/note/${this.state.id}`}>
               <button
-                className="update"
+                className="new-butt"
                 type="button"
                 onClick={() => this.updateHandler()}
               >
