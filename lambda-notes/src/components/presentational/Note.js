@@ -8,7 +8,7 @@ function Note(props) {
       <p>
         {props.note.textBody}
       </p>
-      <p>Tag: #{props.note.tag}</p>
+      {/* <p>Tag: #{props.note.tag}</p> */}
     </NoteStyling>
   );
 }
