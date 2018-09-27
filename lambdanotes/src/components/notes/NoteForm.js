@@ -6,20 +6,32 @@ import styled from 'styled-components';
 const NoteFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  background: #f2f1f2;
+  width: 100%;
 `;
+const NoteHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  padding: 70px 0px 35px 35px;
+`;
+
 const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
+  padding: 0px 0px 35px 35px;
 `;
 const TitleInput = styled.input`
   padding: 5px;
   width: 394px;
   height: 47px;
+  margin-bottom: 10px;
 `;
 const TextBodyInput = styled.textarea`
   padding: 5px;
   width: 669px;
   height: 383px;
+  margin-bottom: 10px;
 `;
 const SaveButton = styled.input`
   display: flex;
@@ -60,6 +72,7 @@ class NoteForm extends Component {
   render() {
     return (
       <NoteFormWrapper className="note-form-wrapper">
+        <NoteHeaderWrapper>Your Notes:</NoteHeaderWrapper>
         <FormWrapper onSubmit={this.submitHandler}>
           {/* <input
           type="text"
@@ -88,12 +101,6 @@ class NoteForm extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({
-  notes: state.notes,
-  fetching: state.fetching,
-  error: state.error
-});
 
 export default connect(
   null,

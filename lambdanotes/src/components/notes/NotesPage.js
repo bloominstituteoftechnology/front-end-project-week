@@ -10,11 +10,11 @@ class NotesPage extends Component {
   }
   render() {
     return (
-      <React.Fragment>
+      <NotesPageWrapper>
         {this.props.fetching ? (
           <p>Reticulating Splines...</p>
         ) : (
-          <NotesPageWrapper>
+          <React.Fragment>
             <NoteHeaderWrapper>Your Notes:</NoteHeaderWrapper>
             <NotesWrapper>
               {this.props.notes.map(note => {
@@ -29,10 +29,10 @@ class NotesPage extends Component {
                 );
               })}
             </NotesWrapper>
-          </NotesPageWrapper>
+          </React.Fragment>
         )}
         {this.props.error ? <p>{this.props.error}</p> : null}
-      </React.Fragment>
+      </NotesPageWrapper>
     );
   }
 }
@@ -52,19 +52,16 @@ const NotesWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* border: 1px solid #c8c7c8; */
   font-size: 20px;
-  background: #f2f1f2;
-  /* justify-content: space-evenly; */
 `;
 const NotesPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  background: #f2f1f2;
 `;
 const NoteHeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 40px;
-  background: #f2f1f2;
   padding: 70px 0px 35px 35px;
 `;

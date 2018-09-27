@@ -3,25 +3,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { fetchNote, deleteNote, editNote } from '../../actions';
 
-const FormWrapper = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-const TitleInput = styled.input`
-  padding: 5px;
-  width: 394px;
-  height: 47px;
-`;
-const TextBodyInput = styled.textarea`
-  padding: 5px;
-  width: 669px;
-  height: 383px;
-`;
-const SaveButton = styled.input`
-  width: 210px;
-  height: 46px;
-  border: 1px solid grey;
-`;
 class NoteView extends Component {
   constructor(props) {
     super(props);
@@ -80,23 +61,26 @@ class NoteView extends Component {
   render() {
     if (this.state.edit) {
       return (
-        <FormWrapper onSubmit={this.submitHandler}>
-          <TitleInput
-            type="text"
-            value={this.state.title}
-            name="title"
-            onChange={this.changeHandler}
-            required
-          />
-          <TextBodyInput
-            // type="text"
-            value={this.state.textBody}
-            name="textBody"
-            onChange={this.changeHandler}
-            required
-          />
-          <SaveButton type="submit" value="Add New Note" />
-        </FormWrapper>
+        <NoteViewWrapper>
+          <NoteHeaderWrapper>Your Notes:</NoteHeaderWrapper>
+          <FormWrapper onSubmit={this.submitHandler}>
+            <TitleInput
+              type="text"
+              value={this.state.title}
+              name="title"
+              onChange={this.changeHandler}
+              required
+            />
+            <TextBodyInput
+              // type="text"
+              value={this.state.textBody}
+              name="textBody"
+              onChange={this.changeHandler}
+              required
+            />
+            <SaveButton type="submit" value="Submit Edit" />
+          </FormWrapper>
+        </NoteViewWrapper>
       );
     }
     return (
@@ -106,11 +90,15 @@ class NoteView extends Component {
         ) : (
           <NoteWrapper>
             <NoteEditDelete>
-              <div onClick={() => this.editNoteHandler()}>edit</div>
-              <div onClick={this.deleteNoteHandler.bind(this)}>delete</div>
+              <NoteEditDeleteMargin onClick={() => this.editNoteHandler()}>
+                edit
+              </NoteEditDeleteMargin>
+              <NoteEditDeleteMargin onClick={this.deleteNoteHandler.bind(this)}>
+                delete
+              </NoteEditDeleteMargin>
             </NoteEditDelete>
             <NoteTitle>{this.props.note.title}</NoteTitle>
-            <div className="note-textbody">{this.props.note.textBody}</div>
+            <NoteTextBody>{this.props.note.textBody}</NoteTextBody>
           </NoteWrapper>
         )}
         {this.props.error ? <p>{this.props.error}</p> : null}
@@ -137,20 +125,67 @@ const NoteWrapper = styled.div`
   border: 1px solid #c8c7c8;
   font-size: 18px;
   width: 100%;
-  background: white;
-  /* margin-bottom: 25px; */
-  padding: 5px 15px 20px 15px;
+  padding: 5px 15px 20px 35px;
+  background: #f2f1f2;
 `;
 const NoteEditDelete = styled.p`
   display: flex;
   justify-content: flex-end;
   font-size: 18px;
+  padding: 10px 10px 0 0;
+`;
+const NoteTextBody = styled.div`
+  white-space: pre-wrap;
+`;
+const NoteTitle = styled.h3`
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  padding: 40px 0px 35px 0px;
 `;
 
-const NoteTitle = styled.h3`
-  font-size: 24px;
-  font-weight: bold;
-  border-bottom: solid 1px black;
-  padding-bottom: 5px;
+const NoteHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  padding: 70px 0px 35px 35px;
+`;
+
+const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 35px 35px;
+`;
+const TitleInput = styled.input`
+  padding: 5px;
+  width: 394px;
+  height: 47px;
   margin-bottom: 10px;
+`;
+const TextBodyInput = styled.textarea`
+  padding: 5px;
+  width: 669px;
+  height: 383px;
+  margin-bottom: 10px;
+`;
+const SaveButton = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 47px;
+  border: 1px solid grey;
+  background: #24b8bd;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 15px;
+`;
+const NoteViewWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: #f2f1f2;
+  width: 100%;
+`;
+const NoteEditDeleteMargin = styled.div`
+  margin-left: 10px;
 `;
