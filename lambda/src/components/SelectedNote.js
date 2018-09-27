@@ -90,12 +90,12 @@ class SelectedNote extends React.Component {
 
           {this.state.toggleDelete ? null : (
             <div className="DeleteDiv">
-              <h2>You are about to delete this Note</h2>
-              <button className="delete" onClick={this.deleteNote}>
-                Do It
+              <h2>Are you sure you want to delete this?</h2>
+              <button className="doIt" onClick={this.deleteNote}>
+                Delete
               </button>
               <button className="dont" onClick={this.unDelete}>
-                Don't
+                No
               </button>
             </div>
           )}

@@ -13,12 +13,12 @@ body {
 }
 .ViewNotes {
   margin: 10px 0;
-  background-color: turquoise;
+  background-color: #00b3b3;
   color: white;
 }
 .CreateNotes {
   margin: 10px 0;
-  background-color: turquoise;
+  background-color: #00b3b3;
   color: white;
 }
 .Background-color {
@@ -50,7 +50,7 @@ body {
   text-align: center;
   padding: 1%;
   border: solid #005778 0.5px;
-  background-color: #4aacac;
+  background-color: #00b3b3;
   color: white;
   width: 120px;
   cursor: pointer;
@@ -76,26 +76,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.Notes-container {
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin: 0 auto;
-  height: 100vh;
-  overflow: hidden;
-}
-.Note-info {
-  background-color: white;
-  margin: 7px 0;
 
-  width: 300px;
-  padding: 10px;
-  border: 2px solid lightgray;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
 .UpdateNote {
   margin: 0 auto;
 }
@@ -105,11 +86,64 @@ body {
   font-size: 20px;
 }
 .EDIT {
+  background-color: green;
+  width: 75px;
   cursor: pointer;
+  color: white;
 }
 .DELETE {
+  background-color: red;
+  color: white;
+  width: 75px;
   cursor: pointer;
 }
+.doIt {
+  background-color: red;
+  color: white;
+  width: 75px;
+  cursor: pointer;
+}
+.dont {
+  background-color: green;
+  width: 75px;
+  cursor: pointer;
+  color: white;
+}
 .DeleteDiv {
+  padding: 10px;
   margin-bottom: 10px;
+  margin: 0 auto;
+  border: 5px solid black;
+  width: 300px;
+}
+.OptionLinks {
+  margin-top: 15px;
+}
+.NoteContainer {
+  /* height: 100vh; */
+}
+.Main-container {
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-left: 20%;
+}
+.Notes-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  /* flex-direction: column; */
+  /* margin: 0 auto; */
+  /* height: 100vh; */
+  /* overflow: hidden; */
+}
+.Note-info {
+  background-color: white;
+  margin: 2.5% 2.5%;
+  max-width: 275px;
+  min-width: 250px;
+  padding: 10px;
+  border: 2px solid lightgray;
+  /* text-decoration: none; */
 }
