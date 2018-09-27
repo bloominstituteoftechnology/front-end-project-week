@@ -45,8 +45,8 @@ const ButtonLink = styled.button`
 
 const ModalContainer = styled.div`
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.8);
@@ -58,6 +58,8 @@ const ModalContainer = styled.div`
 const Modal = styled.div`
   text-align: center;
   padding: 4rem 5rem;
+  background-color: #fff;
+  border-radius: 5px;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
 `;
 

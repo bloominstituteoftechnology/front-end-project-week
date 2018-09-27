@@ -135,11 +135,20 @@ export const editNote = (id, data, cb) => async (dispatch, getState) => {
   }
 };
 
-export const deleteNote = id => async dispatch => {
+export const deleteNote = (id, cb) => async (dispatch, getState) => {
   dispatch(deleteNoteRequest());
   try {
-    await axios.delete(`${API_URL}notes/${id}`);
+    let response = await axios({
+      url: `${API_URL}notes/${id}`,
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${getState().token}`,
+      },
+    });
+    if (response.data.error)
+      return dispatch(deleteNoteFailure(response.data.error));
     dispatch(deleteNoteSuccess());
+    cb();
   } catch (err) {
     dispatch(deleteNoteFailure());
   }

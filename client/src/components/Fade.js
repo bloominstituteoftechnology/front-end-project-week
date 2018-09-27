@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Fader = styled.div`
   opacity: ${props => (props.fadeIn ? 1 : 0)};
-  transform: translateY(${props => (props.fadeIn ? 0 : 50)}px);
+  transform: ${props => (props.fadeIn ? 'none' : 'translateY(50px)')};
   transition: all 0.3s;
 `;
 
