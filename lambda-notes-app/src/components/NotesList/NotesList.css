@@ -29,6 +29,9 @@ h4 {
   padding-top: 9px;
   border-bottom: 2px solid lightgrey;
   margin: 0 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .note-title:hover {
