@@ -12,9 +12,6 @@ class NoteList extends React.Component{
         this.props.fetchNotes();
       }
 
-    constructor(props){
-        super(props);
-    }
     render(){
 
     return (

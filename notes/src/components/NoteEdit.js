@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
 
 
-class EditNote extends React.Component {
+class NoteEdit extends React.Component {
     componentDidMount(){
         this.props.fetchSingleNote(this.props.match.params.id);
     }
@@ -90,5 +90,5 @@ const mapStateToProps = state => {
   export default withRouter(connect(mapStateToProps, {
     editNote,
     fetchSingleNote
-  })(EditNote));
+  })(NoteEdit));
   

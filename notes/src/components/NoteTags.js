@@ -10,11 +10,6 @@ class NoteTags extends React.Component {
         this.props.fetchNotes();
       }
 
-    constructor(props){
-        super(props);
-    
-    }
-
 
     render() {
 
