@@ -2,6 +2,7 @@
   "name": "notes",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mkerbleski.github.io/front-end-project-week/",
   "dependencies": {
     "dnd-core": "^4.0.5",
     "immutability-helper": "^2.7.1",
