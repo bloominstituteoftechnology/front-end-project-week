@@ -1,3 +1,7 @@
+export { 
+    SRH_EDT,
+    srhEdt
+} from './srhActions';
 export {
     NTS_FTH_IP, 
     NTS_FTH_SCS, 

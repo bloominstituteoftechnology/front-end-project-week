@@ -50,7 +50,7 @@ const NtsIdvCnt = styled.p`
 
 const NtsIdvTgs = styled.small`
     font-size: .6rem;
-    color: #e5e5e5;
+    color: gray;
 `;
 
  const NtsLst = (props) => {
@@ -62,7 +62,7 @@ const NtsIdvTgs = styled.small`
         <NtsLstCtnr>
             <NtsLstHdr>Your Notes:</NtsLstHdr>
             <NtsIdvCtnr>
-                {props.nts_arr.map(ntsidv => (
+                {props.ntsflt.map(ntsidv => (
                     <NtsIdvCrd key={ntsidv._id}>
                         <NtsIdvHdr onClick={(event) => {
                             event.preventDefault();

@@ -60,6 +60,10 @@ const NtsMdlBtn = styled.button`
     display: inline-block;
     font-size: 16px;
     margin: 4px 15px;
+
+    :focus {
+        outline: none;
+    }
 `;
 
 export default class NtsMdlVw extends Component {

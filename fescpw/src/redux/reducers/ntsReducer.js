@@ -49,7 +49,7 @@ export const ntsReducer = (state = initialState, action) => {
         case NTS_CRT_IP:
             return { ...state, nts_crtg: true };
         case NTS_CRT_SCS:
-            return { ...state, nts_crtg: false, nts_crtd: true, nts_arr: action.payload };
+            return { ...state, nts_crtg: false, nts_crtd: true };
         case NTS_CRT_FLR:
             return { ...state, nts_crtg: false, err: action.payload };
         case NTS_GPE_IP:
@@ -58,13 +58,13 @@ export const ntsReducer = (state = initialState, action) => {
         case NTS_EDT_IP:
             return { ...state, nts_edtg: true };
         case NTS_EDT_SCS:
-            return { ...state, nts_edtg: false, nts_edtd: true, nts_arr: action.payload };
+            return { ...state, nts_edtg: false, nts_edtd: true };
         case NTS_EDT_FLR:
             return { ...state, nts_edtg: false, err: action.payload };
         case NTS_RMV_IP:
             return { ...state, nts_rmvg: true };
         case NTS_RMV_SCS:
-            return { ...state, nts_rmvg: false, nts_rmvd: true, nts_arr: action.payload };
+            return { ...state, nts_rmvg: false, nts_rmvd: true };
         case NTS_RMV_FLR:
             return { ...state, nts_rmvg: false, err: action.payload };
         default:
