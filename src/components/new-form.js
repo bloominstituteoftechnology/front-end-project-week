@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+// import axios from 'axios';
 
 export default class NewForm extends Component {
   constructor(props){
     super(props);
     this.state = {
       title: "",
-      textBody: ""
+      textBody: "",
+      //will need to add if public or private
     }
   }
 
   sendToApp = (e) => {
-    console.log(this.state)
     this.props.newNote(this.state)
+    this.props.getNotes();
+    //probably should put axios call here to avoide page refresh 
   }
 
   inputHandler = (e) => {

@@ -85,17 +85,16 @@ export const addNote = (newNote) =>  {
       console.log(token)
       const authHeader = {
         headers: {
-          authorization: token, 
-        }
+          Authorization: token,    
+        } 
       }
     
-    axios.post('http://localhost:3333/api/notes/', authHeader, {
-        "tags": newNote.tags,
-        "title": newNote.title,
-        "textBody": newNote.textBody,
-    }).then(res => {
+    axios.post('http://localhost:3333/api/notes/', {
+      "title": newNote.title,
+      "textBody": newNote.textBody,
+    }, authHeader).then(res => {
       dispatch({type: NOTE_ADDED, payload: res});
-      dispatch(getNotes());
+      getNotes();
     }).catch(err => {
       dispatch({type: ERROR, payload: err})
     })
