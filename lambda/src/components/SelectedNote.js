@@ -55,7 +55,8 @@ class SelectedNote extends React.Component {
           editTitle: "",
           editContent: ""
         });
-        this.getNote(this.props.match.params.id);
+        this.props.history.push("/notes");
+        // this.getNote(this.props.match.params.id);
         this.props.handleInfo(response.data);
       })
       .catch(error => console.log(error));
@@ -65,6 +66,7 @@ class SelectedNote extends React.Component {
       .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
         console.log("HELLO FROM DELETE: ", response.data);
+        this.props.history.push("/notes");
         this.props.handleInfo(response.data);
       })
       .catch(error => console.log(error));
@@ -78,7 +80,7 @@ class SelectedNote extends React.Component {
         <div className="NoteContainer">
           {this.state.note.title}
           {this.state.note.textBody}
-          {/* {this.state.toggleDelete ? null : (
+          {this.state.toggleDelete ? null : (
             <div className="DeleteDiv">
               <h2>You are about to delete this Note</h2>
               <button className="delete" onClick={this.deleteNote}>
@@ -92,7 +94,7 @@ class SelectedNote extends React.Component {
           {this.state.toggleLinks ? (
             <div className="OptionLinks">
               <h4 onClick={this.editButtons}>Edit</h4>
-              <h4 onClick={this.delete}>Delete</h4>
+              <h4 onClick={this.unDelete}>Delete</h4>
             </div>
           ) : null}
           {this.state.toggleUpdate ? (
@@ -127,7 +129,7 @@ class SelectedNote extends React.Component {
                 Update Note
               </div>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     );
