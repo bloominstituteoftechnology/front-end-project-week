@@ -120,7 +120,7 @@ class App extends Component {
         <Route 
           path='/notes/:id' 
           render={props => (
-            <NoteView {...props} notes={this.state.notes} />
+            <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} />
           )}
         />
         
