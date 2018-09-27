@@ -47,11 +47,13 @@ class App extends Component {
         tags: ["backpacking", "gear", "capacity"]
       }
     ],
+    tags: ["backpacking", "gear", "capacity", "nature", "outdoors", "outsdoorsy", "friend"],
     noteUpdate: null
   }
 
   addNote = (newNote) => {
-    this.setState({ notes: [ ...this.state.notes, newNote] })
+    console.log(newNote)
+    this.setState({ notes: [ ...this.state.notes, newNote], tags: [...this.state.tags, ...newNote.tags] })
   }
 
   editNote = (noteId) => {
@@ -81,6 +83,7 @@ class App extends Component {
         <Route exact path="/" render={() => 
           <NotesMain
             notes={this.state.notes}
+            tags={this.state.tags}
           />
         }/>
         <Route path="/new" render={() => 

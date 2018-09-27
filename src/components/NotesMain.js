@@ -12,32 +12,35 @@ const NotesMain = (props) => {
         {
           props.notes.map(note => 
             <Draggable key={note.id} handle="strong" {...dragHandlers}>
-
-            <Div3>
-                <Div4>
-                  <H3>{note.title}</H3>
-                  <Strong>
-                    <span role="img" aria-label="Thumbtack">📌</span>
-                  </Strong>
-                </Div4>
-                <Hr />
-                <P>{note.text.substring(0, 60)}...</P>
-                  <P2>Tags:&nbsp;
-                    {
-                      note.tags.map(function(note, index) {
-                        return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>
-                      })
-                    }
-                    ...
-                  </P2>
-                <Link to={`/notes/${note.id}`}>
-                  <Button>View Note</Button>
-                </Link>
-            </Div3>
-
+              <Div3>
+                  <Div4>
+                    <H3>{note.title}</H3>
+                    <Strong>
+                      <span role="img" aria-label="Thumbtack">📌</span>
+                    </Strong>
+                  </Div4>
+                  <Hr />
+                  <P>{note.text.substring(0, 60)}...</P>
+                    <P2>Tags:&nbsp;
+                      {
+                        note.tags.map(function(note, index) {
+                          return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>
+                        })
+                      }
+                      ...
+                    </P2>
+                  <Link to={`/notes/${note.id}`}>
+                    <Button>View Note</Button>
+                  </Link>
+              </Div3>
             </Draggable>
           )
         }
+
+        <Div5>
+          <H2>All tags:</H2>
+          <P>{props.tags.join(", ")}</P>
+        </Div5>
       </Div2>
     </Div1>
   )
@@ -71,6 +74,7 @@ const Div4 = styled.div`
   display: flex;
   justify-content: space-between;
 `
+const Div5 = styled.div``
 const H2 = styled.h2`
   margin-top: 8%;
 `
