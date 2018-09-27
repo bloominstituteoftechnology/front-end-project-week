@@ -55,8 +55,9 @@ class NoteView extends Component {
             .put(
                 `https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote
             )
-            .then( () => {
-                this.componentDidMount();
+            .then(response => {
+                this.props.getNotes();
+                this.props.history.push('/notes');
             })
             .catch(error => {
                 console.error('Server Error', error);
