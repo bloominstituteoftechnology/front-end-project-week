@@ -27,13 +27,13 @@ else alert('you don\'t have permission to edit this post');
 	
 render(){
 return(
-<div className="overall">
+<div className="overall oneNote">
 <div className="flex">
 <div className="option" onClick={()=>this.editQuerry()}>edit</div>
 <div className="option" onClick={()=>this.deleteQuerry()}>delete</div>
 </div>
 <div className="contents">
-<div className="title">{this.props.note.title}</div>
+<div className="title m_bottom">{this.props.note.title}</div>
 <div>{this.props.note.content}</div>
 <br/>
 <div>By:{this.props.note.poster}</div>

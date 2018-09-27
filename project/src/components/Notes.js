@@ -2,7 +2,7 @@ import React from 'react';
 import './Notes.css';
 import OneNote from './OneNote';
 
-const Notes = (props) => {
+const Notes =(props)=> {
 return(
 <div className="notes">
 {props.view==="all" ? (
@@ -13,7 +13,7 @@ return(
 return(
 <div key={Math.random(Date.now())} className="note" onClick={()=>props.viewone(index)}>
 <div className="title">{note.title}</div>
-{note.content.length>200 ? (<div className="contents">{note.content.slice(0,250)}...</div>):(
+{note.content.length>200 ? (<div className="contents">{note.content.slice(0,200)}...</div>):(
 <div className="contents">{note.content}</div>)}
 </div>
 );})}
@@ -29,7 +29,7 @@ if(note.poster===props.loggedIn){
 return(
 <div key={Math.random(Date.now())} className="note" onClick={()=>props.viewone(index)}>
 <div className="title">{note.title}</div>
-{note.content.length>200 ? (<div className="contents">{note.content.slice(0,250)}...</div>):(
+{note.content.length>200 ? (<div className="contents">{note.content.slice(0,200)}...</div>):(
 <div className="contents">{note.content}</div>)}
 </div>
 );}
@@ -39,7 +39,8 @@ else{return null}
 </React.Fragment>
 ):(null)}
 {typeof props.view==="number" ? (
-<OneNote index={props.view} deleteNote={props.deleteNote} editNote={props.editNote} note={props.notes[props.view]} loggedIn={props.loggedIn}/>
+<OneNote index={props.view} deleteNote={props.deleteNote} editNote={props.editNote}
+ note={props.notes[props.view]} loggedIn={props.loggedIn}/>
 ):(null)}
 </div>
 )

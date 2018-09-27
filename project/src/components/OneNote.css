@@ -20,13 +20,22 @@ font-weight:700;
 display:flex;
 flex-direction:column;
 padding-left:5%;
-width:60%;
+width:46%;
 background:#f2f2f2;
 padding-top:10px;
 }
 
+.m_bottom{
+margin-bottom:30px;
+}
+
 .contents{
 margin-right:10%;
+}
+
+.oneNote{
+padding-left:2.5%;
+width:100%;
 }
 
 .shade{
@@ -47,6 +56,9 @@ z-index:2;
 background:white;
 border:1px solid #808080;
 padding:50px;
+width: 31%;
+display: flex;
+flex-direction: column;
 }
 
 .options{
@@ -57,7 +69,7 @@ justify-content:space-evenly;
 
 .select{
 width:40%;
-background:blue;
+background:#00b3b3;
 padding:5px;
 display:flex;
 justify-content:center;
@@ -78,4 +90,7 @@ margin-bottom:30px;
 font-weight:700;
 font-size:18px;
 color:#4d4d4d;
+display:flex;
+align-items:center;
+justify-content:center;
 }

@@ -36,7 +36,7 @@ render(){
 if(this.props.editing || this.props.editing===0){
 return(
 <div className="overall">
-<div>Create New Note:</div>
+<div className="header adder">Create New Note:</div>
 <form onSubmit={this.editQuerry}>
 <input placeholder="New Title" name="title" value={this.state.title} onChange={(e)=>this.changeHandler(e)} />
 <input className="large" placeholder="New Content" name="contents" value={this.state.contents} onChange={(e)=>this.changeHandler(e)} />
@@ -48,7 +48,7 @@ return(
 else{
 return(
 <div className="overall">
-<div>Create New Note:</div>
+<div className="header adder">Create New Note:</div>
 <form onSubmit={this.submitQuerry}>
 <input placeholder="New Title" name="title" value={this.state.title} onChange={(e)=>this.changeHandler(e)} />
 <input className="large" placeholder="New Content" name="contents" value={this.state.contents} onChange={(e)=>this.changeHandler(e)} />

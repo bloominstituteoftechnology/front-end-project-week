@@ -19,11 +19,11 @@ const Box = posed.div({
   }
 });
 
-class Modal extends Component {
+class SecondModal extends Component {
 constructor(props){
 super(props);
 this.state={
-visible:false,
+visible:false
 }
 }
 
@@ -33,17 +33,17 @@ setTimeout(()=>{
 },100);
 }
 
-unmountAndDelete(){
+unmountAndLogout(){
 this.setState({visible:!this.state.visible});
 setTimeout(()=>{
-	this.props.deleteNote(this.props.index);
+	this.props.logout();
 },300);
 }
 
 unmountBack(){
-this.setState({visible:!this.state.visible});
+this.setState({visible:!this.state.visible})
 setTimeout(()=>{
-	this.props.deleteToggle();
+this.props.toggleLogout();
 },300);
 }
 
@@ -53,16 +53,15 @@ return(
 {this.state.visible && [
 <Shade className="shade" key="shade" />,
 <Box className="popUp" key="box">
-<div className="text">Are you sure you want to delete this?</div>
+<div className="text">Are you sure you want to logout?</div>
 <div className="options">
-<div className="select red" onClick={()=>this.unmountAndDelete()}>Delete</div>
+<div className="select red" onClick={()=>this.unmountAndLogout()}>Logout</div>
 <div className="select" onClick={()=>this.unmountBack()}>No</div>
 </div>
 </Box>]}
 </PoseGroup>
+
 )}
 }
 
-
-
-export default Modal;
+export default SecondModal;
