@@ -12,7 +12,6 @@ class SingleNoteView extends React.Component {
 
   goToUpdateForm = (event, id) => {
     event.preventDefault();
-    console.log("single id", id);
     this.props.setUpdateNote(id);
     this.props.history.push("/create-note");
   };
@@ -22,7 +21,6 @@ class SingleNoteView extends React.Component {
   };
 
   render() {
-    console.log("note props", this.props);
     return (
       <SingleNote
         fetchingNotes={this.props.fetchingNotes}
@@ -35,7 +33,6 @@ class SingleNoteView extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state", state);
   return {
     notesList: state.notes,
     fetchingNotes: state.fetchingNotes
