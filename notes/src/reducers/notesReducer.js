@@ -15,7 +15,9 @@ import {
 } from '../actions';
 
 const initialState = {
+  allNotes: [],
   notes: [],
+  user: { username: '', firstName: '' },
   fetchingData: false,
   addingData: false,
   deletingData: false,
@@ -37,6 +39,7 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         fetchingData: false,
         notes: action.payload.slice(length - 100, length),
+        allNotes: action.payload,
         error: null,
       };
     case FETCH_ERROR:
@@ -97,7 +100,7 @@ export const notesReducer = (state = initialState, action) => {
     case SEARCH_DATA:
       return {
         ...state,
-        notes: state.notes.filter(
+        notes: state.allNotes.filter(
           (note) =>
             note.title.includes(action.payload) ||
             note.textBody.includes(action.payload)

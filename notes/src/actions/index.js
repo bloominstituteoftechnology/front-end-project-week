@@ -18,6 +18,8 @@ export const EDIT_ERROR = 'EDIT_ERROR';
 
 export const SEARCH_DATA = 'SEARCH_DATA';
 
+export const LOG_IN = 'LOG_IN';
+
 export const fetchData = () => (dispatch) => {
   dispatch({ type: FETCHING_DATA });
   const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
@@ -102,4 +104,8 @@ export const editData = (note, id) => (dispatch) => {
 
 export const searchData = (searchInput) => {
   return { type: SEARCH_DATA, payload: searchInput };
+};
+
+export const logIn = (username, password) => {
+  return { type: LOG_IN, username: username, password: password };
 };
