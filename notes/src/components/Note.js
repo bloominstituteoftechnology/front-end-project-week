@@ -12,9 +12,9 @@ class Note extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
+        
         // const id = this.props.match.notes._id;
-        // this.fetchNote(id);
+        // this.getNote(id);
     }
 
     // getNote = id => {
@@ -33,8 +33,7 @@ class Note extends Component {
         return (
             
                 <div className='note-container'>
-                {console.log('hello from note return ', this.props)}
-                {console.log('this is notes ', this.props.notes)}
+                
                 
                     <h3>
                         Title: {this.props.note.title}
@@ -42,6 +41,7 @@ class Note extends Component {
                     <p>
                         Body: {this.props.note.textBody}
                     </p>
+                    
 
                 </div>
             

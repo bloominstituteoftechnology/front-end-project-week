@@ -7,6 +7,7 @@ import NoteForm from './NoteForm';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import Note from './Note';
+import NoteView from './NoteView';
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class App extends Component {
     )
     .then(response => {
       console.log('hey');
-      console.log(`POST REPONSE: `, response.data);
+      console.log(`POST RESPONSE: `, response.data);
       this.getNotes();
     })
     .catch(error => {
@@ -59,12 +60,30 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  // deleteNote = event => {
+  //   event.preventDefault();
+    
+  //   axios
+  //   .delete(
+  //     'https://killer-notes.herokuapp.com/note/create', 
+  //     newNote
+  //   )
+  //   .then(response => {
+  //     console.log('hey');
+  //     console.log(`POST RESPONSE: `, response.data);
+  //     this.getNotes();
+  //   })
+  //   .catch(error => {
+  //     console.error('Server Error', error);
+  //   });
+  // };
+
  
   render() {
     return (
       <div className="App">
      
-        <form onSubmit={this.createNote}>
+        <form className='create-note-form' onSubmit={this.createNote}>
 
           <input 
               name='noteTitleInput'
@@ -86,6 +105,7 @@ class App extends Component {
               Create Note
           </button>
         </form>
+          
 
         {/* <NotesList 
           notes= {this.state.notes} 
@@ -100,7 +120,7 @@ class App extends Component {
         <Route 
           path='/notes/:id' 
           render={props => (
-            <Note {...props} notes={this.state.notes} />
+            <NoteView {...props} notes={this.state.notes} />
           )}
         />
         
