@@ -26,6 +26,16 @@ export const DescriptionField = styled.textarea`
   font-size: 1.6rem;
 `;
 
+export const TagField = styled.input`
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 2%;
+  width: 50%;
+  border: 1px solid #d3d2d3;
+  border-radius: 4px;
+  font-size: 1.5rem;
+`;
+
 export const Button = styled.button`
   border: 1px solid  #D3D2D3;
   background: #24B8BD;

@@ -10,15 +10,15 @@ export const Navigation = styled.div`
   padding: 0 2rem; 
   height: 100vh;
   h1 {
-    padding: 20px 0;
+    padding: 5rem 0;
   }
   .navButton {
     display: block;
     border: 1px solid gray;
     background: #24B8BD;
     color: white;
-    margin-bottom: 20px;
-    padding: 10px 6%;
+    margin-bottom: 2rem;
+    padding: 1.5rem 6%;
     text-align: center
     font-weight: bold;
     font-size: 1.5rem;

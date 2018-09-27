@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addNote, editNote } from "../../actions";
-import { Form, TitleField, DescriptionField, Button } from "../styling/NoteFormStyling";
+import { Form, TitleField, DescriptionField, TagField, Button } from "../styling/NoteFormStyling";
 
 class NoteForm extends React.Component {
   state = {
     title: "",
     textBody: "",
+    tag: "defaultTag",
     _id: null
   };
 
@@ -42,7 +43,7 @@ class NoteForm extends React.Component {
     urlPath === "/noteform"
       ? this.props.addNote(this.state)
       : this.props.editNote(this.state);
-    this.setState({ title: "", textBody: "" });
+    this.setState({ title: "", textBody: "", tag: ""});
     this.props.history.push("/");
   };
 
@@ -63,6 +64,12 @@ class NoteForm extends React.Component {
           name="textBody"
           placeholder="Note Content"
           value={this.state.textBody}
+          onChange={this.handleChange}
+        />
+        <TagField
+          name="tag"
+          placeholder="tag"
+          value={this.state.tag}
           onChange={this.handleChange}
         />
         <Button type="submit" onClick={this.handleSubmit}>
