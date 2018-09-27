@@ -1,7 +1,36 @@
 import styled from 'styled-components';
 
+export const NavStyled = styled.div`
+    height: 100%;
+    border: 1px solid;
+    background-color: #CDCCCD;
+    width: 25%;
+`
+
+export const AppHeader = styled.div`
+    font-size: 1.6rem;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1;
+    margin: 10px;
+`
+
+export const NavButton = styled.div`
+    margin: 10px;
+    font-size: 1rem;
+    background-color: #20AFB5;
+    border: 1px solid;
+    padding: 10px;
+
+    a {
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+`
+
 export const PageWrapper = styled.div`
     display: flex;
+    height: 100%;
 `
 export const Body = styled.div`
     width: 100%;

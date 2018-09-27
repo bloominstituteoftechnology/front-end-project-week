@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {goHome} from '../actions';
+import { NavStyled, AppHeader, NavButton } from './style';
 
 class Navation extends React.Component{
     goHome = event =>{
@@ -11,17 +12,17 @@ class Navation extends React.Component{
 
     render(){
         return(
-            <div>
-                <div className='App'>
+            <NavStyled>
+                <AppHeader>
                     Lambda Notes
-                </div>
-                <div onClick={this.goHome}>
+                </AppHeader>
+                <NavButton onClick={this.goHome}>
                     <Link to={'/'}>View Your Notes</Link>
-                </div>
-                <div>
+                </NavButton>
+                <NavButton>
                     <Link to={'/add-note'}>+ Create New Note</Link>
-                </div>
-            </div>
+                </NavButton>
+            </NavStyled>
         )
     }
 }
