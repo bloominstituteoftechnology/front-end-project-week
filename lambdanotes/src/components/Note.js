@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import styled from 'styled-components';
 
 export default class Note extends Component {
@@ -54,7 +54,8 @@ export default class Note extends Component {
             <button className='links' onClick={() => this.props.history.push(`/notes/${this.state.note._id}/edit`)}>edit</button>
             <button className='links' onClick={this.toggleModal}>delete</button>
             {/* <div style={{textDecoration: 'underline'}}onClick={()=> this.deleteNote(this.state.note._id)}>delete</div> */}
-            <Modal isOpen={this.state.modal} toggle={this.toggleModal} className='modal'>
+            <Modal isOpen={this.state.modal} toggle={this.toggleModal} modalTransition={{ timeout: 200 }}>
+              <ModalHeader toggle={this.toggle}>Delete Confirmation</ModalHeader>
               <ModalBody>Are you sure you want to delete this?</ModalBody>
               <ModalFooter>
                 <button className='delete' onClick={()=> this.deleteNote(this.state.note._id)}>Delete</button>
@@ -72,10 +73,10 @@ export default class Note extends Component {
 }
 
 const OneNote = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // min-height: 1000px;
-  // min-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  min-height: 1000px;
+  min-width: 1000px;
   background-color: #F3F3F3;
   border: 1px solid #BEBEBE;
   padding: 0 30px;
