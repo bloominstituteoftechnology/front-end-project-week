@@ -86,7 +86,8 @@ class NotesContainer extends Component {
           {...props}
           handleChange={this.inputHandler}
           addNewNote={this.addNewNote}
-          addingNote={this.props.addingNote} />}
+          addingNote={this.props.addingNote}
+          error={this.props.error} />}
           />
         <Route
           exact path="/notes/:id"
@@ -100,7 +101,8 @@ class NotesContainer extends Component {
           {...props}
           handleChange={this.inputHandler}
           editNote={this.editNote}
-          updatingNote={this.props.updatingNote} />}
+          updatingNote={this.props.updatingNote}
+          error={this.props.error} />}
           />
         </div>
       </div>
@@ -112,7 +114,8 @@ const mapStateToProps = state => {
   return {
     data: state.notes,
     addingNote: state.addingNote,
-    updatingNote: state.updatingNote
+    updatingNote: state.updatingNote,
+    error: state.error
   }
 }
 

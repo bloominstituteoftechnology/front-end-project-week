@@ -26,12 +26,8 @@ const notesReducer = ( state = initialState, action) => {
       return Object.assign({}, state, {
         fetchingData: false,
         dataFetched: true,
-        notes: action.payload
-      });
-    case ERROR:
-      return Object.assign({}, state, {
-        fetchingData: false,
-        error: true
+        notes: action.payload,
+        error: null
       });
       case FETCHING_NOTE:
       return Object.assign({}, state, {
@@ -41,7 +37,8 @@ const notesReducer = ( state = initialState, action) => {
       return Object.assign({}, state, {
         fetchingNote: false,
         noteFetched: true,
-        note: action.payload
+        note: action.payload,
+        error: null
       });
       case ADD_NOTE:
       return Object.assign({}, state, {
@@ -51,7 +48,8 @@ const notesReducer = ( state = initialState, action) => {
       return Object.assign({}, state, {
         addingNote: false,
         noteAdded: true,
-        notes: [...state.notes, action.payload]
+        notes: [...state.notes, action.payload],
+        error: null
       });
       case DELETE_NOTE:
       return Object.assign({}, state, {
@@ -60,7 +58,8 @@ const notesReducer = ( state = initialState, action) => {
       case NOTE_DELETED:
       return Object.assign({}, state, {
         deletingNote: false,
-        noteDeleted: true
+        noteDeleted: true,
+        error: null
       });
       case EDIT_NOTE:
       return Object.assign({}, state, {
@@ -69,7 +68,12 @@ const notesReducer = ( state = initialState, action) => {
       case NOTE_EDITED:
       return Object.assign({}, state, {
         updatingNote: false,
-        noteUpdated: true
+        noteUpdated: true,
+        error: null
+      });
+      case ERROR:
+      return Object.assign({}, state, {
+        error: action.payload
       });
     default:
       return state;

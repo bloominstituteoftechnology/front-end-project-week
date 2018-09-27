@@ -23,7 +23,7 @@ const EditNote = props => {
                 className="save-button"
                 onClick={(e) => {e.preventDefault(); props.editNote(props.match.params.id)}}>Save</button>
             </form>
-            <p style={ props.updatingNote ? { color: "red", margin: "20px 0" } : { display: "none" } }>
+            <p style={ props.updatingNote && props.error ? { color: "red", margin: "20px 0" } : { display: "none" } }>
                 Please include a title and content for the note.
             </p>
         </div>
