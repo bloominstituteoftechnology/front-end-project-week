@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
 	padding: 0 28px;
 
 	${props =>
-		props.list &&
+		props.listPage &&
 		css`
 			padding-right: 8px;
 		`};

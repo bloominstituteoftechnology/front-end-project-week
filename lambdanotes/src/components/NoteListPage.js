@@ -30,7 +30,7 @@ class NoteListPage extends Component {
 
 	render() {
 		return (
-			<PageContainer list>
+			<PageContainer listPage>
 				<PageTitle>Your Notes:</PageTitle>
 				{this.props.gettingNotes ? (
 					<StatusMessage>Loading notes...</StatusMessage>
