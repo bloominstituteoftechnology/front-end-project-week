@@ -56,11 +56,11 @@ class SingleNote extends Component {
           <div className="backdrop">
             <div className="modal">
               {/* convert below to if return statments */}
-              {/* {this.state.loadingModal && "Loading..."}
+              {this.state.loadingModal && "Loading..."}
               {this.state.successModal && "Success (make me green)"}
               {!this.state.successModal &&
                 !this.state.loadingModal &&
-                "Here's some text for the modal"} */}
+                "Here's some text for the modal"}
               <h4>Are you sure you want to delete this?</h4>
               <div className=".modalButtonsDiv">
                 <button
