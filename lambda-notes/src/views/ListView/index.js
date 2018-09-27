@@ -267,23 +267,31 @@ export default class ListView extends React.Component {
 						}
 
 						{ toggleSort && 
-							<div className = 'sort-values'>
+							<div className = 'sort-values grow-anim-sort'>
 								<form onSubmit = { e => this.handleSorting(e) }>
-									<input type = 'radio' name = 'sortBy' value = 'title' defaultChecked = { sortingValues.sortBy === 'title' ? true : sortingValues.sortBy === '' ? true : false } /> Title<br />
+									<input type = 'radio' name = 'sortBy' value = 'title' defaultChecked = { sortingValues.sortBy === 'title' ? true : sortingValues.sortBy === '' ? true : false } />
+									<span>Title</span>
 
-									<input type = 'radio' name = 'sortBy' value = 'textBody' defaultChecked = { sortingValues.sortBy === 'textBody' ? true : false } /> Text Body<br />
+									<input type = 'radio' name = 'sortBy' value = 'textBody' defaultChecked = { sortingValues.sortBy === 'textBody' ? true : false } />
+									<span>Text Body</span>
 
-									<input type = 'radio' name = 'sortOrder' value = 'asc' defaultChecked = { sortingValues.sortOrder === 'asc' ? true : sortingValues.sortBy === '' ? true : false } /> Ascending<br />
+									<span className = 'divider tablet'>|</span>
+									<span className = 'divider phone'>_____</span>
 
-									<input type = 'radio' name = 'sortOrder' value = 'des' defaultChecked = { sortingValues.sortOrder === 'des' ? true : false } /> Descending<br />
-									<button type = 'submit'>Sort</button>
+									<input type = 'radio' name = 'sortOrder' value = 'asc' defaultChecked = { sortingValues.sortOrder === 'asc' ? true : sortingValues.sortBy === '' ? true : false } />
+									<span>Ascending</span>
+
+									<input type = 'radio' name = 'sortOrder' value = 'des' defaultChecked = { sortingValues.sortOrder === 'des' ? true : false } />
+									<span>Descending</span>
+
+									<button className = 'btn' type = 'submit'>Sort</button>
 								</form>
 								
 								<button onClick = { e => this.handleToggleSort(e) } className = 'btn'>No sort</button>
 							</div>
 						}
 
-						{ sortingValues.sortBy && <p>Sorted by { sortingValues.sortBy } { sortingValues.sortOrder }</p> }
+						{ sortingValues.sortBy && <p>Sorted by { sortingValues.sortBy === 'textBody' ? 'text body' : sortingValues.sortBy } { sortingValues.sortOrder === 'asc' ? 'ascending' : 'descending' }</p> }
 					</div>
 
 					{ 
