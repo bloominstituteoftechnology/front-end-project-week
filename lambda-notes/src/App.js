@@ -76,7 +76,8 @@ class App extends Component {
     this.setState({  
       id: '',
       title: '',
-      text: '' 
+      text: '' ,
+      searchResults: []
     });
   }
 
@@ -88,7 +89,7 @@ class App extends Component {
     })
       .then(response => {
         axios.get(`${url}`).then(response => {
-          this.setState({ notes: response.data })
+          this.setState({ notes: response.data, searchResults: [] })
         })
       })
     // this.setState(function (prevState) {
@@ -105,6 +106,7 @@ class App extends Component {
         axios.get(`${url}`).then(response => {
           this.setState({
             notes: response.data,
+            searchResults: []
           });
         })
       })
