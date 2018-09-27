@@ -9,7 +9,6 @@ import NoteFormContainer from './components/NoteFormContainer';
 import Modal from './components/DeleteModal';
 import Dropdown from './components/SortDropdown';
 
-
 const URL = 'https://notes-api-johnoro.herokuapp.com/api/notes';
 
 class App extends Component {
@@ -121,16 +120,38 @@ class App extends Component {
       .catch(err => console.error(err));
   };
 
-  sortByLatest = () => {
-    const sortCb = (a, b) => b.id - a.id;
-    this.toggleDropdown();
-    this.setState({
-      notes: this.state.notes.slice().sort(sortCb)
-    });
-  };
+  sortByTime = (dir) => {
+    const parse = (note) => {
+      return note.created_at.split(' ');
+    };
+    const sub = (parsed) => {
+      return parsed[1].replace(/[-:]/g, '');
+    }
 
-  sortByOldest = () => {
-    const sortCb = (a, b) => a.id - b.id;
+    let sortCb;
+    if (dir === 'desc') {
+      sortCb = (a, b) => {
+        const pa = parse(a);
+        const pb = parse(b);
+        if (pa[0] === pb[0]) {
+          return sub(pa) - sub(pb); 
+        } else {
+          return pa[0] - pb[0];
+        }
+      };
+    }
+    else { // asc
+      sortCb = (a, b) => {
+        const pa = parse(a);
+        const pb = parse(b);
+        if (pa[0] === pb[0]) {
+          return sub(pb) - sub(pa); 
+        } else {
+          return pb[0] - pa[0];
+        }
+      };
+    }
+
     this.toggleDropdown();
     this.setState({
       notes: this.state.notes.slice().sort(sortCb)
@@ -270,8 +291,8 @@ class App extends Component {
                   <Dropdown 
                     toggle={this.toggleDropdown} 
                     dropdown={this.state.dropdown} 
-                    sortByLatest={this.sortByLatest}
-                    sortByOldest={this.sortByOldest}
+                    sortByLatest={() => this.sortByTime('asc')}
+                    sortByOldest={() => this.sortByTime('desc')}
                     sortAlphabetically={this.sortAlphabetically}
                   />
                 </div>
