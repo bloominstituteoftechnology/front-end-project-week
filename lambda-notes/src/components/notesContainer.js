@@ -3,11 +3,6 @@ import {  Link } from "react-router-dom";
 import { SearchBar } from './searchBar';
 
 export const NoteList = props => {
-    if(props.searchResults.length > 0) {
-        let display = props.searchResults;
-    } else {
-        let display = props.notes;
-    }
     return (
         <div className="notes-wrap" >
             <div className="search-wrap" >
