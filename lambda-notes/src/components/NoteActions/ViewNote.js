@@ -57,7 +57,7 @@ class ViewNote extends Component {
 
             <Actions>
 
-                <NavLink to="/view/:id/delete" style={{ fontWeight: 'bold', color: 'black', marginLeft: '10px', marginRight: '10px' }}><Button>delete</Button></NavLink>
+                <NavLink to={`/view/${this.state.id}/delete`} style={{ fontWeight: 'bold', color: 'black', marginLeft: '10px', marginRight: '10px' }}><Button>delete</Button></NavLink>
                 <NavLink to="/edit" style={{ fontWeight: 'bold', color: 'black', marginLeft: '10px', marginRight: '10px' }}><Button>edit</Button></NavLink>
 
             </Actions>
