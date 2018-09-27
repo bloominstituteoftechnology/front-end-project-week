@@ -1,5 +1,5 @@
 // React
-import React, { Fragment } from 'react';
+import React from 'react';
 
 // Dependencies
 import fuzzysearch from 'fuzzysearch';
@@ -129,10 +129,10 @@ export default class ListView extends React.Component {
 		});
 	}
 
-	handleToggleSort = e => {
+	handleToggleSort = (e, sortingValues) => {
 		e.preventDefault();
 
-		this.toggleSort();
+		this.toggleSort(sortingValues);
 	}
 
 	handleSorting = e => {
@@ -151,7 +151,15 @@ export default class ListView extends React.Component {
 	}
 
 	render() {
-		const { errorMsg, search, input, deleteAllModal } = this.state;
+		const { 
+			errorMsg, 
+			search, 
+			input, 
+			btnClass, 
+			deleteAllModal, 
+			toggleSort, 
+			sortingValues 
+		} = this.state;
 		const { history, username } = this.props;
 		let notes = [ ...this.props.notes ];
 		const csvHeaders = [
@@ -166,11 +174,11 @@ export default class ListView extends React.Component {
 			csvData.push(notes[i]);
 		}
 
-		if (this.state.sortingValues.sortBy) {
+		if (sortingValues.sortBy) {
 			notes.sort((note1, note2) => {
-				let a = note1[this.state.sortingValues.sortBy].toLowerCase();
-				let b = note2[this.state.sortingValues.sortBy].toLowerCase();
-				if (this.state.sortingValues.sortOrder === 'asc') {
+				let a = note1[sortingValues.sortBy].toLowerCase();
+				let b = note2[sortingValues.sortBy].toLowerCase();
+				if (sortingValues.sortOrder === 'asc') {
 					return ((a < b) ? -1 : ((a > b) ? 1 : 0));
 				} else {
 					return ((a > b) ? -1 : ((a < b) ? 1 : 0));
@@ -196,9 +204,9 @@ export default class ListView extends React.Component {
 								className = 'btn csv-link' 
 							>Export as CSV</CSVLink>
 
-							<button className = { `btn ${ this.state.btnClass.exactSearch }` } name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
+							<button className = { `btn ${ btnClass.exactSearch }` } name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
 
-							<button className = { `btn ${ this.state.btnClass.fuzzySearch }` } name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
+							<button className = { `btn ${ btnClass.fuzzySearch }` } name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
 						</div>
 
 						<div>
@@ -254,27 +262,28 @@ export default class ListView extends React.Component {
 					<h2>{ username }'s Notes:</h2>
 
 					<div className = 'sort-options'>
-						{ !this.state.toggleSort && 
-							<button onClick = { e => this.handleToggleSort(e) } className = 'btn'>Sorting options</button>
+						{ !toggleSort && 
+							<button onClick = { (e, sortingValues = this.state.sortingValues) => this.handleToggleSort(e, sortingValues) } className = 'btn'>Sorting options</button>
 						}
 
-						{ this.state.toggleSort && 
-							<Fragment>
+						{ toggleSort && 
+							<div className = 'sort-values'>
 								<form onSubmit = { e => this.handleSorting(e) }>
-									<input type = 'radio' name = 'sortBy' value = 'title' /> Title<br />
-									<input type = 'radio' name = 'sortBy' value = 'textBody' /> Text Body
+									<input type = 'radio' name = 'sortBy' value = 'title' defaultChecked = { sortingValues.sortBy === 'title' ? true : sortingValues.sortBy === '' ? true : false } /> Title<br />
 
-									<input type = 'radio' name = 'sortOrder' value = 'asc' /> Ascending <br />
-									<input type = 'radio' name = 'sortOrder' value = 'des' /> Descending
+									<input type = 'radio' name = 'sortBy' value = 'textBody' defaultChecked = { sortingValues.sortBy === 'textBody' ? true : false } /> Text Body<br />
 
+									<input type = 'radio' name = 'sortOrder' value = 'asc' defaultChecked = { sortingValues.sortOrder === 'asc' ? true : sortingValues.sortBy === '' ? true : false } /> Ascending<br />
+
+									<input type = 'radio' name = 'sortOrder' value = 'des' defaultChecked = { sortingValues.sortOrder === 'des' ? true : false } /> Descending<br />
 									<button type = 'submit'>Sort</button>
 								</form>
 								
 								<button onClick = { e => this.handleToggleSort(e) } className = 'btn'>No sort</button>
-							</Fragment>
+							</div>
 						}
 
-						{ this.state.sortingValues.sortBy && <p>Sorted by { this.state.sortingValues.sortBy } { this.state.sortingValues.sortOrder }</p> }
+						{ sortingValues.sortBy && <p>Sorted by { sortingValues.sortBy } { sortingValues.sortOrder }</p> }
 					</div>
 
 					{ 
