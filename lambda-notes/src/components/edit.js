@@ -33,40 +33,63 @@ class Edit extends Component {
 		    console.log(err);
 		});
 	}
-	}
-	
+    }
+
+    handleInputChange = e => {
+	this.setState({ [e.target.name]: e.target.value });
+    };
+
+    handleSubmit = event => {
+	event.preventDefault();
+	// const note = this.props.notes.find(note => `${note.id}` === this.props.match.params.id);
+	const myNote2 = {
+	    id: this.state.id,
+	    title: this.state.title,
+	    text: this.state.text
+	};
+
+	axios
+	    .put(`http://localhost:3333/notes/${this.props.match.params.id}`, myNote2)
+	    .then(response => {
+		this.setState({ myNote2: response.data });
+		console.log(myNote2);
+	    })
+	    .catch(err => {
+		console.log(err);
+	    });
+
+	// this.props.history.push('');
+	window.location.reload();
+	console.log(this.props.match.params.id);
+	console.log(this.state.title);
+	console.log(this.state.text);
+	console.log(myNote2);
+    }
+        
     render() {
 	return (
             <div>
               <div className="oneNoteExpanded">
-		<h1>{this.state.title}</h1>
-		<p>{this.state.text}</p>
 		<form onSubmit={this.handleSubmit}>
 		  <input className='title'
+			 onChange={this.handleInputChange}
 			 value={this.state.title}
 			 name="title"
 			 />
 		  <br/>
 		  <textarea rows="4" cols="50" className='content'
+			    onChange={this.handleInputChange}
 			    value={this.state.text}
 			    name="text">
 		  </textarea>
 		  <br/>
-		  <button type="submit">Save</button>
+		  <button type="submit">Update</button>
 		</form>
 	      </div>
 	    </div>
 	);
     }
 };
-
-
-
-// Edit.defaultProps = {
-//     id: 0,
-//     title: '',
-//     text: ''
-// };
 
 export default Edit;
 
