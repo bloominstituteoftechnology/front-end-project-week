@@ -47,9 +47,17 @@ img {
   border: 1px solid transparent;
 }
 
+.sort-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
 .ascending, .descending {
   background: rgba(36, 171, 175);
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
+  flex-grow: 1;
+  margin-right: 20px;
 }

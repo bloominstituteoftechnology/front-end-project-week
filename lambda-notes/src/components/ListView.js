@@ -78,8 +78,10 @@ class ListView extends React.Component {
             name="term"
             onChange={this.handleChange}
           />
+          <div className="sort-container">
           <button className="btn btn-lg p-3 ascending" onClick={this.handleAscending}>Ascending</button>
-          <button className="btn btn-lg p-3 m-5 descending" onClick={this.handleDescending}>Descending</button>
+          <button className="btn btn-lg p-3 descending" onClick={this.handleDescending}>Descending</button>
+          </div>
         </div>
         <h2 className="text-center">Your Notes: </h2>
         <div
