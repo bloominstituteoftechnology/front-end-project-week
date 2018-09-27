@@ -15,6 +15,10 @@ import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
 class App extends Component {
 
+  componentDidCatch(){
+    this.clearSearch;
+  }
+
   constructor(props){
     super(props);
     this.state = {
@@ -27,6 +31,12 @@ class App extends Component {
     this.setState({
       ...this.state,
       search: event.target.value
+    })
+  }
+
+  clearSearch = () => {
+    this.setState({
+      search: ''
     })
   }
 
@@ -43,7 +53,7 @@ class App extends Component {
       <div className = 'navigation'>
       <h1>Lambda Notes</h1>
       <Link to ='/'>
-      <div className = 'nav-link'>
+      <div className = 'nav-link' onClick={this.clearSearch}>
       View Your Notes
       </div>
       </Link>

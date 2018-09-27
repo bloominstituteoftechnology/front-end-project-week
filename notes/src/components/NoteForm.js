@@ -33,10 +33,13 @@ class NoteForm extends React.Component {
             noteTags = this.state.tags.split(/\s*,\s*/);
         }
 
-        let uniqueTags = noteTags.reduce(function(a,b){
+        let uniqueTags = noteTags;
+        if(this.state.tags !== ''){
+        uniqueTags = noteTags.reduce(function(a,b){
             if (a.indexOf(b) < 0 ) a.push(b);
             return a;
           },[]);
+        }
 
         let noteTitle;
         if(this.state.title === ''){

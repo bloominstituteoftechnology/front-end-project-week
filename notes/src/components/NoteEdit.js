@@ -49,10 +49,24 @@ class NoteEdit extends React.Component {
             return a;
           },[]);
 
+        let noteTitle;
+        if(this.state.title === ''){
+            noteTitle = 'Untitled';
+        } else {
+            noteTitle = this.state.title;
+        }
+
+        let textBody;
+        if(this.state.textBody === ''){
+            textBody = 'No Content';
+        } else {
+            textBody = this.state.textBody;
+        }
+
         let newNote = {
             tags: uniqueTags,
-            title: this.state.title,
-            textBody: this.state.textBody,
+            title: noteTitle,
+            textBody: textBody,
         }
 
         this.props.editNote(this.props.currentNote._id, newNote);
