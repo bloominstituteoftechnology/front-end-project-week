@@ -151,17 +151,20 @@ form {
   background-color: #32B7BD;
 }
 
-
-
 /* Login-Registration */
+.login-page {
+  height: 100vh;
+  background-color: #F2F1F2;
+  padding-top: 70px;
+}
 .outer-div {
   border: 1px solid gray;
   height: 325px;
   width: 500px;
-  margin: 70px auto auto;
+  margin: auto;
 }
-
 .link-buttons {
+  background-color: #32B7BD;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -170,11 +173,12 @@ form {
 }
 .link-buttons a {
   border: 1px solid gray;
+  border-bottom: 2px solid gray;
   width: 100%;
   height: 100%;
   line-height: 200%;
   text-align: center;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .inner-div {
