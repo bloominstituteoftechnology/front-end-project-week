@@ -32,11 +32,14 @@ class NoteEdit extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        let noteTags;
-        if(this.state.tags.length === 0){
+        let noteTags = this.state.tags;
+        console.log(this.state.tags);
+        if(!this.state.tags){
             noteTags = 'Uncategorized';
+        } else if(this.state.tags.length <= 1){
+            noteTags = this.state.tags;
         } else {
-            noteTags = this.state.tags.split(/\s*,\s*/);
+            noteTags = noteTags.split(/\s*,\s*/);
         }
         
 

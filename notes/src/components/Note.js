@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import Markdown from 'react-markdown';
 
 const Note = (props) => {
     let truncatedBody = props.textBody;
@@ -25,10 +26,10 @@ const Note = (props) => {
         <div className = 'note-container'>
         <Link to = {`/notes/${props._id}`} key={`${props._id}`}>
             <div>
-            <div className = 'note-title'>{`${truncatedTitle}`}</div>
+            <div className = 'note-title'><Markdown escapeHtml={true} source={`${truncatedTitle}`} /></div>
             
             <div className = 'note-divider'></div>
-            <div className='note-content'>{`${truncatedBody}`}</div>
+            <div className='note-content'><Markdown escapeHtml={true} source={`${truncatedBody}`} /></div>
             </div>
             </Link>
 

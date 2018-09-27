@@ -60,7 +60,7 @@ class NoteForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleInput} type = 'text' placeholder = 'Note Title' name='title' value={this.state.title}></input>
                     <textarea onChange={this.handleInput} placeholder = 'Note Content' name='textBody' value={this.state.textBody}></textarea>
-                    <input onChange={this.handleInput} type='text' placeholder='Tags, separated by commas' name='tags' value={this.state.tags}></input>
+                    <input onChange={this.handleInput} type='text' placeholder='Tags, separated by commas' name='tags' value={this.state.tags} maxLength='30'></input>
                     <button type = 'submit'>Save</button>
                 </form>
 

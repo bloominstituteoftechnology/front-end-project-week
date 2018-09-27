@@ -3,6 +3,7 @@ import {deleteNote, fetchSingleNote} from '../actions';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import { Button, Modal, ModalBody } from 'reactstrap';
+import Markdown from 'react-markdown';
 
 class NoteDetails extends React.Component {
 
@@ -50,6 +51,7 @@ class NoteDetails extends React.Component {
     render(){
 
         let tags;
+        console.log(this.props.currentNote.tags);
 
         if(this.props.currentNote.tags){
             tags = (
@@ -68,10 +70,10 @@ class NoteDetails extends React.Component {
             </div>
 
             <div className = 'note-details-title'>
-            <h1>{this.props.currentNote.title}</h1>
+            <h1><Markdown escapeHtml={true} source={this.props.currentNote.title}/></h1>
             </div>
             <div className = 'note-details-content'>
-            <p>{this.props.currentNote.textBody}</p>
+            <p><Markdown escapeHtml={true} source={this.props.currentNote.textBody} /></p>
             </div>
             <div className = 'note-details-tags'>
             {tags}
