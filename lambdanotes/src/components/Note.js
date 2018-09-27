@@ -87,6 +87,7 @@ const OneNote = styled.div`
   }
 
   .note-container {
+    max-width: 650px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -94,8 +95,8 @@ const OneNote = styled.div`
 
   .note-action {
     display: flex;
-    // justify-content: space-around;
-    margin: 20px 10px 0 450px;
+    justify-content: flex-end;
+    margin-top: 20px;
 
     .links {
       margin-right: 20px;
