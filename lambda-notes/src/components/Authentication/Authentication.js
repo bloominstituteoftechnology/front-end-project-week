@@ -10,9 +10,10 @@ const Authenticate = Posts =>
                 username: '',
                 password: '',
 
-                LoggedIn: false
+                LoggedIn: false,
             };
         }
+        
 
         nothing = e => {
             e.preventDefault()
@@ -27,16 +28,17 @@ const Authenticate = Posts =>
             const name = this.state.username
             localStorage.setItem('username', name)
             if (name.length > 0) {
-                this.setState({ LoggedIn: true })
-            }
-            axios.post('http://localhost:3500/api/register', this.state )
+                axios.post('http://localhost:3500/api/register', this.state )
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem('jwt', res.data.token)
+                this.setState({LoggedIn: true})
             })
             .catch(err => {
                 console.log(err)
             })
+            }
+            
 
         }
 
@@ -45,15 +47,16 @@ const Authenticate = Posts =>
             const name = this.state.username
             localStorage.setItem('username', name)
             if (name.length > 0) {
-                this.setState({ LoggedIn: true })
-            }
-            axios.post('http://localhost:3500/api/login', this.state )
+                axios.post('http://localhost:3500/api/login', this.state )
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem('jwt', res.data.token)
+                this.setState({LoggedIn: true})
             }).catch(err => {
                 console.log(err)
             })
+            }
+            
         }
 
 
