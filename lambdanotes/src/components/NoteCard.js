@@ -4,16 +4,21 @@ import '../App.css';
 import styled from 'styled-components';
 
 function NoteCard(props) {
-  const { title, textBody, _id } = props.note;
-
+  const { _id } = props.note;
   console.log(props);
+  const truncate = content => {
+    return content.length > 100 ? `${content.slice(0,97)} ...` : content
+  }
+  const titleTruncate = title => {
+    return title.length > 20 ? `${title.slice(0,17)} ...` : title
+  }
   return(
     <CardDiv>
       <Link style={{textDecoration: 'none'}}to={`notes/${_id}`}>
         <div className='note-content'>
-          <h3>{ title }</h3> 
+          <h3>{ titleTruncate(props.note.title) }</h3> 
           <hr />
-          <p>{ textBody }</p>
+          <p>{ truncate(props.note.textBody) }</p>
         </div>
       </Link>
     </CardDiv>
@@ -46,6 +51,7 @@ const CardDiv = styled.div`
     }
 
     p {
+      overflow-wrap: break-word;
       color: #3B3B3B;
     }
   }
