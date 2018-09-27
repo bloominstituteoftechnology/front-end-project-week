@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Edit = props => {
+    console.log(props)
     return (
         <div>
             <h3>Edit Note:</h3>
@@ -10,7 +11,7 @@ const Edit = props => {
                 <input placeholder="Note Content" onChange={props.handleTaskChange} value={props.content} name="content"/>
                 <br></br>
                 <br></br>
-                <button className="create-button" onClick={props.updateNoteHandler}>Update</button>
+                <button className="create-button" onClick={(e) => props.updateNoteHandler(e, props.match.params.id)}>Update</button>
             </form>
         </div>
     );

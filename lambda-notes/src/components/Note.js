@@ -37,8 +37,9 @@ class Note extends Component {
                             {note.title}
                         </h3>
                         <div>
-                            <Link to="/edit"><a href='#' className='edit-delete'>edit</a></Link>
-                            <a href='#' className='edit-delete' onClick={this.props.deleteNoteHandler}>delete</a>
+                            <Link to={`/edit/${this.props.match.params.id}`}><a href='#' className='edit-delete'>edit</a></Link>
+
+                            <Link className='edit-delete' onClick={this.props.showModal} to={`/delete/${this.props.match.params.id}`}>delete</Link>
                         </div>
                     </div>
                     <div className='note-view-body'>
@@ -46,10 +47,6 @@ class Note extends Component {
                             {note.content}
                         </p>  
                     </div>
-                    <Delete 
-                        toggle={this.props.displayDelete} 
-                        showModal={this.props.showModal}
-                    />
                 </div>
                 )
             }
