@@ -56,7 +56,6 @@ handleAddNote = () => {
 }
 
     render(){
-        console.log('name in render',this.state.name)
     return (
         <div className = "new-note-container">
             <form onSubmit = {this.handleAddNote}>

@@ -32,6 +32,7 @@ a{
 }
 
 .note{
+overflow-y: scroll;
   border: 2px solid #D7D7D7;
   border-radius: 12px;
   width: 300px;

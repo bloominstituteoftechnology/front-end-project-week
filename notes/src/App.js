@@ -155,20 +155,11 @@ toggleDeleteNote = () => {
         )}
         />
 
-     {/* <Route path = "/form" render={props =>
-        (<NewNoteForm {...props}
-          name = {this.state.name}
-          content = {this.state.content}
-          handleChange = {this.handleChange}
-          handleAddNote = {this.handleAddNote}
-          handleSubmit = {this.handleSubmit}
-          notes = {this.state.notes}/>
-          )}
-          /> */}
 
           <Route path = "/edit/:id" render={props=>
           (<UpdateNote {...props}  
             selected = {this.state.selected}
+            getNotes = {this.getNotes}
             // handleTitleUpdate = {this.handleTitleUpdate}
             // handleBodyUpdate = {this.handleBodyUpdate}
             // handleUpdateNote = {this.handleUpdateNote} 

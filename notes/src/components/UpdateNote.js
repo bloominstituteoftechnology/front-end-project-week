@@ -54,9 +54,11 @@ class UpdateNote extends Component {
 
         axios
         .put(`http://localhost:9000/api/notes/${id}`, notes)
-        .then(response => {
-            console.log('history in UpdateNote', this.history)
-            this.props.history.push('/notes');
+
+        .then(response => 
+            this.props.getNotes())
+            .then(response => {
+                this.props.history.push('/notes')
         })
         .catch(err => console.log(err))
       }
