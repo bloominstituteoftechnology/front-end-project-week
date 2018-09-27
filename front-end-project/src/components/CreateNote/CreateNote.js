@@ -3,7 +3,15 @@ import "./index.css";
 import axios from 'axios';
 
 class CreateNote extends Component {
+  state={}
+  createNote = () => {
+    console.log('hi');
   
+  axios
+    .post('http://localhost:8000/notes')
+    .then(response => this.setState({notes: response.data}))
+    .catch(error => console.log(error));
+  }
   render() {
     return (
       <div classname="noteView_container">

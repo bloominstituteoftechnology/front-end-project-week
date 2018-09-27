@@ -5,24 +5,24 @@ import { Link } from 'react-router-dom';
 
 class NoteView extends Component {
 state={
-  note: {},
-  title:{},
-  id:{}
+  content:'',
+  title:'',
+  id:null
 }
 
 componentDidMount(){
 const id = this.props.match.params.id;
-const note = this.props.notes.filter(note => note.id===Number(id));
-this.setState({note:note[0]})
-console.log(note[0]);
+let note = this.props.notes.filter(note => note.id===Number(id));
+note= note[0];
+this.setState({content:note.content, title:note.title, id:note.id});
 }
-  render() {
+render() {
     return (
       <div classname="noteView_container">
         <div className="noteView_topContent">
-          {/* <h3 className="content_header">{this.state.matched[0].title}</h3>
+          <h3 className="content_header">{this.state.title}</h3>
           <div>
-            <Link to= {`/edit/${this.props.match.params.id}`} className="edit_delete">
+            <Link to= {`/edit/${this.state.id}`} className="edit_delete">
               edit
             </Link>
             <Link to="#" className="edit_delete" onClick={this.showModal}>
@@ -31,7 +31,7 @@ console.log(note[0]);
           </div>
         </div>
         <div className="notesList">
-        <p className="">{this.state.matched[0].body}</p> */}
+        <p className="">{this.state.content}</p>
         </div>
         <DeleteNote toggle={this.state.displayDelete} showModal={this.showModal}/>
       </div>
