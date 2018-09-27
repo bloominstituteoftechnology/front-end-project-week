@@ -15,6 +15,7 @@ const Note = (props) => {
 				<NoteHR />
 					<WrapP>{props.note.text}</WrapP>
 					<AuthorL> Posted by - {props.note.author}</AuthorL>
+
 			</Link>
 		</NoteContainer>
 	)

@@ -6,6 +6,7 @@ import SideBar from './components/SideBar/SideBar';
 import CreateNote from './components/NoteInfo/CreateNote'
 import LinkedNote from './components/NoteInfo/LinkedNote';
 import Authenticate from './components/Authentication/Authenticate';
+import Weather from './components/Weather/Weather'
 
 
 import styled from 'styled-components';
@@ -18,6 +19,13 @@ const BGColor = styled.div`
   position: fixed;
   z-index: 1;
   overflow: auto;
+`;
+
+const City = styled.div`
+  text-align: center;
+  margin-top: 20px;
+  font-size: 4rem;
+  margin-left: 15%;
 `;
 
 class App extends Component {
@@ -131,6 +139,21 @@ class App extends Component {
             path="/notes"
             render={props => (
             <div>
+              <City>{this.state.city}</City>
+              <Weather
+                {...props}
+              />
+            </div>
+            )}
+          />
+
+
+
+          <Route
+            exact
+            path="/notes"
+            render={props => (
+            <div>
               <NoteList
                 {...props}
                 notes={this.state.notesData}
@@ -176,3 +199,30 @@ class App extends Component {
 }
 
 export default Authenticate(App);
+
+
+// clear sky
+// few clouds
+// scattered clouds
+// broken clouds
+// shower rain
+// rain
+// thunderstorm
+// snow
+// mist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

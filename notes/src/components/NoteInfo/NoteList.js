@@ -2,6 +2,7 @@ import React from 'react';
 import Note from './Note';
 import { NotesContainer, MainContainer, SearchInput } from './css'
 
+
 const NoteList = (props) => {
 	return (
 		<MainContainer>

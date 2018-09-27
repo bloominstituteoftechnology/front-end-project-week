@@ -13,8 +13,10 @@
     "axios": "^0.18.0",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "moment-js": "^1.1.15",
     "react-animations": "^1.0.0",
-    "react-drag-sortable": "^1.0.6"
+    "react-drag-sortable": "^1.0.6",
+    "react-open-weather": "^0.4.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.2"
