@@ -97,6 +97,7 @@ class NewNote extends Component {
           Create New Note:
         </NoteTitle>
         <NoteInput
+        data-theme={selectedTheme}
           className="fade-new"
           name="titleInput"
           placeholder={"Note Text"}
@@ -104,6 +105,7 @@ class NewNote extends Component {
           onChange={this.handleInput}
         />
         <NoteText
+        data-theme={selectedTheme}
           className="fade-new"
           name="contentInput"
           placeholder={"Note Content"}
@@ -123,13 +125,27 @@ class NewNote extends Component {
 }
 
 const NoteInput = styled("input")`
+outline: none;
   width: 300px;
   height: 30px;
   margin-bottom: 10px;
+  transition: box-shadow 0.2s;
+  border:1px solid ${props => props.theme[props["data-theme"]].border};
+  :focus {
+    box-shadow: 0 0 5px ${props => props.theme[props["data-theme"]].button};
+    border: 1px solid  ${props => props.theme[props["data-theme"]].button};
+  }
 `;
 const NoteText = styled("textarea")`
+outline: none;
   width: 500px;
   height: 400px;
+  transition: box-shadow 0.2s;
+  border:1px solid ${props => props.theme[props["data-theme"]].border};
+  :focus {
+    box-shadow: 0 0 5px ${props => props.theme[props["data-theme"]].button};
+    border: 1px solid  ${props => props.theme[props["data-theme"]].button};
+  }
 `;
 const NoteButton = styled("div")`
 display:none;
@@ -142,6 +158,10 @@ display:none;
   padding: 10px;
   width: 200px;
   font-weight: bold;
+  transition: all .2s ease-in-out;
+  :hover{
+    transfrom: scale(1.1);
+  }
 `;
 
 const NoteTitle = styled("h2")`

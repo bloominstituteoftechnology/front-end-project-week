@@ -2,30 +2,31 @@ import React, { Component } from "react";
 import styled from "react-emotion";
 import Transition from "react-transition-group/Transition";
 import TweenMax from "gsap";
+import {Linear, RoughEase} from 'gsap'
+import Note from "../Notes/Note";
 
 class NavBar extends Component {
-  state= {
-    input: ''
-  }
+  state = {
+    input: ""
+  };
   handleInput = event => {
-    this.setState({input: event.target.value})
+    this.setState({ input: event.target.value });
     console.log(this.state.input);
-    
-  }
+  };
   render() {
-    const { selectedTheme, filterByChar } = this.props;
+    const { selectedTheme, filterByChar, notes } = this.props; //---------Deconstruction
     return (
       <Header data-theme={selectedTheme}>
         <h1>Lambda Notes</h1>
         <Button
-        //--------------------------------------------------------View Notes Button
+          //--------------------------------------------------------View Notes Button
           data-theme={selectedTheme}
           onClick={() => this.props.history.push("/notes")}
         >
           View Your Notes
         </Button>
         <Button
-        //--------------------------------------------------------Create New Notes Button
+          //--------------------------------------------------------Create New Notes Button
           data-theme={selectedTheme}
           onClick={() =>
             this.props.history.push(`${this.props.match.url}/create`)
@@ -33,25 +34,27 @@ class NavBar extends Component {
         >
           + Create New Notes
         </Button>
-     
+
         <NoteInput
           //--------------------------------------------------------SearchBar
-          //onChange={this.handleInput} 
-          
-           onChange={filterByChar}
-           type='text'
-           //value={this.state.input}
-           />
-        <Button
-        //--------------------------------------------------------Reset Search Button
+          //onChange={this.handleInput}
           data-theme={selectedTheme}
-          //onClick={() => this.props.fetchData()}
+          className="search-bar"
+          type='text'
+          onChange={event => {
+            filterByChar(event);
+          }}
+          type="text"
+        />
+        <Button
+          //--------------------------------------------------------Reset Search Button
+          data-theme={selectedTheme}
+          onClick={() =>{ this.props.fetchData()}}
         >
-          
           Reset Search
         </Button>
         <Button
-        //---------------------------------------------------------Options
+          //---------------------------------------------------------Options
           data-theme={selectedTheme}
           onClick={() =>
             this.props.history.push(`${this.props.match.url}/options`)
@@ -100,8 +103,16 @@ export default NavBar;
 
 const NoteInput = styled("input")`
   width: 100%;
-  
+  border: none;
   margin-top: 20px;
+  outline: none;
+  height: 20px;
+  transition: box-shadow 0.2s;
+  :focus {
+    box-shadow: 0 0 5px ${props => props.theme[props["data-theme"]].button};
+    border: 1px solid  ${props => props.theme[props["data-theme"]].button};
+  }
+  
 `;
 
 const Header = styled("header")`
@@ -142,13 +153,20 @@ const Button = styled("div")`
   text-align: center;
   color: ${props => props.theme[props["data-theme"]].subBackground};
   background: ${props => props.theme[props["data-theme"]].button};
-  border: 1px solid ${props => props.theme[props["data-theme"]].border};
+  
   margin: 10px 0;
   padding: 10px;
+
+  transition: transform .1s ease-in-out;
+  :hover{
+    transform: scale(1.05);
+  }
+  :active{
+    transform: scale(1)
+  }
 `;
 
 const OptionButton = styled(Button)`
-display:flex;
-justify-content: flex-end;
-
-`
+  display: flex;
+  justify-content: flex-end;
+`;

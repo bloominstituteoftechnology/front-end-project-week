@@ -65,6 +65,7 @@ class UpdateNote extends Component {
         {<NoteTitle className= 'fade-update' data-theme={selectedTheme}>Update Notes:</NoteTitle>}
         {
           <NoteInput
+          data-theme={selectedTheme}
           className= 'fade-update'
             name={"titleInput"}
             onChange={this.handleInput}
@@ -73,6 +74,7 @@ class UpdateNote extends Component {
         }
         {
           <NoteText
+          data-theme={selectedTheme}
           className= 'fade-update'
             name={"contentInput"}
             onChange={this.handleInput}
@@ -81,6 +83,7 @@ class UpdateNote extends Component {
         }
         <TagTitle data-theme={selectedTheme}>Tags:</TagTitle>
         <TagInput
+         data-theme={selectedTheme}
         className= 'fade-update'
           name="tagInput"
           onChange={this.handleInput}
@@ -138,15 +141,29 @@ const NoteInput = styled("input")`
   width: 300px;
   height: 30px;
   margin-bottom: 10px;
+  outline:none;
+  transition: box-shadow 0.2s;
+  border:1px solid ${props => props.theme[props["data-theme"]].border};
+  :focus {
+    box-shadow: 0 0 5px ${props => props.theme[props["data-theme"]].button};
+    border: 1px solid  ${props => props.theme[props["data-theme"]].button};
+  }
 `;
 
 const TagInput = styled(NoteInput)`
   width: 200px;
+
 `;
 
 const NoteText = styled("textarea")`
   width: 500px;
   height: 400px;
+  outline:none;
+  transition: box-shadow 0.2s;
+  :focus {
+    box-shadow: 0 0 5px ${props => props.theme[props["data-theme"]].button};
+    border: 1px solid  ${props => props.theme[props["data-theme"]].button};
+  }
 `;
 
 const NoteButton = styled("div")`
@@ -155,13 +172,21 @@ const NoteButton = styled("div")`
   text-align: center;
   color: ${props => props.theme[props["data-theme"]].subBackground};
   background: ${props => props.theme[props["data-theme"]].button};
-  border: 1px solid ${props => props.theme[props["data-theme"]].border};
+  
   padding: 10px;
   width: 200px;
   font-weight: bold;
+  transition: transform .2s ease-in-out;
+  :hover{
+     transform: matrix(1.1, 0, 0, 1.1, 0, 0) !important;
+  }
+  :active{
+    transform: matrix(1, 0, 0, 1, 0, 0) !important;
+  }
 `;
 
 const NoteTitle = styled("h2")`
+outline:none;
   color: ${props => props.theme[props["data-theme"]].mainTitle};
 `;
 const TagTitle = styled("h3")`

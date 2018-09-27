@@ -38,6 +38,7 @@ class Options extends Component {
                   TweenMax.staggerFromTo('.options', 0.2, {opacity:0, x:50}, {opacity:1, x:0}, 0.1)
                  
                 case 'entered':
+                TweenMax.set('.options', {transform: 'unset'})
                   return null;
                 case 'exiting':
              
@@ -59,11 +60,18 @@ const NoteButton = styled("div")`
   margin: 10px 0;
   text-align: center;
   color: ${props => props.theme[props["data-theme"]].subBackground};
-  background: ${props => props.theme[props["data-theme"]].button};
-  border: 1px solid ${props => props.theme[props["data-theme"]].border};
+  background: ${props => props.theme[props["data-theme"]].button};  
   padding: 10px;
   width: 200px;
   font-weight: bold;
+  transition: transform .2s ease-in-out;
+  :hover{
+     transform: matrix(1.1, 0, 0, 1.1, 0, 0) !important;
+  }
+  :active{
+    transform: matrix(1, 0, 0, 1, 0, 0) !important;
+  }
+
 `;
 
 const NoteButtonContainer = styled('div')`

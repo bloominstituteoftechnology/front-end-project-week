@@ -20,7 +20,8 @@ const Sort = props => {
 export default Sort;
 
 const Dropdown = styled("div")`
-  display: flex;
+display: inline-block;
+float: right;
   position: relative;
   justify-content: flex-end;
 
@@ -35,8 +36,10 @@ const DropdownBtn = styled("button")`
   background-color: ${props => props.theme[props['data-theme']].button};
   color: ${props => props.theme[props['data-theme']].subBackground};
   padding: 16px;
-  font-size: 16px;
-  border: none;
+  padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;;
   height: 50px;
   font-weight: bold;
   width: 105px;
@@ -45,10 +48,11 @@ const DropdownBtn = styled("button")`
 const DropdownContent = styled("div")`
   display: none;
 
-  margin-top: 50px;
+
   position: absolute;
   background-color: ${props => props.theme[props['data-theme']].mainBackground};
   min-width: 105px;
+  right:0;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   a {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import {injectGlobal} from 'emotion'
 import NoteContainer from './components/NoteContainer';
+import {Route} from 'react-router-dom'
 
 
 class App extends Component {
@@ -9,8 +10,8 @@ class App extends Component {
    
     return (
       <div className="App">
-        <NoteContainer/>
-      </div>
+			<Route render={props =><NoteContainer {...props}/>}/>
+			 </div>
     );
   }
 }

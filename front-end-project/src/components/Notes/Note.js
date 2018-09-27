@@ -9,7 +9,25 @@ const Note = props => {
     const {title, textBody, _id, tags} = props.note
     const {selectedTheme} = props
     return(
-        <NoteCardDiv className='stagger' data-theme={selectedTheme} >
+        <NoteCardDiv className={`stagger ${_id}`} data-theme={selectedTheme} key={props.location.key} id={_id} >
+        {/* <Transition  timeout ={1000} unmountOnExit>
+        {state => {
+              switch (state) {
+                case 'entering':        
+                console.log(state)          
+                TweenMax.staggerFromTo('.stagger', 0.1, {opacity:0}, {opacity:1}, 0.2)
+                case 'entered':
+                  return 'Entered!';
+                case 'exiting':
+                
+                  return 'Exiting…';
+                  
+                case 'exited':
+                
+                  return 'Exited!';
+              }
+            }}
+        </Transition> */}
         
         <span onClick={() => props.history.push(`/notes/${_id}`)}>
             <h2>{title}</h2>
@@ -25,6 +43,13 @@ const Note = props => {
 }
 
 const NoteCardDiv = styled('div')`
+transition: padding 0.5s, width 0.5s, height 0.5s, box-shadow 0.5s;
+:hover{
+    color:13px 13px 63px;
+    width:32%;
+    height:203px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+}
 overflow:hidden;
 padding: 10px 10px 60px;
 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

@@ -39,11 +39,11 @@ const Notes = props => {
         }}
       </Transition> */}
       <NoteTitle data-theme={selectedTheme}>Your Notes:</NoteTitle>
-      <NotesDiv data-theme={selectedTheme}>
+      <NotesDiv data-theme={selectedTheme} >
         {notes.map(note => (
-          <Note note={note} selectedTheme={selectedTheme} {...props}>
+          <Note note={note} selectedTheme={selectedTheme} {...props} key={note._id}/>
             
-          </Note>
+
         ))}
       </NotesDiv>
     </Fragment>
@@ -51,6 +51,7 @@ const Notes = props => {
 };
 
 const NotesDiv = styled('div')`
+justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
   width: 100%;

@@ -139,10 +139,18 @@ const NoteButton = styled("div")`
   text-align: center;
   color: ${props => props.theme[props["data-theme"]].subBackground};
   background: ${props => props.theme[props["data-theme"]].button};
-  border: 1px solid ${props => props.theme[props["data-theme"]].border};
+  
   padding: 10px;
   width: 200px;
   font-weight: bold;
+
+  transition: transform .2s ease-in-out;
+  :hover{
+     transform: matrix(1.1, 0, 0, 1.1, 0, 0) !important;
+  }
+  :active{
+    transform: matrix(1, 0, 0, 1, 0, 0) !important;
+  }
 `;
 
 export default NoteView;

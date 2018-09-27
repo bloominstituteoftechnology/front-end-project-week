@@ -48,9 +48,12 @@ class NoteContainer extends Component {
       }
     });
     this.setState({
-      notes: notes,
+      notes: notes, 
       backupNotes:backupNotes
     });
+    console.log('nn',notes);
+    console.log('bn',backupNotes);
+    console.log(newNote);
   };
   deleteNote = id => {
     const notes = this.state.notes.filter(note => {
@@ -66,19 +69,26 @@ class NoteContainer extends Component {
   filterByChar = event => {
     event.preventDefault()
     let value = event.target.value;
-    console.log(value);
-    console.log('notes',this.state.notes)
-    console.log('backup',this.state.backupNotes)
-
-    this.setState(state => {
-      return {
-        
-        notes: state.backupNotes.filter(note => {
-          console.log(note.title.toUpperCase().indexOf(value.toUpperCase()))
+    // console.log(value);
+    // console.log('notes',this.state.notes)
+    // console.log('backup',this.state.backupNotes)
+    if(this.props.match.url !== '/notes'){
+      this.props.history.push('/notes')
+    }
+    const filteredNotes = this.state.backupNotes.filter(note => {          
           return (note.title.toUpperCase().indexOf(value.toUpperCase()) > -1);
         })
+
+    this.setState(state => {
+      return {        
+        notes: filteredNotes
       };
-    });
+    })
+
+    // if (this.state.notes === filteredNotes){
+    //   TweenMax.staggerFromTo('.stagger', 0.3, {opacity:0}, {opacity:1},0.1)
+    // }
+    
   };
 
   filterByTags = tag => {
@@ -108,6 +118,7 @@ sortBy = sortOption => {
         return 0;
       })
     })
+    //TweenMax.fromTo('.stagger', 0.5, {opacity:0}, {opacity:1},0.1)
     break;
 
     case 'Z-A':
@@ -124,6 +135,7 @@ sortBy = sortOption => {
         return 0;
       })
     })
+    ///TweenMax.fromTo('.stagger', 0.5, {opacity:0}, {opacity:1},0.1)
     break;
 
     case 'Reset':
@@ -137,6 +149,7 @@ sortBy = sortOption => {
       notes: sortedNotes
      
     })
+    //TweenMax.fromTo('.stagger', 0.5, {opacity:0}, {opacity:1},0.1)
     break;
   }
 }
@@ -169,9 +182,10 @@ const {checklist} = this.state
   };
 //-----------------------------------------------------------------------------------Axios Data calls
   fetchData = () => {
+    const {notes, backupNotes} = this.state
    this.setState({
-     notes: dummydata,
-     backupNotes: dummydata
+     notes: notes,
+     backupNotes: backupNotes,
    })
     // axios
     //   .get("https://killer-notes.herokuapp.com/note/get/all")
@@ -195,6 +209,15 @@ const {checklist} = this.state
     })
   }
 
+  componentDidUpdate(){
+    
+    if(this.props.location.pathname === '/notes'){
+      console.log('object')
+      TweenMax.fromTo('.stagger', 0.3, {opacity:0, x:25}, {opacity:1, x:0})
+      
+    }
+  }
+
   render() {//------------------------------------------------------Components
     const { notes, selectedTheme, sortOptions, checklist } = this.state;//------------------------Deconstruction
     return (
@@ -206,6 +229,7 @@ const {checklist} = this.state
           render={props => (
             <NavBar
               {...props}
+              notes={notes}
               fetchData={this.fetchData}
               selectedTheme={selectedTheme}
               filterByChar={this.filterByChar}
@@ -294,6 +318,7 @@ const {checklist} = this.state
 
 const ContainerDiv = styled("div")`
   display: flex;
+  justify-content: space-between;
   min-height: 100vh;
   height: 100%;
   width: 100%;
