@@ -52,13 +52,13 @@ export const deleteNote = (noteId) => {
 }
 export const updateNote = (note) => {
   return dispatch => {
-    dispatch({type: SAVING_NOTES});
+    dispatch({type: UPDATING_NOTE});
     console.log('Actions');
     console.log(note);
     console.log(note._id);
     axios
       .put(URL+`edit/${note._id}`, note) //response from the server will be the ID of the new note
-      .then(response => { dispatch({type: NOTES_SAVED, payload:response.data}) })
+      .then(response => { dispatch({type: NOTE_UPDATED, payload:response.data}) })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
       })

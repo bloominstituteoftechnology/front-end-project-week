@@ -10,6 +10,7 @@ import NewNote from './NewNote'
 import EditNote from './EditNote'
 import NoteOptions from './NoteOptions'
 import SearchBar from './SearchBar.js'
+import Authenticate from '../Authentication/Authenticate'
 // import Header from './Header';
 
 
@@ -25,7 +26,10 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    this.props.state.notesSaved ? this.props.fetchNotes() : console.log('notes saved!');
+    (this.props.state.notesSaved || this.props.state.noteDeleted || this.props.state.noteUpdated)
+    ? this.props.fetchNotes()
+    : console.log('notes saved!');
+    console.log('CompUpdate:', this.props.notes);
     // this.props.fetchNotes()
   }
 
@@ -34,6 +38,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('App.js:', this.props.notes);
     return (
       <div className="App">
         <header className="App-header">
@@ -61,14 +66,15 @@ class App extends Component {
            } />
            <Route path='/note-list/:id' render={props =>
              <React.Fragment>
-             <NoteOptions
-               {...props}
-               noteList={this.props.notes}
-              />
+               {console.log('Appnotes:', this.props.notes)}
              <NotesList
                {...props}
                noteList={this.props.notes}
                filter={this.state.filter}
+              />
+              <NoteOptions
+                {...props}
+                noteList={this.props.notes}
               />
               </React.Fragment>
             } />
@@ -97,4 +103,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchNotes })(App))
+export default Authenticate(withRouter(connect(mapStateToProps, { fetchNotes })(App)))

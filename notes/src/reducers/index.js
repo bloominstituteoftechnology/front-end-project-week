@@ -30,8 +30,11 @@ export const notesReducer = (state = initState, action) => {
     case FETCHING_NOTES:
       return {
         ...state,
+        notes: [],
         fetchingNotes: true,
-        notesSaved: false
+        notesSaved: false,
+        noteDeleted: false,
+        noteUpdated: false
       }
     case NOTES_FETCHED:
       return {
@@ -54,12 +57,15 @@ export const notesReducer = (state = initState, action) => {
       }
     case UPDATING_NOTE:
       return {
-        ...state
+        ...state,
+        updatingNote: true,
 
       }
     case NOTE_UPDATED:
       return {
-        ...state
+        ...state,
+        updatingNote: false,
+        noteUpdated: true,
 
       }
     case DELETING_NOTE:
@@ -72,7 +78,8 @@ export const notesReducer = (state = initState, action) => {
       return {
         ...state,
         deletingNote: false,
-        Notes: action.payload
+        Notes: action.payload,
+        noteDeleted: true,
 
       }
     case NOTES:

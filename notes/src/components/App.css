@@ -29,7 +29,6 @@ body {
   display: flex;
   -ms-flex-pack: center;
   justify-content: center;
-  /* border: 1px solid black; */
   width: 100%;
   max-width: 890px;
   margin: auto;
@@ -92,23 +91,18 @@ button {
   flex-direction: row;
   width: 888px;
   margin-top: 17px;
-	border: 1px solid black;
+	border: 1px solid #aaaaaa;
 }
 
 .App-header {
   display: flex;
   width: 24.85%;
   flex-direction: column;
-	border-right: 1px solid black;
+	border-right: 1px solid #aaaaaa;
 	align-items: flex-start;
 	padding: 0 13px;
+	background-color: #d3d2d3
 }
-
-.app-title {
-  display: flex;
-  border: 1px solid black;
-}
-
 
 .App-title {
 	padding: 13px 0;
@@ -117,6 +111,7 @@ button {
 	line-height: 30px;
 	letter-spacing: .8px;
 	margin-bottom: 16px;
+	color: #414141
 }
 
 .nav-link {
@@ -124,13 +119,13 @@ button {
   justify-content: center;
   align-items: center;
   margin-left: 2px;
-  border: 1px solid gray;
+  border: 1px solid #aaaaaa;
   width: 190px;
   height: 42px;
 	margin-bottom: 19px;
 	text-decoration: none;
 	font-weight: bold;
-	background-color: lightblue;
+	background-color: #24b8bd;
 	color: white;
 	font-size: .96rem;
 }
@@ -141,13 +136,14 @@ button {
   flex-direction: column;
   padding: 0 19px;
 	position: relative;
+	background-color: #f2f1f2;
 }
 
 .notes-title {
 	font-size: 1.3rem;
   margin: 55px 8px 31px;
   font-weight: bold;
-
+	color: #4c4c4c
 	}
 
 .search-filter {
@@ -173,17 +169,21 @@ button {
   height: 197px;
   margin-bottom: 25px;
 	padding: 12px 20px 18px 16px;
+	background-color: white;
 }
 
 .note-title {
-	border-bottom: 2px solid gray;
+	border-bottom: 2px solid #dddddd;
 	height: 25px;
 	font-size: 1.1rem;
 	letter-spacing: .5px;
 	color: black;
 }
 
-a {text-decoration: none; color:black; }
+a {
+	text-decoration: none;
+	color: #414141;
+}
 
 .note-textBody {
 	font-size: .79rem;
@@ -229,6 +229,12 @@ a {text-decoration: none; color:black; }
 .delete-button {
 	margin-left: 12px;
 	text-decoration: underline;
+	color: #414141
+}
+
+.note-full-view {
+	position: absolute;
+  left: 22px;
 }
 
 .note-full-view .notes-title{
@@ -254,8 +260,7 @@ a {text-decoration: none; color:black; }
 
 .modal-overlay {
 	  position: absolute;
-    background-color: gray;
-    opacity: 0.6;
+    background-color: rgba(216, 216, 216, 0.6);
     height: 100%;
     width: 100%;
     display: flex;
@@ -273,6 +278,7 @@ a {text-decoration: none; color:black; }
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
+	opacity: 1;
 }
 
 
@@ -288,4 +294,9 @@ a {text-decoration: none; color:black; }
 	width: 190px;
 	border: 1px solid gray;
 	height: 42px;
+	margin: 0 10px;
+	color: white;
 }
+
+.confirmation-button.delete {background-color: #ca001a}
+.confirmation-button.cancel {background-color: #24b8bd}

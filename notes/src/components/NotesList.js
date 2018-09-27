@@ -6,6 +6,7 @@ import Note from './Note';
 class NoteList extends Component {
 
   render() {
+    console.log('NoteList Component came first:', this.props.noteList);
     return this.props
     ?  (
       <div className="note-list">
@@ -13,13 +14,13 @@ class NoteList extends Component {
             (JSON.stringify(item.title)+JSON.stringify(item.textBody))
             .toLowerCase().includes(this.props.filter.toLowerCase()))
             .map(note => {
+              console.log('NoteList _id:', note._id);
             return (
-              // <Route path='/note-list/:_id' render={props =>
-                <React.Fragment>
+                <React.Fragment key={note._id}>
                 <Note
                   match={this.props.match}
-                  key={note._id}
                   note={note}
+                  // key={note._id}
                 />
               </React.Fragment>
               // } />
