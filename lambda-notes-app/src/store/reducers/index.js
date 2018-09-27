@@ -59,7 +59,7 @@ export const notesReducer = (state = initialState, action) => {
     return {...state, addingNote: true};
 
   case SUCCESS_ADD_NOTE:
-    return {...state, addingNote: false, notes: action.payload};
+    return {...state, addingNote: false, notes: [...state.notes, action.payload]};
 
   case FAILURE_ADD_NOTE:
     return {...state, addingNote: false, error: action.payload};

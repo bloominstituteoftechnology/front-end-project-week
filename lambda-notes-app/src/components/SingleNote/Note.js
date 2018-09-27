@@ -34,15 +34,18 @@ export const Note = props => {
         <Popup trigger={<button className='edit-delete-button'>delete</button>} modal>
           {close => (
             <div className='open-modal'>
-              <p>Are you sure you want to delete this?</p>
-              <button onClick={handleDelete}>delete</button>
-              <button 
-              onClick={() => {
-                console.log('modal closed?');
-                close()
-              }}>
-                No  
-              </button>
+              <p className='modal-text'>Are you sure you want to delete this?</p>
+              <div className='handle-modal-buttons'>
+                <button className='delete-inside-modal' onClick={handleDelete}>DELETE</button>
+                <button 
+                className='cancel-inside-modal'
+                onClick={() => {
+                  console.log('modal closed?');
+                  close()
+                }}>
+                  NO  
+                </button>
+              </div>              
             </div>
           )}
         </Popup>

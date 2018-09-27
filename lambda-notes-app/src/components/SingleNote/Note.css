@@ -34,3 +34,45 @@ p {
 .edit-delete-button:hover {
   border-bottom: 1px solid grey;
 }
+
+.open-modal {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-text {
+  padding-left: 150px;
+}
+
+.handle-modal-buttons {
+  display: flex;
+}
+
+.delete-inside-modal {
+  height: 30px;
+  background-color: brightred;
+  background-color: #D90000;
+  color: white;  
+  display: flex;
+  width: 110px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  cursor: pointer;
+}
+
+.cancel-inside-modal {
+  height: 30px;
+  background-color: brightred;
+  background-color: #00BEC0;
+  color: white;
+  display: flex;
+  width: 110px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  cursor: pointer;
+}
