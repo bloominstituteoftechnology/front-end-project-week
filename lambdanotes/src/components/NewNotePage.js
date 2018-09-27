@@ -4,7 +4,14 @@ import { connect } from 'react-redux';
 // Actions
 import { addNote } from '../actions';
 // Styles
-import '../styles/NewNotePage.css';
+import {
+	PageContainer,
+	PageTitle,
+	StatusMessage,
+	StyledInput,
+	StyledTextArea,
+	SubmitInput
+} from '../styles/SharedStyles';
 
 class NewNotePage extends Component {
 	state = {
@@ -33,14 +40,13 @@ class NewNotePage extends Component {
 
 	render() {
 		return (
-			<div className="NewNotePage">
+			<PageContainer>
+				<PageTitle>Create New Note:</PageTitle>
 				{this.props.addingNote ? (
-					<h4 className="adding-message">Adding note...</h4>
+					<StatusMessage>Adding note...</StatusMessage>
 				) : !this.props.error ? (
 					<form className="new-note-form" onSubmit={this.submitHandler}>
-						<h2>Create New Note:</h2>
-						<input
-							className="title-input"
+						<StyledInput
 							name="title"
 							type="text"
 							placeholder="Note Title"
@@ -48,8 +54,7 @@ class NewNotePage extends Component {
 							onChange={this.changeHandler}
 							required
 						/>
-						<input
-							className="content-input"
+						<StyledTextArea
 							name="textBody"
 							type="text"
 							placeholder="Note Content"
@@ -57,12 +62,12 @@ class NewNotePage extends Component {
 							onChange={this.changeHandler}
 							required
 						/>
-						<input type="submit" value="Save" />
+						<SubmitInput type="submit" value="Save" />
 					</form>
 				) : (
-					<h4 className="error-message">{this.props.error}</h4>
+					<StatusMessage error>{this.props.error}</StatusMessage>
 				)}
-			</div>
+			</PageContainer>
 		);
 	}
 }
