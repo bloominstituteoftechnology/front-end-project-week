@@ -22,6 +22,10 @@
   color: white;
 }
 
+.blueButton:hover {
+  cursor: pointer;
+}
+
 
 .blueButton a {
   text-decoration: none;
@@ -48,6 +52,10 @@
   color: white;
 }
 
+.redButton:hover {
+  cursor: pointer;
+}
+
 ul {
   padding: 0px;
   list-style: none;
@@ -56,24 +64,21 @@ ul {
 /* NAVBAR STYLES */
 
 .header {
-  /* border: 2px solid black; */
   margin: 5px 0 0 15px;
   color: #414141;
 }
 
 .navbar {
-  /* position: fixed; */
+  position: fixed;
   justify-content: flex-start;
   background: #D3D2D3;
   border-right: 1px #C8C8C8;
   padding: 10px;
   width: 25%;
-  /* width: 230px; */
   height: 100vh;
 }
 
 .navlinks {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -87,7 +92,8 @@ ul {
   align-items: center;
   background-color: #F2F1F2;
   width: 75%;
-
+  height: 100vh;
+  margin-left: 25%;
 }
 
 .home .header {
@@ -103,29 +109,23 @@ ul {
 
 /* ALL NOTES STYLES */
 .notes-list-wrapper {
-  /* border: 2px solid black; */
-  /* display: flex;
-  flex-wrap: wrap; */
+  margin-left: 25%;
   width: 75%;
+  height: 100vh;
   background: #F2F1F2;
- 
 }
 
 .notes-list-wrapper h3 {
   margin: 55px 0 20px 25px;
 }
 
-
 .all-notes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* align-content: space-between; */
-  /* border: 2px solid purple; */
   margin: 0 25px;
+  height: 100vh;
 }
-
-
 
 .filter {
   display: flex;
@@ -162,7 +162,6 @@ ul {
   width: 80%;
 }
 
-
 .note-card {
   width: 190px;
   height: 200px;
@@ -197,6 +196,8 @@ ul {
 
 .single-note {
   width: 75%;
+  height: 100vh;
+  margin-left: 25%;
   /* border: 2px solid lime; */
   display: flex;
   flex-direction: column;
@@ -229,11 +230,16 @@ ul {
 .note-info-wrapper h1 {
   /* border: 2px solid purple; */
   font-size: 24px;
+
 }
 
 .note-info-wrapper p {
   margin-top: 0;
   line-height: 25px;
+}
+
+.note-info-wrapper textBody {
+  white-space: pre-wrap;
 }
 
 .note-info-wrapper a {
@@ -248,7 +254,9 @@ ul {
   display: flex;
   flex-direction: column;
   width: 75%;
+  height: 100vh;
   /* margin: 20px; */
+  margin-left: 25%;
 }
 
 .note-form h3 {
@@ -268,6 +276,10 @@ ul {
   margin: 10px 0 20px 0;
 }
 
+.note-form .tags {
+  margin: 10px 0 20px 0;
+}
+
 .note-form .content {
   width: 90%;
   /* height: 100%; */
@@ -277,7 +289,7 @@ ul {
 /* MODAL STYLES */
 
 .delete-modal {
-
+  margin-left: 15%;
   height: 100%;
   width: 100%;
   position: absolute;

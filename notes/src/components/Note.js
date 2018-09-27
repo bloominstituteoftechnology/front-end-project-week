@@ -71,7 +71,7 @@ export default class Note extends React.Component {
                 </div>
                     <div className="note-info-wrapper">
                     <h1>{this.state.note.title}</h1>
-                    <p>{this.state.note.textBody}</p>
+                    <p className="textBody">{this.state.note.textBody}</p>
                     <p>Tags: {this.tagsMap(this.state.note.tags)}</p> 
                 
                     </div>

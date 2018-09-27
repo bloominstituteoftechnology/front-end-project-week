@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //axios.get('http://localhost:5000/notes')
     axios.get('http://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
       this.setState({ notesData: response.data, isUpdating: false })
@@ -38,11 +37,12 @@ class App extends Component {
     })
   }
 
-  componentDidUpdate(prevState) {
-    if (this.state.notesData !== prevState.notesData) {
-      axios.get('http://killer-notes.herokuapp.com/note/get/all')
+  componentDidUpdate(prevProps, prevState) {
+    if (JSON.stringify(this.state.notesData) !== JSON.stringify(prevState.notesData)) {
+    axios.get('http://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
-      this.setState({ notesData: response.data })
+      console.log("response:", response);
+      this.setState({ notesData: response.data, isUpdating: false })
     })
     .catch(err => {
       console.log(err);
@@ -72,16 +72,23 @@ class App extends Component {
   }
 
   addNewNote = event => {
-    //event.preventDefault();
+    const newNote = {
+      title: this.state.note.title,
+      textBody: this.state.note.textBody,
+      tags: this.state.note.tags
+    }
     console.log('adding new');
-    //axios.post('http://localhost:5000/notes', this.state.note)
     axios.post('http://killer-notes.herokuapp.com/note/create', this.state.note)
-    .then(response => this.setState({ notesData: response.data, note: { title: '', textBody: '', tags: [] }, isUpdating: false },
-    () => this.props.history.push('/notes')))
+    .then(response => {
+      newNote._id = response.data.success;
+      this.setState({ 
+        notesData: [...this.state.notesData, newNote], note: { title: '', textBody: '', tags: [] }, isUpdating: false 
+      },
+    () => this.props.history.push('/notes'))})
+    
   }
 
   deleteNote = noteId => {
-   // return axios.delete(`http://localhost:5000/notes/${noteId}`)
     return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
     .then(response => this.setState({ notesData: response.data, show: false }))
   }
@@ -94,7 +101,6 @@ class App extends Component {
   }
 
   updateNote = noteId => {
-    //axios.put(`http://localhost:5000/notes/${noteId}`, this.state.note)
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`, this.state.note)
     .then(response => {
       console.log("response.data:", response.data)
@@ -126,7 +132,7 @@ class App extends Component {
     }
     return val;
   }
-  
+
   truncate = (textBody) => {
     let val = '';
     if(textBody.length > 150) {
@@ -137,7 +143,6 @@ class App extends Component {
     return val;
   }
 
- 
   render() {
     return (
       <div className="App">
@@ -172,11 +177,11 @@ class App extends Component {
         exact 
         path="/notes"
         render={props => (
-         <AllNotes {...props}
-         notesData={this.state.notesData}
-         truncate={this.truncate}
-         truncateTitle={this.truncateTitle}
-         filterByTag={this.filterByTag}
+          <AllNotes {...props}
+          notesData={this.state.notesData}
+          truncate={this.truncate}
+          truncateTitle={this.truncateTitle}
+          filterByTag={this.filterByTag}
          />
         
        )}

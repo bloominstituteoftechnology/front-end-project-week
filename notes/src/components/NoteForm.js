@@ -57,9 +57,10 @@ function NoteForm(props) {
                     type="text" 
                     value={joinTags(props.note.tags)} 
                     name="tags" 
+                    className="tags"
+                    placeholder="separate, tags, with, spaces, and, commas"
                     onChange={props.handleChange} 
                 />
-                <p>Separate tags with commas.</p>
                 <div className="buttons">  
                 <button className="blueButton" onClick={handleSubmit}><a>{props.isUpdating ? 'Update' : 'Save'}</a></button>
                 <button className="blueButton" onClick={handleCancel}><a>Cancel</a></button>
