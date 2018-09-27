@@ -162,6 +162,7 @@ button {
   display: flex;
   justify-content: center;
   background-color: #fff;
+ 
 }
 .note-card .card-body {
   padding: 12px;
@@ -180,4 +181,14 @@ button {
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 15px;
+}
+
+.note {
+  width: 30%;
+  max-height: 200px;
+  margin-bottom: 50px;
+}
+
+.search-bar {
+  text-align: center;
 }
