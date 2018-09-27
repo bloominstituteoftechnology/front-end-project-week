@@ -14,7 +14,7 @@ class Register extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="RegisterWrapper">
 				<form
 					onSubmit={event => {
 						event.preventDefault();

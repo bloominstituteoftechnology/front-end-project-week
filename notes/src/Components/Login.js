@@ -12,7 +12,7 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="RegisterWrapper">
 				<form
 					className="Register__form"
 					onSubmit={event => {

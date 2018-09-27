@@ -36,6 +36,16 @@
 	outline: none;
 }
 
+.RegisterWrapper {
+	display: flex;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	padding: 2% 4%;
+	height: 200vh;
+	width: 100%;
+	background-color: #f2f0f2;
+}
+
 .NotesWrapper {
 	display: flex;
 	align-content: flex-start;
@@ -71,7 +81,7 @@
 	margin-bottom: 10px;
 }
 
-.NoteCardWrapper{
+.NoteCardWrapper {
 	display: flex;
 	flex-wrap: wrap;
 }
