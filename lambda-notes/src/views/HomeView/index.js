@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// Dependencies
+import PropTypes from 'prop-types';
+
 // Assets
 import logo from '../../assets/notepad.svg';
 
@@ -16,6 +19,10 @@ const HomeView = props => {
 			</div>
 		</div>
 	);
+}
+
+HomeView.propTypes = {
+	username: PropTypes.string,
 }
 
 export default HomeView;

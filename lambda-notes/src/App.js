@@ -5,6 +5,9 @@ import { Route } from 'react-router-dom';
 // Redux
 import { connect } from 'react-redux';
 
+// Dependencies
+import PropTypes from 'prop-types';
+
 // Views
 import { 
 	ListView, 
@@ -32,7 +35,15 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { notes, createNote, deleteNote, editNote, errorMsg, username, deleteAll } = this.props;
+		const { 
+			notes, 
+			createNote, 
+			deleteNote, 
+			editNote, 
+			errorMsg, 
+			username, 
+			deleteAll, 
+		} = this.props;
 
 		return (
 			<div className = 'App'>
@@ -65,6 +76,54 @@ class App extends React.Component {
 			</div>
 		);
 	}
+}
+
+App.propTypes = {
+	createNote: PropTypes.func,
+	deleteAll: PropTypes.func,
+	deleteNote: PropTypes.func,
+	editNote: PropTypes.func,
+	errorMsg: PropTypes.string,
+	getKillerNotes: PropTypes.func,
+	history: PropTypes.shape({
+		action: PropTypes.string,
+		block: PropTypes.func,
+		createHref: PropTypes.func,
+		go: PropTypes.func,
+		goBack: PropTypes.func,
+		goForward: PropTypes.func,
+		length: PropTypes.number,
+		listen: PropTypes.func,
+		location: PropTypes.shape({
+			hash: PropTypes.string,
+			key: PropTypes.string,
+			pathname: PropTypes.string,
+			search: PropTypes.string,
+		}),
+		push: PropTypes.func,
+		replace: PropTypes.func,
+	}),
+	location: PropTypes.shape({
+		hash: PropTypes.string,
+		pathname: PropTypes.string,
+		search: PropTypes.string,
+	}),
+	match: PropTypes.shape({
+		isExact: PropTypes.bool,
+		params: PropTypes.shape({}),
+		path: PropTypes.string,
+		url: PropTypes.string,
+	}),
+	notes: PropTypes.arrayOf(
+		PropTypes.shape({
+			tags: PropTypes.arrayOf(PropTypes.string),
+			textBody: PropTypes.string,
+			title: PropTypes.string,
+			'__v': PropTypes.number,
+			'_id': PropTypes.string,
+		}),
+	),
+	username: PropTypes.string,
 }
 
 const mapStateToProps = state => ({

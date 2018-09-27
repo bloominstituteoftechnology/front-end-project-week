@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// Dependencies
+import PropTypes from 'prop-types';
+
 const Note = props => {
 	const { exactInput, note, history } = props;
 	const allowedTags = ['grin-beam', 'angry', 'grin-squint-tears', 'frown'];
@@ -35,6 +38,35 @@ const Note = props => {
 			}
 		</div>
 	);
+}
+
+Note.propTypes = {
+	exactInput: PropTypes.string,
+	history: PropTypes.shape({
+		action: PropTypes.string,
+		block: PropTypes.func,
+		createHref: PropTypes.func,
+		go: PropTypes.func,
+		goBack: PropTypes.func,
+		goForward: PropTypes.func,
+		length: PropTypes.number,
+		listen: PropTypes.func,
+		location: PropTypes.shape({
+			hash: PropTypes.string,
+			key: PropTypes.string,
+			pathname: PropTypes.string,
+			search: PropTypes.string,
+		}),
+		push: PropTypes.func,
+		replace: PropTypes.func,
+	}),
+	note: PropTypes.shape({
+		tags: PropTypes.arrayOf(PropTypes.string),
+		textBody: PropTypes.string,
+		title: PropTypes.string,
+		'__v': PropTypes.number,
+		'_id': PropTypes.string,
+	}),
 }
 
 export default Note;

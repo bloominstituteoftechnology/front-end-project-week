@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// Dependencies
+import PropTypes from 'prop-types';
+
 class Edit extends React.Component {
 	state = {
 		note: {
@@ -75,28 +78,30 @@ class Edit extends React.Component {
 		}
 
 		this.props.editNote(this.state.note, this.props.note._id, this.props.history);
-	}
+	} // handleSubmit()
 	
 	render() {
+		const { errorMsg, note } = this.state;
+
 		return(
 			<div className = 'edit'>
-				<form className = 'form' onSubmit = { this.handleSubmit }>
+				<form className = 'form' onSubmit = { e => this.handleSubmit(e) }>
 					<h2>Edit Note:</h2>
 
-					<p>{ this.state.errorMsg }</p>
+					{ errorMsg && <p>{ errorMsg }</p> }
 
 					<input 
 						className = 'note-title-input' 
 						name = 'title' 
 						type = 'text' 
-						value = { this.state.note.title } 
+						value = { note.title } 
 						onChange = { this.handleInputChange } 
 					/>
 
 					<textarea 
 						className = 'note-content-text-area' 
 						name = 'textBody' 
-						value = { this.state.note.textBody } 
+						value = { note.textBody } 
 						onChange = { this.handleInputChange } 
 					/>
 
@@ -107,7 +112,7 @@ class Edit extends React.Component {
 								name = 'grin-beam' 
 								value = 'grin-beam' 
 								onChange = { this.handleCheckboxChange } 
-								checked = { this.state.note.tags.includes('grin-beam') ? true : false }
+								checked = { note.tags.includes('grin-beam') ? true : false }
 							/>
 							<i className = 'far fa-grin-beam' />
 						</div>
@@ -118,7 +123,7 @@ class Edit extends React.Component {
 								name = 'angry' 
 								value = 'angry' 
 								onChange = { this.handleCheckboxChange } 
-								checked = { this.state.note.tags.includes('angry') ? true : false }
+								checked = { note.tags.includes('angry') ? true : false }
 							/>
 							<i className = 'far fa-angry' />
 						</div>
@@ -129,7 +134,7 @@ class Edit extends React.Component {
 								name = 'grin-squint-tears' 
 								value = 'grin-squint-tears' 
 								onChange = { this.handleCheckboxChange } 
-								checked = { this.state.note.tags.includes('grin-squint-tears') ? true : false }
+								checked = { note.tags.includes('grin-squint-tears') ? true : false }
 							/>
 							<i className = 'far fa-grin-squint-tears' />
 						</div>
@@ -140,7 +145,7 @@ class Edit extends React.Component {
 								name = 'frown' 
 								value = 'frown' 
 								onChange = { this.handleCheckboxChange } 
-								checked = { this.state.note.tags.includes('frown') ? true : false }
+								checked = { note.tags.includes('frown') ? true : false }
 							/>
 							<i className = 'far fa-frown' />
 						</div>
@@ -151,6 +156,36 @@ class Edit extends React.Component {
 			</div>
 		);
 	}
+}
+
+Edit.propTypes = {
+	editNote: PropTypes.func,
+	history: PropTypes.shape({
+		action: PropTypes.string,
+		block: PropTypes.func,
+		createHref: PropTypes.func,
+		go: PropTypes.func,
+		goBack: PropTypes.func,
+		goForward: PropTypes.func,
+		length: PropTypes.number,
+		listen: PropTypes.func,
+		location: PropTypes.shape({
+			hash: PropTypes.string,
+			key: PropTypes.string,
+			pathname: PropTypes.string,
+			search: PropTypes.string,
+		}),
+		push: PropTypes.func,
+		replace: PropTypes.func,
+	}),
+	note: PropTypes.shape({
+		tags: PropTypes.arrayOf(PropTypes.string),
+		textBody: PropTypes.string,
+		title: PropTypes.string,
+		'__v': PropTypes.number,
+		'_id': PropTypes.string,
+
+	}),
 }
 
 export default Edit;

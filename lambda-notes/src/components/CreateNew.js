@@ -1,7 +1,10 @@
 // React
 import React from 'react';
 
-class CreateNew extends React.Component {
+// Dependencies
+import PropTypes from 'prop-types';
+
+export default class CreateNew extends React.Component {
 	state = {
 		note: {
 			tags: [],
@@ -65,22 +68,24 @@ class CreateNew extends React.Component {
 		}
 
 		this.props.createNote(newNote, this.props.history);
-	}
-	
+	} // handleSubmit()
+
 	render() {
+		const { errorMsg, note } = this.state;
+
 		return(
 			<div className = 'create-new'>
-				<form className = 'form' onSubmit = { this.handleSubmit }>
+				<form className = 'form' onSubmit = { e => this.handleSubmit(e) }>
 					<h2>Create New Note:</h2>
 
-					{ this.state.errorMsg && <p>{ this.state.errorMsg }</p> }
+					{ errorMsg && <p>{ errorMsg }</p> }
 
 					<input 
 						className = 'note-title-input' 
 						name = 'title' 
 						type = 'text' 
 						placeholder = 'Title' 
-						value = { this.state.note.title } 
+						value = { note.title } 
 						onChange = { this.handleInputChange } 
 					/>
 
@@ -88,7 +93,7 @@ class CreateNew extends React.Component {
 						className = 'note-content-text-area' 
 						name = 'textBody' 
 						placeholder = 'Body' 
-						value = { this.state.note.textBody } 
+						value = { note.textBody } 
 						onChange = { this.handleInputChange } 
 					/>
 
@@ -137,4 +142,24 @@ class CreateNew extends React.Component {
 	}
 }
 
-export default CreateNew;
+CreateNew.propTypes = {
+	createNote: PropTypes.func,
+	history: PropTypes.shape({
+		action: PropTypes.string,
+		block: PropTypes.func,
+		createHref: PropTypes.func,
+		go: PropTypes.func,
+		goBack: PropTypes.func,
+		goForward: PropTypes.func,
+		length: PropTypes.number,
+		listen: PropTypes.func,
+		location: PropTypes.shape({
+			hash: PropTypes.string,
+			key: PropTypes.string,
+			pathname: PropTypes.string,
+			search: PropTypes.string,
+		}),
+		push: PropTypes.func,
+		replace: PropTypes.func,
+	}),
+}

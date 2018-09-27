@@ -4,6 +4,7 @@ import React from 'react';
 // Dependencies
 import fuzzysearch from 'fuzzysearch';
 import { CSVLink } from 'react-csv';
+import PropTypes from 'prop-types';
 
 // Components
 import { Note } from '../../components';
@@ -12,7 +13,7 @@ import { Note } from '../../components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalBody } from 'reactstrap';
 
-class ListView extends React.Component {
+export default class ListView extends React.Component {
 	state = {
 		errorMsg: '',
 		search: {
@@ -102,6 +103,8 @@ class ListView extends React.Component {
 	}
 
 	render() {
+		const { errorMsg, search, input, deleteAllModal } = this.state;
+		const { history, notes, username } = this.props;
 		const csvHeaders = [
 			{label: 'Version', key: '__v'},
 			{label: 'Tags', key: 'tags'},
@@ -111,15 +114,15 @@ class ListView extends React.Component {
 		];
 		const csvData = [];
 
-		for (let i = 0; i < this.props.notes.length; i++) {
-			csvData.push(this.props.notes[i]);
+		for (let i = 0; i < notes.length; i++) {
+			csvData.push(notes[i]);
 		}
 
 		return(
 			<div className = 'main-content'>
 				<div className = 'list'>
 					<div className = 'search-wrapper'>
-						{ this.state.errorMsg && <p>{ this.state.errorMsg }</p> }
+						{ errorMsg && <p>{ errorMsg }</p> }
 
 						<div>
 							<button className = 'btn delete-all-btn' onClick = { e => this.toggleDeleteAllModal(e) }>Delete All Notes</button>
@@ -127,7 +130,7 @@ class ListView extends React.Component {
 							<CSVLink 
 								headers = { csvHeaders }
 								data = { csvData } 
-								filename = { `${ this.props.username }-notes.csv` } 
+								filename = { `${ username }-notes.csv` } 
 								className = 'btn csv-link' 
 							>Export as CSV</CSVLink>
 
@@ -139,7 +142,7 @@ class ListView extends React.Component {
 						<div>
 							<Modal 
 								centered={ true } 
-								isOpen={ this.state.deleteAllModal } 
+								isOpen={ deleteAllModal } 
 								toggle={ this.toggleDeleteAllModal } 
 							>
 								<ModalBody>
@@ -159,47 +162,47 @@ class ListView extends React.Component {
 							</Modal>
 						</div>
 
-						{ (this.state.search.exactSearch || this.state.search.fuzzySearch) && <p className = 'search-note lengthen-anim'> All searches are case sensitive</p> }
+						{ (search.exactSearch || search.fuzzySearch) && <p className = 'search-note lengthen-anim'> All searches are case sensitive</p> }
 
-						{ this.state.search.exactSearch && 
+						{ search.exactSearch && 
 							<div className = 'search'>
 								<input 
 									className = 'lengthen-anim' 
 									name = 'exactInput' 
 									placeholder = 'Search for exact terms...' 
-									value = { this.state.input.exactInput } 
+									value = { input.exactInput } 
 									onChange = { e => this.handleInputChange(e) } 
 								/>
 							</div> 
 						}
 
-						{ this.state.search.fuzzySearch && 
+						{ search.fuzzySearch && 
 							<div className = 'search'>
 								<input 
 									className = 'lengthen-anim' 
 									name = 'fuzzyInput' 
 									placeholder = 'Search for fuzzy terms...' 
-									value = { this.state.input.fuzzyInput } 
+									value = { input.fuzzyInput } 
 									onChange = { e => this.handleInputChange(e) } 
 								/>
 							</div> 
 						}
 					</div>
 
-					<h2>{ this.props.username }'s Notes:</h2>
+					<h2>{ username }'s Notes:</h2>
 
 					{ 
-						(this.state.search.exactSearch && (this.props.notes.filter(note => {
-							if ((note.title.indexOf(this.state.input.exactInput) !== -1) || (note.textBody.indexOf(this.state.input.exactInput) !== -1)) return true;
+						(search.exactSearch && (notes.filter(note => {
+							if ((note.title.indexOf(input.exactInput) !== -1) || (note.textBody.indexOf(input.exactInput) !== -1)) return true;
 							else return false;
-						}).map((note, i) => <Note history = { this.props.history } key = { i } exactInput = { this.state.input.exactInput } note = { note } />))) || 
+						}).map((note, i) => <Note history = { history } key = { i } exactInput = { input.exactInput } note = { note } />))) || 
 
-						(this.state.search.fuzzySearch && (this.props.notes.filter(note => {
-							if (fuzzysearch(this.state.input.fuzzyInput, note.title) || fuzzysearch(this.state.input.fuzzyInput, note.textBody)) return true;
+						(search.fuzzySearch && (notes.filter(note => {
+							if (fuzzysearch(input.fuzzyInput, note.title) || fuzzysearch(input.fuzzyInput, note.textBody)) return true;
 							else return false;
-						}).map((note, i) => <Note history = { this.props.history } key = { i } note = { note } />))) || 
+						}).map((note, i) => <Note history = { history } key = { i } note = { note } />))) || 
 
-						(this.props.notes.map((note, i) => <Note history = { this.props.history } key = { i } note = { note } />)) 
+						(notes.map((note, i) => <Note history = { history } key = { i } note = { note } />)) 
 					}
 				</div>
 			</div>
@@ -207,4 +210,34 @@ class ListView extends React.Component {
 	}
 }
 
-export default ListView;
+ListView.propTypes = {
+	deleteAll: PropTypes.func,
+	history: PropTypes.shape({
+		action: PropTypes.string,
+		block: PropTypes.func,
+		createHref: PropTypes.func,
+		go: PropTypes.func,
+		goBack: PropTypes.func,
+		goForward: PropTypes.func,
+		length: PropTypes.number,
+		listen: PropTypes.func,
+		location: PropTypes.shape({
+			hash: PropTypes.string,
+			key: PropTypes.string,
+			pathname: PropTypes.string,
+			search: PropTypes.string,
+		}),
+		push: PropTypes.func,
+		replace: PropTypes.func,
+	}),
+	notes: PropTypes.arrayOf(
+		PropTypes.shape({
+			tags: PropTypes.arrayOf(PropTypes.string),
+			textBody: PropTypes.string,
+			title: PropTypes.string,
+			'__v': PropTypes.number,
+			'_id': PropTypes.string,
+		}),
+	),
+	username: PropTypes.string,
+}

@@ -8,6 +8,7 @@
     "fuzzysearch": "^1.0.3",
     "less": "^3.8.1",
     "less-watch-compiler": "^1.11.3",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-csv": "^1.0.15-RC2",
     "react-dom": "^16.5.2",

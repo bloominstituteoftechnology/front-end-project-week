@@ -3,8 +3,9 @@ import React from 'react';
 
 // Dependencies
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-class Nav extends React.Component {
+export default class Nav extends React.Component {
 	state = {
 		toggleMenu: false,
 	};
@@ -21,6 +22,9 @@ class Nav extends React.Component {
 	}
 
 	render() {
+		const { errorMsg } = this.props;
+		const { toggleMenu } = this.state;
+
 		return(
 			<div className = 'nav slide-down-anim'>
 				<header>
@@ -33,13 +37,13 @@ class Nav extends React.Component {
 						className = 'hamburger-menu-container phone' 
 						onClick = { this.toggleMenu }
 					>
-						<i className = { `fas ${ this.state.toggleMenu ? 'fa-times' : 'fa-bars' }` } />
+						<i className = { `fas ${ toggleMenu ? 'fa-times' : 'fa-bars' }` } />
 					</div>
 				</header>
 
-				{ this.props.errorMsg && <p>{ this.props.errorMsg }</p> }
+				{ errorMsg && <p>{ errorMsg }</p> }
 
-				<div className = { `btn-container ${ this.state.toggleMenu ? '' : 'display-none' }` }>
+				<div className = { `btn-container ${ toggleMenu ? '' : 'display-none' }` }>
 					<NavLink 
 						exact to = '/' 
 						className = 'btn' 
@@ -71,4 +75,6 @@ class Nav extends React.Component {
 	}
 }
 
-export default Nav;
+Nav.propTypes = {
+	errorMsg: PropTypes.string,
+}
