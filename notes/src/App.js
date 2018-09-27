@@ -14,11 +14,6 @@ import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
 
 class App extends Component {
-
-  componentDidCatch(){
-    this.clearSearch;
-  }
-
   constructor(props){
     super(props);
     this.state = {
