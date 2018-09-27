@@ -8,7 +8,7 @@ function Note(props) {
 
   return (
     <NoteStyle>
-      <h3>{title.length > 50 ? `${title.slice(0, 50)}...` : title}</h3>
+      <h3>{title.length > 20 ? `${title.slice(0, 20)}...` : title}</h3>
       <p>
         {description.length > 140
           ? `${description.slice(0, 140)}...`

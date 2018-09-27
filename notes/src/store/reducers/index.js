@@ -17,13 +17,13 @@ const initialState = {
 export const noteReducers = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_DATA:
-      return { ...state, fetching: true };
+      return { ...state, fetching: true, success: false };
 
     case ERROR:
       return { ...state, error: "Error with notes" + action.err };
 
     case GET_DATA:
-      return { ...state, notes: action.payload, fetching: false };
+      return { ...state, notes: action.payload, fetching: false, success: true };
 
     case ADD_NOTE:
       const newNote = { ...action.payload };
@@ -35,7 +35,8 @@ export const noteReducers = (state = initialState, action) => {
             ...newNote
           }
         ],
-        fetching: false
+        fetching: false,
+        success: true,
       };
 
     case DELETE_NOTE:
@@ -45,7 +46,8 @@ export const noteReducers = (state = initialState, action) => {
           ...state.notes.slice(0, position),
           ...state.notes.slice(position + 1)
         ],
-        fetching: false
+        fetching: false,
+        success: true,
       };
 
     case EDIT_NOTE:
@@ -60,7 +62,8 @@ export const noteReducers = (state = initialState, action) => {
           { ...action.payload },
           ...state.notes.slice(editPosition + 1)
         ],
-        fetching: false
+        fetching: false,
+        success: true,
       };
 
     default:

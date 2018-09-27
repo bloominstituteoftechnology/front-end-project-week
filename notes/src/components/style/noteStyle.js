@@ -21,6 +21,7 @@ export const NoteStyle = styled.div`
   margin-top: 20px;
   height: 270px;
   transition: all 0.5s ease;
+  overflow: hidden;
 
   &:hover {
     box-shadow: 0px 1px 17px 6px lightgrey;
@@ -68,6 +69,12 @@ export const Button = styled.button`
   top: 10px;
   right: 50px;
   font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1)
+  }
 
   &.left {
     right: 100px;

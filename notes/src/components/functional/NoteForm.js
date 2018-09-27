@@ -21,15 +21,8 @@ class NoteForm extends React.Component {
     });
   };
 
-  componentDidUpdate() {
-    setTimeout(() => {
-      this.filterProps();
-    }, 5)
-    
-  }
-
   componentWillReceiveProps() {
-    this.setState({ title: "", textBody: "" });
+    this.filterProps();
   }
 
   handleChange = e => {

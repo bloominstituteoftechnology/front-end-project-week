@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { deleteNote, getData } from "../../store/actions";
 import Modal from "../presentational/Modal";
+import Todo from './Todo'
 
 import { Button, ViewContainer } from "../style/noteStyle";
 
@@ -25,7 +26,7 @@ class ViewPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.notes !== prevProps.notes) {
+    if (this.props.success !== prevProps.success) {
       this.filterProps();
     }
   }
@@ -64,6 +65,7 @@ class ViewPage extends React.Component {
             return <p key={index}>{descript}</p>;
           })}
         </div>
+        <Todo />
         <Modal
           showModal={this.state.showModal}
           toggleModal={this.toggleModal}
@@ -76,7 +78,8 @@ class ViewPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    success: state.success
   };
 };
 

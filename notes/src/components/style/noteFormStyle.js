@@ -16,6 +16,13 @@ export const Input = styled.input`
   border: 1px solid #d3d2d3;
   border-radius: 4px;
   font-size: 1.5rem;
+  outline: none;
+  background: #D3D2D3;
+  transition: all 0.5s;
+
+  &:focus {
+    background: white;
+  }
 `;
 
 export const Textarea = styled.textarea`
@@ -27,6 +34,13 @@ export const Textarea = styled.textarea`
   border-radius: 4px;
   width: 100%
   font-size: 1.6rem;
+  outline: none;
+  background: #D3D2D3;
+  transition: all 0.5s;
+
+  &:focus {
+    background: white;
+  }
 `;
 
 export const Button = styled.button`
