@@ -26,6 +26,7 @@
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 5px;
+  word-wrap:break-word;
 }
 
 .text-body {
@@ -38,4 +39,5 @@
   margin-bottom: 15px;
   margin-left: 15px;
   padding-top: 10px;
+  word-wrap:break-word;
 }
