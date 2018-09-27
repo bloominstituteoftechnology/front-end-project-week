@@ -4,14 +4,17 @@ import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
 const SignUpForm=styled.form`
-    max-width: 390px;
+    max-width: 394px;
     width: 100%;
-    margin: 0 auto;
+    margin:0 auto;
     margin-top: 80px;
     border: 1px solid black;
     background-color: #ddd;
     height: 250px;
-    
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 `
 const SignUpPageH1=styled.h1`
     margin-top:30px
