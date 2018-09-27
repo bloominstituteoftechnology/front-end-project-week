@@ -115,6 +115,7 @@ class App extends Component {
   logout = (e) => {
     e.preventDefault();
     localStorage.removeItem('JWT');
+    localStorage.removeItem('username');
     this.props.history.push('/welcome')
   }
 

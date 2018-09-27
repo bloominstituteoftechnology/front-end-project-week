@@ -7,6 +7,7 @@
     "axios": "^0.18.0",
     "components": "^0.1.0",
     "dnd-core": "^4.0.5",
+    "dotenv": "^6.0.0",
     "gh-pages": "^2.0.0",
     "immutability-helper": "^2.7.1",
     "lodash.flow": "^3.5.0",

@@ -5,7 +5,6 @@ import UserForm from './userform.js';
 
 export default class Login extends Component{
     render(){
-        console.log(this.props.failed)
         return(
             <LoginDiv>
                 <h1>LoginDiv</h1>

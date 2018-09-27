@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -12,23 +13,27 @@ import {
     createUser,
     loginUser,
     } from '../../actions';
-
+    
 class Welcome extends Component{
-
+    
     createUser = (newUser) => {
-        console.log('createuser in welcome.js', this)
-        axios.post('http://localhost:3333/api/welcome/register', newUser).then(res => {
+        // console.log('createuser in welcome.js', this)
+        axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/welcome/register/', newUser).then(res => {
+            console.log(res)
             localStorage.setItem('JWT', res.data.token)
             localStorage.setItem('username', res.data.username)
             this.props.history.push('/all-notes')
+            this.props.getNotes();
         }).catch(err => {console.log(err.message)})
     }
 
     loginUser2 =  (creds) => {
-        console.log('loginuser in welcome.js', creds)
-        axios.post('http://localhost:3333/api/welcome/login', creds).then(res => {
+        // console.log('loginuser in welcome.js', creds)
+        axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/welcome/login', creds).then(res => {
             localStorage.setItem('JWT', res.data.token)
+            localStorage.setItem('username', res.data.username)
             this.props.history.push('/all-notes')
+            this.props.getNotes();
         }).catch(err => {console.log(err.message)})
     }
 
