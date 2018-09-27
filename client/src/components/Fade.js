@@ -16,7 +16,7 @@ class Fade extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       this.setState({ in: false }, () =>
         setTimeout(
           () => this.setState({ in: true, location: this.props.location }),

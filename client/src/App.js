@@ -56,33 +56,54 @@ class App extends Component {
                     )
                   }
                 />
-                {this.props.isLoggedIn && (
-                  <React.Fragment>
-                    <Route
-                      exact
-                      path="/notes"
-                      render={() => (
-                        <React.Fragment>
-                          <SearchBar />
-                          <SortingOptions />
-                          <ListContainer />
-                        </React.Fragment>
-                      )}
-                    />
-                    <Route
-                      exact
-                      path="/notes/new"
-                      component={AddNoteContainer}
-                    />
-                    <Route
-                      exact
-                      path="/notes/:id/edit"
-                      component={EditNoteContainer}
-                    />
-                    <Route exact path="/notes/:id" component={NoteContainer} />
-                  </React.Fragment>
-                )}
-                <Route render={() => <Redirect to="/" />} />
+                <Route
+                  exact
+                  path="/notes"
+                  render={() =>
+                    this.props.isLoggedIn ? (
+                      <React.Fragment>
+                        <SearchBar />
+                        <SortingOptions />
+                        <ListContainer />
+                      </React.Fragment>
+                    ) : (
+                      <Redirect to="/" />
+                    )
+                  }
+                />
+                <Route
+                  exact
+                  path="/notes/new"
+                  render={props =>
+                    this.props.isLoggedIn ? (
+                      <AddNoteContainer {...props} />
+                    ) : (
+                      <Redirect to="/" />
+                    )
+                  }
+                />
+                <Route
+                  exact
+                  path="/notes/:id/edit"
+                  render={props =>
+                    this.props.isLoggedIn ? (
+                      <EditNoteContainer {...props} />
+                    ) : (
+                      <Redirect to="/" />
+                    )
+                  }
+                />
+                <Route
+                  exact
+                  path="/notes/:id"
+                  render={props =>
+                    this.props.isLoggedIn ? (
+                      <NoteContainer {...props} />
+                    ) : (
+                      <Redirect to="/" />
+                    )
+                  }
+                />
               </Switch>
             )}
           </Fade>

@@ -20,6 +20,7 @@ export const {
   deleteNoteRequest,
   deleteNoteSuccess,
   deleteNoteFailure,
+  clearError,
 } = createActions(
   'FETCH_NOTES_REQUEST',
   'FETCH_NOTES_SUCCESS',
@@ -36,6 +37,7 @@ export const {
   'DELETE_NOTE_REQUEST',
   'DELETE_NOTE_SUCCESS',
   'DELETE_NOTE_FAILURE',
+  'CLEAR_ERROR',
 );
 
 export const {
@@ -50,11 +52,12 @@ export const {
   'MOVE_ITEM',
 );
 
-export const { authSuccess, authError, authLogout } = createActions(
-  'AUTH_SUCCESS',
-  'AUTH_ERROR',
-  'AUTH_LOGOUT',
-);
+export const {
+  authSuccess,
+  authError,
+  authLogout,
+  authRequest,
+} = createActions('AUTH_REQUEST', 'AUTH_SUCCESS', 'AUTH_ERROR', 'AUTH_LOGOUT');
 
 export const fetchNotes = () => async (dispatch, getState) => {
   dispatch(fetchNotesRequest());
@@ -83,12 +86,23 @@ export const fetchOne = id => async dispatch => {
   }
 };
 
-export const addNote = data => async dispatch => {
+export const addNote = (data, cb) => async (dispatch, getState) => {
   dispatch(addNoteRequest());
   try {
-    let response = await axios.post(`${API_URL}notes`, data);
+    let response = await axios({
+      method: 'POST',
+      data,
+      url: `${API_URL}notes`,
+      headers: {
+        authorization: `Bearer ${getState().token}`,
+      },
+    });
+    if (response.data.error)
+      return dispatch(addNoteFailure(response.data.error));
     dispatch(addNoteSuccess({ id: response.data.success, ...data }));
+    cb();
   } catch (err) {
+    console.log(err);
     dispatch(addNoteFailure(err));
   }
 };
@@ -113,7 +127,9 @@ export const deleteNote = id => async dispatch => {
   }
 };
 
-export const authUser = (credentials, type) => async dispatch => {
+export const authUser = (credentials, type) => async (dispatch, getState) => {
+  if (getState().authenticating) return Promise.resolve();
+  dispatch(authRequest());
   try {
     let response = await axios.post(`${API_URL}${type}`, credentials);
     if (response.data.error) return dispatch(authError(response.data.error));
@@ -130,6 +146,7 @@ export const checkToken = () => {
   if (token) {
     return authSuccess(token);
   }
+  return authLogout();
 };
 
 export const logout = () => {

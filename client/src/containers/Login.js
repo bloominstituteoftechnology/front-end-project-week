@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Button } from '../styles';
 import { authUser } from '../actions';
+import Loading from '../components/Loading';
 
 const Form = styled.form`
   max-width: 40rem;
@@ -99,13 +100,17 @@ class Login extends Component {
           />
           <Label>#Password</Label>
         </Wrapper>
-        <Button type="submit">Login</Button>
+        {this.props.authenticating ? (
+          <Loading />
+        ) : (
+          <Button type="submit">Login</Button>
+        )}
       </Form>
     );
   }
 }
 
 export default connect(
-  null,
+  ({ authenticating }) => ({ authenticating }),
   { authUser },
 )(Login);

@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SecondaryHeading } from '../styles';
 import NotesForm from '../components/NotesForm';
-import { addNote } from '../actions';
+import { addNote, clearError } from '../actions';
 
 class AddNoteContaier extends Component {
-  state = {
-    requested: false,
-  };
-
   onFormSubmit = data => {
-    this.props.addNote(data);
+    this.props.addNote(data, () => this.props.history.push('/notes'));
     this.setState({
       requested: true,
     });
@@ -24,11 +20,12 @@ class AddNoteContaier extends Component {
     }
 
     if (error) {
-      return <div>Something went wrong, please try again {error.message}</div>;
-    }
-
-    if (this.state.requested) {
-      this.props.history.push('/');
+      return (
+        <div>
+          Something went wrong, please try again {error.message}{' '}
+          <button onClick={this.props.clearError}>OK</button>
+        </div>
+      );
     }
 
     return (
@@ -42,5 +39,5 @@ class AddNoteContaier extends Component {
 
 export default connect(
   ({ isAdding, error }) => ({ isAdding, error }),
-  { addNote },
+  { addNote, clearError },
 )(AddNoteContaier);

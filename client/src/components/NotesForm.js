@@ -4,18 +4,25 @@ import styled from 'styled-components';
 import { Button, Tag } from '../styles';
 
 const StyledInput = styled.input`
-  padding: 1rem;
-  background-color: #fff;
-  border: 1px solid #9e9e9e;
   display: block;
-  font-family: inherit;
-  font-size: 1.4rem;
-  color: inherit;
   width: 60%;
-  margin-bottom: 2rem;
+  border: none;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  transition: all 0.2s;
+  margin-bottom: 3rem;
+
+  &:focus {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    outline: none;
+  }
 
   &::placeholder {
-    color: #ccc;
+    color: #bdbdbd;
   }
 `;
 
@@ -23,7 +30,8 @@ const StyledTextarea = styled.textarea`
   display: block;
   padding: 1rem;
   background-color: #fff;
-  border: 1px solid #9e9e9e;
+  border: none;
+  border-radius: 5px;
   font-family: inherit;
   font-size: 1.4rem;
   color: inherit;
@@ -33,6 +41,11 @@ const StyledTextarea = styled.textarea`
 
   &::placeholder {
     color: #ccc;
+  }
+
+  &:focus {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    outline: none;
   }
 `;
 
@@ -54,15 +67,17 @@ class NotesForm extends Component {
   };
 
   componentDidMount() {
-    // if (this.props.preloadedState) {
-    //   this.setState(this.props.preloadedState);
-    // }
+    if (this.props.preloadedState) {
+      this.setState(this.props.preloadedState);
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // if (prevProps.preloadedState.id !== this.props.preloadedState.id) {
-    //   this.setState(this.props.preloadedState);
-    // }
+    if (prevProps.preloadedState && this.props.preloadedState) {
+      if (prevProps.preloadedState.id !== this.props.preloadedState.id) {
+        this.setState(this.props.preloadedState);
+      }
+    }
   }
 
   handleChange = ({ target: { name, value } }) => {

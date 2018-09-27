@@ -23,6 +23,8 @@ import {
   authSuccess,
   authError,
   authLogout,
+  authRequest,
+  clearError,
 } from '../actions';
 
 const notes = handleActions(
@@ -99,16 +101,18 @@ const isDeleting = handleActions(
   false,
 );
 
-const error = handleAction(
-  combineActions(
-    fetchNotesFailure,
-    fetchOneFailure,
-    addNoteFailure,
-    editNoteFailure,
-    deleteNoteFailure,
-    authError,
-  ),
-  (_, { payload }) => payload,
+const error = handleActions(
+  {
+    [combineActions(
+      fetchNotesFailure,
+      fetchOneFailure,
+      addNoteFailure,
+      editNoteFailure,
+      deleteNoteFailure,
+      authError,
+    )]: (_, { payload }) => payload,
+    [clearError]: () => null,
+  },
   null,
 );
 
@@ -116,6 +120,14 @@ const isLoggedIn = handleActions(
   {
     [authSuccess]: () => true,
     [combineActions(authLogout, authError)]: () => false,
+  },
+  false,
+);
+
+const authenticating = handleActions(
+  {
+    [authRequest]: () => true,
+    [combineActions(authSuccess, authError)]: () => false,
   },
   false,
 );
@@ -135,4 +147,5 @@ export default combineReducers({
   term,
   isLoggedIn,
   token,
+  authenticating,
 });
