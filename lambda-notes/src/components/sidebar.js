@@ -1,12 +1,12 @@
 import React from "react";
-import {Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const SideBarContainer = styled.div`
   width: 20%;
   min-height: 100vh;
   height: auto;
-  background-color: #D2D1D2;
+  background-color: #d2d1d2;
   text-align: left;
   padding-left: 2%;
 `;
@@ -29,29 +29,35 @@ const SideBarH3 = styled.h3`
 `;
 
 const SideBarH1 = styled.h1`
-display: block;
-font-size: 2em;
--webkit-margin-before: 0.67em;
--webkit-margin-after: 0.67em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
-font-weight: bold;
-
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+  @media(max-width:770px){
+    font-size: 1.4em;
+  
+  }
 `;
 
 const SideBar = () => {
-  return(
-  <SideBarContainer>
-    <SideBarH1>Lambda<br></br> School</SideBarH1>
-    <Link to='/'>
-    <SideBarH3>View Your Notes</SideBarH3>
-    </Link>
- 
-    <Link to='/addnote'>
-    <SideBarH3>+ Create New Note</SideBarH3>
-    </Link>
-  </SideBarContainer>
-  )
+  return (
+    <SideBarContainer>
+      <SideBarH1>
+        Lambda
+        <br /> School
+      </SideBarH1>
+      <Link to="/">
+        <SideBarH3>View Your Notes</SideBarH3>
+      </Link>
+
+      <Link to="/addnote">
+        <SideBarH3>+ Create New Note</SideBarH3>
+      </Link>
+    </SideBarContainer>
+  );
 };
 
 export default SideBar;

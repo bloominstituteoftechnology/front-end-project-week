@@ -1,8 +1,6 @@
 import React from "react";
-import axios from "axios";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
-import styled from "styled-components";
-import {Link} from 'react-router-dom';
+import styled from "styled-components"; 
 
 
 
@@ -36,22 +34,8 @@ class ModalExample extends React.Component {
     this.setState({ id: noteID }, () => console.log("state: " + this.props.id));
   }
 
-  delete = () => {
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.id}`)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(err => {
-        console.log(err);
-      });
-      this.backHome();
-  };
 
-  backHome = () => {
-    console.log('I want to go home x3');  
-    () => this.props.history.push("/");
-  }
+
 
   toggle() {
     this.setState({
@@ -72,18 +56,18 @@ class ModalExample extends React.Component {
           <div className=" text-center">
             <ModalBody>Are you sure you want to delete this?</ModalBody>
             <ModalFooter>
-              {/* <Link to='/'> */}
+          
               <Button
                 color="danger"
                 size="lg"
                 className="ml-auto  "
-                onClick={this.delete}
-                href="/"
+                onClick={this.props.delete}
+                
               >
               
                 Delete
               </Button>
-              {/* </Link> */}
+         
               <Button
                 color="info"
                 size="lg"

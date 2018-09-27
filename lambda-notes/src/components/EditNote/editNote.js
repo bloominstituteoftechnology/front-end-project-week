@@ -3,7 +3,7 @@ import axios from "axios";
 import styled from 'styled-components';
 
 const EditNoteContainer = styled.div`
-width: 100%;
+width: 80%;
 min-height: 100vh;
 height: 100%;
 display: flex; 
@@ -109,8 +109,8 @@ class EditNote extends Component {
     return (
       <EditNoteContainer>
         <EditNoteTitle>Edit Note:</EditNoteTitle>
-        <NoteTitle type="text" placeholder={this.state.title} onChange={this.handleInput} name='title'/>
-        <TextInput type="text" placeholder={this.state.textBody} onChange={this.handleInput} name='textBody'/>
+        <NoteTitle type="text" value={this.state.title}  onChange={this.handleInput} name='title'/>
+        <TextInput type="text" value={this.state.textBody} onChange={this.handleInput} name='textBody'/>
 
         <SaveButton onClick={this.updateNote}>update</SaveButton>
       </EditNoteContainer>

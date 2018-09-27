@@ -71,13 +71,28 @@ class IndividualNote extends Component {
   toEdit= () => {
     const noteID = this.props.match.params.id;
     this.props.history.push(`/edit/${noteID}`)}
+    
+    delete = () => {
+      console.log('delete fired')
+      axios
+        .delete(`https://killer-notes.herokuapp.com/note/delete/${this.state.id}`)
+        .then(response => {
+          console.log(response);
+          
+        })
+        .catch(err => {
+          console.log(err);
+        });
+        this.props.history.push('/')
+    };
+  
 
   render() {
     return (
       <SingleNoteContainer>
         <EditDeleteDiv>
           <EditDeleteButton onClick={this.toEdit}>edit</EditDeleteButton>
-          <ModalExample delete={this.delete} props={this.props} id={this.props.match.params.id}/>
+          <ModalExample props={this.props} id={this.props.match.params.id} delete={this.delete}/>
         </EditDeleteDiv >
         <NoteTitle>{this.state.title}</NoteTitle>
         <NoteText>{this.state.textBody}</NoteText>

@@ -1,6 +1,8 @@
 .App {
   min-height: 100vh;
-  border: 1px solid green;
+  max-width: 1200px;
+  margin: 0 auto;
+  
 }
 
 .App-logo {
@@ -19,7 +21,6 @@
 .container{
   display: flex;
   width: 1200px;
- 
   margin: 0 auto;
 }
 .sidebar{

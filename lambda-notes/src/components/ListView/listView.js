@@ -1,24 +1,37 @@
 import React from "react"; 
 import styled from "styled-components";
+import NoteSearch from './noteSearch';
 
-const NotesContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
   min-height: 100vh;
   width: 80%;
   height: auto;
   background-color: #f2f0f2;
 `;
+const NotesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-height: auto;
+  width: 100%;
+  height: auto;
+  background-color: #f2f0f2;
+`;
 
 const NotesContainerH2 = styled.h2`
-  display: block;
+  display:inline;
   font-size: 1.5em;
-  width: 100%;
+  width: 30%;
   font-weight: bold;
-  padding-left: 2%;
+  padding-left: 3%;
   padding-top: 50px;
+  @media(max-width:770px){
+    width:45%;
   
+  }
 `;
 
 const NotesListView = styled.div`
@@ -35,7 +48,7 @@ const NotesListView = styled.div`
   overflow: hidden;
 `;
 
-const NoteTitle = styled.h3`
+const NoteTitle = styled.h4`
   font-weight: bold;
   border-bottom: 1px solid #d0d0d0;
   width: 90%;
@@ -64,10 +77,21 @@ const NoteBody = styled.p`
   }
 `;
 
+const NotesSearchHeader = styled.div`
+display: flex;
+justify-content: flex-start;
+width: 100%;
+margin-bottom: 20px;
+`;
+
 const ListView = props => {
   return (
-    <NotesContainer>
+    <Container>
+      <NotesSearchHeader>
       <NotesContainerH2>Your Notes:</NotesContainerH2>
+      <NoteSearch {...props} searchPostsHandler={props.searchPostsHandler}/>
+      </NotesSearchHeader>
+      <NotesContainer>
       {props.notes.map(note => {
         return (
           <NotesListView key={note._id}>
@@ -78,7 +102,8 @@ const ListView = props => {
           </NotesListView>
         );
       })}
-    </NotesContainer>
+      </NotesContainer>
+    </Container>
   );
 };
 

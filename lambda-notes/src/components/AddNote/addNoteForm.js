@@ -51,8 +51,13 @@ const SaveButton = styled.h3`
   text-align: center;
   margin-left: 3%;
   border-radius: 5px;
+  min-width: 60px;
   &:hover{
     cursor: pointer;
+  }
+  @media(max-width:770px){
+    width:30%;
+  
   }
 `;
 
