@@ -60,7 +60,7 @@ class App extends Component {
         .post("https://alee-lambdanotes.herokuapp.com/form", {
           title: this.state.title,
           note: this.state.note,
-          edittoggle: this.state.edittoggle
+          // edittoggle: this.state.edittoggle
         })
         .then(res => {
           console.log(res);

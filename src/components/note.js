@@ -69,7 +69,8 @@ class Note extends Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
-      });
+      })
+      .catch(err => console.log(err));
     this.setState(
       {
         id: this.state.id,
