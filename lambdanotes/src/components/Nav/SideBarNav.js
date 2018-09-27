@@ -27,7 +27,7 @@ const SideBarNavWrapper = styled.div`
   flex-direction: column;
   padding: 20px 20px 0px 20px;
   width: 250px;
-  height: 100%;
+  background: #d3d2d3;
 `;
 const HeaderWrapper = styled.h1`
   font-size: 48px;
