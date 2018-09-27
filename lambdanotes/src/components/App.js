@@ -4,10 +4,11 @@ import SideBar from './SideBar';
 import NoteView from './NoteView';
 import CreateNew from './CreateNew';
 import SingleNote from './SingleNote'
-import EditNote from './EditNote';
 // import Notes from './Notes';
+import EditNote from './EditNote';
 import axios from 'axios';
 import './App.css';
+
 
 class App extends Component {
   constructor() {
@@ -62,11 +63,20 @@ class App extends Component {
 
   handleAddNewNote = event => {
     event.preventDefault();
-    console.log('firing');
+    // console.log('firing');
     axios
     .post('https://killer-notes.herokuapp.com/note/create', this.state.note)
     .then(response => this.setState({note: response.data }));
   };
+
+  // handleID = event => {
+  //   event.preventDefault();
+  //   console.log('firing');
+  //   axios.
+  //   .get('https://killer-notes.herokuapp.com/note/get/id', this.state.note._id)
+  //   .then(response => this.)
+    
+  // }
 
     clickID = (event) => {
       event.preventDefault();
@@ -99,11 +109,16 @@ class App extends Component {
             note={this.state.note} 
             handleSubmit={this.handleSubmit}/>}
           />
-          <Route path="/notes/:id"
+          <Route path='/:noteId'
           render={(props) => 
           <SingleNote {...props} 
           notes={this.state.notes}/>}
          />
+         {/* <Route path='/:noteId'
+          render={(props) => 
+          <Notes {...props} 
+          notes={this.state.notes}/>}
+         /> */}
           <Route path='/editcard'
           render={(props) => 
           <EditNote {...props}
@@ -113,7 +128,7 @@ class App extends Component {
         </Switch>
         </div>
       </div>
-      // </Router>
+       /* </Router> */
           
        
     );

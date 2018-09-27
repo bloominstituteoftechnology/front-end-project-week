@@ -4,8 +4,8 @@ import Notes from './Notes';
 
 
 
-const noteView = (props) => {
-  // console.log(props.notes);
+function noteView(props){
+  console.log(props.notes);
   return (
       <div className="cards-container">
         <div className="statement">
@@ -13,10 +13,9 @@ const noteView = (props) => {
         </div>
         <div className="cards">
         {props.notes.map( note => (
-          <Notes 
-          key ={note.id}
+          <Notes {...props}
+          key ={note._id}
           note ={note}
-          click ={props.clickID}
           />
         ))}
         </div>
