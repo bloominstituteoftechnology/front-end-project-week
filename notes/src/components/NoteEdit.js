@@ -44,8 +44,13 @@ class NoteEdit extends React.Component {
             noteTags = this.state.tags.split(/\s*,\s*/);
         }
 
+        let uniqueTags = noteTags.reduce(function(a,b){
+            if (a.indexOf(b) < 0 ) a.push(b);
+            return a;
+          },[]);
+
         let newNote = {
-            tags: noteTags,
+            tags: uniqueTags,
             title: this.state.title,
             textBody: this.state.textBody,
         }

@@ -33,6 +33,11 @@ class NoteForm extends React.Component {
             noteTags = this.state.tags.split(/\s*,\s*/);
         }
 
+        let uniqueTags = noteTags.reduce(function(a,b){
+            if (a.indexOf(b) < 0 ) a.push(b);
+            return a;
+          },[]);
+
         let noteTitle;
         if(this.state.title === ''){
             noteTitle = 'Untitled';
@@ -40,19 +45,20 @@ class NoteForm extends React.Component {
             noteTitle = this.state.title;
         }
 
-        let noteBody;
+        let textBody;
         if(this.state.textBody === ''){
-            noteBody = 'No Content';
+            textBody = 'No Content';
         } else {
-            noteBody = this.state.noteBody;
+            textBody = this.state.textBody;
         }
 
         let newNote = {
-            tags: noteTags,
+            tags: uniqueTags,
             title: noteTitle,
-            textBody: noteBody,
+            textBody: textBody,
         }
 
+        console.log(newNote);
         this.props.addNote(newNote);
 
         this.setState({
