@@ -150,6 +150,7 @@ export class UserProfile extends Component {
     })
     .catch(err => console.log(err))
     this.setState({username: '', shouldEditUsername: false})
+    this.props.logout();
   }
 
   shouldEditEmailToggle = () => {

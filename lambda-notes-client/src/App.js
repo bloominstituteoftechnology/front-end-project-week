@@ -184,7 +184,7 @@ class App extends Component {
             )}
           />
 
-          <Route path="/user" component={UserProfile} />
+          <Route path="/user" render={props => <UserProfile {...props} logout={this.logout} /> } />
           
           <Route exact strict path="/notes" component={NotesContainer} />
 
