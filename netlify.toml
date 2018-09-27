@@ -1,2 +1,2 @@
 [build]
-    base = "front-end-project-week/lambda-notes"
+    base = "lambda-notes/"
