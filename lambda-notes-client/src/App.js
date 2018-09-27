@@ -14,7 +14,7 @@ import NotesContainer from './components/containers/NotesContainer';
 import AddNoteForm from './components/forms/notes/AddNoteForm';
 import NoteDescription from './components/notes/NoteDescription';
 import EditNoteForm from './components/forms/notes/EditNoteForm';
-
+import UserProfile from './components/user/UserProfile';
 
 const MainContainer = styled("div")`
   background-color: #F3F3F3;
@@ -142,10 +142,13 @@ class App extends Component {
                     View Your Notes
                   </NavLink>
                   <NavLink className="link" to="/notes/add-note/">
-                  +Create New Note
+                    +Create New Note
+                  </NavLink>
+                  <NavLink className="link" to="/user">
+                    View Your Profile
                   </NavLink>
                   <button className="link" onClick={this.logout}>
-                  Log Out
+                    Log Out
                   </button>
                 </div>
               ) : !this.state.isLoggedIn ? (
@@ -154,6 +157,9 @@ class App extends Component {
                 <div>
                   <NavLink className="link" exact strict to="/notes">
                     View Your Notes
+                  </NavLink>
+                  <NavLink className="link" to="/user">
+                    View Your Profile
                   </NavLink>
                   <button className="link" onClick={this.logout}>
                     Log Out
@@ -178,6 +184,8 @@ class App extends Component {
             )}
           />
 
+          <Route path="/user" component={UserProfile} />
+          
           <Route exact strict path="/notes" component={NotesContainer} />
 
           <Route

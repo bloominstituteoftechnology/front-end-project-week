@@ -11,6 +11,7 @@ const Main = styled("main")`
   width: 75%;
   min-height: 100vh;
   padding: 25px 33px 20px 35px;
+  word-break: break-all;
 
   .links-header {
     display: flex;
