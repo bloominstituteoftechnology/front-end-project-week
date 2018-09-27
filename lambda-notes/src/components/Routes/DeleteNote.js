@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { deleteNote } from '../../actions/index';
 import styled from 'styled-components';
 
 
@@ -43,16 +46,45 @@ const Cancel = Buttons.extend`
     `
 
 
-const DeleteNote = () => {
-    return (
-        <Modal>
-            <Heading><h2>Are you sure you want to delete this?</h2></Heading>
-            <DeleteBox>
-                <Del>Delete</Del>
-                <Cancel>No</Cancel>
-            </DeleteBox >
-        </Modal>
-    );
+class DeleteNote extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            notes: [],
+            title: '',
+            content: '',
+            id: null
+        }
+    };
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        let note = this.props.notes.find(note => {
+            return id === note.id.toString()
+        })
+        this.setState({ id: note.id, title: note.title, content: note.content })
+
+    }
+
+    render() {
+        console.log(this.state.id)
+        return (
+            <Modal>
+                <Heading><h2>Are you sure you want to delete this?</h2></Heading>
+                <DeleteBox>
+                    <Link to='/'><Del onClick={() => this.props.deleteNote(this.state.id)}>Delete</Del></Link>
+                    <Cancel>No</Cancel>
+                </DeleteBox >
+            </Modal>
+        );
+    }
 }
 
-export default DeleteNote;
+const mapStateToProps = state => {
+    return {
+
+        notes: state.notesReducer.notes
+    };
+}
+
+export default connect(mapStateToProps, { deleteNote })(DeleteNote);

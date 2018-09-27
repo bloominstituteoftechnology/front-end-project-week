@@ -33,10 +33,11 @@ class NoteViewer extends Component {
     render() {
         console.log(this.state)
         const { title, content, id } = this.state.note;
+        console.log('noteviewer', id)
         return (
             < Main >
                 <Link to={`/edit-note/${id}`}><div>edit</div></Link>
-                <Link to='/delete-note'><div>delete</div></Link>
+                <Link to={`/delete-note/${id}`}><div>delete</div></Link>
                 <div>
                     <NoteContainer>
                         <h1>{title}</h1>

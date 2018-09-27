@@ -20,7 +20,6 @@ export const fetchingNotes = () => {
         axios
             .get(`${URL}`)
             .then(response => {
-                console.log(response)
                 dispatch({
                     type: FETCHED,
                     payload: response.data
@@ -43,6 +42,7 @@ export const createNote = (note) => {
         axios
             .post(`${URL}`, note)
             .then(response => {
+                console.log(response)
                 dispatch({
                     type: ADDED,
                     payload: response.data.results
@@ -65,6 +65,7 @@ export const editNote = (note, id) => {
         axios
             .put(`${URL}/${id}`, note)
             .then(response => {
+                console.log(response)
                 dispatch({
                     type: UPDATED,
                     payload: response.data
@@ -79,13 +80,13 @@ export const editNote = (note, id) => {
     }
 };
 
-export const deleteNote = (note, id) => {
+export const deleteNote = (id) => {
     return dispatch => {
         dispatch({
             type: DELETE_NOTE,
         })
         axios
-            .delete(`${URL}/${id}`, note)
+            .delete(`${URL}/${id}`)
             .then(response => {
                 dispatch({
                     type: DELETED,

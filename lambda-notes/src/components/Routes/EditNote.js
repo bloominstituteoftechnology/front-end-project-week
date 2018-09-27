@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { editNote } from '../../actions/index';
 import styled from 'styled-components';
 
