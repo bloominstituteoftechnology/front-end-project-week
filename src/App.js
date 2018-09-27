@@ -11,7 +11,7 @@ import Login from './components/Login';
 
 const jwtDecode = require('jwt-decode');
 
-const URL = 'https://dasma.herokuapp.com/notes/';
+const URL = 'http://localhost:9000/notes/';
 
 class App extends Component {
   constructor(props){

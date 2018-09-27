@@ -31,7 +31,7 @@ const Content = styled.div`
 `
 
 
-const URL = 'https://dasma.herokuapp.com/notes/';
+const URL = 'http://localhost:9000/notes/';
 
 class NoteView extends Component {
     constructor(props) {

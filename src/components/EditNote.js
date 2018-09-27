@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Form, FormGroup, Label, Col, Input, Button, Container } from 'reactstrap';
 
 
-const URL = 'https://dasma.herokuapp.com/notes/';
+const URL = 'http://localhost:9000/notes/';
 
 
 class EditNote extends Component {
