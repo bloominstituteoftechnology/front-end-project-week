@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
         case DELETING:
             return {...state, deletingNote: true };
         case DELETED:
-            return {...state, deletingNote: false, notes: action.payload };
+            return {...state, deletingNote: false,};
         case FETCH_ERROR:
             console.log(action.payload);
             return {...state, fetchingNotes: false, error: action.payload };

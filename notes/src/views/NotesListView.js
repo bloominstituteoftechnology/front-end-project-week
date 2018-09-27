@@ -13,7 +13,9 @@ class NotesListView extends React.Component {
     render() {
         return (
             <Fragment>
+                <div className="notes-list-header">
             <h1>Your Notes:</h1>
+            </div>
             <NotesList {...this.props} notes={this.props.notes} />
             </Fragment>
         );

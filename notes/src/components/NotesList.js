@@ -1,6 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Note from './Note';
+
+const LineBreak = styled.div`
+border: 1px solid gray;
+width: 80%;
+`
 
 export default function NotesList(props) {
     if (!props.notes || !props.notes.length) {
@@ -14,6 +20,7 @@ export default function NotesList(props) {
             key={note._id}
             onClick={() => props.history.push(`/notes/${note._id}`)}>
             <h2>{note.title}</h2>
+            <LineBreak />
             <p>{note.textBody}</p>
             </div>
         ))}
