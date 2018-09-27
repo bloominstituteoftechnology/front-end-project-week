@@ -88,13 +88,12 @@ export const addNote = (newNote) =>  {
           Authorization: token,    
         } 
       }
-    
+    //auth headers go after the body ----- key--------
     axios.post('http://localhost:3333/api/notes/', {
       "title": newNote.title,
       "textBody": newNote.textBody,
     }, authHeader).then(res => {
       dispatch({type: NOTE_ADDED, payload: res});
-      getNotes();
     }).catch(err => {
       dispatch({type: ERROR, payload: err})
     })
