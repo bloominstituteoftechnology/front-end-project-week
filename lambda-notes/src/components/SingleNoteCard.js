@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import Sidebar from './Sidebar';
 
+import './SingleNoteCard.css';
+
 class SingleNoteCard extends Component {
     constructor(props) {
         super(props);
@@ -28,10 +30,10 @@ class SingleNoteCard extends Component {
                 <div className="section-container">
                     <div className="buttons">
                         <Link to={{ pathname: `/edit/${this.props.note._id}` }}>
-                            <button>edit</button>
+                            <a>edit</a>
                         </Link>
                         {/* <Link to={{ pathname: `/delete/${this.props.note._id}` }} > */}
-                            <button onClick={() => this.props.deleteNote(this.props.note._id)}>Delete Note</button>
+                            <a onClick={() => this.props.deleteNote(this.props.note._id)}>delete</a>
                         {/* </Link> */}
                     </div>
                     <div className="single-note">
