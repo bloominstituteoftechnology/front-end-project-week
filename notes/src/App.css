@@ -1,0 +1,311 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  width: 930px;
+  align-content: center;
+  margin: 0 auto;
+  background: #F2F1F2
+}
+/* GLOBAL STYLES*/
+
+.blueButton {
+  list-style: none;
+  border: 1px solid #C8C8C8;
+  text-align: center;
+  background-color: #24B8BD;
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 11px;
+  color: white;
+}
+
+.blueButton:hover {
+  cursor: pointer;
+}
+
+
+.blueButton a {
+  text-decoration: none;
+  color: white;
+}
+
+.inactive {
+  background-color: #C8C8C8;
+  margin-bottom: 5px;
+}
+
+.inactive a {
+  color: #414141;
+}
+
+.redButton {
+  list-style: none;
+  border: 1px solid #C8C8C8;
+  text-align: center;
+  background-color: #CA001A;
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 11px;
+  color: white;
+}
+
+.redButton:hover {
+  cursor: pointer;
+}
+
+ul {
+  padding: 0px;
+  list-style: none;
+}
+
+/* NAVBAR STYLES */
+
+.header {
+  margin: 5px 0 0 15px;
+  color: #414141;
+}
+
+.navbar {
+  position: fixed;
+  justify-content: flex-start;
+  background: #D3D2D3;
+  border-right: 1px #C8C8C8;
+  padding: 10px;
+  width: 25%;
+  height: 100vh;
+}
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* HOME PAGE STYLES */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F2F1F2;
+  width: 75%;
+  height: 100vh;
+  margin-left: 25%;
+}
+
+.home .header {
+  margin: 50px 0 0 0;
+}
+
+.home p {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0;
+}
+
+
+/* ALL NOTES STYLES */
+.notes-list-wrapper {
+  margin-left: 25%;
+  width: 75%;
+  height: 100vh;
+  background: #F2F1F2;
+}
+
+.notes-list-wrapper h3 {
+  margin: 55px 0 20px 25px;
+}
+
+.all-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 25px;
+  height: 100vh;
+}
+
+.filter {
+  display: flex;
+  margin: 0 20px 25px 25px;
+  justify-content: space-between;
+}
+
+
+.filter h5 {
+  margin: 0;
+}
+
+.filter .show-all {
+  text-decoration: underline;
+}
+
+.filter .show-all:hover {
+  cursor: pointer;
+}
+
+.filter h6 {
+  text-decoration: underline;
+  padding: 0 5px;
+  margin: 0;
+}
+
+.filter h6:hover {
+  cursor: pointer;
+}
+
+.by-tag {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.note-card {
+  width: 190px;
+  height: 200px;
+  border: 1px solid #C8C8C8;
+  margin-bottom: 25px;
+  padding-top: 5px;
+  background: white;
+}
+
+.note-card:hover {
+  cursor: pointer;
+  background: #D3D2D3
+}
+
+.note-card h4 {
+ 
+  padding: 0 5px;
+  /* border: 1px solid lime; */
+  margin: 0;
+  font-size: 20px;
+  word-wrap: break-word;
+}
+
+.note-card p {
+
+  font-size: 14px;
+  padding: 5px;
+  word-wrap: break-word;
+}
+
+/* SINGLE NOTE VIEW */
+
+.single-note {
+  width: 75%;
+  height: 100vh;
+  margin-left: 25%;
+  /* border: 2px solid lime; */
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-delete {
+  align-self: flex-end;
+  margin: 10px 65px 0 0;
+}
+
+.plain-button {
+  /* border: 2px solid fuchsia; */
+  display: inline-block;
+  padding: 5px 5px 0 5px;
+  text-decoration: underline;
+}
+
+.plain-button:hover {
+  cursor: pointer;
+}
+
+.note-info-wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid turquoise; */
+  margin: 5px 25px;
+}
+
+.note-info-wrapper h1 {
+  /* border: 2px solid purple; */
+  font-size: 24px;
+
+}
+
+.note-info-wrapper p {
+  margin-top: 0;
+  line-height: 25px;
+}
+
+.note-info-wrapper textBody {
+  white-space: pre-wrap;
+}
+
+.note-info-wrapper a {
+  text-decoration: underline;
+  padding-right: 5px;
+}
+
+/* FORM STYLES */
+
+.note-form {
+  /* border: 2px solid lime; */
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 100vh;
+  /* margin: 20px; */
+  margin-left: 25%;
+}
+
+.note-form h3 {
+  margin: 50px 0 20px 25px;
+}
+
+.note-form form {
+  /* border: 2px solid purple; */
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+}
+
+.note-form .title {
+  width: 55%;
+  height: 40px;
+  margin: 10px 0 20px 0;
+}
+
+.note-form .tags {
+  margin: 10px 0 20px 0;
+}
+
+.note-form .content {
+  width: 90%;
+  /* height: 100%; */
+  margin-bottom: 20px;
+}
+
+/* MODAL STYLES */
+
+.delete-modal {
+  margin-left: 15%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal .modal-content {
+  background: #F1F2F1;
+  border: 2px solid #C8C8C8;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  position: absolute;
+}
