@@ -1,0 +1,44 @@
+.notes-list-wrapper h2 {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 2.2rem;
+
+}
+
+.notes-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.note-card {
+  border: 1px solid darkgray;
+  background: #FFFFFF;
+  width: 176px;
+  height: 186px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: black;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  word-wrap:break-word;
+}
+
+.text-body {
+  font-family:  sans-serif;
+  color: black;
+  font-size: 1.4rem;
+  border-top: 1px solid black;
+  margin-top: 5px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  padding-top: 10px;
+  word-wrap:break-word;
+  white-space: pre-line;
+}
