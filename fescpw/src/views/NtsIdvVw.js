@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { ntsFth, ntsGpe, ntsRmv } from '../redux/actions';
 
 import NtsIdv from '../components/NtsIdv';
+import NtsMnuVw from './NtsMnuVw';
+import NtsMdlVw from './NtsMdlVw';
 
 class NtsIdvVw extends Component {
     componentDidMount() {
@@ -23,14 +25,24 @@ class NtsIdvVw extends Component {
     }
   render() {
     return (
-      <NtsIdv {...this.props} 
-        hdldltnt={this.hdldltnt}
-        redrtfrm={this.redrtfrm}
-        nts_fthg={this.props.nts_fthg}
-        nts_fthd={this.props.nts_fthd}
-        nts_arr={this.props.nts_arr}
-        nts_idv={this.props.nts_idv}
-      />
+        <div>
+            <NtsMnuVw />
+            <NtsIdv {...this.props} 
+                // hdldltnt={this.hdldltnt}
+                redrtfrm={this.redrtfrm}
+                nts_fthg={this.props.nts_fthg}
+                nts_fthd={this.props.nts_fthd}
+                nts_arr={this.props.nts_arr}
+                nts_idv={this.props.nts_idv}
+            />
+            <NtsMdlVw {...this.props}
+                hdldltnt={this.hdldltnt}
+                nts_fthg={this.props.nts_fthg}
+                nts_fthd={this.props.nts_fthd}
+                nts_arr={this.props.nts_arr}
+                nts_idv={this.props.nts_idv}
+            />
+      </div>
     )
   }
 }

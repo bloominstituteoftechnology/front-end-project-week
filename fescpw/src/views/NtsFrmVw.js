@@ -5,6 +5,8 @@ import { ntsCrt, ntsEdt } from '../redux/actions';
 
 import NtsFrm from '../components/NtsFrm';
 
+import NtsMnuVw from './NtsMnuVw';
+
 class NtsFrmVw extends Component {
     state = {
         ntsidv: {
@@ -51,6 +53,8 @@ class NtsFrmVw extends Component {
     }
   render() {
     return (
+        <div>
+      <NtsMnuVw />
       <NtsFrm {...this.props} 
         ntsidv={this.state.ntsidv}
         ntsedtg={this.state.nts_edtg}
@@ -58,6 +62,7 @@ class NtsFrmVw extends Component {
         hdlcrt={this.hdlcrt}
         hdledt={this.hdledt}
       />
+      </div>
     )
   }
 }

@@ -5,13 +5,18 @@ import { ntsFth, ntsSgr } from '../redux/actions';
 
 import NtsLst from '../components/NtsLst';
 
+import NtsMnuVw from './NtsMnuVw';
+
 class NtsLstVw extends Component {
     componentDidMount() {
         this.props.ntsFth();
     }
   render() {
     return (
-      <NtsLst {...this.props} ntssgr={this.props.ntsSgr} />
+        <div>
+            <NtsMnuVw />
+            <NtsLst {...this.props} ntssgr={this.props.ntsSgr} />
+        </div>
     );
   }
 }

@@ -2,7 +2,9 @@ import React from 'react';
 import NtsPge from '../components/NtsPge';
 
 const NtsPgeVw = () => {
-    return <NtsPge />;
+    return (
+        <NtsPge />
+    );
 }
 
 export default NtsPgeVw;
