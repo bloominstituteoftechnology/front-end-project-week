@@ -39,8 +39,8 @@ class Notes extends React.Component {
                 <div>
                     <div className="search-bar-container">
                         <div className="sort">
-                            sort:  
-                            <div className="sort-button" onClick={()=> this.props.sortNotes()}>a-z</div>
+                            SORT:  
+                            <div className="sort-button" onClick={()=> this.props.sortNotes()}>A-Z</div>
                         </div>
                         <input type="text" className="search-bar" placeholder="Search Notes..." onChange={this.searchHandler}/>
                     </div>                    

@@ -26,7 +26,7 @@ class Note extends React.Component {
             title: note.title,
             textBody: note.textBody
         })}
-        }, 500);
+        }, 1000);
     }
 
     render() {
