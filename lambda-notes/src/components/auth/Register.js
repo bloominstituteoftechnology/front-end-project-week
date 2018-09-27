@@ -21,7 +21,7 @@ class Register extends Component {
             console.log('response', res)
             const {token} = res.data;
             localStorage.setItem('token', token);
-            this.props.history.push('/notes');
+            //this.props.history.push('/notes');
         })
         .catch(err => {
             console.log('Axios error:', err);
