@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
 
-
 class NoteEdit extends React.Component {
     componentDidMount(){
         this.props.fetchSingleNote(this.props.match.params.id);
@@ -33,18 +32,13 @@ class NoteEdit extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         let noteTags = this.state.tags;
-        console.log(this.state.tags);
-        if(!this.state.tags){
-            noteTags = 'Uncategorized';
-        } else if(this.state.tags.length <= 1){
-            noteTags = this.state.tags;
-        } else {
-            noteTags = noteTags.split(/\s*,\s*/);
+        let newTags = [];
+        for(let i = 0; i < noteTags.length; i++){
+            newTags.push(noteTags[i]);
         }
-        
 
         let newNote = {
-            tags: noteTags,
+            tags: newTags,
             title: this.state.title,
             textBody: this.state.textBody,
         }
@@ -60,6 +54,8 @@ class NoteEdit extends React.Component {
     }
 
     render() {
+        
+
         return(
             <div className = 'note-edit-container'>
             
