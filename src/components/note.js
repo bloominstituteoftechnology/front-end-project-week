@@ -46,7 +46,7 @@ class Note extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:2200/note/${this.props.match.params.id}`)
+      .get(`https://alee-lambdanotes.herokuapp.com/note/${this.props.match.params.id}`)
       .then(response => {
         console.log(this.props.notes);
         console.log(response.data);
@@ -63,7 +63,7 @@ class Note extends Component {
   editHandler = event => {
     event.preventDefault();
     axios
-      .put(`http://localhost:2200/note/${this.props.match.params.id}`, {
+      .put(`https://alee-lambdanotes.herokuapp.com/note/${this.props.match.params.id}`, {
         title: this.state.title,
         note: this.state.note,
         edittoggle: false
