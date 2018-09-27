@@ -9,6 +9,7 @@ class NoteView extends Component {
     title: '',
     textBody: ''
   };
+
   componentDidMount() {
     this.props.fetchNote(this.props.match.params.id);
     this.setState({
@@ -16,6 +17,16 @@ class NoteView extends Component {
       textBody: this.state.textBody
     });
     console.log(`State: ${this.props.note}`);
+  }
+
+  deleteNoteHandler() {
+    console.log(
+      `Clicked DELETE NOTE button for note: ${this.props.match.params.id}`
+    );
+    this.props.deleteNote(this.props.match.params.id);
+    setTimeout(() => {
+      this.props.history.push('/');
+    }, 1000);
   }
 
   render() {
@@ -26,14 +37,9 @@ class NoteView extends Component {
         ) : (
           <NoteWrapper>
             <NoteEditDelete>
-              <nav>
-                <a
-                  href="#"
-                  onClick={this.props.deleteNote(this.props.note._id)}
-                >
-                  Delete Note
-                </a>
-              </nav>
+              <p>
+                <div onClick={this.deleteNoteHandler}>delete</div>
+              </p>
             </NoteEditDelete>
             <NoteTitle>{this.props.note.title}</NoteTitle>
             <div className="note-textbody">{this.props.note.textBody}</div>
