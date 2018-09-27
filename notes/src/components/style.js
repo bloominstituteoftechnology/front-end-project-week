@@ -55,7 +55,14 @@ export const Body = styled.div`
     background-color: #F0EFF0;
 `
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.div`
+    width: 150px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    background-color: #20AFB5;
+    border: 1px solid;
+    padding: 10px;
+    color: #FFFFFF;
 `
 
 export const InnerTitleBox = styled.div`

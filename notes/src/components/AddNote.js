@@ -43,7 +43,7 @@ class AddNote extends React.Component{
                     name='content'
                     onChange={this.handleChange}
                 />
-                <ButtonStyled type='submit' onClick={this.addNote}>
+                <ButtonStyled onClick={this.addNote}>
                     Save
                 </ButtonStyled>
             </ComponentBody>
