@@ -13,38 +13,38 @@ const initialState = {
 export default function (state = initialState, action) {
     switch(action.type) {
         case FETCHING:
-        return {...state, fetchingNotes: true};
+            return {...state, fetchingNotes: true};
         case FETCHED:
-        return {...state, notes: [...action.payload], fetchingNotes: false};
+            return {...state, notes: [...action.payload], fetchingNotes: false};
         case ADDING:
-        return {...state, addingNote: true};
+            return {...state, addingNote: true};
         case ADDED:
-        return {...state, addingNote: false, notes: action.payload };
+            return {...state, addingNote: false, notes: action.payload };
         case SET_UPDATE_NOTE:
-        const note = state.notes.find(note => note._id === action.payload );
-        return {...state, noteToUpdate: note ? note : null }
+            const note = state.notes.find(note => note._id === action.payload );
+            return {...state, noteToUpdate: note ? note : null }
         case UPDATING:
-        return {...state, updatingNote: true };
+            return {...state, updatingNote: true };
         case UPDATED:
-        console.log(action.payload);
-        return {...state, updatingNote: false, noteToUpdate: null};
+            console.log(action.payload);
+            return {...state, updatingNote: false, noteToUpdate: null};
         case DELETING:
-        return {...state, deletingNote: true };
+            return {...state, deletingNote: true };
         case DELETED:
-        return {...state, deletingNote: false, notes: action.payload };
+            return {...state, deletingNote: false, notes: action.payload };
         case FETCH_ERROR:
-        console.log(action.payload);
-        return {...state, fetchingNotes: false, error: action.payload };
+            console.log(action.payload);
+            return {...state, fetchingNotes: false, error: action.payload };
         case ADD_ERROR:
-        console.log(action.payload);
-        return {...state, addingNote: false, error: action.payload };
+            console.log(action.payload);
+            return {...state, addingNote: false, error: action.payload };
         case UPDATE_ERROR:
-        console.log(action.payload);
-        return {...state, updatingNote: false, error: action.payload };
+            console.log(action.payload);
+            return {...state, updatingNote: false, error: action.payload };
         case DELETE_ERROR:
-        console.log(action.payload);
-        return {...state, deletingNote: false, error: action.payload };
+            console.log(action.payload);
+            return {...state, deletingNote: false, error: action.payload };
         default:
-        return state;
+            return state;
     }
 }

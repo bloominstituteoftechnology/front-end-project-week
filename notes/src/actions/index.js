@@ -19,9 +19,9 @@ export const SET_UPDATE_NOTE = 'SET_UPDATE_NOTE';
 export const fetchNotes = () => {
     return dispatch => {
         dispatch({ type: FETCHING });
-        const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
-        promise
-        //axios.get('https://killer-notes.herokuapp.com/note/get/all')
+        //const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+        //promise
+        axios.get('https://killer-notes.herokuapp.com/note/get/all')
         .then(response => {
             dispatch({
                 type: FETCHED,
@@ -45,7 +45,9 @@ export const addNewNote = (note) => {
             dispatch({
                 type: ADDED,
                 payload: response.data
-            });
+            })
+            
+          
         })
         
         .catch(err => {
@@ -81,7 +83,7 @@ export const updateNote = note => dispatch => {
     .then(response => {
         dispatch({ type: UPDATED, payload: response.data });
     })
-    .then(fetchNotes())
+    
     .catch(err => {
         dispatch({ type: UPDATE_ERROR, payload: err})
     })

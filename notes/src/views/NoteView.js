@@ -25,8 +25,14 @@ class NoteView extends React.Component {
         
     }
 
-    handleDeleteNote = noteId => {
+    handleCancelDelete = () => {
+
+    }
+
+    handleDeleteNote = (event, noteId) => {
+        event.preventDefault();
         this.props.deleteNote(noteId);
+        this.props.history.push('/');
     }
 
     goToUpdateNoteForm = (event, id) => {
@@ -38,9 +44,9 @@ class NoteView extends React.Component {
     render() {
         if (this.state.modalOpen) {
             return (
-                <DeleteModal show={true}/>
+                <DeleteModal {...this.props} show={true} cancelDelete={this.handleConfirmDelete} delete={this.handleDeleteNote}/>
             )
-        } else
+        }
         return (
             <Note
             {...this.props}
