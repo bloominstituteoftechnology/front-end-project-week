@@ -7,7 +7,7 @@ const Form = props => {
   const buttonName = props.type === 'new' ? 'Save' : 'Update';
 
   return (
-    <div className="main-container form">
+    <div className="main-container">
       <h2>{heading}</h2>
       <CreateForm>
         <input
@@ -32,6 +32,9 @@ const Form = props => {
 };
 
 const CreateForm = styled.form`
+  display: flex;
+  flex-direction: column;
+
   input {
     border-radius: 3px;
     border: 1px solid #979797;

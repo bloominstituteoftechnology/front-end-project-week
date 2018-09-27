@@ -37,12 +37,12 @@ const NoteList = props => {
       <NotePreviewsContainer>
         {notes.map(note => {
           return (
-            <Link to={`/notes/${note._id}`} key={Math.random()}>
-              <NotePreviewContainer>
-                <h3>{note.title}</h3>
-                <p>{note.textBody}</p>
-              </NotePreviewContainer>
-            </Link>
+            <NotePreviewContainer>
+              <Link to={`/notes/${note._id}`} key={Math.random()}>
+                <h2>{note.title}</h2>
+              </Link>
+              <p>{note.textBody}</p>
+            </NotePreviewContainer>
           );
         })}
       </NotePreviewsContainer>
@@ -59,7 +59,7 @@ export const MainContainer = styled.div`
   background: #f3f3f3;
   display: flex;
   flex-direction: column;
-  padding: 20px 35px 20px 35px;
+  padding: 20px;
 
   h2 {
     font-size: 23px;
@@ -75,16 +75,17 @@ export const MainContainer = styled.div`
 const NotePreviewsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 const NotePreviewContainer = styled.div`
-  width: 200px;
+  /* flex-grow: 1; */
+  width: 30.5%;
   height: 200px;
   border: 1px solid #979797;
   box-sizing: border-box;
   padding: 5px 15px;
-  margin: 10px 0;
+  margin: 10px 10px;
   background: #ffffff;
   word-break: break-all;
   overflow-wrap: break-word;
@@ -93,7 +94,7 @@ const NotePreviewContainer = styled.div`
     border: 2px solid #979797;
   }
 
-  h3 {
+  h2 {
     border-bottom: 1px solid #979797;
     padding: 0 0 5px 0;
     margin: 5px 0 0 0;
