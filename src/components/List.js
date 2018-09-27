@@ -24,7 +24,7 @@ class List extends Component {
 
     return (
       <div className="list-container">
-        <h1 className="note-header-title">Your notes:</h1>
+        <h1 className="note-header-title">Your Notes:</h1>
         {cards}
       </div>
     );

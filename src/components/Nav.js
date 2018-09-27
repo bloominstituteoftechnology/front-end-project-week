@@ -6,12 +6,12 @@ class Nav extends Component {
     
     return (
       <div className="nav-container">
-        <div className="nav-logo">Notes</div>
-        <button className="nav-button" onClick={() => toggleNote()} >
-          { showNote ? 'Create New Note' :  'Create New Note' }
-        </button> 
+        <div className="nav-logo">Lambda Notes</div>
         <button className="nav-button" onClick={() => toggleHome()} >
         { viewNote ? 'View Your Notes' :  'View Your Notes' }
+        </button> 
+        <button className="nav-button" onClick={() => toggleNote()} >
+          { showNote ? '+ Create New Note' :  '+ Create New Note' }
         </button> 
       </div>
     );

@@ -38,6 +38,12 @@ class NoteApp extends Component {
       note: {}
     })
   }
+  toggleAfterDelete = () => {
+    this.setState({
+      viewNote: ! this.state.showNote,
+      note: {}
+    })
+  }
 
   getNotes = () => {
     axios.get(urlFor('notes'))
@@ -135,6 +141,7 @@ class NoteApp extends Component {
               closeTagForm={this.closeTagForm}
               submitTag={this.submitTag}
               deleteTag={this.deleteTag}
+              deleteNote={this.deleteNote}
             />
             :
             <List 

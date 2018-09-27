@@ -75,7 +75,7 @@ class Note extends Component {
   }
 
   render() {
-    const { note, closeTagForm } = this.props;
+    const { note, closeTagForm, deleteNote } = this.props;
     return(
       <div className="note-container">
           <h2 id='title'>Create New Note</h2>
@@ -101,7 +101,7 @@ class Note extends Component {
               ref={(input) => this.content = input}
             />
           </div>
-          <input className="note-button" type="submit" value="Save" />
+          <input className="note-button" type="submit" value="Update" />
         </form>
         <div className="tag-container">
           <div className="tag-button-container">
