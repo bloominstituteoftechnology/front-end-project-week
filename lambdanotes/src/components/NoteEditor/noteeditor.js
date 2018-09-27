@@ -65,7 +65,7 @@ class NoteEditor extends Component {
     render() {
         return (
             <ContentDiv>
-                <h2>{this.props.isEditing ? 'Edit ' : 'Create New '}Note:</h2>
+                <h2>{this.props.isEditing ? 'Edit Note:' : 'Create New Note:'}</h2>
                 <form onSubmit={this.submitHandler}>
                     <TitleInput name='title' value={this.state.tmpNote.title} onChange={this.inputHandler} placeholder='Note Title' />
                     <br />

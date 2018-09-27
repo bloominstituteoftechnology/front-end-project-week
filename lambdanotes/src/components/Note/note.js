@@ -20,6 +20,7 @@ const ManipDiv = Styled.div`
 
 const SizedP = Styled.p`
     font-size: 1.5rem;
+    white-space: pre-wrap;
 `;
 
 class Note extends Component {

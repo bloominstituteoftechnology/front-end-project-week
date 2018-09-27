@@ -14,13 +14,11 @@ class NoteEditorContainer extends Component {
         return (
             <NoteEditor 
                 {...this.props}
-                tmpNote={this.props.editing.tmpNote} 
-                isEditing={this.props.editing.isEditing} 
-                // postedNote={this.props.postedNote}
-                // puttedNote={this.props.puttedNote}
+                tmpNote={this.props.editing.tmpNote}
+                isEditing={this.props.editing.isEditing}
                 postNote={this.props.postNote}
                 getNotes={this.props.getNotes}
-                putNote={this.props.putNote} 
+                putNote={this.props.putNote}
             />
         );
     }
@@ -45,9 +43,7 @@ NoteEditorContainer.propTypes = {
 const mapStateToProps = (state) => {
     return {
 
-        editing: state.notesReducers.editing,
-        // postingNote: state.notesReducers.status.postingNote,
-        // puttingNote: state.notesReducers.status.puttingNote
+        editing: state.notesReducers.editing
     };
 };
 

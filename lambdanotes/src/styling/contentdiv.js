@@ -4,7 +4,7 @@ export default Styled.div`
     border: 1px solid #afafaf;
     width: 100vw;
     padding: 50px 20px;
-    overflow: hidden auto;
+    overflow: auto auto;
     height: 98vh;
     background-color: #f2f2f2;
     h2 {
