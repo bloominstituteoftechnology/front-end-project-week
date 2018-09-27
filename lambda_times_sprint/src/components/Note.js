@@ -138,9 +138,7 @@ class Note extends Component {
           <h5 onClick={this.openModal}>delete</h5>
         </div>
 
-        <h2 className="note-title">{title.length > 30 ?
-                                  title.slice(0, 30) + '...' :
-                                  title}</h2>
+        <h2 className="note-title">{title}</h2>
         <div className="note-text-body">{textBody}</div>
 
       </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-// import Note from './Note';
 
 function NotesList(props) {
     if (!props.notesList || !props.notesList.length) {
@@ -35,7 +34,9 @@ function NoteDetails({ note }) {
     <div className="note-card">
 
       <h2 className="title">{title}</h2>
-      <div className="text-body">{textBody}</div>
+      <div className="text-body">{textBody.length > 30 ?
+                                          textBody.slice(0, 30) + '...' :
+                                          textBody}</div>
     
       </div>
   );

@@ -11,6 +11,7 @@ function NoteForm(props) {
                 <input 
                     type="text" 
                     placeholder="Note title"
+                    maxLength="40"
                     value={props.title} 
                     name="title" 
                     onChange={props.handleInputChange} 
@@ -20,6 +21,7 @@ function NoteForm(props) {
                 <textarea rows="25" cols="75" 
                     type="text" 
                     placeholder="Note Content"
+                    maxLength="1000"
                     value={props.textBody} 
                     name="textBody" 
                     onChange={props.handleInputChange} 
@@ -27,7 +29,7 @@ function NoteForm(props) {
             </div>
           
             <button className="save-update-btn" onClick={clickHandler}>{btnLabel}</button>
-            {/* <button className="material-button-raised" onClick={clickHandler}>Update</button> */}
+            
         </form>
       
   );

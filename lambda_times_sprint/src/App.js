@@ -37,7 +37,6 @@ fetchNotes = ()=> {
     }
 
   handleAddNewNote = event => {
-    // event.preventDefault();
     console.log('firing')
 
     const note = {title: this.state.title, textBody: this.state.textBody};

@@ -8,8 +8,8 @@
   justify-content: space-between;
   font-family: sans-serif;
   text-decoration: underline;
-  width: 12%;
-  margin-left: 481px;
+  width: 14%;
+  margin-left: 475px;
 }
 
 h5 {
@@ -36,6 +36,8 @@ h5 {
   margin-left: 15px;
   padding-top: 10px;
   line-height: 2.8rem;
+  word-wrap:break-word;
+  max-width: 510px;
 }
 
 .modal {
