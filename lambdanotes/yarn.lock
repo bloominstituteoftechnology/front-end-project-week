@@ -5657,6 +5657,10 @@ react-bootstrap@^0.32.4:
     uncontrollable "^5.0.0"
     warning "^3.0.0"
 
+react-csv@^1.0.15-RC2:
+  version "1.0.15-RC2"
+  resolved "https://registry.yarnpkg.com/react-csv/-/react-csv-1.0.15-RC2.tgz#ea0a163228107f80b177f43b283ff51ade64dd9f"
+
 react-dev-utils@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.2.tgz#7bb68d2c4f6ffe7ed1184c5b0124fcad692774d2"

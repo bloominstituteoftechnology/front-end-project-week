@@ -11,6 +11,7 @@
     "logger": "^0.0.1",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
+    "react-csv": "^1.0.15-RC2",
     "react-dnd": "^5.0.0",
     "react-dom": "^16.5.2",
     "react-draggable": "^3.0.5",

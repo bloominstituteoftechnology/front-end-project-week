@@ -9,7 +9,10 @@ import {
   FETCHING,
   SINGLE_FETCHED,
   FETCHING_SINGLE,
-  ERROR
+  ERROR,
+  SEARCH,
+  SORT_CHARACTERS,
+  SORT_CONTENT
 } from "../actions";
 
 const initialState = {
@@ -68,9 +71,40 @@ const rootReducer = (state = initialState, action) => {
         note: {},
         notes: state.notes.filter(note => action.id !== note._id)
       };
+    case SEARCH:
+      if (action.sString === "")
+        return {
+          ...state,
+          searchList: [],
+          searching: false
+        };
+      else {
+        const notes = state.notes.slice();
+        return {
+          ...state,
+          searching: true,
+          searchList: notes.filter(note => note.title.includes(action.sString))
+        };
+      }
 
     case ERROR:
       return { ...state, error: action.payload, fetchingNotes: false };
+
+    case SORT_CHARACTERS: {
+      const note = state.note.slice().sort((a, b) => a.title[0] > b.title[0]);
+      return {
+        ...state,
+        notes: notes
+      };
+    }
+    // case SORT_CONTENT:
+    //   const notes = state.notes
+    //     .slice()
+    //     .sort((a, b) => a.textBody.length > b.textBody.length);
+    //   return {
+    //     ...state,
+    //     notes: notes
+    //   };
 
     default:
       return state;

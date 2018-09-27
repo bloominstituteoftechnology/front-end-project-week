@@ -5,12 +5,11 @@ import NoteList from "./components/NoteList/notelist";
 import NewNoteForm from "./components/NewNote/newnoteform";
 import NoteCard from "./components/EditNote/notecard";
 import EditNoteForm from "./components/EditNote/editnoteform";
-//import Sidebar from './components/Sidebar/sidebar';
-
+import Authenticate from "./components/Authentication/Authenticate";
 
 
 class App extends Component {
-  componentDidMount(){
+ componentDidMount(){
 //   this.props.getNotes();
 
   }
@@ -29,4 +28,4 @@ class App extends Component {
   }
 
 
-export default App;
+export default Authenticate(App);

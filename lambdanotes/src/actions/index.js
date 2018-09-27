@@ -12,7 +12,10 @@ export const FETCHED = "FETCHED";
 export const FETCHING = "FETCHING";
 export const SINGLE_FETCHED = "SINGLE_FETCHED";
 export const FETCHING_SINGLE = "FETCHING_SINGLE";
-
+export const SEARCH ="SEARCH";
+export const SORT_CHARACTERS = "SORT_CHARACTERS";
+export const SORT_CONTENT = "SORT_CONTENT";
+export const NO_SORT = "NO_SORT";
 export const fetchNotes = () => {
   const noteData = axios.get("https://killer-notes.herokuapp.com/note/get/all");
   return function(dispatch) {
@@ -94,3 +97,21 @@ export const deleteNote = id => {
       });
   };
 };
+export const search = sString => {
+  return dispatch => {
+    dispatch({ type: SEARCH, sString })
+  }
+}
+export const sort = sortType => {
+  console.log('CALLED')
+  console.log(sortType)
+  return dispatch => {
+    console.log('IN DISPATCH')
+    if (sortType === 'CHARACTERS')
+      dispatch({ type: SORT_CHARACTERS })
+    else if (sortType === 'CONTENT')
+      dispatch({ type: SORT_CONTENT })
+    else
+      dispatch({ type: NO_SORT })
+  }
+}
