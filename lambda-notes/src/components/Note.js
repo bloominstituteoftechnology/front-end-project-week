@@ -1,8 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 const Note = (props) =>{
+
+
+
     return(
+       
     <div className="single-note">
         <h3 id ={props.id}>{props.noteTitle}</h3>
         <hr/>
@@ -12,3 +17,4 @@ const Note = (props) =>{
 }
 
 export default Note;
+

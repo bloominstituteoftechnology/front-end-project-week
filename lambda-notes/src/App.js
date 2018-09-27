@@ -4,8 +4,10 @@ import {Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import SideBar from './components/SideBar';
+import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
+import SingleNote from './components/SingleNote.js';
 
 class App extends Component {
   constructor(props){
@@ -25,13 +27,13 @@ class App extends Component {
   postNote = (newNote) => {
     axios
       .post("https://killer-notes.herokuapp.com/note/create", newNote)
-      .then(response => this.setState({ notes: response.data }, this.props.history.push('/')))
+      .then(response => this.setState({ notes: response.data }, this.props.history.push("/")))
       .catch(err => {console.log(err)});
   }
 
   getNote = () => {
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/id")
+      .get("https://killer-notes.herokuapp.com/note/get/_id")
       .then(response => this.setState({notes: response.data}))
       .catch(err => {console.log(err)});
   }
@@ -43,7 +45,7 @@ class App extends Component {
         <SideBar />
         <Route exact path="/" render={() => <Notes notes={this.state.notes} />} />
         <Route path="/add-note" render={(props)=> <NoteForm notes={this.state.notes} postNote={this.postNote} />}/>
-
+        <Route path="/:id" render={(props) => <SingleNote notes={this.state.notes} getNote={this.getNote} />} />
       </div>
     );
   }
