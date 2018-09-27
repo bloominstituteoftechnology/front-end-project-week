@@ -10,7 +10,7 @@ a {
   color: #252120;
 }
 
-a:hove {
+a:hover {
   text-decoration: none;
 }
 
@@ -191,4 +191,5 @@ button {
 
 .search-bar {
   text-align: center;
+  margin-top: 1rem;
 }

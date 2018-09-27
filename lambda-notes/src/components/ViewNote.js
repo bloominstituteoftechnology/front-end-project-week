@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { viewNote, deleteNote, updateNote } from '../actions';
 import EditNote from './EditNote';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 class ViewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            updateActive: false
+            updateActive: false,
+            modal: false
         }
     }
 
@@ -26,6 +28,12 @@ class ViewNote extends Component {
         this.props.deleteNote(this.props.match.params.id, this.props.history);
     };
 
+    toggleModal = () => {
+        this.setState((prevState) => {
+            return { modal: !prevState.modal };
+        });
+    }
+
     render() {
         if (this.props.viewingNote) {
             return(
@@ -37,7 +45,7 @@ class ViewNote extends Component {
             <div className="note-view">
                 <div className="header">
                     <a onClick={this.toggleUpdate}>edit</a>
-                    <a onClick={this.deleteNote}>delete</a>
+                    <a onClick={this.toggleModal}>delete</a>
                 </div>
                 <div className="note-content">
                     <h3>{this.props.note.title}</h3>
@@ -49,6 +57,13 @@ class ViewNote extends Component {
                                 updateNote={this.props.updateNote} id={this.props.match.params.id} />
                     : null
                 }
+                <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>Are you sure you want to delete this note?</ModalHeader>
+                    <ModalBody>
+                        <Button onClick={this.deleteNote} color="danger">Delete</Button>{' '}
+                        <Button onClick={this.toggleModal} className="main-button">No</Button>
+                    </ModalBody>
+                </Modal>
             </div>
         )
     }
