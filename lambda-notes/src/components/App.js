@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
-import { fetchNotes, addNote, updateNote, deleteNote } from '../actions';
+import { fetchNotes, fetchSingleNoteCard, addNote, updateNote, deleteNote } from '../actions';
 
 import NotesList from '../components/NotesList';
-import Note from '../components/Note';
+import SingleNoteCard from '../components/SingleNoteCard';
 import NoteAdd from '../components/NoteAdd';
 import NoteUpdate from '../components/NoteUpdate';
-import Sidebar from '../components/Sidebar';
 
 import './App.css';
 
 class App extends Component {
   state = {
     newNote: {
-      _id: -1,
+      _id: "5bac4f17e564b50013cdc2db",
       title: "",
       textBody: ""
     },
@@ -41,7 +40,7 @@ class App extends Component {
     this.setState({
       newNote: {
         ...this.state.newNote,
-        _id: -1,
+        _id: "",
         title: "",
         textBody: ""
       }
@@ -55,8 +54,6 @@ class App extends Component {
         <Route exact path="/" render={ (props) => {
           return(<NotesList {...props} 
             notes={this.props.notes} 
-            deleteNote={this.props.deleteNote} 
-            updateNote={this.props.updateNote} 
             />)
         }} />
 
@@ -67,19 +64,24 @@ class App extends Component {
             addNote={this.addNote}
             />)
         }} />
-        <Route path='/note/:_id' component={Note} />
-        <Route path='/edit/:_id' component={NoteUpdate} />
-        
-        {/* <NoteAdd 
-          newNote={this.state.newNote}
-          handleInput={this.handleInput}
-          addNote={this.addNote}
-        />
 
-        <NoteUpdate 
-          updateNote={this.props.updateNote}
-          note={this.props.notes[0]}
-        /> */}
+        <Route path='/note/:_id' render={props => {
+          return(
+            <SingleNoteCard {...props}
+              notes={this.props.notes}
+              deleteNote={this.props.deleteNote} 
+              fetchSingleNote={this.props.fetchSingleNoteCard}
+            />)
+        }}/>
+
+        <Route path='/edit/:_id' render={props => {
+          return(
+            <NoteUpdate {...props}
+              notes={this.props.notes}
+              updateNote={this.props.updateNote}
+              singleFetchedNote={this.props.singleFetchedNote}
+            />)
+        }} />
       </div>
     );
   }
@@ -95,4 +97,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNotes, addNote, updateNote, deleteNote })(App);
+export default connect(mapStateToProps, { fetchNotes, fetchSingleNoteCard, addNote, updateNote, deleteNote })(App);

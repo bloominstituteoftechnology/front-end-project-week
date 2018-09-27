@@ -6,22 +6,20 @@ const NoteAdd = props => {
     return (
         <div>
             <Sidebar />
-            <h1>Add New Note</h1>
+            <h1>Create New Note:</h1>
             <form>
-                <label>Title</label>
                 <input
                     type="text"
                     name="title"
-                    placeholder="Title"
+                    placeholder="Note Title"
                     onChange={props.handleInput}
                     value={props.newNote.title}
                 />
 
-                <label>Content</label>
                 <input
                     type="text"
                     name="textBody"
-                    placeholder="Content"
+                    placeholder="Note Content"
                     onChange={props.handleInput}
                     value={props.newNote.textBody}
                 />

@@ -6,6 +6,7 @@ import Sidebar from './Sidebar';
 
 const NotesList = props => {
     console.log(props.notes);
+
     return (
         <div className="page-container">
             <Sidebar />
@@ -14,11 +15,12 @@ const NotesList = props => {
                 <div className="note-container">
                     {props.notes.map(note => {
                         return (
-                            <Note
-                                note={note}
-                                deleteNote={props.deleteNote}
-                                key={note._id}
-                            />
+                            <div>
+                                <Note
+                                    note={note}
+                                    key={note._id}
+                                />
+                            </div>
                         )
                     })}
                 </div>

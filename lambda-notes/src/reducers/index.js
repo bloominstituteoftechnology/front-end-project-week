@@ -1,12 +1,13 @@
 import { FETCHED_NOTES, FETCHING_NOTES, ERROR_FETCHING_NOTES, 
-        ADDED_NOTE, ADDING_NOTE, ERROR_ADDING_NOTE, 
-        PICK_NOTE, UPDATED_NOTE, UPDATING_NOTE, ERROR_UPDATING_NOTE, 
+        ADDED_NOTE, ADDING_NOTE, ERROR_ADDING_NOTE, ERROR_FETCHING_SINGLE_NOTECARD,
+        FETCHING_SINGLE_NOTECARD, FETCHED_SINGLE_NOTECARD, 
+        UPDATED_NOTE, UPDATING_NOTE, ERROR_UPDATING_NOTE, 
         DELETED_NOTE, DELETING_NOTE, ERROR_DELETING_NOTE } from '../actions';
 
 const initialState = {
     notes: [
         {
-            _id: -1,
+            _id: "",
             title: "",
             textBody: ""
         }
@@ -16,6 +17,7 @@ const initialState = {
     addingNote: false,
     updatingNote: false,
     deletingNote: false,
+    singleFetchedNote: {},
     noteToUpdate: null,
     error: ''
 }
@@ -69,13 +71,29 @@ export const rootReducer = (state = initialState, action) => {
                 deletingNote: false
             }
 
-        case PICK_NOTE:
-            console.log("PICK_NOTE");
-            const note = state.notes.find(note => note.id === action.payload);
+        case FETCHING_SINGLE_NOTECARD:
+        console.log("FETCHING_SINGLE_NOTECARD");
             return { 
                 ...state, 
-                noteToUpdate: note ? note : null 
+                fetchingNote: true 
+            };
+        case FETCHED_SINGLE_NOTECARD:
+        console.log("FETCHED_SINGLE_NOTECARD");
+            return { 
+                ...state, 
+                fetchingNote: false, 
+                singleFetchedNote: action.payload 
             }
+        case ERROR_FETCHING_SINGLE_NOTECARD:
+        console.log("ERROR_FETCHING_SINGLE_NOTECARD");
+            return {
+                ...state,
+                fetchingNotes: false,
+                addingNote: false,
+                updatingNote: false,
+                deletingNote: false
+            }
+
         case UPDATING_NOTE:
             console.log("UPDATING_NOTES");
             return {

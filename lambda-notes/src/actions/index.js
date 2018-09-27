@@ -6,7 +6,9 @@ export const ERROR_FETCHING_NOTES = "ERROR_FETCHING_NOTES";
 export const ADDED_NOTE = "ADDED_NOTE";
 export const ADDING_NOTE = "ADDING_NOTE";
 export const ERROR_ADDING_NOTE = "ERROR_ADDING_NOTE";
-export const PICK_NOTE = "PICK_NOTE";
+export const FETCHING_SINGLE_NOTECARD = "FETCHING_SINGLE_NOTECARD";
+export const FETCHED_SINGLE_NOTECARD = "FETCHED_SINGLE_NOTECARD";
+export const ERROR_FETCHING_SINGLE_NOTECARD = "ERROR_FETCHING_SINGLE_NOTECARD";
 export const UPDATED_NOTE = "UPDATED_NOTE";
 export const UPDATING_NOTE = "UPDATING_NOTE";
 export const ERROR_UPDATING_NOTE = "ERROR_UPDATING_NOTE";
@@ -73,10 +75,23 @@ export const addNote = (newNote) => {
   }
 }
 
-export const pickNoteToUpdate = _id => {
-  return {
-    type: PICK_NOTE,
-    payload: _id
+export const fetchSingleNoteCard = _id => {
+  return dispatch => {
+    dispatch({ type: FETCHING_SINGLE_NOTECARD });
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${_id}`)
+      .then(({data}) => {
+        dispatch({ 
+          type: FETCHED_SINGLE_NOTECARD, 
+          payload: data
+        })
+      })
+      .catch(() => {
+        dispatch({ 
+          type: ERROR_FETCHING_SINGLE_NOTECARD, 
+          payload: "ERROR: unable to fetch single notecard"
+        })
+      })
   }
 }
 
