@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 class SingleNoteView extends Component {
+	
 
 	componentDidMount() {
 		console.log(this.props.match.params.id)
@@ -19,21 +20,15 @@ class SingleNoteView extends Component {
 
 	render() {
 
-
 		return (
-
 			<div className="singlenoteDisplay">
 				<div className="button-flex">
-					<Link to="/edit-note">edit</Link>
+					<Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
 					<h3 onClick={this.deleteNote}>delete</h3>
 				</div>
 
 				<h1 className="note-page-title">{this.props.note.title}</h1>
 				<p className="note-page-text">{this.props.note.textBody}</p>
-
-				<Edit id={this.props.match.params.id} />
-
-
 			</div>
 		);
 	}

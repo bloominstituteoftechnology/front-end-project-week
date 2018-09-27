@@ -9,7 +9,7 @@ class Edit extends Component {
         super(props);
         this.state = {
             title: '',
-            content: ''
+            textbody: ''
             
         }
     }
@@ -24,19 +24,23 @@ class Edit extends Component {
     updateNote = e => {
         e.preventDefault();
         let updatedNote = {
-            id: this.props.id,
+            id: this.props.match.params.id,
             title: this.state.title,
-            content: this.state.content
+            textbody: this.state.textbody
         }
         this.props.updateNote(updatedNote);
+        this.props.history.push("/")
+        window.location.reload();
     }
     
     render() {
         return(
-           <Editview updateNote={this.updateNote} 
+           <Editview 
+           updateNote={this.updateNote} 
            handleChange={this.handleChange} 
            title={this.state.title} 
-           this={this.state.content}/> 
+           textbody={this.state.textbody}
+           /> 
         )
     }
 }

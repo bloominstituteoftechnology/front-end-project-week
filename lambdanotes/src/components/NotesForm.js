@@ -15,9 +15,8 @@ class NotesForm extends Component {
     addTodoHandler = e => {
         e.preventDefault();
 		console.log(this.state);
-        this.props.addNote (this.state);
-        this.props.history.push("/");
-        
+        this.props.addNote (this.state); 
+        this.props.history.push("/");  
     };
 
 

@@ -4,7 +4,8 @@ import React from 'react';
 function Editview(props) {
 
     return (
-        <form className="Column-Layout1">
+        <form className="Column-Layout">
+        <h1>Edit Note:</h1>
             <input
                 className="input-title"
                 type="text"
@@ -16,13 +17,14 @@ function Editview(props) {
             />
             <textarea
                 className="input-body"
-                name="content"
+                type="text"
+                name="textbody"
                 onChange={props.handleChange}
-                value={props.content}
+                value={props.textbody}
                 placeholder="Edit Note Content"
                 required
             />
-            <h3 onClick={props.updateNote}>Save Edit Changes</h3>
+            <h3 {...console.log(props.updateNote)} {...console.log(props.id)} onClick={props.updateNote}>Save Edit Changes</h3>
             
         </form>
     )

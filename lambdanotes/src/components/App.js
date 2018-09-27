@@ -20,11 +20,9 @@ class App extends Component {
           <Route exact path='/' component={Notes} />
           <Route exact path='/create-note' component={NotesForm} />
           <Route path="/note/:id" component={SingleNoteView} />
-          <Route path='/edit-note'component={Edit} />
-          
-          
-        </div>
+          <Route path='/edit-note/:id' render={props => <Edit {...props} />} />
 
+        </div>
       </div>
     );
   }

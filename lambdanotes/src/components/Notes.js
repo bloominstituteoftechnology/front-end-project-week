@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 class Notes extends Component {
   componentDidMount() {
     this.props.fetchData();
-
   }
 
 
@@ -19,6 +18,7 @@ class Notes extends Component {
         <div className='noteDisplay'>
           {this.props.notes.map(note => {
             return (
+              
               <Link to={`/note/${note._id}`}>
                 <div className="notesDisplay" key={note._id}>
                   <h2>{note.title}</h2>
