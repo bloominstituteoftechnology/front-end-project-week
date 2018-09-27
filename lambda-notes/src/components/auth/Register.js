@@ -6,7 +6,7 @@ class Register extends Component {
     state = {
         username: '',
         password: '',
-        loading:false
+        loading: false
     };
 
     inputChangeHandler = e => {
@@ -18,7 +18,10 @@ class Register extends Component {
         e.preventDefault();
         this.setState({ loading: true });
         axios
-        .post('https://lambda-notes-api.herokuapp.com/api/register', this.state)
+        .post('https://lambda-notes-api.herokuapp.com/api/register', {
+            username: this.state.username,
+            password: this.state.password
+            })
         .then(res => {
             //console.log('response', res)
             const {token} = res.data;
