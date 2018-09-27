@@ -13,7 +13,8 @@
 .form {
     display: flex;
     flex-direction: column;
-    margin-left: 25px;
+    margin-left: 2.5%;
+    margin-right: 20%;
 }
 
 .form title {
