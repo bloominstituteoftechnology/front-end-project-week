@@ -27,7 +27,8 @@ class App extends Component {
       newNote: '',
       newTags: '',
       modal: false,
-      editing: false
+      editing: false,
+      searchValue: ''
     }
   }
 
