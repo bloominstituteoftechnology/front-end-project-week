@@ -1,7 +1,7 @@
 import React from 'react';
 import List from './List';
 import Create from './Create';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Note from './Note';
 import Edit from './Edit';
 import axios from 'axios';
@@ -18,6 +18,10 @@ class ListContainer extends React.Component {
     }
 
     componentDidMount() {
+      this.getNotes();
+    };
+
+    getNotes = () => {
       axios
           .get('http://localhost:5000/api/notes')
           .then(res => {
@@ -28,14 +32,6 @@ class ListContainer extends React.Component {
               console.log(err);
               this.props.history.push('/notes');
           })
-    };
-
-    handleTaskChange = e => {
-      this.setState({ [e.target.name]: e.target.value });
-    }
-  
-    handleAddNoteSubmit = e => {
-      e.preventDefault();
     }
 
     handleTaskChange = e => {
@@ -44,37 +40,64 @@ class ListContainer extends React.Component {
   
     handleAddNoteSubmit = e => {
       e.preventDefault();
-      const list = this.state.notes.slice();
-      list.push({ title: this.state.title, content: this.state.content, id: this.currentId + 1, completed: false });
-      this.setState({ list: list });
+      const title = this.state.title;
+      const content = this.state.content;
+      const notes = {
+        title, content
+      }
+
+      axios
+        .post('http://localhost:5000/api/create', notes)
+        .then(res => {
+          this.getNotes();
+          this.props.history.push('/notes');
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
 
     fetchNote = id => {
-      const filterNote = this.state.notes.filter(note => note.id === id); //delete is reverse of this, use !==
+      const filterNote = this.state.notes.filter(note => note.id === id);
       return filterNote[0];
     }
 
     updateNoteHandler = e => {
       e.preventDefault();
-      const list = this.state.list.slice();
-      list.splice({id: this.currentId}, 1, { title: this.state.title, content: this.state.content, id: this.currentId + 1, completed: false });
-      this.setState({ list: list });
+      // const notes = this.state.notes.slice();
+      // notes.splice({id: this.currentId}, 1, { title: this.state.title, content: this.state.content });
+      // this.setState({ notes: notes });
+
+      const title = this.state.title;
+      const content = this.state.content;
+      const notes = {
+        title, content
+      }
+      
+      axios
+        .put('http://localhost:5000/api/edit/:id', notes)
+        .then(res => {
+          this.getNotes();
+          this.props.history.push('/notes');
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
 
     deleteNoteHandler = id => {
-      const deleteNote = this.state.list.filter(note => note.id !== id); 
+      const deleteNote = this.state.notes.filter(note => note.id !== id); 
         return deleteNote;
     }
 
     showModal = () => {
-      this.setState({ displayDelete: !this.state.displayDelete });
+      this.setState({ displayDelete: this.state.displayDelete });
     }
 
     render() {
       return (
         <div>
           <Route exact path="/notes" render={(props) => <List {...props} notes={this.state.notes}/>} />
-          {/* <Route exact path= '/notes' component={List} /> */}
           <Route path="/create" render={(props) => 
             <Create {...props} 
               handleAddNoteSubmit={this.handleAddNoteSubmit} 
@@ -83,7 +106,7 @@ class ListContainer extends React.Component {
               content={this.state.content}
             />
           } />
-          <Route path="/edit" render={(props) => 
+          <Route exact path="/edit/:id" render={(props) => 
             <Edit {...props} 
               updateNoteHandler={this.updateNoteHandler}
               handleTaskChange={this.handleTaskChange} 
@@ -104,4 +127,4 @@ class ListContainer extends React.Component {
     } 
   }
 
-  export default ListContainer;
+  export default withRouter(ListContainer);
