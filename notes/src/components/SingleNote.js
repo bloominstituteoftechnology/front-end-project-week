@@ -11,9 +11,9 @@ export default function SingleNote(props) {
   }
 
   return (
-    <div>
-      <p>Title: {note.title}</p>
-      <p>Text Body: {note.textBody}</p>
+    <div className="single-note">
+      <h3>{note.title}</h3>
+      <p>{note.textBody}</p>
       <button onClick={handleDelete}>Delete</button>
       <button
         onClick={event => {

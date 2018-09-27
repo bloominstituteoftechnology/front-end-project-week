@@ -3,3 +3,49 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.App {
+  display: flex;
+  background: #f3f3f3;
+  color: black;
+}
+
+.navbar {
+  width: 20%;
+  background: #d7d7d7;
+  margin: 0;
+  list-style-type: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.navbar li {
+  border: 1px solid black;
+  background: #00c0c3;
+  width: 150px;
+}
+
+.notes-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.note-card {
+  width: 22%;
+  margin: 10px;
+  padding: 10px 3%;
+  height: 200px;
+  overflow: hidden;
+  background: white;
+  text-decoration: none;
+  border: 1px solid gray;
+}
+
+.note-card a {
+  text-decoration: none;
+  color: black;
+}

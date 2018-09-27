@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Note(props) {
   return (
-    <div>
-      <p>Title: {props.note.title}</p>
-      <p>Text Body: {props.note.textBody}</p>
+    <div className="single-note">
+      <h3>{props.note.title}</h3>
+      <p>{props.note.textBody}</p>
     </div>
   );
 }

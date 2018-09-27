@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <ul className="navbar">
+          <h1>Lambda Notes</h1>
           <li>
             <NavLink exact to="/">
               View Your Notes
