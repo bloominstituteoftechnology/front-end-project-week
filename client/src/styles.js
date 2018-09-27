@@ -1,16 +1,18 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Button = styled.button`
   padding: 1rem;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
+  font-weight: bold;
   font-size: 1.2rem;
   color: #fafafa;
   background-color: #26a69a;
   border: none;
   border-radius: 5px;
   text-transform: uppercase;
+  letter-spacing: 1px;
   display: inline-block;
   cursor: pointer;
   transition: all 0.2s;
