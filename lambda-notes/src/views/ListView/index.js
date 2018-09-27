@@ -106,9 +106,8 @@ export default class ListView extends React.Component {
 		const { errorMsg, search, input, deleteAllModal } = this.state;
 		const { history, notes, username } = this.props;
 		const csvHeaders = [
-			{label: 'Version', key: '__v'},
-			{label: 'Tags', key: 'tags'},
 			{label: 'ID', key: '_id'},
+			{label: 'Tags', key: 'tags'},
 			{label: 'Title', key: 'title'},
 			{label: 'Body', key: 'textBody'},
 		];
