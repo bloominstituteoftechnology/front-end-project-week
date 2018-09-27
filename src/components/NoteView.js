@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {Button} from 'reactstrap';
 import axios from 'axios';
 import styled from 'styled-components';
+import { Button, Container } from 'reactstrap';
 import DeleteModal from './DeleteModal';
 import { MarkdownPreview } from 'react-marked-markdown';
 
 
-const ViewNote = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    background: #DCDCDC;
-
-    > h1 {
+/* const H1 = styled.h1`
+   
         margin-top: 10px;
         font-weight: bold;
         font-size: 2.2rem;
         border-bottom: 1px solid gray;
         line-height: 2.5;
 
-    }
+'
     > p {
         margin: 10px 0;
         font-size: 1.4rem;
@@ -38,20 +32,20 @@ const ViewNote = styled.div`
         height: 35px;
     }
     }
-`
+` */
+const H1 = styled.h1`
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 2.2rem;
+        border-bottom: 1px solid gray;
+        line-height: 2.5;
 
-const ButtonsContainer = styled.div`
+`
+const BContainer = styled.div`
 
         display: flex;
         justify-content: flex-end;
-
-    > a {
-        text-decoration: underline;
-        color: black;
-        margin: 0 10px;
-        cursor: pointer;
-        font-size: 1.4rem;
-    }
+    
 `
 
 
@@ -100,15 +94,15 @@ class NoteView extends Component {
     render() {
         
         return ( 
-            <ViewNote>
-                <ButtonsContainer>
+            <Container style={{border: '1px solid gray', borderRadius: '5px', padding: '10px', marginTop: '10px'}}>
+                <BContainer>
                 <Button color='link'><Link to={`/edit-note/${this.state.id}`}> Edit </Link></Button>
                 <DeleteModal delete={() => this.delete(this.state.id)} title={this.state.title}/>
-                </ButtonsContainer>
-                <h1>{this.state.title}</h1>
+                </BContainer>
+                <H1>{this.state.title}</H1>
                 <MarkdownPreview value={this.state.content} />
-                <Link to={`/notes`}><button>Back</button></Link>
-            </ViewNote>
+                <Button outline color='secondary' size='lg'><Link to={`/notes`} style={{color: 'black', textDecoration: 'none'}}>Back to Notes</Link></Button>
+            </Container>
          );
     }
 }

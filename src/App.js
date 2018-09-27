@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
 import styled from 'styled-components';
-import Callback from './components/Authorization/Callback';
 import Navigation from './components/Navigation';
 import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import Register from './components/Register';
+import Login from './components/Login';
 
-library.add(faHome);
-
+const jwtDecode = require('jwt-decode');
 
 const Application = styled.div`
 
@@ -49,6 +47,36 @@ class App extends Component {
     });
 }
 
+/* componentDidMount () {
+  this.getNotes();
+}
+
+getNotes = async () => {
+const token = localStorage.getItem('token');
+if (!token){
+    Window.location = '/login';
+}
+
+try {
+    const response = await axios({
+        method: 'get',
+        url: URL,
+        headers: { authorization: token }
+    });
+
+    const decoded = jwtDecode(token);
+    this.setState({
+        username: decoded.username,
+        notes: response.data,
+        searchedNotes: response.data,
+        loggedIn: true
+    });
+} catch (error) {
+    console.log(error, error.message);
+    this.setState({loggedIn: false})
+}
+} */
+
 handleSearch = (event) => {
   this.setState ({
     search: event.target.value,
@@ -61,12 +89,13 @@ handleSearch = (event) => {
     return (
       <Application>
         
-        <Navigation />
+        <Navigation  />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
         <Route path='/add-note' component={NewNote} />
         <Route exact path='/notes' render={(props) => (
           <NotesList {...props} notes={this.state.notes} 
-          search={this.state.search} handleSearch={this.handleSearch}/>)} />
-        <Route path='/callback' component={Callback} />
+          search={this.state.search} handleSearch={this.handleSearch} />)} />
         <Route path='/edit-note/:id' render={(props) => (
           <EditNote {...props} note={this.state.note} />)} />
         <Route path='/note/:id' render={(props) => (

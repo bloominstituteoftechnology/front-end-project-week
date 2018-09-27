@@ -1,32 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Input } from 'reactstrap';
 
-const SearchBar = styled.div`
-
-    display: flex;
-    position: sticky;
-    justify-content: center;
-    align-items: center;
-    background: #36454F;
-    height: 50px;
-    
-    > input {
-        width: 50%;
-        padding: 5px;
-        height: 30px;
-        font-size: 1.6rem;
-    }
-`
 const Search = (props) => {
     return(
-        <SearchBar>
-            <input 
-                type="text"
-                placeholder="Search notes..."
-                value={props.search}
-                onChange={props.handleSearch}
-            />
-        </SearchBar>
+                <Input 
+                    type="text"
+                    name="title"
+                    placeholder="Search notes..."
+                    bsSize="md"
+                    value={props.search}
+                    onChange={props.handleSearch}
+                    style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}
+                />
+            
     )
 }
 

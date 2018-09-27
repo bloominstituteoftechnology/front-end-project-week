@@ -29,28 +29,28 @@ import {
     render() {
       return (
         <div>
-          <Navbar color="light" light expand="md">
+          <Navbar light expand="md" style={{background: 'gray'}}>
             <NavbarBrand href="/">Notes</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink href="/notes/">View Notes</NavLink>
+                <NavItem >
+                  <NavLink href="/notes/" style={{fontSize: '1.4rem', color: 'black'}}>View Notes</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/add-note">New Note</NavLink>
+                  <NavLink href="/add-note" style={{fontSize: '1.4rem', color: 'black'}}>New Note</NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
+                  <DropdownToggle nav caret style={{fontSize: '1.4rem', color: 'black'}}>
                     Account
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      Login
+                      <NavLink href='/login'>Login</NavLink>
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>
-                      Sign Up
+                      <NavLink href='/register'>Sign Up</NavLink>
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>

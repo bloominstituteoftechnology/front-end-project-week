@@ -19,18 +19,16 @@ class NotesList extends Component {
         this.setState({ pageOfItems: pageOfItems });
     }
 
-
     render() {
         
         return (
-            <Container>
-                <Search {...this.props}/>
-                    <h1>Your notes: </h1>
-                <Row>
+            <Container expand="md" style={{marginTop: '10px'}}>
+                <Search {...this.props} />
+                <Row style={{marginTop: '10px'}}>
                 
                     { this.state.pageOfItems.map(note => {
                         return (
-                            <div key={note.id} className="col-sm-12 col-md-4 col-lg-4">
+                            <div key={note.id} className="col-sm-4 col-md-4 col-lg-4">
                                 <Note
                                     key={note.id}
                                     id={note.id}

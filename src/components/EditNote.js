@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+import { Form, FormGroup, Label, Col, Input, Button, Container } from 'reactstrap';
 
-const EditForm = styled.form`
+/* const EditForm = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -41,7 +41,7 @@ const EditForm = styled.form`
         border: 1px solid gray;
     }
 
-`
+` */
 
 
 const URL = 'http://localhost:9000/notes/';
@@ -99,25 +99,23 @@ componentDidMount () {
     render() { 
         
         return (
-            <EditForm>
-                <h1>Edit Note: {this.state.title}</h1>
-                <input
-                    type='text'
-                    name='title'
-                    placeholder='Note title'
-                    value={this.state.title}
-                    onChange={this.change}
-                />
-                <textarea
-                    type='text'
-                    name='content'
-                    placeholder='Note content'
-                    value={this.state.content}
-                    onChange={this.change}
-                />
-
-                <button type='submit' onClick={this.update}>Update</button>
-            </EditForm>
+            <Container>
+                <Form>
+                    <FormGroup row >
+                        <Label for="exampleEmail" sm={2} size="lg">Title</Label>
+                            <Col sm={12}>
+                                <Input type="text" name="title" placeholder="Note title" bsSize="lg" value={this.state.title} onChange={this.change} />
+                            </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                        <Label for="exampleEmail" sm={2} size="lg">Content</Label>
+                            <Col sm={12}>
+                                <Input type="textarea" name="content"  placeholder="Note content" bsSize="lg" value={this.state.content} onChange={this.change} />
+                            </Col>
+                    </FormGroup>
+                    <Button color='primary' type='submit' onClick={this.update}>Update</Button>
+                </Form>
+            </Container>
          );
     }
 }
