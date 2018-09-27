@@ -7,7 +7,8 @@ import { Note } from '../components/Note/';
 
 class NoteContainer extends Component {
     componentDidMount() {
-        this.props.getSingleNote(this.props.match.params.id);
+        // TODO: Find better solution for race condition between PUTTED_NOTE and GETTING_SINGLE_NOTE/GOT_SINGLE_NOTE
+        setTimeout(this.props.getSingleNote(this.props.match.params.id), 1000);
     };
 
     render() {

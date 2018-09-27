@@ -24,16 +24,6 @@ const initialState = {
         "_id": "",
         "__v": -1
     },
-	"editing": {
-		"isEditing": false,
-		"tmpNote": {
-			"tags": [],
-			"title": "",
-			"textBody": "",
-			"_id": "",
-			"__v": -1
-		}
-    },
 	"status": {
 		"postingNote": false,
 		"postedNote": false,
@@ -41,6 +31,7 @@ const initialState = {
         "gotNotes": false,
         "gettingSingleNote": false,
         "gotSingleNote": false,
+        "isEditing": false,
 		"puttingNote": false,
         "puttedNote": false,
         "deletePrompt": false,
@@ -65,7 +56,7 @@ export default (state = initialState, action) => {
         case GETTING_NOTES:
             return {...state, status: {...state.status, gettingNotes: true, gotNotes: false, noteMessage: "", noteError: ""}};
         case GOT_NOTES:
-            return {...state, status: {...state.status, gettingNotes: false, gotNotes: true}, notes: action.payload};
+            return {...state, status: {...state.status, gettingNotes: false, gotNotes: true, isEditing: false}, notes: action.payload, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1} };
         case GETTING_SINGLE_NOTE:
             return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false, noteMessage: "", noteError: ""}};
         case GOT_SINGLE_NOTE:
@@ -73,11 +64,11 @@ export default (state = initialState, action) => {
         //~~~~~PUT Handling~~~~~//
         case NOTE_TO_EDIT:
             const noteToEdit = state.notes.find( (note) => action.payload === note._id);
-            return {...state, editing: {...state.editing, isEditing: true, tmpNote: {...noteToEdit}}};
+            return {...state, status: {...state.status, isEditing: true}, noteViewer: {...noteToEdit}};
         case PUTTING_NOTE:
             return {...state, status: {...state.status, puttingNote: true, puttedNote: false, noteMessage: "", noteError: ""}};
         case PUTTED_NOTE:
-            return {...state, status: {...state.status, puttingNote: false, puttedNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: "", textBody: "", _id: "", __v: -1}}};
+            return {...state, status: {...state.status, isEditing: false, puttingNote: false, puttedNote: true}, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1}};
         //~~~~~DELETE Handling~~~~~//
         case DELETE_PROMPT:
             return {...state, status: {...state.status, deletePrompt: !state.status.deletePrompt}};

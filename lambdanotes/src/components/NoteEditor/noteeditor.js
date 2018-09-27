@@ -54,7 +54,7 @@ class NoteEditor extends Component {
                     textBody: this.state.tmpNote.textBody,
                     tags: stateTagsArray
                 });
-                // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the POST to finish before calling history.push
+                // TODO: Find a better way to wait for the POST to finish before calling history.push
                 setTimeout(() => this.props.history.push('/'), 1000);
             } else {
                 this.props.putNote(
@@ -65,7 +65,7 @@ class NoteEditor extends Component {
                         _id: this.state.tmpNote._id
                     }
                 );
-                // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the PUT to finish before calling history.push
+                // TODO: Find a better way to wait for the PUT to finish before calling history.push
                 setTimeout(() => this.props.history.push(`/notes/${this.state.tmpNote._id}`), 1000);
             }
         }
@@ -102,7 +102,7 @@ NoteEditor.propTypes = {
         __v: PropTypes.number
     }).isRequired,
     postNote: PropTypes.func.isRequired,
-    getNotes: PropTypes.func.isRequired,
+    // getNotes: PropTypes.func.isRequired,
     putNote: PropTypes.func.isRequired
 };
 

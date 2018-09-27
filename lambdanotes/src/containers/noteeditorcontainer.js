@@ -36,10 +36,10 @@ NoteEditorContainer.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        isEditing: state.notesReducers.editing.isEditing,
+        isEditing: state.notesReducers.status.isEditing,
         tmpNote: {
-            ...state.notesReducers.editing.tmpNote,
-            tags: state.notesReducers.editing.tmpNote.tags.join() // Makes working with the tags in the form easier. Eventually gets reconstituted to an array in the submitHandler in NoteEditor.
+            ...state.notesReducers.noteViewer,
+            tags: state.notesReducers.noteViewer.tags.join() // Makes working with the tags in the form easier. Eventually gets reconstituted to an array in the submitHandler in NoteEditor.
         }
     };
 };

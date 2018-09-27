@@ -34,7 +34,6 @@ class Note extends Component {
         setTimeout(() => this.props.history.push('/noteeditor'), 1000);
     };
 
-    // TODO: Issue when viewing a note, then editing it, then viewing it again, then viewing the notes list causes an ID collision. Might be in the PUTTED_NOTE reducer?
     render() {
         return (
             this.props.status.gettingSingleNote ?
