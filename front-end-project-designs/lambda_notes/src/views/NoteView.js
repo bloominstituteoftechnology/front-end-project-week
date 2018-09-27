@@ -6,7 +6,7 @@ import { getNote, deleteNote } from '../store/actions';
 import DeleteView from './DeleteView';
 
 class NoteView extends React.Component {
-
+    
     componentDidMount() {
         this.props.getNote(this.props.match.params.id);
     }
@@ -20,9 +20,7 @@ class NoteView extends React.Component {
                     <h3 onClick={()=>{this.props.history.push(`/edit/${this.props.noteOnProps['_id']}`)}}>Edit</h3>
                     <h3 onClick={()=>{
                         this.deleteModal[0].style.display ="block"   
-                        }
-                        // {this.props.history.push(`/delete/${this.props.noteOnProps['_id']}`)}
-                        }>Delete</h3> 
+                        }}>Delete</h3> 
                 </div>
                 
                 <div className="display-panel">
