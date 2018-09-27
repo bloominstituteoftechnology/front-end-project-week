@@ -2,8 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// Styles
-import '../styles/Note.css';
 
 const NoteLink = styled(Link)`
 	width: 192px;

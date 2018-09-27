@@ -9,8 +9,6 @@ import NoteListPage from './NoteListPage';
 import NotePage from './NotePage';
 import NewNotePage from './NewNotePage';
 // import EditNote from './EditNote';
-// Styles
-import '../styles/App.css';
 
 const AppContainer = styled.div`
 	display: flex;

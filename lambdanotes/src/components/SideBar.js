@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// Styles
-import '../styles/SideBar.css';
 
 const SideBarContainer = styled.nav`
 	display: flex;
