@@ -27,7 +27,7 @@ export default class NewForm extends Component {
   }
 
   render() {
-    console.log(this)
+    // console.log(this)
     return (
       <NewNoteDiv>
         <form onSubmit={this.sendToApp}>

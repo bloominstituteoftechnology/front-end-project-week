@@ -20,7 +20,8 @@ export const FAILED_REGISTRATION_ATTEMPT = 'FAILED_REGISTRATION_ATTEMPT';
 export const loginUser = (creds) => {
   return function(dispatch){
     dispatch({type: SENDING_CREDENTIALS})
-    axios.post('http://localhost:3333/api/welcome/login', creds)
+    axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/welcome/login', creds)
+    // axios.post('http://localhost:3333/api/welcome/login', creds)
     .then(res => {
       localStorage.setItem('JWT', res.data.token)
       dispatch({type: CREDENTIALS_ACCEPTED, payload: res.data})
@@ -36,7 +37,8 @@ export const createUser = (newUser) => {
   // console.log(newUser)
   return function(dispatch){
     dispatch({type: SENDING_NEW_USERDATA})
-    axios.post('http://localhost:3333/api/welcome/register', newUser)
+    axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/welcome/register', newUser)
+    // axios.post('http://localhost:3333/api/welcome/register', newUser)
     .then(res => {
       localStorage.setItem('JWT', res.data.token)
       dispatch({type: USER_CREATED, payload: res.data});
@@ -61,7 +63,8 @@ export const getNotes = () =>  {
           Authorization: token, 
         }
       }
-      axios.get('http://localhost:3333/api/notes/all', authHeader)
+      axios.get('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/all', authHeader)
+      // axios.get('http://localhost:3333/api/notes/all', authHeader)
         .then(res => {
           console.log(res)
           //convert tags from strings to array here and pass it back 
@@ -90,7 +93,8 @@ export const addNote = (newNote) =>  {
         } 
       }
     //auth headers go after the body ----- key--------
-    axios.post('http://localhost:3333/api/notes/', {
+    axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/', {
+    // axios.post('http://localhost:3333/api/notes/', {
       "title": newNote.title,
       "textBody": newNote.textBody,
     }, authHeader).then(res => {
@@ -105,7 +109,9 @@ export const addNote = (newNote) =>  {
 export const deleteNote = (id) =>  {
   return function(dispatch){
     dispatch({type: DELETING_NOTE});
-    axios.delete(`http://localhost:3333/notes/${id}`).then(res => {
+    axios.delete(`https://lambda-notes-backend-mjk.herokuapp.com/notes/${id}`)
+    // axios.delete(`http://localhost:3333/notes/${id}`)
+    .then(res => {
     // axios.delete(`http://localhost:3333//api/notes/${id}`).then(res => {
       dispatch({type: NOTE_DELETED, payload: res});
       dispatch(getNotes());
@@ -118,7 +124,7 @@ export const deleteNote = (id) =>  {
 export const editNote = (editedNote) =>  {
   return function(dispatch){
     dispatch({type: EDITING_NOTE});
-    axios.put(`http://localhost:3333/api/notes/${editedNote.id}`,
+    axios.put(`https://lambda-notes-backend-mjk.herokuapp.com/api/notes/${editedNote.id}`,
     // axios.put(`http://localhost:3333//api/notes/${editedNote.id}`,
       { "tags": editedNote.tags,
         "title": editedNote.title,
