@@ -30,8 +30,8 @@ class App extends Component {
                     component={CreateNoteView}/>
             <Route  path='/edit/:id'
                     component={EditView}/>
-            <Route  path='/delete/:id'
-                    component={DeleteView}/>
+            {/* <Route  path='/delete/:id'
+                    component={DeleteView}/> */}
         </div>
         
       </div>

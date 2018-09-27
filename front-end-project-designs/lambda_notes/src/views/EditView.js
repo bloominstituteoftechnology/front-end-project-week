@@ -31,6 +31,7 @@ class EditView extends React.Component {
         event.preventDefault();
         // console.log("crash!!");
         this.props.editNote(this.state.note);
+        // window.location.reload();
         this.props.history.push("/");
     }
 

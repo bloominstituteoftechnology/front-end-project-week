@@ -17,7 +17,7 @@ const NoteList =(props) =>{
                         
                         <h2 className="note-title">{note.title}</h2>
                         <p className="note-textBody">{note.textBody}</p>
-                        <h3>{note._id}</h3>
+                        {/* <h3>{note._id}</h3> */}
 
                     </div>
                 ))}
