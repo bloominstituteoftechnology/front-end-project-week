@@ -53,8 +53,9 @@ class App extends Component {
   }
 
   addNote = (newNote) => {
-    this.setState({ notes: [ ...this.state.notes, newNote], tags: [...this.state.tags, ...newNote.tags] })
-  }
+    let filteredTags = [...newNote.tags].filter(excluded => ![...this.state.tags].includes(excluded))
+    this.setState({ notes: [ ...this.state.notes, newNote], tags: [...this.state.tags, ...filteredTags] })
+}
 
   editNote = (noteId) => {
     this.setState({ noteUpdate: this.state.notes.filter(note => note.id === noteId)[0] })

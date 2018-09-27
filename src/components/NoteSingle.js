@@ -44,7 +44,7 @@ class NoteSingle extends Component {
         <P1>{note.text}</P1>
         <P1>Note Tags:<br />
           {
-            note.tags.map(function(item, index) {
+            note.tags.map((item, index) => {
               return <span key={`tag${index}`}>{ (index ? ', ' : '') + item }</span>; 
             })
           }
