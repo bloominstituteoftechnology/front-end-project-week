@@ -15,9 +15,7 @@ class NoteList extends Component {
   render() {
     divs = []
 
-    filteredNoteList = this.props.noteList.filter(item =>
-      (JSON.stringify(item.title)+JSON.stringify(item.textBody))
-      .toLowerCase().includes(this.props.filter.toLowerCase()))
+    filteredNoteList = this.props.noteList
 
     pages = parseInt((
       this.props.noteList.filter(item => filteredNoteList).length-1)
@@ -26,9 +24,7 @@ class NoteList extends Component {
 
       pages_length = Array.from(Array(pages).keys())
       page_numbers = pages_length.map(item => `page${item}`)
-      console.log(page_numbers);
-
-      console.log('Active:', this.props.active);
+      ;
 
     return this.props
     ?

@@ -22,7 +22,7 @@ class NewNote extends Component {
       textBody: this.state.textBody,
     }
     this.props.createNote(newNote)
-    this.setState({ title:'Note Title', textBody:'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a efficitur mollis ..' })
+    this.setState({ title:'', textBody:'' })
 
   }
 

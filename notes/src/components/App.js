@@ -11,15 +11,16 @@ import EditNote from './EditNote'
 import NoteOptions from './NoteOptions'
 import SearchBar from './SearchBar.js'
 import Authenticate from '../Authentication/Authenticate'
+import PaginationContainer from './PaginationContainer'
 // import Header from './Header';
 
-
+let filteredNoteList = ''
 
 class App extends Component {
 
   state = {
     filter: '',
-    active: 'page1',
+    active: 'page0',
   }
 
   componentDidMount() {
@@ -36,8 +37,20 @@ class App extends Component {
     this.setState({ [e.target.name] : e.target.value})
   }
 
+  handlePagination = value => {
+    console.log('HPag firing:', value);;
+    this.setState({ active: value})
+  }
+
+
   render() {
-    // console.log('App.js:', this.props.notes);
+
+    filteredNoteList = this.props.state.notes.filter(item =>
+      (JSON.stringify(item.title)+JSON.stringify(item.textBody))
+      .toLowerCase().includes(this.state.filter.toLowerCase()))
+
+      console.log('filtered length:', filteredNoteList.length);
+
     return (
       <div className="App">
         <header className="App-header">
@@ -48,6 +61,14 @@ class App extends Component {
           <NavLink
             className='nav-link'
             to='/new-note'> + Create New Note </NavLink>
+          <Route exact path='/note-list' render={props =>
+            <PaginationContainer
+              {...props}
+              active={this.state.active}
+              handlePagination={this.handlePagination}
+              modulo={parseInt(filteredNoteList.length/9)+1}
+             />
+           } />
         </header>
         <section className='main-section'>
           <Route exact path='/note-list' render={props =>
@@ -58,7 +79,7 @@ class App extends Component {
                   filter={this.state.filter} />
               <NotesList
                 {...props}
-                noteList={this.props.notes}
+                noteList={filteredNoteList}
                 filter={this.state.filter}
                 active={this.state.active}
                />
@@ -71,6 +92,7 @@ class App extends Component {
                {...props}
                noteList={this.props.notes}
                filter={this.state.filter}
+               active={this.state.active}
               />
               <NoteOptions
                 {...props}
