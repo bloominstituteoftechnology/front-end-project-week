@@ -13,7 +13,12 @@ class ListView extends React.Component {
   }
 
   render() {
-    return <List {...this.props} />;
+    return (
+      <div className="list-view">
+        <h2>Your Notes:</h2>
+        <List {...this.props} />
+      </div>
+    );
   }
 }
 

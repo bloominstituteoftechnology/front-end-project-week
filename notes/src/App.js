@@ -17,7 +17,7 @@ class App extends Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/create-note">Create New Note</NavLink>
+            <NavLink to="/create-note">+ Create New Note</NavLink>
           </li>
         </ul>
         <Route exact path="/" component={ListView} />
