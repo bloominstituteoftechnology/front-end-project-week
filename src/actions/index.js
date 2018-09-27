@@ -85,6 +85,7 @@ export const addNote = (newNote) =>  {
       console.log(token)
       const authHeader = {
         headers: {
+          'Access-Control-Allow-Origin': '*',
           Authorization: token,    
         } 
       }

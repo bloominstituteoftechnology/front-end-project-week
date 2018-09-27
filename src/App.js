@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import axios from 'axios';
 
 import {
   AllNotes,
@@ -65,6 +66,21 @@ class App extends Component {
 
   newNote = (newNote) => {
     this.props.addNote(newNote);
+    if(localStorage.getItem('JWT')){
+      const token = localStorage.getItem('JWT')
+      const authHeader = {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          Authorization: token,    
+        } 
+      }
+    axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/', (newNote), authHeader).then(res => {
+      this.props.history.push('/all-notes')
+      this.props.getNotes();
+    }).catch(err => console.log(err.message))
+  }else {
+    console.log('need to include toekn in request')
+  }
   }
 
   editNote = (noteEdit) => {

@@ -14,8 +14,10 @@ export default class NewForm extends Component {
   }
 
   sendToApp = (e) => {
+    e.preventDefault();
     this.props.newNote(this.state)
-    this.props.getNotes();
+
+    
     //probably should put axios call here to avoide page refresh 
   }
 
@@ -27,6 +29,7 @@ export default class NewForm extends Component {
   }
 
   render() {
+    console.log(this)
     return (
       <NewNoteDiv>
         <form onSubmit={this.sendToApp}>
