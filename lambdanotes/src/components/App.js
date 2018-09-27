@@ -10,7 +10,7 @@ import NoteView from './notes/NoteView';
 import NoteForm from './notes/NoteForm';
 const AppWrapper = styled.div`
   display: flex;
-  background: #d3d2d3;
+  min-height: 100%;
 `;
 
 const App = () => {
