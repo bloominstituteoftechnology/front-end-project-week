@@ -9,8 +9,8 @@ import EditNoteContainer from './containers/EditNoteContainer';
 import SearchBar from './containers/SearchBar';
 import SortingOptions from './containers/SortingOptions';
 import LoggedIn from './containers/LoggedIn';
-import Register from './components/Register';
-import Login from './components/Login';
+import Register from './containers/Register';
+import Login from './containers/Login';
 import Fade from './components/Fade';
 
 const MainContent = styled.div`
@@ -26,7 +26,7 @@ class App extends Component {
           <Fade>
             {({ location }) => (
               <Switch location={location}>
-                <Route exact path="/" render={() => <Login />} />
+                <Route exact path="/" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route
                   exact

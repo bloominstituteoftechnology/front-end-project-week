@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const Fader = styled.div`
   opacity: ${props => (props.fadeIn ? 1 : 0)};
