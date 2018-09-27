@@ -4,74 +4,17 @@ import Create from './Create';
 import { Route } from 'react-router-dom';
 import Note from './Note';
 import Edit from './Edit';
-import axios from 'axios';
 
 class ListContainer extends React.Component {
     constructor() {
       super();
       this.state = {
         displayDelete: false,
-        list: [
-          {
-            title: 'Note 1',
-            content: 'enim tortor at auctor urna1',
-            id: 0,
-            completed: false
-          },
-          {
-            title: 'Note 2',
-            content: 'enim tortor at auctor urna2',
-            id: 1,
-            completed: false
-          },
-          {
-            title: 'Note 3',
-            content: 'enim tortor at auctor urna3',
-            id: 2,
-            completed: false
-          },
-          {
-            title: 'Note 4',
-            content: 'enim tortor at auctor urna4',
-            id: 3,
-            completed: false
-          },
-          {
-            title: 'Note 5',
-            content: 'enim tortor at auctor urna5',
-            id: 4,
-            completed: false
-          },
-          {
-            title: 'Note 6',
-            content: 'enim tortor at auctor urna6',
-            id: 5,
-            completed: false
-          },
-          {
-            title: 'Note 7',
-            content: 'enim tortor at auctor urna7',
-            id: 6,
-            completed: false
-          },
-          {
-            title: 'Note 8',
-            content: 'enim tortor at auctor urna8',
-            id: 7,
-            completed: false
-          },
-          {
-            title: 'Note 9',
-            content: 'enim tortor at auctor urna9',
-            id: 8,
-            completed: false
-          }
-        ],
+        notes: [],
         title: '',
         content: '',
         
       };
-      this.currentId = Math.max(...this.state.list.map(note => note.id))
     }
 
     handleTaskChange = e => {
@@ -86,7 +29,7 @@ class ListContainer extends React.Component {
     }
 
     fetchNote = id => {
-      const filterNote = this.state.list.filter(note => note.id === id); //delete is reverse of this, use !==
+      const filterNote = this.state.notes.filter(note => note.id === id); //delete is reverse of this, use !==
         return filterNote[0];
     }
 
@@ -109,7 +52,8 @@ class ListContainer extends React.Component {
     render() {
       return (
         <div>
-          <Route exact path="/" render={(props) => <List {...props} list={this.state.list}/>} />
+          <Route exact path="/notes" render={(props) => <List {...props} list={this.state.list}/>} />
+          {/* <Route exact path= '/notes' component={List} /> */}
           <Route path="/Create" render={(props) => 
             <Create {...props} 
               handleAddNoteSubmit={this.handleAddNoteSubmit} 
