@@ -6,7 +6,7 @@ const Notes = props => {
   const headers = [
     { label: "ID", key: "id" },
     { label: "Title", key: "title" },
-    { label: "Content", key: "text" }
+    { label: "Content", key: "contents" }
   ];
 
   console.log("Notes.js notes ", props.notes);
