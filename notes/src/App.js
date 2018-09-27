@@ -10,7 +10,7 @@ import EditView from "./components/EditView";
 import axios from "axios";
 
 
-const url = "http://localhost:8000/api/notes";
+const url = "https://lambda-notes-project.herokuapp.com/api/notes";
 
 class App extends Component {
   constructor() {
