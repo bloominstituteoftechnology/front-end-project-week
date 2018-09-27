@@ -14,7 +14,7 @@ export const NoteList = props => {
                 />
             </div>
             <div className="notes-container" >
-            {(props.searchResults.length < 1) ? props.notes.map(note => {
+            {(props.searchResults.length > 0 && props.searchResults.length < props.notes.length) ? props.searchResults.map(note => {
             return ( 
                 <Link to={`/notes/${note.id}`} key={note.id} >
                     <div 
@@ -29,7 +29,7 @@ export const NoteList = props => {
                     </div>
                 </Link>
             );
-            }) : props.searchResults.map(note => {
+            }) : props.notes.map(note => {
                 return ( 
                     <Link to={`/notes/${note.id}`} key={note.id} >
                         <div 
