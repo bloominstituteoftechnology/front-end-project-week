@@ -32,16 +32,16 @@ class App extends Component {
   }
 
   editNote = id => {
-    this.setState({isUpdating: this.state.notes.filter(note => note.id === id)})
+    this.setState({isUpdating: this.state.notes.filter(note => note.id == id)[0]})
   }
 
   editingNote = selectedNote => {
-    let editedNote = this.state.notes.filter(note => note.id === selectedNote.id)
+    let editedNote = this.state.notes.filter(note => note.id == selectedNote.id)[0]
     editedNote.title=selectedNote.title
     editedNote.content=selectedNote.content
-    let list = this.state.notes.filter(note => note.id !== selectedNote.id)
+    let list = this.state.notes.filter(note => note.id != selectedNote.id)
     console.log("editingNote:", list, editedNote)
-    this.setState({notes:[editedNote, ...list]})
+    this.setState({notes:[...list, editedNote]})
   }
 
   deleteNote = id => {
