@@ -15,7 +15,7 @@ class DeleteNote extends Component {
         const id = this.props.match.params.id;
         console.log('logging params.id in delete',this.props.match.params.id)
         axios
-        .delete(`http://localhost:9000/api/notes/${id}`)
+        .delete(`https://lambda-note-taking-app.herokuapp.com/api/notes/${id}`)
         .then(response => {
             this.setState({id: null });
             this.props.toggleDeleteNote();

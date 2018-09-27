@@ -10,6 +10,9 @@ import UpdateNote from './components/UpdateNote';
 import DeleteNote from './components/DeleteNote';
 import './App.css';
 
+//localAPI = 'http://localhost:9000/api/notes'
+//API = 'https://lambda-note-taking-app.herokuapp.com/api/notes'
+
 class App extends Component {
   constructor(){
     super();
@@ -28,7 +31,7 @@ class App extends Component {
 getNotes = () => {
   console.log('is function called')
   return axios
-  .get('http://localhost:9000/api/notes')
+  .get('https://lambda-note-taking-app.herokuapp.com/api/notes')
   .then(response => {
     console.log('data from axios request', response.data)
     console.log(this.state)
@@ -66,7 +69,7 @@ handleContent = event => {
 //     console.log('note', note)
 
 //     axios
-//     .post('http://localhost:9000/api/notes', note)
+//     .post('https://lambda-note-taking-app.herokuapp.com/api/notes', note)
 //     .then(response => {
 //         this.setState({
 //           name: '',
@@ -84,7 +87,7 @@ handleSelectNote = note => {
 
 handleRefresh = () => {
   axios
-  .get('http://localhost:9000/api/notes')
+  .get('https://lambda-note-taking-app.herokuapp.com/api/notes')
   .then(response => {
     this.setState({notes: response.data});
   })
@@ -114,7 +117,7 @@ handleBodyUpdate = event => {
 handleDeleteNote = e => {
   const id = this.match.params.id;
   axios
-  .delete(`http://localhost:9000/api/notes/${id}`)
+  .delete(`https://lambda-note-taking-app.herokuapp.com/api/notes/${id}`)
   .then(response => {
       this.setState({id: null });
       this.state.history.push('/notes');

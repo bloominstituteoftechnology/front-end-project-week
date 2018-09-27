@@ -53,7 +53,7 @@ class UpdateNote extends Component {
         })
 
         axios
-        .put(`http://localhost:9000/api/notes/${id}`, notes)
+        .put(`https://lambda-note-taking-app.herokuapp.com/api/notes/${id}`, notes)
 
         .then(response => 
             this.props.getNotes())
@@ -73,13 +73,13 @@ render() {
         type = "text" 
         name="title"
         placeholder="Title"
-        value = {this.state.notes.name}
+        value = {this.props.notes.name}
         onChange = {this.handleTitleUpdate}
         />
         <textarea type = "text"
-        name = "textBody"
+        name = "content"
         placeholder = "Content"
-        value = {this.state.notes.content}
+        value = {this.props.notes.content}
         onChange = {this.handleBodyUpdate}
         />
         <Link to ="/notes">

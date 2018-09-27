@@ -7,21 +7,6 @@ import './NotesList.css'
 
 class NotesList extends Component {
 
-        // state = {
-        //     notes: []
-        // }
-
-    // componentDidMount() {
-    //     axios
-    //     .get('http://localhost:9000/api/notes')
-    //     .then(response => {
-    //         this.setState({notes: response.data})
-    //         console.log('response in noteslist',response);
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
-    // }
 
 render() {
     return(

@@ -18,7 +18,7 @@ class NoteView extends Component {
         console.log('id match',this.props.match.params)
         //this.setState({ id: Number(id), notes: this.props.notes})
     
-        axios.get(`http://localhost:9000/api/notes/${id}`)
+        axios.get(`https://lambda-note-taking-app.herokuapp.com/api/notes/${id}`)
         .then(response => {
             this.setState({note: response.data[0]})
             console.log('note',this.state.note)
@@ -28,6 +28,7 @@ class NoteView extends Component {
             console.log(err)
         })
     }
+
 
     render() {
         const {note} = this.state;

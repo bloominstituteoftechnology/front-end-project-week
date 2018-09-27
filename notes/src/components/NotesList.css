@@ -26,7 +26,7 @@ a{
 .note-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 40px;
 }
@@ -37,7 +37,7 @@ overflow-y: scroll;
   border-radius: 12px;
   width: 300px;
   height: 200px;
-  margin: 0 20px 20px 20px;
+  margin: 0 10px 30px 70px;
   padding: 20px;
   background-color: rgb(244, 248, 242);
 }

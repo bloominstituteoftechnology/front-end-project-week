@@ -4,6 +4,8 @@ import axios from 'axios';
 import './UpdateNote.js'
 import './NewNoteForm.css';
 
+//localAPI = 'http://localhost:9000/api/notes'
+//API = 'https://lambda-note-taking-app.herokuapp.com/api/notes'
 
 class NewNoteForm extends Component {
     constructor(props) {
@@ -16,15 +18,6 @@ class NewNoteForm extends Component {
         console.log('logging state in new note form',this.state)
     }
   
-// componentDidMount() {
-//     this.setState({name: '', content:''})
-//     console.log('logging state in componentDidMount', this.state)
-// };
-
-// componentWillUnmount() {
-//     localStorage.setItem('name', this.state.name);
-//     localStorage.setItem('content', this.state.content);
-// };
 
 
 handleTitleUpdate = event => {
@@ -46,7 +39,7 @@ handleAddNote = () => {
     };
 
     axios
-    .post(`http://localhost:9000/api/notes`, note)
+    .post('https://lambda-note-taking-app.herokuapp.com/api/notes', note)
     .then(response => 
         this.props.getNotes())
         .then(response => {
