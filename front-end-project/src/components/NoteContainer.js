@@ -183,8 +183,9 @@ const {checklist} = this.state
 //-----------------------------------------------------------------------------------Axios Data calls
   fetchData = () => {
     const {notes, backupNotes} = this.state
+    console.log(notes, backupNotes)
    this.setState({
-     notes: notes,
+     notes: backupNotes,
      backupNotes: backupNotes,
    })
     // axios
