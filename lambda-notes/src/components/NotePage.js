@@ -9,6 +9,7 @@ class NotePage extends Component {
     componentDidMount() {
         const token = this.props.getToken();
         const id = parseInt(this.props.match.params.id, 10);
+        //console.log('match', this.props.match.params.id)
         if (Number.isInteger(id)) {
             this.props.fetchNote(id, token);
         }
@@ -20,20 +21,21 @@ class NotePage extends Component {
         }
 
     render () {
+        const id = parseInt(this.props.match.params.id, 10);
         return (
             <div className="note-page">
-                {this.props.note.title && this.props.note.textBody ? (
-                    <div>
-                        <div className="note-options">
-                            <Link to={`/notes/${this.props.match.params.id}/edit-note`}>edit</Link>
-                            <DeleteModal id={this.props.match.params.id} deleteNote={this.deleteNote}/>
-                        </div>
-                        <h2>{this.props.note.title}</h2>
-                        <p>{this.props.note.textBody}</p>
+                <div>
+                    <div className="note-options">
+                        <Link to={`/notes/${this.props.match.params.id}/edit-note`}>edit</Link>
+                        <DeleteModal id={this.props.match.params.id} deleteNote={this.deleteNote}/>
                     </div>
-                ) : (
-                    <h4>This note does not exist</h4>
-                )}
+                    { (id === this.props.note.id) ? (
+                        <div>
+                            <h2>{this.props.note.title}</h2>
+                            <p>{this.props.note.textBody}</p>
+                        </div>
+                    ) : (null) }
+                </div>
             </div>
         )
     }
