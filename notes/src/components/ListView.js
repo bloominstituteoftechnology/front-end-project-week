@@ -131,7 +131,6 @@ class ListView extends React.Component{
                     rowHeight={250}
                     width={1200}
                     autoSize={true}>
-    
                         {renderNotes}
                     </ResponsiveGridLayout>
                 </List>

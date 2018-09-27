@@ -37,18 +37,32 @@ class Login extends React.Component {
     };
     submit = e => {
         e.preventDefault();
-        const { email, password } = this.state; 
-        axios.post(`${url}/login`, {
-                email: email, 
-                password: password 
-            })
-             .then( res => {
-                 console.log( res.data )
-                 this.setState({ email: '', password: ''});
-                 window.location.href='http://localhost:3000/note/all'
+        const { email, password } = this.state;
+        if ( localStorage.getItem('email')) {
+            alert('A user is already logged in.')
+        } else {
+            localStorage.setItem('email', email);
+            axios.post(`${url}/login`, {
+                    email: email, 
+                    password: password 
                 })
-             .catch( err => console.log( err ));
+                .then( res => {
+                    console.log( res.data )
+                    this.setState({ email: '', password: ''});
+                    window.location.href='http://localhost:3000/note/all'
+                    })
+                .catch( err => console.log( err ));
+        };
     }
+    logout = e => {
+        if ( localStorage.getItem('email')){
+            e.preventDefault();
+            localStorage.removeItem('email');
+            window.location.href='http://localhost:3000/auth/login';
+        } else {
+            alert ('No user is currently logged in.');
+        }
+    };
     render() {
         return (
             <Background>
@@ -59,6 +73,11 @@ class Login extends React.Component {
                     </Link>
                     <Link to='/auth/login' style={{ padding: '0.5rem 1rem', color: 'white' }}>
                             Login
+                    </Link>
+                    <Link   to="/auth/login"
+                            style={{ padding: '0.5rem 1rem', color: 'white' }}
+                            onClick={this.logout}>
+                        Logout
                     </Link>
                 </div>
                     <Input placeholder='email'

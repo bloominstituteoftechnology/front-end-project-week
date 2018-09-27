@@ -22,6 +22,18 @@ const CustomButton = styled.button`
 `;
 
 class SideBar extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    logout = e => {
+        if ( localStorage.getItem('email')){
+            e.preventDefault();
+            localStorage.removeItem('email');
+            window.location.href='http://localhost:3000/auth/login';
+        } else {
+            alert ('No user is currently logged in.');
+        }
+    };
     render(){
         return(
             <Container fluid={true} style={{
@@ -37,6 +49,9 @@ class SideBar extends React.Component {
                 </Link>
                 <Link to="/auth/login" style={{ textDecoration: 'none' }}>
                     <CustomButton onClick={this.props.reset}>Login</CustomButton>
+                </Link>
+                <Link to="/auth/login" style={{ textDecoration: 'none' }}>
+                    <CustomButton onClick={this.logout}>Logout</CustomButton>
                 </Link>
                 <Link to="/note/all" style={{ textDecoration: 'none' }}>
                     <CustomButton onClick={this.props.reset}>View Your Notes</CustomButton>

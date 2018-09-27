@@ -35,19 +35,33 @@ class Register extends React.Component {
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value});
     };
+    logout = e => {
+        if ( localStorage.getItem('email')){
+            e.preventDefault();
+            localStorage.removeItem('email');
+            window.location.href='http://localhost:3000/auth/login';
+        } else {
+            alert ('No user is currently logged in.');
+        }
+    };
     submit = e => {
         e.preventDefault();
-        const { email, password } = this.state; 
-        axios.post(`${url}/register`, {
-                email: email, 
-                password: password 
-            })
-             .then( res => { 
-                 console.log(res.data) 
-                 this.setState({ email: '', password: ''});
-                 window.location.href='http://localhost:3000/note/all';           
+        if ( localStorage.getItem('email')){
+            alert('A user is already logged in.')
+        }
+        else {
+            const { email, password } = this.state; 
+            axios.post(`${url}/register`, {
+                    email: email, 
+                    password: password 
                 })
-                .catch( err => alert('Invalid email or the email is already registered.'));
+                .then( res => { 
+                    console.log(res.data) 
+                    this.setState({ email: '', password: ''});
+                    window.location.href='http://localhost:3000/note/all';           
+                    })
+                    .catch( err => alert('Invalid email or the email is already registered.'));
+        }
     };
     render() {
         return (
@@ -59,6 +73,11 @@ class Register extends React.Component {
                     </Link>
                     <Link to='/auth/login' style={{ padding: '0.5rem 1rem', color: 'white' }}>
                             Login
+                    </Link>
+                    <Link   to="/auth/login"
+                            style={{ padding: '0.5rem 1rem', color: 'white' }}
+                            onClick={this.logout}>
+                        Logout
                     </Link>
                 </div>
                 <form>
