@@ -43,7 +43,7 @@ class Signup extends Component {
   register = event => {
       event.preventDefault();
 
-      axios.post('http://localhost:2200/api/register', this.state)
+      axios.post('https://lambdanotes-backend.herokuapp.com/api/register', this.state)
       .then( res => {
         console.log(res.data);
         localStorage.setItem('jwt', res.data.token);

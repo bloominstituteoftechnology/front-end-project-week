@@ -42,7 +42,7 @@ class Login extends Component {
   login = event => {
       event.preventDefault();
 
-      axios.post('http://localhost:2200/api/login', this.state)
+      axios.post('https://lambdanotes-backend.herokuapp.com/api/login', this.state)
       .then( res => {
         console.log(res.data);
         localStorage.setItem('jwt', res.data.token);
