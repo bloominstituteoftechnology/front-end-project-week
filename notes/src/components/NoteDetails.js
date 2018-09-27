@@ -53,7 +53,7 @@ class NoteDetails extends React.Component {
         if(this.props.currentNote.tags){
             tags = (
                 <p>{this.props.currentNote.tags.map(tag => {
-                    return <Link to = {`/notes/tags/${tag}`} key={tag}>{tag}</Link>
+                    return <Link to = {`/notes/tags/${tag}`} key={tag}><span className = 'tag-span'>{tag}</span></Link>
                 })}</p>
             )
         }

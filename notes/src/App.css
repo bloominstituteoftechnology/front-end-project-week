@@ -56,19 +56,18 @@ table {
 /************************************************************************************/
 /* BODY AND CONTAINER */
 /************************************************************************************/
-body {
+html, body {
   background: white;
+  height: 100%;
 }
 
-.container {
+.App {
   width: 90%;
   margin: 0 auto;
   display: flex;
-  flex-flow: row nowrap;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  min-height: 100vh;
 }
+
 
 /************************************************************************************/
 /* NAVIGATION */
@@ -98,14 +97,19 @@ body {
 /* APPLICATION */
 /************************************************************************************/
 .application {
-  width: 80%;
+  width: 100%;
   background: #f2f1f2;
   padding: 20px;
+  position: relative;
 }
 
 /************************************************************************************/
 /* NOTE LIST VIEW */
 /************************************************************************************/
+.note-list-container {
+  background: #f2f1f2;
+}
+
 .note-list-container h1 {
   font-size: 1.2rem;
   font-weight: bold;
@@ -117,8 +121,6 @@ body {
   width: 100%;
   justify-content: space-between;
   align-content: baseline;
-  overflow: auto;
-  height: 100vh;
 }
 
 .note-list a {
@@ -128,7 +130,7 @@ body {
 }
 
 .note-list a:hover{
-  color: gray;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
@@ -147,11 +149,41 @@ body {
   padding: 10px;
   overflow: auto;
   margin: 10px 0px;
+  position: relative;
+}
+
+.note-tags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: baseline;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.8rem;
+  background: white;
+}
+
+.tag-span {
+  background: #24b8bd;
+  border-radius: 0px;
+  padding: 2px 5px;
+  color: white;
+}
+
+.tag-span:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.note-tags a {
+  margin: 2px 2px 2px 0px;
+  width: fit-content;
 }
 
 /************************************************************************************/
 /* NOTE DETAILS VIEW */
 /************************************************************************************/
+
 .edit-delete {
   text-align: right;
   font-weight: bold;
@@ -160,11 +192,13 @@ body {
 .note-title {
   font-weight: bold;
   font-size: 1rem;
+  
 }
 
 .note-details h1{
   font-size: 1.2rem;
   font-weight: bold;
+
 }
 
 .edit-delete span {
@@ -174,6 +208,18 @@ body {
   cursor: pointer;
 }
 
+.note-details-tags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: baseline;
+  position: relative;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.note-details-tags a {
+  margin-right: 5px;
+}
 
 /************************************************************************************/
 /* DELETE MODAL STYLES */

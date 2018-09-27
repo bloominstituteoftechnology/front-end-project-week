@@ -18,12 +18,9 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
-
-      <div className = 'container'>
+     <div className='App'>
 
       <div className = 'navigation'>
-      
       <h1>Lambda Notes</h1>
       <Link to ='/'>
       <div className = 'nav-link'>
@@ -39,7 +36,6 @@ class App extends Component {
       </div>
 
       <div className = 'application'>
-        
         <Switch>
           <Route exact path = '/'
           render={(props) => <NoteList {...props} notes={this.props.notes} />} />
@@ -50,11 +46,9 @@ class App extends Component {
         </Switch>
 
       </div>
-
       </div>
 
 
-      </div>
     );
   }
 }
