@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://mkerbleski.github.io/front-end-project-week/",
   "dependencies": {
+    "axios": "^0.18.0",
     "dnd-core": "^4.0.5",
     "gh-pages": "^2.0.0",
     "immutability-helper": "^2.7.1",
