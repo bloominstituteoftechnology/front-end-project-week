@@ -90,9 +90,9 @@ button {
   display: flex;
   flex-direction: row;
   width: 888px;
-  margin-top: 17px;
+  margin: 17px 0;
 	border: 1px solid #aaaaaa;
-	height: 888px
+	height: 888px;
 }
 
 .App-header {
@@ -171,6 +171,7 @@ button {
   margin-bottom: 25px;
 	padding: 12px 20px 18px 16px;
 	background-color: white;
+	word-wrap: break-word;
 }
 
 .note-title {
@@ -179,6 +180,9 @@ button {
 	font-size: 1.1rem;
 	letter-spacing: .5px;
 	color: black;
+	overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 a {
@@ -191,6 +195,8 @@ a {
 	margin-top: 6px;
 	letter-spacing: 1px;
 	line-height: 22px;
+	height: 81%;
+	overflow: hidden;
 }
 
 
