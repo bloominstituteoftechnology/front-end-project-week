@@ -10,6 +10,7 @@ import SearchBar from './containers/SearchBar';
 import SortingOptions from './containers/SortingOptions';
 import LoggedIn from './containers/LoggedIn';
 import Register from './components/Register';
+import Login from './components/Login';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -22,8 +23,8 @@ class App extends Component {
         <LoggedIn>{props => <SideNav {...props} />}</LoggedIn>
         <MainContent>
           <Switch>
-            <Route exact path="/" component={Register} />
-            <Route exact path="/login" />
+            <Route exact path="/" component={Login} />
+            <Route exact path="/login" component={Register} />
             <Route
               exact
               path="/notes"

@@ -18,8 +18,8 @@ const Label = styled.label`
   left: 1rem;
   transform-origin: left;
   opacity: 0;
-  transition: all 0.3s;
   visibility: hidden;
+  transition: all 0.3s;
 `;
 
 const Input = styled.input`
@@ -59,25 +59,15 @@ const Wrapper = styled.div`
   }
 `;
 
-class Register extends Component {
+class Login extends Component {
   state = {
-    first_name: '',
-    last_name: '',
     email: '',
     password: '',
   };
   render() {
     return (
       <Form>
-        <Heading>Sign Up</Heading>
-        <Wrapper>
-          <Input type="text" name="first_name" placeholder="First Name" />
-          <Label>First Name</Label>
-        </Wrapper>
-        <Wrapper>
-          <Input type="text" name="last_name" placeholder="Last Name" />
-          <Label>Last Name</Label>
-        </Wrapper>
+        <Heading>Login</Heading>
         <Wrapper>
           <Input type="email" name="email" placeholder="@Email" />
           <Label>@Email</Label>
@@ -86,10 +76,10 @@ class Register extends Component {
           <Input type="password" name="password" placeholder="#Password" />
           <Label>#Password</Label>
         </Wrapper>
-        <Button type="submit">Get Started &rarr;</Button>
+        <Button type="submit">Login</Button>
       </Form>
     );
   }
 }
 
-export default Register;
+export default Login;
