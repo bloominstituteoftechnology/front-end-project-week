@@ -215,36 +215,47 @@
   flex-wrap: wrap;
   margin: 42px 26px 120px 26px;
 }
-.list .search-wrapper {
+.list .search-wrapper,
+.list .sort-options {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   flex-direction: column;
   width: 100%;
 }
-.list .search-wrapper .search-note {
+.list .search-wrapper .curr-search,
+.list .sort-options .curr-search {
+  background: darkblue;
+}
+.list .search-wrapper .search-note,
+.list .sort-options .search-note {
   padding: 0;
   margin: 0;
   font-size: 0.9rem;
   overflow: hidden;
   white-space: nowrap;
 }
-.list .search-wrapper .search {
+.list .search-wrapper .search,
+.list .sort-options .search {
   display: flex;
   justify-content: start;
 }
-.list .search-wrapper .btn {
+.list .search-wrapper .btn,
+.list .sort-options .btn {
   padding: 1.05vh 0.9vw;
   margin-right: 5px;
   margin-bottom: 8px;
 }
-.list .search-wrapper .delete-all-btn {
+.list .search-wrapper .delete-all-btn,
+.list .sort-options .delete-all-btn {
   background-color: #D1001A;
 }
-.list .search-wrapper .csv-link {
+.list .search-wrapper .csv-link,
+.list .sort-options .csv-link {
   background-color: green;
 }
-.list .search-wrapper input {
+.list .search-wrapper input,
+.list .sort-options input {
   border-radius: 5px;
   padding: 0 5px;
 }
@@ -257,32 +268,40 @@
     max-width: 100%;
   }
 }
-.list .search-wrapper .lengthen-anim {
+.list .search-wrapper .lengthen-anim,
+.list .sort-options .lengthen-anim {
   animation-name: lengthen-anim;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 @media ( max-width: 1024px ) {
-  .list .search-wrapper {
+  .list .search-wrapper,
+  .list .sort-options {
     padding: 0;
   }
-  .list .search-wrapper .btn {
+  .list .search-wrapper .btn,
+  .list .sort-options .btn {
     padding: 2.05vh 0.9vw;
   }
-  .list .search-wrapper input {
+  .list .search-wrapper input,
+  .list .sort-options input {
     min-width: 205px;
     min-height: 60px;
   }
-  .list .search-wrapper * {
+  .list .search-wrapper *,
+  .list .sort-options * {
     padding: 0;
   }
 }
 @media ( max-width: 710px ) {
-  .list .search-wrapper {
+  .list .search-wrapper,
+  .list .sort-options {
     display: block;
   }
   .list .search-wrapper .btn,
-  .list .search-wrapper input {
+  .list .sort-options .btn,
+  .list .search-wrapper input,
+  .list .sort-options input {
     width: 100%;
   }
 }
@@ -294,6 +313,10 @@
     text-align: center;
     margin-bottom: 0;
   }
+}
+.list .sort-options {
+  align-items: flex-end;
+  flex-wrap: nowrap;
 }
 .list .note-wrapper {
   padding-bottom: 30px;

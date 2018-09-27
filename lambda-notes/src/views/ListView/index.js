@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React, { Fragment } from 'react';
 
 // Dependencies
 import fuzzysearch from 'fuzzysearch';
@@ -25,19 +25,31 @@ export default class ListView extends React.Component {
 			fuzzyInput: '',
 		},
 		btnClass: {
-			exact: '',
-			fuzzy: '',
+			exactSearch: '',
+			fuzzySearch: '',
 		},
 		deleteAllModal: false,
+		toggleSort: false,
+		sortingValues: {
+			sortBy: '',
+			sortOrder: '',
+		},
 	};
 
 	toggleSearch = e => {
 		e.preventDefault();
 		const newSearch = { ...this.state.search };
+		const newBtnClass = { ...this.state.btnClass };
 
 		for (let key in newSearch) {
-			if (key === e.target.name) newSearch[key] = !newSearch[key];
-			else newSearch[key] = false;
+			if (key === e.target.name) {
+				newSearch[key] = !newSearch[key];
+				newBtnClass[key] = newBtnClass[key] ? '' : 'curr-search';
+			}
+			else {
+				newSearch[key] = false;
+				newBtnClass[key] = '';
+			}
 		}
 
 		this.setState({
@@ -48,7 +60,8 @@ export default class ListView extends React.Component {
 				exactInput: '',
 				fuzzyInput: '',
 			},
-			btnClass: { ...this.state.btnClass },
+			btnClass: newBtnClass,
+			sortingValues: { ...this.state.sortingValues },
 		});
 	}
 
@@ -63,6 +76,7 @@ export default class ListView extends React.Component {
 				search: { ...this.state.search },
 				input: newInput,
 				btnClass: { ...this.state.btnClass },
+				sortingValues: { ...this.state.sortingValues },
 			});
 		}
 
@@ -77,6 +91,7 @@ export default class ListView extends React.Component {
 			search: { ...this.state.search },
 			input: newInput,
 			btnClass: { ...this.state.btnClass },
+			sortingValues: { ...this.state.sortingValues },
 		});
 	}
 
@@ -99,12 +114,46 @@ export default class ListView extends React.Component {
 			input: { ...this.state.input },
 			btnClass: { ...this.state.btnClass },
 			deleteAllModal: !this.state.deleteAllModal,
+			sortingValues: { ...this.state.sortingValues },
 		});
+	}
+
+	toggleSort = newSortingValues => {
+		this.setState({
+			...this.state,
+			search: { ...this.state.search },
+			input: { ...this.state.input },
+			btnClass: { ...this.state.btnClass },
+			toggleSort: !this.state.toggleSort,
+			sortingValues: newSortingValues ? newSortingValues : { sortBy: '', sortOrder: '' },
+		});
+	}
+
+	handleToggleSort = e => {
+		e.preventDefault();
+
+		this.toggleSort();
+	}
+
+	handleSorting = e => {
+		e.preventDefault();
+
+		const newSortingValues = {
+			sortBy: '',
+			sortOrder: '',
+		}
+
+		for (let i = 0; i < e.target.length - 1; i++) {
+			if (e.target[i].checked) newSortingValues[e.target[i].name] = e.target[i].value;
+		}
+
+		this.toggleSort(newSortingValues);
 	}
 
 	render() {
 		const { errorMsg, search, input, deleteAllModal } = this.state;
-		const { history, notes, username } = this.props;
+		const { history, username } = this.props;
+		let notes = [ ...this.props.notes ];
 		const csvHeaders = [
 			{label: 'ID', key: '_id'},
 			{label: 'Tags', key: 'tags'},
@@ -115,6 +164,20 @@ export default class ListView extends React.Component {
 
 		for (let i = 0; i < notes.length; i++) {
 			csvData.push(notes[i]);
+		}
+
+		if (this.state.sortingValues.sortBy) {
+			notes.sort((note1, note2) => {
+				let a = note1[this.state.sortingValues.sortBy].toLowerCase();
+				let b = note2[this.state.sortingValues.sortBy].toLowerCase();
+				if (this.state.sortingValues.sortOrder === 'asc') {
+					return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+				} else {
+					return ((a > b) ? -1 : ((a < b) ? 1 : 0));
+				}
+			});
+		} else {
+			notes = this.props.notes;
 		}
 
 		return(
@@ -133,16 +196,16 @@ export default class ListView extends React.Component {
 								className = 'btn csv-link' 
 							>Export as CSV</CSVLink>
 
-							<button className = 'btn' name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
+							<button className = { `btn ${ this.state.btnClass.exactSearch }` } name = 'exactSearch' onClick = { e => this.toggleSearch(e) }>Exact search</button>
 
-							<button className = 'btn' name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
+							<button className = { `btn ${ this.state.btnClass.fuzzySearch }` } name = 'fuzzySearch' onClick = { e => this.toggleSearch(e) }>Fuzzy search</button>
 						</div>
 
 						<div>
 							<Modal 
-								centered={ true } 
-								isOpen={ deleteAllModal } 
-								toggle={ this.toggleDeleteAllModal } 
+								centered = { true } 
+								isOpen = { deleteAllModal } 
+								toggle = { this.toggleDeleteAllModal } 
 							>
 								<ModalBody>
 									<p>Are you sure you want to delete all your notes? This action cannot be undone.</p>
@@ -189,6 +252,30 @@ export default class ListView extends React.Component {
 					</div>
 
 					<h2>{ username }'s Notes:</h2>
+
+					<div className = 'sort-options'>
+						{ !this.state.toggleSort && 
+							<button onClick = { e => this.handleToggleSort(e) } className = 'btn'>Sorting options</button>
+						}
+
+						{ this.state.toggleSort && 
+							<Fragment>
+								<form onSubmit = { e => this.handleSorting(e) }>
+									<input type = 'radio' name = 'sortBy' value = 'title' /> Title<br />
+									<input type = 'radio' name = 'sortBy' value = 'textBody' /> Text Body
+
+									<input type = 'radio' name = 'sortOrder' value = 'asc' /> Ascending <br />
+									<input type = 'radio' name = 'sortOrder' value = 'des' /> Descending
+
+									<button type = 'submit'>Sort</button>
+								</form>
+								
+								<button onClick = { e => this.handleToggleSort(e) } className = 'btn'>No sort</button>
+							</Fragment>
+						}
+
+						{ this.state.sortingValues.sortBy && <p>Sorted by { this.state.sortingValues.sortBy } { this.state.sortingValues.sortOrder }</p> }
+					</div>
 
 					{ 
 						(search.exactSearch && (notes.filter(note => {

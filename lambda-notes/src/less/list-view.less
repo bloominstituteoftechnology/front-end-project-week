@@ -4,12 +4,16 @@
 	flex-wrap: wrap;
 	margin: 42px 26px 120px 26px;
 
-	.search-wrapper {
+	.search-wrapper, .sort-options {
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
 		flex-direction: column;
 		width: 100%;
+
+		.curr-search {
+			background: darkblue;
+		}
 
 		.search-note {
 			padding: 0;
@@ -87,6 +91,11 @@
 			text-align: center;
 			margin-bottom: 0;
 		}
+	}
+
+	.sort-options {
+		align-items: flex-end;
+		flex-wrap: nowrap;
 	}
 
 	.note-wrapper {
