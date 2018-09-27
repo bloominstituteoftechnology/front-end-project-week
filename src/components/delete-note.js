@@ -45,7 +45,7 @@ const DeleteNoteDiv = styled.div`
     background: white;
     padding: 40px 100px;
     margin: 250px;
-    height: 100vh:
+    height: 100vh;
     ${'' /* width: 500px; */}
     z-index: 10;
     position:fixed;
@@ -80,7 +80,7 @@ const DeleteNoteDiv = styled.div`
           ${'' /* border: 1px solid blue; */}
           padding: 10px;
           width: 80%;
-          margin: 0 20px
+          margin: 0 20px;
           display: flex;
           justify-content: center;
           align-items: center;

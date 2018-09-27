@@ -19,6 +19,7 @@ class Welcome extends Component{
         console.log('createuser in welcome.js', this)
         axios.post('http://localhost:3333/api/welcome/register', newUser).then(res => {
             localStorage.setItem('JWT', res.data.token)
+            localStorage.setItem('username', res.data.username)
             this.props.history.push('/all-notes')
         }).catch(err => {console.log(err.message)})
     }
