@@ -5,15 +5,19 @@ import { fetchNotes, addNote, updateNote, deleteNote } from '../actions';
 
 import NotesList from '../components/NotesList';
 import NoteAdd from '../components/NoteAdd';
+import NoteUpdate from '../components/NoteUpdate';
+import Sidebar from '../components/Sidebar';
 
 import './App.css';
 
 class App extends Component {
   state = {
     newNote: {
+      _id: -1,
       title: "",
       textBody: ""
-    }
+    },
+    selectedNote: {}
   }
 
   componentDidMount() {
@@ -35,6 +39,7 @@ class App extends Component {
     this.setState({
       newNote: {
         ...this.state.newNote,
+        _id: -1,
         title: "",
         textBody: ""
       }
@@ -44,16 +49,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Notes</h1>
+        <Sidebar />
+
         <NotesList 
           notes={this.props.notes}
           deleteNote={this.props.deleteNote}
+          updateNote={this.props.updateNote}
         />
-        <NoteAdd 
+        
+        {/* <NoteAdd 
           newNote={this.state.newNote}
           handleInput={this.handleInput}
           addNote={this.addNote}
         />
+
+        <NoteUpdate 
+          updateNote={this.props.updateNote}
+          note={this.props.notes[0]}
+        /> */}
       </div>
     );
   }

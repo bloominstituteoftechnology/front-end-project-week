@@ -92,7 +92,7 @@ export const updateNote = note => {
           payload: response.data
         });
       })
-      .catch(error => {
+      .catch(() => {
         dispatch({
           type: ERROR_UPDATING_NOTE,
           payload: "ERROR: unable to update note"

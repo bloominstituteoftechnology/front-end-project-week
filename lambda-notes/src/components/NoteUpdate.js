@@ -1,42 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 class NoteUpdate extends Component {
-
-    componentDidMount() {
-        localStorage.setItem("location", this.props.location.pathname);
-        if (this.props.note.title && this.props.note.textBody) {
-            this.setState(
-                {
-                    _id: this.props.note._id,
-                    title: this.props.note.title,
-                    textBody: this.props.note.textBody
-                },
-                () => localStorage.setItem("note", JSON.stringify(this.props.note))
-            );
-        } else {
-            const note = JSON.parse(localStorage.getItem("note"));
-            this.setState({
-                _id: note._id,
-                title: note.title,
-                textBody: note.textBody,
-            });
+    constructor(props) {
+        console.log(props);
+        super(props);
+        this.state = {
+            _id: props.note._id,
+            title: props.note.title,
+            textBody: props.note.textBody
         }
+        console.log(this.state);
     }
 
-    handleInputChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    };
-
-    editNote = () => {
-        const editedNote = {
-          _id: this.state._id,
-          title: this.state.title,
-          textBody: this.state.textBody
-        };
-        this.props.updateNote(this.state._id, editedNote, this.props.history);
-      };
+    handleInput = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+        })
+      }
 
     render() {
+        console.log(this.props);
         return (
             <div>
                 <h1>Edit Note</h1>
@@ -46,8 +30,8 @@ class NoteUpdate extends Component {
                         type="text"
                         name="title"
                         placeholder="Title"
-                        onChange={props.handleInput}
-                        value={props.note.title}
+                        onChange={this.handleInput}
+                        value={this.state.title}
                     />
 
                     <label>Content</label>
@@ -55,10 +39,10 @@ class NoteUpdate extends Component {
                         type="text"
                         name="textBody"
                         placeholder="Content"
-                        onChange={props.handleInput}
-                        value={props.note.textBody}
+                        onChange={this.handleInput}
+                        value={this.state.textBody}
                     />
-                    <button type="submit">Submit</button>
+                    <button onClick={this.props.updateNote(this.state)}>Submit</button>
                 </form>
             </div>
         )

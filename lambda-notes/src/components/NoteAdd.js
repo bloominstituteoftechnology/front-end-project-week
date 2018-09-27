@@ -1,10 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { addNote } from '../actions';
 
 const NoteAdd = props => {
-
     return (
         <div>
             <h1>Add New Note</h1>
@@ -15,7 +11,7 @@ const NoteAdd = props => {
                     name="title"
                     placeholder="Title"
                     onChange={props.handleInput}
-                    value={props.note.title}
+                    value={props.newNote.title}
                 />
 
                 <label>Content</label>
@@ -24,9 +20,9 @@ const NoteAdd = props => {
                     name="textBody"
                     placeholder="Content"
                     onChange={props.handleInput}
-                    value={props.note.textBody}
+                    value={props.newNote.textBody}
                 />
-                <button type="submit">Submit</button>
+                <button onClick={props.addNote}>Submit</button>
             </form>
         </div>
     );

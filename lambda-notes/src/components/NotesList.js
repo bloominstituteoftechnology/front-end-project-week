@@ -6,16 +6,21 @@ import Note from './Note';
 const NotesList = props => {
     console.log(props.notes);
     return (
-        <div>
-            {props.notes.map(note => {
-                return (
-                    <Note 
-                        note={note}
-                        deleteNote={props.deleteNote}
-                        key={note.id}
-                    />
-                )
-            })}
+        <div className="page-container">
+            <div className="section-container">
+                <h1 className="notes-title"></h1>
+                <div className="note-container">
+                    {props.notes.map(note => {
+                        return (
+                            <Note
+                                note={note}
+                                deleteNote={props.deleteNote}
+                                key={note._id}
+                            />
+                        )
+                    })}
+                </div>
+            </div>
         </div>
     );
 }

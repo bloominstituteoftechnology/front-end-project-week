@@ -6,6 +6,7 @@ import { FETCHED_NOTES, FETCHING_NOTES, ERROR_FETCHING_NOTES,
 const initialState = {
     notes: [
         {
+            _id: -1,
             title: "",
             textBody: ""
         }
