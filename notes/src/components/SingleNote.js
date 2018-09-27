@@ -8,6 +8,15 @@ export default function SingleNote(props) {
     props.history.push("/");
   }
 
+  function confirmDelete() {
+    let c = window.confirm("Are you sure you want to delete this note?");
+    if (c == true) {
+      handleDelete();
+    } else {
+      null;
+    }
+  }
+
   return (
     <div className="single-note">
       <h3>{note.title}</h3>
@@ -20,7 +29,7 @@ export default function SingleNote(props) {
       >
         Edit
       </button>
-      <button className="delete" onClick={handleDelete}>
+      <button className="delete" onClick={confirmDelete}>
         Delete
       </button>
     </div>
