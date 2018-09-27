@@ -67,21 +67,21 @@ class Note extends Component {
         edittoggle: false
       })
       .then(res => {
-        this.setState(
-          {
-            id: this.state.id,
-            title: this.state.title,
-            note: this.state.note,
-            edittoggle: false,
-            Redirect: true
-          },
-          () => {
-            this.setState({ Redirect: false });
-          }
-        );
         console.log(res);
         console.log(res.data);
-      });    
+      });
+    this.setState(
+      {
+        id: this.state.id,
+        title: this.state.title,
+        note: this.state.note,
+        edittoggle: false,
+        Redirect: true
+      },
+      () => {
+        this.setState({ Redirect: false });
+      }
+    );
   };
 
   editToggle = () => {
