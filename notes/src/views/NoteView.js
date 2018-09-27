@@ -36,6 +36,11 @@ class NoteView extends React.Component {
     }
 
     render() {
+        if (this.state.modalOpen) {
+            return (
+                <DeleteModal show={true}/>
+            )
+        } else
         return (
             <Note
             {...this.props}

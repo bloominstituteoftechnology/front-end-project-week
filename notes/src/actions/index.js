@@ -81,6 +81,7 @@ export const updateNote = note => dispatch => {
     .then(response => {
         dispatch({ type: UPDATED, payload: response.data });
     })
+    .then(fetchNotes())
     .catch(err => {
         dispatch({ type: UPDATE_ERROR, payload: err})
     })

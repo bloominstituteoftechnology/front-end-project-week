@@ -28,12 +28,13 @@ class DeleteModal extends React.Component {
         return (
         <div className="backdrop" style={{backdropStyle}}>
             <div className="modal" style={{modalStyle}}>
-                {this.props.children}
+                <p>Are you sure you want to delete this?</p>
 
             <div className="modal-buttons">
             <button onClick={this.props.onClose}>
-              Close
+              Delete
             </button>
+            <button>No</button>
           </div>
         </div>
       </div>

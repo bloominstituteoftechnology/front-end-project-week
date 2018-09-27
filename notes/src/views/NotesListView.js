@@ -14,7 +14,7 @@ class NotesListView extends React.Component {
         return (
             <Fragment>
             <h1>Your Notes:</h1>
-            <NotesList {...this.props} />
+            <NotesList {...this.props} notes={this.props.notes} />
             </Fragment>
         );
     }

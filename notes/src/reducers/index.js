@@ -27,7 +27,7 @@ export default function (state = initialState, action) {
         return {...state, updatingNote: true };
         case UPDATED:
         console.log(action.payload);
-        return {...state, updatingNote: false, notes: action.payload };
+        return {...state, updatingNote: false, noteToUpdate: null};
         case DELETING:
         return {...state, deletingNote: true };
         case DELETED:
