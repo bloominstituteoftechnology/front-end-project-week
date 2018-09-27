@@ -6,10 +6,6 @@ import { postNote, getNotes, putNote } from '../store/actions/'
 import { NoteEditor } from '../components/NoteEditor/';
 
 class NoteEditorContainer extends Component {
-    componentDidMount() {
-        this.props.getNotes();
-    };
-
     render() {
         return (
             <NoteEditor 

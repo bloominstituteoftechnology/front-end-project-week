@@ -22,6 +22,7 @@ const PreviewDiv = Styled.div`
     }
     p {
         font-size: 1.2rem;
+        white-space: pre-wrap;
         /* styles for ellipse */
         /* based on http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
         overflow: hidden;
