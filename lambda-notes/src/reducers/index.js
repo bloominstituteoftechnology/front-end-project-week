@@ -60,7 +60,6 @@ export default (state = initialState, action) => {
         deleted: false,
       })
     case UPDATE_SUCCESSFUL:
-      console.log('UPDATE', action.payload);
       return Object.assign({}, state, {updated: true});
     case UPDATE_FAILURE:
       return Object.assign({}, state, {

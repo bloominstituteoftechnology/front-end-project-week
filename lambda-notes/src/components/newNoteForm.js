@@ -11,7 +11,8 @@ import "../CSS/newNoteForm.css";
 class NewNoteForm extends React.Component {
   state = {
     title: "",
-    textBody: ""
+    textBody: "",
+    tags: "",
   };
 
   handleSubmit = () => {
@@ -39,6 +40,7 @@ class NewNoteForm extends React.Component {
           type="text"
           placeholder="Title"
           className="form-control my-3"
+          style={{fontSize: '1.2rem', padding: '20px'}}
         />
         <textarea
           onChange={this.onChangeHandler}
@@ -48,6 +50,15 @@ class NewNoteForm extends React.Component {
           className="form-control my-3"
           rows="10"
           cols="30"
+          style={{fontSize: '1.2rem', padding: '20px'}}
+        />
+        <input
+          onChange={this.onChangeHandler}
+          name="tags"
+          type="text"
+          placeholder="Tags"
+          className="form-control my-3"
+          style={{fontSize: '1.2rem', padding: '20px'}}
         />
         <button
           onClick={this.handleSubmit}

@@ -4,6 +4,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+// CSS
+import '../CSS/EditForm.css';
+
 class EditNoteForm extends React.Component {
   
   state = {
@@ -28,8 +31,8 @@ class EditNoteForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="form-group" style={{height: '100vh', padding: '20px'}}>
         <h2>Edit Note:</h2>
-        <input onChange={this.onChangeHandler} name="title" type="text" placeholder="Title" className="form-control my-3" defaultValue={title} />
-        <textarea onChange={this.onChangeHandler} name="textBody" type="text" placeholder="Text Body" className="form-control my-3" rows="10" cols="30" defaultValue={textBody}/>
+        <input onChange={this.onChangeHandler} name="title" type="text" placeholder="Title" className="form-control my-3" defaultValue={title} style={{fontSize: '1.2rem', padding: '20px'}} />
+        <textarea onChange={this.onChangeHandler} name="textBody" type="text" placeholder="Text Body" className="form-control my-3" rows="10" cols="30" defaultValue={textBody} style={{fontSize: '1.2rem', padding: '20px'}}/>
         <button onClick={this.handleSubmit} type="button" className="save-btn btn px-5">Save</button>
       </form>
     )

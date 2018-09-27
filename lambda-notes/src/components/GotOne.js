@@ -28,11 +28,11 @@ class GotOne extends React.Component {
   }
 
   render() {
-    const {textBody, title, _id} = this.props.location.state.note;
+    const {textBody, title, _id, tags} = this.props.location.state.note;
     return (
         <div className="note-card single-card col-md-12 pos-relative got-one-card">
         <div className="edit-delete">
-          <p className="mx-3">
+          <p className="mx-3 font-weight-light">
             <Link style={{color: 'black', fontWeight: 'bold', fontSize: '0.7rem'}} to={{
               pathname: `/editForm/${title}/${_id}`,
               state: this.props.location.state.note
@@ -41,12 +41,13 @@ class GotOne extends React.Component {
           <p onClick={this.confirmIt}>Delete</p>
         </div>
         <h2 className="single-card-title">{title}</h2>
-        <p className="single-card-text" style={{whiteSpace: 'pre-line'}}>{textBody}</p>
+        <p className="single-card-text font-weight-light" style={{whiteSpace: 'pre-line', fontSize: '1.6rem'}}>{textBody}</p>
         {
           this.state.showConfirm 
           ? <ConfirmDelete handleDelete={this.handleDelete} confirmIt={this.confirmIt} />
           : null
         }
+        <small className="italic font-weight-light">Tags: {tags.join(', ')}</small>
       </div>
     )
   }

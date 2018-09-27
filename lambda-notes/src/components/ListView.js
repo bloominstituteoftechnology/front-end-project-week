@@ -87,7 +87,7 @@ class ListView extends React.Component {
         <div
           className="note-card-container"
           style={
-            this.props.notes.length < 15
+            this.props.notes.length < 1
               ? { height: "100vh" }
               : { height: "100%" }
           }
@@ -97,7 +97,8 @@ class ListView extends React.Component {
               if (term.trim()) {
                 if (
                   note.title.toLowerCase().includes(term.toLowerCase()) ||
-                  note.textBody.toLowerCase().includes(term.toLowerCase())
+                  note.textBody.toLowerCase().includes(term.toLowerCase()) ||
+                  note.tags.join(',').toLowerCase().includes(term.toLowerCase())
                 ) {
                   return note;
                 }
