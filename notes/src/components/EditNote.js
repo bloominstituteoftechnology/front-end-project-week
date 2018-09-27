@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ButtonStyled, InnerTitleBox, FormStyled, TitleInput, ContentInput, FormTitle} from './style';
+import {ButtonStyled, InnerTitleBox, FormStyled, TitleInput, ContentInput, FormTitle, ComponentBody, ComponentHeader} from './style';
 import {updateNote} from '../actions';
 import {Redirect} from 'react-router-dom';
 
@@ -30,12 +30,10 @@ class EditNote extends React.Component{
     render(){
         if(this.props.editing){
             return(
-                <FormStyled>
-                    <FormTitle>
-                        <InnerTitleBox>
-                            Edit Note:
-                        </InnerTitleBox>
-                    </FormTitle>
+                <ComponentBody>
+                    <ComponentHeader>
+                        Edit Note:
+                    </ComponentHeader>
                     <TitleInput
                         type='text'
                         value={this.state.title}
@@ -51,7 +49,7 @@ class EditNote extends React.Component{
                     <ButtonStyled type='submit' onClick={this.update}>
                         Update
                     </ButtonStyled>
-                </FormStyled>
+                </ComponentBody>
             )
         }else{
             return <Redirect to='/' />
