@@ -5,6 +5,7 @@
   "homepage": "https://mkerbleski.github.io/front-end-project-week/",
   "dependencies": {
     "axios": "^0.18.0",
+    "components": "^0.1.0",
     "dnd-core": "^4.0.5",
     "gh-pages": "^2.0.0",
     "immutability-helper": "^2.7.1",
@@ -16,11 +17,13 @@
     "react-markdown": "^3.4.1",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "showdown": "^1.8.6",
-    "sortablejs": "^1.7.0"
+    "sortablejs": "^1.7.0",
+    "styled": "^1.0.0"
   },
   "scripts": {
     "predeploy": "npm run build",
