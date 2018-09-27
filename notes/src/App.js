@@ -122,11 +122,9 @@ class App extends Component {
 
   sortByTime = (dir) => {
     const parse = (note) => {
-      return note.created_at.split(' ');
+      return note.created_at.split(' ')
+        .map(el => el.replace(/[-:]/g, ''));
     };
-    const sub = (parsed) => {
-      return parsed[1].replace(/[-:]/g, '');
-    }
 
     let sortCb;
     if (dir === 'desc') {
@@ -134,7 +132,7 @@ class App extends Component {
         const pa = parse(a);
         const pb = parse(b);
         if (pa[0] === pb[0]) {
-          return sub(pa) - sub(pb); 
+          return pa[1] - pb[1]; 
         } else {
           return pa[0] - pb[0];
         }
@@ -145,7 +143,7 @@ class App extends Component {
         const pa = parse(a);
         const pb = parse(b);
         if (pa[0] === pb[0]) {
-          return sub(pb) - sub(pa); 
+          return pb[1] - pa[1]; 
         } else {
           return pb[0] - pa[0];
         }
