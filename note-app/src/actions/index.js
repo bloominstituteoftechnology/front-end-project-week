@@ -36,8 +36,7 @@ export const addingNote = note => {
     dispatch({ type: ADDING_NOTE });
     promise
       .then(response => {
-        console.log(response);
-        dispatch({ type: ADDED_NOTE, payload: response.data });
+        dispatch({ type: ADDED_NOTE, payload: note });
       })
       .catch(error => {
         dispatch({ type: ERROR });
@@ -51,9 +50,7 @@ export const updatingNote = (id, note) => {
     dispatch({ type: UPDATING_NOTE });
     promise
       .then(response => {
-        console.log(response);
-        dispatch({ type: UPDATED_NOTE, payload: response.data });
-        // may have to call on the fetcher
+        dispatch({ type: UPDATED_NOTE, payload: note})
       })
       .catch(error => {
         dispatch({ type: ERROR, error });
@@ -67,7 +64,6 @@ export const deletingNote = id => {
     dispatch({ type: DELETING_NOTE });
     promise
       .then(response => {
-        console.log(response);
         dispatch({ type: DELETED_NOTE, payload: id });
         fetchingNotes();
       })

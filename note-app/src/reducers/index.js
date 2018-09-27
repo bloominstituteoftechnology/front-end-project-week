@@ -1,3 +1,4 @@
+import { fetchingNotes } from "../actions/index";
 export const ADDING_NOTE = "ADDING_NOTE";
 export const ADDED_NOTE = "ADDED_NOTE";
 export const UPDATING_NOTE = "UPDATING_NOTE";
@@ -22,7 +23,8 @@ const initialState = {
   error: null,
   select: null,
   nextId: null,
-  sort: null
+  sort: null,
+  count: 0,
 };
 
 const reducerNote = (state = initialState, action) => {
@@ -39,8 +41,10 @@ const reducerNote = (state = initialState, action) => {
     case UPDATING_NOTE:
       return { ...state, updatingNote: true };
     case UPDATED_NOTE:
+      
       return {
         ...state,
+        count: Math.floor(Math.random() *1000000),
         updatingNote: false,
         notes: state.notes.map(
           note =>
@@ -56,7 +60,9 @@ const reducerNote = (state = initialState, action) => {
                 })
               : (note = note)
         )
+        
       };
+      
     case DELETING_NOTE:
       return { ...state, deletingNote: true };
     case DELETED_NOTE:

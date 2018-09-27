@@ -82,6 +82,7 @@ class App extends Component {
     );
     this.setState({ images });
   }
+  
 
   idGenerator = () => {
     return (
@@ -93,8 +94,7 @@ class App extends Component {
   };
 
   postNote = noteobj => {
-    this.props.addingNote(noteobj);
-    setTimeout("location.reload(true);",0)
+    this.props.addingNote(noteobj)
   };
 
   handleNoteSelect = index => {
@@ -114,12 +114,11 @@ class App extends Component {
 
   updateNote = (index, noteObj) => {
     this.props.updatingNote(index, noteObj);
-    setTimeout("location.reload(true);",500)
   };
 
   deleteNote = index => {
     this.props.deletingNote(index);
-    setTimeout("location.reload(true);",500)
+    this.props.fetchingNotes()
   };
 
   handleChange = event => {

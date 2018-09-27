@@ -29,7 +29,6 @@ class SideBar extends Component {
   }
 
   render() {
-    console.log(this.props.notes, "notes")
     if (this.props.name) {
       return (
         <div className="side-bar">
@@ -47,6 +46,7 @@ class SideBar extends Component {
         </div>
       );
     }
+    
     return (
       <div className="side-bar">
         <h1 className="application-title">Lambda Notes</h1>
@@ -85,8 +85,7 @@ class SideBar extends Component {
           Sort Least to Great
         </button>
       </div>
-    );
-  }
+    )}
 }
 
 const mapStateToProps = state => {
