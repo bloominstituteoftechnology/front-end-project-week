@@ -5,8 +5,9 @@ import {withRouter} from 'react-router-dom';
 
 class EditNote extends React.Component {
     componentDidMount(){
-        this.props.fetchSingleNote(this.props.match.params.id)
+        this.props.fetchSingleNote(this.props.match.params.id);
     }
+
 
     constructor(props){
         super(props)
@@ -14,7 +15,16 @@ class EditNote extends React.Component {
         this.state = {
             title: this.props.currentNote.title,
             textBody: this.props.currentNote.textBody,
+            tags: this.props.currentNote.tags
         }
+    }
+
+    handleRefresh = () => {
+        this.setState({
+            title: this.props.currentNote.title,
+            textBody: this.props.currentNote.textBody,
+            tags: this.props.currentNote.tags
+        })
     }
 
     handleInput = (event) => {
@@ -27,8 +37,16 @@ class EditNote extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        let splitTags;
+        if(this.state.tags){
+            splitTags = this.state.tags.split(/\s*,\s*/);
+        } else {
+            splitTags = []
+        }
+        
+
         let newNote = {
-            tags: [],
+            tags: splitTags,
             title: this.state.title,
             textBody: this.state.textBody,
         }
@@ -38,12 +56,14 @@ class EditNote extends React.Component {
     }
 
     render() {
+
         return(
             <div className = 'note-edit-container'>
             
             <form onSubmit = {this.handleSubmit}>
             <input type = 'text' onChange={this.handleInput} name = 'title' value={this.state.title}></input>
             <textarea onChange={this.handleInput} name='textBody' value={this.state.textBody}></textarea>
+            <input type = 'text' name='tags' onChange = {this.handleInput} value = {this.state.tags}></input>
             <button type='submit'>Update</button>
             </form>
             

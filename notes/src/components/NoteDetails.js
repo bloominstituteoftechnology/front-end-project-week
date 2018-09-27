@@ -3,11 +3,10 @@ import {deleteNote, fetchSingleNote} from '../actions';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import { Button, Modal, ModalBody } from 'reactstrap';
-
 class NoteDetails extends React.Component {
-    
+
     componentDidMount(){
-        this.props.fetchSingleNote(this.props.match.params.id);
+        this.props.fetchSingleNote(this.props.match.params.id);        
     }
 
     constructor(props){
@@ -35,7 +34,7 @@ class NoteDetails extends React.Component {
         })
     }
 
-    handleDelete = event =>{
+    handleDelete = event => {
         event.preventDefault();
         this.props.deleteNote(this.props.currentNote._id);
         
@@ -48,6 +47,16 @@ class NoteDetails extends React.Component {
         }
     
     render(){
+
+        let tags;
+
+        if(this.props.currentNote.tags){
+            tags = (
+                <p>{this.props.currentNote.tags.map(tag => {
+                    return <Link to = {`/notes/tags/${tag}`} key={tag}>{tag}</Link>
+                })}</p>
+            )
+        }
         
     return (
 
@@ -57,8 +66,19 @@ class NoteDetails extends React.Component {
             <span onClick={this.toggle}>delete</span>
             </div>
 
+            <div className = 'note-details-title'>
             <h1>{this.props.currentNote.title}</h1>
+            </div>
+            <div className = 'note-details-content'>
             <p>{this.props.currentNote.textBody}</p>
+            </div>
+            <div className = 'note-details-tags'>
+            {tags}
+            </div>
+            
+                
+           
+            
 
            
             <Modal isOpen={this.state.modal} toggle={this.toggle} className='delete-modal'>

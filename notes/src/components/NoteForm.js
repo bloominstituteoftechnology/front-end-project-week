@@ -23,8 +23,17 @@ class NoteForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+
+        
+       
+
+        let noteTags = this.state.tags.split(/\s*,\s*/);
+
+        console.log(noteTags);
+
+
         let newNote = {
-            tags: [],
+            tags: noteTags,
             title: this.state.title,
             textBody: this.state.textBody,
         }
@@ -46,6 +55,7 @@ class NoteForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleInput} type = 'text' placeholder = 'Note Title' name='title' value={this.state.title}></input>
                     <textarea onChange={this.handleInput} placeholder = 'Note Content' name='textBody' value={this.state.textBody}></textarea>
+                    <input onChange={this.handleInput} type='text' placeholder='Tags, separated by commas' name='tags' value={this.state.tags}></input>
                     <button type = 'submit'>Save</button>
                 </form>
             </div>

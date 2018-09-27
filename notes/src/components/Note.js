@@ -8,6 +8,11 @@ const Note = (props) => {
             <div className = 'note-title'>{props.title}</div>
             <div className = 'note-divider'></div>
             <div className='note-content'>{props.textBody}</div>
+            <div className='note-tags'>
+            {props.tags.map(tag => {
+                return <p key={tag}>{tag}</p>
+            })}
+            </div>
         </div>
     )
 }
