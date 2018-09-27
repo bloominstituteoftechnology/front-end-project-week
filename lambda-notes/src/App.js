@@ -1,41 +1,135 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
-import { NavLink, Route } from "react-router-dom";
-// import the views here
-import HomeView from "./views/HomeView";
-import AddNewNoteView from "./views/AddNewNoteView";
-import SingleNoteView from "./views/SingleNoteView";
-import NoteListView from "./views/NoteListView";
+import Route from "react-router-dom/Route";
+import Note from "./Components/Note";
+import NoteList from "./Components/NoteList";
+import NoteView from "./Components/NoteView";
+import NoteAdd from "./Components/NoteAdd";
+import NoteEdit from "./Components/NoteEdit";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [],
+      id: "",
+      title: "",
+      text: "",
+      showModal: false
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      notes: Note
+    });
+  }
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  addNewNote = event => {
+    event.preventDefault();
+    const notes = this.state.notes.slice();
+    notes.push({
+      id: Number(
+        Date.now()
+          .toString()
+          .slice(-2)
+      ),
+      title: this.state.title,
+      text: this.state.text
+    });
+    this.setState({
+      notes,
+      id: "",
+      title: "",
+      text: ""
+    });
+  };
+
+  editNoteSubmit = (noteID, title, text) => {
+    this.setState(function(prevState) {
+      return {
+        notes: prevState.notes.map(
+          note => (noteID === note.id ? { id: noteID, title, text } : note)
+        )
+      };
+    });
+  };
+
+  deleteNote = id => {
+    let notes = this.state.notes.slice();
+    notes = notes.filter(note => note.id !== id);
+    this.setState({ notes, id: "", title: "", text: "" });
+  };
+
+  modalToggle = () => {
+    this.setState(function(prevState) {
+      return { showModal: !prevState.showModal };
+    });
+    this.forceUpdate();
+  };
+
   render() {
     return (
       <div className="App">
-        <div className="navbar">
-          <h1>Lambda Notes</h1>
-          <ul className="navbar-list">
-            <li>
-              <NavLink exact to="/">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/notes">
-                View Your Notes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/note-form">
-                + Create New Note
-              </NavLink>
-            </li>
-          </ul>
+        <div className="Nav-bar">
+          <h1 className="App-title">Lambda Notes</h1>
+          <Link to="/notes">
+            <div className="nav-button">View Your Notes</div>
+          </Link>
+          <Link to="/add">
+            <div className="nav-button">+ Create New Note</div>
+          </Link>
         </div>
-
-        <Route exact path="/" component={HomeView} />
-        <Route exact path="/notes" component={NoteListView} />
-        <Route exact path="/note-form" component={AddNewNoteView} />
-        <Route path="/notes/:noteId" component={SingleNoteView} />
+        <div className="display-right">
+          <Route
+            exact
+            path="/notes"
+            render={props => <NoteList {...props} notes={this.state.notes} />}
+          />
+          <Route
+            exact
+            path="/notes/:id"
+            render={props => (
+              <NoteView
+                {...props}
+                notes={this.state.notes}
+                modalToggle={this.modalToggle}
+                showModal={this.state.showModal}
+                deleteNote={this.deleteNote}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/add"
+            render={props => (
+              <NoteAdd
+                {...props}
+                notes={this.state.notes}
+                handleInputChange={this.handleInputChange}
+                inputTitle={this.state.title}
+                inputText={this.state.text}
+                addNewNote={this.addNewNote}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/notes/:id/edit"
+            render={props => (
+              <NoteEdit
+                {...props}
+                notes={this.state.notes}
+                editNoteSubmit={this.editNoteSubmit}
+              />
+            )}
+          />
+        </div>
       </div>
     );
   }
