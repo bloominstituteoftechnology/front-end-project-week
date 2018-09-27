@@ -1,5 +1,7 @@
 .container {
   display: flex;
+  box-sizing: border-box;
+  width: 1160px;
 }
 
 .card {
@@ -41,6 +43,7 @@
   padding-left: 35px;
   padding-bottom: 20px;
   min-height: 100vh;
+  width: 75%;
 }
 
 .cards {
