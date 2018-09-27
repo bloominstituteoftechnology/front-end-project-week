@@ -104,19 +104,20 @@ class Note extends Component {
     }
 
     const { title, textBody } = this.state.note;
-
     if (this.state.isEditing) {
       return (
-        <NoteForm
-          type={"edit"}
+     
+        <NoteForm 
+          type="edit"
           title={this.state.title}
           textBody={this.state.textBody}
           handleEditNote={this.handleEditNote}
           handleInputChange={this.handleEditInputChange}
         />
+      
       );
-    }
-
+  } 
+  
     return (
       <div className="note-container">
         <Modal isOpen={this.state.modalIsOpen}
@@ -127,8 +128,8 @@ class Note extends Component {
         >
           <h3>Are you sure you want to delete this?</h3>
           <div className="modal-buttons">
-            <button onClick={this.handleDelete}>Delete</button>
-            <button onClick={this.closeModal}>No</button>
+            <button className="delete-on-modal" onClick={this.handleDelete}>Delete</button>
+            <button className="no-delete-on-modal" onClick={this.closeModal}>No</button>
           </div>
         </Modal>
 
@@ -137,7 +138,9 @@ class Note extends Component {
           <h5 onClick={this.openModal}>delete</h5>
         </div>
 
-        <h2 className="note-title">{title}</h2>
+        <h2 className="note-title">{title.length > 30 ?
+                                  title.slice(0, 30) + '...' :
+                                  title}</h2>
         <div className="note-text-body">{textBody}</div>
 
       </div>

@@ -10,6 +10,10 @@
   font-family: sans-serif;
 }
 
+.group-1 {
+  margin-top: 20px;
+}
+
 input[type=text], select {
   width: 58%;
   padding: 12px 20px;
@@ -30,4 +34,14 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.save-update-btn {
+  background-color: #2AC0C4;
+  color: white;
+  width: 35%;
+  height: 44px;
+  border-width: 0;
+  border-style: none;
+  font: bold 18px Arial;
 }

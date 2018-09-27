@@ -1,11 +1,13 @@
 import React from 'react';
 
 function NoteForm(props) {
+    const btnLabel = props.type === "edit" ? "Update" : "Save";
+    const clickHandler = props.type === "edit" ? props.handleEditNote : props.handleAddNewNote;
   return (
+      
         <form>
-            <div className="group">
-            <h2 className="create-note">Create New Note:</h2>
-            <h2 className="edit-note">Edit Note:</h2>
+            <h2 className="create-note">{props.type === "edit" ? "Edit Note:" : "Create New Note:"}</h2>
+            <div className="group-1">
                 <input 
                     type="text" 
                     placeholder="Note title"
@@ -14,7 +16,7 @@ function NoteForm(props) {
                     onChange={props.handleInputChange} 
                 />
             </div>
-            <div className="group">
+            <div className="group-2">
                 <textarea rows="25" cols="75" 
                     type="text" 
                     placeholder="Note Content"
@@ -24,11 +26,12 @@ function NoteForm(props) {
                 />
             </div>
           
-            <button className="material-button-raised" onClick={props.handleAddNewNote}>Save</button>
-            <button className="material-button-raised" onClick={props.handleEditNote}>Update</button>
+            <button className="save-update-btn" onClick={clickHandler}>{btnLabel}</button>
+            {/* <button className="material-button-raised" onClick={clickHandler}>Update</button> */}
         </form>
       
   );
+
 }
 
 export default NoteForm;
