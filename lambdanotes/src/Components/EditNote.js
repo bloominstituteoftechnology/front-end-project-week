@@ -30,7 +30,7 @@ class EditNote extends Component {
                </form>
            </div>
        )  
-   } else return (<div>Oh no...</div>)
+   }
 }
 }
 

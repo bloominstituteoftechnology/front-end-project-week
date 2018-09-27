@@ -13,7 +13,7 @@ import React from 'react';
                     <div className="modal-content" >
                         <h3 className="Header ModalHeader">Are you sure you want to delete this?</h3>
                         <div className="modal-buttons" >
-                            <Link to=""> <div className="delete-button" onClick={() =>{props.deleteNote(denoted.id); props.modalToggle();}}  >Delete</div ></Link>
+                            <Link to="/notes"> <div className="delete-button" onClick={() =>{props.deleteNote(denoted.id); props.modalToggle();}}>Delete</div ></Link>
                             <div className="no-button" onClick={() => props.modalToggle()} >No</div >
                         </div>
                     </div>
@@ -27,8 +27,7 @@ import React from 'react';
                  <p className="NoteText" >{denoted.text}</p>
              </div>
          )
-     } else return (<div>I've got a bad feeling about this...</div>)
-     
+     }
  }
 
  export default NoteView;

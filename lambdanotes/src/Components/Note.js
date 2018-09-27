@@ -13,7 +13,7 @@
     {
         id: 2,
         title: 'Grow',
-        text: 'Go to the gym, relax in the sauna, take a shower and eat protein.',
+        text: 'Go to the gym.',
     },
 ]
 
