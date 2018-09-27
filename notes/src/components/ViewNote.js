@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {NoteStyled, TitleStyled} from './style';
 import {editNote} from '../actions';
+import {Redirect} from 'react-router-dom';
 
 class ViewNote extends React.Component{
     edit = event =>{
@@ -16,6 +17,9 @@ class ViewNote extends React.Component{
     // }
     
     render(){
+        if(this.props.editing){
+            return <Redirect to='/edit-note' />
+        }
         return(
             <div>
                 <NoteStyled>
@@ -34,7 +38,8 @@ class ViewNote extends React.Component{
 
 const mapDispatchtoProps = state =>({
     notes: state.notes,
-    index: state.index
+    index: state.index,
+    editing: state.editing
 });
 
 export default connect(mapDispatchtoProps, {editNote})(ViewNote);

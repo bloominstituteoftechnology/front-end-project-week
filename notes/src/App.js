@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import Navigation from './components/Navigation';
 import {PageWrapper, Body} from './components/style';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path={'/view-note'}
               render={(props) => <ViewNote index={this.props.index} />}
             />
+            <Route path={'/edit-note'} component={EditNote} />
           </Body>
         </PageWrapper>
       </div>

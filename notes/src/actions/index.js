@@ -3,6 +3,7 @@ export const ERROR = 'ERROR';
 export const VIEWING = 'VIEWING';
 export const HOME = 'HOME';
 export const EDITING = 'EDITING';
+export const UPDATING = 'UPDATING';
 
 export const createNote = note =>{
     return dispatch =>{
@@ -25,5 +26,11 @@ export const goHome = () =>{
 export const editNote = index =>{
     return dispatch =>{
         dispatch({type:EDITING, payload: index})
+    }
+}
+
+export const updateNote = notes =>{
+    return dispatch =>{
+        dispatch({type:UPDATING, payload:notes})
     }
 }
