@@ -4,6 +4,7 @@ import Styled from 'styled-components';
 
 import { StyledFormButton, ContentDiv } from '../../styling/';
 
+//~~~~~Styling~~~~~//
 const LeftButton = Styled(StyledFormButton)`
     & {
         margin: 10px 0;
@@ -21,12 +22,29 @@ const BodyInput = Styled.textarea`
     height: 20vh;
 `;
 
+//~~~~~class NoteEditor~~~~~//
 class NoteEditor extends Component {
     state = {
-        tmpNote: this.props.tmpNote
+        tmpNote: {
+            title: this.props.tmpNote.title,
+            textBody: this.props.tmpNote.textBody,
+            tags: this.props.tmpNote.tags,
+            _id: this.props.tmpNote._id,
+            __v: this.props.tmpNote.__v
+        }
     };
 
     inputHandler = (event) => {
+        if(event.target.name === 'tags') {
+            const tagsArray = event.target.value.split(',');
+            this.setState({
+                ...this.state,
+                tmpNote: {
+                    ...this.state.tmpNote,
+                    [event.target.name]: tagsArray
+                }
+            });
+        }
         this.setState({
             ...this.state,
             tmpNote: {
@@ -58,6 +76,7 @@ class NoteEditor extends Component {
                     }
                 );
             }
+            // TODO: Can we delay the history push long enough for the new note to be available from the API? Let an extra setTimeout() decide! But seriously, find a better way to wait for the PUT to finish before calling history.push
             setTimeout(() => this.props.history.push(`/notes/${this.state.tmpNote._id}`), 1000);
         }
     };
@@ -65,6 +84,7 @@ class NoteEditor extends Component {
     render() {
         return (
             <ContentDiv>
+                {/* TODO: Flash of 'Create New Note:' after sending PUT request, but before history.push */}
                 <h2>{this.props.isEditing ? 'Edit Note:' : 'Create New Note:'}</h2>
                 <form onSubmit={this.submitHandler}>
                     <TitleInput name='title' value={this.state.tmpNote.title} onChange={this.inputHandler} placeholder='Note Title' />
@@ -72,6 +92,8 @@ class NoteEditor extends Component {
                     <br />
                     <BodyInput name='textBody' value={this.state.tmpNote.textBody} onChange={this.inputHandler} placeholder='Note Content' />
                     <br />
+                    <TitleInput name='tags' value={this.state.tmpNote.tags} onChange={this.inputHandler} placeholder='Tags'></TitleInput>
+                    {/* TODO: Flash of 'Save' after sending PUT request, but before history.push */}
                     <LeftButton buttonColor='aqua'>{this.props.isEditing ? 'Update' : 'Save'}</LeftButton>
                 </form>
             </ContentDiv>
@@ -79,10 +101,11 @@ class NoteEditor extends Component {
     }
 };
 
+//~~~~~PropTypes~~~~~//
 NoteEditor.propTypes = {
     isEditing: PropTypes.bool.isRequired,
     tmpNote: PropTypes.shape({
-        tags: PropTypes.arrayOf(PropTypes.string),
+        tags: PropTypes.string,
         title: PropTypes.string.isRequired,
         textBody: PropTypes.string.isRequired,
         _id: PropTypes.string.isRequired,

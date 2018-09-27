@@ -10,8 +10,8 @@ class NoteEditorContainer extends Component {
         return (
             <NoteEditor 
                 {...this.props}
-                tmpNote={this.props.editing.tmpNote}
-                isEditing={this.props.editing.isEditing}
+                tmpNote={this.props.tmpNote}
+                isEditing={this.props.isEditing}
                 postNote={this.props.postNote}
                 getNotes={this.props.getNotes}
                 putNote={this.props.putNote}
@@ -21,15 +21,13 @@ class NoteEditorContainer extends Component {
 };
 
 NoteEditorContainer.propTypes = {
-    editing: PropTypes.shape({
-        isEditing: PropTypes.bool,
-		tmpNote: PropTypes.shape({
-            tags: PropTypes.arrayOf(PropTypes.string),
-			title: PropTypes.string,
-			textBody: PropTypes.string,
-			_id: PropTypes.string,
-			__v: PropTypes.number
-        })
+    isEditing: PropTypes.bool,
+    tmpNote: PropTypes.shape({
+        tags: PropTypes.string,
+        title: PropTypes.string,
+        textBody: PropTypes.string,
+        _id: PropTypes.string,
+        __v: PropTypes.number
     }),
     postNote: PropTypes.func,
     getNotes: PropTypes.func,
@@ -38,8 +36,11 @@ NoteEditorContainer.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-
-        editing: state.notesReducers.editing
+        isEditing: state.notesReducers.editing.isEditing,
+        tmpNote: {
+            ...state.notesReducers.editing.tmpNote,
+            tags: state.notesReducers.editing.tmpNote.tags.join()
+        }
     };
 };
 

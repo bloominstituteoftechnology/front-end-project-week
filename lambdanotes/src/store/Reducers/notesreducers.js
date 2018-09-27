@@ -89,7 +89,7 @@ export default (state = initialState, action) => {
         case DELETING_NOTE:
             return {...state, status: {...state.status, deletingNote: true, deletedNote: false, noteMessage: "", noteError: ""}};
         case DELETED_NOTE:
-            return {...state, status: {...state.status, deletingNote: false, deletedNote: true, deletePrompt: false}};
+            return {...state, status: {...state.status, deletingNote: false, deletedNote: true, deletePrompt: false, noteMessage: action.payload.success}, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1}};
         //~~~~~default~~~~~//
         default:
             return state;
