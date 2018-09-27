@@ -20,10 +20,16 @@ class App extends Component {
   }
 }
 
+//initialize the application with the data - life cycle
+    componentDidMount() {
+      this.getNotes();
+    }
+
 getNotes = () => {
-  axios
+  console.log('is function called')
+  return axios
   .get('http://localhost:9000/api/notes')
-  .then(response =>{
+  .then(response => {
     console.log('data from axios request', response.data)
     console.log(this.state)
     this.setState({notes: response.data})

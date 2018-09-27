@@ -16,10 +16,10 @@ class NewNoteForm extends Component {
         console.log('logging state in new note form',this.state)
     }
   
-componentDidMount() {
-    this.setState({name: '', content:''})
-    console.log('logging state in componentDidMount', this.state)
-};
+// componentDidMount() {
+//     this.setState({name: '', content:''})
+//     console.log('logging state in componentDidMount', this.state)
+// };
 
 // componentWillUnmount() {
 //     localStorage.setItem('name', this.state.name);
@@ -48,11 +48,10 @@ handleAddNote = () => {
     axios
     .post(`http://localhost:9000/api/notes`, note)
     .then(response => 
-        {this.props.getNotes})
+        this.props.getNotes())
         .then(response => {
             this.props.history.push('/notes')
     })
-    .then(this.props.history.push('/notes'))
     .catch(err => console.log(err))
 }
 

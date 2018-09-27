@@ -7,28 +7,28 @@ import './NotesList.css'
 
 class NotesList extends Component {
 
-        state = {
-            notes: []
-        }
+        // state = {
+        //     notes: []
+        // }
 
-    componentDidMount() {
-        axios
-        .get('http://localhost:9000/api/notes')
-        .then(response => {
-            this.setState({notes: response.data})
-            console.log('response in noteslist',response);
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
+    // componentDidMount() {
+    //     axios
+    //     .get('http://localhost:9000/api/notes')
+    //     .then(response => {
+    //         this.setState({notes: response.data})
+    //         console.log('response in noteslist',response);
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }
 
 render() {
     return(
         <div className = "notes-list-container">
-        {this.state.notes.map(note => {
+        {this.props.notes.map(note => {
             console.log(this.state);
-            console.log(this.state.notes);
+            console.log(this.props.notes);
             return(
                 <div key = {note.id} className = "note-container">
                 <div className = "note">
