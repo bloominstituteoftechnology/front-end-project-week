@@ -8,6 +8,7 @@
 */
 
 import React from 'react';
+import Popup from 'reactjs-popup';
 
 export const Note = props => {  
   const note = props.notesList.find(
@@ -29,7 +30,22 @@ export const Note = props => {
           props.goToUpdateNoteForm(event, note._id);
         }}
         >edit</button>
-        <button onClick={handleDelete}>delete</button>
+        {/* <button onClick={handleDelete}>delete</button> */}
+        <Popup trigger={<button>delete</button>} modal>
+          {close => (
+            <div className='open-modal'>
+              <p>Are you sure you want to delete this?</p>
+              <button onClick={handleDelete}>delete</button>
+              <button 
+              onClick={() => {
+                console.log('modal closed?');
+                close()
+              }}>
+                No  
+              </button>
+            </div>
+          )}
+        </Popup>
       </nav>   
       {note ?
       <div>      
