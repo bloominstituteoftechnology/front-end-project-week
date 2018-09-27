@@ -19,6 +19,7 @@ class App extends Component {
 
   state = {
     filter: '',
+    active: 'page1',
   }
 
   componentDidMount() {
@@ -59,6 +60,7 @@ class App extends Component {
                 {...props}
                 noteList={this.props.notes}
                 filter={this.state.filter}
+                active={this.state.active}
                />
              </React.Fragment>
            } />

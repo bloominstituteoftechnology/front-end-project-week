@@ -309,3 +309,16 @@ a {
 
 .confirmation-button.delete {background-color: #ca001a}
 .confirmation-button.cancel {background-color: #24b8bd}
+
+
+
+/* // ******************
+PAGINATIONS
+// ****************** */
+
+.note-page {
+  display: none;
+}
+.note-page-active {
+  display: block;
+}
