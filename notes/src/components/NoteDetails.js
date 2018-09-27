@@ -49,10 +49,7 @@ class NoteDetails extends React.Component {
         }
     
     render(){
-
         let tags;
-        console.log(this.props.currentNote.tags);
-
         if(this.props.currentNote.tags){
             tags = (
                 <p>{this.props.currentNote.tags.map(tag => {
@@ -70,10 +67,10 @@ class NoteDetails extends React.Component {
             </div>
 
             <div className = 'note-details-title'>
-            <h1><Markdown escapeHtml={true} source={this.props.currentNote.title}/></h1>
+            <Markdown escapeHtml={true} source={this.props.currentNote.title}/>
             </div>
             <div className = 'note-details-content'>
-            <p><Markdown escapeHtml={true} source={this.props.currentNote.textBody} /></p>
+            <Markdown escapeHtml={true} source={this.props.currentNote.textBody} />
             </div>
             <div className = 'note-details-tags'>
             {tags}

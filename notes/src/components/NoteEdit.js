@@ -13,10 +13,16 @@ class NoteEdit extends React.Component {
     constructor(props){
         super(props)
 
+        let mapTags = this.props.currentNote.tags.map(tag => {
+            return tag;
+        })
+
+        let stringTags = mapTags.join(', ');
+
         this.state = {
             title: this.props.currentNote.title,
             textBody: this.props.currentNote.textBody,
-            tags: this.props.currentNote.tags,
+            tags: stringTags,
             edited: false
         }
     }
@@ -31,11 +37,8 @@ class NoteEdit extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        let noteTags = this.state.tags;
-        let newTags = [];
-        for(let i = 0; i < noteTags.length; i++){
-            newTags.push(noteTags[i]);
-        }
+
+        let newTags = this.state.tags.split(/\s*,\s*/);
 
         let newNote = {
             tags: newTags,
@@ -48,13 +51,10 @@ class NoteEdit extends React.Component {
         this.setState({
             edited: !this.state.edited
         })
-
         setTimeout(() => this.props.history.push('/'), 1500);
-
     }
 
     render() {
-        
 
         return(
             <div className = 'note-edit-container'>
