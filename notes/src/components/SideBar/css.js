@@ -56,3 +56,8 @@ export const NewsDiv = styled.div`
 		margin-top: 5px;
 	}
 `;
+
+export const NewsOrg = styled.p`
+	padding-top: 5px;
+	margin-left: 5%;
+`

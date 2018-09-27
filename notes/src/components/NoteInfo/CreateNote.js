@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { BGColor, SubmitContainer, InputTitle, InputContent, DivClick, Flexdiv} from './css';
+import { BGColor, SubmitContainer, InputTitle, InputContent, DivClick, Flexdiv, Red} from './css';
 
 class CreateNote extends React.Component {
 	constructor(props){
@@ -75,8 +75,8 @@ class CreateNote extends React.Component {
 					<Flexdiv>
 						<DivClick onClick={this.createNote}>Save</DivClick>
 						<div>
-							<p>{this.state.errorTitle}</p>
-							<p>{this.state.errorBody}</p>
+							<Red>{this.state.errorTitle}</Red>
+							<Red>{this.state.errorBody}</Red>
 						</div>
 					</Flexdiv>
 				</SubmitContainer>

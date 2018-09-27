@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Aside, DivClick, Log, NewsH2, NewsDiv } from './css';
+import { Aside, DivClick, Log, NewsH2, NewsDiv, NewsOrg } from './css';
 import styled from 'styled-components';
 
 const SideBar = (props) => {
@@ -16,9 +16,10 @@ const SideBar = (props) => {
 			{props.news.map(n => (
 				<NewsDiv>
 					<a href={n.url}><p>{n.title}</p></a>
+
 				</NewsDiv>
 			))}
-
+		<a href="http://newsapi.org"><NewsOrg>- newsapi.org</NewsOrg></a>
 		</Aside>
 	)
 }

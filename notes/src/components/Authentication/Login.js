@@ -18,9 +18,7 @@ class Login extends React.Component {
     axios
     .get("http://api.icndb.com/jokes/random")
     .then(response => {
-
     	let joke = response.data.value.joke.replace(/&quot;/g, '');
-
       this.setState({joke: joke});
     })
     .catch(err => {
