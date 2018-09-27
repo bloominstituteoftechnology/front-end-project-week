@@ -3,7 +3,7 @@ import '../App.css';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'; 
 import { connect } from 'react-redux';
-import { fetchNotes, notesUpdated } from '../actions';
+import { fetchNotes, notesUpdated, sortNotes } from '../actions';
 
 class Notes extends React.Component {
     constructor() {
@@ -16,8 +16,7 @@ class Notes extends React.Component {
     componentDidUpdate() {
         if (this.props.notesNeedsUpdate) {
             this.props.fetchNotes();
-            this.props.notesUpdated();
-            
+            this.props.notesUpdated(); 
         }
     }
 
@@ -30,6 +29,7 @@ class Notes extends React.Component {
         this.setState({ filteredNotes: notes});
     }
 
+
     render() {
         return (
             <div className='main-view'>
@@ -38,6 +38,10 @@ class Notes extends React.Component {
                 ) : (
                 <div>
                     <div className="search-bar-container">
+                        <div className="sort">
+                            sort:  
+                            <div className="sort-button" onClick={()=> this.props.sortNotes()}>a-z</div>
+                        </div>
                         <input type="text" className="search-bar" placeholder="Search Notes..." onChange={this.searchHandler}/>
                     </div>                    
                     <h2>Your Notes:</h2>
@@ -77,4 +81,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, {fetchNotes, notesUpdated})(Notes));
+export default withRouter(connect(mapStateToProps, {fetchNotes, notesUpdated, sortNotes})(Notes));
