@@ -43,8 +43,9 @@ class NewNote extends Component {
         const {title, content} = this.state;
        
         return ( 
-            <Container>
+            <Container style={{border: '1px solid gray', borderRadius: '5px', padding: '10px', marginTop: '10px', background: 'rgba(128, 128, 128, 0.5)'}}>
                 <Form>
+                <h1>Add new note</h1>
                     <FormGroup row >
                         <Label for="title" sm={2} size="lg">Title</Label>
                             <Col sm={12}>
@@ -54,10 +55,10 @@ class NewNote extends Component {
                     <FormGroup row>
                         <Label for="content" sm={2} size="lg">Content</Label>
                             <Col sm={12}>
-                                <Input type="textarea" name="content"  placeholder="Note content" bsSize="lg" value={content}  onChange={(event) => this.change(event)} />
+                                <Input type="textarea" name="content"  placeholder="Note content" bsSize="lg" value={content}  onChange={(event) => this.change(event)} style={{minHeight: '400px'}} />
                             </Col>
                     </FormGroup>
-                    <Button color='primary' type='submit' onClick={this.add}>Save</Button>
+                    <Button size='lg' color='primary' type='submit' onClick={this.add}>Save</Button>
                 </Form>
             </Container>
          );

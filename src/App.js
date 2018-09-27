@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
-import styled from 'styled-components';
 import Navigation from './components/Navigation';
 import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
@@ -12,15 +11,7 @@ import Login from './components/Login';
 
 const jwtDecode = require('jwt-decode');
 
-const Application = styled.div`
-
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
-
-`
-
-const URL = 'http://localhost:9000/notes/';
+const URL = 'https://dasma.herokuapp.com/notes/';
 
 class App extends Component {
   constructor(props){
@@ -34,7 +25,7 @@ class App extends Component {
 
 
 
-  componentDidMount () {
+componentDidMount () {
     axios.get(URL)
     .then(response => {
         this.setState({
@@ -87,7 +78,7 @@ handleSearch = (event) => {
 
   render() {
     return (
-      <Application>
+      <div className='App'>
         
         <Navigation  />
         <Route path='/login' component={Login} />
@@ -101,7 +92,7 @@ handleSearch = (event) => {
         <Route path='/note/:id' render={(props) => (
           <NoteView {...props}  note={this.state.note} />) } />
           
-      </Application>
+      </div>
     );
   }
 }

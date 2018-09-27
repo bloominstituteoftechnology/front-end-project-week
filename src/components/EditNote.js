@@ -2,49 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Form, FormGroup, Label, Col, Input, Button, Container } from 'reactstrap';
 
-/* const EditForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-    background: lightgray;
 
-    > h1 {
-        margin: 20px 0;
-        font-weight: bold;
-    }
-
-    > input {
-        width: 50%;
-        height: 30px;
-        margin: 5px 0;
-        padding: 10px;
-        font-size: 1.6rem;
-    }
-
-    > textarea {
-        height: 300px;
-        padding: 10px;
-        margin: 5px 0;
-        font-size: 1.4rem;
-        line-height: 1.5;
-    }
-
-    > button {
-        margin: 5px 0;
-        width: 35%;
-        background: #20B2AA;
-        color: white;
-        font-weight: bold;
-        font-size: 1.4rem;
-        height: 35px;
-        border: 1px solid gray;
-    }
-
-` */
-
-
-const URL = 'http://localhost:9000/notes/';
+const URL = 'https://dasma.herokuapp.com/notes/';
 
 
 class EditNote extends Component {
@@ -110,10 +69,10 @@ componentDidMount () {
                     <FormGroup row>
                         <Label for="exampleEmail" sm={2} size="lg">Content</Label>
                             <Col sm={12}>
-                                <Input type="textarea" name="content"  placeholder="Note content" bsSize="lg" value={this.state.content} onChange={this.change} />
+                                <Input type="textarea" name="content"  placeholder="Note content" bsSize="lg" value={this.state.content} onChange={this.change} style={{minHeight: '400px'}}/>
                             </Col>
                     </FormGroup>
-                    <Button color='primary' type='submit' onClick={this.update}>Update</Button>
+                    <Button size='lg' color='primary' type='submit' onClick={this.update}>Update</Button>
                 </Form>
             </Container>
          );

@@ -24,7 +24,7 @@ class NotesList extends Component {
         return (
             <Container expand="md" style={{marginTop: '10px'}}>
                 <Search {...this.props} />
-                <Row style={{marginTop: '10px'}}>
+                <Row style={{marginTop: '10px', minHeight: '750px'}}>
                 
                     { this.state.pageOfItems.map(note => {
                         return (

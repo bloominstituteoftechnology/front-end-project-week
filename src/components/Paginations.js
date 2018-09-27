@@ -109,7 +109,7 @@ class Paginations extends Component {
       }
 
       return (
-          <Pagination style={{ backgroundColor: '#333', borderColor: '#333', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', }} >
+          <Pagination style={{ backgroundColor: 'rgba(51, 51, 51, 0.7', borderColor: '#333', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', }} >
               <PaginationItem className={pager.currentPage === 1 ? 'disabled' : ''}>
                   <PaginationLink onClick={() => this.setPage(1)}>First</PaginationLink>
               </PaginationItem>

@@ -17,6 +17,11 @@ html {
 	box-sizing: border-box;
 	font-size: 62.5%;
 }
+body {
+	background: url('http://www.hd-freeimages.com/uploads/large/4k-desktop/4k-desktop-sea-shore-sunset-sky-wallpaper.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 *,
 *:before,
 *:after {

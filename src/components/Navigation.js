@@ -29,8 +29,8 @@ import {
     render() {
       return (
         <div>
-          <Navbar light expand="md" style={{background: 'gray'}}>
-            <NavbarBrand href="/">Notes</NavbarBrand>
+          <Navbar light expand="sm" style={{background: 'rgba(51, 51, 51, 0.5'}}>
+            <NavbarBrand href="/notes">Notes</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
