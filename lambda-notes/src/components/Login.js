@@ -26,10 +26,9 @@ export default class Login extends React.Component {
 	}
 
 	componentDidMount() {
-		/* If you login with the url pointing somwhere where a component should have data from 
-		the API before the GET request is even made, you will get an error. The following if statement 
-		forces you to be at the home screen when you log in so the GET request can have a chance to 
-		be made. */
+		// If you login with the URL pointing where a component should have data from
+		// the API before the GET request is even made, you will get an error. The following if statement // forces you to be at the home screen when you log in so the GET request can have a chance to
+		// be made.
 		if (window.location.href !== 'http://localhost:3000/') window.location.href = 'http://localhost:3000/';
 	}
 

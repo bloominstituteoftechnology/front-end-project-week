@@ -27,6 +27,7 @@ export default class CreateNew extends React.Component {
 		let emptyField = true;
 
 		for (let i = 0; i < this.state.note.title.length; i++) {
+			// If there exists a char in the title other than empty spaces, then emptyField is false.
 			if (this.state.note.title[i] !== ' ') {
 				emptyField = false;
 				break;
@@ -34,6 +35,7 @@ export default class CreateNew extends React.Component {
 		}
 
 		if (emptyField) {
+			// if emptyField is true, return an error message stating such.
 			return this.setState({
 				...this.state,
 				note: { ...this.state.note },
@@ -43,6 +45,7 @@ export default class CreateNew extends React.Component {
 			emptyField = true;
 
 			for (let i = 0; i < this.state.note.textBody.length; i++) {
+				// If there exists a char in the textBody other than empty spaces, then emptyField is false.
 				if (this.state.note.textBody[i] !== ' ') {
 					emptyField = false;
 					break;
@@ -50,13 +53,17 @@ export default class CreateNew extends React.Component {
 			}
 
 			if (emptyField) {
+				// If emptyField is true, return an error message stating such.
 				return this.setState({
 					...this.state,
 					note: { ...this.state.note },
-					errorMsg: 'Content must not be empty.',
+					errorMsg: 'Text body must not be empty.',
 				});
 			}
 		}
+
+		// Else if emptyField is NOT true(title and textBody got filled out), then
+		// create a newNote with those title and textBody values.
 
 		const newNote = { ...this.state.note };
 

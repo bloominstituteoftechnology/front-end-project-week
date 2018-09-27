@@ -17,6 +17,9 @@ const Note = props => {
 		<div className = 'note-wrapper'>
 			<div onClick = { () => history.push(`/note/${ note._id }`) } className = 'note'>
 				{ 
+					// This line of code is taking the title, starting it where
+					// the exact match is made, highlighting that match, and then
+					// outputting the rest of the text that followed.
 					exactInput && note.title.includes(exactInput) ? (note.title.length > 11 ? <h3><span className = 'highlight'>{ note.title.substr(note.title.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.title.substr(note.title.indexOf(exactInput)).slice(exactInput.length, 11) + '...' }</h3> : <h3><span className = 'highlight'>{ note.title.substr(note.title.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.title.substr(note.title.indexOf(exactInput)).slice(exactInput.length) }</h3>) : 
 
 					(note.title.length > 11 ? <h3>{ note.title.slice(0, 11) + '...' }</h3> : <h3>{ note.title }</h3>)
@@ -25,6 +28,9 @@ const Note = props => {
 				<hr />
 
 				{ 
+					// This line of code is taking the textBody, starting it where
+					// the exact match is made, highlighting that match, and then
+					// outputting the rest of the text that followed.
 					exactInput && note.textBody.includes(exactInput) ? (note.textBody.length > 85 ? <p><span className = 'highlight'>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(exactInput.length, 85) + '...' }</p> : <p><span className = 'highlight'>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(exactInput.length) }</p>) : 
 
 					(note.textBody.length > 85 ? <p>{ note.textBody.slice(0, 85) + '...' }</p> : <p>{ note.textBody }</p>)

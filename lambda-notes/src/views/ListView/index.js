@@ -42,6 +42,8 @@ export default class ListView extends React.Component {
 		const newBtnClass = { ...this.state.btnClass };
 
 		for (let key in newSearch) {
+			// If a particular search button has been 'activated', highlight it and
+			// 'deactivate' the other one.
 			if (key === e.target.name) {
 				newSearch[key] = !newSearch[key];
 				newBtnClass[key] = newBtnClass[key] ? '' : 'curr-search';
@@ -63,13 +65,14 @@ export default class ListView extends React.Component {
 			btnClass: newBtnClass,
 			sortingValues: { ...this.state.sortingValues },
 		});
-	}
+	} // toggleSearch()
 
 	handleInputChange = e => {
 		e.preventDefault();
 		const newInput = { ...this.state.input };
 
 		if (e.target.value.length > 85) {
+			// If searching for something longer than 85 chars, return an error.
 			return this.setState({
 				...this.state,
 				errorMsg: 'Error: Search term cannot be more than 85 characters long.',
@@ -81,6 +84,7 @@ export default class ListView extends React.Component {
 		}
 
 		for (let key in newInput) {
+			// This will be the string that is searched for.
 			if (key === e.target.name) newInput[key] = e.target.value;
 			else newInput[key] = '';
 		}
@@ -93,11 +97,12 @@ export default class ListView extends React.Component {
 			btnClass: { ...this.state.btnClass },
 			sortingValues: { ...this.state.sortingValues },
 		});
-	}
+	} // handleInputChange()
 
 	handleDeleteAll = () => {
 		const allIds = [];
 
+		// Push all note IDs into an array and send it off to the appropirate action creator.
 		for (let i = 0; i < this.props.notes.length; i++) {
 			allIds.push(this.props.notes[i]._id);
 		}
@@ -113,6 +118,7 @@ export default class ListView extends React.Component {
 			search: { ...this.state.search },
 			input: { ...this.state.input },
 			btnClass: { ...this.state.btnClass },
+			// Toggle this modal on and off
 			deleteAllModal: !this.state.deleteAllModal,
 			sortingValues: { ...this.state.sortingValues },
 		});
@@ -125,6 +131,7 @@ export default class ListView extends React.Component {
 			input: { ...this.state.input },
 			btnClass: { ...this.state.btnClass },
 			toggleSort: !this.state.toggleSort,
+			// Return new sorting values if available, else return empty strings.
 			sortingValues: newSortingValues ? newSortingValues : { sortBy: '', sortOrder: '' },
 		});
 	}
@@ -143,6 +150,7 @@ export default class ListView extends React.Component {
 			sortOrder: '',
 		}
 
+		// Create a new 'sorting values' object and only insert the targets which have been checked.
 		for (let i = 0; i < e.target.length - 1; i++) {
 			if (e.target[i].checked) newSortingValues[e.target[i].name] = e.target[i].value;
 		}
@@ -175,6 +183,7 @@ export default class ListView extends React.Component {
 		}
 
 		if (sortingValues.sortBy) {
+			// If sorting values exist, then sort the notes by those values.
 			notes.sort((note1, note2) => {
 				let a = note1[sortingValues.sortBy].toLowerCase();
 				let b = note2[sortingValues.sortBy].toLowerCase();
@@ -185,6 +194,7 @@ export default class ListView extends React.Component {
 				}
 			});
 		} else {
+			// Else, if no sorting values exist, then notes is the original array received from props.
 			notes = this.props.notes;
 		}
 
@@ -294,6 +304,11 @@ export default class ListView extends React.Component {
 						{ sortingValues.sortBy && <p>Sorted by { sortingValues.sortBy === 'textBody' ? 'text body' : sortingValues.sortBy } { sortingValues.sortOrder === 'asc' ? 'ascending' : 'descending' }</p> }
 					</div>
 
+					{/* 
+						If there exists a search (exact or fuzzy), filter the notes array
+						by the search input and map this newly filtered array using the
+						Note component.
+					*/}
 					{ 
 						(search.exactSearch && (notes.filter(note => {
 							if ((note.title.indexOf(input.exactInput) !== -1) || (note.textBody.indexOf(input.exactInput) !== -1)) return true;

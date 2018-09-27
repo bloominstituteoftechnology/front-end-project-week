@@ -16,6 +16,7 @@ const Auth = App => LoginView => class extends React.Component {
 	}
 
 	render() {
+		// If you're logged in, return the App component, if not, return the LoginView component.
 		if (this.state.loggedIn) {
 			return(
 				<Route path = '/' render = { props => <App { ...props } username = { this.state.username } /> } />

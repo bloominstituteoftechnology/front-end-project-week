@@ -18,6 +18,8 @@ class Edit extends React.Component {
 	handleCheckboxChange = e => {
 		let newTags = [ ...this.state.note.tags ];
 
+		// When clicking on a checkbox: If it has already been checked, uncheck it.
+		// And if it is unchecked, check it.
 		if (newTags.includes(e.target.value)) {
 			newTags = newTags.filter(tag => tag !== e.target.value);
 		} else {
@@ -46,6 +48,7 @@ class Edit extends React.Component {
 		let emptyField = true;
 
 		for (let i = 0; i < this.state.note.title.length; i++) {
+			// If there exists a char in the title other than empty spaces, then emptyField is false.
 			if (this.state.note.title[i] !== ' ') {
 				emptyField = false;
 				break;
@@ -53,6 +56,7 @@ class Edit extends React.Component {
 		}
 
 		if (emptyField) {
+			// if emptyField is true, return an error message stating such.
 			return this.setState({
 				...this.state,
 				note: { ...this.state.note },
@@ -62,6 +66,7 @@ class Edit extends React.Component {
 			emptyField = true;
 
 			for (let i = 0; i < this.state.note.textBody.length; i++) {
+				// If there exists a char in the textBody other than empty spaces, then emptyField is false.
 				if (this.state.note.textBody[i] !== ' ') {
 					emptyField = false;
 					break;
@@ -69,13 +74,17 @@ class Edit extends React.Component {
 			}
 
 			if (emptyField) {
+				// If emptyField is true, return an error message stating such.
 				return this.setState({
 					...this.state,
 					note: { ...this.state.note },
-					errorMsg: 'Content must not be empty.',
+					errorMsg: 'Text body must not be empty.',
 				});
 			}
 		}
+
+		// Else if emptyField is NOT true(title and textBody got filled out), then
+		// dispatch the action associated with editing this note.
 
 		this.props.editNote(this.state.note, this.props.note._id, this.props.history);
 	} // handleSubmit()
