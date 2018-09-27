@@ -13,7 +13,7 @@ export default function CreateEditNote(props) {
 
   return (
     <div className="form-wrapper">
-      <h2>{props.updatingNote ? "Update Note" : "Create New Note"}</h2>
+      <h2>{props.updatingNote ? "Edit Note" : "Create New Note"}</h2>
       <form className="note-form">
         <div className="note-title">
           <input

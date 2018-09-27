@@ -10,6 +10,8 @@ body {
   background: #f3f3f3;
   color: #4a494a;
   position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .navbar {
