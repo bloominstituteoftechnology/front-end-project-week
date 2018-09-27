@@ -9,8 +9,8 @@ import { AddNote } from './components/addNote';
 import  EditNote  from './components/editNote';
 import axios from 'axios';
 
-const url = 'http://localhost:3333/api/notes';
-// const url = 'https://lambdanote.herokuapp.com/api/notes';
+// const url = 'http://localhost:3333/api/notes';
+const url = 'https://lambdanote.herokuapp.com/api/notes';
 
 class App extends Component {
   constructor() {
@@ -22,7 +22,8 @@ class App extends Component {
       text: '',
       showModal: false,
       searchQuery: '',
-      searchResults: []
+      searchResults: [],
+      showFiltered: false
     }
   }
 
@@ -129,7 +130,7 @@ class App extends Component {
           <Link to="/add" ><div className="nav-button" >+ Create New Note</div></Link>
         </div>
         <div className="display-right" >
-          <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} searchQuery={this.state.searchQuery} handleInputChange={this.handleInputChange} filterNotes={this.filterNotes} />)} />
+          <Route exact path="/" render={props => (<NoteList {...props} notes={this.state.notes} searchQuery={this.state.searchQuery} handleInputChange={this.handleInputChange} filterNotes={this.filterNotes} searchResults={this.state.searchResults} />)} />
           <Route exact path="/notes/:id" render={props => (<SingleView {...props} notes={this.state.notes} modalToggle={this.modalToggle} showModal={this.state.showModal} deleteNote={this.deleteNote} /> )} />
           <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
           <Route exact path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} editNoteSubmit={this.editNoteSubmit} />)}  />
