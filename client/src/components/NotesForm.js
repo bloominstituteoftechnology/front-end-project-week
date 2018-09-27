@@ -54,15 +54,15 @@ class NotesForm extends Component {
   };
 
   componentDidMount() {
-    if (this.props.preloadedState) {
-      this.setState(this.props.preloadedState);
-    }
+    // if (this.props.preloadedState) {
+    //   this.setState(this.props.preloadedState);
+    // }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.preloadedState._id !== this.props.preloadedState._id) {
-      this.setState(this.props.preloadedState);
-    }
+    // if (prevProps.preloadedState.id !== this.props.preloadedState.id) {
+    //   this.setState(this.props.preloadedState);
+    // }
   }
 
   handleChange = ({ target: { name, value } }) => {

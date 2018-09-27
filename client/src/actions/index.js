@@ -56,10 +56,16 @@ export const { authSuccess, authError, authLogout } = createActions(
   'AUTH_LOGOUT',
 );
 
-export const fetchNotes = () => async dispatch => {
+export const fetchNotes = () => async (dispatch, getState) => {
   dispatch(fetchNotesRequest());
   try {
-    let response = await axios.get(`${API_URL}/notes`);
+    let response = await axios({
+      url: `${API_URL}notes`,
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${getState().token}`,
+      },
+    });
     dispatch(fetchNotesSuccess(response.data));
   } catch (err) {
     console.log(err);
@@ -70,7 +76,7 @@ export const fetchNotes = () => async dispatch => {
 export const fetchOne = id => async dispatch => {
   dispatch(fetchOneRequest());
   try {
-    let response = await axios.get(`${API_URL}/notes/${id}`);
+    let response = await axios.get(`${API_URL}notes/${id}`);
     dispatch(fetchOneSuccess(response.data));
   } catch (err) {
     dispatch(fetchOneFailure(err));
@@ -80,7 +86,7 @@ export const fetchOne = id => async dispatch => {
 export const addNote = data => async dispatch => {
   dispatch(addNoteRequest());
   try {
-    let response = await axios.post(`${API_URL}/notes`, data);
+    let response = await axios.post(`${API_URL}notes`, data);
     dispatch(addNoteSuccess({ id: response.data.success, ...data }));
   } catch (err) {
     dispatch(addNoteFailure(err));
@@ -90,7 +96,7 @@ export const addNote = data => async dispatch => {
 export const editNote = (id, data) => async dispatch => {
   dispatch(editNoteRequest());
   try {
-    let response = await axios.put(`${API_URL}/notes/${id}`, data);
+    let response = await axios.put(`${API_URL}notes/${id}`, data);
     dispatch(editNoteSuccess(response.data));
   } catch (err) {
     dispatch(editNoteFailure(err));
@@ -100,7 +106,7 @@ export const editNote = (id, data) => async dispatch => {
 export const deleteNote = id => async dispatch => {
   dispatch(deleteNoteRequest());
   try {
-    await axios.delete(`${API_URL}/notes/${id}`);
+    await axios.delete(`${API_URL}notes/${id}`);
     dispatch(deleteNoteSuccess());
   } catch (err) {
     dispatch(deleteNoteFailure());
@@ -109,13 +115,20 @@ export const deleteNote = id => async dispatch => {
 
 export const authUser = (credentials, type) => async dispatch => {
   try {
-    let response = await axios.post(`${API_URL}/${type}`, credentials);
+    let response = await axios.post(`${API_URL}${type}`, credentials);
     if (response.data.error) return dispatch(authError(response.data.error));
     localStorage.setItem('token', response.data.token);
     dispatch(authSuccess(response.data.token));
   } catch (err) {
     console.log(err);
     dispatch(authError('Something went wrong!'));
+  }
+};
+
+export const checkToken = () => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    return authSuccess(token);
   }
 };
 

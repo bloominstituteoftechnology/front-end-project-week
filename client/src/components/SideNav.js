@@ -35,7 +35,7 @@ const LinkWrapper = styled(Link)`
   }
 `;
 
-const SideNav = ({ isLoggedIn }) => {
+const SideNav = ({ isLoggedIn, logout }) => {
   return (
     <StyledSideNav>
       <PrimaryHeading>
@@ -50,6 +50,7 @@ const SideNav = ({ isLoggedIn }) => {
           <LinkWrapper to="/notes/new">
             <BlockButton>+ Create a new note</BlockButton>
           </LinkWrapper>
+          <BlockButton onClick={logout}>Logout</BlockButton>
         </React.Fragment>
       ) : (
         <React.Fragment>
