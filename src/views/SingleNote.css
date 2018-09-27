@@ -1,0 +1,30 @@
+.note {
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    padding: .4% 1% 1% 1%;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+    margin: 1%;
+    border: 1px solid gray;
+}
+
+.note h2{
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.note p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.note div{
+    width: 100%;
+}
+
+.active{
+    margin: 3%;
+}
