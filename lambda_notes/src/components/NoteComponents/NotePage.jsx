@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Modal } from 'mdbreact';
 import Styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 const Wrapper = Styled.div`
     margin-top: 30px;
@@ -102,7 +103,8 @@ class NotePage extends React.Component {
                 <h5>Tags: {this.state.note.tags}</h5>
                 <br />
                 <h5>Summary</h5>
-                <p>{this.state.note.textBody}</p>
+                <ReactMarkdown source={this.state.note.textBody} />
+                {/* <p>{this.state.note.textBody}</p> */}
     
                 <Modal isOpen={this.state.modal14} toggle={this.toggle} centered>
                 <ModalContainer>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import './Note.css';
 
 const Container = Styled.div`
@@ -57,11 +58,11 @@ function Note(props) {
              <NavLink to={`/notes/${props.note._id}`} >
                  <Header><h1>{props.note.title}</h1></Header>
                  <Tags>{tags}</Tags>
-                 <Content className="block-with-text">{props.note.textBody}</Content>
+                 <Content className="block-with-text">
+                    <ReactMarkdown source={props.note.textBody} />
+                 </Content>
              </NavLink>
          </Container>
-
-        
     );
 };
 
