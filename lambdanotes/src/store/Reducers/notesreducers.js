@@ -58,7 +58,7 @@ export default (state = initialState, action) => {
         case GOT_NOTES:
             return {...state, status: {...state.status, gettingNotes: false, gotNotes: true, isEditing: false}, notes: action.payload, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1} };
         case GETTING_SINGLE_NOTE:
-            return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false, noteMessage: "", noteError: ""}};
+            return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false, noteMessage: "", noteError: ""}, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1}};
         case GOT_SINGLE_NOTE:
             return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true, noteError: action.payload.errorMessage ? action.payload.errorMessage : ""}, noteViewer: {...action.payload}};
         //~~~~~PUT Handling~~~~~//
