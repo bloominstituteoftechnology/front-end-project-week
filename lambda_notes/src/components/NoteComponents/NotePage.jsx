@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Modal } from 'mdbreact';
 import Styled from 'styled-components';
-import axios from 'axios';
 
 const Wrapper = Styled.div`
     margin-top: 30px;
+    padding-left: 3%;
     color: #4a494a;
     background-color: #f3f3f3;
 
@@ -65,68 +65,45 @@ const ModalButtons = Styled.div`
     justify-content: space-evenly;
 `;
 
-export default class NotePage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: null,
-            modal14: false,
-        };
-    }
+function NotePage(props) {
+    const note = props.notes.find(
+        note => note._id === props.match.params.id
+    );
+
+    let tags = '';
+
+    function handleDelete() {
+        props.handleDeleteNote(note._id);
+        props.history.push('/');
+    };
+
+    if (props.isLoading || props.notes.length === 0) return <h2>Loading Notes... Pleas grab some coffee</h2>
+    tags = note.tags.join(', ');
     
 
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        this.fetchNote(id);
-    };
+    return (
+        <Wrapper>
+            <Header>
+                <LinkD><NavLink to="/form" onClick={event => props.goToForm(event, note._id)} style={{color: "#4a494a" }}>Edit</NavLink></LinkD>
+                <LinkD><NavLink to="/" onClick={props.toggle} style={{color: "#4a494a" }}>Delete</NavLink></LinkD>
+            </Header>
+            <h1>{note.title}</h1>
+            <h5>Tags: {tags}</h5>
+            <br />
+            <h5>Summary</h5>
+            <p>{note.textBody}</p>
 
-    fetchNote = id => {
-        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-        .then(response => {this.setState(() => ({note: response.data })); })
-        .catch(err => console.error('GET_ERROR-NOTEPAGE', err));
+            <Modal isOpen={props.modal14} toggle={props.toggle} centered>
+            <ModalContainer>
+                Are you sure you want to delete this?
+                <ModalButtons>
+                <ButtonDanger onClick={handleDelete}>Delete</ButtonDanger>
+                <Button onClick={props.toggle}>No</Button>
+                </ModalButtons>
+            </ModalContainer>
+            </Modal>
+        </Wrapper>
+    )
+}
 
-        // const note = this.props.notes.map(note => note).filter(note => note.id === parseInt(id, 10));
-        // this.setState({ note: note[0] })
-    };
-
-    toggle = e => {
-        e.preventDefault();
-        this.setState({modal14: !this.state.modal14});
-    }
-
-    removeNote = e => {
-        this.props.removeNote(e, this.state.note._id);
-    }
-
-    render() {
-        if (!this.state.note) {
-            return <div>No Note Data Found...</div>
-        }
-        const tags = this.state.note.tags.join(', ');
-
-        return (
-            <Wrapper>
-                <Header>
-                    <LinkD><NavLink to="/create-note" onClick={event => this.props.updateNoteForm(event, this.state.note._id)} style={{color: "#4a494a" }}>Edit</NavLink></LinkD>
-                    <LinkD><NavLink to="/" onClick={this.toggle} style={{color: "#4a494a" }}>Delete</NavLink></LinkD>
-                </Header>
-                <h1>{this.state.note.title}</h1>
-                <h5>Tags: {tags}</h5>
-                <br />
-                <h5>Summary</h5>
-                <p>{this.state.note.textBody}</p>
-
-                <Modal isOpen={this.state.modal14} toggle={this.toggle} centered>
-                <ModalContainer>
-                    Are you sure you want to delete this?
-                    <ModalButtons>
-                    <ButtonDanger onClick={event => this.removeNote(event)}>Delete</ButtonDanger>
-                    <Button onClick={this.toggle}>No</Button>
-                    </ModalButtons>
-                </ModalContainer>
-                </Modal>
-            </Wrapper>
-        );
-    };
-
-};
+export default NotePage;

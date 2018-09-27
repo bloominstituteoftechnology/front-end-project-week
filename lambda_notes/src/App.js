@@ -6,9 +6,10 @@ import axios from 'axios';
 import { Route, withRouter } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation';
-import NoteContainer from './components/NoteComponents/NoteContainer';
-import NoteCreateForm from './components/NoteComponents/NoteCreateForm';
-import NotePage from './components/NoteComponents/NotePage';
+
+import NoteListView from './views/NoteListView';
+import NoteView from './views/NoteView';
+import NoteFormView from './views/NoteFormView';
 
 const Wrapper = Styled.div`
   background-color: #f3f3f3;
@@ -16,17 +17,19 @@ const Wrapper = Styled.div`
 `;
 
 const SideNav = Styled.div`
-    height: 100%;
     position: fixed;
-    z-index: 1;
-    top: 0;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 20%;
 `;
 
 const Content = Styled.div`
-  max-width: 1580px;
-  width: 100%;
-  margin-left: 16%;
-  padding-left: 3%;
+
+  margin-left: 20%;
+  width: 80%;
+
+
   background-color: #f3f3f3;
 `;
 
@@ -100,6 +103,8 @@ class App extends Component {
         return this.setState({notes});
       case 'back':
         return this.setState({notes: notes.reverse()})
+      default:
+        return this.setState({notes});
     }
   }
 
@@ -110,7 +115,11 @@ class App extends Component {
           <Navigation isUpdate={this.isUpdate} handleSearch={this.handleSearch} sortList={this.sortList} />
         </SideNav>
         <Content>
-          <Route exact path="/" render={ props =>
+          <Route exact path="/" component={NoteListView} />
+          <Route exact path="/form" component={NoteFormView} />
+          <Route exact path="/notes/:id" component={NoteView} />
+          
+          {/* <Route exact path="/" render={ props =>
             <NoteContainer {...props}
               notes={this.state.filtered ? this.state.filteredNotes : this.state.notes} />
           } />
@@ -128,7 +137,7 @@ class App extends Component {
               notes={this.state.notes}
               updateNoteForm={this.updateNoteForm}
               removeNote={this.removeNote} />
-          } />
+          } /> */}
         </Content>
       </Wrapper>
     );

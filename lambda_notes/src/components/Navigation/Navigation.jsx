@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FormInline, Fa } from 'mdbreact';
 import Styled from 'styled-components';
+import { connect } from 'react-redux';
+import { toggleUpdateNote } from '../../store/actions';
 
 const Header = Styled.header`
-    position: absolute;
-    bottom: 0;
-    max-width: 300px;
-    min-width: 300px;
-    width: 30%;
     height: 100%;
     background-color: #d7d7d7;
     color: #4a494a
@@ -91,8 +88,8 @@ class Navigation extends Component {
                     <input value={this.state.inputValue} onChange={e => this.handleChange(e)}  className="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"/>
                 </FormInline>
                 </Search>
-                <NavLink to="/"><Button type="button" onClick={event => this.props.isUpdate(event)}>View Your Notes</Button></NavLink>
-                <NavLink to="/create-note"><Button type="button" onClick={event => this.props.isUpdate(event)}>+ Create A New Note</Button></NavLink>
+                <NavLink to="/"><Button type="button" onClick={this.props.toggleUpdateNote}>View Your Notes</Button></NavLink>
+                <NavLink to="/form"><Button type="button" onClick={this.props.toggleUpdateNote}>+ Create A New Note</Button></NavLink>
                 <br />
                 <h3>Sort Notes</h3>
                 <Button type="button" onClick={event => this.props.sortList(event, 'front')}>A-Z</Button>
@@ -102,4 +99,10 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+// export default Navigation;
+
+const mapStateToProps = state => {
+    console.log('NAVIGATION',state);
+};
+
+export default connect(mapStateToProps, { toggleUpdateNote })(Navigation)
