@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
 import axios from "axios";
+import Header from "./components/Header"
 import Sidebar from "./components/Sidebar";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
@@ -70,7 +71,7 @@ class App extends Component {
       .then(res => {
       console.log(res.data);
       this.setState({notes: res.data , title: '' , content: ''})
-      this.props.history.push('/');
+      this.props.history.push('/notes');
       })
     })
       .catch(error => {
@@ -134,6 +135,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Header/>
        <Route 
           exact path = "/login" 
           component = {Login}> 
