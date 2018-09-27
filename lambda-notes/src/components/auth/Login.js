@@ -24,7 +24,7 @@ class Login extends Component {
             this.props.history.push('/notes');
         })
         .catch(err => {
-            let error = JSON.stringify(err);
+            const error = JSON.stringify(err);
             if (error.includes('401')) {
                 this.setState({ status: 401})
             }
