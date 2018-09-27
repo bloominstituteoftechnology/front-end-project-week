@@ -12,15 +12,15 @@ class CheckList extends Component {
 
   render() {
    
-    const { note, checklist } = this.props;
+    const { note, checklist, selectedTheme } = this.props;
 
     return (
       <CheckListContainer>
-        <h2>CheckList</h2>
-        <button onClick={this.addChecklist}>sumbit</button>
+        <NoteTitle className= 'note-view' data-theme={selectedTheme}>CheckList</NoteTitle>
+        <NoteButton onClick={this.addChecklist} className= 'note-view' data-theme={selectedTheme}>{ (!checklist.some(checkitem => checkitem._id === note._id)) ?'Add Note To List':'Remove Note'}</NoteButton>
         <div>
           {checklist.map(checkitem => (
-            <p onClick={() => this.props.history.push(`/notes/${checkitem._id}`)}>{checkitem.title}</p>
+            <p className= 'note-view' onClick={() => this.props.history.push(`/notes/${checkitem._id}`)}>{checkitem.title}</p>
           ))}
         </div>
 
@@ -39,6 +39,25 @@ const CheckListContainer = styled("div")`
 
 const NoteTitle = styled("h2")`
   color: ${props => props.theme[props["data-theme"]].mainTitle};
+`;
+
+const NoteButton = styled("div")`
+  cursor: pointer;
+  margin: 10px 0;
+  text-align: center;
+  color: ${props => props.theme[props["data-theme"]].subBackground};
+  background: ${props => props.theme[props["data-theme"]].button};
+  
+  padding: 10px;
+  min-width:150px;
+  font-weight: bold;
+  transition: transform .2s ease-in-out;
+  :hover{
+     transform: matrix(1.1, 0, 0, 1.1, 0, 0) !important;
+  }
+  :active{
+    transform: matrix(1, 0, 0, 1, 0, 0) !important;
+  }
 `;
 
 export default CheckList;
