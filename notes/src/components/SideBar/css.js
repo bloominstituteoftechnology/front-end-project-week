@@ -37,3 +37,22 @@ export const DivClick = styled.div`
 export const Log = styled.p`
 	text-transform:capitalize;
 `;
+
+export const NewsH2 = styled.h2`
+	margin-left: 5%;
+	padding: 2%;
+	padding-bottom: 0;
+`;
+
+export const NewsDiv = styled.div`
+	font-size: 1rem;
+	overflow: scroll;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 2%;
+	padding-top: 0;
+	margin-top: 5px;
+	> a > p {
+		margin-top: 5px;
+	}
+`;

@@ -15,6 +15,7 @@ const Authenticate = App =>
 		}
 
     render() {
+      console.log(this.props);
     	const name = Object.keys(localStorage);
     	const login = Object.values(localStorage);
       const userList = this.state.possibleUsers.map(item => item.name);

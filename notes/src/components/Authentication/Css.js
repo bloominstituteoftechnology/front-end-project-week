@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const LoginDiv = styled.div`
+export const LoginDiv = styled.div`
 	height: 300px;
 	margin-top: 50px;
 	> form {
@@ -9,6 +9,7 @@ const LoginDiv = styled.div`
 	  max-width: 250px;
 	  width: 100%;
 	  margin: 54px auto;
+	  margin-bottom: 30px;
 	  padding: 6%;
 	  background-color: #84d1e1;
 	  border-radius: 10px;
@@ -29,4 +30,8 @@ const LoginDiv = styled.div`
 		}
 	}
 `
-export default  LoginDiv
+export const Norris = styled.p`
+	text-align: center;
+	margin-left: 30%;
+	margin-right: 30%;
+`;

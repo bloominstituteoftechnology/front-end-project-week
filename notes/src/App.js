@@ -8,7 +8,6 @@ import LinkedNote from './components/NoteInfo/LinkedNote';
 import Authenticate from './components/Authentication/Authenticate';
 import Weather from './components/Weather/Weather'
 
-
 import styled from 'styled-components';
 import { Route } from "react-router-dom";
 
@@ -36,6 +35,7 @@ class App extends Component {
       notesData: [],
       inputText: '',
       boolVal: false,
+      topNews: [],
     };
   }
 
@@ -48,12 +48,29 @@ class App extends Component {
       .catch(err => {
         console.log(err)
       })
+
+    axios
+      .get("https://newsapi.org/v2/top-headlines?country=us&apiKey=fe1ec32653734ee8895f2371139ed9da")
+      .then(response => {
+
+        let topTen = [];
+
+        for (let i = 0; i < 3; i++){
+          topTen.push(response.data.articles[i])
+        }
+
+        console.log(topTen)
+
+        this.setState({topNews: topTen})
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   searchNotes = e => {
     e.preventDefault();
     let newState = {...this.state};
-    // console.log(newState)
 
     const filter = newState.notesData.filter((note) => note.author === newState.inputText);
 
@@ -147,8 +164,6 @@ class App extends Component {
             )}
           />
 
-
-
           <Route
             exact
             path="/notes"
@@ -192,25 +207,28 @@ class App extends Component {
           </div>
           )}
         />
-        <Route path="/" component={SideBar} />
+
+        <Route
+          path="/"
+          render={props => (
+          <div>
+            <SideBar
+              {...props}
+              news={this.state.topNews}
+            />
+          </div>
+          )}
+        />
+
+
+
+
       </BGColor>
     );
   }
 }
 
 export default Authenticate(App);
-
-
-// clear sky
-// few clouds
-// scattered clouds
-// broken clouds
-// shower rain
-// rain
-// thunderstorm
-// snow
-// mist
-
 
 
 

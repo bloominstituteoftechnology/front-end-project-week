@@ -1,49 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
-
-const WeatherDiv = styled.div`
-	display: flex;
-	margin-top: 20px;
-	margin-left: 27%;
-`;
-
-const WeatherSubDiv = styled.div`
-	margin-right: 2%;
-	padding: 2%;
-	border: solid #2e63f8 1px;
-	font-size: 1.2rem;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 4px;
-	background-color: #d9dafe;
-	font-family: 'Open Sans', sans-serif;
-	> div {
-		margin-top: 5px;
-	}
-`
-
-const WeatherFormDiv = styled.div`
-	padding-left: 204px;
-	display: flex;
-	margin-top: 10px;
-  flex-direction: column;
-  max-width: 30%;
-  margin-left: 17.5%;
-	> form {
-		display: flex;
-		flex-direction: column;
-	}
-`;
-
-const City = styled.div`
-  text-align: center;
-  margin-top: 20px;
-  font-size: 4rem;
-  margin-left: 15%;
-`;
+import { WeatherDiv, WeatherSubDiv, WeatherFormDiv, City } from './css';
 
 class Weather extends React.Component {
 	constructor(props){
@@ -153,9 +110,9 @@ class Weather extends React.Component {
 					{this.state.outputCity}
 				</City>
 				<WeatherDiv>
-					{this.state.weather.map(w => (
-						<WeatherSubDiv>
-							<img src={w.imgURL} />
+					{this.state.weather.map((w, i) => (
+						<WeatherSubDiv key={i}>
+							<img src={w.imgURL} alt='weather' />
 							<p>{w.description}</p>
 							<p>{w.temp} degrees</p>
 							<p>{w.day}</p>
