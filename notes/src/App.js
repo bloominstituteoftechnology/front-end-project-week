@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import Fuse from 'fuse.js';
 import Sidebar from './components/Sidebar';
+import Notes from './components/Notes';
 import Note from './components/Note';
 import NoteFormContainer from './components/NoteFormContainer';
 import Modal from './components/DeleteModal';
@@ -101,6 +102,24 @@ class App extends Component {
   }
 
   /* Dropdown/sort methods */
+
+  onSortEnd = ({ oldIndex, newIndex }) => {
+    const { id } = this.state.notes[oldIndex];
+    const id2 = this.state.notes[newIndex].id;
+    this.switch(id, id2);
+  };
+
+  switch = (id, id2) => {
+    axios.put(`${URL}/${id}/${id2}`)
+      .then(() => {
+        axios.get(URL)
+          .then(({ data }) => {
+            this.setState({ notes: data });
+          })
+          .catch(err => console.error(err));
+      })
+      .catch(err => console.error(err));
+  };
 
   sortByLatest = () => {
     const sortCb = (a, b) => b.id - a.id;
@@ -256,17 +275,11 @@ class App extends Component {
                     sortAlphabetically={this.sortAlphabetically}
                   />
                 </div>
-                <div className="notes">
-                  {notes.map(note => (
-                    <Link 
-                      key={note.id} 
-                      onClick={(e) => this.storeNote(note)} 
-                      to={`/notes/${note.id}`}
-                    >
-                      <Note note={note} />
-                    </Link>
-                  ))}
-                </div>
+                <Notes 
+                  notes={notes} 
+                  storeNote={this.storeNote} 
+                  onSortEnd={this.onSortEnd}
+                />
               </div>
             )}
           />
