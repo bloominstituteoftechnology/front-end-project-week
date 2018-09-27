@@ -6,13 +6,29 @@ import { connect } from 'react-redux';
 import { fetchNotes, notesUpdated } from '../actions';
 
 class Notes extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            filteredNotes: []
+        }
+    }
+
     componentDidUpdate() {
         if (this.props.notesNeedsUpdate) {
             this.props.fetchNotes();
             this.props.notesUpdated();
+            
         }
     }
-    
+
+    searchHandler = event => {
+        const notes = this.props.notes.filter(note => {
+            if (note.title.includes(event.target.value) || note.textBody.includes(event.target.value)) {
+                return note;
+            } return null;
+        });
+        this.setState({ filteredNotes: notes});
+    }
 
     render() {
         return (
@@ -21,16 +37,28 @@ class Notes extends React.Component {
                     <h2>Looking for notes...</h2>
                 ) : (
                 <div>    
+                    <input type="text" name="search" onChange={this.searchHandler}/>
                     <h2>Your Notes:</h2>
                     <div className='notes-container'>
-                        {this.props.notes.map(note => {
-                            return (
-                                <NavLink to={`/note/${note._id}`} className='note-container' key={note._id}>
-                                    <h3>{note.title}</h3>
-                                    <p>{note.textBody}</p>
-                                </NavLink>
-                            )
-                        })}
+                        {this.state.filteredNotes.length > 0 ? (
+                            this.state.filteredNotes.map(note => {
+                                return (
+                                    <NavLink to={`/note/${note._id}`} className='note-container' key={note._id}>
+                                        <h3>{note.title}</h3>
+                                        <p>{note.textBody}</p>
+                                    </NavLink>
+                                )
+                            })
+                        ) : (
+                            this.props.notes.map(note => {
+                                return (
+                                    <NavLink to={`/note/${note._id}`} className='note-container' key={note._id}>
+                                        <h3>{note.title}</h3>
+                                        <p>{note.textBody}</p>
+                                    </NavLink>
+                                )
+                            })
+                        )}
                     </div>
                 </div>
                 )}
