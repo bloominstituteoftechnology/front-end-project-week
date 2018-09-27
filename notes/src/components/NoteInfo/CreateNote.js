@@ -17,7 +17,7 @@ class CreateNote extends React.Component {
 	createNote = () => {
 		const note = {title: this.state.title, text: this.state.text, author: Object.keys(localStorage)};
 
-		let nI1 = note.title.lengh;
+		let nI1 = note.title.length;
 		let nI2 = note.text.length;
 
 		if (nI1 < 6 && nI2 < 20){
@@ -25,7 +25,7 @@ class CreateNote extends React.Component {
 				errorTitle: 'note title must be over 6 characters',
 				errorBody: 'note content must be over 20 characters',
 			})
-			return
+		return
 		} else if (nI1 < 6){
 			this.setState({errorTitle: 'note title must be over 6 characters', errorBody: ''})
 			return;
