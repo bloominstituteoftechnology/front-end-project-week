@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {NoteStyled, TitleStyled} from './style';
+import {NoteStyled, TitleStyled, ComponentBody, ComponentHeader} from './style';
 import {editNote, deleteNote} from '../actions';
 import {Redirect} from 'react-router-dom';
 
@@ -30,18 +30,18 @@ class ViewNote extends React.Component{
             return <Redirect to='/' />
         }
         return(
-            <div>
-                <NoteStyled>
-                    <TitleStyled>
-                        {this.props.notes[this.props.index].title}
-                    </TitleStyled>
-                    <button type='submit' onClick={this.edit}>edit</button>
-                    <button type='submit' onClick={this.delete}>delete</button>
-                    <div className='noteContent'>
-                        {this.props.notes[this.props.index].content}
-                    </div>
-                </NoteStyled>
-            </div>
+            <ComponentBody>
+                <div className='buttons'>
+                    <div className='editButtons' onClick={this.edit}>edit</div>
+                    <div className='editButtons' onClick={this.delete}>delete</div>
+                </div>
+                <ComponentHeader>
+                    {this.props.notes[this.props.index].title}
+                </ComponentHeader>
+                <div className='noteContent'>
+                    {this.props.notes[this.props.index].content}
+                </div>
+            </ComponentBody>
         )
     }
 }

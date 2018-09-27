@@ -8,13 +8,28 @@ export const ComponentBody = styled.div`
         margin-top: 15px;
         flex-wrap: wrap;
     }
+    .buttons{
+        display: flex;
+        justify-content: flex-end;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        font-weight: bold;
+        .editButtons{
+            margin-left: 5px;
+            text-decoration: underline;
+        }
+    }
+    .noteContent{
+        text-align: left;
+        margin-top: 15px;
+    }
 `
 
 export const ComponentHeader = styled.div`
     font-size: 1.2rem;
     font-weight: bold;
     text-align: left;
-    margin-top: 50px;
+    margin-top: 30px;
 `
 
 export const NavStyled = styled.div`

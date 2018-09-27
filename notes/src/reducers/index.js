@@ -26,12 +26,14 @@ const reducer = (state=initialState, action) =>{
             return{
                 ...state,
                 viewing: true,
+                editing: false,
                 index: action.payload
             }
         case HOME:
             return{
                 ...state,
                 viewing: false,
+                editing: true,
                 index: -1,
             }
         case EDITING:
