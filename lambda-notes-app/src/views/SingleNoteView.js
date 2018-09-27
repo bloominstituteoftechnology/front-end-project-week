@@ -26,7 +26,7 @@ class SingleNoteView extends React.Component {
     // this.props.history.push('/note-form')
     console.log('firing inside setUpdateNote');
     this.props.setUpdateNote(id);
-    this.props.history.push('/notes')
+    this.props.history.push('/note-form')
     
   }
 

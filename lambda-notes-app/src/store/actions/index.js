@@ -51,7 +51,7 @@ export const deleteNote = noteId => dispatch => {
 
   axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
     .then(res => {
-      dispatch({ type: SUCCESS_DELETE_NOTE, payload: res.data })
+      dispatch({ type: SUCCESS_DELETE_NOTE, payload: noteId })
     })
     .catch(err => {
       dispatch({ type: FAILURE_DELETE_NOTE, payload: err })
@@ -71,7 +71,7 @@ export const updateNote = note => dispatch => {
 
   axios.put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
     .then(res => {
-      dispatch({ type: SUCCESS_UPDATE_NOTE, payload: res.data })
+      dispatch({ type: SUCCESS_UPDATE_NOTE, payload: note })
     })
     .catch(err => {
       dispatch({ type: FAILURE_UPDATE_NOTE, payload: err })

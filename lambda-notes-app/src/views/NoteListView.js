@@ -14,7 +14,8 @@ class NoteListView extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (JSON.stringify(this.props.notesList) !== JSON.stringify(prevProps.notesList) ) {
+    // if (JSON.stringify(this.props.notesList) !== JSON.stringify(prevProps.notesList) ) {
+    if (this.props.notesList !== prevProps.notesList ) {
       console.log('prev props', prevProps);
       this.setState({ notesArray: this.props.notesList })   
       console.log('inside update')
@@ -22,9 +23,8 @@ class NoteListView extends React.Component {
   }
 
   render() {
-    return (
-      <NotesList {...this.props} notes={this.state.notesArray} />
-    );
+    console.log('notesArray, thats me!', this.state.notesArray);
+    return this.state.notesArray.length > 0 ? <NotesList {...this.props} notes={this.state.notesArray} /> : <div>loading....</div> ;
   }
 }
 
