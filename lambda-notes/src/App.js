@@ -18,21 +18,26 @@ class App extends Component {
         content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis',
       }
     ],
-    isUpdating:false
+    isUpdating:true
   }
+
 
   createNote = newNote => {
     this.setState({notes:[...this.state.notes, newNote]})
   }
 
-  // editNote = (selectedNote) => {
-  //   console.log('editnote:', selectedNote)
-  //     let currentNote=this.state.notes.filter(note => note.id !== selectedNote.id)
-  //     let editedNote=this.state.notes.find(note => note.id == selectedNote.id)[0]
-  //     editedNote.title=selectedNote.title
-  //     editedNote.content=selectedNote.content
-  //     this.setState({editedNote, ...currentNote})
-  // }
+  editNote = id => {
+    this.setState({isUpdating: this.state.notes.filter(note => note.id === id)})
+  }
+
+  editingNote = selectedNote => {
+    let editedNote = this.state.notes.filter(note => note.id === selectedNote.id)
+    editedNote.title=selectedNote.title
+    editedNote.content=selectedNote.content
+    let list = this.state.notes.filter(note => note.id !== selectedNote.id)
+    console.log("editingNote:", list, editedNote)
+    this.setState({notes:[editedNote, ...list]})
+  }
 
   deleteNote = id => {
     this.setState({notes: this.state.notes.filter(note => note.id !== id)});
@@ -55,7 +60,7 @@ class App extends Component {
             <NoteView {...props} notes={this.state.notes} editNote={this.editNote} deleteNote={this.deleteNote} />
           } />
           <Route path="/edit-view/:id" render={props => 
-            <EditNote {...props} isUpdating={this.state.isUpdating} editNote={this.editNote} />
+            <EditNote {...props} isUpdating={this.state.isUpdating} editNote={this.editNote}  editingNote={this.editingNote} />
           } />
         </MainContent>    
       </AppContainer> 

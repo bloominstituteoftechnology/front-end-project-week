@@ -15,14 +15,6 @@ class NewNote extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        // if (this.state.isUpdating) {
-        //     const editedNote={
-        //         id:this.props.isUpdating.id,
-        //         title: this.state.title,
-        //         content: this.state.content
-        //     }
-        //     this.props.isUpdating(editedNote)
-        // }else{
             const newNote = {
                 title: this.state.title,
                 content: this.state.content,
@@ -36,7 +28,6 @@ class NewNote extends Component {
             this.setState(emptyNote)
             this.props.history.push('/list-view')
         
-        // }
     }
 
     render(){

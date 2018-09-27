@@ -6,31 +6,38 @@ class EditNote extends Component {
     state={
         title:'',
         content:'',
+        updating:true
     }
 
-    componentDidMount(){
-        if(this.props.editNote) {
-            this.setState({
-                isUpdating:true,
-                title:this.props.isUpdating.title,
-                content:this.props.isUpdating.content,
-                
+    componentDidMount() {
+        console.log("is component firing?", this.state, this.state.isUpdating)
+        if (this.props.isUpdating){
+            this.setState(...this.state, {
+                updating: true,
+                title: this.state.title,
+                content: this.state.content
             })
         }
-    }
+      }
+    
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    editNote = e => {
-        e.preventDefault();
-        const editedNote={
-            id:this.props.id,
-            title: this.state.title,
-            content: this.state.content
+    handleSubmit = e => {
+        e.preventDefault()
+        console.log('edit props:', this.props)
+        if (this.state.updating){
+            const editedNote = {
+                title: this.state.title,
+                content: this.state.content,
+                id: this.props.match.params.id,
+            }
+            console.log('handleSubmit:', editedNote)
+            this.props.editingNote(editedNote)
+            console.log('this1:', this.props.editingNote)
         }
-        this.props.editNote(editedNote)
     }
     
     render(){
@@ -51,7 +58,7 @@ class EditNote extends Component {
                      value={this.state.content}  
                      onChange={this.handleChange}             
                 />
-                <Button onClick={this.editNote}>Update</Button>
+                <Button onClick={this.handleSubmit}>Update</Button>
             </Form>
         )
     }
