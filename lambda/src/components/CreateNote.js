@@ -20,6 +20,7 @@ class CreateNote extends React.Component {
       .then(response => {
         this.setState({ title: "", text: "" });
         console.log("THIS IS THE RESPONSE: ", response.data);
+        this.props.fetchNotes();
         this.props.history.push("/notes");
         // this.props.handleChange(response.data);
       })

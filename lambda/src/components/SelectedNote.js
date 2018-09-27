@@ -43,40 +43,37 @@ class SelectedNote extends React.Component {
     });
   };
 
-  updateNote = id => {
+  updateNote = () => {
     const updatedNote = {
       title: this.state.updateTitle,
-      text: this.state.updateContent
+      textBody: this.state.updateContent
     };
+    // console.log("HELLO THIS IS ID:", id);
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote)
+      .put(
+        `https://killer-notes.herokuapp.com/note/edit/${this.state.note._id}`,
+        updatedNote
+      )
       .then(response => {
+        console.log(response);
         this.setState({
           updateTitle: "",
           updateContent: ""
         });
+        this.props.fetchNotes();
         this.props.history.push("/notes");
-        // this.getNote(this.props.match.params.id);
-        this.props.handleInfo(response.data);
-        // axios
-        //   .get("https://killer-notes.herokuapp.com/note/get/all")
-        //   .then(response => {
-        //     this.setState({
-        //       updateTitle: "",
-        //       updateContent: ""
-        //     });
-        //   })
-        //   .catch(error => console.log(error));
       })
       .catch(error => console.log(error));
   };
-  deleteNote = id => {
+  deleteNote = () => {
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(
+        `https://killer-notes.herokuapp.com/note/delete/${this.state.note._id}`
+      )
       .then(response => {
         console.log("HELLO FROM DELETE: ", response.data);
+        this.props.fetchNotes();
         this.props.history.push("/notes");
-        this.props.handleInfo(response.data);
       })
       .catch(error => console.log(error));
   };
@@ -104,8 +101,12 @@ class SelectedNote extends React.Component {
           )}
           {this.state.toggleLinks ? (
             <div className="OptionLinks">
-              <h4 onClick={this.editButtons}>Edit</h4>
-              <h4 onClick={this.unDelete}>Delete</h4>
+              <button className="EDIT" onClick={this.editButtons}>
+                Edit
+              </button>
+              <button className="DELETE" onClick={this.unDelete}>
+                Delete
+              </button>
             </div>
           ) : null}
           {this.state.toggleUpdate ? (
@@ -115,7 +116,7 @@ class SelectedNote extends React.Component {
             </div>
           ) : (
             <div className="EditContainer">
-              <h2>Edit Note</h2>
+              <div className="EditNote">Edit Note</div>
               {this.state.note.title}
               {this.state.note.textBody}
               <form>

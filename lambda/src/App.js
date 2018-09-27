@@ -15,6 +15,9 @@ class App extends Component {
     };
   }
   componentDidMount() {
+    this.fetchNotes();
+  }
+  fetchNotes = () => {
     axios
       .get("https://killer-notes.herokuapp.com/note/get/all")
       .then(response => {
@@ -23,7 +26,7 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
-  }
+  };
   handleInfo = data => this.setState({ notesInfo: data });
 
   render() {
@@ -43,7 +46,11 @@ class App extends Component {
           path="/create"
           render={props => (
             <div>
-              <CreateNote {...props} handleInfo={this.handleInfo} />
+              <CreateNote
+                {...props}
+                handleInfo={this.handleInfo}
+                fetchNotes={this.fetchNotes}
+              />
             </div>
           )}
         />
@@ -52,7 +59,11 @@ class App extends Component {
           path="/notes/:id"
           render={props => (
             <div>
-              <SelectedNote {...props} handleInfo={this.handleInfo} />
+              <SelectedNote
+                {...props}
+                handleInfo={this.handleInfo}
+                fetchNotes={this.fetchNotes}
+              />
             </div>
           )}
         />

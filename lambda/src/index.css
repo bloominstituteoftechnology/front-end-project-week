@@ -4,11 +4,11 @@ body {
   font-family: sans-serif;
 }
 .Side-container {
-  width: 25%;
+  width: 20%;
   position: fixed;
   top: 0;
   height: 100%;
-  background-color: gray;
+  background-color: #bebebe;
   border: solid #838383 1px;
 }
 .ViewNotes {
@@ -22,7 +22,7 @@ body {
   color: white;
 }
 .Background-color {
-  background-color: #bebebe;
+  background-color: #f8f8f8;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -55,18 +55,14 @@ body {
   width: 120px;
   cursor: pointer;
 }
-.Notes-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  height: 500px;
-}
+
 .SelectedTitle {
   margin: 0 auto;
   background-color: white;
   width: 200px;
   margin-bottom: 10px;
   padding: 1%;
+  border: 2px solid lightgray;
 }
 .SelectedText {
   margin: 0 auto;
@@ -74,21 +70,46 @@ body {
   width: 450px;
   padding: 1%;
   height: 200px;
+  border: 2px solid lightgray;
 }
 .InputDivs {
   display: flex;
   flex-direction: column;
 }
+.Notes-container {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+}
 .Note-info {
   background-color: white;
-  margin: 0 auto;
-  width: 30%;
-  border: 2px solid turquoise;
+  margin: 7px 0;
+
+  width: 300px;
+  padding: 10px;
+  border: 2px solid lightgray;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 .UpdateNote {
-  margin-bottom: 300px;
-  position: fixed;
+  margin: 0 auto;
+}
+.EditNote {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+.EDIT {
+  cursor: pointer;
+}
+.DELETE {
+  cursor: pointer;
+}
+.DeleteDiv {
+  margin-bottom: 10px;
 }
