@@ -1,22 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import axios from "axios";
 
 class Note extends React.Component {
   constructor(props) {
     super(props);
     const id = props.match.params.id;
-    console.log("id ", id);
-    const note = props.notes.find(note => {
-      return note.id === id;
-    });
-    console.log("note ", note);
+
     this.state = {
       id: id,
-      note: note,
+      note: {},
       deleteHandler: props.deleteHandler,
       showModal: false
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get(`https://charles-note.herokuapp.com/api/notes/${this.state.id}`)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ note: res.data[0] });
+      });
   }
 
   deleteHandler = e => {
@@ -29,6 +35,7 @@ class Note extends React.Component {
   };
 
   render() {
+    console.log("note.js note ", this.state.note);
     return (
       <div className="note-view">
         <div className="note-links">

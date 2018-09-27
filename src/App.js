@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       notes: [],
       title: "",
-      textBody: ""
+      contents: ""
     };
   }
 
@@ -43,7 +43,6 @@ class App extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state.textBody);
   };
 
   submitHandler = event => {
@@ -73,10 +72,15 @@ class App extends Component {
     event.preventDefault();
     const id = event.target.id;
 
-    const editedNote = {
-      title: this.state.title,
-      contents: this.state.textBody
-    };
+    let editedNote = {};
+    if (this.state.title.length > 0) {
+      editedNote.title = this.state.title;
+    }
+
+    if (this.state.contents.length > 0) {
+      editedNote.contents = this.state.contents;
+    }
+
     const url = this.url + id;
     axios
       .put(url, editedNote)
@@ -96,10 +100,13 @@ class App extends Component {
   deleteHandler = (e, id) => {
     e.preventDefault();
     const url = this.url + id;
+    console.log(url);
     axios
       .delete(url)
       .then(res => {
         console.log(res);
+      })
+      .then(() => {
         this.getNotes();
       })
       .catch(err => {
