@@ -30,17 +30,17 @@ export default class NewNote extends Component {
       <NewNoteDiv>
         <h3>Create New Note:</h3>
         <form onSubmit={this.addNewNote}>
-          <input 
+          <input className='note-title'
             type='text'
             onChange={this.handleInput}
-            placeholder='Note Title'
+            placeholder=' Note Title'
             value={this.state.title}
             name='title'
           />
-          <input 
+          <textarea rows='20' className='note-text'
             type='text'
             onChange={this.handleInput}
-            placeholder='Note Content'
+            placeholder=' Note Content'
             value={this.state.textBody}
             name='textBody'
           />
@@ -69,20 +69,37 @@ const NewNoteDiv = styled.div`
     display: flex;
     flex-direction: column;
     
-    input:first-child {
+    .note-title {
       border: 1px solid #BEBEBE;
       border-radius: 3px;
       width: 380px;
       height: 40px;
       margin: 15px 0;
+      font-size: 16px;
     }
 
-    &:last-child {
+    .note-text {
       border: 1px solid #BEBEBE;
       border-radius: 3px;
-      width: 500px;
-      height: 300px;
+      width: 650px;
+      font-size: 16px;
       margin: 15px 0;
+    }
+
+    button {
+      box-sizing: border-box;
+      height: 50px;
+      width: 220px;
+      background-color: #2AC0C4;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 15px 0;
+      text-align: center;
+      line-height: 50px;
+      border: 1px solid #BEBEBE;
+      font-size: 16px;
+      cursor: pointer;
     }
   }
 `

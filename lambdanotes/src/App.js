@@ -7,6 +7,7 @@ import Note from './components/Note';
 import NewNote from './components/NewNote';
 import EditNote from './components/EditNote';
 import styled from 'styled-components';
+// import DeleteNote from './components/DeleteNote';
 
 class App extends Component {
   constructor() {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path='/new' component={NewNote} />
           {/* <Route path='/notes/:id/edit' render={props => (<EditNote {...props} />)} /> */}
           <Route path='/notes/:id/edit' component={EditNote} />
+          {/* <Route path='/notes/:id/delete' component={DeleteNote} /> */}
         </div>
       </AppDiv>
     );
