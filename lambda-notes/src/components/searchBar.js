@@ -10,6 +10,7 @@ export const SearchBar = props => {
                 onChange={props.handleInputChange}
                 placeholder='Search Notes' 
                 className="search-bar" 
+                autoComplete="off"
             />
         </form>
     )
