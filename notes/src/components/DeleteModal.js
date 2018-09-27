@@ -4,25 +4,33 @@ import styled from 'styled-components';
 const DeleteButton = styled.button`
 width: 200px;
 height: 50px;
+font-weight: bold;
 background-color: red;
 color: white;
+font-size: 1rem;
+padding: 1rem;
+margin: 1rem;
 `
 
 const NoButton = styled.button`
 width: 200px;
 height: 50px;
+font-weight: bold;
 background-color: #24B8BD;
 color: white;
+font-size: 1rem;
+padding: 1rem;
+margin: 1rem;
 `
 
 const ModalBackground = styled.div`
 position: fixed;
+z-index: 1;
 top: 0;
 bottom: 0;
 left: 0;
 right: 0;
-backgroundColor: rgba(0,0,0,0.3);
-padding: 50;
+background-color: rgba(192,192,192,0.7);
 width: 100%;
 height: 100%;
 `
@@ -31,14 +39,15 @@ position: absolute;
 display: flex;
 flex-direction: column;
 justify-content: center;
-backgroundColor: '#fff';
+background-color: #fff;
 left: 25%;
 right: 25%;
 top: 25%;
 bottom: 25%;
-border: 1px solid black;
-
-minHeight: 300;
+border: 1px solid gray;
+height: 200px;
+width: 800px;
+min-height: 300;
 margin: '0 auto';
 padding: 30;
 `

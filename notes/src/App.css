@@ -19,7 +19,8 @@
 
 .sidebar > h1 {
   margin: 1rem;
-  font-weight: bolder;
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
 .note-card {
@@ -33,19 +34,27 @@
   overflow: hidden;
   border: 1px solid black;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
   color: #474B4C;
+  align-content: flex-start;
+  align-items: flex-start;
 }
 
 .note-card > h2 {
+  width: 100%;
+  height: auto;
+  min-height: 2rem;
+  overflow: hidden;
+  display: flex;
   color: black;
   margin: 0;
 
 }
 
 .note-card > p {
-  
+  padding: .5rem;
+  display: flex;
 }
 
 .notes-container {

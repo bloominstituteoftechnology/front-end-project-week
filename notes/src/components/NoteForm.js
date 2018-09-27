@@ -10,8 +10,10 @@ margin-bottom: 1rem;
 border-radius: 3px;
 `
 
-const NoteContentField = styled.input`
+const NoteContentField = styled.textarea`
+text-align: left;
 display: flex;
+padding-top: 0;
 height: 300px;
 width: 60%;
 border-radius: 3px;
