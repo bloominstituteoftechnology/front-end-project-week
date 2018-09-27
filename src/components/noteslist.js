@@ -84,7 +84,6 @@ const NoteContent = styled.p`
 
 const NotesList = props => {
   const searchItem = props.notes.filter((note) => {
-    console.log(note.note)
   return note.note.toLowerCase().indexOf(props.input.toLowerCase()) !== -1
   });
   return (
