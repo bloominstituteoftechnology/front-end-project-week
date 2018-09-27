@@ -12,7 +12,6 @@ export default function SingleNote(props) {
     <div className="single-note">
       <h3>{note.title}</h3>
       <p>{note.textBody}</p>
-      <button onClick={handleDelete}>Delete</button>
       <button
         onClick={event => {
           event.preventDefault();
@@ -20,6 +19,9 @@ export default function SingleNote(props) {
         }}
       >
         Edit
+      </button>
+      <button className="delete" onClick={handleDelete}>
+        Delete
       </button>
     </div>
   );

@@ -85,3 +85,83 @@ body {
   text-decoration: none;
   color: black;
 }
+
+.form-wrapper h2 {
+  margin-left: 50%;
+  width: 100%;
+}
+
+.note-title-input {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.note-text-input {
+  width: 600px;
+  height: 400px;
+  padding: 0;
+}
+
+.note-form input {
+  padding: 15px;
+  border: 1px solid gray;
+  font-size: 0.9rem;
+  color: #222;
+  font-weight: 100;
+  border-radius: 4px;
+}
+
+.note-form textarea {
+  padding: 15px;
+  border: 1px solid gray;
+  font-size: 0.9rem;
+  color: #222;
+  font-weight: 100;
+  border-radius: 4px;
+}
+
+.note-form {
+  margin-left: 50%;
+}
+
+.note-form button {
+  border: 1px solid gray;
+  background: #00c0c3;
+  width: 75%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  padding: 0 5px;
+  color: white;
+  font-weight: 700;
+}
+
+.single-note {
+  margin-left: 28%;
+  margin-top: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.single-note h3 {
+  font-size: 1.5rem;
+}
+
+.single-note button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 13%;
+  border: none;
+  background: none;
+  text-decoration: underline;
+  font-size: 1rem;
+  color: #4a494a;
+}
+
+.single-note .delete {
+  margin-right: 3%;
+}

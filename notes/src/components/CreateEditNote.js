@@ -12,11 +12,12 @@ export default function CreateEditNote(props) {
   }
 
   return (
-    <div>
-      <h2>{props.updatingNote ? "Update Note" : "Add A New Note"}</h2>
-      <form>
-        <div>
+    <div className="form-wrapper">
+      <h2>{props.updatingNote ? "Update Note" : "Create New Note"}</h2>
+      <form className="note-form">
+        <div className="note-title">
           <input
+            className="note-title-input"
             type="text"
             placeholder="Note Title"
             value={props.note.title}
@@ -24,8 +25,9 @@ export default function CreateEditNote(props) {
             onChange={props.handleChange}
           />
         </div>
-        <div>
-          <input
+        <div className="note-text">
+          <textarea
+            className="note-text-input"
             type="text"
             placeholder="Note Text"
             value={props.note.textBody}
@@ -33,7 +35,7 @@ export default function CreateEditNote(props) {
             onChange={props.handleChange}
           />
         </div>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>Save</button>
       </form>
     </div>
   );
