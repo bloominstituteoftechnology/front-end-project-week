@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   background: #d8d8d8;
   border-right: 1px solid #979797;
   box-sizing: border-box;
-  height: 110vh;
+  height: 195vh;
 
   button {
     margin-bottom: 15px;
