@@ -36,8 +36,10 @@ class Notes extends React.Component {
                 {this.props.fetchingNotes ? (
                     <h2>Looking for notes...</h2>
                 ) : (
-                <div>    
-                    <input type="text" name="search" onChange={this.searchHandler}/>
+                <div>
+                    <div className="search-bar-container">
+                        <input type="text" className="search-bar" placeholder="Search Notes..." onChange={this.searchHandler}/>
+                    </div>                    
                     <h2>Your Notes:</h2>
                     <div className='notes-container'>
                         {this.state.filteredNotes.length > 0 ? (

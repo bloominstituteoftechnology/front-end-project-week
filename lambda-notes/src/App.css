@@ -69,6 +69,21 @@ button {
     width: 100%;
 }
 
+/* search bar in notes */
+.main-view .search-bar-container {
+    display: flex; 
+    justify-content: flex-end;
+    margin:  5px 40px 0;
+} 
+
+.main-view .search-bar-container .search-bar {
+    width: 165px;
+    padding: 0 15px;  
+    height: 30px; 
+    font-size: 1.15em;
+    border: 1px solid #B7B7B7;
+}
+
 /* create new note */
 .main-view .title {
     height: 40px; 
