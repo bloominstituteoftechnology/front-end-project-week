@@ -40,4 +40,5 @@
   margin-left: 15px;
   padding-top: 10px;
   word-wrap:break-word;
+  white-space: pre-line;
 }

@@ -38,6 +38,7 @@ h5 {
   line-height: 2.8rem;
   word-wrap:break-word;
   max-width: 510px;
+  white-space: pre-line;
 }
 
 .modal {
