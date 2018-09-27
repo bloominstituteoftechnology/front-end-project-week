@@ -22,7 +22,7 @@ export const NoteStyling = styled.div`
   height: 300px;
   h3 {
     border-bottom: 1px solid #d3d2d3;
-    padding: 1rem 0;
+    padding: 5px 0;
   }
   p {
     font-size: 1.6rem;
@@ -31,7 +31,7 @@ export const NoteStyling = styled.div`
   }
 `;
 export const ViewContainer = styled.div`
-  margin-top: 3rem;
+  margin-top: 50px;
   padding: 0 5%;
   h3 {
     font-size: 2.5rem;
@@ -39,7 +39,7 @@ export const ViewContainer = styled.div`
   p {
     font-size: 1.6rem;
     line-height: 1.7;
-    margin-top: 5rem;
+    margin-top: 30px;
   }
 `;
 export const Button = styled.button`
@@ -51,4 +51,7 @@ export const Button = styled.button`
   top: 1rem;
   right: 2rem;
   font-size: 1.5rem;
+  &.left {
+    margin-right: 5rem;
+  }
 `;
