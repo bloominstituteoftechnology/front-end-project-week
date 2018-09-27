@@ -71,7 +71,12 @@ const DeleteNoteModal = props => {
 						</ButtonContainer>
 					</React.Fragment>
 				) : (
-					<StatusMessage error>{props.error}</StatusMessage>
+					<React.Fragment>
+						<StatusMessage error>{props.error}</StatusMessage>
+						<SubmitButton onClick={() => props.returnToNote('delete')}>
+							Oops
+						</SubmitButton>
+					</React.Fragment>
 				)}
 			</ModalBox>
 		</ModalShade>
