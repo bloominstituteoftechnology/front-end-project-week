@@ -9,3 +9,19 @@
     display: flex;
     flex-direction: column;
 }
+
+.section-container .buttons {
+    align-self: flex-end;
+}
+
+.section-container .buttons a {
+
+}
+
+.section-container h1 {
+
+}
+
+.section-container p {
+
+}

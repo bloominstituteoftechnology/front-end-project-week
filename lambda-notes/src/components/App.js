@@ -14,7 +14,7 @@ import './App.css';
 class App extends Component {
   state = {
     newNote: {
-      _id: "5bac4f17e564b50013cdc2db",
+      _id: "",
       title: "",
       textBody: ""
     },
