@@ -35,12 +35,12 @@ class NoteFormView extends React.Component {
         event.preventDefault();
         console.log('firing');
         this.props.addNewNote(this.state.note);
-        this.props.history.push('/notes');
+        this.props.history.push('/');
     }
 
     handleUpdateNote = () => {
         this.props.updateNote(this.state.note);
-        this.props.history.push('/notes');
+        this.props.history.push('/');
     }
 
     render() {

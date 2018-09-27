@@ -16,22 +16,31 @@ color: white;
 `
 
 const ModalBackground = styled.div`
-position: 'fixed',
-top: 0,
-bottom: 0,
-left: 0,
-right: 0,
-backgroundColor: 'rgba(0,0,0,0.3)',
-padding: 50
-
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+backgroundColor: rgba(0,0,0,0.3);
+padding: 50;
+width: 100%;
+height: 100%;
 `
 const ModalBox = styled.div`
-backgroundColor: '#fff',
-borderRadius: 5,
-maxWidth: 500,
-minHeight: 300,
-margin: '0 auto',
-padding: 30,
+position: absolute;
+display: flex;
+flex-direction: column;
+justify-content: center;
+backgroundColor: '#fff';
+left: 25%;
+right: 25%;
+top: 25%;
+bottom: 25%;
+border: 1px solid black;
+
+minHeight: 300;
+margin: '0 auto';
+padding: 30;
 `
 
 class DeleteModal extends React.Component {

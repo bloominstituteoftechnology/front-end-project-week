@@ -4,8 +4,8 @@
   border: 1px solid gray;
   background-color: whitesmoke;
   height: auto;
-  margin: 1rem;
-  
+  margin: 1rem auto;
+  min-height: 800px;
 }
 
 .sidebar {
@@ -19,6 +19,7 @@
 
 .sidebar > h1 {
   margin: 1rem;
+  font-weight: bolder;
 }
 
 .note-card {
@@ -39,7 +40,8 @@
 
 .note-card > h2 {
   color: black;
-  
+  margin: 0;
+
 }
 
 .note-card > p {
@@ -57,7 +59,6 @@
 
 .note-view {
   background-color: whitesmoke;
-  border: 1px solid gray;
   margin-left: 250px;
   text-align: left;
   padding: 1rem;
@@ -76,4 +77,16 @@
   text-align: left;
   margin-left: 275px;
   color: #474B4C;
+}
+
+.notes-form-header {
+  color: #474B4C;
+  text-align: left;
+  margin-left: 275px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 275px;
 }

@@ -45,6 +45,7 @@ export const addNewNote = (note) => {
                 type: ADDED,
                 payload: response.data
             })
+            .then(fetchNotes())
             
           
         })

@@ -5,7 +5,8 @@ import Note from './Note';
 
 const LineBreak = styled.div`
 border: 1px solid gray;
-width: 80%;
+width: 90%;
+margin: 5px auto;
 `
 
 export default function NotesList(props) {
