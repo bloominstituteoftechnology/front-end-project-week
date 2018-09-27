@@ -71,7 +71,7 @@ import {
       case DELETE_NOTE_START:
         return { ...state, isDeleting: true };
       case DELETE_NOTE_COMPLETE:
-        return { ...state, isDeleting: false, notes: action.payload };
+        return { ...state, isDeleting: false};
       case DELETE_NOTE_FAILURE:
         console.log(action.payload);
         return { ...state, isDeleting: false, error: action.payload };

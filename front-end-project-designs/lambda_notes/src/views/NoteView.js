@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {NavLink} from 'react-router-dom';
 import '../App.css';
 
 import { getNote } from '../store/actions';
 
-import Note from '../components/Note';
+// import Note from '../components/Note';
 
 class NoteView extends React.Component {
     // constructor(){
@@ -25,7 +24,7 @@ class NoteView extends React.Component {
             <div>
                 <div className="edit-delete-links">
                     <h3 onClick={()=>{this.props.history.push(`/edit/${this.props.noteOnProps['_id']}`)}}>Edit</h3>
-                    <h3 onClick={event=>{}}>Delete</h3> 
+                    <h3 onClick={()=>{this.props.history.push(`/delete/${this.props.noteOnProps['_id']}`)}}>Delete</h3> 
                 </div>
                 
                 <div className="display-panel">

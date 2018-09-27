@@ -3,10 +3,6 @@ import './Note.css';
 
 const EditNote = props =>{
 
-    const whatever=event =>{
-        event.preventDefault();
-         console.log("whatever");
-    }
     return (
         <div className="create-edit-form">
             <h1>Edit Note:</h1>
@@ -23,7 +19,7 @@ const EditNote = props =>{
                         value={props.note.textBody}
                         onChange={props.handleInput}/>
                 <button className="save-input-button"
-                        onClick={   //() => console.log(props)
+                        onClick={   //() => 
                              props.handleEditNote
                             }>Save</button>
             {/* </form> */}

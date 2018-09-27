@@ -3,20 +3,21 @@ import {connect} from 'react-redux';
 import DeleteNote from '../components/DeleteNote';
 import {deleteNote}  from '../store/actions';
 
-class EditView extends React.Component {
+class DeleteView extends React.Component {
 
     handleDeleteNote = event => {
         event.preventDefault();
-
+        // console.log(this.props.noteOnProps['_id']);
         this.props.deleteNote(this.props.noteOnProps['_id']);
+        this.props.history.push("/");
     }
 
     render(){
-        // console.log(this.props.noteOnProps);
+        // console.log(this.props);
         return (
             <div className="delete-class">
                 <DeleteNote {...this.props}
-                            note={this.props.noteOnProps}
+                            id={this.props.noteOnProps['_id']}
                             handleDeleteNote={this.handleDeleteNote} />
 
             </div>

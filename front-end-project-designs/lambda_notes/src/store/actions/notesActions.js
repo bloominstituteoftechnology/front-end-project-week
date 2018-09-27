@@ -77,7 +77,7 @@ export const deleteNote = (id) => dispatch => {
     promise
         .then(response => {
             // console.log(id);
-            dispatch({ type: DELETE_NOTE_COMPLETE, payload: response.data });
+            dispatch({ type: DELETE_NOTE_COMPLETE  });
             // console.log("got it!");
         })
         .catch(err => {
