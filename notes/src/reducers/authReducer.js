@@ -2,7 +2,7 @@ import { LOG_IN } from '../actions';
 
 const initialState = {
   users: [{ username: 'test', password: 'password', firstName: 'Name' }],
-  isLoggedIn: false,
+  isLoggedIn: true,
 };
 
 export const authReducer = (state = initialState, action) => {
