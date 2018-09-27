@@ -33,6 +33,9 @@ const SignInPageButton=styled.button`
     &:hover{
         opacity:0.85;
     }
+    &:focus{
+        outline:none;
+    }
 `
 class SignIn extends React.Component{
     constructor() {

@@ -31,8 +31,12 @@ const SignUpPageButton=styled.button`
     margin-top:5px;
     height:30px;
     border-radius:5px;
+    outline:none;
     &:hover{
         opacity:0.85;
+    }
+    &:focus{
+        outline:none;
     }
 `
 class SignUp extends React.Component{
