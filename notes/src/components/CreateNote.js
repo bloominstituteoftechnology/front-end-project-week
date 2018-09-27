@@ -15,10 +15,6 @@ class CreateNote extends Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    onDrop = (picture) => {
-        this.setState({pictures: this.state.pictures.concat(picture)});
-    }
-
     render() {
         return (
             <div className="createNote">
