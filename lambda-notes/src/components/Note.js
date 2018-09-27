@@ -5,11 +5,11 @@ import './Note.css';
 
 const Note = props => {
     return (
-        <div className="note">
+        <div>
             <Link to={`/note/${props.note._id}`}>
-                <h2 className="note-title">{props.note.title}</h2>
+                <h2>{props.note.title}</h2>
             </Link>
-            <p className="note-textBody">{props.note.textBody}</p>
+            <p>{props.note.textBody}</p>
         </div>
     )
 }

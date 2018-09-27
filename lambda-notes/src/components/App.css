@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    box-sizing: content-box;
+}
+
+body {
+    background-color: #F3F3F3;
+}
+
 .App {
     text-align: center;
+    height: 100%;
 }
 
 .App-container {
@@ -22,47 +32,13 @@
     font-size: large;
 }
 
-* {
-    box-sizing: content-box;
-}
-
-.App {
-    height: 100%;
-}
-
-.sideBar {
-    border-right: 1px black solid;
-    height: 100%;
-    width: 25%;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #D7D7D7;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: left;
-}
-
 .appView {
     margin-left: 25%;
     padding: 30px;
-}
-
-body {
-    background-color: #F3F3F3;
 }
 
 .newNote {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.App {
-    text-align: center;
-}
-
-.App-container {
-    display: flex;
 }

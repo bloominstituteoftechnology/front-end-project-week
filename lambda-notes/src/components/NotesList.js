@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Note from './Note';
 import Sidebar from './Sidebar';
 
+import './Note.css';
+
 const NotesList = props => {
     console.log(props.notes);
 
@@ -11,11 +13,11 @@ const NotesList = props => {
         <div className="page-container">
             <Sidebar />
             <div className="section-container">
-                <h1 className="notes-title"></h1>
+                <h1 className="notes-title">Your Notes:</h1>
                 <div className="note-container">
                     {props.notes.map(note => {
                         return (
-                            <div>
+                            <div className="note">
                                 <Note
                                     note={note}
                                     key={note._id}
