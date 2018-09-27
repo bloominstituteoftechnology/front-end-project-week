@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Note from './Note';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
         
@@ -12,12 +13,21 @@ class NotesList extends Component {
                     My Notes:
                 </h1>
                 {this.props.notes.map(note => (
-                    <Note key={note._id} note={note} />
+                    <Link to={`/notes/${note._id}`}>
+                        <Note key={note._id}  />
+                    </Link>
                 ))}
             </div>
         );
     }
 }
+
+// function NoteLink({ note }) {
+//     return (
+//         <Link to={`/notes/${note._id}`}>
+//         </Link>
+//     )
+// }
 
 // const mapStateToProps = state => {
 //     const { notesReducer } = state;
@@ -31,4 +41,5 @@ class NotesList extends Component {
 //     mapStateToProps,
 //     {}
 // );
+
 export default NotesList;

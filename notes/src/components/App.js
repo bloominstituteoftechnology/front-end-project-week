@@ -26,7 +26,7 @@ class App extends Component {
     axios
     .get('https://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
-        this.setState(() => ({ notes: response.data }));
+        this.setState({ notes: response.data });
     })
     .catch(error => {
     console.error('Server Error', error);
@@ -86,9 +86,23 @@ class App extends Component {
               Create Note
           </button>
         </form>
-        <NotesList notes={this.state.notes} />
-        <Route exact path='/' component={NotesList} />
-        <Route path='/notes/:_id' component={Note} />
+
+        {/* <NotesList 
+          notes= {this.state.notes} 
+        /> */}
+        <Route 
+          exact 
+          path='/notes' 
+          render={props => (
+            <NotesList {...props} notes={this.state.notes} />
+          )}
+        />
+        <Route 
+          path='/notes/:id' 
+          render={props => (
+            <Note {...props} notes={this.state.notes} />
+          )}
+        />
         
       </div>
     );
