@@ -28,7 +28,8 @@ class App extends Component {
       newTags: '',
       modal: false,
       editing: false,
-      searchValue: ''
+      searchValue: '',
+      searchFor: null
     }
   }
 
@@ -144,6 +145,13 @@ class App extends Component {
     })
   }
 
+  searchSubmit = (term) => {
+    axios.get('http://localhost:8700/notes').then(notes => {
+      const filtered = notes.data.filter(note => note.title.toLowerCase().search(term.toLowerCase()) || note.tags.toLowerCase().search(term.toLowerCase()) || note.note.toLowerCase().search(term.toLowerCase()));
+      this.setState({ searchFor: filtered });
+    }).catch()
+  }
+
   toggle = () => {
     this.setState({ modal: !this.state.modal })
   }
@@ -154,7 +162,7 @@ class App extends Component {
         <Route path='/' component={MenuBar} />
         <Route exact path='/' render={() =>
           this.state.notes.length === 0 ? <h1>Add a note!</h1>
-          : <Notes notes={this.state.notes} />
+          : this.state.searchFor ? <Notes searchSubmit={this.searchSubmit} searchValue={this.state.searchValue} change={this.onChangeHandler} notes={this.state.searchFor} /> : <Notes searchValue={this.state.searchValue} searchSubmit={this.searchSubmit} change={this.onChangeHandler} notes={this.state.notes} />
         } />
         <Route path='/notes/:id' render={(props) => <NotePage {...props} editComplete={this.submitEditedNote} editStart={this.beginEditNoteHandler} change={this.onChangeHandler} notes={this.state.notes} delete={this.deleteNoteHandler} title={this.state.newTitle} note={this.state.newNote} toggle={this.toggle} modal={this.state.modal} editing={this.state.editing} newTags={this.state.newTags} submitTags={this.submitNewTags} removeTag={this.deleteTag} />} />
         <Route path='/new-note' render={(props) => <NewNote {...props} addNote={this.addNewNoteHandler} title={this.state.newTitle} note={this.state.newNote} change={this.onChangeHandler} />} />

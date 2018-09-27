@@ -9,7 +9,9 @@ const Input = styled.input `
 `;
 
 export const Searchbar = (props) => {
-  <form onSubmit={props.searchSubmit}>
-  <Input onChange={props.change} placeholder="Search..." name='searchValue' value={props.searchValue} />
-  </form>
+  return (
+    <form onSubmit={props.searchSubmit}>
+    <Input onChange={props.change} placeholder="Search..." name='searchValue' value={props.searchValue} />
+    </form>
+  )
 }
