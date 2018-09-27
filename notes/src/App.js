@@ -75,11 +75,11 @@ class App extends Component {
   //   });
   //   this.setState({ notes: newNotes });
   // };
-  editNote = (id, title, content) => {
+  editNote = (id) => {
     axios
-      .put(url / id, {
-        title: title,
-        content: content
+      .put(`${url}/${id}`, {
+        title: this.state.title,
+        content: this.state.content
       })
       .then(response => {
         axios.get(url).then(response => {
@@ -98,7 +98,7 @@ class App extends Component {
   //   }));
   // };
   deleteNote = id => {
-    axios.delete(url/id).then(response => {
+    axios.delete(`${url}/${id}`).then(response => {
       axios.get(url).then(response => {
         this.setState({ notes: response.data });
       });
