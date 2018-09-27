@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// getNotes action creator
 export const getNotes = () => {
   return dispatch => {
     axios
@@ -14,7 +13,6 @@ export const getNotes = () => {
   };
 };
 
-// addNotes action creator
 export const addNote = newNote => {
   return dispatch => {
     axios
@@ -26,7 +24,6 @@ export const addNote = newNote => {
   };
 };
 
-// getNote action creator
 export const getNote = id => {
   return dispatch => {
     axios
@@ -40,7 +37,6 @@ export const getNote = id => {
   };
 };
 
-// editNote action creator
 export const editNote = editedNote => {
   return dispatch => {
     axios
@@ -58,7 +54,6 @@ export const editNote = editedNote => {
   };
 };
 
-// deleteNote action creator
 export const deleteNote = id => {
   return dispatch => {
     axios

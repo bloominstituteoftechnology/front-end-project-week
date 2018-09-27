@@ -1,6 +1,5 @@
 import React from 'react';
 import '../components.css';
-// import './index.css';
 import styled from 'styled-components';
 
 const Form = props => {

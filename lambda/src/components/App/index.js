@@ -17,17 +17,14 @@ class App extends Component {
     textBody: ''
   };
 
-  // fetches all notes from server and passes them to store
   componentDidMount() {
     this.props.getNotes();
   }
 
-  // adjusts state of title and textBody whenever there is new input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // handle the search change check if any of the data includes the search term
   handleSearchChange = e => {
     this.setState({ search: e.target.value });
     setTimeout(() => {
@@ -41,7 +38,6 @@ class App extends Component {
     }, 1);
   };
 
-  // sends current state of title and textBody to server, resets state, redirects to home page
   handleFormSubmit = e => {
     e.preventDefault();
     this.props.addNote({
