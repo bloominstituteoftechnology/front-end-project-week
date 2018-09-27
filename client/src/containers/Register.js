@@ -87,7 +87,6 @@ class Register extends Component {
             value={this.state.first_name}
             name="first_name"
             type="text"
-            name="first_name"
             placeholder="First Name"
           />
           <Label>First Name</Label>
@@ -98,7 +97,6 @@ class Register extends Component {
             value={this.state.last_name}
             name="last_name"
             type="text"
-            name="last_name"
             placeholder="Last Name"
           />
           <Label>Last Name</Label>
@@ -109,7 +107,6 @@ class Register extends Component {
             value={this.state.email}
             name="email"
             type="email"
-            name="email"
             placeholder="@Email"
           />
           <Label>@Email</Label>
@@ -120,7 +117,6 @@ class Register extends Component {
             value={this.state.password}
             name="password"
             type="password"
-            name="password"
             placeholder="#Password"
           />
           <Label>#Password</Label>
