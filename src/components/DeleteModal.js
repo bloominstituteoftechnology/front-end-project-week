@@ -22,14 +22,14 @@ class DeleteModal extends Component {
       return (
         <div>
           <Button color="link" onClick={this.toggle}>Delete</Button>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>Are you sure you want to delete {this.props.title}?</ModalBody>
-          <ModalFooter>
-          <Button color="danger" onClick={this.props.delete}>Delete</Button>
-          <Button color="primary" onClick={this.toggle}>Cancel</Button> 
-          </ModalFooter>
-          </Modal>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                <ModalBody>Are you sure you want to delete {this.props.title}?</ModalBody>
+                <ModalFooter>
+                  <Button color="danger" onClick={this.props.delete}>Delete</Button>
+                  <Button color="primary" onClick={this.toggle}>Cancel</Button> 
+                </ModalFooter>
+            </Modal>
         </div>
       );
     }

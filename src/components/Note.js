@@ -1,57 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import styled from 'styled-components';
 import { MarkdownPreview } from 'react-marked-markdown';
-
-
-const NoteDisplay = styled.div`
-
-    width: 30%;
-    margin: 10px;
-    overflow: hidden;
-    height: 200px;
-    background: white;
-    padding: 10px;
-    border: 1px solid gray;
-    
-    : hover {
-        opacity: 0.8;
-    }
-    
-    
-    > a {
-        text-decoration: none;
-        color: black;
-    
-
-    > h1 {
-        font-weight: bold;
-        font-size: 2.2rem;
-        border-bottom: 1px solid gray;
-        line-height: 30px;
-        margin-bottom: 5px;
-    }
-
-    > p {
-       font-size: 1.2rem;
-       height: 150px;
-       overflow: hidden;
-       line-height: 1.5;
-    }
-    }
-`
 
 const Note = (props) => {
     
         return (
-            
-            <NoteDisplay>
-            <Link  to={`/note/${props.id}`}>
-                <h1>{props.title}</h1>
-                <MarkdownPreview value={props.content} />
-                </Link>
-            </NoteDisplay>
-            
+                <div className="card text-black mb-3" style={{height: '200px', overflow: 'hidden' }} >
+                    <Link  to={`/note/${props.id}`} style={{textDecoration: 'none', fontSize: '1.8rem', color: '#333', overflow: 'hidden', lineHeight: '1.5'}}>
+                    <div className="card-header" >{props.title}</div>
+                    </Link>
+                    <div className="card-body">
+                        <MarkdownPreview value={props.content} style={{height: '150px', fontSize: '1.6rem', color: '#333', fontWeight: 'bold'}} />
+                    </div>
+                </div>
          );
     
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
 import styled from 'styled-components';
+import Callback from './components/Authorization/Callback';
 import Navigation from './components/Navigation';
 import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
@@ -12,7 +13,7 @@ const Application = styled.div`
 
   max-width: 1024px;
   width: 100%;
-  margin: 0 auto; 
+  margin: 0 auto;
 
 `
 
@@ -55,11 +56,12 @@ handleSearch = (event) => {
     return (
       <Application>
         
-        <Navigation {...this.props} notes={this.state.notes}/>
+        <Navigation />
         <Route path='/add-note' component={NewNote} />
         <Route exact path='/notes' render={(props) => (
           <NotesList {...props} notes={this.state.notes} 
           search={this.state.search} handleSearch={this.handleSearch}/>)} />
+        <Route path='/callback' component={Callback} />
         <Route path='/edit-note/:id' render={(props) => (
           <EditNote {...props} note={this.state.note} />)} />
         <Route path='/note/:id' render={(props) => (
