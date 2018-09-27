@@ -16,6 +16,7 @@ import {
 
 const initialState = {
     "notes": [],
+    "tags": [],
     "noteViewer": {
         "tags": [],
         "title": "",
@@ -76,13 +77,7 @@ export default (state = initialState, action) => {
         case PUTTING_NOTE:
             return {...state, status: {...state.status, puttingNote: true, puttedNote: false, noteMessage: "", noteError: ""}};
         case PUTTED_NOTE:
-            const spliceId = state.notes.find( (note, i) => {
-                if(note._id === action.payload._id) return i;
-                return null;
-            });
-            let tmpNotes = [...state.notes];
-            tmpNotes.splice(spliceId, 1, action.payload);
-            return {...state, status: {...state.status, puttingNote: false, puttedNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: "", textBody: "", _id: "", __v: -1}}, notes: [...tmpNotes]};
+            return {...state, status: {...state.status, puttingNote: false, puttedNote: true}, editing: {...state.editing, isEditing: false, tmpNote: {tags: [], title: "", textBody: "", _id: "", __v: -1}}};
         //~~~~~DELETE Handling~~~~~//
         case DELETE_PROMPT:
             return {...state, status: {...state.status, deletePrompt: !state.status.deletePrompt}};
