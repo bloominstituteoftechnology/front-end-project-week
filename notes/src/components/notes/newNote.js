@@ -30,6 +30,9 @@ color:#FFF;
 display: flex;
 align-items: center;
 justify-content: center;
+&:hover{
+    opacity:0.85;
+}
 `
 const CreateNoteInput=styled.input`
 width: 55%;

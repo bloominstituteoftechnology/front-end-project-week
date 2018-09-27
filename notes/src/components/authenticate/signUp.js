@@ -1,7 +1,37 @@
 import React from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import styled from 'styled-components';
 
+const SignUpForm=styled.form`
+    max-width: 390px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 80px;
+    border: 1px solid black;
+    background-color: #ddd;
+    height: 250px;
+    
+`
+const SignUpPageH1=styled.h1`
+    margin-top:30px
+`
+const SignUpInput=styled.input`
+    width:50%;
+    height: 20px;
+    margin-top:5px;
+`
+const SignUpPageButton=styled.button`
+    width:50%;
+    display: block;
+    margin: 0 auto;
+    margin-top:5px;
+    height:30px;
+    border-radius:5px;
+    &:hover{
+        opacity:0.85;
+    }
+`
 class SignUp extends React.Component{
     constructor() {
         super();
@@ -35,15 +65,13 @@ class SignUp extends React.Component{
     }
     render(){
         return (
-            <form>
-                <h1>Sign Up</h1>
-                <input type='text' name='username' value={this.state.username} onChange={this.onChangeHandler} placeholder='Enter  username'/>
-                <input type='password' name='password' value={this.state.password} onChange={this.onChangeHandler} placeholder='Enter password'/>
-                <div className='btn-container'>
-                <button type='submit' onClick={this.onSubmitHandler}>Sign Up</button>
-                <button onClick={this.redirect}>Have an account?</button>
-                </div>
-            </form>
+            <SignUpForm>
+                <SignUpPageH1>Sign Up</SignUpPageH1>
+                <SignUpInput type='text' name='username' value={this.state.username} onChange={this.onChangeHandler} placeholder='Enter  username'/>
+                <SignUpInput type='password' name='password' value={this.state.password} onChange={this.onChangeHandler} placeholder='Enter password'/>
+                <SignUpPageButton type='submit' onClick={this.onSubmitHandler}>Sign Up</SignUpPageButton>
+                <SignUpPageButton onClick={this.redirect}>Have an account?</SignUpPageButton>
+            </SignUpForm>
         )
     }
 }

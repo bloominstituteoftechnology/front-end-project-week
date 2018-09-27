@@ -24,6 +24,9 @@ color:#FFF;
 display: flex;
 align-items: center;
 justify-content: center;
+&:hover{
+    opacity:0.85;
+}
 `
 const CreateButton=styled.div`
 width: 80%;
@@ -35,17 +38,23 @@ color:#FFF;
 display: flex;
 align-items: center;
 justify-content: center;
+&:hover{
+    opacity:0.85;
+}
 `
 const LogOutButton=styled.div`
 width: 80%;
 margin: 0 auto;
 margin-top: 20px;
 height: 40px;
-background-color: #0db5ba;
+background-color: #800000;
 color:#FFF;
 display: flex;
 align-items: center;
 justify-content: center;
+&:hover{
+    opacity:0.85;
+}
 `
 
 class SideBar extends React.Component{
