@@ -5,7 +5,8 @@ import axios from 'axios';
 class Register extends Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        loading:false
     };
 
     inputChangeHandler = e => {
@@ -15,6 +16,7 @@ class Register extends Component {
 
     submitHandler = e => {
         e.preventDefault();
+        this.setState({ loading: true });
         axios
         .post('https://lambda-notes-api.herokuapp.com/api/register', this.state)
         .then(res => {
@@ -56,6 +58,10 @@ class Register extends Component {
                 </form>
             </div>
             </div>
+            <p style={ this.state.loading ? 
+                { textAlign: "center", marginTop: "20px" } : { display: "none" } }>
+                Loading...
+            </p>
         </div>
     );
   }
