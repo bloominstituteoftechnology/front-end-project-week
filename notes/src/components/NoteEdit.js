@@ -2,6 +2,8 @@ import React from 'react';
 import {editNote, fetchSingleNote} from '../actions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import { Modal, ModalBody } from 'reactstrap';
+
 
 class EditNote extends React.Component {
     componentDidMount(){
@@ -15,16 +17,9 @@ class EditNote extends React.Component {
         this.state = {
             title: this.props.currentNote.title,
             textBody: this.props.currentNote.textBody,
-            tags: this.props.currentNote.tags
+            tags: this.props.currentNote.tags,
+            edited: false
         }
-    }
-
-    handleRefresh = () => {
-        this.setState({
-            title: this.props.currentNote.title,
-            textBody: this.props.currentNote.textBody,
-            tags: this.props.currentNote.tags
-        })
     }
 
     handleInput = (event) => {
@@ -53,6 +48,12 @@ class EditNote extends React.Component {
 
         this.props.editNote(this.props.currentNote._id, newNote);
 
+        this.setState({
+            edited: !this.state.edited
+        })
+
+        setTimeout(() => this.props.history.push('/'), 1500);
+
     }
 
     render() {
@@ -67,6 +68,13 @@ class EditNote extends React.Component {
             <button type='submit'>Update</button>
             </form>
             
+            <Modal isOpen={this.state.edited} toggle={this.edited} className='popup-modal'>
+            <ModalBody>
+                Note successfully edited. Returning to notes view.
+            </ModalBody>
+            </Modal>
+
+
             </div>
         )
     }

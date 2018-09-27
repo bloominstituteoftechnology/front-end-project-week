@@ -3,6 +3,7 @@ import {deleteNote, fetchSingleNote} from '../actions';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import { Button, Modal, ModalBody } from 'reactstrap';
+
 class NoteDetails extends React.Component {
 
     componentDidMount(){
@@ -81,7 +82,7 @@ class NoteDetails extends React.Component {
             
 
            
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className='delete-modal'>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className='popup-modal'>
             <ModalBody>
                 Are you sure you want to delete this?
                 <div className = 'modal-buttons'>

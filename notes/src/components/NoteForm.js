@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addNote} from '../actions/index';
 import {withRouter} from 'react-router-dom';
+import { Modal, ModalBody } from 'reactstrap';
 
 class NoteForm extends React.Component {
     constructor(props){
@@ -11,6 +12,7 @@ class NoteForm extends React.Component {
             tags: [],
             title: '',
             textBody: '',
+            submitted: false
         }
     }
 
@@ -44,7 +46,11 @@ class NoteForm extends React.Component {
             tags: [],
             title: '',
             textBody: '',
+            submitted: !this.state.submitted
         })
+
+        setTimeout(() => this.props.history.push('/'), 1500);
+            
 
     }
 
@@ -58,6 +64,12 @@ class NoteForm extends React.Component {
                     <input onChange={this.handleInput} type='text' placeholder='Tags, separated by commas' name='tags' value={this.state.tags}></input>
                     <button type = 'submit'>Save</button>
                 </form>
+
+                <Modal isOpen={this.state.submitted} toggle={this.submitted} className='deleted-modal'>
+            <ModalBody>
+                Note successfully submitted. Returning to notes view.
+            </ModalBody>
+            </Modal>
             </div>
         )
     }
