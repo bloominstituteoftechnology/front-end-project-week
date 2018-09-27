@@ -36,7 +36,7 @@ function Note(props) {
             <Modal show = {props.show} className = 'deleteModal'>
               Are you sure you want to delete this note?
               <button className = 'blueButton' onClick = {props.showModal}>No</button>
-              <button className = 'prompt-button' onClick = {deleteNote}>Yes!</button>
+              <button className = 'modal-button' onClick = {deleteNote}>Yes!</button>
             </Modal>
 
         </Fragment>
