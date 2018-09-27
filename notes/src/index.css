@@ -14,6 +14,11 @@ body {
   max-width:100%;
   width:100%;
   margin:0 auto;
-  display:flex;
-  background-color:#654321;
+  background-color:#345678;
+  text-align: center;
+}
+.Registration h1{
+  margin: 0 auto;
+  padding-top:60px;
+  color:#FFF;
 }

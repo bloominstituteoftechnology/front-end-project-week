@@ -37,6 +37,7 @@ class App extends Component {
        } else {
          return (
           <div className='Registration'>
+            <h1>Lambda Notes</h1>
             <Route exact path='/signin' component={SignIn}/>
             <Route exact path='/signup' component={SignUp}/>
           </div>

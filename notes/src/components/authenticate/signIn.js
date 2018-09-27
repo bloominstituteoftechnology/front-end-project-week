@@ -7,17 +7,17 @@ const SignInForm=styled.form`
     max-width: 394px;
     width: 100%;
     margin:0 auto;
-    margin-top: 80px;
+    margin-top: 30px;
     border: 1px solid black;
-    background-color: #ddd;
+    background-color: #E8E8EE;
     height: 250px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
 `
-const SignInPageH1=styled.h1`
-    margin-top:30px
+const SignInPageH2=styled.h2`
+    margin-top:30px;
 `
 const SignInInput=styled.input`
     width:50%;
@@ -68,7 +68,7 @@ class SignIn extends React.Component{
     render(){
         return (
             <SignInForm>
-                <SignInPageH1>Sign In</SignInPageH1>
+                <SignInPageH2>Sign In</SignInPageH2>
                 <SignInInput type='text' name='username' value={this.state.username} onChange={this.onChangeHandler} placeholder='Enter  username'/>
                 <SignInInput type='password' name='password' value={this.state.password} onChange={this.onChangeHandler} placeholder='Enter password'/>
                 <SignInPageButton type='submit' onClick={this.onSubmitHandler}>Sign In</SignInPageButton>
