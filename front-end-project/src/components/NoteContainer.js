@@ -202,7 +202,7 @@ const {checklist} = this.state
   };
   //-----------------------------------------------------------------------------------Life-Hooks
   componentDidMount() {
-    //this.fetchData();
+//    this.fetchData();
     this.setState({
       notes: dummydata,
       backupNotes: dummydata

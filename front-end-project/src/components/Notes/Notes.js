@@ -5,6 +5,12 @@ import { TransitionGroup } from "react-transition-group";
 import Transition from "react-transition-group/Transition";
 import { TweenMax } from "gsap";
 import Sort from "../Sort/Sort";
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContext } from 'react-dnd'
+
+import dragula from 'react-dragula'
+
+dragula([document.getElementById('container')]);
 
 const Notes = props => {
   const { notes, selectedTheme } = props;
@@ -39,7 +45,7 @@ const Notes = props => {
         }}
       </Transition> */}
       <NoteTitle data-theme={selectedTheme}>Your Notes:</NoteTitle>
-      <NotesDiv data-theme={selectedTheme} >
+      <NotesDiv data-theme={selectedTheme} id="container" >
         {notes.map(note => (
           <Note note={note} selectedTheme={selectedTheme} {...props} key={note._id}/>
             
