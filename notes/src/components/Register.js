@@ -21,6 +21,9 @@ const Title = styled.h1`
     width: 1200px;
 `;
 
+//const url = "http://localhost:8000";
+const url = "https://francis-t-lambda-notes.herokuapp.com";
+
 class Register extends React.Component {
     constructor(props){
         super(props);
@@ -35,7 +38,7 @@ class Register extends React.Component {
     submit = e => {
         e.preventDefault();
         const { email, password } = this.state; 
-        axios.post('http://localhost:8000/register', {
+        axios.post(`${url}/register`, {
                 email: email, 
                 password: password 
             })

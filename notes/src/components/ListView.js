@@ -8,6 +8,14 @@ require('../../node_modules/react-resizable/css/styles.css');
 const ReactMarkdown = require('react-markdown');
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
+const Button = styled.button`
+    text-decoration: underline;
+    border: none;
+    color: #2AB4AE;
+    background: none;
+    height: 30px;
+`;
+
 const List = styled.div`
     background: #F1F1F1;
     display: flex;
@@ -16,6 +24,7 @@ const List = styled.div`
     height: 100%;
     width: 900px;
 `;
+
 const H2 = styled.h2`
     z-index:1;
 `;
@@ -60,6 +69,9 @@ class ListView extends React.Component{
     handlePageChange = e => {
         this.setState({ currentPage: Number(e.target.id)})
     }
+    setNotesPerPage = e => {
+        this.setState({ notesPerPage: e.target.value })
+    }
     render(){
         let totalNotes = this.props.notes.length;
         const { currentPage, notesPerPage } = this.state;
@@ -101,7 +113,17 @@ class ListView extends React.Component{
             <div>
                 <List>
                     <H2>Your Notes:</H2>
-                    <div style={{display:'flex'}}>{renderPageNumbers}</div>
+                    <div style={{display:'flex'}}>
+                        {renderPageNumbers}
+                        <div style={{position: 'absolute', right: '400px'}}>
+                            View <Button onClick={this.setNotesPerPage} value={1}>1</Button> 
+                            <Button onClick={this.setNotesPerPage} value={2}>2</Button>
+                            <Button onClick={this.setNotesPerPage} value={3}>3</Button>
+                            <Button onClick={this.setNotesPerPage} value={4}>4</Button>
+                            <Button onClick={this.setNotesPerPage} value={5}>5</Button>
+                            notes per page
+                        </div>
+                    </div>
                     <ResponsiveGridLayout className='layout'
                     layout={layout}
                     breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
@@ -109,8 +131,9 @@ class ListView extends React.Component{
                     rowHeight={250}
                     width={1200}
                     autoSize={true}>
-                        {renderNotes}  
-                    </ResponsiveGridLayout>  
+    
+                        {renderNotes}
+                    </ResponsiveGridLayout>
                 </List>
             </div>
         );

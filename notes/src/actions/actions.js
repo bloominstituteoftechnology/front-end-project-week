@@ -18,7 +18,8 @@ export const ERRORS = 'ERRORS';
 // export const FILTERING_NOTES = 'FILTERING_NOTES';
 // export const FILTERED_NOTES = 'FILTERED_NOTES';
 
-const url = "http://localhost:8000";
+//const url = "http://localhost:8000";
+const url = "https://francis-t-lambda-notes.herokuapp.com";
 
 export const fetchNotes = () => {
     return dispatch => {
