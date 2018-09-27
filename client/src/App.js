@@ -8,6 +8,7 @@ import AddNoteContainer from './containers/AddNoteContainer';
 import EditNoteContainer from './containers/EditNoteContainer';
 import SearchBar from './containers/SearchBar';
 import SortingOptions from './containers/SortingOptions';
+import LoggedIn from './containers/LoggedIn';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -17,12 +18,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SideNav />
+        <LoggedIn>{props => <SideNav {...props} />}</LoggedIn>
         <MainContent>
           <Switch>
             <Route
               exact
-              path="/"
+              path="/notes"
               render={() => (
                 <React.Fragment>
                   <SearchBar />

@@ -20,6 +20,9 @@ import {
   sortAscending,
   sortDescending,
   moveItem,
+  authSuccess,
+  authError,
+  authLogout,
 } from '../actions';
 
 const notes = handleActions(
@@ -103,10 +106,21 @@ const error = handleAction(
     addNoteFailure,
     editNoteFailure,
     deleteNoteFailure,
+    authError,
   ),
   (_, { payload }) => payload,
   null,
 );
+
+const isLoggedIn = handleActions(
+  {
+    [authSuccess]: () => true,
+    [combineActions(authLogout, authError)]: () => false,
+  },
+  false,
+);
+
+const token = handleAction(authSuccess, (_, { payload }) => payload, '');
 
 const term = handleAction(updateSearchTerm, (_, { payload }) => payload, '');
 
@@ -119,4 +133,6 @@ export default combineReducers({
   isDeleting,
   error,
   term,
+  isLoggedIn,
+  token,
 });

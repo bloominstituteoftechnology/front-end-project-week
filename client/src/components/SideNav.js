@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Button } from "../styles";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Button } from '../styles';
 
 const StyledSideNav = styled.div`
   position: fixed;
@@ -35,20 +35,33 @@ const LinkWrapper = styled(Link)`
   }
 `;
 
-const SideNav = () => {
+const SideNav = ({ isLoggedIn }) => {
   return (
     <StyledSideNav>
       <PrimaryHeading>
         Lambda <br /> Notes
       </PrimaryHeading>
+      {isLoggedIn ? (
+        <React.Fragment>
+          <LinkWrapper to="/notes">
+            <BlockButton>View Your Notes</BlockButton>
+          </LinkWrapper>
 
-      <LinkWrapper to="/">
-        <BlockButton>View Your Notes</BlockButton>
-      </LinkWrapper>
+          <LinkWrapper to="/notes/new">
+            <BlockButton>+ Create a new note</BlockButton>
+          </LinkWrapper>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <LinkWrapper to="/">
+            <BlockButton>Login</BlockButton>
+          </LinkWrapper>
 
-      <LinkWrapper to="/notes/new">
-        <BlockButton>+ Create a new note</BlockButton>
-      </LinkWrapper>
+          <LinkWrapper to="/register">
+            <BlockButton>Sign Up</BlockButton>
+          </LinkWrapper>
+        </React.Fragment>
+      )}
     </StyledSideNav>
   );
 };
