@@ -3,28 +3,8 @@ import "./index.css";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
-const URL = 'http//:localhost:8000/notes/';
+// const URL = 'http//:localhost:8000/notes/';
 class NotesList extends Component {
-  constructor() {
-    super();
-    this.state = {
-     notes: [],
-  }
-}
-
-getNotes = () => {
-  console.log('hi');
-
-axios
-  .get('http://localhost:8000/notes')
-  .then(response => this.setState({notes: response.data}))
-  .catch(error => console.log(error));
-}
-
-componentDidMount(){
-  this.getNotes();
-  
-}
 
   render() {
     return (
@@ -34,7 +14,7 @@ componentDidMount(){
         </div>
         
         <div className="notesList" >
-        {this.state.notes.map((note, index) => {
+        {this.props.notes.map((note, index) => {
           return (
              <Link to={`/note/${note._id}`} className='unstyled_link'>
             <div className="note" key={note._id}>

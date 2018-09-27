@@ -3,22 +3,7 @@ import "./index.css";
 import axios from 'axios';
 
 class DeleteNote extends Component {
-  state={
-    response:''
-  }
-  getNotes = () => {
-    console.log('hi');
   
-  axios
-    .delete('http://localhost:8000/notes/:id')
-    .then(response => this.setState({response: response.data}))
-    .catch(error => console.log(error));
-  }
-  
-  componentDidMount(){
-    this.getNotes();
-    
-  }
   render() {
     let toggle = this.props.toggle;
     return (
