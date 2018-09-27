@@ -46,11 +46,11 @@ class EditNote extends React.Component {
       })
       .catch(error => {
         console.error("Server Error", error);
-        this.setErrorHandler("Error editing note!");
+        // this.props.setErrorHandler("Error editing note!");
       });
     setTimeout(() => {
       this.props.history.goBack();
-    }, 100);
+    }, 200);
   };
 
   handleInputChange = event => {

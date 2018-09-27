@@ -7,7 +7,7 @@ const NewNote = props => {
   const delay = () => {
     setTimeout(() => {
       props.history.goBack();
-    }, 100);
+    }, 200);
   };
   return (
     <Container className="new-note">

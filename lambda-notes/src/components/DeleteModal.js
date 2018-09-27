@@ -22,7 +22,7 @@ class DeleteModal extends React.Component {
   delay = () => {
     setTimeout(() => {
       this.props.history.goBack();
-    }, 100);
+    }, 200);
   };
   render() {
     return (
