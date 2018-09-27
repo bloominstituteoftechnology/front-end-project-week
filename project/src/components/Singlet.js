@@ -34,6 +34,11 @@ class Singlet extends React.Component {
     this.props.history.push("/note-form");
   };
 
+  deleteNote = () => {
+    this.props.deleteNote(this.props.match.params.id);
+    this.props.history.push("/notes");
+  };
+
   render() {
     return (
       <div className="singlenoteDisplay">
@@ -68,7 +73,7 @@ class Singlet extends React.Component {
               <ModalHeader toggle={this.toggle}>Delete</ModalHeader>
               <ModalBody>Are you sure you want to delete?</ModalBody>
               <ModalFooter>
-                <Button color="danger" onClick={this.toggle}>
+                <Button color="danger" onClick={this.deleteNote}>
                   Delete
                 </Button>{" "}
                 <Button color="secondary" onClick={this.toggle}>

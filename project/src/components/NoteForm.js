@@ -49,7 +49,7 @@ class NoteForm extends Component {
   handleUpdateNote = () => {
     console.log(this.state.note);
     this.props.updateNote(this.state.note);
-    // this.props.history.push("/notes");
+    this.props.history.push("/notes");
   };
 
   handleAddNewNote = event => {

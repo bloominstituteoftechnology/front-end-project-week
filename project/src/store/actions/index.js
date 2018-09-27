@@ -94,7 +94,6 @@ export const deleteNote = noteId => dispatch => {
     .then(response => {
       dispatch({ type: DELETE_NOTE_COMPLETE, payload: response.data });
     })
-
     .catch(err => {
       dispatch({ type: DELETE_NOTE_ERROR, payload: err });
     });
