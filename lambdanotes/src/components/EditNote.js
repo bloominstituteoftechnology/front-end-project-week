@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 // Actions
 import { updateNote } from '../actions';
 // Styles
-import '../styles/EditNote.css';
+import {
+	PageTitle,
+	StyledInput,
+	StyledTextArea,
+	SubmitInput
+} from '../styles/SharedStyles';
 
 class EditNote extends Component {
 	state = {
@@ -41,9 +46,8 @@ class EditNote extends Component {
 	render() {
 		return (
 			<form className="EditNote" onSubmit={this.submitHandler}>
-				<h2>Edit Note:</h2>
-				<input
-					className="title-input"
+				<PageTitle>Edit Note:</PageTitle>
+				<StyledInput
 					name="title"
 					type="text"
 					placeholder="Note Title"
@@ -51,8 +55,7 @@ class EditNote extends Component {
 					onChange={this.changeHandler}
 					required
 				/>
-				<input
-					className="content-input"
+				<StyledTextArea
 					name="textBody"
 					type="text"
 					placeholder="Note Content"
@@ -60,7 +63,7 @@ class EditNote extends Component {
 					onChange={this.changeHandler}
 					required
 				/>
-				<input type="submit" value="Update" />
+				<SubmitInput type="submit" value="Update" />
 			</form>
 		);
 	}
