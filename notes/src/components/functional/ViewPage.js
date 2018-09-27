@@ -52,7 +52,6 @@ class ViewPage extends React.Component {
       this.state.note.textBody === undefined
         ? []
         : this.state.note.textBody.split("\n");
-    // console.log(description)
     return (
       <ViewContainer>
         <Button onClick={this.editClick} className="left">

@@ -9,6 +9,14 @@ const Container = styled.div`
   padding: 8px;
   margin-bottom: 8px;
   background: white;
+
+  input ~ label {
+    text-decoration: ${props => props.children[0].props.checked? 'line-through': 'none'}
+  }
+
+  label {
+    margin-left: 1%;
+  }
 `
 
 class Task extends React.Component {
@@ -21,7 +29,12 @@ class Task extends React.Component {
             {...provided.dragHandleProps}
             innerRef={provided.innerRef}
           >
-            {this.props.task.content}
+            <input 
+              type='checkbox' 
+              checked={this.props.task.complete} 
+              onChange={() => this.props.handleComplete(this.props.task.id)} 
+            /> 
+              <label>{this.props.task.content}</label>
           </Container>
         )}
       </Draggable>

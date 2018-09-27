@@ -16,7 +16,50 @@ const TaskList = styled.div`
   padding: 8px
 `;
 
+const Input = styled.input`
+  display: block;
+  width: 30%;
+  margin: 5px 0 20px 1.5%;
+  padding-top: 5px;
+  border-radius: 2px;
+  border: none;
+  background: #F2F1F2;
+  font-size: 1.6rem;
+  outline: none;
+  
+  &:hover {
+    border-bottom: 1px solid grey;
+  }
+
+  &:focus {
+    border-bottom: 1px solid grey;
+  }
+`;
+
+const Button = styled.button`
+  display: ${props => props.value? 'block': 'none'}
+  margin: 0 0 10px 1.5%;
+  border: 1px solid gray;
+  background: #24B8BD;
+  color: #FFF;
+  padding: 5px 2%;
+  border-radius: 2px;
+  outline: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  &:hover {
+    box-shadow: 0px 2px 5px 0px grey;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 31px 5px cadetblue;
+  }
+`
+
 class Column extends React.Component {
+
+
   render() {
     return (
       <Container>
@@ -27,11 +70,31 @@ class Column extends React.Component {
               innerRef={provided.innerRef}
               {...provided.droppableProps}
               >
-                {this.props.tasks.map((task, index) => <Task key={task.id} task={task} index={index} />)}
+                {this.props.tasks.map((task, index) => 
+                <Task 
+                  key={task.id} 
+                  task={task} 
+                  index={index}
+                  handleComplete={this.props.handleComplete} 
+                />)}
                 {provided.placeholder}
               </TaskList>
             )}
           </Droppable>
+          <form>
+            <Input 
+              name='newTodo' 
+              placeholder='Add todo' 
+              value={this.props.newTodo} 
+              onChange={this.props.handleChange} 
+            />
+            <Button tupe='submit' 
+              onClick={this.props.handleClick} 
+              value={this.props.newTodo}
+            >
+              Save
+            </Button>
+          </form>
       </Container>
     )
   }

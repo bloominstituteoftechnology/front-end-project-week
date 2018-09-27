@@ -7,6 +7,10 @@ export const FETCH_DATA = "FETCH_DATA";
 export const GET_DATA = "GET_DATA";
 export const ERROR = "ERROR";
 
+export const GET_TASKS = "GET_TASK";
+export const ADD_TASK = "ADD_TASK";
+export const COMPLTETE = 'COMPLTETE';
+
 export const getData = () => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
@@ -47,7 +51,6 @@ export const deleteNote = id => {
 };
 
 export const editNote = note => {
-  console.log(note);
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
@@ -56,3 +59,18 @@ export const editNote = note => {
       .catch(err => dispatch({ type: ERROR, err }));
   };
 };
+
+
+// Task Actions
+
+export const getTasks = () => {
+  return({ type: GET_TASKS })
+}
+
+export const addTask = (task) => {
+  return({ type: ADD_TASK, payload: task })
+}
+
+export const complete = taskId => {
+  return({type: COMPLTETE, payload: taskId })
+}

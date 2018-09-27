@@ -44,7 +44,7 @@ export const Textarea = styled.textarea`
 `;
 
 export const Button = styled.button`
-  border: 1px solid  #D3D2D3;
+  border: 1px solid lightgrey;
   background: #24B8BD;
   color: white;
   margin-top: 20px;
@@ -52,4 +52,14 @@ export const Button = styled.button`
   text-align: center
   font-weight: bold;
   font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    box-shadow: 0px 2px 5px 0px grey;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 31px 5px cadetblue;
+  }
 `;

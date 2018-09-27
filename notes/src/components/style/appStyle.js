@@ -34,15 +34,14 @@ export const Navigation = styled.div`
     font-weight: bold;
     font-size: 1.6rem;
     border-radius: 2px;
-    transition: background 0.2s ease-out,  color 0.2s ease-out, box-shadow 0.7s ease;
+    transition: all 0.2s ease-out;
 
     &:hover {
-      box-shadow: inset 0px 0px 1px 2px gray;
+      box-shadow: 0px 2px 5px 0px grey;
     }
 
     &:active {
-      background: #FFF;
-      color: #24B8BD;
+      box-shadow: inset 0 0 31px 5px cadetblue;
     }
   }
 
