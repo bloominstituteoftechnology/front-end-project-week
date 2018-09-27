@@ -145,16 +145,19 @@ html, body {
   width: 30%;
   background: white;
   border: 2px solid #d7d7d7;
-  height: 260px;
+  height: 250px;
   padding: 10px;
   margin: 10px 0px;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
+  
 }
 
 .note-content {
   position: relative;
-  min-height: 140px;
+  min-height: 170px;
+  max-height: 150px;
+  overflow: hidden;
 }
 
 .note-tags {
@@ -207,6 +210,7 @@ html, body {
   font-weight: bold;
 
 }
+
 
 .edit-delete span {
   margin: 10px;
@@ -290,6 +294,24 @@ html, body {
   background: #24b8bd;
   color: white;
   padding: 10px;
+}
+
+.marked-area {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.marked-area-text-container {
+  min-width: 50%;
+  margin: 0px;
+  padding: 10px;
+}
+
+.marked-area-text-container textarea {
+  width: 100%;
+  min-height: 100%;
 }
 
 /************************************************************************************/

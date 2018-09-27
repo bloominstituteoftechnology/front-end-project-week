@@ -9,8 +9,16 @@ const Note = (props) => {
     }
 
     let truncatedTitle = props.title;
-    if(props.match.path === '/' && props.textBody.length > 40){
-        truncatedTitle = props.textBody.substring(0, 40)+' ...';
+    if(props.match.path === '/' && props.title.length > 40){
+        truncatedTitle = props.title.substring(0, 40)+' ...';
+    }
+
+    let truncatedTags = props.tags;
+    if(props.match.path === '/' && props.tags.length > 5){
+        truncatedTags = [];
+        for(let i = 0; i < 5; i++){
+            truncatedTags.push(props.tags[i]);
+        }
     }
 
     return (
@@ -27,7 +35,7 @@ const Note = (props) => {
             <div className='note-tags'>
            
             
-            {props.tags.map(tag => {
+            {truncatedTags.map(tag => {
                 return <Link to = {`/notes/tags/${tag}`} key={`${tag}${props._id}`}><span className = 'tag-span'>{tag}</span></Link>
             })}
             </div>
