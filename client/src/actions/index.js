@@ -115,11 +115,21 @@ export const addNote = (data, cb) => async (dispatch, getState) => {
   }
 };
 
-export const editNote = (id, data) => async dispatch => {
+export const editNote = (id, data, cb) => async (dispatch, getState) => {
   dispatch(editNoteRequest());
   try {
-    let response = await axios.put(`${API_URL}notes/${id}`, data);
+    let response = await axios({
+      url: `${API_URL}notes/${id}`,
+      data,
+      method: 'PUT',
+      headers: {
+        authorization: `Bearer ${getState().token}`,
+      },
+    });
+    if (response.data.error)
+      return dispatch(editNoteFailure(response.data.error));
     dispatch(editNoteSuccess(response.data));
+    cb();
   } catch (err) {
     dispatch(editNoteFailure(err));
   }

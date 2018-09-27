@@ -3,22 +3,17 @@ import { connect } from 'react-redux';
 
 import { SecondaryHeading } from '../styles';
 import NotesForm from '../components/NotesForm';
-import { editNote, fetchOne } from '../actions';
+import { editNote, fetchOne, clearError } from '../actions';
 
 class EditNoteContainer extends Component {
-  state = {
-    requested: false,
-  };
-
   componentDidMount() {
     this.props.fetchOne(this.props.match.params.id);
   }
 
   onFormSubmit = data => {
-    this.props.editNote(this.props.match.params.id, data);
-    this.setState({
-      requested: true,
-    });
+    this.props.editNote(this.props.match.params.id, data, () =>
+      this.props.history.push('/notes'),
+    );
   };
 
   render() {
@@ -29,11 +24,12 @@ class EditNoteContainer extends Component {
     }
 
     if (error) {
-      return <div>Something went wrong, please try again {error.message}</div>;
-    }
-
-    if (this.state.requested) {
-      this.props.history.push('/');
+      return (
+        <div>
+          Something went wrong, please try again {error.message || error}{' '}
+          <button onClick={this.props.clearError}>OK</button>
+        </div>
+      );
     }
 
     return (
@@ -65,5 +61,5 @@ export default connect(
     currentNote,
     notes,
   }),
-  { editNote, fetchOne },
+  { editNote, fetchOne, clearError },
 )(EditNoteContainer);
