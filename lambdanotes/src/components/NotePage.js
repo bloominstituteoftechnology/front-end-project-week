@@ -1,12 +1,13 @@
 // Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 // Components
 import EditNote from './EditNote';
 import DeleteNoteModal from './DeleteNoteModal';
 // Actions
-import { getNote } from '../actions';
+import { getNote, resetRedirect } from '../actions';
 // Styles
 import {
 	PageContainer,
@@ -58,7 +59,15 @@ class NotePage extends Component {
 		this.props.getNote(this.props.match.params.id);
 	}
 
+	componentWillUnmount() {
+		this.props.resetRedirect();
+	}
+
 	render() {
+		if (this.props.redirect) {
+			return <Redirect to={this.props.redirect} />;
+		}
+
 		return (
 			<PageContainer>
 				{!this.state.edit ? (
@@ -111,10 +120,11 @@ const mapStateToProps = state => ({
 	note: state.notesReducer.note,
 	gettingNote: state.notesReducer.gettingNote,
 	updatingNote: state.notesReducer.updatingNote,
-	error: state.notesReducer.error
+	error: state.notesReducer.error,
+	redirect: state.notesReducer.redirect
 });
 
 export default connect(
 	mapStateToProps,
-	{ getNote }
+	{ getNote, resetRedirect }
 )(NotePage);

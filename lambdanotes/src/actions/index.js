@@ -20,6 +20,9 @@ export const DELETE_NOTE_ERROR = 'DELETE_NOTE_ERROR';
 export const UPDATING_NOTE = 'UPDATING_NOTE';
 export const UPDATED_NOTE = 'UPDATED_NOTE';
 export const UPDATE_NOTE_ERROR = 'UPDATE_NOTE_ERROR';
+// redirect
+export const SET_REDIRECT = 'SET_REDIRECT';
+export const RESET_REDIRECT = 'RESET_REDIRECT';
 
 // Loading message tester
 function sleep(ms) {
@@ -68,8 +71,6 @@ export const addNote = note => {
 			.then(async () => {
 				await sleep(1000);
 				dispatch({ type: ADDED_NOTE });
-				// return axios.get(`https://killer-notes.herokuapp.com/note/get/${response.data}`);
-				// return getNote(response.data);
 			})
 
 			.catch(error => dispatch({ type: ADD_NOTE_ERROR, payload: error }));
@@ -85,10 +86,13 @@ export const deleteNote = id => {
 
 			.then(async () => {
 				await sleep(1000);
-				dispatch({ type: DELETED_NOTE });
+				dispatch({ type: DELETED_NOTE, payload: {} });
 			})
 
-			// route to note list?
+			.then(async () => {
+				await sleep(1000);
+				dispatch({ type: SET_REDIRECT, payload: '/' });
+			})
 
 			.catch(error => dispatch({ type: DELETE_NOTE_ERROR, payload: error }));
 	};
@@ -110,5 +114,18 @@ export const updateNote = updatedNote => {
 			})
 
 			.catch(error => dispatch({ type: UPDATE_NOTE_ERROR, payload: error }));
+	};
+};
+
+// This feels so hacky but every other solution involved adding new libraries and middleware
+export const setRedirect = url => {
+	return dispatch => {
+		dispatch({ type: SET_REDIRECT, payload: url });
+	};
+};
+
+export const resetRedirect = () => {
+	return dispatch => {
+		dispatch({ type: RESET_REDIRECT });
 	};
 };

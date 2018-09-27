@@ -13,7 +13,9 @@ import {
 	DELETE_NOTE_ERROR,
 	UPDATING_NOTE,
 	UPDATED_NOTE,
-	UPDATE_NOTE_ERROR
+	UPDATE_NOTE_ERROR,
+	SET_REDIRECT,
+	RESET_REDIRECT
 } from '../actions';
 
 const initialState = {
@@ -24,7 +26,8 @@ const initialState = {
 	addingNote: false,
 	deletingNote: false,
 	updatingNote: false,
-	error: null
+	error: null,
+	redirect: null
 };
 
 const noteReducer = (state = initialState, action) => {
@@ -90,7 +93,7 @@ const noteReducer = (state = initialState, action) => {
 		case DELETED_NOTE:
 			return {
 				...state,
-				//notes: action.payload,
+				note: action.payload,
 				deletingNote: false
 			};
 
@@ -118,6 +121,13 @@ const noteReducer = (state = initialState, action) => {
 				updatingNote: false,
 				error: `${action.payload}`
 			};
+
+		// redirect
+		case SET_REDIRECT:
+			return { ...state, redirect: action.payload };
+
+		case RESET_REDIRECT:
+			return { ...state, redirect: null };
 
 		default:
 			return state;
