@@ -1,4 +1,4 @@
-import {ADDING, VIEWING, HOME, EDITING, UPDATING, ERROR} from '../actions';
+import {ADDING, VIEWING, HOME, EDITING, UPDATING, DELETING, ERROR} from '../actions';
 
 const initialState = {
     notes: [
@@ -45,6 +45,12 @@ const reducer = (state=initialState, action) =>{
                 editing: false,
                 notes: action.payload,
                 index: -1,
+            }
+        case DELETING:
+            return{
+                ...state,
+                viewing: false,
+                notes: action.payload
             }
         case ERROR:
             return{
