@@ -2,14 +2,27 @@
     /* background: red; */
     width: 80%;
     margin-bottom: 15px;
+    margin-left: 2%;
     border: 1px solid gray;
+    padding-bottom:250px;
+    padding-top: 15px;
+    padding-left: 20px;
 }
-
+.title{
+    width: 20%;
+    margin-left: 2%;
+    margin-bottom: 15px;
+    border: 1px solid gray;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
 .formView{
     width: 85%;
     text-align: initial;
     /* margin-left: 5%; */
     background: lightgray;
+    height: 100vh;
 }
 
 .saveButton {
@@ -19,4 +32,10 @@
     padding: 10px;
     width:15%;
     border: 1px solid gray;
+    margin-left: 2%;
+    margin-bottom: 50px;
+}
+
+.topTitle{
+    margin-left: 2%;
 }

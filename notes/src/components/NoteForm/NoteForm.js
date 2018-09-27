@@ -6,7 +6,7 @@ function NoteForm(props){
     function handleSubmit(event) {
         event.preventDefault();
 
-        if(PropTypes.isEditing) {
+        if(props.isEditing) {
             props.handleEditNote();
         } else {
             props.handleAddNewNote(event);
@@ -15,13 +15,14 @@ function NoteForm(props){
     }
 
     return (
-        <Fragment>
-                {/* <h2>{props.isEditing ? 'Edit Note' : 'Create New Notes'}</h2> */}
+        <Fragment> 
+                
             <form className='formView'>
+            <h2 className='topTitle'>{props.isEditing ? 'Edit Note:' : 'Create New Note:'}</h2>
                 <div>
-                    {/* <h3>Create New Notes:</h3> */}
-                    <h2>{props.isEditing ? 'Edit Note:' : 'Create New Notes:'}</h2>
+                    
                     <input
+                        className='title'
                         type='text'
                         value={props.note.title}
                         name='title'

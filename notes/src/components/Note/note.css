@@ -1,0 +1,67 @@
+.noteBackground{
+    background: lightgray;
+    width: 85%;
+    text-align: initial;
+    height: 100vh;
+}
+
+.noteBody{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.topRightButtons{
+    text-align: end;
+    margin-right: 2%;
+} 
+
+.handleButtons{
+    margin: 5px;
+}
+
+.displayBlock{
+    display: block;
+    z-index: 3;
+    background: white;
+    /* display: flex; */
+    border: 1px solid gray;
+    width: 30%;
+    margin: 28px auto;
+    text-align: center;
+    padding: 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%,-60%);
+}
+
+.displayNone{
+    display: none;
+}
+
+.deleteModalButton{
+    background: red;
+    color: white;
+    padding:15px;
+    margin:5%;
+    width: 45%;
+}
+
+.noModalButton{
+    background: cadetblue;
+    color: white;
+    padding:15px;
+    margin:5%;
+    width: 45%;
+}
+
+.modalFooter{
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+
+}
+
+.modalContainer{
+    margin-bottom: 0px;
+}

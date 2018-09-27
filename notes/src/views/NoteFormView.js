@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addNewNote, setEditNote} from '../store/actions'
+import {addNewNote, editNote} from '../store/actions'
 
 import NoteForm from '../components/NoteForm/NoteForm';
 
@@ -15,9 +15,9 @@ class NoteFormView extends React.Component {
     };
 
     componentDidMount(){
-        console.log(this.props);
+        // console.log(this.props);
         if (this.props.noteToEdit) {
-            this.setState({ isEditing:true, note: this.props.noteToEdit });
+            this.setState({ isEditing: true, note: this.props.noteToEdit });
         }
     }
 
@@ -32,13 +32,13 @@ class NoteFormView extends React.Component {
 
     handleAddNewNote = event => {
         event.preventDefault();
-        console.log('testing');
+        // console.log('testing');
         this.props.addNewNote(this.state.note);
         this.props.history.push('/')
     }
 
     handleEditNote = () => {
-        this.props.setEditNote(this.state.note);
+        this.props.editNote(this.state.note);
         this.props.history.push('/')
     }
 
@@ -50,7 +50,7 @@ class NoteFormView extends React.Component {
             handleAddNewNote={this.handleAddNewNote}
             handleChange = {this.handleChange}
             handleEditNote={this.handleEditNote}
-            isEditing={this.isEditing}
+            isEditing={this.state.isEditing}
             />
         );
     }
@@ -60,4 +60,4 @@ const mapStateToProps = state => ({
     noteToEdit: state.noteToEdit,
 });
 
-export default connect(mapStateToProps,{addNewNote, setEditNote})(NoteFormView);
+export default connect(mapStateToProps,{addNewNote, editNote})(NoteFormView);
