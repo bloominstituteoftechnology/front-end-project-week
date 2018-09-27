@@ -10,9 +10,9 @@ class NoteCard extends Component {
   }
 
   render() {
-    const { note, getNote, deleteNote, getOneNote} = this.props;
+    const { note, deleteNote, getOneNote} = this.props;
     return(
-      <div className="note-card-container" onClick={() => getOneNote(note.id)}>
+      <div className="note-card-container" onClick={() => (getOneNote(note.id))}>
         <div className="note-card-title">
           {note.title}
         </div>
@@ -26,9 +26,9 @@ class NoteCard extends Component {
         <span className="note-card-delete" onClick={() => deleteNote(note.id)}>
           <button className="">close</button>
         </span>
-        <span className="note-card-edit" onClick={() => getNote(note.id)}>
+        {/* <span className="note-card-edit" onClick={() => getNote(note.id)}>
           <button className="">Edit</button>
-        </span>
+        </span> */}
         {/* <button className="nav-button" onClick={() => getNote(note.id)} >
           { viewNote ? 'Cancel' :  'View Note' }
         </button>  */}

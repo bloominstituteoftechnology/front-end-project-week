@@ -6,7 +6,7 @@ class Nav extends Component {
     
     return (
       <div className="nav-container">
-        <div className="nav-logo">Lambda Notes</div>
+        <div className="nav-logo" onClick={() => toggleHome()}>Lambda Notes</div>
         <button className="nav-button" onClick={() => toggleHome()} >
         { viewNote ? 'View Your Notes' :  'View Your Notes' }
         </button> 

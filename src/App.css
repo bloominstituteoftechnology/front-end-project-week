@@ -6,7 +6,9 @@ body {
 
 .App {
  display: flex;
+ margin: 0 auto;
  height: 100%;
+ max-width: 1025px;
 }
 /* flash.css */
 .flash-container {
@@ -86,6 +88,7 @@ body {
  font-family: 'Assistant', sans-serif;
  letter-spacing: 0.6px;
  border-right: 1px solid black;
+ border-left: 1px solid black;
 }
 
 @keyframes move {
@@ -98,12 +101,14 @@ body {
 
 .nav-logo {
  color: rgb(61, 61, 61);
- font-size: 2.5em;
+ font-size: 2.2em;
  /* float: left; */
  cursor: pointer;
  font-weight: bold;
  line-height: 29px;
- margin-bottom: 20px;
+ margin-top: 10px;
+ margin-bottom: 19px;
+ margin-left: -11px;
 }
 
 .nav-button {
@@ -117,7 +122,7 @@ body {
  font-size: 1em;
  margin-left: -10px;
  margin-right: 0px;
- margin-top: 14px;
+ margin-top: 7.5px;
  margin-bottom: 9.5px;
  text-align: center;
  cursor: pointer;
@@ -171,6 +176,7 @@ body {
  font-size: 1.2em;
  color: rgb(61, 61, 61);
  margin-top: 35px;
+ margin-bottom: 0px;
 }
 
 .note-card-container {
@@ -189,11 +195,12 @@ body {
  background: #fff;
  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
  /* transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
- padding-top: 30px;
+ padding-top: 20px;
  padding-left: 40px;
  padding-right: 40px;
  margin: 7px;
- /* margin-bottom: 40px; */
+ margin-bottom: 0px;
+ margin-top: -78px;
  text-align: left;
  overflow-x: hidden;
  overflow-y: hidden;
@@ -226,8 +233,9 @@ body {
   
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 10px;
   border-bottom: .5px solid black;
+  margin: 0 auto;
+  width: 100px;
 }
 
 .note-card-tags {
@@ -247,11 +255,11 @@ body {
 }
 
 .note-card-tag {
- font-size: 0.8em;
+ display: flex;
+ font-size: 0.59em;
  padding: 2px;
  padding-top: 0;
  padding-bottom: 0;
- background: rgb(242, 242, 242);
  border-radius: 2px;
  margin: 2.5px;
  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -310,7 +318,6 @@ body {
 
 .note-card-edit:hover {
  color: #2BC1C4;
- transform: rotate(90deg);
 }
 
 @media only screen and (max-width: 500px) {
@@ -366,6 +373,7 @@ body {
  font-family: 'Assistant', sans-serif;
  width: 100%;
  height: auto;
+ border-right: 1px solid black;
 }
 
 .note-form {
@@ -377,6 +385,7 @@ body {
  justify-content: center;
  -webkit-flex-direction: column;
  flex-direction: column;
+ margin-top: -250px;
 }
 
 .note-title {
@@ -385,13 +394,12 @@ body {
 
 .note-title-input {
  border: 1px solid black;
+ margin-left: -321px;
  font-size: 1.5em;
  text-align: center;
  font-family: 'Assistant', sans-serif;
- width: 600px;
+ width: 300px;
  color: black;
- padding-left: 10px;
- padding-right: 10px;
  -webkit-transition: all 0.2s ease-in;
  transition: all 0.2s ease-in;
 }
@@ -438,13 +446,13 @@ body {
  width: 150px;
  background: #2BC1C4;
  color: white;
- float: left;
  font-size: 1.5em;
  border-radius: 2px;
  cursor: pointer;
  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
  margin-top: 10px;
+ margin-left: -490.5px;
  border: none;
 }
 

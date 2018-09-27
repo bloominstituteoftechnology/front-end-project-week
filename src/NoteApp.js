@@ -5,13 +5,12 @@ import List from './components/List';
 import Note from './components/Note';
 import axios from 'axios';
 import urlFor from './helpers/urlFor';
-import Flash from './components/Flash';
+import MessageError from './components/MessageError';
 
 class NoteApp extends Component {
   constructor() {
     super();
     this.state = {
-      singleNoteView: true,
       viewNote: true,
       showNote: false,
       notes: [],
@@ -25,16 +24,14 @@ class NoteApp extends Component {
     this.setState({
       showNote: ! this.state.showNote,
       viewNote: true,
-      singleNoteView: false,
       note: {}
     })
   }
 
   toggleHome = () => {
     this.setState({
-      viewNote: ! this.state.showNote,
       showNote:  this.state.showNote,
-      singleNoteView: false,
+      viewNote: ! this.state.showNote,
       note: {}
     })
   }
@@ -121,16 +118,15 @@ class NoteApp extends Component {
   }
 
   render() {
-    const { showNote,viewNote,singleNoteView, notes, note, newTag, error } = this.state;
+    const { showNote,viewNote, notes, note, newTag, error } = this.state;
 
     return (
       <div className="App">
         <Nav 
         toggleNote={this.toggleNote} showNote={showNote}
         toggleHome={this.toggleHome} viewNote={viewNote}
-        toggleNoteView={this.toggleNoteView} singleNoteView={singleNoteView}
          />
-        {error && <Flash error={error} resetError={this.resetError} />}
+        {error && <MessageError error={error} resetError={this.resetError} />}
         <br />
         { showNote && viewNote?
             <Note

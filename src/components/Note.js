@@ -66,7 +66,7 @@ class Note extends Component {
           onClick={(e) => this.props.deleteTag(note.id, tag.id)}
         >
           <span className="delete">
-            <button className="material-icons">Delete</button>
+            <button className="">Delete</button>
           </span>
           {tag.name}
         </div>
@@ -101,7 +101,7 @@ class Note extends Component {
               ref={(input) => this.content = input}
             />
           </div>
-          <input className="note-button" type="submit" value="Update" />
+          <input className="note-button" type="submit" value="Save" />
         </form>
         <div className="tag-container">
           <div className="tag-button-container">
