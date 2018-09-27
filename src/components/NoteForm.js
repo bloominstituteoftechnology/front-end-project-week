@@ -30,7 +30,6 @@ class NoteForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const formattedTags = this.state.tags.split(",").map(word => word.trim().toLocaleLowerCase())
-
     if (this.state.editing) {
       const updatedNote = {
         id: this.props.noteUpdate.id,

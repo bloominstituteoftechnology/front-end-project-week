@@ -4,18 +4,15 @@ import { Link } from 'react-router-dom'
 import Draggable from 'react-draggable'
 
 const NotesMain = (props) => {
-  const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
-  const check = props.filteredNotes.length
-  console.log(check)
-
-  const viewRender = props.filteredNotes.length === 0 ? props.notes : props.filteredNotes
+  const dragHandlers = {onStart: this.onStart, onStop: this.onStop}
+  const filteredView = props.filteredNotes.length === 0 ? props.notes : props.filteredNotes
 
   return (
     <Div1 className="NotesMain">
       <H2>Your Notes:</H2>
       <Div2>
         {
-          viewRender.map(note => 
+          filteredView.map(note => 
             <Draggable key={note.id} handle="strong" {...dragHandlers}>
               <Div3>
                   <Div4>

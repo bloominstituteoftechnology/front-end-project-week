@@ -14,37 +14,37 @@ class App extends Component {
         id: 1537805881051,
         title: "1. Get a rucksack",
         text: "Find a nice rucksack that can hold all your backpacking gear.",
-        tags: ["all", "gear", "capacity"]
+        tags: ["gear", "capacity"]
       },
       {
         id: 1537805891197,
         title: "2. Grab a buddy",
         text: "Find an outdoorsy friend that loves to rough it up.",
-        tags: ["all", "outsdoorsy", "friend"]
+        tags: ["outsdoorsy", "friend"]
       },
       {
         id: 1537905924075,
         title: "3. Trailblazing",
         text: "Get out there and breathe in nature. Throw on those hiking boots!",
-        tags: ["all", "nature", "outdoors"]
+        tags: ["nature", "outdoors"]
       },
       {
         id: 1537905911476,
         title: "4. Go to the store",
         text: "Read reviews online and find the rucksack that best fits your needs.",
-        tags: ["all", "gear", "store"]
+        tags: ["gear", "store"]
       },
       {
         id: 1537905943717,
         title: "5. Find a buddy",
         text: "Go with hiking groups and find a new backpacking buddy.",
-        tags: ["all", "friend", "hiking groups"]
+        tags: ["friend", "hiking groups"]
       },
       {
         id: 1537905962795,
         title: "6. Backpacking",
         text: "Plan out your trip and head to the woods to set off on a wild adventure.",
-        tags: ["all", "nature", "adventure"]
+        tags: ["nature", "adventure"]
       }
     ],
     filteredNotes: [],
@@ -78,11 +78,14 @@ class App extends Component {
   filterNotes = (e, tagName) => {
     e.preventDefault()
 
-    const filteredNotes = [...this.state.notes].filter(note =>
-      note.tags.includes(tagName)
-    )
+    if (tagName === "all") { 
+      const filteredNotes = [...this.state.notes]
+      this.setState({ filteredNotes })
+    } else {
+      const filteredNotes = [...this.state.notes].filter(note => note.tags.includes(tagName))
+      this.setState({ filteredNotes })
+    }
 
-    this.setState({ filteredNotes })
   }
 
   render() {
