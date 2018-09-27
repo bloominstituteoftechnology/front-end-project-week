@@ -1,8 +1,9 @@
 import { createActions } from 'redux-actions';
 import axios from 'axios';
 
-// const API_URL = 'https://lambda-notes-ash.herokuapp.com/api/';
-const API_URL = 'http://localhost:4000/api/';
+let API_URL = 'https://lambda-notes-ash.herokuapp.com/api/';
+if (process.env.NODE_ENV !== 'production')
+  API_URL = 'http://localhost:4000/api/';
 
 export const {
   fetchNotesRequest,
