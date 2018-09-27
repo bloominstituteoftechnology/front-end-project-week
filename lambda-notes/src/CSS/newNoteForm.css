@@ -1,0 +1,15 @@
+.save-btn {
+  background: rgba(36, 171, 175);
+  color: #fff;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  font-size: 1.6rem;
+  font-weight: bold;
+  -moz-transition: 200ms ease-in-out;
+  -ms-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+}
+
+input {
+  font-size: 1.2rem;
+}
