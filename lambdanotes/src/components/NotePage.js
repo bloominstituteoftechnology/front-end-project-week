@@ -60,7 +60,7 @@ class NotePage extends Component {
 	}
 
 	componentWillUnmount() {
-		this.props.resetRedirect();
+		if (this.props.redirect) this.props.resetRedirect();
 	}
 
 	render() {
