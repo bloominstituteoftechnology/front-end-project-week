@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const SideView = () => {
   return (
     <div className="Side-container">
-      <h1>Lambda Notes</h1>
+      <h1>
+        Lambda <br />
+        Notes
+      </h1>
       <Link to="/notes">
         <button className="ViewNotes">
           <h1>View Your Notes</h1>
@@ -12,7 +15,7 @@ const SideView = () => {
       </Link>
       <Link to="/create">
         <button className="CreateNotes">
-          <h1>Create New Note</h1>
+          <h1>+Create New Note</h1>
         </button>
       </Link>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-// import SideView from "./SideView";
+import SideView from "./SideView";
 // import NotesForm from "./NotesForm";
 // import CreateNote from "./CreateNote";
 
@@ -12,8 +12,8 @@ class SelectedNote extends React.Component {
       toggleUpdate: true,
       toggleDelete: true,
       toggleLinks: true,
-      editTitle: "",
-      editContent: ""
+      updateTitle: "",
+      updateContent: ""
     };
   }
 
@@ -52,12 +52,21 @@ class SelectedNote extends React.Component {
       .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote)
       .then(response => {
         this.setState({
-          editTitle: "",
-          editContent: ""
+          updateTitle: "",
+          updateContent: ""
         });
         this.props.history.push("/notes");
         // this.getNote(this.props.match.params.id);
         this.props.handleInfo(response.data);
+        // axios
+        //   .get("https://killer-notes.herokuapp.com/note/get/all")
+        //   .then(response => {
+        //     this.setState({
+        //       updateTitle: "",
+        //       updateContent: ""
+        //     });
+        //   })
+        //   .catch(error => console.log(error));
       })
       .catch(error => console.log(error));
   };
@@ -71,6 +80,7 @@ class SelectedNote extends React.Component {
       })
       .catch(error => console.log(error));
   };
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -78,8 +88,9 @@ class SelectedNote extends React.Component {
     return (
       <div className="Background-color">
         <div className="NoteContainer">
-          {this.state.note.title}
-          {this.state.note.textBody}
+          <div className="SelectedTitle">{this.state.note.title}</div>
+          <div className="SelectedText">{this.state.note.textBody}</div>
+
           {this.state.toggleDelete ? null : (
             <div className="DeleteDiv">
               <h2>You are about to delete this Note</h2>
@@ -108,29 +119,32 @@ class SelectedNote extends React.Component {
               {this.state.note.title}
               {this.state.note.textBody}
               <form>
-                <input
-                  className="InputTitle"
-                  type="text"
-                  placeholder="Title"
-                  onChange={this.handleChange}
-                  name="editTitle"
-                  value={this.state.editTitle}
-                />
-                <input
-                  className="InputContent"
-                  type="text"
-                  placeholder="Content"
-                  onChange={this.handleChange}
-                  name="editContent"
-                  value={this.state.editContent}
-                />
+                <div className="InputDivs">
+                  <input
+                    className="InputTitle"
+                    type="text"
+                    placeholder="Title"
+                    onChange={this.handleChange}
+                    name="updateTitle"
+                    value={this.state.updateTitle}
+                  />
+                  <input
+                    className="InputContent"
+                    type="text"
+                    placeholder="Content"
+                    onChange={this.handleChange}
+                    name="updateContent"
+                    value={this.state.updateContent}
+                  />
+                </div>
               </form>
-              <div className="UpdateNote" onClick={this.updateNote}>
+              <button className="UpdateNote" onClick={this.updateNote}>
                 Update Note
-              </div>
+              </button>
             </div>
           )}
         </div>
+        <SideView />
       </div>
     );
   }

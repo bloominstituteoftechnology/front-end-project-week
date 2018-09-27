@@ -8,14 +8,18 @@ body {
   position: fixed;
   top: 0;
   height: 100%;
-  background-color: #bebebe;
+  background-color: gray;
   border: solid #838383 1px;
 }
 .ViewNotes {
   margin: 10px 0;
+  background-color: turquoise;
+  color: white;
 }
 .CreateNotes {
   margin: 10px 0;
+  background-color: turquoise;
+  color: white;
 }
 .Background-color {
   background-color: #bebebe;
@@ -28,16 +32,19 @@ body {
   padding-left: 170px;
 }
 .InputTitle {
+  margin: 0 auto;
   background-color: white;
   width: 200px;
   margin-bottom: 10px;
   padding: 1%;
 }
 .InputContent {
+  margin: 0 auto;
   background-color: white;
   width: 450px;
   padding: 1%;
   height: 200px;
+  position: relative;
 }
 .SaveNote {
   text-align: center;
@@ -52,4 +59,36 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  height: 500px;
+}
+.SelectedTitle {
+  margin: 0 auto;
+  background-color: white;
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 1%;
+}
+.SelectedText {
+  margin: 0 auto;
+  background-color: white;
+  width: 450px;
+  padding: 1%;
+  height: 200px;
+}
+.InputDivs {
+  display: flex;
+  flex-direction: column;
+}
+.Note-info {
+  background-color: white;
+  margin: 0 auto;
+  width: 30%;
+  border: 2px solid turquoise;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.UpdateNote {
+  margin-bottom: 300px;
+  position: fixed;
 }
