@@ -75,7 +75,7 @@ class Note extends Component {
   }
 
   render() {
-    const { note, closeTagForm, deleteNote } = this.props;
+    const { note, closeTagForm } = this.props;
     return(
       <div className="note-container">
           <h2 id='title'>Create New Note</h2>
