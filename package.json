@@ -5,6 +5,7 @@
   "homepage": "https://mkerbleski.github.io/front-end-project-week/",
   "dependencies": {
     "dnd-core": "^4.0.5",
+    "gh-pages": "^2.0.0",
     "immutability-helper": "^2.7.1",
     "lodash.flow": "^3.5.0",
     "react": "^16.4.2",
