@@ -16,8 +16,9 @@ import Header from './header';
 class Welcome extends Component{
     
     createUser = (newUser) => {
+        console.log('most things work locally')
         console.log('createuser in welcome.js', newUser)
-
+//changed to api
         axios.post('http://localhost:3333/api/welcome/register/', newUser).then(res => {
             console.log(res)
             localStorage.setItem('JWT', res.data.token)
