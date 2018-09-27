@@ -70,6 +70,11 @@ export const fetchNotes = () => async (dispatch, getState) => {
         authorization: `Bearer ${getState().token}`,
       },
     });
+    if (response.data.error) {
+      localStorage.removeItem('token');
+      dispatch(fetchNotesFailure(response.data.error));
+      return dispatch(authLogout());
+    }
     dispatch(fetchNotesSuccess(response.data));
   } catch (err) {
     console.log(err);
@@ -87,8 +92,11 @@ export const fetchOne = id => async (dispatch, getState) => {
         authorization: `Bearer ${getState().token}`,
       },
     });
-    if (response.data.error)
-      return dispatch(fetchOneFailure(response.data.error));
+    if (response.data.error) {
+      dispatch(fetchOneFailure(response.data.error));
+      localStorage.removeItem('token');
+      return dispatch(authLogout());
+    }
     dispatch(fetchOneSuccess(response.data));
   } catch (err) {
     dispatch(fetchOneFailure(err));
@@ -106,8 +114,11 @@ export const addNote = (data, cb) => async (dispatch, getState) => {
         authorization: `Bearer ${getState().token}`,
       },
     });
-    if (response.data.error)
-      return dispatch(addNoteFailure(response.data.error));
+    if (response.data.error) {
+      localStorage.removeItem('token');
+      dispatch(addNoteFailure(response.data.error));
+      return dispatch(authLogout());
+    }
     dispatch(addNoteSuccess({ id: response.data.success, ...data }));
     cb();
   } catch (err) {
@@ -127,8 +138,11 @@ export const editNote = (id, data, cb) => async (dispatch, getState) => {
         authorization: `Bearer ${getState().token}`,
       },
     });
-    if (response.data.error)
-      return dispatch(editNoteFailure(response.data.error));
+    if (response.data.error) {
+      localStorage.removeItem('token');
+      dispatch(editNoteFailure(response.data.error));
+      return dispatch(authLogout());
+    }
     dispatch(editNoteSuccess(response.data));
     cb();
   } catch (err) {
@@ -146,8 +160,11 @@ export const deleteNote = (id, cb) => async (dispatch, getState) => {
         authorization: `Bearer ${getState().token}`,
       },
     });
-    if (response.data.error)
-      return dispatch(deleteNoteFailure(response.data.error));
+    if (response.data.error) {
+      localStorage.removeItem('token');
+      dispatch(deleteNoteFailure(response.data.error));
+      return dispatch(authLogout());
+    }
     dispatch(deleteNoteSuccess());
     cb();
   } catch (err) {
