@@ -48,8 +48,6 @@ class Note extends Component {
     axios
       .get(`https://alee-lambdanotes.herokuapp.com/note/${this.props.match.params.id}`)
       .then(response => {
-        console.log(this.props.notes);
-        console.log(response.data);
         this.setState({
           id: response.data[0].id,
           title: response.data[0].title,
@@ -69,21 +67,21 @@ class Note extends Component {
         edittoggle: false
       })
       .then(res => {
+        this.setState(
+          {
+            id: this.state.id,
+            title: this.state.title,
+            note: this.state.note,
+            edittoggle: false,
+            Redirect: true
+          },
+          () => {
+            this.setState({ Redirect: false });
+          }
+        );
         console.log(res);
         console.log(res.data);
-      });
-    this.setState(
-      {
-        id: this.state.id,
-        title: this.state.title,
-        note: this.state.note,
-        edittoggle: false,
-        Redirect: true
-      },
-      () => {
-        this.setState({ Redirect: false });
-      }
-    );
+      });    
   };
 
   editToggle = () => {
