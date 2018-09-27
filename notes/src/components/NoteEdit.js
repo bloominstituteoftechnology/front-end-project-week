@@ -37,11 +37,15 @@ class NoteEdit extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-        let newTags = this.state.tags.split(/\s*,\s*/);
+        let noteTags;
+        if(this.state.tags === ''){
+            noteTags = [];
+        } else {
+            noteTags = this.state.tags.split(/\s*,\s*/);
+        }
 
         let newNote = {
-            tags: newTags,
+            tags: noteTags,
             title: this.state.title,
             textBody: this.state.textBody,
         }
@@ -62,7 +66,7 @@ class NoteEdit extends React.Component {
             <form onSubmit = {this.handleSubmit}>
             <input type = 'text' onChange={this.handleInput} name = 'title' value={this.state.title}></input>
             <textarea onChange={this.handleInput} name='textBody' value={this.state.textBody}></textarea>
-            <input type = 'text' name='tags' onChange = {this.handleInput} value = {this.state.tags}></input>
+            <input type = 'text' name='tags' onChange = {this.handleInput} value = {this.state.tags} maxLength='50'></input>
             <button type='submit'>Update</button>
             </form>
             

@@ -8,8 +8,8 @@ import Markdown from 'react-markdown';
 class NoteDetails extends React.Component {
 
     componentDidMount(){
-        this.props.fetchSingleNote(this.props.match.params.id);        
-    }
+        this.props.fetchSingleNote(this.props.match.params.id);   
+        }
 
     constructor(props){
         super(props);

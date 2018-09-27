@@ -15,7 +15,6 @@ import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
 class App extends Component {
 
-  
   constructor(props){
     super(props);
     this.state = {
@@ -57,7 +56,6 @@ class App extends Component {
 
       <div className = 'search-bar'>
       <input type = 'text' placeholder='Search...' value = {this.state.search} onChange = {this.handleSearchInput} ></input>
-      {/* <button onClick = {this.handleSearchSubmit(this.state.search)}>Search</button> */}
       </div>
       </div>
 
@@ -66,7 +64,7 @@ class App extends Component {
           <Route exact path = '/'
           render={(props) => <NoteList {...props} notes={newNotes} />} />
           <Route exact path = '/form' component={NoteForm} />
-          <Route exact path='/notes/:id' render={(props) => <NoteDetails {...props} notes={this.props.notes}/>} />
+          <Route exact path='/notes/:id' render={(props) => <NoteDetails {...props} notes={this.props.notes} />} />
           <Route exact path='/notes/edit/:id' render={(props) => <NoteEdit {...props} notes = {this.props.notes} />} />
           <Route exact path = '/notes/tags/:tag' render={(props) => <NoteTags {...props} notes={this.props.notes} />} />
         </Switch>

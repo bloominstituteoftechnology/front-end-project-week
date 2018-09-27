@@ -9,7 +9,7 @@ class NoteForm extends React.Component {
         super(props);
 
         this.state = {
-            tags: 'Uncategorized',
+            tags: '',
             title: '',
             textBody: '',
             submitted: false
@@ -28,15 +28,29 @@ class NoteForm extends React.Component {
         /* Set tag to Uncategorized if no input is given */
         let noteTags;
         if(this.state.tags === ''){
-            noteTags = 'Uncategorized';
+            noteTags = 'Uncategorized'
         } else {
             noteTags = this.state.tags.split(/\s*,\s*/);
         }
 
+        let noteTitle;
+        if(this.state.title === ''){
+            noteTitle = 'Untitled';
+        } else {
+            noteTitle = this.state.title;
+        }
+
+        let noteBody;
+        if(this.state.textBody === ''){
+            noteBody = 'No Content';
+        } else {
+            noteBody = this.state.noteBody;
+        }
+
         let newNote = {
             tags: noteTags,
-            title: this.state.title,
-            textBody: this.state.textBody,
+            title: noteTitle,
+            textBody: noteBody,
         }
 
         this.props.addNote(newNote);
@@ -60,7 +74,7 @@ class NoteForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleInput} type = 'text' placeholder = 'Note Title' name='title' value={this.state.title}></input>
                     <textarea onChange={this.handleInput} placeholder = 'Note Content' name='textBody' value={this.state.textBody}></textarea>
-                    <input onChange={this.handleInput} type='text' placeholder='Tags, separated by commas' name='tags' value={this.state.tags} maxLength='30'></input>
+                    <input onChange={this.handleInput} type='text' placeholder='Tags, separated by commas' name='tags' value={this.state.tags} maxLength='50'></input>
                     <button type = 'submit'>Save</button>
                 </form>
 

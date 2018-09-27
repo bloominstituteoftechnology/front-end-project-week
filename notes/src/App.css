@@ -156,7 +156,7 @@ html, body {
 .note-content {
   position: relative;
   min-height: 170px;
-  max-height: 150px;
+  max-height: 170px;
   overflow: hidden;
 }
 
