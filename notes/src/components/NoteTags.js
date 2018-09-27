@@ -19,13 +19,9 @@ class NoteTags extends React.Component {
 
         return (
             <div>
-
-
             <div className = 'note-list'>
             {filteredNotes.map(note => {
-                return <Link to = {`/notes/${note._id}`} key={`${note._id}`}>
-                <Note {...note} key = {note._id} />
-                </Link>
+                return <Note {...note} key = {note._id} />
             })}
 
         </div>

@@ -32,16 +32,16 @@ class NoteEdit extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        let splitTags;
-        if(this.state.tags){
-            splitTags = this.state.tags.split(/\s*,\s*/);
+        let noteTags;
+        if(this.state.tags.length === 0){
+            noteTags = 'Uncategorized';
         } else {
-            splitTags = []
+            noteTags = this.state.tags.split(/\s*,\s*/);
         }
         
 
         let newNote = {
-            tags: splitTags,
+            tags: noteTags,
             title: this.state.title,
             textBody: this.state.textBody,
         }
@@ -57,7 +57,6 @@ class NoteEdit extends React.Component {
     }
 
     render() {
-
         return(
             <div className = 'note-edit-container'>
             

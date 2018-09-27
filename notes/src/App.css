@@ -108,6 +108,7 @@ html, body {
 /************************************************************************************/
 .note-list-container {
   background: #f2f1f2;
+  width: 100%;
 }
 
 .note-list-container h1 {
@@ -118,13 +119,12 @@ html, body {
 .note-list {
   display: flex;
   flex-flow: row wrap;
-  width: 100%;
   justify-content: space-between;
   align-content: baseline;
+  width: 100%;
 }
 
 .note-list a {
-  width: 30%;
   text-decoration: none;
   color: black;
 }
@@ -142,14 +142,19 @@ html, body {
 }
 
 .note-container {
-  width: 100%;
+  width: 30%;
   background: white;
   border: 2px solid #d7d7d7;
-  height: 250px;
+  height: 260px;
   padding: 10px;
-  overflow: auto;
   margin: 10px 0px;
   position: relative;
+  overflow: auto;
+}
+
+.note-content {
+  position: relative;
+  min-height: 140px;
 }
 
 .note-tags {
@@ -168,6 +173,7 @@ html, body {
   border-radius: 0px;
   padding: 2px 5px;
   color: white;
+  
 }
 
 .tag-span:hover{
@@ -178,6 +184,7 @@ html, body {
 .note-tags a {
   margin: 2px 2px 2px 0px;
   width: fit-content;
+  
 }
 
 /************************************************************************************/

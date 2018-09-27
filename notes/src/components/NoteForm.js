@@ -9,7 +9,7 @@ class NoteForm extends React.Component {
         super(props);
 
         this.state = {
-            tags: [],
+            tags: 'Uncategorized',
             title: '',
             textBody: '',
             submitted: false
@@ -25,14 +25,13 @@ class NoteForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-        
-       
-
-        let noteTags = this.state.tags.split(/\s*,\s*/);
-
-        console.log(noteTags);
-
+        /* Set tag to Uncategorized if no input is given */
+        let noteTags;
+        if(this.state.tags === ''){
+            noteTags = 'Uncategorized';
+        } else {
+            noteTags = this.state.tags.split(/\s*,\s*/);
+        }
 
         let newNote = {
             tags: noteTags,
