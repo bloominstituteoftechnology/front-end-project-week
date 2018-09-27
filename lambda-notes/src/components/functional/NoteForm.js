@@ -7,7 +7,7 @@ class NoteForm extends React.Component {
   state = {
     title: "",
     textBody: "",
-    tag: "defaultTag",
+    tags: [],
     _id: null
   };
 
@@ -43,7 +43,7 @@ class NoteForm extends React.Component {
     urlPath === "/noteform"
       ? this.props.addNote(this.state)
       : this.props.editNote(this.state);
-    this.setState({ title: "", textBody: "", tag: ""});
+    this.setState({ title: "", textBody: "", tags: []});
     this.props.history.push("/");
   };
 
@@ -67,9 +67,9 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         />
         <TagField
-          name="tag"
-          placeholder="tag"
-          value={this.state.tag}
+          name="tags"
+          placeholder="tags"
+          value={this.state.tags}
           onChange={this.handleChange}
         />
         <Button type="submit" onClick={this.handleSubmit}>

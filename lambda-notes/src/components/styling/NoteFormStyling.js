@@ -24,6 +24,7 @@ export const DescriptionField = styled.textarea`
   border-radius: 4px;
   width: 100%
   font-size: 1.6rem;
+  margin-bottom: 2rem;
 `;
 
 export const TagField = styled.input`
