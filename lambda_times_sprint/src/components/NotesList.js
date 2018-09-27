@@ -34,8 +34,8 @@ function NoteDetails({ note }) {
     <div className="note-card">
 
       <h2 className="title">{title}</h2>
-      <div className="text-body">{textBody.length > 30 ?
-                                          textBody.slice(0, 30) + '...' :
+      <div className="text-body">{textBody.length > 84 ?
+                                          textBody.slice(0, 84) + '...' :
                                           textBody}</div>
     
       </div>
