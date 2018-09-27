@@ -8,6 +8,11 @@ import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faHome);
+
 
 const Application = styled.div`
 
