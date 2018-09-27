@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ButtonStyled, InnerTitleBox, FormStyled, TitleInput, ContentInput, FormTitle, ComponentBody, ComponentHeader} from './style';
+import {ButtonStyled, TitleInput, ContentInput, ComponentBody, ComponentHeader} from './style';
 import {updateNote} from '../actions';
 import {Redirect} from 'react-router-dom';
 

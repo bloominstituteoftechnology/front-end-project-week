@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createNote} from '../actions';
-import {ButtonStyled, InnerTitleBox, FormStyled, TitleInput, ContentInput, FormTitle, ComponentBody, ComponentHeader} from './style';
+import {ButtonStyled, TitleInput, ContentInput, ComponentBody, ComponentHeader} from './style';
 
 class AddNote extends React.Component{
     state = {

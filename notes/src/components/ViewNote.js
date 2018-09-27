@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {NoteStyled, TitleStyled, ComponentBody, ComponentHeader} from './style';
+import {ComponentBody, ComponentHeader} from './style';
 import {editNote, deleteNote} from '../actions';
 import {Redirect} from 'react-router-dom';
 
