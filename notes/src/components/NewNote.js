@@ -7,8 +7,8 @@ import NoteForm from './NoteForm'
 
 class NewNote extends Component {
   state = {
-    title: 'Note Title',
-    textBody: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a efficitur mollis ..'
+    title: '',
+    textBody: '',
   }
 
   handleChange = (event) => {

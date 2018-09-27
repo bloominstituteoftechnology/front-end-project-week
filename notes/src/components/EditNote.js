@@ -5,10 +5,25 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import NoteForm from './NoteForm'
 
+let ans = null
+// console.log('heyo');
+
 class NewNote extends Component {
   state = {
-    title: 'Edit',
-    textBody: 'ing my test'
+    title: 'Easter Egg',
+    textBody: 'Did you see it?',
+    updated: false
+  }
+
+  componentDidUpdate() {
+    (!this.state.updated && ans)
+    ? this.setState({ title: ans.title, textBody: ans.textBody, updated: true})
+    : ''
+
+  }
+
+  componentDidMount() {
+    this.setState({updated: false})
   }
 
   handleChange = (event) => {
@@ -29,7 +44,7 @@ class NewNote extends Component {
   }
 
   render() {
-    let ans = this.props.noteList.find(item => item._id = this.props.match.params.id)
+    ans = this.props.noteList.find(item => item._id == this.props.match.params.id)
     return (
       <React.Fragment>
       <h2 className='notes-title'> Edit Note:</h2>

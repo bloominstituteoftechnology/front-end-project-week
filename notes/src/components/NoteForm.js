@@ -16,14 +16,14 @@ function NoteForm (props) {
           placeholder='Note Title'
           onChange={props.handleChange}
           ></input>
-          <input
+          <textarea
             className='input-textBody'
             type='textarea'
             name='textBody'
             value={props.state.textBody}
             placeholder='Note Content'
             onChange={props.handleChange}
-            ></input>
+            ></textarea>
           <button
             className='nav-link'
             type="submit"

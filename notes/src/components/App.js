@@ -28,9 +28,7 @@ class App extends Component {
   componentDidUpdate() {
     (this.props.state.notesSaved || this.props.state.noteDeleted || this.props.state.noteUpdated)
     ? this.props.fetchNotes()
-    : console.log('notes saved!');
-    console.log('CompUpdate:', this.props.notes);
-    // this.props.fetchNotes()
+    : ''
   }
 
   handleFilter = e => {
@@ -38,7 +36,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('App.js:', this.props.notes);
+    // console.log('App.js:', this.props.notes);
     return (
       <div className="App">
         <header className="App-header">

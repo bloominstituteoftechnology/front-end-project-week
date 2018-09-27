@@ -92,6 +92,7 @@ button {
   width: 888px;
   margin-top: 17px;
 	border: 1px solid #aaaaaa;
+	height: 888px
 }
 
 .App-header {
@@ -208,6 +209,7 @@ a {
   height: 44px;
   border-radius: 5px;
   margin-bottom: 13px;
+	text-indent: 7px;
 }
 
 .input-textBody{
@@ -215,6 +217,7 @@ a {
   height: 349px;
   border-radius: 5px;
   margin-bottom: 13px;
+	padding: 1.5% 1.2%
 }
 
 .note-options{
