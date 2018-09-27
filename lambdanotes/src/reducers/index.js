@@ -9,8 +9,11 @@ import {
   NOTE_ADDED,
   NOTE_ADD_ERROR,
   DELETE_NOTE,
-  DELETEED_NOTE,
-  DELETE_NOTE_ERROR
+  DELETED_NOTE,
+  DELETE_NOTE_ERROR,
+  NOTE_UPDATE,
+  NOTE_UPDATED,
+  NOTE_UPDATE_ERROR
 } from '../actions';
 
 // const initialState = {};
@@ -67,6 +70,40 @@ const rootReducer = (state = initialState, action) => {
         fetching: false
       };
     case NOTE_ADD_ERROR:
+      return {
+        ...state,
+        fetching: false,
+        error: `${action.payload}`
+      };
+    case DELETE_NOTE:
+      return {
+        ...state,
+        fetching: true
+      };
+    case DELETED_NOTE:
+      return {
+        ...state,
+        note: action.payload,
+        fetching: false
+      };
+    case DELETE_NOTE_ERROR:
+      return {
+        ...state,
+        fetching: false,
+        error: `${action.payload}`
+      };
+    case NOTE_UPDATE:
+      return {
+        ...state,
+        fetching: true
+      };
+    case NOTE_UPDATED:
+      return {
+        ...state,
+        note: action.payload,
+        fetching: false
+      };
+    case NOTE_UPDATE_ERROR:
       return {
         ...state,
         fetching: false,
