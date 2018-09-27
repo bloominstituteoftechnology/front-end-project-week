@@ -1,5 +1,7 @@
 Trello: https://github.com/BrianARuff/front-end-project-week.git
 
+Link: https://musing-pike-06d1da.netlify.com/
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -14,42 +16,42 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## Trello Set Up:
 
-- [ ] Create a Trello account
-- [ ] Create a new board called "Lambda Notes - {Your Name}"
-- [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-- [ ] Fill in the `To Do` list with the MVP features listed below
-- [ ] Fill in the `backlog` list with all the extra features listed below
-- [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
-- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+- [x] Create a Trello account
+- [x] Create a new board called "Lambda Notes - {Your Name}"
+- [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+- [x] Fill in the `To Do` list with the MVP features listed below
+- [x] Fill in the `backlog` list with all the extra features listed below
+- [x] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
+- [x] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
 
-- [ ] Display a list of notes
-- [ ] Create a note with a title and content
-- [ ] View an existing note
-- [ ] Edit an existing note
-- [ ] Delete an existing note
+- [x] Display a list of notes
+- [x] Create a note with a title and content
+- [x] View an existing note
+- [x] Edit an existing note
+- [x] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
 
 ```markdown
 ## Trello Set Up:
 
-- [ ] Create a Trello account
-- [ ] Create a new board called "Lambda Notes - {Your Name}"
-- [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-- [ ] Fill in the `To Do` list with the MVP features listed below
-- [ ] Fill in the `backlog` list with all the extra features listed below
-- [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
+- [x] Create a Trello account
+- [x] Create a new board called "Lambda Notes - {Your Name}"
+- [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+- [x] Fill in the `To Do` list with the MVP features listed below
+- [x] Fill in the `backlog` list with all the extra features listed below
+- [x] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
 - [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
 
-- [ ] Display a list of notes
-- [ ] Create a note with a title and content
-- [ ] View an existing note
-- [ ] Edit an existing note
-- [ ] Delete an existing note
+- [x] Display a list of notes
+- [x] Create a note with a title and content
+- [x] View an existing note
+- [x] Edit an existing note
+- [x] Delete an existing note
 ```
 
 ---
@@ -60,16 +62,16 @@ Once your MVP has been approved, you have been given a feature list that the cli
 
 ## Extra Features:
 
-- [ ] Wire up your static React App to our Notes API.
+- [x] Wire up your static React App to our Notes API.
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
-- [ ] Re-factor your code to include redux for your state-management
-- [ ] Search functionality
+- [x] Re-factor your code to include redux for your state-management
+- [x] Search functionality
 - [ ] Markdown support in notes
-- [ ] Sorting options in the list view
-- [ ] Create and display tags that can be added to notes
+- [x] Sorting options in the list view
+- [x] Create and display tags that can be added to notes
 - [ ] Drag sorting in the list view
 - [ ] Add the ability to have checklists within the note view
-- [ ] Export all notes to a CSV
+- [x] Export all notes to a CSV
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
