@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row m-3" style={this.props.notes.length > 1 ? {height: '100%'} : {height: '100vh'}}>
+        <div className="row m-3" style={this.props.notes.length < 1 ? {height: '100vh'} : {height: '100%'}}>
           <div className="col-md-3 p-5 border-left action-container left-side">
             <ActionPanel />
           </div>

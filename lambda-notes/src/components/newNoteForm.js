@@ -12,12 +12,14 @@ class NewNoteForm extends React.Component {
   state = {
     title: "",
     textBody: "",
-    tags: "",
+    tags: ""
   };
 
   handleSubmit = () => {
-    this.props.createNote(this.state);
-    this.props.history.push("/");
+    if (this.state.title.trim() && this.state.textBody.trim()) {
+      this.props.createNote(this.state);
+      this.props.history.push("/");
+    }
   };
 
   onChangeHandler = e => {
@@ -40,7 +42,7 @@ class NewNoteForm extends React.Component {
           type="text"
           placeholder="Title"
           className="form-control my-3"
-          style={{fontSize: '1.2rem', padding: '20px'}}
+          style={{ fontSize: "1.2rem", padding: "20px" }}
         />
         <textarea
           onChange={this.onChangeHandler}
@@ -50,7 +52,7 @@ class NewNoteForm extends React.Component {
           className="form-control my-3"
           rows="10"
           cols="30"
-          style={{fontSize: '1.2rem', padding: '20px'}}
+          style={{ fontSize: "1.2rem", padding: "20px" }}
         />
         <input
           onChange={this.onChangeHandler}
@@ -58,7 +60,7 @@ class NewNoteForm extends React.Component {
           type="text"
           placeholder="Tags"
           className="form-control my-3"
-          style={{fontSize: '1.2rem', padding: '20px'}}
+          style={{ fontSize: "1.2rem", padding: "20px" }}
         />
         <button
           onClick={this.handleSubmit}

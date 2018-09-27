@@ -1,6 +1,11 @@
 .single-card {
   width: 100%;
   position: relative;
+  transition: 300ms ease-in-out;
+  -webkit-transition: 300ms ease-in-out;
+  -moz-transition: 300ms ease-in-out;
+  -ms-transition: 300ms ease-in-out;
+  -o-transition: 300ms ease-in-out;
 }
 .single-card-title {
   font-size: 2rem;
