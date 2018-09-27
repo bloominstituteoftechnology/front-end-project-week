@@ -65,7 +65,7 @@ class App extends Component {
   }
 
   newNote = (newNote) => {
-    this.props.addNote(newNote);
+    // this.props.addNote(newNote);
     if(localStorage.getItem('JWT')){
       const token = localStorage.getItem('JWT')
       const authHeader = {
@@ -74,7 +74,7 @@ class App extends Component {
           Authorization: token,    
         } 
       }
-    axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/', (newNote), authHeader).then(res => {
+    axios.post('http://localhost:3333/api/notes/', (newNote), authHeader).then(res => {
       this.props.history.push('/all-notes')
       this.props.getNotes();
     }).catch(err => console.log(err.message))
@@ -84,13 +84,45 @@ class App extends Component {
   }
 
   editNote = (noteEdit) => {
-    this.props.editNote(noteEdit)
+    console.log('noteEdit', noteEdit)
+    // this.props.editNote(noteEdit)//this is the redux one: 
+    if(localStorage.getItem('JWT')){
+      const token = localStorage.getItem('JWT')
+      const authHeader = {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          Authorization: token,    
+        } 
+      }
+      axios.put(`http://localhost:3333/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
+      .then(res => {
+        this.props.history.push('/all-notes')
+        this.props.getNotes();
+      }).catch(err => console.log(err.message))
+    }else {
+      console.log('need to include toekn in request')
+    }
   }
 
   handleDrop(id){
-    // console.log('handleDrop, id: ', id);
+    console.log('handleDrop, id: ', id);
     //will delete from actions when uncommented
-    this.props.deleteNote(id)
+    // this.props.deleteNote(id)
+    if(localStorage.getItem('JWT')){
+      const token = localStorage.getItem('JWT')
+      const authHeader = {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          Authorization: token,    
+        } 
+      }
+    axios.delete(`http://localhost:3333/api/notes/${id}`, authHeader).then(res => {
+      this.props.history.push('/all-notes')
+      this.props.getNotes();
+    }).catch(err => console.log(err.message))
+  }else {
+    console.log('need to include a valid token in request')
+  }
   }
 
   sortById = (e) => {

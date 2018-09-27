@@ -6,15 +6,16 @@ export default class EditForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      tags: this.props.note.tags,
+      // tags: this.props.note.tags,
       title: this.props.note.title,
       textBody: this.props.note.textBody,
       id: this.props.note.id,
-      newTag: '',
+      // newTag: '',
     }
   }
 
   sendToApp = (e) => {
+    console.log('send to app')
     this.props.editNote(this.state)
   }
 

@@ -16,9 +16,7 @@ export default class NewForm extends Component {
   sendToApp = (e) => {
     e.preventDefault();
     this.props.newNote(this.state)
-
-    
-    //probably should put axios call here to avoide page refresh 
+ 
   }
 
   inputHandler = (e) => {
