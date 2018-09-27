@@ -8,6 +8,7 @@ import DeleteModal from './DeleteModal';
 import { MarkdownPreview } from 'react-marked-markdown';
 
 const H1 = styled.h1`
+
         margin-top: 10px;
         font-weight: bold;
         font-size: 2.2rem;
@@ -30,7 +31,7 @@ const Content = styled.div`
 `
 
 
-const URL = 'https://dasma.herokuapp.com//notes/';
+const URL = 'https://dasma.herokuapp.com/notes/';
 
 class NoteView extends Component {
     constructor(props) {
