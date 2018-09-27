@@ -8,15 +8,17 @@ class NotesList extends Component {
         
     render() {
         return (
-            <div className='notes-list'>
+            <div className='notes-container'>
                 <h1>
                     My Notes:
                 </h1>
-                {this.props.notes.map(note => (
-                    <Link to={`/notes/${note._id}`}>
-                        <Note key={note._id} note={note} />
-                    </Link>
-                ))}
+                <div className='notes-list'>
+                    {this.props.notes.map(note => (
+                        <Link to={`/notes/${note._id}`}>
+                            <Note key={note._id} note={note} />
+                        </Link>
+                    ))}
+                </div>
             </div>
         );
     }

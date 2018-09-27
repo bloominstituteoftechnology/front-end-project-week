@@ -29,10 +29,14 @@
 
 .notes-list {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .note-container {
   border: 1px solid black;
+  height: 250px;
+  width: 250px;
 }
