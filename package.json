@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-csv": "^1.0.15-RC2"
+  }
+}

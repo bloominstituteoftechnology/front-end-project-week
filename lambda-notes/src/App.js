@@ -19,6 +19,7 @@ class App extends Component {
       notes: []
 
     }
+    
   }
 
   componentDidMount() {
@@ -43,7 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* SideBar always visible */}
-        <SideBar />
+        <SideBar notes={this.props.notes} />
         {/* Routes based on SideBar navigations or main-view navigations - note, edit, delete */}
         {/* main-view with all notes */}
         <Route exact path='/' component={Notes} />
@@ -57,6 +58,7 @@ class App extends Component {
     );
   }
 }
+
 
 const mapStateToProps = state => {
   // console.log('mapState state', state);
