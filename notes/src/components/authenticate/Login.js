@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { logIn } from '../../actions';
 
@@ -35,7 +36,7 @@ class Login extends React.Component {
 
   login = (event) => {
     event.preventDefault();
-    console.log('login test');
+    // console.log('login test');
     this.props.logIn(this.state.username, this.state.password);
     this.props.handleLoggedIn(this.props.isLoggedIn);
   };
@@ -44,7 +45,9 @@ class Login extends React.Component {
     return (
       <React.Fragment>
         <Container>
-          <Logo>Lambda Notes</Logo>
+          <Logo>
+            Lambda <Span>Notes</Span>
+          </Logo>
           <StyledForm>
             <StyledInput
               placeholder="Username"
@@ -58,9 +61,10 @@ class Login extends React.Component {
               type="password"
             />
             <StyledButton onClick={this.login}>Login</StyledButton>
-            <StyledButton>Sign-up</StyledButton>
+            <StyledLink to="/signup">Sign-up</StyledLink>
           </StyledForm>
         </Container>
+        <BackGround />
       </React.Fragment>
     );
   }
@@ -91,17 +95,58 @@ const Logo = styled.h1`
   font-size: 3rem;
 `;
 
+const Span = styled.span`
+  color: #b92626;
+`;
+
 const StyledForm = styled.form`
   display: flex;
-  // flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  // align-items: center;
-  width: 10%;
+  width: 12%;
 `;
 
 const StyledInput = styled.input`
   width: 100%;
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  background: transparent;
+  margin-top: 10px;
+  font-size: 1rem;
 `;
 
-const StyledButton = styled.button``;
+const StyledButton = styled.button`
+  background: #59b5bb;
+  color: white;
+  border: 1px solid #9cb1b3;
+  height: 30px;
+  width: 45%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1rem;
+  margin: 20px 0;
+  cursor: pointer;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  background: #59b5bb;
+  color: white;
+  border: 1px solid #9cb1b3;
+  height: 30px;
+  width: 45%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1rem;
+  margin: 20px 0;
+`;
+
+const BackGround = styled.div`
+  border: 1px solid #c3c2c3;
+  background: #f2f1f2;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+`;

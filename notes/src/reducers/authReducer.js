@@ -1,21 +1,14 @@
 import { LOG_IN } from '../actions';
 
 const initialState = {
-  users: [{ username: 'ckirkwood94', password: 'abc', firstName: 'Caleb' }],
-  isLoggedIn: true,
+  users: [{ username: 'test', password: 'password', firstName: 'Name' }],
+  isLoggedIn: false,
 };
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOG_IN:
-      console.log(
-        'LOG_IN',
-        state.users.find(
-          (user) =>
-            user.username === action.username &&
-            user.password === action.password
-        )
-      );
+      console.log('LOG_IN');
       if (
         state.users.find((user) => {
           return (
