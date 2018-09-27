@@ -24,7 +24,7 @@ class EditNote extends React.Component {
             title: note.title,
             textBody: note.textBody
         })
-        }, 1000);
+        }, 500);
     }
 
     handleInput = (event, props) => {

@@ -9,6 +9,7 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
 export const EDITING_NOTE = 'EDITING_NOTE';
 export const NOTE_EDITED = 'NOTE_EDITED';
+export const NOTES_UPDATED = 'NOTES_UPDATED';
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_NOTES });
@@ -66,4 +67,10 @@ export const editNote = (updatedNote) => dispatch => {
   .catch(err => {
     dispatch({ type: FETCH_ERROR, payload: err })
   });
+}
+
+export const notesUpdated = () => {
+  return {
+    type: NOTES_UPDATED
+  }
 }

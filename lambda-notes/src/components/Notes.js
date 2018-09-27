@@ -3,11 +3,14 @@ import '../App.css';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'; 
 import { connect } from 'react-redux';
-import { fetchNotes } from '../actions';
+import { fetchNotes, notesUpdated } from '../actions';
 
 class Notes extends React.Component {
-    componentDidMount() {
-        setTimeout(() => {this.props.fetchNotes()},1000);
+    componentDidUpdate() {
+        if (this.props.notesNeedsUpdate) {
+            this.props.fetchNotes();
+            this.props.notesUpdated();
+        }
     }
     
 
@@ -39,8 +42,9 @@ class Notes extends React.Component {
 const mapStateToProps = state => {
     return {
         notes: state.notes,
-        fetchingNotes: state.fetchingNotes
+        fetchingNotes: state.fetchingNotes,
+        notesNeedsUpdate: state.notesNeedsUpdate
     }
 }
 
-export default withRouter(connect(mapStateToProps, {fetchNotes})(Notes));
+export default withRouter(connect(mapStateToProps, {fetchNotes, notesUpdated})(Notes));

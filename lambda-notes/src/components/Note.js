@@ -19,12 +19,14 @@ class Note extends React.Component {
         this.props.fetchNotes();
         setTimeout(() => {
         const note = this.props.notes.find(note => note._id == this.props.match.params.id);
+        if (!note) {this.setState({title: "Could not find your note 🕵️‍♂️"})} 
+        else {
         this.setState({
             _id: note._id,
             title: note.title,
             textBody: note.textBody
-        })
-        }, 1000);
+        })}
+        }, 500);
     }
 
     render() {
