@@ -5,7 +5,8 @@ import axios from 'axios';
 class Login extends Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        status: 0
     };
 
     inputChangeHandler = e => {
@@ -18,13 +19,15 @@ class Login extends Component {
         axios
         .post('https://lambda-notes-api.herokuapp.com/api/login', this.state)
         .then(res => {
-            //console.log('response', res)
             const {token} = res.data;
             localStorage.setItem('token', token);
             this.props.history.push('/notes');
         })
         .catch(err => {
-            console.error('Axios error:', err);
+            let error = JSON.stringify(err);
+            if (error.includes('401')) {
+                this.setState({ status: 401})
+            }
         });
     }
 
@@ -56,6 +59,10 @@ class Login extends Component {
                 </form>
             </div>
             </div>
+            <p style={ this.state.status === 401 ? 
+                { color: "red", textAlign: "center", marginTop: "20px" } : { display: "none" } }>
+                Invalid username or password.
+            </p>
         </div>
     );
   }
