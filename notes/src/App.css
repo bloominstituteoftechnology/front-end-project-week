@@ -115,6 +115,7 @@ ul {
   margin: 55px 0 20px 25px;
 }
 
+
 .all-notes {
   display: flex;
   flex-wrap: wrap;
@@ -123,6 +124,44 @@ ul {
   /* border: 2px solid purple; */
   margin: 0 25px;
 }
+
+
+
+.filter {
+  display: flex;
+  margin: 0 20px 25px 25px;
+  justify-content: space-between;
+}
+
+
+.filter h5 {
+  margin: 0;
+}
+
+.filter .show-all {
+  text-decoration: underline;
+}
+
+.filter .show-all:hover {
+  cursor: pointer;
+}
+
+.filter h6 {
+  text-decoration: underline;
+  padding: 0 5px;
+  margin: 0;
+}
+
+.filter h6:hover {
+  cursor: pointer;
+}
+
+.by-tag {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
 
 .note-card {
   width: 190px;
@@ -197,6 +236,10 @@ ul {
   line-height: 25px;
 }
 
+.note-info-wrapper a {
+  text-decoration: underline;
+  padding-right: 5px;
+}
 
 /* FORM STYLES */
 

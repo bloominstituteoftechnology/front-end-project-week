@@ -7,6 +7,8 @@ import AllNotes from './components/AllNotes';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import Modal from './components/Modal/Modal';
+import Tagged from './components/Tagged';
+
 
 import './App.css';
 
@@ -17,7 +19,8 @@ class App extends Component {
       notesData: [],
       note: {
         title: '',
-        textBody: ''
+        textBody: '',
+        tags: []
       },
       isUpdating: false,
       show: false
@@ -48,6 +51,16 @@ class App extends Component {
   }
 
   handleChange = e => {
+    if (e.target.name === 'tags') {
+      const tags = e.target.value.split(', ');
+      this.setState({
+        note: {
+          ...this.state.note,
+          tags: tags,
+        }
+      });
+    } else 
+    {
     this.setState({
       note: { 
         ...this.state.note,
@@ -55,6 +68,7 @@ class App extends Component {
         e.target.value,
       }
     });
+    }
   }
 
   addNewNote = event => {
@@ -62,7 +76,7 @@ class App extends Component {
     console.log('adding new');
     //axios.post('http://localhost:5000/notes', this.state.note)
     axios.post('http://killer-notes.herokuapp.com/note/create', this.state.note)
-    .then(response => this.setState({ notesData: response.data, note: { title: '', textBody: '' }, isUpdating: false },
+    .then(response => this.setState({ notesData: response.data, note: { title: '', textBody: '', tags: [] }, isUpdating: false },
     () => this.props.history.push('/notes')))
   }
 
@@ -115,14 +129,15 @@ class App extends Component {
   
   truncate = (textBody) => {
     let val = '';
-    if(textBody.length > 200) {
-        val = `${textBody.slice(0,197)}...`
+    if(textBody.length > 150) {
+        val = `${textBody.slice(0,142)}...`
     } else {
       val = textBody;
     }
     return val;
   }
 
+ 
   render() {
     return (
       <div className="App">
@@ -161,6 +176,7 @@ class App extends Component {
          notesData={this.state.notesData}
          truncate={this.truncate}
          truncateTitle={this.truncateTitle}
+         filterByTag={this.filterByTag}
          />
         
        )}
@@ -191,6 +207,18 @@ class App extends Component {
             updateNote={this.updateNote}
             isUpdating={this.state.isUpdating}
           />
+          )}
+        />
+        <Route
+         exact
+          path="notes/tagged/:tag"
+          render={props => (
+            <Tagged
+            {...props}
+            note={this.state.note}
+            notesData={this.state.notesData}
+            handleChange={this.handleChange}
+            />
           )}
         />
         <Modal show={this.state.show} />

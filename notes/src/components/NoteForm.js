@@ -8,6 +8,7 @@ function NoteForm(props) {
         if (props.isUpdating) {
             props.updateNote(props.note._id);
         } else {
+            console.log("note.tags", props.note.tags)
             props.addNewNote();
         }
     }
@@ -22,12 +23,21 @@ function NoteForm(props) {
         
     }
 
+    function joinTags(tags) {
+        if (tags) {
+            if (tags.length > 0) {
+                return tags.join(', ')
+            } else {
+                return tags;
+            }
+        }
+    }
+
     return (
         <Fragment>
            <div className="note-form">
             <h3>{props.isUpdating ? 'Edit Note:' : 'Create New Note:'}</h3>
             <form>
-                
                     <input type="text"
                     value={props.note.title}
                     name="title"
@@ -43,6 +53,13 @@ function NoteForm(props) {
                     cols="30"
                     rows="23"
                     onChange={props.handleChange}></textarea>
+                    <input 
+                    type="text" 
+                    value={joinTags(props.note.tags)} 
+                    name="tags" 
+                    onChange={props.handleChange} 
+                />
+                <p>Separate tags with commas.</p>
                 <div className="buttons">  
                 <button className="blueButton" onClick={handleSubmit}><a>{props.isUpdating ? 'Update' : 'Save'}</a></button>
                 <button className="blueButton" onClick={handleCancel}><a>Cancel</a></button>

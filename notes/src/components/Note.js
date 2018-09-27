@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Modal from './Modal/Modal';
 import '../App.css';
@@ -14,13 +15,9 @@ export default class Note extends React.Component {
 }
     
     componentDidMount() {
-        console.log("this.props:", this.props);
-        console.log("this.props.notesData:", this.props.notesData);
+        
         if(this.props.notesData) {
-//        const note = this.props.notesData.find(note => note._id === parseInt(this.props.match.params.noteId, 10));
         const currentNote = this.props.notesData.find(note => note._id === this.props.match.params.noteId);
-        console.log("note:", currentNote);
-        console.log("this.state.note:", this.state.note)
         this.setState({ note: currentNote }, () => console.log("after setState:", this.state.note));
         
         }
@@ -41,6 +38,15 @@ export default class Note extends React.Component {
     deleteNote = () => {
         this.props.deleteNote(this.state.note._id);
         this.props.history.push('/notes');
+    }
+
+    tagsMap = (tags) => {
+        if (this.props.notesData) {
+            if (tags.length > 0) {
+                return tags.map(tag => <Link to={{pathname: '/notes', state: { from: this.props.location.pathname }}}  className="tag" key={tag}><a>{tag}</a></Link>);
+              }
+        } 
+//onClick={() => this.props.history.push(`tagged/${tag}`)
     }
 
 
@@ -66,6 +72,7 @@ export default class Note extends React.Component {
                     <div className="note-info-wrapper">
                     <h1>{this.state.note.title}</h1>
                     <p>{this.state.note.textBody}</p>
+                    <p>Tags: {this.tagsMap(this.state.note.tags)}</p> 
                 
                     </div>
                 </div>
