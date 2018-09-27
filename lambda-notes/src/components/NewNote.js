@@ -6,7 +6,6 @@ class NewNote extends Component {
     state={
         title:'',
         content:'',
-        isUpdating: false
     }
 
     handleChange = e => {
@@ -15,18 +14,18 @@ class NewNote extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-            const newNote = {
-                title: this.state.title,
-                content: this.state.content,
-                id: Date.now(),
-            }
-            const emptyNote ={
-                title:'',
-                content:'',
-            }
-            this.props.createNote(newNote)
-            this.setState(emptyNote)
-            this.props.history.push('/list-view')
+        const newNote = {
+            title: this.state.title,
+            content: this.state.content,
+            id: Date.now(),
+        }
+        const emptyNote ={
+            title:'',
+            content:'',
+        }
+        this.props.createNote(newNote)
+        this.setState(emptyNote)
+        this.props.history.push('/list-view')
     }
 
     render(){

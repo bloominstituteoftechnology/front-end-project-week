@@ -6,16 +6,16 @@ class EditNote extends Component {
     state={
         title:'',
         content:'',
-        updating:true
+        updating:false
     }
 
     componentDidMount() {
         console.log("is component firing?", this.state, this.state.isUpdating)
         if (this.props.isUpdating){
             this.setState(...this.state, {
-                updating: true,
                 title: this.state.title,
-                content: this.state.content
+                content: this.state.content,
+                updating: true
             })
         }
       }

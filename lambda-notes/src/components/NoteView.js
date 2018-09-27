@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
-import { Alert } from 'reactstrap';
+// import { Modal } from 'reactstrap';
 
 
 const NoteView = props => {
@@ -18,9 +18,9 @@ const NoteView = props => {
                     <NavLink to={`/edit-view/${note.id}`} onClick={() => props.editNote(note.id)}>edit</NavLink>
                 </Link>
                 <Link>
-                    <Alert color='primary'>
+                    <div color='primary'>
                         <NavLink to="/list-view" onClick={()=>props.deleteNote(note.id)}>delete</NavLink>
-                    </Alert>
+                    </div>
                 </Link>
             </LinkWrap>            
             <ContentWrap>

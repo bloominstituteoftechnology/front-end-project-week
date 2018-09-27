@@ -14,11 +14,16 @@ class App extends Component {
     notes: [
       {
         id:'1537900213158',
-        title: 'Note Title',
+        title: 'Note Title 1',
         content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis',
-      }
+      },
+      {
+        id:'1537900213159',
+        title: 'Note Title 2',
+        content: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis',
+      },
     ],
-    isUpdating:true
+    isUpdating:false
   }
 
 
@@ -56,11 +61,11 @@ class App extends Component {
           <Route path="/create-new" render={props =>
             <NewNote {...props} createNote={this.createNote} />
           } />
+          <Route path="/edit-view/:id" render={props => 
+            <EditNote {...props} isUpdating={this.state.isUpdating} editingNote={this.editingNote} />
+          } />
           <Route path="/note-view/:id" render={props =>
             <NoteView {...props} notes={this.state.notes} editNote={this.editNote} deleteNote={this.deleteNote} />
-          } />
-          <Route path="/edit-view/:id" render={props => 
-            <EditNote {...props} isUpdating={this.state.isUpdating} editNote={this.editNote}  editingNote={this.editingNote} />
           } />
         </MainContent>    
       </AppContainer> 
