@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FormInline, Fa } from 'mdbreact';
 import Styled from 'styled-components';
 import { connect } from 'react-redux';
-import { toggleUpdateNote } from '../../store/actions';
+import { toggleUpdateNote, searchNote, searchNoteOff } from '../../store/actions';
 
 const Header = Styled.header`
     height: 100%;
@@ -69,12 +69,16 @@ class Navigation extends Component {
     
 
     handleSubmit = e => {
-        e.preventDefault();
-        this.props.handleSearch(this.state.inputValue);
+        console.log('E',e);
+        if (e === '' || e === undefined || e.lenght === 0) {this.searchNoteOff};
+        let updatedList = this.props.notes.filter(item => {
+            return item.title.toLowerCase().search(e.toLowerCase()) !== -1;
+        });
+        this.props.searchNote(updatedList);
     };
 
     handleChange = e => {
-        this.setState({ inputValue: e.target.value}, () => this.handleSubmit(e));
+        this.setState({ inputValue: e.target.value}, () => this.handleSubmit(this.state.inputValue));
     }
 
     render() {
@@ -101,8 +105,8 @@ class Navigation extends Component {
 
 // export default Navigation;
 
-const mapStateToProps = state => {
-    console.log('NAVIGATION',state);
-};
+const mapStateToProps = state => ({
+  notes: state.notes,  
+});
 
-export default connect(mapStateToProps, { toggleUpdateNote })(Navigation)
+export default connect(mapStateToProps, { toggleUpdateNote, searchNote, searchNoteOff })(Navigation)
