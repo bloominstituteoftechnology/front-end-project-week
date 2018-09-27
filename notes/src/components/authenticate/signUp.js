@@ -65,7 +65,7 @@ class SignUp extends React.Component{
                 localStorage.setItem('jwt',res.data);
                 this.props.history.push('/notes');
             })
-            .catch(err=>alert('Username or password is invalid.'))
+            .catch(err=>alert('Invalid field(s).  Username and password both require a minimum of 3 characters.'))
     }
     redirect=()=>{
         this.props.history.push('/signin');

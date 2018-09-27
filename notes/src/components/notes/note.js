@@ -48,14 +48,16 @@ const NoteTag=styled.p`
 `
 const Note=(props)=><NoteContainer>
     <Link to={`/notes/${props.data.id}`}>
-    <Content>
-    <h3>{props.data.title}</h3>
-    <Rule/>
-    {props.data.textBody.length<100?
-    <p>{props.data.textBody}</p>:
-    <p>{props.data.textBody.slice(0,101)+'...'}</p>}
-    {props.data.tags!==null?<NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags}</NoteTag>:null}
-    </Content>
+        <Content>
+            <h3>{props.data.title}</h3>
+            <Rule/>
+            {props.data.textBody.length<100?
+            <p>{props.data.textBody}</p>:
+            <p>{props.data.textBody.slice(0,101)+'...'}</p>}
+            {props.data.tags!==null?
+            <NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags}</NoteTag>
+            :null}
+        </Content>
     </Link>
-    </NoteContainer>
+</NoteContainer>
 export default Note;
