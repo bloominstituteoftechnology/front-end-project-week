@@ -20,11 +20,14 @@ class NotesForm extends Component {
         
     };
 
+
+
     render() {
         return (
             <form className="Column-Layout">
+            <h1>Create New Note:</h1>
                 <input
-                    className="input"
+                    className="input-title"
                     value={this.state.title}
                     name="title"
                     type="text"
@@ -32,14 +35,14 @@ class NotesForm extends Component {
                     onChange={this.handleTodoInput}
                 />
                 <input
-                    className="input"
+                    className="input-body"
                     value={this.state.textBody}
                     name="textBody"
                     type="text"
-                    placeholder="Note Comment"
+                    placeholder="Note Content"
                     onChange={this.handleTodoInput}
                 />
-                <button onClick={this.addTodoHandler}>Add Note</button>
+                <h3 onClick={this.addTodoHandler}>Save</h3>
             </form>
         );
     }

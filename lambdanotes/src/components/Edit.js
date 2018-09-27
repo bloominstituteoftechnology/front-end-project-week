@@ -1,56 +1,49 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { updateNote } from '../actions';
+import Editview from './Editview';
 
-class NotesForm extends Component {
-    state = {
-        title: '',
-        text: '',
-        id:Math.random(),
-    };
 
-    handleTodoInput = e => {
-        this.setState({ [e.target.name]: e.target.value });
-    };
+class Edit extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            content: ''
+            
+        }
+    }
 
-    addTodoHandler = e => {
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    
+    
+    updateNote = e => {
         e.preventDefault();
-		console.log(this.state);
-        this.props.addNote(this.state);
-        this.props.history.push("/");
-    };
-
+        let updatedNote = {
+            id: this.props.id,
+            title: this.state.title,
+            content: this.state.content
+        }
+        this.props.updateNote(updatedNote);
+    }
+    
     render() {
-        return (
-            <form className="Column-Layout">
-                <input
-                    className="input"
-                    value={this.state.title}
-                    name="title"
-                    type="text"
-                    placeholder="Note Title"
-                    onChange={this.handleTodoInput}
-                />
-                <input
-                    className="input"
-                    value={this.state.text}
-                    name="text"
-                    type="text"
-                    placeholder="Note Comment"
-                    onChange={this.handleTodoInput}
-                />
-                <button onClick={this.addTodoHandler}>Add Note</button>
-            </form>
-        );
+        return(
+           <Editview updateNote={this.updateNote} 
+           handleChange={this.handleChange} 
+           title={this.state.title} 
+           this={this.state.content}/> 
+        )
     }
 }
-
 const mapStateToProps = state => {
     return {
-        notes: state.notesReducer.notes,
-    };
-};
+      note: state.note,
+    }
+  }
 
-export default connect(mapStateToProps, {
-    addNote,
-})(NotesForm);
+export default (connect(mapStateToProps, { updateNote })(Edit));

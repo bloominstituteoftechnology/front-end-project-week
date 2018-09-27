@@ -15,13 +15,13 @@ class Notes extends Component {
   render() {
     return (
       <div className='listDisplay' >
-        <h1>Your notes</h1>
+        <h1>Your notes:</h1>
         <div className='noteDisplay'>
           {this.props.notes.map(note => {
             return (
-              <Link to={`/note/${note._id}`} >
+              <Link to={`/note/${note._id}`}>
                 <div className="notesDisplay" key={note._id}>
-                  <h1>{note.title}</h1>
+                  <h2>{note.title}</h2>
                   <p>{note.textBody}</p>
                 </div>
               </Link>

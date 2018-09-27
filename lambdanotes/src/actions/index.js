@@ -29,6 +29,12 @@ export const VIEWING_NOTE = 'VIEWING_NOTE';
 export const VIEWED_NOTE = 'VIEWED_NOTE';
 export const ERROR = 'ERROR';
 
+export const UPDATING_NOTES = 'UPDATING_NOTES';
+export const UPDATED_NOTES = 'UPDATED_NOTES';
+
+export const DELETING_NOTES = 'DELETING_NOTES';
+export const DELETED_NOTES = 'DELETED_NOTES';
+
 export const fetchData = () => {
   return (dispatch) => {
     dispatch({ type: NOTE_FETCHING_DATA  });
@@ -70,6 +76,41 @@ export const getNote = id => {
           })
           .catch(err => {
               dispatch({ type:ERROR, payload: err });
+          })
+  }
+}
+
+export const updateNote = note => {
+  return dispatch => {
+      dispatch({ type: UPDATING_NOTES });
+
+      axios
+      .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, {
+          title: note.title,
+          textBody: note.content,
+          id:note._id
+      })
+      .then(res => {
+          dispatch({ type: UPDATED_NOTES, payload: res.data })
+      })
+      .catch(err => {
+          dispatch({ tpye: ERROR, payload: err});
+      })
+  }
+}
+
+export const deleteNote = (NoteId, history) => {
+  return dispatch => {
+      dispatch({ type: DELETING_NOTES });
+
+      axios
+          .delete(`https://killer-notes.herokuapp.com/note/delete/${NoteId}`)
+          .then(res => {
+              dispatch({ type: DELETED_NOTES });
+          })
+          .then(() => history.push('/'))
+          .catch(err => {
+              dispatch({ tpye: ERROR, payload: err});
           })
   }
 }
