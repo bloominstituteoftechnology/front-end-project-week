@@ -4,16 +4,38 @@ import Create from './Create';
 import { Route } from 'react-router-dom';
 import Note from './Note';
 import Edit from './Edit';
+import axios from 'axios';
 
 class ListContainer extends React.Component {
     constructor() {
       super();
       this.state = {
         displayDelete: false,
+        notes: [],
         title: '',
-        content: '',
-        
+        content: ''
       };
+    }
+
+    componentDidMount() {
+      axios
+          .get('http://localhost:5000/api/notes')
+          .then(res => {
+              console.log('Notes Data:', res.data)
+              this.setState({ notes: res.data })
+          })
+          .catch(err => {
+              console.log(err);
+              this.props.history.push('/notes');
+          })
+    };
+
+    handleTaskChange = e => {
+      this.setState({ [e.target.name]: e.target.value });
+    }
+  
+    handleAddNoteSubmit = e => {
+      e.preventDefault();
     }
 
     handleTaskChange = e => {
@@ -22,14 +44,14 @@ class ListContainer extends React.Component {
   
     handleAddNoteSubmit = e => {
       e.preventDefault();
-      const list = this.state.list.slice();
+      const list = this.state.notes.slice();
       list.push({ title: this.state.title, content: this.state.content, id: this.currentId + 1, completed: false });
       this.setState({ list: list });
     }
 
     fetchNote = id => {
       const filterNote = this.state.notes.filter(note => note.id === id); //delete is reverse of this, use !==
-        return filterNote[0];
+      return filterNote[0];
     }
 
     updateNoteHandler = e => {
@@ -45,7 +67,7 @@ class ListContainer extends React.Component {
     }
 
     showModal = () => {
-      this.setState({ displayDelete: !this.state.displayDelete })
+      this.setState({ displayDelete: !this.state.displayDelete });
     }
 
     render() {
@@ -81,5 +103,5 @@ class ListContainer extends React.Component {
       );
     } 
   }
-  
+
   export default ListContainer;

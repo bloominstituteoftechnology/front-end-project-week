@@ -8,6 +8,7 @@ class Note extends Component {
         this.state = {
         }
     }
+
     render() {
         if (this.props.data) {
             return (
@@ -21,16 +22,19 @@ class Note extends Component {
                     </div>
                 </div>
             )
-
         } else {
             const id = Number(this.props.match.params.id.replace(':', ''));
             const note = this.props.fetchNote(id);
-            console.log(this.props.id);
-            return (
-                <div className='note-view-container'>
+            if (note === undefined) {
+                return (
+                    <h1>Loading...</h1>
+                )
+            } else {
+                return (
+                    <div className='note-view-container'>
                     <div className='note-view-top'>
                         <h3 className='note-title'>
-                            {/* {note.title} */}
+                            {note.title}
                         </h3>
                         <div>
                             <Link to="/edit"><a href='#' className='edit-delete'>edit</a></Link>
@@ -39,7 +43,7 @@ class Note extends Component {
                     </div>
                     <div className='note-view-body'>
                         <p>
-                            {/* {note.content} */}
+                            {note.content}
                         </p>  
                     </div>
                     <Delete 
@@ -47,7 +51,8 @@ class Note extends Component {
                         showModal={this.props.showModal}
                     />
                 </div>
-            )
+                )
+            }
         }
     }
 }
