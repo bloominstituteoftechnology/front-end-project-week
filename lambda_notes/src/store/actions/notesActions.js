@@ -100,11 +100,13 @@ export const searchNoteOff = () => dispatch => {
 export const sortNotesFront = notes => dispatch => {
 
     const noteList = notes.sort((a,b) => {return a.title.toLowerCase().localeCompare(b.title.toLowerCase());});
-    return dispatch({ type: SORT_NOTES_FRONT, payload: noteList});
+    dispatch({ type: SORT_NOTES_FRONT, payload: noteList});
+    getNotes()(dispatch);
 }
 
 export const sortNotesBack = notes => dispatch => {
 
     const noteList = notes.sort((a,b) => {return a.title.toLowerCase().localeCompare(b.title.toLowerCase());}).reverse();
-    return dispatch({ type: SORT_NOTES_BACK, payload: noteList});
+    dispatch({ type: SORT_NOTES_BACK, payload: noteList});
+    getNotes()(dispatch);
 }

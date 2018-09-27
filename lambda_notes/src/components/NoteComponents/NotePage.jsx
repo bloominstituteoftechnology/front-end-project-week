@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Modal } from 'mdbreact';
 import Styled from 'styled-components';
+import Remarkable from 'remarkable';
+import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
 const Wrapper = Styled.div`
@@ -74,11 +76,25 @@ class NotePage extends React.Component {
     }
 
     componentDidMount() {
-        const note = this.props.notes.find(
-            note => note._id === this.props.match.params.id
-        );
+        // const note = this.props.notes.find(
+        //     note => note._id === this.props.match.params.id
+        // );
 
-        this.setState({ note });
+        // this.setState({ note });
+
+        this.fetchNote(this.props.match.params.id);
+    }
+
+    fetchNote = id => {
+        axios.get('https://killer-notes.herokuapp.com/note/get/all')
+        .then(response => {
+            const note = response.data.find(note => note._id === id);
+            console.log('FETCH', note)
+            this.setState({ note });
+        })
+        .catch(err => {
+            console.log(err);;
+        });
     }
 
     handleDelete = () => {
@@ -93,6 +109,7 @@ class NotePage extends React.Component {
     }
 
     render() {
+        let md = new Remarkable();
         return (
             <Wrapper>
                 <Header>
@@ -103,9 +120,9 @@ class NotePage extends React.Component {
                 <h5>Tags: {this.state.note.tags}</h5>
                 <br />
                 <h5>Summary</h5>
+                {/* <div dangerouslySetInnerHTML={{ __html: md.render(`${this.state.note.textBody}`) }} /> */}
                 <ReactMarkdown source={this.state.note.textBody} />
-                {/* <p>{this.state.note.textBody}</p> */}
-    
+
                 <Modal isOpen={this.state.modal14} toggle={this.toggle} centered>
                 <ModalContainer>
                     Are you sure you want to delete this?
