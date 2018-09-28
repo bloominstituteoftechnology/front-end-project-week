@@ -38,9 +38,9 @@ render() {
 
         return (
 	<div>	
-		<form>
-        	<input className="search-bar" onChange={this.changeHandler} type="text" name="search" placeholder="search"  />
-        	</form>
+	<form>
+      	<input className="search-bar" onChange={this.changeHandler} type="text" name="search" placeholder="search"  value={this.state.search}/>
+        </form>
 	</div>
 	);
 }
@@ -50,7 +50,7 @@ const mapStateToProps = state => {
   return {
           notes: state.notes,
           fetching: state.fetchingNotes,
-          saving: state.addingNote
+          saving: state.addingNote,
   };
 };
 

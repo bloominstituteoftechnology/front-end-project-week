@@ -12,6 +12,7 @@ export const NOTE_EDITED = "NOTE_EDITED";
 export const  EDITING_NOTE = " EDITING_NOTE";
 export const FETCHING_CREATE_PAGE = "FETCHING_CREATE_PAGE";
 
+
 export const fetchingNotesAction = () => {
 	const request = axios.get('http://localhost:5000/api/notes');
 
@@ -76,10 +77,17 @@ export const fetchingCreatePage = () => {
 }
 
 
-
-export const addNotesAction = (title, content) => {
+export const addNotesAction = (title, content, file) => {
 	const note= {title: title, content: content};
-        const request = axios.post('http://localhost:5000/api/notes', note);
+	
+
+	let data = new FormData();
+	data.append('title', title);
+	data.append('content', content);
+	data.append('file', file); 
+
+
+        const request = axios.post('http://localhost:5000/api/notes', data);
 
         return (dispatch) => {
         dispatch({type: SAVING_NOTE});

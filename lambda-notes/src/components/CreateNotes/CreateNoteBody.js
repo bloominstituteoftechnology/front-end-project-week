@@ -10,6 +10,7 @@ constructor(props){
         this.state= {
                 title: "",
                 content: "",
+		selectedFile: null
         };
 
 }
@@ -26,11 +27,20 @@ changeHandler = event => {
 };
 
 
-addNote = event => {
-	this.props.addNotesAction(this.state.title, this.state.content); 
-	this.setState({title: "", content: ""});
-	//this.props.fetchingSingleNote(this.props.id);
+fileChangedHandler = (event) => {
 	
+  this.setState({selectedFile: event.target.files[0]})
+}
+
+
+addNote = event => {
+	event.preventDefault();
+
+	this.props.addNotesAction(this.state.title, this.state.content, this.state.selectedFile, ()=>{
+		this.setState({title: "", content: "", selectedFile:null});
+
+	//this.props.fetchingSingleNote(this.props.id);
+	});	
 };
 
 
@@ -61,12 +71,18 @@ render() {
 		):(
 		<div>
 		<h3 className="new-note-title">Create New Note:</h3>
-		<div className="input-container">
+
+		<form onSubmit={(e)=>{this.addNote(e)}} >
+		<div className="input-container">	
 		<input onChange={this.changeHandler} className="title-style" type="text" name="title" placeholder="Note Title" value={this.state.title} /><br />
                
 	       <textarea onChange={this.changeHandler} className="content-style" type="text" name="content" placeholder="Note Content" value={this.state.content}></textarea><br />
 
-		<button onClick={this.addNote}  className="save-btn">Save</button></div>
+		<input type="file" className="image-field" onChange={this.fileChangedHandler} /><br />
+
+		<button type="submit"  className="save-btn">Save</button>
+		</div>
+		</form>
 		</div>
 		)}
                 </div>

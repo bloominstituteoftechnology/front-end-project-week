@@ -141,7 +141,7 @@ body {
 }
 
 .note-card{
-	height: 220px;
+	height: 300px;
 	width: 200px;
 	margin-bottom: 15px!important;
 	margin-top: 25px;
@@ -268,4 +268,17 @@ body {
 	font-weight: bold;
 }
 
+.login-form-style{
+	
+	background: linear-gradient(to right,#acb6e5,#86fde8);
+	height: 100vh;
+}
 
+.image-field{
+	/*width: 10%;/*400px
+        height: 30px;
+       border: 1px solid #979797;*/
+        margin: 0px 0px 1px 25px;
+        padding-left: 4px;
+        font-size: 0.8rem;
+}

@@ -13,8 +13,6 @@ class NotesDiv extends React.Component {
 constructor(props){
         super(props);
         this.state= {
-		search: "",
-		notesArray:[]
         };
 
 }
@@ -23,6 +21,11 @@ componentDidMount() {
 	this.props.fetchingNotesAction();
 }
 
+
+viewNotesHandler = (event)=>{
+		this.resetSearchField();
+		this.props.fetchingNotesAction();
+}
 
 
 /*componentDidUpdate(prevProps,  prevState) {
@@ -34,18 +37,20 @@ componentDidMount() {
 	}
 }*/
 
-
+resetSearchField = () => {
+  document.getElementById("search-field").reset();
+}
 
 render() {
 	
 	return (
 
 	<div className="view-list-body">
-                <LambdaLeftDiv />
+                <LambdaLeftDiv viewNotesHandler={this.viewNotesHandler}/>
 
 
 	<div className="note-card-container">
-        <Search />
+        <Search id="search-field" />
 
 	<div>{this.props.fetching ? (
           null
@@ -59,6 +64,7 @@ render() {
      	return(	
 	<Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`} onClick={window.scrollTo(0, 0)} key={note.id}><div>
 	<Card className="note-card">
+	 <CardImg top width="100%" src={note.image} alt="Card image cap" />	
 	  <CardBody>
           <CardTitle><div className="card-title-div">{note.title.substring(0, 40)}</div></CardTitle>
           <CardSubtitle></CardSubtitle>
