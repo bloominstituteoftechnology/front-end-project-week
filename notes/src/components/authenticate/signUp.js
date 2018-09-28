@@ -60,12 +60,18 @@ class SignUp extends React.Component{
             password:this.state.password
         }
         axios
-            .post('https://notes-lambda.herokuapp.com/api/register',newUser)
+            .post('http://localhost:9000/api/register',newUser)
             .then(res=>{
-                localStorage.setItem('jwt',res.data);
+                localStorage.setItem('jwt',res.data.token);
                 this.props.history.push('/notes');
             })
-            .catch(err=>alert('Invalid field(s).  Username and password both require a minimum of 3 characters.'))
+            .catch(error=>{
+                if (error.message==='Request failed with status code 400') {
+                    alert('Invalid field(s). Username and password must be at least 3 characters long.')
+                } else {
+                    alert('That username is already in use.')
+                }
+            })
     }
     redirect=()=>{
         this.props.history.push('/signin');
