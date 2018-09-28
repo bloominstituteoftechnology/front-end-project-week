@@ -16,7 +16,7 @@ import Header from './header';
 class Welcome extends Component{
     
     createUser = (newUser) => {
-        axios.post('http://localhost:3333/api/welcome/register/', newUser).then(res => {
+        axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/welcome/register/', newUser).then(res => {
             localStorage.setItem('JWT', res.data.token)
             localStorage.setItem('username', res.data.username)
             this.props.history.push('/all-notes')
@@ -24,7 +24,7 @@ class Welcome extends Component{
     }
 
     loginUser2 = (creds) => {
-        axios.post('http://localhost:3333/api/welcome/login', creds).then(res => {
+        axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/welcome/login', creds).then(res => {
             localStorage.setItem('JWT', res.data.token)
             localStorage.setItem('username', res.data.username)
             this.props.history.push('/all-notes')

@@ -11,7 +11,8 @@ import axios from 'axios';
 
 import App from './App';
 
-axios.defaults.withCredentials = true;
+//changed to false when origin is undefined
+axios.defaults.withCredentials = false;
 
 const store = createStore( reducer,
    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
