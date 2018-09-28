@@ -61,18 +61,17 @@ constructor(props){
 		
 			username:"",
 			password:"",
-		
-		logged: false
+			logged: false
         };
 
 }
 
-componentDidMount() {
+/*componentDidMount() {
         const token = localStorage.getItem('token');
         if (token) {
             this.setState({logged: true});
         }
-    }
+    }*/
 
 
 
@@ -132,8 +131,8 @@ render() {
 		{this.state.logged ? (<ViewNotesContainer />):(
 		<form>
 		<Header>Login</Header>
-                <Input type="text" onChange ={this.changeHandler} name="username" placeholder="username"  />
-		<Input  type="password" onChange ={this.changeHandler} name="password" placeholder="password"  />
+                <Input type="text" onChange ={this.changeHandler} name="username" placeholder="username"  value={this.state.username}/>
+		<Input  type="password" onChange ={this.changeHandler} name="password" placeholder="password"  value={this.state.password} />
 		<Button onClick={(event)=>this.loginHandler(event)}>login</Button>
 		<Button onClick={(event)=>this.registerHandler(event)}>register</Button>
 		</form>	

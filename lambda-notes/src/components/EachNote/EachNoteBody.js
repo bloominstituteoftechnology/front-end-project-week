@@ -57,9 +57,9 @@ render() {
             <Button className="cancel-modal-btn" onClick={this.toggle}>No</Button>
 	</ModalFooter>
         </Modal>
-		
                 <h3 className="single-note-title">{this.props.single.title}</h3>
                 <div className="single-note-container">{this.props.single.content}</div>
+		<img src={this.props.single.image} alt={this.props.single.title}  height="200" width="200"/> 
 		</div>
  )}</div>
 		</div>

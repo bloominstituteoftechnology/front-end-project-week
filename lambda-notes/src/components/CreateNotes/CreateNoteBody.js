@@ -65,7 +65,7 @@ render() {
 
 		<h3 className="single-note-title">{this.props.single.title}</h3>
                 <div className="single-note-container">{this.props.single.content}</div>
-			
+		<img src={this.props.single.image} src={this.props.single.title} />			
 		</div>
 
 		):(
