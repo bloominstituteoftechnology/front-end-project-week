@@ -17,6 +17,7 @@ const Notes = props => {
   
   return (
     <Fragment>
+      
       <Sort {...props} />
       {/* <Transition
         in={props.match.url === "/notes"}
@@ -45,6 +46,7 @@ const Notes = props => {
         }}
       </Transition> */}
       <NoteTitle data-theme={selectedTheme}>Your Notes:</NoteTitle>
+       {notes.length ===0 && <EmptyNoteTitle className= {'stagger'}data-theme={selectedTheme}>No Notes Available</EmptyNoteTitle>}
       <NotesDiv data-theme={selectedTheme} id="container" >
         {notes.map(note => (
           <Note note={note} selectedTheme={selectedTheme} {...props} key={note._id}/>
@@ -67,5 +69,9 @@ justify-content: space-evenly;
 const NoteTitle = styled("h2")`
   color: ${props => props.theme[props["data-theme"]].mainTitle};
 `;
+
+const EmptyNoteTitle = styled(NoteTitle)`
+text-align:center;
+`
 
 export default Notes;

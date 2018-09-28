@@ -6,7 +6,7 @@ import { TweenMax } from "gsap";
 
 class Options extends Component {
   state = {
-    themes: ["standardTheme", "darkTheme", 'goldTheme']
+    themes: ["standardTheme", "darkTheme", 'goldTheme', 'bubbleGum', 'orangeTheme']
   };
 
   render() {

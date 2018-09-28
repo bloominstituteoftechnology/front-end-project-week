@@ -29,5 +29,28 @@ export default {
         subBackground: '#DBD9DB',
         border: '#DEB866',
         delete: 'red'
+    },
+
+    bubbleGum: {
+        nav: '#E7A0A1',
+        mainTitle: '#fff',
+        subTitle: '#6084CD',
+        button: '#A7D3E9',
+        mainBackground: '#6084CD',
+        subBackground: '#fff',
+        border: '#DEB866',
+        delete: 'red'
+    },
+    orangeTheme: {
+        nav: '#F56138',
+        mainTitle: '#fff',
+        subTitle: '#E7D450',
+        button: '#199B8A',
+        mainBackground: '#2F284F',
+        subBackground: '#fff',
+        border: '#DEB866',
+        delete: '#E71D36'
     }
 }
+
+//E7A0A1 A7D3E9

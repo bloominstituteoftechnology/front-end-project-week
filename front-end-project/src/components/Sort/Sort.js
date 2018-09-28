@@ -57,6 +57,7 @@ const DropdownContent = styled("div")`
   z-index: 1;
   a {
     color: ${props => props.theme[props['data-theme']].subTitle};
+    color: ${props => props['data-theme'] === 'bubbleGum' && '#fff'};
     padding: 12px 16px;
     text-decoration: none;
     display: block;

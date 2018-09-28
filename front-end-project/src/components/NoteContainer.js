@@ -18,7 +18,7 @@ class NoteContainer extends Component {
     notes: [],
     selectedTheme: "standardTheme",
     backupNotes: [],
-    sortOptions: ['A-Z', 'Z-A', 'Reset'],
+    sortOptions: ['A-Z', 'Z-A'],
     checklist: []
   };
 //-------------------------------------------------------Create, Update, Delete Notes
@@ -284,6 +284,7 @@ const {checklist} = this.state
               render={props => (
                 <NoteView
                   {...props}
+                  filterByTags={this.filterByTags}
                   addChecklist={this.addChecklist}
                   selectedTheme={selectedTheme}
                   updateNote={this.updateNote}

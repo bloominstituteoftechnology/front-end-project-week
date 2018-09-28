@@ -7,7 +7,13 @@ const Tag = props => {
   return (
     <TagContainer
       data-theme={selectedTheme}
-      onClick={() => props.filterByTags(tag)}
+      onClick={() => {        
+        if(props.location.pathname !== '/notes'){
+          props.history.push('/notes')
+        }
+        props.filterByTags(tag)
+      
+      }}
     >
       {tag}
     </TagContainer>
@@ -22,4 +28,12 @@ const TagContainer = styled("div")`
   border: 1px solid ${props => props.theme[props["data-theme"]].border};
   color: ${props => props.theme[props["data-theme"]].subBackground};
   background: ${props => props.theme[props["data-theme"]].button};
+  margin: 5px;
+  transition: transform .2s ease-in-out;
+  :hover{
+     transform: matrix(1.1, 0, 0, 1.1, 0, 0) !important;
+  }
+  :active{
+    transform: matrix(1, 0, 0, 1, 0, 0) !important;
+  }
 `;

@@ -21,7 +21,15 @@ class NavBar extends Component {
         <Button
           //--------------------------------------------------------View Notes Button
           data-theme={selectedTheme}
-          onClick={() => this.props.history.push("/notes")}
+          onClick={() => {
+           
+            if(this.props.location.pathname === '/notes'){
+              this.props.fetchData()              
+            }else{
+              this.props.history.push("/notes")
+            }
+          
+          }}
         >
           View Your Notes
         </Button>
