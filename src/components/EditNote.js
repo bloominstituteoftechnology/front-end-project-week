@@ -58,7 +58,7 @@ componentDidMount () {
     render() { 
         
         return (
-            <Container>
+            <Container style={{border: '1px solid gray', borderRadius: '5px', padding: '10px', marginTop: '10px', background: 'rgba(128, 128, 128, 0.5)'}}>
                 <Form>
                     <FormGroup row >
                         <Label for="exampleEmail" sm={2} size="lg">Title</Label>
