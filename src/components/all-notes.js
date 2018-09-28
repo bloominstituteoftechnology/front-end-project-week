@@ -25,7 +25,7 @@ export default class AllNotes extends Component {
       <AllNotesDiv>
         <h3>{` Hello ${localStorage.getItem('username')},`}</h3>
         <div className="sort">
-          <h4>Sort by:</h4>
+          <h4>Sort by :</h4>
             <button onClick={this.props.sortByLetter}>A->Z</button>
             <button onClick={this.props.sortById}>Id</button>
         </div>
