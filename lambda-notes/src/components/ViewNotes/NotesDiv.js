@@ -68,7 +68,7 @@ render() {
 	  <CardBody>
           <CardTitle><div className="card-title-div">{note.title.substring(0, 40)}</div></CardTitle>
           <CardSubtitle></CardSubtitle>
-          <CardText>{note.content.substring(0, 60)}...</CardText>
+          <CardText>{note.content.substring(0, 55)}...</CardText>
 
         </CardBody>
 	  
