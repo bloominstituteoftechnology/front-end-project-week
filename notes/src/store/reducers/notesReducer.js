@@ -58,7 +58,12 @@ export const notesReducer = (state = initialState, action) => {
     case NOTES_UPDATE_START:
       return { ...state, updatingNote: true };
     case NOTES_UPDATE_COMPLETE:
-      return { ...state, updatingNote: false, notes: action.payload };
+      return {
+        ...state,
+        updatingNote: false,
+        noteToUpdate: false,
+        notes: action.payload
+      };
     case NOTES_UPDATE_ERROR:
       console.log(action.payload);
     default:
