@@ -47,9 +47,11 @@ class Notes extends React.Component {
         localStorage.setItem('location',this.props.location.pathname);
         const sortOption=localStorage.getItem('sortOption');
         const token=localStorage.getItem('jwt');
+        const id=localStorage.getItem('id');
         const reqOptions={
             headers:{
-                Authorization:token
+                Authorization:token,
+                id: id
             }
         }
         sortOption?this.setState({sortOption:sortOption},()=>this.props.getNotes(reqOptions)):this.props.getNotes(reqOptions);

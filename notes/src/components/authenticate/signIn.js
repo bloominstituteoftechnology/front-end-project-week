@@ -25,11 +25,14 @@ const SignInInput=styled.input`
     margin-top:5px;
 `
 const SignInPageButton=styled.button`
+    webkit-appearance:none;
+    border-color:transparent;
     width:50%;
     display: block;
     margin-top:5px;
     height:30px;
     border-radius:5px;
+    color:#000;
     &:hover{
         opacity:0.85;
     }
@@ -58,9 +61,10 @@ class SignIn extends React.Component{
             password:this.state.password
         }
         axios
-            .post('http://localhost:9000/api/login',user)
+            .post('https://notes-lambda.herokuapp.com/api/login',user)
             .then(res=>{
-                localStorage.setItem('jwt',res.data);
+                localStorage.setItem('id',res.data.user_id);
+                localStorage.setItem('jwt',res.data.token);
                 this.props.history.push('/notes');
             })
             .catch(err=>alert('Username or password is invalid.'))

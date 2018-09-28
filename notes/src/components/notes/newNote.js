@@ -73,7 +73,8 @@ class NewNote extends React.Component{
             const newNote={
                 title:this.state.title,
                 textBody: this.state.content,
-                tags: tags.length>0?tags:null
+                tags: tags.length>0?tags:null,
+                user_id:localStorage.getItem('id')
             }
             this.props.addNote(newNote,this.props.history);
         }

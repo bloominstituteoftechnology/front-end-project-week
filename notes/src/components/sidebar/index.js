@@ -66,6 +66,7 @@ class SideBar extends React.Component{
     }
     logout=()=>{
         localStorage.removeItem('jwt');
+        localStorage.removeItem('id');
         this.props.history.push('/signin');
     }
     render() {

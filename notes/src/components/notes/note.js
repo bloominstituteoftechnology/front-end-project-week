@@ -20,9 +20,7 @@ h3{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-p{
-    font-size: 16px;
-}
+
 a{
     text-decoration: none;
     color: #000;
@@ -38,10 +36,14 @@ margin: 0 auto;
 height: 2px;
 background-color:#c6c6c6;
 `
-const NoteTag=styled.p`
+const NoteTag=styled.div`
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    height:40px;
+    font-size: 16px;
+    white-space: no-wrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
     span{
         margin-right: 3%;
     }

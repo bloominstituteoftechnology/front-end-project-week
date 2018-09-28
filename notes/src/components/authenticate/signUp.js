@@ -31,7 +31,9 @@ const SignUpPageButton=styled.button`
     margin-top:5px;
     height:30px;
     border-radius:5px;
-    outline:none;
+    -webkit-appearance: none;
+    border-color:transparent;
+    color:#000;
     &:hover{
         opacity:0.85;
     }
@@ -56,12 +58,13 @@ class SignUp extends React.Component{
     onSubmitHandler=(e)=>{
         e.preventDefault();
         const newUser={
-            username:this.state.username,
+            username:this.state.username.toLowerCase(),
             password:this.state.password
         }
         axios
-            .post('http://localhost:9000/api/register',newUser)
+            .post('https://notes-lambda.herokuapp.com/api/register',newUser)
             .then(res=>{
+                localStorage.setItem('id',res.data.user_id);
                 localStorage.setItem('jwt',res.data.token);
                 this.props.history.push('/notes');
             })

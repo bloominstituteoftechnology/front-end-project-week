@@ -86,7 +86,8 @@ class EditNoteForm extends React.Component{
         const editedNote={
             title:this.state.title,
             textBody: this.state.content,
-            tags: tags
+            tags: tags,
+            user_id:localStorage.getItem('id')
         }
         this.props.updateNote(this.state.id,editedNote,this.props.history);
     }
