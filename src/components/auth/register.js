@@ -8,7 +8,7 @@ export default class Register extends Component{
     render(props){
         return(
             <RegisterDiv>
-                <h1>RegisterDiv</h1>
+                <h1>Register</h1>
                 <p>{this.props.failed ? 'registration failed, please try again. Most likley the username is not availible': null}</p>
                 <UserForm loginOrRegister={this.props.createUser}/>
             </RegisterDiv>
@@ -17,5 +17,5 @@ export default class Register extends Component{
 };
 
 const RegisterDiv = styled.div`
-    border: 1px solid red;
+    ${'' /* border: 1px solid red; */}
 `;

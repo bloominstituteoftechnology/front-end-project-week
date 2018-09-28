@@ -7,7 +7,7 @@ export default class Login extends Component{
     render(){
         return(
             <LoginDiv>
-                <h1>LoginDiv</h1>
+                <h1>Login</h1>
                 <p>{this.props.failed ? 'login failed, please try again or register': null}</p>
                 <UserForm loginOrRegister={this.props.loginUser} />
             </LoginDiv>
@@ -16,5 +16,5 @@ export default class Login extends Component{
 }
 
 const LoginDiv = styled.div`
-    border: 1px solid red;
+    ${'' /* border: 1px solid red; */}
 `;

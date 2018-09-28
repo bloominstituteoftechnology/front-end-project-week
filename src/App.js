@@ -18,9 +18,9 @@ import {
 } from './components';
 
 import {
-  addNote,
-  deleteNote,
-  editNote,
+  // addNote,
+  // deleteNote,
+  // editNote,
   getNotes,
   sortNote,
   clearNotes,

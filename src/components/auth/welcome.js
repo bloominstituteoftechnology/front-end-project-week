@@ -57,14 +57,14 @@ const mapStateToProps = store => {
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome)
 
 const WelcomeDiv = styled.div`
-    border: 1px solid red;
+    ${'' /* border: 1px solid red; */}
     display: flex;
     flex-direction: column;
     align-items: center;
     .links{
         width: 100%;
         height: 40px;
-        border: 1px solid green;
+        ${'' /* border: 1px solid green; */}
         display: flex;
         flex-direction: row;
         justify-content: space-around;

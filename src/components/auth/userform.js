@@ -55,7 +55,7 @@ export default class UserForm extends Component{
 }
 
 const UserFormDiv = styled.div`
-    border: 1px solid red;
+    ${'' /* border: 1px solid red; */}
     form{
         display: flex;
         flex-direction: column;
