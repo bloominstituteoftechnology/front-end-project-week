@@ -172,7 +172,7 @@ class App extends Component {
     return (
       <AppDiv>
         {localStorage.getItem('JWT') ? <LeftMenu logout={this.logout} /> : null}
-
+        
         <div className="right-display">
          {localStorage.getItem('JWT') ?
             <React.Fragment>
