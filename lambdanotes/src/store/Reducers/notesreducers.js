@@ -10,8 +10,7 @@ import {
     DELETE_PROMPT,
     DELETING_NOTE,
     DELETED_NOTE,
-    NOTE_ERROR,
-    NOTE_TO_EDIT
+    NOTE_ERROR
 } from '../actions/';
 
 const initialState = {
@@ -58,16 +57,17 @@ export default (state = initialState, action) => {
         case GOT_NOTES:
             return {...state, status: {...state.status, gettingNotes: false, gotNotes: true, isEditing: false}, notes: action.payload, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1} };
         case GETTING_SINGLE_NOTE:
-            return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false, noteMessage: "", noteError: ""}, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1}};
+            console.log('GETTING_SINGLE_NOTE', action)
+            return {...state, status: {...state.status, gettingSingleNote: true, gotSingleNote: false, isEditing: false, noteMessage: "", noteError: ""}, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1}};
         case GOT_SINGLE_NOTE:
-            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true, noteError: action.payload.errorMessage ? action.payload.errorMessage : ""}, noteViewer: {...action.payload}};
+            console.log('GOT_SINGLE_NOTE', action);
+            return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true, isEditing: true, noteError: action.payload.errorMessage ? action.payload.errorMessage : ""}, noteViewer: {...action.payload}};
         //~~~~~PUT Handling~~~~~//
-        case NOTE_TO_EDIT:
-            const noteToEdit = state.notes.find( (note) => action.payload === note._id);
-            return {...state, status: {...state.status, isEditing: true}, noteViewer: {...noteToEdit}};
         case PUTTING_NOTE:
+            console.log('PUTTING_NOTE', action);
             return {...state, status: {...state.status, puttingNote: true, puttedNote: false, noteMessage: "", noteError: ""}};
         case PUTTED_NOTE:
+            console.log('PUTTED_NOTE', action);
             return {...state, status: {...state.status, isEditing: false, puttingNote: false, puttedNote: true}, noteViewer: {tags: [], title: "", textBody: "", _id: "", __v: -1}};
         //~~~~~DELETE Handling~~~~~//
         case DELETE_PROMPT:

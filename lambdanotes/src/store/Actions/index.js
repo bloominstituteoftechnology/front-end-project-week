@@ -16,7 +16,5 @@ export {
     deleteNote,
     DELETING_NOTE,
     DELETED_NOTE,
-    NOTE_ERROR,
-    noteToEdit,
-    NOTE_TO_EDIT
+    NOTE_ERROR
 } from './notesactions';

@@ -102,7 +102,6 @@ NoteEditor.propTypes = {
         __v: PropTypes.number
     }).isRequired,
     postNote: PropTypes.func.isRequired,
-    // getNotes: PropTypes.func.isRequired,
     putNote: PropTypes.func.isRequired
 };
 

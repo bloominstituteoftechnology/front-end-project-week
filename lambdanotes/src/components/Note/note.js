@@ -30,7 +30,7 @@ const BoldSpan = Styled.span`
 
 class Note extends Component {
     editHandler = () => {
-        this.props.noteToEdit(this.props.note._id);
+        // this.props.noteToEdit(this.props.note._id);
         setTimeout(() => this.props.history.push('/noteeditor'), 1000);
     };
 
@@ -95,7 +95,6 @@ Note.propTypes = {
         noteMessage: PropTypes.string,
 		noteError: PropTypes.string
     }),
-    noteToEdit: PropTypes.func,
     deletePromptModal: PropTypes.func,
     deleteNote: PropTypes.func
 };

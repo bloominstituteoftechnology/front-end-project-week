@@ -12,7 +12,6 @@ export const DELETE_PROMPT = 'DELETE_PROMPT';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETED_NOTE = 'DELETED_NOTE';
 export const NOTE_ERROR = 'NOTE_ERROR';
-export const NOTE_TO_EDIT = 'NOTE_TO_EDIT';
 
 const dataSource = 'https://killer-notes.herokuapp.com/note/';
 
@@ -51,24 +50,6 @@ export const getSingleNote = (noteId) => {
             .get(`${dataSource}get/${noteId}`)
             .then( (response) => {
                 dispatch( {type: GOT_SINGLE_NOTE, payload: response.data} );
-            })
-            .catch( (err) => {
-                dispatch( {type: NOTE_ERROR, payload: err.message} );
-            });
-    };
-};
-
-export const noteToEdit = (noteId) => {
-    // Basically cloning getSingleNote() with an extra NOTE_TO_EDIT '.then' dispatch to ensure state data is always up to date before copying it to the tmpNote key for editing
-    return (dispatch) => {
-        dispatch( {type: GETTING_SINGLE_NOTE} );
-        Axios
-            .get(`${dataSource}get/${noteId}`)
-            .then( (response) => {
-                dispatch( {type: GOT_SINGLE_NOTE, payload: response.data} );
-            })
-            .then( () => {
-                dispatch( {type: NOTE_TO_EDIT, payload: noteId} );
             })
             .catch( (err) => {
                 dispatch( {type: NOTE_ERROR, payload: err.message} );

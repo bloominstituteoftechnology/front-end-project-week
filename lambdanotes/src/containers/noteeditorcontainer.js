@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { postNote, getNotes, putNote } from '../store/actions/'
+import { postNote, putNote } from '../store/actions/'
 
 import { NoteEditor } from '../components/NoteEditor/';
 
@@ -13,7 +13,6 @@ class NoteEditorContainer extends Component {
                 tmpNote={this.props.tmpNote}
                 isEditing={this.props.isEditing}
                 postNote={this.props.postNote}
-                getNotes={this.props.getNotes}
                 putNote={this.props.putNote}
             />
         );
@@ -30,7 +29,6 @@ NoteEditorContainer.propTypes = {
         __v: PropTypes.number
     }),
     postNote: PropTypes.func,
-    getNotes: PropTypes.func,
     putNote: PropTypes.func
 };
 
@@ -44,4 +42,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { postNote, getNotes, putNote })(NoteEditorContainer);
+export default connect(mapStateToProps, { postNote, putNote })(NoteEditorContainer);
