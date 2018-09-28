@@ -11,7 +11,7 @@ export const DELETED = "DELETED";
 export const NOTE_EDITED = "NOTE_EDITED";
 export const  EDITING_NOTE = " EDITING_NOTE";
 export const FETCHING_CREATE_PAGE = "FETCHING_CREATE_PAGE";
-
+export const CREATE_NOTE_RESET = "CREATE_NOTE_RESET";
 
 export const fetchingNotesAction = () => {
 	const request = axios.get('http://localhost:5000/api/notes');
@@ -75,6 +75,18 @@ export const fetchingCreatePage = () => {
         dispatch({type: FETCHING_CREATE_PAGE});
 }
 }
+
+
+export const resetCreateNotes = () => {
+        return (dispatch) => {
+        dispatch({type: CREATE_NOTE_RESET});
+}
+}
+
+
+
+
+
 
 
 export const addNotesAction = (title, content, file) => {
