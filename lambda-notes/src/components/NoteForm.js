@@ -5,24 +5,25 @@ class NoteForm extends React.Component{
     constructor(){
         super()
         this.state = {
-            noteTitle: "",
-            noteBody: ""
+            note:{
+                title:'',
+                textBody:''
+            }
         }
     }
 
     addNote = event => {
         event.preventDefault();
         const newNote = {
-          noteTitle: this.state.noteTitle,
-          noteBody: this.state.noteBody,
-          id: this.state.id
+          title: this.state.title,
+          textBody: this.state.textBody
         }
     
         this.props.postNote(newNote);
         
         this.setState({
-          noteTitle: '',
-          noteBody: '',
+          title: '',
+          textBody: ''
         });
       }
     
@@ -35,8 +36,8 @@ class NoteForm extends React.Component{
             <div>
                 <h1>My Form</h1>
                 <form onSubmit={this.addNote}>
-                    <input type="text" onChange={this.handleInputChange} name="noteTitle" value={this.state.noteTitle} placeholder="Title" />
-                    <input type="textbox" onChange={this.handleInputChange} name="noteBody" value={this.state.noteBody} placeholder="notes" />
+                    <input type="text" onChange={this.handleInputChange} name="title" value={this.state.title} placeholder="Title" />
+                    <input type="textbox" onChange={this.handleInputChange} name="textBody" value={this.state.textBody} placeholder="Notes" />
                     <button type="submit">Add Note</button>
                 </form>
             </div>

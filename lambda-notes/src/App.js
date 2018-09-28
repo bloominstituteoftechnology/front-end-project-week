@@ -13,7 +13,11 @@ class App extends Component {
   constructor(props){
     super()
     this.state = {
-      notes: []
+      notes: [],
+      note: {
+        title: '',
+        textBody: ''
+      }
     }
   }
 

@@ -15,16 +15,16 @@ class Notes extends React.Component {
             <h2>Your Notes:</h2>
             {this.props.notes.map(note => {
                 return(
-                <div className ="link">    
-                <Link to={`/${note._id}`}>    
+                <Link to={`/${note._id}`}>   
+                <div className ="link">        
                 <Note 
                 noteTitle ={note.title}
-                noteBody={note.textBody}
-                id = {note._id} 
+                noteBody={note.textBody} 
                 key = {note._id}
+                note={note}
                 />
-                </Link>
                 </div>
+                </Link>
                 )
             })}
         </div>
