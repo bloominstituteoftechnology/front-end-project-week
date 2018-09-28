@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {addNotesAction, fetchingSingleNote, fetchingCreatePage} from "../../actions";
+import {resetCreateNotes, addNotesAction, fetchingSingleNote, fetchingCreatePage} from "../../actions";
 import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
 
 class CreateNoteBody extends React.Component {
@@ -44,6 +44,12 @@ addNote = event => {
 };
 
 
+createNotesReset =event =>{
+	  this.props.resetCreateNotes();
+
+};
+
+
 componentDidUpdate(prevProps,  prevState) {
 if (prevProps.saved !== this.props.saved){
         this.props.fetchingSingleNote(this.props.id);
@@ -55,7 +61,7 @@ if (prevProps.saved !== this.props.saved){
 render() {
         return(
 	<div className="view-list-body desktop-view tablet-view">
-                <LambdaLeftDiv />
+                <LambdaLeftDiv createNotesReset={this.createNotesReset}/>
 
 
                 <div className="note-card-container">{this.props.fetchedSingleNote? (
@@ -105,7 +111,7 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, {addNotesAction, fetchingSingleNote, fetchingCreatePage})(CreateNoteBody);
+export default connect(mapStateToProps, {resetCreateNotes, addNotesAction, fetchingSingleNote, fetchingCreatePage})(CreateNoteBody);
 
 
 
