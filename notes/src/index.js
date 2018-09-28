@@ -35,3 +35,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 registerServiceWorker();
+
+//I'm commiting in current state before re-factoring with Redux.
