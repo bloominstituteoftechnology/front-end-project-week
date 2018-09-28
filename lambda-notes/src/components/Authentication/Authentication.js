@@ -1,6 +1,7 @@
 import React from "react";
 import NotesPage from "../NotesContainer/NotesPage";
 import axios from 'axios'
+import '../../App.css';
 
 const Authenticate = Posts =>
     class extends React.Component {
@@ -12,6 +13,7 @@ const Authenticate = Posts =>
 
                 LoggedIn: false,
             };
+
         }
         
 
@@ -28,7 +30,7 @@ const Authenticate = Posts =>
             const name = this.state.username
             localStorage.setItem('username', name)
             if (name.length > 0) {
-                axios.post('http://localhost:3500/api/register', this.state )
+                axios.post('http://localhost:3500/api/register', this.state  )
             .then(res => {
                 console.log(res.data)
                 localStorage.setItem('jwt', res.data.token)
@@ -53,7 +55,8 @@ const Authenticate = Posts =>
                 localStorage.setItem('jwt', res.data.token)
                 this.setState({LoggedIn: true})
             }).catch(err => {
-                console.log(err)
+                console.log(err.response)
+                this.setState({res: err.response.data.message})
             })
             }
             
@@ -73,7 +76,7 @@ const Authenticate = Posts =>
             }
             else {
                 return (
-                    <div>
+                    <div className='App'>
 
                         <form onSubmit={this.nothing}>
                             <div>
@@ -112,6 +115,7 @@ const Authenticate = Posts =>
                                 Register
                             </button>
                         </form>
+                        
                     </div>
                 )
             }

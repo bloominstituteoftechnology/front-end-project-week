@@ -40,7 +40,7 @@ class ViewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: props.match.params.id,
+            id: props.match.params.id-1,
             note: props.note,
             delete: props.delete,
             clicked: props.clicked

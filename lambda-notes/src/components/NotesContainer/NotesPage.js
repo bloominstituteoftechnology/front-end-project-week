@@ -26,10 +26,19 @@ class NotesPage extends Component {
 
         }
         console.log(props)
+        
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3500/')
+        const token = localStorage.getItem('jwt');
+
+        const reqOptions = {
+            headers: {
+                Authorization: token,
+            }
+        };
+
+        axios.get('http://localhost:3500/', reqOptions)
             .then(res => {
                 this.setState({ notes: res.data })
             }).catch(err => {
@@ -45,7 +54,15 @@ class NotesPage extends Component {
 
     addNote = e => {
         e.preventDefault()
-        axios.post('http://localhost:3500/api/create', { title: this.state.noteName, content: this.state.noteText })
+
+        const token = localStorage.getItem('jwt');
+        const reqOptions = {
+            headers: {
+                Authorization: token,
+            }
+        };
+
+        axios.post('http://localhost:3500/api/create', { "title": this.state.noteName, "content": this.state.noteText }, reqOptions)
             .then(res => {
                 console.log(res.data)
             }).catch(err => {
@@ -91,10 +108,18 @@ class NotesPage extends Component {
 
     editSubmit = (e, id) => {
         e.preventDefault()
+
+        const token = localStorage.getItem('jwt');
+        const reqOptions = {
+            headers: {
+                Authorization: token,
+            }
+        };
+
         let notes = this.state.notes.slice()
         notes[this.state.clicked].noteName = this.state.editName
         notes[this.state.clicked].noteText = this.state.editText
-        axios.put(`http://localhost:3500/api/edit/${id}`, { title: this.state.editName, content: this.state.editText })
+        axios.put(`http://localhost:3500/api/edit/${id}`, { title: this.state.editName, content: this.state.editText }, reqOptions)
             .then(res => {
                 console.log(res.data)
             }).catch(err => {
