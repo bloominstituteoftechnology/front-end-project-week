@@ -71,8 +71,6 @@ export const getNotes = () =>  {
       }
       axios.get('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/all', authHeader)
         .then(res => {
-          console.log(res)
-          //convert tags from strings to array here and pass it back 
         dispatch({type: NOTES_RECIEVED, payload: res.data})
       })
         .catch(err => {
