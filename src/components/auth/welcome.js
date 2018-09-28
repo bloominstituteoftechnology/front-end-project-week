@@ -16,24 +16,17 @@ import Header from './header';
 class Welcome extends Component{
     
     createUser = (newUser) => {
-        console.log('most things work locally')
-        console.log('createuser in welcome.js', newUser)
-//changed to api
         axios.post('http://localhost:3333/api/welcome/register/', newUser).then(res => {
-            console.log(res)
             localStorage.setItem('JWT', res.data.token)
             localStorage.setItem('username', res.data.username)
-            // this.props.getNotes();
             this.props.history.push('/all-notes')
         }).catch(err => {console.log(err.message)})
     }
 
     loginUser2 = (creds) => {
-        // console.log('loginuser in welcome.js', creds)
         axios.post('http://localhost:3333/api/welcome/login', creds).then(res => {
             localStorage.setItem('JWT', res.data.token)
             localStorage.setItem('username', res.data.username)
-            // this.props.getNotes();
             this.props.history.push('/all-notes')
         }).catch(err => {console.log(err.message)})
     }

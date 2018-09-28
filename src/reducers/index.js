@@ -15,6 +15,7 @@ import {
   CREDENTIALS_ACCEPTED,
   FAILED_LOGIN_ATTEMPT,
   FAILED_REGISTRATION_ATTEMPT,
+  CLEAR_NOTES,
 } from '../actions';
 
 const initialState = {
@@ -30,6 +31,10 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case CLEAR_NOTES: 
+      return Object.assign({}, state, {
+        notes: [],
+      })
     case FAILED_REGISTRATION_ATTEMPT:
       return Object.assign({}, state, {
         failedRegistrationAttempt: true,

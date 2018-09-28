@@ -14,7 +14,7 @@ export default class AllNotes extends Component {
   componentDidMount(){
     console.log('CDM')
     if(localStorage.getItem('JWT')){
-      //do nothing
+      this.props.getNotes();
     } else {
       this.props.history.push('/welcome/login')
     }

@@ -23,6 +23,7 @@ import {
   editNote,
   getNotes,
   sortNote,
+  clearNotes,
   } from './actions';
 
 class App extends Component {
@@ -36,8 +37,6 @@ class App extends Component {
 
   componentDidMount = () => {
     if(localStorage.getItem('JWT')){
-      this.props.getNotes();
-      //get username to display on page 
       this.props.history.push('/all-notes')
     } else {
       this.props.history.push('/welcome/')
@@ -96,8 +95,8 @@ class App extends Component {
       axios.put(`http://localhost:3333/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
       // axios.put(`http://localhost:3333/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
       .then(res => {
-        this.props.history.push('/all-notes')
         this.props.getNotes();
+        this.props.history.push('/all-notes')
       }).catch(err => console.log(err.message))
     }else {
       console.log('need to include toekn in request')
@@ -165,6 +164,7 @@ class App extends Component {
     e.preventDefault();
     localStorage.removeItem('JWT');
     localStorage.removeItem('username');
+    this.props.clearNotes();
     this.props.history.push('/welcome')
   }
 
@@ -186,7 +186,8 @@ class App extends Component {
                           sortById={this.sortById}
                           onDrop={this.handleDrop} 
                           notes={this.props.state.notes}
-                          username={this.props.state.username} />
+                          username={this.props.state.username}
+                          getNotes={this.props.getNotes} />
                       )
                     }}
                   ></Route>
@@ -257,6 +258,7 @@ const mapDispatchToProps = {
   // deleteNote,
   // editNote,
   sortNote,
+  clearNotes,
 }
  export default DragDropContext(HTML5Backend)(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));
 

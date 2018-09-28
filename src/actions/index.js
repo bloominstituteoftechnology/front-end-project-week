@@ -16,6 +16,7 @@ export const SENDING_CREDENTIALS = 'SENDING_CREDENTIALS';
 export const CREDENTIALS_ACCEPTED = 'CREDENTIALS_ACCEPTED';
 export const FAILED_LOGIN_ATTEMPT = 'FAILED_LOGIN_ATTEMPT';
 export const FAILED_REGISTRATION_ATTEMPT = 'FAILED_REGISTRATION_ATTEMPT';
+export const CLEAR_NOTES = 'CLEAR_NOTES';
 
 // export const loginUser = (creds) => {
 //   return function(dispatch){
@@ -50,6 +51,12 @@ export const FAILED_REGISTRATION_ATTEMPT = 'FAILED_REGISTRATION_ATTEMPT';
 //     })
 //   }
 // }
+
+export const clearNotes = () => {
+  return function(dispatch){
+    dispatch({type: CLEAR_NOTES})
+  }
+}
 
 export const getNotes = () =>  {
   return function(dispatch){
