@@ -12,7 +12,7 @@ export default class AllNotes extends Component {
   }
 
   componentDidMount(){
-    console.log('CDM')
+    // console.log('CDM')
     if(localStorage.getItem('JWT')){
       this.props.getNotes();
     } else {

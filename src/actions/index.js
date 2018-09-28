@@ -61,7 +61,7 @@ export const clearNotes = () => {
 export const getNotes = () =>  {
   return function(dispatch){
     if(localStorage.getItem('JWT')){
-      console.log('token')
+      // console.log('token')
       dispatch({type: FETCHING_NOTES});
       const token = localStorage.getItem('JWT')
       const authHeader = {

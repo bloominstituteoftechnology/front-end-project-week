@@ -104,7 +104,7 @@ class App extends Component {
   }
 
   handleDrop(id){
-    console.log('handleDrop, id: ', id);
+    // console.log('handleDrop, id: ', id);
     //will delete from actions when uncommented
     // this.props.deleteNote(id)
     if(localStorage.getItem('JWT')){

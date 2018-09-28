@@ -15,7 +15,7 @@ export default class EditForm extends Component {
   }
 
   sendToApp = (e) => {
-    console.log('send to app')
+    // console.log('send to app')
     this.props.editNote(this.state)
   }
 

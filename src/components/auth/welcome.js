@@ -32,7 +32,7 @@ class Welcome extends Component{
     }
 
     render(props){
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <WelcomeDiv>
                 <Route path="/" component={Header} />
