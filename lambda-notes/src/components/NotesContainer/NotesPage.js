@@ -40,6 +40,7 @@ class NotesPage extends Component {
 
         axios.get('http://localhost:3500/', reqOptions)
             .then(res => {
+                console.log('response from server:', res.data);
                 this.setState({ notes: res.data })
             }).catch(err => {
                 console.log(err)
