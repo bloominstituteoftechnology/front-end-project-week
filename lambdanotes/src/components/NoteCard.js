@@ -44,6 +44,7 @@ const CardDiv = styled.div`
     h3{
       margin-top: 10px;
       color: #000000;
+      overflow-wrap: break-word;
     }
 
     hr {
