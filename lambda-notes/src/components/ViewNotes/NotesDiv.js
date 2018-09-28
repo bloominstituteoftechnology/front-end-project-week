@@ -64,7 +64,7 @@ render() {
      	return(	
 	<Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`} onClick={window.scrollTo(0, 0)} key={note.id}><div>
 	<Card className="note-card">
-	 <CardImg top width="100%" src={note.image} alt="Card image cap" />	
+	 <CardImg top width="100%" src={note.image} alt="" />	
 	  <CardBody>
           <CardTitle><div className="card-title-div">{note.title.substring(0, 40)}</div></CardTitle>
           <CardSubtitle></CardSubtitle>
