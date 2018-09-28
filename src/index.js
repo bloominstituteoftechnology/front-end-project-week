@@ -15,8 +15,9 @@ import App from './App';
 axios.defaults.withCredentials = false;
 
 const store = createStore( reducer,
-   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-   applyMiddleware(thunk, logger)
+   applyMiddleware(thunk)
+  //  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  //  applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(

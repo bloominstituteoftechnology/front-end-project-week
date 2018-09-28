@@ -73,7 +73,7 @@ class App extends Component {
           } 
         }
       axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/', (newNote), authHeader)
-      // axios.post('http://localhost:3333/api/notes/', (newNote), authHeader)
+      // axios.post('https://lambda-notes-backend-mjk.herokuapp.com/api/notes/', (newNote), authHeader)
       .then(res => {
         this.props.history.push('/all-notes')
         this.props.getNotes();
@@ -93,7 +93,7 @@ class App extends Component {
         } 
       }
       axios.put(`https://lambda-notes-backend-mjk.herokuapp.com/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
-      // axios.put(`http://localhost:3333/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
+      // axios.put(`https://lambda-notes-backend-mjk.herokuapp.com/api/notes/${noteEdit.id}`, (noteEdit), authHeader)
       .then(res => {
         this.props.getNotes();
         this.props.history.push('/all-notes')
@@ -115,7 +115,7 @@ class App extends Component {
         } 
       }
       axios.delete(`https://lambda-notes-backend-mjk.herokuapp.com/api/notes/${id}`, authHeader)
-      // axios.delete(`http://localhost:3333/api/notes/${id}`, authHeader)
+      // axios.delete(`https://lambda-notes-backend-mjk.herokuapp.com/api/notes/${id}`, authHeader)
       .then(res => {
         this.props.history.push('/all-notes')
         this.props.getNotes();
@@ -172,7 +172,7 @@ class App extends Component {
     return (
       <AppDiv>
         {localStorage.getItem('JWT') ? <LeftMenu logout={this.logout} /> : null}
-        
+
         <div className="right-display">
          {localStorage.getItem('JWT') ?
             <React.Fragment>
