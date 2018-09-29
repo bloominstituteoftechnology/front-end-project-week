@@ -1,1 +1,7 @@
-/*    /index.html   200
+[[redirects]]
+from = "/notes"
+to= "http://localhost:3000/notes"
+
+[[redirects]]
+from="/add"
+to="http://localhost:3000/add"
