@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { postNote, putNote } from '../store/actions/'
+import { postNote, isEditingNote, clearNoteView, putNote } from '../store/actions/'
 
 import { NoteEditor } from '../components/NoteEditor/';
 
@@ -37,9 +37,10 @@ const mapStateToProps = (state) => {
         isEditing: state.notesReducers.status.isEditing,
         tmpNote: {
             ...state.notesReducers.noteViewer,
-            tags: state.notesReducers.noteViewer.tags.join() // Makes working with the tags in the form easier. Eventually gets reconstituted to an array in the submitHandler in NoteEditor.
+            // join() makes working with the tags in the form easier. Eventually gets reconstituted to an array in the submitHandler in NoteEditor.
+            tags: state.notesReducers.noteViewer.tags.join()
         }
     };
 };
 
-export default connect(mapStateToProps, { postNote, putNote })(NoteEditorContainer);
+export default connect(mapStateToProps, { postNote, isEditingNote, clearNoteView, putNote })(NoteEditorContainer);

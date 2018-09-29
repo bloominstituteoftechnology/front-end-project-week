@@ -6,6 +6,8 @@ export const GETTING_NOTES = 'GETTING_NOTES';
 export const GOT_NOTES = 'GOT_NOTES';
 export const GETTING_SINGLE_NOTE = 'GETTING_SINGLE_NOTE';
 export const GOT_SINGLE_NOTE = 'GOT_SINGLE_NOTE';
+export const IS_EDITING_NOTE = 'IS_EDITING_NOTE';
+export const CLEAR_NOTE_VIEW = 'CLEAR_NOTE_VIEW';
 export const PUTTING_NOTE = 'PUTTING_NOTE';
 export const PUTTED_NOTE = 'PUTTED_NOTE';
 export const DELETE_PROMPT = 'DELETE_PROMPT';
@@ -55,6 +57,16 @@ export const getSingleNote = (noteId) => {
                 dispatch( {type: NOTE_ERROR, payload: err.message} );
             });
     };
+};
+
+export const clearNoteView = () => {
+    console.log('clearNoteView');
+    return (dispatch) => dispatch( {type: CLEAR_NOTE_VIEW} );
+};
+
+export const isEditingNote = () => {
+    console.log('isEditingNote');
+    return (dispatch) => dispatch( {type: IS_EDITING_NOTE} );
 };
 
 export const putNote = (updatedNote) => {

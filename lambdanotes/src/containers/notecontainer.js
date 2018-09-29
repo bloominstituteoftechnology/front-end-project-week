@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getSingleNote, deletePromptModal, deleteNote } from '../store/actions/';
+import { getSingleNote, isEditingNote, deletePromptModal, deleteNote } from '../store/actions/';
 
 import { Note } from '../components/Note/';
 
@@ -16,6 +16,7 @@ class NoteContainer extends Component {
             <Note 
                 {...this.props}
                 note={this.props.note}
+                isEditingNote={this.props.isEditingNote}
                 deletePromptModal={this.props.deletePromptModal}
                 deleteNote={this.props.deleteNote}
             />
@@ -58,4 +59,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { getSingleNote, deletePromptModal, deleteNote })(NoteContainer);
+export default connect(mapStateToProps, { getSingleNote, isEditingNote, deletePromptModal, deleteNote })(NoteContainer);
