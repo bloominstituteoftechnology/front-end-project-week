@@ -123,7 +123,7 @@ body {
 	/*display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;*/
-	background-color: #F3F3F3;
+	background-color: #fff; /*#F3F3F3;*/
 	width: 100%;
 	min-height: 800px;
         height: auto;
@@ -206,7 +206,7 @@ body {
 
 .left-div{
 	width: 200px;
-	background-color: #D8D8D8;
+	background-color: #fff;/*#D8D8D8;*/
 	/*height: 2000px;*/
 	border-right: 1px solid #979797;
 
