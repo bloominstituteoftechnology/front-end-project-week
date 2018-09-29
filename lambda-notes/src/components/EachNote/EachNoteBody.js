@@ -5,6 +5,17 @@ import { connect } from 'react-redux';
 import {fetchingSingleNote, deleteNoteAction} from "../../actions";
 import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import styled from 'styled-components';
+
+const Image = styled.img`
+        margin-top: 4%;
+        margin-bottom: 1%;
+	max-height: 300px;
+`
+
+
+
+
 
 class EachNoteBody extends React.Component {
 
@@ -57,9 +68,9 @@ render() {
             <Button className="cancel-modal-btn" onClick={this.toggle}>No</Button>
 	</ModalFooter>
         </Modal>
+		<Image src={this.props.single.image} alt={this.props.single.title} />	
                 <h3 className="single-note-title">{this.props.single.title}</h3>
                 <div className="single-note-container">{this.props.single.content}</div>
-		<img src={this.props.single.image} alt={this.props.single.title}  height="200" width="200"/> 
 		</div>
  )}</div>
 		</div>
