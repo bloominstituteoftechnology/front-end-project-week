@@ -22,10 +22,11 @@ componentDidMount() {
 }
 
 
-viewNotesHandler = (event)=>{
-		this.resetSearchField();
-		this.props.fetchingNotesAction();
-}
+viewNotesHandler = ()=>{
+		this.resetSearchField().then(()=>{
+			this.props.fetchingNotesAction();
+})
+}	
 
 
 /*componentDidUpdate(prevProps,  prevState) {
