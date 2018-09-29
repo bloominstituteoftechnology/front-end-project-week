@@ -3,7 +3,7 @@ import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
-const SignUpForm=styled.form`
+const SignUpForm=styled.div`
     max-width: 394px;
     width: 100%;
     margin:0 auto;
@@ -24,16 +24,18 @@ const SignUpInput=styled.input`
     height: 20px;
     margin-top:5px;
 `
-const SignUpPageButton=styled.button`
+const SignUpPageButton=styled.div`
     width:50%;
+    border:1px solid black;
     display: block;
-    margin: 0 auto;
     margin-top:5px;
     height:30px;
     border-radius:5px;
-    -webkit-appearance: none;
-    border-color:transparent;
+    background-color:#E8E8EE;
     color:#000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover{
         opacity:0.85;
     }
@@ -85,7 +87,7 @@ class SignUp extends React.Component{
                 <SignUpPageH2>Sign Up</SignUpPageH2>
                 <SignUpInput type='text' name='username' value={this.state.username} onChange={this.onChangeHandler} placeholder='Enter  username'/>
                 <SignUpInput type='password' name='password' value={this.state.password} onChange={this.onChangeHandler} placeholder='Enter password'/>
-                <SignUpPageButton type='submit' onClick={this.onSubmitHandler}>Sign Up</SignUpPageButton>
+                <SignUpPageButton onClick={this.onSubmitHandler}>Sign Up</SignUpPageButton>
                 <SignUpPageButton onClick={this.redirect}>Have an account?</SignUpPageButton>
             </SignUpForm>
         )

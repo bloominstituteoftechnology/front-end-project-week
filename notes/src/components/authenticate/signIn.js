@@ -3,7 +3,7 @@ import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
-const SignInForm=styled.form`
+const SignInForm=styled.div`
     max-width: 394px;
     width: 100%;
     margin:0 auto;
@@ -24,15 +24,18 @@ const SignInInput=styled.input`
     height: 20px;
     margin-top:5px;
 `
-const SignInPageButton=styled.button`
-    webkit-appearance:none;
-    border-color:transparent;
+const SignInPageButton=styled.div`
     width:50%;
+    border:1px solid black;
     display: block;
     margin-top:5px;
     height:30px;
     border-radius:5px;
+    background-color:#E8E8EE;
     color:#000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover{
         opacity:0.85;
     }
@@ -78,7 +81,7 @@ class SignIn extends React.Component{
                 <SignInPageH2>Sign In</SignInPageH2>
                 <SignInInput type='text' name='username' value={this.state.username} onChange={this.onChangeHandler} placeholder='Enter  username'/>
                 <SignInInput type='password' name='password' value={this.state.password} onChange={this.onChangeHandler} placeholder='Enter password'/>
-                <SignInPageButton type='submit' onClick={this.onSubmitHandler}>Sign In</SignInPageButton>
+                <SignInPageButton onClick={this.onSubmitHandler}>Sign In</SignInPageButton>
                 <SignInPageButton onClick={this.redirect}>Don't have an account?</SignInPageButton>
             </SignInForm>
         )
