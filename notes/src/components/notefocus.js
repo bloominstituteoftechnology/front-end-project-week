@@ -2,6 +2,7 @@ import React from "react";
 import "../CSS/notefocus.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+const ReactMarkdown = require('react-markdown')
 
 class NoteFocus extends React.Component {
   constructor(props){
@@ -64,7 +65,7 @@ class NoteFocus extends React.Component {
         <p onClick={this.props.deleteModal}>delete</p>
       </div>
       <h1 className="focustitle">{this.state.note.title}</h1>
-      <div className="notetxt" dangerouslySetInnerHTML={{__html: this.state.note.text}}></div>
+      <ReactMarkdown className="notetxt" source={this.state.note.text}/>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+const ReactMarkdown = require('react-markdown')
 
 class Ministate extends React.Component {
   constructor(props) {
@@ -52,7 +53,6 @@ class Ministate extends React.Component {
   };
 
   render() {
-    console.log(this.state.note.tags)
     return (
       <div className="note">
         <div className={this.state.tagging ? "tagModal" : "hide"}>
@@ -82,7 +82,7 @@ class Ministate extends React.Component {
           <div>
             <div className="note-contents">
               <p className="note-title">{this.state.note.title}</p>
-              <p className="note-text" dangerouslySetInnerHTML={{__html: this.state.note.text}}></p>
+              <ReactMarkdown className="note-text" source={this.state.note.text}/>
             </div>
           </div>
         </Link>
