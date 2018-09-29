@@ -5,7 +5,7 @@ const Menu = (props) => {
   return (
     <div className={props.pink ? "menubar menubarpink" : props.blue ? "menubar menubarblue" : "menubar"}>
     <div className={props.deleting ? "delete-menu": null}></div>
-      <h1 className="lambda">Lambda Notes</h1>
+      <h1 className="lambda">Heckin Notes</h1>
       <Link className={props.pink ? "menubtn menubtnpink" : props.blue ? "menubtn menubtnblue": "menubtn"} to="/">
         View Your Notes
       </Link>
