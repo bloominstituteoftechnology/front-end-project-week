@@ -23,7 +23,6 @@ componentDidMount() {
 
 
 viewNotesHandler = ()=>{
-		this.props.history.push('/notes');
 		this.resetSearchField();
 		this.props.fetchingNotesAction();
 }	
