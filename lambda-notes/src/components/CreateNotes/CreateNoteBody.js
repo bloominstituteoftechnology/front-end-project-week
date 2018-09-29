@@ -80,11 +80,11 @@ render() {
 
 		<form onSubmit={(e)=>{this.addNote(e)}} >
 		<div className="input-container">	
-		<input onChange={this.changeHandler} className="title-style" type="text" name="title" placeholder="Note Title" value={this.state.title} /><br />
+		<input onChange={this.changeHandler} className="title-style" type="text" name="title" placeholder="Note Title" value={this.state.title} required /><br />
                
-	       <textarea onChange={this.changeHandler} className="content-style" type="text" name="content" placeholder="Note Content" value={this.state.content}></textarea><br />
+	       <textarea onChange={this.changeHandler} className="content-style" type="text" name="content" placeholder="Note Content" value={this.state.content} required></textarea><br />
 
-		<input type="file" className="image-field" onChange={this.fileChangedHandler} /><br />
+		<input type="file" className="image-field" onChange={this.fileChangedHandler} required/><br />
 
 		<button type="submit"  className="save-btn">Save</button>
 		</div>
