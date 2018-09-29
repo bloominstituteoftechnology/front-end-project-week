@@ -23,9 +23,8 @@ componentDidMount() {
 
 
 viewNotesHandler = ()=>{
-		this.resetSearchField().then(()=>{
+		this.resetSearchField();
 		this.props.fetchingNotesAction();
-		})	
 }	
 
 
