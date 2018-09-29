@@ -72,10 +72,8 @@ export default (state = initialState, action) => {
             return {...state, status: {...state.status, gettingSingleNote: false, gotSingleNote: true, noteError: action.payload.errorMessage ? action.payload.errorMessage : ""}, noteViewer: {...action.payload}};
         //~~~~~PUT Handling~~~~~//
         case CLEAR_NOTE_VIEW:
-            console.log('CLEAR_NOTE_VIEW');
             return {...state, status: {...state.status, isEditing: false}, noteViewer: noteViewerInitial};
         case IS_EDITING_NOTE:
-            console.log('IS_EDITING_NOTE');
             return {...state, status: {...state.status, isEditing: true}};
         case PUTTING_NOTE:
             return {...state, status: {...state.status, puttingNote: true, puttedNote: false, noteMessage: "", noteError: ""}};

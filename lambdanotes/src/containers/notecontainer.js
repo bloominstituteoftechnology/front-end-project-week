@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getSingleNote, isEditingNote, deletePromptModal, deleteNote } from '../store/actions/';
+import { getSingleNote, clearNoteView, isEditingNote, deletePromptModal, deleteNote } from '../store/actions/';
 
 import { Note } from '../components/Note/';
 
 class NoteContainer extends Component {
-    componentDidMount() {
+    componentDidMount = () => {
         // TODO: Find better solution for race condition between PUTTED_NOTE and GETTING_SINGLE_NOTE/GOT_SINGLE_NOTE
         setTimeout(this.props.getSingleNote(this.props.match.params.id), 1000);
+    };
+
+    componentWillUnmount = () => {
+        if(this.props.status.isEditing === false) this.props.clearNoteView();
     };
 
     render() {
@@ -47,6 +51,7 @@ NoteContainer.propTypes = {
         noteMessage: PropTypes.string,
 		noteError: PropTypes.string
     }),
+    clearNoteView: PropTypes.func.isRequired,
     getSingleNote: PropTypes.func.isRequired,
     deletePromptModal: PropTypes.func,
     deleteNote: PropTypes.func
@@ -59,4 +64,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { getSingleNote, isEditingNote, deletePromptModal, deleteNote })(NoteContainer);
+export default connect(mapStateToProps, { getSingleNote, clearNoteView, isEditingNote, deletePromptModal, deleteNote })(NoteContainer);
