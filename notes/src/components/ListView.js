@@ -10,12 +10,16 @@ export default class ListView extends Component {
         <h1 className="ListView-header">My shitty notes:</h1>
         {this.props.notes.map(notes => {
           return (
-            <Link key={notes.id} className="Notes" to={`/notes/${notes.id}`}>
+            <Link
+              key={notes.id}
+              className="Notes"
+              to={`/notes/${notes.id}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
               <div className="notes-cards" key={notes.id}>
                 <Card className="single-cards">
-                <CardTitle>id: {notes.id}</CardTitle>
-                  <CardTitle>title: {notes.title}</CardTitle>
-                  <CardText>content: {notes.content}</CardText>
+                  <CardTitle>Title:<br/> {notes.title}</CardTitle>
+                  <CardText>Content:<br/> {notes.content}</CardText>
                 </Card>
               </div>
             </Link>

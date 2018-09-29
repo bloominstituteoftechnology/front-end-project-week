@@ -109,6 +109,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="side-bar">
+        <h1>Lambda <br/> Notes</h1>
           <Link
             exact
             ClassName="NavButton1"

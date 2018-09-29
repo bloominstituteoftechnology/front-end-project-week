@@ -21,11 +21,18 @@ export default class NoteView extends Component {
       note => note.id === parseInt(this.props.match.params.id, 10) //OR HAVE IT === this.props.match.params.id
       // if each individual id is a string
     );
-    console.log("im single note props", this.props);
+
     return (
       <div className="note-container">
         <div className="singleNote-buttonContainer">
-          <Link to={`/edit/${note.id}`}>edit</Link>
+          <button>
+            <Link
+              to={`/edit/${note.id}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Edit
+            </Link>
+          </button>
           <DeleteModal deleteNote={this.handleDelete} noteId={note.id} />
         </div>
         <Card key={note.id}>
