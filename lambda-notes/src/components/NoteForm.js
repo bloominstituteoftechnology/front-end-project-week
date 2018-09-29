@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 
 
 class NoteForm extends React.Component{
@@ -41,6 +41,7 @@ class NoteForm extends React.Component{
                     <button type="submit">Add Note</button>
                 </form>
             </div>
+         
         );
     }
 }

@@ -1,21 +1,17 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import Note from './Note';
 import './Notes.css';
 
-class Notes extends React.Component {
-    constructor(props){
-        super()
-    }
+const Notes = (props) => {
 
-
-    render(){
     return(
+        <Fragment>
         <div className="all-notes">
             <h2>Your Notes:</h2>
-            {this.props.notes.map(note => {
+            {props.notes.map(note => {
                 return(
-                <Link to={`/${note._id}`}>   
+                <Link to={`/note/${note._id}`}>   
                 <div className ="link">        
                 <Note 
                 noteTitle ={note.title}
@@ -28,8 +24,8 @@ class Notes extends React.Component {
                 )
             })}
         </div>
+        </Fragment>
     )
-    }
 }
 
 
