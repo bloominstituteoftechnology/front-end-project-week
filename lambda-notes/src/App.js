@@ -21,7 +21,7 @@ render() {
     return (
       <div className="App">
 	 <Route exact  path="/" component={Login} />   
-      	<Route exact  path="/notes" component={ViewNotesContainer} />
+      	<Route exact  path="/notes" render={(props) => <ViewNotesContainer {...props} />} />
         <Route exact path="/add" render={(props) => <CreateNoteContainer {...props} />} />	   
 	<Route exact path="/note/:id" render={(props) => <EachNoteBody {...props} />} />
 	<Route exact path="/editnote/:id" render={(props) => <EditNoteBody {...props} />} />
