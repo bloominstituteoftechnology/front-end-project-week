@@ -7,7 +7,7 @@ import ViewNotesContainer from '../ViewNotes/ViewNotesContainer';
 import axios from 'axios';
 
 const LoginDiv = styled.div`
-	background: linear-gradient(to right,#acb6e5,#86fde8);
+	background: linear-gradient(to right,#11998e,#38ef7d);
         height: 100vh;
 `
 
@@ -29,7 +29,8 @@ const Input = styled.input`
 `
 
 const Header = styled.h2`
-	color: #fa7459;
+	color: #fff;
+	padding-top: 2%;
 	margin-bottom:4%;
 	font-family: 'Roboto', Sans-Serif;
 	
@@ -127,8 +128,9 @@ loginHandler =(event) =>{
 render() {
 
         return (
-        <LoginDiv>
+        <div>
 		{this.state.logged ? (<ViewNotesContainer />):(
+		<LoginDiv>
 		<form>
 		<Header>Login</Header>
                 <Input type="text" onChange ={this.changeHandler} name="username" placeholder="username"  value={this.state.username}/>
@@ -136,8 +138,9 @@ render() {
 		<Button onClick={(event)=>this.loginHandler(event)}>login</Button>
 		<Button onClick={(event)=>this.registerHandler(event)}>register</Button>
 		</form>	
+		</LoginDiv>	
                 )}
-        </LoginDiv>
+        </div>
         );
 }
 }
