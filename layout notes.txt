@@ -1,0 +1,92 @@
+~~~~~Store~~~~~
+{
+	"notes": [],
+	"noteViewer": {
+        "tags": [],
+        "title": "",
+        "textBody": "",
+        "_id": "",
+        "__v": -1
+    },
+	"editing": {
+		"isEditing": false,
+		"tmpNote": {
+			"tags": [],
+			"title": "",
+			"textBody": "",
+			"_id": "",
+			"__v": -1
+		}
+	},
+	"status": {
+		"postingNote": false,
+		"postedNote": false,
+		"gettingNotes": false,
+		"gotNotes": false,
+		"puttingNote": false,
+		"puttedNote": false,
+		"deletePrompt": false,
+		"deletingNote": false,
+		"deletedNote": false,
+		"noteMessage": "",
+		"noteError": ""
+	}
+}
+
+~~~~~Routes~~~~~
+List view
+	/
+Editor view (New note / Edit note)
+	/editor
+Note view
+	/notes/:id
+
+~~~~~Components~~~~~
+index.js
+	insert style resets here
+	create store, hook in dev tools
+	<Provider><Router><App /></Router></Provider>
+App
+	insert <Route />'s here, or maybe import them from a separate routes.js file?
+Navigation
+	nav.js
+		insert <NavLink />'s here
+	styled button template!
+Form
+	noteeditor.js
+	class
+	state
+		{
+			"tags": [],
+			"title": "",
+			"textBody": "",
+			"_id": "",
+			"__v": 0
+		}
+	submitHandler method
+	editHandler method
+	link up with redux here or higher up the chain?
+List
+	noteslist.js
+	notepreview.js
+		~insert <Link />'s here~
+		history.push(`/notes/${props.note._id}`)
+	link up with redux above noteslist?
+		{
+			notes: {...}
+		}
+
+Note
+	note.js
+
+Delete Modal
+	deletemodal.js
+
+~~~~~Containers~~~~~
+noteeditorcontainer.js -> noteeditor.js
+	Brings in { editing: {} }
+noteslistcontainer.js -> noteslist.js
+	Brings in { notes: [], status: {} }
+notecontainer.js -> note.js
+	Click on header or div(?) of NotePreview to navigate to a single Note
+	Brings in { "A Note": {}, status: {...} }
