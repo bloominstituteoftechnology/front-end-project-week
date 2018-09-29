@@ -18,7 +18,7 @@ class NoteFocus extends React.Component {
 
   componentDidUpdate() {
     axios
-    .get(`http://localhost:5000/notes/${this.props.match.params.id}`)
+    .get(`https://agile-woodland-53059.herokuapp.com/notes/${this.props.match.params.id}`)
     .then(response => {
       if (JSON.stringify(this.state.note)!==JSON.stringify(response.data)){
       this.setState({ note: response.data });}
@@ -27,10 +27,9 @@ class NoteFocus extends React.Component {
  
   noteView = (id) => {
     axios
-  .get(`http://localhost:5000/notes/${id}`)
+  .get(`https://agile-woodland-53059.herokuapp.com/notes/${id}`)
   .then(response => {
     this.setState(() => ({note: response.data}))
-    console.log(response.data)
   })
   .catch(error => {
     console.error('Server Error', error);
@@ -38,7 +37,6 @@ class NoteFocus extends React.Component {
   }
 
  render(){
-   
   return (
     <div className={this.props.pink? "focus focuspink" : this.props.blue? "focus focusblue" : "focus"}>
       <div className={this.props.deleting ? "delete" : "hide-delete"}>
@@ -65,8 +63,8 @@ class NoteFocus extends React.Component {
         </Link>
         <p onClick={this.props.deleteModal}>delete</p>
       </div>
-      <h1 className="focustitle">{this.state.note.title}</h1>
-      <div className="notetxt">{this.state.note.text}</div>
+      <h1 className="focustitle">{this.state.note !== {} ? this.state.note.title : null}</h1>
+      <div className="notetxt">{this.state.note !== {} ? this.state.note.text : null}</div>
     </div>
   );
 }

@@ -52,7 +52,6 @@ class Ministate extends React.Component {
   };
 
   render() {
-      console.log(this.state.note.tags)
     return (
       <div className="note">
         <div className={this.state.tagging ? "tagModal" : "hide"}>

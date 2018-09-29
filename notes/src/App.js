@@ -116,13 +116,15 @@ class App extends Component {
   };
 
   noteDelete = id => {
+    console.log(id)
     axios.delete(`https://agile-woodland-53059.herokuapp.com/notes/${id}`)
     .then(()=> {
       axios.get("https://agile-woodland-53059.herokuapp.com/notes")
       .then(response => {
-        this.setState({ notes: response.data, deleting: false }) 
+        this.setState({ notes: response.data }) 
       })
     })
+    this.setState({deleting: false})
   };
 
   origtheme = () => {
