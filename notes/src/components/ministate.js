@@ -82,7 +82,7 @@ class Ministate extends React.Component {
           <div>
             <div className="note-contents">
               <p className="note-title">{this.state.note.title}</p>
-              <p className="note-text">{this.state.note.text}</p>
+              <p className="note-text" dangerouslySetInnerHTML={{__html: this.state.note.text}}></p>
             </div>
           </div>
         </Link>
