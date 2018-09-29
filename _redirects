@@ -1,7 +1,1 @@
-[[redirects]]
-from = "/notes"
-to= "http://localhost:3000/notes"
-
-[[redirects]]
-from="/add"
-to="http://localhost:3000/add"
+/*    /index.html   200
