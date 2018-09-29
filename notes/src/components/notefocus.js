@@ -63,8 +63,8 @@ class NoteFocus extends React.Component {
         </Link>
         <p onClick={this.props.deleteModal}>delete</p>
       </div>
-      <h1 className="focustitle">{this.state.note !== {} ? this.state.note.title : null}</h1>
-      <div className="notetxt">{this.state.note !== {} ? this.state.note.text : null}</div>
+      <h1 className="focustitle">{this.state.note.title}</h1>
+      <div className="notetxt" dangerouslySetInnerHTML={{__html: this.state.note.text}}></div>
     </div>
   );
 }
