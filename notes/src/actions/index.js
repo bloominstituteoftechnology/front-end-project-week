@@ -15,7 +15,7 @@ export const getNotes = () => {
       axios
         .get(`${GET_URL}`)
         .then(response => {
-          dispatch({ type: GET_NOTES, payload: response.data })
+          dispatch({ type: GET_NOTES, payload: response.data });
         })
         .catch(err => {
           dispatch({ type: ERROR, payload: err });
@@ -23,18 +23,34 @@ export const getNotes = () => {
     };
   };
   
-  export const createNote = note => {
+  export const createNote = newNote => {
     console.log('createNote fired');
+    console.log(newNote);
     return dispatch => {
       dispatch({ type: POSTING_NOTE });
+      
       axios
-        .post(`${POST_URL}`, note)
-        .then(response => {
+        .post(`${POST_URL}`, newNote)
+        .then((response) => {
+          
           dispatch({ type: POST_NOTE, payload: response.data });
+          console.log('Note posted. Id: ', response);
+          // axios
+          //   .get(`${GET_URL}`)
+          //   .then(response => {
+          //     dispatch({ type: GET_NOTES, payload: response.data });
+          //   })
+          //   .catch(err => {
+          //     dispatch({ type: ERROR, payload: err });
+          //   });
+          // dispatch(getNotes());
+          // dispatch({ type: GET_NOTES, payload: response.data });
         })
         .catch(err => {
           dispatch({ type: ERROR, payload: err });
         });
+      
+      
     };
   };
 

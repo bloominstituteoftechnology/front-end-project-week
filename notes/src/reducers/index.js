@@ -27,7 +27,7 @@ const notesReducer = (state = initialState, action) => {
           ...state,
           postedNote: true,
           postingNote: false,
-          notes: action.payload,
+          // notes: action.payload,
         };
       case actionTypes.ERROR:
         return {

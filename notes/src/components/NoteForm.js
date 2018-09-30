@@ -16,14 +16,18 @@ class NoteForm extends Component {
         console.log('handleCreateNote fired');
         // const { noteTitle, noteBody } = this.state;
         const title = this.state.noteTitle;
-        const body = this.state.noteBody;
-        this.props.dispatchCreateNote({ title, body });
+        const textBody = this.state.textBody;
+        const newNote = { 
+            title: title,
+            textBody: textBody,
+        };
+        this.props.createNote(newNote);
         this.setState({ noteTitle: '', noteBody: '' });
     };
 
     render() {
         return (
-            <form>
+            <form onSubmit={() => this.handleCreateNote()}>
 
                 <input 
                     name='noteTitle'
@@ -64,5 +68,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps,
+    {createNote},
 )(NoteForm);
