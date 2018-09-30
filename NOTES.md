@@ -1,4 +1,6 @@
 https://lambda-notes-backend-mjk.herokuapp.com
+gh-pages -d build
+
 
 ## Notes APId
 
