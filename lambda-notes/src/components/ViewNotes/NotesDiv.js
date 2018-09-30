@@ -7,6 +7,19 @@ import { connect } from 'react-redux';
 import {fetchingNotesAction, searchAction} from "../../actions";
 import LambdaLeftDiv from './LambdaLeftDiv';
 import Search from './Search';
+import {FadeLoader} from 'react-spinners';
+import { css } from 'react-emotion';
+
+
+const fadeloader = css`
+    display: block;
+    margin: 5%  auto;
+`;
+ 
+
+
+
+
 
 class NotesDiv extends React.Component {
 
@@ -53,7 +66,8 @@ render() {
         <Search id="search-field" />
 
 	<div>{this.props.fetching ? (
-          <h1>Fetching Notes</h1>
+          <FadeLoader  className={fadeloader}    color={'#36D7B7'}  size={200} />
+
         ) :(
 	
 	<div>

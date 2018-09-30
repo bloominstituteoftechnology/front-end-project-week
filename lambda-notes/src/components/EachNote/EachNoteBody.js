@@ -6,6 +6,21 @@ import {fetchingSingleNote, deleteNoteAction} from "../../actions";
 import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import styled from 'styled-components';
+import {FadeLoader} from 'react-spinners';
+import { css } from 'react-emotion';
+
+
+const fadeloader = css`
+    display: block;
+    margin: 5%  auto;
+`;
+
+
+
+
+
+
+
 
 const Image = styled.img`
         margin-top: 4%;
@@ -56,7 +71,7 @@ render() {
 		<div className="note-card-container">
 		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(			
 			<div>
-			{this.props.fetchingNotes ? (<h4>Fetching  Note</h4>):(		      
+			{this.props.fetchingNotes ? (<FadeLoader  className={fadeloader}    color={'#36D7B7'}  size={200} />):(		      
 			<div>
 		
 			<Button className="delete-btn"  onClick={this.toggle}>delete</Button>
