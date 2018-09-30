@@ -128,7 +128,7 @@ const NoteWrapper = styled.div`
   padding: 5px 15px 20px 35px;
   background: #f2f1f2;
 `;
-const NoteEditDelete = styled.p`
+const NoteEditDelete = styled.div`
   display: flex;
   justify-content: flex-end;
   font-size: 18px;
