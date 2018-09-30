@@ -32,7 +32,7 @@ export const fetchingNotesAction = () => {
 
 
 export const fetchingSingleNote = (id) => {
-        const request = axios.get(`https://lambdanotesproject.herokuapp.com/api/notes/${id}`);
+        const request = axios.get(`https://lambdanotesproject.herokuapp.com/api/notes/note/${id}`);
 
         return (dispatch) => {
         dispatch({type: FETCHING});

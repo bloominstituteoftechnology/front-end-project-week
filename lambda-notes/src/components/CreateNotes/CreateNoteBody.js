@@ -36,8 +36,8 @@ fileChangedHandler = (event) => {
 addNote = event => {
 	event.preventDefault();
 
-	this.props.addNotesAction(this.state.title, this.state.content, this.state.selectedFile, ()=>{
-		this.setState({title: "", content: "", selectedFile:null});
+	this.props.addNotesAction(this.state.title, this.state.content, this.state.selectedFile);
+	this.setState({title: "", content: "", selectedFile:null});
 
 	//this.props.fetchingSingleNote(this.props.id);
 	});	
