@@ -59,8 +59,7 @@ const noteReducer = (state=initialState, action) => {
         return Object.assign({}, state, {error: true});
         
         default:
-        return state;
-        
+        return state;        
 }       
 };
 
