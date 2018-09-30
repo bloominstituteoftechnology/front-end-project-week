@@ -53,7 +53,7 @@ render() {
         <Search id="search-field" />
 
 	<div>{this.props.fetching ? (
-          null
+          <h1>Fetching Notes</h1>
         ) :(
 	
 	<div>
