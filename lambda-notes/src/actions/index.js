@@ -32,7 +32,7 @@ export const fetchingNotesAction = () => {
 
 
 export const fetchingSingleNote = (id) => {
-        const request = axios.get(`https://lambdanotesproject.herokuapp.com/api/notes/note/${id}`);
+        const request = axios.get(`https://lambdanotesproject.herokuapp.com/api/notes/${id}`);
 
         return (dispatch) => {
         dispatch({type: FETCHING});
@@ -106,7 +106,7 @@ export const addNotesAction = (title, content, file) => {
 
         request.then(response => {
         dispatch({type: NOTE_SAVED, id: response.data});
-    })
+    	})
 		
 
         .catch(err => {
