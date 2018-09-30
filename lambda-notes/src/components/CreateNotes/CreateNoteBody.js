@@ -36,11 +36,10 @@ fileChangedHandler = (event) => {
 addNote = event => {
 	event.preventDefault();
 
-	this.props.addNotesAction(this.state.title, this.state.content, this.state.selectedFile);
-	this.setState({title: "", content: "", selectedFile:null});
-
+	this.props.addNotesAction(this.state.title, this.state.content, this.state.selectedFile,()=>{
+		this.setState({title: "", content: "", selectedFile:null});
+	});
 	//this.props.fetchingSingleNote(this.props.id);
-	});	
 };
 
 
@@ -50,9 +49,10 @@ createNotesReset =event =>{
 };
 
 
-componentDidUpdate(prevProps,  prevState) {
+componentDidUpdate(prevProps, prevState) {
 if (prevProps.saved !== this.props.saved){
-        this.props.fetchingSingleNote(this.props.id);
+        console.log(this.props.id);
+	this.props.fetchingSingleNote(this.props.id);
 	//this.setState({createNote: true});
 }
 }
