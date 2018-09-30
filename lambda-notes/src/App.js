@@ -35,13 +35,6 @@ class App extends Component {
       .catch(err => {console.log(err)});
   }
 
-  getNote = (id) => {
-    axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-      .then(response => this.setState({note: response.data}))
-      .catch(err => {console.log(err)});
-  }
-
 
   render() {
     return (
@@ -49,7 +42,7 @@ class App extends Component {
         <SideBar />
         <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
         <Route path="/add-note" render={(props)=> <NoteForm {...props} notes={this.state.notes} postNote={this.postNote} />}/>
-        <Route path="/note/:id" render={(props) => <NoteView {...props} note={this.state.note} notes={this.state.notes} getNote={this.getNote} />} />
+        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} getNote={this.getNote} />} />
       </div>
     );
   }
