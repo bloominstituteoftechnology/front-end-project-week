@@ -54,7 +54,10 @@ render() {
  		<div className="view-list-body  tablet-view">
                 <LambdaLeftDiv />
 		<div className="note-card-container">
-		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(		      <div>
+		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(			
+			<div>
+			{this.props.fetchingNotes ? (<h4>Fetching  Note</h4>):(		      
+			<div>
 		
 			<Button className="delete-btn"  onClick={this.toggle}>delete</Button>
 			<Link to={`/editnote/${this.props.match.params.id}`}><Button className="delete-btn">edit</Button></Link>
@@ -72,7 +75,8 @@ render() {
                 <h3 className="single-note-title">{this.props.single.title}</h3>
                 <div className="single-note-container">{this.props.single.content}</div>
 		</div>
- )}</div>
+ )}</div>)}
+		</div>
 		</div>
 		</div>
 	);		
@@ -85,6 +89,7 @@ const mapStateToProps = state => {
           notes: state.notes,
 	  single: state.singleNote,
           deleted: state.noteDeleted,
+	  fetchingNotes: state.fetchingNotes
   };
 };
 
