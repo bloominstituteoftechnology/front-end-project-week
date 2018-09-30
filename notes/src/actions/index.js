@@ -35,16 +35,7 @@ export const getNotes = () => {
           
           dispatch({ type: POST_NOTE, payload: response.data });
           console.log('Note posted. Id: ', response);
-          // axios
-          //   .get(`${GET_URL}`)
-          //   .then(response => {
-          //     dispatch({ type: GET_NOTES, payload: response.data });
-          //   })
-          //   .catch(err => {
-          //     dispatch({ type: ERROR, payload: err });
-          //   });
-          // dispatch(getNotes());
-          // dispatch({ type: GET_NOTES, payload: response.data });
+          dispatch(getNotes());
         })
         .catch(err => {
           dispatch({ type: ERROR, payload: err });

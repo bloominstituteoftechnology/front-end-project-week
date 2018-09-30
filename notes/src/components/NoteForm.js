@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 class NoteForm extends Component {
     state = {
-        noteTitle: '',
-        noteBody: '',
+        titleInput: '',
+        textBodyInput: '',
     }
 
     handleInputChange = event => {
@@ -15,14 +15,15 @@ class NoteForm extends Component {
     handleCreateNote = () => {
         console.log('handleCreateNote fired');
         // const { noteTitle, noteBody } = this.state;
-        const title = this.state.noteTitle;
-        const textBody = this.state.textBody;
+        const title = this.state.titleInput;
+        const textBody = this.state.textBodyInput;
         const newNote = { 
             title: title,
             textBody: textBody,
         };
+        console.log(newNote);
         this.props.createNote(newNote);
-        this.setState({ noteTitle: '', noteBody: '' });
+        this.setState({ titleInput: '', textBodyInput: '' });
     };
 
     render() {
@@ -30,18 +31,18 @@ class NoteForm extends Component {
             <form onSubmit={() => this.handleCreateNote()}>
 
                 <input 
-                    name='noteTitle'
+                    name='titleInput'
                     type='text'
                     placeholder='Note Title'
-                    value={this.state.noteTitle}
+                    value={this.state.titleInput}
                     onChange={this.handleInputChange}
                 />
 
                 <input 
-                    name='noteBody'
+                    name='textBodyInput'
                     type='text'
                     placeholder='Note Body'
-                    value={this.state.noteBody}
+                    value={this.state.textBodyInput}
                     onChange={this.handleInputChange}
                 />
                 
