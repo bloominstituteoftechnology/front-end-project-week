@@ -24,24 +24,15 @@ class NotesList extends Component {
     }
 }
 
-// function NoteLink({ note }) {
-//     return (
-//         <Link to={`/notes/${note._id}`}>
-//         </Link>
-//     )
-// }
+// export default NotesList;
 
-// const mapStateToProps = state => {
-//     const { notesReducer } = state;
-//     return {
-//         notes: state.notes,
-//         getNotes: notesReducer.getNotes,
-//     };
-// }
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+    };
+}
 
-// export default connect(
-//     mapStateToProps,
-//     {}
-// );
+export default connect(
+    mapStateToProps,
+)(NotesList);
 
-export default NotesList;

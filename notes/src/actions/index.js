@@ -24,6 +24,7 @@ export const getNotes = () => {
   };
   
   export const createNote = note => {
+    console.log('createNote fired');
     return dispatch => {
       dispatch({ type: POSTING_NOTE });
       axios

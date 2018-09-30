@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+import { createNote, getNotes } from '../actions';
+import { connect } from 'react-redux';
 
 class NoteForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            noteTitle: '',
-            noteBody: '',
-
-        }
+    state = {
+        noteTitle: '',
+        noteBody: '',
     }
 
     handleInputChange = event => {
@@ -15,16 +13,17 @@ class NoteForm extends Component {
     };
 
     handleCreateNote = () => {
+        console.log('handleCreateNote fired');
         // const { noteTitle, noteBody } = this.state;
         const title = this.state.noteTitle;
         const body = this.state.noteBody;
-        this.props.createNote(title, body);
+        this.props.dispatchCreateNote({ title, body });
         this.setState({ noteTitle: '', noteBody: '' });
     };
 
     render() {
         return (
-            <form onSubmit={() => this.handleCreateNote()}>
+            <form>
 
                 <input 
                     name='noteTitle'
@@ -42,7 +41,7 @@ class NoteForm extends Component {
                     onChange={this.handleInputChange}
                 />
                 
-                <button onClick={() => this.handleCreateNote()}>
+                <button onClick={() => this.handleCreateNote()} type='button'>
                     Create Note
                 </button>
             </form>
@@ -50,4 +49,20 @@ class NoteForm extends Component {
     }
 }
 
-export default NoteForm;
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        creatingNote: state.creatingNote,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchCreateNote: () => dispatch(createNote())
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(NoteForm);

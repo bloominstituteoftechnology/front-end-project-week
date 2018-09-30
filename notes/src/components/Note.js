@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import axios from '../../node_modules/axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 class Note extends Component {
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     note: null
-        // };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     // this.state = {
+    //     //     note: null
+    //     // };
+    // }
 
     componentDidMount() {
         
@@ -49,4 +50,12 @@ class Note extends Component {
     }
 }
 
-export default Note;
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+    };
+  }
+
+export default connect(
+    mapStateToProps,
+)(Note);
