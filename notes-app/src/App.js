@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import router, { Link } from 'react-router';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
+import NotePage from './components/NotePage';
 
 class App extends Component {
   constructor() {
@@ -28,15 +29,15 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Note Taker </h1>
-
-
-          {/* <Link>Notes</Link>
-          <Link>Make</Link> */}
+          <Link to={`/`}>Your Notes</Link>
+          <Link to={'/makenote'}>Make Note</Link>
         </header>
-        <NoteForm />
-        <NoteList notes={this.state.notes} />
+        {/* <NoteForm />
+        <NoteList notes={this.state.notes} /> */}
+        <Route exact path='/' render={(props) => (<NoteList {...props} notes={this.state.notes} />)} />
+        <Route path='/Note/:id' render={(props => (<NotePage {...props} notes={this.state.notes} />))} />
       </div>
-    );
+    )
   }
 }
 
