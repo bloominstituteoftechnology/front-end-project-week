@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react-router": "^4.3.1"
+  }
+}
