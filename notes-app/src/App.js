@@ -35,7 +35,7 @@ class App extends Component {
         {/* <NoteForm />
         <NoteList notes={this.state.notes} /> */}
         <Route exact path='/' render={(props) => (<NoteList {...props} notes={this.state.notes} />)} />
-        <Route path='/Note/:id' render={(props => (<NotePage {...props} notes={this.state.notes} />))} />
+        <Route path='/notes/:id' render={(props) => (<NotePage {...props} notes={this.state.notes} />)} />
       </div>
     )
   }
