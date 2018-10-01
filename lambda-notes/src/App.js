@@ -4,7 +4,6 @@ import {Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import SideBar from './components/SideBar';
-import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import NoteView from './components/NoteView.js';
@@ -34,7 +33,6 @@ class App extends Component {
       .then(response => this.setState({ notes: response.data }, this.props.history.push("/")))
       .catch(err => {console.log(err)});
   }
-
 
   render() {
     return (
