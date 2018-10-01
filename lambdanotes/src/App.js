@@ -7,6 +7,10 @@ import NotesList from './components/NotesList';
 import Notes from './components/Notes';
 import axios from 'axios';
 
+const blankNoteForm = {
+  title: "",
+  textBody: "",
+}
 
 class App extends Component {
   constructor() {
@@ -38,11 +42,36 @@ class App extends Component {
     });
   }
 
-  // handleAddNewNote = event => {
-  //   event.preventDefault();
-  //   console.log("We've got a new note here!")
-  //   axios.post()
-  // }
+  handleAddNewNote = event => {
+    event.preventDefault();
+    console.log("We've got a new note here!")
+    axios.post('https://killer-notes.herokuapp.com/note/create', this.state.note)
+    .then(response => this.setState({ madeNotes: response.data, note: blankNoteForm }))
+  }
+
+  handleDeleteNotes = noteId => {
+    return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+    .then(response => this.setState({ madeNotes: response.data }));
+  }
+
+  updateNoteForm = (event, id) => {
+    event.preventDefault();
+    const noteToUpdate = this.state.madeNotes.find(note => note.id == id);
+    this.setState({ updatingNote: true, note: noteToUpdate }, () => this.props.push('/notesForm'));
+  }
+
+  handleUpdateNotes = noteId => {
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`, this.state.note)
+    .then(response => {
+      this.setState({
+        madeNotes: response.data,
+        updatingNotes: false,
+        note: blankNoteForm
+      });
+      this.props.history.push(`/notes/${noteId}/info`);
+    });
+  }
+
 
   render() {
     return (
@@ -73,7 +102,7 @@ class App extends Component {
             <NotesList {...props} notesList={this.state.madeNotes} />
           )}
           />
-          <Route path="/notes/notesform" render={props => (
+          <Route path="/notes/:noteId" render={props => (
             <Notes {...props}
               notesList={this.state.madeNotes}
               handleDeleteNotes={this.handleDeleteNotes}
