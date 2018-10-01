@@ -1,0 +1,9 @@
+import React from 'react';
+
+export default const NotesList = props => {
+    <React.Fragment>
+    {props.notes.map(note => {
+        <Note key={index} note={note} />
+    })}
+    </React.Fragment>
+}
