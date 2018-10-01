@@ -10,18 +10,33 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Route render={({ location }) => (
-        <styleApp>
-          <Navigation>
-            <h1>Lambda Notes</h1>
-            <Link to='/' className='link'>
-            View Notes</Link>
-            <Link to='/noteform' className='link'>
-            Create NoteForm
-            </Link>
+      <Route
+        render={({ location }) => (
+          <styleApp>
+            <Navigation>
+              <h1>Lambda Notes</h1>
+              <Link to="/" className="link">
+                View Notes
+              </Link>
+              <Link to="/noteform" className="link">
+                Create NoteForm
+              </Link>
             </Navigation>
             <Main>
-      )}
+              <section>
+                <Switch location={location}>
+                  <Route exact path="/" component={NoteList} />
+                  <Route
+                    exact
+                    path="/noteform/:id?"
+                    render={props => <NoteForm {...props} />}
+                  />
+                </Switch>
+              </section>
+            </Main>
+          </styleApp>
+        )}
+      />
     );
   }
 }
