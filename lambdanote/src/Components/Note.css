@@ -1,0 +1,19 @@
+.card {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.card-header-title {
+  display: flex;
+  justify-content: center;
+}
+
+.NoteForm {
+  width: 640px;
+  height: auto;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
