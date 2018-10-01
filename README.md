@@ -11,6 +11,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 - You are required to showcase progress with at least 1 commit a day. This will let your project manager know where you are and if you need help. This also allows the client to get progress reports from the company in a real world setting.
 
 ## Trello Set Up:
+https://trello.com/b/FsgJ4EMw/lambda-notes-emily
 
 - [ ] Create a Trello account
 - [ ] Create a new board called "Lambda Notes - {Your Name}"
