@@ -10,7 +10,7 @@ import Authenticate from "./components/Authentication/Authenticate";
 
 class App extends Component {
  componentDidMount(){
-//   this.props.getNotes();
+
 
   }
   render(){

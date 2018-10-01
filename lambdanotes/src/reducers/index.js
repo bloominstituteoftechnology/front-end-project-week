@@ -11,8 +11,8 @@ import {
   FETCHING_SINGLE,
   ERROR,
   SEARCH,
-  SORT_CHARACTERS,
-  SORT_CONTENT
+//  SORT_CHARACTERS,
+ // SORT_CONTENT
 } from "../actions";
 
 const initialState = {
@@ -90,13 +90,13 @@ const rootReducer = (state = initialState, action) => {
     case ERROR:
       return { ...state, error: action.payload, fetchingNotes: false };
 
-    case SORT_CHARACTERS: {
-      const note = state.note.slice().sort((a, b) => a.title[0] > b.title[0]);
-      return {
-        ...state,
-        notes: notes
-      };
-    }
+    // case SORT_CHARACTERS: {
+    //   const note = state.note.slice().sort((a, b) => a.title[0] > b.title[0]);
+    //   return {
+    //     ...state,
+    //     notes: notes
+    //   };
+    // }
     // case SORT_CONTENT:
     //   const notes = state.notes
     //     .slice()
