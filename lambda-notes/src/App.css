@@ -8,7 +8,7 @@
   font-size: 62.5%;
 }
 
-.Nav {
+.nav {
   border: 1px solid gray;
   width: 20%;
   display: flex;
@@ -31,3 +31,34 @@
   background: #5f9ea0;
 } 
 
+.list {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list header {
+  border: 2px solid red;
+  height: 20px;
+  width: 100%;
+}
+
+.note {
+  width: 30%;
+  height: 220px;
+  margin: 1%;
+  padding: 0.5%;
+  background: white;
+  border: 1px solid gray;
+}
+
+.note h3 {
+  margin: 5%;
+  padding-bottom: 2%;
+  border-bottom: 2px solid gray;
+}
+
+.note p {
+  margin: 5%;
+  
+}

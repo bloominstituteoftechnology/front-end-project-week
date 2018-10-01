@@ -3,9 +3,9 @@ import Note from "./Note";
 
 const List = (props) => {
     return (
-       <div>
-           {props.notes.map(note => (<Note note={note} />))}
-       </div>
+        <div className='list'>
+            {props.notes.map(note => (<Note key={note.id} note={note} />))}
+        </div>
     )
 }
 
