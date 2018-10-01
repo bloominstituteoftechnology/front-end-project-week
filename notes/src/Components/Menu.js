@@ -1,8 +1,18 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-class Menu extends Compnent {
-    render()
-    return ()
-}
+const Menu = () => {
+  return (
+    <div className="menu">
+      <h1>Lambda Notes</h1>
+      <Link classname="link" to="/">
+        View Your Notes
+      </Link>
+      <Link className="link" to="/">
+        Create New Note
+      </Link>
+    </div>
+  );
+};
 
 export default Menu;
