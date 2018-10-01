@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NotesList from '../components/NotesList';
+import NoteForm from '../components/NoteForm';
 import './App.css';
 
 class App extends Component {
@@ -27,9 +28,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">List View</h1>
         </header>
-        <NotesList notes={this.state.notes} />
         <hr />
-       
+        <NoteForm />
+        <NotesList notes={this.state.notes} />
       </React.Fragment>
     );
   }
