@@ -1,21 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route } from "react-router-dom";
 import './App.css';
+import NoteForm from './components/NoteForm'
+import NoteSingle from './components/NoteSingle'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [
+        {
+          id: 1537805881051,
+          title: "1. Get a rucksack",
+          text: "Find a nice rucksack that can hold all your backpacking gear.",
+          tags: ["gear", "capacity"]
+        },
+        {
+          id: 1537805891197,
+          title: "2. Grab a buddy",
+          text: "Find an outdoorsy friend that loves to rough it up.",
+          tags: ["outsdoorsy", "friend"]
+        }
+      ],
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div1 className="App">
+        <Route exact path="/" render={() => 
+          <NotesMain
+            notes={this.state.notes}
+            
+          />
+        }/>
+          
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-      </div>
+      </div1>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
