@@ -3,6 +3,7 @@ import router, { Link } from 'react-router';
 import axios from 'axios';
 import './App.css';
 import NoteList from './components/NoteList';
+import NoteForm from './components/NoteForm';
 
 class App extends Component {
   constructor() {
@@ -32,6 +33,7 @@ class App extends Component {
           {/* <Link>Notes</Link>
           <Link>Make</Link> */}
         </header>
+        <NoteForm />
         <NoteList notes={this.state.notes} />
       </div>
     );
