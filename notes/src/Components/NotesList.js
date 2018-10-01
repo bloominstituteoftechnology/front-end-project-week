@@ -23,9 +23,13 @@ export default class NotesList extends Component {
     }
   render() {
     return (
-      <div>
-      {this.state.notes.map(note => <div key={note.id}>{note.title}</div>)}
-      </div>
+        {state.notes.map(note => 
+        <div key={note.id}>
+          <h3 onClick={() => props.history.push(`/notes/${note.id}/`)}>
+            {note.title}
+          </h3>
+          <p>{note.textBody}</p>
+        </div>
     )
   }
 }
