@@ -1,12 +1,17 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
+
 const Navigation = () => {
     return (
-        <div>
-            <NavLink to='/note/get/all'>View Your Notes</NavLink>
-            <NavLink to='/note/create'>Create New Note</NavLink>
-        </div>
+        <ul>
+            <li>
+                <NavLink to='/get/all'>View Your Notes</NavLink>
+            </li>
+            <li>
+                <NavLink to='/create'>Create New Note</NavLink>
+            </li>
+        </ul>
     )
 }
 

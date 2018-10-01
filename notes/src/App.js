@@ -5,13 +5,12 @@ import './App.css';
 
 const App = () => (
       <div className="App">
-      <NotesList />
-      {/* <Navigation />
+      <Navigation />
     
-      <Route exact path='/note' component={NotesList}
+      <Route exact path='/get/all' component={NotesList}
       />
-      <Route exact path='/note/create' component={CreateNote}
-      /> */}
+      <Route exact path='/create' component={CreateNote}
+      /> 
       </div>
     );
 
