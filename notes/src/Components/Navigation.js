@@ -6,7 +6,7 @@ const Navigation = () => {
     return (
         <ul>
             <li>
-                <NavLink to='/get/all'>View Your Notes</NavLink>
+                <NavLink to='/'>View Your Notes</NavLink>
             </li>
             <li>
                 <NavLink to='/create'>Create New Note</NavLink>

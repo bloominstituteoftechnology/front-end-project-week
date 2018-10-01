@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import Note from './Note';
 
 
 export default class NotesList extends Component {
-    state = {
-        notes: [],
-        newNote: {
-            "tags": ["tag", "otherTag"],
-            "title": "Note Title",
-            "textBody": "Note Body",
+    constructor() {
+        super();
+        this.state = {
+            notes: [],
+            newNote: {
+                "tags": ["tag", "otherTag"],
+                "title": "Note Title",
+                "textBody": "Note Body",
+            }
         }
     }
 
@@ -21,15 +25,10 @@ export default class NotesList extends Component {
             console.log("error", err);
         });
     }
+
   render() {
     return (
-        {state.notes.map(note => 
-        <div key={note.id}>
-          <h3 onClick={() => props.history.push(`/notes/${note.id}/`)}>
-            {note.title}
-          </h3>
-          <p>{note.textBody}</p>
-        </div>
-    )
-  }
+        <Note notes = {this.state.notes} />   
+        )
+    }
 }

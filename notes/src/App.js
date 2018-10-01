@@ -7,7 +7,7 @@ const App = () => (
       <div className="App">
       <Navigation />
     
-      <Route exact path='/get/all' component={NotesList}
+      <Route exact path='/' component={NotesList}
       />
       <Route exact path='/create' component={CreateNote}
       /> 
