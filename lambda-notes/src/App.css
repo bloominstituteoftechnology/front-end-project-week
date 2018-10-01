@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.side-bar{
+  width: 30%;
+  position: absolute;
+  height: 100%;
+  background:rgb(67, 165, 47);
+}
