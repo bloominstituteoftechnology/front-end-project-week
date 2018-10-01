@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import styled from 'styled-components';
 import Markdown from 'markdown-to-jsx';
+import { Link } from 'react-router-dom';
 
 export default class Note extends Component {
   constructor(props) {
@@ -52,7 +53,11 @@ export default class Note extends Component {
       <OneNote>
         <div className='note-container'>
           <div className='note-action'>
-            <button className='links' onClick={() => this.props.history.push(`/notes/${this.state.note._id}/edit`)}>edit</button>
+            <Link to={{
+              pathname: `/notes/${this.state.note._id}/edit`,
+              state: this.state.note
+            }}>edit</Link>
+      {/* onClick={() => this.props.history.push(`/notes/${this.state.note._id}/edit`)}>edit</button> */}
             <button className='links' onClick={this.toggleModal}>delete</button>
             {/* <div style={{textDecoration: 'underline'}}onClick={()=> this.deleteNote(this.state.note._id)}>delete</div> */}
             <Modal isOpen={this.state.modal} toggle={this.toggleModal} modalTransition={{ timeout: 200 }}>

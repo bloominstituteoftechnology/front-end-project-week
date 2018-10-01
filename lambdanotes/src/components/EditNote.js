@@ -7,8 +7,8 @@ export default class EditNote extends Component {
     super(props);
     this.state = {
       _id: this.props.match.params.id,
-      title:'',
-      textBody: '' 
+      title: this.props.location.state.title,
+      textBody: this.props.location.state.textBody 
     };
   }
 
@@ -29,6 +29,7 @@ export default class EditNote extends Component {
   }
 
   render() {
+    console.log(this.props);
     return(
       <NewNoteDiv>
         <h3>Edit Note:</h3>
