@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import styled from 'styled-components';
+import Markdown from 'markdown-to-jsx';
 
 function NoteCard(props) {
   const { _id } = props.note;
@@ -18,7 +19,8 @@ function NoteCard(props) {
         <div className='note-content'>
           <h3>{ titleTruncate(props.note.title) }</h3> 
           <hr />
-          <p>{ truncate(props.note.textBody) }</p>
+          <Markdown options={{ forceBlcok: true }}>{ truncate(props.note.textBody) }</Markdown>
+          {/* <p>{ truncate(props.note.textBody) }</p> */}
         </div>
       </Link>
     </CardDiv>
