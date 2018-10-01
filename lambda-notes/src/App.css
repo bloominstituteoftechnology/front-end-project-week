@@ -33,6 +33,7 @@ background-color: #b1b1b1;
 border: 1px solid black;
 height: 100vh;
 width: 20vw;
+top: 0;
 
 }
 .container button{
@@ -44,5 +45,10 @@ font-size:
 h1{
 font-size: 30px;
 margin-top:0px;
-margin-left: 0px;
+margin-left: 10px;
+text-align: left;
+}
+.NoteContainer{
+  width: 600px;
+margin-left: 300px;
 }
