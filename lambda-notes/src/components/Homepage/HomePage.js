@@ -10,10 +10,17 @@ super(props);
   render() {
     return (
     <div>
-      <form>
-
-        
-      </form>
+      <h2>Your Notes:</h2>
+   <hr/>
+   {this.state.notes.map(note => {
+     return(
+     <div key ={note.id} className='NoteContainer'>
+     <h3>{note.Title}</h3>
+     <hr/>
+     <p> {note.Content}</p>
+     </div>
+     )
+   })}
     </div>
   )
   }
