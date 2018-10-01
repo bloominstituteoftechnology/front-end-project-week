@@ -56,7 +56,7 @@ class App extends Component {
 
   updateNoteForm = (event, id) => {
     event.preventDefault();
-    const noteToUpdate = this.state.madeNotes.find(note => note.id == id);
+    const noteToUpdate = this.state.madeNotes.find(note => note.id === id);
     this.setState({ updatingNote: true, note: noteToUpdate }, () => this.props.push('/notesForm'));
   }
 
@@ -103,7 +103,8 @@ class App extends Component {
           )}
           />
           <Route path="/notes/:noteId" render={props => (
-            <Notes {...props}
+            <Notes 
+              {...props}
               notesList={this.state.madeNotes}
               handleDeleteNotes={this.handleDeleteNotes}
               updateNoteForm={this.updateNoteForm} />

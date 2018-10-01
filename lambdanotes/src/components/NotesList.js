@@ -7,12 +7,11 @@ function NotesList(props) {
     return (
         <div className="noteWrap">
             <ul>
-                {props.notesList.map(notemark => (
-                    <li className="noteCard" key={notemark.id}>
-                        <h2>{notemark.title}</h2>
-                        <p>{notemark.textBody}</p>
-                        onLClick={() => props.history.push(`.notes/${notemark.id}/info`)}
-
+                {props.notesList.map(note => (
+                    <li className="noteCard" key={note.id}>
+                        <h2>{note.title}</h2>
+                        <p>{note.textBody}</p>
+                        <h2 onClick={() => props.history.push(`.notes/${note.id}/info`)}>{note.title}</h2>
                     </li>
                 ))}
             </ul> : null
