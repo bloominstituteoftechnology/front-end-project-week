@@ -19,7 +19,7 @@ function NoteCard(props) {
         <div className='note-content'>
           <h3>{ titleTruncate(props.note.title) }</h3> 
           <hr />
-          <Markdown options={{ forceBlcok: true }}>{ truncate(props.note.textBody) }</Markdown>
+          <Markdown>{ truncate(props.note.textBody) }</Markdown>
           {/* <p>{ truncate(props.note.textBody) }</p> */}
         </div>
       </Link>

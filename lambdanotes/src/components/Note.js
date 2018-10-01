@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import styled from 'styled-components';
+import Markdown from 'markdown-to-jsx';
 
 export default class Note extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ export default class Note extends Component {
             </Modal>
           </div>
           <h3>{this.state.note.title}</h3>
-          <p>{this.state.note.textBody}</p>
+          <Markdown>{this.state.note.textBody}</Markdown>
         </div>
       </OneNote>
     );
