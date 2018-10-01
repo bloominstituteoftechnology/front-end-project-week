@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {Route} from 'react-router-dom';
+import {Navigation, NotesList, CreateNote} from './Components';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
+const App = () => (
       <div className="App">
-        <h1>Welcome to Notes</h1>
-        <h4>Enter Below</h4>
-        <button>Enter</button>
+      <NotesList />
+      {/* <Navigation />
+    
+      <Route exact path='/note' component={NotesList}
+      />
+      <Route exact path='/note/create' component={CreateNote}
+      /> */}
       </div>
     );
-  }
-}
 
 export default App;
