@@ -13,4 +13,5 @@ const EditNote = props => {
     </div>
   );
 };
+
 export default EditNote;
