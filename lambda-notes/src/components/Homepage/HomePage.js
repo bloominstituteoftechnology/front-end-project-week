@@ -12,12 +12,12 @@ super(props);
     <div>
       <h2>Your Notes:</h2>
    <hr/>
-   {this.state.notes.map(note => {
+   {this.props.notes.notes.map(note => {
      return(
      <div key ={note.id} className='NoteContainer'>
-     <h3>{note.Title}</h3>
+     <h3>{note.title}</h3>
      <hr/>
-     <p> {note.Content}</p>
+     <p> {note.textBody}</p>
      </div>
      )
    })}

@@ -5,6 +5,7 @@ import LambdaNav from './components/LambdaNav.js';
 import HomePage from './components/Homepage/HomePage.js';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
+import CreateNote from './components/CreateNotePage/CreateNote.js'
 
 class App extends Component {
 
@@ -37,7 +38,7 @@ class App extends Component {
       <div className="App">
         <Route path= "/" component ={LambdaNav} />
         <Route exact path = '/' render ={props => <HomePage {...props} notes = {this.state} />}/>
-
+        <Route path = "/CreateNote"  render ={props => <CreateNote {...props} notes = {this.state} />}/>
       </div>
     );
   }

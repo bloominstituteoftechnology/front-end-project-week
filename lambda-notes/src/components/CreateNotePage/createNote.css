@@ -1,0 +1,13 @@
+ form input{
+    margin-bottom: 100px;
+
+ }
+.textComment {
+  width: 300px;
+  height: 200px;
+  padding-left:0;
+padding-top:0;
+padding-bottom:0.4em;
+padding-right: 0.4em;
+ line-height:200px;
+   }
