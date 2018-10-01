@@ -1,15 +1,18 @@
 import React from 'react';
-import './createNote.css'
-
+import './createNote.css';
+import axios from 'axios'
 class CreateNote extends React.Component {
-  constructor(props){
-super(props);
-this.state = {
-  id:Number(''),
-  title:'',
-  textBody:''
+
+state = {
+
+    id:Number(''),
+    title:'',
+    textBody:''
+
+
+
     };
-  }
+
 
 
 
@@ -17,8 +20,30 @@ handleInputChange = event => {
   this.setState({ [event.target.name]: event.target.value });
 };
 
-createANote(){
 
+createANote = event => {
+  event.preventDefault();
+  const notes = {
+        title: this.state.title,
+        textBody:this.state.textBody
+      };
+  const URL = 'https://killer-notes.herokuapp.com/note'
+  axios
+  .post(`${URL}/create`,notes)
+  .then(response => {
+    console.log(response);
+    this.setState(
+      {
+      notes:response.data,
+      notes:{ id:Number(''),title:'',  textBody:''}
+    },
+      () => this.props.history.push('/')
+    );
+  })
+  .catch(err => {
+    console.log(err)
+      console.error('Server Error', err);
+  })
 }
 
 render(){
