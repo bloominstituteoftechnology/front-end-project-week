@@ -10,8 +10,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      inputTitle: '',
+      inputTextBody: '',
     }
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value })
+    console.log(e.target.name)
   }
 
   componentDidMount() {
@@ -32,9 +40,8 @@ class App extends Component {
           <Link to={`/`}>Your Notes</Link>
           <Link to={'/makenote'}>Make Note</Link>
         </header>
-        {/* <NoteForm />
-        <NoteList notes={this.state.notes} /> */}
         <Route exact path='/' render={(props) => (<NoteList {...props} notes={this.state.notes} />)} />
+        <Route path = '/makenote' render={(props) => (<NoteForm {...props} inputText={this.handleChange} />)} />
         <Route path='/notes/:id' render={(props) => (<NotePage {...props} notes={this.state.notes} />)} />
       </div>
     )
