@@ -49,6 +49,15 @@ margin-left: 10px;
 text-align: left;
 }
 .NoteContainer{
-  width: 600px;
 margin-left: 300px;
+display: inline-block;
+float: left;
+width: 33.33%;
+Padding: 50px;
+border:  1px solid black;
+margin-bottom: 100px;
+
+}
+.container{
+  display: flex;
 }
