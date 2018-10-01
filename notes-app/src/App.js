@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import router, { Link } from 'react-router';
+import axios from 'axios';
 import './App.css';
 
 class App extends Component {
+  state = {
+    notes: [],
+  }
+
+  componentDidMount() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+      .then( res => (
+        console.log(res)
+        // this.setState({ notes: res.data })
+      ))
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Note Taker </h1>
+          {/* <Link>Notes</Link>
+          <Link>Make</Link> */}
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
