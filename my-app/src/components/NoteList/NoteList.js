@@ -22,7 +22,7 @@ const NoteList = props => {
 };
 
 const NoteListContainer = styled.div`
-  margin: 56px 0 0 3.5%;
+  margin: 10px 0 0 250px;
 `;
 
 const H2 = styled.h2`

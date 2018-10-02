@@ -29,6 +29,7 @@ const SideBarWrap = styled.div`
   border-right: 1px solid #979797;
   box-sizing: border-box;
   height: 100%;
+  position: fixed;
 `;
 
 const H1 = styled.h1`

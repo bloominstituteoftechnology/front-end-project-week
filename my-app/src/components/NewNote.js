@@ -53,7 +53,7 @@ class NewNote extends Component {
 }
 
 const Form = styled.form`
-  margin: 38px 4% 0 4%;
+  margin: 38px 4% 0 250px;
   display: flex;
   flex-direction: column;
 `;
@@ -82,7 +82,7 @@ const InputContent = styled.input`
 const Button = styled.button`
   color: white;
   background-color: #2bc1c4;
-  width: 31.5%;
+  width: 31;
   height: 45px;
   font-weight: bold;
   font-size: 1rem;
