@@ -40,7 +40,7 @@ class NoteView extends React.Component {
           note={this.state.note} 
           title={this.state.title}
           textBody={this.state.textBody}
-          editNote={this.editNote}
+          editNote={this.props.editNote}
           Editing={this.state.Editing}
         />
       );

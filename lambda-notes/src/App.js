@@ -16,8 +16,7 @@ class App extends Component {
       note: {
         title: '',
         textBody: ''
-      },
-      Editing: false
+      }
     }
   }
 
@@ -67,7 +66,7 @@ class App extends Component {
         <SideBar />
         <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
         <Route path="/add-note" render={(props)=> <NoteForm {...props} {...this.state} editNote={this.editNote} postNote={this.postNote} note={this.state.note} />}/>
-        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} editNote={this.editNote} editForm={this.editForm} getNote={this.getNote} />} />
+        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} editNote={this.editNote}  getNote={this.getNote} />} />
       </div>
     );
   }
