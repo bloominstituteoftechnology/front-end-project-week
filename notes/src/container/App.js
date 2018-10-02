@@ -4,7 +4,19 @@ import {Route, NavLink} from 'react-router-dom';
 import NotesList from '../components/NotesList';
 import NoteForm from '../components/NoteForm';
 import NotePage from '../components/NotePage';
+import styled from 'styled-components';
 import './App.css';
+
+const NavButton = styled.button`
+  width: 180px;
+  height: 40px;
+  margin-bottom: 25px;
+  border: 1px solid gray;
+  background: lightgreen;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+`;
 
 class App extends Component {
   constructor(props){
@@ -33,18 +45,16 @@ class App extends Component {
         </header>
         <hr />
         <ul className='navBar'>         
-        <NavButton to="/create-note" activeClassName="activeNavButton">
-          + Create New Note
-        </NavButton>
+        <NavLink to="/create-note" activeClassName="activeNavButton">
+        <NavButton>+Create New Note</NavButton>
+        </NavLink>
         
-        <NavButton to="/notes" activeClassName="activeNavButton">
-          View Your Notes
-        </NavButton>
+        <NavLink to="/notes" activeClassName="activeNavButton">
+        <NavButton>View Your Notes</NavButton>
+        </NavLink>
       </ul> 
 
-        <NavButton to="/notes:id">
-          {NotePage}
-        </NavButton>
+      
       
         <Route 
           exact path='/create-note' 
@@ -57,9 +67,10 @@ class App extends Component {
             notes={this.state.notes} />)} 
           />
           <Route 
-          path='/note/:id'
-          render={props => 
-          <NoteView {...props} getNote={this.getNote} />}
+          path='/notes/:id'
+          component={NotePage}
+          // render={props => 
+          // <NotePage {...props} getNote={this.getNote} />}
           />
 
       </React.Fragment>

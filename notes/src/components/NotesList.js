@@ -10,7 +10,7 @@ const NotesList =  props => {
           {props.notes.map(note => {
             return (
               <Note
-                key={note.id}
+                key={note._id}
                 note={note}
               />
             );

@@ -5,11 +5,13 @@ import './Note.css';
 const Note = props => {
   return (
     <React.Fragment>
-    <div className='display'>
-      <h3>{props.note.tags}</h3>
-      <strong>{props.note.title}</strong>
-      <p>{props.note.textBody}</p>
-    </div>
+    <Link to={`/notes/${props.note._id}`}>
+      <div className='display'>
+        <h3>{props.note.tags}</h3>
+        <strong>{props.note.title}</strong>
+        <p>{props.note.textBody}</p>
+      </div>
+    </Link>
     </React.Fragment>
   );
 };
