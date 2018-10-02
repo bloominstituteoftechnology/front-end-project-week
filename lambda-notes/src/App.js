@@ -4,6 +4,11 @@ import './App.css';
 import Nav from './components/Nav';
 import List from './components/List';
 import AddNote from './components/AddNote';
+import NoteView from './components/NoteView';
+
+
+
+
 
 
 class App extends Component {
@@ -29,7 +34,7 @@ class App extends Component {
       ],
       id: '',
       title: '',
-      text: ''
+      text: '',
     }
   }
 
@@ -53,6 +58,7 @@ class App extends Component {
     });
   }
 
+  
   
 
   render() {
