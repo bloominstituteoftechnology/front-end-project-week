@@ -43,6 +43,26 @@ class NoteForm extends Component {
       this.props.history.push("/")
       this.setState({ editing: false })
     }
+    else if (this.state.text.length > 50) {
+        const newNote = {
+          id: Date.now(),
+          title: this.state.title,
+          text: this.state.text,
+          tags: formattedTags,
+        }
+        const emptyNote = {
+          title: '',
+          text: '',
+          tags: ''
+        }
+        this.props.addNote(newNote)
+        this.setState(emptyNote)
+        this.props.history.push("/")
+      }
+      else if (this.state.text.length < 50) {
+        alert("Minimum of 50 characters required for the text area.")
+      }
+    }
 
   
   render() {
