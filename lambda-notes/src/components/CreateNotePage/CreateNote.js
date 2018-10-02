@@ -1,6 +1,7 @@
 import React from 'react';
 import './createNote.css';
-import axios from 'axios'
+import axios from 'axios';
+import { Button } from 'reactstrap';
 class CreateNote extends React.Component {
 
 state = {
@@ -58,7 +59,7 @@ render(){
     <input className='textComment' placeholder = 'Content' name= 'textBody'  onChange ={this.handleInputChange} value = {this.state.textBody}/>
   </div>
 
-  <button onClick ={this.createANote} >Add Note</button>
+  <Button onClick ={this.createANote} >Add Note</Button>
   </form>
 
   </div>

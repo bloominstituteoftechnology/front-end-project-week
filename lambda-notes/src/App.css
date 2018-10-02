@@ -54,14 +54,23 @@ margin-left: 10px;
 text-align: left;
 }
 .NoteContainer{
-margin-left: 300px;
-display: inline-block;
-float: left;
-width: 33.33%;
+float: right;
 Padding: 50px;
 border:  1px solid black;
-margin-bottom: 100px;
-
+justify-content: space-between;
+box-shadow:11px -6px 18px 7px #442222;
+text-align: center;
+height: 402px;
+order: 3;
+overflow:hidden;
+display: flex;
+margin: 50px 50px 50px 50px;
+width: 202px;
+height: 402px;
+padding-left: 0px;
+padding-right: 0px;
+padding-bottom: 0px;
+padding-top: 0px;
 }
 .container {
 display: flex;
@@ -88,4 +97,8 @@ left: 0;
 }
 .rowTitle input{
       margin-left: 40px;
+}
+hr{
+color: black;
+width: 100px;
 }

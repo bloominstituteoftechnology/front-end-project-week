@@ -16,6 +16,7 @@ function HomePage (props) {
     <div>
       <h2>Your Notes:</h2>
       <hr/>
+<div className='Notes'>
    {props.notes.notes.map(note => {
      return(
 
@@ -29,7 +30,7 @@ function HomePage (props) {
 
      )
    })}
-
+</div>
     </div>
   )
 

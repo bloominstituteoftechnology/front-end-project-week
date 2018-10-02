@@ -119,12 +119,15 @@ noteTaking(id)
   render(){
     return (
 
-    <div className="container">
-      <div key ={this.state.notes._id} className='NoteContainer'>
-      <h3>{this.state.notes.title}</h3>
-      <hr/>
-      <p> {this.state.notes.textBody}</p>
+    <div className="Notes">
+      <div className='NoteContainer'>
+        <div key ={this.state.notes._id} >
+        <h3>{this.state.notes.title}</h3>
+        <hr/>
+        <p> {this.state.notes.textBody}</p>
+        </div>
       </div>
+
       <div className="FormContainer">
       <form >
       <div className= 'row'>
