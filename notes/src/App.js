@@ -17,10 +17,10 @@ class App extends Component {
             <Navigation>
               <h1>Lambda Notes</h1>
               <Link to="/" className="link">
-                View Notes
+                View Your Notes
               </Link>
               <Link to="/noteform" className="link">
-                Create NoteForm
+                + Create New Note
               </Link>
             </Navigation>
             <Main>

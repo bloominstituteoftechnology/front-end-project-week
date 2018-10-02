@@ -39,6 +39,43 @@ class Todo extends React.Component {
       });
     }
   }
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleComplete = taskID => {
+    this.props.complete(taskID);
+  };
+
+  handleClick = event => {
+    event.preventDefault();
+    this.props.addTask(this.state.newTodo);
+    this.setState({ newTodo: '' });
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.checklistOrder.map(checklistId => {
+          const checklist = this.state.checklist[checklistId];
+          let tasks = checklist.taskIds.map(taskId => this.state.tasks[taskId]);
+
+          return (
+            <SideBar
+              key={checklist.id}
+              checklist={checklist}
+              tasks={tasks}
+              newTodo={this.state.newTodo}
+              handleChange={this.handleChange}
+              handleClick={this.handleClick}
+              handleComplete={this.handleComplete}
+            />
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {

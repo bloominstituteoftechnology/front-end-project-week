@@ -14,7 +14,7 @@ class NoteList extends React.Component {
   render() {
     return (
       <NotesContainer>
-        <h2>Notes:</h2>
+        <h2>Your Notes:</h2>
         <NoteAlignment>
           {this.props.notes.map(note => (
             <Link to={`note._id}`} key={note._id}>
