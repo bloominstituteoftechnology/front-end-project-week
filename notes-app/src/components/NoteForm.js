@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
 
 
 class NoteForm extends Component {
@@ -27,6 +28,21 @@ class NoteForm extends Component {
       [e.target.name]: e.target.value
     })
   }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const formattedTags = this.state.tags.split(",").map(word => word.trim().toLocaleLowerCase())
+    if (this.state.editing) {
+      const updatedNote = {
+        id: this.props.noteUpdate.id,
+        title: this.state.title,
+        text: this.state.text,
+        tags: formattedTags
+      }
+      this.props.updateNote(updatedNote)
+      this.props.history.push("/")
+      this.setState({ editing: false })
+    }
 
   
   render() {
