@@ -23,24 +23,24 @@
   font-size: 1.5rem;
 }
 
-.button {
+.button-nav {
   width: 90%;
   height: 30px;
   margin: 3%;
   color: white;
   background: #5f9ea0;
+  cursor: pointer;
 } 
 
-.list {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
+.list-block {
+  width:80%;
+  padding: 5%;
 }
 
-.list header {
-  border: 2px solid red;
-  height: 20px;
+.list {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .note {

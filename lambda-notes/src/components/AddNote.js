@@ -1,45 +1,30 @@
-import React, { Component } from 'react';
-
-class AddNote extends Component {
-    constructor() {
-        super();
-        this.state = {
-            newNote: {id: '', title: '', text: ''}
-        }
-    }
-
-    handleSubmit = event => {
+import React from 'react';
+ 
+export const AddNote = (props) => {
+    const handleClick = (event) => {
         event.preventDefault();
-        this.setState({
-          title: this.state.title,
-          text: this.state.text
-        });
-      }
-    
-      handleInputChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-      };
-    
+        props.addNote(event);
+   }
 
-    render() {
-        return (
-        <form onSubmit={this.addNote}>
-           <input
-            onChange={this.handleInputChange}
-            placeholder="title"
-            value={this.state.title}
-            name="title"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="text"
-            value={this.state.text}
-            name="text"
-          />
-          <button onClick={event => {this.handleSubmit(event)}} type="submit" className='button'>Save</button>
-        </form> 
-        )
-    }
+    return (
+       <div>
+            <h3>Create New Note:</h3>
+              <form>
+                <input  
+                    placeholder="title"
+                    name="title" 
+                    onChange={props.handleInputChange} 
+                    value={props.title}
+                />
+                <textarea
+                    placeholder="text" 
+                    name="text" 
+                    onChange={props.handleInputChange} 
+                    value={props.text} />
+                <button onClick={handleClick}>Save</button>
+              </form>
+        </div>
+    )
 }
 
 export default AddNote;
