@@ -5,6 +5,7 @@ class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
       title: '',
       textBody: ''
     }
@@ -19,7 +20,11 @@ class NoteView extends Component {
     axios 
       .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
-        this.setState({notes: response.data});
+        this.setState({
+          id: response.data._id,
+          title: response.data.title,
+          textBody: response.data.textBody
+        });
       })
       .catch(error => (
         console.log('Server Error', error)
