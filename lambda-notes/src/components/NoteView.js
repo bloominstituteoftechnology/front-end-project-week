@@ -1,7 +1,9 @@
 import React, {Fragment} from "react";
+import { Link, Route } from "react-router-dom";
 import axios from 'axios';
 import NoteForm from './NoteForm';
-import { Link, Route } from "react-router-dom";
+import DeleteModal from './DeleteModal';
+
 
 class NoteView extends React.Component {
   constructor(props){
@@ -11,7 +13,8 @@ class NoteView extends React.Component {
         title:"",
         textBody:""
       },
-      Editing:false
+      Editing:false,
+      Deleting: false
     }
   }
       
@@ -27,7 +30,7 @@ class NoteView extends React.Component {
       .catch(err => {console.log(err)});
    }
 
-   editOn = e => {
+   editOn = (e) => {
     e.preventDefault();
     this.setState({ Editing: true });
    }
@@ -53,14 +56,28 @@ class NoteView extends React.Component {
     .catch(error => {console.error(error)});
   }
 
+  deleteOn = (e) =>{
+    e.preventDefault();
+    this.setState({Deleting: true})
+  }
+
+  deleteOff = () =>{
+    this.setState({Deleting: false})
+  }
+
   deleteNote = () => {
     const id = this.props.match.params.id;
 
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
     .then(response => this.setState({notes: response.data},
     this.props.history.push('/')))
+
+    this.deleteOff();
   }
   
+  abortDelete = () => {
+    this.setState({Deleting: false})
+  }
 
 
   render(){
@@ -75,11 +92,17 @@ class NoteView extends React.Component {
         />
       );
     }
+
+    if(this.state.Deleting){
+      return(
+        <DeleteModal abortDelete={this.abortDelete} deleteNote={this.deleteNote} />
+      )
+    }
   return (
     <Fragment>
      <div>
        <button onClick={this.editOn}>Edit</button>
-       <button onClick={this.deleteNote}>Delete</button>
+       <button onClick={this.deleteOn}>Delete</button>
     </div>
     <div> 
     {<h3>{this.state.note.title}</h3>}
