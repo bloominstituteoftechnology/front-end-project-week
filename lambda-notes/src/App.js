@@ -6,6 +6,7 @@ import axios from 'axios';
 import NavBar from './Components/NavBar';
 import Notes from './Components/Notes';
 import NoteForm from './Components/NoteForm';
+import NoteView from './Components/NoteView';
 
 class App extends Component {
   constructor(props) {
