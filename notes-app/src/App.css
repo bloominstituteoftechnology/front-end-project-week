@@ -1,11 +1,14 @@
 .App {
   text-align: center;
+  display: flex;
+  height: auto
 }
 
 .App-header {
   background-color: #222;
-  height: 80px;
-  padding: 20px;
+  height: auto;
+  width: 100px;
+  padding: 50px;
   color: white;
 }
 
@@ -13,3 +16,15 @@
   font-size: 1.7em;
 }
 
+.noteslist-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.note-div {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+}

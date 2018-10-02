@@ -11,33 +11,26 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      inputTitle: '',
-      inputTextBody: '',
+      inputTextTitle: '',
+      inputTextBody: ''
     }
   }
 
-  handleChange = (e) => {
-    e.preventDefault();
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
-    console.log(e.target.name)
+    console.log(e.target.value)
   }
 
-  postNote = (e) => {
+  postNote = e => {
     e.preventDefault();
     const note = {
-      textBody: this.state.inputTextBody,
-      title: this.state.inputTitle
+      title: this.state.inputTextTitle,
+      textBody: this.state.inputTextBody
     }
-
+    console.log(note)
     axios.post('https://killer-notes.herokuapp.com/note/create', note)
-      .then( res => {
-        console.log(res)
-      })
-      .catch( err => {
-        console.log(err)
-      })
-
-    this.setState({ inputTitle: '', inputTextBody: '' })
+      .then(res => this.setState({ notes: [...this.state.notes, res] }))
+      .catch(err => console.log(err))
   }
 
   componentDidMount() {
@@ -49,9 +42,7 @@ class App extends Component {
         console.log(err)
       ))
   }
-
   render() {
-    console.log(this.state.notes)
     return (
       <div className="App">
         <header className="App-header">
@@ -60,13 +51,27 @@ class App extends Component {
           <Link to={'/makenote'}>Make Note</Link>
         </header>
         <div>
-          <Route exact path='/notes' render={(props) => (<NoteList {...props} notes={this.state.notes} />)} />
-          <Route path='/notes/:id' render={(props) => (<NotePage {...props} notes={this.state.notes} />)} />
-          <Route path = '/makenote' render={(props) => (<NoteForm {...props} title={this.state.inputTitle} textBody={this.state.inputTextBody} postNote={this.postNote} inputText={this.handleChange} />)} />
+          <Route 
+          exact path='/notes' 
+          render={(props) => 
+            (<NoteList {...props} 
+            notes={this.state.notes} />)} />
+          <Route 
+          path='/notes/:id' 
+          render={(props) => 
+            (<NotePage {...props} 
+            notes={this.state.notes} />)} />
+          <Route 
+          path = '/makenote' 
+          render={(props) => 
+            (<NoteForm {...props} 
+            textTitle={this.state.inputTextTitle} 
+            textBody={this.state.inputTextBody} 
+            handleChange={this.handleChange} 
+            postNote={this.postNote} />)} />
         </div>
       </div>
     )
   }
 }
-
 export default App;
