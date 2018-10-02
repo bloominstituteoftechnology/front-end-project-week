@@ -5,9 +5,9 @@ import styled from "styled-components";
 const NoteList = props => {
   console.log("notelist props:", props);
   return (
-    <NoteListWrap>
+    <NoteListContainer>
       <H2>Your Notes:</H2>
-      <NoteCardWrap>
+      <NoteCardContainer>
         {props.notes.map(note => (
           <NoteCard key={note.id}>
             <NavLink to={`/note-view/${note.id}`}>
@@ -16,12 +16,12 @@ const NoteList = props => {
             </NavLink>
           </NoteCard>
         ))}
-      </NoteCardWrap>
-    </NoteListWrap>
+      </NoteCardContainer>
+    </NoteListContainer>
   );
 };
 
-const NoteListWrap = styled.div`
+const NoteListContainer = styled.div`
   margin: 56px 0 0 3.5%;
 `;
 
@@ -29,7 +29,7 @@ const H2 = styled.h2`
   font-size: 1.25rem;
 `;
 
-const NoteCardWrap = styled.div`
+const NoteCardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
