@@ -45,27 +45,29 @@ class NoteForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  
+
   render() {
     return (
       <React.Fragment>
         <form onSubmit={this.addNote}>
           <input
             onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
+            placeholder="tags"
+            value={this.state.tag}
+            name="tags"
           />
           <input
             onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
+            placeholder="title"
+            value={this.state.title}
+            name="title"
           />
-          <input
+          <textarea rows="10" cols="30"
             onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
+            placeholder="textBody"
+            value={this.state.textBody}
+            name="textBody"
           />
           <button type="submit">Add to the notes</button>
         </form>
