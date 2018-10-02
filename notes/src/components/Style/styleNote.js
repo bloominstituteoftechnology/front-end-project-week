@@ -10,6 +10,35 @@ export const NoteAlignment = styled.div`
   justify-content: space-between;
 `;
 
+export const NoteStyle = styled.div`
+  background: #fff;
+  border: 1px solid #d3d2d3;
+  padding: 5px 10%;
+  margin-top: 20px;
+  height: 270px;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0px 1px 17px 6px lightgray;
+    transform: scale(1.01);
+  }
+
+  &:active {
+    background: #eeedee;
+  }
+
+  h3 {
+    border-bottom: 1px solid #d3d2d3;
+    padding: 5px 0;
+  }
+
+  p {
+    font-size: 28px;
+    line-height: 1.7;
+    padding: 5px 0;
+  }
+`;
+
 export const ViewContainer = styled.div`
   margin-top: 50px;
   padding: 0 5%;
