@@ -41,7 +41,8 @@ server.post('/notes', (req, res) => {
   res.json(notes);
 });
 
-server.delete('/notes/:id', (req, res) => {
+server.delete('/notes/id', (req, res) => {
+  console.log('server fired')
   const { id } = req.params;
   const foundNote = notes.find(note => note.id == id);
 

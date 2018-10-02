@@ -8,10 +8,15 @@
 .card {
   width: 300px;
   height: auto;
-  margin: 0 auto;
+  margin: 10px;
 }
 
 .card-header-title {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-card-body {
   display: flex;
   justify-content: center;
 }
@@ -33,4 +38,12 @@
   padding: 5px;
   margin: 0 auto;
   margin-top: 10px;
+}
+
+.notes-container {
+  display:flex;
+  width: 1268px;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
 }

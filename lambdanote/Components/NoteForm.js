@@ -8,67 +8,72 @@ export default class NoteForm extends Component {
       super(props)
       this.state = {
         title: '',
-        text: '',
+        textBody: '',
         timeStamp: null
       }
     }
 
     handleInputChange = e => {
-      this.setSTate({ [e.target.name]: e.target.value })
+      this.setState({ [e.target.name]: e.target.value })
     }
 
-    addNote = e => {
-      e.preventDefault()
+    addNote = event => {
+      event.preventDefault()
       const newNote = {
         title: this.state.title,
-        text: this.state.text,
+        textBody: this.state.textBody,
         timeStamp: Moment().format('MMMM Do YYYY, h:mm:ss a')
-      }
+    }
 
-      this.props.postNote(newNote)
+    this.props.postNote(newNote)
 
-      this.setState({
-        title: '',
-        text: '',
-        timeStamp: null
-      })
+    this.setState({
+      title: '',
+      textBody: '',
+      timeStamp: null
+    })
+
+    console.log('After Note Form Resets ', this.props.notes)
+
     }
 
     render() {
       return(
-        <div class="NoteForm">
-          <div class="field">
-            <label class="label">Note Title</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Note Title" onChange={this.handleInputChange}/>
+        <div className="NoteForm">
+        <form onSubmit={this.addNote}>
+          <div className="field">
+            <label className="label">Note Title</label>
+            <div className="control">
+              <input className="input" type="text" name="title" value={this.state.title} onChange={this.handleInputChange}/>
             </div>
           </div>
 
 
-          <div class="field">
-            <label class="label">Note Content</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Note Content" onChange={this.handleInputChange}></textarea>
+          <div className="field">
+            <label className="label">Note Content</label>
+            <div className="control">
+              <input className="input" type="text" name="textBody" value={this.state.textBody} onChange={this.handleInputChange}/>
             </div>
           </div>
 
-          <div class="field">
-            <div class="control">
-              <label class="checkbox">
+          <div className="field">
+            <div className="control">
+              <label className="checkbox">
               <input type="checkbox"/>
                 Set A Reminder?
               </label>
             </div>
           </div>
 
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" onClick={this.addNote}>Add Note</button>
+          <div className="field is-grouped">
+            <div className="control">
+              <button className="button is-link" type="submit" onClick={this.addNote}>Add Note</button>
             </div>
-            <div class="control">
-              <button class="button is-text">Cancel</button>
+            <div className="control">
+              <button className="button is-text">Cancel</button>
             </div>
           </div>
+          </form>
       </div>
       )
     }
