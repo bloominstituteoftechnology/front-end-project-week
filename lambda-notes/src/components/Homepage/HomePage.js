@@ -1,29 +1,38 @@
 import React from 'react';
-
-class HomePage extends React.Component {
-  constructor(props){
-super(props);
-
-  }
+import { Route } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
-  render() {
+function HomePage (props) {
+
+
+  console.log(props);
+
+
+
+
     return (
+
     <div>
       <h2>Your Notes:</h2>
-   <hr/>
-   {this.props.notes.notes.map(note => {
+      <hr/>
+   {props.notes.notes.map(note => {
      return(
-     <div key ={note.id} className='NoteContainer'>
+
+     <div key ={note._id} className='NoteContainer'>
+        <Link to ={`/notes/${note._id}`}>
      <h3>{note.title}</h3>
      <hr/>
      <p> {note.textBody}</p>
+     </Link>
      </div>
+
      )
    })}
+
     </div>
   )
-  }
+
 }
 
 export default HomePage;

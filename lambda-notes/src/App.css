@@ -36,11 +36,16 @@ width: 20vw;
 top: 0;
 
 }
-.container button{
+.container  nav button{
 border-radius: 10%;
 margin-bottom: 5%;
 background-color: grey;
-font-size:
+margin-bottom: 20px;
+background-color: #2fa7e0;
+border:1px solid black;
+margin-bottom: 20px;
+padding-top: 6px;
+padding-bottom: 6px;
 }
 h1{
 font-size: 30px;
