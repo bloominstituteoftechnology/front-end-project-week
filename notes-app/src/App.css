@@ -28,3 +28,9 @@
   padding: 10px;
   margin: 10px;
 }
+
+.noteform-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

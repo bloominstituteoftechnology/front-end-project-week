@@ -29,7 +29,7 @@ class App extends Component {
     }
     console.log(note)
     axios.post('https://killer-notes.herokuapp.com/note/create', note)
-      .then(res => this.setState({ notes: [...this.state.notes, res] }))
+      .then(res => this.setState({ notes: [...this.state.notes] }))
       .catch(err => console.log(err))
   }
 

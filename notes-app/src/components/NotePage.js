@@ -9,6 +9,10 @@ function NotePage(props) {
         <div>
             <h1>{note.title}</h1>
             <p>{note.textBody}</p>
+            <div>
+                <button>Delete</button>
+                <button>Edit</button>
+            </div>
         </div>
     )
 }
