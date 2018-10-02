@@ -59,8 +59,8 @@ class NoteForm extends React.Component{
                 <h1>{this.props.Editing ? "Edit Note" : "Add Note"}</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" onChange={this.handleInputChange} name="title" value={this.state.title} placeholder="Title" />
-                    <input type="textbox" onChange={this.handleInputChange} name="textBody" value={this.state.textBody} placeholder="Notes" />
-                    <button type="submit">Add Note</button>
+                    <input type="text" onChange={this.handleInputChange} name="textBody" value={this.state.textBody} placeholder="Notes" />
+                    <button type="submit">{this.props.Editing ? "Update" : "Add Note"}</button>
                 </form>
             </div>
          

@@ -32,6 +32,29 @@ class NoteView extends React.Component {
     this.setState({ Editing: true });
    }
 
+   editNote = (note) => {
+    const blanknote={
+    title: "",
+    textBody: ""
+    }
+
+  const id = this.props.match.params.id;
+
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(response => {
+      this.setState({
+        note: response.data,
+        title: response.data.title,
+        textBody: response.data.textBody,
+        Editing: false
+      });
+      this.props.history.push('/');
+    })
+    .catch(error => {console.error(error)});
+  }
+  
+
 
   render(){
     if (this.state.Editing) {
@@ -40,7 +63,7 @@ class NoteView extends React.Component {
           note={this.state.note} 
           title={this.state.title}
           textBody={this.state.textBody}
-          editNote={this.props.editNote}
+          editNote={this.editNote}
           Editing={this.state.Editing}
         />
       );
