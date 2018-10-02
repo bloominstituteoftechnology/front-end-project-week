@@ -53,9 +53,9 @@ class NoteForm extends Component {
         <form onSubmit={this.addNote}>
           <input
             onChange={this.handleInputChange}
-            placeholder="tags"
+            placeholder="tag"
             value={this.state.tag}
-            name="tags"
+            name="tag"
           />
           <input
             onChange={this.handleInputChange}
