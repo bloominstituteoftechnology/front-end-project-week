@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
+
+const NoteCard = styled.div`
+  width: 180px;
+  height: 100%;
+  margin-bottom: 25px;
+  border: 1px solid gray;
+  background: lightgreen;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+`;
 
  class NotePage extends Component {
   constructor(props) {
@@ -12,6 +24,7 @@ import axios from 'axios';
   };
    componentDidMount() {
     const id = this.props.match.params.id;
+    console.log(id);
     this.getNote(id);
   }
 
@@ -36,10 +49,10 @@ import axios from 'axios';
           <button>Edit</button>
           <button>Delete</button>
         </div>
-        
+        <NoteCard>
           <h3>{this.state.title}</h3>
           <p>{this.state.textBody}</p>
-        
+        </NoteCard>
       </React.Fragment>  
       
     );
