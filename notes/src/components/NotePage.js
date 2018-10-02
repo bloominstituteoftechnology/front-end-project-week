@@ -1,14 +1,48 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
- function NotePage(props) {
-    console.log(props.match.params._id)
-    const note = props.notes.find(note => note._id === props.match.params.id);
-    console.log(note)
+ class NotePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: '',
+      title: '',
+      textBody: ''
+    }
+  };
+   componentDidMount() {
+    const id = this.props.match.params.id;
+    this.getNote(id);
+  }
+
+   getNote = id => {
+    axios 
+      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .then(res => {
+            this.setState({
+            id: res.data._id,
+            title: res.data.title,
+            textBody: res.data.textBody
+        });
+      })
+      .catch(err => (
+        console.log(`Error: ${err}`)
+      ));
+  }
+   render() {
     return (
-        <div>
-            <h1>{note.title}</h1>
-            <p>{note.textBody}</p>
+    <React.Fragment>
+        <div className='left-nav'>
+          <button>Edit</button>
+          <button>Delete</button>
         </div>
-    )
+        
+          <h3>{this.state.title}</h3>
+          <p>{this.state.textBody}</p>
+        
+      </React.Fragment>  
+      
+    );
+  }
 }
  export default NotePage;

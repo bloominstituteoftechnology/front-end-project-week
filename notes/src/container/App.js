@@ -33,18 +33,18 @@ class App extends Component {
         </header>
         <hr />
         <ul className='navBar'>         
-        <NavLink to="/create-note" className='button'>
+        <NavButton to="/create-note" activeClassName="activeNavButton">
           + Create New Note
-        </NavLink>
+        </NavButton>
         
-        <NavLink to="/notes" className='button'>
+        <NavButton to="/notes" activeClassName="activeNavButton">
           View Your Notes
-        </NavLink>
+        </NavButton>
       </ul> 
 
-        <NavLink to="/notes:id" className='button'>
+        <NavButton to="/notes:id">
           {NotePage}
-        </NavLink>
+        </NavButton>
       
         <Route 
           exact path='/create-note' 
@@ -57,10 +57,10 @@ class App extends Component {
             notes={this.state.notes} />)} 
           />
           <Route 
-          path='/notes/:id' 
-          render={(props) => 
-            (<NotePage {...props} 
-            notes={this.state.notes} />)} />
+          path='/note/:id'
+          render={props => 
+          <NoteView {...props} getNote={this.getNote} />}
+          />
 
       </React.Fragment>
     );
