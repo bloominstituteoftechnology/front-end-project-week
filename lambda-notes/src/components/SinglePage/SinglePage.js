@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as axios from 'axios';
 import EditForm from './EditForm.js'
-
+import { Button } from 'reactstrap';
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
@@ -133,8 +133,13 @@ noteTaking(id)
       <div className= 'row'>
         <input className='textComment' placeholder = 'Content' name= 'newTextBody'  onChange ={this.handleInputChange} value = {this.state.newTextBody}/>
       </div>
-      <button onClick ={this.deleteNote(this.state.notes._id)} >Delete Note</button>
-      <button onClick ={this.editNote(this.state.notes._id)} >Edit Note</button>
+      <div className="ButtonContainer">
+        <Button  color="success" onClick ={this.editNote(this.state.notes._id)} >Edit Note</Button>
+      </div>
+      <div className="ButtonContainer">
+        <Button  color="danger" onClick ={this.deleteNote(this.state.notes._id)} >Delete Note</Button>
+      </div>
+
       </form>
 
 

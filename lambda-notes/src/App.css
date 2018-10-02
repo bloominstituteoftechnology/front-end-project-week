@@ -80,3 +80,12 @@ left: 0;
   justify-content: center;
   margin-left:50%;
 }
+.FormContainer button{
+  margin-right: 300px;
+}
+.ButtonContainer{
+  margin-bottom: 100px;
+}
+.rowTitle input{
+      margin-left: 40px;
+}
