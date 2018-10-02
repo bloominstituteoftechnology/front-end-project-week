@@ -52,7 +52,7 @@ class App extends Component {
 
       <Route 
         path='/:id'
-        render={props => (
+        component={props => (
           <Note
             {...props}
             notes = 
