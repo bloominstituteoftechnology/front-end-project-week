@@ -22,12 +22,7 @@ class App extends Component {
           text: "Find an outdoorsy friend that loves to camp.",
           tags: ["outsdoorsy", "friend"]
         }
-
-        this.componentDidMount(){
-          console.log('mounted');
-          axios.get()
-          
-        }
+        
       ],
       addNote = (newNote) => {
         let filteredTags = [...newNote.tags].filter(excluded => ![...this.state.tags].includes(excluded))
@@ -37,6 +32,21 @@ class App extends Component {
       editNote = (noteId) => {
         this.setState({ noteUpdate: this.state.notes.filter(note => note.id === noteId)[0] })
       }
+
+      updateNote = (targetNote) => {
+        let currentList = this.state.notes.filter(note => note.id !== targetNote.id)
+        let updatedNote = this.state.notes.filter(note => note.id === targetNote.id)[0]
+        updatedNote.title = targetNote.title
+        updatedNote.text = targetNote.text
+        updatedNote.tags = targetNote.tags
+        const notes = [...currentList, updatedNote]
+        this.setState({ notes })
+      }
+    
+      deleteNote = (noteId) => {
+        this.props.history.push
+      }
+      
 
   render() {
     return (
