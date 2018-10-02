@@ -17,8 +17,8 @@ import { Route, Link } from 'react-router-dom';
      return (
          <Fragment>
              <div className="noteBoxs">
-                <h1>{note.title}</h1>
-                <p>{note.textBody}</p>
+                {/* <h1>{note.title}</h1>
+                <p>{note.textBody}</p> */}
                 <nav>
                     <Link to={`/notes/${note.id}/info`}>Notes Rarw!</Link>
                 </nav>
