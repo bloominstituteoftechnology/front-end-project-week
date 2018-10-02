@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 function HomePage (props) {
@@ -20,11 +20,11 @@ function HomePage (props) {
      return(
 
      <div key ={note._id} className='NoteContainer'>
-        <Link to ={`/notes/${note._id}`}>
+        <NavLink to ={`/notes/${note._id}`}>
      <h3>{note.title}</h3>
      <hr/>
      <p> {note.textBody}</p>
-     </Link>
+      </NavLink>
      </div>
 
      )

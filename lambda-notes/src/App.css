@@ -66,3 +66,7 @@ margin-bottom: 100px;
 .container{
   display: flex;
 }
+.editForm{
+  border: 1px solid black;
+  margin-left: 100px;
+}

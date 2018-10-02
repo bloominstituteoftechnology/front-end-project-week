@@ -37,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path = '/notes/:id' render ={props => <SinglePage {...props}  />}/>
+        <Route path = '/notes/:id' render ={props => <SinglePage {...props} notes={this.state.notes}  />}/>
 
         <Route path= "/" component ={LambdaNav} />
         <Route exact path = '/' render ={props => <HomePage {...props} notes = {this.state} />}/>
