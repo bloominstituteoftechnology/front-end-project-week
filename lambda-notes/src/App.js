@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import NavBar from './Components/NavBar';
 import Notes from './Components/Notes';
+import NoteForm from './Components/NoteForm';
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +38,10 @@ class App extends Component {
         <Route 
           exact path='/' 
           render={props => <Notes {...props} notes={this.state.notes} />}
+        />
+        <Route
+          path='/new'
+          render={props => <NoteForm {...props} addNote={this.addNote} />}
         />
       </div>
     );
