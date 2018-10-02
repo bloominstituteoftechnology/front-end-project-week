@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
-import Form from "./components/Form/form";
 import { Route, Switch, withRouter } from "react-router-dom";
 import Sidebar from "./components/SideBar";
 import styled from "styled-components";
 import NoteList from "./components/NoteList/NoteList";
+import NewNote from "./components/NewNote";
 
 class App extends Component {
   constructor() {
@@ -17,6 +17,9 @@ class App extends Component {
     };
   }
 
+  createNote = newNote => {
+    this.setState({ notes: [...this.state.notes, newNote] });
+  };
   //with new input state of title and textbody are changed.
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -34,21 +37,17 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  //   axios.post(`https://killer-notes.herokuapp.com/note/create`, { note })
-  //   .then(res => {
-  //     console.log(res);
-  //     console.log(res.data);
-  //   })
-  // }
-
   render() {
     return (
       <div className="container">
         <Sidebar />
-        <Form />
         <Route
           path="/list-view"
           render={props => <NoteList {...props} notes={this.state.notes} />}
+        />
+        <Route
+          path="/create-new"
+          render={props => <NewNote {...props} createNote={this.createNote} />}
         />
       </div>
     );
