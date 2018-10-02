@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const ViewContainer = styled.div`
+  border: 1px solid black;
+  margin-left: 300px;
+  margin-top: -610px;
+`;
 
 class NoteView extends Component {
   constructor(props) {
@@ -33,7 +40,7 @@ class NoteView extends Component {
 
   render() {
     return (
-      <div className='view-container'>
+      <ViewContainer>
         <div className='top-nav'>
           <button>Edit</button>
           <button>Delete</button>
@@ -42,7 +49,7 @@ class NoteView extends Component {
           <h3>{this.state.title}</h3>
           <p>{this.state.textBody}</p>
         </div>
-      </div>
+      </ViewContainer>
     );
   }
 }
