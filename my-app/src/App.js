@@ -3,6 +3,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import Form from "./components/Form/form";
+import { Route, Switch, withRouter } from "react-router-dom";
+import Sidebar from "./components/SideBar";
+import styled from "styled-components";
 
 class App extends Component {
   constructor() {
@@ -12,6 +15,11 @@ class App extends Component {
       note: {}
     };
   }
+
+  //with new input state of title and textbody are changed.
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   componentDidMount() {
     // fetch data from the api
@@ -25,23 +33,24 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  //with new input state of title and textbody are changed.
-  handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  //   axios.post(`https://killer-notes.herokuapp.com/note/create`, { note })
+  //   .then(res => {
+  //     console.log(res);
+  //     console.log(res.data);
+  //   })
+  // }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">My Notecard App, you got this Ray!</h1>
-        </header>
+        <Sidebar />
         <Form />
-        {this.state.notes.map(note => (
-          // <img src={note} key={note} />
-          <li>{note.tags}</li>
-        ))}
+        <div>
+          {this.state.notes.map(note => (
+            // <img src={note} key={note} />
+            <li>{note.tags}</li>
+          ))}{" "}
+        </div>
       </div>
     );
   }
