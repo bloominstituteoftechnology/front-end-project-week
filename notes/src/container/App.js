@@ -25,25 +25,28 @@ class App extends Component {
 
   render() {
     return (
+    
       <React.Fragment>
         <header className="App-header">
           <h1 className="App-title">List View</h1>
         </header>
         <hr />
-        <div className='navBar'>        
-        <NavLink to="/create-notes">
+        <ul className='navBar'>         
+        <NavLink to="/create-note" className='button'>
           + Create New Note
         </NavLink>
         
-        <NavLink to="/notes">
+        <NavLink to="/notes" className='button'>
           View Your Notes
         </NavLink>
-      </div> 
-        <hr />
-        <Route path='/create-note' component={NoteForm} />
-        <Route exact path='/notes'  Component={NotesList} />
-        {/* <NoteForm />
-        <NotesList notes={this.state.notes} /> */}
+      </ul> 
+        <Route exact path="/" component={App}/>
+        <Route exact path='/create-note' component={NoteForm} />
+        <Route 
+          exact path='/notes' 
+          render={(props) => 
+            (<NotesList {...props} 
+            notes={this.state.notes} />)} />
       </React.Fragment>
     );
   }

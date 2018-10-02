@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.button{
+  background: lightblue;
+  height: 10px;
+  border: 1px solid black;
+  
+}
+
 
 .App-header {
   display: flex;
