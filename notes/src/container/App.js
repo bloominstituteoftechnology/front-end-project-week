@@ -30,8 +30,20 @@ class App extends Component {
           <h1 className="App-title">List View</h1>
         </header>
         <hr />
-        <NoteForm />
-        <NotesList notes={this.state.notes} />
+        <div className='navBar'>        
+        <NavLink to="/create-notes">
+          + Create New Note
+        </NavLink>
+        
+        <NavLink to="/notes">
+          View Your Notes
+        </NavLink>
+      </div> 
+        <hr />
+        <Route path='/create-note' component={NoteForm} />
+        <Route exact path='/notes'  Component={NotesList} />
+        {/* <NoteForm />
+        <NotesList notes={this.state.notes} /> */}
       </React.Fragment>
     );
   }
