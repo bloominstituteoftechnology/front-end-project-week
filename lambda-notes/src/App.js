@@ -16,17 +16,21 @@ class App extends Component {
       note: {
         title: '',
         textBody: ''
-      }
+      },
+      Editing: false
     }
   }
 
   componentDidMount(){
-    axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(response => this.setState({notes: response.data}))
-      .catch(err => console.log(err))
+    this.getNotes();
   }
 
+  getNotes = () => {
+    axios
+    .get("https://killer-notes.herokuapp.com/note/get/all")
+    .then(response => this.setState({notes: response.data}))
+    .catch(err => console.log(err))
+  }
   postNote = (newNote) => {
     axios
       .post("https://killer-notes.herokuapp.com/note/create", newNote)
@@ -34,13 +38,36 @@ class App extends Component {
       .catch(err => {console.log(err)});
   }
 
+  editNote = (note) => {
+    const blanknote={
+    title: "",
+    textBody: ""
+  }
+
+  const id = this.props.match.params.id;
+
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(response => {
+      this.setState({
+        note: response.data,
+        title: response.data.title,
+        textBody: response.data.textBody,
+        Editing: false
+      });
+      this.props.history.push('/');
+    })
+    .catch(error => {console.error(error)});
+  }
+  
+
   render() {
     return (
       <div className="App">
         <SideBar />
         <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
-        <Route path="/add-note" render={(props)=> <NoteForm {...props} notes={this.state.notes} postNote={this.postNote} />}/>
-        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} getNote={this.getNote} />} />
+        <Route path="/add-note" render={(props)=> <NoteForm {...props} {...this.state} editNote={this.editNote} postNote={this.postNote} note={this.state.note} />}/>
+        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} editNote={this.editNote} editForm={this.editForm} getNote={this.getNote} />} />
       </div>
     );
   }

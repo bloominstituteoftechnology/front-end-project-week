@@ -27,24 +27,12 @@ class NoteView extends React.Component {
       .catch(err => {console.log(err)});
    }
 
-   editNote = (editedNote) => {
-    axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${this.id}`, editedNote)
-    .then(response => {
-      this.setState({Editing:true});
-      this.props.getNote();
-      this.setState({
-        note: response.data,
-        title: response.data.title,
-        textBody: response.data.textBody,
-        Editing: false
-      });
-    })
-    .catch(error => {console.error(error)});
-  }
-  
+   editOn = e => {
+    e.preventDefault();
+    this.setState({ Editing: true });
+   }
 
-  
+
   render(){
     if (this.state.Editing) {
       return (
@@ -60,8 +48,8 @@ class NoteView extends React.Component {
   return (
     <Fragment>
      <div>
-       <Link to="/add-note">Edit</Link>
-       <Link to="/">Delete</Link>
+       <button onClick={this.editOn}>Edit</button>
+       <button>Delete</button>
     </div>
     <div> 
     {<h3>{this.state.note.title}</h3>}
