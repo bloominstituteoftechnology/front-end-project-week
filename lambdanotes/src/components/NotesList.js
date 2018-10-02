@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Notes from './Notes';
 
-function NotesList(props) {
-    if(!props.notesList || !props.notesList.length) {
-        return <h1>Oh Notes! Where Are You?... Go Find Them!</h1>
+class NotesList extends Component {
+    render() {
+        return (
+            <div className="noteWrap">
+                <ul>
+                    {this.props.notesList.map(note => {
+                        return (
+                            <Notes
+                                key={note.id}
+                                tag={note.tag}
+                                title={note.title}
+                                textBody={note.textBody}
+                            />
+                        );
+                    })}
+                </ul> 
+            </div>
+        );
     }
-    return (
-        <div className="noteWrap">
-            <ul>
-                {props.notesList.map(note => (
-                    <li className="noteCard" key={note.id}>
-                        <h2>{note.title}</h2>
-                        <p>{note.textBody}</p>
-                        <h2 onClick={() => props.history.push(`.notes/${note.id}/info`)}>{note.title}</h2>
-                    </li>
-                ))}
-            </ul> : null
-            }
-        </div>
-    )
 }
 export default NotesList;

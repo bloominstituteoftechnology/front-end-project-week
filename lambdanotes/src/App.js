@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Home from './components/Home';
 import NotesForm from './components/NotesForm';
 import NotesList from './components/NotesList';
 import Notes from './components/Notes';
 import axios from 'axios';
 
-const blankNoteForm = {
-  title: "",
-  textBody: "",
-}
+// const blankNoteForm = {
+//   title: "",
+//   textBody: "",
+// }
 
 class App extends Component {
-  constructor() {
+  constructor(props) {
     super(props);
     this.state = {
-      madeNotes: [],
+      notes: [],
       note: {
         tag: "",
         title: "",
@@ -29,23 +29,12 @@ class App extends Component {
   componentDidMount() {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
-      this.setState({ madeNotes: response.data });
+      this.setState({ notes: response.data });
     })
     .catch(err => {console.log(err)});
   }
 
-  // handleChange = event => {
-  //   this.setState({
-  //     noe: {...this.state.note, [event.target.title]: event.target.value,}
-  //   });
-  // }
-
-  // handleAddNewNote = event => {
-  //   event.preventDefault();
-  //   console.log("We've got a new note here!")
-  //   axios.post('https://killer-notes.herokuapp.com/note/create', this.state.note)
-  //   .then(response => this.setState({ madeNotes: response.data, note: blankNoteForm }))
-  // }
+  // 
 
   // handleDeleteNotes = noteId => {
   //   return axios.delete(`https://killer-notes.herokuapp.com/note/delete/id/${noteId}`)
@@ -99,15 +88,16 @@ class App extends Component {
         </header>
         <Route exact path="/" component={Home} />
         <Route exact path="/notes" render={props => (
-          <NotesList {...props} notesList={this.state.madeNotes} />
+          <NotesList {...props} notesList={this.state.notes} />
         )}
         />
         <Route path="/notes/:noteId" render={props => (
           <Notes 
             {...props}
-            notesList={this.state.madeNotes}
-            handleDeleteNotes={this.handleDeleteNotes}
-            updateNoteForm={this.updateNoteForm} />
+            notesList={this.state.notes}
+            // handleDeleteNotes={this.handleDeleteNotes}
+            // updateNoteForm={this.updateNoteForm} 
+            />
             )}
           />
         <Route
@@ -118,8 +108,8 @@ class App extends Component {
               note={this.state.note}
               handleAddNewNote={this.handleAddNewNote}
               handleChange={this.handleChange}
-              handleUpdateNotes={this.handleUpdateNotes}
-              updatingNote={this.state.updatingNote}
+              // handleUpdateNotes={this.handleUpdateNotes}
+              // updatingNote={this.state.updatingNote}
             />
           )}
         />
@@ -128,4 +118,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default (App);
