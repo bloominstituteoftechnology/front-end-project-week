@@ -38,11 +38,17 @@ class NoteView extends Component {
       ));
   }
 
+  editNote = event => {
+    event.preventDefault();
+    const id = this.props.match.params.id;
+    this.props.history.push(`/edit/${id}`)
+  };
+
   render() {
     return (
       <ViewContainer>
         <div className='top-nav'>
-          <button>Edit</button>
+          <button onClick={this.editNote}>Edit</button>
           <button>Delete</button>
         </div>
         <div className='single-note'>
