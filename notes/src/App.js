@@ -32,6 +32,10 @@ class App extends Component {
                     path="/noteform/:id?"
                     render={props => <NoteForm {...props} />}
                   />
+                  <Route
+                    path="/notes/:id"
+                    render={props => <ViewPage {...props} />}
+                  />
                 </Switch>
               </section>
             </Main>
