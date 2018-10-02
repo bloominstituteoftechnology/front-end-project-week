@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NavbarContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
-  height: 100vh;
+  height: 610px;
   background: #D3D2D3;
 `;
 
