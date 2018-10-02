@@ -13,16 +13,18 @@ class NoteForm extends Component {
     return (
       <div>
         <h2>Create New Note:</h2>
-        <form>
+        <form onSubmit={this.addNote}>
           <input
             name='title'
             placeholder='Note Title'
             value={this.state.title}
+            onChange={this.handleInputChange}
           />
           <input
             name='textBody'
             placeholder='Note Content'
             value={this.state.textBody}
+            onChange={this.handleInputChange}
           />
           <button type='submit'>Save</button>
         </form>
