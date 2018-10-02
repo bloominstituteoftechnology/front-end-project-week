@@ -63,10 +63,20 @@ border:  1px solid black;
 margin-bottom: 100px;
 
 }
-.container{
-  display: flex;
-}
+.container {
+display: flex;
+left: 0;
+  }
+
+.container nav{
+
+left: 0;
+  }
 .editForm{
   border: 1px solid black;
   margin-left: 100px;
+}
+.FormContainer form{
+  justify-content: center;
+  margin-left:50%;
 }

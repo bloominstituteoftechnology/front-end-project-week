@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import * as axios from 'axios';
 import EditForm from './EditForm.js'
 
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mounted:true,
       newTitle: '',
       newTextBody:'',
       notes: [{
@@ -17,8 +18,23 @@ export default class SinglePage extends Component {
 componentDidMount(){
 console.log(this.props)
 const id =  this.props.match.params.id;
-this.fetchNote(id)
+this.mounted = true;
+if(this.state.mounted){
+  this.fetchNote(id)
+}
+this.setState({
+  notes: [{
 
+  }]
+})
+
+
+}
+
+componentWillUnmount(){
+this.setState({
+    mounted: false
+  });
 }
 
 fetchNote = id => {
@@ -37,34 +53,66 @@ fetchNote = id => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  editNote = event => id => {
 
-event.stopImmediatePropagation();
-  debugger;
-  console.log(id);
-  const notes = {
-    notes: [{
+deleteNote = id => event => {
+  event.preventDefault();
+console.log(id)
+
+axios
+.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+.then(response => {
+  console.log("success", response);
+  this.setState(
+    {
+    notes:response.data,
+
+  },
+    () => this.props.history.push('/')
+  );
+})
+.catch(err => {
+  console.log(err)
+
+})
+
+}
+
+
+  editNote = id => event => {
+
+
+  const noteTaking = id =>  {
+  const note = {
+
       title: this.state.newTitle,
       textBody:this.state.newTextBody
-    }]
 
-      };
+  }
+    console.log(id);
+    return axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`,note)
+  };
 
-  axios
-  .put(`https://killer-notes.herokuapp.com/note/edit/${id}`,notes)
+
+
+  event.preventDefault();
+  this.setState({
+      mounted: false
+    });
+
+noteTaking(id)
   .then(response => {
     console.log("success", response);
     this.setState(
       {
       notes:response.data,
-      notes:{ _id:Number(''),title:'',  textBody:''}
+
     },
       () => this.props.history.push('/')
     );
   })
   .catch(err => {
     console.log(err)
-      console.error('Server Error', err);
+
   })
   }
 
@@ -85,9 +133,10 @@ event.stopImmediatePropagation();
       <div className= 'row'>
         <input className='textComment' placeholder = 'Content' name= 'newTextBody'  onChange ={this.handleInputChange} value = {this.state.newTextBody}/>
       </div>
-
+      <button onClick ={this.deleteNote(this.state.notes._id)} >Delete Note</button>
       <button onClick ={this.editNote(this.state.notes._id)} >Edit Note</button>
       </form>
+
 
       </div>
     </div>
