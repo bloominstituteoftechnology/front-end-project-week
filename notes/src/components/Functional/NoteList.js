@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getData } from '../../Store/actions';
 import Note from '../Views/Note';
 
-import { NotesContainer, NoteAlignment } from '../style/styleNote';
+import { NotesContainer, NoteAlignment } from '../Style/styleNote';
 
 class NoteList extends React.Component {
   componentDidMount() {

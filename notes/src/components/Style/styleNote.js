@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const NotesContainer = styled.div`
+  margin: 50px 10%;
+`;
+
+export const NoteAlignment = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
 export const ViewContainer = styled.div`
   margin-top: 50px;
   padding: 0 5%;
