@@ -20,7 +20,7 @@ class NoteForm extends React.Component{
         }
     }
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
         if(this.props.Editing){
         const updatedNote = {

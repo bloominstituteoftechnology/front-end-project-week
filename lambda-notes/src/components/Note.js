@@ -6,9 +6,8 @@ const Note = (props) =>{
     return(
     <Fragment>       
     <div className="single-note">
-        <h3>{props.noteTitle}</h3>
-        <hr/>
-        <p>{props.noteBody}</p>
+        <h3 className="text header">{props.noteTitle}</h3>
+        <p className="text">{props.noteBody}</p>
     </div>
     </Fragment>
     )

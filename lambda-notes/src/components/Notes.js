@@ -11,14 +11,12 @@ const Notes = (props) => {
             <h2>Your Notes:</h2>
             {props.notes.map(note => {
                 return(
-                <Link to={`/note/${note._id}`} key={note._id}>   
-                <div className ="link">        
+                <Link className="link" to={`/note/${note._id}`} key={note._id}>       
                 <Note 
                 noteTitle ={note.title}
                 noteBody={note.textBody} 
                 note={note}
                 />
-                </div>
                 </Link>
                 )
             })}
