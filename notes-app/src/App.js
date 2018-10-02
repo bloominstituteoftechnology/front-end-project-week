@@ -11,15 +11,21 @@ class App extends Component {
       notes: [
         {
           id: 1537805881051,
-          title: "1. Get a rucksack",
-          text: "Find a nice rucksack that can hold all your backpacking gear.",
+          title: "1. Get a backpack",
+          text: "Find a Jansport backpack that can hold all your gear.",
           tags: ["gear", "capacity"]
         },
         {
           id: 1537805891197,
           title: "2. Grab a buddy",
-          text: "Find an outdoorsy friend that loves to rough it up.",
+          text: "Find an outdoorsy friend that loves to camp.",
           tags: ["outsdoorsy", "friend"]
+        }
+
+        this.componentDidMount(){
+          console.log('mounted');
+          axios.get()
+          
         }
       ],
     };
