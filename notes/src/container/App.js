@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Route, NavLink} from 'react-router-dom';
 import NotesList from '../components/NotesList';
 import NoteForm from '../components/NoteForm';
+import NotePage from '../components/NotePage';
 import './App.css';
 
 class App extends Component {
@@ -40,13 +41,27 @@ class App extends Component {
           View Your Notes
         </NavLink>
       </ul> 
-        <Route exact path="/" component={App}/>
-        <Route exact path='/create-note' component={NoteForm} />
+
+        <NavLink to="/notes:id" className='button'>
+          {NotePage}
+        </NavLink>
+      
+        <Route 
+          exact path='/create-note' 
+          component={NoteForm} 
+        />
         <Route 
           exact path='/notes' 
           render={(props) => 
             (<NotesList {...props} 
+            notes={this.state.notes} />)} 
+          />
+          <Route 
+          path='/notes/:id' 
+          render={(props) => 
+            (<NotePage {...props} 
             notes={this.state.notes} />)} />
+
       </React.Fragment>
     );
   }
