@@ -29,15 +29,15 @@ class App extends Component {
   render(){
     return(
       <div className="App">
-        <div>
+        <div className='nav-bar'>
               <h1>Lambda Notes</h1>
-                  <ul>
-                      <li>
-                          <NavLink to='/'>View Your Notes</NavLink>
-                      </li>
-                      <li>
+                  <ul >
+                      <button>
+                        <NavLink to='/'>View Your Notes</NavLink>
+                      </button>
+                      <button>
                           <NavLink to='/create'>Create New Note</NavLink>
-                      </li>
+                      </button>
                   </ul>
           </div>
       <Route 
@@ -51,7 +51,7 @@ class App extends Component {
       />
 
       <Route 
-        path='/id'
+        path='/:id'
         render={props => (
           <Note
             {...props}

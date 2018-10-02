@@ -9,7 +9,7 @@ function NotesList (props) {
             {props.notes.map(note => 
                 (<NavLink key={note.id} to={`/${note.id}`}>
                     <div className='note-card'>
-                    <h3>{note.title}</h3>
+                    <h3 onClick={() => props.history.push(`/${note.id}`)}>{note.title}</h3>
                     <p>{note.textBody}</p>
                     </div>
                 </NavLink>)
