@@ -33,11 +33,11 @@ class NoteForm extends React.Component{
     }
 }
 
-    handleInputChange = e => {
+    handleInputChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
       };
 
-    addNote = e => {
+    addNote = (e) => {
         e.preventDefault();
         const newNote = {
           title: this.state.title,
@@ -50,6 +50,7 @@ class NoteForm extends React.Component{
           title: '',
           textBody: ''
         });
+        this.props.history.push('/')
       }
       
 
@@ -60,7 +61,7 @@ class NoteForm extends React.Component{
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" onChange={this.handleInputChange} name="title" value={this.state.title} placeholder="Title" />
                     <input type="text" onChange={this.handleInputChange} name="textBody" value={this.state.textBody} placeholder="Notes" />
-                    <button type="submit">{this.props.Editing ? "Update" : "Add Note"}</button>
+                    <button>{this.props.Editing ? "Update" : "Add Note"}</button>
                 </form>
             </div>
          

@@ -30,8 +30,7 @@ class NoteView extends React.Component {
       .catch(err => {console.log(err)});
    }
 
-   editOn = (e) => {
-    e.preventDefault();
+   editOn = () => {
     this.setState({ Editing: true });
    }
 
@@ -48,16 +47,14 @@ class NoteView extends React.Component {
     .then(response => {
       this.setState({
         note: response.data,
-        title: response.data.title,
-        Editing: false
-      });
-      this.props.history.push('/');
+        Editing: false}), 
+        this.props.history.push('/')
+        this.props.getNotes()
     })
     .catch(error => {console.error(error)});
   }
 
-  deleteOn = (e) =>{
-    e.preventDefault();
+  deleteOn = () =>{
     this.setState({Deleting: true})
   }
 
@@ -69,9 +66,9 @@ class NoteView extends React.Component {
     const id = this.props.match.params.id;
 
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-    .then(response => this.setState({notes: response.data},
-    this.props.history.push('/')))
-
+    .then(response => this.setState({notes: response.data}, () => {
+    this.props.getNotes()
+    this.props.history.push('/')}))
     this.deleteOff();
   }
   

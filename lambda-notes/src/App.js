@@ -33,7 +33,9 @@ class App extends Component {
   postNote = (newNote) => {
     axios
       .post("https://killer-notes.herokuapp.com/note/create", newNote)
-      .then(response => this.setState({ notes: response.data }, this.props.history.push("/")))
+      .then(response => {
+        console.log(response)
+        this.setState({ notes: [...this.state.notes, {...newNote, _id: response.data.success}] })})
       .catch(err => {console.log(err)});
   }
 
@@ -43,7 +45,7 @@ class App extends Component {
         <SideBar />
         <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
         <Route path="/add-note" render={(props)=> <NoteForm {...props} postNote={this.postNote} note={this.state.note} />}/>
-        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes}  getNote={this.getNote} />} />
+        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} getNote={this.getNote} />} />
       </div>
     );
   }
