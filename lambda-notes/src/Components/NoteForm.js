@@ -9,6 +9,25 @@ class NoteForm extends Component {
     };
   }
 
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addNote = event => {
+    event.preventDefault();
+    const newNote = {
+      title: this.state.title,
+      textBody: this.state.textBody,
+    };
+    console.log('newNote: ', newNote);
+    this.props.addNote(newNote);
+
+    this.setState({
+      title: '',
+      textBody: ''
+    });
+  }
+
   render() {
     return (
       <div>
