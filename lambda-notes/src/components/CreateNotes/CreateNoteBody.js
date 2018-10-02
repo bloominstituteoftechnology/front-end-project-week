@@ -104,7 +104,7 @@ const mapStateToProps = state => {
   return {
           fetching: state.fetchingNotes,
 	  saved: state.noteSaved,
-	  id: state.id.id, //state.id.success
+	  id: state.id, //state.id.success
 	  single: state.singleNote,
 	  fetchedSingleNote: state.fetchedSingleNote
   };
