@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -44,37 +44,39 @@ const NoteBody = styled.p`
   color: gray;
 `;
 
-const Notes = props => {
-  return (
-    <NotesContainer>
-      <Heading>Your Notes:</Heading>
-      <NotesDisplay>
-        {props.notes.map(note => {
-          return (
-            <Link to={`/note/${note._id}`}>
-              <NoteCard
-                key={note._id}
-                style={{ textDecoration: "none" }}
-              >
-                <NoteTitle>
-                  {note.title.length >= 15
-                    ? note.title.substring(0, 15) + '...'
-                    : note.title
-                  }
-                </NoteTitle>
-                <NoteBody>
-                  {note.textBody.length >= 100
-                    ? note.textBody.substring(0, 100) + '...'
-                    : note.title
-                  }
-                </NoteBody>
-              </NoteCard>
-            </Link>
-          );
-        })}
-      </NotesDisplay>
-    </NotesContainer>
-  );
+class Notes extends Component {
+  render() {
+    return (
+      <NotesContainer>
+        <Heading>Your Notes:</Heading>
+        <NotesDisplay>
+          {this.props.notes.map(note => {
+            return (
+              <Link to={`/note/${note._id}`}>
+                <NoteCard
+                  key={note._id}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <NoteTitle>
+                    {note.title.length >= 15
+                      ? note.title.substring(0, 15) + '...'
+                      : note.title
+                    }
+                  </NoteTitle>
+                  <NoteBody>
+                    {note.textBody.length >= 100
+                      ? note.textBody.substring(0, 100) + '...'
+                      : note.textBody
+                    }
+                  </NoteBody>
+                </NoteCard>
+              </Link>
+            );
+          })}
+        </NotesDisplay>
+      </NotesContainer>
+    );
+  }
 }
 
 export default Notes;
