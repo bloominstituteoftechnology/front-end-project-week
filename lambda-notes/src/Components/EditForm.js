@@ -18,12 +18,15 @@ class EditForm extends Component {
           name='title'
           placeholder='Note Title'
           value={this.state.title}
+          
         />
         <input
           name='textBody'
           placeholder='Note Content'
           value={this.state.textBody}
+         
         />
+        <button>Update</button>
       </div>
     );
   }
