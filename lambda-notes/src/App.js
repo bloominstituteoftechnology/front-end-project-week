@@ -31,6 +31,20 @@ class App extends Component {
       ));
   }
 
+  addNote = note => {
+    axios 
+      .post('https://killer-notes.herokuapp.com/note/create', note)
+      .then(response => {
+        this.setState(
+          {notes: response.data},
+          this.props.history.push('/')
+        );
+      })
+      .catch(error => (
+        console.log('Server Error', error)
+      ));
+  }
+
   render() {
     return (
       <div className="App">
