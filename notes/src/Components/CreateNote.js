@@ -4,8 +4,14 @@ const CreateNote = () => {
     return (
         <div>
             <form>
-                <input placeholder='Title' ></input>
-                <input placeholder='Note Body' ></input>
+                <input 
+                placeholder='Title' 
+                >
+                </input>
+                <input 
+                placeholder='Note Body' 
+                >
+                </input>
             </form> 
         </div>
     );

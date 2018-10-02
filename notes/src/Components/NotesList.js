@@ -1,34 +1,23 @@
-import React, { Component } from 'react'
-import axios from 'axios';
-import Note from './Note';
+import React from 'react'
+import {NavLink} from 'react-router-dom';
 
 
-export default class NotesList extends Component {
-    constructor() {
-        super();
-        this.state = {
-            notes: [],
-            newNote: {
-                "tags": ["tag", "otherTag"],
-                "title": "Note Title",
-                "textBody": "Note Body",
-            }
-        }
-    }
 
-    componentDidMount() {
-        axios.get(`https://killer-notes.herokuapp.com/note/get/all`)
-        .then(response => {
-            this.setState({notes: response.data});
-        })
-        .catch(err => {
-            console.log("error", err);
-        });
-    }
-
-  render() {
+function NotesList (props) {
     return (
-        <Note notes = {this.state.notes} />   
-        )
-    }
-}
+        <div>
+            {props.notes.map(note => 
+                (<NavLink key={note.id} to={`/${note.id}`}>
+                    <div className='note-card'>
+                    <h3>{note.title}</h3>
+                    <p>{note.textBody}</p>
+                    </div>
+                </NavLink>)
+                
+            )}
+        </div> 
+    )
+    
+} 
+
+export default NotesList;

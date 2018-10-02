@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 const Note = props => {
+    console.log(props);
+    const note = props.notes.find(
+        note => `${note.id}` === props.match.params.id
+      );
     return (
-        <div>
-            {props.notes.map(note => 
-            <div key={props.id}>
-            <h3 onClick={() => props.history.push(`/notes/${props.id}/`)}>
-                {props.title}
-            </h3>
-            <p>{props.textBody}</p>
+        <Fragment>
+            <div>
+                <button>Edit</button>
+                <button>Delete</button>
             </div>
-            )}
-        </div>
+            <h1>{note.title}</h1>
+            <p>{note.textBody}</p>
+            
+        </Fragment>
     );
 };
 
