@@ -57,14 +57,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Nav/>
-        <List notes={this.state.notes}/>
-      
-      
-        <Route exact path="/notes" render={props => (<List {...props} notes={this.state.notes} />)} />
+       
+        <Route exact path='/' render={props => (<List {...props} notes={this.state.notes} />)} />
         <Route 
-          exact path="/add-note" 
+          exact path='/add-note'
           render={(props) => (<AddNote {...props} 
           title={this.state.title} 
           text={this.state.text} 

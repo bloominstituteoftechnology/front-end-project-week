@@ -7,17 +7,17 @@ export const AddNote = (props) => {
    }
 
     return (
-       <div>
-            <h3>Create New Note:</h3>
+       <div className='add-note'>
+            <h2>Create New Note:</h2>
               <form>
                 <input  
-                    placeholder="title"
+                    placeholder="Note Title"
                     name="title" 
                     onChange={props.handleInputChange} 
                     value={props.title}
                 />
                 <textarea
-                    placeholder="text" 
+                    placeholder="Note Content" 
                     name="text" 
                     onChange={props.handleInputChange} 
                     value={props.text} />
