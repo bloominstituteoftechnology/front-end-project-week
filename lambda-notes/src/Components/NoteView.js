@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NoteView extends Component {
   constructor(props) {
@@ -8,6 +9,22 @@ class NoteView extends Component {
       textBody: ''
     }
   };
+
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    this.getNote(id);
+  }
+
+  getNote = id => {
+    axios 
+      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        this.setState({notes: response.data});
+      })
+      .catch(error => (
+        console.log('Server Error', error)
+      ));
+  }
 
   render() {
     return (
