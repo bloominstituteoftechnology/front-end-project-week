@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import Form from "../Form";
-import "../components.css";
+import "../Components.css";
 import "./index.css";
 
 export default class Note extends Component {

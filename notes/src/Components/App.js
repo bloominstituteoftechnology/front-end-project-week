@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "../components.css";
-import "./index.css";
+import "./Components.css";
+import "../index.css";
 import axios from "axios";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Form from "../Form";
-import Note from "../Note";
-import NoteList from "../NoteList";
-import Sidebar from "../SideBar";
+import Form from "./Form";
+import Note from "./Note";
+import NoteList from "./NoteList";
+import Sidebar from "./SideBar";
 
 class App extends Component {
   state = {
