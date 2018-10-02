@@ -1,8 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const Div = styled.div`
+const SideBar = () => {
+  return (
+    <SideBarWrap>
+      <H1>
+        Lambda <br /> Notes
+      </H1>
+      <NavLink to="/list-view">
+        <Button>View Your Notes</Button>
+      </NavLink>
+      <NavLink to="/create-new">
+        <Button>+ Create New Note</Button>
+      </NavLink>
+    </SideBarWrap>
+  );
+};
+
+const SideBarWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,23 +28,24 @@ const Div = styled.div`
   background: #d8d8d8;
   border-right: 1px solid #979797;
   box-sizing: border-box;
-  height: 100%;
+  height: 500px;
 `;
 
-const SideBar = props => {
-  return (
-    <Div>
-      <h1>
-        Lambda <br /> Notes{" "}
-      </h1>
-      <Link to="/">
-        <button>View Your Notes</button>
-      </Link>
-      <Link to="/notes/add">
-        <button>Create New Note</button>
-      </Link>
-    </Div>
-  );
-};
+const H1 = styled.h1`
+  margin: 17px 0;
+  line-height: 52px;
+  margin-bottom: 10px;
+`;
+
+const Button = styled.button`
+  color: white;
+  background-color: #2bc1c4;
+  width: 98%;
+  height: 60px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 7px 0;
+  border: 1px solid grey;
+`;
 
 export default SideBar;

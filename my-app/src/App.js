@@ -6,6 +6,7 @@ import Form from "./components/Form/form";
 import { Route, Switch, withRouter } from "react-router-dom";
 import Sidebar from "./components/SideBar";
 import styled from "styled-components";
+import NoteList from "./components/NoteList/NoteList";
 
 class App extends Component {
   constructor() {
@@ -42,15 +43,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <Sidebar />
         <Form />
-        <div>
-          {this.state.notes.map(note => (
-            // <img src={note} key={note} />
-            <li>{note.tags}</li>
-          ))}{" "}
-        </div>
+        <Route
+          path="/list-view"
+          render={props => <NoteList {...props} notes={this.state.notes} />}
+        />
       </div>
     );
   }
