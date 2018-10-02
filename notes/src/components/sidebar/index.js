@@ -1,61 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-const SideBaR=styled.div`
-width: 25%;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-text-align: left;
-background-color: #c6c6c6;
-min-height: 100vh;
-`
-const SideBarHeading=styled.h1`
-    color:#424242;
-    font-weight: Bold;
-    margin-left: 10%;
-`
-const ViewButton=styled.div`
-width: 80%;
-margin: 0 auto;
-height: 40px;
-background-color: #0db5ba;
-color:#FFF;
-display: flex;
-align-items: center;
-justify-content: center;
-&:hover{
-    opacity:0.85;
-}
-`
-const CreateButton=styled.div`
-width: 80%;
-margin: 0 auto;
-margin-top: 20px;
-height: 40px;
-background-color: #0db5ba;
-color:#FFF;
-display: flex;
-align-items: center;
-justify-content: center;
-&:hover{
-    opacity:0.85;
-}
-`
-const LogOutButton=styled.div`
-width: 80%;
-margin: 0 auto;
-margin-top: 20px;
-height: 40px;
-background-color: #800000;
-color:#FFF;
-display: flex;
-align-items: center;
-justify-content: center;
-&:hover{
-    opacity:0.85;
-}
-`
+import {SideBaR,SideBarHeading,SideBarButton} from './styledComponents.js';
 
 class SideBar extends React.Component{
     viewNotes=()=>{
@@ -72,10 +17,10 @@ class SideBar extends React.Component{
     render() {
     return(
         <SideBaR>
-        <SideBarHeading>Lambda<br/>Notes</SideBarHeading>
-        <ViewButton onClick={this.viewNotes}>View Your Notes</ViewButton>
-        <CreateButton onClick={this.createNewNote}>+ Create New Note</CreateButton>
-        <LogOutButton onClick={this.logout}>Log Out</LogOutButton>
+            <SideBarHeading>Lambda<br/>Notes</SideBarHeading>
+            <SideBarButton className='green' onClick={this.viewNotes}>View Your Notes</SideBarButton>
+            <SideBarButton className='green' onClick={this.createNewNote}>+ Create New Note</SideBarButton>
+            <SideBarButton className='red' onClick={this.logout}>Log Out</SideBarButton>
         </SideBaR>
         )
     }

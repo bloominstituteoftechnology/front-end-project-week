@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SideBar from './components/sidebar/';
-import Notes from './components/notes';
+import Notes from './components/notes/NotesPage.js';
 import NewNote from './components/notes/newNote.js';
 import SingleNotePage from './components/notes/singleNotePage.js';
 import SignIn from './components/authenticate/signIn.js';
@@ -13,14 +13,7 @@ import './App.css';
 class App extends Component {
   
   componentDidMount(){
-    const jwt=localStorage.getItem('jwt');
-    if (jwt===null && localStorage.getItem('location')!=='/signup') {
-      this.props.history.push('/signin');
-    } else if (localStorage.getItem('location')==='/signup') {
-      this.props.history.push('/signup');
-    } else {
-      this.props.history.push(localStorage.getItem('location'));
-    }
+    this.props.history.push(localStorage.getItem('location'));
   }
   
   render() {

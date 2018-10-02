@@ -1,54 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {updateNote} from '../../actions';
+import {NoteFormPage,NoteFormHeading,NoteForm,NoteFormButton,NoteFormInput,NoteFormTextArea} from './styledNoteFormComponents.js';
 
-const EditNotePage=styled.div`
-background-color:#ddd;
-width: 75%;
-`
-const EditNoteHeading=styled.h2`
-text-align: left;
-color:#424242
-margin-left: 5%;
-margin-top: 70px;
-`
-const EditnoteForm=styled.div`
-width: 92.5%;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-margin-left: 5%;
-`
-const EditNoteButton=styled.div`
-width: 30%;
-margin-top: 20px;
-height: 40px;
-background-color: #0db5ba;
-color:#FFF;
-display: flex;
-align-items: center;
-justify-content: center;
-&:hover{
-    opacity:0.85;
-}
-`
-const EditNoteInput=styled.input`
-width: 55%;
-height: 30px;
-border-radius: 4px;
-display: flex;
-justify-content: center;
-align-items: center;
-`
-const EditNoteTextArea=styled.textarea`
-height: 400px;
-width: 96%;
-margin-top: 20px;
-border-radius: 3px;
-margin-bottom: 20px;
-`
 class EditNoteForm extends React.Component{
     constructor(props){
         super(props);
@@ -78,7 +33,8 @@ class EditNoteForm extends React.Component{
                 tags:note.tags});
         }
     }
-    editNoteObj=()=>{
+    editNoteObj=(e)=>{
+        e.preventDefault();
         let tags=this.state.tags.replace(/,/g,'').replace(/\s+/g,' ').replace(/\s/g,', ');
         if (tags[tags.length-2]===',') {
             tags=tags.substring(0,tags.length-2);
@@ -93,15 +49,15 @@ class EditNoteForm extends React.Component{
     }
     render() {
         return(
-            <EditNotePage>
-                <EditNoteHeading>Create New Note:</EditNoteHeading>
-                <EditnoteForm>
-                <EditNoteInput name='title' type='text' placeholder='Note Title' value={this.state.title} onChange={this.handleInputChange}/>
-                <EditNoteTextArea name='content' type='text' placeholder='Note Content' value={this.state.content} onChange={this.handleInputChange}/>
-                <EditNoteInput name='tags' type='text' placeholder='Note Tags' value={this.state.tags} onChange={this.handleInputChange}/>
-                <EditNoteButton onClick={this.editNoteObj}>Save</EditNoteButton>
-                </EditnoteForm>
-            </EditNotePage>
+            <NoteFormPage>
+                <NoteFormHeading>Create New Note:</NoteFormHeading>
+                <NoteForm>
+                    <NoteFormInput name='title' type='text' placeholder='Note Title' value={this.state.title} onChange={this.handleInputChange}/>
+                    <NoteFormTextArea name='content' type='text' placeholder='Note Content' value={this.state.content} onChange={this.handleInputChange}/>
+                    <NoteFormInput name='tags' type='text' placeholder='Note Tags' value={this.state.tags} onChange={this.handleInputChange}/>
+                    <NoteFormButton type='submit' onClick={this.editNoteObj}>Save</NoteFormButton>
+                </NoteForm>
+            </NoteFormPage>
         )
     }
 }

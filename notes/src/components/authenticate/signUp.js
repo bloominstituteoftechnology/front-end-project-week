@@ -1,48 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
-import styled from 'styled-components';
+import {AuthenticationForm,AuthenticationHeading,AuthenticationInput,AuthenticationButton} from './styledComponents.js'
 
-const SignUpForm=styled.div`
-    max-width: 394px;
-    width: 100%;
-    margin:0 auto;
-    margin-top: 30px;
-    border: 1px solid black;
-    background-color: #E8E8EE;
-    height: 250px;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-`
-const SignUpPageH2=styled.h2`
-    margin-top:30px
-`
-const SignUpInput=styled.input`
-    width:50%;
-    height: 20px;
-    margin-top:5px;
-`
-const SignUpPageButton=styled.div`
-    width:50%;
-    border:1px solid black;
-    display: block;
-    margin-top:5px;
-    height:30px;
-    border-radius:5px;
-    background-color:#E8E8EE;
-    color:#000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &:hover{
-        opacity:0.85;
-    }
-    &:focus{
-        outline:none;
-    }
-`
 class SignUp extends React.Component{
     constructor() {
         super();
@@ -83,13 +43,13 @@ class SignUp extends React.Component{
     }
     render(){
         return (
-            <SignUpForm>
-                <SignUpPageH2>Sign Up</SignUpPageH2>
-                <SignUpInput type='text' name='username' value={this.state.username} onChange={this.onChangeHandler} placeholder='Enter  username'/>
-                <SignUpInput type='password' name='password' value={this.state.password} onChange={this.onChangeHandler} placeholder='Enter password'/>
-                <SignUpPageButton onClick={this.onSubmitHandler}>Sign Up</SignUpPageButton>
-                <SignUpPageButton onClick={this.redirect}>Have an account?</SignUpPageButton>
-            </SignUpForm>
+            <AuthenticationForm>
+                <AuthenticationHeading>Sign Up</AuthenticationHeading>
+                <AuthenticationInput type='text' name='username' value={this.state.username} onChange={this.onChangeHandler} placeholder='Enter  username'/>
+                <AuthenticationInput type='password' name='password' value={this.state.password} onChange={this.onChangeHandler} placeholder='Enter password'/>
+                <AuthenticationButton type='submit' onClick={this.onSubmitHandler}>Sign Up</AuthenticationButton>
+                <AuthenticationButton onClick={this.redirect}>Have an account?</AuthenticationButton>
+            </AuthenticationForm>
         )
     }
 }

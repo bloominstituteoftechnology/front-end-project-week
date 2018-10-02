@@ -2,7 +2,8 @@ import React from 'react';
 import Note from './note.js';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import {getNotes} from '../../actions';
+import {getNotes} from '../../actions/index.js';
+
 const NotesList=styled.div`
 width: 92.5%;
 display: flex;
