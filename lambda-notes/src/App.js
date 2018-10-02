@@ -58,6 +58,10 @@ class App extends Component {
           path='/new'
           render={props => <NoteForm {...props} addNote={this.addNote} />}
         />
+        <Route 
+          path='/note/:id'
+          render={props => <NoteView {...props} getNote={this.getNote} />}
+        />
       </div>
     );
   }
