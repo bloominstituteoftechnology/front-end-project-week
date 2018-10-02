@@ -10,3 +10,13 @@ class NoteForm extends React.Component {
     _id: null
   };
 }
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
+};
+export default connect(
+  mapStateToProps,
+  { addNote, editNote }
+)(NoteForm);

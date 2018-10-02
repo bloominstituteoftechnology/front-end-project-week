@@ -5,6 +5,8 @@ import { deleteNote, getData } from '../../Store/actions';
 import Modal from '../Views/Modal';
 import Todo from './Todo';
 
+import { Button, ViewContainer } from '../Style/styleNote';
+
 class ViewPage extends React.Component {
   state = {
     note: {},

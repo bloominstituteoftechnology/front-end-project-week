@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
+import { StyleApp, Navigation, Main } from './components/Style/styleApp';
 
 import NoteList from './components/Functional/NoteList';
 import NoteForm from './components/Functional/NoteForm';
@@ -12,7 +13,7 @@ class App extends Component {
     return (
       <Route
         render={({ location }) => (
-          <styleApp>
+          <StyleApp>
             <Navigation>
               <h1>Lambda Notes</h1>
               <Link to="/" className="link">
@@ -34,7 +35,7 @@ class App extends Component {
                 </Switch>
               </section>
             </Main>
-          </styleApp>
+          </StyleApp>
         )}
       />
     );

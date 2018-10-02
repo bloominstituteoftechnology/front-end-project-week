@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { noteReducers } from '.store/reducers';
+import { noteReducers } from './Store/reducers/index';
 
 const store = createStore(noteReducers, applyMiddleware(thunk, logger));
 

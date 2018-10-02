@@ -10,3 +10,14 @@ class NoteList extends React.Component {
     this.props.getData();
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getData }
+)(NoteList);
