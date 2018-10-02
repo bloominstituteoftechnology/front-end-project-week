@@ -15,7 +15,7 @@ const NoteForm = props => {
           placeholder='Note Content'
           value={props.state.textBody}
         />
-        <button>Save</button>
+        <button type='submit'>Save</button>
       </form>
     </div>
   );
