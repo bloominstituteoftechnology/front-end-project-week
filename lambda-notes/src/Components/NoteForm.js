@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const FormContainer = styled.div`
+  border: 1px solid black;
+  margin-left: 300px;
+  margin-top: -610px;
+`;
 
 class NoteForm extends Component {
   constructor(props) {
@@ -30,7 +37,7 @@ class NoteForm extends Component {
 
   render() {
     return (
-      <div>
+      <FormContainer>
         <h2>Create New Note:</h2>
         <form onSubmit={this.addNote}>
           <input
@@ -47,7 +54,7 @@ class NoteForm extends Component {
           />
           <button type='submit'>Save</button>
         </form>
-      </div>
+      </FormContainer>
     );
   }
 }
