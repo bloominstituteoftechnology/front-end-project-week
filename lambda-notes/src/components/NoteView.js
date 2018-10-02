@@ -46,12 +46,19 @@ class NoteView extends React.Component {
       this.setState({
         note: response.data,
         title: response.data.title,
-        textBody: response.data.textBody,
         Editing: false
       });
       this.props.history.push('/');
     })
     .catch(error => {console.error(error)});
+  }
+
+  deleteNote = () => {
+    const id = this.props.match.params.id;
+
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => this.setState({notes: response.data},
+    this.props.history.push('/')))
   }
   
 
@@ -72,7 +79,7 @@ class NoteView extends React.Component {
     <Fragment>
      <div>
        <button onClick={this.editOn}>Edit</button>
-       <button>Delete</button>
+       <button onClick={this.deleteNote}>Delete</button>
     </div>
     <div> 
     {<h3>{this.state.note.title}</h3>}
