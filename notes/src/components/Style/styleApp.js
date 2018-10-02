@@ -12,7 +12,7 @@ export const StyleApp = styled.div`
 
 export const Navigation = styled.div`
   position: fixed;
-  width: 20%;
+  width: 24%;
   background: #d3d2d3;
   padding: 0 2%;
   height: 100vh;

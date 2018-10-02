@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.div`
-  margin: 50px 5%;
+  margin: 50px 10%;
 
   h2 {
     margin-bottom: 20px;

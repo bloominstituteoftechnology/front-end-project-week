@@ -1,15 +1,15 @@
 import React from 'react';
-import '../Style/styleModal';
+import { ContainerModal, MainModal, Delete, No } from '../Style/styleModal';
 
 function Modal(props) {
   return (
-    <div>
-      <div>
+    <ContainerModal style={{ display: props.showModal ? 'block' : 'none' }}>
+      <MainModal>
         <h5>Are you sure you want to delete this note?</h5>
-        <button onClick={event => props.deleteClick(event)}>Delete</button>
-        <button onClick={props.toggleModal}>No</button>
-      </div>
-    </div>
+        <Delete onClick={event => props.deleteClick(event)}>Delete</Delete>
+        <No onClick={props.toggleModal}>No</No>
+      </MainModal>
+    </ContainerModal>
   );
 }
 
