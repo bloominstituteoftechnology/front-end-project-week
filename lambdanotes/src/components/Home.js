@@ -9,8 +9,6 @@ function Home() {
             <p className="homeP">The forms of things unkown,</p>
             <p className="homeP">The poets pen</p>
             <p className="homeP">Turns them to shapes and gives to airy nothing</p>
-            <p className="homeP">Turns them to shapes and gives to airy nothing</p>
-            <p className="homeP" >Turns them to shapes and gives to airy nothing</p>
             <p className="homeP">A local habitation and a name..."</p>
             <h3 className="quoteAuthor">- William Shakespeare (Midsummer Night's Dream)</h3>
 

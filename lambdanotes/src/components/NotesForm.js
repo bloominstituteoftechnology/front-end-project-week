@@ -11,7 +11,7 @@ class NotesForm extends Component {
         };
     }
     handleChange = event => {
-          this.setState({...this.state, [event.target.title]: event.target.value} );
+          this.setState({...this.state, [event.target.name]: event.target.value} );
           };
       
     handleAddNewNote = event => {

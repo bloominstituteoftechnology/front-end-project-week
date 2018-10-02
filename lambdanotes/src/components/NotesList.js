@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Notes from './Notes';
+import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
     render() {
@@ -7,14 +7,12 @@ class NotesList extends Component {
             <div className="noteWrap">
                 <ul>
                     {this.props.notesList.map(note => {
-                        return (
-                            <Notes
-                                key={note.id}
+                       <div className="noteCards" key={note.id}>
                                 tag={note.tag}
-                                title={note.title}
-                                textBody={note.textBody}
-                            />
-                        );
+                                <h2>title={note.title}</h2>
+                                <p>textBody={note.textBody}</p>
+                                <Link to={`/notes/${note.id}`}>{note.title}</Link>
+                        </div>
                     })}
                 </ul> 
             </div>

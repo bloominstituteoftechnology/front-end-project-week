@@ -1,5 +1,5 @@
 import React from 'react';
-
+//  import NotesInfo from './NotesInfo';
 
  const Notes = props => {
      console.log("note props check", props);
@@ -30,12 +30,3 @@ import React from 'react';
      );
  }
  export default Notes;
-
-//  const note = props.notesList.find(
-//          note => note.id === parseInt(props.match.params.noteId, 10)
-//      );
-
-//      function handleDelete() {
-//          props.handleDeleteNotes(note.id);
-//          props.history.push('/notes');
-//      }
