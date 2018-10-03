@@ -7,7 +7,7 @@ const AuthenticationForm=styled.form`
     margin-top: 30px;
     border: 1px solid black;
     background-color: #E8E8EE;
-    height: 255px;
+    height: 260px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

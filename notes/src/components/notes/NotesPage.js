@@ -25,7 +25,7 @@ width: 75%;
 `
 const NoteFilter=styled.input`
     margin-right:10%;
-    width: 260px;
+    width: 35%;
     height: 40px;
     outline:none;
     border-radius:4px;
