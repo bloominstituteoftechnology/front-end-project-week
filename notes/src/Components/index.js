@@ -2,5 +2,6 @@ import NotesList from './NotesList';
 import CreateNote from './CreateNote';
 import Note from './Note';
 import EditNote from './EditNote';
+import Navigation from './Navagation';
 
-export { NotesList, CreateNote, Note, EditNote };
+export { Navigation, NotesList, CreateNote, Note, EditNote };

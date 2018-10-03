@@ -20,13 +20,22 @@ class Note extends React.Component {
   });
 }
 
+  handleDelete = () => {
+    const id = this.props.match.params.id;
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    })
+  }
+
   render() {
     return (
       <Fragment>
         <div>
           <div>
             <button>Edit</button>
-            <button>Delete</button>
+            <button onsubmit={this.handleDelete}>Delete</button>
           </div>
           <h1>{this.state.note.title}</h1>
           <p>{this.state.note.textBody}</p>

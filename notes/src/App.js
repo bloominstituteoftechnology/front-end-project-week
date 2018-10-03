@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import {NotesList, CreateNote, Note} from './Components'
+import {NotesList, CreateNote, Note, Navigation} from './Components'
 
 
 class App extends Component {
@@ -53,44 +53,36 @@ class App extends Component {
   render(){
     return(
       <div className="App">
-        <div className='nav-bar'>
-              <h1>Lambda Notes</h1>
-                  <ul >
-                      <button>
-                        <NavLink exact to='/'>View Your Notes</NavLink>
-                      </button>
-                      <button>
-                          <NavLink exact to='/create'>Create New Note</NavLink>
-                      </button>
-                  </ul>
-          </div>
-      <Route 
-        exact
-        path='/' 
-        render={props => (
-        <NotesList {...props} 
-        notes = {this.state.notes}
-       />
-        )}
-      />
-
-      <Route 
-        exact
-        path='/create' 
-        render={props => (
-          <CreateNote {...props}
-          newNote = {this.state.newNote}
-          handleInputChange = {this.handleInputChange}
-          addNote = {this.addNote}
+        <Navigation />
+        <Switch>
+          <Route 
+            exact
+            path='/' 
+            render={props => (
+            <NotesList {...props} 
+            notes = {this.state.notes}
           />
-        )}
-      />
+            )}
+          />
 
-       <Route 
-        exact
-        path='/:id'
-        component={Note}
-      />
+          <Route 
+            exact
+            path='/create' 
+            render={props => (
+              <CreateNote {...props}
+              newNote = {this.state.newNote}
+              handleInputChange = {this.handleInputChange}
+              addNote = {this.addNote}
+              />
+            )}
+          />
+
+          <Route 
+            exact
+            path='/:id'
+            component={Note}
+          />
+        </Switch>
       </div>
     )
   }
