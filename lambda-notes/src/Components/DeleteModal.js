@@ -19,7 +19,9 @@ class DeleteModal extends Component {
 
   render() {
     return (
-
+      <div className='modal-container'>
+        <button onClick={this.toggle}>Delete</button>
+      </div>
     );
   }
 }
