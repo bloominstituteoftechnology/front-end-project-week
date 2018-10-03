@@ -33,11 +33,11 @@ button a:visited {
 .container {
   display: flex;
   flex-direction: row;
-  width: 1000px;
+  width: 100%;
   margin: 20px auto;
   font-family: "Raleway", sans-serif;
   border: 1px solid #979797;
-  min-height: 600px;
+  max-width: 1024px;
 }
 
 .main-container {
