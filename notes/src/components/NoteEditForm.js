@@ -38,9 +38,9 @@ class NoteEditForm extends Component {
     axios
       .put(`https://killer-notes.herokuapp.com/update/edit/${this.props.match.params.id}`, newNote)
         .then(res => {
-          console.log(res);
+        
           this.setState({
-            notes: res.data,
+          
             title: res.data.title,
             textBody: res.data.textBody
           });
