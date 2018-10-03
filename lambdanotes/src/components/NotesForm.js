@@ -11,7 +11,7 @@ class NotesForm extends Component {
         };
     }
     handleChange = event => {
-          this.setState({...this.state, id: event.target.value} );
+          this.setState({...this.state, [event.target.name]: event.target.value} );
           };
       
     handleAddNewNote = event => {
@@ -44,7 +44,7 @@ class NotesForm extends Component {
                             onChange={this.handleChange}
                         />
                     </div>
-                    <button className="sumbitNoteButt" onClick={this.handleAddNewNote}>Make Entry</button>
+                    <button className="sumbitNoteButt" onClick={this.handleAddNewNote}>Make New Entry</button>
                 </form>
             </Fragment>
         );
