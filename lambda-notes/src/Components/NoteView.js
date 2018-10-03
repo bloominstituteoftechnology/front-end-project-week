@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import DeleteModal from './DeleteModal';
 
 const ViewContainer = styled.div`
   border: 1px solid black;
@@ -39,7 +40,7 @@ class NoteView extends Component {
   }
 
   editNote = event => {
-    event.preventDefault();
+    event.preventDefault()
     const id = this.props.match.params.id;
     this.props.history.push(`/edit/${id}`)
   };
@@ -49,7 +50,13 @@ class NoteView extends Component {
       <ViewContainer>
         <div className='top-nav'>
           <button onClick={this.editNote}>Edit</button>
-          <button>Delete</button>
+          <DeleteModal 
+            props={this.props} 
+            history={this.props.history}
+            deleteNote={this.deleteNote}
+          >
+            Delete
+          </DeleteModal>
         </div>
         <div className='single-note'>
           <h3>{this.state.title}</h3>
