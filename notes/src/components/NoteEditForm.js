@@ -59,7 +59,7 @@ class NoteEditForm extends Component {
             value={this.state.textBody}
             name="textBody"
           />
-          <button type="Update">Add to the notes</button>
+          <button onClick={this.updateNote} type="submit">Update</button>
         </form>
       </React.Fragment>
     );
