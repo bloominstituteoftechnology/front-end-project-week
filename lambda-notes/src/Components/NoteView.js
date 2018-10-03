@@ -66,10 +66,8 @@ class NoteView extends Component {
           <DeleteModal 
             props={this.props} 
             id={this.props.match.params.id}
-            deleteNote={this.deleteNote}
-          >
-            Delete
-          </DeleteModal>
+            delete={this.deleteNote}
+          />
         </div>
         <div className='single-note'>
           <h3>{this.state.title}</h3>
