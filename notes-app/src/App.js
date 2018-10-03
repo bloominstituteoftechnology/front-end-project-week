@@ -29,7 +29,7 @@ class App extends Component {
     }
     console.log(note)
     axios.post('https://killer-notes.herokuapp.com/note/create', note)
-      .then(res => this.setState({ notes: [...this.state.notes] }))
+      .then(res => this.setState({ notes: res.data, inputTextTitle: '', inputTextBody: '' }))
       .catch(err => console.log(err))
   }
 
@@ -47,8 +47,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Note Taker </h1>
-          <Link to={`/notes`}>Your Notes</Link>
-          <Link to={'/makenote'}>Make Note</Link>
+          <Link to={`/notes`}><button>Your Notes</button></Link>
+          <Link to={'/makenote'}><button>Make Note</button></Link>
         </header>
         <div>
           <Route 

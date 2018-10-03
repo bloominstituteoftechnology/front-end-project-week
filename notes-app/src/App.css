@@ -1,15 +1,23 @@
 .App {
   text-align: center;
   display: flex;
-  height: auto
+  height: 1000px;
 }
 
 .App-header {
   background-color: #222;
   height: auto;
-  width: 100px;
+  width: 350px;
   padding: 50px;
   color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header div {
+  padding: 10px;
+  text-decoration: none;
+
 }
 
 .App-title {
@@ -33,4 +41,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.notepage-div {
+
+
 }
