@@ -25,7 +25,6 @@ const NoteCard = styled.div`
   };
    componentDidMount() {
     const id = this.props.match.params.id;
-    console.log(id);
     this.getNote(id);
   }
 
@@ -47,7 +46,7 @@ const NoteCard = styled.div`
     return (
     <React.Fragment>
         <div className='left-nav'>
-        <Link to={`/edit-note/${this.state._id}`}>
+        <Link to={`/edit-note/${this.props.match.params.id}`}>
           <button>Edit</button>
         </Link>
           <button>Delete</button>

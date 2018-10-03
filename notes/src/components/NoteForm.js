@@ -69,7 +69,7 @@ class NoteForm extends Component {
             value={this.state.textBody}
             name="textBody"
           />
-          <button type="submit">Add to the notes</button>
+          <button type="submit">Save</button>
         </form>
       </React.Fragment>
     );

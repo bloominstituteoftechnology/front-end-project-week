@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Axios from 'axios';
+import axios from 'axios';
 
 const EditForm = styled.form`
   background: lightgray;
@@ -16,26 +16,34 @@ class NoteEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
+      // id: '',
       title: '',
       textBody: ''
     
     };
   }
 
+  handleEdit = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   updateNote = event => {
     event.preventDefault();
     
-    const update = {
-      id: this.state.id,
+    const newNote = {
       title: this.state.title,
       textBody: this.state.textBody
     }
-    Axios
-      .put(`https://killer-notes.herokuapp.com/update/edit/id`, update)
-        .then(response => {
-          console.log(response.data)
+    console.log(this.props.match.params);
+    axios
+      .put(`https://killer-notes.herokuapp.com/update/edit/${this.props.match.params.id}`, newNote)
+        .then(res => {
+          console.log(res);
+          this.setState({
+            notes: res.data,
+            title: res.data.title,
+            textBody: res.data.textBody
+          });
         })
         .catch(err => {
           console.error(`Error: ${err}`)
@@ -46,11 +54,7 @@ class NoteEditForm extends Component {
       textBody: ''
     });
   }
-
-  handleEdit = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
+    
 
   render() {
     return (
