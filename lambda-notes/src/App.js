@@ -35,9 +35,7 @@ class App extends Component {
   })
   }
 
-componentWillUpdate(){
 
-}
 
 
   filterNotes = event => arr => {
@@ -55,7 +53,7 @@ componentWillUpdate(){
   };
 
   render() {
-    var EnhancedComponent = onClickOutside(SinglePage);
+    const EnhancedComponent = onClickOutside(SinglePage);
 
     return (
       <div className="App">

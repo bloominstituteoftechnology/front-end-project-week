@@ -46,6 +46,7 @@ border:1px solid black;
 margin-bottom: 20px;
 padding-top: 6px;
 padding-bottom: 6px;
+color: white;
 }
 h1{
 font-size: 30px;
@@ -78,7 +79,7 @@ left: 0;
   }
 
 .container nav{
-
+min-width: 50px;
 left: 0;
   }
 .editForm{
@@ -98,7 +99,29 @@ left: 0;
 .rowTitle input{
       margin-left: 40px;
 }
+label{
+      margin-right: 10px;
+}
 hr{
 color: black;
 width: 100px;
+}
+.SearchBar{
+border:1px solid black;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+@media (max-width:480px) {
+nav h1{
+    font-size: 10px;
+  }
+  nav{
+    height: 100%;
+  }
+  .NoteContainer{
+    margin-top: 500px;
+  }
+  .ButtonContainer button{
+    margin-bottom: 100px;
+  }
 }

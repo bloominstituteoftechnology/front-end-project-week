@@ -26,10 +26,13 @@ render(){
 
   return (
 
-  <div>
-    <label>Search By Title</label>
-    <input name='SearchTitle' onChange={this.handleInputChange}  value={this.state.SearchTitle} placeholder= 'Search'/>
+  <div >
+    <div className='SearchBar'>
+  <label>Search By Title</label>
+  <input name='SearchTitle' onChange={this.handleInputChange}  value={this.state.SearchTitle} placeholder= 'Search'/>
   <Button onClick = {this.props.filterNotes(this.state.SearchTitle)}>Search</Button>
+   </div>
+
       <h2>Your Notes:</h2>
     <hr/>
 <div className='Notes'>

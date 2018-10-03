@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import * as axios from 'axios';
 import EditForm from './EditForm.js'
 import { Button } from 'reactstrap';
+import './SinglePage.css'
 
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      reload:false,
       mounted:true,
       newTitle: '',
       newTextBody:'',
@@ -26,7 +28,8 @@ if(this.state.mounted){
 this.setState({
   notes: [{
 
-  }]
+  }],
+  message:'',
 })
 
 
@@ -65,18 +68,24 @@ axios
   console.log("success", response);
   this.setState(
     {
-    notes:response.data,
+    notes:[],
+    message:response.data.success,
+  }, );
 
-  },
-    () => this.props.history.push('/')
-  );
-})
+}, this.props.history.push('/'),
+console.log(this.state.message),)
 .catch(err => {
   console.log(err)
 
-})
+});
+
+
+
 
 }
+
+
+
 
 
   editNote = id => event => {
@@ -108,7 +117,10 @@ noteTaking(id)
       notes:response.data,
 
     },
-      () => this.props.history.push('/')
+      () => {
+console.log(this.state.message);
+        this.props.history.push('/')}
+
     );
   })
   .catch(err => {
