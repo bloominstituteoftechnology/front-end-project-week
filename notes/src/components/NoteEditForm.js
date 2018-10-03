@@ -40,7 +40,7 @@ class NoteEditForm extends Component {
         
           this.setState({
             title: res.data.title,
-            textBody: res.data.textBody
+            textBody: res.data.textBody,
           });
         })
         .catch(err => {

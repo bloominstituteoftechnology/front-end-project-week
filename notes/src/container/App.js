@@ -5,7 +5,7 @@ import NotesList from '../components/NotesList';
 import NoteForm from '../components/NoteForm';
 import NotePage from '../components/NotePage';
 import NoteEditForm from '../components/NoteEditForm';
-import NoteDeleteModal from '../components/NoteDeleteModal';
+import NoteDelete from '../components/NoteDelete';
 import styled from 'styled-components';
 import './App.css';
 
@@ -58,7 +58,7 @@ class App extends Component {
 
         <Route 
           exact path='/delete-note/:id' 
-          component={NoteDeleteModal} 
+          component={NoteDelete} 
         />
         <Route 
           exact path='/edit-note/:id' 
