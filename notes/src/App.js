@@ -41,7 +41,7 @@ class App extends Component {
           <Route 
             exact
             path='/create' 
-            render={CreateNote}
+            component={CreateNote}
           />
 
           <Route 

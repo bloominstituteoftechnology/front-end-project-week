@@ -1,39 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 
-class CreateNote extends React.Component {
-    constructor(props) {
-      super(props);
+class CreateNote extends Component {
+    constructor() {
+      super();
         this.state = {
-                title: '',
-                textBody: ''
-            }
+            title: '',
+            textBody: ''
         }
     }
 
     handleInputChange = e => {
-        this.setState({...this.state, [e.target.name]: e.target.value});
+        this.setState({[e.target.name]: e.target.value});
     };
     
     addNote = () => {
         axios.post  (`https://killer-notes.herokuapp.com/note/create`, this.state)
-        .then (res => this.setState({notes: res.data}))
-        .catch(console.log('could not add note')
+        .then (res => {this.setState({notes: res.data})
+        })
+        // .catch(console.log('could not add note')
     }
 
     render(){
         return (
             <div className="group">
                 <input 
-                    type= 'text'
                     onChange = {this.handleInputChange}
                     placeholder = 'Title'
-                    name= 'Title'
+                    name = 'title'
                     value= {this.state.title}
                 />
-                <input 
-                    type= 'text'
-                    onChange = {props.handleInputChange}
+                <textarea 
+                    onChange = {this.handleInputChange}
                     placeholder = 'Text Body'
                     name= 'textBody'
                     value= {this.state.textBody}
@@ -46,6 +44,6 @@ class CreateNote extends React.Component {
             </div>
         );
     }
-}
+};
 
 export default CreateNote;

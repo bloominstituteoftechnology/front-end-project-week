@@ -4,4 +4,4 @@ import Note from './Note';
 import EditNote from './EditNote';
 import Navigation from './Navagation';
 
-export { Navigation, NotesList, CreateNote, Note, EditNote };
+export { Navigation, NotesList, Note, EditNote, CreateNote };

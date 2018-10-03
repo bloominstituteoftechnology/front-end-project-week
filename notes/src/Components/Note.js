@@ -35,7 +35,7 @@ class Note extends React.Component {
         <div>
           <div>
             <button>Edit</button>
-            <button onsubmit={this.handleDelete}>Delete</button>
+            <button onSubmit={this.handleDelete}>Delete</button>
           </div>
           <h1>{this.state.note.title}</h1>
           <p>{this.state.note.textBody}</p>
