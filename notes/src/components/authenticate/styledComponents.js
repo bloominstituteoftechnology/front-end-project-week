@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 const AuthenticationForm=styled.form`
-    max-width: 394px;
+    max-width:400px;
     width: 100%;
     margin:0 auto;
     margin-top: 30px;
     border: 1px solid black;
     background-color: #E8E8EE;
-    height: 260px;
+    height: 270px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
