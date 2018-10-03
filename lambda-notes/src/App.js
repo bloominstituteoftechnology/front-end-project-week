@@ -4,12 +4,7 @@ import './App.css';
 import Nav from './components/Nav';
 import List from './components/List';
 import AddNote from './components/AddNote';
-import NoteView from './components/NoteView';
-
-
-
-
-
+import NoteView from "./components/NoteView";
 
 class App extends Component {
   constructor() {
@@ -35,6 +30,7 @@ class App extends Component {
       id: '',
       title: '',
       text: '',
+      showModal: false
     }
   }
 
@@ -54,19 +50,20 @@ class App extends Component {
       notes: notes,  
       id: '',
       title: '',
-      text: '' 
+      text: '',
     });
   }
 
   
-  
 
+  
   render() {
     return (
       <div className='App'>
         <Nav/>
-       
+        
         <Route exact path='/' render={props => (<List {...props} notes={this.state.notes} />)} />
+
         <Route 
           exact path='/add-note'
           render={(props) => (<AddNote {...props} 
@@ -74,9 +71,20 @@ class App extends Component {
           text={this.state.text} 
           handleInputChange={this.handleInputChange} 
           addNote={this.addNote} />)}/>
+
+          <Route
+            exact
+            path="/note-view/:id"
+            render={props => {
+              let id = props.match.params.id
+              let filteredArray = this.state.notes.filter(note => note.id.toString() === id);
+              let note = filteredArray.pop();
+              return (<NoteView {...props} note={note}/>);
+            }}
+          />
       </div>
     );
   }
-}
+} 
 
 export default App;

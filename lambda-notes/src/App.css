@@ -50,6 +50,8 @@
   padding: 0.5%;
   background: white;
   border: 1px solid gray;
+  color: black;
+  text-decoration: none;
 }
 
 .note h3 {
@@ -91,4 +93,21 @@
   color: white;
   background: #5f9ea0;
   cursor: pointer;
+}
+
+.note-view {
+  padding: 5%;
+  width: 80%;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-view-link {
+  text-align: right;
+  font-weight: bold;
+  color: black;
+  margin: 5%;
 }
