@@ -61,7 +61,7 @@ class SideBar extends React.Component {
   render() {
     return (
       <Container>
-        <Title>{this.props.column.title}</Title>
+        <Title>{this.props.checklist.title}</Title>
         <div>
           <TaskList>
             {this.props.tasks.map((task, index) => (

@@ -17,7 +17,7 @@ class NoteList extends React.Component {
         <h2>Your Notes:</h2>
         <NoteAlignment>
           {this.props.notes.map(note => (
-            <Link to={`note._id}`} key={note._id}>
+            <Link to={`/notes/${note._id}`} key={note._id}>
               <Note note={note} />
             </Link>
           ))}
