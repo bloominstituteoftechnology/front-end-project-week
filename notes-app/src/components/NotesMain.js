@@ -9,7 +9,7 @@ const NotesMain = (props) => {
   const filteredView = props.filteredNotes.length === 0 ? props.notes : props.filteredNotes
     
   return (
-      <Div1 className="NotesMain">
+      <div className="NotesMain">
         <H2>Your Notes:</H2>
         <Div2>
         {
@@ -54,7 +54,7 @@ const NotesMain = (props) => {
         }
       </Div5>
 
-      </Div1>
+      </div>
     )
   }
 //go w/styled componenets

@@ -6,9 +6,7 @@ import NoteSingle from './components/NoteSingle'
 import NotesMain from './components/NotesMain'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       notes: [
         {
           id: 1537805881051,
