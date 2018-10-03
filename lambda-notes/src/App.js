@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
-import logo from './logo.svg';
 import './App.css';
-import SideBar from './components/SideBar/SideBar';
+import NoteForm from './components/Notes/NoteForm';
 import Notes from './components/Notes/Notes';
 
 class App extends Component {
@@ -32,24 +31,26 @@ class App extends Component {
 				console.log(error);
 			});
 	}
-	handleChange = (event) => {
-		this.setState({
-			note: {
-				...this.state.note,
-				[event.target.title]: event.target.value,
-			},
-		});
-	};
 
 	addNote = (note) => {
 		axios
 			.post('https://killer-notes.herokuapp.com/note/create', note)
 			.then((response) => {
-				this.setState(() => ({ notes: response.data }));
+				this.setState({ note: response.data });
+				console.log({ note: response.data });
 			})
 			.catch((error) => {
 				console.error(error);
 			});
+	};
+	s;
+	handleChange = (event) => {
+		this.setState({
+			note: {
+				...this.state.note,
+				[event.target.name]: event.target.value,
+			},
+		});
 	};
 
 	fetchNote = (id) => {
@@ -60,13 +61,28 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Welcome to Lambda Notes</h1>
+					<Link to={`/`}>Home</Link>
+					<Link to={`/notes`}>My Notes</Link>
+					<Link to={`/noteform`}>Create Note</Link>
 				</header>
+				<Route
+					path="/noteform"
+					render={(props) => (
+						<NoteForm
+							{...props}
+							handleChange={this.handleInputChange}
+							onSubmit={this.handleSubmit}
+							title={this.state.title}
+							text={this.state.textBody}
+							addNote={this.addNote}
+						/>
+					)}
+				/>
 				<Route
 					exact
 					path="/"
-					render={(props) => <Notes {...props} notes={this.state.notes} />}
+					render={(props) => <Notes notes={this.state.notes} />}
 				/>
 			</div>
 		);

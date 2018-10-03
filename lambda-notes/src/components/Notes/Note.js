@@ -11,7 +11,7 @@ const Note = (props) => {
 
 Note.defautProps = {
 	title: '',
-	textBody: '',
+	text: '',
 };
 
 export default Note;

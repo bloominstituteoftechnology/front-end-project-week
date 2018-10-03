@@ -5,7 +5,7 @@ const NoteCard = (props) => {
 		<div className="note-card">
 			<h2>{props.note.title}</h2>
 			<hr />
-			<div className="note-card-text">{props.note.textBody}</div>
+			<div className="note-card-text">{props.note.text}</div>
 		</div>
 	);
 };

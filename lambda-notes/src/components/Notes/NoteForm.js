@@ -1,27 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function NoteForm(props) {
-	return (
-		<form>
-			<input
-				className="input-title"
-				value={props.title}
-				name="title"
-				type="text"
-				placeholder="Note Title"
-				onChange={props.handleInputChange}
-			/>
-			<input
-				className="input-note"
-				value={props.text}
-				name="note"
-				type="text"
-				placeholder="Note Content"
-				onChange={props.handleInputChange}
-			/>
-			<button onClick={props.addNote()} type="button">
-				Save
-			</button>
-		</form>
-	);
+class NoteForm extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			title: '',
+			textBody: '',
+		};
+	}
+
+	addNote = (event) => {
+		event.preventDefault();
+		const newNote = {
+			title: this.state.title,
+			textBody: this.state.textBody,
+		};
+
+		this.props.addNote(newNote);
+		this.props.history.push('/');
+
+		this.setState({
+			title: '',
+			textBody: '',
+		});
+	};
+
+	handleInputChange = (event) => {
+		this.setState({ [event.target.name]: event.target.value });
+		console.log({ [event.target.name]: event.target.value });
+	};
+	render() {
+		return (
+			<form onSubmit={this.addNote}>
+				<div>Create New Note:</div>
+				<input
+					className="input-title"
+					value={this.state.title}
+					name="title"
+					type="text"
+					placeholder="Note Title"
+					onChange={this.handleInputChange}
+				/>
+				<input
+					className="input-note"
+					value={this.state.textBody}
+					name="textBody"
+					type="text"
+					placeholder="Note Content"
+					onChange={this.handleInputChange}
+				/>
+				<button type="submit">Save</button>
+			</form>
+		);
+	}
 }
+export default NoteForm;
