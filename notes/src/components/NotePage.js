@@ -49,7 +49,9 @@ const NoteCard = styled.div`
         <Link to={`/edit-note/${this.props.match.params.id}`}>
           <button>Edit</button>
         </Link>
+        <Link to={`/delete-note/${this.props.match.params.id}`}>
           <button>Delete</button>
+        </Link>
         </div>
         <NoteCard>
           <h3>{this.state.title}</h3>
