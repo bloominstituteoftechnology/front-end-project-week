@@ -58,16 +58,6 @@ class App extends Component {
         return note
       }
     })
-      // if(this.state.searching){
-      //   return(
-      //     <div>
-      //       <SideBar handleSearchInput={this.handleSearchInput} notes={this.state.notes} search={this.state.search}/>
-      //     <div className="filtered-notes">  
-      //     {filteredNotes.map(note => {return <Note notes={this.state.notes} key={note._id} noteTitle={this.state.title} />})}
-      //     </div>
-      //     </div>
-      //   )
-      // }
   
     return (
       <div className="App">
