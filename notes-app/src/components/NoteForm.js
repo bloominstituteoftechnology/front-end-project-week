@@ -76,11 +76,54 @@ class NoteForm extends Component {
             maxLength="15"
             required
           />
+          <Textarea
+            name="text"
+            type="text"
+            placeholder="Text"
+            value={this.state.text}
+            onChange={this.handleChange}
+            pattern=".{50, 0}"
+            title="50 characters minimum"
+            required
+          />
+          <Input2
+            name="tags"
+            type="text"
+            placeholder="Tags (with commas)"
+            value={this.state.tags}
+            onChange={this.handleChange}
+            required
+          />
+          <Button1>{this.state.editing ? "Update" : "Save"}</Button1>
           
         </Form>
       </Div>
     )
   }
 }
+
+
+
+const Div = styled.div`
+  
+  `
+const H2 = styled.h2``
+const Form = styled.form``
+const Input1 = styled.input`
+  width: 60%;
+  
+`
+const Input2 = styled.input`
+  width: 100%;
+  
+`
+const Textarea = styled.textarea`
+  width: 100%;
+  
+`
+const Button1 = styled.button`
+  padding: 2%;
+  
+  `
 
 export default withRouter(NoteForm)

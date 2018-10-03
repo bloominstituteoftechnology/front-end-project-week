@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import './App.css';
 import NoteForm from './components/NoteForm'
 import NoteSingle from './components/NoteSingle'

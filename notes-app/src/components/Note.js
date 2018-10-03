@@ -3,10 +3,23 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 class Note extends Component {
+  state = {
+    modal: false
+  }
 
-  
+  openModal = () => {
+    this.setState({ modal: true })
+  }
+
+  closeModal = () => {
+    this.setState({ modal: false })
+  }
+
+
     render() {
-    return (
+      const note = this.props.notes.filter(note => note.id === Number(this.props.match.params.id))[0]
+    
+      return (
         <Div1 className="Note">
           {
             this.state.modal ? (
