@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 
 const NotesMain = (props) => {
     
-  
-    return (
+ 
+  const filteredView = props.filteredNotes.length === 0 ? props.notes : props.filteredNotes
+    
+  return (
       <Div1 className="NotesMain">
         <H2>Your Notes:</H2>
         <Div2>

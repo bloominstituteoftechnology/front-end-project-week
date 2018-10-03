@@ -24,6 +24,11 @@ class App extends Component {
         }
         
       ],
+
+      filteredNotes: [],
+    tags: ["all", "gear", "capacity", "nature", "outdoors", "outsdoorsy", "friend", "hiking groups", "store", "adventure"],
+    noteUpdate: null
+  }
       addNote = (newNote) => {
         let filteredTags = [...newNote.tags].filter(excluded => ![...this.state.tags].includes(excluded))
         this.setState({ notes: [ ...this.state.notes, newNote], tags: [...this.state.tags, ...filteredTags] })
@@ -46,7 +51,6 @@ class App extends Component {
       deleteNote = (noteId) => {
         this.props.history.push
       }
-      
 
   render() {
     return (
@@ -54,18 +58,35 @@ class App extends Component {
         <Route exact path="/" render={() => 
           <NotesMain
             notes={this.state.notes}
-            
+            filteredNotes={this.state.filteredNotes}
+            tags={this.state.tags}
+            filterNotes={this.filterNotes}
           />
         }/>
-          
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Route path="/new" render={() => 
+          <NoteForm
+            addNote={this.addNote}
+          />
+        }/>
+        <Route exact path="/notes/:id" render={(props) => 
+          <NoteSingle
+            {...props}
+            notes={this.state.notes}
+            editNote={this.editNote}
+            deleteNote={this.deleteNote}
+          />
+        }/>
+        <Route path="/notes/:id/edit" render={() => 
+          <NoteForm
+            noteUpdate={this.state.noteUpdate}
+            updateNote={this.updateNote}
+          />
+        }
+        />
       </div1>
     );
   }
 }
+  
 
 export default withRouter(App);
