@@ -6,6 +6,7 @@ class NotesForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            tag: "",
             title: "",
             textBody: "",
         };

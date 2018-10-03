@@ -3,7 +3,7 @@ import React from 'react';
 
  const Notes = props => {
      console.log("note props check", props);
-     const note = note.find( event => event.id === props.match.params.id);
+     const note = props.notesList.find(note => note.id === props.match.params.noteId);
 
      function clickHandler(url) {
          props.history.push(url);

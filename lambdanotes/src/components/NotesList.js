@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+// import { Link } from 'react-router-dom';
+import Notes from './Notes';
 
 class NotesList extends Component {
     render() {
@@ -7,16 +8,20 @@ class NotesList extends Component {
             <div className="noteWrap">
                 <ul>
                     {this.props.notesList.map(note => {
-                       <div className="noteCards" key={note.id}>
+                        return (
+                            <Notes
+                                key={note.id}
                                 tag={note.tag}
-                                <h2>title={note.title}</h2>
-                                <p>textBody={note.textBody}</p>
-                                <Link to={`/notes/${note.id}`}>{note.title}</Link>
-                        </div>
+                                title={note.title}
+                                textBody={note.textBody}
+                            />
+                        );
                     })}
                 </ul> 
+                {/* <Link to={`/notes/${note.id}`}>{this.propsnote.title}</Link> */}
             </div>
         );
     }
 }
 export default NotesList;
+//bring back notes
