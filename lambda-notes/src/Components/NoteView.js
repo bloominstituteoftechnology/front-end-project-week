@@ -15,7 +15,8 @@ class NoteView extends Component {
     this.state = {
       id: '',
       title: '',
-      textBody: ''
+      textBody: '',
+      modal: false
     }
   };
 
@@ -40,10 +41,22 @@ class NoteView extends Component {
   }
 
   editNote = event => {
-    event.preventDefault()
+    event.preventDefault();
     const id = this.props.match.params.id;
     this.props.history.push(`/edit/${id}`)
   };
+
+  deleteNote = id => {
+    axios 
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => (
+        console.log('Server Error', error)
+      ));
+      this.props.history.push('/')
+  }
 
   render() {
     return (
@@ -52,7 +65,7 @@ class NoteView extends Component {
           <button onClick={this.editNote}>Edit</button>
           <DeleteModal 
             props={this.props} 
-            history={this.props.history}
+            id={this.props.match.params.id}
             deleteNote={this.deleteNote}
           >
             Delete
