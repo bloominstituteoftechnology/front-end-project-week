@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { withRouter } from "react-router";
 import axios from "axios";
 
 class Note extends React.Component {
@@ -22,9 +21,6 @@ class Note extends React.Component {
 }
 
   render() {
-    
-    
-    console.log(this.props);
     return (
       <Fragment>
         <div>
@@ -40,4 +36,4 @@ class Note extends React.Component {
   }
 }
 
-export default withRouter(Note);
+export default Note;

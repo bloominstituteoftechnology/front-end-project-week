@@ -3,14 +3,17 @@ import {Route, NavLink} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import {NotesList, CreateNote, Note} from './Components'
-import { withRouter } from "react-router";
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-        notes: []
+        notes: [],
+        newNote: {
+          title: '',
+          textBody: ''
+        }
     }
   }
 
@@ -24,6 +27,26 @@ class App extends Component {
     });
   }
 
+  handleInputChange = e => {
+    this.setState({[e.target.name]: e.target.value});
+  };
+
+  addNote = () => {
+    const newNote = 
+    {title: this.state.title, textBody: this.state.textBody}
+    axios.post  (`https://killer-notes.herokuapp.com/note/create`, newNote)
+    .then (note => {
+      this.setState({notes: note.data, 
+        newNote: {
+          title: '',
+          textBody: ''
+        }
+      })
+    })
+    .catch(err => {
+      console.log('could not add note', err);
+    })
+  }
  
  
 
@@ -34,10 +57,10 @@ class App extends Component {
               <h1>Lambda Notes</h1>
                   <ul >
                       <button>
-                        <NavLink to='/'>View Your Notes</NavLink>
+                        <NavLink exact to='/'>View Your Notes</NavLink>
                       </button>
                       <button>
-                          <NavLink to='/create'>Create New Note</NavLink>
+                          <NavLink exact to='/create'>Create New Note</NavLink>
                       </button>
                   </ul>
           </div>
@@ -52,22 +75,22 @@ class App extends Component {
       />
 
       <Route 
-        path='/:id'
-        component={props => (
-          <Note
-            {...props}
-            notes = 
-            {this.state.notes} />
+        exact
+        path='/create' 
+        render={props => (
+          <CreateNote {...props}
+          newNote = {this.state.newNote}
+          handleInputChange = {this.handleInputChange}
+          addNote = {this.addNote}
+          />
         )}
       />
 
-      <Route path='/create' component={props => (
-        <CreateNote 
-          {...props}
-          newNote = {this.state.notes}
-        />
-      )}
-      /> 
+       <Route 
+        exact
+        path='/:id'
+        component={Note}
+      />
       </div>
     )
   }
@@ -75,4 +98,4 @@ class App extends Component {
      
 
 
-export default withRouter(App);
+export default App;
