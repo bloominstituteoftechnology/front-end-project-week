@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import SideBar from './components/SideBar';
+import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import NoteView from './components/NoteView.js';
@@ -16,7 +17,9 @@ class App extends Component {
       note: {
         title: '',
         textBody: ''
-      }
+      },
+      search: "",
+      searching:false
     }
   }
 
@@ -39,11 +42,37 @@ class App extends Component {
       .catch(err => {console.log(err)});
   }
 
+  handleSearchInput= (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    this.setState({searching:true});
+    if(e.target.value === ""){
+      this.setState({searching:false});
+    }
+  };
+
   render() {
+    let filteredNotes = this.state.notes.filter(note => {
+      if(this.state.searching){
+      return note.title.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1
+      }else{
+        return note
+      }
+    })
+      // if(this.state.searching){
+      //   return(
+      //     <div>
+      //       <SideBar handleSearchInput={this.handleSearchInput} notes={this.state.notes} search={this.state.search}/>
+      //     <div className="filtered-notes">  
+      //     {filteredNotes.map(note => {return <Note notes={this.state.notes} key={note._id} noteTitle={this.state.title} />})}
+      //     </div>
+      //     </div>
+      //   )
+      // }
+  
     return (
       <div className="App">
-        <SideBar />
-        <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
+        <SideBar handleSearchInput={this.handleSearchInput} notes={this.state.notes} search={this.state.search}  />
+        <Route exact path="/" render={(props) => <Notes {...props} notes={filteredNotes} />} />
         <Route path="/add-note" render={(props)=> <NoteForm {...props} postNote={this.postNote} note={this.state.note} />}/>
         <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} getNote={this.getNote} />} />
       </div>
