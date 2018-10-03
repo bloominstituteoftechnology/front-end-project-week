@@ -11,7 +11,7 @@ class NoteView extends Component {
         return (
             <div className='note-view'>
                 <div className='links'>
-                    <Link to='' className='note-view-link'>edit</Link>
+                    <Link to='/note-view/:id/edit' className='note-view-link'>edit</Link>
                     <Link to='' className='note-view-link'>delete</Link>
                 </div>
                 <h1>{this.props.note.title}</h1>

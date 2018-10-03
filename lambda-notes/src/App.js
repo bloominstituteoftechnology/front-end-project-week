@@ -4,7 +4,8 @@ import './App.css';
 import Nav from './components/Nav';
 import List from './components/List';
 import AddNote from './components/AddNote';
-import NoteView from "./components/NoteView";
+import NoteView from './components/NoteView';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   constructor() {
@@ -30,7 +31,6 @@ class App extends Component {
       id: '',
       title: '',
       text: '',
-      showModal: false
     }
   }
 
@@ -54,6 +54,10 @@ class App extends Component {
     });
   }
 
+  editNote = (event, noteId) => {
+    
+  }
+
   
 
   
@@ -73,13 +77,30 @@ class App extends Component {
           addNote={this.addNote} />)}/>
 
           <Route
-            exact
-            path="/note-view/:id"
+            
+            exact path='/note-view/:id'
             render={props => {
               let id = props.match.params.id
               let filteredArray = this.state.notes.filter(note => note.id.toString() === id);
               let note = filteredArray.pop();
               return (<NoteView {...props} note={note}/>);
+            }}
+          />
+
+          <Route
+            
+            path='/note-view/:id/edit'
+            render={props => {
+              let id = props.match.params.id
+              let filteredArray = this.state.notes.filter(note => note.id.toString() === id);
+              let note = filteredArray.pop();
+              return (<EditNote {...props}
+                title={this.state.title}
+                text={this.state.text}
+                note={note}
+                handleInputChange={this.handleInputChange}
+                editNote={this.editNote}/>)
+                
             }}
           />
       </div>
