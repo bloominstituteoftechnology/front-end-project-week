@@ -32,16 +32,16 @@ class App extends Component {
       .then(res => this.setState({ notes: res.data, inputTextTitle: '', inputTextBody: '' }))
       .catch(err => console.log(err))
   }
+  getNotes = () => {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    .then(response => this.setState({notes: response.data}))
+    .catch(error => console.log(' We have an Error!', err))
+  }
 
   componentDidMount() {
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
-      .then( res => {
-        this.setState({ notes: res.data });
-        console.log(this.state.notes)})
-      .catch( err => (
-        console.log(err)
-      ))
+    this.getNotes();
   }
+  
   render() {
     return (
       <div className="App">
@@ -52,7 +52,7 @@ class App extends Component {
         </header>
         <div>
           <Route 
-          exact path='/notes' 
+          exact path='/' 
           render={(props) => 
             (<NoteList {...props} 
             notes={this.state.notes} />)} />
