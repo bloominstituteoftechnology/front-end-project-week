@@ -1,39 +1,56 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
+import { Button } from 'reactstrap';
+
+export default class HomePage extends React.Component {
+constructor(props){
+  super(props)
+}
 
 
-function HomePage (props) {
-
-
-  console.log(props);
-
-
-
-
-    return (
-
-    <div>
-      <h2>Your Notes:</h2>
-      <hr/>
-<div className='Notes'>
-   {props.notes.notes.map(note => {
-     return(
-
-     <div key ={note._id} className='NoteContainer'>
-        <NavLink to ={`/notes/${note._id}`}>
-     <h3>{note.title}</h3>
-     <hr/>
-     <p> {note.textBody}</p>
-      </NavLink>
-     </div>
-
-     )
-   })}
-</div>
-    </div>
-  )
+state ={
+ SearchTitle:'',
 
 }
 
-export default HomePage;
+
+
+
+handleInputChange = event => {
+  this.setState({ [event.target.name]: event.target.value });
+};
+
+
+render(){
+
+  return (
+
+  <div>
+    <label>Search By Title</label>
+    <input name='SearchTitle' onChange={this.handleInputChange}  value={this.state.SearchTitle} placeholder= 'Search'/>
+  <Button onClick = {this.props.filterNotes(this.state.SearchTitle)}>Search</Button>
+      <h2>Your Notes:</h2>
+    <hr/>
+<div className='Notes'>
+ {this.props.notes.notes.map(note => {
+   return(
+
+   <div key ={note._id} className='NoteContainer'>
+      <NavLink to ={`/notes/${note._id}`}>
+   <h3>{note.title}</h3>
+   <hr/>
+   <p> {note.textBody}</p>
+    </NavLink>
+   </div>
+
+   )
+ })}
+</div>
+</div>
+
+)
+}
+
+
+}
