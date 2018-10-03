@@ -1,31 +1,14 @@
 import React from 'react';
+//  import NotesInfo from './NotesInfo';
+import { Link } from 'react-router-dom';
 
-
- const Notes = props => {
-     console.log("note props check", props);
-     const note = props.note.notesList.find(note => note.id === props.match.params.noteId);
-
-     function clickHandler(url) {
-         props.history.push(url);
-     }
-
-     console.log("props check in notes2", props);
+  const Notes = props => {
 
      return (
          <div className="noteCardBox">
-            <h1>{props.title}</h1>
+            <Link to="/notes/:noteId">{props.title}</Link>
             <p>{props.textBody}</p>
-            <div className="noteNavButts">
-                <button 
-                    onClick = {() =>
-                        clickHandler(`/notes/${parseInt(note.id, 10) - 1}`)}>Previous Note</button>
-                <button
-                    onClick = {() =>
-                        clickHandler('/notes')}>Full Note List</button>
-                <button
-                    onClick = {() =>
-                        clickHandler(`/notes/${parseInt(note.id, 10) + 1}`)}>Next Note</button>
-            </div>
+            <button onClick={props.deleteEvent}>Delete Note?</button>
          </div>
      );
  }
@@ -39,3 +22,15 @@ import React from 'react';
 //          props.handleDeleteNotes(note.id);
 //          props.history.push('/notes');
 //      }
+
+//  {/* <div className="noteNavButts">
+//                 <button 
+//                     onClick = {() =>
+//                         clickHandler(`/notes/${parseInt(note.id, 10) - 1}`)}>Previous Note</button>
+//                 <button
+//                     onClick = {() =>
+//                         clickHandler('/notes')}>Full Note List</button>
+//                 <button
+//                     onClick = {() =>
+//                         clickHandler(`/notes/${parseInt(note.id, 10) + 1}`)}>Next Note</button>
+//             </div> */}

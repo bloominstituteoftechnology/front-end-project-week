@@ -6,13 +6,12 @@ class NotesForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tag: "",
             title: "",
             textBody: "",
         };
     }
     handleChange = event => {
-          this.setState({...this.state, [event.target.name]: event.target.value} );
+          this.setState({...this.state, id: event.target.value} );
           };
       
     handleAddNewNote = event => {
@@ -20,7 +19,7 @@ class NotesForm extends Component {
         console.log("We've got a new note here!");
         axios.post('https://killer-notes.herokuapp.com/note/create', this.state)
         .then(response => this.setState({ notes: response.data }))
-        }
+    }
    
     render() {
         return (

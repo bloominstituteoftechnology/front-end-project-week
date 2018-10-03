@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       notes: [],
       note: {
-        tag: "",
+        tag: [],
         title: "",
         textBody: "",
       },
