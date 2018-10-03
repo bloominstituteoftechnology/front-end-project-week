@@ -11,7 +11,7 @@ width: 75%;
 text-align: left;
 `
 const Note=styled.div`
-width: 95%;
+width: 92.5%;
 overflow-wrap: break-word;
 word-wrap: break-word;
 -ms-word-break: break-all;
@@ -51,35 +51,35 @@ const NoteTag=styled.p`
         margin-right: 3%;
     }
 `
-class SingleNotePage extends React.Component{
+class SingleNotePage extends React.Component {
     
     componentDidMount() {
         localStorage.setItem('location',this.props.location.pathname);
         this.props.getSingleNote(this.props.match.params.noteId);
     }
-    render(){
-        if(!this.props.fetchingNote){
-        return(
-            <SingleNote>
-            <EDcontainer>
-            <Span onClick={()=>this.props.history.push(`${this.props.match.params.noteId}/edit`)}>edit</Span>
-            <DeleteModal/>
-            </EDcontainer>
-            <Note>
-            <NoteHeading>{this.props.note.title}</NoteHeading>
-            <NoteInfo>{this.props.note.textBody}</NoteInfo>
-            {this.props.note.tags?
-            this.props.note.tags.length>0?
-            <NoteTag>
-                <span style={{textDecoration:'underline'}}>{'tags: '}</span>{this.props.note.tags}
-            </NoteTag>:null:null}
-            </Note>
-            </SingleNote>
-        )
-    } else {
-    return <SingleNote/>
-}
-}
+    render() {
+        if (!this.props.fetchingNote){
+            return (
+                <SingleNote>
+                    <EDcontainer>
+                        <Span onClick={()=>this.props.history.push(`${this.props.match.params.noteId}/edit`)}>edit</Span>
+                        <DeleteModal/>
+                    </EDcontainer>
+                    <Note>
+                        <NoteHeading>{this.props.note.title}</NoteHeading>
+                        <NoteInfo>{this.props.note.textBody}</NoteInfo>
+                        {this.props.note.tags?
+                        <NoteTag>
+                            <span style={{textDecoration:'underline'}}>{'tags: '}</span>{this.props.note.tags}
+                        </NoteTag>
+                        :null}
+                    </Note>
+                </SingleNote>
+                )
+            } else {
+            return <SingleNote/>
+        }
+    }
 }
 const mapStateToProps=state=>{
     return{

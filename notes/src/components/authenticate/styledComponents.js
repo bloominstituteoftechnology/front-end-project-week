@@ -7,7 +7,7 @@ const AuthenticationForm=styled.form`
     margin-top: 30px;
     border: 1px solid black;
     background-color: #E8E8EE;
-    height: 260px;
+    height: 250px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -19,12 +19,12 @@ const AuthenticationHeading=styled.h2`
 `
 const AuthenticationInput=styled.input`
     width:50%;
-    height: 25px;
-    margin-top:5px;
+    height:25px;
+    margin-bottom:5px;
     border-radius:4px;
     border-color:transparent;
+    border:1px solid #A9A9A9;
     outline:none;
-    border:1px solid #A9A9A9
 }`
 const AuthenticationButton=styled.button`
     width:50%;

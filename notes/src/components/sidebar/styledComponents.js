@@ -19,7 +19,7 @@ color:#FFF;
 display: flex;
 align-items: center;
 justify-content: center;
-margin-bottom:20px;
+margin-bottom:15px;
 font-size:16px;
 outline:none;
 border-color:transparent;
