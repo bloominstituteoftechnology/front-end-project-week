@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as axios from 'axios';
 import EditForm from './EditForm.js'
 import { Button } from 'reactstrap';
-
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
