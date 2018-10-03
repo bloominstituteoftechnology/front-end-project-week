@@ -9,8 +9,8 @@ const NoteList = props => {
       <H2>Your Notes:</H2>
       <NoteCardContainer>
         {props.notes.map(note => (
-          <NoteCard key={note._id}>
-            <NavLink to={`/note-view/${note._id}`}>
+          <NoteCard>
+            <NavLink key={note._id} to={`/${note._id}`}>
               <H3>{note.title}</H3>
               <P>{note.content} ...</P>
             </NavLink>

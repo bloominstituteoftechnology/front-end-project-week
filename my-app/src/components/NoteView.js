@@ -1,65 +1,50 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import React, { Fragment } from "react";
+import axios from "axios";
 
-const NoteView = props => {
-  console.log("noteview props:", props);
-  console.log("noteview propsnotes:", props.notes);
-  // eslint-disable-next-line
-  const note = props.notes.find(
-    note => note.id == parseInt(props.match.params.id, 10)
-  );
-  console.log("from noteview:", note);
+class NoteView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      note: []
+    };
+  }
 
-  return (
-    <NoteViewWrap>
-      <LinkWrap>
-        <Link>
-          <NavLink
-            to={`/edit-view/${note.id}`}
-            onClick={() => props.editNote(note.id)}
-          >
-            edit
-          </NavLink>
-        </Link>
-        <Link>
-          <div color="primary">
-            <NavLink to="/list-view" onClick={() => props.deleteNote(note.id)}>
-              delete
-            </NavLink>
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        this.setState({ note: response.data });
+      })
+      .catch(err => {
+        console.log("error", err);
+      });
+  }
+
+  handleDelete = () => {
+    const id = this.props.match.params.id;
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      });
+  };
+
+  render() {
+    return (
+      <Fragment>
+        <div>
+          <div>
+            <button>Edit</button>
+            <button onSubmit={this.handleDelete}>Delete</button>
           </div>
-        </Link>
-      </LinkWrap>
-      <ContentWrap>
-        <h2>{note.title}</h2>
-        <p>{note.content}</p>
-      </ContentWrap>
-    </NoteViewWrap>
-  );
-};
-
-const NoteViewWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px 5%;
-`;
-
-const LinkWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
-
-const Link = styled.a`
-  padding: 6px 1.5%;
-  font-weight: bold;
-  font-size: 0.85rem;
-  color: black;
-`;
-
-const ContentWrap = styled.div`
-  margin-top: 20px;
-  line-height: 24px;
-`;
+          <h1>{this.state.note.title}</h1>
+          <p>{this.state.note.textBody}</p>
+        </div>
+      </Fragment>
+    );
+  }
+}
 
 export default NoteView;
