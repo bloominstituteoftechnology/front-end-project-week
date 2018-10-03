@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const Note = props => {
+class Note extends Component {
+
+  
     render() {
     return (
         <Div1 className="Note">

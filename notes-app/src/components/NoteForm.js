@@ -1,8 +1,6 @@
-
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
-
 
 class NoteForm extends Component {
   state = {
@@ -64,12 +62,20 @@ class NoteForm extends Component {
       }
     }
 
-  
   render() {
     return (
       <Div className="NoteForm">
         <H2>{this.state.editing ? "Edit Note: " : "Create New Note"}</H2>
         <Form onSubmit={(e) => this.handleSubmit(e)}>
+        <Input1
+            name="title"
+            type="text"
+            placeholder="Title"
+            value={this.state.title}
+            onChange={this.handleChange}
+            maxLength="15"
+            required
+          />
           
         </Form>
       </Div>

@@ -9,8 +9,8 @@ const NotesMain = (props) => {
   const filteredView = props.filteredNotes.length === 0 ? props.notes : props.filteredNotes
     
   return (
-      <div className="NotesMain">
-        <H2>Your Notes:</H2>
+      <Div1 className="NotesMain">
+        <H1>Your Notes:</H1>
         <Div2>
         {
           filteredView.map(note => 
@@ -54,10 +54,67 @@ const NotesMain = (props) => {
         }
       </Div5>
 
-      </div>
+      </Div1>
     )
   }
 //go w/styled componenets
 //extra elements here too if time allows
 
+
+const Div1 = styled.div`
+  padding: 1% 3%;
+  width: 75%;
+  background: #F2F1F2;
+  min-height: 90vh;
+  `
+const Div2 = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`
+const Div3 = styled.div`
+  border: 1px solid #B7B7B7;
+  
+`
+const Div4 = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+const Div5 = styled.div`
+  display: block;
+  width: 100%;
+`
+const H1 = styled.h2`
+  margin-top: 8%;
+`
+const H2 = styled.h2`
+  margin-top: 8%;
+`
+const H3 = styled.h3`
+  font-size: 1.8rem;
+  margin: 8% 0 2% 0;
+`
+const P = styled.p``
+const P2 = styled.p`
+  font-size: 1.2rem;
+  margin: 0;
+`
+const Strong = styled.strong`
+  font-size: 2rem;
+`
+const Button = styled.button`
+  width: 50%;
+  
+`
+const Hr = styled.hr`
+  margin: 0;
+`
+const Span1 = styled.span`
+  font-size: 1.6rem;
+  
+`
+
+
   export default NotesMain
+
+  
