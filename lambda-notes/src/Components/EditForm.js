@@ -27,6 +27,7 @@ class EditForm extends Component {
   }
 
   updatedNote = note => {
+    const id = this.props.match.params.id;
     axios
       .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
       .then(response => {
