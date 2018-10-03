@@ -7,7 +7,7 @@ const AuthenticationForm=styled.form`
     margin-top: 30px;
     border: 1px solid black;
     background-color: #E8E8EE;
-    height: 250px;
+    height: 255px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -18,8 +18,8 @@ const AuthenticationHeading=styled.h2`
     margin-top:30px;
 `
 const AuthenticationInput=styled.input`
-    width:50%;
-    height:25px;
+    width:60%;
+    height:30px;
     margin-bottom:5px;
     border-radius:4px;
     border-color:transparent;
@@ -27,7 +27,7 @@ const AuthenticationInput=styled.input`
     outline:none;
 }`
 const AuthenticationButton=styled.button`
-    width:50%;
+    width:60%;
     border-color:transparent;
     display: block;
     margin-top:5px;
@@ -35,7 +35,6 @@ const AuthenticationButton=styled.button`
     border-radius:5px;
     background-color:#345678;
     color:#E8E8EE
-    font-size:12px;
     letter-spacing:1px;
     display: flex;
     align-items: center;

@@ -16,7 +16,7 @@ const NotesHeading=styled.h2`
 text-align: left;
 color:#424242
 margin-left: 5%;
-margin-top: 40px;
+margin-top: 20px;
 `
 const NotesPage=styled.div`
 background-color:#ddd;
@@ -24,16 +24,22 @@ min-height: 100vh;
 width: 75%;
 `
 const NoteFilter=styled.input`
-height: 20px;
-margin: 0 auto;
-margin-right: 10%;
-margin-left: 24%;
-width: 260px;
+    margin-right:10%;
+    width: 260px;
+    height: 40px;
+    outline:none;
+    border-radius:4px;
+    border-color:transparent;
+    border:1px solid #A9A9A9;
 `
-const SortContainer=styled.div`
-display: inline-block;
-box-sizing: border-box;
-width: 120px;
+const NotesPageHeader=styled.div`
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-sizing:border-box;
+    padding-top:20px;
+    width:100%;
+    height:95px;
 `
 class Notes extends React.Component {
     constructor(props) {
@@ -55,7 +61,9 @@ class Notes extends React.Component {
                 id: id
             }
         }
-        sortOption?this.setState({sortOption:sortOption},()=>this.props.getNotes(reqOptions)):this.props.getNotes(reqOptions);
+        sortOption ?
+        this.setState({sortOption:sortOption},()=>this.props.getNotes(reqOptions))
+        :this.props.getNotes(reqOptions);
     }
     inputChange=(e)=>{
         this.setState({[e.target.name]:e.target.value},()=>{this.filterNotes();});
@@ -91,14 +99,14 @@ class Notes extends React.Component {
         if (!this.props.fetchingNotes) {
         return(
             <NotesPage>
-                <NoteFilter type='text' name='filterParam' placeholder='Enter search term' value={this.state.filterParam} onChange={this.inputChange}/>
-                <SortContainer>
-                <p>Sort Options:</p>
-                <input type="radio" value={'default'} id='Default' checked={this.state.sortOption==='default'} name="sortOption" onChange={this.radioChange}/>
-                <label htmlFor='Default'>Default</label>
-                <input type="radio" value={'title'} id='Title' checked={this.state.sortOption==='title'} name="sortOption" onChange={this.radioChange}/>
-                <label htmlFor='Title'>Title</label>
-                </SortContainer>
+                <NotesPageHeader>
+                    <NoteFilter type='text' name='filterParam' placeholder='Enter search term' value={this.state.filterParam} onChange={this.inputChange}/>
+                    <p>Sort Options:</p>
+                    <input type="radio" value={'default'} id='Default' checked={this.state.sortOption==='default'} name="sortOption" onChange={this.radioChange}/>
+                    <label htmlFor='Default'>Default</label>
+                    <input type="radio" value={'title'} id='Title' checked={this.state.sortOption==='title'} name="sortOption" onChange={this.radioChange}/>
+                    <label htmlFor='Title'>Title</label>
+                </NotesPageHeader>
                 <NotesHeading>Your Notes:</NotesHeading>
                 <NotesList>
                     {
@@ -118,7 +126,7 @@ class Notes extends React.Component {
     } else {
         return (
             <NotesPage/>
-        );
+            );
         }
     }
 }

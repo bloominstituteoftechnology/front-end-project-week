@@ -43,3 +43,10 @@
   position:fixed;
   width:100%;
 }
+input,textarea,button{
+  font-size:16px;
+}
+input,textarea{
+  padding-left:10px;
+  box-sizing:border-box;
+}

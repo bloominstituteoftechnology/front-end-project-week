@@ -28,14 +28,13 @@ align-items: center;
 justify-content: center;
 border-color:transparent;
 outline:none;
-font-size:16px;
 &:hover{
     opacity:0.85;
 }
 `
 const NoteFormInput=styled.input`
 width: 55%;
-height: 30px;
+height: 40px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -45,6 +44,7 @@ border-color:transparent;
 border:1px solid #A9A9A9;
 `
 const NoteFormTextArea=styled.textarea`
+padding-top:10px
 height: 400px;
 width: 96%;
 margin-top: 20px;
