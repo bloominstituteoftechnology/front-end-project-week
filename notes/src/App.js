@@ -3,17 +3,14 @@ import {Route, NavLink} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import {NotesList, CreateNote, Note} from './Components'
+import { withRouter } from "react-router";
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-        notes: [],
-        newNote: {
-            tags: ["tag", "otherTag"],
-            title: "Note Title",
-            textBody: "Note Body",
-        }
+        notes: []
     }
   }
 
@@ -26,6 +23,10 @@ class App extends Component {
         console.log("error", err);
     });
   }
+
+ 
+ 
+
   render(){
     return(
       <div className="App">
@@ -60,7 +61,12 @@ class App extends Component {
         )}
       />
 
-      <Route exact path='/create' component={CreateNote}
+      <Route path='/create' component={props => (
+        <CreateNote 
+          {...props}
+          newNote = {this.state.notes}
+        />
+      )}
       /> 
       </div>
     )
@@ -69,4 +75,4 @@ class App extends Component {
      
 
 
-export default App;
+export default withRouter(App);
