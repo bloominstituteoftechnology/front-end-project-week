@@ -35,6 +35,10 @@ class NoteView extends React.Component {
     this.setState({ Editing: true });
    }
 
+   editOff =() => {
+     this.setState({Editing:false});
+   }
+
    editNote = (note) => {
     const blanknote={
     title: "",
@@ -72,15 +76,12 @@ class NoteView extends React.Component {
     this.props.history.push('/')}))
     this.deleteOff();
   }
-  
-  abortDelete = () => {
-    this.setState({Deleting: false})
-  }
 
 
   render(){
     if (this.state.Editing) {
       return (
+        <Fragment>
         <NoteForm
           note={this.state.note} 
           title={this.state.title}
@@ -88,12 +89,14 @@ class NoteView extends React.Component {
           editNote={this.editNote}
           Editing={this.state.Editing}
         />
+        <button onClick={this.editOff}>Cancel Update</button>
+        </Fragment>
       );
     }
 
     if(this.state.Deleting){
       return(
-        <DeleteModal abortDelete={this.abortDelete} deleteNote={this.deleteNote} />
+        <DeleteModal deleteOff={this.deleteOff} deleteNote={this.deleteNote} />
       )
     }
   return (
