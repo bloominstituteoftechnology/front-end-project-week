@@ -4,7 +4,7 @@ import SideBar from './SideBar';
 import NoteView from './NoteView';
 import CreateNew from './CreateNew';
 import SingleNote from './SingleNote'
-// import Notes from './Notes';
+import Notes from './Notes';
 import EditNote from './EditNote';
 import axios from 'axios';
 import './App.css';
@@ -20,7 +20,6 @@ class App extends Component {
         title: '',
         textBody: '',
       },
-      note:''
     };
   }
 
@@ -85,7 +84,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.notes);
+    // console.log(this.state.notes);
     return (
       // <Router>
       <div className="App">
@@ -94,14 +93,14 @@ class App extends Component {
         </div>
         <div className="note-view">
         <Switch> 
-          <Route path='/viewcards' 
-          render={(props) => 
+          <Route path='/notes' 
+            render={(props) => 
           <NoteView {...props} 
-          notes={this.state.notes}
+            notes={this.state.notes}
           />}
           />
-          <Route path='/createcards'
-          render={(props) => 
+          <Route path='/notes/new'
+            render={(props) => 
           <CreateNew {...props}
             handleAddNewNote={this.handleAddNewNote}
             handleChange={this.handleChange}
@@ -109,21 +108,25 @@ class App extends Component {
             note={this.state.note} 
             handleSubmit={this.handleSubmit}/>}
           />
-          <Route path='/:noteId'
-          render={(props) => 
+
+          <Route path='/notes/:noteId/edit'
+            render={routeProps => 
+          <EditNote {...routeProps}
+            notes={this.state.notes}
+            params = {this.state.params}
+            />}
+          />
+
+          <Route path='/notes/:noteId'
+            render={(props) => 
           <SingleNote {...props} 
-          notes={this.state.notes}/>}
+            notes={this.state.notes}/>}
          />
-         {/* <Route path='/:noteId'
+         <Route path='/:noteId'
           render={(props) => 
           <Notes {...props} 
           notes={this.state.notes}/>}
-         /> */}
-          <Route path='/editcard'
-          render={(props) => 
-          <EditNote {...props}
-          notes={this.state.props}/>}
-          />
+         />
 
         </Switch>
         </div>
