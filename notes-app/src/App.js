@@ -11,17 +11,13 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      newNote: {
-        textTitle: '',
-        textBody: ''
-      }
     }
   }
 
   postNote = (newNote) => {
     axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
-      .then(res => this.setState({ notes: res.data, inputTextTitle: '', inputTextBody: '' }))
-      .catch(err => console.log(err))
+      .then(response => this.setState({ notes: [...this.state.notes, {...newNote}]}))
+      .catch(error => console.log(error))
   }
   getNotes = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
@@ -37,6 +33,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.notes)
     return (
       <div className="App">
         <header className="App-header">
@@ -59,7 +56,7 @@ class App extends Component {
           path = '/makenote' 
           render={(props) => 
             (<NoteForm {...props} 
-            handleChange={this.handleChange} 
+            note={this.state.newNote}
             postNote={this.postNote} />)} />
         </div>
       </div>
