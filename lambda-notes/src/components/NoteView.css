@@ -1,0 +1,25 @@
+.nv-wrapper{
+    width: 40%;
+    float: right;
+    position: relative;
+    right: 200px;
+    top: 150px;
+    
+}
+
+.nv-note{
+    border: black inset 2px;
+    background: rgb(235, 235, 235);
+    padding: 100px 0;
+}
+
+.nv-button{
+    margin: 10px;
+    width: 75px;
+    height: 30px;
+    background: rgb(134, 134, 212)
+}
+
+.nv-buttons .delete{
+    background: red;
+}

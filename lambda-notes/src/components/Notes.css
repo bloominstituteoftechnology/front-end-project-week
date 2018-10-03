@@ -19,8 +19,8 @@
     width: 300px;
 }
 
- .text .header{
-    border-bottom: grey;
+ .single-note h3{
+    border-bottom: 2px solid grey;
 }
 
 .text{

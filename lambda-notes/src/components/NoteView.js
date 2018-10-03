@@ -3,6 +3,7 @@ import { Link, Route } from "react-router-dom";
 import axios from 'axios';
 import NoteForm from './NoteForm';
 import DeleteModal from './DeleteModal';
+import './NoteView.css';
 
 
 class NoteView extends React.Component {
@@ -97,13 +98,17 @@ class NoteView extends React.Component {
     }
   return (
     <Fragment>
-     <div>
-       <button onClick={this.editOn}>Edit</button>
-       <button onClick={this.deleteOn}>Delete</button>
+    <div className="nv-background">  
+    <div className="nv-wrapper"> 
+      <div className="nv-note"> 
+        <h3>{this.state.note.title}</h3>
+        <h5>{this.state.note.textBody}</h5>
+      </div>  
+      <div className="nv-buttons">
+        <button className="nv-button" onClick={this.editOn}>Edit</button>
+        <button className="nv-button delete" onClick={this.deleteOn}>Delete</button>
+      </div>
     </div>
-    <div> 
-    {<h3>{this.state.note.title}</h3>}
-    {<h5>{this.state.note.textBody}</h5>}
     </div>
     </Fragment>
     );
