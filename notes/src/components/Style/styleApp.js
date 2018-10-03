@@ -47,6 +47,6 @@ export const Navigation = styled.div`
 
 export const Main = styled.div`
   background: #f2f1f2;
-  margin-left: 20%;
+  margin-left: 25%;
   width: 80%;
 `;

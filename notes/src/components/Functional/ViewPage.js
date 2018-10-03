@@ -55,10 +55,10 @@ class ViewPage extends React.Component {
     return (
       <ViewContainer>
         <Button onClick={this.editClick} className="edit">
-          Edit Note
+          Edit
         </Button>
         <Button onClick={this.toggleModal} className="delete">
-          Delete Note
+          Delete
         </Button>
         <div>
           <h3>{this.state.note.title}</h3>

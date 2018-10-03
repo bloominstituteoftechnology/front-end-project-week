@@ -59,18 +59,18 @@ export const Button = styled.button`
   background: none;
   text-decoration: underline;
   border: none;
-  otuline: none;
+  outline: none;
   position: absolute;
   top: 10px;
   right: 50px;
-  fotn-size: 20px;
+  font-size: 20px;
   cursor: pointer;
 
-  &:hover: {
+  &:hover {
     transform: scale(1.1);
   }
 
-  &.left {
+  &:delete {
     right: 100px;
   }
 `;

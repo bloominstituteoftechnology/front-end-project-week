@@ -73,12 +73,11 @@ class SideBar extends React.Component {
               />
             ))}
           </TaskList>
-          )}
         </div>
         <form>
           <Input
             name="newTodo"
-            placeholder="Add todo"
+            placeholder="Enter todo here"
             value={this.props.newTodo}
             onChange={this.props.handleChange}
           />
