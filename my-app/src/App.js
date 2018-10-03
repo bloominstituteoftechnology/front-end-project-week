@@ -7,6 +7,8 @@ import Sidebar from "./components/SideBar";
 import styled from "styled-components";
 import NoteList from "./components/NoteList/NoteList";
 import NewNote from "./components/NewNote";
+import NoteView from "./components/NoteView";
+import EditNote from "./components/EditNote";
 
 class App extends Component {
   constructor() {
@@ -33,16 +35,26 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  // addToNotes = newNote => {
-  //   axios
-  //     .post("https://killer-notes.herokuapp.com/note/create", newNote)
-  //     .then(res =>
-  //       this.setState({ notes: res.data }, this.props.history.push("/"))
-  //     )
-  //     .catch(e => {
-  //       console.log(e);
-  //     });
-  // };
+  editNote = id => {
+    this.setState({
+      isUpdating: this.state.notes.filter(note => note.id == id)[0]
+    });
+  };
+
+  editingNote = selectedNote => {
+    let editedNote = this.state.notes.filter(
+      note => note.id == selectedNote.id
+    )[0];
+    editedNote.title = selectedNote.title;
+    editedNote.content = selectedNote.content;
+    let list = this.state.notes.filter(note => note.id != selectedNote.id);
+    console.log("editingNote:", list, editedNote);
+    this.setState({ notes: [...list, editedNote] });
+  };
+
+  deleteNote = id => {
+    this.setState({ notes: this.state.notes.filter(note => note.id !== id) });
+  };
 
   render() {
     return (
@@ -62,6 +74,19 @@ class App extends Component {
             />
           )}
         />
+        <Route
+          path="/users/note-view/:id"
+          render={props => (
+            <NoteView
+              {...props}
+              notes={this.state.notes}
+              editNote={this.editNote}
+              deleteNote={this.deleteNote}
+            />
+          )}
+        />
+        {/* <Route exact path="/users/note-view/:id" component={NoteView} /> */}
+        )} />
       </div>
     );
   }

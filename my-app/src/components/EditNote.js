@@ -1,66 +1,71 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
-import axios from "axios";
 
-export default class NoteForm extends Component {
+class EditNote extends Component {
   state = {
     title: "",
-    textBody: ""
+    content: "",
+    updating: false
   };
+
+  componentDidMount() {
+    console.log("is component firing?", this.state, this.state.isUpdating);
+    if (this.props.isUpdating) {
+      this.setState({
+        title: this.props.isUpdating.title,
+        content: this.props.isUpdating.content,
+        updating: true
+      });
+    }
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  //   };
   handleSubmit = e => {
-    console.log("submit button pressed");
-
     e.preventDefault();
-    this.setState({ title: "", textBody: "" });
-    console.log("state updated");
-    axios
-      .post("https://killer-notes.herokuapp.com/note/create", {
+    console.log("edit props:", this.props);
+    if (this.state.updating) {
+      const editedNote = {
         title: this.state.title,
-        textBody: this.state.textBody
-      })
-      .then(response => {
-        console.log(response);
-        this.setState({ title: "", textBody: "" });
-        console.log("new state set");
-      })
-      .catch(error => {
-        console.log(`There was an error adding a new note: ${error}`);
-      });
+        content: this.state.content,
+        id: this.props.match.params.id
+      };
+      console.log("handleSubmit:", editedNote);
+      this.props.editingNote(editedNote);
+      console.log("this1:", this.props.editingNote);
+      this.props.history.push("/list-view");
+    }
   };
 
   render() {
     return (
       <Form>
-        <H2>Create New Note:</H2>
+        <H2>Edit Note:</H2>
         <InputTitle
           type="text"
-          placeholder="Note Title Here..."
+          placeholder="Note Title..."
           name="title"
           value={this.state.title}
           onChange={this.handleChange}
         />
         <InputContent
           type="text"
-          placeholder="Note textBody..."
-          name="textBody"
-          value={this.state.textBody}
+          placeholder="Note Content..."
+          name="content"
+          value={this.state.content}
           onChange={this.handleChange}
         />
-        <Button onClick={this.handleSubmit}>Save</Button>
+        <Button onClick={this.handleSubmit}>Update</Button>
       </Form>
     );
   }
 }
 
 const Form = styled.form`
-  margin: 10px 4% 0 250px;
+  margin: 38px 4% 0 4%;
   display: flex;
   flex-direction: column;
 `;
@@ -71,7 +76,7 @@ const H2 = styled.h2`
 `;
 
 const InputTitle = styled.input`
-  width: 57;
+  width: 56.5%;
   height: 40px;
   border-radius: 5px;
   padding-left: 1.5%;
@@ -79,7 +84,7 @@ const InputTitle = styled.input`
 `;
 
 const InputContent = styled.input`
-  width: 98%;
+  width: 98.75%;
   height: 345px;
   border-radius: 5px;
   margin: 10px 0;
@@ -89,11 +94,11 @@ const InputContent = styled.input`
 const Button = styled.button`
   color: white;
   background-color: #2bc1c4;
-  width: 31;
+  width: 31.5%;
   height: 45px;
   font-weight: bold;
   font-size: 1rem;
   border: 1px solid grey;
 `;
 
-// export default withRouter(NewNote);
+export default withRouter(EditNote);
