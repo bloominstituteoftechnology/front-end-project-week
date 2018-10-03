@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-class NoteDelete extends Component {
-    state = {  
+class NoteDeleteModal extends Component {
+   state = {
 
-    }
+   };
 
     componentDidMount() {
         console.log(this.props.match.params);
@@ -15,4 +16,4 @@ class NoteDelete extends Component {
     }
 }
  
-export default NoteDelete;
+export default NoteDeleteModal;

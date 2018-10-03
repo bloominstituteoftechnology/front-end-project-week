@@ -16,7 +16,6 @@ class NoteEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // id: '',
       title: '',
       textBody: ''
     
@@ -40,7 +39,6 @@ class NoteEditForm extends Component {
         .then(res => {
         
           this.setState({
-          
             title: res.data.title,
             textBody: res.data.textBody
           });
