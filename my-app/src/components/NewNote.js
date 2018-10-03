@@ -1,31 +1,44 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
+import Moment from "moment";
+import axios from "axios";
 
-class NewNote extends Component {
+export default class NoteForm extends Component {
   state = {
     title: "",
-    content: ""
+    textBody: ""
   };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  //   };
   handleSubmit = e => {
+    console.log("submit button pressed");
+    // const PRODUCTION_SERVER =
+    //   'https://lambda-notes-backend-server.herokuapp.com/api/notes';
+    // const path =
+    //   PRODUCTION_SERVER;
+    // dev server
+    // 'http://localhost:5050/api/notes';
     e.preventDefault();
-    const newNote = {
-      title: this.state.title,
-      content: this.state.content,
-      id: Date.now()
-    };
-    const emptyNote = {
-      title: "",
-      content: ""
-    };
-    this.props.createNote(newNote);
-    this.setState(emptyNote);
-    this.props.history.push("/list-view");
+    this.setState({ title: "", textBody: "" });
+    console.log("state updated");
+    axios
+      .post("https://killer-notes.herokuapp.com/note/create", {
+        title: this.state.title,
+        textBody: this.state.textBody
+      })
+      .then(response => {
+        console.log(response);
+        this.setState({ title: "", textBody: "" });
+        console.log("new state set");
+      })
+      .catch(error => {
+        console.log(`There was an error adding a new note: ${error}`);
+      });
   };
 
   render() {
@@ -41,9 +54,9 @@ class NewNote extends Component {
         />
         <InputContent
           type="text"
-          placeholder="Note Content..."
-          name="content"
-          value={this.state.content}
+          placeholder="Note textBody..."
+          name="textBody"
+          value={this.state.textBody}
           onChange={this.handleChange}
         />
         <Button onClick={this.handleSubmit}>Save</Button>
@@ -53,7 +66,7 @@ class NewNote extends Component {
 }
 
 const Form = styled.form`
-  margin: 38px 4% 0 250px;
+  margin: 10px 4% 0 250px;
   display: flex;
   flex-direction: column;
 `;
@@ -89,4 +102,4 @@ const Button = styled.button`
   border: 1px solid grey;
 `;
 
-export default withRouter(NewNote);
+// export default withRouter(NewNote);

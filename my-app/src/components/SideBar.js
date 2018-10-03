@@ -41,7 +41,7 @@ const H1 = styled.h1`
 const Button = styled.button`
   color: white;
   background-color: #2bc1c4;
-  width: 98%;
+  width: 220px;
   height: 60px;
   font-weight: bold;
   font-size: 1rem;

@@ -12,15 +12,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
-      note: {}
+      notes: []
+      // note: {}
     };
   }
 
-  createNote = newNote => {
-    this.setState({ notes: [...this.state.notes, newNote] });
-  };
-  //with new input state of title and textbody are changed.
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -37,6 +33,17 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  // addToNotes = newNote => {
+  //   axios
+  //     .post("https://killer-notes.herokuapp.com/note/create", newNote)
+  //     .then(res =>
+  //       this.setState({ notes: res.data }, this.props.history.push("/"))
+  //     )
+  //     .catch(e => {
+  //       console.log(e);
+  //     });
+  // };
+
   render() {
     return (
       <div className="container">
@@ -47,7 +54,13 @@ class App extends Component {
         />
         <Route
           path="/create-new"
-          render={props => <NewNote {...props} createNote={this.createNote} />}
+          render={props => (
+            <NewNote
+              {...props}
+              notes={this.state.notes}
+              postNote={this.addToNotes}
+            />
+          )}
         />
       </div>
     );
