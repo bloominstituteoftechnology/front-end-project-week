@@ -9,11 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-        notes: [],
-        newNote: {
-          title: '',
-          textBody: ''
-        }
+        notes: []
     }
   }
 
@@ -26,29 +22,6 @@ class App extends Component {
         console.log("error", err);
     });
   }
-
-  handleInputChange = e => {
-    this.setState({[e.target.name]: e.target.value});
-  };
-
-  addNote = () => {
-    const newNote = 
-    {title: this.state.title, textBody: this.state.textBody}
-    axios.post  (`https://killer-notes.herokuapp.com/note/create`, newNote)
-    .then (note => {
-      this.setState({notes: note.data, 
-        newNote: {
-          title: '',
-          textBody: ''
-        }
-      })
-    })
-    .catch(err => {
-      console.log('could not add note', err);
-    })
-  }
- 
- 
 
   render(){
     return(
@@ -68,13 +41,7 @@ class App extends Component {
           <Route 
             exact
             path='/create' 
-            render={props => (
-              <CreateNote {...props}
-              newNote = {this.state.newNote}
-              handleInputChange = {this.handleInputChange}
-              addNote = {this.addNote}
-              />
-            )}
+            render={CreateNote}
           />
 
           <Route 
