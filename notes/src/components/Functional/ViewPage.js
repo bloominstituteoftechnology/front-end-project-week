@@ -69,8 +69,8 @@ class ViewPage extends React.Component {
         <Todo />
         <Modal
           showModal={this.state.showModal}
-          toggleModal={this.state.toggleModal}
-          deleteClick={this.state.deleteClick}
+          toggleModal={this.toggleModal}
+          deleteClick={this.deleteClick}
         />
       </ViewContainer>
     );
