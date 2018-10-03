@@ -58,13 +58,17 @@ class Notes extends Component {
                   style={{ textDecoration: 'none' }}
                   deleteNote={this.props.deleteNote}
                 >
-                  <NoteTitle>
+                  <NoteTitle
+                    key={note._id}
+                  >
                     {note.title.length >= 15
                       ? note.title.substring(0, 15) + '...'
                       : note.title
                     }
                   </NoteTitle>
-                  <NoteBody>
+                  <NoteBody
+                    key={note._id}
+                  >
                     {note.textBody.length >= 100
                       ? note.textBody.substring(0, 100) + '...'
                       : note.textBody
