@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Axios from 'axios';
+
+const EditForm = styled.form`
+  background: lightgray;
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  .UpdateButton{
+    background: lightgreen;
+  }
+`;
 
 class NoteEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
       title: '',
       textBody: ''
     
@@ -16,6 +28,7 @@ class NoteEditForm extends Component {
     event.preventDefault();
     
     const update = {
+      id: this.state.id,
       title: this.state.title,
       textBody: this.state.textBody
     }
@@ -34,19 +47,16 @@ class NoteEditForm extends Component {
     });
   }
 
-  
-
   handleEdit = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  
 
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.updateNote}>
-        
+        <EditForm onSubmit={this.updateNote}>
+          <h3>Edit Note:</h3>
           <input
             onChange={this.handleEdit}
             placeholder="title"
@@ -59,8 +69,8 @@ class NoteEditForm extends Component {
             value={this.state.textBody}
             name="textBody"
           />
-          <button onClick={this.updateNote} type="submit">Update</button>
-        </form>
+          <button className='UpdateButton' onClick={this.updateNote} type="submit">Update</button>
+        </EditForm>
       </React.Fragment>
     );
   }
