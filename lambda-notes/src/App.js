@@ -33,6 +33,17 @@ class App extends Component {
       ));
   }
 
+  componentDidUpdate() {
+    axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState({notes: response.data});
+      })
+      .catch(error => (
+        console.log('Server Error', error)
+      ));
+  }
+
   addNote = note => {
     axios 
       .post('https://killer-notes.herokuapp.com/note/create', note)
@@ -53,7 +64,7 @@ class App extends Component {
         <NavBar />
         <Route 
           exact path='/' 
-          render={props => <Notes {...props} notes={this.state.notes} />}
+          render={props => <Notes {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
         />
         <Route
           path='/new'
