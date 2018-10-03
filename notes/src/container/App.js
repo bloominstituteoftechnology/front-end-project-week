@@ -4,6 +4,7 @@ import {Route, NavLink} from 'react-router-dom';
 import NotesList from '../components/NotesList';
 import NoteForm from '../components/NoteForm';
 import NotePage from '../components/NotePage';
+import NoteEditForm from '../components/NoteEditForm';
 import styled from 'styled-components';
 import './App.css';
 
@@ -44,18 +45,20 @@ class App extends Component {
           <h1 className="App-title">List View</h1>
         </header>
         <hr />
-        <ul className='navBar'>         
-        <NavLink to="/create-note" activeClassName="activeNavButton">
-        <NavButton>+Create New Note</NavButton>
-        </NavLink>
-        
-        <NavLink to="/notes" activeClassName="activeNavButton">
-        <NavButton>View Your Notes</NavButton>
-        </NavLink>
-      </ul> 
 
-      
-      
+        <ul className='navBar'>         
+            <NavLink to="/create-note" activeClassName="activeNavButton">
+            <NavButton>+Create New Note</NavButton>
+            </NavLink>
+            <NavLink to="/notes" activeClassName="activeNavButton">
+            <NavButton>View Your Notes</NavButton>
+            </NavLink>
+        </ul> 
+
+        <Route 
+          exact path='/edit-note' 
+          component={NoteEditForm} 
+        />
         <Route 
           exact path='/create-note' 
           component={NoteForm} 
