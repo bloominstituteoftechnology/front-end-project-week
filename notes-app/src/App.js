@@ -11,43 +11,37 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      inputTextTitle: '',
-      inputTextBody: ''
+      newNote: {
+        textTitle: '',
+        textBody: ''
+      }
     }
   }
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-    console.log(e.target.value)
-  }
-
-  postNote = e => {
-    e.preventDefault();
-    const note = {
-      title: this.state.inputTextTitle,
-      textBody: this.state.inputTextBody
-    }
-    console.log(note)
-    axios.post('https://killer-notes.herokuapp.com/note/create', note)
+  postNote = (newNote) => {
+    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
       .then(res => this.setState({ notes: res.data, inputTextTitle: '', inputTextBody: '' }))
       .catch(err => console.log(err))
   }
   getNotes = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => this.setState({notes: response.data}))
-    .catch(error => console.log(' We have an Error!', err))
+    .then(response => {
+      console.log(response)
+      this.setState({ notes: response.data })
+    })
+    .catch(error => console.log(' We have an Error!', error))
   }
 
   componentDidMount() {
     this.getNotes();
   }
-  
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Note Taker </h1>
-          <Link to={`/notes`}><button>Your Notes</button></Link>
+          <Link to={`/`}><button>Your Notes</button></Link>
           <Link to={'/makenote'}><button>Make Note</button></Link>
         </header>
         <div>
@@ -65,8 +59,6 @@ class App extends Component {
           path = '/makenote' 
           render={(props) => 
             (<NoteForm {...props} 
-            textTitle={this.state.inputTextTitle} 
-            textBody={this.state.inputTextBody} 
             handleChange={this.handleChange} 
             postNote={this.postNote} />)} />
         </div>
