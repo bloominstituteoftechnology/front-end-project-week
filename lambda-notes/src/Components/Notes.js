@@ -56,6 +56,7 @@ class Notes extends Component {
                 <NoteCard
                   key={note._id}
                   style={{ textDecoration: 'none' }}
+                  deleteNote={this.props.deleteNote}
                 >
                   <NoteTitle>
                     {note.title.length >= 15
