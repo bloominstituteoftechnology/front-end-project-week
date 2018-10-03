@@ -5,7 +5,7 @@ import './SingleNote.css';
 
 
 function SingleNote(props){
-    console.log(props.history);
+    console.log(props.notes);
     
     const note = props.notes.find(
         note => note._id === parseInt(props.match.params.noteId, 10));
@@ -26,10 +26,10 @@ function SingleNote(props){
             </Link>
                 </div>
                 <div className="statement">
-                <h2>note.title}</h2>
+                <h2>{note.title}</h2>
                 </div>
                 <div className="cards">
-                <p>note.textBody}</p>
+                <p>{note.textBody}</p>
          </div>
     </div>
       );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import SingleNote from './SingleNote';
 import './Notes.css';
  
 // let clickID = (props, e) => {
@@ -18,7 +17,7 @@ return (
 
     <div className ="card">
     <Link to={`notes/${props.note._id}`}  style={{ textDecoration:'none', activeStyle:'none', color:'black' }}> 
-        <h3 className="cardtitle" onClick={() => props.history.push(`/${props.note._id}`)}> {props.note.title}</h3>
+        <h3 className="cardtitle" onClick={() => props.history.push(`notes/${props.note._id}`)}> {props.note.title}</h3>
     </Link> 
         <hr/> 
         <p>{props.note.textBody}</p>

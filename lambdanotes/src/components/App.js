@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SideBar from './SideBar';
 import NoteView from './NoteView';
 import CreateNew from './CreateNew';
-import SingleNote from './SingleNote'
+import SingleNote from './SingleNote';
 import Notes from './Notes';
 import EditNote from './EditNote';
 import axios from 'axios';
@@ -93,7 +93,7 @@ class App extends Component {
         </div>
         <div className="note-view">
         <Switch> 
-          <Route path='/notes' 
+          <Route exact path='/notes' 
             render={(props) => 
           <NoteView {...props} 
             notes={this.state.notes}
@@ -131,7 +131,7 @@ class App extends Component {
         </Switch>
         </div>
       </div>
-       /* </Router> */
+      //  </Router> 
           
        
     );
