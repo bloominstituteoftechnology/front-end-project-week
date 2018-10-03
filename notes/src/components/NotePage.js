@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -46,7 +47,9 @@ const NoteCard = styled.div`
     return (
     <React.Fragment>
         <div className='left-nav'>
+        <Link to={`/edit-note/${this.state._id}`}>
           <button>Edit</button>
+        </Link>
           <button>Delete</button>
         </div>
         <NoteCard>

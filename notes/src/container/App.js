@@ -56,7 +56,7 @@ class App extends Component {
         </ul> 
 
         <Route 
-          exact path='/edit-note' 
+          exact path='/edit-note/:id' 
           component={NoteEditForm} 
         />
         <Route 
