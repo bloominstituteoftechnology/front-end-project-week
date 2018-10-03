@@ -21,6 +21,17 @@ class DeleteModal extends Component {
     return (
       <div className='modal-container'>
         <button onClick={this.toggle}>Delete</button>
+        <Modal 
+          isOpen={this.state.modal}
+          toggle={this.toogle}
+          className={this.props.className}
+        >
+          <ModalBody>Are you sure you want to delete this?</ModalBody>
+          <ModalFooter>
+            <Button color='danger' onCick={this.props.delete}>Delete</Button>
+            <Button color='info' onClick={this.toggle}>No</Button>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   }
