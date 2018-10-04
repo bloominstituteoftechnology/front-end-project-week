@@ -57,14 +57,14 @@ class NoteForm extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="nf-wrapper">
                 <h1>{this.props.Editing ? "Edit Note" : "Add Note"}</h1>
                 <form className="nf" onSubmit={this.handleSubmit}>
                     <div className="nf-inputs">
                     <input type="text" onChange={this.handleInputChange} name="title" value={this.state.title} placeholder="Title" />
                     <input type="text" onChange={this.handleInputChange} name="textBody" value={this.state.textBody} placeholder="Notes" />
                     </div>
-                    <button>{this.props.Editing ? "Update" : "Add Note"}</button>
+                    <button className="nf-button">{this.props.Editing ? "Update" : "Add Note"}</button>
                 </form>
             </div>
          

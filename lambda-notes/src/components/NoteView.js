@@ -40,12 +40,7 @@ class NoteView extends React.Component {
    }
 
    editNote = (note) => {
-    const blanknote={
-    title: "",
-    textBody: ""
-    }
-
-  const id = this.props.match.params.id;
+    const id = this.props.match.params.id;
 
     axios
     .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
@@ -89,7 +84,7 @@ class NoteView extends React.Component {
           editNote={this.editNote}
           Editing={this.state.Editing}
         />
-        <button onClick={this.editOff}>Cancel Update</button>
+        <button className="cancel" onClick={this.editOff}>Cancel Update</button>
         </Fragment>
       );
     }

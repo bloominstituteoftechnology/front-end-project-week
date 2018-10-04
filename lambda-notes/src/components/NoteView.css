@@ -17,9 +17,18 @@
     margin: 10px;
     width: 75px;
     height: 30px;
-    background: rgb(134, 134, 212)
+    background: rgb(134, 134, 212);
+    cursor: pointer;
 }
 
 .nv-buttons .delete{
     background: red;
+}
+
+.cancel{
+    position: relative;
+    top: 244px;
+    left: 75px;
+    padding: 5px;
+    cursor: pointer;
 }

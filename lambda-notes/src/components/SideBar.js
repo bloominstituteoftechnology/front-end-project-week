@@ -13,7 +13,7 @@ const SideBar = (props) =>{
             <Link className="sb-link" to="/add-note">+Create New Note</Link>
         </div>
         <div className="sb-input">
-            <input type="text" onChange={props.handleSearchInput} name="search" size="35" value={props.search} placeholder="Search"/>
+            <input type="text" onChange={props.handleSearchInput} name="search" size="35" value={props.search} placeholder="Search By Title"/>
             <button>Search</button>
         </div>
         </Fragment>

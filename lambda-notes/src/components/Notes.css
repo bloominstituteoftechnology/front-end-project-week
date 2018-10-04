@@ -1,8 +1,9 @@
 .all-notes{
     width: 70%;
     position: absolute;
+    right: 30px;
     height: 100%;
-    background: rgb(179, 179, 179);
+    background: rgb(185, 188, 224);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -10,7 +11,8 @@
 }
 
 .single-note{
-    border: 1.25px black solid;
+    border: 1px black solid;
+    border-radius: 10px;
     margin: 10px;
     background: rgb(243, 238, 238);
     display: flex;

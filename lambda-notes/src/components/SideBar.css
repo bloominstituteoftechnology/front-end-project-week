@@ -1,6 +1,7 @@
 .side-bar{
     width: 30%;
     position: absolute;
+    left: 10px;
     height: 100%;
     background: rgb(235, 235, 235);
   }

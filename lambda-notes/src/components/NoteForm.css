@@ -1,0 +1,37 @@
+.nf-wrapper{
+    background: whitesmoke;
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    left:30%;
+}
+
+.nf{
+    margin: 15px;
+}
+
+.nf-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    position: relative;
+    left: 175px;
+}
+
+.nf-inputs input{
+    border: none;
+    border-bottom: inset grey 0.75px;
+    height: 40px;
+    margin: 20px;
+}
+
+.nf-inputs input[placeholder]{
+    height: 40px;
+    font-size: 1.5rem;
+}
+
+.nf-button{
+    padding: 5px;
+    width: 88px;
+    cursor: pointer;
+}
