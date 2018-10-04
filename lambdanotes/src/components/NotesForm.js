@@ -1,7 +1,16 @@
 import React from 'react';
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 function NotesForm(props) {
+    function handleSubmit(event) {
+        function handleSubmit(event) {
+            event.preventDefault();
+            if (props.updatingNote) {
+                props.handleUpdatingNote
+            }
+        }
+    }
 
         return (
             <Fragment>
@@ -29,7 +38,7 @@ function NotesForm(props) {
                                 onChange={props.handleChange}
                             />
                         </div>
-                        <button className="sumbitNoteButt" onClick={props.handleAddNewNote}>Make New Entry</button>
+                        <Link to="/notes" className="sumbitNoteButt" onClick={props.handleAddNewNote}>Make New Entry</Link>
                     </form>
                 </div>
             </Fragment>

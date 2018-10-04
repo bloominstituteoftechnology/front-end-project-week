@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
  class Notes extends React.Component {
   constructor(props) {
@@ -44,8 +45,8 @@ import axios from 'axios';
     return (
         <div className="noteCardWrap">
               <div className="editingButts">
-                <button onClick={this.handleDelete}>Delete</button>
-                <button className="sumbitNoteButt" onClick={this.handleUpdatingNote}>Edit</button>
+                <Link to="/notes" className="sumbitNoteButt" onClick={this.handleDelete}>Delete</Link>
+                <Link to="/notesform" className="sumbitNoteButt" onClick={this.handleUpdatingNote}>Edit Note</Link>
               </div>
               <div className="indiviNote">
               <h1>{this.state.title}</h1>
@@ -57,5 +58,5 @@ import axios from 'axios';
 }
  export default Notes; 
 
- //make buttons into Links
+ 
 

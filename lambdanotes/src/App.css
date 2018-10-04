@@ -32,6 +32,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.sumbitNoteButt {
+  border: 1px solid teal;
+  color: black;
+  text-decoration: none;
+}
+.sumbitNoteButt:hover {
+  color: teal;
+}
 /*Note Form Styles*/
 .noteFormWrapper {
   max-width: 600px;
