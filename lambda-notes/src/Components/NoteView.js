@@ -7,6 +7,39 @@ const ViewContainer = styled.div`
   border: 1px solid black;
   margin-left: 300px;
   margin-top: -610px;
+  height: 610px;
+`;
+
+const NavButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-top: 15px;
+`;
+
+const EditButton = styled.button`
+  margin-right: 20px;
+  width: 50px;
+  border-radius: 1px solid gray;
+  background: #24b8bd;
+  color: white;
+`;
+
+const SingleNote = styled.div`
+  margin-top: 50px;
+`;
+
+const NoteTitle = styled.h3`
+  display: flex;
+  margin-left: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+`;
+
+const Content = styled.p`
+  display: flex;
+  margin-left: 30px;
 `;
 
 class NoteView extends Component {
@@ -83,19 +116,19 @@ class NoteView extends Component {
   render() {
     return (
       <ViewContainer>
-        <div className='top-nav'>
-          <button onClick={this.editNote}>Edit</button>
+        <NavButton>
+          <EditButton onClick={this.editNote}>Edit</EditButton>
           {/* <DeleteModal 
             {...this.props}
             deleteNote={this.props.deleteNote}
             history={this.props.history}
           /> */}
           <DeleteModal />
-        </div>
-        <div className='single-note'>
-          <h3>{this.state.title}</h3>
-          <p>{this.state.textBody}</p>
-        </div>
+        </NavButton>
+        <SingleNote>
+          <NoteTitle>{this.state.title}</NoteTitle>
+          <Content>{this.state.textBody}</Content>
+        </SingleNote>
       </ViewContainer>
     );
   }
