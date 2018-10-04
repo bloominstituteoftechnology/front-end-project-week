@@ -63,14 +63,15 @@ class EditForm extends Component {
   updateNote = event => {
     event.preventDefault();
     const updatedNote = {
-      id: this.state.id,
+      id: this.props.match.params.id,
       title: this.state.title,
       textBody: this.state.textBody
     };
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${this.state.id}`, updatedNote)
+      .put(`https://killer-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, updatedNote)
       .then(response => {
         this.setState({notes: response.data, updatedNote});
+        this.props.fetchNotes();
       })
       .catch(error => {
         console.log('Server Error', error)
