@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { deleteTodo, toggleTodo } from "../actions/index";
 // material components
 import Paper from "material-ui/Paper";
-import FlatButton from "material-ui/FlatButton";
-import Dialog from "material-ui/Dialog";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
 import { List, ListItem } from "material-ui/List";
-import Checkbox from "material-ui/Checkbox";
+import Checkbox from "@material-ui/core/Checkbox";
 // styles
 import "../styles/Todo.css";
 import "../styles/animation.css";
@@ -42,7 +42,7 @@ class Todo extends Component {
         const { id } = this.props.match.params;
         // Dialogue actions
         const actions = [
-            <FlatButton
+            <Button
                 label="Delete"
                 primary={true}
                 onClick={() => {
@@ -50,7 +50,7 @@ class Todo extends Component {
                     this.handleDeleteTodo(id);
                 }}
             />,
-            <FlatButton label="No" primary={true} onClick={this.handleClose} />
+            <Button label="No" primary={true} onClick={this.handleClose} />
         ];
 
         return (
@@ -76,22 +76,20 @@ class Todo extends Component {
                                 }
                             }}
                         >
-                            <FlatButton className="Todo_button">
-                                Edit
-                            </FlatButton>
+                            <Button className="Todo_button">Edit</Button>
                         </Link>
-                        <FlatButton
+                        <Button
                             className="Todo_button"
                             onClick={this.handleOpen}
                         >
                             Delete
-                        </FlatButton>
-                        <FlatButton
+                        </Button>
+                        <Button
                             className="Todo_button"
                             onClick={this.handleToggle}
                         >
                             <i className="material-icons md-24">list</i>
-                        </FlatButton>
+                        </Button>
                     </div>
                 </div>
                 {/*	NOTE VIEWS */}
