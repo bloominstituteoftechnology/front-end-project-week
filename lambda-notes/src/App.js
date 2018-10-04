@@ -8,6 +8,7 @@ import Notes from './Components/Notes';
 import NoteForm from './Components/NoteForm';
 import NoteView from './Components/NoteView';
 import EditForm from './Components/EditForm';
+// import DeleteModal from './Components/DeleteModal';
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +24,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchNotes();
+  }
+
+  fetchNotes = () => {
     axios 
       .get('https://killer-notes.herokuapp.com/note/get/all')
       .then(response => {
@@ -58,17 +63,18 @@ class App extends Component {
       ));
   }
 
-  deleteNote = id => {
-    console.log('delete working?');
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => (
-        console.log('Server Error', error)
-      ));
-  }
+
+  // deleteNote = id => {
+  //   console.log('delete working?');
+  //   axios
+  //     .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+  //     .then(response => {
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => (
+  //       console.log('Server Error', error)
+  //     ));
+  // }
 
   render() {
     return (
@@ -76,7 +82,7 @@ class App extends Component {
         <NavBar />
         <Route 
           exact path='/' 
-          render={props => <Notes {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
+          render={props => <Notes {...props} notes={this.state.notes} />}
         />
         <Route
           path='/new'
@@ -84,11 +90,22 @@ class App extends Component {
         />
         <Route 
           path='/note/:id'
-          render={props => <NoteView {...props} getNote={this.getNote} />}
+          render={props => (
+            <NoteView 
+              {...props} 
+              getNote={this.getNote} 
+              handleDeleteNote={this.handleDeleteNote}
+            />
+          )}
         />
         <Route
           path='/edit/:id'
-          render={props => <EditForm {...props} updateNote={this.updateNote} />}
+          render={props => (
+            <EditForm 
+              {...props} 
+              updateNote={this.updateNote}
+            />
+          )}
         />
       </div>
     );
