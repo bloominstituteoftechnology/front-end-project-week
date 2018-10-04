@@ -5,6 +5,7 @@ import { Route, Link } from 'react-router-dom';
 import './App.css';
 import NoteForm from './components/Notes/NoteForm';
 import Notes from './components/Notes/Notes';
+//import IndividualNote from './components/Notes/IndividualNote';
 
 class App extends Component {
 	constructor(props) {
@@ -12,24 +13,27 @@ class App extends Component {
 		this.state = {
 			notes: [],
 			note: {
-				tags: [],
-				id: '',
 				title: '',
 				textBody: '',
+				isUpdating: 'false',
 			},
 		};
 	}
 
-	componentDidMount() {
+	fetchNotes = () => {
 		axios
 			.get('https://killer-notes.herokuapp.com/note/get/all')
 			.then((response) => {
-				this.setState(() => ({ notes: response.data }));
 				console.log({ notes: response.data });
+				this.setState(() => ({ notes: response.data }));
 			})
 			.catch((error) => {
 				console.log(error);
 			});
+	};
+
+	componentDidMount() {
+		this.fetchNotes();
 	}
 
 	addNote = (note) => {
@@ -37,6 +41,8 @@ class App extends Component {
 			.post('https://killer-notes.herokuapp.com/note/create', note)
 			.then((response) => {
 				this.setState({ note: response.data });
+				this.fetchNotes();
+
 				console.log({ note: response.data });
 			})
 			.catch((error) => {
@@ -53,10 +59,6 @@ class App extends Component {
 		});
 	};
 
-	fetchNote = (id) => {
-		axios.get('https://killer-notes.herokuapp.com/note/get/{$id}');
-	};
-
 	render() {
 		return (
 			<div className="App">
@@ -65,6 +67,7 @@ class App extends Component {
 					<Link to={`/`}>Home</Link>
 					<Link to={`/notes`}>My Notes</Link>
 					<Link to={`/noteform`}>Create Note</Link>
+					<Link to={`/individualnote`}>Note</Link>
 				</header>
 				<Route
 					path="/noteform"
@@ -84,6 +87,15 @@ class App extends Component {
 					path="/"
 					render={(props) => <Notes notes={this.state.notes} />}
 				/>
+				{/* <Route
+					path="/individualnote"
+					render={(props) => (
+						<IndividualNote
+							title={this.state.title}
+							text={this.state.textBody}
+						/>
+					)}
+				/> */}
 			</div>
 		);
 	}

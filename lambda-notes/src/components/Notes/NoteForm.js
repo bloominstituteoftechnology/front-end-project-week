@@ -17,12 +17,12 @@ class NoteForm extends Component {
 		};
 
 		this.props.addNote(newNote);
-		this.props.history.push('/');
 
 		this.setState({
 			title: '',
 			textBody: '',
 		});
+		this.props.history.push('/');
 	};
 
 	handleInputChange = (event) => {
