@@ -26,7 +26,7 @@ class EditNote extends React.Component {
                 <span>edit</span>
                 </button>
             </Link>
-            <Link to ={`notes/${note._id}/delete`}>
+            <Link to ={`/notes/${note._id}/delete`}>
                 <button className="delete">
                 <span>delete</span>
                 </button>

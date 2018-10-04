@@ -8,6 +8,7 @@ import Notes from './Notes';
 import EditNote from './EditNote';
 import axios from 'axios';
 import './App.css';
+import DeleteNote from './DeleteNote';
 
 
 class App extends Component {
@@ -61,6 +62,9 @@ class App extends Component {
 
   handleEdit( title, textBody, noteId) {
     console.log(title, textBody, noteId);
+    axios
+    .put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`)
+    .then(response => {})
   }
 
 
@@ -126,6 +130,12 @@ class App extends Component {
           <Route path='/notes/:noteId'
             render={(props) => 
           <SingleNote {...props} 
+            notes={this.state.notes}/>}
+         />
+
+         <Route path='/notes/:noteId/delete'
+            render={(props) => 
+          <DeleteNote {...props} 
             notes={this.state.notes}/>}
          />
          {/* <Route path='/:noteId'
