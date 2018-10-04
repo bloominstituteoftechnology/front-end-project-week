@@ -38,16 +38,6 @@ class App extends Component {
       ));
   }
 
-  componentDidUpdate() {
-    axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState({notes: response.data});
-      })
-      .catch(error => (
-        console.log('Server Error', error)
-      ));
-  }
 
   addNote = note => {
     axios 
@@ -95,6 +85,7 @@ class App extends Component {
               {...props} 
               getNote={this.getNote} 
               handleDeleteNote={this.handleDeleteNote}
+              fetchNotes={this.fetchNotes}
             />
           )}
         />
@@ -104,6 +95,7 @@ class App extends Component {
             <EditForm 
               {...props} 
               updateNote={this.updateNote}
+              fetchNotes={this.fetchNotes}
             />
           )}
         />
