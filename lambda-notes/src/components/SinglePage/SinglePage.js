@@ -140,7 +140,13 @@ console.log(this.state.message);
 
 
     <div className="Notes">
-
+      <div className='NoteContainer'>
+        <div key ={this.state.notes._id} >
+        <h3>{this.state.notes.title}</h3>
+        <hr/>
+        <p> {this.state.notes.textBody}</p>
+        </div>
+      </div>
       <div className="FormContainer">
 
       <form >
@@ -166,13 +172,7 @@ console.log(this.state.message);
                 Are you sure you want to delete?
               </Modal>
       </div>
-      <div className='NoteContainer'>
-        <div key ={this.state.notes._id} >
-        <h3>{this.state.notes.title}</h3>
-        <hr/>
-        <p> {this.state.notes.textBody}</p>
-        </div>
-      </div>
+
 
 
     </div>
