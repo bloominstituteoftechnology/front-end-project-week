@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import {NotesList, CreateNote, Note, Navigation} from './Components'
+import {NotesList, CreateNote, Note, Navigation, EditNote} from './Components'
 
 
 class App extends Component {
@@ -42,6 +42,12 @@ class App extends Component {
             exact
             path='/create' 
             component={CreateNote}
+          />
+
+          <Route 
+            exact
+            path='/edit/:id' 
+            component={EditNote}
           />
 
           <Route 

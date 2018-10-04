@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom';
 
 class Note extends React.Component {
   constructor(props) {
@@ -24,8 +25,7 @@ class Note extends React.Component {
     const id = this.props.match.params.id;
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
     .then(res => {
-      console.log(res);
-      console.log(res.data);
+      this.setState(() => ({notes: res.data}))
     })
   }
 
@@ -34,7 +34,7 @@ class Note extends React.Component {
       <Fragment>
         <div>
           <div>
-            <button>Edit</button>
+            <Link to={`./edit/${this.state.note.id}`}>Edit</Link>
             <button onSubmit={this.handleDelete}>Delete</button>
           </div>
           <h1>{this.state.note.title}</h1>
