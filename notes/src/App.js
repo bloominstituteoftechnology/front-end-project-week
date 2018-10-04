@@ -32,8 +32,8 @@ class App extends React.Component {
           </ul>
         </div>
         <div className="right-side">
-          <Route exact path="/" component={Home} />
-          {/* <Route exact path="/notes" component={NotesList} /> */}
+          {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/notes" component={NotesList} />
           <Route path="/note/:id" component={Singlet} />
           <Route path="/note-form" component={NotesForm} />
         </div>
