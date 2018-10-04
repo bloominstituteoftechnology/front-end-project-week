@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import "../App.css";
 import { getNote, getNotes, setUpdateNote, deleteNote } from "../store/actions";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
