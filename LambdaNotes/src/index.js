@@ -6,7 +6,6 @@ import logger from "redux-logger";
 import { Provider } from "react-redux";
 import throttle from "lodash";
 // Material-UI
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import "./styles/index.css";
 // components
 import App from "./App";
@@ -20,25 +19,23 @@ import { loadState, saveState } from "./localStorage";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const persistedState = loadState();
 const store = createStore(
-	rootReducer,
-	persistedState,
-	composeEnhancers(applyMiddleware(logger))
+    rootReducer,
+    persistedState,
+    composeEnhancers(applyMiddleware(logger))
 );
 
 // listen to any state changes - call saveState
 // only pass in application data not UI data
 store.subscribe(() => {
-	throttle(saveState(store.getState()), 1000);
+    throttle(saveState(store.getState()), 1000);
 });
 
 const router = (
-	<Provider store={store}>
-		<Router>
-			<MuiThemeProvider>
-				<App className="App" />
-			</MuiThemeProvider>
-		</Router>
-	</Provider>
+    <Provider store={store}>
+        <Router>
+            <App className="App" />
+        </Router>
+    </Provider>
 );
 
 ReactDOM.render(router, document.getElementById("root"));

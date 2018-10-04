@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // actions
 import { deleteTodo, toggleTodo } from "../actions/index";
 // material components
-import Paper from "material-ui/Paper";
+import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import List from "@material-ui/core/List";

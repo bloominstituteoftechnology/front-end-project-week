@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // material components
-import Snackbar from "material-ui/Snackbar";
+import Snackbar from "@material-ui/core/Snackbar";
 // components
 import SingleTodo from "./SingleTodo";
 import SearchBar from "./SearchBar";
