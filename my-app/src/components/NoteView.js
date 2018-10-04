@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 class NoteView extends React.Component {
   constructor(props) {
@@ -9,6 +10,15 @@ class NoteView extends React.Component {
       note: []
     };
   }
+
+  handleDelete = () => {
+    const id = this.props.match.params.id;
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+        this.setState(() => ({ notes: res.data }));
+      });
+  };
 
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -22,23 +32,25 @@ class NoteView extends React.Component {
       });
   }
 
-  handleDelete = () => {
-    const id = this.props.match.params.id;
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      });
-  };
-
   render() {
     console.log(" render is running ");
     return (
       <NoteViewWrap>
         <LinkWrap>
-          <Link>Edit</Link>
-          <Link onSubmit={this.handleDelete}>Delete</Link>
+          <Link>
+            {" "}
+            <NavLink
+              to={`/edit-view/${this.state.note.id}`}
+              //   onClick={() => props.editNote(note.id)}
+            >
+              edit
+            </NavLink>
+          </Link>
+          <Link>
+            <NavLink to="/list-view" onClick={this.handleDelete}>
+              delete
+            </NavLink>
+          </Link>
         </LinkWrap>
         <ContentWrap>
           <h1>{this.state.note.title}</h1>
