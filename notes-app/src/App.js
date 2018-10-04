@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
 import { withRouter } from "react-router-dom";
 import './App.css';
 import NoteForm from './components/NoteForm'
-import NoteSingle from './components/NoteSingle'
+import Note from './components/Note'
 import NotesMain from './components/NotesMain'
 
 class App extends Component {
@@ -67,7 +68,7 @@ class App extends Component {
           />
         }/>
         <Route exact path="/notes/:id" render={(props) => 
-          <NoteSingle
+          <Note
             {...props}
             notes={this.state.notes}
             editNote={this.editNote}
