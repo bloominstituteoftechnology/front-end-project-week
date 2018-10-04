@@ -18,7 +18,7 @@ class CreateNote extends Component {
         axios.post  (`https://killer-notes.herokuapp.com/note/create`, this.state)
         .then (res => {this.setState({notes: res.data})
         })
-        // .catch(console.log('could not add note')
+        .then(() => {this.props.history.push('/')})
     }
 
     render(){
