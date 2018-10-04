@@ -120,6 +120,11 @@ left: 0;
   border: 1px solid black;
   margin-left: 100px;
 }
+.FormContainer{
+  z-index: -20;
+  position: absolute;
+      left: 200px;
+}
 .FormContainer form{
   justify-content: center;
   margin-left:50%;
