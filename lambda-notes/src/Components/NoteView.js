@@ -102,14 +102,15 @@ class NoteView extends Component {
   handleDeleteNote = noteId => {
     console.log('delete clicked');
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
       .then(response => {
         // this.setState({
         //   notes: this.state.notes.filter(note => {
         //     return note.id !== noteId;
         //   })
         // })
-        this.fetchNotes();
+        this.props.fetchNotes();
+        this.props.history.push('/')
       })
   }
 
@@ -118,12 +119,11 @@ class NoteView extends Component {
       <ViewContainer>
         <NavButton>
           <EditButton onClick={this.editNote}>Edit</EditButton>
-          {/* <DeleteModal 
+          <DeleteModal 
             {...this.props}
-            deleteNote={this.props.deleteNote}
-            history={this.props.history}
-          /> */}
-          <DeleteModal />
+            handleDelete={this.handleDeleteNote}
+          />
+          
         </NavButton>
         <SingleNote>
           <NoteTitle>{this.state.title}</NoteTitle>
