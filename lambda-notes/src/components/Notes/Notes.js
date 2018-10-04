@@ -8,7 +8,12 @@ class Notes extends Component {
 				<ul>
 					{this.props.notes.map((note) => {
 						return (
-							<Note title={note.title} text={note.textBody} key={note._id} />
+							<Note
+								title={note.title}
+								text={note.textBody}
+								id={note._id}
+								key={note._id}
+							/>
 						);
 					})}
 				</ul>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// Form for Notes
+
 class NoteForm extends Component {
 	constructor(props) {
 		super(props);
@@ -31,7 +33,7 @@ class NoteForm extends Component {
 	};
 	render() {
 		return (
-			<form onSubmit={this.addNote}>
+			<form onSubmit={this.addNote} className="NoteForm">
 				<div>Create New Note:</div>
 				<input
 					className="input-title"
