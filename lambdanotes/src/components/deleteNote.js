@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-// import './DeleteNote.css';
+import './DeleteNote.css';
 
 
 
@@ -19,19 +19,29 @@ function DeleteNote(props){
                 <span>edit</span>
                 </button>
             </Link>
-            <Link to ="/deletecard">
+            <Link to ={`/notes/${note._id}/delete`}>
                 <button className="delete">
-                <span>delete23</span>
+                <span>delete</span>
                 </button>
             </Link>
                 </div>
                 <div className="statement">
-                {/* <h2>{note.title}</h2>
+                <h2>{note.title}</h2>
                 </div>
                 <div className="cards">
-                <p>{note.textBody}</p> */}
-                <h1>Are You Sure You Want To Delete This Card?</h1>
+                <p>{note.textBody}</p>
          </div>
+                <h2>Are you certain?</h2>
+                <div className="yesno">
+                <button className="yes" onClick={() => props.handleDeleteNote(note._id)}>
+                <span>yes</span>
+                </button>
+                <Link to ={`/notes/${note._id}`}>
+                <button className="no">
+                <span>no</span>
+                </button>
+                </Link>
+                </div>
     </div>
       );
     }

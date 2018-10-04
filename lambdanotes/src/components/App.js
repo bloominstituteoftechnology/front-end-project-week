@@ -76,6 +76,14 @@ class App extends Component {
     .then(response => this.setState({note: response.data }));
   };
 
+  handleDeleteNote( noteId ) {
+    // console.log(noteId);
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+    .then(response => this.setState({note: response.data }));
+
+  };
+
+
  
 
   // handleID = event => {
@@ -127,17 +135,26 @@ class App extends Component {
             />}
           />
           
+          <Route path='/notes/:noteId/delete'
+            render={routeProps => 
+          <DeleteNote {...routeProps}
+            handleDeleteNote = {this.handleDeleteNote}  
+            notes={this.state.notes}/>}
+         />
+
           <Route path='/notes/:noteId'
             render={(props) => 
           <SingleNote {...props} 
             notes={this.state.notes}/>}
          />
 
-         <Route path='/notes/:noteId/delete'
-            render={(props) => 
-          <DeleteNote {...props} 
+         {/* <Route path='/notes/:noteId/delete'
+            render={routeProps => 
+          <DeleteNote {...routeProps}
+            handleDeleteNote = {this.handleDeleteNote}  
             notes={this.state.notes}/>}
-         />
+         /> */}
+
          {/* <Route path='/:noteId'
           render={(props) => 
           <Notes {...props} 

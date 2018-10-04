@@ -10,7 +10,7 @@ class EditNote extends React.Component {
         this.titleField = React.createRef();
         this.textBodyField = React.createRef();
 
-        //JB---/Convert to stateful comp. and utilize ref. to avoid passing state back App.js....REDUX?
+        //JB---/Convert to stateful comp. and utilize ref. to avoid passing state back App.js....REDUX starts to make more sense.
     }
 
     render(){
@@ -32,12 +32,13 @@ class EditNote extends React.Component {
                 </button>
             </Link>
                 </div>
-                <div className="statement">
+                <div className="title-edit">
                 <input defaultValue ={note.title} ref={this.titleField}/>
                 </div>
-                <div className="cards">
+                <div className="textBody-edit">
                 <input defaultValue ={note.textBody} ref={this.textBodyField}/>
-                <button onClick={() => this.props.handleEdit( this.titleField.current.value, this.textBodyField.current.value, note._id)}>Submit</button>
+                <br/>
+                <button className="edit-button" onClick={() => this.props.handleEdit( this.titleField.current.value, this.textBodyField.current.value, note._id)}><span>Submit</span></button>
             </div>
         </div>
         )
