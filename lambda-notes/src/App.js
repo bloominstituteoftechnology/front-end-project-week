@@ -58,6 +58,18 @@ class App extends Component {
       ));
   }
 
+  deleteNote = id => {
+    console.log('delete working?');
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => (
+        console.log('Server Error', error)
+      ));
+  }
+
   render() {
     return (
       <div className="App">
