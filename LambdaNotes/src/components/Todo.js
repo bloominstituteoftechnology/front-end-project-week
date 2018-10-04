@@ -8,7 +8,8 @@ import { deleteTodo, toggleTodo } from "../actions/index";
 import Paper from "material-ui/Paper";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import { List, ListItem } from "material-ui/List";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import Checkbox from "@material-ui/core/Checkbox";
 // styles
 import "../styles/Todo.css";
