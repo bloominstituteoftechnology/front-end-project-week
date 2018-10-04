@@ -15,7 +15,7 @@ export const getNotes = () => {
 };
 
 // addNotes action creator TODO: fill in logic
-export const addNote = () => {
+export const addNote = newNote => {
   return dispatch => {
     axios
       .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
@@ -27,7 +27,7 @@ export const addNote = () => {
 };
 
 // getNote action creator TODO: fill in logic
-export const getNote = () => {
+export const getNote = id => {
   return dispatch => {
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/${id}`)

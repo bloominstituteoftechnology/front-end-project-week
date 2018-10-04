@@ -3,7 +3,7 @@ import "./Components.css";
 import "../index.css";
 import { connect } from "react-redux";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { getNotes, addNote } from "../../actions";
+import { getNotes, addNote } from "../Actions";
 import Form from "./Form";
 import Note from "./Note";
 import NoteList from "./NoteList";

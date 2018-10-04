@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 import Form from "../Form";
-import { getNote, getNotes, editNote, deleteNote } from "../../actions";
+import { getNote, getNotes, editNote, deleteNote } from "../../Actions";
 
 class Note extends React.Component {
   state = {
