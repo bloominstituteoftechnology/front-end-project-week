@@ -5,16 +5,16 @@ import './SingleNote.css';
 
 
 function SingleNote(props){
-    console.log(props.notes);
+    // console.log(props.);
     
     const note = props.notes.find(
-        note => note._id === parseInt(props.match.params.noteId, 10));
+        note => note._id === props.match.params.noteId);
     
 
     return (
     <div className="cards-container">
         <div className="links">
-            <Link to ="/editcard">
+            <Link to ={`/notes/${note._id}/edit`}>
                 <button className="edit">
                 <span>edit</span>
                 </button>

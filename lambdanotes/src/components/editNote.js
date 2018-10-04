@@ -3,15 +3,25 @@ import { Link } from "react-router-dom";
 import './SingleNote.css';
 
 
-function EditNote(props) {
-console.log(props.params);
-    // const note = props.notes.find(
-    //     note => note._id === parseInt(props.match.params.noteId, 10));
+class EditNote extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.titleField = React.createRef();
+        this.textBodyField = React.createRef();
+
+        //JB---/Convert to stateful comp. and utilize ref. to avoid passing state back App.js....REDUX?
+    }
+
+    render(){
+
+    const note = this.props.notes.find(
+        note => note._id === this.props.match.params.noteId);
 
     return (
         <div className="cards-container">
         <div className="links">
-            <Link to ="/editcard">
+            <Link to ={`/notes/${note._id}/edit`}>
                 <button className="edit">
                 <span>edit</span>
                 </button>
@@ -23,13 +33,15 @@ console.log(props.params);
             </Link>
                 </div>
                 <div className="statement">
-                <h2>props.notes}</h2>
+                <input defaultValue ={note.title} ref={this.titleField}/>
                 </div>
                 <div className="cards">
-                <p>props.note.textBody}</p>
-         </div>
-    </div>
-    )
-} 
+                <input defaultValue ={note.textBody} ref={this.textBodyField}/>
+                <button onClick={() => this.props.handleEdit( this.titleField.current.value, this.textBodyField.current.value, note._id)}>Submit</button>
+            </div>
+        </div>
+        )
+    } 
+}
 
 export default EditNote

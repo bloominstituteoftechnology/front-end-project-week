@@ -11,8 +11,8 @@ import './App.css';
 
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: [],
       note: {
@@ -59,6 +59,10 @@ class App extends Component {
     });
   };
 
+  handleEdit( title, textBody, noteId) {
+    console.log(title, textBody, noteId);
+  }
+
 
   handleAddNewNote = event => {
     event.preventDefault();
@@ -67,6 +71,8 @@ class App extends Component {
     .post('https://killer-notes.herokuapp.com/note/create', this.state.note)
     .then(response => this.setState({note: response.data }));
   };
+
+ 
 
   // handleID = event => {
   //   event.preventDefault();
@@ -113,20 +119,20 @@ class App extends Component {
             render={routeProps => 
           <EditNote {...routeProps}
             notes={this.state.notes}
-            params = {this.state.params}
+            handleEdit = {this.handleEdit}
             />}
           />
-
+          
           <Route path='/notes/:noteId'
             render={(props) => 
           <SingleNote {...props} 
             notes={this.state.notes}/>}
          />
-         <Route path='/:noteId'
+         {/* <Route path='/:noteId'
           render={(props) => 
           <Notes {...props} 
           notes={this.state.notes}/>}
-         />
+         /> */}
 
         </Switch>
         </div>
