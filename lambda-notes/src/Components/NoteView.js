@@ -46,17 +46,18 @@ class NoteView extends Component {
     this.props.history.push(`/edit/${id}`)
   };
 
-  deleteNote = id => {
-    axios 
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => (
-        console.log('Server Error', error)
-      ));
-      this.props.history.push('/')
-  }
+  // deleteNote = () => {
+  //   console.log('delete working?')
+  //   axios 
+  //     .delete(`https://killer-notes.herokuapp.com/note/delete/${this.state.id}`)
+  //     .then(response => {
+  //       console.log(response);
+  //     })
+  //     .catch(error => (
+  //       console.log('Server Error', error)
+  //     ));
+  //     this.props.history.push('/')
+  // }
 
   render() {
     return (
@@ -64,9 +65,9 @@ class NoteView extends Component {
         <div className='top-nav'>
           <button onClick={this.editNote}>Edit</button>
           <DeleteModal 
-            props={this.props} 
-            id={this.props.match.params.id}
-            delete={this.deleteNote}
+            {...this.props}
+            deleteNote={this.props.deleteNote}
+            history={this.props.history}
           />
         </div>
         <div className='single-note'>
