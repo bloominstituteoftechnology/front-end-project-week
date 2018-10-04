@@ -28,16 +28,7 @@ class DeleteModal extends Component {
         >
           <ModalBody>Are you sure you want to delete this?</ModalBody>
           <ModalFooter>
-            <Button 
-              color='danger' 
-              onClick={event => {
-                event.preventDefault();
-                this.toggle();
-                this.props.history.push('/')
-              }}
-              >
-                Delete
-              </Button>{' '}
+            <Button color='danger' onClick={this.handleDelete}>Delete</Button>{' '}
             <Button color='info' onClick={this.toggle}>No</Button>
           </ModalFooter>
         </Modal>
