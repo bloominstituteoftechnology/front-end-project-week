@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 // actions
 import { toggleTodo, deleteTodo, archiveTodo } from "../actions/index";
 // material components
-import { Card, CardText } from "material-ui/Card";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 import IconMenu from "material-ui/IconMenu";
 import MenuItem from "material-ui/MenuItem";
 import IconButton from "material-ui/IconButton";
@@ -31,7 +32,7 @@ class SingleTodo extends React.Component {
         const { id } = this.props.todo;
         return [
             <Card className="SingleTodo">
-                <CardText>
+                <CardContent>
                     <Link
                         className="SingleTodo_link"
                         to={`/todo/${this.props.index}`}
@@ -95,7 +96,7 @@ class SingleTodo extends React.Component {
                             />
                         </IconMenu>
                     </div>
-                </CardText>
+                </CardContent>
             </Card>
         ];
     }
