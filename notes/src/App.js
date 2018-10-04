@@ -15,9 +15,9 @@ class App extends React.Component {
           <ul className="side-bar">
             <h1>Lambda Notes</h1>
             <li>
-              <NavLink exact to="/" className="button">
+              {/* <NavLink exact to="/" className="button">
                 Home
-              </NavLink>
+              </NavLink> */}
             </li>
             <li>
               <NavLink to="/notes" className="button">
@@ -33,7 +33,7 @@ class App extends React.Component {
         </div>
         <div className="right-side">
           <Route exact path="/" component={Home} />
-          <Route exact path="/notes" component={NotesList} />
+          {/* <Route exact path="/notes" component={NotesList} /> */}
           <Route path="/note/:id" component={Singlet} />
           <Route path="/note-form" component={NotesForm} />
         </div>
