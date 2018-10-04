@@ -27,13 +27,13 @@ render(){
 
   <div >
     <div className='SearchBar'>
+      <label className='LambdaNavLogo'>Lamda Notes</label>
   <label>Search By Title</label>
   <input name='SearchTitle' onChange={this.handleInputChange}  value={this.state.SearchTitle} placeholder= 'Search'/>
   <Button onClick = {this.props.filterNotes(this.state.SearchTitle)}>Search</Button>
    </div>
 
 
-    <hr/>
 
 <div className='Notes'>
  {this.props.notes.notes.map(note => {

@@ -37,7 +37,26 @@ border: 1px solid #696565;
 height: 100vh;
 width: 20vw;
 top: 0;
+z-index: -1;
 
+}
+.cover{
+  background-color: #d3d2d3;
+  border: none;
+  z-index: 10;
+}
+.LambdaNavLogo{
+  position: absolute;
+  left:0;
+  font-size:25px;
+  background-color:#d3d2d3;
+  height: 50px;
+  width:120px;
+  z-index: inherit;
+  width: 205px;
+  height: 65px;
+  text-align: left;
+  min-width:155px
 }
 .container  nav button{
 border-radius: 10%;
@@ -76,6 +95,7 @@ padding-right: 0px;
 padding-bottom: 0px;
 padding-top: 0px;
 border-radius: 10px;
+margin-top: 100px;
 }
 .NoteContainer:hover{
   background-color:#26b8bd;
@@ -133,7 +153,7 @@ position:fixed;
 width: 100%;
 z-index: -1;
 top: 0;
-background-color: #d8d8d8;
+background-color: #d3d2d3;
 }
 h2{
 margin-left: 600px;
@@ -150,8 +170,12 @@ nav h1{
     font-size: 15px;
     line-height: .7 !important;
   }
+  .LambdaNavLogo{
+    display:none;
+  }
   nav{
     height: 100%;
+    z-index: 1;
   }
   .NoteContainer{
 
