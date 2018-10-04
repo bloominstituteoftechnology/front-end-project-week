@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import { Button } from 'reactstrap';
 import './SinglePage.css';
 import Modal from './Modal.js';
+
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
@@ -78,9 +79,6 @@ console.log(this.state.message),)
   console.log(err)
 
 });
-
-
-
 
 }
 

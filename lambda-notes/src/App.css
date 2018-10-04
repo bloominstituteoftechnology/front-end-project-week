@@ -75,10 +75,17 @@ padding-left: 0px;
 padding-right: 0px;
 padding-bottom: 0px;
 padding-top: 0px;
+border-radius: 10px;
 }
 .NoteContainer:hover{
   background-color:#26b8bd;
   color: white;
+}
+.NoteContainer p{
+text-align: center;
+}
+.NoteContainer h3{
+text-align: center;
 }
 .container {
 display: flex;
@@ -137,9 +144,7 @@ text-decoration: none;
 color:black !important;
   }
 
-.NoteContainer  h3{
 
-  }
 @media (max-width:780px) {
 nav h1{
     font-size: 15px;
