@@ -72,11 +72,22 @@ class App extends Component {
         <NavBar />
         <Route 
           exact path='/' 
-          render={props => <Notes {...props} notes={this.state.notes} />}
+          render={props => (
+            <Notes 
+              {...props} 
+              notes={this.state.notes} 
+              
+            />
+          )}
         />
         <Route
           path='/new'
-          render={props => <NoteForm {...props} addNote={this.addNote} />}
+          render={props => (
+            <NoteForm 
+              {...props} 
+              addNote={this.addNote} 
+            />
+          )}
         />
         <Route 
           path='/note/:id'
