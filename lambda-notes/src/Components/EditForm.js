@@ -2,6 +2,50 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+const EditContainer = styled.div`
+  border: 1px solid black;
+  margin-left: 300px;
+  margin-top: -610px;
+  height: 610px;
+`;
+
+const Heading = styled.h2`
+  display: flex;
+  margin-left: 30px;  
+`;
+
+const CreateForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const InputTitle = styled.input`
+  border-radius: 3px;
+  width: 600px;
+  height: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+`;
+
+const Content = styled.textarea`
+  border-radius: 3px;
+  width: 600px;
+  height: 300px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+`;
+
+const UpdateButton = styled.button`
+  width: 150px;
+  height: 35px;
+  margin-left: 30px;
+  border: 1px solid gray;
+  background: #24b8bd;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+`;
+
 class EditForm extends Component {
   constructor(props) {
     super(props);
@@ -59,24 +103,24 @@ class EditForm extends Component {
 
   render() {
     return (
-      <div className='edit-container'>
-        <h2>Edit Note:</h2>
-        <form>
-          <input 
+      <EditContainer>
+        <Heading>Edit Note:</Heading>
+        <CreateForm>
+          <InputTitle 
             name='title'
             placeholder='Note Title'
             value={this.state.title}
             onChange={this.handleInputChange}
           />
-          <input
+          <Content
             name='textBody'
             placeholder='Note Content'
             value={this.state.textBody}
             onChange={this.handleInputChange}
           />
-          <button onClick={this.updateNote}>Update</button>
-        </form>
-      </div>
+          <UpdateButton onClick={this.updateNote}>Update</UpdateButton>
+        </CreateForm>
+      </EditContainer>
     );
   }
 }
