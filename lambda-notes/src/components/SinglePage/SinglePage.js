@@ -72,7 +72,7 @@ axios
     message:response.data.success,
   }, );
 
-}, this.props.history.push('/'),
+}, this.props.history.push(`/notes/${id}`),window.location.reload(),
 console.log(this.state.message),)
 .catch(err => {
   console.log(err)
