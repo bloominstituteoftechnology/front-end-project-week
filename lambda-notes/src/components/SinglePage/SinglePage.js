@@ -169,7 +169,7 @@ console.log(this.state.message);
                 onClose={this.toggleModal}
                 deleteNote={this.deleteNote}
                 id={this.state.notes._id} >
-                Are you sure you want to delete?
+                Are you sure you want to delete this note?
               </Modal>
       </div>
 

@@ -29,7 +29,7 @@
 nav {
 position: fixed;
 display: block;
-background-color: #b1b1b1;
+background-color: #d8d8d8;
 border: 1px solid #696565;
 height: 100vh;
 width: 20vw;
@@ -92,6 +92,7 @@ left: 0;
   margin: 0 auto;
   display:inline-block;
   text-align: center;
+  margin-left: 150px;
 }
 .FormContainer button{
 
@@ -117,7 +118,7 @@ position:fixed;
 width: 100%;
 z-index: -1;
 top: 0;
-background-color: #b1b1b1;
+background-color: #d8d8d8;
 }
 h2{
 margin-left: 600px;
@@ -138,4 +139,7 @@ nav h1{
   .SearchBar{
     padding-left: 100px;
   }
+}
+.SearchBar input{
+  margin-right: 10px;
 }

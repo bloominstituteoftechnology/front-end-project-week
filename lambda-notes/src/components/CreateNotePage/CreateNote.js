@@ -52,6 +52,7 @@ render(){
 
   <div className="FormContainer">
   <form >
+    <label>Add A Note:</label>
   <div className= 'row'>
     <input placeholder = 'Title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
   </div>
