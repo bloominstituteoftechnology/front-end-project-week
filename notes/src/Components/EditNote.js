@@ -1,45 +1,76 @@
-import React from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
-import {NavLink} from 'react-router-dom';
 
-
-export default class EditNote extends React.Component {
-    state = {
-        note: ''
+class EditNote extends Component {
+    constructor(props) {
+      super(props);
+        this.state = {
+            title: '',
+            textBody: ''
+        }
     }
 
-    handleChange = e => {
-        this.setState({note: e.target.value})
-    }
-
-
-    handleSubmit = e => {
-        e.preventDefault();
-        const id = this.props.match.params.id;
-        const editNote = {
-            note: this.state.note
-        };
-        axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {editNote})
+    componentDidMount = () => {
+        console.log('before get', this.state)
+        axios
+        .get(`https://killer-notes.herokuapp.com/note/get/all`)
         .then(res => {
-            console.log(res);
-            console.log(res.data);
+            let notes = res.data;
+            let note = notes.filter(note => {
+                if (this.props.match.params.id === note.id){
+                    return note;
+                }
+            }) [0];
         })
+    }
+
+    handleInputChange = e => {
+        this.setState({[e.target.name]: e.target.value});
     };
 
-    render() {
+    updateNote = e => {
+        e.preventDefault();
+        const id = this.props.match.params.id;
+        const newNote = {
+            title: this.state.title,
+            textBody: this.state.textBody,
+        };
+        axios
+          .put  (`https://killer-notes.herokuapp.com/note/edit/${id}/`, newNote)
+          .then (res => this.setState({notes: res.data}))
+          .then (
+                this.setState({ 
+                    title: '',
+                    textBody: '',
+                    _id: this.props.id
+                }) )
+            .then(() => {this.props.history.push('/')})
+          .catch(err => console.log(err));
+        
+    };
+
+    render(){
         return (
-            <form onSubmit={this.handleSubmit} >
-                <label>
-                    Edit Title:
-                    <input type='text' name='note' value={this.props.title} onChange={this.handleChange} />
-                </label>
-                <label>
-                    Edit Text:
-                    <input type='text' name='note'
-                    value={this.props.title} onChange={this.handleChange} />
-                </label>
-                <button type='submit'><NavLink exact to='/edit/:id'>Save</NavLink></button>
-            </form>
+            <div className="group">
+                <form onSubmit={this.updateNote} >
+                    <input 
+                        onChange = {this.handleInputChange}
+                        placeholder = 'Title'
+                        name = 'title'
+                        value= {this.state.title}
+                    />
+                    <textarea 
+                        onChange = {this.handleInputChange}
+                        placeholder = 'Text Body'
+                        name= 'textBody'
+                        value= {this.state.textBody}
+                    />
+                    <button type='submit' >Save</button>
+                </form>
+            </div>
         );
     }
-}
+};
+
+export default EditNote;
+

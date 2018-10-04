@@ -15,14 +15,14 @@ class App extends Component {
 
   componentDidMount() {
     axios.get(`https://killer-notes.herokuapp.com/note/get/all`)
-    .then(response => {
-        this.setState({notes: response.data});
+    .then(res => {
+        this.setState({notes: res.data});
     })
     .catch(err => {
         console.log("error", err);
     });
   }
-
+  
   render(){
     return(
       <div className="App">
@@ -47,7 +47,11 @@ class App extends Component {
           <Route 
             exact
             path='/edit/:id' 
-            component={EditNote}
+            render={props => (
+              <EditNote {...props}
+              notes = {this.state.notes}
+              />
+            )}
           />
 
           <Route 
