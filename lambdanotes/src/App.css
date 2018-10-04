@@ -54,6 +54,27 @@
   height: 400px;
   margin: 10px;
 }
+/* Individual Card Styles */
+.noteCardWrap {
+  max-width: 600px;
+  width: 100%;
+  background-color:#E8E8E8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.indiviNote {
+  border: 1px red solid;
+  max-width: 300px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+.editingButts {
+  display: flex;
+  justify-content: flex-end;
+}
 /* Navigation Styles */
 .navigation {
 
@@ -100,12 +121,20 @@
     color: teal;
 }
 /*Note Card List Styles */
+.notesOverWrap {
+  max-width: 600px;
+  width: 100%;
+  background-color:#E8E8E8;
+}
 .noteCard {
   border: 1px grey solid;
   box-shadow: 5px 5px 5px grey;
   max-width: 25%;
   width: 200px;
   margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
 }
 .noteWrap {
   max-width: 600px;

@@ -6,7 +6,7 @@ function NotesForm(props) {
         return (
             <Fragment>
                 <div className="noteFormWrapper">
-                    <h3>{props.updatingNote ? "Updating Notes?" : "Making A New Note?"}</h3>
+                    {/* <h3>{props.updatingNote ? "Updating Notes?" : "Making A New Note?"}</h3> */}
                     <h1> Notes</h1>
                     <form className="inputWrap">
                         <div>

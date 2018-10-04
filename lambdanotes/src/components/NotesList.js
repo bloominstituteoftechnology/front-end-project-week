@@ -5,7 +5,7 @@ function NotesList(props) {
         return <h1>No Note Date Found...</h1>
     }
     return (
-        <div>
+        <div className="notesOverWrap">
             <h2>Your Notes</h2>
             <div className="noteWrap">
                 {props.noteList.map(note => (

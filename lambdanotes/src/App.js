@@ -16,6 +16,7 @@ class App extends Component {
         title: "",
         textBody: "",
       },
+      updatingNote: false,
     };
   }
 
@@ -40,7 +41,7 @@ class App extends Component {
     event.preventDefault();
     console.log("We've got a new note here!");
     axios.post('https://killer-notes.herokuapp.com/note/create', this.state.note)
-    .then(response => this.setState({ notes: response.data }))
+    .then(response => this.setState({ note: response.data }))
   }
 
   handleDeleteNote = noteId => {
@@ -52,16 +53,6 @@ class App extends Component {
     console.log("going to update note form!", note);
     this.setState({ note, updatingNote: true })
     this.props.history.push('/notesform')
-  }
-
-  handleUpdatingNote = noteId => {
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/id/${noteId}`, this.state.note)
-    .then(response => {
-      console.log("handling update...maybe?", response);
-      this.getNotes();
-      this.props.history.push('/notes') 
-      this.setState({ updatingNote: false})
-    });
   }
 
   render() {
