@@ -14,11 +14,10 @@ class App extends Component {
     }
   }
 
-  postNote = (newNote) => {
-    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
-      .then(response => this.setState({ notes: [...this.state.notes, {...newNote}]}))
-      .catch(error => console.log(error))
+  componentDidMount() {
+    this.getNotes();
   }
+
   getNotes = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
@@ -28,8 +27,10 @@ class App extends Component {
     .catch(error => console.log(' We have an Error!', error))
   }
 
-  componentDidMount() {
-    this.getNotes();
+  postNoteRequest = (newNote) => {
+    axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
+      .then(response => this.setState({ notes: [...this.state.notes, {...newNote}]}))
+      .catch(error => console.log(error))
   }
 
   render() {
@@ -37,11 +38,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Note Taker </h1>
-          <Link to={`/`}><button>Your Notes</button></Link>
-          <Link to={'/makenote'}><button>Make Note</button></Link>
+          <h1 className="App-title">Note Taker</h1>
+          <Link ActiveClasName="" to={`/`} style={{textDecoration: 'none'}}><div>View Your Notes</div></Link>
+          <Link to={'/addnote'} style={{textDecoration: 'none'}}><div>+ Create New Note</div></Link>
         </header>
-        <div>
+        <div className="main-component">
           <Route 
           exact path='/' 
           render={(props) => 
@@ -53,11 +54,10 @@ class App extends Component {
             (<NotePage {...props} 
             notes={this.state.notes} />)} />
           <Route 
-          path = '/makenote' 
+          path = '/addnote' 
           render={(props) => 
             (<NoteForm {...props} 
-            note={this.state.newNote}
-            postNote={this.postNote} />)} />
+            postNoteRequest={this.postNoteRequest} />)} />
         </div>
       </div>
     )

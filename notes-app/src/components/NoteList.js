@@ -3,11 +3,13 @@ import Note from './Note';
 
 function NoteList(props) {
     return (
-        <div className="noteslist-div">
-
+        <div className="noteslistcontainer-div">
+            <h1>Your Notes</h1>
+            <div className="noteslist-div">
             {props.notes.map((note, index) => (
                 <Note key={index} note={note} />
             ))}
+            </div>
         </div>
     )
 }

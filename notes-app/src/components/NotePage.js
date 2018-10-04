@@ -8,10 +8,12 @@ function NotePage(props) {
     console.log(note)
     return (
         <div className="notepage-div">
+            <div className="edit-delete">
+                <button>edit</button>
+                <button>delete</button>
+            </div>
             <h1>{note.title}</h1>
             <p>{note.textBody}</p>
-            <button>Delete</button>
-            <button>Edit</button>
         </div>
     )
 }

@@ -6,6 +6,7 @@ class NoteForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            edit: true,
             title: '',
             textBody: ''
         }
@@ -22,29 +23,30 @@ class NoteForm extends Component {
         }
         console.log(note.textTitle)
         console.log(note)
-        this.props.postNote(note)
+        this.props.postNoteRequest(note)
         this.props.history.push('/');
     }
 
     render() {
         return(
             <div className="noteform-div">
-                <form onSubmit={this.addNote}>
+                <h1>{this.state.edit ? 'Edit Note' : 'Create New Note'}</h1>
+                <form className="noteform-form" onSubmit={this.addNote}>
                     <input 
+                    className="title-input"
                     type="text" 
                     placeholder="title" 
                     name="title" 
                     onChange={this.handleChange} 
                     value={this.state.title}/>
                     <input 
+                    className="body-input"
                     type="text"
                     placeholder="notes here"
                     name="textBody" 
                     onChange={this.handleChange} 
                     value={this.state.textBody}/>
-                    {/* <Link to="/notes"> */}
-                    <button type="submit">Make Note</button>
-                    {/* </Link> */}
+                    <button className="noteform-button" type="submit">Add Note</button>
                 </form>
             </div>
 

@@ -1,49 +1,134 @@
+html {
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
   display: flex;
   height: 1000px;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #D3D2D3;
   height: auto;
-  width: 350px;
-  padding: 50px;
+  width: 100%;
+  max-width: 220px;
+  /* padding: 50px; */
   color: white;
   display: flex;
   flex-direction: column;
+  border: 1px solid #CCC;
+}
+
+.App-header h1 {
+  margin-left: 10px;
+  margin-bottom: 14px;
 }
 
 .App-header div {
-  padding: 10px;
-  text-decoration: none;
-
+  text-align: center;
+  margin-left: 10px;
+  border: 1px solid #CCC;
+  margin-top: 10px;
+  padding: 20px;
+  width: 140px;
+  height: 20px;
+  color: white;
+  background-color: #24B8BD;
 }
 
 .App-title {
-  font-size: 1.7em;
+  color: #414141;
+  font-size: 2.8em;
+}
+
+/* right side of page */
+
+.main-component {
+  width: 100%;
+  max-width: 944px;
+  background-color: #F2F1F2;
+}
+
+/* Notes Component */
+
+.noteslistcontainer-div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.noteslistcontainer-div h1 {
+  color: #414141;
 }
 
 .noteslist-div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 10px;
 }
 
 .note-div {
-  width: 300px;
-  padding: 10px;
-  margin: 10px;
+  height: 180px;
+  padding: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 160px;
+  border: 1px solid #414141;
+  ;
+}
+
+.note-div h1 {
+  border-bottom: 1px solid black;
+  font-size: 1.2rem;
+  color: #414141;
+}
+
+.note-div p {
+
 }
 
 .noteform-div {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .notepage-div {
+}
 
+/* Noteform */
+
+.noteform-div {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.noteform-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.noteform-div h1 {
+  color: #414141;
+}
+
+.title-input {
+  width: 360px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+.body-input {
+  margin-top: 15px;
+  width: 600px;
+  height: 300px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+.noteform-button {
+  margin-top: 15px;
+  width: 160px;
+  height: 30px;
+  border: 1px solid black;
 
 }
