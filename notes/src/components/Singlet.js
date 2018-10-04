@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getNote, getNotes, setUpdateNote, deleteNote } from "../store/actions";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 class Singlet extends React.Component {
   constructor(props) {
