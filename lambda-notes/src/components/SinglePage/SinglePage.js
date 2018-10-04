@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import * as axios from 'axios';
-import EditForm from './EditForm.js'
 import { Button } from 'reactstrap';
-import './SinglePage.css'
-
+import './SinglePage.css';
+import Modal from './Modal.js';
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isOpen: false,
       reload:false,
       mounted:true,
       newTitle: '',
@@ -85,7 +85,11 @@ console.log(this.state.message),)
 }
 
 
-
+toggleModal = () =>{
+  this.setState({
+    isOpen: !this.state.isOpen
+  })
+}
 
 
   editNote = id => event => {
@@ -134,8 +138,11 @@ console.log(this.state.message);
   render(){
     return (
 
+
     <div className="Notes">
+
       <div className="FormContainer">
+
       <form >
       <div className= 'row'>
         <input placeholder = 'Title' name= 'newTitle' onChange ={this.handleInputChange} value = {this.state.newTitle}/>
@@ -147,12 +154,17 @@ console.log(this.state.message);
         <Button  color="success" onClick ={this.editNote(this.state.notes._id)} >Edit Note</Button>
       </div>
       <div className="ButtonContainer">
-        <Button  color="danger" onClick ={this.deleteNote(this.state.notes._id)} >Delete Note</Button>
+        <Button  color="danger" onClick ={this.toggleModal} >Delete Note</Button>
       </div>
 
       </form>
 
-
+      <Modal show={this.state.isOpen}
+                onClose={this.toggleModal}
+                deleteNote={this.deleteNote}
+                id={this.state.notes._id} >
+                Are you sure you want to delete?
+              </Modal>
       </div>
       <div className='NoteContainer'>
         <div key ={this.state.notes._id} >
