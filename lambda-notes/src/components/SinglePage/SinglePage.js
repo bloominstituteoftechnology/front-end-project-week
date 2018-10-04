@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import * as axios from 'axios';
-import EditForm from './EditForm.js'
 import { Button } from 'reactstrap';
+import './SinglePage.css';
+import Modal from './Modal.js';
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isOpen: false,
+      reload:false,
       mounted:true,
       newTitle: '',
       newTextBody:'',
@@ -25,7 +28,8 @@ if(this.state.mounted){
 this.setState({
   notes: [{
 
-  }]
+  }],
+  message:'',
 })
 
 
@@ -33,7 +37,7 @@ this.setState({
 
 componentWillUnmount(){
 this.setState({
-    mounted: false
+    mounted: true
   });
 }
 
@@ -64,17 +68,27 @@ axios
   console.log("success", response);
   this.setState(
     {
-    notes:response.data,
+    notes:[],
+    message:response.data.success,
+  }, );
 
-  },
-    () => this.props.history.push('/')
-  );
-})
+}, this.props.history.push(`/notes/${id}`),window.location.reload(),
+console.log(this.state.message),)
 .catch(err => {
   console.log(err)
 
-})
+});
 
+
+
+
+}
+
+
+toggleModal = () =>{
+  this.setState({
+    isOpen: !this.state.isOpen
+  })
 }
 
 
@@ -107,7 +121,12 @@ noteTaking(id)
       notes:response.data,
 
     },
-      () => this.props.history.push('/')
+      () => {
+console.log(this.state.message);
+        this.props.history.push(`/notes/${id}`);
+
+      }
+
     );
   })
   .catch(err => {
@@ -119,6 +138,7 @@ noteTaking(id)
   render(){
     return (
 
+
     <div className="Notes">
       <div className='NoteContainer'>
         <div key ={this.state.notes._id} >
@@ -127,8 +147,8 @@ noteTaking(id)
         <p> {this.state.notes.textBody}</p>
         </div>
       </div>
-
       <div className="FormContainer">
+
       <form >
       <div className= 'row'>
         <input placeholder = 'Title' name= 'newTitle' onChange ={this.handleInputChange} value = {this.state.newTitle}/>
@@ -140,13 +160,21 @@ noteTaking(id)
         <Button  color="success" onClick ={this.editNote(this.state.notes._id)} >Edit Note</Button>
       </div>
       <div className="ButtonContainer">
-        <Button  color="danger" onClick ={this.deleteNote(this.state.notes._id)} >Delete Note</Button>
+        <Button  color="danger" onClick ={this.toggleModal} >Delete Note</Button>
       </div>
 
       </form>
 
-
+      <Modal show={this.state.isOpen}
+                onClose={this.toggleModal}
+                deleteNote={this.deleteNote}
+                id={this.state.notes._id} >
+                Are you sure you want to delete?
+              </Modal>
       </div>
+
+
+
     </div>
     );
 

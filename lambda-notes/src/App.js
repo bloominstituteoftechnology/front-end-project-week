@@ -18,10 +18,12 @@ class App extends Component {
 
         ]
       };
+
     }
 
 
   componentDidMount(){
+
   const URL = 'https://killer-notes.herokuapp.com/note'
   axios
   .get(`${URL}/get/all`)
@@ -35,15 +37,31 @@ class App extends Component {
 
 
 
+
+  filterNotes = event => arr => {
+
+    const result = this.state.notes.filter((p)=> {
+    return p.title.toLowerCase().indexOf(event.toLowerCase()) > -1;
+    });
+    arr.preventDefault();
+    this.setState({
+        notes: result
+      });
+
+
+
+  };
+
   render() {
-    var EnhancedComponent = onClickOutside(SinglePage);
+    const EnhancedComponent = onClickOutside(SinglePage);
 
     return (
       <div className="App">
         <Route path = '/notes/:id' render ={props => <EnhancedComponent {...props} notes={this.state.notes} diableOnClickOutside={false} />}/>
 
         <Route path= "/" component ={LambdaNav} />
-        <Route exact path = '/' render ={props => <HomePage {...props} notes = {this.state} />}/>
+
+        <Route exact path = '/' render ={props => <HomePage {...props} filterNotes={this.filterNotes} notes = {this.state}/>}/>
         <Route path = "/CreateNote"  render ={props => <CreateNote {...props} notes = {this.state} />}/>
       </div>
     );
