@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getNote, getNotes, setUpdateNote, deleteNote } from "../store/actions";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class Singlet extends React.Component {
@@ -42,7 +42,7 @@ class Singlet extends React.Component {
     return (
       <div className="singlenoteDisplay">
         <h1 className="note-page-title">
-          Note Title:
+        
           <br /> {this.props.note.title}
         </h1>
         <br />
@@ -75,9 +75,9 @@ class Singlet extends React.Component {
                 <Button color="danger" onClick={this.deleteNote}>
                   Delete
                 </Button>{" "}
-                <Button color="secondary" onClick={this.toggle}>
-                  Cancel
-                </Button>
+                <Button color="gray" onClick={this.toggle}>
+                  No
+                </Button>{" "}
               </ModalFooter>
             </Modal>
           </div>

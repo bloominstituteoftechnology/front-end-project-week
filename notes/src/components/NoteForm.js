@@ -61,7 +61,7 @@ class NoteForm extends Component {
     return (
       <React.Fragment>
         <h2 className="edit-delete">
-          {this.props.updatingNote ? "Edit Note:" : "Create New Note:"}
+          {this.props.updatingNote ? "Create New Note" : "Edit Note:"}
         </h2>
         <form className="Column-Layout">
           <input
