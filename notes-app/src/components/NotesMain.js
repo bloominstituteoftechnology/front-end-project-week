@@ -57,8 +57,7 @@ const NotesMain = (props) => {
       </Div1>
     )
   }
-//go w/styled componenets
-//extra elements here too if time allows
+
 
 
 const Div1 = styled.div`

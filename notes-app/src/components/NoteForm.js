@@ -105,25 +105,41 @@ class NoteForm extends Component {
 
 
 const Div = styled.div`
+padding: 5% 3% 1% 3%;
+  width: 75%;
+  background: #F2F1F2;
   
   `
 const H2 = styled.h2``
 const Form = styled.form``
 const Input1 = styled.input`
   width: 60%;
+  font-size: 1.6rem;
+  padding: 2%;
+  margin: 2% 0;
+  border-radius: 2px;
   
 `
 const Input2 = styled.input`
   width: 100%;
+  font-size: 1.6rem;
+  padding: 2%;
+  margin: 2% 0;
+  border-radius: 2px;
   
 `
 const Textarea = styled.textarea`
   width: 100%;
+  font-size: 1.6rem;
+  padding: 2%;
+  margin: 2% 0;
+  height: 300px;
+border-radius: 2px;
   
 `
 const Button1 = styled.button`
   padding: 2%;
-  
+  width: 50%;
   `
 
 export default withRouter(NoteForm)

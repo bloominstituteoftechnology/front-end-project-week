@@ -6,6 +6,7 @@ import './App.css';
 import NoteForm from './components/NoteForm'
 import Note from './components/Note'
 import NotesMain from './components/NotesMain'
+import SideBar from './components/SideBar'
 
 class App extends Component {
   state = {
@@ -21,11 +22,22 @@ class App extends Component {
           title: "2. Grab a buddy",
           text: "Find an outdoorsy friend that loves to camp.",
           tags: ["outsdoorsy", "friend"]
-        }
-        
+        },
+        {
+          id: 1537905924075,
+          title: "3. Trailblazing",
+          text: "Get out there and breathe in nature. Throw on those hiking boots!",
+          tags: ["nature", "outdoors"]
+        },
+        {
+          id: 1537905911476,
+          title: "4. Go to the store",
+          text: "Read reviews online and find the rucksack that best fits your needs.",
+          tags: ["gear", "store"]
+        }  
       ],
 
-      filteredNotes: [],
+    filteredNotes: [],
     tags: ["all", "gear", "capacity", "nature", "outdoors", "outsdoorsy", "friend", "hiking groups", "store", "adventure"],
     noteUpdate: null
   }
@@ -49,7 +61,7 @@ class App extends Component {
       }
     
       deleteNote = (noteId) => {
-        this.props.history.push
+        this.props.history.push("/")
         this.setState({ notes: this.state.notes.filter(note => note.id !== noteId) })
       }
 
@@ -68,7 +80,8 @@ class App extends Component {
 
   render() {
     return (
-      <div1 className="App">
+      <Div1 className="App">
+      <SideBar />
         <Route exact path="/" render={() => 
           <NotesMain
             notes={this.state.notes}
@@ -98,13 +111,13 @@ class App extends Component {
         }
         />
 
-        <GlobalStyle />
-      </div1>
+        {/*<GlobalStyle />*/}
+      </Div1>
     )
   }
 }
   
-const GlobalStyle = createGlobalStyle`
+{/* const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
@@ -141,6 +154,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 2px;
   }
 `
+*/}
 const Div1 = styled.div`
   display: flex;
 `
