@@ -1,28 +1,44 @@
-import React from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getNotes } from "../store/actions";
+import { Link } from "react-router-dom";
+import "../App.css";
 
-import Note from './Note';
+class Notes extends Component {
+  componentDidMount() {
+    this.props.getNotes();
+  }
 
-const NotesList =  props => {
-  
+  render() {
     return (
-      <React.Fragment>
-        <ul>
-          {props.notes.map(note => {
+      <div className="listDisplay">
+        <h1>Your Notes</h1>
+        <div className="noteDisplay">
+          {this.props.notes.map(note => {
             return (
-              <Note
-                key={note._id}
-                note={note}
-              />
+              <Link to={`/note/${note._id}`}>
+                <div className="notesDisplay" key={note._id}>
+                  <h1>{note.title}</h1>
+                  <p>{note.textBody}</p>
+                </div>
+              </Link>
             );
           })}
-        </ul>
-      </React.Fragment>
+        </div>
+      </div>
     );
-  
+  }
 }
 
-NotesList.defaultProps = {
- notes: [],
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
 };
 
-export default NotesList;
+export default connect(
+  mapStateToProps,
+  {
+    getNotes
+  }
+)(Notes);

@@ -1,79 +1,103 @@
-
-import React, { Component } from 'react';
-import Axios from 'axios';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addNewNote, updateNote } from "../store/actions";
+import "../App.css";
 
 class NoteForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    
-      tag: '',
-      title: '',
-      textBody: ''
-    
-    };
-  }
-
-
-  addNote = event => {
-    event.preventDefault();
-    
-    const note = {
-      tag: this.state.tag,
-      title: this.state.title,
-      textBody: this.state.textBody
-    }
-    Axios
-      .post(`https://killer-notes.herokuapp.com/note/create`, note)
-        .then(response => {
-          console.log(response.data)
-        })
-        .catch(err => {
-          console.error(`Error: ${err}`)
-        })
-
-    this.setState({
-      tag: '',
-      title: '',
-      textBody: ''
-    });
-  }
-
-  
-
-  handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+  state = {
+    note: {
+      title: "",
+      textBody: "",
+      _id: ""
+    },
+    updatingNote: false
   };
 
-  
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.updatingNote) {
+      this.handleUpdateNote();
+    } else {
+      this.handleAddNewNote(event);
+    }
+  };
 
+  handleChange = event => {
+    this.setState({
+      note: {
+        ...this.state.note,
+        [event.target.name]: event.target.value
+      }
+    });
+  };
+
+  addTodoHandler = e => {
+    e.preventDefault();
+    this.props.addNewNote(this.state);
+    this.props.history.push("/notes");
+  };
+
+  componentDidMount() {
+    if (this.props.noteToUpdate) {
+      this.setState({
+        updatingNote: true,
+        note: this.props.noteToUpdate
+      });
+    }
+  }
+
+  handleUpdateNote = () => {
+    console.log(this.state.note);
+    this.props.updateNote(this.state.note);
+    this.props.history.push("/notes");
+  };
+
+  handleAddNewNote = event => {
+    event.preventDefault();
+    this.props.addNewNote(this.state.note);
+    this.props.history.push("/notes");
+  };
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.addNote}>
+        <h2 className="edit-delete">
+          {this.props.updatingNote ? "Edit Note:" : "Create New Note:"}
+        </h2>
+        <form className="Column-Layout">
           <input
-            onChange={this.handleInputChange}
-            placeholder="tag"
-            value={this.state.tag}
-            name="tag"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="title"
-            value={this.state.title}
+            className="input-title"
+            value={this.state.note.title}
             name="title"
+            type="text"
+            placeholder="Note Title"
+            onChange={this.handleChange}
           />
-          <textarea rows="10" cols="30"
-            onChange={this.handleInputChange}
-            placeholder="textBody"
-            value={this.state.textBody}
+          <input
+            className="input-body"
+            value={this.state.note.textBody}
             name="textBody"
+            type="text"
+            placeholder="Note Content"
+            onChange={this.handleChange}
           />
-          <button type="submit">Save</button>
+          <h3 onClick={this.handleSubmit}>Submit</h3>
         </form>
       </React.Fragment>
     );
   }
 }
 
-export default NoteForm;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    noteToUpdate: state.noteToUpdate
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    addNewNote,
+    updateNote
+  }
+)(NoteForm);
