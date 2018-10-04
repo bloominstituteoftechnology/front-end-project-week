@@ -40,12 +40,7 @@ class NoteView extends React.Component {
    }
 
    editNote = (note) => {
-    const blanknote={
-    title: "",
-    textBody: ""
-    }
-
-  const id = this.props.match.params.id;
+    const id = this.props.match.params.id;
 
     axios
     .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
