@@ -69,8 +69,8 @@ class Singlet extends React.Component {
               toggle={this.toggle}
               className={this.props.className}
             >
-              <ModalHeader toggle={this.toggle}>Delete</ModalHeader>
-              <ModalBody>Are you sure you want to delete?</ModalBody>
+             
+              <ModalBody>Are you sure you want to delete this?</ModalBody>
               <ModalFooter>
                 <Button color="danger" onClick={this.deleteNote}>
                   Delete

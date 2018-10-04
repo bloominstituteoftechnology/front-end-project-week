@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, NavLink, withRouter } from "react-router-dom";
 
-import Home from "./components/Home";
+
 import "./App.css";
 import NotesList from "./components/NotesList";
 import Singlet from "./components/Singlet";
@@ -15,11 +15,6 @@ class App extends React.Component {
           <ul className="side-bar">
             <h1>Lambda Notes</h1>
             <li>
-              {/* <NavLink exact to="/" className="button">
-                Home
-              </NavLink> */}
-            </li>
-            <li>
               <NavLink to="/notes" className="button">
                 View Notes
               </NavLink>
@@ -32,7 +27,6 @@ class App extends React.Component {
           </ul>
         </div>
         <div className="right-side">
-          {/* <Route exact path="/" component={Home} /> */}
           <Route exact path="/notes" component={NotesList} />
           <Route path="/note/:id" component={Singlet} />
           <Route path="/note-form" component={NotesForm} />
