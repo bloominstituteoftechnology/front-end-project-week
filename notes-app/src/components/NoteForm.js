@@ -5,7 +5,7 @@ class NoteForm extends Component {
         super(props);
         this.state = {
             title: '',
-            textBody: ''
+            textBody: '',
         }
     }
     handleChange = e => {
@@ -24,10 +24,12 @@ class NoteForm extends Component {
         this.props.history.push('/notes');
     }
 
+
+
     render() {
         return(
             <div className="noteform-div">
-                <h1>Create New Note</h1>
+                <h1>{this.props.isUpdating ? 'Edit Note' : 'Create New Note'}</h1>
                 <form className="noteform-form" onSubmit={this.addNote}>
                     <input 
                     placeholder="title"

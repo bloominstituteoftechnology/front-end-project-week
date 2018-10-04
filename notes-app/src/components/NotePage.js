@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 function NotePage(props) {
@@ -15,12 +16,18 @@ function NotePage(props) {
     return (
         <div className="notepage-div">
             <div className="edit-delete">
-                <div onClick={() => 
-                    props.updateNoteForm(note._id)}> edit</div> 
+                <Link to="/noteform">
+                    <div onClick={() => 
+                        props.goToUpdateNoteForm(note._id)}> edit
+                    </div> 
+                </Link>
                 &nbsp;&nbsp;
-                <div onClick={() => {
-                    props.deleteNote(note._id)}}> delete</div>
-            </div>
+                <Link to="/notes">
+                    <div onClick={() => {
+                        props.deleteNote(note._id)}}> delete
+                    </div>
+                </Link>
+            </div>   
             <h1 className="notepage-header">{note.title}</h1>
             <p className="notepage-paragraph">{note.textBody}</p>
         </div>

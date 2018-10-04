@@ -5,16 +5,13 @@ import './App.css';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
 import NotePage from './components/NotePage';
+import DeleteModal from './components/DeleteModal';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: [],
-      note: {
-        title: 'watch me',
-        textBody: '',
-      },
       isUpdating: false
     }
   }
@@ -41,17 +38,22 @@ class App extends Component {
   deleteNote = id => {
     console.log('clicking');
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      // .then(response => this.setState({
-      //   notes: this.state.notes.filter(note => {
-      //     return note._id !== id;
-      //   })
-      // }))
-      // .catch(error => console.log(error))
-      .then(response => console.log('deleted'))
+      // .then(response => console.log('deleted'))
+      .then(response => this.setState({ notes: [...this.state.notes]}))
+
   }
 
-  updateNoteForm = noteid => {
-    console.log(noteid)
+  goToUpdateNoteForm = note => {
+    console.log(note)
+    this.setState({ note: note, isUpdating: true})
+  }
+
+  handleUpdate = id => {
+    axios.put(`http://localhost:5000/avengers/${id}`, this.state.note)
+      .then(response => {
+        this.fetchNotes();
+        this.setState({ isUpdating: false })
+      });
   }
 
   render() {
@@ -75,12 +77,15 @@ class App extends Component {
             (<NotePage {...props} 
             notes={this.state.notes} 
             deleteNote={this.deleteNote} 
-            updateNoteForm = {this.updateNoteForm}/>)} />
+            goToUpdateNoteForm = {this.goToUpdateNoteForm}/>)} />
           <Route 
           path = '/noteform' 
           render={(props) => 
             (<NoteForm {...props} 
-            postNoteRequest={this.postNoteRequest} />)} />
+            note={this.state.note}
+            postNoteRequest={this.postNoteRequest} 
+            handleUpdate={this.handleUpdate}
+            isUpdating={this.state.isUpdating}/>)} />
         </div>
       </div>
     )
