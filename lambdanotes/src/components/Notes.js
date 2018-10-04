@@ -6,22 +6,24 @@ import axios from 'axios';
   constructor(props) {
     super(props);
       this.state = {
-        notes: []
+        title: "",
+        textBody: "",
+        id: "",
       }
   }
    componentDidMount() {
-    const notesid = this.props.match.params.notesid;
-    axios.get(`https://killer-notes.herokuapp.com/note/get/${notesid}`)
+    const noteId = this.props.match.params.noteId;
+    axios.get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
     .then(response => {
-      this.setState({notes: response.data});
+      this.setState({title: response.data.title, textBody: response.data.textBody, id: response.data._id});
   })
   .catch(err => {
       console.log("Error in the Notes CDM!", err);
   });
 }
    handleDelete = () => {
-    const notesid = this.props.match.params.notesid;
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${notesid}`)
+    const notesId = this.props.match.params.notesId;
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${notesId}`)
     .then(response => {
       this.setState(() => ({notes: response.data}))
     });
@@ -31,11 +33,12 @@ import axios from 'axios';
         <div>
             <div>
             {/* <Link to={`./edit/${this.state.note.id}`}>Edit</Link> */}
-            <button onSubmit={this.handleDelete}>Delete</button>
-            <button onSubmit={}>Update</button>
+            <button onClick={this.handleDelete}>Delete</button>
+            <button onClick={event => {event.preventDefault(); 
+              this.props.goToUpdateNoteForm()}}>Update</button>
             </div>
-            <h1>{this.state.notes.title}</h1>
-            <p>{this.state.notes.textBody}</p>
+            <h1>{this.state.title}</h1>
+            <p>{this.state.textBody}</p>
         </div>
     );
   }
