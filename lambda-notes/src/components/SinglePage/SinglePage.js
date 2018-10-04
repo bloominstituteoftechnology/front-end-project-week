@@ -37,7 +37,7 @@ this.setState({
 
 componentWillUnmount(){
 this.setState({
-    mounted: false
+    mounted: true
   });
 }
 
@@ -119,7 +119,9 @@ noteTaking(id)
     },
       () => {
 console.log(this.state.message);
-        this.props.history.push('/')}
+        this.props.history.push(`/notes/${id}`);
+
+      }
 
     );
   })
@@ -133,14 +135,6 @@ console.log(this.state.message);
     return (
 
     <div className="Notes">
-      <div className='NoteContainer'>
-        <div key ={this.state.notes._id} >
-        <h3>{this.state.notes.title}</h3>
-        <hr/>
-        <p> {this.state.notes.textBody}</p>
-        </div>
-      </div>
-
       <div className="FormContainer">
       <form >
       <div className= 'row'>
@@ -160,6 +154,15 @@ console.log(this.state.message);
 
 
       </div>
+      <div className='NoteContainer'>
+        <div key ={this.state.notes._id} >
+        <h3>{this.state.notes.title}</h3>
+        <hr/>
+        <p> {this.state.notes.textBody}</p>
+        </div>
+      </div>
+
+
     </div>
     );
 

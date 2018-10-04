@@ -30,7 +30,7 @@ nav {
 position: fixed;
 display: block;
 background-color: #b1b1b1;
-border: 1px solid black;
+border: 1px solid #696565;
 height: 100vh;
 width: 20vw;
 top: 0;
@@ -57,7 +57,7 @@ text-align: left;
 .NoteContainer{
 float: right;
 Padding: 50px;
-border:  1px solid black;
+border:  1px solid #696565;
 justify-content: space-between;
 box-shadow:11px -6px 18px 7px #442222;
 text-align: center;
@@ -89,6 +89,9 @@ left: 0;
 .FormContainer form{
   justify-content: center;
   margin-left:50%;
+  margin: 0 auto;
+  display:inline-block;
+  text-align: center;
 }
 .FormContainer button{
   margin-right: 300px;
@@ -97,7 +100,7 @@ left: 0;
   margin-bottom: 100px;
 }
 .rowTitle input{
-      margin-left: 40px;
+
 }
 label{
       margin-right: 10px;
@@ -107,11 +110,19 @@ color: black;
 width: 100px;
 }
 .SearchBar{
-border:1px solid black;
+border:1px solid #696565;
 padding-top: 10px;
 padding-bottom: 10px;
+position:fixed;
+width: 100%;
+z-index: -1;
+top: 0;
+background-color: #b1b1b1;
 }
-@media (max-width:480px) {
+h2{
+margin-left: 600px;
+}
+@media (max-width:780px) {
 nav h1{
     font-size: 10px;
   }
@@ -119,9 +130,12 @@ nav h1{
     height: 100%;
   }
   .NoteContainer{
-    margin-top: 500px;
+
   }
   .ButtonContainer button{
-    margin-bottom: 100px;
+    
+  }
+  .SearchBar{
+    padding-left: 100px;
   }
 }

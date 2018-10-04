@@ -33,8 +33,9 @@ render(){
   <Button onClick = {this.props.filterNotes(this.state.SearchTitle)}>Search</Button>
    </div>
 
-      <h2>Your Notes:</h2>
+
     <hr/>
+      
 <div className='Notes'>
  {this.props.notes.notes.map(note => {
    return(
