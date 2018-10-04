@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import styled from 'styled-components';
 
 class DeleteModal extends Component {
   constructor(props) {
