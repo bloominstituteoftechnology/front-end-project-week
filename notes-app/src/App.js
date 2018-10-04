@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
+import styled, { createGlobalStyle } from 'styled-components'
 import { withRouter } from "react-router-dom";
 import './App.css';
 import NoteForm from './components/NoteForm'
@@ -49,6 +50,20 @@ class App extends Component {
     
       deleteNote = (noteId) => {
         this.props.history.push
+        this.setState({ notes: this.state.notes.filter(note => note.id !== noteId) })
+      }
+
+      filterNotes = (e, tagName) => {
+        e.preventDefault()
+    
+        if (tagName === "all") { 
+          const filteredNotes = [...this.state.notes]
+          this.setState({ filteredNotes })
+        } else {
+          const filteredNotes = [...this.state.notes].filter(note => note.tags.includes(tagName))
+          this.setState({ filteredNotes })
+        }
+    
       }
 
   render() {
@@ -82,10 +97,53 @@ class App extends Component {
           />
         }
         />
+
+        <GlobalStyle />
       </div1>
-    );
+    )
   }
 }
   
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+  }
+  .App {
+    width: 100%;
+    max-width: 888px;
+    margin: 0 auto;
+    border: 1px solid #D6D5D6;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+  button {
+    background-color: #24B8BD;
+    color: white;
+    font-size: 1.5rem;
+    width: 190px;
+    padding: 5%;
+    border-radius: 2px;
+  }
+`
+const Div1 = styled.div`
+  display: flex;
+`
+
 
 export default withRouter(App);
