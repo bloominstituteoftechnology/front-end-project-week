@@ -1,16 +1,71 @@
 import axios from "axios";
 
 // getNotes action creator TODO: fill in logic
-export const getNotes = () => {};
+export const getNotes = () => {
+  return dispatch => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .then(response => {
+        dispatch({ type: "NOTES_FETCHED", payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};
 
 // addNotes action creator TODO: fill in logic
-export const addNote = () => {};
+export const addNote = () => {
+  return dispatch => {
+    axios
+      .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
+      .then(() => getNotes()(dispatch))
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};
 
 // getNote action creator TODO: fill in logic
-export const getNote = () => {};
+export const getNote = () => {
+  return dispatch => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        dispatch({ type: "NOTE_FETCHED", payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};
 
 // editNote action creator TODO: fill in logic
-export const editNote = editedNote => {};
+export const editNote = editedNote => {
+  return dispatch => {
+    axios
+      .put(
+        `https://killer-notes.herokuapp.com/note/edit/${editedNote.id}`,
+        editedNote
+      )
+      .then(response => {
+        dispatch({ type: "NOTE_EDITED", payload: response.data });
+      })
+      .then(() => getNotes()(dispatch))
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};
 
 // deleteNote action creator TODO: fill in logic
-export const deleteNote = id => {};
+export const deleteNote = id => {
+  return dispatch => {
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(() => getNotes()(dispatch))
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};

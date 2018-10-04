@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Components.css";
 import styled from "styled-components";
 
-export default () => {
+export default props => {
   return (
     <Wrapper>
       <h1>
@@ -17,6 +17,14 @@ export default () => {
       <Link to="/notes/add">
         <button>+ Create New Note</button>
       </Link>
+      <input
+        type="text"
+        name="search"
+        maxLength="20"
+        placeholder="Search..."
+        value={props.search}
+        onChange={props.handleSearchChange}
+      />
     </Wrapper>
   );
 };
@@ -30,7 +38,7 @@ const Wrapper = styled.div`
   background: #d8d8d8;
   border-right: 1px solid #979797;
   box-sizing: border-box;
-  height: 150vh;
+  height: 100vh;
 
   button {
     margin-bottom: 15px;
@@ -40,5 +48,10 @@ const Wrapper = styled.div`
     font-size: 35px;
     line-height: 0.9;
     margin: 15px 75px 15px 0;
+  }
+
+  input {
+    width: 200px;
+    margin-bottom: 10px;
   }
 `;
