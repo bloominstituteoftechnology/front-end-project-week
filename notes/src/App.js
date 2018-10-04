@@ -21,12 +21,12 @@ class App extends React.Component {
             </li>
             <li>
               <NavLink to="/notes" className="button">
-                Notes
+                View Notes
               </NavLink>
             </li>
             <li>
               <NavLink to="/note-form" className="button">
-                Add Note
+                + Create Note
               </NavLink>
             </li>
           </ul>
