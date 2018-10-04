@@ -33,16 +33,14 @@ class NoteForm extends Component {
                 <h1>{this.state.edit ? 'Edit Note' : 'Create New Note'}</h1>
                 <form className="noteform-form" onSubmit={this.addNote}>
                     <input 
-                    className="title-input"
+                    className="noteform-title-input"
                     type="text" 
-                    placeholder="title" 
                     name="title" 
                     onChange={this.handleChange} 
                     value={this.state.title}/>
                     <input 
-                    className="body-input"
+                    className="noteform-body-input"
                     type="text"
-                    placeholder="notes here"
                     name="textBody" 
                     onChange={this.handleChange} 
                     value={this.state.textBody}/>

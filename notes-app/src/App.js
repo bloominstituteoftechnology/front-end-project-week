@@ -15,10 +15,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getNotes();
+    this.getNoteRequest();
   }
 
-  getNotes = () => {
+  getNoteRequest = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
       console.log(response)
@@ -33,13 +33,17 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
+  deleteNoteRequest = noteID => {
+    console.log('deleteNoteRequest working');
+  }
+
   render() {
     console.log(this.state.notes)
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Note Taker</h1>
-          <Link ActiveClasName="" to={`/`} style={{textDecoration: 'none'}}><div>View Your Notes</div></Link>
+          <h1 className="App-title">Lambda Notes</h1>
+          <Link to={`/`} style={{textDecoration: 'none'}}><div>View Your Notes</div></Link>
           <Link to={'/addnote'} style={{textDecoration: 'none'}}><div>+ Create New Note</div></Link>
         </header>
         <div className="main-component">
@@ -52,12 +56,13 @@ class App extends Component {
           path='/notes/:id' 
           render={(props) => 
             (<NotePage {...props} 
-            notes={this.state.notes} />)} />
+            notes={this.state.notes} 
+            deleteNoteRequest={this.deleteNoteRequest} />)} />
           <Route 
           path = '/addnote' 
           render={(props) => 
             (<NoteForm {...props} 
-            postNoteRequest={this.postNoteRequest} />)} />
+            postNoteRequest={this.postNoteRequest}/>)} />
         </div>
       </div>
     )

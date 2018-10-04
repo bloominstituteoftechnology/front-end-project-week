@@ -9,8 +9,8 @@ function NotePage(props) {
     return (
         <div className="notepage-div">
             <div className="edit-delete">
-                <button>edit</button>
-                <button>delete</button>
+                <button >edit</button>
+                <button onClick={props.deleteNoteRequest(note._id)} >delete</button>
             </div>
             <h1>{note.title}</h1>
             <p>{note.textBody}</p>

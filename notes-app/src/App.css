@@ -11,8 +11,8 @@ html {
   background-color: #D3D2D3;
   height: auto;
   width: 100%;
-  max-width: 220px;
-  /* padding: 50px; */
+  max-width: 200px;
+  padding: 10px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -25,15 +25,17 @@ html {
 }
 
 .App-header div {
-  text-align: center;
+
   margin-left: 10px;
   border: 1px solid #CCC;
   margin-top: 10px;
-  padding: 20px;
-  width: 140px;
+  padding: 8px;
+  width: 165px;
   height: 20px;
   color: white;
   background-color: #24B8BD;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .App-title {
@@ -45,7 +47,7 @@ html {
 
 .main-component {
   width: 100%;
-  max-width: 944px;
+  max-width: 1200px;
   background-color: #F2F1F2;
 }
 
@@ -54,26 +56,31 @@ html {
 .noteslistcontainer-div {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 40px;
+  margin-top: 60px;
 }
 
-.noteslistcontainer-div h1 {
+.notelist-header {
   color: #414141;
+  font-size: 1.6rem;
+  margin-left: 40px;
+  margin-top: 60px;
+  margin-bottom: 25px;
 }
 
 .noteslist-div {
+  margin-left: 50px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .note-div {
   height: 180px;
-  padding: 20px;
+  /* padding: 20px; */
   margin-right: 20px;
   margin-top: 20px;
-  width: 160px;
+  width: 180px;
   border: 1px solid #414141;
-  ;
 }
 
 .note-div h1 {
@@ -82,53 +89,55 @@ html {
   color: #414141;
 }
 
-.note-div p {
-
-}
-
 .noteform-div {
   display: flex;
-}
-
-.notepage-div {
 }
 
 /* Noteform */
 
 .noteform-div {
-  margin-left: 50px;
+  /* margin-left: 50px; */
   display: flex;
   flex-direction: column;
+}
+
+.noteform-div h1 {
+  font-size: 1.6rem;
+  margin-left: 40px;
+  margin-top: 60px;
+  margin-bottom: 45px;
 }
 
 .noteform-form {
   display: flex;
   flex-direction: column;
+  margin-left: 50px;
 }
 
 .noteform-div h1 {
   color: #414141;
 }
 
-.title-input {
+.noteform-title-input {
   width: 360px;
   height: 20px;
+  border: 1.5px solid #CCC;
   border-radius: 3px;
-  border: 1px solid black;
 }
 
-.body-input {
+.noteform-body-input {
   margin-top: 15px;
   width: 600px;
   height: 300px;
+  border: 1.5px solid #CCC;
   border-radius: 3px;
-  border: 1px solid black;
 }
 
 .noteform-button {
   margin-top: 15px;
   width: 160px;
   height: 30px;
-  border: 1px solid black;
-
+  border: 1px solid #CCC;
+  color: white;
+  background-color: #24B8BD;
 }
