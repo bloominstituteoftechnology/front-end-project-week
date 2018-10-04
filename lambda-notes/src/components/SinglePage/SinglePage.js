@@ -151,7 +151,7 @@ console.log(this.state.message);
 
       <form >
       <div className= 'row'>
-        <input placeholder = 'Title' name= 'newTitle' onChange ={this.handleInputChange} value = {this.state.newTitle}/>
+        <input className ='TitleInput' placeholder = 'Title' name= 'newTitle' onChange ={this.handleInputChange} value = {this.state.newTitle}/>
       </div>
       <div className= 'row'>
         <input className='textComment' placeholder = 'Content' name= 'newTextBody'  onChange ={this.handleInputChange} value = {this.state.newTextBody}/>

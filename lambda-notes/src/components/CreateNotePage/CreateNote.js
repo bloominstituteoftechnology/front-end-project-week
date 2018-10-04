@@ -54,7 +54,7 @@ render(){
   <form >
     <label>Add A Note:</label>
   <div className= 'row'>
-    <input placeholder = 'Title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
+    <input className='TitleInput' placeholder = 'Title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
   </div>
   <div className= 'row'>
     <input className='textComment' placeholder = 'Content' name= 'textBody'  onChange ={this.handleInputChange} value = {this.state.textBody}/>

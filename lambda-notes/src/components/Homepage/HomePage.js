@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
 import { Button } from 'reactstrap';
 
@@ -35,7 +34,7 @@ render(){
 
 
     <hr/>
-      
+
 <div className='Notes'>
  {this.props.notes.notes.map(note => {
    return(
