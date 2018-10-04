@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import '../App.css';
 
 function NotePage(props) {
-    console.log(props.match.params._id)
+    console.log(props)
     const note = props.notes.find(note => note._id === props.match.params.id);
-    console.log(note)
+    console.log(note._id)
+    // deleteHandler = id => {
+
+    // }
+    // function deleteHandler() {
+    //     props.deleteNote(note._id)
+    //     props.history.push('/notes')
+    // }
     return (
         <div className="notepage-div">
             <div className="edit-delete">
-                <button >edit</button>
-                <button onClick={props.deleteNoteRequest(note._id)} >delete</button>
+                <div onClick={() => 
+                    props.updateNoteForm(note._id)}> edit</div> 
+                &nbsp;&nbsp;
+                <div onClick={() => {
+                    props.deleteNote(note._id)}}> delete</div>
             </div>
-            <h1>{note.title}</h1>
-            <p>{note.textBody}</p>
+            <h1 className="notepage-header">{note.title}</h1>
+            <p className="notepage-paragraph">{note.textBody}</p>
         </div>
     )
 }

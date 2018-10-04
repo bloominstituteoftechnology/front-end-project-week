@@ -56,20 +56,19 @@ html {
 .noteslistcontainer-div {
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
   margin-top: 60px;
 }
 
 .notelist-header {
   color: #414141;
   font-size: 1.6rem;
-  margin-left: 40px;
+  margin-left: 60px;
   margin-top: 60px;
   margin-bottom: 25px;
 }
 
 .noteslist-div {
-  margin-left: 50px;
+  margin-left: 70px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -103,19 +102,17 @@ html {
 
 .noteform-div h1 {
   font-size: 1.6rem;
-  margin-left: 40px;
+  margin-left: 60px;
   margin-top: 60px;
   margin-bottom: 45px;
+  color: #414141;
+
 }
 
 .noteform-form {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
-}
-
-.noteform-div h1 {
-  color: #414141;
+  margin-left: 70px;
 }
 
 .noteform-title-input {
@@ -140,4 +137,34 @@ html {
   border: 1px solid #CCC;
   color: white;
   background-color: #24B8BD;
+}
+
+/* NotePage */
+
+
+.notepage-div {
+  width: 100%;
+  max-width: 600px;
+}
+
+.edit-delete {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.edit-delete div {
+  text-decoration: underline;
+}
+
+.notepage-header {
+  color: #414141;
+  font-size: 1.6rem;
+  margin-left: 60px;
+  margin-top: 32px;
+  margin-bottom: 45px;
+} 
+
+.notepage-paragraph {
+  margin-left: 70px;
 }

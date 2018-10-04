@@ -11,14 +11,19 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
+      note: {
+        title: 'watch me',
+        textBody: '',
+      },
+      isUpdating: false
     }
   }
 
   componentDidMount() {
-    this.getNoteRequest();
+    this.fetchNotes();
   }
 
-  getNoteRequest = () => {
+  fetchNotes = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
       console.log(response)
@@ -33,8 +38,20 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  deleteNoteRequest = noteID => {
-    console.log('deleteNoteRequest working');
+  deleteNote = id => {
+    console.log('clicking');
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      // .then(response => this.setState({
+      //   notes: this.state.notes.filter(note => {
+      //     return note._id !== id;
+      //   })
+      // }))
+      // .catch(error => console.log(error))
+      .then(response => console.log('deleted'))
+  }
+
+  updateNoteForm = noteid => {
+    console.log(noteid)
   }
 
   render() {
@@ -43,12 +60,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Lambda Notes</h1>
-          <Link to={`/`} style={{textDecoration: 'none'}}><div>View Your Notes</div></Link>
-          <Link to={'/addnote'} style={{textDecoration: 'none'}}><div>+ Create New Note</div></Link>
+          <Link to={`/notes`} style={{textDecoration: 'none'}}><div>View Your Notes</div></Link>
+          <Link to={'/noteform'} style={{textDecoration: 'none'}}><div>+ Create New Note</div></Link>
         </header>
         <div className="main-component">
           <Route 
-          exact path='/' 
+          exact path='/notes' 
           render={(props) => 
             (<NoteList {...props} 
             notes={this.state.notes} />)} />
@@ -57,12 +74,13 @@ class App extends Component {
           render={(props) => 
             (<NotePage {...props} 
             notes={this.state.notes} 
-            deleteNoteRequest={this.deleteNoteRequest} />)} />
+            deleteNote={this.deleteNote} 
+            updateNoteForm = {this.updateNoteForm}/>)} />
           <Route 
-          path = '/addnote' 
+          path = '/noteform' 
           render={(props) => 
             (<NoteForm {...props} 
-            postNoteRequest={this.postNoteRequest}/>)} />
+            postNoteRequest={this.postNoteRequest} />)} />
         </div>
       </div>
     )
