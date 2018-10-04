@@ -56,7 +56,76 @@ render() {
 
   const Div1 = styled.div`
   padding: 1%;
-  `
+  padding: 1% 3%;
+  width: 75%;
+  background: #F2F1F2;
+  min-height: 90vh;
+`
+const Div4 = styled.div`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+`
+const Div2 = styled.div`
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+`
+const Div3 = styled.div`
+  background-color: white;
+  width: 38%;
+  height: 160px;
+  margin: 0 auto;
+  margin-top: 6%;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-bottom: 3%;
+`
+
+const H2 = styled.h2`
+  margin: 0;
+`
+const P1 =  styled.p`
+  font-size: 1.6rem;
+`
+const P2 =  styled.p`
+  font-size: 1.8rem;
+  vertical-align: middle;
+  width: 100%;
+  flex: 1 1 100%;
+  text-align: center;
+  line-height: 3;
+`
+const Button = styled.button`
+  margin: 0 2%;
+  padding: 2%;
+  background: ${props => props.delete ? "red" : "#24B8BD"};
+`
+const Link1 = styled(Link)`
+  font-size: 1.6rem;
+  color: black;
+  margin-right: 0.5rem;
+`
+const A1 = styled.a`
+  font-size: 1.6rem;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 
   export default Note
