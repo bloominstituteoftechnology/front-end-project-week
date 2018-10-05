@@ -1,14 +1,37 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
 // material ui components
-import TextField from "@material-ui/core/TextField";
+import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 // actions
 import { addTodo } from "../actions/index";
 // styles
 import "../styles/CreateTodoForm.css";
 import "../styles/animation.css";
+
+const styles = theme => ({
+    noteInput: {
+        border: "2px solid #26c6da",
+        borderRadius: "5px",
+        padding: "10px",
+        fontSize: "1.5rem",
+        marginBottom: "20px",
+        width: "100%"
+    },
+    button: {
+        width: "40%",
+        backgroundColor: "#26c6da",
+        fontSize: "1.75rem",
+        fontWeight: "700",
+        color: "white",
+        letterSpacing: "0.2rem",
+        "&:hover": {
+            backgroundColor: "black"
+        }
+    }
+});
 
 class CreateTodoForm extends Component {
     constructor(props) {
@@ -31,46 +54,40 @@ class CreateTodoForm extends Component {
     };
 
     render() {
+        const { classes } = this.props;
+
         return (
-            <div className="fade">
-                <div className="row">
-                    <h3 className="CreateTodoForm_header">Create New Note:</h3>
-                    <TextField
-                        className="CreateTodoForm_title"
-                        hintText="Note Title"
-                        floatingLabelText="Note Title"
-                        underlineShow={false}
+            <div className="CreateTodoFormContainer fade">
+                <h3 className="CreateTodoForm_header">Create New Note:</h3>
+                <form className="CreateTodoForm_form">
+                    <Input
+                        className={classes.noteInput}
                         name="title"
+                        placeholder="Give your note a title"
                         value={this.state.title}
+                        disableUnderline={true}
                         onChange={this.handleNewInput}
                     />
-                </div>
-                <div className="row">
-                    <TextField
-                        className="CreateTodoForm_content"
-                        hintText="Note Content"
-                        hintStyle={{
-                            top: 25
-                        }}
-                        underlineShow={false}
-                        multiLine={true}
-                        rows={10}
+                    <Input
+                        className={classes.noteInput}
                         name="text"
+                        placeholder="Your note here"
                         value={this.state.text}
+                        multiline
+                        rows="10"
+                        disableUnderline={true}
                         onChange={this.handleNewInput}
                     />
-                </div>
-                <div className="row">
-                    <Link to="/">
+                    <Link to="/" style={{ textDecoration: "none" }}>
                         <Button
                             variant="contained"
-                            className="CreateTodoForm_savebtn"
-                            label="Save"
-                            primary={true}
+                            className={classes.button}
                             onClick={this.handleAddTodo}
-                        />
+                        >
+                            View Your Notes
+                        </Button>
                     </Link>
-                </div>
+                </form>
             </div>
         );
     }
@@ -87,4 +104,4 @@ export default connect(
     {
         addTodo
     }
-)(CreateTodoForm);
+)(withStyles(styles)(CreateTodoForm));
