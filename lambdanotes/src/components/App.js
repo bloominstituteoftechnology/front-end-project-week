@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, withRouter, Switch} from "react-router-dom";
 import SideBar from './SideBar';
 import NoteView from './NoteView';
 import CreateNew from './CreateNew';
@@ -60,12 +60,12 @@ class App extends Component {
     });
   };
 
-  handleEdit( title, textBody, noteId) {
-    console.log(title, textBody, noteId);
-    axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`)
-    .then(response => {})
-  }
+  // handleEdit( title, textBody, noteId) {
+  //   console.log(title, textBody, noteId);
+  //   axios
+  //   .put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`)
+  //   .then(response => {})
+  // }
 
 
   handleAddNewNote = event => {
@@ -76,12 +76,14 @@ class App extends Component {
     .then(response => this.setState({note: response.data }));
   };
 
-  handleDeleteNote( noteId ) {
-    // console.log(noteId);
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
-    .then(response => this.setState({note: response.data }));
+  // handleDeleteNote( noteId ) {
+    
+  //   axios
+  //   .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+  //   .then(response => this.props.history.push('/notes')
+  //   )
 
-  };
+  // };
 
   ///Bind this above?
 
@@ -134,6 +136,7 @@ class App extends Component {
           <EditNote {...routeProps}
             notes={this.state.notes}
             handleEdit = {this.handleEdit}
+            history={this.props.history}
             />}
           />
           
@@ -141,7 +144,8 @@ class App extends Component {
             render={routeProps => 
           <DeleteNote {...routeProps}
             handleDeleteNote = {this.handleDeleteNote}  
-            notes={this.state.notes}/>}
+            notes={this.state.notes}
+            history={this.props.history}/>}
          />
 
           <Route path='/notes/:noteId'
@@ -173,4 +177,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

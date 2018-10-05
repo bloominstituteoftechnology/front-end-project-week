@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import './DeleteNote.css';
 
 
@@ -9,6 +10,14 @@ function DeleteNote(props){
     
     const note = props.notes.find(
         note => note._id === props.match.params.noteId);
+
+    const handleDeleteNote = (noteId, history) => {
+    
+        axios
+        .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+        .then(response => history.push('/notes')
+        )
+        };
     
 
     return (
@@ -33,7 +42,7 @@ function DeleteNote(props){
          </div>
                 <h2>Are you certain?</h2>
                 <div className="yesno">
-                <button className="yes" onClick={() => props.handleDeleteNote(note._id)}>
+                <button className="yes" onClick={() => handleDeleteNote(note._id, props.history)}>
                 <span>yes</span>
                 </button>
                 <Link to ={`/notes/${note._id}`}>
