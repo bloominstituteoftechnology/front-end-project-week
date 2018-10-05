@@ -5,7 +5,6 @@ import './App.css';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
 import NotePage from './components/NotePage';
-import DeleteModal from './components/DeleteModal';
 
 class App extends Component {
   constructor() {
@@ -45,7 +44,7 @@ class App extends Component {
 
   goToUpdateNoteForm = note => {
     console.log(note)
-    this.setState({ note: note, isUpdating: true})
+    this.setState({ note: note, isUpdating: !this.state.sUpdating})
   }
 
   handleUpdate = id => {
@@ -71,21 +70,18 @@ class App extends Component {
           render={(props) => 
             (<NoteList {...props} 
             notes={this.state.notes} />)} />
-          <Route 
+          {/* <Route 
           path='/notes/:id' 
           render={(props) => 
             (<NotePage {...props} 
             notes={this.state.notes} 
             deleteNote={this.deleteNote} 
-            goToUpdateNoteForm = {this.goToUpdateNoteForm}/>)} />
+            goToUpdateNoteForm = {this.goToUpdateNoteForm}/>)} /> */}
           <Route 
           path = '/noteform' 
           render={(props) => 
             (<NoteForm {...props} 
-            note={this.state.note}
-            postNoteRequest={this.postNoteRequest} 
-            handleUpdate={this.handleUpdate}
-            isUpdating={this.state.isUpdating}/>)} />
+            postNoteRequest={this.postNoteRequest} />)} />
         </div>
       </div>
     )

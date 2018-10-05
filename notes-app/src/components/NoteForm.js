@@ -22,14 +22,16 @@ class NoteForm extends Component {
         console.log(note)
         this.props.postNoteRequest(note)
         this.props.history.push('/notes');
+
+        this.setState({ 
+            title: '',
+            textBody: '',
+        })
     }
-
-
-
     render() {
         return(
             <div className="noteform-div">
-                <h1>{this.props.isUpdating ? 'Edit Note' : 'Create New Note'}</h1>
+                <h1>Create New Note: </h1>
                 <form className="noteform-form" onSubmit={this.addNote}>
                     <input 
                     placeholder="title"
@@ -37,7 +39,7 @@ class NoteForm extends Component {
                     type="text" 
                     name="title" 
                     onChange={this.handleChange} 
-                    value={this.state.title}/>
+                    value={this.state.title} />
                     <textarea
                     className="noteform-body-input"
                     placeholder="text area"
@@ -45,19 +47,10 @@ class NoteForm extends Component {
                     name="textBody"
                     cols="40" rows="5"
                     onChange={this.handleChange} 
-                    value={this.state.textBody}
-                    ></textarea>
-                    {/* <input 
-                    className="noteform-body-input"
-                    type="text"
-                    name="textBody" 
-                    onChange={this.handleChange} 
-                    value={this.state.textBody}/> */}
+                    value={this.state.textBody} />
                     <button className="noteform-button" type="submit">Add Note</button>
                 </form>
             </div>
-
-
         )
     }
 }
