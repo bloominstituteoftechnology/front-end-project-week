@@ -22,10 +22,10 @@ class App extends Component {
   fetchNotes = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
     .then(response => {
-      console.log(response)
+
       this.setState({ notes: response.data })
     })
-    .catch(error => console.log(' We have an Error!', error))
+    .catch(error => console.log(error))
   }
 
   postNoteRequest = (newNote) => {
@@ -35,7 +35,6 @@ class App extends Component {
   }
 
   deleteNote = id => {
-    console.log('clicking');
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       // .then(response => console.log('deleted'))
       .then(response => this.setState({ notes: [...this.state.notes]}))
@@ -43,7 +42,6 @@ class App extends Component {
   }
 
   goToUpdateNoteForm = note => {
-    console.log(note)
     this.setState({ note: note, isUpdating: !this.state.sUpdating})
   }
 
@@ -55,7 +53,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.notes)
     return (
       <div className="App">
         <header className="App-header">
