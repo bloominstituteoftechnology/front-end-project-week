@@ -1,26 +1,41 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NoteEditForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.match.params.id,
+            id: '',
             title: '',
             textBody: '',
         }
+    }
+
+    componentDidMount() {
+        this.getRequest(this.props.match.params.id);
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
         console.log(e.target.value)
     }
     putHandler = () => {
+        const noteId = this.props.match.params.id;
         const updatedNote = {
-            id: this.state.id,
+            id: this.props.match.params.id,
             title: this.state.title,
             textBody: this.state.textBody
         }
-        this.props.putRequest(this.state.id, updatedNote)
+        this.props.putRequest(noteId, updatedNote)
         this.props.history.push('/notes');
+    }
+    getRequest = id => {
+        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .then(response => {
+            console.log(response)
+            // this.setState({
+            //     id: response.dat
+            // })
+        })
     }
     render() {
         return(
