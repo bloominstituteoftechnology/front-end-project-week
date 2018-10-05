@@ -51,7 +51,6 @@ class App extends Component {
     axios.put(`http://localhost:5000/avengers/${id}`, this.state.note)
       .then(response => {
         this.fetchNotes();
-        this.setState({ isUpdating: false })
       });
   }
 
@@ -70,13 +69,13 @@ class App extends Component {
           render={(props) => 
             (<NoteList {...props} 
             notes={this.state.notes} />)} />
-          {/* <Route 
+          <Route 
           path='/notes/:id' 
           render={(props) => 
             (<NotePage {...props} 
             notes={this.state.notes} 
             deleteNote={this.deleteNote} 
-            goToUpdateNoteForm = {this.goToUpdateNoteForm}/>)} /> */}
+            goToUpdateNoteForm = {this.goToUpdateNoteForm}/>)} />
           <Route 
           path = '/noteform' 
           render={(props) => 
