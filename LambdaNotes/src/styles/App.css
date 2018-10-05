@@ -1,4 +1,14 @@
 .App {
-	/*border: 1px solid red;*/
-	text-align: left;
+    border: 5px solid black;
+    text-align: left;
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.TodoContainer {
+    padding: 0 3%;
+    width: 70%;
 }
