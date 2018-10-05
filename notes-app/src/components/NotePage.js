@@ -7,7 +7,6 @@ class NotePage extends Component {
     constructor() {
         super();
         this.state = {
-            notes: [],
             note: {
                 id: '',
                 title: '',
@@ -15,50 +14,45 @@ class NotePage extends Component {
             }
         }
     }
-
     componentDidMount() {
         const noteId = this.props.match.params.id;
         this.getRequestById(noteId)
     }
-
     getRequestById = (id) => {
         axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
         .then(response => {
+            const note = {
+                id: response.data._id,
+                title: response.data.title,
+                textBody: response.data.textBody
+            }
             this.setState({
                 ...this.state.note,
-                note: {
-                    id: response.data._id,
-                    title: response.data.title,
-                    textBody: response.data.textBody
-                }
+                note: note
             })
         })
         .catch(error => console.log(error))
     }
-
-    // getRequestById = (id) => {
-    //     axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-    //     .then(response => {
-    //         console.log(response)
-    //         let note = Object.assign({id: response._id, title: response.title, textBody: response.textBody}, this.state.jasper);
-    //         this.setState({ note: note })
-    //         console.log(this.state.note)
-    //     })
-    // }
-
+    deleteHandler = () => {
+        this.props.deleteRequest(this.props.match.params.id);
+        this.props.history.push('/');
+    }
+    toEditNote = () => {
+        const id = this.props.match.params.id;
+        // this.props.history.push(`/editnote/${id}`)
+        console.log('to edit note')
+    }
     render() {
         return (
             <div className="notepage-div">
                 <div className="edit-delete">
                     <Link to="/noteform">
-                        <div onClick={() => 
-                            console.log('edit clicking')}> edit
+                        <div onClick={() => this.toEditeNote()}> edit
                         </div> 
                     </Link>
                     &nbsp;&nbsp;
                     <Link to="/notes">
-                        <div onClick={() => {
-                            console.log('delete clicking')}}> delete
+                        <div onClick={() => this.deleteHandler()}> delete
                         </div>
                     </Link>
                 </div>   
@@ -68,6 +62,4 @@ class NotePage extends Component {
         )
     }
 }
-
-
 export default NotePage;

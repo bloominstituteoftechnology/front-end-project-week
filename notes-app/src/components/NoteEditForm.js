@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-class NoteForm extends Component {
+class NoteEditForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.match.params.id,
             title: '',
             textBody: '',
         }
@@ -12,19 +13,20 @@ class NoteForm extends Component {
         this.setState({ [e.target.name]: e.target.value })
         console.log(e.target.value)
     }
-    postHandler = e => {
-        const note = {
+    putHandler = () => {
+        const updatedNote = {
+            id: this.state.id,
             title: this.state.title,
             textBody: this.state.textBody
         }
-        this.props.postRequest(note)
+        this.props.putRequest(this.state.id, updatedNote)
         this.props.history.push('/notes');
     }
     render() {
         return(
             <div className="noteform-div">
-                <h1>Create New Note: </h1>
-                <form className="noteform-form" onSubmit={this.postHandler}>
+                <h1>Edit Note: </h1>
+                <form className="noteform-form" onSubmit={this.putHandler}>
                     <input 
                     placeholder="title"
                     className="noteform-title-input"
@@ -47,4 +49,4 @@ class NoteForm extends Component {
     }
 }
 
-export default NoteForm;
+export default NoteEditForm;

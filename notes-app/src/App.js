@@ -5,52 +5,56 @@ import './App.css';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
 import NotePage from './components/NotePage';
+import NoteEditForm from './components/NoteEditForm';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
-      isUpdating: false
+      notes: []
     }
   }
 
   componentDidMount() {
-    this.fetchNotes();
+    this.getRequestAll();
   }
 
-  fetchNotes = () => {
+  getRequestAll = () => {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => {
-
-      this.setState({ notes: response.data })
-    })
+    .then(response => 
+      this.setState({
+        ...this.state, notes: response.data
+      }))
     .catch(error => console.log(error))
   }
-
-  postNoteRequest = (newNote) => {
+  postRequest = (newNote) => {
     axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
-      .then(response => this.setState({ notes: [...this.state.notes, {...newNote}]}))
+    .then(response => this.getRequestAll())
+      //Or..
+      // this.setState({
+      //   ...this.state,
+      //   notes: [...this.state.notes, {...newNote}]
+      // }))
       .catch(error => console.log(error))
   }
-
-  deleteNote = id => {
+  deleteRequest = (id) => {
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      // .then(response => console.log('deleted'))
-      .then(response => this.setState({ notes: [...this.state.notes]}))
-
+    .then(response => this.getRequestAll())
+        // Or..
+        // Setting state like this for practice
+        // this.setState({
+        // ...this.state,
+        // notes: this.state.notes.filter(data => data._id !== id)
+        // })
+    .catch(error => console.log(error))
   }
-
-  goToUpdateNoteForm = note => {
-    this.setState({ note: note, isUpdating: !this.state.sUpdating})
-  }
-
-  handleUpdate = id => {
-    axios.put(`http://localhost:5000/avengers/${id}`, this.state.note)
-      .then(response => {
-        this.fetchNotes();
-      });
-  }
+  putRequest = (id, updatedNote) => {
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote)
+    .then(response => this.getRequestAll())
+    // Or
+    //
+    .catch(error => console.log(error))
+  } 
 
   render() {
     return (
@@ -58,7 +62,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Lambda Notes</h1>
           <Link to={`/notes`} style={{textDecoration: 'none'}}><div>View Your Notes</div></Link>
-          <Link to={'/noteform'} style={{textDecoration: 'none'}}><div>+ Create New Note</div></Link>
+          <Link to={'/createnote'} style={{textDecoration: 'none'}}><div>+ Create New Note</div></Link>
         </header>
         <div className="main-component">
           <Route 
@@ -67,17 +71,20 @@ class App extends Component {
             (<NoteList {...props} 
             notes={this.state.notes} />)} />
           <Route 
+          path = '/createnote' 
+          render={(props) => 
+            (<NoteForm {...props} 
+            postRequest={this.postRequest} />)} />
+          <Route 
           path='/notes/:id' 
           render={(props) => 
             (<NotePage {...props} 
-            notes={this.state.notes} 
-            deleteNote={this.deleteNote} 
-            goToUpdateNoteForm = {this.goToUpdateNoteForm}/>)} />
+          deleteRequest={this.deleteRequest}/>)} />
           <Route 
-          path = '/noteform' 
-          render={(props) => 
-            (<NoteForm {...props} 
-            postNoteRequest={this.postNoteRequest} />)} />
+          path='/editnote/:id'
+          render= {(props) => 
+            (<NoteEditForm {...props}
+            putRequest={this.putRequest} />)}/>
         </div>
       </div>
     )
