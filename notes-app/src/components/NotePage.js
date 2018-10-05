@@ -7,8 +7,7 @@ class NotePage extends Component {
     constructor() {
         super();
         this.state = {
-            notes: [1],
-            notes2: [2],
+            notes: [],
             note: {
                 id: '',
                 title: '',
@@ -33,8 +32,8 @@ class NotePage extends Component {
                     textBody: response.data.textBody
                 }
             })
-            console.log(this.state)
         })
+        .catch(error => console.log(error))
     }
 
     // getRequestById = (id) => {
