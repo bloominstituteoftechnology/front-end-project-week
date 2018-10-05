@@ -55,7 +55,7 @@ class ControlPanel extends Component {
             </Link>,
             <Link to="/addTodo" className="ControlPanel_Link">
                 <Button variant="contained" className={classes.button}>
-                    &#43; Create Todo
+                    Create Todo
                 </Button>
             </Link>,
             <Link to="/" className="ControlPanel_Link">
