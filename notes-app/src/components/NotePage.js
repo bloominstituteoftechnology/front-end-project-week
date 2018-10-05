@@ -46,15 +46,9 @@ class NotePage extends Component {
         return (
             <div className="notepage-div">
                 <div className="edit-delete">
-                    <Link to="/noteform">
-                        <div onClick={() => this.toEditeNote()}> edit
-                        </div> 
-                    </Link>
+                    <div onClick={() => this.toEditeNote()}>edit</div> 
                     &nbsp;&nbsp;
-                    <Link to="/notes">
-                        <div onClick={() => this.deleteHandler()}> delete
-                        </div>
-                    </Link>
+                    <div onClick={() => this.deleteHandler()}>delete</div>
                 </div>   
                 <h1 className="notepage-header">{this.state.note.title}</h1>
                 <p className="notepage-paragraph">{this.state.note.textBody}</p>
