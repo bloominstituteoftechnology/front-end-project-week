@@ -37,16 +37,16 @@ class NotePage extends Component {
         this.props.deleteRequest(this.props.match.params.id);
         this.props.history.push('/');
     }
-    toEditNote = () => {
+    toEditNotePage = () => {
         const id = this.props.match.params.id;
-        // this.props.history.push(`/editnote/${id}`)
+        this.props.history.push(`/editnote/${id}`)
         console.log('to edit note')
     }
     render() {
         return (
             <div className="notepage-div">
                 <div className="edit-delete">
-                    <div onClick={() => this.toEditeNote()}>edit</div> 
+                    <div onClick={() => this.toEditNotePage()}>edit</div> 
                     &nbsp;&nbsp;
                     <div onClick={() => this.deleteHandler()}>delete</div>
                 </div>   
