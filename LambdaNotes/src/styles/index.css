@@ -145,4 +145,5 @@ html {
 html,
 body {
     min-height: 100%;
+    font-size: 62.5%;
 }
