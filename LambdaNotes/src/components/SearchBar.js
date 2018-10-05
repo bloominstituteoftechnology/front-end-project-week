@@ -1,10 +1,17 @@
 import React, { Component } from "react";
-
+import { withStyles } from "@material-ui/core/styles";
 // material components
 import Paper from "@material-ui/core/Paper";
-import TextField from "@material-ui/core/TextField";
+import Input from "@material-ui/core/Input";
 // styles
 import "../styles/SearchBar.css";
+
+const styles = theme => ({
+    input: {
+        fontSize: "1.5rem",
+        width: "100%"
+    }
+});
 
 class SearchBar extends Component {
     constructor(props) {
@@ -19,32 +26,29 @@ class SearchBar extends Component {
     };
 
     render() {
+        const { classes } = this.props;
+
         return (
-            <Paper className="SearchBar" zDepth={2}>
-                <i class="material-icons md-24 SearchBar__Icon">search</i>
+            <Paper className="SearchBar" zdepth={2}>
+                <i className="material-icons md-24 SearchBar__Icon">search</i>
                 <form
-                    className="SearchBar__Input"
+                    className="SearchBar_Form"
                     onSubmit={event => {
                         event.preventDefault();
                         this.props.filterPostsList(this.state.searchText);
                     }}
                 >
-                    <TextField
-                        hintText="Search here..."
-                        underlineStyle={{ display: "none" }}
-                    >
-                        <input
-                            name="searchText"
-                            value={this.state.searchText}
-                            onChange={event => {
-                                this.handleNewInput(event);
-                            }}
-                        />
-                    </TextField>
+                    <Input
+                        name="searchText"
+                        placeholder="Search Your Notes Here..."
+                        onChange={this.handleNewInput}
+                        disableUnderline={true}
+                        className={classes.input}
+                    />
                 </form>
             </Paper>
         );
     }
 }
 
-export default SearchBar;
+export default withStyles(styles)(SearchBar);
