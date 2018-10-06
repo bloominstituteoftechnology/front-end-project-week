@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './SideBar.css';
 
-import logo from '/Users/josephbradley/Desktop/practice-dir/front-end-project-week/lambdanotes/src/assets/lambda.png';
+import logo from '../assets/lambda.png';
 
 
 
 
 
-class sideBar extends Component {
+class SideBar extends Component {
   render() {
     return (
       <div className="side-bar-container">
@@ -25,4 +25,4 @@ class sideBar extends Component {
   }
 }
 
-export default sideBar;
+export default SideBar;
