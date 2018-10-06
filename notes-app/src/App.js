@@ -6,6 +6,7 @@ import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
 import NotePage from './components/NotePage';
 import NoteEditForm from './components/NoteEditForm';
+import DeleteModal from './components/DeleteModal';
 
 class App extends Component {
   constructor() {
@@ -85,7 +86,7 @@ class App extends Component {
           render={(props) => 
             (<NotePage {...props} />)} />
           <Route
-          path="/delete"
+          path="/deletenote/:id"
           render={(props) =>
           (<DeleteModal {...props}
           deleteRequest={this.deleteRequest} />)}/>

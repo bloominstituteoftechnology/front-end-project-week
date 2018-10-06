@@ -38,15 +38,17 @@ class NotePage extends Component {
         this.props.history.push(`/editnote/${id}`)
         console.log('to edit note')
     }
+    toDeleteModlPage = () => {
+        const id = this.props.match.params.id;
+        this.props.history.push(`/deletenote/${id}`)
+    }
     render() {
         return (
             <div className="notepage-div">
                 <div className="edit-delete">
                     <div onClick={() => this.toEditNotePage()}>edit</div>
                     &nbsp;&nbsp;
-                    <Link to="/delete">
-                        <div onClick={() => this.deleteHandler()}>delete</div>
-                    </Link>
+                    <div onClick={() => this.toDeleteModlPage()}>delete</div>
                 </div>
                 <h1 className="notepage-header">{this.state.note.title}</h1>
                 <p className="notepage-paragraph">{this.state.note.textBody}</p>
