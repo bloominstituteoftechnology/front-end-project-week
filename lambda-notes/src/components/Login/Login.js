@@ -87,7 +87,7 @@ registerHandler =(event) =>{
 	const {username, password} = this.state;
         const user = {username, password};
 
-        axios.post('http://localhost:5000/api/users/register', user)
+        axios.post('https://lambdanotesproject.herokuapp.com/api/users/register', user)
 
         .then(res =>{
 
@@ -109,7 +109,7 @@ loginHandler =(event) =>{
         const {username, password} = this.state;
         const user = {username, password};
 
-        axios.post('http://localhost:5000/api/users/login', user)
+        axios.post('https://lambdanotesproject.herokuapp.com/api/users/login', user)
 
         .then(res =>{
 
@@ -125,6 +125,30 @@ loginHandler =(event) =>{
 
 };
 
+googleHandler =(event) =>{
+        event.preventDefault();
+
+	//const {username, password} = this.state;
+        //const user = {username, password};
+
+        axios.get('https://lambdanotesproject.herokuapp.com/api/users/google',{ crossdomain: true })
+
+        .then(res =>{
+
+        const token = res.data;
+        //localStorage.setItem('token', token);
+        //this.setState({username: "", password: "", logged: true});
+        })
+
+        .catch(err =>{
+        console.log("error: couldn't login");
+
+        });
+
+};
+
+
+
 render() {
 
         return (
@@ -137,6 +161,7 @@ render() {
 		<Input  type="password" onChange ={this.changeHandler} name="password" placeholder="password"  value={this.state.password} />
 		<Button onClick={(event)=>this.loginHandler(event)}>login</Button>
 		<Button onClick={(event)=>this.registerHandler(event)}>register</Button>
+		<Button onClick={(event)=>this.googleHandler(event)}>login with google</Button>	
 		</form>	
 		</LoginDiv>	
                 )}
