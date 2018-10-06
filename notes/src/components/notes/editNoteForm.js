@@ -10,7 +10,7 @@ class EditNoteForm extends React.Component{
         this.state={
             title:'',
             content:'',
-            id:'',
+            note_id:'',
             tags:''
         }
     }
@@ -22,30 +22,37 @@ class EditNoteForm extends React.Component{
         if (this.props.note.title && this.props.note.textBody) {
             this.setState({title:this.props.note.title,
                 content:this.props.note.textBody,
-                id:this.props.note.id,
+                note_id:this.props.note.id,
                 tags:this.props.note.tags?this.props.note.tags.replace(/,/g,''):''}
             ,()=>localStorage.setItem('note',JSON.stringify(this.state)));
         } else {
             const note=JSON.parse(localStorage.getItem('note'));
             this.setState({title:note.title,
                 content:note.content,
-                id:note.id,
+                note_id:note.note_id,
                 tags:note.tags});
         }
     }
     editNoteObj=(e)=>{
-        e.preventDefault();
-        let tags=this.state.tags.replace(/,/g,'').replace(/\s+/g,' ').replace(/\s/g,', ');
-        if (tags[tags.length-2]===',') {
-            tags=tags.substring(0,tags.length-2);
+        if (this.state.title.length===0 || this.state.content.length===0) {
+            alert('A note needs to have title and content.')
+        } else {
+            e.preventDefault();
+            let tags;
+            if (this.state.tags.length>0) {
+                tags=this.state.tags.replace(/,/g,'').replace(/\s+/g,' ').replace(/\s/g,', ');
+                if (tags[tags.length-2]===',') {
+                    tags=tags.substring(0,tags.length-2);
+                }
+            }
+            const editedNote={
+                title:this.state.title,
+                textBody: this.state.content,
+                tags: tags!==undefined?tags:null,
+                user_id:localStorage.getItem('id')
+            }
+            this.props.updateNote(this.state.note_id,editedNote,this.props.history);
         }
-        const editedNote={
-            title:this.state.title,
-            textBody: this.state.content,
-            tags: tags,
-            user_id:localStorage.getItem('id')
-        }
-        this.props.updateNote(this.state.id,editedNote,this.props.history);
     }
     render() {
         return(

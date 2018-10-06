@@ -6,47 +6,48 @@ import {connect} from 'react-redux';
 import {getSingleNote} from '../../actions';
 
 const SingleNote=styled.div`
-background-color: #ddd;
-width: 75%;
-text-align: left;
+    background-color: #ddd;
+    width: 75%;
+    text-align: left;
 `
 const Note=styled.div`
-width: 92.5%;
-overflow-wrap: break-word;
-word-wrap: break-word;
--ms-word-break: break-all;
-word-break: break-word;
--ms-hyphens: auto;
--moz-hyphens: auto;
--webkit-hyphens: auto;
-hyphens: auto;
+    width: 92.5%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 `
 const NoteHeading=styled.h2`
-margin-left: 5%;
-color: #424242;
+    margin-left: 5%;
+    color: #424242;
 `
 const NoteInfo=styled.p`
-margin-left:5%;
-color: #424242;
+    margin-left:5%;
+    color: #424242;
 `
 const EDcontainer=styled.div`
-display: flex;
-height: 50px;
-justify-content: flex-end;
-align-items: center;
-margin-right: 5%;
+    display: flex;
+    height: 50px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 5%;
 `
 const Span=styled.span`
-text-decoration: underline;
-font-weight: bold;
-:first-child{
-    margin-right: 2%;
-}
+    text-decoration: underline;
+    font-weight: bold;
+    :first-child{
+        margin-right: 2%;
+    }
 `
 const NoteTag=styled.p`
     margin-left: 5%;
     display: flex;
     justify-content: flex-start;
+
     span{
         margin-right: 3%;
     }

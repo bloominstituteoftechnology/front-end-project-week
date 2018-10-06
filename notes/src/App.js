@@ -13,7 +13,12 @@ import './App.css';
 class App extends Component {
   
   componentDidMount(){
-    this.props.history.push(localStorage.getItem('location'));
+    const jwt=localStorage.getItem('jwt');
+    if (jwt===null && localStorage.getItem('location')!=='/signup') {
+      this.props.history.push('/signin');
+    } else {
+      this.props.history.push(localStorage.getItem('location'));
+    }
   }
   
   render() {

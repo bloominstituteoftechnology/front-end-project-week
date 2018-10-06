@@ -20,16 +20,22 @@ class NewNote extends React.Component{
         localStorage.setItem('location',this.props.location.pathname);
     }
     createnewNoteObj=(e)=>{
-        e.preventDefault();
-        let tags=this.state.tags.replace(/,/g,'').replace(/\s+/g,' ').replace(/\s/g,', ');
-        if (tags[tags.length-2]===',') {
-            tags=tags.substring(0,tags.length-2);
-        }
-        if (this.state.title.length>0 && this.state.content.length>0){
+        if (this.state.title.length===0 || this.state.content.length===0) {
+            alert('A note needs to have title and content.')
+        } 
+        else {
+            e.preventDefault();
+            let tags;
+            if (this.state.tags.length>0) {
+                tags=this.state.tags.replace(/,/g,'').replace(/\s+/g,' ').replace(/\s/g,', ');
+                if (tags[tags.length-2]===',') {
+                    tags=tags.substring(0,tags.length-2);
+                }
+            }
             const newNote={
                 title:this.state.title,
                 textBody: this.state.content,
-                tags: tags.length>0?tags:null,
+                tags: tags!==undefined?tags:null,
                 user_id:localStorage.getItem('id')
             }
             this.props.addNote(newNote,this.props.history);

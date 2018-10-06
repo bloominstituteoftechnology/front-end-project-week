@@ -5,28 +5,28 @@ import {connect} from 'react-redux';
 import {getNotes} from '../../actions/index.js';
 
 const NotesList=styled.div`
-width: 92.5%;
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-flex-wrap: wrap;
-margin-left: 5%;
+    width: 92.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-left: 5%;
 `
 const NotesHeading=styled.h2`
-text-align: left;
-color:#424242
-margin-left: 5%;
-margin-top: 20px;
+    text-align: left;
+    color:#424242
+    margin-left: 5%;
+    margin-top: 20px;
 `
 const NotesPage=styled.div`
-background-color:#ddd;
-min-height: 100vh;
-width: 75%;
+    background-color:#ddd;
+    min-height: 100vh;
+    width: 75%;
 `
 const NoteFilter=styled.input`
     margin-right:10%;
     width: 35%;
-    height: 40px;
+    height: 30px;
     outline:none;
     border-radius:4px;
     border-color:transparent;
@@ -66,7 +66,8 @@ class Notes extends React.Component {
         :this.props.getNotes(reqOptions);
     }
     inputChange=(e)=>{
-        this.setState({[e.target.name]:e.target.value},()=>{this.filterNotes();});
+        this.setState({[e.target.name]:e.target.value},
+            ()=>{this.filterNotes();});
     }
     filterNotes=()=>{
         let filteredNotes=this.props.notes.slice();
@@ -79,13 +80,14 @@ class Notes extends React.Component {
         return this.setState({filteredNotes:filteredNotes});
     }
     radioChange=(e)=>{
-        this.setState({[e.target.name]:e.currentTarget.value},()=>{localStorage.setItem('sortOption',this.state.sortOption)});
+        this.setState({[e.target.name]:e.currentTarget.value},
+            ()=>{localStorage.setItem('sortOption',this.state.sortOption)});
     }
     sortByTitle=(notes)=>{
         let sortedNotes=notes.slice();
         sortedNotes.sort(function(a,b){
-            a= a.title.toUpperCase(); 
-            b= b.title.toUpperCase(); 
+            a=a.title.toUpperCase(); 
+            b=b.title.toUpperCase(); 
             if (a<b) {
                 return -1;
               } else if (a>b) {

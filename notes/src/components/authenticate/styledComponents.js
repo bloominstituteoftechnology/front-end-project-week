@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const AuthenticationForm=styled.form`
-    max-width:400px;
+    max-width:396px;
     width: 100%;
     margin:0 auto;
     margin-top: 30px;
@@ -39,9 +39,11 @@ const AuthenticationButton=styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+
     &:hover{
         opacity:0.85;
     }
+    
     &:focus{
         outline:none;
     }

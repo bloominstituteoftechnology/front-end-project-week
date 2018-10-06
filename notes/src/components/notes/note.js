@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 const NoteContainer=styled.div`
-width: 30%;
-margin-right: 3%;
-background-color: white;
-border: 1px solid #ddd;
-height: 230px;
-margin-bottom: 20px;
-text-align: left;
+    width: 30%;
+    margin-right: 3%;
+    background-color: white;
+    border: 1px solid #ddd;
+    height: 230px;
+    margin-bottom: 20px;
+    text-align: left;
+
 h3,p{
     color:#000;
     word-wrap: break-word;
@@ -20,7 +21,6 @@ h3{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 a{
     text-decoration: none;
     color: #000;
@@ -31,10 +31,10 @@ const Content=styled.div`
     margin: 0 auto;
     `
 const Rule=styled.div`
-width: 100%;
-margin: 0 auto;
-height: 2px;
-background-color:#c6c6c6;
+    width: 100%;
+    margin: 0 auto;
+    height: 2px;
+    background-color:#c6c6c6;
 `
 const NoteTag=styled.div`
     display: flex;
@@ -44,6 +44,7 @@ const NoteTag=styled.div`
     white-space: no-wrap;
     overflow:hidden;
     text-overflow: ellipsis;
+
     span{
         margin-right: 3%;
     }
