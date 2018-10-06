@@ -50,14 +50,14 @@ class App extends Component {
   }
   putRequest = (id, updatedNote) => {
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote)
-    // .then(response => this.getRequestAll())
+    .then(response => this.getRequestAll())
     // Or
-    .then(response => {
-      this.setState({
-        ...this.state,
-        notes: [...this.state.notes, {...updatedNote}]
-        })
-    })
+    // .then(response => {
+    //   this.setState({
+    //     ...this.state,
+    //     notes: [...this.state.notes, {...updatedNote}]
+    //     })
+    // })
     .catch(error => console.log(error))
   } 
 
@@ -83,8 +83,12 @@ class App extends Component {
           <Route 
           path='/notes/:id' 
           render={(props) => 
-            (<NotePage {...props} 
-          deleteRequest={this.deleteRequest}/>)} />
+            (<NotePage {...props} />)} />
+          <Route
+          path="/delete"
+          render={(props) =>
+          (<DeleteModal {...props}
+          deleteRequest={this.deleteRequest} />)}/>
           <Route 
           path='/editnote/:id'
           render= {(props) => 

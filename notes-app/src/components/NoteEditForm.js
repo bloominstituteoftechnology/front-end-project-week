@@ -14,6 +14,16 @@ class NoteEditForm extends Component {
     componentDidMount() {
         this.getRequest(this.props.match.params.id);
     }
+    getRequest = id => {
+        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .then(response => {
+            this.setState({
+                id: response.data._id,
+                title: response.data.title,
+                textBody: response.data.textBody
+            })
+        })
+    }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
         console.log(e.target.value)
@@ -28,15 +38,7 @@ class NoteEditForm extends Component {
         this.props.putRequest(noteId, updatedNote)
         this.props.history.push('/notes');
     }
-    getRequest = id => {
-        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-        .then(response => {
-            console.log(response)
-            // this.setState({
-            //     id: response.dat
-            // })
-        })
-    }
+    
     render() {
         return(
             <div className="noteform-div">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
 
@@ -32,10 +33,6 @@ class NotePage extends Component {
         })
         .catch(error => console.log(error))
     }
-    deleteHandler = () => {
-        this.props.deleteRequest(this.props.match.params.id);
-        this.props.history.push('/');
-    }
     toEditNotePage = () => {
         const id = this.props.match.params.id;
         this.props.history.push(`/editnote/${id}`)
@@ -45,10 +42,12 @@ class NotePage extends Component {
         return (
             <div className="notepage-div">
                 <div className="edit-delete">
-                    <div onClick={() => this.toEditNotePage()}>edit</div> 
+                    <div onClick={() => this.toEditNotePage()}>edit</div>
                     &nbsp;&nbsp;
-                    <div onClick={() => this.deleteHandler()}>delete</div>
-                </div>   
+                    <Link to="/delete">
+                        <div onClick={() => this.deleteHandler()}>delete</div>
+                    </Link>
+                </div>
                 <h1 className="notepage-header">{this.state.note.title}</h1>
                 <p className="notepage-paragraph">{this.state.note.textBody}</p>
             </div>
