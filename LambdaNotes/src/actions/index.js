@@ -72,9 +72,12 @@ export function listifyTodo(id, text) {
     };
 }
 
-export function setVisibilityFilter(filter) {
+export function setVisibilityFilter(filter, text = "") {
     return {
         type: "SET_VISIBILITY_FILTER",
-        payload: filter
+        payload: {
+            filter,
+            searchText: text
+        }
     };
 }
