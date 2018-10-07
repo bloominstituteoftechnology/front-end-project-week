@@ -6,7 +6,6 @@ import { withStyles } from "@material-ui/core/styles";
 import { toggleTodo, deleteTodo, archiveTodo } from "../actions/index";
 // material components
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";

@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 // material ui components
 import Input from "@material-ui/core/Input";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 // actions
-import { updateTodo, listifyTodo } from "../actions/index";
+import { updateTodo } from "../actions/index";
 // styles
 import "../styles/CreateTodoForm.css";
 import "../styles/EditTodoForm.css";
@@ -112,7 +111,6 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     {
-        updateTodo,
-        listifyTodo
+        updateTodo
     }
 )(withStyles(styles)(EditTodoForm));

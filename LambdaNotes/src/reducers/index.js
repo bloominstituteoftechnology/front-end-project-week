@@ -4,8 +4,7 @@ import {
     DELETETODO,
     UPDATETODO,
     TOGGLETODO,
-    ARCHIVETODO,
-    LISTIFYTODO
+    ARCHIVETODO
 } from "../actions/index.js";
 
 let uuid = require("uuid-v4");

@@ -37,7 +37,7 @@ class SearchBar extends Component {
             VisibilityFilters.SHOW_SEARCHED_TODOS,
             this.state.searchText
         );
-        <Redirect to="/" />;
+        return <Redirect to="/" />;
     };
 
     render() {

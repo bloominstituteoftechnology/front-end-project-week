@@ -37,8 +37,6 @@ class Todos extends Component {
     };
 
     render() {
-        const { classes } = this.props;
-
         return (
             <div className="container fade">
                 <SearchBar />

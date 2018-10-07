@@ -4,7 +4,6 @@ export const DELETETODO = "DELETETODO";
 export const UPDATETODO = "UPDATETODO";
 export const TOGGLETODO = "TOGGLETODO";
 export const ARCHIVETODO = "ARCHIVETODO";
-export const LISTIFYTODO = "LISTIFYTODO";
 // filter types
 export const VisibilityFilters = {
     SHOW_ALL_TODOS: "ALL_TODOS",
