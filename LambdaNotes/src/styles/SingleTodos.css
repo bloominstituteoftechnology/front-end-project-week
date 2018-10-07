@@ -1,44 +1,43 @@
 .container {
-	display: flex;
-	flex-flow: row wrap;
-	max-width: 800px;
-	justify-content: center;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 800px;
+    justify-content: center;
 }
 
 .Notes__header {
-	display: block;
-	font-size: 4rem;
-	margin: 30px 5%;
-	width: 100%;
-	text-shadow: 2px 2px #26c6da;
-}
-
-.SingleTodo_link {
-	text-decoration: none !important;
-}
-
-.SingleTodo_link h3 {
-	margin: 0;
+    display: block;
+    font-size: 4rem;
+    margin: 30px 5%;
+    width: 100%;
+    text-shadow: 2px 2px #26c6da;
 }
 
 .SingleTodo {
-	height: 200px;
-	width: 200px;
-	margin: 15px 3%;
+    height: 200px;
+    width: 200px;
+    margin: 15px 3%;
+    padding: 15px;
+    font-size: 1.5rem;
+}
+
+.SingleTodo_link {
+    display: block;
+    color: #26c6da;
+    text-decoration: none;
+}
+
+.SingleTodo_link h3 {
+    margin: 0;
 }
 
 .SingleTodo_content {
-	display: block;
-	height: 110px;
-	overflow: hidden;
-	margin: 0;
+    display: block;
+    height: 110px;
+    overflow: hidden;
+    margin: 0;
 }
 
-.SingleTodo_footer {
-	display: flex;
-	justify-content: flex-end;
-}
-
-.SingleTodo__menu {
-	width: 20px !important;
+.MenuItem {
+    font-size: 1.25rem;
 }

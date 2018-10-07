@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { toggleTodo, deleteTodo, archiveTodo } from "../actions/index";
 // material components
 import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -15,6 +16,9 @@ import "../styles/SingleTodos.css";
 
 // const SingleTodo = props => {
 class SingleTodo extends React.Component {
+    state = {
+        anchorEl: null
+    };
     // change a todo's completion status
     handleToggleTodo = id => {
         this.props.toggleTodo(id);
@@ -27,18 +31,34 @@ class SingleTodo extends React.Component {
     handleArchiveTodo = id => {
         this.props.archiveTodo(id);
     };
+    // open menu
+    handleClick = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
+    // close menu
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+    };
 
     render() {
         const { id } = this.props.todo;
+        const { anchorEl } = this.state;
+        const open = Boolean(anchorEl);
+
         return [
             <Card className="SingleTodo">
-                <CardContent>
-                    <Link
-                        className="SingleTodo_link"
-                        to={`/todo/${this.props.index}`}
-                    >
-                        <h3>{this.props.todo.title}</h3>
-                    </Link>
+                <Link
+                    className="SingleTodo_link"
+                    to={`/todo/${this.props.index}`}
+                >
+                    <h3>{this.props.todo.title}</h3>
+                </Link>
+                <CardContent
+                    style={{
+                        padding: "0",
+                        margin: "10px 0"
+                    }}
+                >
                     <p
                         className="SingleTodo_content"
                         onClick={() => this.handleToggleTodo(id)}
@@ -59,43 +79,54 @@ class SingleTodo extends React.Component {
                             this.props.todo.text
                         )}
                     </p>
-                    <div className="row SingleTodo_footer">
-                        <Menu
-                            iconButtonElement={
-                                <IconButton>
-                                    <MoreVertIcon className="SingleTodo__menu" />
-                                </IconButton>
-                            }
-                            anchorOrigin={{
-                                horizontal: "left",
-                                vertical: "top"
-                            }}
-                            targetOrigin={{
-                                horizontal: "left",
-                                vertical: "top"
+                    <IconButton
+                        onClick={this.handleClick}
+                        style={{
+                            float: "right",
+                            padding: "0",
+                            width: "3rem",
+                            height: "3rem"
+                        }}
+                    >
+                        <MoreVertIcon />
+                    </IconButton>
+                    <Menu
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={this.handleClose}
+                    >
+                        <MenuItem className={MenuItem}>
+                            <Link
+                                to={`/todo/${this.props.index}`}
+                                style={{
+                                    textDecoration: "none",
+                                    color: "black"
+                                }}
+                            >
+                                Edit this note
+                            </Link>
+                        </MenuItem>
+                        <MenuItem
+                            className={MenuItem}
+                            onClick={() => {
+                                this.handleDeleteTodo(this.props.index);
+                                this.props.handleClick(
+                                    "Item removed from list"
+                                );
                             }}
                         >
-                            <Link to={`/todo/${this.props.index}`}>
-                                <MenuItem primaryText="Edit this note" />
-                            </Link>
-                            <MenuItem
-                                primaryText="Delete"
-                                onClick={() => {
-                                    this.handleDeleteTodo(this.props.index);
-                                    this.props.handleClick(
-                                        "Item removed from list"
-                                    );
-                                }}
-                            />
-                            <MenuItem
-                                primaryText="Archive"
-                                onClick={() => {
-                                    this.handleArchiveTodo(id);
-                                    this.props.handleClick("Archived item");
-                                }}
-                            />
-                        </Menu>
-                    </div>
+                            Delete
+                        </MenuItem>
+                        <MenuItem
+                            className={MenuItem}
+                            onClick={() => {
+                                this.handleArchiveTodo(id);
+                                this.props.handleClick("Archived item");
+                            }}
+                        >
+                            Archive
+                        </MenuItem>
+                    </Menu>
                 </CardContent>
             </Card>
         ];
