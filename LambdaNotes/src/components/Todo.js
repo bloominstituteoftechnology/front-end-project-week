@@ -47,7 +47,7 @@ class Todo extends Component {
         super(props);
         this.state = {
             open: false,
-            toggled: false
+            showList: false
         };
     }
     handleOpen = () => {
@@ -59,8 +59,8 @@ class Todo extends Component {
     handleDeleteTodo = id => {
         this.props.deleteTodo(id);
     };
-    handleToggle = () => {
-        this.setState({ toggled: !this.state.toggled });
+    handleShowList = () => {
+        this.setState({ toggled: !this.state.showList });
     };
     handleComplete = id => {
         this.props.toggleTodo(this.props.todos[id].id);
@@ -120,82 +120,26 @@ class Todo extends Component {
                     >
                         Delete
                     </Button>
-                    <Button
-                        className={classes.todoButton}
-                        onClick={this.handleToggle}
-                    >
-                        List View
-                    </Button>
                 </div>
                 {/*	NOTE VIEWS */}
                 {this.props.todos.includes(this.props.todos[id]) ? (
-                    // LIST VIEW - todos with sub tasks [read only]
-                    this.props.todos[id].listify ? (
-                        <Paper className="Todo_content">
-                            <List>
-                                {this.props.todos[id].text
-                                    .split("\n")
-                                    .map(line => {
-                                        return (
-                                            <ListItem
-                                                primaryText={line}
-                                                secondaryText={
-                                                    this.props.todos[id].title
-                                                }
-                                                style={{
-                                                    textDecoration: this.props
-                                                        .todos[id].isComplete
-                                                        ? "line-through"
-                                                        : "none"
-                                                }}
-                                            />
-                                        );
-                                    })}
-                            </List>
-                        </Paper>
-                    ) : // TOGGLE VIEW - adds a checkbox with a todo to mark for completion
-                    this.state.toggled ? (
-                        <Paper className="Todo_content">
-                            <List>
-                                <ListItem
-                                    primaryText={this.props.todos[id].text}
-                                    secondaryText={this.props.todos[id].title}
-                                    leftCheckbox={
-                                        <Checkbox
-                                            onCheck={() =>
-                                                this.handleComplete(id)
-                                            }
-                                        />
-                                    }
-                                    style={{
-                                        textDecoration: this.props.todos[id]
-                                            .isComplete
-                                            ? "line-through"
-                                            : "none"
-                                    }}
-                                />
-                            </List>
-                        </Paper>
-                    ) : (
-                        // NORMAL VIEW - read a todo with no checkboxes
-                        <Paper className="Todo_content">
-                            <h3 className="Todo_header">
-                                {this.props.todos[id].title}
-                            </h3>
-                            <p
-                                style={{
-                                    textDecoration: this.props.todos[id]
-                                        .isComplete
-                                        ? "line-through"
-                                        : "none"
-                                }}
-                                className="Todo_text"
-                                onClick={() => this.handleComplete(id)}
-                            >
-                                {this.props.todos[id].text}
-                            </p>
-                        </Paper>
-                    )
+                    // NORMAL VIEW - read a todo with no line breaks
+                    <Paper className="Todo_content">
+                        <h3 className="Todo_header">
+                            {this.props.todos[id].title}
+                        </h3>
+                        <p
+                            style={{
+                                textDecoration: this.props.todos[id].isComplete
+                                    ? "line-through"
+                                    : "none"
+                            }}
+                            className="Todo_text"
+                            onClick={() => this.handleComplete(id)}
+                        >
+                            {this.props.todos[id].text}
+                        </p>
+                    </Paper>
                 ) : (
                     <Redirect to="/" />
                 )}
