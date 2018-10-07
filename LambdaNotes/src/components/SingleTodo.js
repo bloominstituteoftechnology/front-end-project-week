@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { withStyles } from "@material-ui/core/styles";
 // actions
 import { toggleTodo, deleteTodo, archiveTodo } from "../actions/index";
 // material components
@@ -13,6 +14,12 @@ import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 // styles
 import "../styles/SingleTodos.css";
+
+const styles = theme => ({
+    menuItem: {
+        fontSize: "1.25rem"
+    }
+});
 
 // const SingleTodo = props => {
 class SingleTodo extends React.Component {
@@ -44,6 +51,7 @@ class SingleTodo extends React.Component {
         const { id } = this.props.todo;
         const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
+        const { classes } = this.props;
 
         return [
             <Card className="SingleTodo">
@@ -95,7 +103,7 @@ class SingleTodo extends React.Component {
                         open={open}
                         onClose={this.handleClose}
                     >
-                        <MenuItem className={MenuItem}>
+                        <MenuItem className={classes.menuItem}>
                             <Link
                                 to={`/todo/${this.props.index}`}
                                 style={{
@@ -107,7 +115,7 @@ class SingleTodo extends React.Component {
                             </Link>
                         </MenuItem>
                         <MenuItem
-                            className={MenuItem}
+                            className={classes.menuItem}
                             onClick={() => {
                                 this.handleDeleteTodo(this.props.index);
                                 this.props.handleClick(
@@ -118,7 +126,7 @@ class SingleTodo extends React.Component {
                             Delete
                         </MenuItem>
                         <MenuItem
-                            className={MenuItem}
+                            className={classes.menuItem}
                             onClick={() => {
                                 this.handleArchiveTodo(id);
                                 this.props.handleClick("Archived item");
@@ -136,4 +144,4 @@ class SingleTodo extends React.Component {
 export default connect(
     null,
     { toggleTodo, deleteTodo, archiveTodo }
-)(SingleTodo);
+)(withStyles(styles)(SingleTodo));
