@@ -9,6 +9,8 @@ import { deleteTodo, toggleTodo } from "../actions/index";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -23,6 +25,19 @@ const styles = theme => ({
         "&:hover": {
             color: "white",
             backgroundColor: "black"
+        }
+    },
+    dialog: {
+        fontSize: "1.5rem"
+    },
+    deleteBtn: {
+        fontSize: "1rem"
+    },
+    closeModalBtn: {
+        fontSize: "1rem",
+        "&:hover": {
+            color: "white",
+            backgroundColor: "#26c6da"
         }
     }
 });
@@ -54,30 +69,37 @@ class Todo extends Component {
     render() {
         const { id } = this.props.match.params;
         const { classes } = this.props;
-        // Dialogue actions
-        const actions = [
-            <Button
-                label="Delete"
-                primary={true}
-                onClick={() => {
-                    this.handleClose();
-                    this.handleDeleteTodo(id);
-                }}
-            />,
-            <Button label="No" primary={true} onClick={this.handleClose} />
-        ];
 
         return [
             <div className="fade" style={{ marginTop: "70px" }}>
                 {/* Delete Modal */}
                 <Dialog
-                    className="Todo__Dialog"
-                    actions={actions}
+                    className={classes.dialog}
                     modal={false}
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                 >
-                    Are you sure you want to delete this?
+                    <DialogContent>
+                        <p>Are you sure you want to delete this?</p>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button
+                            onClick={() => {
+                                this.handleClose();
+                                this.handleDeleteTodo(id);
+                            }}
+                            className={classes.deleteBtn}
+                            color="secondary"
+                        >
+                            Delete
+                        </Button>
+                        <Button
+                            onClick={this.handleClose}
+                            className={classes.closeModalBtn}
+                        >
+                            No
+                        </Button>
+                    </DialogActions>
                 </Dialog>
                 {/* Note/List View Toggle, Edit Delete Buttons */}
                 <div className="Todo_button_container">
@@ -156,27 +178,23 @@ class Todo extends Component {
                         </Paper>
                     ) : (
                         // NORMAL VIEW - read a todo with no checkboxes
-                        <div className="row">
-                            <div className="col-md-12">
-                                <Paper className="Todo_content">
-                                    <h3 className="Todo_header">
-                                        {this.props.todos[id].title}
-                                    </h3>
-                                    <p
-                                        style={{
-                                            textDecoration: this.props.todos[id]
-                                                .isComplete
-                                                ? "line-through"
-                                                : "none"
-                                        }}
-                                        className="Todo_text"
-                                        onClick={() => this.handleComplete(id)}
-                                    >
-                                        {this.props.todos[id].text}
-                                    </p>
-                                </Paper>
-                            </div>
-                        </div>
+                        <Paper className="Todo_content">
+                            <h3 className="Todo_header">
+                                {this.props.todos[id].title}
+                            </h3>
+                            <p
+                                style={{
+                                    textDecoration: this.props.todos[id]
+                                        .isComplete
+                                        ? "line-through"
+                                        : "none"
+                                }}
+                                className="Todo_text"
+                                onClick={() => this.handleComplete(id)}
+                            >
+                                {this.props.todos[id].text}
+                            </p>
+                        </Paper>
                     )
                 ) : (
                     <Redirect to="/" />
