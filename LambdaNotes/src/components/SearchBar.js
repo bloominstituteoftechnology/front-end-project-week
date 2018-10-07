@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
+// action
+import { setVisibilityFilter } from "../actions/index";
+// filter types
+import { VisibilityFilters } from "../actions/index.js";
 // material components
 import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
@@ -24,6 +28,8 @@ class SearchBar extends Component {
     handleNewInput = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
+    // filter todos by searchText
+    // handleSubmit = event => {}
 
     render() {
         const { classes } = this.props;
@@ -51,4 +57,10 @@ class SearchBar extends Component {
     }
 }
 
-export default withStyles(styles)(SearchBar);
+const mapStateToProps = state => {
+    return {
+        setVisibilityFilter
+    };
+};
+
+export default connect(mapStateToProps)(withStyles(styles)(SearchBar));
