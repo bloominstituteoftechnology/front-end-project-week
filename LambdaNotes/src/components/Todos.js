@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 // material components
 import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 // components
 import SingleTodo from "./SingleTodo";
 import SearchBar from "./SearchBar";
@@ -12,7 +14,6 @@ class Todos extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            autoHideDuration: 4000,
             message: "",
             open: false
         };
@@ -36,6 +37,8 @@ class Todos extends Component {
     };
 
     render() {
+        const { classes } = this.props;
+
         return (
             <div className="container fade">
                 <SearchBar />
@@ -51,20 +54,27 @@ class Todos extends Component {
                     );
                 })}
                 <Snackbar
+                    anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "center"
+                    }}
                     open={this.state.open}
-                    message={this.state.message}
-                    action="undo"
-                    autoHideDuration={this.state.autoHideDuration}
-                    onActionClick={this.handleActionClick}
-                    onRequestClose={this.handleRequestClose}
-                />
-                <Snackbar
-                    open={this.state.open}
-                    message={this.state.message}
-                    action="undo"
-                    autoHideDuration={this.state.autoHideDuration}
-                    onActionClick={this.handleActionClick}
-                    onRequestClose={this.handleRequestClose}
+                    onClose={this.handleRequestClose}
+                    message={
+                        <span style={{ fontSize: "1.5rem", color: "#26c6da" }}>
+                            {this.state.message}
+                        </span>
+                    }
+                    action={[
+                        <IconButton
+                            key="close"
+                            color="inherit"
+                            onClick={this.handleRequestClose}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    ]}
+                    autoHideDuration={4000}
                 />
             </div>
         );
