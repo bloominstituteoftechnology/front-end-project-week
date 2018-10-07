@@ -29,7 +29,11 @@ const getVisibleTodos = (todos, filter, target) => {
         // only show searched tasks
         case VisibilityFilters.SHOW_SEARCHED_TODOS:
             return todos.filter(todo => {
-                return todo.text === target;
+                const text = todo.text.toLowerCase();
+                return (
+                    text === target.toLowerCase() ||
+                    text.split(" ").includes(target)
+                );
             });
         default:
             return todos;
