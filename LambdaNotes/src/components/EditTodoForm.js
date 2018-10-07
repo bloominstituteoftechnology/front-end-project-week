@@ -1,14 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
 // material ui components
+import Input from "@material-ui/core/Input";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 // actions
 import { updateTodo, listifyTodo } from "../actions/index";
 // styles
 import "../styles/CreateTodoForm.css";
+import "../styles/EditTodoForm.css";
 import "../styles/animation.css";
+
+const styles = theme => ({
+    editNoteInput: {
+        border: "2px solid #26c6da",
+        borderRadius: "5px",
+        padding: "10px",
+        fontSize: "1.5rem",
+        marginBottom: "20px",
+        width: "100%"
+    },
+    button: {
+        width: "40%",
+        backgroundColor: "#26c6da",
+        fontSize: "1.75rem",
+        fontWeight: "700",
+        color: "white",
+        letterSpacing: "0.2rem",
+        "&:hover": {
+            backgroundColor: "black"
+        }
+    }
+});
 
 class EditTodoForm extends Component {
     constructor(props) {
@@ -37,61 +62,42 @@ class EditTodoForm extends Component {
 
     render() {
         const { id } = this.props.location.state;
+        const { classes } = this.props;
+
         return (
-            <div className="fade">
-                <div className="row">
-                    <h3 className="CreateTodoForm_header">Edit Note:</h3>
-                    <TextField
-                        className="CreateTodoForm_title"
-                        hintText={this.props.todos[parseInt(id, 10)].title}
-                        floatingLabelText="Note Title"
-                        underlineShow={false}
+            <div className="EditTodoFormContainer fade">
+                <h3 className="EditTodoForm_header">Edit Note:</h3>
+                <form classSName="EditTodoForm_form">
+                    <Input
+                        className={classes.editNoteInput}
                         name="title"
+                        placeholder={this.props.todos[parseInt(id, 10)].title}
                         value={this.state.title}
+                        disableUnderline={true}
                         onChange={this.handleNewInput}
                     />
-                </div>
-                <div className="row">
-                    <TextField
-                        className="CreateTodoForm_content"
-                        hintText={this.props.todos[parseInt(id, 10)].text}
-                        hintStyle={{
-                            top: 25
-                        }}
-                        underlineShow={false}
-                        multiLine={true}
-                        rows={10}
+                    <Input
+                        className={classes.editNoteInput}
                         name="text"
+                        placeholder={this.props.todos[parseInt(id, 10)].text}
                         value={this.state.text}
+                        multiline
+                        rows="10"
+                        disableUnderline={true}
                         onChange={this.handleNewInput}
                     />
-                </div>
-                <div className="row">
-                    <Link to="/">
+                    <Link to="/" style={{ textDecoration: "none" }}>
                         <Button
                             variant="contained"
-                            className="CreateTodoForm_savebtn"
-                            label="Update"
-                            primary={true}
+                            className={classes.button}
                             onClick={() => {
                                 this.handleUpdateTodo(id);
                             }}
-                        />
+                        >
+                            Edit Your Note
+                        </Button>
                     </Link>
-                    <Link to="/">
-                        <Button
-                            variant="contained"
-                            className="CreateTodoForm_savebtn"
-                            label="Listify"
-                            primary={true}
-                            onClick={() => {
-                                this.handleListifyTodo(id, this.state.text);
-                                this.handleUpdateTodo(id);
-                            }}
-                            style={{ marginLeft: "10px" }}
-                        />
-                    </Link>
-                </div>
+                </form>
             </div>
         );
     }
@@ -109,4 +115,4 @@ export default connect(
         updateTodo,
         listifyTodo
     }
-)(EditTodoForm);
+)(withStyles(styles)(EditTodoForm));
