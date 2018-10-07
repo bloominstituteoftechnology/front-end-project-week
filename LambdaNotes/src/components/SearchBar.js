@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { connect } from "react-redux";
+import { Redirect } from "react-router";
 // action
 import { setVisibilityFilter } from "../actions/index";
 // filter types
@@ -28,8 +30,15 @@ class SearchBar extends Component {
     handleNewInput = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
-    // filter todos by searchText
-    // handleSubmit = event => {}
+    // search for a todo
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.setVisibilityFilter(
+            VisibilityFilters.SHOW_SEARCHED_TODOS,
+            this.state.searchText
+        );
+        <Redirect to="/" />;
+    };
 
     render() {
         const { classes } = this.props;
@@ -37,13 +46,7 @@ class SearchBar extends Component {
         return (
             <Paper className="SearchBar" zdepth={2}>
                 <i className="material-icons md-24 SearchBar__Icon">search</i>
-                <form
-                    className="SearchBar_Form"
-                    onSubmit={event => {
-                        event.preventDefault();
-                        this.props.filterPostsList(this.state.searchText);
-                    }}
-                >
+                <form className="SearchBar_Form" onSubmit={this.handleSubmit}>
                     <Input
                         name="searchText"
                         placeholder="Search Your Notes Here..."
@@ -57,10 +60,7 @@ class SearchBar extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        setVisibilityFilter
-    };
-};
-
-export default connect(mapStateToProps)(withStyles(styles)(SearchBar));
+export default connect(
+    null,
+    { setVisibilityFilter }
+)(withStyles(styles)(SearchBar));
