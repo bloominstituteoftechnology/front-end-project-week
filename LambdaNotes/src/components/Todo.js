@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
 // actions
 import { deleteTodo, toggleTodo } from "../actions/index";
 // material components
@@ -14,6 +15,17 @@ import Checkbox from "@material-ui/core/Checkbox";
 // styles
 import "../styles/Todo.css";
 import "../styles/animation.css";
+
+const styles = theme => ({
+    todoButton: {
+        fontSize: "1.5rem",
+        width: "150px",
+        "&:hover": {
+            color: "white",
+            backgroundColor: "black"
+        }
+    }
+});
 
 class Todo extends Component {
     constructor(props) {
@@ -41,6 +53,7 @@ class Todo extends Component {
 
     render() {
         const { id } = this.props.match.params;
+        const { classes } = this.props;
         // Dialogue actions
         const actions = [
             <Button
@@ -54,8 +67,8 @@ class Todo extends Component {
             <Button label="No" primary={true} onClick={this.handleClose} />
         ];
 
-        return (
-            <div className="Todo fade">
+        return [
+            <div className="fade" style={{ marginTop: "70px" }}>
                 {/* Delete Modal */}
                 <Dialog
                     className="Todo__Dialog"
@@ -67,31 +80,30 @@ class Todo extends Component {
                     Are you sure you want to delete this?
                 </Dialog>
                 {/* Note/List View Toggle, Edit Delete Buttons */}
-                <div className="row">
-                    <div className="col-md-12 Todo_button_container">
-                        <Link
-                            to={{
-                                pathname: "/editTodo",
-                                state: {
-                                    id: id
-                                }
-                            }}
-                        >
-                            <Button className="Todo_button">Edit</Button>
-                        </Link>
-                        <Button
-                            className="Todo_button"
-                            onClick={this.handleOpen}
-                        >
-                            Delete
-                        </Button>
-                        <Button
-                            className="Todo_button"
-                            onClick={this.handleToggle}
-                        >
-                            <i className="material-icons md-24">list</i>
-                        </Button>
-                    </div>
+                <div className="Todo_button_container">
+                    <Link
+                        to={{
+                            pathname: "/editTodo",
+                            state: {
+                                id: id
+                            }
+                        }}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Button className={classes.todoButton}>Edit</Button>
+                    </Link>
+                    <Button
+                        className={classes.todoButton}
+                        onClick={this.handleOpen}
+                    >
+                        Delete
+                    </Button>
+                    <Button
+                        className={classes.todoButton}
+                        onClick={this.handleToggle}
+                    >
+                        List View
+                    </Button>
                 </div>
                 {/*	NOTE VIEWS */}
                 {this.props.todos.includes(this.props.todos[id]) ? (
@@ -170,7 +182,7 @@ class Todo extends Component {
                     <Redirect to="/" />
                 )}
             </div>
-        );
+        ];
     }
 }
 
@@ -186,4 +198,4 @@ export default connect(
         deleteTodo,
         toggleTodo
     }
-)(Todo);
+)(withStyles(styles)(Todo));
