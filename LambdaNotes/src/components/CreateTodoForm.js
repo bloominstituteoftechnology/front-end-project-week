@@ -84,7 +84,7 @@ class CreateTodoForm extends Component {
                             className={classes.button}
                             onClick={this.handleAddTodo}
                         >
-                            View Your Notes
+                            Submit Note
                         </Button>
                     </Link>
                 </form>
