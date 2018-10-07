@@ -62,16 +62,6 @@ export function updateTodo(id, title, text) {
     };
 }
 
-export function listifyTodo(id, text) {
-    return {
-        type: LISTIFYTODO,
-        payload: {
-            id: id,
-            text: text
-        }
-    };
-}
-
 export function setVisibilityFilter(filter, text = "") {
     return {
         type: "SET_VISIBILITY_FILTER",

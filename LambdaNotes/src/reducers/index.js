@@ -118,18 +118,6 @@ const rootReducer = (state = initialState, action) => {
                 }),
                 status: "ARCHIVED A TODO"
             });
-        case LISTIFYTODO:
-            return Object.assign({}, state, {
-                todos: state.todos.map(todo => {
-                    if (todo.id === action.payload.id) {
-                        return Object.assign({}, todo, {
-                            listify: !todo.listify
-                        });
-                    }
-                    return todo;
-                }),
-                status: "LISTIFIED A TODO"
-            });
         // change filter status of the app
         case "SET_VISIBILITY_FILTER":
             return Object.assign({}, state, {
