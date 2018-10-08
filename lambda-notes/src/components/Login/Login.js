@@ -38,13 +38,14 @@ const Header = styled.h2`
 
 const Button = styled.button`
         font-family: 'Roboto', Sans-Serif;
-	width: 100px;
+	width: 150px;
 	height: 25px;
 	border-radius: 10px;
 	border: 1px solid #acb6e5;
 	color:  #acb6e5;
 	font-size: 13px;
 	margin-right: 2%;
+	margin-bottom: 2%;
 	&:hover {
         background-color: #acb6e5;
 	color: white;
@@ -131,13 +132,13 @@ googleHandler =(event) =>{
 	//const {username, password} = this.state;
         //const user = {username, password};
 
-        axios.get('https://lambdanotesproject.herokuapp.com/api/users/google',{ crossdomain: true })
+        axios.get('https://lambdanotesproject.herokuapp.com/api/users/google')
 
         .then(res =>{
 
         const token = res.data;
-        //localStorage.setItem('token', token);
-        //this.setState({username: "", password: "", logged: true});
+        localStorage.setItem('token', token);
+        this.setState({username: "", password: "", logged: true});
         })
 
         .catch(err =>{
@@ -161,8 +162,8 @@ render() {
 		<Input  type="password" onChange ={this.changeHandler} name="password" placeholder="password"  value={this.state.password} />
 		<Button onClick={(event)=>this.loginHandler(event)}>login</Button>
 		<Button onClick={(event)=>this.registerHandler(event)}>register</Button>
+		</form>
 		<Button onClick={(event)=>this.googleHandler(event)}>login with google</Button>	
-		</form>	
 		</LoginDiv>	
                 )}
         </div>
