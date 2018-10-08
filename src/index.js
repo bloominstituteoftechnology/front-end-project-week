@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { createStore, applyMiddleware, compose } from "redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import logger from "redux-logger";
+import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 // import throttle from "lodash";
 // Material-UI
@@ -24,7 +25,7 @@ const persistedState = loadState();
 const store = createStore(
     rootReducer,
     persistedState,
-    composeEnhancers(applyMiddleware(logger))
+    composeEnhancers(applyMiddleware(logger, thunk))
 );
 
 // listen to any state changes - call saveState
