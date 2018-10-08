@@ -1,3 +1,4 @@
+import axios from "axios";
 // action types
 export const ADDTODO = "ADDTODO";
 export const DELETETODO = "DELETETODO";
@@ -14,6 +15,8 @@ export const VisibilityFilters = {
 };
 // from node-uuid
 let uuid = require("uuid-v4");
+
+const url = process.env.REACT_APP_SERVER;
 
 // action creators
 export function addTodo(title, text) {
