@@ -1,0 +1,17 @@
+.SearchBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    margin: 70px 0 0 0;
+    padding: 5px 10px;
+}
+
+.SearchBar_Form {
+    width: 100%;
+}
+
+.SearchBar__Icon {
+    order: 1;
+}

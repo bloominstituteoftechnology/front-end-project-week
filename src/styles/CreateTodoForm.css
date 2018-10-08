@@ -1,0 +1,22 @@
+.CreateTodoFormContainer {
+    height: 100%;
+}
+
+.CreateTodoForm_header {
+    font-size: 4rem;
+    text-align: left;
+    margin: 70px 0 20px 0;
+    text-shadow: 2px 2px #26c6da;
+}
+
+.CreateTodoForm_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.CreateTodoForm_savebtn {
+    float: left;
+    width: 40%;
+    margin-bottom: 20px;
+}
