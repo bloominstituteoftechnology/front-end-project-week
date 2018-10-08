@@ -1,6 +1,7 @@
 import axios from "axios";
 // action types
 export const ADDTODO = "ADDTODO";
+export const ADDTODO_ERROR = "ADDTODO_ERROR";
 export const DELETETODO = "DELETETODO";
 export const UPDATETODO = "UPDATETODO";
 export const TOGGLETODO = "TOGGLETODO";
@@ -20,16 +21,25 @@ const url = process.env.REACT_APP_SERVER;
 
 // action creators
 export function addTodo(title, text) {
-    return {
-        type: ADDTODO,
-        payload: {
-            title: title,
-            text: text,
-            isComplete: false,
-            id: uuid(),
-            archive: false
-        }
-    };
+    axios
+        .post(`${url}/api/notes`, { title: title, content: text })
+        .then(res => {
+            dispatch({
+                type: ADDTODO,
+                payload: {
+                    title: res.data.title,
+                    text: res.data.content,
+                    isComplete: false,
+                    id: uuid(),
+                    archive: false
+                }
+            });
+        })
+        .catch(() => {
+            dispatch({
+                type: ADDTODO_ERROR
+            });
+        });
 }
 
 export function archiveTodo(id) {
