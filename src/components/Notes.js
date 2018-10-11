@@ -10,8 +10,7 @@ class Notes extends Component {
     }
 
     logout = () => {
-        console.log("Log")
-        // localStorage.getItem('token')
+        console.log("Log")        
           localStorage.removeItem('token');
           localStorage.removeItem('userId'); 
           this.props.logout();     
@@ -24,15 +23,14 @@ class Notes extends Component {
         return ( this.state.notes ? ( null) : (
 
             <Container>
+                <button className="logout-button" onClick={this.logout}>Log Out</button>
                 <h3 className="heading">Your Notes:</h3> 
-                <button onClick={this.logout}>logout</button>
                 <Row className="notes-section">  
-                    {this.props.state.notes ?
- 
- this.props.state.notes.map( note => {
-     return <NoteThumbnail note={note} key={note._id}/>
-    }) : this.props.history.push('/notes')
-}
+                    {this.props.state.notes ? 
+                    this.props.state.notes.map( note => {
+                      return <NoteThumbnail note={note} key={note._id}/>
+                    }) : this.props.history.push('/notes')
+                }
                 </Row>
             </Container>
           )

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import  './LoginForm.css';
 
 
 class LoginForm extends React.Component {
@@ -17,7 +17,12 @@ class LoginForm extends React.Component {
         }
     
         login = (event) => {
-            axios.post("http://localhost:5000/api/users/login", this.state)
+            event.preventDefault();
+            const user = {
+                username: this.state.username,
+                password: this.state.password
+            };
+            axios.post("http://localhost:5000/api/users/login", user)
                 .then(response => {
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem('username', this.state.username);
@@ -44,7 +49,7 @@ class LoginForm extends React.Component {
     
         render() {
             return (
-                <div className="App">
+                <div className="login-main">
                     <h2> Login </h2>
                     <div className={this.state.error ? "error" : "hidden"}>
                         {this.state.errorMessage}
@@ -62,7 +67,7 @@ class LoginForm extends React.Component {
                             </button>
                             <Link to="/">
                                 <button className="home-button">
-                                    Home
+                                    Cancel
                                 </button>
                             </Link>
                         </div>

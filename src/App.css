@@ -74,12 +74,20 @@ h3.heading {
 
 }
 
-.btn.logout { 
+.btn.logout {
+  display: flex; 
+  justify-content: flex-start; 
   background-color: #2BC1C4;
   border: 1px solid #979797;
   border-radius: 0px;
   font-size: 1.3em;
  
+}
+.logout-button {
+  margin-left: 80%;
+  margin-top: 10px;
+  border-color: rgb(252, 251, 251);
+  color: #4A4A4A
 }
 
 .btn.main:hover {

@@ -9,6 +9,7 @@ class SignUpForm extends React.Component {
         this.state = {
             username: "",
             password: "",
+            confirmPassword: "",
             email: "",
             error: false,
             errorMessage: ''
@@ -57,10 +58,13 @@ class SignUpForm extends React.Component {
                             <input className="form-control" placeholder="Username" name='username' type="text" value={this.state.username} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">                            
+                            <input className="form-control" placeholder="Email" name='email' type="email" value={this.state.email} onChange={this.handleInputChange} />
+                        </div>
+                        <div className="form-group">                            
                             <input className="form-control" placeholder="Password" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">                            
-                            <input className="form-control" placeholder="email" name='email' type="email" value={this.state.email} onChange={this.handleInputChange} />
+                            <input className="form-control" placeholder="Confirm Password" name='confirmPassword' type="password" value={this.state.confirmPassword} onChange={this.handleInputChange} />
                         </div>
                         <div className='signup-button1'>
                             <button type="submit" className="signup-button2" onClick={this.createUser}>
@@ -68,7 +72,7 @@ class SignUpForm extends React.Component {
                             </button>
                             <Link to="/">
                                 <button className="home-button">
-                                    Home
+                                    Cancel
                                 </button>
                             </Link>
                         </div>
