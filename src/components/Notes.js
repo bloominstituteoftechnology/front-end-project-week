@@ -24,12 +24,12 @@ class Notes extends Component {
 
             <Container>
                 <button className="logout-button" onClick={this.logout}>Log Out</button>
-                <h3 className="heading">Your Notes:</h3> 
+                <h3 className="heading-notes">Your Notes:</h3> 
                 <Row className="notes-section">  
                     {this.props.state.notes ? 
                     this.props.state.notes.map( note => {
                       return <NoteThumbnail note={note} key={note._id}/>
-                    }) : this.props.history.push('/notes')
+                    }):( this.props.history.push('/'))
                 }
                 </Row>
             </Container>
