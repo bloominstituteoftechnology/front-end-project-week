@@ -1,0 +1,35 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  min-width: 220px;
+  min-height: 100%;
+  background: lightgray;
+  border-right: 1px solid gray;
+  padding: 20px 5px;
+
+  h1 {
+    font-weight: bold;
+    text-align: left;
+    margin: 0 10px;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .btn {
+    margin: 20px auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a:not([href]) {
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

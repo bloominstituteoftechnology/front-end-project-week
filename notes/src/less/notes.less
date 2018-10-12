@@ -1,0 +1,61 @@
+.notes-container {
+  width: 100%;
+
+  h2 {
+    display: inline-block;
+  }
+
+  .notes-list-controls {
+    float: right;
+  }
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.note {
+  margin: 30px 5px 0;
+  width: 225px;
+}
+
+.card {
+  border-radius: 2px;
+  border-width: 2px;
+  text-align: left;
+  height: 235px;
+  transition-duration: 400ms;
+  overflow: hidden;
+
+  &:hover {
+    background: lighten(black, 35%);
+    color: white;
+  }
+
+  h5 {
+    height: 24px;
+    overflow: hidden;
+  }
+}
+
+.single-note-card {
+  width: 100%;
+
+  .note {
+    width: 100%;
+    text-align: left;
+  }
+  
+  a {
+    float: right;
+    margin-left: 10px;
+    text-decoration: underline;
+  }
+}
