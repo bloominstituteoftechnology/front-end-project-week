@@ -9,6 +9,7 @@ import NavNotes from './components/NavNotes';
 import EditNote from './components/EditNote.js';
 import LogingForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
+import User from "./components/User"; 
 import Home from "./components/Home";
 import axios from 'axios';
 
@@ -89,6 +90,7 @@ axios.put(`http://localhost:5000/api/notes/${element._id}`, element, headers)
         <NavNotes />
         <Route path="/notes" render={(props) => <Notes {...props} state={this.state} logout={this.logOut} />}/>
         <Route exact path="/" component={Home} />
+        <Route path="/user" component={User} />
         <Route path="/login" component={LogingForm} />
         <Route path="/register" component={SignUpForm} />
         <Route path="/new" render={(props) => <NewNote  {...props} save={this.SaveNote}/>} />        

@@ -16,7 +16,7 @@
 }
 
 h3.heading {
-  padding: 90px 0 0 30px;
+  padding: 90px 0 0 28px;
 }
 
 .note-heading {
@@ -74,11 +74,16 @@ h3.heading {
   border-radius: 0px;
   font-size: 1.3em;
   width: 74%;
-  margin-left: 48px;
+  margin-left: 28px;
   height: 58px;
   border-radius: 5px
 
 }
+
+.signup-button {
+  margin-right: 14px;
+}
+
 
 .btn.logout {
   display: flex; 
@@ -153,6 +158,26 @@ h3.heading {
   margin: 20px 30px;
 }
 
+.main-wrap {
+  border: 2px solid rgba(0,0,0,.075);
+  margin: 112px;
+  height: 344px;
+  padding: 60px 93px 53px 100px;
+  border-radius: 6px;
+  width: 30%;
+}
+
+.signup-wrap {
+  border: 2px solid rgba(0,0,0,.075);
+  height: 336px;
+  padding: 6px 159px 30px 92px;
+  border-radius: 6px;
+  margin: 100px;
+}
+
+/* .signup-form {
+  width: 128%;
+} */
 .form-title {
   width: 40vw !important;
   height: 70px !important;

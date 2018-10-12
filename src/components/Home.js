@@ -8,7 +8,7 @@ const Home = () => {
           <div>
         <div className="main-wrapper">
             <h3>Welcome to Lambda Notes</h3>
-            <p>Please Sign in or Sign up to begin making notes</p>
+             <p>Please Sign In or Sign Up to begin making notes.</p>
             </div>
         </div>
     )

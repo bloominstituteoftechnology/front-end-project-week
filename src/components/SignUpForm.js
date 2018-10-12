@@ -47,7 +47,8 @@ class SignUpForm extends React.Component {
 
     render() {
         return (
-            <div className="col-sm-3">
+           
+            <div className="col-sm-3" className="signup-wrap ">
                 <div className='signup'>
                     <h3>Sign up </h3>
                     <div className={this.state.error ? "error" : "hidden"}>
@@ -67,7 +68,7 @@ class SignUpForm extends React.Component {
                             <input className="form-control" placeholder="Confirm Password" name='confirmPassword' type="password" value={this.state.confirmPassword} onChange={this.handleInputChange} />
                         </div>
                         <div className='signup-button1'>
-                            <button type="submit" className="signup-button2" onClick={this.createUser}>
+                            <button type="submit" className="signup-button" onClick={this.createUser}>
                                 Submit
                             </button>
                             <Link to="/">
@@ -79,6 +80,7 @@ class SignUpForm extends React.Component {
                     </div>
                 </div>
             </div>
+         
         );
     }
 }

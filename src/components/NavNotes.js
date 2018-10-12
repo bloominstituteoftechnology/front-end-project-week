@@ -15,6 +15,7 @@ class NavNotes extends Component {
                           <div className="btn-container">      
                           <NoteLink color="main" value="View Your Notes" link="/notes" />                       
                           <NoteLink color="main" value="+ Create New Note" link="/new" /> 
+                          <NoteLink color="main" value="Settings" link="/user" />
                       </div>
                    ):(
                      <div className="btn-container">

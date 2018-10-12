@@ -49,27 +49,29 @@ class LoginForm extends React.Component {
     
         render() {
             return (
-                <div className="login-main">
-                    <h2> Login </h2>
-                    <div className={this.state.error ? "error" : "hidden"}>
-                        {this.state.errorMessage}
-                    </div>
-                    <div className='signup-form'>
-                        <div className="form-group">
-                            <input className="form-control" placeholder="Username" name='username' type="text" value={this.state.username} onChange={this.handleInputChange} />
+                <div className="main-wrap">
+                    <div className="login-main">
+                        <h2> Login </h2>
+                        <div className={this.state.error ? "error" : "hidden"}>
+                            {this.state.errorMessage}
                         </div>
-                        <div className="form-group">
-                            <input className="form-control" placeholder="Password" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
-                        </div>
-                        <div className='signup-buts'>
-                            <button type="submit" className="signup-button" onClick={this.login}>
-                                Login
-                            </button>
-                            <Link to="/">
-                                <button className="home-button">
-                                    Cancel
+                        <div className='signup-form'>
+                            <div className="form-group">
+                                <input className="form-control" placeholder="Username" name='username' type="text" value={this.state.username} onChange={this.handleInputChange} />
+                            </div>
+                            <div className="form-group">
+                                <input className="form-control" placeholder="Password" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
+                            </div>
+                            <div className='signup-buts'>
+                                <button type="submit" className="signup-button" onClick={this.login}>
+                                    Login
                                 </button>
-                            </Link>
+                                <Link to="/">
+                                    <button className="home-button">
+                                        Cancel
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
