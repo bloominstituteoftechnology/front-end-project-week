@@ -25,8 +25,9 @@ class LoginForm extends React.Component {
             axios.post("http://localhost:5000/api/users/login", user)
                 .then(response => {
                     localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('userId', response.data.userId);
                     localStorage.setItem('username', this.state.username);
-                    console.log(localStorage.token)
+                    console.log("Fire", response)
                     this.setState({
                         error: false
                     });

@@ -79,13 +79,12 @@ class Note extends Component {
                                      </div>
                                  </ModalBody>
                              </Modal>                            
-                         </div>                       
-                       
+                         </div>                      
                          {
                              this.props.state.notes.map((note) => {                            
                             if(this.props.match.params._id === note._id.toString()) {                           
                            return (  <div key={note._id}>                                
-                                    <Card className ="note-thumbnail">
+                                    <Card >
                                         <CardBody>
                                             <CardTitle className="note-title heading">
                                                 {note.title}

@@ -10,6 +10,9 @@ class User extends React.Component {
                 username: '',
                 email: '',
                 password: '',
+                newPassword: '',
+                repeatNewPassword: '',
+                current: '',
                 error: false,
                 errorMessage: ''
             };
@@ -17,9 +20,11 @@ class User extends React.Component {
     
         componentDidMount = () => {
        
-        const id = localStorage.getItem("userID");
+        const id = localStorage.getItem('userId');
+        console.log("User component id", id)
             axios.get(`http://localhost:5000/api/users/${id}`)
-                .then(response => {                                  
+                .then(response => { 
+                    console.log("Getting something", response)                                 
                     this.setState({
                        username: response.data.username, email: response.data.email
                     });     
@@ -32,34 +37,64 @@ class User extends React.Component {
                     })
                 })
         }
-            
+
         handleInputChange = event => {
             this.setState({ [event.target.name]: event.target.value });
-        };
-    
-        render() {
-            return (
+        };  
+        
+        changeEmail = () => {
+            this.setState({
+                current: "password"
+            })
+        }
+        
+       loadContent = () => {
+           switch( this.state.current ) {
+               case "password":
+               return(
                 <div className="main-wrap">
-                    <div className="login-main">                    
-                        <div className={this.state.error ? "error" : "hidden"}>
-                            {this.state.errorMessage}
+                <div className="login-main">                    
+                    <div className={this.state.error ? "error" : "hidden"}>
+                        {this.state.errorMessage}
+                    </div>
+                    <div className='signup-form'>
+                        <div className="form-group">
+                            <input className="form-control" placeholder="Old password" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
                         </div>
-                        <div className='signup-form'>
-                            <div className="form-group">
-                                <input className="form-control" placeholder="Old password" name='username' type="text" value={this.state.username} onChange={this.handleInputChange} />
-                            </div>
-                            <div className="form-group">
-                                <input className="form-control" placeholder="New Password" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
-                            </div>
-                            <div className="form-group">
-                                <input className="form-control" placeholder="Retype Password" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
-                            </div>
-                            
+                        <div className="form-group">
+                            <input className="form-control" placeholder="New Password" name='newPassword' type="password" value={this.state.newPassword} onChange={this.handleInputChange} />
+                        </div>
+                        <div className="form-group">
+                            <input className="form-control" placeholder="Retype Password" name='repeatNewPassword' type="password" value={this.state.repeatNewPassword} onChange={this.handleInputChange} />
+                        </div>                            
                         </div>
                     </div>
-                </div>
-            )
-        }
-    }
-    
+                        <button type="submit" className="signup-button" onClick={this.createUser}>
+                        Confirm
+                        </button>
+                    <Link to="/user">
+                    <button className="home-button">
+                        Cancel
+                        </button>
+                    </Link>
+                    </div>
+
+               )
+
+           }
+       }
+        render() {
+            return (
+                <div>                
+                <div className="user-settings">
+                <div className="settings">Username: {this.state.username} <button className="username-button" onClick={this.changeEmail}>Change </button></div>
+                <div className="settings">Email: {this.state.email} <button className="email-button">Change</button> </div>
+                <div className="settings">Password: ****************** <button className="password-button">Change</button> </div>
+                </div>               
+                <div className="content">{this.loadContent()}</div>
+                  </div>
+                    )
+                }
+            }
+            
     export default User; 

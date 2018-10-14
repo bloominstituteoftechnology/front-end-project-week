@@ -73,7 +73,7 @@ h3.heading {
   border: 1px solid #e7e4e4;
   border-radius: 0px;
   font-size: 1.3em;
-  width: 74%;
+  width: 84%;
   margin-left: 28px;
   height: 58px;
   border-radius: 5px
@@ -118,7 +118,8 @@ h3.heading {
   max-width: 300px;
   height: 300px;
   border: 1px solid #dfdada !important;
-  border-radius: 5px !important;  
+  border-radius: 5px !important; 
+  overflow: hidden; 
 }
 
 /* .note-thumbnail:before {
@@ -159,14 +160,33 @@ h3.heading {
 }
 
 .main-wrap {
-  border: 2px solid rgba(0,0,0,.075);
-  margin: 112px;
-  height: 344px;
-  padding: 60px 93px 53px 100px;
+  border: 2px solid rgba(0,0,0,.075);  
   border-radius: 6px;
-  width: 30%;
+  padding: 18px;
+  margin-left: 70px;
+
 }
 
+.user-settings {
+  border: 2px solid rgba(0,0,0,.075);
+  margin: 112px 112px 24px 112px;
+  height: 288px;
+  padding: 60px 93px 53px 100px;
+  border-radius: 6px;
+  width: 80%;
+}
+
+.settings {
+  margin-bottom: 20px;
+}
+
+.username-button {
+  margin-left: 25%; 
+}
+
+.email-button {
+  margin-left: 35%;
+}
 .signup-wrap {
   border: 2px solid rgba(0,0,0,.075);
   height: 336px;
