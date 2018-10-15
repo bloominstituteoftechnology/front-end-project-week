@@ -2,6 +2,13 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
+let backend = 'http://localhost:5000/';
+let heroku = "https://aquilasystem.herokuapp.com/";
+if (typeof backend !== "string") {
+  backend = heroku;
+}
+
 class User extends React.Component {
     
         constructor(props) {
@@ -25,7 +32,7 @@ class User extends React.Component {
        
         const id = localStorage.getItem('userId');
         console.log("User component id", id)
-            axios.get(`http://localhost:5000/api/users/${id}`)
+            axios.get(`${backend}api/users/${id}`)
                 .then(response => { 
                     console.log("Getting something", response)                                 
                     this.setState({
@@ -58,7 +65,7 @@ class User extends React.Component {
             }
             
             const id = localStorage.getItem('userId');
-            axios.put(`http://localhost:5000/api/users/update/${id}`, user)
+            axios.put(`${backend}api/users/update/${id}`, user)
             .then(response => { 
                 console.log("Getting something", response)                            
             })
@@ -87,7 +94,7 @@ class User extends React.Component {
                 }
             }
             const id = localStorage.getItem('userId');
-            axios.put(`http://localhost:5000/api/users/resetpassword/${id}`, user)
+            axios.put(`${backend}api/users/resetpassword/${id}`, user)
             .then(response => { 
                 console.log("Getting something for password", response)                                           
             })

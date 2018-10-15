@@ -3,6 +3,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 
+let backend = 'http://localhost:5000/';
+let heroku = "https://aquilasystem.herokuapp.com/";
+if (typeof backend !== "string") {
+  backend = heroku;
+}
+
 class SignUpForm extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +30,7 @@ class SignUpForm extends React.Component {
             email: this.state.email,
 
         };
-        axios.post("http://localhost:5000/api/users/register", user)
+        axios.post(`${backend}api/users/register`, user)
         .then(response => {
             console.log("SignUp",response)
             localStorage.setItem('token', response.data.token)

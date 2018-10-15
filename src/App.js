@@ -13,6 +13,12 @@ import User from "./components/User";
 import Home from "./components/Home";
 import axios from 'axios';
 
+let backend = 'http://localhost:5000/';
+let heroku = "https://aquilasystem.herokuapp.com/";
+if (typeof backend !== "string") {
+  backend = heroku;
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -26,7 +32,7 @@ class App extends Component {
     componentDidMount() {
       const token = localStorage.getItem('token');
       const headers = { "headers": { "authorization": token } };
-      axios.get('http://localhost:5000/api/notes', headers)
+      axios.get(`${backend}api/notes`, headers)
       .then(notes => {             
 
         this.setState({notes: notes.data })
@@ -40,7 +46,7 @@ class App extends Component {
       // const notes = [...this.state.notes, note];
       const token = localStorage.getItem('token');
       const headers = { "headers": { "authorization": token } };
-      axios.post('http://localhost:5000/api/notes', note, headers)
+      axios.post(`${backend}api/notes`, note, headers)
       .then(notes => {
         console.log("New Note", note);
         this.setState({ notes: [...this.state.notes, note]});
@@ -59,7 +65,7 @@ handleEdit = (element) => {
 // })
 const token = localStorage.getItem('token');
 const headers = { "headers": { "authorization": token } };
-axios.put(`http://localhost:5000/api/notes/${element._id}`, element, headers)
+axios.put(`${backend}api/notes/${element._id}`, element, headers)
 .then(result => {
   console.log("Result", result)
   this.setState({ notes: [...this.state.notes, result]});  
@@ -72,7 +78,7 @@ axios.put(`http://localhost:5000/api/notes/${element._id}`, element, headers)
  handleDelete = (element) => {
   const token = localStorage.getItem('token');
   const headers = { "headers": { "authorization": token } };
-   axios.delete(`http://localhost:5000/api/notes/${element._id}`, headers)
+   axios.delete(`${backend}api/notes/${element._id}`, headers)
    .then(response => {
     console.log("Handle Delete res", element._id)
    })

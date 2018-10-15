@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import  './LoginForm.css';
 
 
+let backend = 'http://localhost:5000/';
+let heroku = "https://aquilasystem.herokuapp.com/";
+if (typeof backend !== "string") {
+  backend = heroku;
+}
+
+
 class LoginForm extends React.Component {
     
         constructor(props) {
@@ -22,7 +29,7 @@ class LoginForm extends React.Component {
                 username: this.state.username,
                 password: this.state.password
             };
-            axios.post("http://localhost:5000/api/users/login", user)
+            axios.post(`${backend}api/users/login`, user)
                 .then(response => {
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem('userId', response.data.userId);
