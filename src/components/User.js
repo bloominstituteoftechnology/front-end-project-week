@@ -3,11 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 
-let backend = 'http://localhost:5000/';
-let heroku = "https://aquilasystem.herokuapp.com/";
-if (typeof backend !== "string") {
-  backend = heroku;
-}
+
+const backend= "https://lamb-notes.herokuapp.com/";
 
 class User extends React.Component {
     

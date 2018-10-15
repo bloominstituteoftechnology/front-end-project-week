@@ -4,12 +4,8 @@ import { Link } from "react-router-dom";
 import  './LoginForm.css';
 
 
-let backend = 'http://localhost:5000/';
-let heroku = "https://aquilasystem.herokuapp.com/";
-if (typeof backend !== "string") {
-  backend = heroku;
-}
 
+let backend = "https://lamb-notes.herokuapp.com/";
 
 class LoginForm extends React.Component {
     

@@ -13,11 +13,8 @@ import User from "./components/User";
 import Home from "./components/Home";
 import axios from 'axios';
 
-let backend = 'http://localhost:5000/';
-let heroku = "https://aquilasystem.herokuapp.com/";
-if (typeof backend !== "string") {
-  backend = heroku;
-}
+
+const backend = "https://lamb-notes.herokuapp.com/";
 
 class App extends Component {
   constructor() {
