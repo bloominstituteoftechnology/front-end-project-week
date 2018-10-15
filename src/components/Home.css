@@ -2,16 +2,20 @@
 .main-wrapper {
     background: url("../img/pen.jpg");
     height: 100vh;
-    width: 100vw;
-      
-}
+    width: 100vw;      
+  }
+
+  .loggged-on {
+    padding: 23px;
+    font-size: 1.4rem;
+  }
+
 
  h3 {
      color: darkblue;
      padding-top: 14px;
      margin-left: 2%;
       }
-
 
  p {
      margin-left: 2%; 
