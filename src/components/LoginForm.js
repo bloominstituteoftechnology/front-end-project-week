@@ -30,6 +30,7 @@ class LoginForm extends React.Component {
                 .then(response => {
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem('userId', response.data.userId);
+                    localStorage.setItem('name', response.data.name);
                     localStorage.setItem('username', this.state.username);
                     console.log("Fire", response)
                     this.setState({

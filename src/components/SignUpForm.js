@@ -11,6 +11,7 @@ class SignUpForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            name: "",
             username: "",
             password: "",
             confirmPassword: "",
@@ -23,6 +24,7 @@ class SignUpForm extends React.Component {
     createUser = event => {
         event.preventDefault();
         const user = {
+            name: this.state.name,
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
@@ -59,6 +61,9 @@ class SignUpForm extends React.Component {
                         {this.state.errorMessage}
                     </div>
                     <div className='signup-form'>
+                        <div className="form-group">
+                            <input className="form-control" placeholder="Full Name" name='name' type="text" value={this.state.name} onChange={this.handleInputChange} />
+                        </div>
                         <div className="form-group">
                             <input className="form-control" placeholder="Username" name='username' type="text" value={this.state.username} onChange={this.handleInputChange} />
                         </div>
