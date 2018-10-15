@@ -163,7 +163,11 @@ h3.heading {
   border: 2px solid rgba(0,0,0,.075);  
   border-radius: 6px;
   padding: 18px;
-  margin-left: 70px;
+  margin-top: 80px;
+  margin-left: 90px;
+  height: 274px;
+  width: 26%;
+  padding: 30px;
 
 }
 
@@ -174,6 +178,24 @@ h3.heading {
   padding: 60px 93px 53px 100px;
   border-radius: 6px;
   width: 80%;
+}
+
+.password-wrap {
+
+  border: 2px solid rgba(0,0,0,.075);
+  margin: 43px 0 0 114px;
+  height: 275px;
+  padding: 43px 60px 0 82px;
+  border-radius: 6px;
+  width: 80%;
+}
+.change-form {
+  border: 2px solid rgba(0,0,0,.075);
+  width: 52%;
+  margin-left: 20%;
+  border-radius: 6px;
+  width: 66%;
+  padding: 24px;
 }
 
 .settings {
@@ -190,9 +212,10 @@ h3.heading {
 .signup-wrap {
   border: 2px solid rgba(0,0,0,.075);
   height: 336px;
-  padding: 6px 159px 30px 92px;
-  border-radius: 6px;
   margin: 100px;
+  border-radius: 6px;
+  padding: 6px 81px 30px 90px;
+  width: 34%;
 }
 
 /* .signup-form {

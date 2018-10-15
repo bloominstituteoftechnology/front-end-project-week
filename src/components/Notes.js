@@ -12,7 +12,8 @@ class Notes extends Component {
     logout = () => {
         console.log("Log")        
           localStorage.removeItem('token');
-          localStorage.removeItem('userId'); 
+          localStorage.removeItem('userId');
+          localStorage.removeItem('username');  
           this.props.logout();     
           this.props.history.push('/');
               

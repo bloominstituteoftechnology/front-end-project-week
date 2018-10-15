@@ -8,11 +8,14 @@ class User extends React.Component {
             super(props);
             this.state = {
                 username: '',
+                newUsername: '',
                 email: '',
+                newEmail: '',
                 password: '',
                 newPassword: '',
-                repeatNewPassword: '',
+                verifyPassword: '',
                 current: '',
+                showForm: false,
                 error: false,
                 errorMessage: ''
             };
@@ -26,7 +29,8 @@ class User extends React.Component {
                 .then(response => { 
                     console.log("Getting something", response)                                 
                     this.setState({
-                       username: response.data.username, email: response.data.email
+                       username: response.data.username, 
+                       email: response.data.email,
                     });     
                 })
                 .catch(err => {
@@ -38,21 +42,99 @@ class User extends React.Component {
                 })
         }
 
+        updateUser = () => {
+           let  user = {};
+
+            if (this.state.current === "username") {
+                user = {
+                    username: this.state.newUsername
+                }
+            }
+
+            else if (this.state.current === "email") {
+                user = {
+                    email: this.state.newEmail
+                }
+            }
+            
+            const id = localStorage.getItem('userId');
+            axios.put(`http://localhost:5000/api/users/update/${id}`, user)
+            .then(response => { 
+                console.log("Getting something", response)                            
+            })
+            .catch(err => {
+                console.log(err)
+                this.setState({
+                    error: true,
+                    errorMessage: err.message
+                })
+            })
+
+            this.componentDidMount();
+
+            this.setState({
+               showForm: false,
+            })
+        }
+
+        resetPassword = () => {
+            let  user = {};
+             if (this.state.current === "password") {
+                user = {
+                    password: this.state.password,
+                    newPassword: this.state.newPassword,
+                    verifyPassword: this.state.verifyPassword
+                }
+            }
+            const id = localStorage.getItem('userId');
+            axios.put(`http://localhost:5000/api/users/resetpassword/${id}`, user)
+            .then(response => { 
+                console.log("Getting something for password", response)                                           
+            })
+            .catch(err => {
+                console.log(err)
+                this.setState({
+                    error: true,
+                    errorMessage: err.message
+                })
+            })
+        }
+
         handleInputChange = event => {
             this.setState({ [event.target.name]: event.target.value });
         };  
-        
+        // all user update methods needs to be refactored for cleaner code
         changeEmail = () => {
             this.setState({
-                current: "password"
+                current: "email",
+                showForm: true
+            })
+        }
+
+        changeUsername = () => {
+            this.setState({
+                current: "username",
+                showForm: true
+            })
+        }
+        changePassword = () => {
+            this.setState({
+                current: "password",
+                showForm: true
+            })
+        }
+
+        cancelSettings = () => {
+            this.setState({
+                showForm: false,
             })
         }
         
        loadContent = () => {
            switch( this.state.current ) {
                case "password":
-               return(
-                <div className="main-wrap">
+               return (
+                <div className="password-wrap">
                 <div className="login-main">                    
                     <div className={this.state.error ? "error" : "hidden"}>
                         {this.state.errorMessage}
@@ -65,33 +147,60 @@ class User extends React.Component {
                             <input className="form-control" placeholder="New Password" name='newPassword' type="password" value={this.state.newPassword} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
-                            <input className="form-control" placeholder="Retype Password" name='repeatNewPassword' type="password" value={this.state.repeatNewPassword} onChange={this.handleInputChange} />
+                            <input className="form-control" placeholder="Retype Password" name='verifyPassword' type="password" value={this.state.verifyPassword} onChange={this.handleInputChange} />
                         </div>                            
                         </div>
                     </div>
-                        <button type="submit" className="signup-button" onClick={this.createUser}>
+                        <button type="submit" className="signup-button" onClick={this.resetPassword}>
                         Confirm
-                        </button>
-                    <Link to="/user">
-                    <button className="home-button">
+                        </button>                    
+                    <button className="home-button" onClick={this.cancelSettings}>
                         Cancel
-                        </button>
-                    </Link>
+                        </button>                    
                     </div>
-
+                   )
+               case "username":
+               return (
+                <div className='change-form'>
+                <div className="form-group">
+                <input className="form-control" placeholder="username" name='newUsername' type="text" value={this.state.newUsername} onChange={this.handleInputChange} />
+                </div>
+                <button type="submit" className="signup-button" onClick={this.updateUser}>
+                        Confirm
+                        </button>                    
+                    <button className="home-button" onClick={this.cancelSettings}>
+                        Cancel
+                        </button>                  
+                     </div>
+                 )
+               case "email":
+               return (
+                <div className='change-form'>
+                <div className="form-group">
+                <input className="form-control" placeholder="email" name='newEmail' type="text" value={this.state.newEmail} onChange={this.handleInputChange} />
+                </div>
+                <button type="submit" className="signup-button" onClick={this.updateUser}>
+                        Confirm
+                        </button>                
+                    <button className="home-button" onClick={this.cancelSettings}>
+                        Cancel
+                        </button>                   
+                </div>
                )
-
            }
        }
         render() {
             return (
                 <div>                
                 <div className="user-settings">
-                <div className="settings">Username: {this.state.username} <button className="username-button" onClick={this.changeEmail}>Change </button></div>
-                <div className="settings">Email: {this.state.email} <button className="email-button">Change</button> </div>
-                <div className="settings">Password: ****************** <button className="password-button">Change</button> </div>
-                </div>               
+                <div className="settings">Username: {this.state.username} <button className="username-button" onClick={this.changeUsername}>Change </button></div>
+                <div className="settings">Email: {this.state.email} <button className="email-button" onClick={this.changeEmail}>Change</button> </div>
+                <div className="settings">Password: ****************** <button className="password-button" onClick={this.changePassword}>Change</button> </div>
+                </div> 
+                {this.state.showForm ? (               
                 <div className="content">{this.loadContent()}</div>
+                ):(null)
+                }
                   </div>
                     )
                 }
