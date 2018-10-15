@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 
-const backend= "https://lamb-notes.herokuapp.com/";
+const backend = "https://lamb-notes.herokuapp.com/";
 
 class User extends React.Component {
     

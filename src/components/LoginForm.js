@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import  './LoginForm.css';
 
 
+const backend = "https://lamb-notes.herokuapp.com/";
 
-let backend = "https://lamb-notes.herokuapp.com/";
+
 
 class LoginForm extends React.Component {
     
