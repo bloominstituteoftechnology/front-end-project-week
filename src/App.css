@@ -249,6 +249,23 @@ h3.heading {
   width: 34%;
 }
 
+.home-button {
+  background-color: #2BC1C4;
+  border-radius: 6px;
+  color: white
+}
+.home-button:hover {
+  background: darkcyan;
+}
+
+.signup-button {
+  background-color: #2BC1C4;
+  border-radius: 6px;
+  color: white
+}
+.signup-button:hover {
+  background: darkcyan;
+}
 
 /* .signup-form {
   width: 128%;
