@@ -20,7 +20,7 @@ const NavDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 250px;
-  min-height: 1000px;
+  height: 100% vh;
   background-color: #D7D7D7
   padding-left: 15px;
   padding-right: 15px;

@@ -40,7 +40,7 @@ export default class NoteList extends Component {
 const ListDive = styled.div`
   box-sizing: border-box;
   display: flex;
-  min-height: 1000px;
+  height: 100% vh;
   flex-direction: column;
   background-color: #F3F3F3;
   border: 1px solid #BEBEBE;

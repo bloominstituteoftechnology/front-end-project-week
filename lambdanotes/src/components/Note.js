@@ -53,10 +53,10 @@ export default class Note extends Component {
       <OneNote>
         <div className='note-container'>
           <div className='note-action'>
-            <Link to={{
+            <button><Link style={{ textDecoration: 'none', color: '#000000'}} to={{
               pathname: `/notes/${this.state.note._id}/edit`,
               state: this.state.note
-            }}>edit</Link>
+            }}>edit</Link></button>
       {/* onClick={() => this.props.history.push(`/notes/${this.state.note._id}/edit`)}>edit</button> */}
             <button className='links' onClick={this.toggleModal}>delete</button>
             {/* <div style={{textDecoration: 'underline'}}onClick={()=> this.deleteNote(this.state.note._id)}>delete</div> */}
@@ -105,7 +105,7 @@ const OneNote = styled.div`
     margin-top: 20px;
 
     .links {
-      margin-right: 20px;
+      margin: 0 20px;
       color: #000000;
     }
   }
