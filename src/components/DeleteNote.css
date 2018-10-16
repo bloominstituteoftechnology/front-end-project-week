@@ -1,0 +1,16 @@
+.delete-modul {
+    background-color: #b1acac;
+}
+.delete-button {
+  height: 36px;
+  width: 37px;
+  margin-right: 81px;
+  margin-left:81px;
+}
+.modul-cancel {
+  height: 50px;
+  width: 200px;
+  border: #979797;
+  color: black !important;
+  margin: 10px;
+}

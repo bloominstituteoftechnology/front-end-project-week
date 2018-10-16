@@ -1,0 +1,22 @@
+.single-note-body {
+    border-top: 1px solid rgb(94, 94, 94);
+    padding-top: 20px;
+    padding-left: 50px;
+    color: white;
+    font-size: 110%;
+}
+
+.edit-delete {
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+.edit {
+    color:white;
+    padding-right: 10px;
+    text-decoration: underline !important;
+    text-decoration-color: white !important;
+}
