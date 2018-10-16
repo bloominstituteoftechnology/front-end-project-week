@@ -21,7 +21,7 @@ const NavDiv = styled.div`
   flex-direction: column;
   width: 250px;
   height: 100% vh;
-  background-color: #D7D7D7
+  background-color: #D7D7D7;
   padding-left: 15px;
   padding-right: 15px;
   border: 1px solid #BEBEBE;
