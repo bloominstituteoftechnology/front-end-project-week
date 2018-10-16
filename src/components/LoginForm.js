@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
                         error: false
                     });
                     setTimeout(() => {
-                        this.props.history.push('/notes');
+                        this.props.history.push('/');
                     }, 200)
                 })
                 .catch(err => {

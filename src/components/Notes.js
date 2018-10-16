@@ -7,6 +7,7 @@ import NoteButton from './NoteButton';
 class Notes extends Component {  
     state = {
         notes: false
+        
     }
 
     logout = () => {

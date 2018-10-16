@@ -72,9 +72,7 @@ class User extends React.Component {
                     error: true,
                     errorMessage: err.message
                 })
-            })
-
-            this.componentDidMount();
+            })     
 
             this.setState({
                showForm: false,
@@ -102,6 +100,10 @@ class User extends React.Component {
                     errorMessage: err.message
                 })
             })
+            
+            this.setState({
+                showForm: false,
+             })
         }
 
         handleInputChange = event => {
@@ -197,8 +199,8 @@ class User extends React.Component {
             return (
                 <div>                
                 <div className="user-settings">
-                <div className="settings">Username: {this.state.username} <button className="username-button" onClick={this.changeUsername}>Change </button></div>
-                <div className="settings">Email: {this.state.email} <button className="email-button" onClick={this.changeEmail}>Change</button> </div>
+                <div className="settings"><div className="info-label">Username:</div><div className="info-data">{this.state.username}</div><button className="username-button" onClick={this.changeUsername}>Change </button></div>
+                <div className="settings"><div className="info-label">Email:</div><div className="info-data_email"> {this.state.email}</div><button className="email-button" onClick={this.changeEmail}>Change</button> </div>
                 <div className="settings">Password: ****************** <button className="password-button" onClick={this.changePassword}>Change</button> </div>
                 </div> 
                 {this.state.showForm ? (               

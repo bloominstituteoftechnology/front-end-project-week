@@ -93,7 +93,10 @@ axios.put(`${backend}api/notes/${element._id}`, element, headers)
         <NavNotes />
         <Route path="/notes" render={(props) => <Notes {...props} state={this.state} logout={this.logOut} />}/>
         <Route exact path="/" component={Home} />
+        {localStorage.getItem("token") ? (
         <Route path="/user" component={User} />
+        ) : ( null )
+        }
         <Route path="/login" component={LogingForm} />
         <Route path="/register" component={SignUpForm} />
         <Route path="/new" render={(props) => <NewNote  {...props} save={this.SaveNote}/>} />        

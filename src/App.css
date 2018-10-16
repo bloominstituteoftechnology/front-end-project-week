@@ -189,6 +189,16 @@ h3.heading {
   border-radius: 6px;
   width: 80%;
 }
+
+.password-button {
+  margin-left: 15%;
+  background-color: #2BC1C4;
+  border-radius: 6px;
+  color: white
+}
+.password-button:hover {
+  background: darkcyan
+}
 .change-form {
   border: 2px solid rgba(0,0,0,.075);
   width: 52%;
@@ -199,16 +209,37 @@ h3.heading {
 }
 
 .settings {
+  display: flex;
   margin-bottom: 20px;
 }
 
-.username-button {
-  margin-left: 25%; 
+.info-data {
+  margin-left: 42px;
 }
 
-.email-button {
-  margin-left: 35%;
+.info-data_email {
+  margin-left: 84px;
 }
+.username-button {
+  margin-left: 15%;
+  position: absolute;
+  background-color: #2BC1C4;
+  border-radius: 6px; 
+  color: white
+}
+.username-button:hover {
+  background: darkcyan;
+} 
+.email-button {
+  margin-left: 15%; 
+  position: absolute;
+  background-color: #2BC1C4;
+  border-radius: 6px;
+  color: white
+}
+.email-button:hover {
+  background: darkcyan;
+} 
 .signup-wrap {
   border: 2px solid rgba(0,0,0,.075);
   height: 406px;
@@ -217,6 +248,7 @@ h3.heading {
   padding: 6px 81px 30px 90px;
   width: 34%;
 }
+
 
 /* .signup-form {
   width: 128%;
