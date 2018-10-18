@@ -18,7 +18,6 @@ const NoteButton = (props) => {
 
 export default class List extends Component {
   render() {
-    console.log("LOOK AT ME:", this.props)
     return (
       <Container>
         <Row>
