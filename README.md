@@ -1,51 +1,22 @@
 <!-- Trello Link -->
 https://trello.com/b/uwTGQGXM/lambda-notes-andrew-kolumbic
 
+Heroku Link: https://lambda-kolumbic-117.herokuapp.com
+
 ########## Fonts & Colors ############
 
-Heading font: Roboto Bold
-Everything else font: Raleway Medium
+* Heading font: Roboto Bold
+* Everything else font: Raleway Medium
 
-Heading and main font color: #4A4A4A
-Button font color: #FFFFFF
+* Heading and main font color: #4A4A4A
+* Button font color: #FFFFFF
 
-Sidebar background: #D8D8D8
-Main background: #F3F3F3
-Main button background: #2BC1C4
-rgb(43, 193, 196)
-Delete button background: #D0021B
-Border color used throughout: #979797
-
-########## SERVER INFO ###############
-
-Ryan's note server can be found here:
-https://killer-notes.herokuapp.com
-
-One thing to be aware of is that this server is a shared resource. Any notes you enter will be viewable to everyone who connects to the server.
-A note has this basic format:
-
-  {
-    "tags": ["tag", "otherTag"],
-    "title": "Note Title",
-    "textBody": "Note Body",
-  }
-
-There is also an "_id" attribute, which is a long string of numbers and letters. It is automatically assigned by the server and will be returned as part of the data.
-
-https://killer-notes.herokuapp.com/note/get/all
-a GET request to this route will return a list of all the notes.
-
-https://killer-notes.herokuapp.com/note/get/id
-a GET request to this route (with "id" replaced by the note ID) will return the note with the specified ID.
-
-https://killer-notes.herokuapp.com/note/create
-a POST request to this route with the title and text in the req.body will create a new note. The response from the server will be the ID of the new note.
-
-https://killer-notes.herokuapp.com/note/edit/id
-a PUT request to this route with the title and text in the req body will edit the note with the specified ID. The response from the server will be the updated note object.
-
-https://killer-notes.herokuapp.com/note/delete/id
-a DELETE request to this route will delete the note with the specified ID.
+* Sidebar background: #D8D8D8
+* Main background: #F3F3F3
+* Main button background: #2BC1C4
+* rgb(43, 193, 196)
+* Delete button background: #D0021B
+* border color used throughout: #979797
 
 ######################################################################
 
@@ -63,21 +34,21 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## Trello Set Up:
 
-* [ ] Create a Trello account
-* [ ] Create a new board called "Lambda Notes - {Your Name}"
-* [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-* [ ] Fill in the `To Do` list with the MVP features listed below
-* [ ] Fill in the `backlog` list with all the extra features listed below
-* [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
-* [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+* [X] Create a Trello account
+* [X] Create a new board called "Lambda Notes - {Your Name}"
+* [X] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+* [X] Fill in the `To Do` list with the MVP features listed below
+* [X] Fill in the `backlog` list with all the extra features listed below
+* [X] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
+* [X] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
 
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
+* [X] Display a list of notes
+* [X] Create a note with a title and content
+* [X] View an existing note
+* [X] Edit an existing note
+* [X] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
 
