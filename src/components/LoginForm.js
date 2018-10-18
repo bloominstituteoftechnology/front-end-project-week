@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 import  './LoginForm.css';
 
 
-const backend = "https://lamb-notes.herokuapp.com/";
+// const backend = "https://lamb-notes.herokuapp.com/";
+let backend = 'http://localhost:5000/';
+let heroku = 'https://lamb-notes.herokuapp.com/';
+if (typeof(backend) !== 'string') {
+  backend = heroku;
+}
 
 
 
@@ -44,7 +49,7 @@ class LoginForm extends React.Component {
                     console.log(err)
                     this.setState({
                         error: true,
-                        errorMessage: err.message
+                        errorMessage: err.response.data.error
                     })
                 })
         }
@@ -57,10 +62,7 @@ class LoginForm extends React.Component {
             return (
                 <div className="main-wrap">
                     <div className="login-main">
-                        <h2> Login </h2>
-                        <div className={this.state.error ? "error" : "hidden"}>
-                            {this.state.errorMessage}
-                        </div>
+                        <h2> Login </h2>                        
                         <div className='signup-form'>
                             <div className="form-group">
                                 <input className="form-control" placeholder="Username" name='username' type="text" value={this.state.username} onChange={this.handleInputChange} />
@@ -78,6 +80,9 @@ class LoginForm extends React.Component {
                                     </button>
                                 </Link>
                             </div>
+                            <div className="form-error">
+                            {this.state.errorMessage}
+                        </div>
                         </div>
                     </div>
                 </div>

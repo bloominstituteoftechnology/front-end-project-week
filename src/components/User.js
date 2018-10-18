@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 
 
 
-const backend = "https://lamb-notes.herokuapp.com/";
+// const backend = "https://lamb-notes.herokuapp.com/";
+let backend = 'http://localhost:5000/';
+let heroku = 'https://lamb-notes.herokuapp.com/';
+if (typeof(backend) !== 'string') {
+  backend = heroku;
+}
 
 class User extends React.Component {
     

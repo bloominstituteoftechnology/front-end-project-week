@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 
 
 
-const backend = "https://lamb-notes.herokuapp.com/";
+// const backend = "https://lamb-notes.herokuapp.com/";
+let backend = 'http://localhost:5000/';
+let heroku = 'https://lamb-notes.herokuapp.com/';
+if (typeof(backend) !== 'string') {
+  backend = heroku;
+}
 
 
 class SignUpForm extends React.Component {
@@ -23,6 +28,12 @@ class SignUpForm extends React.Component {
 
     createUser = event => {
         event.preventDefault();
+        if(this.state.password !== this.state.confirmPassword) {
+            this.setState({
+                errorMessage: "Passwords don't match!"                
+            })
+            return;
+        }
         const user = {
             name: this.state.name,
             username: this.state.username,
@@ -56,10 +67,7 @@ class SignUpForm extends React.Component {
            
             <div className="col-sm-3" className="signup-wrap ">
                 <div className='signup'>
-                    <h3>Sign up </h3>
-                    <div className={this.state.error ? "error" : "hidden"}>
-                        {this.state.errorMessage}
-                    </div>
+                    <h3>Sign up </h3>                    
                     <div className='signup-form'>
                         <div className="form-group">
                             <input className="form-control" placeholder="Full Name" name='name' type="text" value={this.state.name} onChange={this.handleInputChange} />
@@ -86,6 +94,9 @@ class SignUpForm extends React.Component {
                                 </button>
                             </Link>
                         </div>
+                        <div className="form-error">                    
+                        {this.state.errorMessage}
+                    </div>
                     </div>
                 </div>
             </div>

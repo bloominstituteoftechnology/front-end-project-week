@@ -1,4 +1,4 @@
-.App {
+.App { 
   display: flex;
   flex-direction: row;
   background-color: #F3F3F3;
@@ -15,8 +15,13 @@
   font-size: 1.7em;
 }
 
+.heading:hover {
+  cursor: pointer;
+}
+
 h3.heading {
-  padding: 90px 0 0 28px;
+  padding: 0 0 0 28px;
+  margin-top: 90px
 }
 
 .note-heading {
@@ -159,6 +164,9 @@ h3.heading {
   margin: 20px 30px;
 }
 
+.form-error {
+  color: red;
+}
 .main-wrap {
   border: 2px solid rgba(0,0,0,.075);  
   border-radius: 6px;
