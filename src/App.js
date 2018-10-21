@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import styled from 'styled-components';
+// import Authentication from './components/Authentication';
 import SideBar from './components/SideBar';
 import MainPane from './components/MainPane';
 import breakpoints from './breakpoints';

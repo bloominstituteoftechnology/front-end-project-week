@@ -10,7 +10,7 @@ const url = process.env.REACT_APP_SERVER || 'http://localhost:8000';
 
 export const fetchNotes = cb => dispatch => {
   return axios
-    .get(`${url}/get/all`)
+    .get(`${url}/notes/get/all`)
     .then(res => {
       const { data } = res;
       dispatch({ type: RECEIVE_NOTES, payload: data });
@@ -23,7 +23,7 @@ export const fetchNotes = cb => dispatch => {
 
 export const fetchNoteById = target => dispatch => {
   return axios
-    .get(`${url}/get/${target}`)
+    .get(`${url}/notes/get/${target}`)
     .then(res => {
       const { data } = res;
       dispatch({ type: RECEIVE_NOTE, payload: data });
@@ -35,7 +35,7 @@ export const fetchNoteById = target => dispatch => {
 
 export const sendEdit = (target, note, cb) => dispatch => {
   return axios
-    .put(`${url}/edit/${target}`, note)
+    .put(`${url}/notes/edit/${target}`, note)
     .then(res => {
       //optional cb to call on success
       if (cb !== undefined) cb();
@@ -48,7 +48,7 @@ export const sendEdit = (target, note, cb) => dispatch => {
 export const postNewNote = (note, cb) => dispatch => {
   return (
     axios
-      .post(`${url}/create`, note)
+      .post(`${url}/notes/create`, note)
       //optional cb to call on success
       .then(({ data: { id } }) => cb && cb(id))
       .catch(err => {
@@ -59,7 +59,7 @@ export const postNewNote = (note, cb) => dispatch => {
 
 export const deleteNote = (id, cb) => dispatch => {
   return axios
-    .delete(`${url}/delete/${id}`)
+    .delete(`${url}/notes/delete/${id}`)
     .then(() => {
       if (cb !== undefined) cb();
     })
@@ -70,7 +70,7 @@ export const deleteNote = (id, cb) => dispatch => {
 
 export const fetchTags = cb => dispatch => {
   return axios
-    .get(`${url}/tags`)
+    .get(`${url}/notes/tags`)
     .then(res => {
       const { data } = res;
       dispatch({ type: RECEIVE_TAGS, payload: data });
@@ -78,12 +78,14 @@ export const fetchTags = cb => dispatch => {
     .then(() => {
       if (cb) cb();
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 export const reArrange = (sourceId, dropId) => dispatch => {
   return axios
-    .put(`${url}/move`, { sourceId, dropId })
+    .put(`${url}/notes/move`, { sourceId, dropId })
     .then(() =>
       dispatch({
         type: REARRANGE_NOTES,
