@@ -18,7 +18,7 @@ class SignUp extends React.Component{
         this.setState({[e.target.name]:e.target.value})
     }
     onSubmitHandler=(e)=>{
-        e.preventDefault();
+        e.preventDefault()
         const newUser={
             username:this.state.username.toLowerCase(),
             password:this.state.password
@@ -30,11 +30,11 @@ class SignUp extends React.Component{
                 localStorage.setItem('jwt',res.data.token);
                 this.props.history.push('/notes');
             })
-            .catch(error=>{
-                if (error.message==='Request failed with status code 400') {
-                    alert('Invalid field(s). Username and password must be at least 3 characters long.')
-                } else {
-                    alert('That username is already in use.')
+            .catch(err=>{
+                if (err.message==='Request failed with status code 400') {
+                    alert('Invalid field(s). Username and password must be at least 3 characters long.');
+                } else if (err.message==='Request failed with status code 500') {
+                    alert('That username is already in use.');
                 }
             })
     }

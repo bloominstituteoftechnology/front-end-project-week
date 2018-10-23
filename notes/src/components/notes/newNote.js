@@ -20,11 +20,11 @@ class NewNote extends React.Component{
         localStorage.setItem('location',this.props.location.pathname);
     }
     createnewNoteObj=(e)=>{
+        e.preventDefault();
         if (this.state.title.length===0 || this.state.content.length===0) {
             alert('A note needs to have title and content.')
         } 
         else {
-            e.preventDefault();
             let tags;
             if (this.state.tags.length>0) {
                 tags=this.state.tags.replace(/,/g,'').replace(/\s+/g,' ').replace(/\s/g,', ');

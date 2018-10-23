@@ -57,7 +57,7 @@ const Note=(props)=><NoteContainer>
             {props.data.textBody.length<100?
             <p>{props.data.textBody}</p>:
             <p>{props.data.textBody.slice(0,101)+'...'}</p>}
-            {props.data.tags!==null?
+            {props.data.tags!==null ?
             <NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags}</NoteTag>
             :null}
         </Content>
