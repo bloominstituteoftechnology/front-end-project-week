@@ -12,15 +12,17 @@ const ListView = (props) => {
                     <input name='search' onChange={props.handleSearch} value={props.searchVal} placeholder='Search...' />
                 </div>    
             </div>
+            {this.state.loggedIn ? null : (<Route path='/' render={props => (<LoginForm {...props} toggleLogin={this.toggleLogin} />)}/>)}
             <ul className='note-list'>
-                {props.notes.map(note => {
-                    return (
-                        <Link to={`/view/${note.id}`} key={Math.random()} className='note'>
-                            <h1>{note.title.substring(0, 20)}</h1>
-                            <hr />
-                            <p>{note.content.substring(0, 150)}</p>
-                        </Link>    
-                    )
+                {props.notes ? null (<p>Loading notes now... Please wait</p>) :
+                    props.notes.map(note => {
+                        return (
+                            <Link to={`/view/${note.id}`} key={Math.random()} className='note'>
+                                <h1>{note.title.substring(0, 20)}</h1>
+                                <hr />
+                                <p>{note.content.substring(0, 150)}</p>
+                            </Link>    
+                        )
                 })}
             </ul>
         </div>
