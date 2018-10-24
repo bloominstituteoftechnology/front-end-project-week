@@ -13,15 +13,16 @@ const ListView = (props) => {
                 </div>    
             </div>
             <ul className='note-list'>
-                {props.notes.length === 0 ? props.notes.map(note => {
-                    return (
-                        <Link to={`/view/${note.id}`} key={Math.random()} className='note'>
-                            <h1>{note.title.substring(0, 20)}</h1>
-                            <hr />
-                            <p>{note.content.substring(0, 150)}</p>
-                        </Link>    
-                    )
-                }) : (<p>Loading Notes - Please Wait</p>)}
+                {props.notes.length === 0 ? (<p>Loading Notes - Please Wait</p>) :
+                    props.notes.map(note => {
+                        return (
+                            <Link to={`/view/${note.id}`} key={Math.random()} className='note'>
+                                <h1>{note.title.substring(0, 20)}</h1>
+                                <hr />
+                                <p>{note.content.substring(0, 150)}</p>
+                            </Link>    
+                        )
+                })}
             </ul>
         </div>
     );
