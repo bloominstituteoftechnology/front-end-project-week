@@ -13,7 +13,7 @@ const ListView = (props) => {
                 </div>    
             </div>
             <ul className='note-list'>
-                {!props.notes ? props.notes.map(note => {
+                {props.notes === [] ? props.notes.map(note => {
                     return (
                         <Link to={`/view/${note.id}`} key={Math.random()} className='note'>
                             <h1>{note.title.substring(0, 20)}</h1>
