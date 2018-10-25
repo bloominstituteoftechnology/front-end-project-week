@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -14,7 +15,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
-// require('dotenv').config();
+
 
 const Appcont = styled.div`
 display: flex;
@@ -48,6 +49,8 @@ display: flex;
 componentDidMount() {
 
   const apiUrl = process.env.REACT_APP_API;
+  const local = 'http://localhost:6500/api/notes'
+  console.log(process.env)
   axios
   .get(apiUrl)
   .then(response => {
