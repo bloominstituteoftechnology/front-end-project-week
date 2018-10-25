@@ -64,11 +64,13 @@ componentDidMount() {
 addNote = e => {//new
   e.preventDefault();
   // add code to create the smurf using the api
+  const apiUrl = process.env.REACT_APP_API;
+  const local = 'http://localhost:6500/api/notes'
   const notes = this.state.notes.slice();
   const noteData = { notetitle: this.state.notetitle, notebod: this.state.notebod }
   // notes.push(note);
   axios
-  .post('http://localhost:6500/api/notes',  noteData )
+  .post(apiUrl,  noteData )
   .then(response => {
     notes.push(response.data)
     console.log("POST Response",response);
