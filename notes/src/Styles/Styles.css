@@ -1,0 +1,23 @@
+.sidebar {
+  background:#d3d2d3;
+  min-height: 100vh;
+}
+
+.view {
+  background: #f2f1f2
+}
+
+.button {
+  background: #24b8bd;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f3fafa;
+  border: 2px outset rgb(187, 187, 187);
+  max-width: 80%;
+  margin: 10px auto;
+  padding: 15px 5px;
+}
+
+.button:hover {
+  background: #81bcbe;
+}
