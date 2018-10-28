@@ -40,7 +40,6 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 - [ ] Fill in the `backlog` list with all the extra features listed below
 - [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
 - [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
- - https://trello.com/b/JOxzvSYP/lambda-notes
 
 ## MVP Features:
 
@@ -52,6 +51,10 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 ```
 
 ---
+
+## Trello Link
+[Steve's Trello Board for the Notes Project](https://trello.com/b/JOxzvSYP/lambda-notes)
+
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
 
