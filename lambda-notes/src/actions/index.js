@@ -37,7 +37,7 @@ export const fetchNotes = () => dispatch => {
 export const addNote = note => dispatch => {
   dispatch({ type: POST_NOTE });
   axios
-    .post(`${url}/create`)
+    .post(`${url}/create`, note)
     .then(response => {
       dispatch({ type: POST_NOTE_SUCCESS, payload: response.data});
     })
@@ -70,7 +70,7 @@ export const deleteNote = id => dispatch => {
     })
 }
 
-export const fetchNotById = id => dispatch => {
+export const fetchNoteById = id => dispatch => {
   console.log('fetching', id);
   dispatch({ type: FETCH_NOTE_ID })
   axios

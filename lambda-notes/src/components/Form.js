@@ -19,6 +19,19 @@ class Form extends React.Component {
     }
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+    const note = {
+      ...this.state
+    }
+    if (this.props.note){
+      console.log('editing form');
+    } else {
+      console.log('what are you submitting?', note); 
+      this.props.submit(note);
+    }
+  }
+
   handleInput = event => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -26,9 +39,10 @@ class Form extends React.Component {
   }
 
   render(){
+    console.log(this.props);
   return (
-    <form>
-    <h2>{this.props.notes ? 'Edit Note:' : 'Create New Note:'}</h2>
+    <form onSubmit={this.handleSubmit}>
+    <h2>{this.props.note ? 'Edit Note:' : 'Create New Note:'}</h2>
       <input
         type='text'
         name='title'
@@ -43,6 +57,9 @@ class Form extends React.Component {
         onChange={this.handleInput}
         placeholder='Note Content'
       />
+      <button type='submit' className='button form-button'>
+        {this.props.note ? 'Update' : 'Save'}
+      </button>
     </form>
   )
   }
