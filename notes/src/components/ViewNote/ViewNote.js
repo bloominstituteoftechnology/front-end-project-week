@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class ViewNote extends Component {
   state = {
@@ -26,7 +27,9 @@ export default class ViewNote extends Component {
     const result = window.confirm('Are you sure you want to delete this note?');
     if (result) {
       axios
-        .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+        .delete(
+          `https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`
+        )
         .then(() => this.props.history.push('/'))
         .catch((error) => console.error(error));
     }
@@ -41,7 +44,9 @@ export default class ViewNote extends Component {
     return (
       <div>
         <div>
-          <span>edit</span>
+          <Link to={`/note/${this.state.note._id}/edit`} fetchNote={this.fetchNote}>
+            <span>edit</span>
+          </Link>
           <span onClick={this.deleteNote}>delete</span>
         </div>
         <div>
