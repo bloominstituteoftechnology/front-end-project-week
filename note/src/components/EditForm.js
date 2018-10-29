@@ -10,6 +10,10 @@ class EditForm extends Component {
         }
     }
 
+    handleInputChange = event => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+
     render() {
         return (
             <div className='edit-Container'>
@@ -18,12 +22,16 @@ class EditForm extends Component {
                     name='title'
                     placeholder='Note Title'
                     value={this.state.title}
+                    onChange={this.handleInputChange}
                 />
                 <input 
                     name='textBody'
                     placeholder='Note Content'
                     value={this.state.title}
+                    onChange={this.handleInputChange}
                 />
+
+                <button>Update</button>
             </div>
         )
     }

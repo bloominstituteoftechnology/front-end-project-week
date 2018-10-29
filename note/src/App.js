@@ -7,6 +7,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NoteForm from './components/NoteForm';
 import NoteView from './components/NoteView';
+import EditForm from './components/EditForm';
 
 const HomePage = styled.div`
 `;
@@ -63,6 +64,10 @@ class App extends Component {
         <Route 
           path='/note/:id'
           render={props => <NoteView {...props} getNote={this.getNote} />}
+        />
+        <Route 
+          path='/edit/:id'
+          render={props => <EditForm {...props} updateNote={this.updateNote} />}
         />
       </HomePage>
     );
