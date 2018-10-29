@@ -14,7 +14,7 @@ class NoteForm extends Component {
     event.preventDefault();
 
     axios
-      .post("https://fe-notes.herokuapp.com/note/get/all", this.state)
+      .post("https://fe-notes.herokuapp.com/note/create", this.state)
       .then(() =>
         this.setState({
           title: "",
