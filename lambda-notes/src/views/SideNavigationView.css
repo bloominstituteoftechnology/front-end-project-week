@@ -1,0 +1,39 @@
+.mainNav {
+  background: #d6d6d6;
+  width: 241px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+}
+
+.mainNav h1 {
+  font-size: 4rem;
+  padding-left: 17px;
+  font-weight: bold;
+  color: #4b4a4b;
+  margin: 20px 0;
+}
+
+.mainNav button {
+  border: none;
+  border: 1px solid #c1c6c7;
+  width: 208px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background: #00bec2;
+  color: #fff;
+  font-weight: bold;
+  padding: 16px 0;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.mainNav button:focus {
+  outline: none;
+}
+
+.mainNav button:active {
+  transform: scale(0.97);
+}
