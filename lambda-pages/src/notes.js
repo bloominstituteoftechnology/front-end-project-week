@@ -1,4 +1,4 @@
-export const notes = [
+const notes = [
   {
     id: 0,
     title: 'Thinking about things',
@@ -54,3 +54,5 @@ export const notes = [
       "Straightnin' the curves. Flatnin' the hills Someday the mountain might get ‘em but the law never will. In 1972 a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. They were four men living all together yet they were all alone. The movie star the professor and Mary Ann here on Gilligans Isle. The mate was a mighty sailin' man the Skipper brave and sure. Five passengers set sail that day for a three hour tour a three hour tour. Come and knock on our door. We've been waiting for you. Where the kisses are hers and hers and his. Three's company too. Well the first thing you know ol' Jeds a millionaire. Kinfolk said Jed move away from there. Their house is a museum where people come to see ‘em. They really are a scream the Addams Family. Believe it or not I'm walking on air. I never thought I could feel so free. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Well we're movin' on up to the east side. To a deluxe apartment in the sky. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me.\n No phone no lights no motor car not a single luxury. Like Robinson Crusoe it's primitive as can be. Just two good ol' boys Never meanin' no harm. Beats all you've ever saw been in trouble with the law since the day they was born. Why do we always come here? I guess well never know. Its like a kind of torture to have to watch the show?"
   }
 ];
+
+export default notes;

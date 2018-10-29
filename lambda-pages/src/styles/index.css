@@ -146,12 +146,12 @@ html {
 
 body {
   margin: 0;
-  padding: 0.4rem;
   line-height: 1.5;
   font-size: 1.6rem;
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   background: #f2f1f2;
+  color: #414141;
 }
 
 code {

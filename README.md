@@ -17,8 +17,8 @@ The main objective of this week is to develop the MVP feature set listed below u
 - [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
 - [x] Fill in the `To Do` list with the MVP features listed below
 - [x] Fill in the `backlog` list with all the extra features listed below
-- [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
-- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+- [x] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
+- [x] https://trello.com/b/0fPYGxLq/lambda-notes-ryan-walker
 
 ## MVP Features:
 
@@ -29,28 +29,6 @@ The main objective of this week is to develop the MVP feature set listed below u
 - [ ] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
-
-```markdown
-## Trello Set Up:
-
-- [x] Create a Trello account
-- [x] Create a new board called "Lambda Notes - {Your Name}"
-- [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-- [x] Fill in the `To Do` list with the MVP features listed below
-- [x] Fill in the `backlog` list with all the extra features listed below
-- [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
-- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
-
-## MVP Features:
-
-- [ ] Display a list of notes
-- [ ] Create a note with a title and content
-- [ ] View an existing note
-- [ ] Edit an existing note
-- [ ] Delete an existing note
-```
-
----
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
 
