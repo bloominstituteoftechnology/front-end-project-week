@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+.mainContent {
+  width: 72%;
+  margin-top: 2%;
+}
+.headerContainer {
+  border: 1px solid red;
+}
+.todoContainer {
+  border: 1px solid red;
+  margin-top: 2%;
+}
+.navContainer {
+  border: 1px solid red;
+  width: 20%;
+  margin-right: 5%;
+  margin-top: 2%;
+}

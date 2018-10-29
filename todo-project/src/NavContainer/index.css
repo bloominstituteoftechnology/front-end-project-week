@@ -1,0 +1,8 @@
+.todoButtonContainer {
+  text-align: center;
+}
+.button {
+    width: 60%;
+    margin: 5% 0%;
+    padding: 3%;
+}
