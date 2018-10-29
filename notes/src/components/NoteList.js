@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../App.css';
+import {Link} from 'react-router-dom'
+import NoteCard from './NoteCard';
 
 class NoteList extends Component {
   constructor() {
@@ -11,6 +13,11 @@ class NoteList extends Component {
            title: 'this is the note title',
            textBody: 'this is the text body',
            id: 'abcdefg',
+          },
+           {tags: [],
+           title: 'second note',
+           textBody: 'when I walk I thinka bout a new way to walk',
+           id: '123456g',
           }
         ]
       }
@@ -21,19 +28,21 @@ class NoteList extends Component {
 
   }
 
+
   render() {
     return (
       <div className="App">
       {this.state.notes.map(note => (
             <div key={note.id}>
-              <h3>{note.title}</h3>
-              <p>{note.textBody}</p>
+            <NoteCard key={note.id} note={note} />
             </div>
             ))}
 
       </div>
     );
   }
+
+  
 }
 
 export default NoteList;
