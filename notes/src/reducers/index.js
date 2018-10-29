@@ -1,4 +1,4 @@
-import { ADD_NOTE } from "../actions";
+import { ADD_NOTE, DELETE_NOTE } from "../actions";
 
 
 const initialState = {
@@ -16,6 +16,10 @@ const initialState = {
       switch (action.type) {
         case ADD_NOTE:
         return { ...state, notes: [...state.notes, { ...action.payload }] };
+        case DELETE_NOTE: 
+        return {...state, notes: state.notes.filter(note => {
+            return !(note.id === action.payload)
+        })}
           default: 
           return state
       }

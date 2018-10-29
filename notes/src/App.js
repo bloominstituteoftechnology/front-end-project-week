@@ -3,6 +3,7 @@ import './App.css';
 import NoteList from "./components/NoteList"
 import Note from "./components/Note"
 import CreateNote from "./components/CreateNote"
+import DeleteNote from "./components/DeleteNote"
 import { Route, Link } from "react-router-dom"
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
       <Route exact path ="/" component={NoteList} />
       <Route path ="/:id" component={Note} />
       <Route path ="/create" component={CreateNote} />
+      <Route path="/delete/:id" component={DeleteNote} />
       </div>
     );
   }
