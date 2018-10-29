@@ -25,6 +25,7 @@ export const Note = styled.div`
   padding: 10px;
   margin: 10px;
   background: white;
+  white-space: pre-wrap;
 `
 
 export const NoteTitle = styled.h2`

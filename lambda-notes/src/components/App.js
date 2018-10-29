@@ -12,7 +12,6 @@ import Sidebar from './Sidebar'
 import DisplayAll from './DisplayAll'
 import DisplayOne from './DisplayOne'
 import Add from './Add'
-import Edit from './Edit'
 
 const mapStateToProps = ({ notes }) => ({ notes })
 

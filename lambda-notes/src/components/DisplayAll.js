@@ -18,9 +18,9 @@ const DisplayAll = ({ notes, changeDisplayedPage, deleteNote }) => (
       {notes.map(({ title, textBody, _id }) => (
         <Note key={_id}>
           <NoteTitle onClick={() => changeDisplayedPage(_id)}>
-            {title}
+            {title.length > 40 ? `${title.substring(0, 40)} ...` : title}
           </NoteTitle>
-          <NoteBody onClick={() => {}}>
+          <NoteBody onClick={() => deleteNote()}>
             {textBody.length > 200
               ? `${textBody.substring(0, 200)} ...`
               : textBody}
