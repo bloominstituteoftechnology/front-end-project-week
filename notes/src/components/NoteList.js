@@ -17,7 +17,7 @@ class NoteList extends Component {
             this.props.fetching ? 
             <div className='loading'>Loading Notes</div> :
             <div className="note-list">
-                <h2>Notes</h2>
+                <h2>Your Notes:</h2>
                 <div className='notes-container'>
                     {this.props.notes.map(note => <Note key={note.id} note={note}/>)} 
                 </div>
