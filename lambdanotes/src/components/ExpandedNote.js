@@ -28,7 +28,7 @@ class ExpandedNote extends React.Component {
             <div className="buttonsContainer">
               <div className="buttons">
                 <button>
-                  <Link exact to={`${this.props.note.id}/edit`}>
+                  <Link exact to={`${this.props.selected}/edit`}>
                     edit
                   </Link>
                 </button>
@@ -45,12 +45,12 @@ class ExpandedNote extends React.Component {
               </div>
             </div>
             <h2>{this.props.note.title}</h2>
-            <p>{this.props.note.content}</p>
+            <p>{this.props.note.textBody}</p>
           </div>
           <div className="deleteContainer">
             <div className={this.state.deleteClass}>
               <p>Are you sure you want to delete this?</p>
-              <button onClick={ev => this.deleteNote(ev, this.props.note.id)}>
+              <button onClick={ev => this.deleteNote(ev, this.props.id)}>
                 Delete
               </button>
               <button

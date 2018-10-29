@@ -15,14 +15,14 @@ class ViewNotes extends React.Component {
       <div className="mainSection">
         <h2 className="yourNotes">Your Notes:</h2>
         <div className="viewNotes">
-          {this.props.notes.map(note => {
+          {this.props.notes.map((note, index) => {
             return (
               <Link
-                onClick={() => this.props.selectNote(note.id)}
+                onClick={() => this.props.selectNote(index)}
                 exact
-                to={`/${note.id}`}
+                to={`/${index}`}
               >
-                <Note title={note.title} content={note.content} />
+                <Note title={note.title} textBody={note.textBody} index={index} />
               </Link>
             );
           })}

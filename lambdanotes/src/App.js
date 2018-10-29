@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import axios from "axios";
 import SideBar from "./components/SideBar";
 import ViewNotes from "./components/ViewNotes";
 import ExpandedNote from "./components/ExpandedNote";
@@ -13,49 +14,33 @@ class App extends Component {
     this.state = {
       title: "",
       content: "",
-      notes: [
-        {
-          title: "E plurbus unum",
-          content: "dolla dolla bills yall",
-          id: 0
-        },
-        {
-          title: "backflip?",
-          content: "I sure hope so",
-          id: 1
-        },
-        {
-          title: "Best idea ever",
-          content: "Shoot, I forgot :(",
-          id: 2
-        },
-        {
-          title: "uhh some other note",
-          content: "yea...",
-          id: 3
-        },
-        {
-          title: "uhh some other note",
-          content: "yea...",
-          id: 4
-        },
-        {
-          title: "uhh some other note",
-          content: "yea...",
-          id: 5
-        },
-        {
-          title: "uhh some other note",
-          content: "yea...",
-          id: 6
-        }
-      ],
+      notes: [],
       selected: 0
     };
   }
 
+  componentDidMount() {
+    this.updateNotes();
+  }
+
+  updateNotes = () => {
+    setTimeout(() => {
+      axios
+        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .then(res => {
+          this.setState({
+            notes: res.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }, 2000);
+  };
+
   selectNote = id => {
     this.setState({ selected: id });
+    console.log(this.state.selected);
   };
 
   changeHandler = ev => {
@@ -66,6 +51,21 @@ class App extends Component {
 
   saveNote = ev => {
     ev.preventDefault();
+    if (this.state.text === "" || this.state.content === "") {
+      alert("Please fill in all of the required fields");
+    } else {
+      axios
+        .post("https://fe-notes.herokuapp.com/note/create", {
+          tags: [],
+          title: this.state.title,
+          textBody: this.state.content
+        })
+        .then(this.updateNotes());
+    }
+  };
+
+  saveEdit = ev => {
+    ev.preventDefault();
     if (this.state.title === "" || this.state.content === "") {
       alert("Please fill in all of the required fields");
     } else {
@@ -74,7 +74,7 @@ class App extends Component {
           ...this.state.notes,
           {
             title: this.state.title,
-            content: this.state.content,
+            textBody: this.state.content,
             id: this.state.notes.length
           }
         ],
@@ -85,70 +85,12 @@ class App extends Component {
     }
   };
 
-  saveEdit = (ev, id) => {
-    ev.preventDefault();
-    // this.setState({
-    //   notes: [
-    //     ...this.state.notes.filter(note => {
-    //       return note.id !== id;
-    //     }),
-    //     {
-    //       title: this.state.title,
-    //       content: this.state.content,
-    //       id: id
-    //     }
-    //   ],
-    //   title: "",
-    //   content: ""
-    // });
-    if (this.state.text === "" || this.state.content === "") {
-      alert("Please fill in all of the required fields");
-    } else {
-      const notesCopy = this.state.notes;
-      this.setState({
-        notes: [
-          ...notesCopy.slice(0, id),
-          {
-            title: this.state.title,
-            content: this.state.content,
-            id: id
-          },
-          ...notesCopy.slice(id + 1, notesCopy.length)
-        ],
-        title: "",
-        content: ""
-      });
-      alert("edit saved!");
-    }
-  };
-
   deleteNote = (ev, id) => {
     ev.preventDefault();
-    this.setState({
-      notes: this.state.notes.map(note => {
-        if (note.id < id) {
-          return note;
-        }
-        return {
-          title: note.title,
-          content: note.content,
-          id: note.id - 1
-        };
-      })
-    });
-    if (this.state.notes.length > 1) {
-      this.setState({
-        notes: [
-          ...this.state.notes.filter(note => {
-            return note.id !== id;
-          })
-        ]
-      });
-    } else {
-      this.setState({
-        notes: []
-      });
-    }
+    console.log(id);
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(this.updateNotes());
   };
 
   render() {
@@ -176,6 +118,7 @@ class App extends Component {
                 {...props}
                 note={this.state.notes[this.state.selected]}
                 deleteNote={this.deleteNote}
+                id={this.state.notes[this.state.selected]._id}
               />
             )}
           />

@@ -8,16 +8,16 @@ class Note extends React.Component {
   }
 
   render() {
-    if (this.props.content.length < 100) {
+    if (this.props.textBody.length < 100) {
       return (
         <div className="note">
           <h2>{this.props.title}</h2>
           <hr />
-          <p>{this.props.content}</p>
+          <p>{this.props.textBody}</p>
         </div>
       );
     } else {
-        let content = this.props.content;
+        let content = this.props.textBody;
         const arr = content.split('');
         arr.splice(100);
         content = arr.join('');
