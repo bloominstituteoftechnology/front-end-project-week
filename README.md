@@ -1,3 +1,5 @@
+<!-- KAM, HERE'S THE TRELLO URL. I sent you an invite, I hope you got it...  https://trello.com/b/PArtIhRx/lambda-notes-brandon-strellis -->
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
