@@ -7,6 +7,11 @@
   flex-direction: row nowrap;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 nav {
   display: flex;
   flex-direction: column;
@@ -55,4 +60,25 @@ input {
   width: 70%;
   padding: 10px;
   margin: 10px;
+}
+
+.modalBG {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: lightgrey;
+  z-index: 1000;
+  top: 0;
+  left: 20%;
+}
+
+.show {
+  display: block;
+}
+
+.modal {
+  background: grey;
+  position: fixed;
+  padding: 20px;
 }

@@ -6,7 +6,8 @@ class FullPageNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: null
+            note: null,
+            deleted: false,
         }
     }
 
@@ -25,11 +26,22 @@ class FullPageNote extends Component {
 
     deleteHandler = id => {
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-             .then(res => {console.log(res)})
+             .then(res => {this.setState({
+                 deleted: true,
+             })})
              .catch(err => console.log(err))
       }
 
+    deleteModal = () => {
+        document.querySelector('.modalBG').classList.toggle('show');
+    }
+
     render() {
+        if (this.state.deleted === true) {
+            return (
+                <Redirect to='/'></Redirect>
+            )
+        }
         if (this.state.note === null) {
             return (
                 <div className='container'>
@@ -40,8 +52,15 @@ class FullPageNote extends Component {
         return (
             <div className='container'>
                 <h2>{this.state.note.title}</h2>
-                <h2>{this.state.note.textBody}</h2>
-                <span onClick={() => this.deleteHandler(this.state.note._id)}>X</span>
+                <p>{this.state.note.textBody}</p>
+                <span onClick={this.deleteModal}>X</span>
+                <div className='modalBG'>
+                    <div className='modal'>
+                        <h3>Are you sure you want to delete this note?</h3>
+                        <div onClick={() => this.deleteHandler(this.state.note._id)}>Delete</div>
+                        <div onClick={this.deleteModal}>Cancel</div>
+                    </div>
+                </div>
             </div>
         )
     }
