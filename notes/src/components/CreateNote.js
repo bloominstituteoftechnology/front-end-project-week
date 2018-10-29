@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { addNote } from "../actions"
+import "../App.css"
 
 class CreateNote extends Component {
     constructor(props) {
@@ -20,19 +21,34 @@ class CreateNote extends Component {
     }
     render() {
         return (
-            <form  onSubmit={this.onSubmit}>
+            <div className="create-view">
+            <h2  className="create-note-header">Create New Note:</h2>
+            <form  onSubmit={this.onSubmit} className="create-form">
             <input 
             name="title"
             value={this.state.title}
             onChange={this.onChange}
+            className="title-input"
+            placeholder="Note Title"
             />
-            <input 
+            <textarea  name="content"
+            value={this.state.content}
+            onChange={this.onChange}
+            className="content-input"
+            placeholder="Note Content"
+            >
+            </textarea>
+           {/* <input 
+            type="text"
             name="content"
             value={this.state.content}
             onChange={this.onChange}
-            />
-            <button type="submit">Add</button>
+            className="content-input"
+            placeholder="Note Content"
+            /> */}
+            <button type="submit" className="save-button">Save</button>
             </form>
+            </div>
         )
     }
 }

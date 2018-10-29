@@ -17,7 +17,7 @@ const Note = props => {
         )
     } else {
         return (
-            <h3>uhh</h3>
+            null
         )
     }
     // add an error message
