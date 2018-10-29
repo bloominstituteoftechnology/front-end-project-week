@@ -1,24 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PgeCtnr = styled.div`
+const PageContainer = styled.div`
     width: 100%;
     margin: auto;
 `;
 
-const NtsFrmHdr = styled.h2`
+const NotesFormHeader = styled.h2`
     margin-bottom: 2%;
     font-size: 1.6rem;
     text-align: center;
 `;
 
-const NtsFrmCtnr = styled.div`
+const NotesFormContainer = styled.div`
     width: 65%;
     margin: 0 auto;
     text-align: center;
 `;
 
-const NtsStlIpt = styled.input`
+const NotesStyledInput = styled.input`
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -28,7 +28,7 @@ const NtsStlIpt = styled.input`
     }
 `;
 
-const NtsStlTxa = styled.textarea`
+const NotesStyledTextarea = styled.textarea`
     width: 100%;
     height: 150px;
     padding: 12px 20px;
@@ -42,7 +42,7 @@ const NtsStlTxa = styled.textarea`
     }
 `;
 
-const NtsStlBtn = styled.button`
+const NotesStyledButton = styled.button`
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -60,44 +60,44 @@ const NtsStlBtn = styled.button`
     }
 `;
 
-const NtsFrm = (props) => {
-    const hdlsbmt = event => {
+const NotesForm = (props) => {
+    const handleSubmit = event => {
         event.preventDefault();
-        if (props.ntsedtg) {
-            props.hdledt();
+        if (props.notes_editing) {
+            props.handleEdit();
         } else {
-            props.hdlcrt(event);
+            props.handleCreate(event);
         }
     }
   return (
-    <PgeCtnr>
-      <NtsFrmCtnr>
-        <NtsFrmHdr>{props.ntsedtg ? "Edit" : "Create"}</NtsFrmHdr>
-            <NtsStlIpt
+    <PageContainer>
+      <NotesFormContainer>
+        <NotesFormHeader>{props.notes_editing ? "Edit" : "Create" }</NotesFormHeader>
+            <NotesStyledInput
                 type="text"
-                value={props.ntsidv.title}
+                value={props.note.title}
                 name="title"
-                onChange={props.hdlchg}
+                onChange={props.handleChange}
                 placeholder="Title"
             />
-            <NtsStlTxa
+            <NotesStyledTextarea
                 type="text"
-                value={props.ntsidv.textBody}
+                value={props.note.textBody}
                 name="textBody"
-                onChange={props.hdlchg}
+                onChange={props.handleChange}
                 placeholder="Content"
             />
-            <NtsStlIpt
+            <NotesStyledInput
                 type="text"
-                value={props.ntsidv.tags.join(", ")}
+                value={props.note.tags.join(", ")}
                 name="tags"
-                onChange={props.hdlchg}
+                onChange={props.handleChange}
                 placeholder="Tags"
             />
-            <NtsStlBtn onClick={hdlsbmt}>Submit</NtsStlBtn>
-      </NtsFrmCtnr>
-    </PgeCtnr>
+            <NotesStyledButton onClick={handleSubmit}>Submit</NotesStyledButton>
+      </NotesFormContainer>
+    </PageContainer>
   )
 }
 
-export default NtsFrm;
+export default NotesForm;

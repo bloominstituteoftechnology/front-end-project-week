@@ -1,29 +1,29 @@
 export { 
-    SRH_EDT,
-    srhEdt
-} from './srhActions';
+    SEARCH_EDIT,
+    searchEdit
+} from './searchActions';
 export {
-    NTS_FTH_IP, 
-    NTS_FTH_SCS, 
-    NTS_FTH_FLR,
-    NTS_SGR_IP,
-    NTS_SGR_SCS,
-    NTS_SGR_FLR,
-    NTS_CRT_IP,
-    NTS_CRT_SCS,
-    NTS_CRT_FLR,
-    NTS_GPE_IP,
-    NTS_EDT_IP,
-    NTS_EDT_SCS,
-    NTS_EDT_FLR,
-    NTS_RMV_IP,
-    NTS_RMV_SCS,
-    NTS_RMV_FLR,
+    NOTE_FETCH_IN_PROGRESS,
+    NOTE_FETCH_SUCCESS,
+    NOTE_FETCH_FAILURE,
+    NOTES_FETCH_IN_PROGRESS, 
+    NOTES_FETCH_SUCCESS, 
+    NOTES_FETCH_FAILURE,
+    NOTES_CREATE_IN_PROGRESS,
+    NOTES_CREATE_SUCCESS,
+    NOTES_CREATE_FAILURE,
+    NOTES_SET_EDIT_IN_PROGRESS,
+    NOTES_EDIT_IN_PROGRESS,
+    NOTES_EDIT_SUCCESS,
+    NOTES_EDIT_FAILURE,
+    NOTES_REMOVE_IN_PROGRESS,
+    NOTES_REMOVE_SUCCESS,
+    NOTES_REMOVE_FAILURE,
     
-    ntsFth,
-    ntsSgr,
-    ntsCrt,
-    ntsGpe,
-    ntsEdt,
-    ntsRmv
-} from './ntsActions';
+    noteFetch,
+    notesFetch,
+    notesCreate,
+    notesSetEdit,
+    notesEdit,
+    notesRemove
+} from './notesActions';

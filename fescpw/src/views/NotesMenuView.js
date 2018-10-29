@@ -18,7 +18,7 @@ const styles = {
   }
 };
 
-class NtsMnuVw extends React.Component {
+class NotesMenuView extends React.Component {
   state = {
     left: false,
   };
@@ -36,9 +36,9 @@ class NtsMnuVw extends React.Component {
       <div className={classes.list}>
         <h2 className={classes.list} style={{fontSize: "1.6rem", fontWeight: "bold"}}>Lambda Notes</h2>
         <Divider style={{margin: 10}} />
-        <List><Link to="/nts" style={{ color: "black", textDecoration: "none" }}>View Your Notes</Link></List>
+        <List><Link to="/notes" style={{ color: "black", textDecoration: "none" }}>View Your Notes</Link></List>
         <Divider style={{margin: 10}} />
-        <List><Link to="/nts-frm" style={{ color: "black", textDecoration: "none" }}>+ Create New Note</Link></List>
+        <List><Link to="/notes-form" style={{ color: "black", textDecoration: "none" }}>+ Create New Note</Link></List>
       </div>
     );
 
@@ -65,8 +65,8 @@ class NtsMnuVw extends React.Component {
   }
 }
 
-NtsMnuVw.propTypes = {
+NotesMenuView.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NtsMnuVw);
+export default withStyles(styles)(NotesMenuView);

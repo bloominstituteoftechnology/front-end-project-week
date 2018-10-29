@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import img from '../assets/kobu-agency-651905-unsplash.jpg';
 
-const NtsPgeCtnr = styled.div`
+const NotesPageContainer = styled.div`
   width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -10,7 +10,7 @@ const NtsPgeCtnr = styled.div`
   background-size: 100% 100%;
 `;
 
-const NtsPgeCnt = styled.div`
+const NotesPageContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +19,7 @@ const NtsPgeCnt = styled.div`
   min-height: 100vh;
 `;
 
-const NtsPgeHdr = styled.h1`
+const NotesPageHeader = styled.h1`
   margin-top: 15%;
   margin-left: 1%;
   font-family: "Planet Benson", Arial, sans-serif;
@@ -27,27 +27,27 @@ const NtsPgeHdr = styled.h1`
   font-weight: normal;
 `;
 
-const NtsPgeSubHdr = styled.h4`
+const NotesPageSubheader = styled.h4`
   margin-top: 3%;
   font-size: 1.6rem;
 `;
 
-const NtsPgeLnk = styled.a`
+const NotesPageLink = styled.a`
   margin-top: 3%;
   color: black;
   text-decoration: none;
 `;
 
-const NtsPge = () => {
+const NotesPage = () => {
   return (
-    <NtsPgeCtnr>
-      <NtsPgeCnt>
-        <NtsPgeHdr>Lambda Notes</NtsPgeHdr>
-        <NtsPgeSubHdr>Record knowledge.</NtsPgeSubHdr>
-        <NtsPgeLnk href="/nts">Get started</NtsPgeLnk>
-      </NtsPgeCnt>
-    </NtsPgeCtnr>
+    <NotesPageContainer>
+      <NotesPageContent>
+        <NotesPageHeader>Lambda Notes</NotesPageHeader>
+        <NotesPageSubheader>Record knowledge.</NotesPageSubheader>
+        <NotesPageLink href="/notes">Get started</NotesPageLink>
+      </NotesPageContent>
+    </NotesPageContainer>
   );
 }
 
-export default NtsPge;
+export default NotesPage;

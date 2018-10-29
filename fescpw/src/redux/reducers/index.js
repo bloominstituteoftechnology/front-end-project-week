@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { ntsReducer } from './ntsReducer';
-import { srhReducer } from './srhReducer';
+import { notesReducer } from './notesReducer';
+import { searchReducer } from './searchReducer';
 
 const rootReducer = combineReducers({
-    ntsReducer,
-    srhReducer
+    notesReducer,
+    searchReducer
 });
 
 export default rootReducer;

@@ -1,34 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PgeCtnr = styled.div`
+const PageContainer = styled.div`
     width: 100%;
     margin: auto;
 `;
 
-const NtsIdvCtnr = styled.div`
+const NoteContainer = styled.div`
     width: 65%;
     margin: 0 auto;
     text-align: center;
 `;
 
-const NtsIdvCntCtnr = styled.div`
+const NoteContentContainer = styled.div`
     padding: 3%;
     margin: 2%;
 `;
 
-const NtsIdvHdr = styled.h1`
+const NoteHeader = styled.h1`
     margin: 5%;
     font-size: 2rem;
     font-weight: 700;
 `;
 
-const NtsIdvCnt = styled.p`
+const NoteContent = styled.p`
     margin: 5%;
     font-size: 1.6rem;
 `;
 
-const NtsIdvEdt = styled.button`
+const NoteEdit = styled.button`
     background-color: #008CBA; /* Blue */
     border: none;
     color: white;
@@ -64,32 +64,32 @@ const NtsIdvEdt = styled.button`
 //     }
 // `;
 
- const NtsIdv = (props) => {
+ const Note = (props) => {
      console.log(props);
-    console.log(props.nts_idv);
+    console.log(props.note);
     //  const hdldltfn = () => {
     //      props.hdldltnt(props.nts_idv._id);
     //      props.history.push("/nts")
     //  };
 
-     if (props.nts_fthg || props.nts_arr.length === 0) {
+     if (props.notes_fetching || props.notes_array.length === 0) {
          return <h2>Loading...</h2>
      }
   return (
-      <PgeCtnr>
-        <NtsIdvCtnr>
-            <NtsIdvCntCtnr>
-            <NtsIdvHdr>{props.nts_idv.title}</NtsIdvHdr>
-            <NtsIdvCnt>{props.nts_idv.textBody}</NtsIdvCnt>
-            </NtsIdvCntCtnr>
-            <NtsIdvEdt onClick={(event) => {
+      <PageContainer>
+        <NoteContainer>
+            <NoteContentContainer>
+            <NoteHeader>{props.note.title}</NoteHeader>
+            <NoteContent>{props.note.textBody}</NoteContent>
+            </NoteContentContainer>
+            <NoteEdit onClick={(event) => {
                 event.preventDefault();
-                props.redrtfrm(event, props.nts_idv._id);
-            }}>Edit</NtsIdvEdt>
+                props.redirectForm(event, props.note._id);
+            }}>Edit</NoteEdit>
             {/* <NtsIdvRmv onClick={hdldltfn}>Remove</NtsIdvRmv> */}
-        </NtsIdvCtnr>
-    </PgeCtnr>
+        </NoteContainer>
+    </PageContainer>
   )
 }
 
-export default NtsIdv;
+export default Note;

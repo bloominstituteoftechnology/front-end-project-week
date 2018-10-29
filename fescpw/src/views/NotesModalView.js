@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import styled from 'styled-components';
 
-const PgeCtnr = styled.div`
+const PageContainer = styled.div`
     width: 100%;
     margin: auto;
 `;
 
-const NtsMdlCtnr = styled.div`
+const NotesModalContainer = styled.div`
     width: 65%;
     margin: 0 auto;
     text-align: center;
 `;
 
-const NtsMdlTgl = styled.button`
+const NotesModalToggle = styled.button`
     background-color: #f44336; /* Red */
     border: none;
     color: white;
@@ -31,25 +31,25 @@ const NtsMdlTgl = styled.button`
     }
 `;
 
-const NtsMdlDsp = styled.div`
+const NotesModalDisplay = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `;
 
-const NtsMdlHdr = styled.h1`
+const NotesModalHeader = styled.h1`
     margin: 10%;
     margin-top: 15%
     font-size: 1.6rem;
     text-align: center;
 `;
 
-const NtsMdlDspCtnr = styled.div`
+const NotesModalDisplayContainer = styled.div`
     margin-top: 5%;
 `;
 
-const NtsMdlBtn = styled.button`
+const NotesModalButton = styled.button`
     background-color: #e7e7e7;
     border: none;
     border-radius: 8px;
@@ -66,7 +66,7 @@ const NtsMdlBtn = styled.button`
     }
 `;
 
-export default class NtsMdlVw extends Component {
+export default class NotesModalView extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -86,16 +86,16 @@ export default class NtsMdlVw extends Component {
         });
     }
 
-    hdldltfn = () => {
-        this.props.hdldltnt(this.props.nts_idv._id);
-        this.props.history.push("/nts")
+    handleDelete = () => {
+        this.props.handleDeleteNote(this.props.note._id);
+        this.props.history.push("/notes")
     };
 
     render() {
         return (
-            <PgeCtnr>
-                <NtsMdlCtnr>
-                    <NtsMdlTgl onClick={() => this.openModal()}>Remove</NtsMdlTgl>
+            <PageContainer>
+                <NotesModalContainer>
+                    <NotesModalToggle onClick={() => this.openModal()}>Remove</NotesModalToggle>
                     <Modal 
                         visible={this.state.visible}
                         width="400"
@@ -103,16 +103,16 @@ export default class NtsMdlVw extends Component {
                         effect="fadeInUp"
                         onClickAway={() => this.closeModal()}
                     >
-                        <NtsMdlDsp>
-                            <NtsMdlHdr>Are you sure you want to remove this?</NtsMdlHdr>
-                            <NtsMdlDspCtnr>
-                                <NtsMdlBtn onClick={() => this.hdldltfn()}>Remove</NtsMdlBtn>
-                                <NtsMdlBtn onClick={() => this.closeModal()}>Close</NtsMdlBtn>
-                            </NtsMdlDspCtnr>
-                        </NtsMdlDsp>
+                        <NotesModalDisplay>
+                            <NotesModalHeader>Are you sure you want to remove this?</NotesModalHeader>
+                            <NotesModalDisplayContainer>
+                                <NotesModalButton onClick={() => this.handleDelete()}>Remove</NotesModalButton>
+                                <NotesModalButton onClick={() => this.closeModal()}>Close</NotesModalButton>
+                            </NotesModalDisplayContainer>
+                        </NotesModalDisplay>
                     </Modal>
-                </NtsMdlCtnr>
-            </PgeCtnr>
+                </NotesModalContainer>
+            </PageContainer>
         );
     }
 }
