@@ -15,7 +15,7 @@ function NotesList(props) {
             <div className="note-card">
                 
                
-                <Link to={`/tags/${note._id}`} >
+                <Link to={`/notes/${note.id}`} >
                 <NoteDetails note={note} />
               </Link>
                 

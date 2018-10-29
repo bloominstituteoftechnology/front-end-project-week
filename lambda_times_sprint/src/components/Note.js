@@ -22,8 +22,10 @@ class Note extends Component {
 
   fetchNote = id => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      // .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:9900/api/${id}`)
       .then(response => {
+        console.log(response);
         this.setState(() => ({ note: response.data }));
       })
       .catch(error => {

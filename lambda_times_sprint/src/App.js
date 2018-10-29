@@ -27,6 +27,7 @@ fetchNotes = ()=> {
   // axios.get('https://killer-notes.herokuapp.com/note/get/all')
   axios.get('http://localhost:9900/api/')
       .then(response => {
+        console.log(response);
         this.setState({ tags: response.data });
       })
       .catch(err => {
@@ -91,7 +92,7 @@ fetchNotes = ()=> {
           /> 
           )}
         />
-        <Route path="/tags/:id" render={props => 
+        <Route path="/notes/:id" render={props => 
           <Note 
             {...props}
             fetchNotes={this.fetchNotes}
