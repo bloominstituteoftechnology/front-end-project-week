@@ -7,6 +7,9 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
+      newNote:'',
+      newTitle:'',
+       };
     };
   }
   componentDidMount() {
@@ -20,6 +23,70 @@ class App extends Component {
       });
      
   }
+  viewNoteHandler = event =>  {
+    event.preventDefault();
+    //this.setState ({newEmail: event.target.value});
+   }
+
+   newNoteTitleHandler= event =>  {
+    event.preventDefault();
+   // this.setState ({newName: event.target.value});
+  }
+
+  newNoteBodyHandler= event =>  {
+    event.preventDefault();
+   // this.setState ({newName: event.target.value});
+  }
+ 
+  editedNoteTitleHandler= event =>  {
+    event.preventDefault();
+   // this.setState ({newName: event.target.value});
+  }
+
+  editedNoteBodyHandler= event =>  {
+    event.preventDefault();
+   // this.setState ({newName: event.target.value});
+  }
+ 
+
+
+  saveNewNoteHandler = event => {
+    event.preventDefault();
+    axios     
+   // .post( 'http://localhost:5000/friends',  
+    {
+      name: this.state.newName,
+      age: this.state.newAge,
+      email: this.state.newEmail
+
+    }
+    )
+    .then(response => {
+    //  this.setState(() => ({ friendList: response.data }));
+    })
+    .catch(error => {
+      console.error('Server Error', error);
+    });
+    }
+    
+    editedNoteHandler = event => {
+      event.preventDefault();
+      axios     
+   //   .put(`http://localhost:5000/friends/${id}`,
+      {
+        name: this.state.newName,
+        age: this.state.newAge,
+        email: this.state.newEmail
+      }
+      )
+      .then(response => {
+     //   this.setState(() => ({ friendList: response.data }));
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+   
+      }
 
 
   render() {
