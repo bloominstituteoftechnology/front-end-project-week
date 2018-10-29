@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, withRouter, Switch} from "react-router-dom";
-import SideBar from './SideBar';
-import NoteView from './NoteView';
-import CreateNew from './CreateNew';
-import SingleNote from './SingleNote';
-import Notes from './Notes';
-import EditNote from './EditNote';
+import { BrowserRouter as Route, withRouter, Switch} from "react-router-dom";
+import SideBar from '../sidebar/SideBar';
+import NoteView from '../noteview/NoteView';
+import CreateNew from '../createnew/CreateNew';
+import SingleNote from '../singlenote/SingleNote';
+// import Notes from '../notes/Notes';
+import EditNote from '../editnote/EditNote';
 import axios from 'axios';
 import './App.css';
-import DeleteNote from './DeleteNote';
+import DeleteNote from '../deletenote/DeleteNote';
 
 
 class App extends Component {

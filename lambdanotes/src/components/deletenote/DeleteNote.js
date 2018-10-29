@@ -17,7 +17,7 @@ function DeleteNote(props){
         .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
         .then(response => history.push('/notes')
         )
-        };
+    };
     
 
     return (
@@ -25,33 +25,33 @@ function DeleteNote(props){
         <div className="links">
             <Link to ={`/notes/${note._id}/edit`}>
                 <button className="edit">
-                <span>edit</span>
+                    <span>edit</span>
                 </button>
             </Link>
             <Link to ={`/notes/${note._id}/delete`}>
                 <button className="delete">
-                <span>delete</span>
+                    <span>delete</span>
                 </button>
             </Link>
-                </div>
-                <div className="statement">
-                    <h2>{note.title}</h2>
-                </div>
-                <div className="cards">
-                    <p>{note.textBody}</p>
-                </div>
-                    <h2>Are you certain?</h2>
-                <div className="yesno">
-                    <button className="yes" onClick={() => handleDeleteNote(note._id, props.history)}>
-                        <span>yes</span>
-                    </button>
-                <Link to ={`/notes/${note._id}`}>
-                    <button className="no">
-                        <span>no</span>
-                    </button>
-                </Link>
-                </div>
-    </div>
+        </div>
+            <div className="statement">
+                <h2>{note.title}</h2>
+            </div>
+            <div className="cards">
+                <p>{note.textBody}</p>
+            </div>
+                <h2>Are you certain?</h2>
+            <div className="yesno">
+                <button className="yes" onClick={() => handleDeleteNote(note._id, props.history)}>
+                    <span>yes</span>
+                </button>
+            <Link to ={`/notes/${note._id}`}>
+                <button className="no">
+                    <span>no</span>
+                </button>
+            </Link>
+            </div>
+        </div>
       );
     }
   

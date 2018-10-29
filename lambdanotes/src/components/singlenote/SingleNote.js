@@ -16,23 +16,23 @@ function SingleNote(props){
         <div className="links">
             <Link to ={`/notes/${note._id}/edit`}>
                 <button className="edit">
-                <span>edit</span>
+                    <span>edit</span>
                 </button>
             </Link>
             <Link to ={`/notes/${note._id}/delete`}>
                 <button className="delete">
-                <span>delete</span>
+                    <span>delete</span>
                 </button>
             </Link>
                 </div>
                 <div className="statement">
-                <h2>{note.title}</h2>
+                    <h2>{note.title}</h2>
                 </div>
                 <div className="cards">
-                <p>{note.textBody}</p>
+                    <p>{note.textBody}</p>
+                </div>
          </div>
-    </div>
-      );
+        );
     }
   
   export default SingleNote;

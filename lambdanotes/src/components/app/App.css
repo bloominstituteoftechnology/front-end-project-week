@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+  height: 100%vh;
+  width: auto;
+}
+
+/* .note-view {
+flex: 2;
+padding: 1%;
+height: 100;
+} */

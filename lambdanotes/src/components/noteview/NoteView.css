@@ -1,0 +1,30 @@
+.cards-container{
+    height: 100%vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-left: 1px solid #84001a;
+    border-right: 1px solid #84001a;
+
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2%;
+
+
+}
+
+.statement {
+    font-family: 'Roboto', sans-serif;
+    padding-left: 5%;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+}
