@@ -1,0 +1,12 @@
+.headNav {
+    background-color: #D3D2D3;
+    width: 26.5rem;
+    height: 100%;
+    text-align: left;
+}
+
+.headNav h1 {
+    font-size: 3.8rem;
+    line-height: 4rem;
+    padding-left: 1.2rem;
+}
