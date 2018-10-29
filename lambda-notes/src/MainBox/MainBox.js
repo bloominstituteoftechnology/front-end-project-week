@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 
 import NoteForm from "../components/NoteForm";
 import NavBar from "../components/NavBar";
+import FullNote from "../components/FullNote";
 import ListView from "../components/ListView";
 
 class MainBox extends React.Component {
@@ -15,6 +16,13 @@ class MainBox extends React.Component {
   }
 
   componentDidMount() {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
+
+  componentDidUpdate() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => this.setState({ notes: response.data }))
@@ -41,6 +49,7 @@ class MainBox extends React.Component {
           path="/"
           render={props => <ListView {...props} notes={this.state.notes} />}
         />
+        <Route path="/notes/:id" render={props => <FullNote {...props} />} />
       </div>
     );
   }
