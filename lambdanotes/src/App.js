@@ -3,14 +3,14 @@ import './App.css';
 import axios from 'axios';
 
 import ListView from './Components/ListView';
-import Note from './Components/Note';
+import NoteForm from './Components/NoteForm';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
         list: [],
-        note: {},
+        note: {}
     }
   };
 
@@ -23,7 +23,7 @@ class App extends Component {
 
   createNewNote = () => {
     const note = {
-      //tags: [this.state.tags],  //?????? tags?  "" or no?  json you need, but here?  array?
+      tags: [this.state.tags],  
       title: this.state.title,
       textBody: this.state.textBody
     };
@@ -37,9 +37,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        NOTES
-        <ListView key={note.id}/>
-        <Note />
+        <ListView list={this.state.list} />
+        <NoteForm />
       </div>
     );
   };
