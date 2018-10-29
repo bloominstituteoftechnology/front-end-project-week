@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+
+import NavigationBar from './components/Navigation.js/NavigationBar';
+import NotesContainer from './containers/NotesContainer';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Hi</h1>
+      <div className="app-container">
+        <NavigationBar />
+        <NotesContainer />
       </div>
     );
   }
