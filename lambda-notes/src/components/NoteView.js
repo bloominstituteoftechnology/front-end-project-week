@@ -11,7 +11,8 @@ const NoteView = props => {
     <div>
       <Link to="/edit">Edit</Link>
       <Link to="/delete">Delete</Link>
-      {/* <h2>{note.title}</h2> */}
+      <h2>{note.title}</h2>
+      <p>{note.textBody}</p>
     </div>
   );
 };

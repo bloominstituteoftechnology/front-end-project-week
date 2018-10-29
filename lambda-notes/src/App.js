@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
@@ -42,22 +42,24 @@ class App extends Component {
         <Menu />
 
         <div className="display">
-          <Route
-            path="/new"
-            render={props => <NewNote fetchNotes={this.fetchNotes} />}
-          />
+          <Switch>
+            <Route
+              path="/new"
+              render={props => <NewNote fetchNotes={this.fetchNotes} />}
+            />
 
-          <Route
-            path="/all"
-            render={props => (
-              <ListView notes={this.state.notes} viewNote={this.viewNote} />
-            )}
-          />
+            <Route
+              path="/all"
+              render={props => (
+                <ListView notes={this.state.notes} viewNote={this.viewNote} />
+              )}
+            />
 
-          <Route
-            path="/:id"
-            render={props => <NoteView {...props} notes={this.state.notes} />}
-          />
+            <Route
+              path="/:id"
+              render={props => <NoteView {...props} notes={this.state.notes} />}
+            />
+          </Switch>
           {/* <ListView notes={this.state.notes} /> */}
         </div>
       </div>
