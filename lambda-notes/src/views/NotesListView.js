@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import NoteView from './NoteView';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import NotePreview from './NotePreview';
 
 const NotesContainer = styled.div`
+margin:0;
 
+`
+
+const YourNotes = styled.h2`
+margin:0;
 `
 const NotesList = styled.div`
 
@@ -34,15 +39,12 @@ const NotesList = styled.div`
   render() {
     return (
       <NotesContainer>
-        <h2>Your Notes:</h2>
+        <YourNotes>Your Notes:</YourNotes>
         <NotesList>
-
-            
             {this.state.notes.map(note =>
-                <Link to = {`${note.id}`}>
-                    
-                    <h3>{note.title}</h3>
-                </Link>)}
+                <Link to = {`/note/${note._id}`}>
+                    <NotePreview note={note} />                          
+                 </Link>)}
         </NotesList>
       </NotesContainer>
     );

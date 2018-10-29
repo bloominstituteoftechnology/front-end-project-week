@@ -5,6 +5,9 @@ import Button from '../styles/Button';
   background: #d3d2d3;
   width: 25%;
   height: 100vh;
+  display:inline-block;
+  position: fixed;
+  left:0;
 `;
  const Sidenav = () => {
   return (
