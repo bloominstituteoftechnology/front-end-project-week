@@ -44,8 +44,16 @@ export const putNote = (note, { id }) => dispatch => {
 }
 
 export const deleteNote = id => dispatch => {
+  console.log(`deleting ${id}`)
+
   axios
-    .get(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-    .then(res => dispatch({ type: GET_ALL_NOTES, payload: res.data }))
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(res => {
+      console.log('got res')
+      console.log(res)
+
+      dispatch(getAllNotes())
+      // dispatch({ type: GET_ALL_NOTES, payload: res.data })
+    })
     .catch(err => console.log(err))
 }

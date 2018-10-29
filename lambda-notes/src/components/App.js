@@ -31,7 +31,7 @@ class App extends Component {
 
   render() {
     const { pageToDisplay } = this.state
-    const { notes, postNote } = this.props
+    const { notes, postNote, deleteNote } = this.props
     const { changeDisplayedPage } = this
 
     return (
@@ -44,6 +44,8 @@ class App extends Component {
 
         {pageToDisplay.length > 20 && (
           <DisplayOne
+            deleteNote={deleteNote}
+            changeDisplayedPage={changeDisplayedPage}
             {...notes.filter(({ _id }) => _id === pageToDisplay)[0]}
           />
         )}
