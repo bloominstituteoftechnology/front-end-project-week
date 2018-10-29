@@ -33,6 +33,7 @@ export const StyledNoteWrapper = styled.div`
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	margin-left: 296px;
 `;
 
 export const StyledNoteContainer = styled.div`

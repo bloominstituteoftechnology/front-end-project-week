@@ -22,6 +22,8 @@ export const StyledContainer = styled.div`
 	width: 18%;
 	background-color: #d3d2d3;
 	padding: 20px;
+	position: fixed;
+	height: 100vh;
 `;
 
 export const StyledH1 = styled.h1`
