@@ -1,14 +1,27 @@
 import React from 'react';
-import Note from './Note'
+import Note from './Note';
+import axios from 'axios';
 
-const NotesList = props => {
-    return (
-        <div className="notes-list">
-            {props.notes.map(note => {
-                return <Note newNote={note} newContent={note} />
-            })}
-        </div>
-    );
+class NotesList extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            notes: []
+        }
+    }
+
+    componentDidMount(){
+        axios
+            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .then(response => {
+                this.setState({notes: response.data});
+            })
+            .catch(error => console.log(error));
+    }
+
+    render() {
+        return <Note notes={this.state.notes}/>
+    }
 }
 
 export default NotesList;
