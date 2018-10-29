@@ -1,28 +1,28 @@
 import React from 'react';
-import axios from 'axios';
-import Notes from './Notes';
 
 import './ComponentStyle.css';
 
-class NotesList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: []
-    };
+function NotesList(props) {
+  if (!props.notesList || !props.notesList.length) {
+    return <h1>No notes!</h1>;
   }
-
-  componentDidMount() {
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState({ notes: response.data });
-      })
-      .catch(err => console.log(err));
-  }
-  render() {
-    return <Notes notes={this.state.notes} />;
-  }
+  return (
+    <div className="note-container">
+      <h1 className="notes-title">Your Notes:</h1>
+      {props.notesList.map(note => (
+        <div key={note.id} className="note-card">
+          <h1
+            className="note-title"
+            onClick={() => props.history.push(`/notes/${note.id}/info`)}
+          >
+            {note.title}
+          </h1>
+          <span className="line" />
+          <p className="note-text">{note.textBody}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default NotesList;

@@ -7,9 +7,9 @@ function NoteForm(props) {
     event.preventDefault();
 
     if (props.isUpdating) {
-      props.handleUpdate(props.note.id);
+      props.handleUpdateNote(props.note.id);
     } else {
-      props.handleNew();
+      props.handleAddNewNote();
     }
   }
 
