@@ -5,6 +5,8 @@ import axios from 'axios'
 import Notes from './components/Notes';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
+import NoteForm from './components/NoteForm';
+
 
 const HomePage = styled.div`
 `;
@@ -39,6 +41,10 @@ class App extends Component {
         <Route
           exact path='/'
           render={props => <Notes {...props} notes={this.state.notes} />}   
+        />
+        <Route
+          path='/new'
+          render={props => <NoteForm {...props} addNote={this.addNote} />}
         />
       </HomePage>
     );
