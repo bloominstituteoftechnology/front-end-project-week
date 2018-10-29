@@ -39,15 +39,15 @@ class App extends Component {
     this.setState({ noteUpdate: this.state.notes.filter(note => note.id === noteId)[0] })
   }
 
-  updateNote = (targetNote) => {
-    let currentList = this.state.notes.filter(note => note.id !== targetNote.id)
-    let updatedNote = this.state.notes.filter(note => note.id === targetNote.id)[0]
-    updatedNote.title = targetNote.title
-    updatedNote.text = targetNote.text
-    updatedNote.tags = targetNote.tags
-    const notes = [...currentList, updatedNote]
-    this.setState({ notes })
-  }
+  // updateNote = (targetNote) => {
+  //   let currentList = this.state.notes.filter(note => note.id !== targetNote.id)
+  //   let updatedNote = this.state.notes.filter(note => note.id === targetNote.id)[0]
+  //   updatedNote.title = targetNote.title
+  //   updatedNote.text = targetNote.text
+  //   updatedNote.tags = targetNote.tags
+  //   const notes = [...currentList, updatedNote]
+  //   this.setState({ notes })
+  // }
 
   deleteNote = (noteId) => {
     this.props.history.push("/")

@@ -30,15 +30,19 @@ class NoteForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    const { id } = this.props.match.params
     // const formattedTags = this.state.tags.split(",").map(word => word.trim().toLocaleLowerCase())
     if (this.state.editing) {
       const updatedNote = {
-        id: this.props.noteUpdate.id,
+        // id: this.props.noteUpdate.id,
         title: this.state.title,
         text: this.state.text,
         // tags: formattedTags
       }
-      this.props.updateNote(updatedNote)
+      axios.put(`http://localhost:9000/notes/${id}/edit`, updatedNote)
+        .then(resp => console.log(resp))
+        .catch(err => console.log(err))
+      // this.props.updateNote(updatedNote)
       this.props.history.push("/")
       this.setState({ editing: false })
     }
