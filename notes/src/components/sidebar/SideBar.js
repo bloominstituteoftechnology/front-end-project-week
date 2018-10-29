@@ -2,14 +2,14 @@
 // import link from react router dom
 
 import React from 'react';
-import Link from 'react-router-dom';
+import { Link }  from 'react-router-dom';
 import Button from './Button'
 
 const Sidebar = () => {
     return(
         <div className="sidebar" >
             <h1>Lambda Notes</h1>
-            <Button >View Your Notes</Button>
+            <Link to='/'><Button >View Your Notes</Button></Link>
             <Button >+ Create New Note</Button>
         </div>
     )
