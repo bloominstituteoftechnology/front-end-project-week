@@ -85,7 +85,7 @@
  }
  
  h3 {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
  }
  
  p {
@@ -140,19 +140,28 @@
   text-align: center;
   display : flex;
 
-height: 100vh;
+height: 90vh;
 
 width: 100vw;
+
+
 }
 
 .sideMenu{
   width : 20%;
   background :  #D3D2D3;
   text-align : left;
+  padding : 30px 10px
+}
+
+.NoteListContainer{
+  margin : 30px 20px;
+  text-align: left;
+  width :80%;
 }
 
 .noteList{
-  width : 80%;
+
   background :  #F2F1F2;
   display : flex;
   flex-wrap : wrap;
@@ -165,4 +174,31 @@ width: 100vw;
   height : 250px;
   border : 1px solid black;
   overflow: hidden;
+  background : white;
+  padding : 10px;
+}
+
+.displayNoteCard *{
+  color : black;
+}
+.displayNoteCard h3{
+  border-bottom : 1px solid black;
+}
+
+.displayNoteCard @hover{
+  cursor : pointer;
+}
+
+.sideMenu button {
+   width : 90%;
+   background :  #24B8BD;
+   margin : 10px; 
+   padding : 10px 0;
+  color : white;
+}
+
+.displayNote{
+  width : 95%;
+  margin : 0 auto;
+  background : red;
 }

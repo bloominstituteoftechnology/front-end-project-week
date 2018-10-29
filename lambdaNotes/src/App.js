@@ -16,11 +16,18 @@ class App extends Component {
     this.state = {
     notes: []
     };
+
+    this.SubmitAdd = this.SubmitAdd.bind(this);
     }
     
 
     componentDidMount() {
       this.setState({ notes: data });
+      }
+
+
+      SubmitAdd = (note) =>{
+
       }
 
 
@@ -39,17 +46,19 @@ class App extends Component {
 
         <Route
                     path="/Notes/:id"
-                    render={props => 
+                    render={props => (
                     <DisplayNote {...props} 
-                         notes={this.state.notes} 
+                         notes={this.state.notes}
                         submitEdit={this.submitEdit}
-                        deleteNote={this.props.deleteNote}/>}
+                        deleteNote={this.props.deleteNote}/>
+                    )}
                     />
         <Route
-                    path="/Notes/:id"
+                   exact
+                    path="/createNote"
                     render={props => 
                     <CreateNote {...props} 
-                        CreateNote={this.createNote}/>}
+                        SubmitAdd={this.SubmitAdd}/>}
                     />
       </div>
     );
