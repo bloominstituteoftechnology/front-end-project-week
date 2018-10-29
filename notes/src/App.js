@@ -24,13 +24,15 @@ class App extends Component {
   submitHandler = event => {
     event.preventDefault();
     if (this.state.title !== '' && this.state.body !== '') {
-      const note = {
+      const newNote = {
         title: this.state.title,
         body: this.state.body,
         id: this.state.notes.length,
       }
+      let notes = this.state.notes;
+      notes.push(newNote);
       this.setState({
-        notes: this.state.notes.push(note),
+        notes: notes,
         title: '',
         body: '',
       })
@@ -38,6 +40,7 @@ class App extends Component {
     else {
       alert('Please fill out the form!')
     }
+    event.target.reset();
   }
 
   deleteHandler = id => {
