@@ -6,7 +6,7 @@ You are to treat this week as if you are working at a company and the instructor
 
 The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repository you should use as a creative guide.
 
-** Trello Link: https://trello.com/invite/b/nHOXzFlF/315bff6e7bc73f315d965142842776c7/lambda-notes-rahul-desai **
+**Trello Link: https://trello.com/invite/b/nHOXzFlF/315bff6e7bc73f315d965142842776c7/lambda-notes-rahul-desai**
 
 ## Git Commits
 
