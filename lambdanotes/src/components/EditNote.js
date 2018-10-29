@@ -25,9 +25,9 @@ class EditNote extends Component {
 	submitHandler = event => {
 		event.preventDefault();
 
-		this.props.updateNote({
+		this.props.updateNote(this.props.note.id, {
 			// tags: [],
-			_id: this.props.note._id,
+			// id: this.props.note.id,
 			title: this.state.title,
 			textBody: this.state.textBody
 		});

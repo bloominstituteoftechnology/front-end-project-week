@@ -16,7 +16,7 @@ const AppContainer = styled.div`
 	min-height: 888px;
 	background: #f3f3f3;
 	border: 1px solid #9a9a9a;
-	margin: 0 auto;
+	margin: 16px auto;
 `;
 
 class App extends Component {

@@ -34,6 +34,7 @@ const EditButton = styled.button`
 
 const NoteBody = styled.p`
 	overflow: hidden;
+	white-space: pre-wrap;
 	font-size: 1.3rem;
 	line-height: 2.2rem;
 	color: #4a494a;
@@ -107,7 +108,7 @@ class NotePage extends Component {
 				)}
 				{this.state.delete && (
 					<DeleteNoteModal
-						id={this.props.note._id}
+						id={this.props.note.id}
 						returnToNote={this.returnToNote}
 					/>
 				)}

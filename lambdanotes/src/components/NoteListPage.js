@@ -37,7 +37,7 @@ class NoteListPage extends Component {
 				) : this.props.notes.length ? (
 					<NoteList>
 						{this.props.notes.map(note => (
-							<Note key={note._id} note={note} />
+							<Note key={note.id} note={note} />
 						))}
 					</NoteList>
 				) : !this.props.error ? (
