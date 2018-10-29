@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 // Component Imports
 import SideBar from './components/sidebar/SideBar'
 import NoteList from './components/NoteList';
+import CreateNew from './components/CreateNew';
 class App extends Component {
 
   constructor(){
@@ -27,7 +28,9 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar />
-        <Route path='/' render={() => <NoteList notes={this.state.notes} /> } />
+        <Route exact path='/' render={() => <NoteList notes={this.state.notes} /> } />
+        {/* Create New Card Route  */}
+        <Route path='/create-new' render={() => <CreateNew />} />
       </div>
     );
   }
