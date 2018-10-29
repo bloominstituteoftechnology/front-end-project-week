@@ -1,6 +1,5 @@
 // Button is a styled Component
 
-import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button `

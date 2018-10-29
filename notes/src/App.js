@@ -7,6 +7,8 @@ import { Route } from 'react-router-dom';
 import SideBar from './components/sidebar/SideBar'
 import NoteList from './components/NoteList';
 import CreateNew from './components/CreateNew';
+import EditNote from './components/EditNote'
+
 class App extends Component {
 
   constructor(){
@@ -56,6 +58,8 @@ class App extends Component {
         submit={this.createNewSubmit} 
         onChangeHandler ={this.onChangeHandler}
         />} />
+        {/* Edit Card Route */}
+        <Route path='/edit' render={() => <EditNote /> } />
       </div>
     );
   }
