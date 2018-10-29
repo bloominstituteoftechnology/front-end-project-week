@@ -25,7 +25,7 @@ class App extends Component {
         <div
           className="row m-3"
           style={
-            this.props.notes.length > 1
+            this.props.notes.length < 1
               ? { height: "100%" }
               : { height: "100vh" }
           }

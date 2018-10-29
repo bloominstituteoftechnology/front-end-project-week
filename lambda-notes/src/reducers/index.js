@@ -13,6 +13,7 @@ import {
 
 const initialState = {
   notes: [],
+  message: '',
   isFetching: false,
   fetched: true,
   error: null,
@@ -29,7 +30,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { isFetching: true });
     case FETCHING_NOTES_SUCCESSFUL:
       return Object.assign({}, state, {
-        notes: [...action.payload],
+        notes: [...action.payload.notes],
+        message: [...action.payload.message],
         isFetching: false,
         fetched: true
       });

@@ -107,7 +107,7 @@ class ListView extends React.Component {
               }
             })
             .map(note => {
-              return <ListItem note={note} key={note._id} />;
+              return <ListItem note={note} key={note.id} />;
             })}
         </div>
       </div>
@@ -118,6 +118,7 @@ class ListView extends React.Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+    message: state.message,
     fetched: state.fetched,
     isFetching: state.isFetching,
     error: state.error,

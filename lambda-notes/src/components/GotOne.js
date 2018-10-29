@@ -47,7 +47,7 @@ class GotOne extends React.Component {
           ? <ConfirmDelete handleDelete={this.handleDelete} confirmIt={this.confirmIt} />
           : null
         }
-        <small className="italic font-weight-light">Tags: {tags.join(', ')}</small>
+        <small className="italic font-weight-light">Tags: {JSON.parse(tags).toString().split(', ').map(tag => tag.toUpperCase())}</small>
       </div>
     )
   }

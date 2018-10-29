@@ -19,14 +19,14 @@ export const getNotes = () => {
       dispatch({ type: FETCHING_NOTES });
       setTimeout(() => {
         axios
-          .get("https://killer-notes.herokuapp.com/note/get/all")
+          .get("http://localhost:9000/api/notes")
           .then(resp =>
             dispatch({ type: FETCHING_NOTES_SUCCESSFUL, payload: resp.data })
           )
           .catch(err =>
             dispatch({ type: FETCHING_NOTES_FAILURE, payload: new Error(err) })
           );
-      }, 3000);
+      }, 500);
     });
   };
 };
