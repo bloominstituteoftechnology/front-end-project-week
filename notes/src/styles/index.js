@@ -21,11 +21,15 @@ export const NavBar = styled.header`
     font-size: 4rem;
     margin: 20px;
   }
+  a.active button {
+    color: #36b9bd;
+    background: #ffffff;
+  }
 `;
 
 export const MainContent = styled.section`
   width: 75%;
-  padding: 100px 5%;
+  padding: 50px 10px;
   background: #f2f1f2;
   display: flex;
   flex-direction: column;
@@ -41,7 +45,7 @@ export const NoteListWrapper = styled.div`
 export const NoteCardWrapper = styled.div`
   width: 30%;
   border: 1px solid #c2c2c2;
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 5px;
   height: 200px;
   background: #ffffff;
@@ -49,13 +53,12 @@ export const NoteCardWrapper = styled.div`
   cursor: pointer;
   h3 {
     font-size: 1.8rem;
-    font-weight: 700;
     border-bottom: 2px solid #f2f2f2;
     padding-bottom: 5px;
     margin: 10px 0;
   }
   p {
-      font-size: 1.4rem
+    font-size: 1.4rem;
   }
   a {
     color: #545454;
@@ -81,11 +84,16 @@ export const EditDelete = styled.div`
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 20px;
 `;
 
-export const Input = styled.input`
+export const Input = styled.textarea`
   border-radius: 5px;
+  resize: ${props => (props.content ? "vertical" : "none")};
+  font-size: 1.8rem;
   padding-left: 10px;
+  margin: 10px 0;
   height: ${props => (props.content ? "400px" : "40px")};
   width: ${props => (props.content ? "100%" : "50%")};
 `;
@@ -98,6 +106,9 @@ export const Button = styled.button`
   height: 40px;
   border-radius: 5px;
   font-size: 2rem;
-  margin: 10px auto;
+  margin: 10px 0;
   cursor: pointer;
+  &:hover {
+      background: #666666;
+  }
 `;

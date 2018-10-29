@@ -37,7 +37,9 @@ export default class Note extends Component {
           <p> {this.state.note.textBody}</p>
           <EditDelete>
             <span>Edit</span>
-            <span>Delete</span>
+            <span onClick={() => this.props.handleDelete(this.state.note.id)}>
+              Delete
+            </span>
           </EditDelete>
         </NoteWrapper>
       </MainContent>

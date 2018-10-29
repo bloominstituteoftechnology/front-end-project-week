@@ -1,20 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "../components/Form";
 import { MainContent } from "../styles";
 
-export default class FormContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editing: false
-    };
-  }
+const FormContainer = ({
+  editing,
+  newNote,
+  handleInputChange,
+  handleSubmit
+}) => (
+  <MainContent>
+    <Form
+      editing={editing}
+      newNote={newNote}
+      handleInputChange={handleInputChange}
+      handleSubmit={handleSubmit}
+    />
+  </MainContent>
+);
 
-  render() {
-    return (
-      <MainContent>
-        <Form editing={this.state.editing} />
-      </MainContent>
-    );
-  }
-}
+export default FormContainer;
