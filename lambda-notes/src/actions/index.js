@@ -6,6 +6,7 @@ export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
 export const FETCH_NOTES_FAILURE = 'FETCH_NOTES_FAILURE';
 
 export const fetchNotes = () => dispatch => {
+  dispatch({ type: FETCH_NOTES });
   axios
     .get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => {

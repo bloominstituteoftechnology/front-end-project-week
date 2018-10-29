@@ -1,0 +1,15 @@
+.listView {
+  position: absolute;
+  right: 0;
+  padding-left: 241px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 241px;
+  border: 1px solid red;
+  width: 100%;
+  height: 100vh;
+}
