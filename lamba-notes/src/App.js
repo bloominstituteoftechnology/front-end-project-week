@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import Notes from "./components/Notes";
+
 import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       notes: []
     };
@@ -16,7 +17,7 @@ class App extends Component {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => this.setState({ notes: response.data }))
-      .then(console.log(this.state.notes))
+      .then(console.log(this.state))
       .catch(error => console.log(error));
   }
 
@@ -24,6 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>testin 1 2</h1>
+        <Notes notes={this.state.notes} />
       </div>
     );
   }
