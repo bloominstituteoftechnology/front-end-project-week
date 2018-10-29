@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes } from './actions';
+import { fetchNotes, postNote } from './actions';
 import { connect } from 'react-redux';
 import NoteListView from './components/NoteListView';
+import CreateNote from './components/CreateNote';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-
+      note: {
+        tags: [],
+        title: '',
+        textBody: ''
+      }
     }
   }
 
@@ -16,10 +21,28 @@ class App extends Component {
     this.props.fetchNotes();
   }
 
+  changeHandler = (ev) => {
+    if(ev.target.name === 'title'|| ev.target.name === 'textBody') {
+      this.setState({note: {
+        ...this.state.note,
+        [ev.target.name]: ev.target.value
+        }
+      })
+    } else {
+      this.setState({[ev.target.name]: ev.target.value}); 
+    }
+  }
+
+  postHandler = (ev) => {
+    ev.preventDefault();
+    this.props.postNote(this.state.note);
+  }
+
   render() {
     return (
       <div className="App">
         <NoteListView noteContent={this.props.notes}></NoteListView>
+        <CreateNote changeHandler={this.changeHandler} postHandler={this.postHandler}></CreateNote>
       </div>
     );
   }
@@ -29,6 +52,7 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     fetchingNotes: state.notesReducer.fetchingNotes,
+    postingNote: state.notesReducer.postingNote,
     notes: state.notesReducer.notes,
     error: state.notesReducer.erorr,
   };
@@ -36,5 +60,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchNotes }
+  { fetchNotes, postNote }
 )(App);

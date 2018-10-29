@@ -5,7 +5,7 @@ const NoteListView = (props) => {
         <div>
             {props.noteContent.map(note => {
                 return (
-                    <div>
+                    <div key={note._id}>
                         <h3>{note.title}</h3>
                         <p>{note.textBody}</p>
                     </div>

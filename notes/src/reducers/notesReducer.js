@@ -1,8 +1,11 @@
-import { FETCHING_NOTES, FETCHING_NOTES_SUCCESS, FETCHING_NOTES_FAILURE } from '../actions';
+import { FETCHING_NOTES, FETCHING_NOTES_SUCCESS, FETCHING_NOTES_FAILURE,
+        POSTING_NOTE, POSTING_NOTE_SUCCESS, POSTING_NOTE_FAILURE
+    } from '../actions';
 
 const initialState = {
     notes: [],
     fetchingNotes: false,
+    postingNote: false,
     error: null
 };
 
@@ -19,6 +22,14 @@ export const notesReducer = (state = initialState, action) => {
         return {...state, 
             error: action.payload,
             fetchingNotes: false};
+    
+    
+    case POSTING_NOTE:
+        return{...state, postingNote: true};
+    case POSTING_NOTE_SUCCESS:
+        return{...state, postingNote: false};
+    case POSTING_NOTE_FAILURE:
+        return{...state, postingNote: false, error: action.payload};
     default:
       return state;
   }
