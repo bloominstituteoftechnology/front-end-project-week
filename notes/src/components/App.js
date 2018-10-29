@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getNotes } from '../actions';
 
+import ToolBar from './ToolBar';
+
 
 class App extends Component {
 
@@ -11,8 +13,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className={'appContainer'}>
-        <div className={'toolBar'} ></div>
+      <div className={'app-container'}>
+        <ToolBar />
         <div className={'Notes'}>
         {
           !this.props.notes.length 
