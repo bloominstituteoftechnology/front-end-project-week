@@ -4,6 +4,10 @@ import NavBar from './components/NavBar'
 import axios from 'axios'
 import Notes from './components/Notes';
 import { Route } from 'react-router-dom';
+import styled from 'styled-components';
+
+const HomePage = styled.div`
+`;
 
 class App extends Component {
   constructor(props) {
@@ -29,15 +33,14 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.notes);
     return (
-      <div className="App">
+      <HomePage>
         <NavBar />
         <Route
           exact path='/'
           render={props => <Notes {...props} notes={this.state.notes} />}   
         />
-      </div>
+      </HomePage>
     );
   }
 }

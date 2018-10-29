@@ -8,11 +8,13 @@ const NavBarContainer = styled.div
     width: 20%;
     height: 100vh;
     background: #D3D2D3;
+    position: fixed;
+    align-items: center;
+    text-align: center;
 `;
 
 const NavButton = styled.button
 `
-
     width: 90%;
     height: 40px;
     margin-bottom: 25px;
