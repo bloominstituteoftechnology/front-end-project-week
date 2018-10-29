@@ -181,3 +181,47 @@ a {
   line-height: 30px;
   margin-bottom: 35px;
 }
+
+.delete-page {
+  background-color: lightgrey;
+  width: 65%;
+  height: 500px;
+  border: 1px solid blueviolet;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.delete-content {
+background-color: whitesmoke;
+border: 1px solid palevioletred;
+padding: 25px;
+width: 450px;
+height: 200px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.delete-btn-1 {
+ background-color: crimson;
+ color: white;
+ width: 150px;
+ margin-left: 12px;
+  margin-right: 12px;
+}
+
+.delete-btn-2 {
+  width: 150px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.delete-buttons {
+  margin-top: 25px;
+}
+
+.delete-msg {
+  font-weight: normal;
+  font-size: 18px;
+}
