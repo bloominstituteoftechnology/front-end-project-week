@@ -13,7 +13,7 @@ export default class NotesContainer extends React.Component{
 
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then( response => {
         this.setState({ notes: response.data });
       })
