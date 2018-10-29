@@ -22,7 +22,7 @@ const store = createStore(notesReducer, enhancer);
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route exact path="/" component={App} />
+      <Route path="/" component={App} />
     </Router>
   </Provider>,
   document.getElementById('root')

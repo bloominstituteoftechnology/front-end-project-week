@@ -4,13 +4,15 @@ import { fetchNotes, addNote, deleteNote, singleNote } from './actions'
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
 import { connect } from 'react-redux';
+import { Route } from'react-router-dom';
+import AddNoteForm from './components/addNoteForm';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      title: '',
-      body: ''
+      noteTitle: '',
+      noteContent: ''
     }
   }
   componentDidMount() {
@@ -20,7 +22,13 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <NotesList notes={this.props.notes} />
+        <Route exact path='/' render={()=>
+          <NotesList notes={this.props.notes} />
+        } />
+        
+        <Route path='/new-note' render={()=>
+          <AddNoteForm  />
+        } />
       </div>
     );
   }
