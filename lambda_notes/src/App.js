@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import NotesList from './components/ListNotes';
-import Note from './components/Notes';
+import SingleNote from './components/DisplayedNote';
 
 class App extends Component {
   constructor() {
@@ -12,9 +12,9 @@ class App extends Component {
       notes: [],
       title: '',
       text: '',
-      activeNote: null,
-      editingId: null,
-      isEditing: false
+      udpatedTitle: '',
+      updatedText: '',
+      deleting: false
     }
   }
 
@@ -38,12 +38,8 @@ class App extends Component {
       .catch(error => console.log('Error: ', error));
   };
 
-  handleTitleChange = event => {
-    this.setState({ title: event.target.value });
-  };
-
-  handleTextChange = event => {
-    this.setState({ textBody: event.target.value });
+  handleInput = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = (e) => {
@@ -66,6 +62,16 @@ class App extends Component {
       });
   };
 
+ 
+
+  toggleDeletingOn = () => {
+    this.setState({ deleting: true });
+  };
+  toggleDeletingOff = e => {
+    e.preventDefault();
+    this.setState({ deleting: false });
+  };
+
   deleteItem = (event, id) => {
     event.preventDefault();
     axios
@@ -77,59 +83,35 @@ class App extends Component {
   };
 
 
-  updateItem = () => {
-    const newNotes = {
-      title: this.state.title,
-      text: this.state.textBody,
-    };
-    this.setState({ title: '', textBody: '' });
+ editingNote = (title, textBody) => {
+    this.setState({ updatedTitle: title, updatedText: textBody });
+  };
+
+  editedNote = id => {
     axios
-      .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingId}`,
-        newNotes
-      )
-      .then(response => {
-        this.setState({
-          notes: response.data,
-          editingId: null,
-          isEditing: false,
-        });
-      })
-      .catch(error => console.log(error));
-  };
-
-  setUpUpdateForm = (ev, note) => {
-    ev.preventDefault();
-    this.setState({
-      note,
-      isEditing: true,
-      editingId: note._id
-    });
-  };
-
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+      title: this.state.updatedTitle,
+      textBody: this.state.updatedText
+    })
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error));
+  }
 
   render() {
     return (
       <div className="App">
         <Route exact path='/' render={props => <NotesList 
         {...props}
+        notes={this.state.notes} />} />
+        <Route exact path='/note/:id' render={props => <SingleNote 
+        {...props}
         notes={this.state.notes}
-        getItemById={this.getItemById} />} />
-        <Route
-          exact
-          path="/notes/:id"
-          render={props => (
-            <Note
-              {...props}
-              notes={this.state.notes}
-              title={this.state.title}
-              text={this.state.textBody}
-              deleteItem={this.deleteItem}
-              handleTitleChange={this.handleTitleChange}
-              handleTextChange={this.handleTextChange}
-            />
-          )}
-        />
+        deleting={this.state.deleting}
+        toggleDeletingOn={this.toggleDeletingOn}
+        toggleDeletingOff={this.toggleDeletingOff}
+        deleteNote={this.deleteItem}
+        editingNote={this.editingNote}
+        />} />
       </div>
     );
   }
