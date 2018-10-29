@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NavBar from './components/nav/NavBar'
+import All from './components/ViewAll/All'
+import { NavLink, Route } from 'react-router-dom'
+import CreateNew from './components/nav/CreateNew'
 
 import './App.css';
 
@@ -28,7 +30,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <NavBar />
+        <div className = 'navBar'>
+          <nav>
+              <h1> Lambda Notes </h1>
+              <NavLink to = '/'> View Your Notes </NavLink>
+              <NavLink to = '/create-new-note'> + Create New Note </NavLink>
+          </nav>
+        
+          <Route 
+              exact path='/' 
+              render=
+                  {props =>
+                      <All {...props} 
+                      notes = {this.state.notes}
+                      
+                      />
+                  }
+          />
+
+          <Route 
+              exact path='/create-new-note' 
+              render=
+                  {props =>
+                      <CreateNew {...props}/>
+                  }
+          />
+        </div>          
       
       </div>
     );
