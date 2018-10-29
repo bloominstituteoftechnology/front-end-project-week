@@ -15,7 +15,7 @@ const notesReducer = (state = initialState, action) => {
       return {
         ...state,        
         notes: [...state.notes, ...action.payload],
-        isFetching: false
+        fetching: false
       };
     case FETCHING_NOTES_FAILURE:
       return { ...state, fetching: false, error: action.payload };

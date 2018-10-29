@@ -7,7 +7,7 @@ const Note = props => {
       <h2>{props.note.title}</h2>
       <p>{props.note.textBody}</p>
       <Link to='/edit-form'>Edit</Link>
-      <Link to='/delete'>Delete</Link>
+      <div className='delete-button'>Delete</div>
     </div>
   );
 }

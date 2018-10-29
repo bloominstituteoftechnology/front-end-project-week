@@ -1,23 +1,24 @@
 import React from 'react';
 
 const AddNoteForm = props => {
+  console.log(props.data)
   return (
-    <form onSubmit={()=>{}} className='form'>
+    <form onSubmit={props.clickHandler} className='form'>
       <h3 className='add-header'>Create New Note:</h3>
       <input 
         type='text'
         name='noteTitle' 
-        value='candy'
+        value={props.data.noteTitle}
         placeholder='Note Title'
-        onChange={()=>{}}></input>
+        onChange={props.inputChange}></input>
       <input 
         type='text'
         name='noteContent' 
-        value='candy'
+        value={props.data.noteContent}
         placeholder='Note Content'
-        onChange={()=>{}}>
+        onChange={props.inputChange}>
       </input>
-      <button onClick={()=>{}}>Submit</button>
+      <button onClick={props.clickHandler}>Submit</button>
     </form> 
   );
 }
