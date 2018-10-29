@@ -4,7 +4,7 @@ import "./NoteCard.css"
 
 const NoteCard = props => {
     return (
-        <div key={props.note.id}>
+        <div className="notecard">
             <h3>{props.note.title}</h3>
             <p>{props.note.textBody}</p>
         </div>

@@ -2,6 +2,8 @@ nav {
     width: 20%;
     height: 100vh;
     background-color: #D3D2D3;
+    border: 1px solid black;
+    position: fixed;
 }
 
 nav h1 {
