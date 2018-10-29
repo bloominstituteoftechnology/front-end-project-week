@@ -1,12 +1,21 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  padding: 20px;
+  background: #f2f0f2;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+`
+
+export const PageHeader = styled.h2`
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 30px 10px 20px;
+`
+
+export const NotesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  overflow-y: scroll;
-  padding: 20px;
-  background: #F2F0F2;
-  overflow-wrap: break-word;
 `
 
 export const Note = styled.div`
@@ -23,7 +32,7 @@ export const NoteTitle = styled.h2`
   font-size: 2rem;
   border-bottom: 1px solid grey;
   padding-bottom: 5px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 `
 
 export const NoteBody = styled.p`

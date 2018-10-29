@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   Container,
   Title,
+  Form,
   InputTitle,
   InputBody,
   SaveButton
@@ -33,8 +34,8 @@ class Add extends Component {
 
     return (
       <Container>
-        <form onSubmit={handleSubmit}>
-          <Title>Create New Note:</Title>
+        <Title>Create New Note:</Title>
+        <Form onSubmit={handleSubmit}>
           <InputTitle
             onChange={handleInputChange}
             placeholder="title"
@@ -47,8 +48,8 @@ class Add extends Component {
             value={text}
             name="text"
           />
-          <SaveButton type="submit">Add</SaveButton>
-        </form>
+          <SaveButton type="submit">Save</SaveButton>
+        </Form>
       </Container>
     )
   }

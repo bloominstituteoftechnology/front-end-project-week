@@ -39,7 +39,7 @@ class App extends Component {
         <Sidebar changeDisplayedPage={changeDisplayedPage} />
 
         {pageToDisplay === 'all' && (
-          <DisplayAll notes={notes} changeDisplayedPage={changeDisplayedPage} />
+          <DisplayAll notes={notes} deleteNote={deleteNote} changeDisplayedPage={changeDisplayedPage} />
         )}
 
         {pageToDisplay.length > 20 && (
