@@ -49,7 +49,7 @@ export const createNote = note => {
 export const deleteNote = id => {
   return dispatch => {
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:9000/api/notes/${id}`)
       .then(() => dispatch({ type: DELETE_NOTE_SUCCESS }))
       .then(() => getNotes()(dispatch))
       .catch(err =>
@@ -61,7 +61,7 @@ export const deleteNote = id => {
 export const updateNote = note => {
   return dispatch => {
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
+      .put(`http://localhost:9000/api/notes/${note.id}`, note)
       .then(() => dispatch({ type: UPDATE_SUCCESSFUL }))
       .then(() => getNotes()(dispatch))
       .catch(err =>

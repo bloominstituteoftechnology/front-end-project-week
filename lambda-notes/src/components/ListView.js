@@ -98,7 +98,7 @@ class ListView extends React.Component {
                 if (
                   note.title.toLowerCase().includes(term.toLowerCase()) ||
                   note.textBody.toLowerCase().includes(term.toLowerCase()) ||
-                  note.tags.join(',').toLowerCase().includes(term.toLowerCase())
+                  note.tags.toLowerCase().includes(term.toLowerCase())
                 ) {
                   return note;
                 }

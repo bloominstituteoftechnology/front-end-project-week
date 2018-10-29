@@ -23,7 +23,7 @@ class GotOne extends React.Component {
   }
 
   handleDelete = () => {
-    this.props.deleteNote(this.props.location.state.note._id);
+    this.props.deleteNote(this.props.location.state.note.id);
     this.props.history.push("/");
   }
 
