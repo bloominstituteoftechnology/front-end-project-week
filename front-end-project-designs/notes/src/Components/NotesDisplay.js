@@ -17,7 +17,7 @@ class NotesDisplay extends React.Component {
     //ComponentDidMount to fetch data from API
     componentDidMount() {
         axios
-            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
                     console.log(response.data);
                     this.setState({ notes : response.data})
@@ -28,14 +28,17 @@ class NotesDisplay extends React.Component {
     render() {
         console.log("State from API .. ", this.state.notes);
         return (
-            <div>
-                <h1>NotesDisplay</h1>
-                {this.state.notes.map((note, index) => 
-                                                    <SingleNote
-                                                        key = {note.id}
-                                                        data = {note}
-                                                    />
-                )}
+            <div className = "note-display-maindiv">
+                <div className = "notes-list-heading"> Your Notes : </div>
+                
+                <div className = "notes">
+                    {this.state.notes.map((note, index) => 
+                                                        <SingleNote
+                                                            key = {note.id}
+                                                            data = {note}
+                                                        />
+                    )}
+                </div>
             </div>
         )
     }

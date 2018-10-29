@@ -9,7 +9,6 @@ class App extends Component {
     return (
       <div className = "app-div">
         
-          <h1>Hello...............</h1>
           <NotesSideBar />
           <NotesDisplay />
         
