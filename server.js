@@ -32,7 +32,7 @@ server.get('/notes', (req, res) => {
 });
 let noteId = 2;
 
-server.get('/notes/:id', (req, res) => {
+server.get('/note/:id', (req, res) => {
   const id = req.params.id;
   findById(id)
     .then(data => {
@@ -43,7 +43,7 @@ server.get('/notes/:id', (req, res) => {
 
 findById = (id) => {
   return new Promise((res, rej) => {
-    let index = notes.findIndex(smurf => Number(smurf.id) === Number(id))
+    let index = notes.findIndex(note => Number(note._id) === Number(id))
     res(notes[index]);
   })
 }
@@ -51,7 +51,7 @@ findById = (id) => {
 
 server.post('/notes', (req, res) => {
   const { title, body, tags } = req.body;
-  const newNote = {title, textBody: body, id: noteId, tags};
+  const newNote = {title, textBody: body, _id: noteId, tags};
   if (!title || !body) {
     return sendUserError(
       'Title and Body are required to create a note in note DB.',

@@ -34,7 +34,8 @@ export const activeNoteHandler = (ev) => {
 export const getNote = (id) => async dispatch => {
   try {
     dispatch({type: GET_NOTE});
-    const res = await axios.get(`${url}/notes/${id}`)
+    const res = await axios.get(`${url}/note/${id}`)
+    console.log(res);
     dispatch({type: GET_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: GET_NOTE_FAILURE, payload: err})

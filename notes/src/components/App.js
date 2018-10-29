@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { getNotes, addNote} from '../actions';
+import { getNotes, addNote, getNote } from '../actions';
 import ToolBar from './ToolBar';
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
+import NoteModule from './NoteModule'
 
 
 class App extends Component {
@@ -15,8 +16,14 @@ class App extends Component {
   }
 
 
-  noteClicked = (ev) => {
+  noteClicked = (ev, id, history) => {
     ev.preventDefault();
+    history.push(`/note/${id}`)
+  }
+
+  deleteNote = (ev, id) => {
+    ev.preventDefault();
+    
   }
 
   formSubmited = (title, body, history) => {
@@ -53,14 +60,26 @@ class App extends Component {
             />
           }
         />
+
+        <Route 
+          path='/note/:id'
+          exact
+          render={props => 
+            <NoteModule
+              {...props}
+              note={this.props.activeNote}
+              getNote={this.props.getNote}
+            />
+          }
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const { notes } = state;
-  return { notes };
+  const { notes, activeNote } = state;
+  return { notes, activeNote };
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, addNote })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, addNote, getNote })(App));
