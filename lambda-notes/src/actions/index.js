@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // some variables
-const url = 'http://localhost:5500/notes/';
+const url = 'http://localhost:8800/api/notes/';
 const userUrl = null;
 
 // getNotes action creator
