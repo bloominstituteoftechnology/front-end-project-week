@@ -68,3 +68,79 @@
   width: 80%;
   margin: 10px auto;
 }
+
+.single-note {
+  width: 80%;
+  margin-left: auto;
+
+  padding: 30px;
+}
+.single-note h1 {
+  font-size: 1.7rem;
+  margin-top: 20px;
+}
+.single-note p {
+  margin-top: 20px;
+}
+
+.edit-and-delete {
+  position: absolute;
+  right: 100px;
+  top: 20px;
+}
+.edit-and-delete span {
+  margin: 10px;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  animation: fadeIn 500ms;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.delete-modal-wrapper {
+  background: #fff;
+  width: 50%;
+  padding: 40px 20px;
+  margin: auto;
+  margin-top: 100px;
+}
+.delete-modal-wrapper button {
+  color: white;
+  border: none;
+
+  margin: 20px 10px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  cursor: pointer;
+}
+.delete-modal-wrapper button:nth-last-of-type(2) {
+  background: red;
+}
+.delete-modal-wrapper button:nth-last-of-type(1) {
+  background: #24b8bd;
+}
+.delete-modal-wrapper h5 {
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}

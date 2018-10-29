@@ -29,6 +29,13 @@ class App extends Component {
       })
     );
   };
+  handleDeleteNote = () => {
+    axios.get("https://fe-notes.herokuapp.com/note/get/all").then(res =>
+      this.setState({
+        notes: res.data
+      })
+    );
+  };
 
   routeToSingleNote = noteId => {
     // this.setState({
@@ -54,7 +61,11 @@ class App extends Component {
         <Route
           path="/notes/:id"
           render={props => (
-            <SingleNote {...props} singleNoteId={this.state.singleNoteId} />
+            <SingleNote
+              {...props}
+              singleNoteId={this.state.singleNoteId}
+              handleDeleteNote={this.handleDeleteNote}
+            />
           )}
         />
         <Route

@@ -5,7 +5,8 @@ class SingleNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: {}
+      note: {},
+      deleteMenuToggle: false
     };
   }
 
@@ -17,14 +18,57 @@ class SingleNote extends Component {
         note: res.data
       })
     );
-    console.log(localStorage.getItem("noteID"));
   }
+
+  handleDeleteNote = () => {
+    axios
+      .delete(
+        `https://fe-notes.herokuapp.com/note/delete/${localStorage.getItem(
+          "noteID"
+        )}`
+      )
+      .then(this.props.handleDeleteNote, this.props.history.push("/"));
+  };
   render() {
     return (
-      <div className="notes-container">
-        <h1>{this.state.note.title}</h1>
-        <p>{this.state.note.textBody}</p>
-      </div>
+      <React.Fragment>
+        <div
+          className="delete-modal"
+          style={
+            this.state.deleteMenuToggle
+              ? { display: "block" }
+              : { display: "none" }
+          }
+        >
+          <div className="delete-modal-wrapper">
+            <div>
+              <h5>Are you sure you want to delete this?</h5>
+            </div>
+            <div>
+              <button onClick={this.handleDeleteNote}>Delete</button>
+              <button
+                onClick={() => this.setState({ deleteMenuToggle: false })}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="edit-and-delete">
+          <span>Edit</span>
+          <span
+            onClick={() =>
+              this.setState({ deleteMenuToggle: !this.state.deleteMenuToggle })
+            }
+          >
+            Delete
+          </span>
+        </div>
+        <div className="single-note">
+          <h1>{this.state.note.title}</h1>
+          <p>{this.state.note.textBody}</p>
+        </div>
+      </React.Fragment>
     );
   }
 }
