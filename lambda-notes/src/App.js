@@ -2,55 +2,48 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import NotesView from './components/NotesView';
+import Form from './components/Form';
+import { HashRouter as Router, Link, NavLink, Route, Switch } from 'react-router-dom';
+import {withRouter} from 'react-router';
+import NoteView from './components/NoteView';
 
-
-const notes = [{
-  "tags": ["tag", "otherTag"],
-  "title": "Note Title",
-  "textBody": "Note Body",
-  "_id": "cksdkjvckadd32",
-},
-{
-  "tags": ["tag", "otherTag"],
-  "title": "Note Title",
-  "textBody": "Note Body",
-  "_id": "cksdkjvckadd32",
-},
-{
-  "tags": ["tag", "hashTag"],
-  "title": "Note Title",
-  "textBody": "Note Body",
-  "_id": "cksdkjvckadd32",
-},
-{
-  "tags": ["tag", "hashTag"],
-  "title": "Note Title",
-  "textBody": "Note Body",
-  "_id": "cksdkjvckadd32",
-},
-{
-  "tags": ["tag", "other"],
-  "title": "Note Title",
-  "textBody": "Note Body",
-  "_id": "cksdkjvckadd32",
-},
-{
-  "tags": ["tag", "other"],
-  "title": "Note Title",
-  "textBody": "Note Body",
-  "_id": "cksdkjvckadd32",
-}];
 
 class App extends Component {
   state ={
     notes: [],
     viewNotes: true,
     createNote: false,
-    editNote: false
+    editNote: false,
+    notePage: false,
+    chosenNote: {},
+    newNote: {'title': '', 'textBody': '', 'tags': []}
   }
 
+  inputHandler = (e) => {
+    this.setState({newNote: {...this.state.newNote, [e.target.name]: e.target.value}})
+  }
+
+  saveNote = () => {
+    console.log('hi');
+    console.log(this.state.newNote);
+    axios.post('https://fe-notes.herokuapp.com/note/create', this.state.newNote)
+        .then(res => {console.log('success',res.data);
+  })
+        .catch(err => console.log(err))
+    this.setState({newNote: {title: '', textBody: '', tags: []} })
+    this.props.history.push('/');
+  }
+
+  editNote = (e) => {
+    console.log(e.target);
+    
+  }
+
+
+
   componentDidMount(){
-      axios.get('https://killer-notes.herokuapp.com/note/get/all')
+      axios.get('https://fe-notes.herokuapp.com/note/get/all')
            .then(res => {console.log(res);
             this.setState({notes: res.data})  
             })
@@ -59,8 +52,9 @@ class App extends Component {
 
 
   render() {
-    console.log(notes);
+    
     return (
+      
     <div className='container'>
       <div className="App">
 
@@ -68,35 +62,32 @@ class App extends Component {
           <div className='lambda-notes'>
             <h1>Lambda Notes</h1>
           </div>
-          <div className='button'>View Your Notes</div>
-          <div className='button'>+Create New Note</div>
+          <div className='button'><NavLink to='/'>View Your Notes</NavLink></div>
+          <div className='button'><NavLink to='/create-note'>+Create New Note</NavLink></div>
 
         </div>
         
         <div className='main-view'>
           <div className='title-cont'>
-            <h2>Your Notes: </h2>
+            <h2>{
+              this.state.viewNotes ? 'Your Notes:' :
+              this.state.createNote ? 'Create New Note:':
+              this.state.notePage ? this.state.chosenNote.title :
+              this.state.editNote ? 'Edit Note' : '' } </h2>
           </div>
-          <div className="cont-body">
-            {this.state.notes.map(note => ( 
-            <div className="note">
-            
-            <div className='note-title'>
-                <h3>{note.title}</h3>
-            </div>
-            
-            <div className="note-body">{note.textBody}</div>
-            
-            </div>
-            
-            )
-            )}
-          </div>
+          <Switch>
+          <Route exact path='/' render={ props => <NotesView {...props} editNote={this.editNote} notes={this.state.notes}/>} />
+          <Route path='/create-note' render={ props => <Form saveNote={this.saveNote} inputHandler={this.inputHandler} {...props} />} />
+          <Route path="/note/:id" render={props => <NoteView {...props} notes={this.state.notes} />}/>
+          </Switch>
+          
+          
         </div>
       </div>
     </div>
+    
     );
   }
 }
 
-export default App;
+export default withRouter(App);
