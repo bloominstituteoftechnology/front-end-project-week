@@ -53,41 +53,40 @@ class App extends Component {
   saveNewNoteHandler = event => {
     event.preventDefault();
     axios     
-   // .post( 'http://localhost:5000/friends',  
+    .post('https://fe-notes.herokuapp.com/note/create',  
     {
-      name: this.state.newName,
-      age: this.state.newAge,
-      email: this.state.newEmail
+     // name: this.state.newName,
+     // age: this.state.newAge,
+     // email: this.state.newEmail
 
     }
     )
     .then(response => {
-    //  this.setState(() => ({ friendList: response.data }));
+       this.setState(() => ({ notes: response.data }));
     })
     .catch(error => {
       console.error('Server Error', error);
     });
     }
     
-    editedNoteHandler = event => {
-      event.preventDefault();
-      axios     
-   //   .put(`http://localhost:5000/friends/${id}`,
-      {
-        name: this.state.newName,
-        age: this.state.newAge,
-        email: this.state.newEmail
-      }
+  editedNoteHandler = event => {
+    event.preventDefault();
+    axios     
+    .put(`https://fe-notes.herokuapp.com/note/edit/id`,
+    {
+       // name: this.state.newName,
+       // age: this.state.newAge,
+       // email: this.state.newEmail
+    }
       )
-      .then(response => {
-     //   this.setState(() => ({ friendList: response.data }));
+    .then(response => {
+       this.setState(() => ({ notes: response.data }));
       })
-      .catch(error => {
-        console.error('Server Error', error);
+    .catch(error => {
+      console.error('Server Error', error);
       });
    
       }
-
 
   render() {
     return (
