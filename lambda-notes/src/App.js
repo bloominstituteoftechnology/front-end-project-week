@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     axios
       .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => console.log(response))
+      .then(response => this.setState({notes: response.data}))
       .catch(error => console.log(error));
   }
 
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route path='/' component={LeftBar}/>
-        <Route exact path='/' component={NotesList}/>
+        <Route render={props => (<NotesList {...props} notes={this.state.notes} />)} exact path='/'/>
       </div>
     );
   }
