@@ -8,22 +8,15 @@ class NoteList extends Component {
   constructor() {
     super()
       this.state = {
-        notes: [
-          {tags: [],
-           title: 'this is the note title',
-           textBody: 'this is the text body',
-           id: 'abcdefg',
-          },
-           {tags: [],
-           title: 'second note',
-           textBody: 'when I walk I thinka bout a new way to walk',
-           id: '123456g',
-          }
-        ]
+        notes: [],
       }
   }
 
   componentDidMount() {
+    axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(res => this.setState({notes: res.data}))
+      .catch(error => console.log(error))
     //axios stuff here
 
   }
