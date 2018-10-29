@@ -33,39 +33,6 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  changeHandler = event => {
-    event.preventDefault();
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
-
-  submitHandler = event => {
-    event.preventDefault();
-    if (this.state.title !== '' && this.state.body !== '') {
-      const newNote = {
-        tags: [],
-        title: this.state.title,
-        textBody: this.state.body,
-      }
-
-      axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
-           .then(res => {         
-              console.log(res);
-           })
-           .catch(err => console.log(err))
-           this.setState({
-              title: '',
-              body: '',
-           })
-      alert('Note saved. Please navigate home.')
-    }
-    else {
-      alert('Please fill out the form!')
-    }
-    event.target.reset();
-  }
-
   render() {
     return (
       <div className="App">
