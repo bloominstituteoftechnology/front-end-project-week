@@ -41,6 +41,7 @@ nav {
   width: 300px;
   margin: 20px;
   overflow: hidden;
+  height: 300px;
 }
 
 .note h2 {

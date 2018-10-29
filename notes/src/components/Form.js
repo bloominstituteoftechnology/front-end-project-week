@@ -9,10 +9,18 @@ class Form extends Component {
             title: '',
             body: '',
             added: false,
+            note: null,
         }
     }
 
     componentDidMount() {
+        if (this.props.location.state !== undefined) {
+            this.setState({
+                note: this.props.location.state.note,
+                title: this.props.location.state.note.title,
+                body: this.props.location.state.note.textBody,
+            })
+        }
         this.setState({
             added: false,
         })
@@ -33,24 +41,28 @@ class Form extends Component {
             title: this.state.title,
             textBody: this.state.body,
           }
-    
-          axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
-               .then(res => {         
-                  console.log(res);
-               })
-               .catch(err => console.log(err))
-               this.setState({
-                  title: '',
-                  body: '',
-               })
+          if (this.state.note !== null) {
+            axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
+                 .then(res => {console.log(res)})
+                 .catch(err => {console.log(err)})
+            alert('Note edited.');
+          }
+          else {
+            axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+                 .then(res => {console.log(res)})
+                 .catch(err => console.log(err))
+            alert('New note submitted.');
+          }
           this.setState({
               added: true,
+              title: '',
+              body: '',
+              note: null,
           })
         }
         else {
           alert('Please fill out the form!')
         }
-        event.target.reset();
       }
 
 
@@ -62,10 +74,24 @@ class Form extends Component {
         }
         return (
             <div className='container'>
-                <h1>Add Item:</h1>
-                <form onSubmit={this.submitHandler}>
-                    <input type='text' name='title' placeholder='Note title...' value={this.props.value} onChange={this.changeHandler}/>
-                    <input type='textarea' name='body' placeholder='Note body...' value={this.props.value} onChange={this.changeHandler}/>
+                <h1>{this.state.note !== null ? 'Edit Note:' : 'Add Note'}</h1>
+                <form onSubmit={this.submitHandler} autoComplete='off'>
+
+                    <input 
+                        type='text' 
+                        name='title' 
+                        placeholder='Note title...' 
+                        defaultValue={this.state.note !== null ? this.state.note.title : this.props.value}
+                        onChange={this.changeHandler}
+                    />
+
+                    <input 
+                        type='textarea' 
+                        name='body' 
+                        placeholder='Note body...' 
+                        defaultValue={this.state.note !== null ? this.state.note.textBody : this.props.value}
+                        onChange={this.changeHandler}/>
+                    
                     <input type='submit' />
                 </form>
             </div>

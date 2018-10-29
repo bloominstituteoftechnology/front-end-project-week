@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class FullPageNote extends Component {
     constructor(props) {
@@ -54,7 +54,7 @@ class FullPageNote extends Component {
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
                 <span onClick={this.deleteModal}>X</span>
-                <span onClick={this.editHandler}>edit</span>
+                <Link to={{ pathname: '/add', state: { note: this.state.note} }}>EDIT</Link>
                 <div className='modalBG'>
                     <div className='modal'>
                         <h3>Are you sure you want to delete this note?</h3>

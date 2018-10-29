@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Notes from './components/Notes';
-import Form from './components/Form';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
+import Notes from './components/Notes';
+import Form from './components/Form';
 import Nav from './components/Nav';
 import FullPageNote from './components/FullPageNote'
 
