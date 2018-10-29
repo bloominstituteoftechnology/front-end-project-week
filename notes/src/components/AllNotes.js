@@ -26,15 +26,15 @@ class AllNotes extends React.Component {
         this.setState({ currentNotes: this.props.notesData })
     }
 
-    filterByTag(tag) {
-        if (this.state.currentNotes) {
-        console.log("inside filter")
+    // filterByTag(tag) {
+    //     if (this.state.currentNotes) {
+    //     console.log("inside filter")
 
-        const filteredNotes = this.props.notesData.filter(note => note.tags.includes(tag));
-        this.setState({ currentNotes: filteredNotes })
-        console.log("filtered", filteredNotes);
-        }
-    }
+    //     const filteredNotes = this.props.notesData.filter(note => note.tags.includes(tag));
+    //     this.setState({ currentNotes: filteredNotes })
+    //     console.log("filtered", filteredNotes);
+    //     }
+    // }
 
     render() {
         if (!this.props.notesData || !this.props.notesData.length) {
@@ -48,7 +48,7 @@ class AllNotes extends React.Component {
         return (
             <div className="notes-list-wrapper">
             <h3>Your Notes:</h3>
-                <div className="filter">
+                {/* <div className="filter">
                 <h5 className="show-all" onClick={() => this.showAll()}>Show All Notes</h5>
                 <div className="by-tag"><h5>Filter by tag:</h5> {this.props.notesData.map(note => {
                     return note.tags.split(',').map(tag => (
@@ -58,7 +58,7 @@ class AllNotes extends React.Component {
                 </div>
     
     
-                </div>
+                </div> */}
                 <div className="all-notes">
                 {  
                     this.state.currentNotes.map(note => (
@@ -77,45 +77,6 @@ class AllNotes extends React.Component {
 
     }
 }
-
-// function AllNotes(props) {
-//     if (!props.notesData || !props.notesData.length) {
-//         return (
-//         <div><h3>You don't have any Notes yet. :(</h3>
-//             <p>Try adding a new Note by clicking the <strong>+ Create New Note</strong> button! :)</p></div>
-//         )
-//     };
-
-    
-
-
-//     return (
-        
-//         <div className="notes-list-wrapper">
-//         <h3>Your Notes:</h3>
-//             <div className="filter">
-//             <h5>Filter by tag:</h5> {props.notesData.map(note => {
-//                 return note.tags.map(tag => (
-//                     <h6 onClick={() => props.filterByTag()}>{tag}</h6>
-//                 ))
-//             })}
-
-
-
-//             </div>
-//             <div className="all-notes">
-//             {props.notesData.map(note => (
-//                 <div className="note-card" key={note.id} onClick={() => props.history.push(`notes/${note.id}`)}>
-//                     <h4>
-//                     {props.truncateTitle(note.title)}
-//                     </h4>
-//                     <p>{props.truncate(note.content)}</p>
-//                 </div> 
-//             ))}
-//             </div>
-//         </div>
-//     )
-// }
 
 AllNotes.propTypes = {
     notesData: PropTypes.array,

@@ -8,7 +8,7 @@ function NoteForm(props) {
         if (props.isUpdating) {
             props.updateNote(props.note.id);
         } else {
-            console.log("note.tags", props.note.tags)
+            //console.log("note.tags", props.note.tags)
             props.addNewNote();
         }
     }
@@ -23,15 +23,15 @@ function NoteForm(props) {
         
     }
 
-    function joinTags(tags) {
-        if (tags) {
-            if (tags.length > 0) {
-                return tags.join(', ')
-            } else {
-                return tags;
-            }
-        }
-    }
+    // function joinTags(tags) {
+    //     if (tags) {
+    //         if (tags.length > 0) {
+    //             return tags.join(', ')
+    //         } else {
+    //             return tags;
+    //         }
+    //     }
+    // }
 
     return (
         <Fragment>
@@ -53,14 +53,14 @@ function NoteForm(props) {
                     cols="30"
                     rows="23"
                     onChange={props.handleChange}></textarea>
-                    <input 
+                    {/* <input 
                     type="text" 
-                    value={joinTags(props.note.tags)} 
+                    value={(props.note.tags)} 
                     name="tags" 
                     className="tags"
                     placeholder="separate, tags, with, spaces, and, commas"
                     onChange={props.handleChange} 
-                />
+                /> */}
                 <div className="buttons">  
                 <button className="blueButton" onClick={handleSubmit}><a>{props.isUpdating ? 'Update' : 'Save'}</a></button>
                 <button className="blueButton" onClick={handleCancel}><a>Cancel</a></button>

@@ -20,7 +20,7 @@ class App extends Component {
       note: {
         title: '',
         content: '',
-        tags: []
+        // tags: ''
       },
       isUpdating: false,
       show: false
@@ -52,16 +52,16 @@ class App extends Component {
   }
 
   handleChange = e => {
-    if (e.target.name === 'tags') {
-      const tags = e.target.value.split(', ');
-      this.setState({
-        note: {
-          ...this.state.note,
-          tags: tags,
-        }
-      });
-    } else 
-    {
+    // if (e.target.name === 'tags') {
+    //   const tags = e.target.value.split(', ');
+    //   this.setState({
+    //     note: {
+    //       ...this.state.note,
+    //       tags: tags,
+    //     }
+    //   });
+    // } else 
+    //{
     this.setState({
       note: { 
         ...this.state.note,
@@ -69,21 +69,21 @@ class App extends Component {
         e.target.value,
       }
     });
-    }
+    //}
   }
 
   addNewNote = event => {
     const newNote = {
       title: this.state.note.title,
       content: this.state.note.content,
-      tags: this.state.note.tags
+      //tags: this.state.note.tags
     }
     console.log('adding new');
     axios.post('http://localhost:7000/api/notes', this.state.note)
     .then(response => {
       newNote.id = response.data.success;
       this.setState({ 
-        notesData: [...this.state.notesData, newNote], note: { title: '', content: '', tags: [] }, isUpdating: false 
+        notesData: [...this.state.notesData, newNote], note: { title: '', content: '', /* tags: [] */ }, isUpdating: false 
       },
     () => this.props.history.push('/notes'))})
     .catch(err => {
@@ -93,7 +93,7 @@ class App extends Component {
   }
 
   deleteNote = noteId => {
-    return axios.delete(`https://localhost:7000/api/notes/${noteId}`)
+    return axios.delete(`http://localhost:7000/api/notes/${noteId}`)
     .then(response => {
       console.log("delete response:", response.data);
        this.setState({ show: false })})
@@ -109,7 +109,7 @@ class App extends Component {
   }
 
   updateNote = noteId => {
-    axios.put(`https://localhost:7000/api/notes/${noteId}`, this.state.note)
+    axios.put(`http://localhost:7000/api/notes/${noteId}`, this.state.note)
     .then(response => {
       console.log("response.data:", response.data)
       this.setState({
