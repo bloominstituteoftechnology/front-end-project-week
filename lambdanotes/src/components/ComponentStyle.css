@@ -1,8 +1,25 @@
+.notes-display {
+  display: flex;
+}
+
 .note-card {
   border: 1px solid gray;
   width: 200px;
-  height: 100px;
+  height: 170px;
   background-color: #fff;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-wrap: break-word;
+}
+
+.line {
+  height: 1px;
+  width: 90%;
+  background-color: black;
 }
 
 .note-title {
@@ -11,15 +28,33 @@
 
 .note-container {
   background-color: #f3f3f3;
+  border: 1px solid gray;
+  padding: 20px 40px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .sidebar {
   background-color: #d7d7d7;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
 }
 
-.sidebar-title,
+.sidebar-title {
+  color: #4a494a;
+  font-size: 48px;
+  flex-wrap: wrap;
+  margin-left: 30px;
+}
+
 .notes-title {
   color: #4a494a;
+  margin-right: 100%;
+  padding-left: 100px;
 }
 
 .button {
@@ -29,4 +64,6 @@
   height: 50px;
   font-size: 20px;
   font-weight: bold;
+  border: 1px solid gray;
+  margin: 20px 30px;
 }
