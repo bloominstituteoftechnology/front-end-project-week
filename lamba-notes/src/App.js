@@ -3,6 +3,7 @@ import axios from "axios";
 import { Route, NavLink } from "react-router-dom";
 
 import Notes from "./components/Notes";
+import NoteForm from "./components/NoteForm";
 import "./styles.css";
 // import "./card.css";
 
@@ -37,6 +38,7 @@ class App extends Component {
         </div>
 
         <div className="content">
+          <NoteForm />
           <Notes notes={this.state.notes} />
         </div>
       </div>
