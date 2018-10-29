@@ -11,7 +11,7 @@ class All extends Component {
                         <NoteCard
                             title = {note.title}
                             textBody = {note.textBody}
-                            
+                            notes = {note}
                             key = {note._id}
                             />
                     )

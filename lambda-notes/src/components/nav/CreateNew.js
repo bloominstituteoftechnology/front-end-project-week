@@ -31,17 +31,21 @@ addNew = event => {
         .catch(error => {
             console.log('ERROR', error)
         });
+        
 
         this.setState({
             title: '',
             textBody: ''
           });
+
+          
       
 
 }
 
+
 handleInputChange = event => {
-    
+    event.preventDefault();
     this.setState ({ [event.target.name]: event.target.value});
      
 };

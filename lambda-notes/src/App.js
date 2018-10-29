@@ -3,8 +3,10 @@ import axios from 'axios';
 import All from './components/ViewAll/All'
 import { NavLink, Route } from 'react-router-dom'
 import CreateNew from './components/nav/CreateNew'
+import NoteView  from './components/NoteView/NoteView'
 
 import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +31,13 @@ class App extends Component {
   addNewNote = data => {
     this.setState({notes: data})
   }
+
+  routeToSingleNote = noteId => {
+    // this.setState({
+    //   singleNoteId: noteId
+    // });
+    localStorage.setItem("noteID", noteId);
+  };
 
   render() {
     return (
@@ -62,6 +71,17 @@ class App extends Component {
                   />
                 }
           />
+
+          <Route 
+                exact path='/individual-note-view/' 
+                render=
+                {props =>
+                    <NoteView
+                    {...props}
+                    notes = {this.state.notes} 
+                     />
+                }
+                />
         </div>          
       
       </div>
