@@ -15,10 +15,10 @@ const App = () => (
   <div className="App">
     <Navigation />
     <Route exact path="/" component={ListView} />
-    <Route path="/noteview" component={NoteView} />
-    <Route path="/createnewview" component={CreateNewView} />
-    <Route path="/editview" component={EditView} />
-    <Route path="/deletemodal" component={DeleteModal} />
+    <Route exact path="/noteview" component={NoteView} />
+    <Route exact path="/createnewview" component={CreateNewView} />
+    <Route exact path="/editview" component={EditView} />
+    <Route exact path="/deletemodal" component={DeleteModal} />
   </div>
 );
 

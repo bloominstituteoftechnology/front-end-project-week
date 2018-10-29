@@ -1,7 +1,9 @@
 import React from 'react';
 
-const NoteView = () => {
+import './ComponentStyle.css';
+
+function NoteView(props) {
   return <div>This is the Note View</div>;
-};
+}
 
 export default NoteView;

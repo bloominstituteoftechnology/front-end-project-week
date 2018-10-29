@@ -5,22 +5,31 @@ import NoteView from './NoteView';
 
 import './ComponentStyle.css';
 
-export default class ListView extends Component {
+export default class ListView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      note: {
+        tags: ['tag', 'nextTag'],
+        title: '',
+        textBody: ''
+      }
     };
   }
 
   componentDidMount() {
+    this.getNotes();
+  }
+
+  getNotes() {
     axios
       .get('https://killer-notes.herokuapp.com/note/get/all')
       .then(response => {
-        this.setState(() => ({ notes: response.data }));
+        this.setState({ notes: response.data });
       })
       .catch(error => {
-        console.log('Server Error', error);
+        console.log(error);
       });
   }
 
