@@ -7,7 +7,7 @@ import NoteCard from "./NoteCard";
 const NoteList = ({ notes }) => (
   <NoteListWrapper>
     {notes.map(note => (
-      <NoteCard note={note} />
+      <NoteCard note={note} key={note._id} />
     ))}
   </NoteListWrapper>
 );

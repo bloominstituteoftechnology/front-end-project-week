@@ -22,7 +22,6 @@ class App extends Component {
         textBody: ""
       },
       editing: false,
-      noteToUpdate: null
     };
   }
 
@@ -71,7 +70,7 @@ class App extends Component {
   handleSubmitUpdate = e => {
     e.preventDefault();
     axios
-      .put(`${URL}edit/${this.state.noteToUpdate._id}`, this.state.newNote)
+      .put(`${URL}edit/${this.state.newNote._id}`, this.state.newNote)
       .then(this.redirect)
       .catch(err => console.log(err));
   };

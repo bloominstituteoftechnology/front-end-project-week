@@ -5,7 +5,9 @@ import { NavBar, Button } from "../styles";
 
 const Navigation = () => (
   <NavBar>
+    <NavLink exact to="/notes">
     <h1>Lambda Notes</h1>
+    </NavLink>
     <NavLink exact to="/notes">
       <Button>View Your Notes</Button>
     </NavLink>
