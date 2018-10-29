@@ -1,5 +1,5 @@
-import Note from './Note';
+import Notes from './Notes';
 import NoteForm from './NoteForm';
 import NotesList from './NotesList';
 
-export { Note, NoteForm, NotesList };
+export { Notes, NoteForm, NotesList };

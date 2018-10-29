@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Note from './Note';
+import Notes from './Note';
 
 import './ComponentStyle.css';
 
@@ -21,7 +21,7 @@ class NotesList extends React.Component {
       .catch(err => console.log(err));
   }
   render() {
-    return <Note notes={this.state.notes} />;
+    return <Notes notes={this.state.notes} />;
   }
 }
 

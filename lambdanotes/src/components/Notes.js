@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import './ComponentStyle.css';
 
-const Note = props => {
+const Notes = props => {
   return (
     <Fragment>
       <div>Your Notes:</div>
@@ -18,4 +18,4 @@ const Note = props => {
   );
 };
 
-export default Note;
+export default Notes;
