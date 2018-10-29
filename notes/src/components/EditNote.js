@@ -42,7 +42,6 @@ class EditNote extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <h2>EDIT NOTE</h2>

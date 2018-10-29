@@ -16,6 +16,8 @@ class App extends Component {
         <AddNote />
         {this.props.fetching ?
         <div>LOADING NOTES LIST...</div> :
+        this.props.error ?
+        <div>An error occurred. Perhaps you forgot to start the server?</div> :
         <NotesList />
         }
       </div>
@@ -25,7 +27,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   notes: state.notes, // don't need this here?
-  fetching: state.fetching
+  fetching: state.fetching,
+  error: state.error
 });
 
 export default connect(mapStateToProps, { getNotes })(App);
