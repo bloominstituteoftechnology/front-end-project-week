@@ -49,7 +49,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 - [ ] Edit an existing note
 - [ ] Delete an existing note
 ```
-
+https://trello.com/invite/b/YSLloJyg/3abd8d88b26ebd6ec071505749fcc599/lambda-notes-conner
 ---
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
