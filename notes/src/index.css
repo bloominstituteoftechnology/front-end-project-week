@@ -12,11 +12,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.App{
+  display:flex;
+}
+.App .sidebar{
+  width:30%;
+  background-color:#D3D2D3;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.note-list{
+  display: flex;
+  flex-wrap: wrap;
+}
 .note-card{
-  width: 300px;
+  width: 30%;
+  height:300px;
   background : whitesmoke;
   border : 1px solid black;
+  margin:1%;
 }
 .note-card .card-title{
   border-bottom : 2px solid grey;
