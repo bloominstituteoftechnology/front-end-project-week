@@ -26,14 +26,15 @@ class AllNotes extends React.Component {
         this.setState({ currentNotes: this.props.notesData })
     }
 
-    // filterByTag(tag) {
-    //     if (this.state.currentNotes) {
-    //     console.log("inside filter")
-    //     const filteredNotes = this.props.notesData.filter(note => note.tags.includes(tag));
-    //     this.setState({ currentNotes: filteredNotes })
-    //     console.log("filtered", filteredNotes);
-    //     }
-    // }
+    filterByTag(tag) {
+        if (this.state.currentNotes) {
+        console.log("inside filter")
+
+        const filteredNotes = this.props.notesData.filter(note => note.tags.includes(tag));
+        this.setState({ currentNotes: filteredNotes })
+        console.log("filtered", filteredNotes);
+        }
+    }
 
     render() {
         if (!this.props.notesData || !this.props.notesData.length) {
@@ -49,12 +50,12 @@ class AllNotes extends React.Component {
             <h3>Your Notes:</h3>
                 <div className="filter">
                 <h5 className="show-all" onClick={() => this.showAll()}>Show All Notes</h5>
-                {/* <div className="by-tag"><h5>Filter by tag:</h5> {this.props.notesData.map(note => {
-                    return note.tags.map(tag => (
+                <div className="by-tag"><h5>Filter by tag:</h5> {this.props.notesData.map(note => {
+                    return note.tags.split(',').map(tag => (
                         <h6 onClick={() => this.filterByTag(tag)}>{tag}</h6>
                     ))
                 })}
-                </div> */}
+                </div>
     
     
                 </div>

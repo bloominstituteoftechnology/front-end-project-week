@@ -30,7 +30,7 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://localhost:7000/api/notes')
     .then(response => {
-      console.log("componentDidMount response:", response.data)
+      console.log("componentDidMount response:",)
       this.setState({ notesData: response.data, isUpdating: false })
     })
     .catch(err => {

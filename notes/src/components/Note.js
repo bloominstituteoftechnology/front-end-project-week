@@ -59,14 +59,14 @@ export default class Note extends React.Component {
         this.props.history.push('/notes');
     }
 
-    // tagsMap = (tags) => {
-    //     if (this.props.notesData) {
-    //         if (tags.length > 0) {
-    //             return tags.map(tag => <Link to={{pathname: '/notes', state: { from: this.props.location.pathname }}}  className="tag" key={tag}><a>{tag}</a></Link>);
-    //           }
-    //     } 
+    tagsMap = (tags) => {
+        if (this.props.notesData) {
+            if (tags.length > 0) {
+                return tags.split(',').map(tag => <Link to={{pathname: '/notes', state: { from: this.props.location.pathname }}}  className="tag" key={tag}><a>{tag}</a></Link>);
+              }
+        } 
 
-    // }
+    }
 
 
     render() {
@@ -92,7 +92,7 @@ export default class Note extends React.Component {
                     <div className="note-info-wrapper">
                     <h1>{this.state.note.title}</h1>
                     <p className="content">{this.state.note.content}</p>
-                    {/* <p>Tags: {this.tagsMap(this.state.note.tags)}</p>  */}
+                    <p>Tags: {this.tagsMap(this.state.note.tags)}</p> 
                 
                     </div>
                 </div>
