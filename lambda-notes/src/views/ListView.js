@@ -1,28 +1,51 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {NotesData} from '../NotesData';
-import { Sidebar, NotesList } from '../components'
+import { Sidebar, NotesList } from '../components';
+import { fetchNotes, addNote, deleteNote } from '../actions';
 
 class ListView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: [],
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     notes: [],
+  //   }
+  // }
 
   componentDidMount() {
-    this.setState({
-      notes: NotesData
-    })
+    this.props.fetchNotes();
   }
   render() {
+    if (this.props.fetchingFriends) {
+      return (
+        <div className='loading'>
+          <h1>Getting notes...</h1>
+        </div>
+      )
+    }
     return(
       <div className='container'>
       <Sidebar />
-      <NotesList notes={this.state.notes} />
+      <NotesList notes={this.props.notes} />
       </div>
     )
   }
 }
 
-export default ListView;
+const mapStateToProps = state => {
+  return {
+    notes: state.notesReducer.notes,
+    fetchingNotes: state.notesReducer.fetchingNotes,
+    error: state.notesReducer.error,
+    deletingNote: state.notesReducer.deletingNote,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {
+    fetchNotes,
+    addNote,
+    deleteNote,
+  }
+)(ListView);
