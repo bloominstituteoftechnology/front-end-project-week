@@ -1,4 +1,4 @@
-.notecard {
+a {
     width: 20%;
     height: auto;
     border: 2px solid #EAEAEA;
@@ -8,6 +8,9 @@
     text-align: left;
     font-size: 1.2rem;
     padding: 0 2.5%;
+    text-decoration: none;
+    color: black;
+    overflow: hidden;
 }
 
 .notecard h3 {

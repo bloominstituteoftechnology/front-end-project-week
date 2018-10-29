@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
-import NoteCard from "./NoteCard"
+import NoteCard from "./NoteCard";
+import SingleNoteView from "../Views/SingleNoteView";
 import axios from "axios";
 import './AllNotes.css';
 
@@ -8,7 +9,8 @@ export default class AllNotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: []
+            notes: [],
+            selected: 0,
         }
     }
 
@@ -18,6 +20,8 @@ export default class AllNotes extends Component {
             .then(res => this.setState({notes: res.data}))
             .catch(error => console.log(error))
     }
+
+    selectNote = id => this.setState({ selected: id });
 
   render() {
     return (
