@@ -4,8 +4,7 @@ import { createStore } from "redux"
 import { BrowserRouter as Router } from "react-router-dom"
 import { Provider } from "react-redux"
 import App from "./App"
-// import "./styles.css";
-import {rootReducer} from "./reducers"
+import { rootReducer } from "./reducers"
 
 
 const store = createStore(rootReducer)

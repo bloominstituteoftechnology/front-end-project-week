@@ -1,32 +1,92 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Arial"
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 1000px;
   display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+}
+
+.aside {
+  display: flex;
+  width: 25%;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* align-items: center; */
+  padding: 10px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+button {
+  padding: 10px;
+  border-radius: 5px;
   color: white;
+  background-color: turquoise;
+  width: 180px;
+  cursor: pointer;
+  height: 33px;
+  font-size: 16px
+  
+}
+.aside-button {
+  margin: 10px 15px 0;
+  width: 90%;
 }
 
-.App-link {
-  color: #61dafb;
+.note-list {
+  background-color: whitesmoke;
+  width: 75%;
+  border: 1px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.note {
+  border: 1px solid grey;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  background-color: white
+}
+.the-notes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  width: 85%;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-bottom: 1px solid black;
+  margin-top: 8px;
+}
+
+.content {
+  width: 65%;
+  margin: 0 auto;
+  margin-left: 20px;
+  line-height: 26px;
+  font-size: 14px;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.lambda-notes {
+  font-size: 36px;
+ margin-left: 5px;
+}
+
+.your-notes {
+  margin-top: 35px;
+  margin-left: 20px;
+  padding: 5px;
 }

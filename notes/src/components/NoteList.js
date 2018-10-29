@@ -12,12 +12,11 @@ const NoteList = props => {
             {props.notes.map(note => {
               return (
                 <div className="note">
-                
                   <div key={note.id} className="title">
                     <Link to={note.id}>{note.title}</Link>
                   </div>
                   <div className="content">{note.content}</div>
-                  </div>
+                </div>
               );
             })}
           </ul>
