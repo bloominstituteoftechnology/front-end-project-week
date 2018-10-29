@@ -1,11 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 const Note = props => {
+    console.log('props', props);
     return (
-        <div className='note'>
+        <Link to={`/ExpandedNotes/${props.id}`} className='note'>
             <h2>{props.title}</h2>
             <div>{props.text}</div>
-        </div>
+        </Link>
     )
 }
 
