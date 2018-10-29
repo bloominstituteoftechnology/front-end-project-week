@@ -26,10 +26,14 @@ inputChange = (e) => {
     this.setState({note: {...this.state.note, [e.target.name]: e.target.value}})
 }
 
+toggleDelete = () => {
+    this.setState({deleteNote: !this.state.deleteNote})
+}
+
 
 
 deleteNote = () => {
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.note.id}`)
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.note._id}`)
          .then(res => console.log(res))
          .catch(err => console.log(err));
 
@@ -53,8 +57,8 @@ submitNote = () => {
                 <div className="modal-card">
                 <p><strong>Are you sure you want to delete this?</strong></p>
                 <div className="btns">
-                    <div className="button red">DELETE</div>
-                    <div className="button">NO</div>
+                    <div className="button red" onClick={this.deleteNote}>DELETE</div>
+                    <div className="button" onClick={this.toggleDelete}>NO</div>
                 </div>
                 </div>
             </div> ) }
@@ -67,7 +71,7 @@ submitNote = () => {
                 }
                     <div className="options">
                         <div className='editors' onClick={this.editNote}>EDIT</div>
-                        <div className='editors'>DELETE</div>
+                        <div className='editors' onClick={this.toggleDelete}>DELETE</div>
                     </div>
                 </div>
 
