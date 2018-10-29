@@ -14,40 +14,50 @@ export const NavBar = styled.header`
   display: flex;
   flex-direction: column;
   width: 20%;
-  background: #D3D2D3
-  h1 {
+  background: #d3d2d3 h1 {
     font-size: 3rem;
   }
 `;
 
 export const MainContent = styled.section`
-width: 80%;
-background: #F2F1F2;
-display: flex;
-flex-direction: column;
-`
-
-export const NoteList = styled.div`
+  width: 80%;
+  background: #f2f1f2;
   display: flex;
+  flex-direction: column;
 `;
 
-export const NoteCard = styled.div`
+export const NoteListWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+export const NoteCardWrapper = styled.div`
   width: 30%;
   h3 {
-    border-bottom: 1px solid #F2F1F2;
+    border-bottom: 1px solid #f2f1f2;
     padding: 5px;
     margin: 5px;
   }
 `;
 
-export const Note = styled.div`
+export const NoteWrapper = styled.div`
   p {
     line-height: 18px;
     margin: 20px 0;
   }
 `;
 
-export const Form = styled.form`
+export const EditDelete = styled.div`
+position: relative;
+span {
+    text-decoration: underline;
+    font-weight: bold
+}
+`
+
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   input {

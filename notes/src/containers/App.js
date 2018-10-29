@@ -1,11 +1,11 @@
 import React from "react";
+import { Container } from "../styles"
+import NoteContainer from "./NoteContainer"
 
 const App = () => (
-  <div className="App">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-    perspiciatis explicabo veritatis quis praesentium odit animi. Aut porro
-    natus laboriosam.
-  </div>
+  <Container>
+    <NoteContainer />
+  </Container>
 );
 
 export default App;
