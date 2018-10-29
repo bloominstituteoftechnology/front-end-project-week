@@ -23,13 +23,15 @@ const StyledSidebar = styled.div`
   }
 `;
 
-const Sidebar = () => {
+const Sidebar = props => {
   return (
     <StyledSidebar>
       <h1>
         Lambda <span>Notes</span>
       </h1>
-      <Button fullWidth>View Your Notes</Button>
+      <Button fullWidth onClick={() => props.history.push('/')}>
+        View Your Notes
+      </Button>
       <Button fullWidth>+ Create New Note</Button>
     </StyledSidebar>
   );

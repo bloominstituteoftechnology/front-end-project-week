@@ -10,6 +10,11 @@ class NotesView extends Component {
   componentDidMount() {
     this.props.getAllNotes();
   }
+
+  handleRedirectToNoteView = id => {
+    this.props.history.push(`/note/${id}`);
+  };
+
   render() {
     const { notes, isFetching } = this.props;
     return (
@@ -18,7 +23,10 @@ class NotesView extends Component {
         {isFetching ? (
           <div>Loading Your Notes...</div>
         ) : (
-          <Notes notes={notes} />
+          <Notes
+            notes={notes}
+            handleRedirectToNoteView={this.handleRedirectToNoteView}
+          />
         )}
       </div>
     );

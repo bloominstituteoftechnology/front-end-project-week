@@ -7,7 +7,11 @@ class Notes extends Component {
     return (
       <React.Fragment>
         {notes.map(note => (
-          <NoteCard key={note._id} note={note} />
+          <NoteCard
+            key={note._id}
+            note={note}
+            handleRedirectToNoteView={this.props.handleRedirectToNoteView}
+          />
         ))}
       </React.Fragment>
     );

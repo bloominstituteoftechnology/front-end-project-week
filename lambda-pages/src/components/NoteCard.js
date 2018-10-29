@@ -24,9 +24,15 @@ const StyledNoteCard = styled.div`
   }
 `;
 
+// const handleClick = () => {
+
+// }
+
 const NoteCard = props => {
   return (
-    <StyledNoteCard>
+    <StyledNoteCard
+      onClick={() => props.handleRedirectToNoteView(props.note._id)}
+    >
       <h3>{props.note.title}</h3>
       <hr />
       <span>{props.note.textBody}</span>

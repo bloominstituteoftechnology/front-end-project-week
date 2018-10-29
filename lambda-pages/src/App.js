@@ -14,9 +14,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar />
+        <Route component={Sidebar} />
         {/* Routes */}
-        <Route path="/" component={NotesView} />
+        <Route exact path="/" component={NotesView} />
         <Route path="/create-note" component={CreateNoteView} />
         <Route path="/edit-note/:id" component={EditNoteView} />
         <Route path="/note/:id" component={NoteView} />
