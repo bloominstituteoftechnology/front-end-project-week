@@ -8,6 +8,10 @@ export const POSTING_NOTE = "POSTING_NOTE";
 export const POSTING_NOTE_SUCCESS = "POSTING_NOTE_SUCCESS"
 export const POSTING_NOTE_FAILURE = "POSTING_NOTE_FAILURE"
 
+export const ID_FETCHING = "ID_FETCHING";
+export const ID_FETCHING_SUCCESS = "ID_FETCHING_SUCCESS"
+export const ID_FETCHING_FAILURE = "ID_FETCHING_FAILURE"
+
 export const fetchNotes = () => dispatch => {
     dispatch({type: FETCHING_NOTES});
     axios
@@ -30,5 +34,17 @@ export const postNote = (note) => dispatch => {
     }) 
     .catch(error => {
         dispatch({type: POSTING_NOTE_FAILURE, payload: error})
+    })
+}
+
+export const fetchByID = (id) => dispatch => {
+    dispatch({type: ID_FETCHING});
+    axios
+    .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+    .then(response => {
+        dispatch({type: ID_FETCHING_SUCCESS, payload: response.data})
+    })
+    .catch(error => {
+        dispatch({type: ID_FETCHING_FAILURE, payload: error})
     })
 }

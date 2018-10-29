@@ -7,6 +7,7 @@ import CreateNote from './components/CreateNote';
 import SideBar from './components/SideBar';
 import { Route } from 'react-router-dom';
 import {withRouter} from 'react-router';
+import Note from './components/Note';
 
 class App extends Component {
   constructor() {
@@ -51,22 +52,26 @@ class App extends Component {
         <Route exact path='/new-note' render ={(props) => (
           <CreateNote {...props} changeHandler={this.changeHandler} postHandler={this.postHandler}/> 
         )}/>
+        <Route path={`/note/:id`} render ={(props) => (
+          <Note {...props} Notes={this.props.notes}/>
+        )}/>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     fetchingNotes: state.notesReducer.fetchingNotes,
     postingNote: state.notesReducer.postingNote,
+    fetchingByID: state.notesReducer.fetchingByID,
     notes: state.notesReducer.notes,
+    note: state.notesReducer.notes,
     error: state.notesReducer.erorr,
   };
 };
 
 export default withRouter(connect(
   mapStateToProps,
-  { fetchNotes, postNote, pure: false}, 
+  { fetchNotes, postNote}, 
 )(App));

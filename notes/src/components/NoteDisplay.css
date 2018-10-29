@@ -99,3 +99,7 @@ form {
     color: #5C5D5D;
     margin-left: 0px;
 }
+
+NavLink {
+    text-decoration: none;
+}
