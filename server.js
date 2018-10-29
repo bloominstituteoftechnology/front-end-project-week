@@ -30,7 +30,7 @@ let notes = [
 server.get('/notes', (req, res) => {
   res.json(notes);
 });
-let smurfId = 2;
+let noteId = 2;
 
 server.get('/notes/:id', (req, res) => {
   const id = req.params.id;
@@ -50,26 +50,27 @@ findById = (id) => {
 
 
 server.post('/notes', (req, res) => {
-  const { name, age, height } = req.body;
-  const newSmurf = { name, age, height, id: smurfId };
-  if (!name || !age || !height) {
+  const { title, body, tags } = req.body;
+  const newNote = {title, textBody: body, id: noteId, tags};
+  if (!title || !body) {
     return sendUserError(
-      'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
+      'Title and Body are required to create a note in note DB.',
       res
     );
   }
-  const findSmurfByName = smurf => {
-    return smurf.name === name;
-  };
-  if (notes.find(findSmurfByName)) {
-    return sendUserError(
-      `Ya gone did smurfed! ${name} already exists in the smurf DB.`,
-      res
-    );
-  }
+  
+  // const findSmurfByName = smurf => {
+  //   return smurf.name === name;
+  // };
+  // if (notes.find(findSmurfByName)) {
+  //   return sendUserError(
+  //     `Ya gone did smurfed! ${name} already exists in the smurf DB.`,
+  //     res
+  //   );
+  // }
 
-  notes.push(newSmurf);
-  smurfId++;
+  notes.push(newNote);
+  noteId++;
   res.json(notes);
 });
 

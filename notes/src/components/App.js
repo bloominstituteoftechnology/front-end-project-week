@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { getNotes } from '../actions';
+import { getNotes, addNote} from '../actions';
 import ToolBar from './ToolBar';
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
@@ -17,6 +17,13 @@ class App extends Component {
 
   noteClicked = (ev) => {
     ev.preventDefault();
+  }
+
+  formSubmited = (title, body, history) => {
+    if (!title.length || !body.length) return;
+    const note = {title, body};
+    this.props.addNote(note);
+    history.push('/');
   }
 
   render() {
@@ -40,7 +47,10 @@ class App extends Component {
           path='/add'
           exact
           render={props => 
-            <NoteForm/>
+            <NoteForm
+              {...props}
+              onSubmit={this.formSubmited}
+            />
           }
         />
       </div>
@@ -53,4 +63,4 @@ const mapStateToProps = state => {
   return { notes };
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, addNote })(App));
