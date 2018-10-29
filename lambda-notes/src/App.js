@@ -4,6 +4,7 @@ import { Route } from 'react-router';
 
 import Navigation from './components/Navigation/Navigation';
 import YourNotes from './components/Notes/YourNotes';
+import NotePage from './components/Notes/NotePage';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,7 @@ class App extends Component {
             return <YourNotes notes={this.state.notes} />;
           }
         }} />
+        <Route path={`/notes/:id`} render={(props) => <NotePage {...props} />} />
       </div>
     );
   }

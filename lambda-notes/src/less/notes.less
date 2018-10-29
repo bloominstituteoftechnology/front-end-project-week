@@ -7,17 +7,48 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    font-size: 1.8rem;
 
     .your-notes-header {
         width: 100%;
         margin: 38px 12px;
+        font-size: 2rem;
+        font-weight: 900;
     }
 
-    .note-card {
-        height: 300px;
-        width: 300px;
-        border: 1px solid @viewContentBorder;
-        margin: 12px;
-        background: @white;
+    .note-card-link {
+        text-decoration: none;
+
+        .note-card {
+            height: 300px;
+            width: 300px;
+            border: 1px solid @viewContentBorder;
+            margin: 12px;
+            padding: 20px 30px;
+            background: @white;
+            color: @viewContentFontColor;
+            overflow: hidden;
+
+            h3 {
+                font-weight: 900;
+            }
+
+            hr {
+                border: 0;
+                height: 1px;
+                background: @viewContentBorder;
+            }
+
+            p {
+                height: 100%;
+                max-height: 200px;
+            }
+        }
     }
+}
+
+.note-page-wrapper {
+    height: 100%;
+    width: 100%;
+    margin-left: 220px;
 }

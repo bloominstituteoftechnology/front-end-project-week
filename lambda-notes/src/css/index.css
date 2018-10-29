@@ -188,15 +188,41 @@ html {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  font-size: 1.8rem;
 }
 .your-notes .your-notes-header {
   width: 100%;
   margin: 38px 12px;
+  font-size: 2rem;
+  font-weight: 900;
 }
-.your-notes .note-card {
+.your-notes .note-card-link {
+  text-decoration: none;
+}
+.your-notes .note-card-link .note-card {
   height: 300px;
   width: 300px;
   border: 1px solid #979797;
   margin: 12px;
+  padding: 20px 30px;
   background: #ffffff;
+  color: #202529;
+  overflow: hidden;
+}
+.your-notes .note-card-link .note-card h3 {
+  font-weight: 900;
+}
+.your-notes .note-card-link .note-card hr {
+  border: 0;
+  height: 1px;
+  background: #979797;
+}
+.your-notes .note-card-link .note-card p {
+  height: 100%;
+  max-height: 200px;
+}
+.note-page-wrapper {
+  height: 100%;
+  width: 100%;
+  margin-left: 220px;
 }
