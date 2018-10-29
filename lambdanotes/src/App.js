@@ -35,7 +35,7 @@ class App extends Component {
         .catch(err => {
           console.log(err);
         });
-    }, 2000);
+    }, 1000);
   };
 
   selectNote = id => {
@@ -64,23 +64,24 @@ class App extends Component {
     }
   };
 
-  saveEdit = ev => {
+  saveEdit = (ev, id) => {
     ev.preventDefault();
+    console.log("edititing note", id);
     if (this.state.title === "" || this.state.content === "") {
       alert("Please fill in all of the required fields");
     } else {
       this.setState({
-        notes: [
-          ...this.state.notes,
-          {
-            title: this.state.title,
-            textBody: this.state.content,
-            id: this.state.notes.length
-          }
-        ],
         title: "",
         content: ""
       });
+      axios
+        .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+          tags: [],
+          title: this.state.title,
+          textBody: this.state.content
+        })
+        .then(res => console.log(res))
+        .then(this.updateNotes());
       alert("Note saved!");
     }
   };

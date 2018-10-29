@@ -17,7 +17,7 @@ class EditNote extends React.Component {
       <div className="mainSection">
         <div className="editNote">
           <h2>Edit Note</h2>
-          <form onSubmit={ev => this.saveEdit(ev, this.props.note.id)}>
+          <form onSubmit={ev => this.saveEdit(ev, this.props.note._id)}>
             <input
               className="titleInput"
               onChange={ev => this.props.changeHandler(ev)}
@@ -32,7 +32,7 @@ class EditNote extends React.Component {
               type="text"
               name="content"
               value={this.props.content}
-              placeholder={this.props.note.content}
+              placeholder={this.props.note.textBody}
             />
             <button type="submit">Save Edit</button>
           </form>
