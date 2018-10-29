@@ -6,7 +6,7 @@ class Notes extends React.Component {
       <div>
         <ul>
           {this.props.notes.map(note => {
-            return <h1>{note.title}</h1>;
+            return <h1 key={note._id}>{note.title}</h1>;
           })}
         </ul>
       </div>
