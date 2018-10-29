@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  display: flex;
+  width: 900px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  border-right: 1px solid black;
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  width: 900px;
+}
