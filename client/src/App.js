@@ -6,6 +6,7 @@ import "./App.css";
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
+import Sidebar from "./components/Sidebar";
 
 class App extends Component {
   constructor(props) {
@@ -31,11 +32,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Lambda Notes</h1>
+        <Sidebar />
         <Route
           exact
           path="/"
           render={props => <NotesList {...props} notes={this.state.notes} />}
+        />
+
+        <Route
+          exact
+          path="/create"
+          render={props => <NoteForm {...props} notes={this.state.notes} />}
         />
       </div>
     );
