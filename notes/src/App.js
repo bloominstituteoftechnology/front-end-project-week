@@ -59,7 +59,7 @@ class App extends Component {
         onChangeHandler ={this.onChangeHandler}
         />} />
         {/* Edit Card Route */}
-        <Route path='/edit' render={() => <EditNote /> } />
+        <Route path='/edit/$id' render={() => <EditNote notes={this.state.notes} /> } />
       </div>
     );
   }
