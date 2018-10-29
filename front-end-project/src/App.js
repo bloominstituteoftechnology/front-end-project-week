@@ -11,8 +11,8 @@ class App extends Component {
     super()
     this.state = {
       notes:  [],
-      addTitle: "",
-      addBody: ""
+      title: "",
+      textBody: ""
     }
   }
 
@@ -34,16 +34,20 @@ class App extends Component {
     })
   }
 
-  addNewNote = (note) => {
-    const newNote = {
-      addTitle: this.state.addTitle,
-      addBody: this.state.addBody
-    }
-    axios.post("https://killer-notes.herokuapp.com/note/create", newNote)
-         .then(response => {
-            this.setState({ addTitle: response.data, addBody: response.data })
-         })
+  addNewNote = () => {
+    
+    axios.post("https://killer-notes.herokuapp.com/note/create", {title: this.state.title, textBody: this.state.textBody} )
+          .then(response => {
+            console.log("response", response)
+            this.setState({ notes: response.data})
+          })
+          .catch(error => {
+            console.log("error", error)
+          })
+        this.setState({ addTitle: "", addBody: ""})
   }
+       
+  
 
 
   render() {
@@ -59,8 +63,8 @@ class App extends Component {
         {...props} 
         changeHandler={this.changeHandler} 
         addNewNote={this.addNewNote} 
-        addBody={this.state.addBody}
-        addTitle={this.state.addTitle} />
+        addBody={this.state.textBody}
+        addTitle={this.state.title} />
       )} />
       </div>
     );
