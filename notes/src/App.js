@@ -8,6 +8,7 @@ import SideBar from './components/sidebar/SideBar'
 import NoteList from './components/NoteList';
 import CreateNew from './components/CreateNew';
 import ViewNote from './components/ViewNote'
+import EditNote from './components/EditNote'
 
 class App extends Component {
 
@@ -58,8 +59,10 @@ class App extends Component {
         submit={this.createNewSubmit} 
         onChangeHandler ={this.onChangeHandler}
         />} />
-        {/* Edit Card Route */}
+        {/* View Card Route */}
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} /> } />
+        {/* Edit Card Route */}
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} /> } />
       </div>
     );
   }
