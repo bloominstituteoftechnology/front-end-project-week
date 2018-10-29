@@ -93,6 +93,7 @@ handleSetData = (data) => {
               notes={this.state.notes}
               handleSortAZ={this.handleSortAZ}
               handleSortZA={this.handleSortZA}
+              toggleDeleting={this.toggleDeleting}
             />
           )}
         />
