@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Notes from './Note';
+import Notes from './Notes';
 
 import './ComponentStyle.css';
 
