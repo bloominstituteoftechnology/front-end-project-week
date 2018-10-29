@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -9,7 +11,9 @@ class App extends Component {
       notes: [],
       title: '',
       text: '',
-      activeNote: null
+      activeNote: null,
+      editingId: null,
+      isEditing: false
     }
   }
 
@@ -67,6 +71,28 @@ class App extends Component {
       .delete(`https://fe-notes.herokuapp.com/note/get/id/${id}`)
       .then(response => {
         this.setState({ notes: response.data });
+      })
+      .catch(error => console.log(error));
+  };
+
+
+  updateItem = () => {
+    const newNotes = {
+      tile: this.state.title,
+      text: this.state.text,
+    };
+    this.setState({ title: '', text: '' });
+    axios
+      .put(
+        `https://fe-notes.herokuapp.com/note/edit/id/${this.state.editingId}`,
+        newNotes
+      )
+      .then(response => {
+        this.setState({
+          notes: response.data,
+          editingId: null,
+          isEditing: false,
+        });
       })
       .catch(error => console.log(error));
   };
