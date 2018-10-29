@@ -1,13 +1,13 @@
 /* NotesSideBar style */
 .side-bar{
-    width: 20%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
     background-color: #c6c6c6;
-    height: 100vh;
-    border : 1px solid black;
+    height: auto;
+    /*border : 1px solid black;*/
 }
 
 .side-bar h1{
@@ -19,7 +19,7 @@
 
 /* NotesSideBar style  and common to all buttons in application*/
 button {
-    width: 50%;
+    width: 65%;
     margin-left: 10%;
     height: 40px;
     background-color: #08b7bd;
@@ -37,7 +37,7 @@ button {
     width: 30%;
     margin-right: 3%;
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid silver;
     height: 200px;
     margin-bottom: 20px;
     text-align: left;
@@ -53,14 +53,14 @@ button {
 /*NotesDisplay style*/
 .note-display-maindiv {
     background-color:#ddd;
-    width: 60%;
+    width: 80%;
 }
 
-.notes-list-heading{
-    text-align: left;
-    margin-left: 5%;
-    margin-top : 80px;
+.notes-list-heading{    
+    margin-left: 7%;
+    margin-top : 20px;
     font-weight : bold;
+    margin-bottom : 20px;
 }
 .notes{
     width: 88%;
@@ -69,4 +69,53 @@ button {
     align-items: center;
     flex-wrap: wrap;
     margin-left: 7%;
+}
+
+/*CreateNewNote.js style */
+.no-decoration{
+    text-decoration: none;
+}
+
+.form {
+    width: 92.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 5%;
+}
+
+input[type= text] {
+    width: 65%;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding : 5px;
+}
+
+textarea {
+    width: 100%;
+    height: 300px;
+    padding: 12px 5px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    margin-top : 20px;
+}
+
+.create-note-main-div {
+    background-color: #ddd;
+    width: 75%;
+    height : 100vh;
+}
+.create-note-main-div h3{
+    margin-left : 43px;
+    margin-top : 60px;
+}
+.create-note-main-div button{
+    margin-left : 3px;
+    width : 20%;
 }

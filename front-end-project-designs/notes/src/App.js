@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NotesSideBar from './Components/NotesSideBar';
 import NotesDisplay from './Components/NotesDisplay';
+import { Route } from 'react-router-dom';
+import CreateNewNote from './Components/CreateNewNote';
 
 import './App.css';
 
@@ -10,8 +12,11 @@ class App extends Component {
       <div className = "app-div">
         
           <NotesSideBar />
-          <NotesDisplay />
-        
+
+          <Route exact  path = '/' component = {NotesDisplay} />
+          {/*<NotesDisplay /> */}
+          <Route exact  path = '/create' component = {CreateNewNote} />
+                  
       </div>
     );
   }
