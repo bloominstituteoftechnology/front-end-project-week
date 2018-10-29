@@ -36,4 +36,16 @@ export const NavLinkBtn = styled.div`
   color: white;
   margin-bottom: 20px;
   text-align: center;
-`;
+  `
+
+
+  export const NavButtonText = styled.p `
+  color: white;
+  font-size: 100%;
+  margin: 0;
+  
+  ${NavLinkBtn}:hover & {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  `
