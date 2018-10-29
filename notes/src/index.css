@@ -37,3 +37,35 @@ code {
 .note-card .card-title{
   border-bottom : 2px solid grey;
 }
+
+/* Create New Note Styling */
+.create-new{
+  width:70%;
+  height:100vh;
+  background-color:#F2F1F2;
+}
+.create-new form{
+  display:flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding:20px;
+}
+.create-new form input{
+  border-radius:5px;
+}
+.create-new form .form-title{
+  width:30%;
+  height:50px;
+  margin-bottom: 20px;
+}
+.create-new form .form-content{
+  width:90%;
+  height:500px;
+  margin-bottom:20px;
+  text-align: center;
+}
+.create-new form .form-save{
+  background : #24B8BD;
+  width:20%;
+  height: 50px;
+}
