@@ -7,6 +7,8 @@ import {
   putNote,
   deleteNote
 } from '../actions'
+import { PageContainer } from '../styles/App'
+import Sidebar from './Sidebar'
 
 const mapStateToProps = ({ notes }) => ({ notes })
 
@@ -18,7 +20,12 @@ class App extends Component {
   render() {
     console.log(this.props.notes)
 
-    return <p>hello world</p>
+    return (
+      <PageContainer>
+        <Sidebar />
+        <p>hello world</p>
+      </PageContainer>
+    )
   }
 }
 
