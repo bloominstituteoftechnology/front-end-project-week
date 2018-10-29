@@ -52,9 +52,29 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  background: #F2F1F2;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+.button{
+	cursor: pointer;
+	width: 188px;
+	height: 40px;
+	border: 1px solid #97a6a7;
+	color: white;
+	background: #24b8bd;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	margin: 17px 0;
+}
+
+a{
+	text-decoration: none;
 }
