@@ -4,23 +4,31 @@ const CreateNew = (props) => {
     return(
         <div className="create-new">
             <h2>Create New Note:</h2>
-            <form>
+            <form onSubmit={props.submit}>
+
                 <input 
+                onChange={props.onChangeHandler}
                 className="form-title"
                 name="title" 
                 type="text" 
                 placeholder="Note Title" 
                 />
+
                 <input 
+                onChange={props.onChangeHandler}
                 className="form-content"
                 name="content" 
                 type="text" 
                 placeholder="Note Content" 
                 />
+
                 <input 
+                onChange={props.onChangeHandler}
                 className="form-save"
                 type="submit" 
-                value="Save" />
+                value="Save" 
+                />
+
             </form>
         </div>
     );

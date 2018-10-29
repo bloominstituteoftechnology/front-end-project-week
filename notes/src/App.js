@@ -14,8 +14,21 @@ class App extends Component {
     this.state = 
     {
       notes : [],
+      newNote : {
+        title : '',
+        textBody : '',
+      }
     }
   }
+  //        Functions for other components
+  createNewSubmit = e =>{
+    e.preventDefault();
+  }
+  onChangeHandler = e => {
+    this.setState({newNote : {...this.state.newNote,[e.target.name] : e.target.value }})
+    console.log(this.state.newNote)
+  }
+  //        End Functions
 
   componentDidMount(){
     //will fetch data from the api
@@ -30,7 +43,10 @@ class App extends Component {
         <SideBar />
         <Route exact path='/' render={() => <NoteList notes={this.state.notes} /> } />
         {/* Create New Card Route  */}
-        <Route path='/create-new' render={() => <CreateNew />} />
+        <Route path='/create-new' render={() => <CreateNew 
+        submit={this.createNewSubmit} 
+        onChangeHandler ={this.onChangeHandler}
+        />} />
       </div>
     );
   }

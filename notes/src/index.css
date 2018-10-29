@@ -62,10 +62,13 @@ code {
   width:90%;
   height:500px;
   margin-bottom:20px;
-  text-align: center;
 }
 .create-new form .form-save{
   background : #24B8BD;
   width:20%;
   height: 50px;
+  cursor:pointer;
+}.create-new form .form-save:hover{
+  background:lightblue;
+  transition : 0.15s ease-in-out;
 }
