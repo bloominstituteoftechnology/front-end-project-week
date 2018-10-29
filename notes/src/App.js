@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
 import List from './components/List/List';
+import ViewNote from './components/ViewNote/ViewNote';
 
 class App extends Component {
   render() {
@@ -10,18 +11,7 @@ class App extends Component {
       <div className="App">
         <Sidebar />
         <Route exact path="/" component={List} />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Route path="/notes/:id" component={ViewNote} />
       </div>
     );
   }
