@@ -18,7 +18,6 @@ class ListView extends React.Component {
   render() {
     return(
       <div className='container'>
-      <h1>List View</h1>
       <Sidebar />
       <NotesList notes={this.state.notes} />
       </div>
