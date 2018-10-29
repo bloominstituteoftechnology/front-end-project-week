@@ -34,7 +34,7 @@ class NoteList extends Component {
       <div className="App">
       {this.state.notes.map(note => (
             <div>
-              <NoteDetails key={note.id} note={note} />
+              <Link to={`/note/${note.id}`}><NoteCard note={note} /></Link>
             </div>
             ))}
 
@@ -44,6 +44,7 @@ class NoteList extends Component {
 }
 
   function NoteDetails({note}) {
+    // console.log('note details component', note)
     const { id } = note
       return(
           <Link to={`/note/${id}`}>

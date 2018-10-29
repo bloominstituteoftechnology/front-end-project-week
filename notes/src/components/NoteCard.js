@@ -1,10 +1,11 @@
 import React from 'react'
-const Note = props => {
+const NoteCard = props => {
   return (
       <div>
+      {console.log(props.note)}
         <h3>{props.note.title}</h3>
         <p>{props.note.textBody}</p>
       </div>
       );
 };
-export default Note;
+export default NoteCard;
