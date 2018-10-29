@@ -7,7 +7,7 @@ class Notes extends Component {
     return (
       <React.Fragment>
         {notes.map(note => (
-          <NoteCard key={note.id} note={note} />
+          <NoteCard key={note._id} note={note} />
         ))}
       </React.Fragment>
     );

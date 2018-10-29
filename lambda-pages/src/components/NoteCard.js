@@ -29,7 +29,7 @@ const NoteCard = props => {
     <StyledNoteCard>
       <h3>{props.note.title}</h3>
       <hr />
-      <span>{props.note.body}</span>
+      <span>{props.note.textBody}</span>
     </StyledNoteCard>
   );
 };
