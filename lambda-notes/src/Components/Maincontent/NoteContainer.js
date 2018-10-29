@@ -1,6 +1,6 @@
 import React from 'react';
 import Notes from './Notes';
-import { noteData as notes } from '../../DummyData';
+import axios from 'axios';
 
 class NoteContainer extends React.Component {
 	constructor(props) {
@@ -9,9 +9,14 @@ class NoteContainer extends React.Component {
 			notes: []
 		};
 	}
-
 	componentDidMount() {
-		this.setState({ notes });
+		const URL = `https://killer-notes.herokuapp.com/note/get/`;
+		axios
+			.get(`${URL}all`)
+			.then((res) => {
+				this.setState({ notes: res.data });
+			})
+			.catch((err) => console.log(err));
 	}
 
 	render() {
