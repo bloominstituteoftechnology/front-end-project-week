@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { Edit } from '../../components';
 
 const EditView = props => {
-	const { note, editNote, history} = props;
+	const { note, editNote, history } = props;
 
 	return(
 		<div className = 'main-content'>
@@ -42,12 +42,9 @@ EditView.propTypes = {
 		replace: PropTypes.func,
 	}),
 	note: PropTypes.shape({
-		tags: PropTypes.arrayOf(PropTypes.string),
-		textBody: PropTypes.string,
+		content: PropTypes.string,
+		id: PropTypes.number,
 		title: PropTypes.string,
-		'__v': PropTypes.number,
-		'_id': PropTypes.string,
-
 	}),
 }
 

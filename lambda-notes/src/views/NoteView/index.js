@@ -19,7 +19,7 @@ class NoteView extends React.Component {
 	}
 
 	deleteNote = () => {
-		this.props.deleteNote(this.props.note._id, this.props.history);
+		this.props.deleteNote(this.props.note.id, this.props.history);
 	}
 
 	render() {
@@ -30,7 +30,7 @@ class NoteView extends React.Component {
 			<div className = 'main-content'>
 				<div className = 'note-view'>
 					<div className = 'edit-delete-wrapper'>
-						<span><Link to = { `/edit/${ note._id }` }>edit</Link></span>
+						<span><Link to = { `/edit/${ note.id }` }>edit</Link></span>
 						<span onClick = { this.toggleDeleteModal }>delete</span>
 						
 						<div>
@@ -59,7 +59,7 @@ class NoteView extends React.Component {
 
 					<h2>{ note.title }</h2>
 
-					{ note.textBody.split('\n').map((str, i) => <p key = { i }>{ str }</p>) }
+					{ note.content.split('\n').map((str, i) => <p key = { i }>{ str }</p>) }
 				</div>
 			</div>
 		);
@@ -87,12 +87,9 @@ NoteView.propTypes = {
 		replace: PropTypes.func,
 	}),
 	note: PropTypes.shape({
-		tags: PropTypes.arrayOf(PropTypes.string),
-		textBody: PropTypes.string,
+		content: PropTypes.string,
+		id: PropTypes.number,
 		title: PropTypes.string,
-		'__v': PropTypes.number,
-		'_id': PropTypes.string,
-
 	}),
 }
 

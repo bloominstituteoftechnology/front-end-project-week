@@ -104,7 +104,7 @@ export default class ListView extends React.Component {
 
 		// Push all note IDs into an array and send it off to the appropirate action creator.
 		for (let i = 0; i < this.props.notes.length; i++) {
-			allIds.push(this.props.notes[i]._id);
+			allIds.push(this.props.notes[i].id);
 		}
 
 		this.props.deleteAll(allIds, this.props.history);
@@ -282,8 +282,8 @@ export default class ListView extends React.Component {
 									<input type = 'radio' name = 'sortBy' value = 'title' defaultChecked = { sortingValues.sortBy === 'title' ? true : sortingValues.sortBy === '' ? true : false } />
 									<span>Title</span>
 
-									<input type = 'radio' name = 'sortBy' value = 'textBody' defaultChecked = { sortingValues.sortBy === 'textBody' ? true : false } />
-									<span>Text Body</span>
+									<input type = 'radio' name = 'sortBy' value = 'content' defaultChecked = { sortingValues.sortBy === 'content' ? true : false } />
+									<span>Content</span>
 
 									<span className = 'divider tablet'>|</span>
 									<span className = 'divider phone'>_____</span>
@@ -301,7 +301,7 @@ export default class ListView extends React.Component {
 							</div>
 						}
 
-						{ sortingValues.sortBy && <p>Sorted by { sortingValues.sortBy === 'textBody' ? 'text body' : sortingValues.sortBy } { sortingValues.sortOrder === 'asc' ? 'ascending' : 'descending' }</p> }
+						{ sortingValues.sortBy && <p>Sorted by { sortingValues.sortBy === 'content' ? 'text body' : sortingValues.sortBy } { sortingValues.sortOrder === 'asc' ? 'ascending' : 'descending' }</p> }
 					</div>
 
 					{/* 
@@ -311,12 +311,12 @@ export default class ListView extends React.Component {
 					*/}
 					{ 
 						(search.exactSearch && (notes.filter(note => {
-							if ((note.title.indexOf(input.exactInput) !== -1) || (note.textBody.indexOf(input.exactInput) !== -1)) return true;
+							if ((note.title.indexOf(input.exactInput) !== -1) || (note.content.indexOf(input.exactInput) !== -1)) return true;
 							else return false;
 						}).map((note, i) => <Note history = { history } key = { i } exactInput = { input.exactInput } note = { note } />))) || 
 
 						(search.fuzzySearch && (notes.filter(note => {
-							if (fuzzysearch(input.fuzzyInput, note.title) || fuzzysearch(input.fuzzyInput, note.textBody)) return true;
+							if (fuzzysearch(input.fuzzyInput, note.title) || fuzzysearch(input.fuzzyInput, note.content)) return true;
 							else return false;
 						}).map((note, i) => <Note history = { history } key = { i } note = { note } />))) || 
 
@@ -350,11 +350,9 @@ ListView.propTypes = {
 	}),
 	notes: PropTypes.arrayOf(
 		PropTypes.shape({
-			tags: PropTypes.arrayOf(PropTypes.string),
-			textBody: PropTypes.string,
+			content: PropTypes.string,
+			id: PropTypes.number,
 			title: PropTypes.string,
-			'__v': PropTypes.number,
-			'_id': PropTypes.string,
 		}),
 	),
 	username: PropTypes.string,

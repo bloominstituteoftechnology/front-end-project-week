@@ -7,9 +7,8 @@ import PropTypes from 'prop-types';
 export default class CreateNew extends React.Component {
 	state = {
 		note: {
-			tags: [],
 			title: '',
-			textBody: '',
+			content: '',
 		},
 		errorMsg: '',
 	};
@@ -44,9 +43,9 @@ export default class CreateNew extends React.Component {
 		} else {
 			emptyField = true;
 
-			for (let i = 0; i < this.state.note.textBody.length; i++) {
-				// If there exists a char in the textBody other than empty spaces, then emptyField is false.
-				if (this.state.note.textBody[i] !== ' ') {
+			for (let i = 0; i < this.state.note.content.length; i++) {
+				// If there exists a char in the content other than empty spaces, then emptyField is false.
+				if (this.state.note.content[i] !== ' ') {
 					emptyField = false;
 					break;
 				}
@@ -57,7 +56,7 @@ export default class CreateNew extends React.Component {
 				return this.setState({
 					...this.state,
 					note: { ...this.state.note },
-					errorMsg: 'Text body must not be empty.',
+					errorMsg: 'Content must not be empty.',
 				});
 			}
 		}
@@ -66,13 +65,6 @@ export default class CreateNew extends React.Component {
 		// create a newNote with those title and textBody values.
 
 		const newNote = { ...this.state.note };
-
-		// Note: this changes if form's structure changes
-		for (let i = 2; i < e.target.length - 1; i++) {
-			if (e.target[i].checked) {
-				newNote.tags.push(e.target[i].value);
-			}
-		}
 
 		this.props.createNote(newNote, this.props.history);
 	} // handleSubmit()
@@ -98,49 +90,11 @@ export default class CreateNew extends React.Component {
 
 					<textarea 
 						className = 'note-content-text-area' 
-						name = 'textBody' 
+						name = 'content' 
 						placeholder = 'Body' 
-						value = { note.textBody } 
+						value = { note.content } 
 						onChange = { this.handleInputChange } 
 					/>
-
-					<div className = 'tags'>
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'grin-beam' 
-								value = 'grin-beam'
-							/>
-							<i className = 'far fa-grin-beam' />
-						</div>
-
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'angry' 
-								value = 'angry'
-							/>
-							<i className = 'far fa-angry' />
-						</div>
-
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'grin-squint-tears' 
-								value = 'grin-squint-tears'
-							/>
-							<i className = 'far fa-grin-squint-tears' />
-						</div>
-
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'frown' 
-								value = 'frown'
-							/>
-							<i className = 'far fa-frown' />
-						</div>
-					</div>
 
 					<button className = 'btn save-btn' type = 'submit'>Save</button>
 				</form>

@@ -7,33 +7,11 @@ import PropTypes from 'prop-types';
 class Edit extends React.Component {
 	state = {
 		note: {
-			// only get unique values in the 'tags' array
-			tags: Array.from(new Set(this.props.note.tags)),
 			title: this.props.note.title,
-			textBody: this.props.note.textBody,
+			content: this.props.note.content,
 		},
 		errorMsg: '',
 	};
-
-	handleCheckboxChange = e => {
-		let newTags = [ ...this.state.note.tags ];
-
-		// When clicking on a checkbox: If it has already been checked, uncheck it.
-		// And if it is unchecked, check it.
-		if (newTags.includes(e.target.value)) {
-			newTags = newTags.filter(tag => tag !== e.target.value);
-		} else {
-			newTags.push(e.target.value);
-		}
-
-		this.setState({
-			...this.state,
-			note: { 
-				...this.state.note, 
-				tags: newTags, 
-			}
-		});
-	}
 
 	handleInputChange = e => {
 		this.setState({
@@ -65,9 +43,9 @@ class Edit extends React.Component {
 		} else {
 			emptyField = true;
 
-			for (let i = 0; i < this.state.note.textBody.length; i++) {
-				// If there exists a char in the textBody other than empty spaces, then emptyField is false.
-				if (this.state.note.textBody[i] !== ' ') {
+			for (let i = 0; i < this.state.note.content.length; i++) {
+				// If there exists a char in the content other than empty spaces, then emptyField is false.
+				if (this.state.note.content[i] !== ' ') {
 					emptyField = false;
 					break;
 				}
@@ -78,7 +56,7 @@ class Edit extends React.Component {
 				return this.setState({
 					...this.state,
 					note: { ...this.state.note },
-					errorMsg: 'Text body must not be empty.',
+					errorMsg: 'Content must not be empty.',
 				});
 			}
 		}
@@ -86,7 +64,7 @@ class Edit extends React.Component {
 		// Else if emptyField is NOT true(title and textBody got filled out), then
 		// dispatch the action associated with editing this note.
 
-		this.props.editNote(this.state.note, this.props.note._id, this.props.history);
+		this.props.editNote(this.state.note, this.props.note.id, this.props.history);
 	} // handleSubmit()
 	
 	render() {
@@ -109,56 +87,10 @@ class Edit extends React.Component {
 
 					<textarea 
 						className = 'note-content-text-area' 
-						name = 'textBody' 
-						value = { note.textBody } 
+						name = 'content' 
+						value = { note.content } 
 						onChange = { this.handleInputChange } 
 					/>
-
-					<div className = 'tags'>
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'grin-beam' 
-								value = 'grin-beam' 
-								onChange = { this.handleCheckboxChange } 
-								checked = { note.tags.includes('grin-beam') ? true : false }
-							/>
-							<i className = 'far fa-grin-beam' />
-						</div>
-
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'angry' 
-								value = 'angry' 
-								onChange = { this.handleCheckboxChange } 
-								checked = { note.tags.includes('angry') ? true : false }
-							/>
-							<i className = 'far fa-angry' />
-						</div>
-
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'grin-squint-tears' 
-								value = 'grin-squint-tears' 
-								onChange = { this.handleCheckboxChange } 
-								checked = { note.tags.includes('grin-squint-tears') ? true : false }
-							/>
-							<i className = 'far fa-grin-squint-tears' />
-						</div>
-
-						<div>
-							<input 
-								type = 'checkbox' 
-								name = 'frown' 
-								value = 'frown' 
-								onChange = { this.handleCheckboxChange } 
-								checked = { note.tags.includes('frown') ? true : false }
-							/>
-							<i className = 'far fa-frown' />
-						</div>
-					</div>
 
 					<button className = 'btn save-btn' type = 'submit'>Update</button>
 				</form>
@@ -188,12 +120,9 @@ Edit.propTypes = {
 		replace: PropTypes.func,
 	}),
 	note: PropTypes.shape({
-		tags: PropTypes.arrayOf(PropTypes.string),
-		textBody: PropTypes.string,
+		content: PropTypes.string,
+		id: PropTypes.number,
 		title: PropTypes.string,
-		'__v': PropTypes.number,
-		'_id': PropTypes.string,
-
 	}),
 }
 

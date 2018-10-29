@@ -101,7 +101,7 @@ export const deleteNote = (id, history) => dispatch => {
 				type: DELETING_NOTE_COMPLETE,
 			});
 		})
-		.then(() => getKillerNotes()(dispatch))
+		.then(() => getNotes()(dispatch))
 		.then(() => history.push('/list'))
 		.catch(err => {
 			console.log(err);

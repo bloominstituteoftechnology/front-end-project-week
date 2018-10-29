@@ -25,13 +25,13 @@ import {
 	createNote, 
 	deleteNote, 
 	editNote, 
-	getKillerNotes, 
+	getNotes, 
 	deleteAll, 
 } from './store/actions';
 
 class App extends React.Component {
 	componentDidMount() {
-		this.props.getKillerNotes();
+		this.props.getNotes();
 	}
 
 	render() {
@@ -66,12 +66,12 @@ class App extends React.Component {
 
 				<Route 
 					path = '/note/:id' 
-					render = { props => <NoteView deleteNote = { deleteNote } history = { props.history } note = { notes.find(note => note._id === props.match.params.id) } /> } 
+					render = { props => <NoteView deleteNote = { deleteNote } history = { props.history } note = { notes.find(note => note.id.toString() === props.match.params.id) } /> } 
 				/>
 
 				<Route 
 					path = '/edit/:id' 
-					render = { props => <EditView note = { notes.find(note => note._id === props.match.params.id) } history = { props.history } editNote = { editNote } /> } 
+					render = { props => <EditView note = { notes.find(note => note.id.toString() === props.match.params.id) } history = { props.history } editNote = { editNote } /> } 
 				/>
 			</div>
 		);
@@ -84,7 +84,7 @@ App.propTypes = {
 	deleteNote: PropTypes.func,
 	editNote: PropTypes.func,
 	errorMsg: PropTypes.string,
-	getKillerNotes: PropTypes.func,
+	getNotes: PropTypes.func,
 	history: PropTypes.shape({
 		action: PropTypes.string,
 		block: PropTypes.func,
@@ -116,11 +116,9 @@ App.propTypes = {
 	}),
 	notes: PropTypes.arrayOf(
 		PropTypes.shape({
-			tags: PropTypes.arrayOf(PropTypes.string),
-			textBody: PropTypes.string,
+			content: PropTypes.string,
+			id: PropTypes.number,
 			title: PropTypes.string,
-			'__v': PropTypes.number,
-			'_id': PropTypes.string,
 		}),
 	),
 	username: PropTypes.string,
@@ -137,7 +135,7 @@ export default connect(
 		createNote, 
 		deleteNote, 
 		editNote, 
-		getKillerNotes, 
+		getNotes, 
 		deleteAll, 
 	}
 )(App);

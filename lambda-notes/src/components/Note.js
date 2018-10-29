@@ -4,18 +4,10 @@ import React from 'react';
 // Dependencies
 import PropTypes from 'prop-types';
 
-const Note = props => {
-	const { exactInput, note, history } = props;
-	const allowedTags = ['grin-beam', 'angry', 'grin-squint-tears', 'frown'];
-	const tags = [];
-
-	for (let i = 0; i < allowedTags.length; i++) {
-		if (note.tags && note.tags.includes(allowedTags[i])) tags.push(allowedTags[i]);
-	}
-
+const Note = ({ exactInput, note, history }) => {
 	return(
 		<div className = 'note-wrapper'>
-			<div onClick = { () => history.push(`/note/${ note._id }`) } className = 'note'>
+			<div onClick = { () => history.push(`/note/${ note.id }`) } className = 'note'>
 				{ 
 					// This line of code is taking the title, starting it where
 					// the exact match is made, highlighting that match, and then
@@ -28,20 +20,14 @@ const Note = props => {
 				<hr />
 
 				{ 
-					// This line of code is taking the textBody, starting it where
+					// This line of code is taking the content, starting it where
 					// the exact match is made, highlighting that match, and then
 					// outputting the rest of the text that followed.
-					exactInput && note.textBody.includes(exactInput) ? (note.textBody.length > 85 ? <p><span className = 'highlight'>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(exactInput.length, 85) + '...' }</p> : <p><span className = 'highlight'>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.textBody.substr(note.textBody.indexOf(exactInput)).slice(exactInput.length) }</p>) : 
+					exactInput && note.content.includes(exactInput) ? (note.content.length > 85 ? <p><span className = 'highlight'>{ note.content.substr(note.content.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.content.substr(note.content.indexOf(exactInput)).slice(exactInput.length, 85) + '...' }</p> : <p><span className = 'highlight'>{ note.content.substr(note.content.indexOf(exactInput)).slice(0, exactInput.length) }</span>{ note.content.substr(note.content.indexOf(exactInput)).slice(exactInput.length) }</p>) : 
 
-					(note.textBody.length > 85 ? <p>{ note.textBody.slice(0, 85) + '...' }</p> : <p>{ note.textBody }</p>)
+					(note.content.length > 85 ? <p>{ note.content.slice(0, 85) + '...' }</p> : <p>{ note.content }</p>)
 				}
 			</div>
-
-			{ tags.length > 0 && 
-				<div className = 'tags-div'>
-					{ tags.map((tag, i) => <i key = { i } className = { `far fa-${ tag }` } />)}
-				</div> 
-			}
 		</div>
 	);
 }
@@ -67,11 +53,9 @@ Note.propTypes = {
 		replace: PropTypes.func,
 	}),
 	note: PropTypes.shape({
-		tags: PropTypes.arrayOf(PropTypes.string),
-		textBody: PropTypes.string,
+		content: PropTypes.string,
+		id: PropTypes.number,
 		title: PropTypes.string,
-		'__v': PropTypes.number,
-		'_id': PropTypes.string,
 	}),
 }
 

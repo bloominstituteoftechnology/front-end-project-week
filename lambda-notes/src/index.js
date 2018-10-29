@@ -16,7 +16,7 @@ import { LoginView } from './views';
 import { Auth } from './components';
 
 // Reducers
-import NotesReducer from './store/reducers/NotesReducer.js';
+import { NotesReducer } from './store/reducers/NotesReducer.js';
 
 // MiddleWare
 import thunk from 'redux-thunk';
