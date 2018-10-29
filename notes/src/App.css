@@ -2,31 +2,44 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+/* notecard */
+.note-card {
+   border: dotted black 1px; 
+   width: 33%;
+   background: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.note-card-text {
+  width: 90%;
+  height: 200px;
+  border: black dashed 3px;
+
+}
+
+.note-card-text-body {
+  border-top: gray solid 1px;
+  width: 95%;
+}
+
+.note-container {
+  width: 75%;
+  border: dotted green 8px;
+  background: #F3F3F3;
+}
+/* navbar */
+.navbar {
+  width: 20%;
+  border: dotted red 3px;
+  height: 100%;
+  background: #D7D7D7;
+}
+
+.nav-button {
+  background: #2AC0C4;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  text-decoration: none;
+  margin: 10px;
+  border: gray 1px solid;
+  width: 75%;
 }

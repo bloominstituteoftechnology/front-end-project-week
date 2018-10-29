@@ -5,26 +5,26 @@ import {Link} from 'react-router-dom'
 import NoteCard from './NoteCard';
 
 class NoteList extends Component {
-  constructor() {
-    super()
-      this.state = {
-        notes: [],
-      }
-  }
+  // constructor() {
+  //   super()
+  //     this.state = {
+  //       notes: [],
+  //     }
+  // }
 
   componentDidMount() {
-    axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(res => this.setState({notes: res.data}))
-      .catch(error => console.log(error))
+    // axios
+    //   .get('https://killer-notes.herokuapp.com/note/get/all')
+    //   .then(res => this.setState({notes: res.data}))
+    //   .catch(error => console.log(error))
     //axios stuff here
 
   }
   
-  updateNote = (noteData) => {
-      .post('https://killer-notes.herokuapp.com/note/create', noteData ) 
-      .then(res => )
-      .catch(err => console.log(err))
+ createNote = (noteData) => {
+      // .post('https://killer-notes.herokuapp.com/note/create', noteData ) 
+      // .then(res => this.setState({notes: res.data}) )
+      // .catch(err => console.log(err))
     
     
   }
