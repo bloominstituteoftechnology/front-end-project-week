@@ -2,13 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Notes = (props) => {
+	const editOrDelete = (id) => {
+		return (
+			<StyledModal>
+				<button>Delete</button>
+				<button>Edit</button>
+			</StyledModal>
+		);
+	};
+
 	return (
 		<StyledNoteWrapper>
 			<StyledHeader>Your Notes:</StyledHeader>
 
 			{props.notes.map((note) => {
 				return (
-					<StyledNoteContainer key={note._id}>
+					<StyledNoteContainer
+						key={note._id}
+						onClick={() => {
+							editOrDelete(note._id);
+						}}
+					>
 						<input type="checkbox" name={note._id} />
 						<StyledH1>{note.title}</StyledH1>
 						<p>{note.textBody}</p>
@@ -43,6 +57,7 @@ export const StyledNoteContainer = styled.div`
 	flex-direction: column;
 	background-color: #ffffff;
 	text-align: start;
+	overflow: hidden;
 	width: 18%;
 	margin: 10px;
 	border: 1px solid rgba(80, 80, 80, 0.3);
@@ -75,4 +90,14 @@ export const StyledHeader = styled.h1`
 export const StyledSpan = styled.span`
 	color: rgba(80, 80, 80, 0.7);
 	padding: 10px;
+`;
+
+export const StyledModal = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 400px;
+	z-index: 2;
 `;
