@@ -10,6 +10,7 @@ import React from 'react';
     note = props.notes.filter(
       item => item._id === props.match.params.id
     );
+    {console.log(note)}
   } else {
     alert("wrong note ID");
     props.history.push('/');
@@ -21,12 +22,13 @@ import React from 'react';
 //     props.history.push(`/item-list/${item.id}`);
 //   }
 
-
+console.log(note)
   return (
    
     <div className="displayNote">
+  
       <h3> {note[0].title}  </h3>
-
+      <p> {note[0].textBody} </p>
     </div>
   
   );

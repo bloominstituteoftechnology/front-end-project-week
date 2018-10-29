@@ -13,7 +13,7 @@ import DisplayNoteCard from './DisplayNoteCard';
       <h3> Your Notes : </h3>
     <div className="noteList">
      
-      {props.notes.map( note => ( <DisplayNoteCard note={note} /> ))}
+      {props.notes.map( note => ( <DisplayNoteCard key={note._id} note={note} /> ))}
   </div>
   </div>
   );

@@ -198,7 +198,8 @@ width: 100vw;
 }
 
 .displayNote{
-  width : 95%;
+  width : 75%;
   margin : 0 auto;
-  background : red;
+  padding : 20px 20px;
+  margin : 0 10px;
 }
