@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Note from './Note';
 
 import './ComponentStyle.css';
 
@@ -18,6 +19,9 @@ class NotesList extends React.Component {
         this.setState({ notes: response.data });
       })
       .catch(err => console.log(err));
+  }
+  render() {
+    return <Note notes={this.state.notes} />;
   }
 }
 
