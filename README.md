@@ -28,7 +28,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 - [ ] Edit an existing note
 - [ ] Delete an existing note
 
-Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
+Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment: https://trello.com/invite/b/us10GFe6/9a4320f9f4317d3653a80486b7708d3b/lambda-notes-elvis-ibarra
 
 ```markdown
 ## Trello Set Up:
