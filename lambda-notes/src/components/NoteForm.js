@@ -43,13 +43,14 @@ class NoteForm extends Component {
           />
           <textarea
             name="textBody"
-            id="text-body"
+            id="create-note-body"
             cols="30"
-            rows="10"
+            rows="20"
             onChange={this.handleNoteFormChange}
             value={this.state.newNote.textBody}
+            placeholder="Note comment"
           />
-          <input type="submit" value="Save" />
+          <input type="submit" id="create-submit" value="Save" />
         </form>
       </div>
     );
