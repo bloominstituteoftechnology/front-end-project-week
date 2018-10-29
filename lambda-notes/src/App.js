@@ -13,7 +13,7 @@ class App extends Component {
       editedTitle:'',
        };
     };
-  }
+  
   componentDidMount() {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
@@ -25,41 +25,38 @@ class App extends Component {
       });
      
   }
+  
   viewNoteHandler = event =>  {
     event.preventDefault();
-    //this.setState ({newNote: event.target.value});
    }
 
   newNoteTitleHandler= event =>  {
     event.preventDefault();
-   // this.setState ({newTitle: event.target.value});
+    this.setState ({newTitle: event.target.value});
   }
 
   newNoteBodyHandler= event =>  {
     event.preventDefault();
-   // this.setState ({newNote: event.target.value});
+    this.setState ({newNote: event.target.value});
   }
  
   editedNoteTitleHandler= event =>  {
     event.preventDefault();
-   // this.setState ({editedTitle: event.target.value});
+    this.setState ({editedTitle: event.target.value});
   }
 
   editedNoteBodyHandler= event =>  {
     event.preventDefault();
-   // this.setState ({newName: event.target.value});
+    this.setState ({editedNote: event.target.value});
   }
- 
-
 
   saveNewNoteHandler = event => {
     event.preventDefault();
     axios     
     .post('https://fe-notes.herokuapp.com/note/create',  
     {
-     // name: this.state.newName,
-     // age: this.state.newAge,
-     // email: this.state.newEmail
+       title: this.state.newTitle,
+       textBody: this.state.newNote,
 
     }
     )
@@ -76,9 +73,8 @@ class App extends Component {
     axios     
     .put(`https://fe-notes.herokuapp.com/note/edit/id`,
     {
-       // name: this.state.newName,
-       // age: this.state.newAge,
-       // email: this.state.newEmail
+       title: this.state.editedTitle,
+       textBody: this.state.editedNote,
     }
       )
     .then(response => {
