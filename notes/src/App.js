@@ -30,6 +30,7 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://localhost:7000/api/notes')
     .then(response => {
+      console.log("componentDidMount response:", response.data)
       this.setState({ notesData: response.data, isUpdating: false })
     })
     .catch(err => {
@@ -78,9 +79,9 @@ class App extends Component {
       tags: this.state.note.tags
     }
     console.log('adding new');
-    axios.post('http://killer-notes.herokuapp.com/note/create', this.state.note)
+    axios.post('http://localhost:7000/api/notes', this.state.note)
     .then(response => {
-      newNote._id = response.data.success;
+      newNote.id = response.data.success;
       this.setState({ 
         notesData: [...this.state.notesData, newNote], note: { title: '', content: '', tags: [] }, isUpdating: false 
       },
@@ -92,7 +93,7 @@ class App extends Component {
   }
 
   deleteNote = noteId => {
-    return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+    return axios.delete(`https://localhost:7000/api/notes/${noteId}`)
     .then(response => {
       console.log("delete response:", response.data);
        this.setState({ show: false })})
@@ -102,13 +103,13 @@ class App extends Component {
 
   openUpdateForm = (event, id) => {
     event.preventDefault();
-    const noteToUpdate = this.state.notesData.find(note => note._id === id);
+    const noteToUpdate = this.state.notesData.find(note => note.id === id);
     this.setState ({ isUpdating: true, note: noteToUpdate },
       () => this.props.history.push('/note-form'));
   }
 
   updateNote = noteId => {
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`, this.state.note)
+    axios.put(`https://localhost:7000/api/notes/${noteId}`, this.state.note)
     .then(response => {
       console.log("response.data:", response.data)
       this.setState({

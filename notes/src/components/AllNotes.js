@@ -61,7 +61,7 @@ class AllNotes extends React.Component {
                 <div className="all-notes">
                 {  
                     this.state.currentNotes.map(note => (
-                    <div className="note-card" key={note._id} onClick={() => this.props.history.push(`notes/${note._id}`)}>
+                    <div className="note-card" key={note.id} onClick={() => this.props.history.push(`notes/${note.id}`)}>
                         <h4>
                         {this.props.truncateTitle(note.title)}
                         </h4>
@@ -104,7 +104,7 @@ class AllNotes extends React.Component {
 //             </div>
 //             <div className="all-notes">
 //             {props.notesData.map(note => (
-//                 <div className="note-card" key={note._id} onClick={() => props.history.push(`notes/${note._id}`)}>
+//                 <div className="note-card" key={note.id} onClick={() => props.history.push(`notes/${note.id}`)}>
 //                     <h4>
 //                     {props.truncateTitle(note.title)}
 //                     </h4>

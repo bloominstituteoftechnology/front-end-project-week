@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Modal from './Modal/Modal';
 import '../App.css';
@@ -15,18 +16,37 @@ export default class Note extends React.Component {
 }
     
     componentDidMount() {
-        if(this.props.notesData) {
-        const currentNote = this.props.notesData.find(note => note._id === this.props.match.params.noteId);
-        this.setState({ note: currentNote }, () => console.log("after setState:", this.state.note));
+        const { noteId } = this.props.match.params;
+        axios.get(`http://localhost:7000/api/notes/${noteId}`)
+        .then(response => {
+          console.log("componentDidMount response:", response.data[0])
+          this.setState({ note: response.data[0] }, () => console.log("after setState:", this.state.note))
+        })
+        .catch(err => {
+          console.log(err);
+        })
+
+        // if(this.props.notesData) {
+        // const currentNote = this.props.notesData.find(note => note.id === this.props.match.params.noteId);
+        // this.setState({ note: currentNote }, () => console.log("after setState:", this.state.note));
         
-        }
-    }
+        };
 
      componentDidUpdate(prevProps) {
         if(JSON.stringify(this.props.notesData) !== JSON.stringify(prevProps.notesData)) {
-            //const note = this.props.notesData.find(note => note._id === parseInt(this.props.match.params.noteId, 10));
-            const currentNote = this.props.notesData.find(note => note._id === this.props.match.params.noteId);
-            this.setState({ note: currentNote })
+            //const note = this.props.notesData.find(note => note.id === parseInt(this.props.match.params.noteId, 10));
+            const { noteId } = this.props.match.params;
+            axios.get(`http://localhost:7000/api/notes/${noteId}`)
+            .then(response => {
+              console.log("componentDidMount response:", response.data[0])
+              this.setState({ note: response.data[0] }, () => console.log("after setState:", this.state.note))
+            })
+            .catch(err => {
+              console.log(err);
+            })
+
+            // const currentNote = this.props.notesData.find(note => note.id === this.props.match.params.noteId);
+            // this.setState({ note: currentNote })
         }
      }
 
@@ -35,18 +55,18 @@ export default class Note extends React.Component {
     // }
 
     deleteNote = () => {
-        this.props.deleteNote(this.state.note._id);
+        this.props.deleteNote(this.state.note.id);
         this.props.history.push('/notes');
     }
 
-    tagsMap = (tags) => {
-        if (this.props.notesData) {
-            if (tags.length > 0) {
-                return tags.map(tag => <Link to={{pathname: '/notes', state: { from: this.props.location.pathname }}}  className="tag" key={tag}><a>{tag}</a></Link>);
-              }
-        } 
+    // tagsMap = (tags) => {
+    //     if (this.props.notesData) {
+    //         if (tags.length > 0) {
+    //             return tags.map(tag => <Link to={{pathname: '/notes', state: { from: this.props.location.pathname }}}  className="tag" key={tag}><a>{tag}</a></Link>);
+    //           }
+    //     } 
 
-    }
+    // }
 
 
     render() {
@@ -55,23 +75,24 @@ export default class Note extends React.Component {
         }
 
         return (
+            console.log("title and content", this.state.note.title, this.state.note.content),
             <Fragment>
                 <div className="single-note">
                 <div className="edit-delete">
                 <a className="plain-button" onClick={event => {
                     event.preventDefault();
                     console.log("clicked open update");
-                    this.props.openUpdateForm(event, this.state.note._id)
+                    this.props.openUpdateForm(event, this.state.note.id)
                 }}>edit</a>
                 <a className="plain-button" onClick={event => {
-                    this.props.showModal(event, this.state.note._id)
+                    this.props.showModal(event, this.state.note.id)
                 }}>delete</a>
                 
                 </div>
                     <div className="note-info-wrapper">
                     <h1>{this.state.note.title}</h1>
                     <p className="content">{this.state.note.content}</p>
-                    <p>Tags: {this.tagsMap(this.state.note.tags)}</p> 
+                    {/* <p>Tags: {this.tagsMap(this.state.note.tags)}</p>  */}
                 
                     </div>
                 </div>

@@ -6,7 +6,7 @@ function NoteForm(props) {
         event.preventDefault();
 
         if (props.isUpdating) {
-            props.updateNote(props.note._id);
+            props.updateNote(props.note.id);
         } else {
             console.log("note.tags", props.note.tags)
             props.addNewNote();
@@ -16,7 +16,7 @@ function NoteForm(props) {
     function handleCancel(event) {
         event.preventDefault();
         if(props.isUpdating) {
-        props.history.push(`/notes/${props.note._id}`)
+        props.history.push(`/notes/${props.note.id}`)
         } else {
             props.history.push(`/notes`)
         }
