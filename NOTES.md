@@ -24,7 +24,7 @@ a `GET` request to this route will return a list of all the notes.
 
 a `GET` request to this route (with "id" replaced by the note ID) will return the note with the specified ID.
 
-### https://killer-notes.herokuapp.com/note/create
+### https://killer-notes.herokuapp.com/note/create 
 
 a `POST` request to this route with the title and text in the req.body will create a new note. The response from the server will be the ID of the new note.
 

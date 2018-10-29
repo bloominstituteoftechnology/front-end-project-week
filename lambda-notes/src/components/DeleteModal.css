@@ -1,0 +1,26 @@
+.dm-wrapper{
+    background: lightgray;
+    width: 40%;
+    height: 250px;
+    float: right;
+    position: relative;
+    right: 200px;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dm-wrapper button{
+    margin: 10px;
+    padding: 5px 15px;
+    
+}
+
+.dm-no{
+    background: green;
+}
+
+.dm-yes{
+    background: red;
+}

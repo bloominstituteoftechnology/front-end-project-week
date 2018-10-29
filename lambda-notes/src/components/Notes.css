@@ -1,0 +1,33 @@
+.all-notes{
+    width: 70%;
+    position: absolute;
+    height: 100%;
+    background: rgb(179, 179, 179);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    left: 461px;
+}
+
+.single-note{
+    border: 1.25px black solid;
+    margin: 10px;
+    background: rgb(243, 238, 238);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+}
+
+ .single-note h3{
+    border-bottom: 2px solid grey;
+}
+
+.text{
+    text-decoration: none; 
+    color: black; 
+}
+
+.link{
+    text-decoration: none;
+}
