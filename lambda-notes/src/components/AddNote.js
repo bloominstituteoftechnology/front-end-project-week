@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
 
 const FormWrapper = styled.div`
     form {
@@ -11,14 +12,14 @@ const FormWrapper = styled.div`
     }
 `
 
-const AddNote = ({ addNote, handleChange }) => {
+const AddNote = props => {
     return (
         <FormWrapper>
-            <form id='addNote' onSubmit={addNote}>
+            <form id='addNote' onSubmit={props.addNote}>
                 <label forhtml='addnote'>Title: </label>
-                <input type='title' name='title' onChange={handleChange} />
+                <input type='title' name='title' onChange={props.handleChange} />
                 <label forhtml='addnote'>Text:</label>
-                <textarea name='textBody' wrap="soft" cols="80" rows="20" onChange={handleChange} />
+                <textarea name='textBody' wrap='soft' cols='80' rows='20' onChange={props.handleChange} />
                 <input type='submit' value='submit' />
             </form>
         </FormWrapper>

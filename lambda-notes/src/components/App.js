@@ -3,6 +3,9 @@ import NoteList from './NoteList'
 import '../styles/index.css'
 import AddNote from './AddNote'
 import axios from 'axios'
+import { Route } from 'react-router-dom'
+import ViewNote from '../components/ViewNote'
+import { Link } from 'react-router-dom'
 
 class App extends Component {
     state = {
@@ -11,7 +14,7 @@ class App extends Component {
 
     componentDidMount() {
         axios
-            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(res => {
                 this.setState({
                     notes: res.data,
@@ -27,7 +30,7 @@ class App extends Component {
         e.preventDefault()
         e.target.reset()
         axios
-            .post('https://killer-notes.herokuapp.com/note/create', { title, textBody })
+            .post('https://fe-notes.herokuapp.com/note/create', { title, textBody })
             .then(res => {
                 this.setState({
                     notes: [ ...this.state.notes, { title, textBody, _id: res } ],
@@ -47,10 +50,15 @@ class App extends Component {
     }
 
     render() {
+        const id = this.state.notes.find(note => this.state.notes._id === `${note.id}`)
         return (
             <div>
-                <NoteList notes={this.state.notes} />
-                <AddNote addNote={this.addNote} handleChange={this.handleChange} />
+                <Route exact path='/' render={props => <NoteList {...props} notes={this.state.notes} />} />
+                <Route
+                    path='/addnote'
+                    render={props => <AddNote {...props} addNote={this.addNote} handleChange={this.handleChange} />}
+                />
+                <Route path={`/${id}`} render={props => <ViewNote {...props} />} />
             </div>
         )
     }
