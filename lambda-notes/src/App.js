@@ -5,13 +5,14 @@ import CreateNoteView from './views/CreateNoteView';
 import EditNoteView from './views/EditNoteView';
 import NoteView from './views/NoteView';
 import NotesListView from './views/NotesListView';
-import Sidebar from './components/Sidebar';
+import Sidenav from './components/Sidenav';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-      <Sidebar/>
+      <Sidenav/>
+
       <Route path='/' component={NotesListView} />
       <Route path='/create-note' component={CreateNoteView} />
       <Route path='/note/:id' component={NoteView} />
