@@ -1,33 +1,40 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { connect } from "react-redux"
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 const Note = props => {
-    if (props.note) {
-        console.log(props, 'sadss')
-        const { title, content, id } = props.note
-        return (
-            <>
-            <p>{title}</p>
-            <p>{content}</p>
-            <Link to ={`/edit/${id}`}><button>Edit Note</button></Link>
-            <Link to={`/delete/${id}`}><button>Delete Note</button></Link>
-            </>
-            
-        )
-    } else {
-        return (
-            null
-        )
-    }
-    // add an error message
-}
+  if (props.note) {
+    console.log(props, "sadss");
+    const { title, content, id } = props.note;
+    return (
+      <div className="note-page">
+        <div className="links">
+          <Link to={`/edit/${id}`}>
+            <h4  className="note-links">edit</h4>
+          </Link>
+          <Link to={`/delete/${id}`}>
+            <h4 className="note-links">delete</h4>
+          </Link>
+        </div>
+
+        <h3 className="note-page-title">{title}</h3>
+        <p className="note-page-content">{content}</p>
+      </div>
+    );
+  } else {
+    return null;
+  }
+  // add an error message
+};
 
 const mapStateToProps = (state, ownProps) => {
-    const { id } = ownProps.match.params
-    return {
-        note: state.notes.find(note => note.id === id)
-    }
-}
+  const { id } = ownProps.match.params;
+  return {
+    note: state.notes.find(note => note.id === id)
+  };
+};
 
-export default connect(mapStateToProps, { })(Note)
+export default connect(
+  mapStateToProps,
+  {}
+)(Note);

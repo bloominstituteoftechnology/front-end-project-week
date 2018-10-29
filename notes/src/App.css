@@ -49,7 +49,8 @@ button {
   width: 200px;
   height: 200px;
   margin: 20px;
-  background-color: white
+  background-color: white;
+  overflow: hidden;
 }
 
 .the-notes {
@@ -71,12 +72,13 @@ button {
 }
 
 .content {
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
   margin-left: 20px;
   line-height: 26px;
   font-size: 14px;
   list-style: none;
+  margin-bottom: 5px;
 }
 
 a {
@@ -139,4 +141,43 @@ a {
 
 .save-button {
   margin: 10px 0;
+}
+
+.note-page {
+  background-color: whitesmoke;
+  width: 75%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+.note-links {
+  text-decoration: underline;
+  margin: 8px 0;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.note-page-title {
+  margin-top: 15px;
+  margin-left: 20px;
+  padding: 5px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.note-page-content {
+  margin-top: 15px;
+  margin-left: 20px;
+  padding: 5px;
+  width: 90%;
+  overflow: hidden;
+  line-height: 30px;
+  margin-bottom: 35px;
 }
