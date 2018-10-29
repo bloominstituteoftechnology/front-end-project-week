@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getNotes } from '../actions';
+import Note from './Note';
+import styled from 'styled-components';
+
+const NotesContainer = styled.div`
+  border: solid green;
+  background: #f3f3f3;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 class NoteList extends Component {
   componentDidMount() {
@@ -9,18 +19,11 @@ class NoteList extends Component {
 
   render() {
     return (
-      <div className="Notes-Container">
-        <div className="Notes-List">
-          {this.props.notes.map(note => {
-            return (
-              <div key={note.id}>
-                {note.title}
-                {note.textBody}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <NotesContainer>
+        {this.props.notes.map(note => {
+          return <Note key={note.id} note={note} />;
+        })}
+      </NotesContainer>
     );
   }
 }
