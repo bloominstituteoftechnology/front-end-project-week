@@ -68,7 +68,7 @@ class NewNote extends React.Component {
 export default NewNote;
 
 export const StyledContainer = styled.div`
-	margin-left: 300px;
+	margin-left: 325px;
 	padding: 20px;
 
 	height: 100%;

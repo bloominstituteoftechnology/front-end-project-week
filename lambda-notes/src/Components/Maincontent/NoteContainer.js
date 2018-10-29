@@ -18,6 +18,7 @@ class NoteContainer extends React.Component {
 			})
 			.catch((err) => console.log(err));
 	}
+
 	render() {
 		return <Notes notes={this.state.notes} />;
 	}

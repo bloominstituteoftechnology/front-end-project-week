@@ -1,29 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Notes = (props) => {
-	const editOrDelete = (id) => {
-		return (
-			<StyledModal>
-				<button>Delete</button>
-				<button>Edit</button>
-			</StyledModal>
-		);
-	};
-
 	return (
 		<StyledNoteWrapper>
 			<StyledHeader>Your Notes:</StyledHeader>
-
 			{props.notes.map((note) => {
 				return (
-					<StyledNoteContainer
-						key={note._id}
-						onClick={() => {
-							editOrDelete(note._id);
-						}}
-					>
-						<input type="checkbox" name={note._id} />
+					<StyledNoteContainer to={`/${note._id}/notes`} key={note._id}>
 						<StyledH1>{note.title}</StyledH1>
 						<p>{note.textBody}</p>
 						<p>
@@ -47,11 +32,13 @@ export const StyledNoteWrapper = styled.div`
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	margin-left: 296px;
+	margin-left: 325px;
 `;
 
-export const StyledNoteContainer = styled.div`
-	max-height: 295px;
+export const StyledNoteContainer = styled(Link)`
+	text-decoration: none;
+	color: #000000;
+	max-height: 200px;
 	display: flex;
 	padding: 15px;
 	flex-direction: column;
