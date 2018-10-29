@@ -14,7 +14,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  border-right: 1px solid #777;
+  border-right: 1px solid #999;
   padding: 25px;
 }
 
@@ -68,7 +68,8 @@ h1 {
   width: 29%;
   color: #2f2f2f;
   height: 250px;
-  padding: 15px;
+  padding: 25px;
   cursor: pointer;
   margin-bottom: 30px;
+  border: 1px solid #999;
 }

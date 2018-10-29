@@ -20,7 +20,7 @@ class App extends Component {
 
   fetchNotes = () => {
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => this.setState({notes: response.data}))
       .catch(err => console.log(err));
   };

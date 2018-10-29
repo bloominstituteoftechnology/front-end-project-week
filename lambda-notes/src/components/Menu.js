@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Menu = () => {
   return (
@@ -7,8 +8,12 @@ const Menu = () => {
         Lambda <br />
         Notes
       </h1>
-      <button className="menu-btn">View Your Notes</button>
-      <button className="menu-btn">+ Create New Note</button>
+      <Link to="/all">
+        <button className="menu-btn">View Your Notes</button>
+      </Link>
+      <Link to="/new">
+        <button className="menu-btn">+ Create New Note</button>
+      </Link>
     </div>
   );
 };
