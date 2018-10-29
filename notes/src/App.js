@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount(){
     //will fetch data from the api
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => this.setState({notes : response.data}))
       .catch(error => alert("CDM ::: Axios says :", error))
   }
