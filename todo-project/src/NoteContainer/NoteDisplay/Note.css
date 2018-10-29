@@ -1,0 +1,14 @@
+.noteCard {
+    border: 1px solid grey;
+    width: 31%;
+    margin-bottom: 1%;
+    background: #FFFFFF;
+}
+.title {
+    font-size: 1rem;
+    padding-bottom: 2%;
+    border-bottom: 2px solid grey;
+}
+.innerContent {
+    padding: 0 5%;
+}

@@ -1,8 +1,16 @@
-.todoButtonContainer {
-  text-align: center;
+.noteButtonContainer {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.title {
+  font-size: 2.3rem;
+  font-weight: bold;
 }
 .button {
-    width: 60%;
-    margin: 5% 0%;
-    padding: 3%;
+    border: 1px solid grey;
+    color: white;
+    background: #24B9BD;
+    width: 90%;
+    text-align: center;
+    padding: 5% 5%;
 }

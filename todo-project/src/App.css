@@ -1,21 +1,21 @@
 .App {
   display: flex;
   justify-content: center;
+  width: 98%;
+  margin: 0 auto;
 }
 .mainContent {
-  width: 72%;
-  margin-top: 2%;
+  width: 85%;
+  margin-top: 1%;
+  background: #F2F1F2;
+  border: 1px solid grey;
 }
-.headerContainer {
+/* .headerContainer {
   border: 1px solid red;
-}
-.todoContainer {
-  border: 1px solid red;
-  margin-top: 2%;
-}
+} */
 .navContainer {
-  border: 1px solid red;
-  width: 20%;
-  margin-right: 5%;
-  margin-top: 2%;
+  border: 1px solid grey;
+  width: 15%;
+  margin-top: 1%;
+  background: #D3D2D3
 }
