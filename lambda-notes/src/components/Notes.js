@@ -1,13 +1,17 @@
 import React from "react";
 import Note from "./Note";
+import "./Notes.css";
 
 const Notes = props => {
   return (
-    <div>
-      {props.notes.map((note, index) => (
-        <Note note={note} key={index} />
-      ))}
-    </div>
+    <React.Fragment>
+      <div className="notes-container">
+        <h1 className="your-notes">Your Notes:</h1>
+        {props.notes.map((note, index) => (
+          <Note note={note} key={index} />
+        ))}
+      </div>
+    </React.Fragment>
   );
 };
 
