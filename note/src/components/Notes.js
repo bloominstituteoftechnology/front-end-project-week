@@ -6,15 +6,18 @@ const NotesContainer = styled.div`
   border: 1px solid black;
   margin-left: 20%;
 `;
+
  const Heading = styled.h2`
   display: flex;
   margin-left: 30px;
 `;
+
  const NotesDisplay = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 `;
+
  const NoteCard = styled.div`
   border: 1px solid gray;
   width: 225px;
@@ -22,6 +25,7 @@ const NotesContainer = styled.div`
   margin-left: 60px;
   margin-top: 30px;
 `;
+
  const NoteTitle = styled.h3`
   border-bottom: 1px solid gray;
   display: flex;
@@ -30,6 +34,7 @@ const NotesContainer = styled.div`
   text-decoration: none;
   color: black;
 `;
+
  const NoteBody = styled.p`
   display: flex;
   margin-left: 10px;
@@ -60,7 +65,7 @@ class Notes extends Component {
                                 <NoteBody>
                                     {note.textBody.length >= 100
                                         ? note.textBody.substring(0, 100)+'...'
-                                        :note.title
+                                        :note.textBody
                                     }
                                 </NoteBody>
                             </NoteCard>

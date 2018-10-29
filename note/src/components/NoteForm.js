@@ -51,7 +51,7 @@ class NoteForm extends Component {
         event.preventDefault();
         const newNote = {
             title: this.state.title,
-            textBody: this.textBody.textBody
+            textBody: this.state.textBody
         }
         this.props.addNote(newNote);
 
