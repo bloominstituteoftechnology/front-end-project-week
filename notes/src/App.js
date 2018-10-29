@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 // Component Imports
 import SideBar from './components/sidebar/SideBar'
@@ -26,9 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar />
-        <NoteList 
-          notes={this.state.notes}
-        />
+        <Route path='/' render={() => <NoteList notes={this.state.notes} /> } />
       </div>
     );
   }
