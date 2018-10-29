@@ -5,20 +5,23 @@ import ListView from "./components/ListView";
 import styled from "styled-components";
 import CreateView from "./components/CreateView";
 
-const Mainview = styled.div`
-  margin-left: 220px;
+const AppContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  .main-view {
+    margin: 58px 25px;
+  }
 `;
 
 const App = () => {
   return (
-    <div>
+    <AppContainer>
       <Route path="/" component={SideBar} />
-
-      <Mainview>
+      <div className="main-view">
         <Route exact path="/" component={ListView} />
         <Route path="/create" component={CreateView} />
-      </Mainview>
-    </div>
+      </div>
+    </AppContainer>
   );
 };
 

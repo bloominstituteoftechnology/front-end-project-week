@@ -29,6 +29,7 @@ const SideBar = () =>{
             <NavLink to='/create'>
             <div className='button'>+ Create New Note</div>
             </NavLink>
+
         </StyledBar>
     )
 }

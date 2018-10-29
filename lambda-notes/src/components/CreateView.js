@@ -1,15 +1,21 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import Form from './Form'
 
 class CreateView extends Component{
     constructor(){
         super()
         this.state={
             title:'',
-            content: ''
+            textBody: '',
+            tags: []
         }
     }
+
+    changeHandler = e =>{
+        e.preventDefault()
+    }
     render (){
-        return <div></div>
+        return <Form state={this.state} changeHandler={this.changeHandler}></Form>
     }
 }
 
