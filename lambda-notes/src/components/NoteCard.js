@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Note extends Component {
+class NoteCard extends Component {
     render() {
         return(
             <div>
@@ -12,4 +12,4 @@ class Note extends Component {
     }
 }
 
-export default Note;
+export default NoteCard;
