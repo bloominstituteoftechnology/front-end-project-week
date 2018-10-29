@@ -66,7 +66,7 @@ class Note extends Component {
     this.props.history.push("/");
   }
 
-  // changes title and textBody on state when an edcit happens
+  // changes title and textBody on state when an edit happens
   handleEditInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }

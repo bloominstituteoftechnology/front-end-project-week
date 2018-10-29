@@ -24,7 +24,8 @@ componentDidMount() {
 
 // allows us to get all the notes data from the API
 fetchNotes = ()=> {
-  axios.get('https://killer-notes.herokuapp.com/note/get/all')
+  // axios.get('https://killer-notes.herokuapp.com/note/get/all')
+  axios.get('http://localhost:9900/api/')
       .then(response => {
         this.setState({ tags: response.data });
       })
@@ -44,7 +45,8 @@ fetchNotes = ()=> {
 
     const note = {title: this.state.title, textBody: this.state.textBody};
 
-    axios.post('https://killer-notes.herokuapp.com/note/create', note)
+    // axios.post('https://killer-notes.herokuapp.com/note/create', note)
+    axios.post('http://localhost:9900/api/notes', note)
       .then(response => this.setState({ note: response.data,
                                         title: response.data.title,
                                         textBody: response.data.textBody
