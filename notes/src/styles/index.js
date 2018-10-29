@@ -13,14 +13,19 @@ export const Container = styled.div`
 export const NavBar = styled.header`
   display: flex;
   flex-direction: column;
-  width: 20%;
-  background: #d3d2d3 h1 {
-    font-size: 3rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: 25%;
+  background: #d3d2d3;
+  h1 {
+    font-size: 4rem;
+    margin: 20px;
   }
 `;
 
 export const MainContent = styled.section`
-  width: 80%;
+  width: 75%;
+  padding: 100px 5%;
   background: #f2f1f2;
   display: flex;
   flex-direction: column;
@@ -35,10 +40,18 @@ export const NoteListWrapper = styled.div`
 
 export const NoteCardWrapper = styled.div`
   width: 30%;
+  border: 1px solid #c2c2c2;
+  padding: 10px;
+  border-radius: 5px;
+  height: 200px;
+  background: #ffffff;
+  margin: 20px 5px;
   h3 {
-    border-bottom: 1px solid #f2f1f2;
-    padding: 5px;
-    margin: 5px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-bottom: 2px solid #f2f2f2
+    padding-bottom: 5px;
+    margin: 10px 0;
   }
 `;
 
@@ -50,12 +63,12 @@ export const NoteWrapper = styled.div`
 `;
 
 export const EditDelete = styled.div`
-position: relative;
-span {
+  position: relative;
+  span {
     text-decoration: underline;
-    font-weight: bold
-}
-`
+    font-weight: bold;
+  }
+`;
 
 export const StyledForm = styled.form`
   display: flex;
@@ -75,4 +88,7 @@ export const Button = styled.button`
   width: 200px;
   height: 40px;
   border-radius: 5px;
+  font-size: 2rem;
+  margin: 10px auto;
+  cursor: pointer;
 `;

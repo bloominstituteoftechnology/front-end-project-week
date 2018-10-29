@@ -15,7 +15,7 @@ class NoteContainer extends Component {
 
   componentDidMount() {
     axios
-      .get(URL)
+      .get(`${URL}get/all`)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }

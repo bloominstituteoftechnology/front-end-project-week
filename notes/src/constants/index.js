@@ -1,1 +1,1 @@
-export const URL = "https://fe-notes.herokuapp.com/note/get/all"
+export const URL = "https://fe-notes.herokuapp.com/note/"
