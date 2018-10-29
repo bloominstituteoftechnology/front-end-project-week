@@ -9,6 +9,8 @@ class App extends Component {
       notes: [],
       newNote:'',
       newTitle:'',
+      editedNote:'',
+      editedTitle:'',
        };
     };
   }
@@ -25,22 +27,22 @@ class App extends Component {
   }
   viewNoteHandler = event =>  {
     event.preventDefault();
-    //this.setState ({newEmail: event.target.value});
+    //this.setState ({newNote: event.target.value});
    }
 
-   newNoteTitleHandler= event =>  {
+  newNoteTitleHandler= event =>  {
     event.preventDefault();
-   // this.setState ({newName: event.target.value});
+   // this.setState ({newTitle: event.target.value});
   }
 
   newNoteBodyHandler= event =>  {
     event.preventDefault();
-   // this.setState ({newName: event.target.value});
+   // this.setState ({newNote: event.target.value});
   }
  
   editedNoteTitleHandler= event =>  {
     event.preventDefault();
-   // this.setState ({newName: event.target.value});
+   // this.setState ({editedTitle: event.target.value});
   }
 
   editedNoteBodyHandler= event =>  {
