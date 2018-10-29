@@ -1,11 +1,56 @@
 import React, { Component } from 'react';
 import './App.css';
+import {NoteData} from './NoteData';
+import Notes from './components/Notes';
+import Form from './components/Form';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: NoteData,
+      title: '',
+      body: '',
+    }
+  }
+
+  changeHandler = event => {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  submitHandler = event => {
+    event.preventDefault();
+    if (this.state.title !== '' && this.state.body !== '') {
+      const note = {
+        title: this.state.title,
+        body: this.state.body,
+        id: this.state.notes.length,
+      }
+      this.setState({
+        notes: this.state.notes.push(note),
+        title: '',
+        body: '',
+      })
+    }
+    else {
+      alert('Please fill out the form!')
+    }
+  }
+
+  deleteHandler = id => {
+    const filteredNotes = this.state.notes.filter(note => note.id !== id)
+    this.setState({notes: filteredNotes});
+  }
+
   render() {
     return (
       <div className="App">
-        Hello World
+        <h1>Vellum: A Modern Notes Platform</h1>
+        <Form changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
+        <Notes notes={this.state.notes} deleteHandler={this.deleteHandler}/>
       </div>
     );
   }

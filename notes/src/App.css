@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.notes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+}
+
+.note {
+  border: 0.5px solid grey;
+  border-radius: 3px;
+  padding: 20px;
+  width: 500px;
+  margin: 20px;
+}
