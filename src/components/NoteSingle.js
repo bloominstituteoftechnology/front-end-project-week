@@ -22,15 +22,15 @@ class NoteSingle extends Component {
       <Div1 className="NoteSingle">
         {
           this.state.modal ? (
-          <Div2>
-            <Div3>
-              <P2>Are you sure you want to delete this?</P2>
-              <Fragment>
-                <Button delete onClick={() => this.props.deleteNote(Number(note.id))}>Delete</Button>
-                <Button onClick={this.closeModal}>No</Button>
-              </Fragment>
-            </Div3>
-          </Div2>
+            <Div2>
+              <Div3>
+                <P2>Are you sure you want to delete this?</P2>
+                <Fragment>
+                  <Button delete onClick={() => this.props.deleteNote(Number(note.id))}>Delete</Button>
+                  <Button onClick={this.closeModal}>No</Button>
+                </Fragment>
+              </Div3>
+            </Div2>
           ) : null
         }
 
@@ -42,13 +42,13 @@ class NoteSingle extends Component {
         </Div4>
         <H2>{note.title}</H2>
         <P1>{note.text}</P1>
-        <P1>Note Tags:<br />
+        {/* <P1>Note Tags:<br />
           {
             note.tags.map((item, index) => {
               return <span key={`tag${index}`}>{ (index ? ', ' : '') + item }</span>; 
             })
           }
-        </P1>
+        </P1> */}
       </Div1>
     )
   }
@@ -97,10 +97,10 @@ const Div3 = styled.div`
 const H2 = styled.h2`
   margin: 0;
 `
-const P1 =  styled.p`
+const P1 = styled.p`
   font-size: 1.6rem;
 `
-const P2 =  styled.p`
+const P2 = styled.p`
   font-size: 1.8rem;
   vertical-align: middle;
   width: 100%;

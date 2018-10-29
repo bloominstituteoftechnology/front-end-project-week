@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import axios from 'axios'
 import styled, { createGlobalStyle } from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import SideBar from './components/SideBar'
@@ -9,53 +10,22 @@ import NoteSingle from './components/NoteSingle'
 
 class App extends Component {
   state = {
-    notes: [
-      {
-        id: 1537805881051,
-        title: "1. Get a rucksack",
-        text: "Find a nice rucksack that can hold all your backpacking gear.",
-        tags: ["gear", "capacity"]
-      },
-      {
-        id: 1537805891197,
-        title: "2. Grab a buddy",
-        text: "Find an outdoorsy friend that loves to rough it up.",
-        tags: ["outsdoorsy", "friend"]
-      },
-      {
-        id: 1537905924075,
-        title: "3. Trailblazing",
-        text: "Get out there and breathe in nature. Throw on those hiking boots!",
-        tags: ["nature", "outdoors"]
-      },
-      {
-        id: 1537905911476,
-        title: "4. Go to the store",
-        text: "Read reviews online and find the rucksack that best fits your needs.",
-        tags: ["gear", "store"]
-      },
-      {
-        id: 1537905943717,
-        title: "5. Find a buddy",
-        text: "Go with hiking groups and find a new backpacking buddy.",
-        tags: ["friend", "hiking groups"]
-      },
-      {
-        id: 1537905962795,
-        title: "6. Backpacking",
-        text: "Plan out your trip and head to the woods to set off on a wild adventure.",
-        tags: ["nature", "adventure"]
-      }
-    ],
+    notes: [],
     filteredNotes: [],
     tags: ["all", "gear", "capacity", "nature", "outdoors", "outsdoorsy", "friend", "hiking groups", "store", "adventure"],
     noteUpdate: null
   }
 
+  componentDidMount() {
+    axios.get('http://localhost:9000/notes')
+      .then(resp => this.setState({ notes: resp.data }))
+      .catch(err => console.log(err));
+  }
+
   addNote = (newNote) => {
     let filteredTags = [...newNote.tags].filter(excluded => ![...this.state.tags].includes(excluded))
-    this.setState({ notes: [ ...this.state.notes, newNote], tags: [...this.state.tags, ...filteredTags] })
-}
+    this.setState({ notes: [...this.state.notes, newNote], tags: [...this.state.tags, ...filteredTags] })
+  }
 
   editNote = (noteId) => {
     this.setState({ noteUpdate: this.state.notes.filter(note => note.id === noteId)[0] })
@@ -79,7 +49,7 @@ class App extends Component {
   filterNotes = (e, tagName) => {
     e.preventDefault()
 
-    if (tagName === "all") { 
+    if (tagName === "all") {
       const filteredNotes = [...this.state.notes]
       this.setState({ filteredNotes })
     } else {
@@ -93,29 +63,29 @@ class App extends Component {
     return (
       <Div1 className="App">
         <SideBar />
-        
-        <Route exact path="/" render={() => 
+
+        <Route exact path="/" render={() =>
           <NotesMain
             notes={this.state.notes}
             filteredNotes={this.state.filteredNotes}
             tags={this.state.tags}
             filterNotes={this.filterNotes}
           />
-        }/>
-        <Route path="/new" render={() => 
+        } />
+        <Route path="/new" render={() =>
           <NoteForm
             addNote={this.addNote}
           />
-        }/>
-        <Route exact path="/notes/:id" render={(props) => 
+        } />
+        <Route exact path="/notes/:id" render={(props) =>
           <NoteSingle
             {...props}
             notes={this.state.notes}
             editNote={this.editNote}
             deleteNote={this.deleteNote}
           />
-        }/>
-        <Route path="/notes/:id/edit" render={() => 
+        } />
+        <Route path="/notes/:id/edit" render={() =>
           <NoteForm
             noteUpdate={this.state.noteUpdate}
             updateNote={this.updateNote}
