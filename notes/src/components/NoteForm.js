@@ -25,21 +25,24 @@ class NoteForm extends Component {
     render() {
         if (this.props.note) {
   return (
-            <>
-            <form onSubmit={this.onSubmit}>
+            <div className="create-view">
+            <h2  className="create-note-header">Edit Note:</h2>
+            <form onSubmit={this.onSubmit} className="create-form">
         <input 
         name="title"
         value={this.state.title}
+        className="title-input"
         onChange={this.onChange}
         />
-        <input 
+        <textarea 
         name="content"
         value={this.state.content}
         onChange={this.onChange}
-        />
-        <button type="submit">Save</button>
+        className="content-input"
+        ></textarea>
+        <button type="submit" className="save-button">Update</button>
         </form>
-        </>
+        </div>
         )
         } else {
 return <h4>BAHHHHHH</h4>
