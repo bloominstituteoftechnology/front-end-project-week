@@ -36,10 +36,12 @@ export default class Note extends Component {
           <h2>{this.state.note.title}</h2>
           <p> {this.state.note.textBody}</p>
           <EditDelete>
-            <span>Edit</span>
-            <span onClick={() => this.props.handleDelete(this.state.note.id)}>
+            <button onClick={() => this.props.handleUpdate(this.state.note._id)}>
+              Edit
+            </button>
+            <button onClick={() => this.props.handleDelete(this.state.note._id)}>
               Delete
-            </span>
+            </button>
           </EditDelete>
         </NoteWrapper>
       </MainContent>

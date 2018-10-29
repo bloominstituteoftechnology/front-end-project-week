@@ -21,7 +21,8 @@ class App extends Component {
         title: "",
         textBody: ""
       },
-      editing: false
+      editing: false,
+      noteToUpdate: null
     };
   }
 
@@ -42,23 +43,54 @@ class App extends Component {
     });
   };
 
+  handleUpdate = id => {
+    const noteToUpdate = this.state.notes.find(note => note._id === id);
+    this.setState({
+      noteToUpdate,
+      newNote: noteToUpdate,
+      editing: true
+    });
+    this.props.history.push("/form");
+  };
+
+  handleDelete = id => {
+    axios
+      .delete(`${URL}delete/${id}`)
+      .then(this.redirect)
+      .catch(err => console.log(err));
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     axios
       .post(`${URL}create`, this.state.newNote)
-      .then(() => {
-        axios
-          .get(`${URL}get/all`)
-          .then(res => {
-            this.setState({ notes: res.data, newNote: blankFormValues });
-            this.props.history.push("/notes");
-          })
-          .catch(err => console.log(err));
+      .then(this.redirect)
+      .catch(err => console.log(err));
+  };
+
+  handleSubmitUpdate = e => {
+    e.preventDefault();
+    axios
+      .put(`${URL}edit/${this.state.noteToUpdate._id}`, this.state.newNote)
+      .then(this.redirect)
+      .catch(err => console.log(err));
+  };
+
+  redirect = () => {
+    axios
+      .get(`${URL}get/all`)
+      .then(res => {
+        this.setState({ notes: res.data, newNote: blankFormValues });
+        this.props.history.push("/notes");
       })
       .catch(err => console.log(err));
   };
 
   render() {
+    if (this.state.notes.length < 1) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <Container>
         <Navigation />
@@ -77,11 +109,22 @@ class App extends Component {
               editing={this.state.editing}
               newNote={this.state.newNote}
               handleInputChange={this.handleInputChange}
-              handleSubmit={this.handleSubmit}
+              handleSubmit={
+                this.state.editing ? this.handleSubmitUpdate : this.handleSubmit
+              }
             />
           )}
         />
-        <Route path="/notes/:id" component={Note} />
+        <Route
+          path="/notes/:id"
+          render={props => (
+            <Note
+              {...props}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
+            />
+          )}
+        />
       </Container>
     );
   }
