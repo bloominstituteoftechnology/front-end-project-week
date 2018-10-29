@@ -40,11 +40,13 @@ export default class CreateNote extends Component {
           <input
             type="text"
             name="title"
+            placeholder="Note Title"
             onChange={this.handleChange}
             value={this.state.title}
           />
           <textarea
             name="textBody"
+            placeholder="Note Content"
             onChange={this.handleChange}
             value={this.state.textBody}
           />
