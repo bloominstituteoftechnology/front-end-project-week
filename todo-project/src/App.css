@@ -6,7 +6,7 @@
 }
 .mainContent {
   width: 85%;
-  margin-top: 1%;
+  margin: 1% 0%;
   background: #F2F1F2;
   border: 1px solid grey;
 }
@@ -16,6 +16,6 @@
 .navContainer {
   border: 1px solid grey;
   width: 15%;
-  margin-top: 1%;
+  margin: 1% 0%;
   background: #D3D2D3
 }

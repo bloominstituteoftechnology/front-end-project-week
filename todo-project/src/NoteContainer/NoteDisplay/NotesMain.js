@@ -18,7 +18,7 @@ export default class NotesMain extends Component {
 
     componentDidMount() {
         axios
-            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
                 console.log(response)
                 this.setState({ notes: response.data })
@@ -34,6 +34,7 @@ export default class NotesMain extends Component {
           <p style={titleBold} >Your Notes:</p>
           <NotesList notes={this.state.notes} />
       </div>
+        
     )
   }
 }

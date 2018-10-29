@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import HeaderContainer from './HeaderContainer'
+import { Route } from 'react-router-dom'
 import NoteContainer from './NoteContainer'
 import NavContainer from './NavContainer'
+import CreateNote from './CreateNote/CreateNote'
 import './App.css';
 
 class App extends Component {
@@ -9,13 +10,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className='navContainer'>
-        <NavContainer />
+        <Route path='/' component={NavContainer} />
         </div>
         <div className='mainContent'>
-        {/* <div className='headerContainer'>
-        <HeaderContainer />
-        </div> */}
-        <NoteContainer />
+        <Route exact path='/' component={NoteContainer} />
+        <Route path='/create-note' component={CreateNote} />
         </div>
       </div>
     );
@@ -23,3 +22,12 @@ class App extends Component {
 }
 
 export default App;
+
+
+{/* <div className='navContainer'>
+        <NavContainer />
+        </div>
+        <div className='mainContent'>
+        
+        <NoteContainer />
+        </div>  */}

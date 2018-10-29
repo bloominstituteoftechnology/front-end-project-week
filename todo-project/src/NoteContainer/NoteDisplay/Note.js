@@ -8,7 +8,7 @@ const Note = props => {
         <div className='noteCard'>
             <div className='innerContent'>
             <h1 className='title' >{props.note.title}</h1>
-            <p classname='body' >{props.note.textBody}</p>
+            <p className='body' >{props.note.textBody}</p>
             </div>
         </div>
     )
