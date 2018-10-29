@@ -9,6 +9,7 @@ const Notes = (props) => {
 			{props.notes.map((note) => {
 				return (
 					<StyledNoteContainer key={note._id}>
+						<input type="checkbox" name={note._id} />
 						<StyledH1>{note.title}</StyledH1>
 						<p>{note.textBody}</p>
 						<p>
@@ -39,10 +40,18 @@ export const StyledNoteContainer = styled.div`
 	display: flex;
 	padding: 15px;
 	flex-direction: column;
+	background-color: #ffffff;
 	text-align: start;
 	width: 18%;
 	margin: 10px;
 	border: 1px solid rgba(80, 80, 80, 0.3);
+	transition: 0.5s ease-in-out;
+
+	&:hover {
+		cursor: pointer;
+		background-color: rgba(200, 240, 200, 1);
+		box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);
+	}
 `;
 
 export const StyledH1 = styled.h1`
