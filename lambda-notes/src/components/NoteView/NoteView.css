@@ -46,3 +46,18 @@
   /* -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s; */
 }
+
+@media (max-width: 550px) {
+  .popuptext {
+    width: 90%;
+    left: 5%;
+    bottom: 5%;
+  }
+  .delete-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 40px;
+  }
+}

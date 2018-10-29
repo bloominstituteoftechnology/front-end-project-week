@@ -45,9 +45,6 @@ class NewNote extends React.Component {
   }
 
   render() {
-    {
-      console.log(this.props);
-    }
     return (
       <div className="notes-container">
         <h1>{this.props.isUpdatingNote ? `Edit Note:` : `Create New Note:`}</h1>
@@ -59,7 +56,7 @@ class NewNote extends React.Component {
             value={this.state.title}
             name="title"
             placeholder="Note title"
-            autocomplete="off"
+            autoComplete="off"
           />
           <textarea
             className="note-content"
@@ -68,7 +65,7 @@ class NewNote extends React.Component {
             value={this.state.content}
             name="content"
             placeholder="Note content"
-            autocomplete="off"
+            autoComplete="off"
           />
           <button
             onClick={e => {

@@ -2,76 +2,101 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, Link } from "react-router-dom";
+import axios from "axios";
 
 //Import components
 import NotesList from "./components/NotesList/NotesList";
 import Menu from "./components/Menu/Menu";
 import NewNote from "./components/NewNote/NewNote";
 import NoteView from "./components/NoteView/NoteView";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [
-        {
-          id: 0,
-          title: "My thoughts...",
-          content:
-            "This is a note about my thoughts during recent travel adventure"
-        },
-        {
-          id: 1,
-          title: "Favorite quotes",
-          content:
-            "This note includes my favorite quotes from books, movies, songs, etc."
-        }
-      ]
+      notes: []
     };
   }
 
   componentDidMount() {
-    // get dataaaa
+    //Get notes from Backend Project - 10/29/2018
+    axios
+      .get("http://localhost:8000/api/notes")
+      .then(response => {
+        console.log(response);
+        this.setState({ ...this.state, notes: response.data });
+      })
+      .catch(err => console.log(err));
   }
 
   addNewNote(note) {
+    const url = "http://localhost:8000/api/notes";
     if (note.title.length > 0) {
-      console.log(this.state);
-      const notes = [...this.state.notes];
-      note.id = this.state.notes.length;
-      notes.push(note);
-      this.setState(...this.state, { notes });
+      // console.log(this.state);
+      // const notes = [...this.state.notes];
+      // note.id = this.state.notes.length;
+      // notes.push(note);
+      // this.setState(...this.state, { notes });
+      axios
+        .post(url, note)
+        .then(response => {
+          if (response.status === 201) {
+            axios
+              .get(url)
+              .then(response =>
+                this.setState({ ...this.state, notes: response.data })
+              )
+              .catch(err => console.log(err));
+          }
+        })
+        .catch(err => console.log(err));
     }
   }
 
   deleteNote(id) {
-    console.log("delete function called");
-    console.log("state: ");
-    console.log(this.state);
-    const notes = this.state.notes.filter(note => note.id !== id);
-    console.log("notes array: ");
-    console.log(notes);
-    this.setState(...this.state, { notes });
+    const url = `http://localhost:8000/api/notes/`;
+    const url_with_id = `http://localhost:8000/api/notes/${id}`;
+    axios
+      .delete(url_with_id)
+      .then(res => {
+        axios
+          .get(url)
+          .then(response =>
+            this.setState({ ...this.state, notes: response.data })
+          )
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   updateNote(updatedNote) {
-    const notes = this.state.notes.map(note => {
-      if (note.id === updatedNote.id) {
-        return updatedNote;
-      } else return note;
-    });
-    this.setState(...this.state, { notes }, console.log(this.state));
+    const id = updatedNote.id;
+    const url = `http://localhost:8000/api/notes/`;
+    const url_with_id = `http://localhost:8000/api/notes/${id}`;
+    axios
+      .put(url_with_id, updatedNote)
+      .then(res => {
+        axios
+          .get(url)
+          .then(response =>
+            this.setState({ ...this.state, notes: response.data })
+          )
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   getNoteFromState(id) {
     if (!id) {
-      console.log("do not send me back to edit");
+      //do nothing
     }
-    console.log(id);
-    console.log(this.state.notes);
     const noteArr = this.state.notes.filter(note => note.id.toString() === id);
-    console.log(noteArr);
     const note = noteArr[0];
     return note;
+  }
+
+  handleSearch(e) {
+    // not implemented
   }
   render() {
     return (
@@ -88,7 +113,7 @@ class App extends Component {
             path="/notes/:id"
             render={props => {
               let id = props.match.params.id;
-              console.log(id);
+              console.log(this.state.notes);
 
               const noteArr = this.state.notes.filter(
                 note => note.id.toString() === id
@@ -130,5 +155,21 @@ class App extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => {
+//   console.log(getNotesData);
+//   console.log(state);
+//   return {
+//     notes: state.notes,
+//     fetchingNotes: state.fetchingNotes,
+//     fetchedNotes: state.fetchedNotes,
+//     addingNote: state.addingNote,
+//     addedNote: state.addedNote,
+//     editingNote: state.editingNote,
+//     editedNote: state.editedNote,
+//     deletingNote: state.deletingNote,
+//     deletedNote: state.deletedNote
+//   };
+// };
 
 export default App;

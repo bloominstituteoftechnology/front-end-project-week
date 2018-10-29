@@ -8,6 +8,13 @@
   width: 100%;
 }
 
+.search-bar {
+  width: 250px;
+  height: 30px;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
 .notes-container {
   max-width: 740px;
   width: 100%;
@@ -15,6 +22,11 @@
   margin: 0 auto;
   border: 1px solid black;
   background-color: whitesmoke;
+}
+@media (max-width: 550px) {
+  .App {
+    flex-direction: column;
+  }
 }
 
 .notes-container h1 {
@@ -42,4 +54,10 @@
 
 .button:hover {
   box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 550px) {
+  .button {
+    margin: 10px;
+  }
 }
