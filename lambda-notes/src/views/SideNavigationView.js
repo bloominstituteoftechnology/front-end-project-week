@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // CSS imports
 import './SideNavigationView.css';
 // Redux imports
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 // React Router import
 // import { route, withRouter } from 'react-router-dom';
 class SideNavigationView extends Component {

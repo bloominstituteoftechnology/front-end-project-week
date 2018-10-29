@@ -12,13 +12,15 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-// import rootReducer from './reducers'
+import rootReducer from './reducers';
 
 // Redux Devtools set up
 const composeEnhancers = composeWithDevTools({});
 
-const store = createStore(() => {},
-composeEnhancers(applyMiddleware(thunk, logger)));
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, logger))
+);
 
 ReactDOM.render(
   <Provider store={store}>
