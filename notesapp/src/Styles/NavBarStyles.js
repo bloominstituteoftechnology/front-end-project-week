@@ -1,18 +1,39 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const NavBarDiv = styled.div `
-border-left: 1px solid #B7B7B7;
-border-right: 1px solid #B7B7B7;
-width: 15%;
-height: 100%;
-background: #D3D2D3;
-`
+export const NavBarDiv = styled.div`
+  border-left: 1px solid #b7b7b7;
+  border-right: 1px solid #b7b7b7;
+  width: 18%;
+  height: 100vh;
+  background: #d3d2d3;
+  position: sticky;
+  top: 0;
+`;
 
-export const NavBarHeader = styled.h1 `
-font-size: 200%;
-color: #424242;
-margin: 0;
-padding-top: 10px;
-padding-left: 3%;
-line-height: 30px;
-`
+export const NavBarHeader = styled.h1`
+  font-size: 220%;
+  color: #424242;
+  margin: 0;
+  padding-top: 10px;
+  padding-left: 3%;
+  line-height: 30px;
+`;
+
+export const NavLinkDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    align-items: center;
+`;
+
+export const NavLinkBtn = styled.div`
+  background: #24b8bd;
+  border: 1px solid #b7b7b7;
+  padding: 12px;
+  width: 75%;
+  font-size: 100%;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+`;
