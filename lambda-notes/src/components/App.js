@@ -3,9 +3,8 @@ import NoteList from './NoteList'
 import '../styles/index.css'
 import AddNote from './AddNote'
 import axios from 'axios'
-import { Route } from 'react-router-dom'
+
 import ViewNote from '../components/ViewNote'
-import { Link } from 'react-router-dom'
 
 class App extends Component {
     state = {
@@ -49,16 +48,23 @@ class App extends Component {
         })
     }
 
+    deleteNote = id => {
+        axios
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .then(res =>
+                this.setState({
+                    notes: [ { _id: res.data } ],
+                })
+            )
+            .catch(err => console.log(err))
+    }
+
     render() {
-        const id = this.state.notes.find(note => this.state.notes._id === `${note.id}`)
         return (
             <div>
-                <Route exact path='/' render={props => <NoteList {...props} notes={this.state.notes} />} />
-                <Route
-                    path='/addnote'
-                    render={props => <AddNote {...props} addNote={this.addNote} handleChange={this.handleChange} />}
-                />
-                <Route path={`/${id}`} render={props => <ViewNote {...props} />} />
+                <NoteList notes={this.state.notes} deleteNote={this.deleteNote} />
+                <AddNote addNote={this.addNote} handleChange={this.handleChange} />}
+        
             </div>
         )
     }

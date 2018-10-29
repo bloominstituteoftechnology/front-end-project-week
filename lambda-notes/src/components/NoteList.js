@@ -1,16 +1,22 @@
 import React from 'react'
 import moment from 'moment'
-import { Link } from 'react-router-dom'
 
-const NoteList = ({ notes }, props) => {
+const NoteList = props => {
     return (
         <div>
-            {notes.map(note => {
+            {props.notes.map(note => {
                 return (
                     <article key={note._id}>
                         <h2>Title: {note.title}</h2>
                         <p>{note.textBody}</p>
                         <p>{moment().format('MMM Do YY')}</p>
+                        <button
+                            onClick={() => {
+                                props.deleteNote(note._id)
+                            }}
+                        >
+                            Delete
+                        </button>
                     </article>
                 )
             })}
