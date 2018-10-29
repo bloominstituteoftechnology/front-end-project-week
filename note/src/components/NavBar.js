@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NavBarContainer = styled.div
 `
@@ -26,8 +27,13 @@ const NavBar = props => {
     return (
         <NavBarContainer>
             <h1>Lambda Notes</h1>
+            <Link to ='/'>
             <NavButton>View your Notes</NavButton>
+            </Link>
+
+            <Link to='/new'>
             <NavButton>+ Create New Note</NavButton>
+            </Link>
         </NavBarContainer>
     )
 }
