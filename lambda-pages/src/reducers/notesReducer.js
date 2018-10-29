@@ -7,7 +7,10 @@ import {
   GET_NOTE_FAILURE,
   ADD_NOTE,
   ADD_NOTE_SUCCESS,
-  ADD_NOTE_FAILURE
+  ADD_NOTE_FAILURE,
+  UPDATE_NOTE,
+  UPDATE_NOTE_SUCCESS,
+  UPDATE_NOTE_FAILURE
 } from '../actions';
 
 const initalState = {
@@ -15,6 +18,8 @@ const initalState = {
   note: {},
   isFetching: false,
   isFetchingNote: false,
+  isAddingNote: false,
+  isUpdatingNote: false,
   error: null
 };
 
@@ -28,7 +33,7 @@ export const notesReducer = (state = initalState, action) => {
     case GET_ALL_NOTES_SUCCESS:
       return {
         ...state,
-        notes: [...action.payload],
+        notes: [...action.payload.reverse()],
         isFetching: false
       };
     case GET_ALL_NOTES_FAILURE:
@@ -57,19 +62,41 @@ export const notesReducer = (state = initalState, action) => {
     case ADD_NOTE:
       return {
         ...state,
-        isFetchingNote: true
+        isAddingNote: true
       };
     case ADD_NOTE_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
-        notes: [action.payload, ...state.notes]
+        notes: [action.payload, ...state.notes],
+        isAddingNote: false
       };
     case ADD_NOTE_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isFetchingNote: false
+        isAddingNote: false
+      };
+    case UPDATE_NOTE:
+      return {
+        ...state,
+        isupdatingNote: true
+      };
+    case UPDATE_NOTE_SUCCESS:
+      let index;
+      state.notes.forEach(
+        (note, i) => (note._id === action.payload._id ? (index = i) : null)
+      );
+      state.notes.splice(index, 1, action.payload);
+      return {
+        ...state,
+        notes: [...state.notes],
+        isupdatingNote: false
+      };
+    case UPDATE_NOTE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isUpdatingNote: false
       };
     default:
       return state;

@@ -28,13 +28,24 @@ class NoteForm extends Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.note) {
+      const { title, textBody, tags } = this.props.note;
+      this.setState({ title, textBody, tags });
+    }
+  }
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
   handleFormSubmit = e => {
     const { title, textBody, tags } = this.state;
     e.preventDefault();
-    this.props.addNewNote({ title, textBody, tags });
+    if (this.props.addNewNote) {
+      this.props.addNewNote({ title, textBody, tags });
+    } else if (this.props.updateNote) {
+      this.props.updateNote({ title, textBody, tags });
+    }
   };
   render() {
     const { title, textBody } = this.state;

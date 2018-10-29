@@ -18,10 +18,10 @@ const StyledNoteNav = styled.nav`
   }
 `;
 
-const NoteNav = () => {
+const NoteNav = props => {
   return (
     <StyledNoteNav>
-      <NavLink to="/">edit</NavLink>
+      <NavLink to={`/note/${props.id}/edit`}>edit</NavLink>
       <NavLink to="/">delete</NavLink>
     </StyledNoteNav>
   );

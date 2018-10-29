@@ -12,6 +12,10 @@ export const ADD_NOTE = 'ADD_NOTE';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
 
+export const UPDATE_NOTE = 'UPDATE_NOTE';
+export const UPDATE_NOTE_SUCCESS = 'UPDATE_NOTE_SUCCESS';
+export const UPDATE_NOTE_FAILURE = 'UPDATE_NOTE_FAILURE';
+
 // GET request
 export const getAllNotes = () => dispatch => {
   dispatch({ type: GET_ALL_NOTES });
@@ -38,6 +42,7 @@ export const getNote = id => dispatch => {
     });
 };
 
+// POST request
 export const addNote = note => dispatch => {
   dispatch({ type: ADD_NOTE });
   axios
@@ -49,4 +54,19 @@ export const addNote = note => dispatch => {
       });
     })
     .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
+};
+
+// PUT request
+// POST request
+export const updateNote = note => dispatch => {
+  dispatch({ type: UPDATE_NOTE });
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, note)
+    .then(res => {
+      dispatch({
+        type: UPDATE_NOTE_SUCCESS,
+        payload: { ...note }
+      });
+    })
+    .catch(err => dispatch({ type: UPDATE_NOTE_FAILURE, payload: err }));
 };
