@@ -1,0 +1,23 @@
+.modal {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 1000;
+    justify-content: center;
+    align-self: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+.innerModal {
+    background: red;
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+}
+   
+.show {
+    display: block;
+}

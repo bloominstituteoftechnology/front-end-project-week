@@ -3,6 +3,7 @@ import axios from 'axios';
 import NoteCard from './NoteCard';
 import EditNote from './EditNote';
 import { Link } from "react-router-dom";
+import '../App.css';
 
 class Note extends React.Component {
     constructor(props) {
@@ -36,6 +37,10 @@ class Note extends React.Component {
             console.error(error);
         })
        this.props.history.push('/');
+    }
+
+    deleteModal = () => {
+        document.querySelector('.modal').classList.toggle('show');
     }
 
     componentDidMount(props) {
@@ -73,7 +78,14 @@ class Note extends React.Component {
                 <Link to={'/'}>Home</Link>    
                 <NoteCard note={this.state.note} />
                 <button onClick={this.editNote}>Edit</button>
-                <button onClick={this.deleteNote}>Delete</button>
+                <button onClick={this.deleteModal}>Delete</button>
+                    <div className='modal'>
+                        <div className='innerModal'>
+                            <h3>Are you sure you want to delete this note?</h3>
+                            <div onClick={this.deleteNote}>Delete</div>
+                            <div onClick={this.deleteModal}>Cancel</div>
+                        </div>
+                    </div>
             </div>   
         )
     }

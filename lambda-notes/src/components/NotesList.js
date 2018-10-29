@@ -28,12 +28,12 @@ class NotesList extends React.Component {
                     <Link to={'/note/create'}><StyledLink>Add New Note</StyledLink></Link>
                 </LeftBar>
                 {this.state.notes.map(note => (
-                        <ContainCards key={note._id}>
-                            <NoteCard 
-                                note={note}
-                                updateNote={this.updateNote} 
-                            />
-                        </ContainCards>
+                    <ContainCards key={note._id}>
+                        <NoteCard 
+                            note={note}
+                            updateNote={this.updateNote} 
+                        />
+                    </ContainCards>
                 ))}
             </div>
         );
