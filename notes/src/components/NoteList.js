@@ -33,16 +33,23 @@ class NoteList extends Component {
     return (
       <div className="App">
       {this.state.notes.map(note => (
-            <div key={note.id}>
-            <NoteCard key={note.id} note={note} />
+            <div>
+              <NoteDetails key={note.id} note={note} />
             </div>
             ))}
 
       </div>
     );
   }
-
-  
 }
 
+  function NoteDetails({note}) {
+    const { id } = note
+      return(
+          <Link to={`/note/${id}`}>
+            <NoteCard note={note} />
+          </Link>
+          )
+
+  }
 export default NoteList;
