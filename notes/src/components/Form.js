@@ -3,8 +3,8 @@ import React from "react";
 import { StyledForm, Input, Cancel, Button } from "../styles";
 import xCancel from "../assets/x.svg" 
 
-const Form = ({ editing, newNote, handleInputChange, handleSubmit, handleCancel }) => (
-  <StyledForm onSubmit={handleSubmit}>
+const Form = ({ editing, newNote, handleInputChange, handleSubmit, handleCancel, onKeyDown }) => (
+  <StyledForm onSubmit={handleSubmit} onKeyDown={onKeyDown}>
     <Cancel src={xCancel} alt="cancel" onClick={handleCancel}/>
     <h2>{editing ? "Edit Note" : "Create New Note"}</h2>
     <Input

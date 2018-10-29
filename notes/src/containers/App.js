@@ -117,6 +117,7 @@ class App extends Component {
                 this.state.editing ? this.handleSubmitUpdate : this.handleSubmit
               }
               handleCancel={this.cancelForm}
+              onKeyDown={this.handleKeyDown}
             />
           )}
         />

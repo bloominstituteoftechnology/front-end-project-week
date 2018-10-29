@@ -8,7 +8,8 @@ const FormContainer = ({
   newNote,
   handleInputChange,
   handleSubmit,
-  handleCancel
+  handleCancel,
+  onKeyDown
 }) => (
   <MainContent>
     <Form
@@ -17,6 +18,7 @@ const FormContainer = ({
       handleInputChange={handleInputChange}
       handleSubmit={handleSubmit}
       handleCancel={handleCancel}
+      onKeyDown={onKeyDown}
     />
   </MainContent>
 );

@@ -93,10 +93,10 @@ export const StyledForm = styled.form`
 `;
 
 export const Cancel = styled.img`
-position: relative;
-right: -50%;
-cursor: pointer;
-`
+  position: relative;
+  right: -50%;
+  cursor: pointer;
+`;
 
 export const Input = styled.textarea`
   border-radius: 5px;
@@ -120,5 +120,30 @@ export const Button = styled.button`
   cursor: pointer;
   &:hover {
     background: #666666;
+  }
+`;
+
+export const Delete = styled.div`
+  background: rgba(210, 210, 210, 0.8);
+  height: 100vh;
+  width: 200vw;
+  justify-content: center;
+  align-items: center;
+  z-index: 111;
+  position: fixed;
+  top: 0;
+  left: -50%;
+`;
+
+export const DeleteModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 500px;
+  height: 200px;
+  background: #fbfafb;
+  button {
+      margin: 0 20px;
   }
 `;
