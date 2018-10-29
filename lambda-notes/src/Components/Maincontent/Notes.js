@@ -4,13 +4,11 @@ import styled from 'styled-components';
 const Notes = (props) => {
 	return (
 		<StyledNoteWrapper>
-			<StyledHeader>
-				<h1>Your Notes:</h1>
-			</StyledHeader>
+			<StyledHeader>Your Notes:</StyledHeader>
 
 			{props.notes.map((note) => {
 				return (
-					<StyledNoteContainer key={note.id}>
+					<StyledNoteContainer key={note._id}>
 						<StyledH1>{note.title}</StyledH1>
 						<p>{note.textBody}</p>
 						<p>
@@ -30,7 +28,7 @@ export const StyledNoteWrapper = styled.div`
 	flex-direction: row;
 	flex-wrap: wrap;
 	max-width: 75%;
-	border: 1px solid red;
+	border: 2px solid rgba(80, 80, 80, 0.3);
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -56,13 +54,12 @@ export const StyledH1 = styled.h1`
 export const StyledHeader = styled.h1`
 	display: block;
 	width: 100%;
-	font-size: 14px;
+	font-size: 20px;
 	color: rgba(80, 80, 80, 0.7);
 	margin: 0;
-	margin-bottom: 15px;
-	padding: 10px;
+	padding-left: 10px;
+	padding-bottom: 0;
 	text-align: start;
-	height: 40px;
 `;
 
 export const StyledSpan = styled.span`
