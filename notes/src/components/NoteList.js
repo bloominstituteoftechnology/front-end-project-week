@@ -20,6 +20,14 @@ class NoteList extends Component {
     //axios stuff here
 
   }
+  
+  updateNote = (noteData) => {
+      .post('https://killer-notes.herokuapp.com/note/create', noteData ) 
+      .then(res => )
+      .catch(err => console.log(err))
+    
+    
+  }
 
 
   render() {

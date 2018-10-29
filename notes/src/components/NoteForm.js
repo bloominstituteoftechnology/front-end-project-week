@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NoteForm extends Component {
   constructor() {
@@ -16,6 +17,10 @@ class NoteForm extends Component {
 
   newNote = (event) => {
     event.preventDefault();
+    axios
+      .post('https://killer-notes.herokuapp.com/note/create', this.state)
+      .then(res => )
+      .catch(err => console.log(err))
     //put the axios stuff here.
     console.log(event);
   }
