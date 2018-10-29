@@ -48,19 +48,13 @@ class NoteCard extends React.Component {
             <div className="delete-container">
               <a>Are you sure you want to delete this?</a>
               <div className="btn-container">
-                <Link to="/">
-                  {""}
-                  <button
-                    type="button"
-                    className="overlay-btn delete"
-                    onClick={() => this.deleteHandler()}
-                  >
-                    {""}
-                    Delete
-                    {""}
-                  </button>
-                  {""}
-                </Link>
+                <button
+                  type="button"
+                  className="overlay-btn delete"
+                  onClick={() => this.deleteHandler()}
+                >
+                  Delete
+                </button>
                 <button
                   className="overlay-btn"
                   onClick={() => this.setState({ deleteFormShow: false })}
@@ -83,8 +77,12 @@ class NoteCard extends React.Component {
             </Link>
             <a onClick={() => this.showDeleteHandler()}> delete </a>
           </div>
+          <div className="note-container">
+          <div className="note">
           <h1 className="notes-title card">{this.props.note.title}</h1>
           <a className="single-notes-content">{this.props.note.textBody}</a>
+          </div>
+          </div>
         </div>
       </div>
     );

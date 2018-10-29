@@ -10,9 +10,9 @@ import {
   SINGLE_FETCHED,
   FETCHING_SINGLE,
   ERROR,
-  SEARCH,
-//  SORT_CHARACTERS,
- // SORT_CONTENT
+  SEARCH
+  //  SORT_CHARACTERS,
+  // SORT_CONTENT
 } from "../actions";
 
 const initialState = {
@@ -72,7 +72,8 @@ const rootReducer = (state = initialState, action) => {
         notes: state.notes.filter(note => action.id !== note._id)
       };
     case SEARCH:
-      if (action.sString === "")
+      const searchString = action.sString.target.value;
+      if (!searchString || searchString === "")
         return {
           ...state,
           searchList: [],
@@ -83,7 +84,7 @@ const rootReducer = (state = initialState, action) => {
         return {
           ...state,
           searching: true,
-          searchList: notes.filter(note => note.title.includes(action.sString))
+          searchList: notes.filter(note => note.title.includes(searchString))
         };
       }
 

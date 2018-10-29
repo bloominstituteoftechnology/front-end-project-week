@@ -39,3 +39,38 @@ export const SearchInput = styled.input`
   padding: 0.25em 1em;
   margin: 1em;
 `;
+export const SidebarButton = styled.div`
+  font-family: "Raleway", sans-serif;
+  background: #2bc1c4;
+  color: #ffffff;
+  border: unset;
+  border: solid #740078 0.5px;
+  width: 80%;
+  height: 30px;
+  margin: 0 7.5% 15px;
+  padding: 8px;
+  justify-content: center;
+
+  > p {
+    color: white;
+  }
+  &:hover {
+    background-color: #2c6666;
+    cursor: pointer;
+  }
+`;
+
+export const DivClick = styled.div`
+  margin: 0 5% 15px 5%;
+  text-align: center;
+  padding: 8%;
+  border: solid #005778 0.5px;
+  background-color: #4aacac;
+  > p {
+    color: white;
+  }
+  &:hover {
+    background-color: #2c6666;
+    cursor: pointer;
+  }
+`;

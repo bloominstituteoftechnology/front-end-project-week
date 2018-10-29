@@ -12,17 +12,18 @@
 
 .edit-delete {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     font-weight: bold;
+    font-size: 25px;
     color: black;
 }
 
 .edit-delete a {
-    margin: 5px 1% 0;
+    margin: 30px 5% 20;
 }
 
 .notes-title.card {
-    margin: 27px 0 0 5%;
+    margin: 27px 2 2 5%;
 }
 
 .single-notes-content {
@@ -41,12 +42,13 @@
 
 .delete-container {
     width: 50%;
-    background: white;
+    background: #F2B801;
     height: 130px;
-    top: 200px;
     right: 25%;
     position: absolute;
-    opacity: unset;
+    left: 350px;
+    top: 200px;
+    opacity: 1;
     border: 1px #979797 solid;
     display: flex;
     align-items: center;
@@ -56,7 +58,7 @@
 }
 
 .delete-container a {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif, #740078;
     width: 56%;
 }
 
@@ -69,6 +71,10 @@
     width: 30%;
     margin: 0 7.5% 15px;
     padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,7 +91,6 @@
 .btn-container {
     display: flex;
     width: 100%;
-    margin-top: 35px;
     justify-content: center;
 }
 

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 .sidebar-container {
-    background: #D3D3D3;
+    background: yellow;
     width: 20%;
     height: 100%;
     border-right: 1px #979797 solid;
@@ -9,6 +9,11 @@
     justify-content: flex-start;
     text-align: left;
     position: fixed;
+}
+
+.section-container {
+    background-image: url("../Login/ceruza.jpg");
+    background-size: cover;
 }
 
 .sideBar .title h1 {
@@ -27,15 +32,24 @@
     line-height: 0.90;
 }
 
+.sidebar-button a:hover {
+    background-color: 2c6666;
+    cursor: pointer;
+}
+
 .sidebar-button {
     font-family: 'Raleway', sans-serif;
     background: #2BC1C4;
     color: #FFFFFF;
     border: unset;
-    border: 1px #979797 solid;
+    border: solid #740078 0.5px;
     width: 80%;
+    height: 30px;
     margin: 0 7.5% 15px;
     padding: 8px;
     justify-content: center;
 }
 
+.sideBar {
+    background: rgb(240, 193, 236)
+}

@@ -26,7 +26,7 @@
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     line-height: 0.90;
-    margin: 50px 0 25px 10%;
+    margin: 50px 10% 25px 10%;
     width: 100%;
 }
 
@@ -38,7 +38,16 @@
     margin-right: 3%;
     margin-bottom: 20px;
     overflow: hidden;
+    
+    white-space: nowrap;
+    background-color: white;
     text-overflow: ellipsis;
+    box-shadow: 2 4px 8px 2 rgba(0, 0, 0, 0.6);
+    transition: 1.6s;
+}
+
+.note:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
 .note h3 {
@@ -48,7 +57,9 @@
     font-size: 18px;
     font-weight: bold;
     color: black;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .note a {
