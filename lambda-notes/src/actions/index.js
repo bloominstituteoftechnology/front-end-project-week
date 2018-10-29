@@ -35,7 +35,7 @@ export const createNote = note => {
   return dispatch => {
     dispatch({ type: CREATING_NOTE });
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", note)
+      .post("http://localhost:9000/api/notes", note)
       .then(resp =>
         dispatch({ type: CREATING_NOTE_SUCESSFULL, payload: resp.data })
       )

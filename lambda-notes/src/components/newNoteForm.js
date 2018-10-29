@@ -17,7 +17,11 @@ class NewNoteForm extends React.Component {
 
   handleSubmit = () => {
     if (this.state.title.trim() && this.state.textBody.trim()) {
-      this.props.createNote(this.state);
+      this.props.createNote({
+        tags: JSON.stringify(this.state.tags.split(", ")),
+        title: this.state.title,
+        textBody: this.state.textBody
+      });
       this.props.history.push("/");
     }
   };
