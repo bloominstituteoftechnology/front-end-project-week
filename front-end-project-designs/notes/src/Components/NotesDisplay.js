@@ -30,7 +30,12 @@ class NotesDisplay extends React.Component {
         return (
             <div>
                 <h1>NotesDisplay</h1>
-
+                {this.state.notes.map((note, index) => 
+                                                    <SingleNote
+                                                        key = {note.id}
+                                                        data = {note}
+                                                    />
+                )}
             </div>
         )
     }
