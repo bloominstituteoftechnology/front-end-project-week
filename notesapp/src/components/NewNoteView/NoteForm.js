@@ -4,6 +4,12 @@ FormTitle, NewNoteBtn, NewNoteButtonText} from '../../Styles/NoteFormStyles'
 
 const NoteForm = props => {
     const {title, textBody} = props.noteObj;
+    const routeFromNewNote = ev => {
+        ev.preventDefault()
+        props.addNote()
+        props.history.push('/Home')
+    }
+    
     return (
         
         <NoteFormCont>
@@ -23,7 +29,7 @@ const NoteForm = props => {
         value={textBody}
 
         />
-        <NewNoteBtn><NewNoteButtonText>Save</NewNoteButtonText> </NewNoteBtn>
+        <NewNoteBtn onClick={ev => routeFromNewNote(ev)}><NewNoteButtonText>Save</NewNoteButtonText> </NewNoteBtn>
 
         </NoteFormCont>
         

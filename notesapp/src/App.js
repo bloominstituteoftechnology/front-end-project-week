@@ -38,6 +38,13 @@ class App extends Component {
     })
   }
 
+  addNote = () => {
+    axios
+    .post(`https://fe-notes.herokuapp.com/note/create`, this.state.noteObj)
+    .then(response => this.setState(response.data))
+    .catch(error => alert(error))
+  }
+
   render() {
     return (
       <AppDiv>
@@ -53,6 +60,7 @@ class App extends Component {
       {...props}
       noteObj={this.state.noteObj}
       changeHandler={this.changeHandler}
+      addNote={this.addNote}
       
     />}/>
 
