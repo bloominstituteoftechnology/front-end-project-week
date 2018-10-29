@@ -6,9 +6,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: []
+      notes: [
+        {
+          id: 0,
+          title: 'example 1',
+          textBoday: 'textBoday 1'
+        },
+        {
+          id: 1,
+          title: 'example 2',
+          textBoday: 'textBoday 2'
+        }
+      ]
     }
   }
+
 
   render() {
     return (
