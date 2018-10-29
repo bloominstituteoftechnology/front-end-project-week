@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-// import NoteCard from './Note';
-// import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class NotesView extends Component {
 
-    render() {
+const NotesView = props => {
         return (
-            <div>
-                <h1>Your Notes:</h1>
-                <div className="notes-container">
+            <div className="notes-container">
+                <h2>Your Notes:</h2>
+                <div className="notes-grid">
                 
-                {this.props.notes.map(note => {
+
+                {props.notes.map(note => {
                     return (
-                        // <Link to={`/note/get/${note.id}`}>
-                        <div key={note._id} className="note-card">
+                        <Link to={`/note/${note._id}`} key={note._id} >
+                        <div className="note-card">
+                        <div className="card-content">
                         <h4>{note.title}</h4>
                         <p>{note.textBody}</p>
                         </div>
-                        // </Link>
+                        </div>
+                        </Link>
                     )
                     })}
                 </div>
             </div>
         )
     }
-}
 
 export default NotesView;

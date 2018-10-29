@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Note from './Note';
 import NoteForm from './NoteForm';
 import NotesView from './NotesView';
-// import SideBar from './SideBar';
+import SideBar from './SideBar';
 import { Route } from 'react-router-dom';
 
 
@@ -15,8 +15,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {/* <SideBar /> */}
+      <div className='cardview'>
 
+      <div className="sidebar">
+      <SideBar />
+      </div>
+      
+      <div className="main-page">
       <Route
       exact path = '/'
       render = {props =>(
@@ -32,13 +37,13 @@ class App extends Component {
       )}/>
 
       <Route
-      path = 'viewnote'
+      path = 'note/:_id'
       render = {props =>(
         <Note {...props}
         notes = {this.props.notes}/>
       )}/>
-
-      <NoteForm/>
+      </div>
+      </div>
       </div>
     );
   }

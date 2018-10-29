@@ -23,7 +23,7 @@ export const createNote = note => dispatch => {
     dispatch( {type: CREATING_NOTE} );
     axios
     .post('https://fe-notes.herokuapp.com/note/create', note)
-    .then(({data}) => {
+    .then(({ data }) => {
         console.log('data', data)
         dispatch({ type: CREATE_SUCCESS, payload: data });
     })
