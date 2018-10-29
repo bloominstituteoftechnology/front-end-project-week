@@ -16,44 +16,51 @@ class App extends Component {
 
   componentDidMount () {
     axios 
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         console.log(response);
         this.setState({notes: response.data})
       }) 
       .catch (error => {
-        console.log.error('Error', error);
+        console.log('Error', error);
       })
   }
 
+  addNewNote = data => {
+    this.setState({notes: data})
+  }
 
   render() {
     return (
       <div className="App">
         <div className = 'navBar'>
           <nav>
-              <h1> Lambda Notes </h1>
-              <NavLink to = '/'> View Your Notes </NavLink>
-              <NavLink to = '/create-new-note'> + Create New Note </NavLink>
+            <h1> Lambda Notes </h1>
+            <NavLink to = '/'> View Your Notes </NavLink>
+            <NavLink
+            to = '/create-new-note'> + Create New Note </NavLink>
           </nav>
         
           <Route 
-              exact path='/' 
-              render=
-                  {props =>
-                      <All {...props} 
-                      notes = {this.state.notes}
-                      
-                      />
-                  }
-          />
+            exact path='/' 
+            render=
+              {props =>
+                <All
+                 {...props} 
+                notes = {this.state.notes}
+                />
+              }
+           />
 
           <Route 
               exact path='/create-new-note' 
               render=
-                  {props =>
-                      <CreateNew {...props}/>
-                  }
+                {props =>
+                  <CreateNew 
+                    {...props}
+                    addNewNote = {this.addNewNote}
+                  />
+                }
           />
         </div>          
       
