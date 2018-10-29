@@ -31,7 +31,7 @@ class App extends Component {
 
   render() {
     const { pageToDisplay } = this.state
-    const { notes, postNote, deleteNote } = this.props
+    const { notes, postNote, putNote, deleteNote } = this.props
     const { changeDisplayedPage } = this
 
     return (
@@ -45,6 +45,7 @@ class App extends Component {
         {pageToDisplay.length > 20 && (
           <DisplayOne
             deleteNote={deleteNote}
+            putNote={putNote}
             changeDisplayedPage={changeDisplayedPage}
             {...notes.filter(({ _id }) => _id === pageToDisplay)[0]}
           />
@@ -52,7 +53,6 @@ class App extends Component {
 
         {pageToDisplay === 'create' && <Add postNote={postNote} />}
 
-        {pageToDisplay === 'edit' && <Edit />}
       </PageContainer>
     )
   }

@@ -26,20 +26,30 @@ export const postNote = ({ title, text }) => dispatch => {
   console.log('posting')
 
   axios
-    .post('https://fe-notes.herokuapp.com/note/create', { title, textBody: text })
+    .post('https://fe-notes.herokuapp.com/note/create', {
+      title,
+      textBody: text
+    })
     // again not sure what server will return yet
     .then(res => {
       console.log(res)
-      // dispatch({ type: POST_NOTE, payload: res.data }) 
+      // dispatch({ type: POST_NOTE, payload: res.data })
       dispatch(getAllNotes())
     })
     .catch(err => console.log(err))
 }
 
-export const putNote = (note, { id }) => dispatch => {
+export const putNote = ({ title, text, id }) => dispatch => {
   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
-    .then(res => dispatch({ type: PUT_NOTE, payload: res.data }))
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+      title,
+      textBody: text
+    })
+    .then(res => {
+      console.log(res)
+      // dispatch({ type: PUT_NOTE, payload: res.data })
+      dispatch(getAllNotes())
+    })
     .catch(err => console.log(err))
 }
 
