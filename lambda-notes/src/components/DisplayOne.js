@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import {
   Container,
+  InnerContainer,
   Title,
   Body,
   ButtonsContainer,
@@ -37,34 +38,36 @@ class DisplayOne extends Component {
 
     return (
       <Container>
-        {editing ? (
-          <Edit {...this.props} />
-        ) : (
-          <Fragment>
-            <ButtonsContainer>
-              <Button onClick={() => edit()}>Edit</Button>
-              <Button onClick={() => toggleDeleteModal()}>Delete</Button>
-            </ButtonsContainer>
-            <Title>{title}</Title>
-            <Body>{textBody}</Body>
-          </Fragment>
-        )}
+        <InnerContainer style={{ position: deleteChoice ? '' : 'relative' }}>
+          {editing ? (
+            <Edit {...this.props} />
+          ) : (
+            <Fragment>
+              <ButtonsContainer>
+                <Button onClick={() => edit()}>Edit</Button>
+                <Button onClick={() => toggleDeleteModal()}>Delete</Button>
+              </ButtonsContainer>
+              <Title>{title}</Title>
+              <Body>{textBody}</Body>
+            </Fragment>
+          )}
 
-        {deleteChoice && (
-          <DeleteModal>
-            <DeleteBox>
-              Are you sure you want to delete this?
-              <DeleteButtonsWrapper>
-                <DeleteButton onClick={deleteItem} color="#D50000">
-                  Delete
-                </DeleteButton>
-                <DeleteButton onClick={toggleDeleteModal} color="#00BBBE">
-                  No
-                </DeleteButton>
-              </DeleteButtonsWrapper>
-            </DeleteBox>
-          </DeleteModal>
-        )}
+          {deleteChoice && (
+            <DeleteModal>
+              <DeleteBox>
+                Are you sure you want to delete this?
+                <DeleteButtonsWrapper>
+                  <DeleteButton onClick={deleteItem} color="#D50000">
+                    Delete
+                  </DeleteButton>
+                  <DeleteButton onClick={toggleDeleteModal} color="#00BBBE">
+                    No
+                  </DeleteButton>
+                </DeleteButtonsWrapper>
+              </DeleteBox>
+            </DeleteModal>
+          )}
+        </InnerContainer>
       </Container>
     )
   }

@@ -33,6 +33,8 @@ class App extends Component {
     const { notes, postNote, putNote, deleteNote } = this.props
     const { changeDisplayedPage } = this
 
+    console.log(notes)
+
     return (
       <PageContainer>
         <Sidebar changeDisplayedPage={changeDisplayedPage} />

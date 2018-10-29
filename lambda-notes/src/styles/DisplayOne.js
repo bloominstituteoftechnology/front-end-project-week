@@ -4,16 +4,21 @@ export const Container = styled.div`
   padding: 20px;
   background: #f2f0f2;
   overflow-wrap: break-word;
-  display: flex;
   overflow-y: scroll;
-  flex-direction: column;
   width: 100%;
+`
+
+export const InnerContainer = styled.div`
+  flex-direction: column;
+  display: flex;
+  width: 500px;
+  margin-top: 30px;
 `
 
 export const Title = styled.h2`
   font-weight: bold;
   font-size: 2rem;
-  margin: 30px 10px 20px;
+  margin: 0px 10px 20px;
 `
 
 export const Body = styled.p`
@@ -25,10 +30,8 @@ export const Body = styled.p`
 `
 
 export const ButtonsContainer = styled.div`
-  position: absolute;
-  top: 25px;
-  right: 40px;
   display: flex;
+  justify-content: flex-end;
 `
 
 export const Button = styled.button`
