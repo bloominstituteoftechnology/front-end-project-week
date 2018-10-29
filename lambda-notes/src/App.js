@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 
 import SideBar from "./components/side-bar";
 import NoteList from "./components/note-list";
+import NoteForm from "./components/note-form";
 
 class App extends Component {
   constructor(props) {
@@ -23,8 +25,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SideBar />
-        <NoteList notes={this.state.notes} />
+        <Route path="/" component={SideBar} />
+        <Route
+          path="/notes"
+          render={() => <NoteList notes={this.state.notes} />}
+        />
+        <Route path="/note-form" component={NoteForm} />
       </div>
     );
   }

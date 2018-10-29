@@ -1,11 +1,12 @@
 import React from "react";
+import { Route, NavLink } from "react-router-dom";
 
 const SideBar = () => {
   return (
-    <div>
+    <div className="sideBar">
       <h1>Lambda Notes</h1>
-      <button>View Your Notes</button>
-      <button>+ Create New Note</button>
+      <NavLink to="/notes">View Your Notes</NavLink>
+      <NavLink to="/note-form">+Create New Note</NavLink>
     </div>
   );
 };
