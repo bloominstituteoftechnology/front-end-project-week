@@ -8,6 +8,7 @@ const NotesList = props => {
                                            id={note._id}
                                            title={note.title} 
                                            text={note.textBody}
+                                           passThisNote={props.passThisNote}
                                            />)
             }
         </div>

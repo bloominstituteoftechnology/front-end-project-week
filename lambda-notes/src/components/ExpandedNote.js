@@ -1,23 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-class ExpandedNote extends React.Component {
-    test = () => console.log(this.props);
     
-
-    render() {
-        return (
-            <div className='expandedNote'>
-                <div>
-                    <Link to={'/edit'}>edit</Link>
-                    <Link to={'/delete'}>delete</Link>
-                </div>
-                <h1>Note Name</h1>
-                <p>Lorem ipsum</p>
+const ExpandedNote = props => {
+    return (
+        <div className='expandedNote'>
+            <div>
+                <Link to={`/editNote/${props.expandedNote.id}`}>edit</Link>
+                <Link to={'/delete'}>delete</Link>
             </div>
-        )
-    }
-
+            <h1>{props.expandedNote.title}</h1>
+            <p>{props.expandedNote.text}</p>
+        </div>
+    )
 }
 
 export default ExpandedNote;
