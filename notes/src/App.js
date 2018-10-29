@@ -4,6 +4,7 @@ import { fetchNotes, postNote } from './actions';
 import { connect } from 'react-redux';
 import NoteListView from './components/NoteListView';
 import CreateNote from './components/CreateNote';
+import SideBar from './components/SideBar';
 
 class App extends Component {
   constructor() {
@@ -35,12 +36,13 @@ class App extends Component {
 
   postHandler = (ev) => {
     ev.preventDefault();
-    this.props.postNote(this.state.note);
+    this.props.postNote(this.state.note)
   }
 
   render() {
     return (
       <div className="App">
+        <SideBar></SideBar>
         <NoteListView noteContent={this.props.notes}></NoteListView>
         <CreateNote changeHandler={this.changeHandler} postHandler={this.postHandler}></CreateNote>
       </div>

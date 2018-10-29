@@ -1,0 +1,56 @@
+.notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.singleNote {
+    height: 200px;
+    border: 1.5px solid #9BA3A3;
+    margin: 10px 10px;
+    text-align: start;
+    padding: 10px 20px 25px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: white;
+}
+
+.singleNote p, h3 {
+    width: 170px;
+}
+
+.singleNote p {
+    margin: 0;
+    margin-top: 7px;
+    height: 155px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.singleNote h3 {
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #9BA3A3;
+    margin: 0;
+    height: 22px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+
+.notesAll {
+    text-align: start;
+    margin: 0;
+    background: #E9E7E7;
+    width: 80%;
+}
+
+h2 {
+    margin: 50px 0 0 20px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    color: #5C5D5D;
+}
+
+.singleNote:hover {
+    cursor: pointer;
+}
