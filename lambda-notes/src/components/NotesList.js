@@ -14,19 +14,19 @@ class NotesList extends React.Component {
 
     componentDidMount() {
         axios
-          .get("https://killer-notes.herokuapp.com/note/get/all")
+          .get("https://fe-notes.herokuapp.com/note/get/all")
           .then(response => this.setState({ notes: response.data }))
           .catch(error => console.log(error));
     }
 
     render() {
+        console.log(this.state.id);
         return(
             <div>
                 <Link to={'/'}>Home</Link>
                 {this.state.notes.map(note => (
                     <div key={note._id}>
                         <NoteCard 
-                            key={note._id}
                             note={note}
                         />
                     </div>

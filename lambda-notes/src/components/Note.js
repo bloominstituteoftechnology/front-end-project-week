@@ -13,17 +13,13 @@ class Note extends React.Component {
     componentDidMount(props) {
         const id = this.props.match.params.id;
         this.fetchNote(id);
-    }
-    
-    componentWillReceiveProps(newProps){
-        if(this.props.match.params.id !== newProps.match.params.id){
-          this.fetchNote(newProps.match.params.id);
-        }
+        console.log(this.props.id);
     }
 
     fetchNote = id => {
+        // console.log(this.state.id);
         axios
-         .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
          .then(response => {
              this.setState(() => ({ note: response.data }));
          })
@@ -31,6 +27,12 @@ class Note extends React.Component {
              console.error(error);
          });
     };
+
+    componentWillReceiveProps(newProps){
+        if(this.props.match.params.id !== newProps.match.params.id){
+          this.fetchNote(newProps.match.params.id);
+        }
+    }
 
     render() {
         if (!this.state.note) {
