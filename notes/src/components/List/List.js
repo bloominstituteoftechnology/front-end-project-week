@@ -21,7 +21,7 @@ export default class List extends Component {
     return (
       <div>
         {this.state.notes.map((note) => (
-          <Link to={`/notes/${note._id}`} key={note._id}>
+          <Link to={`/note/${note._id}`} key={note._id}>
             <NoteCard note={note} />
           </Link>
         ))}
