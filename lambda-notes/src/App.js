@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import { TodosView } from './Views.js';
+import { NotesView } from './Views.js';
+import { NotesProvider } from './NotesContext';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      notes: [
+
+      ]
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <TodosView />
-      </div>
+      <NotesProvider>
+        <div className="App">
+          <NotesView />
+        </div>
+      </NotesProvider>
     );
   }
 }
