@@ -1,22 +1,27 @@
 import React from 'react';
+// import { connect } from 'react-redux';
+// import {grabbingNotes} from '../../actions';
 
-function NotesList(props) {
-    if(!props.noteList || ! props.noteList.length) {
-        return <h1>No Note Date Found...</h1>
+
+class NotesList extends React.Component {
+    componentDidMount() {
+        this.props.grabbingNotes();
     }
-    return (
-        <div className="notesOverWrap">
-            <h2>Your Notes</h2>
-            <div className="noteWrap">
-                {props.noteList.map(note => (
-                    <div className="noteCard" key={note.id}>
-                        <h2 onClick={() => props.history.push(`/notes/${note._id}`)}>{note.title}</h2>
-                        <p>{note.textBody}</p>
-                    </div>
-                ))}
+    render() {
+        return (
+            <div className="notesOverWrap">
+                <h2>Your Notes</h2>
+                <div className="noteWrap">
+                    {this.props.notes.map(note => (
+                        <div className="noteCard" key={note.id}>
+                            <h2 onClick={() => this.props.history.push(`/notes/${note._id}`)}>{note.title}</h2>
+                            <p>{note.textBody}</p>
+                        </div>
+                    ))};
+                </div>
             </div>
-        </div>
-    ); 
- }
+        ); 
+    }
+}
 
  export default NotesList;

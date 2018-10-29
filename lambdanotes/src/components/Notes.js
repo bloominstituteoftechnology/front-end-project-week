@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
    componentDidMount() {
     const noteId = this.props.match.params.noteId;
-    axios.get(`https://killer-notes.herokuapp.com/note/get/${noteId}`, this.state.note)
+    axios.get(`https:localhost:9000/api/notes/${noteId}`, this.state.note)
     .then(response => {
       this.setState({title: response.data.title, textBody: response.data.textBody, id: response.data.id});
   })
@@ -23,7 +23,7 @@ import { Link } from 'react-router-dom';
 }
   handleDelete = () => {
     const noteId = this.props.match.params.noteId;
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+    axios.delete(`https:localhost:9000/api/notes/${noteId}`)
     .then(response => { this.setState( () => ({ note: response.data }));
       })
     .catch(error => {
@@ -31,7 +31,7 @@ import { Link } from 'react-router-dom';
     });
   }
   handleUpdatingNote = noteId => {
-    axios.put(`https://killer-notes.herokuapp.com/note/edit/id/${noteId}`, this.state.note)
+    axios.put(`https:localhost:9000/api/notes/${noteId}`, this.state.note)
     .then(response => {
       console.log("handling update...maybe?", response);
       this.getNotes();

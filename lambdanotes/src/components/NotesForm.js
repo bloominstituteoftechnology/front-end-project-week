@@ -3,14 +3,6 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 function NotesForm(props) {
-    function handleSubmit(event) {
-        function handleSubmit(event) {
-            event.preventDefault();
-            if (props.updatingNote) {
-                props.handleUpdatingNote
-            }
-        }
-    }
 
         return (
             <Fragment>
