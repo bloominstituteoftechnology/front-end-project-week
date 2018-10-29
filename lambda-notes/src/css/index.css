@@ -135,22 +135,24 @@ html {
   font-size: 62.5%;
 }
 #root {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   font-family: sans-serif;
 }
 .App {
   width: 100%;
   height: 100%;
+  display: flex;
 }
 .navigation-wrapper {
   height: 100%;
   width: 220px;
   background: #c5c5c5;
-  border: 1px solid #afafaf;
   padding: 0 15px;
   display: flex;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -170,8 +172,31 @@ html {
   padding: 15px 0;
   margin: 10px 0;
   font-size: 1.6rem;
+  outline-width: thin;
+  outline-color: #202529;
 }
 .navigation-wrapper button.navigation-button:hover {
   background: #187e82;
   cursor: pointer;
+}
+.your-notes {
+  background: #f2f1f2;
+  border-left: 1px solid #979797;
+  margin-left: 220px;
+  padding: 58px 34px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.your-notes .your-notes-header {
+  width: 100%;
+  margin: 38px 12px;
+}
+.your-notes .note-card {
+  height: 300px;
+  width: 300px;
+  border: 1px solid #979797;
+  margin: 12px;
+  background: #ffffff;
 }
