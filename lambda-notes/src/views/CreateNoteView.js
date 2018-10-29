@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
  class CreateNoteView extends Component {
-  state = {};
+    constructor(props){
+        super(props)
+        this.state = {};
+    }
+
+    createNote = (event, id) => {
+        event.preventDefault();
+        
+    }
   render() {
     return (
       <div>

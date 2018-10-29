@@ -6,12 +6,15 @@ const NoteCard=styled.div`
 `
 
 class NoteView extends React.Component {
+    constructor(props){
+        super(props);
+    }
     
     render(){
         return(
             <NoteCard>
 
-            <h1>Note View</h1>
+            <h1>hi</h1>
 
             </NoteCard>
         )
