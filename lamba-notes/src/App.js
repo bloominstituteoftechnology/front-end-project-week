@@ -38,7 +38,8 @@ class App extends Component {
         </div>
 
         <div className="content">
-          <NoteForm />
+          <Route exact path="/submit" component={NoteForm} />
+          {/* <Route exact path="/" component={Notes} /> */}
           <Notes notes={this.state.notes} />
         </div>
       </div>
