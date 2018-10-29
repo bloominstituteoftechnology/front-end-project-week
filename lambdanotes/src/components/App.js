@@ -19,8 +19,8 @@ class App extends Component {
         <div className='right-side'>
           <Route exact path='/' component={Notes} />
           <Route exact path='/create-note' component={NotesForm} />
-          <Route path="/note/:id" component={SingleNoteView} />
-          <Route path='/edit-note/:id' render={props => <Edit {...props} />} />
+          <Route path='/notes/:id' component={SingleNoteView} />
+          <Route path='/updateNote/:id' render={props => <Edit {...props} />} />
 
         </div>
       </div>

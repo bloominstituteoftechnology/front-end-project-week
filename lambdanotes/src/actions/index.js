@@ -39,9 +39,9 @@ export const fetchData = () => {
   return (dispatch) => {
     dispatch({ type: NOTE_FETCHING_DATA  });
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('http://localhost:3300/notes')
       .then((response) => {
-        dispatch({ type: NOTE_DATA_FETCHED , payload: response.data });
+        dispatch({ type: NOTE_DATA_FETCHED , payload: response.data.notes });
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +54,7 @@ export const addNote = (notes) => {
   return (dispatch) => {
     dispatch({ type: INITIALIZE_NOTE_ADD });
     axios
-      .post('https://killer-notes.herokuapp.com/note/create', notes)
+      .post('http://localhost:3300/addNote', notes)
       .then((response) => {
         dispatch({ type: COMPLETE_NOTE_ADD, payload: response.data });
       })
@@ -70,9 +70,9 @@ export const getNote = id => {
   return dispatch => {
       dispatch({ type: VIEWING_NOTE });
        axios
-          .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+          .get(`http://localhost:3300/notes/${id}`)
           .then(res => {
-              dispatch ({ type: VIEWED_NOTE, payload: res.data });
+              dispatch ({ type: VIEWED_NOTE, payload: res.data.notes });
           })
           .catch(err => {
               dispatch({ type:ERROR, payload: err });
@@ -85,7 +85,7 @@ export const updateNote = note => {
       dispatch({ type: UPDATING_NOTES });
 
       axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, {title: note.title, textBody: note.textbody})
+      .put(`http://localhost:3300/updateNote/${note.id}`, {title: note.title, content: note.content})
       .then(res => {
           dispatch({ type: UPDATED_NOTES, payload: res.data })
       })
@@ -100,7 +100,7 @@ export const deleteNote = (NoteId, history) => {
       dispatch({ type: DELETING_NOTES });
 
       axios
-          .delete(`https://killer-notes.herokuapp.com/note/delete/${NoteId}`)
+          .delete(`http://localhost:3300/deleteNote/${NoteId}`)
           .then(res => {
               dispatch({ type: DELETED_NOTES });
           })

@@ -5,7 +5,7 @@ import { addNote } from '../actions';
 class NotesForm extends Component {
     state = {
         title: '',
-        textBody: '',
+        content: '',
     };
 
     handleTodoInput = e => {
@@ -15,11 +15,10 @@ class NotesForm extends Component {
     addTodoHandler = e => {
         e.preventDefault();
 		console.log(this.state);
-        this.props.addNote (this.state); 
+        this.props.addNote (this.state);
+         
         this.props.history.push("/");  
     };
-
-
 
     render() {
         return (
@@ -35,8 +34,8 @@ class NotesForm extends Component {
                 />
                 <input
                     className="input-body"
-                    value={this.state.textBody}
-                    name="textBody"
+                    value={this.state.Content}
+                    name="Content"
                     type="text"
                     placeholder="Note Content"
                     onChange={this.handleTodoInput}

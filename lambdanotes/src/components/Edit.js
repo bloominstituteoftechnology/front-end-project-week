@@ -9,7 +9,7 @@ class Edit extends Component {
         super(props);
         this.state = {
             title: '',
-            textbody: ''
+            content: ''
             
         }
     }
@@ -26,7 +26,7 @@ class Edit extends Component {
         let updatedNote = {
             id: this.props.match.params.id,
             title: this.state.title,
-            textbody: this.state.textbody
+            content: this.state.content
         }
         this.props.updateNote(updatedNote);
         this.props.history.push("/")
@@ -39,7 +39,7 @@ class Edit extends Component {
            updateNote={this.updateNote} 
            handleChange={this.handleChange} 
            title={this.state.title} 
-           textbody={this.state.textbody}
+           content={this.state.content}
            /> 
         )
     }

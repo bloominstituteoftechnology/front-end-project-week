@@ -18,9 +18,9 @@ function Editview(props) {
             <textarea
                 className="input-body"
                 type="text"
-                name="textbody"
+                name="content"
                 onChange={props.handleChange}
-                value={props.textbody}
+                value={props.content}
                 placeholder="Edit Note Content"
                 required
             />

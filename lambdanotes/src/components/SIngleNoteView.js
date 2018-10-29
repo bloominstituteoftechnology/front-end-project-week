@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getNote, deleteNote } from '../actions';
-import Edit from './Edit';
 import { Link } from 'react-router-dom';
 
 
@@ -9,7 +8,6 @@ class SingleNoteView extends Component {
 	
 
 	componentDidMount() {
-		console.log(this.props.match.params.id)
 		this.props.getNote(this.props.match.params.id);
 	}
 
@@ -23,12 +21,12 @@ class SingleNoteView extends Component {
 		return (
 			<div className="singlenoteDisplay">
 				<div className="button-flex">
-					<Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
+					<Link to={`/updateNote/${this.props.match.params.id}`}>edit</Link>
 					<h3 onClick={this.deleteNote}>delete</h3>
 				</div>
 
-				<h1 className="note-page-title">{this.props.note.title}</h1>
-				<p className="note-page-text">{this.props.note.textBody}</p>
+				<h1 className="note-page-title">{console.log(this.props.note.title)}</h1>
+				<p className="note-page-text">{this.props.note.content}</p>
 			</div>
 		);
 	}
