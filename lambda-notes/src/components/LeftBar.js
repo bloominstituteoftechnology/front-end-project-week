@@ -7,7 +7,7 @@ const LeftBar = props => {
             <h1>Lambda</h1>
             <h1>Notes</h1>
             <div>View Your Notes</div>
-            <div>Create New Note</div>
+            <div>+ Create New Note</div>
         </div>
     )
 }

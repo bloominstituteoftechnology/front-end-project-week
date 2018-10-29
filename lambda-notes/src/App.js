@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import LeftBar from './components/LeftBar';
 import NotesList from './components/NotesList';
+import AddNoteForm from './components/AddNoteForm';
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => this.setState({notes: response.data}))
       .catch(error => console.log(error));
   }
@@ -26,6 +27,7 @@ class App extends Component {
       <div className="App">
         <Route path='/' component={LeftBar}/>
         <Route render={props => (<NotesList {...props} notes={this.state.notes} />)} exact path='/'/>
+        <Route render={props => (<AddNoteForm {...props} notes={this.state.notes} />)} exact path='/AddNoteForm'/>
       </div>
     );
   }
