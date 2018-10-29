@@ -6,7 +6,7 @@ import {
   fetchNoteById,
   deleteNote
 } from '../actions';
-import { Note, Sidebar } from '../components';
+import { Note, Sidebar, DeleteModal } from '../components';
 
 class NoteView extends React.Component {
 
@@ -21,9 +21,12 @@ class NoteView extends React.Component {
       <div className='container'>
         <Sidebar />
         <Route exact path='/:id' render={(props) => (
-          <Note {...props} note={this.props.note} delete={this.props.deleteNote} />
+          <Note {...props} note={this.props.note} />
         )} />
-
+        <Route path='/:id/delete' render={(props) => (
+          <div className='modal'><DeleteModal {...props} deleteNote={this.props.deleteNote} />
+          </div>
+        )} />
         <Route path='/:id/edit' render={(props) => (<EditView {...props} /> )}/>
       </div>
     )
@@ -32,7 +35,7 @@ class NoteView extends React.Component {
 
 const mapStateToProps = state => {
   return{
-    noteUpdated: state.notesReducer.noteUpdated, 
+    noteUpdated: state.notesReducer.noteUpdated,
     note: state.noteReducer.note,
     error: state.noteReducer.error,
     fetchingNote: state.noteReducer.fetchingNote,

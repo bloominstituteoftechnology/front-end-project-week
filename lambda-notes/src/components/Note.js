@@ -5,11 +5,6 @@ import { EditView } from '../views';
 const Note = props => {
   console.log('in note', props.note)
 
-  const deleteNote = () => {
-    props.delete(props.note._id);
-    props.history.push('/');
-    window.location.reload(); 
-  }
 
   if (!props.note) {
     return (
@@ -23,8 +18,11 @@ const Note = props => {
         <div className='note-buttons'>
         <Link to={`${props.note._id}/edit`}>
           <div className='button2 edit-button'>edit</div>
-          </Link>
-          <div className='button2 delete-button' onClick={deleteNote}>delete</div>
+        </Link>
+        <Link to={`${props.note._id}/delete`} >
+          <div className='button2 delete-button'>delete
+          </div>
+        </Link>
         </div>
         <h2>{props.note.title}</h2>
         <p>{props.note.textBody}</p>
