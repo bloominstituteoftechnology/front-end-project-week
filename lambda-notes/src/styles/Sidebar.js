@@ -12,12 +12,14 @@ export const Container = styled.div`
   > * {
     margin-bottom: 30px;
   }
+  border-right: 1px solid #434343;
 `
 
 export const Title = styled.h1`
   font-weight: bold;
   font-size: 3.4rem;
   line-height: 3.2rem;
+  color: #434343;
 `
 
 export const Button = styled.button`
