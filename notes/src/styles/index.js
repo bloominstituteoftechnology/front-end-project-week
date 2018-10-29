@@ -20,6 +20,10 @@ export const NavBar = styled.header`
   h1 {
     font-size: 4rem;
     margin: 20px;
+    color: #545454;
+  }
+  a {
+    text-decoration: none;
   }
   a.active button {
     color: #36b9bd;
@@ -88,6 +92,12 @@ export const StyledForm = styled.form`
   margin: 0 20px;
 `;
 
+export const Cancel = styled.img`
+position: relative;
+right: -50%;
+cursor: pointer;
+`
+
 export const Input = styled.textarea`
   border-radius: 5px;
   resize: ${props => (props.content ? "vertical" : "none")};
@@ -109,6 +119,6 @@ export const Button = styled.button`
   margin: 10px 0;
   cursor: pointer;
   &:hover {
-      background: #666666;
+    background: #666666;
   }
 `;

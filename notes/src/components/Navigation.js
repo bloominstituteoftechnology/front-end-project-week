@@ -3,16 +3,16 @@ import { NavLink } from "react-router-dom";
 
 import { NavBar, Button } from "../styles";
 
-const Navigation = () => (
+const Navigation = ({ editing, cancelEdit }) => (
   <NavBar>
-    <NavLink exact to="/notes">
-    <h1>Lambda Notes</h1>
+    <NavLink exact to="/notes" onClick={editing ? cancelEdit : null}>
+      <h1>Lambda Notes</h1>
     </NavLink>
-    <NavLink exact to="/notes">
+    <NavLink exact to="/notes" onClick={editing ? cancelEdit : null}>
       <Button>View Your Notes</Button>
     </NavLink>
     <NavLink to="/form">
-      <Button>+ Create New Note</Button>
+      <Button>{editing ? "Edit Note" : "+ Create New Note"}</Button>
     </NavLink>
   </NavBar>
 );

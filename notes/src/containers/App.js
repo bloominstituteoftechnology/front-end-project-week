@@ -21,7 +21,7 @@ class App extends Component {
         title: "",
         textBody: ""
       },
-      editing: false,
+      editing: false
     };
   }
 
@@ -85,6 +85,11 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  cancelForm = () => {
+    this.setState({ newNote: blankFormValues, editing: false });
+    this.props.history.push("/notes");
+  };
+
   render() {
     if (this.state.notes.length < 1) {
       return <div>Loading...</div>;
@@ -92,7 +97,7 @@ class App extends Component {
 
     return (
       <Container>
-        <Navigation />
+        <Navigation editing={this.state.editing} cancelEdit={this.cancelEdit} />
         <Route
           exact
           path="/notes"
@@ -111,6 +116,7 @@ class App extends Component {
               handleSubmit={
                 this.state.editing ? this.handleSubmitUpdate : this.handleSubmit
               }
+              handleCancel={this.cancelForm}
             />
           )}
         />

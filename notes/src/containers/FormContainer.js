@@ -1,12 +1,14 @@
 import React from "react";
 import Form from "../components/Form";
+
 import { MainContent } from "../styles";
 
 const FormContainer = ({
   editing,
   newNote,
   handleInputChange,
-  handleSubmit
+  handleSubmit,
+  handleCancel
 }) => (
   <MainContent>
     <Form
@@ -14,6 +16,7 @@ const FormContainer = ({
       newNote={newNote}
       handleInputChange={handleInputChange}
       handleSubmit={handleSubmit}
+      handleCancel={handleCancel}
     />
   </MainContent>
 );
