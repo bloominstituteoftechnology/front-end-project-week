@@ -8,7 +8,7 @@ import Notes from '../components/Notes';
 
 class NotesView extends Component {
   componentDidMount() {
-    this.props.getAllNotes();
+    return !this.props.notes.length ? this.props.getAllNotes() : null;
   }
 
   handleRedirectToNoteView = id => {

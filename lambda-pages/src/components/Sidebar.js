@@ -32,7 +32,9 @@ const Sidebar = props => {
       <Button fullWidth onClick={() => props.history.push('/')}>
         View Your Notes
       </Button>
-      <Button fullWidth>+ Create New Note</Button>
+      <Button fullWidth onClick={() => props.history.push('/create-note')}>
+        + Create New Note
+      </Button>
     </StyledSidebar>
   );
 };

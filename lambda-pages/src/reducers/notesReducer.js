@@ -4,7 +4,10 @@ import {
   GET_ALL_NOTES_FAILURE,
   GET_NOTE,
   GET_NOTE_SUCCESS,
-  GET_NOTE_FAILURE
+  GET_NOTE_FAILURE,
+  ADD_NOTE,
+  ADD_NOTE_SUCCESS,
+  ADD_NOTE_FAILURE
 } from '../actions';
 
 const initalState = {
@@ -46,6 +49,23 @@ export const notesReducer = (state = initalState, action) => {
         isFetchingNote: false
       };
     case GET_NOTE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetchingNote: false
+      };
+    case ADD_NOTE:
+      return {
+        ...state,
+        isFetchingNote: true
+      };
+    case ADD_NOTE_SUCCESS:
+      console.log(action.payload);
+      return {
+        ...state,
+        notes: [action.payload, ...state.notes]
+      };
+    case ADD_NOTE_FAILURE:
       return {
         ...state,
         error: action.payload,
