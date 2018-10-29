@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import NoteCard from "./NoteCard";
 import {Route} from "react-router-dom";
+// import Display from "./Display";
 
 const ListView = props => {
   return (

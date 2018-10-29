@@ -1,5 +1,7 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
+
+import NewNote from "./NewNote";
 
 const Menu = () => {
   return (

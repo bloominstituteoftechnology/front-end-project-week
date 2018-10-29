@@ -1,9 +1,11 @@
 import React, {Component} from "react";
+import {Route} from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
 import Menu from "./components/Menu";
 import ListView from "./components/ListView";
+import NewNote from "./components/NewNote";
 
 class App extends Component {
   constructor() {
@@ -29,7 +31,14 @@ class App extends Component {
     return (
       <div className="App">
         <Menu />
-        <ListView notes={this.state.notes} />
+
+        <div className="display">
+          <Route
+            path="/new"
+            render={props => <NewNote fetchNotes={this.fetchNotes} />}
+          />
+          <ListView notes={this.state.notes} />
+        </div>
       </div>
     );
   }
