@@ -33,16 +33,19 @@ class App extends Component {
     const { pageToDisplay } = this.state
     const { notes, postNote } = this.props
     const { changeDisplayedPage } = this
-    console.log(notes)
 
     return (
       <PageContainer>
         <Sidebar changeDisplayedPage={changeDisplayedPage} />
 
-        {pageToDisplay === 'all' && <DisplayAll notes={notes} />}
+        {pageToDisplay === 'all' && (
+          <DisplayAll notes={notes} changeDisplayedPage={changeDisplayedPage} />
+        )}
 
         {pageToDisplay.length > 20 && (
-          <DisplayOne note={notes.filter(_id => _id === pageToDisplay)} />
+          <DisplayOne
+            {...notes.filter(({ _id }) => _id === pageToDisplay)[0]}
+          />
         )}
 
         {pageToDisplay === 'create' && <Add postNote={postNote} />}

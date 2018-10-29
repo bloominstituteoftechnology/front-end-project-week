@@ -11,6 +11,7 @@ export const Note = styled.div`
 `
 
 export const NoteTitle = styled.h2`
+  cursor: pointer;
   font-weight: bold;
   font-size: 2rem;
   border-bottom: 1px solid grey;
