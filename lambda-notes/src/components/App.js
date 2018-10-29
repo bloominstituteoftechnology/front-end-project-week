@@ -9,6 +9,7 @@ import {
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
+import DisplayAll from './DisplayAll'
 
 const mapStateToProps = ({ notes }) => ({ notes })
 
@@ -18,12 +19,13 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.notes)
+    const { notes } = this.props
+    console.log(notes)
 
     return (
       <PageContainer>
         <Sidebar />
-        <p>hello world</p>
+        <DisplayAll notes={notes} />
       </PageContainer>
     )
   }
