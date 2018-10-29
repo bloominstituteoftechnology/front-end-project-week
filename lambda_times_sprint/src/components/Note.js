@@ -53,7 +53,7 @@ class Note extends Component {
   handleDelete = e => {
     e.preventDefault();
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
+      .delete(`http://localhost:9900/api/notes/${this.id}`)
       .then(response => {
         this.props.fetchNotes();
         this.setState({
@@ -83,7 +83,7 @@ class Note extends Component {
     }
 
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${this.id}`, editedNote)
+      .put(`http://localhost:9900/api/notes/${this.id}`, editedNote)
       .then(response => {
         this.props.fetchNotes();
         this.setState({
