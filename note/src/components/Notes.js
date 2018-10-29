@@ -54,7 +54,6 @@ class Notes extends Component {
                             <Link to={`/note/${note._id}`}>
                             <NoteCard
                                 key={note._id}
-                                style={{textDecoration: 'none'}}
                             >
                                 <NoteTitle>
                                     {note.title.length >= 15

@@ -6,7 +6,7 @@ import Notes from './components/Notes';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NoteForm from './components/NoteForm';
-
+import NoteView from './components/NoteView';
 
 const HomePage = styled.div`
 `;
@@ -37,9 +37,11 @@ class App extends Component {
     axios
       .post('https://fe-notes.herokuapp.com/note/create', note)
       .then(response => {
-        this.setState(
-          {notes: response.data},
-          this.props.history.push('/')
+        this.setState({
+          notes: response.data
+        },
+        window.location.reload(),
+        this.props.history.push('/')
         )
       })
       .catch(error => console.log(error));
@@ -57,6 +59,10 @@ class App extends Component {
         <Route
           path='/new'
           render={props => <NoteForm {...props} addNote={this.addNote} />}
+        />
+        <Route 
+          path='/note/:id'
+          render={props => <NoteView {...props} getNote={this.getNote} />}
         />
       </HomePage>
     );

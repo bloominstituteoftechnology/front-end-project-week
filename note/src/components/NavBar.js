@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const NavBarContainer = styled.div
-`
+const NavBarContainer = styled.div`
     border: 1px solid gray;
     width: 20%;
     height: 100vh;
@@ -13,8 +12,7 @@ const NavBarContainer = styled.div
     text-align: center;
 `;
 
-const NavButton = styled.button
-`
+const NavButton = styled.button`
     width: 90%;
     height: 40px;
     margin-bottom: 25px;
