@@ -12,15 +12,21 @@ const SingleNote = props => {
       props.history.push("/");
     };
     return (
-      <div>
+      <div className="singleNote">
         {props.isDeleting && (
-          <div>
+          <div className="deleteModal">
             <p>Are you sure you want to delete this?</p>
-            <button onClick={deleteToNotes}>Delete</button>
-            <button onClick={props.toggleOffDeleting}>No</button>
+            <div className="btnDiv">
+              <button className="deleteBtn" onClick={deleteToNotes}>
+                Delete
+              </button>
+              <button className="noBtn" onClick={props.toggleOffDeleting}>
+                No
+              </button>
+            </div>
           </div>
         )}
-        <p>
+        <h5 className="editDelete">
           <Link
             to={`/note/${note._id}/edit`}
             onClick={() => props.toEditNote(note.title, note.textBody)}
@@ -28,7 +34,7 @@ const SingleNote = props => {
             edit
           </Link>{" "}
           <span onClick={props.toggleOnDeleting}>delete</span>
-        </p>
+        </h5>
         <h2>{note.title}</h2>
         <p>{note.textBody}</p>
       </div>

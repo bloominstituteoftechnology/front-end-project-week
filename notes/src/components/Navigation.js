@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => (
   <nav className="navigation">
-    <h1>Lambda Notes</h1>
+    <h1>
+      Lambda <br /> Notes
+    </h1>
     <Link exact to="/">
       View Your Notes
     </Link>
