@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import NotesList from "./components/NotesList";
 import AddNoteForm from "./components/AddNoteForm";
 import SingleNote from "./components/SingleNote";
+import EditNoteForm from "./components/EditNoteForm";
 
 class App extends Component {
   constructor() {
@@ -56,8 +57,13 @@ class App extends Component {
           )}
         />
         <Route
-          path="/:id"
+          exact
+          path="/note/:id"
           render={props => <SingleNote {...props} notes={this.state.notes} />}
+        />
+        <Route
+          path="/note/:id/edit"
+          render={props => <EditNoteForm handleInput={this.handleInput} />}
         />
       </div>
     );

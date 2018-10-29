@@ -1,18 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SingleNote = props => {
-  let note = props.notes.find(
-    (note, i) => `${note.id}` === props.match.params.id
-  );
-  console.log(props.notes);
-  console.log(props.match.params.id);
-  console.log(note);
   if (props.notes.length) {
+    let note = props.notes.find(
+      note => `${note._id}` === props.match.params.id
+    );
+    console.log(props);
+    console.log(props.match.params.id);
+    console.log(note);
     return (
       <div>
-        <p> edit delete</p>
-        <h2 />
-        <p />
+        <p>
+          {" "}
+          <Link to={`/note/${note._id}/edit`}>edit</Link> delete
+        </p>
+        <h2>{note.title}</h2>
+        <p>{note.textBody}</p>
       </div>
     );
   } else {
