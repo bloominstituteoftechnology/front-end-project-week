@@ -1,45 +1,55 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Route } from "react-router-dom";
 
+import axios from "axios";
 import Notes from "./components/Notes";
 import SideBar from "./components/SideBar";
+import Note from "./components//Note";
+import NoteForm from "./components/NoteForm";
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          tags: ["tag", "other tag"],
-          title: "Note title",
-          textBody:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia!"
-        },
-        {
-          tags: ["tag", "other tag"],
-          title: "Note title 2",
-          textBody:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia!"
-        },
-        {
-          tags: ["tag", "other tag"],
-          title: "Note title 3",
-          textBody:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia!"
-        },
-        {
-          tags: ["tag", "other tag"],
-          title: "Note title 4",
-          textBody:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi excepturi hic ab? Possimus deleniti hic reiciendis, eos amet nihil quia!"
-        }
-      ]
+      notes: []
     };
   }
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(res => this.setState({ notes: res.data }));
+  }
+
+  handleAddNewNote = () => {
+    axios.get("https://fe-notes.herokuapp.com/note/get/all").then(res =>
+      this.setState({
+        notes: res.data
+      })
+    );
+  };
   render() {
+    let notes = this.state.notes;
     return (
       <div className="App">
-        <SideBar />
-        <Notes notes={this.state.notes} />
+        <Route path="/" component={SideBar} />
+        <Route
+          exact
+          path="/"
+          render={props => <Notes notes={this.state.notes} {...props} />}
+        />
+        <Route
+          path="/notes/:id"
+          render={props => {
+            notes.map(note => <Note note={note} {...props} />);
+          }}
+        />
+        <Route
+          exact
+          path="/add"
+          render={props => (
+            <NoteForm {...props} handleAddNewNote={this.handleAddNewNote} />
+          )}
+        />
       </div>
     );
   }

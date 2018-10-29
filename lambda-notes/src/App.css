@@ -41,3 +41,6 @@ body {
 .side-bar .create-note {
   margin-top: 20px;
 }
+.side-bar a {
+  text-decoration: none;
+}
