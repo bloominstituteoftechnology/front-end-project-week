@@ -3,8 +3,7 @@ import React from 'react';
 const NoteCard = props => {
     return(
         <div className="note-card">
-            <h3>{props.title}</h3>
-            <p>-------------------------</p>
+            <h2 className="card-title">{props.title}</h2>
             <p>{props.textBody}</p>
         </div>
     );

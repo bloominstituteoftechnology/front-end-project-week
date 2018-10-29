@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.note-card{
+  width: 300px;
+  background : whitesmoke;
+  border : 1px solid black;
+}
+.note-card .card-title{
+  border-bottom : 2px solid grey;
+}
