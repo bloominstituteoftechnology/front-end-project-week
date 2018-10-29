@@ -3,9 +3,12 @@ import Note from './Note';
 
 let Notes = props => {
     return (
-        <div className='notes'>
-            {props.notes.map(note => <Note key={note.id} note={note} deleteHandler={props.deleteHandler}/>)}
-        </div>
+        <div className="container">   
+            <h1>Your Notes:</h1>
+            <div className='notes'>
+                {props.notes.map(note => <Note key={note._id} note={note} deleteHandler={props.deleteHandler}/>)}
+            </div>
+        </div>  
     )
 }
 

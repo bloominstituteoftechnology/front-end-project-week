@@ -3,15 +3,26 @@ import './App.css';
 import {NoteData} from './NoteData';
 import Notes from './components/Notes';
 import Form from './components/Form';
+import axios from 'axios';
+import { Route, Redirect } from 'react-router-dom';
+import Nav from './components/Nav';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: NoteData,
+      notes: [],
       title: '',
       body: '',
     }
+  }
+
+  componentDidMount() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+         .then(res => this.setState({
+           notes: res.data
+          }))
+         .catch(err => console.log(err))
   }
 
   changeHandler = event => {
@@ -36,6 +47,7 @@ class App extends Component {
         title: '',
         body: '',
       })
+      alert('Note saved. Please navigate home.')
     }
     else {
       alert('Please fill out the form!')
@@ -44,16 +56,27 @@ class App extends Component {
   }
 
   deleteHandler = id => {
-    const filteredNotes = this.state.notes.filter(note => note.id !== id)
-    this.setState({notes: filteredNotes});
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+         .then(res => {console.log(res)})
+         .catch(err => console.log(err))
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Vellum: A Modern Notes Platform</h1>
-        <Form changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
-        <Notes notes={this.state.notes} deleteHandler={this.deleteHandler}/>
+        <Nav />
+        <Route
+          exact path="/"
+          render={props => (
+            <Notes {...props} notes={this.state.notes} deleteHandler={this.deleteHandler}/>
+          )} 
+        />
+        <Route
+          path="/add"
+          render={props => (
+            <Form {...props} changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
+          )} 
+        />
       </div>
     );
   }

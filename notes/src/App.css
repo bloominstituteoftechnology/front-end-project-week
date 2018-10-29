@@ -1,5 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: row nowrap;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 20%;
+  position: fixed;
+  margin-right: 100px;
+  align-items: center;
+  background: paleturquoise;
+}
+
+.container {
+  margin-left: 21%;
 }
 
 .notes {
@@ -13,6 +33,26 @@
   border: 0.5px solid grey;
   border-radius: 3px;
   padding: 20px;
-  width: 500px;
+  width: 300px;
   margin: 20px;
+  overflow: hidden;
+}
+
+.note h2 {
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  align-items: center;
+  margin-top: 100px
+}
+
+input {
+  width: 70%;
+  padding: 10px;
+  margin: 10px;
 }
