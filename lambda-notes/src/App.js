@@ -25,7 +25,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/notes')
+      .get('http://localhost:6000/notes')
 
       .then(response => {
         console.log('response', response);
@@ -42,12 +42,12 @@ class App extends Component {
 
   submitNote = () => {
     axios
-      .post('http://localhost:5000/notes', {
+      .post('http://localhost:6000/notes', {
         title: this.state.notetitle,
         content: this.state.notebody
       })
       .then(() => {
-        axios.get('http://localhost:5000/notes').then(response => {
+        axios.get('http://localhost:6000/notes').then(response => {
           console.log(response.data);
           this.setState(() => ({ notes: response.data }));
         });
@@ -60,19 +60,19 @@ class App extends Component {
   editHandler = id => {
     console.log(this.state);
     let notecopy = this.state.notes.slice();
-    let editnote = notecopy.find(note => note.id == id);
+    let editnote = notecopy.find(note => note.id === id);
     this.setState({ edittitle: editnote.title, edittext: editnote.content });
     console.log(this.state);
   };
 
   submitChange = id => {
     axios
-      .put(`http://localhost:5000/notes/${id}`, {
+      .put(`http://localhost:6000/notes/${id}`, {
         title: this.state.edittitle,
         content: this.state.edittext
       })
       .then(() => {
-        axios.get('http://localhost:5000/notes').then(response => {
+        axios.get('http://localhost:6000/notes').then(response => {
           this.setState({ notes: response.data });
         });
       });
@@ -88,8 +88,8 @@ class App extends Component {
   };
 
   noteDelete = id => {
-    axios.delete(`http://localhost:5000/notes/${id}`).then(() => {
-      axios.get('http://localhost:5000/notes').then(response => {
+    axios.delete(`http://localhost:6000/notes/${id}`).then(() => {
+      axios.get('http://localhost:6000/notes').then(response => {
         this.setState({ notes: response.data, deleting: false });
       });
     });

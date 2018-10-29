@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CSS/singlenote.css';
+import '../CSS/SingleNote.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -17,7 +17,7 @@ class SingleNote extends React.Component {
 
   componentDidUpdate() {
     axios
-      .get(`http://localhost:5000/notes/${this.props.match.params.id}`)
+      .get(`http://localhost:6000/notes/${this.props.match.params.id}`)
       .then(response => {
         if (JSON.stringify(this.state.note) !== JSON.stringify(response.data)) {
           this.setState({ note: response.data[0] });
@@ -30,7 +30,7 @@ class SingleNote extends React.Component {
 
   noteView = id => {
     axios
-      .get(`http://localhost:5000/notes/${id}`)
+      .get(`http://localhost:6000/notes/${id}`)
       .then(response => {
         this.setState({ note: response.data[0] });
         console.log('note view', response.data);
