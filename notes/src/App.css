@@ -161,8 +161,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #FBFAFB;
-  padding: 20px 30px;
+  background: #FBFAFB;
+  padding: 30px 50px;
   border: 2px solid #ACACAC;
   z-index: 1;
 }
