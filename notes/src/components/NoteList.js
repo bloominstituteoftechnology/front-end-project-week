@@ -26,24 +26,28 @@ class NoteList extends Component {
     return (
       <div className="App">
       {this.state.notes.map(note => (
-            <div>
-              <Link to={`/note/${note.id}`}><NoteCard note={note} /></Link>
-            </div>
-            ))}
-
+        <div>
+          <Link 
+            to={{pathname: `/note/${note._id}`, state: note}}
+            >
+            {note.title}
+          </Link>
+            <p>{note.textBody}</p>
+        </div>
+       ))}
       </div>
     );
   }
 }
 
-  function NoteDetails({note}) {
-    // console.log('note details component', note)
-    const { id } = note
-      return(
-          <Link to={`/note/${id}`}>
-            <NoteCard note={note} />
-          </Link>
-          )
+  // function NoteDetails({note}) {
+  //   // console.log('note details component', note)
+  //   const { id } = note
+  //     return(
+  //         <Link to={`/note/${id}`}>
+  //           <NoteCard note={note} />
+  //         </Link>
+  //         )
 
-  }
+  // }
 export default NoteList;
