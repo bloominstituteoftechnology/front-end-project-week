@@ -5,6 +5,7 @@ export const Container = styled.div`
   background: #f2f0f2;
   overflow-wrap: break-word;
   overflow-y: scroll;
+  width: 100%;
 `
 
 export const PageHeader = styled.h2`

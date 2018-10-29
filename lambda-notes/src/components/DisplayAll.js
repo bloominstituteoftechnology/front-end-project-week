@@ -20,7 +20,11 @@ const DisplayAll = ({ notes, changeDisplayedPage, deleteNote }) => (
           <NoteTitle onClick={() => changeDisplayedPage(_id)}>
             {title}
           </NoteTitle>
-          <NoteBody onClick={() => {}}>{textBody}</NoteBody>
+          <NoteBody onClick={() => {}}>
+            {textBody.length > 200
+              ? `${textBody.substring(0, 200)} ...`
+              : textBody}
+          </NoteBody>
         </Note>
       ))}
     </NotesContainer>

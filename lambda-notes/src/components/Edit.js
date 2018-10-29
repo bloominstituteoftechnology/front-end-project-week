@@ -4,7 +4,8 @@ import {
   Title,
   InputTitle,
   InputBody,
-  SaveButton
+  SaveButton,
+  Form
 } from '../styles/Add'
 
 class Edit extends Component {
@@ -35,8 +36,8 @@ class Edit extends Component {
 
     return (
       <Container>
-        <form onSubmit={handleSubmit}>
-          <Title>Create New Note:</Title>
+        <Title>Edit Note:</Title>
+        <Form onSubmit={handleSubmit}>
           <InputTitle
             onChange={handleInputChange}
             placeholder="title"
@@ -50,7 +51,7 @@ class Edit extends Component {
             name="text"
           />
           <SaveButton type="submit">Update</SaveButton>
-        </form>
+        </Form>
       </Container>
     )
   }

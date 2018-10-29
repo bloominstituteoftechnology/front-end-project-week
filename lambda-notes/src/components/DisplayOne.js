@@ -1,5 +1,11 @@
-import React, { Component } from 'react'
-import { Container, Note, NoteTitle, NoteBody } from '../styles/DisplayAll'
+import React, { Fragment, Component } from 'react'
+import {
+  Container,
+  Title,
+  Body,
+  ButtonsContainer,
+  Button
+} from '../styles/DisplayOne'
 import Edit from './Edit'
 
 class DisplayOne extends Component {
@@ -19,19 +25,21 @@ class DisplayOne extends Component {
         {editing ? (
           <Edit {...this.props} />
         ) : (
-          <Note key={_id}>
-            <button onClick={() => edit()}>Edit</button>
-            <button
-              onClick={() => {
-                deleteNote(_id)
-                changeDisplayedPage('all')
-              }}
-            >
-              Delete
-            </button>
-            <NoteTitle>{title}</NoteTitle>
-            <NoteBody>{textBody}</NoteBody>
-          </Note>
+          <Fragment>
+            <ButtonsContainer>
+              <Button onClick={() => edit()}>Edit</Button>
+              <Button
+                onClick={() => {
+                  deleteNote(_id)
+                  changeDisplayedPage('all')
+                }}
+              >
+                Delete
+              </Button>
+            </ButtonsContainer>
+            <Title>{title}</Title>
+            <Body>{textBody}</Body>
+          </Fragment>
         )}
       </Container>
     )
