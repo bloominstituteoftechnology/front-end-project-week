@@ -21,4 +21,11 @@ code {
   flex-direction: column;
   align-items: center;
 }
-
+.note-card{
+  width: 300px;
+  background : rgb(187, 187, 187);
+  border : 1px solid black;
+}
+.note-card .card-title{
+  border-bottom : 2px solid grey;
+}
