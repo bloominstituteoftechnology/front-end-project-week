@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Sidebar />
         <Route exact path="/" component={List} />
-        <Route path="/notes/:id" component={ViewNote} />
+        <Route path="/note/:id" component={ViewNote} />
       </div>
     );
   }
