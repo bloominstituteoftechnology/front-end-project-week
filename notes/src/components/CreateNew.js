@@ -17,7 +17,7 @@ const CreateNew = (props) => {
                 <input 
                 onChange={props.onChangeHandler}
                 className="form-content"
-                name="content" 
+                name="textBody" 
                 type="text" 
                 placeholder="Note Content" 
                 />
