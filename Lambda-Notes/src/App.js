@@ -3,9 +3,9 @@ import axios from 'axios';
 import './App.css';
 import { Route } from 'react-router-dom';
 // Component Imports
-import SideBar from './components/sidebar/SideBar'
-import NoteList from 'c:/Users/Brandon/Documents/lambda/front-end-project-week/Lambda-Notes/src/Components/NoteList';
-import CreateNew from 'c:/Users/Brandon/Documents/lambda/front-end-project-week/Lambda-Notes/src/Components/CreateNew';
+import SideBar from './Components/Sidebar/SideBar'
+import NoteList from './Components/NoteList';
+import CreateNew from './Components/Sidebar/SideBar';
 class App extends Component {
   constructor(){
     super();
