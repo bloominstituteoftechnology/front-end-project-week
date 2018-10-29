@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import NotesList from './components/ListNotes';
+import Note from './components/Notes';
 
 class App extends Component {
   constructor() {
@@ -32,7 +33,7 @@ class App extends Component {
 
   getItemById = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/id/${id}`)
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => this.setState({ activeNote: response.data }))
       .catch(error => console.log('Error: ', error));
   };
@@ -42,21 +43,21 @@ class App extends Component {
   };
 
   handleTextChange = event => {
-    this.setState({ text: event.target.value });
+    this.setState({ textBody: event.target.value });
   };
 
   handleSubmit = (e) => {
     const newNote = {
-      tile: this.state.title,
-      text: this.state.text,
+      title: this.state.title,
+      text: this.state.textBody,
     };
-    this.setState({ title: '', text: ''});
+    this.setState({ title: '', textBody: ''});
     axios
       .post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => {
         this.setState({
           title: '',
-          text: '',
+          textBody: '',
           notes: response.data
         });
       })
@@ -68,7 +69,7 @@ class App extends Component {
   deleteItem = (event, id) => {
     event.preventDefault();
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/get/id/${id}`)
+      .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -78,13 +79,13 @@ class App extends Component {
 
   updateItem = () => {
     const newNotes = {
-      tile: this.state.title,
-      text: this.state.text,
+      title: this.state.title,
+      text: this.state.textBody,
     };
-    this.setState({ title: '', text: '' });
+    this.setState({ title: '', textBody: '' });
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/id/${this.state.editingId}`,
+        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingId}`,
         newNotes
       )
       .then(response => {
@@ -102,7 +103,7 @@ class App extends Component {
     this.setState({
       note,
       isEditing: true,
-      editingId: note.id
+      editingId: note._id
     });
   };
 
@@ -110,12 +111,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path='/' render={props => <NotesList 
+        <Route exact path='/' render={props => <NotesList 
         {...props}
         notes={this.state.notes}
-        deleteItem={this.deleteItem}
-        updateItem={this.setUpUpdateForm}
-        />} />
+        getItemById={this.getItemById} />} />
+        <Route
+          exact
+          path="/notes/:id"
+          render={props => (
+            <Note
+              {...props}
+              notes={this.state.notes}
+              title={this.state.title}
+              text={this.state.textBody}
+              deleteItem={this.deleteItem}
+              handleTitleChange={this.handleTitleChange}
+              handleTextChange={this.handleTextChange}
+            />
+          )}
+        />
       </div>
     );
   }

@@ -1,10 +1,23 @@
 import React from 'react';
-import Note from './Notes';
+import { Link } from 'react-router-dom';
 
-const NotesList = props => {
+function NotesList(props) {
+    function routeToNote(ev, note) {
+        ev.preventDefault();
+        props.history.push(`/notes/${note._id}`);
+        props.getItemById(note._id)
+    }
     return (
         <div className="container">
-            {props.notes.map(item => <Note note={item} key={item.id} deleteItem={props.deleteItem} updateItem={props.updateItem} />)}
+            {props.notes.map(note => (
+                <div 
+                onClick={ev => routeToNote(ev, note)}
+                key={note._id} 
+                >
+                <p>{note.title}</p>
+                <p>{note.textBody}</p>
+                </div>
+        ))}
         </div>
     );
 }
