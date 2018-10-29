@@ -5,21 +5,22 @@ function form(props) {
     return (
     <div className='form'>
         <input 
+        className='titleForm'
         type='text'
         onChange={props.handleInput}
-        placeholder='Note Title'
+        placeholder=' Note Title'
         name='title'
         value={props.title}
         />
-        <input 
+        <textarea
+        className='textBody'
         type='text'
         onChange={props.handleInput}
-        placeholder='Note Content'
+        placeholder=' Note Content'
         name='textBody'
         value={props.textBody}
         />
-        <button onClick={props.saveNote}>Save</button>
-        <p>Note all fields are needed!</p>
+        <button onClick={props.saveNote} className='formButton' >Save</button>
     </div>
     );
 }

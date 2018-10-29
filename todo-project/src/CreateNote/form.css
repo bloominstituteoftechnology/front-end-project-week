@@ -1,0 +1,25 @@
+.form {
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+}
+.textBody {
+    width: 98.5%;
+    margin-top: 1%;
+    height: 35vh;
+}
+.titleForm {
+    width: 60%;
+    height: 3.5vh;
+    border-radius: 1px;
+}
+.formButton {
+    width: 20%;
+    margin-top: 1%;
+    padding: 1% 1%;
+    background: #24B8BD;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
