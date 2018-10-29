@@ -38,6 +38,7 @@ class App extends Component {
         notes = {this.props.notes}/>
       )}/>
 
+      <NoteForm/>
       </div>
     );
   }

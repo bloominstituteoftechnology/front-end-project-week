@@ -12,16 +12,14 @@ class NotesView extends Component {
                 
                 {this.props.notes.map(note => {
                     return (
-                        // <Link to={`/note/${note.id}`}>
-                        <div key={note._id}>
+                        // <Link to={`/note/get/${note.id}`}>
+                        <div key={note._id} className="note-card">
                         <h4>{note.title}</h4>
                         <p>{note.textBody}</p>
                         </div>
                         // </Link>
                     )
-                }
-
-                )}
+                    })}
                 </div>
             </div>
         )

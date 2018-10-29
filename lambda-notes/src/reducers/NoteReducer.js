@@ -3,6 +3,7 @@ import * as actionTypes from '../actions';
 const initialState = {
     notes: [],
     gettingNotes: false,
+    creatingNote: false,
     error: null
 };
 
@@ -23,6 +24,17 @@ export const noteReducer = ( state = initialState, action) => {
         return {
             ...state,
             gettingNotes: false
+        };
+        case actionTypes.CREATING_NOTE:
+        return {
+            ...state,
+            creatingNote: true
+        };
+        case actionTypes.CREATE_SUCCESS:
+        return {
+            ...state,
+            creatingNote: false,
+            notes: action.payload
         };
         default:
         return state;
