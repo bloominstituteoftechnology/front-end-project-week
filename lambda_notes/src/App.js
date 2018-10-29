@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
+import NotesList from './components/ListNotes';
 
 class App extends Component {
   constructor() {
@@ -97,24 +97,25 @@ class App extends Component {
       .catch(error => console.log(error));
   };
 
+  setUpUpdateForm = (ev, note) => {
+    ev.preventDefault();
+    this.setState({
+      note,
+      isEditing: true,
+      editingId: note.id
+    });
+  };
+
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Route path='/' render={props => <NotesList 
+        {...props}
+        notes={this.state.notes}
+        deleteItem={this.deleteItem}
+        updateItem={this.setUpUpdateForm}
+        />} />
       </div>
     );
   }
