@@ -22,6 +22,16 @@ export default class ViewNote extends Component {
       });
   };
 
+  deleteNote = () => {
+    const result = window.confirm('Are you sure you want to delete this note?');
+    if (result) {
+      axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+        .then(() => this.props.history.push('/'))
+        .catch((error) => console.error(error));
+    }
+  };
+
   render() {
     if (!this.state.note) {
       return <h3>Loading your note...</h3>;
@@ -32,7 +42,7 @@ export default class ViewNote extends Component {
       <div>
         <div>
           <span>edit</span>
-          <span>delete</span>
+          <span onClick={this.deleteNote}>delete</span>
         </div>
         <div>
           <h3>{title}</h3>
