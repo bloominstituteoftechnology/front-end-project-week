@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
@@ -12,13 +12,18 @@ class App extends Component {
   };
 
   componentDidMount() {
-
+    axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => this.setState({ list: response.data }))
+      .catch(error => console.log(error))
   };
 
   render() {
     return (
       <div className="App">
         NOTES
+        <ListView />
+        <Note />
       </div>
     );
   };
