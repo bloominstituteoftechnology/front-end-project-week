@@ -20,14 +20,15 @@ class NotesList extends React.Component {
     }
 
     render() {
-        console.log(this.state.id);
         return(
             <div>
                 <Link to={'/'}>Home</Link>
+                <Link to={'/note/create'}>Add New Note</Link>
                 {this.state.notes.map(note => (
                     <div key={note._id}>
                         <NoteCard 
                             note={note}
+                            updateNote={this.updateNote} 
                         />
                     </div>
                 ))}

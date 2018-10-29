@@ -1,19 +1,44 @@
 import React from 'react';
 import axios from 'axios';
 import NoteCard from './NoteCard';
+import EditNote from './EditNote';
+import { Link } from "react-router-dom";
 
 class Note extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: null,
+            editing: false,
+            notes: [
+                {
+                    title: '',
+                    textBody: '',
+                }
+            ],
         };
+    }
+
+    editNote = (event) => {
+        event.preventDefault();
+        this.setState({ editing: true });
+    }
+
+    deleteNote = event => {
+        event.preventDefault();
+        const url = `https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`;
+        axios.delete(url)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+       this.props.history.push('/');
     }
 
     componentDidMount(props) {
         const id = this.props.match.params.id;
         this.fetchNote(id);
-        console.log(this.props.id);
     }
 
     fetchNote = id => {
@@ -38,7 +63,17 @@ class Note extends React.Component {
         if (!this.state.note) {
             return <div>Loading Note information...</div>;
         }
-        return <NoteCard note={this.state.note} />
+        if (this.state.editing === true) {
+            return <EditNote updateNote={this.props.updateNote} {...this.props} />
+        }
+        return (
+            <div>
+                <Link to={'/'}>Home</Link>    
+                <NoteCard note={this.state.note} />
+                <button onClick={this.editNote}>Edit</button>
+                <button onClick={this.deleteNote}>Delete</button>
+            </div>   
+        )
     }
 }
 
