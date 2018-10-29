@@ -6,6 +6,7 @@ import NoteListView from './components/NoteListView';
 import CreateNote from './components/CreateNote';
 import SideBar from './components/SideBar';
 import { Route } from 'react-router-dom';
+import {withRouter} from 'react-router';
 
 class App extends Component {
   constructor() {
@@ -65,7 +66,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
-  { fetchNotes, postNote }
-)(App);
+  { fetchNotes, postNote, pure: false}, 
+)(App));
