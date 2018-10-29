@@ -25,6 +25,7 @@ const initialState = {
   noteDeleted: false,
   notes: [],
   error: null,
+  note: null,
 }
 
 export const notesReducer = (state = initialState, action) => {
@@ -59,7 +60,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         deletingNote: false,
-        notes: [...action.payload]
+        // notes: [...action.payload]
       };
 
     case DELETE_NOTE_FAILURE:
@@ -79,7 +80,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         savingNotes: false,
-        notes: [...action.payload]
+        // notes: [...action.payload]
       };
 
     case POST_NOTE_FAILURE:
@@ -99,7 +100,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         updatingNote: false,
-        notes: [...action.payload]
+        note: [action.payload]
       };
 
     case PUT_NOTE_FAILURE:

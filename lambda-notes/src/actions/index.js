@@ -35,9 +35,13 @@ export const fetchNotes = () => dispatch => {
 }
 
 export const addNote = note => dispatch => {
+  console.log('in addNote', note);
   dispatch({ type: POST_NOTE });
   axios
     .post(`${url}/create`, note)
+    .then(response => {
+      console.log(response);
+    })
     .then(response => {
       dispatch({ type: POST_NOTE_SUCCESS, payload: response.data});
     })
@@ -63,7 +67,7 @@ export const deleteNote = id => dispatch => {
   axios
     .delete(`${url}/delete/${id}`)
     .then(response => {
-      dispatch({ type: DELETE_NOTE_SUCCESS, payload: response.data });
+      dispatch({ type: DELETE_NOTE_SUCCESS});
     })
     .catch(error => {
       dispatch({ type: DELETE_NOTE_FAILURE, payload: error });

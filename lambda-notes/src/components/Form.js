@@ -31,7 +31,6 @@ class Form extends React.Component {
     if (this.props.note){
       this.props.submit(note);
       this.props.history.push(`/${this.props.match.params.id}`);
-      window.location.reload();
     } else {
       console.log('what are you submitting?', note);
       this.props.submit(note);
