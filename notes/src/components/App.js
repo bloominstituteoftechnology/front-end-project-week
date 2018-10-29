@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { getNotes, addNote, getNote } from '../actions';
+import { getNotes, addNote, getNote, deleteNote } from '../actions';
 import ToolBar from './ToolBar';
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
@@ -23,7 +23,7 @@ class App extends Component {
 
   deleteNote = (ev, id) => {
     ev.preventDefault();
-    
+
   }
 
   formSubmited = (title, body, history) => {
@@ -69,6 +69,7 @@ class App extends Component {
               {...props}
               note={this.props.activeNote}
               getNote={this.props.getNote}
+              deleteNote={this.props.deleteNote}
             />
           }
         />
@@ -82,4 +83,4 @@ const mapStateToProps = state => {
   return { notes, activeNote };
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, addNote, getNote })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, addNote, getNote, deleteNote })(App));

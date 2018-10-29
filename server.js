@@ -93,11 +93,11 @@ server.put('/notes/:id', (req, res) => {
 
 server.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
-  const foundSmurf = notes.find(smurf => smurf.id == id);
+  const foundNote = notes.find(note => note._id == id);
 
-  if (foundSmurf) {
-    const SmurfRemoved = { ...foundSmurf };
-    notes = notes.filter(smurf => smurf.id != id);
+  if (foundNote) {
+    const noteFound = { ...foundNote };
+    notes = notes.filter(note => note._id != id);
     res.status(200).json(notes);
   } else {
     sendUserError('No smurf by that ID exists in the smurf DB', res);

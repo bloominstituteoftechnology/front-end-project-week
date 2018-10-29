@@ -36,10 +36,30 @@ const NoteModule = ({
                 ></i>
             </div>
 
-            {showDelete ? null
+            {!showDelete ? null
                 : (
-                    <div class="deleteModule ">
-
+                    <div className="module-container">
+                        <div className="module">
+                            <h3>Are you sure you want to delete?</h3>
+                            <div>
+                                <button 
+                                    className='close' 
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        setShowDelete(false);
+                                    }}
+                                >Close</button>
+                                <button 
+                                    className='delete'
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        deleteNote(note._id)
+                                        setShowDelete(false);
+                                        history.push('/');
+                                    }}
+                                >DELETE</button>
+                            </div>
+                        </div>
                     </div>
                 )
             }
