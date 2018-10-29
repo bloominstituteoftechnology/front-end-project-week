@@ -16,6 +16,7 @@ class CreateNote extends Component {
     onSubmit = e => {
         e.preventDefault()
         this.props.addNote({title: this.state.title, content: this.state.content, id: '03'})
+        this.props.history.push('/')
     }
     render() {
         return (
