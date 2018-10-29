@@ -1,8 +1,5 @@
-import Navigation from './Navigation';
-import ListView from './ListView';
-import NoteView from './NoteView';
-import CreateNewView from './CreateNewView';
-import EditView from './EditView';
-import DeleteModal from './DeleteModal';
+import Note from './Note';
+import NoteForm from './NoteForm';
+import NotesList from './NotesList';
 
-export { Navigation, ListView, NoteView, CreateNewView, EditView, DeleteModal };
+export { Note, NoteForm, NotesList };
