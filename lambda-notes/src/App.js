@@ -3,12 +3,11 @@ import { Route } from 'react-router-dom'
 import axios from 'axios'
 import './App.css';
 import Navigation from './Components/Navigation/Navigation'
-// import List from './Components/Views/ListView/List'
+import List from './Components/Views/ListView/List'
 import CreateNew from './Components/Views/CreateNew'
 import Note from './Components/Views/Note'
 import Delete from './Components/Views/Delete'
 import Edit from './Components/Views/Edit'
-import Notes from './Components/Views/ListView/Notes'
 
 class App extends Component {
   constructor() {
@@ -36,13 +35,12 @@ class App extends Component {
         <Route 
           exact path='/' 
           render={props => (
-            <Notes 
+            <List 
               {...props}
               notes={this.state.notes}
             />
           )}
         />
-
 
 
 

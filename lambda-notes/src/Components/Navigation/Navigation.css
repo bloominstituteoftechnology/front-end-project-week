@@ -1,0 +1,25 @@
+.navigation {
+    background: #D8D8D8;
+    border: 1px solid black;
+    width: 300px;
+}
+
+.navigation h1 {
+    color: #4A4A4A;
+}
+
+.navigation .button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.navigation .button button {
+    width: 250px;
+    background: #2BC1C4;
+    color: white;
+    border: 1px solid #979797;
+    padding: 10px 20px;
+    font-size: 20px;
+}
