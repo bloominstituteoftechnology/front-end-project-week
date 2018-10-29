@@ -66,12 +66,10 @@ class Input extends React.Component {
 // Fake logo
 class Logo extends React.Component {
   render() {
-    return (
-      <div className="logo">
-        <i className="fa fa-coffee" aria-hidden="true" />
-        <span> Awesome Notes </span>
-      </div>
-    );
+    return <div className="logo">
+        <i class="fa fa-edit fa-spin" />
+        <span> Lambda Notes </span>
+      </div>;
   }
 }
 
