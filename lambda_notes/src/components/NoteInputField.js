@@ -1,7 +1,7 @@
-import React from "react";
+import React,{ Component } from "react";
 import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
 
-export default class Example extends React.Component {
+export default class NoteText extends { Component } {
   render() {
     return (
       <Form>
@@ -12,4 +12,5 @@ export default class Example extends React.Component {
       </Form>
     );
   }
-}
+};
+export default NoteText;

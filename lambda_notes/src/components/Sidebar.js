@@ -41,11 +41,11 @@ import styled from 'styled-components';
   padding: 1.5rem;
   border: 1px solid black;
 `;
- const PrimaryHeading = styled.h1`
+ const MainHeading = styled.h1`
   font-size: 3.6rem;
   margin-bottom: 2rem;
 `;
- const BlockButton = styled.button`
+ const SideButton = styled.button`
   width: 100%;
   padding: 1rem 0;
   text-align: center;
@@ -63,11 +63,11 @@ import styled from 'styled-components';
  const SideBar = () => {
   return (
     <StyledSideBar>
-      <PrimaryHeading>
+      <MainHeading>
         Lambda <br /> Notes
-      </PrimaryHeading>
-       <BlockButton>View Your Notes</BlockButton>
-       <BlockButton>+ Create a new note</BlockButton>
+      </MainHeading>
+       <SideButton>View Your Notes</SideButton>
+       <SideButton>+ Create a new note</SideButton>
     </StyledSideBar>
   );
 };
