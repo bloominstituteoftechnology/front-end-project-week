@@ -1,12 +1,11 @@
-import React from 'react';
-import '../components.css';
-import './index.css';
+import React from "react";
+import "../components.css";
+import "./index.css";
 
 const Form = props => {
-   // name buttons according to the current action
+  // name buttons according to the current action
   const heading = props.type === "new" ? "Create New Note:" : "Edit Note:";
   const buttonName = props.type === "new" ? "Save" : "Update";
-
 
   return (
     <div className="main-container form">
@@ -22,15 +21,15 @@ const Form = props => {
         />
         <textarea
           type="text"
-          name="textBody"
+          name="content"
           placeholder="Note Content"
-          value={props.textBody}
+          value={props.content}
           onChange={props.handleInputChange}
         />
         <button onClick={props.handleFormSubmit}>{buttonName}</button>
       </form>
     </div>
   );
-}
+};
 
 export default Form;

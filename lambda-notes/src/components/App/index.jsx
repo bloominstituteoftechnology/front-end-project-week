@@ -14,7 +14,7 @@ class App extends Component {
     search: "",
     _id: "",
     title: "",
-    textBody: ""
+    content: ""
   };
 
   // fetches all notes from server and passes them to store
@@ -22,7 +22,7 @@ class App extends Component {
     this.props.getNotes();
   }
 
-  // adjusts state of title and textBody whenever there is new input
+  // adjusts state of title and content whenever there is new input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -34,21 +34,21 @@ class App extends Component {
       const notes = this.props.notes.filter(note => {
         return (
           note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
-          note.textBody.toLowerCase().includes(this.state.search.toLowerCase())
+          note.content.toLowerCase().includes(this.state.search.toLowerCase())
         );
       });
       this.setState({ filteredNotes: notes });
     }, 1);
   };
 
-  // sends current state of title and textBody to server, resets state, redirects to home page
+  // sends current state of title and content to server, resets state, redirects to home page
   handleFormSubmit = e => {
     e.preventDefault();
     this.props.addNote({
       title: this.state.title,
-      textBody: this.state.textBody
+      content: this.state.content
     });
-    this.setState({ title: "", textBody: "" });
+    this.setState({ title: "", content: "" });
     this.props.history.push("/");
   };
 
@@ -87,7 +87,7 @@ class App extends Component {
               <Form
                 type={"new"}
                 title={this.state.title}
-                textBody={this.state.textBody}
+                content={this.state.content}
                 handleFormSubmit={this.handleFormSubmit}
                 handleInputChange={this.handleInputChange}
               />
