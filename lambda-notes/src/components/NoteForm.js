@@ -1,11 +1,13 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 class NoteForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      textBody: ""
+      textBody: "",
+      addedNote: false
     };
   }
 
@@ -22,6 +24,9 @@ class NoteForm extends React.Component {
       title: "",
       textBody: ""
     });
+    this.setState({
+      addedNote: true
+    });
   };
 
   handleInputChange = e => {
@@ -29,6 +34,9 @@ class NoteForm extends React.Component {
   };
 
   render() {
+    if (this.state.addedNote === true) {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <form className="form" onSubmit={this.addNote}>

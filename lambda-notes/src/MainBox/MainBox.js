@@ -32,7 +32,7 @@ class MainBox extends React.Component {
   addNote = newNote => {
     axios
       .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
-      .then(response => this.setState({ notes: response.data }))
+      .then(response => this.setState({ note: response.data }))
       .catch(error => console.log(error));
   };
 
