@@ -11,6 +11,12 @@ export const LeftBar = styled.div`
   text-align: center;
 `;
 
+export const StyledLink = styled.a`
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+`;
+
 export const ContainCards = styled.div`
     width: 70%;
     border: 10px solid blue;
@@ -24,5 +30,5 @@ export const Cards = styled.div`
   width: 20%;
   height: 200px;
   overflow: hidden;
-  border: 2px solid red;s
+  border: 2px solid red;
 `;
