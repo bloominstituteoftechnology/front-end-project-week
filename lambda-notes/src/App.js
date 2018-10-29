@@ -7,6 +7,7 @@ import Notes from "./components/Notes";
 import SideBar from "./components/SideBar";
 import Note from "./components//Note";
 import NoteForm from "./components/NoteForm";
+import SingleNote from "./components/SingleNote";
 class App extends Component {
   constructor() {
     super();
@@ -37,12 +38,7 @@ class App extends Component {
           path="/"
           render={props => <Notes notes={this.state.notes} {...props} />}
         />
-        <Route
-          path="/notes/:id"
-          render={props => {
-            notes.map(note => <Note note={note} {...props} />);
-          }}
-        />
+        <Route path="/notes/:id" component={SingleNote} />
         <Route
           exact
           path="/add"

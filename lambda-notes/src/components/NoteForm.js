@@ -25,7 +25,7 @@ class NoteForm extends Component {
     e.preventDefault();
     axios
       .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
-      .then(this.props.handleAddNewNote());
+      .then(this.props.handleAddNewNote);
 
     this.props.history.push("/");
   };
