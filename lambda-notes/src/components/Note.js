@@ -13,6 +13,8 @@ class Note extends React.Component {
                 {
                     title: '',
                     textBody: '',
+                    editTitle: '',
+                    editBody: '',
                 }
             ],
         };
@@ -64,7 +66,7 @@ class Note extends React.Component {
             return <div>Loading Note information...</div>;
         }
         if (this.state.editing === true) {
-            return <EditNote updateNote={this.props.updateNote} {...this.props} />
+            return <EditNote updateNote={this.props.updateNote} editNote={this.editNote} {...this.props} note={this.state.note}/>
         }
         return (
             <div>
