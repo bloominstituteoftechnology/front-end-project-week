@@ -14,6 +14,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    console.log("CDM: Notes fetched", this.state.notes);
     this.fetchNotes();
   };
 

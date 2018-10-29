@@ -3,15 +3,17 @@
   margin: 0;
 }
 
-.App {
+html {
   background: #f3f3f3;
 }
 
 .menu {
   background: #d6d6d6;
-  width: 18%;
+  width: 300px;
   height: 100vh;
   position: fixed;
+  top: 0;
+  left: 0;
   border-right: 1px solid #777;
   padding: 25px;
 }
@@ -36,4 +38,37 @@ h1 {
 
 .menu-btn:hover {
   background: #29aeb3;
+}
+
+/* LIST VIEW */
+
+.list-view {
+  position: sticky;
+  top: 0;
+  margin-left: 300px;
+  padding: 80px 30px 30px 30px;
+  height: 100%;
+}
+
+.list-view h1 {
+  color: #4b4a4b;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.note-card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.note-card {
+  background: white;
+  width: 29%;
+  color: #2f2f2f;
+  height: 250px;
+  padding: 15px;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
