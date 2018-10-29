@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 class NewNote extends React.Component {
   constructor(props) {
@@ -31,8 +32,8 @@ class NewNote extends React.Component {
     };
     axios
       .post("https://killer-notes.herokuapp.com/note/create", newNote)
-      .then(this.props.fetchNotes())
-      .then(this.setState({tags: [], title: "", textBody: ""}));
+      .then(this.setState({tags: [], title: "", textBody: ""}))
+      .then(this.props.fetchNotes());
   };
 
   render() {
@@ -41,6 +42,7 @@ class NewNote extends React.Component {
         <h2>Create New Note:</h2>
         <form onSubmit={this.addNewNote}>
           <input
+            required
             type="text"
             name="title"
             placeholder="Note Title"
@@ -49,6 +51,7 @@ class NewNote extends React.Component {
           />
           <br />
           <textarea
+            required
             cols="30"
             rows="10"
             name="textBody"
@@ -58,7 +61,9 @@ class NewNote extends React.Component {
           />
           <br />
           <button>Save</button>
-          <button>Cancel</button>
+          <Link to="/all">
+            <button>Cancel</button>
+          </Link>
         </form>
       </div>
     );

@@ -72,6 +72,7 @@ button:hover {
   cursor: pointer;
   margin-bottom: 30px;
   border: 1px solid #999;
+  overflow: hidden;
 }
 
 /* NEW NOTE */

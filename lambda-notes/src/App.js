@@ -6,6 +6,7 @@ import "./App.css";
 import Menu from "./components/Menu";
 import ListView from "./components/ListView";
 import NewNote from "./components/NewNote";
+import NoteView from "./components/NoteView";
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,14 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  viewNote = (e, id) => {
+    console.log(id);
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      // .then(this.fetchNotes())
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
@@ -37,7 +46,19 @@ class App extends Component {
             path="/new"
             render={props => <NewNote fetchNotes={this.fetchNotes} />}
           />
-          <ListView notes={this.state.notes} />
+
+          <Route
+            path="/all"
+            render={props => (
+              <ListView notes={this.state.notes} viewNote={this.viewNote} />
+            )}
+          />
+
+          <Route
+            path="/:id"
+            render={props => <NoteView {...props} notes={this.state.notes} />}
+          />
+          {/* <ListView notes={this.state.notes} /> */}
         </div>
       </div>
     );
