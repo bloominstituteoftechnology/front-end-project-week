@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import NotePreview from './NotePreview';
+import '../styles/links.css';
 
 const NotesContainer = styled.div`
-margin:0;
+margin:0 0 0 250px;
+height: 100vh;
+position: absolute;
+right: 0;
 
 `
 
@@ -13,6 +17,9 @@ const YourNotes = styled.h2`
 margin:0;
 `
 const NotesList = styled.div`
+display: flex;
+flex-flow: row wrap;
+
 
 `
 
@@ -42,7 +49,7 @@ const NotesList = styled.div`
         <YourNotes>Your Notes:</YourNotes>
         <NotesList>
             {this.state.notes.map(note =>
-                <Link to = {`/note/${note._id}`}>
+                <Link to = {`/note/${note._id}`} className='linkTags'>
                     <NotePreview note={note} />                          
                  </Link>)}
         </NotesList>

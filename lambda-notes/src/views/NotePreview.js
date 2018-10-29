@@ -4,7 +4,11 @@ import styled from 'styled-components';
 
 const PreviewContainer = styled.div`
 display:flex;
-flex-flow: column wrap;
+border : 1px solid #D3D2D3;
+width: 250x;
+height: 250px;
+flex-flow: column;
+
 `
 
 const NoteTitle = styled.h3`
@@ -22,8 +26,8 @@ const NotePreview = props => {
                 : props.note.title}
         </NoteTitle>
         <NoteBody>
-            {props.note.textBody.length >=75 
-                ? props.note.textBody.substring(0,75)+'...' 
+            {props.note.textBody.length >=15 
+                ? props.note.textBody.substring(0,15)+'...' 
                 : props.note.textBody}
         </NoteBody> 
     </PreviewContainer>
