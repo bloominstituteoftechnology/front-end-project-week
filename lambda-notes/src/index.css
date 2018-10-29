@@ -88,6 +88,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
+  font-family: 'Roboto', sans-serif;
   font: inherit;
   vertical-align: baseline;
 }
@@ -126,32 +127,4 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-/* General Styles */
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  font-family: 'Ubuntu', sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: 'Russo One', sans-serif;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
