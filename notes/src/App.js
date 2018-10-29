@@ -19,7 +19,7 @@ class App extends Component {
       notesData: [],
       note: {
         title: '',
-        textBody: '',
+        content: '',
         tags: []
       },
       isUpdating: false,
@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://killer-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:7000/api/notes')
     .then(response => {
       this.setState({ notesData: response.data, isUpdating: false })
     })
@@ -39,9 +39,9 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (JSON.stringify(this.state.notesData) !== JSON.stringify(prevState.notesData)) {
-    axios.get('http://killer-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:7000/api/notes')
     .then(response => {
-      console.log("response:", response);
+      console.log("componentDidUpdate response:", response.data);
       this.setState({ notesData: response.data, isUpdating: false })
     })
     .catch(err => {
@@ -74,7 +74,7 @@ class App extends Component {
   addNewNote = event => {
     const newNote = {
       title: this.state.note.title,
-      textBody: this.state.note.textBody,
+      content: this.state.note.content,
       tags: this.state.note.tags
     }
     console.log('adding new');
@@ -82,15 +82,22 @@ class App extends Component {
     .then(response => {
       newNote._id = response.data.success;
       this.setState({ 
-        notesData: [...this.state.notesData, newNote], note: { title: '', textBody: '', tags: [] }, isUpdating: false 
+        notesData: [...this.state.notesData, newNote], note: { title: '', content: '', tags: [] }, isUpdating: false 
       },
     () => this.props.history.push('/notes'))})
+    .catch(err => {
+      console.log(err);
+    })
     
   }
 
   deleteNote = noteId => {
     return axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
-    .then(response => this.setState({ notesData: response.data, show: false }))
+    .then(response => {
+      console.log("delete response:", response.data);
+       this.setState({ show: false })})
+    .catch(err =>
+      console.log(err))
   }
 
   openUpdateForm = (event, id) => {
@@ -106,9 +113,12 @@ class App extends Component {
       console.log("response.data:", response.data)
       this.setState({
         isUpdating: false,
-        note: response.data,
+        notesData: [...this.state.notesData, response.data]
       }, () => console.log("note:", this.state.note, "notesData:", this.state.notesData));
       this.props.history.push(`/notes/${noteId}`)
+    })
+    .catch(err => {
+      console.log(err);
     })
   }
 
@@ -120,7 +130,7 @@ class App extends Component {
   }
 
   cancelUpdate = (event) => {
-    this.setState({ note: {title: '', textBody: ''}, isUpdating: false })
+    this.setState({ note: {title: '', content: ''}, isUpdating: false })
   }
 
   truncateTitle = (title) => {
@@ -133,12 +143,12 @@ class App extends Component {
     return val;
   }
 
-  truncate = (textBody) => {
+  truncate = (content) => {
     let val = '';
-    if(textBody.length > 150) {
-        val = `${textBody.slice(0,142)}...`
+    if(content.length > 150) {
+        val = `${content.slice(0,142)}...`
     } else {
-      val = textBody;
+      val = content;
     }
     return val;
   }

@@ -92,7 +92,7 @@ ul {
   align-items: center;
   background-color: #F2F1F2;
   width: 75%;
-  height: 100vh;
+  
   margin-left: 25%;
 }
 
@@ -111,7 +111,7 @@ ul {
 .notes-list-wrapper {
   margin-left: 25%;
   width: 75%;
-  height: 100vh;
+  
   background: #F2F1F2;
 }
 
@@ -124,7 +124,6 @@ ul {
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 0 25px;
-  height: 100vh;
 }
 
 .filter {
@@ -196,7 +195,7 @@ ul {
 
 .single-note {
   width: 75%;
-  height: 100vh;
+ 
   margin-left: 25%;
   /* border: 2px solid lime; */
   display: flex;
@@ -230,16 +229,11 @@ ul {
 .note-info-wrapper h1 {
   /* border: 2px solid purple; */
   font-size: 24px;
-
 }
 
 .note-info-wrapper p {
   margin-top: 0;
   line-height: 25px;
-}
-
-.note-info-wrapper textBody {
-  white-space: pre-wrap;
 }
 
 .note-info-wrapper a {
@@ -254,7 +248,7 @@ ul {
   display: flex;
   flex-direction: column;
   width: 75%;
-  height: 100vh;
+ 
   /* margin: 20px; */
   margin-left: 25%;
 }

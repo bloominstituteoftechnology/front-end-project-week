@@ -15,7 +15,6 @@ export default class Note extends React.Component {
 }
     
     componentDidMount() {
-        
         if(this.props.notesData) {
         const currentNote = this.props.notesData.find(note => note._id === this.props.match.params.noteId);
         this.setState({ note: currentNote }, () => console.log("after setState:", this.state.note));
@@ -46,7 +45,7 @@ export default class Note extends React.Component {
                 return tags.map(tag => <Link to={{pathname: '/notes', state: { from: this.props.location.pathname }}}  className="tag" key={tag}><a>{tag}</a></Link>);
               }
         } 
-//onClick={() => this.props.history.push(`tagged/${tag}`)
+
     }
 
 
@@ -71,7 +70,7 @@ export default class Note extends React.Component {
                 </div>
                     <div className="note-info-wrapper">
                     <h1>{this.state.note.title}</h1>
-                    <p className="textBody">{this.state.note.textBody}</p>
+                    <p className="content">{this.state.note.content}</p>
                     <p>Tags: {this.tagsMap(this.state.note.tags)}</p> 
                 
                     </div>
