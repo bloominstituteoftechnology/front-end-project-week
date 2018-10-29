@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { fetchNotes, addNote, deleteNote, singleNote } from './actions'
+import Navigation from './components/navigation';
+import NotesList from './components/notesList';
+import { connect } from 'react-redux';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: '',
+      body: ''
+    }
+  }
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Navigation />
+        <NotesList notes={this.props.notes} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    fetching: state.fetching 
+  };
+};
+
+export default connect(mapStateToProps,{ fetchNotes, addNote, deleteNote, singleNote })(App);
