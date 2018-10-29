@@ -25,7 +25,7 @@ export const FETCHING_NOTES_FAILURE = 'FETCHING_NOTES_FAILURE';
    D - deleteSmurf
 */
 
-const url = 'https://killer-notes.herokuapp.com/note/get/all';
+const url = 'https://fe-notes.herokuapp.com/note/get/all';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
@@ -33,8 +33,8 @@ export const getNotes = () => dispatch => {
   axios
     .get(url)
     .then(response => {
-      // dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
-      console.log(response);
+      console.log('response in component ', response);
+      dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
     })
     .catch(error => {
       dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });

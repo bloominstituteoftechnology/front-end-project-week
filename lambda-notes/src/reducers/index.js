@@ -31,21 +31,21 @@ export default (state = initialState, action) => {
     case FETCHING_NOTES:
       return {
         ...state,
-        fetchingSmurfs: true
+        fetchingNotes: true
       };
 
     case FETCHING_NOTES_SUCCESS:
       return {
         ...state,
-        fetchingSmurfs: false,
-        smurfs: action.payload,
+        fetchingNotes: false,
+        notes: action.payload,
         error: null
       };
 
     case FETCHING_NOTES_FAILURE:
       return {
         ...state,
-        fetchingSmurfs: false,
+        fetchingNotes: false,
         error: action.payload
       };
 
