@@ -6,14 +6,16 @@ const SingleNote = props => {
     let note = props.notes.find(
       note => `${note._id}` === props.match.params.id
     );
-    console.log(props);
-    console.log(props.match.params.id);
-    console.log(note);
     return (
       <div>
         <p>
-          {" "}
-          <Link to={`/note/${note._id}/edit`}>edit</Link> delete
+          <Link
+            to={`/note/${note._id}/edit`}
+            onClick={() => props.toEditNote(note.title, note.textBody)}
+          >
+            edit
+          </Link>{" "}
+          delete
         </p>
         <h2>{note.title}</h2>
         <p>{note.textBody}</p>

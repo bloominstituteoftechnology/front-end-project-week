@@ -2,7 +2,7 @@ import React from "react";
 import Note from "./Note";
 
 const NotesList = props => (
-  <div>
+  <div className="noteslist">
     <h2>Your Notes:</h2>
     <div className="notes">
       {props.notes.map((note, i) => (

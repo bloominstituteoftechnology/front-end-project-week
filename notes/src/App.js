@@ -15,7 +15,9 @@ class App extends Component {
     this.state = {
       notes: [],
       title: "",
-      textBody: ""
+      textBody: "",
+      utitle: "",
+      utextBody: ""
     };
   }
   componentDidMount() {
@@ -28,11 +30,26 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   addNote = () => {
-    axios.post("https://killer-notes.herokuapp.com/note/create", {
-      title: this.state.title,
-      textBody: this.state.textBody
-    });
+    axios
+      .post("https://killer-notes.herokuapp.com/note/create", {
+        title: this.state.title,
+        textBody: this.state.textBody
+      })
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
     this.setState({ title: "", textBody: "" });
+  };
+  toEditNote = (title, textBody) => {
+    this.setState({ utitle: title, utextBody: textBody });
+  };
+  editNote = id => {
+    axios
+      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+        title: this.state.utitle,
+        textBody: this.state.utextBody
+      })
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   };
   render() {
     return (
@@ -59,11 +76,27 @@ class App extends Component {
         <Route
           exact
           path="/note/:id"
-          render={props => <SingleNote {...props} notes={this.state.notes} />}
+          render={props => (
+            <SingleNote
+              {...props}
+              notes={this.state.notes}
+              toEditNote={this.toEditNote}
+            />
+          )}
         />
         <Route
+          exact
           path="/note/:id/edit"
-          render={props => <EditNoteForm handleInput={this.handleInput} />}
+          render={props => (
+            <EditNoteForm
+              {...props}
+              notes={this.state.notes}
+              handleInput={this.handleInput}
+              utitle={this.state.utitle}
+              utextBody={this.state.utextBody}
+              editNote={this.editNote}
+            />
+          )}
         />
       </div>
     );
