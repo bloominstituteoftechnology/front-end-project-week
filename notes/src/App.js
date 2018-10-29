@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import NoteListView from './components/NoteListView';
 import CreateNote from './components/CreateNote';
 import SideBar from './components/SideBar';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -43,8 +44,12 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar></SideBar>
-        <NoteListView noteContent={this.props.notes}></NoteListView>
-        <CreateNote changeHandler={this.changeHandler} postHandler={this.postHandler}></CreateNote>
+        <Route exact path='/' render ={(props) => (
+          <NoteListView {...props} noteContent={this.props.notes}/> 
+        )}/>
+        <Route exact path='/new-note' render ={(props) => (
+          <CreateNote {...props} changeHandler={this.changeHandler} postHandler={this.postHandler}/> 
+        )}/>
       </div>
     );
   }

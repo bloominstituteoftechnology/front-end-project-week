@@ -7,7 +7,7 @@
 
 .sideBar {
     padding: 0 20px 0 20px;
-    
+    height: 100vh;
 }
 
 button {
@@ -28,7 +28,6 @@ h1 {
 }
 
 .forBorder {
-    height: 100%;
     border-right: 1.5px solid gray;
     padding-top: 10px;
 }
