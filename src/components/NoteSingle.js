@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -15,6 +16,14 @@ class NoteSingle extends Component {
     this.setState({ modal: false })
   }
 
+  deleteNoteFromAPI = (noteId) => {
+    console.log(noteId)
+    axios.delete(`http://localhost:9000/notes/${noteId}`)
+      .then(resp => console.log(resp))
+      .catch(err => console.log(err))
+    this.props.history.push("/")
+  }
+
   render() {
     const note = this.props.notes.filter(note => note.id === Number(this.props.match.params.id))[0]
 
@@ -26,7 +35,7 @@ class NoteSingle extends Component {
               <Div3>
                 <P2>Are you sure you want to delete this?</P2>
                 <Fragment>
-                  <Button delete onClick={() => this.props.deleteNote(Number(note.id))}>Delete</Button>
+                  <Button delete onClick={() => this.deleteNoteFromAPI(Number(note.id))}>Delete</Button>
                   <Button onClick={this.closeModal}>No</Button>
                 </Fragment>
               </Div3>
