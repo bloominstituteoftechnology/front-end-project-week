@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import { updateNote } from '../actions';
 
 const NoteModule = ({
     note = false, 
     getNote,
     deleteNote,
+    updateNote,
+    activeNoteHandler,
     history, 
     match
 }) => {
@@ -22,11 +25,30 @@ const NoteModule = ({
     if(note.title === undefined) return (<h2>Loading Note</h2>)
     return (
         <div className="note note-module">
-            <div className="title">{note.title}</div>
-            <div className="body">{note.textBody}</div>
+            <input 
+                className="title" 
+                type="text" 
+                name="title"
+                value={note.title}
+                onChange={activeNoteHandler}
+            />
+            <input 
+                className="body" 
+                type="text" 
+                name="textBody"
+                value={note.textBody}
+                onChange={activeNoteHandler}
+            />
 
             <div className="action-bar">
-                <i className="far fa-edit"></i>
+                <i 
+                    className="far fa-edit"
+                    onClick={e => {
+                        e.preventDefault();
+                        updateNote(note);
+                        history.push('/');
+                    }}
+                ></i>
                 <i 
                     className="far fa-trash-alt" 
                     onClick={e => {

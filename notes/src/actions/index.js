@@ -65,7 +65,7 @@ export const addNote = (note) => async dispatch => {
 export const updateNote = (note) => async dispatch => {
   try {
     dispatch({type: UPDATE_NOTE});
-    const res = await axios.put(`${url}/notes/${note.id}`, note)
+    const res = await axios.put(`${url}/note/${note._id}`, note)
     dispatch({type: UPDATE_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: UPDATE_NOTE_FAILURE, payload: err})

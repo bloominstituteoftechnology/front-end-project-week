@@ -8,7 +8,7 @@ const useInputValue = (initialValue) => {
     }
 }
 
-const NoteForm = (props) => {
+const NoteForm = ({onSubmit, history, id=false}) => {
     const title = useInputValue('');
     const body = useInputValue('');
 
@@ -16,7 +16,11 @@ const NoteForm = (props) => {
         <form
             onSubmit={e => {
                 e.preventDefault();
-                props.onSubmit(title.value, body.value, props.history);
+                if(id) {
+                    onSubmit(title.value, body.value, id, history);
+                    return;
+                }
+                onSubmit(title.value, body.value, history);
             }}
         >
             <input {...title} required/>

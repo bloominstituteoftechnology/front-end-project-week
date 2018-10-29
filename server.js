@@ -74,19 +74,19 @@ server.post('/notes', (req, res) => {
   res.json(notes);
 });
 
-server.put('/notes/:id', (req, res) => {
+server.put('/note/:id', (req, res) => {
   const { id } = req.params;
-  const { name, age, height } = req.body;
-  const findSmurfById = smurf => {
-    return smurf.id == id;
+  const { title, textBody } = req.body;
+  const findByNoteId = note => {
+    return note._id == id;
   };
-  const foundSmurf = notes.find(findSmurfById);
-  if (!foundSmurf) {
-    return sendUserError('No Smurf found by that ID', res);
+
+  const foundNote = notes.find(findByNoteId);
+  if (!foundNote) {
+    return sendUserError('No Note found by that ID', res);
   } else {
-    if (name) foundSmurf.name = name;
-    if (age) foundSmurf.age = age;
-    if (height) foundSmurf.height = height;
+    if (title) foundNote.title = title;
+    if (textBody) foundNote.textBody = textBody;
     res.json(notes);
   }
 });
