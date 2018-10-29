@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
 import {Route} from 'react-router-dom';
+import ListViewSection from './Components/ListView/ListViewSection'
+import styled from 'styled-components';
 
+
+const WrapperDiv = styled.div`
+  margin:0 auto;
+  max-width:890px;
+
+`
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Route exact path ='/' component='NotesList'></Route>
-      </div>
+      <WrapperDiv>
+        <Route exact path ='/' component={ListViewSection}></Route>
+      </WrapperDiv>
     );
   }
 }

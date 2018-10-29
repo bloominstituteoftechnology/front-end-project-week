@@ -1,0 +1,6 @@
+import axios from 'axios';
+
+
+export const FETCHING_NOTES = 'FETCHING_NOTES';
+export const FETCHING_NOTES_SUCCESS = 'FETCHING_NOTES_SUCCESS';
+export const FETCHING_NOTES_FAILURE = 'FETCHING_NOTES_FAILURE';
