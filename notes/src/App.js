@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom';
 import SideBar from './components/sidebar/SideBar'
 import NoteList from './components/NoteList';
 import CreateNew from './components/CreateNew';
-import EditNote from './components/EditNote'
+import ViewNote from './components/ViewNote'
 
 class App extends Component {
 
@@ -59,7 +59,7 @@ class App extends Component {
         onChangeHandler ={this.onChangeHandler}
         />} />
         {/* Edit Card Route */}
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} /> } />
+        <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} /> } />
       </div>
     );
   }

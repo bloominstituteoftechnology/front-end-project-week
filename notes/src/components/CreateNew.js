@@ -27,6 +27,7 @@ const CreateNew = (props) => {
                 className="form-save"
                 type="submit" 
                 value="Save" 
+                onClick={props.submit}
                 />
 
             </form>

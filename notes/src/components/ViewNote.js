@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 // const EditNote = props => {
 //     return(
@@ -13,7 +14,7 @@ import axios from 'axios';
 //         </div>
 //     );
 // }
-class EditNote extends React.Component{
+class ViewNote extends React.Component{
     constructor(){
         super();
         this.state = {
@@ -24,26 +25,31 @@ class EditNote extends React.Component{
     componentDidMount(){
         const ID = this.props.match.params;
         console.log(ID)
-        // this.fetchNoteById(id);
+        this.fetchNoteById(ID.id);//why? how lol?
     }
 
     fetchNoteById = id => {
-        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        console.log(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                console.log("this is the response" , response)
                 this.setState({note : response.data})
+                console.log("NOTE : ", response.data)
             })
             .catch(error => alert(error))
     }
-
+    
     render(){
         return(
-            <form>
-                <input type="text" value={this.state.note.title} />
-                <input type="text" />
-            </form>
+            <div className="view-note">
+                <Link to='/' >Edit</Link>
+                <a href='#'>delete</a>
+                <div className="note-section">
+                    <h2>{this.state.note.title}</h2>
+                    <p>{this.state.note.textBody}</p>
+                </div>
+            </div>
         );
     }
 }
 
-export default EditNote;
+export default ViewNote;
