@@ -1,3 +1,10 @@
+This is Project for FSW program at Lambda School
+
+Trello URL for this project is https://trello.com/b/TvHEjkdC/lambda-notes-edward-jeong
+
+
+
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
