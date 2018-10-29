@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
+import List from './components/List/List';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Sidebar />
-          <img src={logo} className="App-logo" alt="logo" />
+        <Route exact path="/" component={List} />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
