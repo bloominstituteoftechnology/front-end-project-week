@@ -38,6 +38,8 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
+  width: 80%;
+  margin: auto;
 }
 .note-form input,
 #create-submit,
@@ -57,7 +59,8 @@
 }
 
 .note-form h1 {
-  margin: 0 20px;
   font-size: 1.7rem;
   opacity: 0.8;
+  width: 80%;
+  margin: 10px auto;
 }
