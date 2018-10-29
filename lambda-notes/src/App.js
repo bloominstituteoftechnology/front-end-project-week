@@ -4,8 +4,8 @@ import axios from 'axios'
 import './App.css';
 import Navigation from './Components/Navigation/Navigation'
 import List from './Components/Views/ListView/List'
-import CreateNew from './Components/Views/CreateNew'
-import Note from './Components/Views/Note'
+import CreateNew from './Components/Views/CreateNewView/CreateNew'
+import Note from './Components/Views/NoteView/Note'
 import Delete from './Components/Views/Delete'
 import Edit from './Components/Views/Edit'
 
@@ -44,7 +44,14 @@ class App extends Component {
 
 
 
-        <Route path='/createNew' component={CreateNew}/>
+        <Route 
+          path='/createNew'
+          render={props => (
+            <CreateNew 
+              {...props}
+            />
+          )}
+        />
 
         <Route
           path='/note/:id'

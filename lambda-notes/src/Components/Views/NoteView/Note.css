@@ -1,0 +1,16 @@
+.note-container {
+    display: flex;
+    flex-direction: column;
+    width: 970px;
+    border: 1px solid black;
+}
+
+.edit-note {
+    display: flex;
+    justify-content: flex-end;
+}
+
+span {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import './Note.css'
 
 class Note extends Component {
     constructor(props) {
@@ -22,8 +23,11 @@ class Note extends Component {
     
     render() {
         return (
-            <div>
-                NOTE PAGE
+            <div className="note-container">
+                <div>NOTE PAGE</div>
+                <div className="edit-note">
+                    <p> <span>edit</span> <span>delete</span> </p>
+                </div>   
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
             </div>
