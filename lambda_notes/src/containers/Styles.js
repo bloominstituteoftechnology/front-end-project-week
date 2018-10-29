@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
-// CONTAINERS STYLES
-
 // NotesContainer
 export const Container = styled.div`
-  border: 1px solid blue;
-  width: 70%;
-  height: 100%;
-`;
-
-export const Wrapper = styled.section`
-  margin: 50px 2%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
 `;

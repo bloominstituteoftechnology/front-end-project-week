@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getNotes } from '../actions';
 
-import { Container, Wrapper } from './Styles'
+import { Container } from './Styles';
+import NavigationBar from '../components/Navigation/NavigationBar';
+import NotesList from '../components/Notes/NotesList';
 
 class NotesContainer extends Component {
-  state = {
-    notes: []
+  componentDidMount() {
+    this.props.getNotes();
   }
 
   render() {
+    const { notes } = this.props;
+
     return (
       <Container>
-        <Wrapper>
-          List View
-        </Wrapper>
+        <NavigationBar />
+        <NotesList notes={notes} />
       </Container>
     );
   }
 }
 
-export default NotesContainer;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    getNotes: state.getNotes,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps, { getNotes })(NotesContainer);
