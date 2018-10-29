@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
 import './App.css';
+import Sidebar from './components/Sidebar/Sidebar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <Sidebar />
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
