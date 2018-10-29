@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { ContainCards, LeftBar } from '../Styles';
 
 import NoteCard from './NoteCard';
 
@@ -22,15 +23,17 @@ class NotesList extends React.Component {
     render() {
         return(
             <div>
-                <Link to={'/'}>Home</Link>
-                <Link to={'/note/create'}>Add New Note</Link>
+                <LeftBar>
+                    <Link to={'/'}>Lambda Notes</Link>
+                    <Link to={'/note/create'}>Add New Note</Link>
+                </LeftBar>
                 {this.state.notes.map(note => (
-                    <div key={note._id}>
-                        <NoteCard 
-                            note={note}
-                            updateNote={this.updateNote} 
-                        />
-                    </div>
+                        <ContainCards key={note._id}>
+                            <NoteCard 
+                                note={note}
+                                updateNote={this.updateNote} 
+                            />
+                        </ContainCards>
                 ))}
             </div>
         );
