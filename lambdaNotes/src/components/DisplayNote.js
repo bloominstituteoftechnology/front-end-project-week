@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 
  const DisplayNote = props => {
  
@@ -10,7 +10,8 @@ import React from 'react';
     note = props.notes.filter(
       item => item._id === props.match.params.id
     );
-    {console.log(note)}
+   note = note[0];
+   console.log(note);
   } else {
     alert("wrong note ID");
     props.history.push('/');
@@ -22,13 +23,16 @@ import React from 'react';
 //     props.history.push(`/item-list/${item.id}`);
 //   }
 
-console.log(note)
+
   return (
    
     <div className="displayNote">
-  
-      <h3> {note[0].title}  </h3>
-      <p> {note[0].textBody} </p>
+      <nav>
+        <NavLink to="/Notes/:id/edit">Edit  </NavLink>
+        <NavLink to="/Notes/:id/delete"> Delete </NavLink>
+      </nav>
+      <h3> {note.title}  </h3>
+      <p> {note.textBody} </p>
     </div>
   
   );
