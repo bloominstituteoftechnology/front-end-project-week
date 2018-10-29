@@ -60,6 +60,7 @@
     background-color: white;
     color: black;
     margin: 10px;
+    overflow: hidden;
 }
 
 .note h2 {
