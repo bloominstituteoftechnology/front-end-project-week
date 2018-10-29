@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
 import { getNotes, addNote, getNote, deleteNote, updateNote, activeNoteHandler} from '../actions';
+
+import Header from './Header';
 import ToolBar from './ToolBar';
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
@@ -36,6 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className={'app-container'}>
+        <Header />
         <ToolBar />
 
         <Route 

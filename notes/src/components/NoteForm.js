@@ -23,8 +23,8 @@ const NoteForm = ({onSubmit, history, id=false}) => {
                 onSubmit(title.value, body.value, history);
             }}
         >
-            <input {...title} required/>
-            <input {...body} required/>
+            <input {...title} placeholder='title' required/>
+            <input {...body} placeholder='body' required/>
             <button type='submit'>Add</button>
         </form>
     );

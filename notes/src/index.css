@@ -23,6 +23,7 @@ code {
   height: 100vh;
   display: flex;
   position: relative;
+  margin-top: 64px;
 }
 
 .tool-bar {

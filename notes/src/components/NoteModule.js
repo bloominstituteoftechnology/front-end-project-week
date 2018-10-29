@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { updateNote } from '../actions';
 
 const NoteModule = ({
     note = false, 

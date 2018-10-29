@@ -22,7 +22,8 @@ export const DELETE_NOTE = 'delete_note';
 export const DELETE_NOTE_SUCCESS = 'delete_note_success';
 export const DELETE_NOTE_FAILURE = 'delete_note_failure';
 
-const url = 'http://localhost:3333';
+// const url = 'http://localhost:3333';
+const url = 'https://fe-notes.herokuapp.com';
 
 export const activeNoteHandler = (ev) => {
   return {
@@ -34,7 +35,7 @@ export const activeNoteHandler = (ev) => {
 export const getNote = (id) => async dispatch => {
   try {
     dispatch({type: GET_NOTE});
-    const res = await axios.get(`${url}/note/${id}`)
+    const res = await axios.get(`${url}/note/get/${id}`)
     console.log(res);
     dispatch({type: GET_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
@@ -45,7 +46,7 @@ export const getNote = (id) => async dispatch => {
 export const getNotes = () => async dispatch => {
   try {
     dispatch({type: GET_NOTES});
-    const res = await axios.get(`${url}/notes`)
+    const res = await axios.get(`${url}/note/get/all`)
     dispatch({type: GET_NOTES_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: GET_NOTES_FAILURE, payload: err})
@@ -55,7 +56,7 @@ export const getNotes = () => async dispatch => {
 export const addNote = (note) => async dispatch => {
   try {
     dispatch({type: ADD_NOTE});
-    const res = await axios.post(`${url}/notes`, note)
+    const res = await axios.post(`${url}/note/create`, note)
     dispatch({type: ADD_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: ADD_NOTE_FAILURE, payload: err})
@@ -65,7 +66,7 @@ export const addNote = (note) => async dispatch => {
 export const updateNote = (note) => async dispatch => {
   try {
     dispatch({type: UPDATE_NOTE});
-    const res = await axios.put(`${url}/note/${note._id}`, note)
+    const res = await axios.put(`${url}/note/edit/${note._id}`, note)
     dispatch({type: UPDATE_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: UPDATE_NOTE_FAILURE, payload: err})
@@ -75,7 +76,7 @@ export const updateNote = (note) => async dispatch => {
 export const deleteNote = (id) => async dispatch => {
   try {
     dispatch({type: DELETE_NOTE});
-    const res = await axios.delete(`${url}/notes/${id}`)
+    const res = await axios.delete(`${url}/note/delete/${id}`)
     dispatch({type: DELETE_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: DELETE_NOTE_FAILURE, payload: err})
