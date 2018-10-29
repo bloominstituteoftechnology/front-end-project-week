@@ -12,7 +12,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      singleNoteId: ""
     };
   }
   componentDidMount() {
@@ -28,17 +29,34 @@ class App extends Component {
       })
     );
   };
+
+  routeToSingleNote = noteId => {
+    // this.setState({
+    //   singleNoteId: noteId
+    // });
+    localStorage.setItem("noteID", noteId);
+  };
   render() {
-    let notes = this.state.notes;
     return (
       <div className="App">
         <Route path="/" component={SideBar} />
         <Route
           exact
           path="/"
-          render={props => <Notes notes={this.state.notes} {...props} />}
+          render={props => (
+            <Notes
+              notes={this.state.notes}
+              routeToSingleNote={this.routeToSingleNote}
+              {...props}
+            />
+          )}
         />
-        <Route path="/notes/:id" component={SingleNote} />
+        <Route
+          path="/notes/:id"
+          render={props => (
+            <SingleNote {...props} singleNoteId={this.state.singleNoteId} />
+          )}
+        />
         <Route
           exact
           path="/add"

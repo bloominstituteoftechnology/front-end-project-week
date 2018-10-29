@@ -5,6 +5,10 @@
   width: 20%;
   border: 1px solid lightgrey;
 }
+.note a {
+  text-decoration: none;
+  color: #333;
+}
 .note h1 {
   border-bottom: 1px solid lightgray;
   font-size: 1.7rem;

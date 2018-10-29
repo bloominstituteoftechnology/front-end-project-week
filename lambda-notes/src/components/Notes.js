@@ -8,7 +8,12 @@ const Notes = props => {
       <div className="notes-container">
         <h1 className="your-notes">Your Notes:</h1>
         {props.notes.map((note, index) => (
-          <Note note={note} key={index} />
+          <Note
+            note={note}
+            key={index}
+            routeToSingleNote={props.routeToSingleNote}
+            id={index}
+          />
         ))}
       </div>
     </React.Fragment>

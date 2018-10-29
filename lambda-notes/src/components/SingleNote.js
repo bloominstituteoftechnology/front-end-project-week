@@ -2,26 +2,28 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class SingleNote extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      note: null
+      note: {}
     };
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const id = localStorage.getItem("noteID");
     console.log(id);
-    // axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`).then(res =>
-    //   this.setState({
-    //     note: res.data
-    //   })
-    // );
+    axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`).then(res =>
+      this.setState({
+        note: res.data
+      })
+    );
+    console.log(localStorage.getItem("noteID"));
   }
   render() {
     return (
-      <div>
-        <h1>single note</h1>
+      <div className="notes-container">
+        <h1>{this.state.note.title}</h1>
+        <p>{this.state.note.textBody}</p>
       </div>
     );
   }
