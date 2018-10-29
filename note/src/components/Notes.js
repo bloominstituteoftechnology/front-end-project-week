@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Notes = props => {
     return (
@@ -6,7 +7,11 @@ const Notes = props => {
             <h2>Your Notes:</h2>
             <div className='notes-display'>
                 {props.notes.map(note => (
-                    <Note key={note.id} note={note} />
+                    <div
+                        key={note.id}
+                        title={note.title}
+                        textBody={note.textBody} 
+                    />
                 ))}
             </div>
         </div>
