@@ -1,0 +1,116 @@
+.container {
+  width: 100%;
+  height: auto;
+  
+
+}
+
+.App {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  min-height: 1000px;
+
+}
+
+.side-bar {
+  width: 30%;
+  background-color: #D3D2D3;
+  height: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lambda-notes{
+  padding: 5px;
+  border-bottom: black 1px solid;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+
+}
+.button {
+  background: #24B8BD;
+  border-radius: 20px;
+  margin: 5px;
+  width: 50%;
+  height: 40px;
+  box-shadow: 1px 1px 2px; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-view {
+  width: 70%;
+  background-color: #f2f1f2;
+  padding: 15px;
+}
+
+.title-cont {
+  display: flex;
+  justify-content: left;
+}
+
+.cont-body {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.note {
+  height: 200px;
+  width: 200px;
+  background: white;
+  padding: 5px;
+  margin: 15px 0px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px darkgray; 
+  
+
+}
+.note-title {
+  width: 100%;
+  border-bottom: solid black 1px;
+  text-align: left;
+
+}
+.note-title h3 {
+  margin: unset;
+}
+
+.note-body {
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
