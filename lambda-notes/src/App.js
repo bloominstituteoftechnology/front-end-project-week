@@ -22,12 +22,20 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  addNote = note => {
+    console.log(note);
+    axios
+        .post('https://fe-notes.herokuapp.com/note/create', note)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+}
+
   render() {
     return (
       <div className="App">
         <Route path='/' component={LeftBar}/>
         <Route render={props => (<NotesList {...props} notes={this.state.notes} />)} exact path='/'/>
-        <Route render={props => (<AddNoteForm {...props} notes={this.state.notes} />)} exact path='/AddNoteForm'/>
+        <Route render={props => (<AddNoteForm {...props} addNote={this.addNote} />)} exact path='/AddNoteForm'/>
       </div>
     );
   }
