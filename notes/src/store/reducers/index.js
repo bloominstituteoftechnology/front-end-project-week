@@ -7,24 +7,24 @@ import {
   ERROR,
   GET_TASKS,
   ADD_TASK,
-  COMPLTETE
-} from "../actions";
+  COMPLTETE,
+} from '../actions';
 
 const initialState = {
   notes: [],
   fetching: false,
   success: false,
   error: null,
-  tasks: {
-    "task-1": { id: "task-1", content: "Take out the garbage", complete: true },
-    "task-2": {
-      id: "task-2",
-      content: "Watch my favorite show",
-      complete: true
-    },
-    "task-3": { id: "task-3", content: "Charge my phone", complete: true },
-    "task-4": { id: "task-4", content: "Cook dinner", complete: false }
-  }
+  // tasks: {
+  //   "task-1": { id: "task-1", content: "Take out the garbage", complete: true },
+  //   "task-2": {
+  //     id: "task-2",
+  //     content: "Watch my favorite show",
+  //     complete: true
+  //   },
+  //   "task-3": { id: "task-3", content: "Charge my phone", complete: true },
+  //   "task-4": { id: "task-4", content: "Cook dinner", complete: false }
+  // }
 };
 
 export const noteReducers = (state = initialState, action) => {
@@ -33,14 +33,14 @@ export const noteReducers = (state = initialState, action) => {
       return { ...state, fetching: true, success: false };
 
     case ERROR:
-      return { ...state, error: "Error with notes" + action.err };
+      return { ...state, error: 'Error with notes' + action.err };
 
     case GET_DATA:
       return {
         ...state,
         notes: action.payload,
         fetching: false,
-        success: true
+        success: true,
       };
 
     case ADD_NOTE:
@@ -51,11 +51,11 @@ export const noteReducers = (state = initialState, action) => {
         notes: [
           ...state.notes,
           {
-            ...newNote
-          }
+            ...newNote,
+          },
         ],
         fetching: false,
-        success: true
+        success: true,
       };
 
     case DELETE_NOTE:
@@ -64,10 +64,10 @@ export const noteReducers = (state = initialState, action) => {
         ...state,
         notes: [
           ...state.notes.slice(0, position),
-          ...state.notes.slice(position + 1)
+          ...state.notes.slice(position + 1),
         ],
         fetching: false,
-        success: true
+        success: true,
       };
 
     case EDIT_NOTE:
@@ -79,17 +79,17 @@ export const noteReducers = (state = initialState, action) => {
         notes: [
           ...state.notes.slice(0, editPosition),
           { ...action.payload },
-          ...state.notes.slice(editPosition + 1)
+          ...state.notes.slice(editPosition + 1),
         ],
         fetching: false,
-        success: true
+        success: true,
       };
 
     // Task Reducers
     case GET_TASKS:
       return {
         ...state,
-        taskChange: false
+        taskChange: false,
       };
 
     case ADD_TASK:
@@ -98,9 +98,9 @@ export const noteReducers = (state = initialState, action) => {
         ...state,
         tasks: {
           ...state.tasks,
-          [task]: { id: task, content: action.payload, complete: false }
+          [task]: { id: task, content: action.payload, complete: false },
         },
-        taskChange: true
+        taskChange: true,
       };
 
     case COMPLTETE:
@@ -109,9 +109,9 @@ export const noteReducers = (state = initialState, action) => {
         ...state,
         tasks: {
           ...state.tasks,
-          [action.payload]: { ...changeTask, complete: !changeTask.complete }
+          [action.payload]: { ...changeTask, complete: !changeTask.complete },
         },
-        taskChange: true
+        taskChange: true,
       };
 
     default:

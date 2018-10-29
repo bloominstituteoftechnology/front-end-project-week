@@ -1,16 +1,16 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { deleteNote, getData } from "../../store/actions";
-import Modal from "../presentational/Modal";
-import Todo from './Todo'
+import { deleteNote, getData } from '../../store/actions';
+import Modal from '../presentational/Modal';
+// import Todo from './Todo'
 
-import { Button, ViewContainer } from "../style/noteStyle";
+import { Button, ViewContainer } from '../style/noteStyle';
 
 class ViewPage extends React.Component {
   state = {
     note: {},
-    showModal: false
+    showModal: false,
   };
 
   filterProps = () => {
@@ -51,7 +51,7 @@ class ViewPage extends React.Component {
     const description =
       this.state.note.textBody === undefined
         ? []
-        : this.state.note.textBody.split("\n");
+        : this.state.note.textBody.split('\n');
     return (
       <ViewContainer>
         <Button onClick={this.editClick} className="left">
@@ -64,7 +64,7 @@ class ViewPage extends React.Component {
             return <p key={index}>{descript}</p>;
           })}
         </div>
-        <Todo />
+        {/* <Todo /> */}
         <Modal
           showModal={this.state.showModal}
           toggleModal={this.toggleModal}
@@ -78,7 +78,7 @@ class ViewPage extends React.Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
-    success: state.success
+    success: state.success,
   };
 };
 
