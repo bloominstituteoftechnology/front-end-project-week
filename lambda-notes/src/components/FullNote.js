@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class FullNote extends React.Component {
   constructor(props) {
@@ -28,8 +29,11 @@ class FullNote extends React.Component {
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .then(() => {
+      .delete(
+        `https://fe-notes.herokuapp.com/note/delete/${id}`,
+        this.state.notes
+      )
+      .then(response => {
         this.setState({ deleted: true });
       })
       .catch(err => {
@@ -37,10 +41,16 @@ class FullNote extends React.Component {
       });
   };
   render() {
+    if (this.state.deleted === true) {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <h2>{this.state.notes.title}</h2>
         <p>{this.state.notes.textBody}</p>
+        <button onClick={() => this.deleteNote(this.state.notes._id)}>
+          delete
+        </button>
       </div>
     );
   }
