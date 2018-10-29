@@ -186,7 +186,7 @@ a {
   background-color: lightgrey;
   width: 65%;
   height: 500px;
-  border: 1px solid blueviolet;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -194,8 +194,8 @@ a {
   justify-content: center;
 }
 .delete-content {
-background-color: whitesmoke;
-border: 1px solid palevioletred;
+background-color: white;
+border: 1px solid black;
 padding: 25px;
 width: 450px;
 height: 200px;
