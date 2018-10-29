@@ -13,8 +13,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      noteTitle: '',
-      noteContent: ''
+      title: '',
+      textBody: ''
     }
   };
   componentDidMount() {
@@ -25,20 +25,27 @@ class App extends Component {
   });
   clickHandler = event => {
     event.preventDefault();
-    console.log('click handler', this.state)
-    const { noteTitle, noteContent } = this.state;
-    this.props.addNote({ noteTitle, noteContent });
-    this.setState({ noteTitle: '', noteContent: '' });
-    this.props.history.push('/')
+    this.props.addNote(this.state);
+    this.setState({ title: '', textBody: '' });
+    this.props.history.push('/');
+  };
+  handleDelete=(event)=> {  
+    event.preventDefault();  
+    console.log(event.currentTarget.value)
+    this.props.deleteNote(event.currentTarget.value);
+  };
+  handleEdit=(event)=> {  
+    event.preventDefault();  
+    console.log(event.currentTarget.value)
+    this.props.deleteNote(event.currentTarget.value);
   };
   render() {
     return (
       <div className="App">
-        <Navigation />
+        <Navigation className='nav-bar'/>
         <Route exact path='/' render={()=>
-          <NotesList {...this.props} notes={this.props.notes} />
-        } />
-        
+          <NotesList {...this.props} delete={this.handleDelete} notes={this.props.notes} />
+        } />        
         <Route path='/new-note' render={()=>
           <AddNoteForm 
             {...this.props}
@@ -47,7 +54,10 @@ class App extends Component {
             clickHandler={this.clickHandler}/>
         } />
         <Route path='/edit-form' render={()=>
-          <EditForm data={this.state}  />
+          <EditForm 
+            data={this.state} 
+            inputChange={this.handleInputChange} 
+            edit={this.handleEdit} />
         } />
       </div>
     );

@@ -1,32 +1,61 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid grey;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  background-color: lightgrey;
+}
+.nav-bar {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-bar h1 {
+  font-size: 2.4rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.notes-container {
+  border-left: 1px solid grey;
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%;
+  justify-content: space-evenly;
+  background-color: whitesmoke;
+  padding-bottom: 20px;
+}
+.notes-container .your-notes {
+  width: 100%;
+  padding-left: 3%;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.note {
+  color: black;
+  border: 1px solid grey;
+  width: 30%;
+  height: 200px;
+  margin-top: 20px;
+  background-color: white;
+  overflow: hidden;
+  padding: 10px 0;
+  text-decoration: none;
+}
+.note h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid grey;
+  width: 90%;
+  margin-left: 5%;
+  padding-bottom: 5px;
+}
+.note p {
+  font-size: 1rem;
+  width: 90%;
+  margin-left: 5%;
 }

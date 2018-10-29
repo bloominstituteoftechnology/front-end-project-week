@@ -41,10 +41,12 @@ export const singleNote = id => dispatch => {
 };
 
 export const addNote = note => dispatch => {
+  console.log('this is the note in the actions', note)
   dispatch({ type: ADDING_NOTE });
   axios
     .post('https://fe-notes.herokuapp.com/note/create', note)
     .then(response =>{
+      console.log('this is the response', response)
       dispatch({ type: ADD_NOTE_SUCCESS, payload: response.data })      
     })
     .catch(error => {

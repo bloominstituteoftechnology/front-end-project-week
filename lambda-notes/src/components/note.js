@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Note = props => {
   return (
-    <div>
+    <Link to='/id' className='note' >
       <h2>{props.note.title}</h2>
       <p>{props.note.textBody}</p>
-      <Link to='/edit-form'>Edit</Link>
-      <div className='delete-button'>Delete</div>
-    </div>
+      {/* <Link to='/edit-form'>Edit</Link>
+      <button onClick={props.delete} value={props.id} className='delete-button'>Delete</button> */}
+    </Link>
   );
 }
 

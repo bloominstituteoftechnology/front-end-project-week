@@ -6,8 +6,8 @@ const Navigation = () => {
   return (
     <div className='nav-bar'>
       <h1>Lambda Notes</h1>
-      <NavLink to='/' >View Notes</NavLink>
-      <NavLink to='/new-note'>+ Add New Note</NavLink>   
+      <NavLink className='nav-links' to='/' >View Notes</NavLink>
+      <NavLink className='nav-links' to='/new-note'>+ Add New Note</NavLink>   
     </div>
   );
 

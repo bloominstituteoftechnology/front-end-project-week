@@ -3,10 +3,12 @@ import Note from './note'
 
 const NotesList = props => {
   return (
-    <div>
+    <div className='notes-container'>
+      <h2 className='your-notes'>Your Notes:</h2>
       {props.notes.map(note => {
+        const id = note._id
         return (
-          <Note key={note.id} note={note}  />
+          <Note key={id} id ={id} note={note} delete={props.delete}  />
         );
       })}
     </div>
