@@ -1,24 +1,20 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
+
+import NoteCard from './NoteCard';
 
 class NotesList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Note Title",
-                    "textBody": "Note Body",
-                    "_id": "cksdkjvckadd32",
-                }
-            ],
-        }
+            notes: [],
+        };
     }
 
     componentDidMount() {
         axios
-          .get('https://killer-notes.herokuapp.com/note/get/all')
+          .get("https://killer-notes.herokuapp.com/note/get/all")
           .then(response => this.setState({ notes: response.data }))
           .catch(error => console.log(error));
     }
@@ -26,9 +22,13 @@ class NotesList extends React.Component {
     render() {
         return(
             <div>
+                <Link to={'/'}>Home</Link>
                 {this.state.notes.map(note => (
-                    <div>
-                        <h1>{note.title}</h1>
+                    <div key={note._id}>
+                        <NoteCard 
+                            key={note._id}
+                            note={note}
+                        />
                     </div>
                 ))}
             </div>
