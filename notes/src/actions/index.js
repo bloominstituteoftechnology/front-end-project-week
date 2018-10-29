@@ -8,17 +8,18 @@ export const UPDATING = 'UPDATING';
 export const UPDATED = 'UPDATED';
 export const DELETING = 'DELETING';
 export const DELETED = 'DELETED';
-export const ERROR = 'ERR';
+export const ERROR = 'ERROR';
 
 export const fetchNotes = () => {
     return dispatch => {
          dispatch({ type: FETCHING });
-         axios.get('https://killer-notes.herokuapp.com/note/get/all')
+         axios
+         .get('https://fe-notes.herokuapp.com/note/get/all')
          .then(response => {
              dispatch({ type: FETCHED, payload: response.data });
             })
-            .catch(err => {
-                dispatch({ type: ERROR, payload: err });
+            .catch(error => {
+                dispatch({ type: ERROR, payload: error });
             })
         }
     }
@@ -26,15 +27,15 @@ export const fetchNotes = () => {
 export const addNote = note => {
     return dispatch => {
         dispatch({ type: SAVING });
-        axios.post('https://killer-notes.herokuapp.com/note/create', {
+        axios.post('https://fe-notes.herokuapp.com/note/create', {
             name: note.name,
             content: note.content,
         })
         .then(response => {
             dispatch({ type: SAVED, payload: response.data })
         })
-        .catch(err => {
-            dispatch({ type: ERROR, payload: err })
+        .catch(error => {
+            dispatch({ type: ERROR, payload: error })
         })
  }
 }

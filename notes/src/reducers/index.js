@@ -14,14 +14,16 @@ export const notesReducer = ( state = initialState, action ) => {
         case FETCHING:
         return {...state, fetching: true};
         case FETCHED:
-        return{...state, fetching: false, fetched: true, notes: action.payload};
+        return{...state, fetched: true, fetching: false, notes: action.payload};
         case SAVING:
         return {...state, saving: true};
         case SAVED:
-        return{...state, saving: false, saved: true};
+        return{...state, saving: false, saved: true, notes: action.payload};
         case ERROR:
-        return {...state, fetching: false, saving: false,error: action.payload};
+        return {...state, fetching: false, saving: false, error: action.payload};
         default:
         return state;
+
     }
+
 }
