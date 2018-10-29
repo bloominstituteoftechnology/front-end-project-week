@@ -45,9 +45,20 @@ class App extends Component {
 
 
         <Route path='/createNew' component={CreateNew}/>
-        <Route path='/note/:id' component={Note}/>
+
+        <Route
+          path='/note/:id'
+          render={props => (
+            <Note 
+              {...props}
+            />
+          )}
+        />
+
         <Route path='/delete' component={Delete}/>
+
         <Route path='/edit' component={Edit}/>
+
       </div>
     )
   }
