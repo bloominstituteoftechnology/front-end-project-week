@@ -4,6 +4,7 @@
 }
 
 .navigation {
+  position: fixed;
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -12,6 +13,7 @@
 }
 
 .noteslist {
+  margin-left: 30%;
   width: 70%;
 }
 

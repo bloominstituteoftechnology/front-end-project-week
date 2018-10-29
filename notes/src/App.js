@@ -17,7 +17,8 @@ class App extends Component {
       title: "",
       textBody: "",
       utitle: "",
-      utextBody: ""
+      utextBody: "",
+      isDeleting: false
     };
   }
   componentDidMount() {
@@ -51,6 +52,19 @@ class App extends Component {
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };
+  toggleOnDeleting = () => {
+    this.setState({ isDeleting: true });
+  };
+  toggleOffDeleting = e => {
+    e.preventDefault();
+    this.setState({ isDeleting: false });
+  };
+  deleteNote = id => {
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+  };
   render() {
     return (
       <div className="app">
@@ -81,6 +95,10 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               toEditNote={this.toEditNote}
+              isDeleting={this.state.isDeleting}
+              toggleOnDeleting={this.toggleOnDeleting}
+              toggleOffDeleting={this.toggleOffDeleting}
+              deleteNote={this.deleteNote}
             />
           )}
         />
