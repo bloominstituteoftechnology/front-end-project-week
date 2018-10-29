@@ -46,12 +46,16 @@ export const NoteCardWrapper = styled.div`
   height: 200px;
   background: #ffffff;
   margin: 20px 5px;
+  cursor: pointer;
   h3 {
     font-size: 1.8rem;
     font-weight: 700;
     border-bottom: 2px solid #f2f2f2
     padding-bottom: 5px;
     margin: 10px 0;
+  }
+  p {
+      font-size: 1.4rem
   }
 `;
 

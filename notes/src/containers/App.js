@@ -1,12 +1,17 @@
 import React from "react";
-import { Container } from "../styles"
-import NoteContainer from "./NoteContainer"
-import Navigation from "../components/Navigation"
+import { Route } from "react-router-dom";
+
+import { Container } from "../styles";
+
+import Navigation from "../components/Navigation";
+import NoteContainer from "./NoteContainer";
+import Note from "../components/Note";
 
 const App = () => (
   <Container>
     <Navigation />
-    <NoteContainer />
+    <Route exact path="/notes" component={NoteContainer} />
+    <Route path="/notes/:id" component={Note} />
   </Container>
 );
 

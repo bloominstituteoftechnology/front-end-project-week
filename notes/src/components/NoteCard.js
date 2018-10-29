@@ -1,13 +1,17 @@
 import React from "react";
+
 import { NoteCardWrapper } from "../styles";
+
+import { Link } from "react-router-dom";
 
 const NoteCard = ({ note }) => (
   <NoteCardWrapper>
+    <Link to={`/notes/${note._id}`}>
     <h3>
-      {note.title.split("").length > 15
+      {note.title.split("").length > 10
         ? note.title
             .split("")
-            .splice(0, 15)
+            .splice(0, 10)
             .join("")
             .concat("...")
         : note.title}
@@ -16,11 +20,12 @@ const NoteCard = ({ note }) => (
       {note.textBody.split("").length > 150
         ? note.textBody
             .split("")
-            .splice(0, 100)
+            .splice(0, 150)
             .join("")
             .concat("...")
         : note.textBody}
     </p>
+    </Link>
   </NoteCardWrapper>
 );
 

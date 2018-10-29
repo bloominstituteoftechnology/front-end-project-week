@@ -1,5 +1,7 @@
 import React from "react";
+
 import { NoteListWrapper } from "../styles";
+
 import NoteCard from "./NoteCard";
 
 const NoteList = ({ notes }) => (
