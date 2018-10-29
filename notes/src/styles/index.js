@@ -50,12 +50,16 @@ export const NoteCardWrapper = styled.div`
   h3 {
     font-size: 1.8rem;
     font-weight: 700;
-    border-bottom: 2px solid #f2f2f2
+    border-bottom: 2px solid #f2f2f2;
     padding-bottom: 5px;
     margin: 10px 0;
   }
   p {
       font-size: 1.4rem
+  }
+  a {
+    color: #545454;
+    text-decoration: none;
   }
 `;
 
@@ -77,12 +81,13 @@ export const EditDelete = styled.div`
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  input {
-    border-radius: 5px;
-    padding-left: 10px;
-    height: ${props => (props.content ? "400px" : "40px")};
-    width: ${props => (props.content ? "100%" : "50%")};
-  }
+`;
+
+export const Input = styled.input`
+  border-radius: 5px;
+  padding-left: 10px;
+  height: ${props => (props.content ? "400px" : "40px")};
+  width: ${props => (props.content ? "100%" : "50%")};
 `;
 
 export const Button = styled.button`

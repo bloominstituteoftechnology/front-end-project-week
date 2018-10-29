@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const Form = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+import { StyledForm, Input } from "../styles";
 
-export default Form
+const Form = ({ editing }) => (
+  <StyledForm>
+    <h2>{editing ? "Edit Note" : "Create New Note"}</h2>
+    <Input placeholder="Note Title" />
+    <Input content placeholder="Note Content" />
+  </StyledForm>
+);
+
+export default Form;
