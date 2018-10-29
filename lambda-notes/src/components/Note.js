@@ -2,18 +2,33 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const NoteContainer = styled.div`
-  border: solid purple;
-  margin: 0 auto;
+  border: 1px solid gray;
   background: white;
-  width: 25%;
+  width: 31%;
+  height: 400px;
+  margin-top: 20px;
+`;
+
+const NoteTitle = styled.header`
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px 10%;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 10px;
+`;
+
+const NoteContent = styled.p`
+  font-size: 1.75rem;
+  padding: 0 10%;
+  margin-top: -10px;
 `;
 
 class Note extends Component {
   render() {
     return (
       <NoteContainer>
-        <h2>{this.props.note.title}</h2>
-        <p>{this.props.note.textBody}</p>
+        <NoteTitle>{this.props.note.title}</NoteTitle>
+        <NoteContent>{this.props.note.textBody}</NoteContent>
       </NoteContainer>
     );
   }

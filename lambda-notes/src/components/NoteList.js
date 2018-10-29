@@ -5,11 +5,12 @@ import Note from './Note';
 import styled from 'styled-components';
 
 const NotesContainer = styled.div`
-  border: solid green;
   background: #f3f3f3;
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 2.5%;
 `;
 
 class NoteList extends Component {

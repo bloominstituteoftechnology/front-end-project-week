@@ -11,10 +11,10 @@ const SideBar = styled.div`
 const NoteAppButtons = styled.button`
   background-color: #2ac0c4;
   color: white;
-  width: 80%;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  padding: 20px 0;
+  width: 90%;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  padding: 30px 0;
 `;
 
 class ButtonContainer extends Component {

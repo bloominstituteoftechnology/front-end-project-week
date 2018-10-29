@@ -6,13 +6,13 @@ const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  width: 25%;
 `;
 
-const TitleContainer = styled.div`
-  width: 100%;
-  padding-left: 7%;
+const SideBarTitleContainer = styled.div`
   font-size: 2.4rem;
   line-height: 1;
+  padding-left: 5%;
 `;
 
 const Title = styled.h1`
@@ -22,9 +22,9 @@ const Title = styled.h1`
 const SideBarView = props => {
   return (
     <SideBarContainer>
-      <TitleContainer>
+      <SideBarTitleContainer>
         <Title>Lambda Notes</Title>
-      </TitleContainer>
+      </SideBarTitleContainer>
       <ButtonContainer />
     </SideBarContainer>
   );
