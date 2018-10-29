@@ -1,9 +1,14 @@
 import React from 'react';
+import NotePreview from './NotePreview';
 
 const NotesList = props => {
   return (
-    <h2>NotesList</h2>
+    <div className='notes-list'>
+      {props.notes.map(note => {
+        return (<NotePreview key={note._id} note={note} />)
+      })}
+    </div>
   )
 }
 
-export default NotesList; 
+export default NotesList;
