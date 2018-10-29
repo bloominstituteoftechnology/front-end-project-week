@@ -42,6 +42,7 @@ button {
   background-color: whitesmoke;
   width: 75%;
   border: 1px solid black;
+  height: 100vh;
 }
 
 .note {
@@ -104,6 +105,7 @@ a {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  height: 100vh;
 }
 
 .create-form {
@@ -150,7 +152,7 @@ a {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  
+  height: 100vh;
 }
 
 .links {
@@ -185,7 +187,7 @@ a {
 .delete-page {
   background-color: lightgrey;
   width: 65%;
-  height: 500px;
+  height: 100vh;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -203,6 +205,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+position: relative;
+bottom: 250px;
 }
 .delete-btn-1 {
  background-color: crimson;
