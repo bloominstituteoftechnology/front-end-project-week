@@ -17,6 +17,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getNotesFromAPI();
+  }
+
+  componentDidUpdate() {
+    this.getNotesFromAPI();
+  }
+
+  getNotesFromAPI = () => {
     axios.get('http://localhost:9000/notes')
       .then(resp => this.setState({ notes: resp.data }))
       .catch(err => console.log(err));
