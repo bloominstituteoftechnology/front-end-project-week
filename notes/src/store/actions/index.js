@@ -16,8 +16,11 @@ export const getData = () => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .get('http://localhost:7777/api/notes')
-      .then(response => dispatch({ type: GET_DATA, payload: response.data }))
+      .get('https://obscure-waters-68420.herokuapp.com/api/notes')
+      .then(response => {
+        console.log(response);
+        dispatch({ type: GET_DATA, payload: response.data });
+      })
       .catch(err => dispatch({ type: ERROR, err }));
   };
 };
@@ -26,7 +29,7 @@ export const getANote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .get(`http://localhost:7777/api/notes/${id}`)
+      .get(`https://obscure-waters-68420.herokuapp.com/api/notes/${id}`)
       .then(response => dispatch({ type: GET_A_NOTE, payload: response.data }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -36,7 +39,7 @@ export const addNote = note => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .post('http://localhost:7777/api/notes', note)
+      .post('https://obscure-waters-68420.herokuapp.com/api/notes', note)
       .then(response =>
         dispatch({
           type: ADD_NOTE,
@@ -55,7 +58,7 @@ export const deleteNote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .delete(`http://localhost:7777/api/notes/${id}`)
+      .delete(`https://obscure-waters-68420.herokuapp.com/api/notes/${id}`)
       .then(response => dispatch({ type: DELETE_NOTE, id }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -65,7 +68,10 @@ export const editNote = note => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .put(`http://localhost:7777/api/notes/${note._id}`, note)
+      .put(
+        `https://obscure-waters-68420.herokuapp.com/api/notes/${note._id}`,
+        note
+      )
       .then(response =>
         dispatch({ type: EDIT_NOTE, payload: response.data.note })
       )
