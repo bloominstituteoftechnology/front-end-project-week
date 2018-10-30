@@ -7,10 +7,12 @@ const NoteContainer = styled.div`
   width: 31%;
   height: 400px;
   margin-top: 20px;
+  margin-bottom: 40px;
+  overflow: hidden;
 `;
 
 const NoteTitle = styled.header`
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: bold;
   margin: 20px 10%;
   border-bottom: 1px solid #aaa;

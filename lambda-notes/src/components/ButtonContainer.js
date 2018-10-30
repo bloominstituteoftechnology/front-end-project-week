@@ -21,7 +21,7 @@ class ButtonContainer extends Component {
   render() {
     return (
       <SideBar>
-        <NoteAppButtons>View Your Note</NoteAppButtons>
+        <NoteAppButtons>View Your Notes</NoteAppButtons>
         <NoteAppButtons>+ Create New Note</NoteAppButtons>
       </SideBar>
     );

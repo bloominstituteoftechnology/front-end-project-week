@@ -21,6 +21,7 @@ class NoteList extends Component {
   render() {
     return (
       <NotesContainer>
+        {this.props.fetchingNotes ? <h1>Loading the notes...</h1> : null}
         {this.props.notes.map(note => {
           return <Note key={note.id} note={note} />;
         })}
