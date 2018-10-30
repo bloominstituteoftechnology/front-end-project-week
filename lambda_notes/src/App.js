@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Route } from 'react-router-dom';
 import NotesList from './components/ListNotes';
 import SingleNote from './components/DisplayedNote';
+import SideBar from './components/SideBar';
 
 class App extends Component {
   constructor() {
@@ -75,7 +76,7 @@ class App extends Component {
   deleteItem = (event, id) => {
     event.preventDefault();
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -100,6 +101,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <SideBar />
         <Route exact path='/' render={props => <NotesList 
         {...props}
         notes={this.state.notes} />} />
