@@ -6,6 +6,8 @@ const Sidebar = ({
   deleteAllChecked,
   getAllNotes,
   clearAllChecked,
+  bulkAddNotes,
+  removeSelfAdded,
   checkAll
 }) => (
   <Container>
@@ -19,6 +21,8 @@ const Sidebar = ({
     <Button onClick={checkAll}>Check all notes</Button>
     <Button onClick={clearAllChecked}>Uncheck all notes</Button>
     <Button onClick={deleteAllChecked}>Delete all checked</Button>
+    <Button onClick={() => bulkAddNotes(5)}>Add 5 notes</Button>
+    <Button onClick={removeSelfAdded}>Remove self added</Button>
   </Container>
 )
 

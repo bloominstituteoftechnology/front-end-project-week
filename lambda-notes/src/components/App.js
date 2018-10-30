@@ -11,7 +11,9 @@ import {
   removeChecked,
   deleteAllChecked,
   clearAllChecked,
-  checkAll
+  checkAll,
+  bulkAddNotes,
+  removeSelfAdded
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -39,6 +41,8 @@ class App extends Component {
       getAllNotes,
       clearAllChecked,
       checkAll,
+      bulkAddNotes,
+      removeSelfAdded,
       history
     } = this.props
 
@@ -51,6 +55,8 @@ class App extends Component {
           getAllNotes={getAllNotes}
           clearAllChecked={clearAllChecked}
           checkAll={checkAll}
+          bulkAddNotes={bulkAddNotes}
+          removeSelfAdded={removeSelfAdded}
         />
 
         <Route
@@ -105,6 +111,8 @@ export default withRouter(
       removeChecked,
       deleteAllChecked,
       clearAllChecked,
+      bulkAddNotes,
+      removeSelfAdded,
       checkAll
     }
   )(App)

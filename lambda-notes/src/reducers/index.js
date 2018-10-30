@@ -7,12 +7,14 @@ import {
   ADD_CHECKED,
   REMOVE_CHECKED,
   CLEAR_ALL_CHECKED,
-  CHECK_ALL
+  CHECK_ALL,
+  RECORD_SELF_ADDED
 } from '../actions'
 
 const initialState = {
   notes: [],
-  checked: []
+  checked: [],
+  self_added: []
 }
 
 export default (state = initialState, action) => {
@@ -35,6 +37,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         checked: []
+      }
+    case RECORD_SELF_ADDED:
+      return {
+        ...state,
+        self_added: Array.isArray(action.payload)
+          ? [...state.self_added, ...action.payload]
+          : [...state.self_added, action.payload]
       }
 
     // case GET_NOTE_BY_ID:

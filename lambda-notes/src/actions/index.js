@@ -10,6 +10,8 @@ export const ADD_CHECKED = 'ADD_CHECKED'
 export const REMOVE_CHECKED = 'REMOVE_CHECKED'
 export const CLEAR_ALL_CHECKED = 'CLEAR_ALL_CHECKED'
 export const CHECK_ALL = 'CHECK_ALL'
+export const RECORD_SELF_ADDED = 'RECORD_SELF_ADDED'
+export const CLEAR_SELF_ADDED = 'CLEAR_SELF_ADDED'
 
 export const getAllNotes = () => dispatch => {
   axios
@@ -37,8 +39,8 @@ export const postNote = ({ title, text }) => dispatch => {
     })
     // again not sure what server will return yet
     .then(res => {
-      console.log(res)
-      // dispatch({ type: POST_NOTE, payload: res.data })
+      console.log(res.data.success)
+      dispatch({ type: RECORD_SELF_ADDED, payload: res.data.success })
       dispatch(getAllNotes())
     })
     .catch(err => console.log(err))
@@ -114,6 +116,52 @@ export const deleteAllChecked = () => async (dispatch, getState) => {
 
   // clear checked values
   dispatch(clearAllChecked())
+
+  // get updated notes
+  dispatch(getAllNotes())
+}
+
+// BULK ADD NOTES
+
+export const bulkAddNotes = num => async dispatch => {
+  // initialize array for all new ids
+  let newIds = []
+
+  await Promise.all(
+    [...Array(num)].map(async id => {
+      await axios
+        .post('https://fe-notes.herokuapp.com/note/create', {
+          title: 'Bulk note',
+          textBody: `Testing bulk add option for ${num} notes.`
+        })
+        .then(res => newIds.push(res.data.success))
+        .catch(err => console.log(err))
+    })
+  )
+
+  // add all new items to self added
+  dispatch({ type: RECORD_SELF_ADDED, payload: newIds })
+
+  // get updated notes
+  dispatch(getAllNotes())
+}
+
+// REMOVE ALL SELF ADDED
+
+export const removeSelfAdded = () => async (dispatch, getState) => {
+  // get all checked items
+  const { self_added } = getState()
+
+  // fire off api request for each item to delete
+  // await completion of all promises before continuing
+  await Promise.all(
+    self_added.map(async id => {
+      await axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(res => console.log(`Successfully deleted ${id}`))
+        .catch(err => console.log(err))
+    })
+  )
 
   // get updated notes
   dispatch(getAllNotes())
