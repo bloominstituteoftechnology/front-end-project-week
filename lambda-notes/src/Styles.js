@@ -178,7 +178,7 @@ export const NoteCardContainer = styled.div`
 `;
 
 export const NoteTitle = styled.h2`
-  margin-right: 70%;
+  margin-right: 62%;
   margin-top: 3%;
   font-size: 25px;
 `;
@@ -204,4 +204,10 @@ export const DeleteNoteLink = styled.p`
   margin-left: 2%;
   display: inline-flex;
   text-decoration-line: underline;
+`;
+
+export const EditFormH1 = styled.h1`
+  font-size: 20px;
+  text-align: center;
+  margin-left: -47.5%;
 `;
