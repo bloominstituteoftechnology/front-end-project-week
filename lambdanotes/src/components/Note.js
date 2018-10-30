@@ -22,7 +22,7 @@ export default class Note extends Component {
 
 	fetchNote = id => {
 		axios
-			.get(`http://localhost:8000/api/notes/${id}`)
+			.get(`https://agile-bastion-89851.herokuapp.com/api/notes/${id}`)
 			.then(res => {
 				this.setState(() => ({ note: res.data }));
 			})
@@ -33,7 +33,7 @@ export default class Note extends Component {
 
 	deleteNote = id => {
 		axios
-			.delete(`http://localhost:8000/api/notes/${id}`)
+			.delete(`https://agile-bastion-89851.herokuapp.com/api/notes/${id}`)
 			.then(() => {
 				this.props.history.push('/');
 			})

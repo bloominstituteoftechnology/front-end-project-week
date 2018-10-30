@@ -14,7 +14,7 @@ export default class NewNote extends Component {
 	addNewNote = event => {
 		event.preventDefault();
 		axios
-			.post('http://localhost:8000/api/notes/', this.state)
+			.post('https://agile-bastion-89851.herokuapp.com/api/notes', this.state)
 			.then(() => this.props.history.push('/'))
 			.catch(err => {
 				console.error(err);

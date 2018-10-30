@@ -14,7 +14,7 @@ export default class NoteList extends Component {
 
 	componentDidMount() {
 		axios
-			.get('http://localhost:8000/api/notes/')
+			.get('https://agile-bastion-89851.herokuapp.com/api/notes')
 			.then(res => {
 				this.setState(() => ({ notes: res.data }));
 			})

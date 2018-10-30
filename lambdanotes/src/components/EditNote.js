@@ -18,7 +18,9 @@ export default class EditNote extends Component {
 		// console.log(this.state)
 		axios
 			.put(
-				`http://localhost:8000/api/notes/${this.props.match.params.id}`,
+				`https://agile-bastion-89851.herokuapp.com/api/notes/${
+					this.props.match.params.id
+				}`,
 				this.state
 			)
 			.then(() =>
