@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       notes: [],
       expandedNote: {},
+      value: '',
     }
   }
 
@@ -33,28 +34,37 @@ class App extends Component {
     this.setState({notes: data})
   }
 
-  deleteNoteButton = (ev,id) => {
-    ev.preventDefault();
+  deleteNoteButton = (ev) => {
+    
     axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.notes._id}`)
-    .then(res => {
+    .then(response => {
       this.setState({
-        notes: res.data
+        notes: response.data
       });
     })
     .catch (error => console.log('Error: ', error ))
   }
  
 
-editNote = note => {
-  axios 
-      .put(`https://fe-notes.herokuapp.com/note/edit/${this.event.target.id}`, note)
-      .then(() =>
-        axios
-          .get('https://fe-notes.herokuapp.com/note/get/all')
-          .then(response => this.setState({ notes: response.data }))
-          .catch(error => console.log(error)))
-      .catch(error => console.log(error));
+editNote = (event) => {
+  
+const updatedNote={
+  id: event.target.id,
+  title: this.state.notes.title,
+  textBody: this.state.notes.textBody,
+}
+
+  axios     
+    .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.notes._id}`,
+    updatedNote
+      )
+    .then(response => {
+       this.setState(() => ({ notes: response.data }));
+      })
+    .catch(error => {
+      console.error('Server Error', error);
+      });
 }
 
 
@@ -101,17 +111,18 @@ editNote = note => {
                     note = {this.state.notes} 
                     updateButton= {this.updateButton}
                     expandedNote={this.state.expandedNote}
+                    deleteNoteButton = {this.deleteNoteButton}
                      />
                 }
                 />
 
               <Route
-                exact path='/EditNote/:id'
+                exact path='/note/edit/:id'
                 render=
                   {props =>     
                     (<EditNoteForm 
                       {...props} 
-                      editNote={this.editNote} 
+                      editNote={this.editNote}notes = {this.notes} 
                       expandedNote={this.state.expandedNote} />)} />
 
 

@@ -40,8 +40,8 @@ class NoteView extends React.Component {
         return (
           <div className="notes-container">
             <div className ='editDelete'>
-                 <button onClick= {this.props.deleteNoteButton} id={this.props.note._id}> Delete </button>
-                 <Link to={`/editNote/${this.props.notes.id}`}>edit</Link>
+                 <button onClick= {this.props.deleteNoteButton} id={this.state.note._id}> Delete </button>
+                 <Link to={`/note/edit/${this.state.note._id}`}>edit</Link>
                  
                   
                
