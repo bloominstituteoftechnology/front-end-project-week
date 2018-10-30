@@ -88,21 +88,22 @@ class App extends Component {
 
   editNote = (ev) => {
     ev.preventDefault();
+    console.log("this state id editnote", this.state.editId)
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.editId}`,
          {title: this.state.title, textBody: this.state.textBody})
           .then(res => {
             console.log("edit", res.data)
-            this.setState({ notes: res.data, editId: null, title:"", textBody:"" })
+            this.setState({ notes: [...this.state.notes], editId: null, title:"", textBody:"" })
           })
   }
 
   goToEditForm = (ev, notes) => {
     ev.preventDefault();
-    console.log("goeditform", notes._id)
+    console.log("goeditform", notes)
     this.setState({
       title: this.state.title,
       textBody: this.state.textBody,
-      editId: notes._id
+      editId: notes
     })
   }
        
@@ -110,7 +111,6 @@ class App extends Component {
 
 
   render() {
-    console.log("this state id", this.state.notes._id)
     return (
       <div className="App">
       <div className="nav-width"></div>

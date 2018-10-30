@@ -28,4 +28,3 @@ const NoteListContainer = (props) => {
 }
 
 export default NoteListContainer;
-
