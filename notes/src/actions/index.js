@@ -44,7 +44,7 @@ export const deleteNote = (id) => {
   return dispatch => {
     dispatch({type: DELETING_NOTE})
     axios
-    .delete('http://localhost:8000/notes', { data: { id: id }})
+    .delete(URL + 'notes', { data: { id: id }})
     .then(response =>{ dispatch({type: NOTE_DELETED, payload: response.data })
     })
     .catch(error => {
@@ -58,9 +58,9 @@ export const updateNote = (note) => {
     dispatch({type: UPDATING_NOTE});
     console.log('Actions');
     console.log(note);
-    console.log(note._id);
+    console.log(note.id);
     axios
-      .put(URL+`edit/${note._id}`, note) //response from the server will be the ID of the new note
+      .put(URL+`notes/${note.id}`, note) //response from the server will be the ID of the new note
       .then(response => { dispatch({type: NOTE_UPDATED, payload:response.data}) })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})

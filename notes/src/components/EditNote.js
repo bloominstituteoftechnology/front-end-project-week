@@ -11,13 +11,13 @@ let ans = null
 class NewNote extends Component {
   state = {
     title: 'Easter Egg',
-    textBody: 'Did you see it?',
+    content: 'Did you see it?',
     updated: false
   }
 
   componentDidUpdate() {
     (!this.state.updated && ans)
-    ? this.setState({ title: ans.title, textBody: ans.textBody, updated: true})
+    ? this.setState({ title: ans.title, content: ans.content, updated: true})
     : ''
 
   }
@@ -34,12 +34,12 @@ class NewNote extends Component {
     event.preventDefault();
     let newNote = {
       title: this.state.title,
-      textBody: this.state.textBody,
-      _id: this.props.noteList.find(item => item._id = this.props.match.params.id)._id
+      content: this.state.content,
+      id: this.props.noteList.find(item => item._id = this.props.match.params.id)._id
     }
     console.log(newNote._id);
     this.props.updateNote(newNote)
-    this.setState({ title:'', textBody:'' })
+    this.setState({ title:'', content:'' })
 
   }
 
