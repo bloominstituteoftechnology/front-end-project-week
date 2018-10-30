@@ -22,9 +22,9 @@ class NotePage extends React.Component {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                console.log('note page', response)
+                //console.log('note page', response)
                 if (response.data.name) {
-                    console.log("name", response.data.name);
+                    //console.log("name", response.data.name);
                     this.setState({
                         error: true
                     })

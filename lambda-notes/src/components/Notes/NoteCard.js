@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NoteCard = props => {
-    console.log(props.note.textBody);
+    //console.log(props.note.textBody);
     return (
         <Link to={`/notes/${props.note._id}`} className="note-card-link">
             <div className="note-card">

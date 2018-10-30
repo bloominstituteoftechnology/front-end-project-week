@@ -14,7 +14,7 @@ class Navigation extends React.Component {
             <div className="navigation-wrapper">
                 <h1 className="navigation-header">Lambda Notes</h1>
                 <Link to="/"><button className="navigation-button">View Your Notes</button></Link>
-                <button className="navigation-button">+ Create New Note</button>
+                <Link to="/new-note"><button className="navigation-button">+ Create New Note</button></Link>
             </div>
         )
     }
