@@ -10,6 +10,11 @@ const StyledModal = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  z-index: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   h3 {
     font-size: 1.8rem;
     width: 100%;

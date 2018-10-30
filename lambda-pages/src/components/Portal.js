@@ -16,7 +16,7 @@ class Portal extends Component {
   }
 
   componentWillUnmount() {
-    portalRoot.appendChild(this.element);
+    portalRoot.removeChild(this.element);
   }
 
   render() {
