@@ -5,6 +5,7 @@ import NotesList from "./components/NotesList";
 import Note from "./components/Note.js";
 import EditNote from "./components/EditNote";
 import AddNote from "./components/AddNote";
+import { Container } from './Styles';
 
 class App extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Container>
         <Route
           exact
           path="/"
@@ -83,7 +84,7 @@ class App extends Component {
           path="/note/edit/:id"
           render={props => <EditNote {...props} />}
         />
-      </div>
+      </Container>
     );
   }
 }

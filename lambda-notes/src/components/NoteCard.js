@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Cards } from '../Styles';
+import { Cards, CardsH2, StyledLinkCard, CardsHr, CardsP } from '../Styles';
 
 const NoteCard = props => {
     return (
         <Cards>
-            <Link to={`/note/get/${props.note._id}`}>
-                <h2>{props.note.title}</h2>
-                <p>{props.note.textBody}</p>
-            </Link>
+            <StyledLinkCard to={`/note/get/${props.note._id}`}>
+                <CardsH2>{props.note.title}</CardsH2>
+                <CardsHr></CardsHr>
+                <CardsP>{props.note.textBody}</CardsP>
+            </StyledLinkCard>
         </Cards>
     );
 }
