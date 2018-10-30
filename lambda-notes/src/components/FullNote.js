@@ -41,6 +41,15 @@ class FullNote extends React.Component {
       });
   };
 
+  deleteModal = () => {
+    let x = document.querySelector(".modal");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  };
+
   render() {
     if (this.state.deleted === true) {
       return <Redirect to="/" />;
@@ -49,9 +58,13 @@ class FullNote extends React.Component {
       <div>
         <h2>{this.state.notes.title}</h2>
         <p>{this.state.notes.textBody}</p>
-        <button onClick={() => this.deleteNote(this.state.notes._id)}>
-          delete
-        </button>
+        <button onClick={this.deleteModal}>X</button>
+        <div className="modal">
+          <button onClick={() => this.deleteNote(this.state.notes._id)}>
+            delete
+          </button>
+          <button onClick={this.deleteModal}>Cancel</button>
+        </div>
       </div>
     );
   }
