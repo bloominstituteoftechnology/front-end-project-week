@@ -24,7 +24,6 @@ class NewNoteForm extends React.Component {
         event.stopPropagation();
         if (this.state.title && this.state.textBody) {
             const newNote = Object.assign({}, { title: this.state.title, textBody: this.state.textBody });
-            console.log(newNote);
             axios
                 .post('https://fe-notes.herokuapp.com/note/create', newNote)
                 .then(response => {

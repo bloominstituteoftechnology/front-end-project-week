@@ -20,6 +20,12 @@ class NotePage extends React.Component {
         this.fetchNote(id);
     }
 
+    changeHandler = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     fetchNote = id => {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -59,6 +65,21 @@ class NotePage extends React.Component {
             .catch(err => console.log(err));
     }
 
+    submitHandler = (event) => {
+        if (this.state.title && this.state.textBody) {
+            event.preventDefault();
+            event.stopPropagation();
+            const id = this.props.match.params.id;
+            const newNote = Object.assign({}, { title: this.state.title, textBody: this.state.textBody });
+            axios
+                .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
+                .then(() => this.setState({
+                    isEditing: false
+                }))
+                .catch(err => console.log(err));
+        }
+    }
+
     render() {
         if (this.state.shouldRedirect) {
             return <Redirect to="/" />
@@ -86,16 +107,26 @@ class NotePage extends React.Component {
                                 <h1>{this.state.title}</h1>
                                 <p>{this.state.textBody}</p>
                             </div> :
-                            <form>
-                                <input type="text" value={this.state.title} />
-                                <input type="text" value={this.state.textBody} />
+                            <form onSubmit={this.submitHandler}>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    onChange={this.changeHandler}
+                                    value={this.state.title}
+                                />
+                                <input
+                                    type="text"
+                                    name="textBody"
+                                    onChange={this.changeHandler}
+                                    value={this.state.textBody}
+                                />
                                 <button type="submit">Submit</button>
                             </form>}
                     </div>
-                    )
-                }
+                )
             }
         }
     }
-    
+}
+
 export default NotePage;
