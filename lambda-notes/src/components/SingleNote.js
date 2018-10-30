@@ -27,6 +27,7 @@ class SingleNote extends Component {
         note: res.data
       })
     );
+    console.log("test");
   }
 
   handleDeleteNote = () => {
