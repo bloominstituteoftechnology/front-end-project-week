@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, Link } from 'react-router-dom';
-import { deleteNote } from '../actions';
+import { fetchNote, deleteNote } from '../actions';
 import Note from './Note';
 
 class NotePage extends Component {
@@ -12,6 +12,10 @@ class NotePage extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.fetchNote(this.props.match.params.id)
+    }
+
     deleteNote = (id) => {
         this.props.deleteNote(id);
         this.setState({ deleted: true })
@@ -19,7 +23,6 @@ class NotePage extends Component {
 
     render() {
         let id = this.props.match.params.id
-        let note = this.props.notes.find(note => note._id === id)
         return this.state.deleted ?
         <Redirect to='/' /> :
         (
@@ -28,7 +31,7 @@ class NotePage extends Component {
                     <Link to={`/${id}/edit`}>Edit</Link>
                     <div className='note-btn' onClick={() => this.deleteNote(id)}>Delete</div>
                 </div>
-                <Note note={note}/>
+                <Note note={this.props.note}/>
             </div>
             
         )
@@ -37,8 +40,9 @@ class NotePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes,
+        note: state.note,
+        fetching: state.fetching,
     };
 };
 
-export default connect(mapStateToProps, { deleteNote })(NotePage);
+export default connect(mapStateToProps, { fetchNote, deleteNote })(NotePage);

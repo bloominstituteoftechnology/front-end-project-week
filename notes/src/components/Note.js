@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Note = ({note}) => {
     const { title, textBody } = note
     return (
@@ -10,5 +9,4 @@ const Note = ({note}) => {
         </div>
     )
 }
-
 export default Note;

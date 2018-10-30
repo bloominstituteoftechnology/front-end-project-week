@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export const FETCHING = 'FETCHING';
-export const FETCHED = 'FETCHED';
+export const FETCHALL = 'FETCHALL';
+export const FETCHONE = 'FETCHONE'
 export const ERROR = 'ERROR';
 export const ADDED = 'ADDED';
 export const UPDATED = 'UPDATED';
@@ -13,7 +14,19 @@ export const fetchNotes = () => dispatch => {
     axios
         .get(`${url}/get/all`)
         .then(response => {
-            dispatch({ type: FETCHED, payload: response.data });
+            dispatch({ type: FETCHALL, payload: response.data });
+        })
+        .catch(error => {
+            dispatch({ type: ERROR, payload: error });
+        });
+}
+
+export const fetchNote = (id) => dispatch => {
+    dispatch({ type: FETCHING });
+    axios
+        .get(`${url}/get/${id}`)
+        .then(response => {
+            dispatch({ type: FETCHONE, payload: response.data });
         })
         .catch(error => {
             dispatch({ type: ERROR, payload: error });
