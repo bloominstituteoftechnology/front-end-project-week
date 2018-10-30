@@ -6,7 +6,7 @@ import Draggable from 'react-draggable'
 const NotesMain = (props) => {
   const dragHandlers = { onStart: this.onStart, onStop: this.onStop }
   const filteredView = props.filteredNotes.length === 0 ? props.notes : props.filteredNotes
-
+  // console.log(props.notes.map(note => console.log(note.tags)))
   return (
     <Div1 className="NotesMain">
       <H2>Your Notes:</H2>
@@ -23,14 +23,14 @@ const NotesMain = (props) => {
                 </Div4>
                 <Hr />
                 <P>{note.text.substring(0, 60)}...</P>
-                {/* <P2>Tags:&nbsp;
-                      {
-                        note.tags.map((note, index) => {
-                          return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>
-                        })
-                      }
-                      ...
-                    </P2> */}
+                <P2>Tags:&nbsp;
+                  {
+                    JSON.parse(note.tags).map((note, index) => {
+                      return <span key={`tag${index}`}>{((index ? ', ' : '') + note).substring(0, 18)}</span>
+                    })
+                  }
+                  ...
+                </P2>
                 <Link to={`/notes/${note.id}`}>
                   <Button>View Note</Button>
                 </Link>
@@ -96,11 +96,12 @@ const H3 = styled.h3`
   font-size: 1.8rem;
   margin: 8% 0 2% 0;
 `
-const P = styled.p``
-// const P2 = styled.p`
-//   font-size: 1.2rem;
-//   margin: 0;
-// `
+const P = styled.p`
+`
+const P2 = styled.p`
+  font-size: 1.2rem;
+  margin: 0;
+`
 const Strong = styled.strong`
   font-size: 2rem;
 `

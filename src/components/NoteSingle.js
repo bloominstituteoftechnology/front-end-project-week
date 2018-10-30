@@ -51,13 +51,13 @@ class NoteSingle extends Component {
         </Div4>
         <H2>{note.title}</H2>
         <P1>{note.text}</P1>
-        {/* <P1>Note Tags:<br />
+        <P1>Note Tags:<br />
           {
-            note.tags.map((item, index) => {
-              return <span key={`tag${index}`}>{ (index ? ', ' : '') + item }</span>; 
+            JSON.parse(note.tags).map((item, index) => {
+              return <span key={`tag${index}`}>{(index ? ', ' : '') + item}</span>;
             })
           }
-        </P1> */}
+        </P1>
       </Div1>
     )
   }
