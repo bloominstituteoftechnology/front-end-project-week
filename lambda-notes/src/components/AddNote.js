@@ -6,8 +6,9 @@ class AddNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      text: ""
+      title: this.props.notes.title,
+      text: this.props.notes.textBody,
+      _id: this.props.notes._id
     };
   }
 
@@ -21,12 +22,13 @@ class AddNote extends React.Component {
     const newNote = {
       tags: [],
       title: this.state.title,
-      textBody: this.state.text
+      textBody: this.state.text,
+      _id: this.state._id
     };
     Axios.post("https://fe-notes.herokuapp.com/note/create", newNote)
       .then(response => {
         console.log(response);
-        this.props.updateNotes(response.data);
+        this.props.addNewNotes(newNote);
       })
       .catch(error => {
         console.error(error);

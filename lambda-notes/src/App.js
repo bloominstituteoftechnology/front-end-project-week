@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   updateNotes = updatedNote => {
+    console.log(updatedNote)
     const updatedNotes = this.state.notes.map(note => {
       if (note._id === updatedNote._id) {
         return updatedNote;
@@ -31,14 +32,26 @@ class App extends Component {
     this.setState({ notes: updatedNotes });
   };
 
-  updateDelete = updatedList => {
-    const updatedLists = this.state.notes.map(note => {
-      if (note._id === updatedList._id) {
-        return updatedList;
+  updateDeleted = targetID => {
+    console.log(targetID)
+    const updatedLists = this.state.notes.filter(note => {
+      if (note._id === targetID) {
+        return false;
+      }
+      return true;
+    });
+    this.setState({ notes: updatedLists });
+  };
+
+  addNewNotes = addedNote => {
+    console.log(addedNote)
+    const addedNotes = this.state.notes.map(note => {
+      if (note._id === addedNote._id) {
+        return addedNote
       }
       return note;
     });
-    this.setState({ notes: updatedLists });
+    this.setState({ notes: addedNotes });
   };
 
   render() {
@@ -56,14 +69,19 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               updateNotes={this.updateNotes}
-              updateDelete={this.updateDelete}
+              updateDeleted={this.updateDeleted}
             />
           )}
         />
         <Route
           path="/note/create"
           render={props => (
-            <AddNote {...props} updateNotes={this.updateNotes} />
+            <AddNote
+              {...props}
+              updateNotes={this.updateNotes}
+              notes={this.state.notes}
+              addNewNotes={this.addNewNotes}
+            />
           )}
         />
         <Route

@@ -27,7 +27,7 @@ class Note extends React.Component {
         axios.delete(url)
         .then(response => {
             console.log(response);
-            this.props.updateDelete(response.data)
+            this.props.updateDeleted(this.state.note._id)
         })
         .catch(error => {
             console.error(error);
