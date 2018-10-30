@@ -55,6 +55,8 @@ class NoteView extends Component {
         this.props.history.push(`/edit/${id}`)
     }
 
+    
+
     render() {
         return (
             <ViewContainer>

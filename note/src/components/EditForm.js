@@ -78,7 +78,7 @@ class EditForm extends Component {
                 <Title 
                     name='title'
                     placeholder='Note Title'
-                    value={this.state.title}
+                    value={this.props.match.params.id}
                     onChange={this.handleInputChange}
                 />
                 <Text 

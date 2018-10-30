@@ -45,7 +45,7 @@ class App extends Component {
         this.setState({
           notes: response.data
         },
-        this.props.history.push('/')
+        this.fetchNotes()
         )
       })
       .catch(error => console.log(error));

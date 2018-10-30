@@ -1,10 +1,11 @@
-import React, { Component }from 'react';
-import { Link } from 'react-router-dom'
+import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 const NotesContainer = styled.div`
   border: 1px solid black;
   margin-left: 20%;
+  height: 100%;
 `;
 
  const Heading = styled.h2`
@@ -43,14 +44,12 @@ const NotesContainer = styled.div`
   color: gray;
 `;
 
-class Notes extends Component {
-
-    render() {
+const Notes = props =>  {
         return (
             <NotesContainer>
                 <Heading>Your Notes:</Heading>
                 <NotesDisplay>
-                    {this.props.notes.map(note => {
+                    {props.notes.map(note => {
                         return (
                             <Link to={`/note/${note._id}`}>
                             <NoteCard
@@ -77,6 +76,5 @@ class Notes extends Component {
             </NotesContainer>
         )
     }
-}
 
 export default Notes;
