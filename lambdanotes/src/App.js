@@ -108,7 +108,7 @@ class App extends React.Component {
           exact
           path="/"
           render={props => (
-            <NotesList {...props} notesList={this.state.notesList} />
+            <NotesList {...props} notesList={this.state.notesData} />
           )}
         />
         <Route
@@ -116,7 +116,7 @@ class App extends React.Component {
           render={props => (
             <NoteForm
               {...props}
-              notesList={this.state.notesList}
+              notesList={this.state.notesData}
               note={this.state.note}
               handleAddNewNote={this.handleAddNewNote}
               handleChange={this.handleChange}
@@ -130,7 +130,7 @@ class App extends React.Component {
           render={props => (
             <Note
               {...props}
-              notesList={this.state.notesList}
+              notesList={this.state.notesData}
               handleDeleteNote={this.handleDeleteNote}
               goToUpdateNoteForm={this.goToUpdateNoteForm}
             />
