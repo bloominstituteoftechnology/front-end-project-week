@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchNote, deleteNote } from '../actions';
+import { fetchNote, deleteNote, updateNote } from '../actions';
 import Note from './Note';
+import Edit from './Edit';
+
 
  class SingleNote extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            updateActive: false
+        }
+    }
     componentDidMount(){
         this.props.fetchNote(this.props.match.params.id);
     }
+
+    toggleUpdate = () => {
+        this.setState({updateActive: true});
+    }
+
      render() {
         console.log(this.props.note);
         if (this.props.fetching){
@@ -17,7 +30,12 @@ import Note from './Note';
             <div>
                 <Note title={this.props.note.title} 
                 content={this.props.note.textBody} />
+                <button onClick={this.toggleUpdate}>Update</button>
                 <button onClick={() => this.props.deleteNote(this.props.match.params.id)}>X</button>
+                {this.state.updateActive !== false
+                    ? <Edit updateNote={this.props.updateNote} id={this.props.match.params.id} />
+                    : null
+                }
                 </div>
         )
     }
@@ -30,4 +48,4 @@ import Note from './Note';
         error: state.error
     }
 }
- export default withRouter(connect(mapStateToProps, { fetchNote, deleteNote })( SingleNote ))
+ export default withRouter(connect(mapStateToProps, { fetchNote, deleteNote, updateNote })( SingleNote ))

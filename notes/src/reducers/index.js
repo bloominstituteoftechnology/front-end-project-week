@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED, SAVING, SAVED, ERROR, FETCHING_NOTE, FETCHED_NOTE, DELETING, DELETED} from '../actions';
+import {FETCHING, FETCHED, SAVING, SAVED, ERROR, FETCHING_NOTE, FETCHED_NOTE, DELETING, DELETED, UPDATING, UPDATED} from '../actions';
 
 const initialState = {
     notes: [],
@@ -14,6 +14,8 @@ const initialState = {
     // delete and update
     deleting: false,
     deleted: false,
+    updating: false,
+    updated: false
 }
 
 export const notesReducer = ( state = initialState, action ) => {
@@ -36,6 +38,10 @@ export const notesReducer = ( state = initialState, action ) => {
         return {...state, deleting: true}
         case DELETED:
         return {...state, deleting: false, deleted: true, notes: action.payload}
+        case UPDATING:
+        return {...state,updating: true}
+        case UPDATED:
+        return {...state, updated: true,updating: false, notes: action.payload}       
         default:
         return state;
     }
