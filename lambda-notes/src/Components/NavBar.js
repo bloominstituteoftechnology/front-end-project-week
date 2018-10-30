@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { Auth0Lock } from 'auth0-lock';
+import auth0 from 'auth0-js';
 
 const NavbarContainer = styled.div`
   border: 1px solid gray;
@@ -26,6 +27,12 @@ var lock = new Auth0Lock(
   process.env.REACT_APP_CLIENT_ID,
   process.env.REACT_APP_DOMAIN_URL
 );
+
+var webAuth = new auth0.WebAuth({
+  domain: process.env.REACT_APP_DOMAIN_URL,
+  clientID: process.env.REACT_APP_CLIENT_ID,
+  redirectUri: 'http://localhost:3000/callback'
+});
 
 const NavBar = props => {
   return (
