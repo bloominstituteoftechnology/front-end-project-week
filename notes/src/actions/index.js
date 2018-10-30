@@ -56,13 +56,14 @@ export const editNote = id => {
                     type: EDITED,
                     payload: response.data
                 })
+            })
             .catch(error => {
                 dispatch({
                     type: EDIT_FAILURE,
                     payload: error
                 })
             })
-            })
+            
     }
 }
 
@@ -76,8 +77,9 @@ export const deleteNote = id => {
         axios
             .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
             .then(response => {
-                dispatch({ type: DELETED,
-                payload: response.data
+                dispatch({ 
+                    type: DELETED,
+                    payload: response.data
                 })
             })
             .catch(error => {
