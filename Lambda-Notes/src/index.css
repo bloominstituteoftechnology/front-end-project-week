@@ -32,6 +32,7 @@ code {
   background : rgb(206, 205, 205);
   border : 1px solid black;
   margin:1%;
+  overflow: hidden;
 }
 .note-card .card-title{
   border-bottom : 2px solid rgb(231, 231, 231);
