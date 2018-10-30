@@ -2,6 +2,7 @@
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  height: 100%;
 }
 
 .App-logo {
@@ -22,6 +23,13 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.content {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 @keyframes App-logo-spin {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router';
-import { editNote } from '../actions';
+import { editNote, overlayToggle, setNote } from '../actions';
 import { connect } from 'react-redux';
 import DisplayNote from './DisplayNote';
 import { Route } from 'react-router-dom';
@@ -15,17 +15,17 @@ class Note extends Component {
           note: {
             title: '',
             textBody: '',
-          }
-          
+          },
       }
     }
 
     componentDidMount() {
         const id = this.props.match.params.id;
         axios
-        .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(response => this.setState({note: response.data}))
         .catch(error => console.log(error));
+        this.props.setNote(id);
     }
 
     changeHandler = (ev) => {
@@ -41,12 +41,17 @@ class Note extends Component {
         ev.preventDefault();
         this.props.editNote(this.state.note._id, this.state.note);
     }
-   
+
+    togglingOverlay = (ev) => {
+        ev.preventDefault();
+        this.props.overlayToggle();
+    }
+
     render() {
       return (
         <div className="Note">
-           <Route exact path='/note/:id' render ={(props) => (
-                 <DisplayNote {...props} note={this.state.note}/>
+           <Route path='/note/:id' render ={(props) => (
+                 <DisplayNote {...props} overlayToggle={this.togglingOverlay} note={this.state.note}/>
             )}/>
             <Route exact path='/note/edit/:id' render ={(props) => (
                  <EditContent {...props} editingNote={this.editingNote} changeHandler={this.changeHandler} note={this.state.note}/>
@@ -60,15 +65,18 @@ class Note extends Component {
     return {
         fetchingNotes: state.notesReducer.fetchingNotes,
         postingNote: state.notesReducer.postingNote,
-        fetchingByID: state.notesReducer.fetchingByID,
+        editingNote: state.notesReducer.editingNote,
+        settingNote: state.notesReducer.settingNote,
         notes: state.notesReducer.notes,
         note: state.notesReducer.note,
         error: state.notesReducer.erorr,
+        overlay: state.notesReducer.overlay,
+        deletingNote: state.notesReducer.deletingNote
     };
   };
   
   export default withRouter(connect(
     mapStateToProps,
-    { editNote }, 
+    { editNote, overlayToggle, setNote }, 
   )(Note));
   

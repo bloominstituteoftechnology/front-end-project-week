@@ -12,6 +12,16 @@ export const EDITING_NOTE = "EDITING_NOTE";
 export const EDITING_NOTE_SUCCESS = "EDITING_NOTE_SUCCESS"
 export const EDITING_NOTE_FAILURE = "EDITING_NOTE_FAILURE"
 
+export const OVERLAY_TOGGLE = 'OVERLAY_TOGGLE';
+
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const DELETING_NOTE_SUCCESS = 'DELETING_NOTE_SUCCESS';
+export const DELETING_NOTE_FAILURE = 'DELETING_NOTE_FAILURE';
+
+export const SETTING_NOTE = 'SETTING_NOTE';
+export const SETTING_NOTE_SUCCESS = 'SETTING_NOTE_SUCCESS';
+export const SETTING_NOTE_FAILURE = 'SETTING_NOTE_FAILURE';
+
 export const fetchNotes = () => dispatch => {
     dispatch({type: FETCHING_NOTES});
     axios
@@ -40,11 +50,39 @@ export const postNote = (note) => dispatch => {
 export const editNote = (id, note) => dispatch => {
     dispatch({type: EDITING_NOTE});
     axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(response => {
         dispatch({type: EDITING_NOTE_SUCCESS, payload: response.data})
     })
     .catch(error => {
         dispatch({type: EDITING_NOTE_FAILURE, payload: error})
+    })
+}
+
+export const overlayToggle = () => dispatch => {
+    dispatch({type: OVERLAY_TOGGLE});
+}
+
+export const deleteNote = (id) => dispatch => {
+    dispatch({type: DELETING_NOTE});
+    axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+        dispatch({type: DELETING_NOTE_SUCCESS, payload: response.data})
+    })
+    .catch(error => {
+        dispatch({type: DELETING_NOTE_FAILURE, payload: error})
+    })
+}
+
+export const setNote = (id) => dispatch => {
+    dispatch({type: SETTING_NOTE});
+    axios
+    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    .then(response => {
+        dispatch({type: SETTING_NOTE_SUCCESS, payload: response.data})
+    }) 
+    .catch(error => {
+        dispatch({type: SETTING_NOTE_FAILURE, payload: error})
     })
 }

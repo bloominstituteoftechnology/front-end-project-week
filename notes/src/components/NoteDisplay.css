@@ -1,7 +1,10 @@
+html { height: 100%; }
+body {height: 100%; }
+#content {min-height: 100%; }
 .notesContainer {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 20px;
+    padding-left: 20px;
 }
 
 .singleNote {
@@ -41,12 +44,13 @@
     text-align: start;
     margin: 0;
     background: #E9E7E7;
-    width: 80%;
+    width: 100%;
+    border: 1.5px solid #9BA3A3;
 }
 
  h2 {
-    margin: 50px 0 0 20px;
-    padding-left: 10px;
+    margin: 50px 0 0 0px;
+    padding-left: 30px;
     padding-bottom: 20px;
     color: #5C5D5D;
 }
@@ -57,18 +61,20 @@
 
 
 .createNoteContainer {
-    width: 80%;
+    width: 100%;
     display: block;
     text-align: start;
     background: #E9E7E7;
-    
+   
+    height: 100%;
 }
 
 
 form {
     display: block;
     flex-wrap: wrap;
-    margin: 20px 40px;
+    padding: 20px 40px;
+    border: 1.5px solid #9BA3A3;
 }
 
 .createNoteContainer input {
@@ -102,10 +108,16 @@ form {
 
 .editNoteContainer {
     width: 100%;
+    height: 100%;
+    background: #E9E7E7;
+}
+
+.editNoteContainer form {
+    border: 1.5px solid #9BA3A3;
 }
 
 .Note {
-    width: 80%;
+    width: 100%;
     text-align: start;
 }
 
@@ -122,4 +134,41 @@ form {
 .Note button {
     width: 300px;
     margin-top: 20px;
+}
+
+.displayNoteContainer {
+    padding-left: 30px;
+    background: #E9E7E7;
+    height: 100%;
+    border: 1.5px solid #9BA3A3;
+}
+
+.displayNoteContainer h2 {
+    margin-top: 15px;
+}
+
+.content-manipulation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-right: 40px;
+    padding-top: 15px;
+    
+    font-weight: 500;
+    color: #5C5D5D;
+}
+
+.content-manipulation span {
+    margin-left: 15px;
+    color: #5C5D5D;
+    text-decoration: underline;
+}
+
+.content-manipulation a {
+    color: #5C5D5D;
+    
+}
+
+a {
+    color: #5C5D5D;
 }
