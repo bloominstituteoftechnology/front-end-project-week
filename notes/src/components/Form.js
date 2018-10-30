@@ -13,6 +13,7 @@ class Form extends Component {
         }
     }
 
+    // if the user has clicked on an edit button, some data will get filled on state related to that note.
     componentDidMount() {
         if (this.props.location.state !== undefined) {
             this.setState({
@@ -26,6 +27,7 @@ class Form extends Component {
         })
     }
 
+    // standard change handler.
     changeHandler = event => {
         event.preventDefault();
         this.setState({
@@ -33,24 +35,29 @@ class Form extends Component {
         })
     }
 
+    // controls add and edit functionality, with blank form error handling.
     submitHandler = event => {
         event.preventDefault();
         if (this.state.title !== '' && this.state.body !== '') {
+          // create a new note
           const newNote = {
             tags: [],
             title: this.state.title,
             textBody: this.state.body,
           }
+          // if there's a note on state to edit, start PUT
           if (this.state.note !== null) {
             axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
                  .then(res => {console.log(res)})
                  .catch(err => {console.log(err)})
           }
+          // else POST
           else {
             axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
                  .then(res => {console.log(res)})
                  .catch(err => console.log(err))
           }
+          // blank out everything.
           this.setState({
               added: true,
               title: '',
@@ -58,6 +65,7 @@ class Form extends Component {
               note: null,
           })
         }
+        // alert user to fill form if not complete
         else {
           alert('Please fill out the form!')
         }
@@ -65,6 +73,7 @@ class Form extends Component {
 
 
     render() {
+        // once form is submitted, redirect home.
         if (this.state.added === true) {
             return (
                 <Redirect to='/'></Redirect>

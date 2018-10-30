@@ -10,12 +10,14 @@ class FullPageNote extends Component {
             deleted: false,
         }
     }
-
+    
+    // grab the id and then fetch the relevant note.
     componentDidMount() {
         const {id} = this.props.match.params;
         this.fetchNote(id);
     }
 
+    // GET the note by using the API endpoint and passing in the id
     fetchNote = id => {
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
              .then(response => {
@@ -24,6 +26,7 @@ class FullPageNote extends Component {
              .catch(err => {console.log(err)});
     };
 
+    // DELETE the note by using the API endpoint and passing in the id
     deleteHandler = id => {
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
              .then(res => {this.setState({
@@ -32,16 +35,19 @@ class FullPageNote extends Component {
              .catch(err => console.log(err))
       }
 
+    // bring up the modal
     deleteModal = () => {
         document.querySelector('.modalBG').classList.toggle('show');
     }
 
     render() {
+        // redirect upon delete button press (because that will set deleted to true)
         if (this.state.deleted === true) {
             return (
                 <Redirect to='/'></Redirect>
             )
         }
+        // put a loader on the screen if getting the note is slow.
         if (this.state.note === null) {
             return (
                 <div className='container'>
@@ -49,6 +55,8 @@ class FullPageNote extends Component {
                 </div>
             )
         }
+        // here's the full page note with delete and edit buttons (edit is a link to the form, with the note body passed through)
+        // there's also a modal in which you can either delete or cancel
         return (
             <div className='container'>
                 <h1>View Note:</h1>

@@ -15,6 +15,7 @@ class App extends Component {
     }
   }
 
+  // brings in the notes from the server
   componentDidMount() {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
          .then(res => this.setState({
@@ -23,6 +24,7 @@ class App extends Component {
          .catch(err => console.log(err))
   }
 
+  // brings in the notes from the server (mindful of updates)
   componentDidUpdate() {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(res => this.setState({
@@ -32,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    
+    // Just some basic routes with render props. The only real prop passed down is notes from state (from the server).
     return (
       <div className="App">
         <Nav/>
