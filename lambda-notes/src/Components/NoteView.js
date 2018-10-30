@@ -46,12 +46,13 @@ class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
-      note: {
-        id: '',
-        title: '',
-        textBody: ''
-      }
+      note: [ 
+        {
+          id: '',
+          title: '',
+          textBody: ''
+        }
+      ],
     }
   };
 
@@ -61,14 +62,19 @@ class NoteView extends Component {
   }
 
   getNote = id => {
+    
     axios 
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:5000/api/notes/${id}`)
       .then(response => {
+        console.log(response);
         this.setState({
-          id: response.data._id,
-          title: response.data.title,
-          textBody: response.data.textBody
-        });
+          id: response.data[0].id,
+          title: response.data[0].title,
+          textBody: response.data[0].textBody,
+          editing: response.data[0].editing
+
+        }, () => console.log("**** NEW STATE ******", this.state.note));
+        
       })
       .catch(error => (
         console.log('Server Error', error)
@@ -102,7 +108,7 @@ class NoteView extends Component {
   handleDeleteNote = noteId => {
     console.log('delete clicked');
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+      .delete(`http://localhost:5000/api/notes/${this.props.match.params.id}`)
       .then(response => {
         // this.setState({
         //   notes: this.state.notes.filter(note => {
@@ -115,6 +121,7 @@ class NoteView extends Component {
   }
 
   render() {
+    console.log(this.state.note);
     return (
       <ViewContainer>
         <NavButton>
