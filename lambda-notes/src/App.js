@@ -82,9 +82,12 @@ class App extends Component {
           <div className='lambda-notes'>
             <h1>Lambda Notes</h1>
           </div>
-          <div className='button'><NavLink to='/'>View Your Notes</NavLink></div>
+          <div className='button'><NavLink to='/' onClick={()=> this.setState({createNote: false,
+                                       viewNotes: true,
+                                       editNote: false,
+                                      notePage: false })}>View Your Notes</NavLink></div>
           <div className='button'><NavLink to='/create-note' 
-          onClick={()=> this.setState({createNote: !this.state.createNote,
+          onClick={()=> this.setState({createNote: true,
                                        viewNotes: false,
                                        editNote: false,
                                       notePage: false })}>+Create New Note</NavLink></div>
