@@ -3,6 +3,7 @@ import './App.css';
 import NotesForm from './components/NotesForm';
 import NotesList from './components/NotesList';
 import SideBar from './components/SideBar';
+import Note from './components/Note'
 import { Route } from "react-router-dom"
 
 class App extends React.Component {
@@ -12,6 +13,7 @@ class App extends React.Component {
         <Route path="/" render={ props => <SideBar {...props}/>} />
         <Route exact path="/" render={props => <NotesList {...props} />} />
         <Route path="/new-note" render={props => <NotesForm {...props} />} />
+        <Route path="/note/get/:id" render={props => <Note {...props} />} />
       </div>
     );
   }

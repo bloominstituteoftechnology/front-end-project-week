@@ -18,7 +18,7 @@ class NotesForm extends React.Component {
     addNote = event => {
         event.preventDefault();
         axios
-            .post('https://killer-notes.herokuapp.com/note/create', { title: this.state.title, textBody: this.state.textBody })
+            .post('https://fe-notes.herokuapp.com/note/create', { title: this.state.title, textBody: this.state.textBody })
             .then(response => {
                 this.setState({
                     notes:response.data,
