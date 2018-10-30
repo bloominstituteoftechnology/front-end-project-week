@@ -15,7 +15,7 @@ class App extends Component {
       notes: [],
       title: '',
       text: '',
-      udpatedTitle: '',
+      updatedTitle: '',
       updatedText: '',
       deleting: false
     }
@@ -94,14 +94,14 @@ class App extends Component {
 
   editedNote = id => {
     axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
-      title: this.state.updatedTitle,
-      textBody: this.state.updatedText
-    })
-    .then(response => console.log(response.data))
-    .catch(error => console.log(error));
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+        title: this.state.updatedTitle,
+        textBody: this.state.updatedText
+      })
+      .then(response => console.log(response.data))
+      .catch(error => console.log(error));
     this.setState();
-  }
+  };
 
   render() {
     return (
@@ -130,7 +130,7 @@ class App extends Component {
         <Route exact path='/note/:id/edit' render={props => <EditNote 
         {...props}
         notes={this.state.notes}
-        udpatedTitle={this.state.udpatedTitle}
+        updatedTitle={this.state.updatedTitle}
         updatedText={this.state.updatedText}
         handleInput={this.handleInput}
         editedNote={this.editedNote}
