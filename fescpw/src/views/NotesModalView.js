@@ -87,7 +87,7 @@ export default class NotesModalView extends Component {
     }
 
     handleDelete = () => {
-        this.props.handleDeleteNote(this.props.note._id);
+        this.props.handleDeleteNote(this.props.note.id);
         this.props.history.push("/notes")
     };
 

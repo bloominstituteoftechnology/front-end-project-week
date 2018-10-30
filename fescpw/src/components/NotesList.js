@@ -63,11 +63,11 @@ const NoteCardTags = styled.small`
             <NotesListHeader>Your Notes:</NotesListHeader>
             <NoteContainer>
                 {props.notesFilter.map(note => (
-                    <NoteCard key={note._id}>
+                    <NoteCard key={note.id}>
                         <NoteCardHeader onClick={(event) => {
                             event.preventDefault();
-                            props.noteFetch(note._id);
-                            props.history.push(`/notes/${note._id}`);
+                            props.noteFetch(note.id);
+                            props.history.push(`/notes/${note.id}`);
                             }}>{note.title}</NoteCardHeader>
                             <Divider style={{height: 2, margin: 8}} />
                         <NoteCardContent>{note.textBody}</NoteCardContent>

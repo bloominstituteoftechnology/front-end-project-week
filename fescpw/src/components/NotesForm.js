@@ -89,7 +89,7 @@ const NotesForm = (props) => {
             />
             <NotesStyledInput
                 type="text"
-                value={props.note.tags.join(", ")}
+                value={props.note.tags}
                 name="tags"
                 onChange={props.handleChange}
                 placeholder="Tags"

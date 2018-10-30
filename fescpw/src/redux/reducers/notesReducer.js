@@ -53,7 +53,7 @@ export const notesReducer = (state = initialState, action) => {
         case NOTES_CREATE_FAILURE:
             return { ...state, notes_creating: false, err: action.payload };
         case NOTES_SET_EDIT_IN_PROGRESS:
-            const note = state.notes_array.find(note => note._id === action.payload);
+            const note = state.notes_array.find(note => note.id === action.payload);
             return { ...state, note_to_be_updated: note ? note : null };
         case NOTES_EDIT_IN_PROGRESS:
             return { ...state, notes_editing: true };

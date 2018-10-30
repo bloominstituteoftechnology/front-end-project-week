@@ -84,7 +84,7 @@ const NoteEdit = styled.button`
             </NoteContentContainer>
             <NoteEdit onClick={(event) => {
                 event.preventDefault();
-                props.redirectForm(event, props.note._id);
+                props.redirectForm(event, props.note.id);
             }}>Edit</NoteEdit>
             {/* <NtsIdvRmv onClick={hdldltfn}>Remove</NtsIdvRmv> */}
         </NoteContainer>

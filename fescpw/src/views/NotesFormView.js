@@ -12,7 +12,7 @@ class NotesFormView extends Component {
         note: {
             title: "",
             textBody: "",
-            tags: []
+            tags: ""
         },
         notes_editing: false
     }
@@ -22,23 +22,42 @@ class NotesFormView extends Component {
         }
     }
 
-    handleChange = event => {
-        if (event.target.name === "tags") {
-            const tags = event.target.value.split(", ");
+    componentDidUpdate(prevProps) {
+        if (this.props.note_to_be_updated !== prevProps.note_to_be_updated) {
             this.setState({
                 note: {
-                    ...this.state.note,
-                    tags,
-                }
-            });
-        } else {
-            this.setState({
-                note: {
-                    ...this.state.note,
-                    [event.target.name]: event.target.value
-                }
+                    title: "",
+                    textBody: "",
+                    tags: ""
+                },
+                notes_editing: false
             });
         }
+    }
+
+    handleChange = event => {
+        // if (event.target.name === "tags") {
+        //     const tags = event.target.value.split(", ");
+        //     this.setState({
+        //         note: {
+        //             ...this.state.note,
+        //             tags,
+        //         }
+        //     });
+        // } else {
+        //     this.setState({
+        //         note: {
+        //             ...this.state.note,
+        //             [event.target.name]: event.target.value
+        //         }
+        //     });
+        // }
+        this.setState({
+            note: {
+                ...this.state.note,
+                [event.target.name]: event.target.value
+            }
+        });
     }
 
     handleCreate = (event) => {
