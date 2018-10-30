@@ -7,6 +7,7 @@ import DeleteNote from "./components/DeleteNote";
 import NoteForm from "./components/NoteForm";
 import { Route, Link } from "react-router-dom";
 
+
 class App extends Component {
   render() {
     return (

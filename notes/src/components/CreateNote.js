@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { addNote } from "../actions"
+import { addNote, createNote } from "../actions"
 import "../App.css"
 
 class CreateNote extends Component {
@@ -8,7 +8,7 @@ class CreateNote extends Component {
         super(props) 
         this.state = {
             title: '',
-            content: ''
+            textBody: ''
         }
     }
     onChange = e => {
@@ -16,7 +16,7 @@ class CreateNote extends Component {
     }
     onSubmit = e => {
         e.preventDefault()
-        this.props.addNote({title: this.state.title, content: this.state.content, id: '03'})
+        this.props.createNote({title: this.state.title, textBody: this.state.textBody, id: '03'})
         this.props.history.push('/')
     }
     render() {
@@ -31,8 +31,8 @@ class CreateNote extends Component {
             className="title-input"
             placeholder="Note Title"
             />
-            <textarea  name="content"
-            value={this.state.content}
+            <textarea  name="textBody"
+            value={this.state.textBody}
             onChange={this.onChange}
             className="content-input"
             placeholder="Note Content"
@@ -40,10 +40,10 @@ class CreateNote extends Component {
             </textarea>
            {/* <input 
             type="text"
-            name="content"
-            value={this.state.content}
+            name="textBody"
+            value={this.state.textBody}
             onChange={this.onChange}
-            className="content-input"
+            className="textBody-input"
             placeholder="Note Content"
             /> */}
             <button type="submit" className="save-button">Save</button>
@@ -60,4 +60,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, { addNote })(CreateNote)
+export default connect(mapStateToProps, { addNote, createNote })(CreateNote)

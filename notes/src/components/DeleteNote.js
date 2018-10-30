@@ -5,15 +5,23 @@ import { deleteNote } from "../actions";
 
 const DeleteNote = props => {
   if (props.note) {
-    const { id } = props.note;
+    const { _id } = props.note;
     return (
       <div className="delete-page">
         <div className="delete-content">
           <h5 className="delete-msg">Are you sure you want to delete this?</h5>
           <div className="delete-buttons">
-          <button onClick={() => props.deleteNote(id)} className="delete-btn-1">Delete</button>
-          <Link to={`/${id}`}>
-            <button className="delete-btn-2">No</button>  </Link>
+            <Link to="/">
+              <button
+                onClick={() => props.deleteNote(_id)}
+                className="delete-btn-1"
+              >
+                Delete
+              </button>
+            </Link>
+            <Link to={`/${_id}`}>
+              <button className="delete-btn-2">No</button>{" "}
+            </Link>
           </div>
         </div>
       </div>
@@ -26,7 +34,7 @@ const DeleteNote = props => {
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
   return {
-    note: state.notes.find(note => note.id === id)
+    note: state.note.find(note => note._id === id)
   };
 };
 
