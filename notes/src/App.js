@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //components needed
 import HeadNav from './components/HeadNav/HeadNav';
-import MainView from './components/MainView/MainView';
+import ListView from './components/ListView/ListView';
 
 //page styling
 import './App.css';
@@ -12,7 +12,9 @@ class App extends Component {
     return (
       <div className="App">
         <HeadNav />
-        <MainView />
+        <div className='mainView'>
+          <ListView />
+        </div>
 
       </div>
     );

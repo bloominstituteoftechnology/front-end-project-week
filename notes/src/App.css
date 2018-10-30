@@ -1,7 +1,7 @@
 .App {
   display: flex;
-  text-align: center;
-  height: 100vh;
+  max-width: 88.8rem;
+  height: 100%;
 }
 
 .App-logo {
@@ -24,11 +24,8 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainView {
+    background-color: #F2F1F2;
+    width: 100%;
+    padding: 5.5rem 2.75rem 0 2.75rem;
 }

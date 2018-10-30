@@ -1,0 +1,20 @@
+.listView h3 {
+    font-size: 2.2rem;
+    letter-spacing: -1.25px;
+    font-weight: bold;
+}
+
+.notesWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+}
+
+.notesBox {
+    width: 19.25rem;
+    height: 19.75rem;
+    background-color: #FFFFFF;
+    border: 1px solid #C5C5C5;
+    margin-bottom: 2.5rem;
+}
