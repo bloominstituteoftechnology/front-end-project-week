@@ -38,24 +38,31 @@ export default class SingleNoteView extends React.Component {
 
     render() {
         return (
+            this.state.note === 0 ? 
+                <div className="single-note">
+                    <p>Loading...</p>
+                </div> :
             this.state.delete ? 
-            <div className="single-note">
-                <Link to={`/edit/${this.state.note._id}`}>edit</Link>
-                <a onClick={this.deleteToggle}>delete</a>
-                <h3>{this.state.note.title}</h3>
-                <p>{this.state.note.textBody}</p>
-                <div className="delete-modal">
-                    <div className="delete-menu">
-                        <p>Are you sure you want to delete this?</p>
-                        <a className="delete" onClick={this.deleteNote}>Delete</a>
-                        <a className="cancel" onClick={this.deleteToggle}>No</a>
+                <div className="single-note">
+                    <div className="link-wrapper">
+                        <Link to={`/edit/${this.state.note._id}`}>edit</Link>
+                        <a onClick={this.deleteToggle}>delete</a>
                     </div>
-                </div>
-            </div>
-            :
+                    <h3>{this.state.note.title}</h3>
+                    <p>{this.state.note.textBody}</p>
+                    <div className="delete-modal">
+                        <div className="delete-menu">
+                            <p>Are you sure you want to delete this?</p>
+                            <a className="delete" onClick={this.deleteNote}>Delete</a>
+                            <a className="cancel" onClick={this.deleteToggle}>No</a>
+                        </div>
+                    </div>
+                </div> :
             <div className="single-note">
-                <Link to={`/edit/${this.state.note._id}`}>edit</Link>
-                <a onClick={this.deleteToggle}>delete</a>
+                <div className="link-wrapper">
+                    <Link to={`/edit/${this.state.note._id}`}>edit</Link>
+                    <a onClick={this.deleteToggle}>delete</a>
+                </div>
                 <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.textBody}</p>
             </div>
