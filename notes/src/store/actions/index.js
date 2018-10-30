@@ -44,7 +44,7 @@ export const deleteNote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:7777/api/notes/${id}`)
       .then(response => dispatch({ type: DELETE_NOTE, id }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -54,8 +54,8 @@ export const editNote = note => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
-      .then(response => dispatch({ type: EDIT_NOTE, payload: response.data }))
+      .put(`http://localhost:7777/api/notes/${note._id}`, note)
+      .then(response => dispatch({ type: EDIT_NOTE, payload: response }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
 };

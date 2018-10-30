@@ -15,19 +15,23 @@ class ViewPage extends React.Component {
 
   filterProps = () => {
     this.props.notes.forEach(note => {
-      if (this.props.match.params.id === note._id) {
-        this.setState({ note: note });
+      if (parseInt(this.props.match.params.id, 10) === note._id) {
+        this.setState({ note });
       }
     });
   };
 
   componentDidMount() {
+    console.log('hi');
     this.props.getData();
   }
 
   componentDidUpdate(prevProps) {
+    console.log('me');
     if (this.props.success !== prevProps.success) {
       this.filterProps();
+    } else if (prevProps) {
+      console.log(prevProps);
     }
   }
 

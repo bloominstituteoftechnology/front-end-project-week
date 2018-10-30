@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { NoteStyle } from "../style/noteStyle";
+import { NoteStyle } from '../style/noteStyle';
 
 function Note(props) {
   const description = props.note.textBody;

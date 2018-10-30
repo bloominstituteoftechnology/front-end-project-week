@@ -1,22 +1,21 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { addNote, editNote } from "../../store/actions";
+import { addNote, editNote } from '../../store/actions';
 
-import { Form, Input, Textarea, Button } from "../style/noteFormStyle";
+import { Form, Input, Textarea, Button } from '../style/noteFormStyle';
 
 class NoteForm extends React.Component {
   state = {
-    title: "",
-    textBody: "",
-    _id: null
+    title: '',
+    textBody: '',
+    _id: null,
   };
 
   filterProps = () => {
     this.props.notes.forEach(note => {
-      if (this.props.match.params.id === note._id) {
+      if (parseInt(this.props.match.params.id, 10) === note._id) {
         this.setState({ ...note });
-        console.log(note);
       }
     });
   };
@@ -27,25 +26,28 @@ class NoteForm extends React.Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   handleClick = e => {
     e.preventDefault();
     const pathName = this.props.match.url;
-    pathName === "/noteform"
-      ? this.props.addNote(this.state)
-      : this.props.editNote(this.state);
-    this.setState({ title: "", textBody: "" });
-    this.props.history.push("/");
+    if (pathName === '/noteform') {
+      this.props.addNote(this.state);
+      this.props.history.push('/note');
+    } else {
+      this.props.editNote(this.state);
+      this.props.history.push(`/note/${this.state._id}`);
+    }
+    this.setState({ title: '', textBody: '' });
   };
 
   render() {
     const pathName = this.props.match.url;
     return (
       <Form>
-        <h2>{pathName === "/noteform" ? "Create New Note:" : "Edit Note:"}</h2>
+        <h2>{pathName === '/noteform' ? 'Create New Note:' : 'Edit Note:'}</h2>
         <Input
           name="title"
           type="text"
@@ -60,7 +62,7 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         />
         <Button type="submit" onClick={this.handleClick}>
-          {pathName === "/noteform" ? "Save" : "Upadate"}
+          {pathName === '/noteform' ? 'Save' : 'Upadate'}
         </Button>
       </Form>
     );
@@ -69,7 +71,7 @@ class NoteForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
   };
 };
 
