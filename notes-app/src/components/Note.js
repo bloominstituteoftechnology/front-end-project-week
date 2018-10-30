@@ -15,6 +15,14 @@ class Note extends Component {
     this.setState({ modal: false })
   }
 
+  deleteNoteFromAPI = (noteId) => {
+    console.log(noteId)
+    axios.delete(``)
+      .then(resp => console.log(resp))
+      .catch(err => console.log(err))
+    this.props.history.push("/")
+  }
+
 render() {
       const note = this.props.notes.filter(note => note.id === Number(this.props.match.params.id))[0]
     
