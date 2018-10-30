@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 
@@ -10,30 +10,23 @@ import Note from "./components/note";
 import NoteDetails from "./components/note-details";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: []
-    };
-  }
-
-  componentDidMount() {
-    axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.log(error));
-  }
+  onSubmitHelper = e => {
+    e.preventDefault();
+    this.setState({ notes: this.state.notes });
+  };
 
   render() {
     return (
       <div className="App">
-        <Route path="/" component={SideBar} />
         <Route
-          exact
-          path="/notes"
-          render={() => <NoteList notes={this.state.notes} />}
+          path="/"
+          render={() => <SideBar onSubmitHelper={this.onSubmitHelper} />}
         />
-        <Route path="/note-form" component={NoteForm} />
+        <Route exact path="/notes" component={NoteList} />
+        <Route
+          path="/note-form"
+          render={() => <NoteForm onSubmitHelper={this.onSubmitHelper} />}
+        />
         <Route path="/note-details/:_id" component={NoteDetails} />
       </div>
     );

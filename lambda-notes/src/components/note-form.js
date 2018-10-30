@@ -10,12 +10,13 @@ class NoteForm extends Component {
     };
   }
 
-  addNote = event => {
+  handleSubmitNote = event => {
     event.preventDefault();
     axios
       .post("https://fe-notes.herokuapp.com/note/create", this.state)
       .then(response => console.log(response))
       .catch(error => console.log(error));
+    this.setState({ title: "", textBody: "" });
   };
 
   changeHandler = event => {
@@ -26,7 +27,7 @@ class NoteForm extends Component {
     return (
       <div className="noteForm">
         <h1>Create New Note:</h1>
-        <form onSubmit={this.addNote}>
+        <form onSubmit={this.handleSubmitNote}>
           <input
             onChange={this.changeHandler}
             placeholder="Note Title"
