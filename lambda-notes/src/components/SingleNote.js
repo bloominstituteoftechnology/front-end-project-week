@@ -55,7 +55,15 @@ class SingleNote extends Component {
           </div>
         </div>
         <div className="edit-and-delete">
-          <span>Edit</span>
+          <span
+            onClick={() =>
+              this.props.history.push(
+                `/notes/${localStorage.getItem("noteID")}/edit`
+              )
+            }
+          >
+            Edit
+          </span>
           <span
             onClick={() =>
               this.setState({ deleteMenuToggle: !this.state.deleteMenuToggle })

@@ -8,6 +8,7 @@ import SideBar from "./components/SideBar";
 import Note from "./components//Note";
 import NoteForm from "./components/NoteForm";
 import SingleNote from "./components/SingleNote";
+import EditNote from "./components/EditNote";
 class App extends Component {
   constructor() {
     super();
@@ -30,6 +31,13 @@ class App extends Component {
     );
   };
   handleDeleteNote = () => {
+    axios.get("https://fe-notes.herokuapp.com/note/get/all").then(res =>
+      this.setState({
+        notes: res.data
+      })
+    );
+  };
+  handleEditNote = () => {
     axios.get("https://fe-notes.herokuapp.com/note/get/all").then(res =>
       this.setState({
         notes: res.data
@@ -59,6 +67,7 @@ class App extends Component {
           )}
         />
         <Route
+          exact
           path="/notes/:id"
           render={props => (
             <SingleNote
@@ -73,6 +82,13 @@ class App extends Component {
           path="/add"
           render={props => (
             <NoteForm {...props} handleAddNewNote={this.handleAddNewNote} />
+          )}
+        />
+        <Route
+          exact
+          path="/notes/:id/edit"
+          render={props => (
+            <EditNote handleEditNote={this.handleEditNote} {...props} />
           )}
         />
       </div>

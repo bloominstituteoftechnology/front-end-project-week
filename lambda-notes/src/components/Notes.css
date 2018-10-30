@@ -4,6 +4,8 @@
   margin: 20px;
   width: 20%;
   border: 1px solid lightgrey;
+  max-height: 300px;
+  overflow: hidden;
 }
 .note a {
   text-decoration: none;
