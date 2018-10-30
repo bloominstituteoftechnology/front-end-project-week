@@ -67,6 +67,16 @@ nav.nav-bar {
   text-decoration: none;
   color: white;
 }
+.nav-bar button {
+  border: none;
+  background: #24b8bd;
+  color: white;
+  padding: 10px 15px;
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  cursor: pointer;
+}
 
 @media (max-width: 960px) {
   .side-bar {
