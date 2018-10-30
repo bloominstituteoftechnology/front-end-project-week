@@ -10,7 +10,7 @@ class NoteCard extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+      .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
       .then(res => this.setState({note: res.data}))
       // .then(res => console.log(res))
       .catch(err => console.log(err))
@@ -26,6 +26,10 @@ class NoteCard extends React.Component {
   render() {
     return(
         <div>
+        <h3>{this.state.note.title}</h3>
+        <p>{this.state.note.textBody}</p>
+        {console.log('this is state', this.state.note.title)}
+        {console.log('filter', this.props.notes.filter(item => item.id === this.props.match.params.id))}
         {console.log("id", this.props.match.params.id)}
         {console.log("notes", this.props.notes)}
         </div>
