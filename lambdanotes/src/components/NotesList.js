@@ -3,7 +3,7 @@ import React from 'react';
 import './ComponentStyle.css';
 
 function NotesList(props) {
-  if (!props.notesList || !props.notesList.length) {
+  if (!props.notesList.length) {
     return <h1>Fetching notes!</h1>;
   }
   return (

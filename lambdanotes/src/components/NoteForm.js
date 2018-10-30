@@ -10,6 +10,7 @@ function NoteForm(props) {
       props.handleUpdateNote(props.note._id);
     } else {
       props.handleAddNewNote();
+      props.history.push('/');
     }
   }
 
@@ -41,7 +42,10 @@ function NoteForm(props) {
               onChange={props.handleChange}
             />
           </div>
-          <button className="button create" onClick={handleSubmit}>
+          <button
+            className="button create"
+            onClick={event => handleSubmit(event)}
+          >
             {props.isUpdating ? 'Update' : 'Save'}
           </button>
         </form>

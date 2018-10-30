@@ -49,13 +49,16 @@ class App extends React.Component {
     });
   };
 
-  handleAddNewNote = event => {
-    event.preventDefault();
+  handleAddNewNote = () => {
     axios
       .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
-      .then(response =>
-        this.setState({ notesData: response.data, note: blankNoteForm })
-      );
+      .then(response => {
+        this.state.note._id = response.data;
+        this.setState({
+          notesData: [...this.state.notesData, this.state.note],
+          note: blankNoteForm
+        });
+      });
   };
 
   handleDeleteNote = noteId => {
