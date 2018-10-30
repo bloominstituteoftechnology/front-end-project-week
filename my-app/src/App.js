@@ -25,7 +25,7 @@ class App extends Component {
   componentDidMount() {
     // fetch data from the api
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:3333/dashboard")
       .then(response => {
         console.log(response);
         // set our state with the new data

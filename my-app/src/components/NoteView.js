@@ -13,17 +13,15 @@ class NoteView extends React.Component {
 
   handleDelete = () => {
     const id = this.props.match.params.id;
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(res => {
-        this.setState(() => ({ notes: res.data }));
-      });
+    axios.delete("localhost:3333/dashboard/:id").then(res => {
+      this.setState(() => ({ notes: res.data }));
+    });
   };
 
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .get("localhost:3333/dashboard/:id")
       .then(response => {
         this.setState({ note: response.data });
       })
