@@ -23,7 +23,7 @@ class App extends Component {
 
 	fetchNotes = () => {
 		axios
-			.get('https://killer-notes.herokuapp.com/note/get/all')
+			.get('http://localhost:3300/api/notes')
 			.then((response) => {
 				console.log({ notes: response.data });
 				this.setState(() => ({ notes: response.data }));
@@ -40,9 +40,10 @@ class App extends Component {
 	addNote = (note) => {
 		console.log('firing');
 		axios
-			.post('https://killer-notes.herokuapp.com/note/create', note)
+			.post('http://localhost:3300/api/notes', note)
 			.then((response) => {
 				this.setState({ note: response.data });
+				console.log({ note: response.data });
 				this.fetchNotes();
 
 				console.log({ note: response.data });
@@ -54,7 +55,7 @@ class App extends Component {
 
 	getNoteView = (noteId) => {
 		axios
-			.get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
+			.get(`http://localhost:3300/api/notes/${noteId}`)
 			.then((response) => {
 				this.setState({
 					title: response.data.title,
@@ -73,7 +74,7 @@ class App extends Component {
 			});
 	};
 
-	deleteNote = () => {};
+	deleteNote = (noteID) => {};
 
 	editNote = () => {};
 
@@ -98,7 +99,7 @@ class App extends Component {
 					</div>
 					<div className="Create">
 						<Link to={`/noteform`} style={{ textDecoration: 'none' }}>
-							Create Note
+							+ Create Note
 						</Link>
 					</div>
 				</header>

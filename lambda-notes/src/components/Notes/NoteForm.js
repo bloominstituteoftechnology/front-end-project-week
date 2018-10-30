@@ -33,26 +33,28 @@ class NoteForm extends Component {
 	};
 	render() {
 		return (
-			<form onSubmit={this.addNote} className="NoteForm">
-				<div>Create New Note:</div>
-				<input
-					className="input-title"
-					value={this.state.title}
-					name="title"
-					type="text"
-					placeholder="Note Title"
-					onChange={this.handleInputChange}
-				/>
-				<input
-					className="input-note"
-					value={this.state.textBody}
-					name="textBody"
-					type="text"
-					placeholder="Note Content"
-					onChange={this.handleInputChange}
-				/>
-				<button type="submit">Save</button>
-			</form>
+			<div>
+				<h1>{this.props.isUpdating ? 'Edit Note' : 'Create New Note'}</h1>
+				<form onSubmit={this.addNote} className="NoteForm">
+					<input
+						className="input-title"
+						value={this.state.title}
+						name="title"
+						type="text"
+						placeholder="Note Title"
+						onChange={this.handleInputChange}
+					/>
+					<input
+						className="input-note"
+						value={this.state.textBody}
+						name="textBody"
+						type="text"
+						placeholder="Note Content"
+						onChange={this.handleInputChange}
+					/>
+					<button type="submit">Save</button>
+				</form>
+			</div>
 		);
 	}
 }

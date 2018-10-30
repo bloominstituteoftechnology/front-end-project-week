@@ -6,19 +6,26 @@ class NoteView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			note: null,
+			note: '',
+			isUpdating: false,
 		};
 	}
 
 	componentDidMount() {
 		// change this line to grab the id passed on the URL
+		if (this.props.isUpdating) {
+			this.setState({
+				isUpdating: true,
+				note: this.props.isUpdating,
+			});
+		}
 		const noteID = this.props.match.params.noteID;
 		this.getNoteView(noteID);
 	}
 
 	getNoteView = (noteID) => {
 		axios
-			.get(`https://killer-notes.herokuapp.com/note/get/${noteID}`)
+			.get(`http://localhost:3300/api/notes/${noteID}`)
 			.then((response) => {
 				this.setState({
 					title: response.data.title,
@@ -38,20 +45,30 @@ class NoteView extends Component {
 	};
 	deleteNote = (noteID) => {
 		axios
-			.delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
+			.delete(`http://localhost:3300/api/notes/${noteID}`)
 			.then((response) => {
-				this.setState(() => ({ notes: response.data }));
+				this.setState(() => ({ note: response.data }));
+			})
+			.catch((error) => {
+				console.error(error);
 			});
 	};
 
-	editNote = (noteID) => {};
+	editNote = (noteID) => {
+		axios
+			.put(`http://localhost:3300/api/notes/${noteID}`, this.state.note)
+
+			.then((response) => {
+				this.setState({ isUpdating: false });
+			});
+	};
 
 	render() {
 		return (
 			<div className="Noteview">
 				<div className="EditDelete">
-					<button onClick={() => this.editNote(this.id)}>Edit</button>
-					<button onClick={() => this.deleteNote(this.id)}>Delete</button>
+					<button onClick={(noteID) => this.editNote}>Edit</button>
+					<button onClick={(noteID) => this.deleteNote}>Delete</button>
 				</div>
 				<h1>{this.state.title}</h1>
 				<p>{this.state.textBody}</p>
