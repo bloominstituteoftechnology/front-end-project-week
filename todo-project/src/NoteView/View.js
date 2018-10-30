@@ -9,7 +9,8 @@ const links = {
     'display': 'flex',
     'justifyContent': 'flex-end',
     'fontWeight': 'bold',
-    'textDecoration': 'underline'
+    'textDecoration': 'underline',
+    'cursor': 'pointer'
 }
 
 const spacing = {
@@ -21,7 +22,7 @@ const View = props => {
     return (
         <div>
             <div style={links}>
-        <NavLink exact to={`/${props.note._id}/edit-note`} style={spacing}>edit</NavLink> <div style={spacing}>delete</div>
+        <NavLink exact to={`/${props.note._id}/edit-note`} style={spacing}>edit</NavLink> <NavLink exact to='/' ><div style={spacing} onClick={() => props.deleteNote(props.note._id)} >delete</div></NavLink>
             </div>
         <div style={containNote}>
         <h1>{props.note.title}</h1>
