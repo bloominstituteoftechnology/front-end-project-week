@@ -6,17 +6,17 @@ import { Link } from 'react-router-dom';
 const SideBar = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: left;
 `;
 
-const NoteAppButtons = styled.button`
+const NoteAppButton = styled.button`
   background-color: #2ac0c4;
   color: white;
-  width: 28rem;
-  margin-bottom: 30px;
+  width: 90%;
   font-size: 2rem;
-  padding: 30px 0;
+  padding: 30px 5%;
+  margin: 0 5%;
+  margin-bottom: 30px;
 `;
 
 class ButtonContainer extends Component {
@@ -25,11 +25,11 @@ class ButtonContainer extends Component {
       <SideBar>
         <Link to="/">
           {' '}
-          <NoteAppButtons>View Your Notes</NoteAppButtons>
+          <NoteAppButton>View Your Notes</NoteAppButton>
         </Link>
         <Link to="/new-note">
           {' '}
-          <NoteAppButtons>+ Create New Note</NoteAppButtons>
+          <NoteAppButton>+ Create New Note</NoteAppButton>
         </Link>
       </SideBar>
     );

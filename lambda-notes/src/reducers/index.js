@@ -60,7 +60,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         addingNote: false,
-        smurfs: action.payload,
+        notes: action.payload,
         error: null
       };
 

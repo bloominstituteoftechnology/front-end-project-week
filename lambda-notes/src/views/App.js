@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import SideBarView from './SideBarView';
 import ListView from './ListView';
+import NewNoteView from './NewNoteView';
 import styled from 'styled-components';
 import { Route } from 'react-router-dom';
+
 const AppContainer = styled.div`
   background: #d7d7d7;
   min-height: 100vh;
@@ -27,6 +29,7 @@ class App extends Component {
         <AppContainer>
           <Route path="/" render={props => <SideBarView {...props} />} />
           <Route exact path="/" render={props => <ListView {...props} />} />
+          <Route exact path="/new-note" render={props => <NewNoteView {...props} />} />
         </AppContainer>
       </div>
     );

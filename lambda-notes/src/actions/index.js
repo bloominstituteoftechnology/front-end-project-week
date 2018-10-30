@@ -25,13 +25,14 @@ export const ADDING_NOTE_FAILURE = 'ADDING_NOTE_FAILURE';
    D - deleteSmurf
 */
 
-const url = 'https://fe-notes.herokuapp.com/note/get/all';
+const getUrl = 'https://fe-notes.herokuapp.com/note/get/all';
+const postUrl = 'https://fe-notes.herokuapp.com/note/create';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
   dispatch({ type: FETCHING_NOTES });
   axios
-    .get(url)
+    .get(getUrl)
     .then(response => {
       console.log('Response from getNotes is: ', response);
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
@@ -41,18 +42,17 @@ export const getNotes = () => dispatch => {
     });
 };
 
-export const addNote = smurf => dispatch => {
+export const addNote = note => dispatch => {
   dispatch({ type: CREATE_NOTE });
   axios
-    .post(url, smurf)
+    .post(postUrl, note)
     .then(response => {
       console.log('Response from addNote is: ', response);
-      // dispatch({ type: ADDING_SMURF_SUCCESS, payload: response.data });
+      dispatch({ type: ADDING_NOTE_SUCCESS, payload: response.data });
     })
     .catch(error => {
       console.log('Error from addNote is: ', error);
-
-      // dispatch({ type: ADDING_SMURF_FAILURE, payload: error });
+      dispatch({ type: ADDING_NOTE_FAILURE, payload: error });
     });
 };
 
