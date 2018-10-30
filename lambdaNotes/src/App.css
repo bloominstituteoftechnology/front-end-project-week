@@ -216,5 +216,28 @@ margin-bottom : 20px;
 
 .displayNoteNav *{
   padding-right : 20px;
+}
 
+.editNote{
+  width : 75%;
+  margin : 0 auto;
+  padding : 20px 20px;
+  margin : 0 10px;
+}
+.editNote input{
+width : 100%;
+height : auto;
+padding : 12px;
+margin : 20px 0 10px 0;
+}
+
+
+.editNote textarea {
+  width: 100%;
+  height : 50vw;
+  padding: 12px 20px;
+  box-sizing: border-box;
+   border-radius: 4px;
+   resize: none;
+   margin-bottom : 20px;
 }

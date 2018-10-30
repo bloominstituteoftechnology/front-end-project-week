@@ -32,7 +32,7 @@ console.log(note);
    
     <div className="displayNote">
      <nav className="displayNoteNav">
-         <NavLink to={`/Notes/edit/${props.match.params.id}`}> Edit  </NavLink>
+         <NavLink to={`/edit/${props.match.params.id}`}> Edit  </NavLink>
         <NavLink to={`/Notes/${props.match.params.id}/delete`}> Delete </NavLink>
      
     

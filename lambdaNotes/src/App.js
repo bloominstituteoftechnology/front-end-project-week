@@ -53,8 +53,8 @@ class App extends Component {
                     />
 
 
-         <Route     
-                    path="/Notes/edit/:id"
+         <Route     exact
+                    path="/edit/:id"
                     render={props => (
                     <EditNote {...props} 
                          notes={this.state.notes}
@@ -64,7 +64,7 @@ class App extends Component {
                     />
 
 
-        <Route      exact
+        <Route      
                     path="/Notes/:id"
                     render={props => (
                     <DisplayNote {...props} 

@@ -53,22 +53,25 @@ render() {
   return (
    
     <div className="editNote">
- 
+      <h3>Edit Notes : </h3>
         <form onSubmit={this.submitEdit}>
           <input
             onChange={this.handleInputChange}
             placeholder="title"
             value={this.state.title}
             name="title"
+            size="50"
           />
-          <input
+          <textarea 
             onChange={this.handleInputChange}
             placeholder="textBody"
             value={this.state.textBody}
             name="textBody"
+            
+            
           />
 
-          <button type="submit">Submit Edit</button>
+          <button type="submit">Update</button>
         </form>
       </div>
 
