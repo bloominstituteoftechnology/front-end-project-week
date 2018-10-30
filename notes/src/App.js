@@ -26,7 +26,7 @@ class App extends Component {
   //        Functions for other components
   createNewSubmit = e =>{
     e.preventDefault();
-    axios.post('https://killer-notes.herokuapp.com/note/create',this.state.newNote)
+    axios.post('https://fe-notes.herokuapp.com/note/create',this.state.newNote)
     .then(response => {
       this.setState({notes : response.data, newNote : {
         title : '',
@@ -34,7 +34,7 @@ class App extends Component {
       }})
       console.log("New Note has been added", response.data)
     })
-    .catch(error => console.log("ERROR :::", error));
+    .catch(error => alert("ERROR :::", error));
   }
   onChangeHandler = e => {
     this.setState({newNote : {...this.state.newNote,[e.target.name] : e.target.value }})

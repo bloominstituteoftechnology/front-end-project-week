@@ -23,7 +23,6 @@ const CreateNew = (props) => {
                 />
 
                 <input 
-                onChange={props.onChangeHandler}
                 className="form-save"
                 type="submit" 
                 value="Save" 
