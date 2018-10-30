@@ -17,6 +17,7 @@ class App extends Component {
       <WrapperDiv>
         <Route exact path ='/' component={ListViewSection}></Route>
         <Route exact path ='/AddNote' component={AddNewNoteContainer}></Route>
+        <Route exact path ='/Note/:id' component={EditNoteContainer}></Route>
       </WrapperDiv>
     );
   }

@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Note from '../Components/ListView/Note';
-import { fetchNotes } from '../Actions';
+import { fetchNotes, fetchNotesById } from '../Actions';
+
 
 const Loading = styled.h1`
     font-size:4rem;
@@ -16,16 +18,19 @@ const WrapperDiv = styled.div`
 
 
 class NoteContainer extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
     }
     componentDidMount(){
-        console.log("calling cdm")
         this.props.fetchNotes();
+    }
+
+    handleClick = (event,id) =>{
+        this.props.fetchNotesById(id);
     }
     render(){
         
-        if(this.props.isFetching){
+        if((this.props.isFetching)||(this.props.isAdding)){
             return <Loading>Loading...</Loading>
         } else 
         {
@@ -33,7 +38,7 @@ class NoteContainer extends React.Component{
                 <WrapperDiv>
                     {
                         this.props.noteList.map(el =>{
-                            return <Note key={el._id} data={el}></Note>
+                            return <Link key={el._id} to={`/Note/${el._id}`}><Note data={el} handleClick={this.handleClick} ></Note></Link>
                         })
                     }
                 </WrapperDiv>
@@ -43,12 +48,12 @@ class NoteContainer extends React.Component{
 }
 
 const mapStateToProps = state => {
-    console.log('what was on state???',state)
     return {
         isFetching: state.isFetching,
+        isAdding: state.isAdding,
         noteList: state.notes,
     };
   };
 
-  export default connect(mapStateToProps,{ fetchNotes })(NoteContainer);
+  export default connect(mapStateToProps,{ fetchNotes, fetchNotesById })(NoteContainer);
   

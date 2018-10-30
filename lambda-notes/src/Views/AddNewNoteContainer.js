@@ -49,22 +49,26 @@ class AddNewNote extends React.Component{
             body:''
         }
     }
-
     handleTextChange = event =>{
         this.setState({[event.target.id]: event.target.value})
     }
     handleSubmit = event =>{
         event.preventDefault();
+       
         this.props.addNote({
             title: this.state.title,
             textBody: this.state.body
         })
-        this.setState({title:'', body:''},()=>{
-            this.props.history.push('/')
-        })
+
 
     }
-
+    componentDidUpdate(){
+        if(this.props.isAdded){
+            this.setState({title:'', body:''},()=>{
+                this.props.history.push('/')
+            })
+        }
+    }
     render(){
         return(
             <WrapperDiv>
@@ -82,9 +86,15 @@ class AddNewNote extends React.Component{
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        isAdding: state.isAdding,
+        isAdded: state.isAdded
+    };
+  };
 
 
-  export default connect(null,{ addNote })(AddNewNote);
+  export default connect(mapStateToProps,{ addNote })(AddNewNote);
   
 
 
