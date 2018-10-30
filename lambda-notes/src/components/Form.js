@@ -20,11 +20,11 @@ const StyledForm = styled.form `
 `
 
 const Form = props =>{
-    return <StyledForm>
+    return <StyledForm onSubmit={props.submitHandler}>
         <h3>Create New Note:</h3>
-        <input type='text' placeholder='Note Title' value={props.state.title} onChange={props.changeHandler}></input>
+        <input name='title' type='text' placeholder='Note Title' value={props.state.title} onChange={props.changeHandler}></input>
         <textarea name='textBody' placeholder='Note Content' value={props.state.textBody} onChange={props.changeHandler}></textarea>
-        <div type='submit' className='button'>Save</div>
+        <button type='submit' className='button'>Save</button>
     </StyledForm>
 }
 

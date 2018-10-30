@@ -10,6 +10,7 @@ const StyledBar = styled.div `
     border-right: 1px solid #AFAFAF;
     padding: 22px 14px;
     box-sizing:border-box;
+    position:fixed;
     h1{
         font-size: 36px;
         font-weight: bold;
