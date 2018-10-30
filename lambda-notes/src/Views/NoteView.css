@@ -1,0 +1,10 @@
+
+.NoteView .controls {
+  display: flex;
+  justify-content: right;
+
+}
+
+.NoteView span {
+  margin-right: 1rem;
+}

@@ -1,7 +1,10 @@
-
-.NoteCard {
+.NotesWrapper a {
   margin: 2%;
   width: 28%;
+  text-decoration: none;
+  color: black;
+}
+.NotesWrapper .NoteCard {
   border: 1px solid black;
   overflow: hidden;
   height: 300px;

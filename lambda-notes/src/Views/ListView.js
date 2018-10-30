@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { NoteCard } from '../components';
 
 export const ListView = props => (
@@ -13,7 +14,9 @@ export const ListView = props => (
       
     }}>
       {props.notes.map( note => (
-        <NoteCard key={note._id} {...note} />
+        <Link to={`/note/${note._id}`}>
+          <NoteCard key={note._id} {...note} />
+        </Link>
       ))}
     </div>
   </div>
