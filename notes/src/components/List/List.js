@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import NoteCard from './NoteCard';
+import { StyledView } from './styles';
 
 export default class List extends Component {
   state = {
@@ -24,13 +25,13 @@ export default class List extends Component {
       )
     }
     return (
-      <div>
+      <StyledView>
         {this.state.notes.map((note) => (
           <Link to={`/note/${note._id}`} key={note._id}>
             <NoteCard note={note} />
           </Link>
         ))}
-      </div>
+      </StyledView>
     );
   }
 }

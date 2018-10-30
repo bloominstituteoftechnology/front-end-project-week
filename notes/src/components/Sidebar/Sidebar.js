@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { StyledSidebar, StyledH1, StyledButton, StyledLink } from './styles';
 
 function Sidebar() {
   return (
-    <div>
-      <h1>Lambda Notes</h1>
-      <Link to="/">
-        <div>View Your Notes</div>
-      </Link>
-      <Link to="/create">
-        <div>+ Create New Note</div>
-      </Link>
-    </div>
+    <StyledSidebar>
+      <StyledH1>Lambda Notes</StyledH1>
+      <StyledLink to="/">
+        <StyledButton>View Your Notes</StyledButton>
+      </StyledLink>
+      <StyledLink to="/create">
+        <StyledButton>+ Create New Note</StyledButton>
+      </StyledLink>
+    </StyledSidebar>
   );
 }
 
