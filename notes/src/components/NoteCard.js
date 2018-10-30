@@ -3,9 +3,12 @@ import EditNoteForm from "./EditNoteForm";
 import { Link } from "react-router-dom";
 
 const NoteCard = props => {
+  console.log(props);
   return (
     <div className="note-card">
-      <h4>{props.note.title}</h4>
+      <Link to={`/note/${props.note._id}`}>
+        <h4>{props.note.title}</h4>
+      </Link>
       <p>{props.note.textBody}</p>
       <button
         onClick={e => {
@@ -14,7 +17,7 @@ const NoteCard = props => {
       >
         Delete
       </button>
-      <EditNoteForm editNote={props.editNote} id={props.note._id} />
+      {/* <EditNoteForm editNote={props.editNote} id={props.note._id} /> */}
     </div>
   );
 };

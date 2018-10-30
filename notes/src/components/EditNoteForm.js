@@ -22,6 +22,7 @@ class EditNoteForm extends Component {
   render() {
     return (
       <div>
+        <h1>Edit Note:</h1>
         <form onSubmit={this.helper}>
           <input name="title" value={this.state.title} onChange={this.changeHandler} type="text" />
           <textarea name="textBody" value={this.state.textBody} onChange={this.changeHandler} type="text" />

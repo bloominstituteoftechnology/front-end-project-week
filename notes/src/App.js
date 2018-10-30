@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
-import Note from "./components/Note";
+import NoteList from "./components/NoteList";
 import AddNoteForm from "./components/AddNoteForm";
 import { Route, NavLink, withRouter } from "react-router-dom";
+import Note from "./components/Note";
+import EditNoteForm from "./components/EditNoteForm";
 
 class App extends Component {
   constructor() {
@@ -85,7 +87,7 @@ class App extends Component {
           exact
           path="/"
           render={props => (
-            <Note
+            <NoteList
               {...props}
               notes={this.state.notes}
               deleteNote={this.deleteNote}
@@ -95,6 +97,11 @@ class App extends Component {
           )}
         />
         <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
+        <Route
+          path="/note/:id"
+          render={props => <Note {...props} deleteNote={this.deleteNote} editNote={this.editNote} />}
+        />
+        <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.props.editNote} />} />
       </div>
     );
   }
