@@ -37,7 +37,8 @@ import {
 const initialState = {
   fetching: false,
   notes: [],
-  error: null
+  error: null,
+  newId : '',
 };
 
 export const NoteReducer = (state = initialState, action) => {
@@ -56,7 +57,9 @@ export const NoteReducer = (state = initialState, action) => {
       return { ...state, fetching: true };
 
     case DELETING_SUCCESS:
-      return { ...state, fetching: false, notes: [...action.payload] };
+    // API doesn't return anything.  so using ID in payload, delete a note with that ID first.
+     let newNoteList = state.notes.filter( note => note._id !== action.payload);
+      return { ...state, fetching: false, notes : [...newNoteList] };
 
     case DELETING_FAILURE:
       return { ...state, fetching: false, error: action.payload };
@@ -65,7 +68,9 @@ export const NoteReducer = (state = initialState, action) => {
       return { ...state, fetching: true };
 
     case ADDING_SUCCESS:
-      return { ...state, fetching: false, notes: [...action.payload] };
+    // API only returns a new ID for new note.  reducer combine id with new note and 
+    // return a complete note object as payload
+          return { ...state, fetching: false, notes: [...state.notes, action.payload] };
 
     case ADDING_FAILURE:
       return { ...state, fetching: false, error: action.payload };

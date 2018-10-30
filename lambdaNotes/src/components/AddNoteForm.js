@@ -10,6 +10,7 @@ class AddNoteForm extends Component {
   }
 
  handleSubmitAdd = () =>{
+   
   this.props.submitAdd(this.state);
  this.props.history.push("/");
 }

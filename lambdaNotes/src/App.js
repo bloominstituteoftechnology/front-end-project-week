@@ -3,10 +3,10 @@ import './App.css';
 
 import SideMenu from './components/SideMenu';
 // import data from './data';
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from "react-redux";
 import { fetchNotes, addNote, deleteNote } from "./actions";
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import DisplayNoteList from './components/DisplayNoteList';
 import DisplayNote from './components/DisplayNote';
 import AddNoteForm from './components/AddNoteForm';
@@ -32,7 +32,7 @@ class App extends Component {
       }
 
 
-      // submitAdd = (note) =>{
+       submitAdd = (note) =>{
       //   // this.setState({idCount : this.state.idCount +1})
       //   // note._id = String(this.state.idCount);
       //   // this.setState({notes : [...this.state.notes, note]});
@@ -40,8 +40,9 @@ class App extends Component {
       //   axios.post('https://fe-notes.herokuapp.com/note/create', note)
       //   .then(response => this.setState({ notes: [...this.state.notes, {...note, _id: response.data.success}] }))
       //   .catch(error => console.log(error));
-        
-      // }
+      
+      this.props.addNote(note);
+      }
 
       // submitEdit = (editedNote) => {
    
@@ -56,19 +57,20 @@ class App extends Component {
       //   .catch(error => console.log(error));
       // }
 
-      // submitdelete = (deleteId) => {
+      submitdelete = (deleteId) => {
    
-      //   // let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
-      //   //  this.setState({notes : [...newNoteList]});
+        // let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
+        //  this.setState({notes : [...newNoteList]});
  
-      //    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${deleteId}`)
-      //   .then(response =>{
-      //       let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
-      //        this.setState({notes : [...newNoteList]});
-      //     } )
-      //   .catch(error => console.log(error));
+        //  axios.delete(`https://fe-notes.herokuapp.com/note/delete/${deleteId}`)
+        // .then(response =>{
+        //     let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
+        //      this.setState({notes : [...newNoteList]});
+        //   } )
+        // .catch(error => console.log(error));
 
-      // }
+        this.props.deleteNote(deleteId);
+      }
 
 
   render() {
@@ -89,7 +91,7 @@ class App extends Component {
                     path="/edit/:id"
                     render={props => (
                     <EditNote {...props} 
-                         notes={this.state.notes}
+                         notes={this.props.notes}
                         submitEdit={this.submitEdit}
                       />
                     )}
@@ -100,7 +102,7 @@ class App extends Component {
                     path="/Notes/:id"
                     render={props => (
                     <DisplayNote {...props} 
-                         notes={this.state.notes}
+                         notes={this.props.notes}
                        />
                     )}
                     />
@@ -109,20 +111,17 @@ class App extends Component {
                     path="/Notes/:id/delete"
                     render={props => (
                     <DeleteNote {...props} 
-                         notes={this.state.notes}
+                         notes={this.props.notes}
                         
                          submitdelete={this.submitdelete}/>
                     )}
                     />
 
-
-
         <Route
                    exact
                     path="/addNote"
                     render={props => 
-                    <AddNoteForm {...props} 
-                        submitAdd={this.submitAdd}/>}
+                    <AddNoteForm {...props} submitAdd={this.submitAdd}/>}
                     />
       </div>
     );
@@ -138,8 +137,9 @@ const mapStateToProps = ({ fetching, notes }) => {
     )
   }
 
-export default connect(
+export default withRouter(
+  connect(
   mapStateToProps,
   { fetchNotes, addNote, deleteNote }
-)(App);
-
+)(App)
+);

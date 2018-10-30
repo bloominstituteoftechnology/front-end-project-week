@@ -24,27 +24,35 @@ export const fetchNotes = () => dispatch => {
 };
 
 export const addNote = Note => dispatch => {
-  // let's do some async stuff! Thanks react-thunk :)
+ 
   dispatch({ type: "ADDING" });
   axios
-    .post("http://localhost:3333/Notes", Note)
+    .post("https://fe-notes.herokuapp.com/note/create", Note)
     .then(response => {
-      dispatch({ type: ADDING_SUCCESS, payload: response.data });
+      dispatch({ type: ADDING_SUCCESS, payload: {...Note, _id: response.data.success} });
     })
     .catch(error => {
       dispatch({ type: ADDING_FAILURE, payload: error });
     });
+
+
+
+        //   axios.post('https://fe-notes.herokuapp.com/note/create', note)
+      //   .then(response => this.setState({ notes: [...this.state.notes, {...note, _id: response.data.success}] }))
+      //   .catch(error => console.log(error));
 };
 
 export const deleteNote = id => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
   dispatch({ type: "DELETING" });
   axios
-    .delete(`http://localhost:3333/Notes/${id}`)
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
-      dispatch({ type: DELETING_SUCCESS, payload: response.data });
+      dispatch({ type: DELETING_SUCCESS, payload: id });
     })
     .catch(error => {
       dispatch({ type: DELETING_FAILURE, payload: error });
     });
+
+
 };
