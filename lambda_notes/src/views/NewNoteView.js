@@ -19,14 +19,23 @@ class NewNoteView extends Component {
     const { title, textBody } = this.state;
     this.props.addNote({ title, textBody });
     this.setState({ title: '', textBody: '' });
-    this.props.history.push('/');
   }
 
   render() {
+    if (this.props.gettingNotes) {
+      return <h1>Loading Notes...</h1>
+    }
+
     return (
-      <NewNote addNote={this.addNote} handleInput={this.handleInput} title={this.state.title} textBody={this.state.textBody}/>
+      <NewNote addNote={this.addNote} handleInput={this.handleInput} title={this.state.title} textBody={this.state.textBody} />
     );
   }
 }
 
-export default connect(null, { addNote })(NewNoteView);
+const mapStateToProps = state => {
+  return {
+    gettingNotes: state.gettingNotes
+  }
+}
+
+export default connect(mapStateToProps, { addNote })(NewNoteView);

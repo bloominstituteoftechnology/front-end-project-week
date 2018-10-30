@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     case actionTypes.ADDING_NOTE:
       return { ...state, addingNote: true };
     case actionTypes.ADD_NOTE:
-      return { ...state, notes: action.payload, addingNote: false };
+      return { ...state, notes: [{ ...state.notes, ...action.payload }], addingNote: false };
     case actionTypes.ERROR:
       return {
         ...state,
