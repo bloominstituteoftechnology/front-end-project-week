@@ -4,7 +4,7 @@ import axios from "axios";
 export const getNotes = () => {
   return dispatch => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .get(`http://localhost:5500/api/all`)
       .then(response => {
         dispatch({ type: "NOTES_FETCHED", payload: response.data });
       })
@@ -18,7 +18,7 @@ export const getNotes = () => {
 export const addNote = newNote => {
   return dispatch => {
     axios
-      .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
+      .post(`http://localhost:5500/api/create`, newNote)
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: "ERROR", payload: error });
@@ -29,9 +29,11 @@ export const addNote = newNote => {
 // getNote action creator TODO: fill in logic
 export const getNote = id => {
   return dispatch => {
+    console.log("get note called");
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:5500/api/view/${id}`)
       .then(response => {
+        console.log("I am a response", response);
         dispatch({ type: "NOTE_FETCHED", payload: response.data });
       })
       .catch(error => {
@@ -44,12 +46,9 @@ export const getNote = id => {
 export const editNote = editedNote => {
   return dispatch => {
     axios
-      .put(
-        `https://killer-notes.herokuapp.com/note/edit/${editedNote.id}`,
-        editedNote
-      )
+      .put(`http://localhost:5500/api/edit/${editedNote.id}`, editedNote)
       .then(response => {
-        dispatch({ type: "NOTE_EDITED", payload: response.data });
+        dispatch({ type: "NOTE_EDITED", payload: [editedNote] });
       })
       .then(() => getNotes()(dispatch))
       .catch(error => {
@@ -62,7 +61,7 @@ export const editNote = editedNote => {
 export const deleteNote = id => {
   return dispatch => {
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:5500/api/delete/${id}`)
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: "ERROR", payload: error });

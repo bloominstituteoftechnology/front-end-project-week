@@ -5,21 +5,24 @@ import Form from "../Form";
 import { getNote, getNotes, editNote, deleteNote } from "../../Actions";
 
 class Note extends React.Component {
-  state = {
-    isEditing: false,
-    modalIsOpen: false,
-    title: "",
-    textBody: ""
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditing: false,
+      modalIsOpen: false,
+      title: "",
+      body: ""
+    };
+  }
   // sets note id to this.id
-  get id() {
+  getId() {
     return this.props.match.params.id;
   }
 
   // fetches note from API and passes it to store
   componentDidMount() {
-    this.props.getNote(this.id);
+    console.log("component did mount, fires");
+    this.props.getNote(this.getId());
   }
 
   // allows current note to be edited
@@ -27,8 +30,8 @@ class Note extends React.Component {
     e.preventDefault();
     this.setState({
       isEditing: true,
-      title: this.props.note.title,
-      textBody: this.props.note.textBody
+      title: this.props.note[0].title,
+      body: this.props.note[0].body
     });
   };
 
@@ -41,14 +44,14 @@ class Note extends React.Component {
   handleEditSubmit = e => {
     e.preventDefault();
     this.props.editNote({
-      id: this.id,
+      id: this.getId(),
       title: this.state.title,
-      textBody: this.state.textBody
+      body: this.state.body
     });
     this.setState({
       isEditing: false,
       title: this.props.note.title,
-      textBody: this.props.note.textBody
+      body: this.props.note.body
     });
   };
 
@@ -66,8 +69,8 @@ class Note extends React.Component {
   // sends delete request to API then redirects to home page
   handleDelete = e => {
     e.preventDefault();
-    this.props.deleteNote(this.id);
-    this.props.history.push("/");
+    this.props.deleteNote(this.getId());
+    this.props.history.push("/api/all");
   };
 
   render() {
@@ -82,7 +85,7 @@ class Note extends React.Component {
         <Form
           type={"edit"}
           title={this.state.title}
-          textBody={this.state.textBody}
+          body={this.state.body}
           handleFormSubmit={this.handleEditSubmit}
           handleInputChange={this.handleInputChange}
         />
@@ -109,11 +112,11 @@ class Note extends React.Component {
         </div>
         {/* trims note title if another student hasn't set a maxLength on their title input */}
         <h2>
-          {this.props.note.title.length > 30
-            ? this.props.note.title.slice(0, 30) + "..."
-            : this.props.note.title}
+          {this.props.note[0].title.length > 30
+            ? this.props.note[0].title.slice(0, 30) + "..."
+            : this.props.note[0].title}
         </h2>
-        <div className="note-body">{this.props.note.textBody}</div>
+        <div className="note-body">{this.props.note[0].body}</div>
       </div>
     );
   }

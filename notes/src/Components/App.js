@@ -14,7 +14,7 @@ class App extends Component {
     filteredNotes: [],
     search: "",
     title: "",
-    textBody: ""
+    body: ""
   };
 
   // fetches all of our notes from store and passes them to store
@@ -34,7 +34,7 @@ class App extends Component {
       const notes = this.props.notes.filter(note => {
         return (
           note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
-          note.textBody.toLowerCase().includes(this.state.search.toLowerCase())
+          note.body.toLowerCase().includes(this.state.search.toLowerCase())
         );
       });
       this.setState({ filteredNotes: notes });
@@ -46,10 +46,10 @@ class App extends Component {
     e.preventDefault();
     this.props.addNote({
       title: this.state.title,
-      textBody: this.state.textBody
+      body: this.state.body
     });
-    this.setState({ title: "", textBody: "" });
-    this.props.history.push("/");
+    this.setState({ title: "", body: "" });
+    this.props.history.push("/api/all");
   };
 
   render() {
@@ -62,7 +62,7 @@ class App extends Component {
 
         <Route
           exact
-          path="/"
+          path="/api/all"
           render={props => (
             <NoteList
               notes={
@@ -77,18 +77,18 @@ class App extends Component {
 
         <Switch>
           <Route
-            path="/notes/add"
+            path="/api/create"
             render={props => (
               <Form
                 type={"new"}
                 title={this.state.title}
-                textBody={this.state.textBody}
+                body={this.state.body}
                 handleFormSubmit={this.handleFormSubmit}
                 handleInputChange={this.handleInputChange}
               />
             )}
           />
-          <Route path="/notes/:id" render={props => <Note {...props} />} />
+          <Route path="/view/:id" render={props => <Note {...props} />} />
         </Switch>
       </div>
     );

@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Form = props => {
   const heading = props.type === "new" ? "Create New Note:" : "Edit Note:";
   const buttonName = props.type === "new" ? "Save" : "Update";
-
+console.log('form props', props);
   return (
     <div className="main-container form">
       <h2>{heading}</h2>
@@ -20,9 +20,9 @@ const Form = props => {
         />
         <textarea
           type="text"
-          name="textBody"
+          name="body"
           placeholder="Note Content"
-          value={props.textBody}
+          value={props.body}
           onChange={props.handleInputChange}
         />
         <button onClick={props.handleFormSubmit}>{buttonName}</button>

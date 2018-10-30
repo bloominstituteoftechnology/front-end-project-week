@@ -19,15 +19,12 @@ const NoteList = props => {
       note.title = note.title.slice(0, 10) + "...";
     }
     // slice the  regular case note body
-    if (note.textBody.length > 110) {
-      note.textBody = note.textBody.slice(0, 110) + "...";
+    if (note.body.length > 110) {
+      note.body = note.body.slice(0, 110) + "...";
     }
     // slice the uppercase note body
-    if (
-      note.textBody.length > 92 &&
-      note.textBody === note.textBody.toUpperCase()
-    ) {
-      note.textBody = note.textBody.slice(0, 92) + "...";
+    if (note.body.length > 92 && note.body === note.body.toUpperCase()) {
+      note.body = note.body.slice(0, 92) + "...";
     }
   });
 
@@ -39,10 +36,10 @@ const NoteList = props => {
       <NotePreviewsContainer>
         {notes.map(note => {
           return (
-            <Link to={`/notes/${note._id}`} key={Math.random()}>
+            <Link to={`/view/${note.id}`} key={note.id}>
               <NotePreviewContainer>
                 <h3>{note.title}</h3>
-                <p>{note.textBody}</p>
+                <p>{note.body}</p>
               </NotePreviewContainer>
             </Link>
           );

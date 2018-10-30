@@ -11,10 +11,10 @@ export default props => {
         <br />
         Notes
       </h1>
-      <Link to="/">
+      <Link to="/api/all">
         <button>View Your Notes</button>
       </Link>
-      <Link to="/notes/add">
+      <Link to="/api/create">
         <button>+ Create New Note</button>
       </Link>
       <input
