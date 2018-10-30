@@ -20,7 +20,7 @@ const Form = ({ editing, newNote, handleInputChange, handleSubmit, handleCancel,
       value={newNote.textBody}
       onChange={handleInputChange}
     />
-    <Button type="submit" onCLick={handleSubmit}>
+    <Button type="submit" onClick={handleSubmit}>
       {editing ? "Update" : "Submit a New Note"}
     </Button>
   </StyledForm>

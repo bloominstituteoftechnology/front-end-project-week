@@ -46,7 +46,6 @@ class App extends Component {
   handleUpdate = id => {
     const noteToUpdate = this.state.notes.find(note => note._id === id);
     this.setState({
-      noteToUpdate,
       newNote: noteToUpdate,
       editing: true
     });
@@ -91,7 +90,7 @@ class App extends Component {
 
   cancelForm = () => {
     this.setState({ newNote: blankFormValues, editing: false });
-    this.props.history.push("/notes");
+    this.props.history.goBack();
   };
 
   showModal = () => this.setState({ open: true });

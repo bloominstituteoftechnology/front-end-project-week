@@ -5,6 +5,7 @@ export const Container = styled.div`
   max-width: 900px;
   margin: 0 auto;
   color: #545454;
+  min-height: 100vh;
   h2 {
     font-size: 2rem;
   }
@@ -39,9 +40,13 @@ export const MainContent = styled.section`
   flex-direction: column;
 `;
 
+export const ListHeading = styled.h2`
+  margin-left: 20px;
+`;
+
 export const NoteListWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 `;
@@ -53,7 +58,7 @@ export const NoteCardWrapper = styled.div`
   border-radius: 5px;
   height: 200px;
   background: #ffffff;
-  margin: 20px 5px;
+  margin: 20px 0;
   cursor: pointer;
   h3 {
     font-size: 1.8rem;
@@ -127,8 +132,10 @@ export const Button = styled.button`
   margin: 10px 0;
   cursor: pointer;
   &:hover {
-    background: ${props => (props.delete ? "#ffffff" : "#666666")};
-    color: ${props => (props.delete ? "#CA2418" : "#ffffff")}
+    transition: all 0.4s ease 0s;
+    background: ${props => (props.delete ? "#ffffff" : "#0E3A56")};
+    color: ${props => (props.delete ? "#CA2418" : "#ffffff")};
+    opacity: .8;
   }
 `;
 
