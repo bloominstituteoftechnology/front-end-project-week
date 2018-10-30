@@ -8,6 +8,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import { notesReducer } from "./store/reducers/notesReducer";
+require("dotenv").config();
 
 const store = createStore(
   notesReducer,
