@@ -13,7 +13,6 @@ export default class CreateNote extends Component {
     constructor(props){
         super(props)
         this.state = {
-            notes: [],
             title: '',
             textBody: '',
         }
@@ -21,18 +20,6 @@ export default class CreateNote extends Component {
 
     handleInput = e => {
       this.setState({ [e.target.name]: e.target.value })
-    }
-
-    componentDidMount() {
-        axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
-            .then(response => {
-                console.log(response)
-                this.setState({ notes: response.data })
-            })
-            .catch(error => {
-                console.log(error)
-            })
     }
 
     saveNote = () => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './index.css'
 
 
@@ -17,4 +17,3 @@ export default class NavContainer extends Component {
   }
 }
 
-//<NavLink exact to='/create-note' ><p className='button' >+Create New Note</p></NavLink>

@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import NoteContainer from './NoteContainer'
 import NavContainer from './NavContainer'
 import CreateNote from './CreateNote/CreateNote'
+import EditNote from './NoteView/NoteView'
 import './App.css';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         <div className='mainContent'>
         <Route exact path='/' component={NoteContainer} />
         <Route path='/create-note' component={CreateNote} />
+        <Route path='/:id' component={EditNote} />
         </div>
       </div>
     );
@@ -24,10 +26,3 @@ class App extends Component {
 export default App;
 
 
-{/* <div className='navContainer'>
-        <NavContainer />
-        </div>
-        <div className='mainContent'>
-        
-        <NoteContainer />
-        </div>  */}

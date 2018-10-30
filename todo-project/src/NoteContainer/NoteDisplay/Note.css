@@ -8,10 +8,15 @@
     font-size: 1.5rem;
     padding-bottom: 2%;
     border-bottom: 2px solid grey;
+
 }
 .innerContent {
     padding: 0 5%;
 }
 .body {
     font-size: 1rem;
+}
+a {
+    text-decoration: none;
+    color: black;
 }
