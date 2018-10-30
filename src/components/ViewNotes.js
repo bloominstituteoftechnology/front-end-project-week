@@ -17,16 +17,22 @@ class ViewNotes extends React.Component {
         <div className="viewNotes">
           {this.props.notes.map((note, index) => {
             return (
-              <Link
-                onClick={() => this.props.selectNote(index)}
-                exact
-                to={`/${index}`}
-              >
-                <Note title={note.title} textBody={note.textBody} index={index} />
-              </Link>
+              <div className="notesMap">
+                <Note
+                  title={note.title}
+                  textBody={note.textBody}
+                  index={index}
+                />
+                <Link
+                  onClick={() => this.props.selectNote(index)}
+                  exact
+                  to={`/${index}`}
+                >
+                  expand
+                </Link>
+              </div>
             );
           })}
-          
         </div>
       </div>
     );

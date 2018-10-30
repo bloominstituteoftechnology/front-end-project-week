@@ -11,7 +11,15 @@ class Note extends React.Component {
     return (
       <div className="outerNoteContainer">
         <div className="note">
+          <div className="noteHeader">
           <h2>{this.props.title}</h2>
+          <form>
+            <input 
+            type="checkbox"
+            />
+          </form>
+          </div>
+          
           <hr />
           <p>{this.props.textBody}</p>
         </div>
