@@ -133,11 +133,33 @@ table {
 }
 html {
   font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
 }
 #root {
   height: 100%;
   width: 100%;
   font-family: sans-serif;
+}
+.view-wrapper {
+  background: #f2f1f2;
+  margin-left: 270px;
+  padding: 100px 30px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.view-wrapper .view-header {
+  font-size: 2rem;
+  font-weight: 900;
+  width: 100%;
+}
+.view-wrapper .view-paragraph {
+  margin: 20px 0;
 }
 .App {
   width: 100%;
@@ -146,7 +168,7 @@ html {
 }
 .navigation-wrapper {
   height: 100%;
-  width: 220px;
+  width: 270px;
   background: #c5c5c5;
   padding: 0 15px;
   display: flex;
@@ -156,13 +178,15 @@ html {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
+  border-right: 1px solid #979797;
 }
 .navigation-wrapper h1.navigation-header {
   width: 100%;
   color: #414141;
-  font-size: 4rem;
+  font-size: 4.4rem;
   font-weight: 900;
   margin: 20px 0;
+  line-height: 4rem;
 }
 .navigation-wrapper button.navigation-button {
   background: #24b8bd;
@@ -171,7 +195,8 @@ html {
   border: 1px solid #afafaf;
   padding: 15px 0;
   margin: 10px 0;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 600;
   outline-width: thin;
   outline-color: #202529;
 }
@@ -180,19 +205,12 @@ html {
   cursor: pointer;
 }
 .your-notes {
-  background: #f2f1f2;
-  border-left: 1px solid #979797;
-  margin-left: 220px;
-  padding: 58px 34px;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   font-size: 1.8rem;
 }
 .your-notes .your-notes-header {
   width: 100%;
-  margin: 38px 12px;
   font-size: 2rem;
   font-weight: 900;
 }
@@ -203,14 +221,11 @@ html {
   height: 300px;
   width: 300px;
   border: 1px solid #979797;
-  margin: 12px;
+  margin: 12px 24px 12px 0;
   padding: 20px 30px;
   background: #ffffff;
   color: #202529;
   overflow: hidden;
-}
-.your-notes .note-card-link .note-card h3 {
-  font-weight: 900;
 }
 .your-notes .note-card-link .note-card hr {
   border: 0;
@@ -226,6 +241,45 @@ html {
   width: 100%;
   margin-left: 220px;
 }
-.new-note-wrapper {
-  margin-left: 220px;
+.new-note-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.new-note-form .new-note-title {
+  width: 200px;
+  margin-top: 30px;
+  padding: 12px;
+  border-radius: 5px;
+  resize: none;
+  border: 1px solid #202529;
+  outline-color: #202529;
+}
+.new-note-form .new-note-content {
+  max-width: 600px;
+  height: 345px;
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 5px;
+  vertical-align: text-top;
+  border: 1px solid #202529;
+  resize: none;
+  outline-color: #202529;
+}
+.new-note-form button.new-note-button {
+  background: #24b8bd;
+  color: #ffffff;
+  width: 187px;
+  border: 1px solid #afafaf;
+  padding: 15px 0;
+  margin: 10px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+}
+.new-note-form button.new-note-button:hover {
+  background: #187e82;
+  cursor: pointer;
 }

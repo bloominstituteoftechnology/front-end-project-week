@@ -1,6 +1,6 @@
 .navigation-wrapper {
     height: 100%;
-    width: 220px;
+    width: 270px;
     background: @navBgColor;
     padding: 0 15px;
     display: flex;
@@ -10,21 +10,18 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
+    border-right: 1px solid @viewContentBorder;
 
     h1.navigation-header {
         width: 100%;
         color: @navHeaderColor;
-        font-size: 4rem;
+        font-size: 4.4rem;
         font-weight: 900;
         margin: 20px 0;
+        line-height: 4rem;
     }
 
     button.navigation-button {
-        .custom-button(@buttonBg, @buttonFontColor, 100%, @buttonBorderColor, 15px, 10px);
-
-        &:hover {
-            background: @buttonHoverBg;
-            cursor: pointer;
-        }
+        .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 100%, @buttonBorderColor, 15px, 10px);
     }
 }

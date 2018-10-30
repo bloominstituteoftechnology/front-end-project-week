@@ -87,25 +87,25 @@ class NotePage extends React.Component {
             if (!this.state.isLoaded) {
                 if (this.state.error) {
                     return (
-                        <div className="note-page-wrapper">
+                        <div className="note-page-wrapper view-wrapper">
                             <h1>Page Not Found 404</h1>
                         </div>
                     )
                 }
                 return (
-                    <div className="note-page-wrapper">
+                    <div className="note-page-wrapper view-wrapper">
                         <h1>Loading...</h1>
                     </div>
                 )
             } else {
                 return (
-                    <div className="note-page-wrapper">
+                    <div className="view-wrapper">
                         <div onClick={this.editHandler}>{!this.state.isEditing ? 'edit' : 'cancel'}</div>
                         <div onClick={this.deleteHandler}>delete</div>
                         {!this.state.isEditing ?
                             <div>
-                                <h1>{this.state.title}</h1>
-                                <p>{this.state.textBody}</p>
+                                <h3 className="view-header">{this.state.title}</h3>
+                                <p className="view-paragraph">{this.state.textBody}</p>
                             </div> :
                             <form onSubmit={this.submitHandler}>
                                 <input

@@ -23,8 +23,8 @@ class YourNotes extends React.Component {
 
     render() {
         return (
-            <div className="your-notes" >
-                <h2 className="your-notes-header">Your Notes</h2>
+            <div className="view-wrapper your-notes" >
+                <h2 className="view-header">Your Notes</h2>
                 {this.state.notes.length ? this.state.notes.map((note) => <NoteCard key={note._id} note={note} />) : <h2>Loading...</h2>}
             </div >
         );
