@@ -12,8 +12,6 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      title: '',
-      body: '',
     }
   }
 
@@ -34,6 +32,7 @@ class App extends Component {
   }
 
   render() {
+    
     return (
       <div className="App">
         <Nav />
@@ -41,21 +40,21 @@ class App extends Component {
         <Route
           exact path="/"
           render={props => (
-            <Notes {...props} notes={this.state.notes}/>
+            <Notes {...props} notes={this.state.notes} />
           )} 
         />
 
         <Route
           path="/notes/:id"
           render={props => (
-            <FullPageNote {...props}/>
+            <FullPageNote {...props} />
           )}
         />
 
         <Route
           path="/add"
           render={props => (
-            <Form {...props} changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
+            <Form {...props} />
           )} 
         />
       </div>

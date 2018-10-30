@@ -51,7 +51,7 @@ nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-
+  margin-bottom: 50px;
 }
 
 .note {
@@ -153,11 +153,13 @@ input, textarea {
   border: none;
   outline: none;
   font-family: 'Open Sans', sans-serif;
+  max-width: 100%;
 }
 
 textarea {
   margin: 20px 0;
   height: 120px;
+  resize: vertical;
 }
 
 input:focus, textarea:focus {

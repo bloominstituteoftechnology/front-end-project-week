@@ -9,12 +9,10 @@ body {
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: 'Open Sans', sans-serif;
   font-size: 30px;
 }
  
  h1 {
-  font-family: 'Libre Baskerville', serif;
   margin-bottom: 50px;
 }
 

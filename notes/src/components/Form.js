@@ -15,7 +15,6 @@ class Form extends Component {
 
     componentDidMount() {
         if (this.props.location.state !== undefined) {
-            alert('Just type over a field to edit.')
             this.setState({
                 note: this.props.location.state.note,
                 title: this.props.location.state.note.title,
@@ -46,13 +45,11 @@ class Form extends Component {
             axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
                  .then(res => {console.log(res)})
                  .catch(err => {console.log(err)})
-            alert('Note edited.');
           }
           else {
             axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
                  .then(res => {console.log(res)})
                  .catch(err => console.log(err))
-            alert('New note submitted.');
           }
           this.setState({
               added: true,
@@ -82,7 +79,7 @@ class Form extends Component {
                         className='title'
                         type='text' 
                         name='title' 
-                        placeholder='Note title...' 
+                        placeholder='Title your note...' 
                         defaultValue={this.state.note !== null ? this.state.note.title : this.props.value}
                         onChange={this.changeHandler}
                     />
@@ -90,9 +87,10 @@ class Form extends Component {
                     <textarea  
                         className='body'
                         name='body' 
-                        placeholder='Note body...' 
-                        value={this.state.note !== null ? this.state.note.textBody : this.props.value}
-                        onChange={this.changeHandler}/>
+                        placeholder='The main text of your note goes here...' 
+                        value={this.state.note !== null ? this.state.body : this.props.value}
+                        onChange={this.changeHandler}>
+                    </textarea>
                     
                     <input type='submit' />
                 </form>
