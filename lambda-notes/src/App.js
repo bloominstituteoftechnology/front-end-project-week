@@ -3,7 +3,8 @@ import './App.css';
 import NotesContainer from './components/NoteContainer/notesContainer';
 import SideBar from './components/sidebar/sidebar';
 
-
+// import {Route } from 'react-router-dom';
+// import Note from './components/NoteContainer/note';
 
 class App extends Component {
   render() {
@@ -14,6 +15,9 @@ class App extends Component {
         </header>
         <SideBar />
         <NotesContainer />
+        {/* <Route path='/notes/:id' render={(OwnProps) =>{
+          return(<Note {...OwnProps} />)
+        }}/> */}
       </div>
     );
   }

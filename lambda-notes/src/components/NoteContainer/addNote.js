@@ -35,6 +35,8 @@ class AddNote extends Component {
           title: '',
          textBody: '',
         });
+
+        this.props.history.push('/');
       }
 
     render() {

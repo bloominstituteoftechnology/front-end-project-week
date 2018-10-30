@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NotesList from './notesList';
 import AddNote from './addNote';
-
+import SideBar from '../sidebar/sidebar';
+import { Route } from 'react-router-dom';
+import Note from './note';
 
 class NotesContainer extends Component {
     constructor(props) {
@@ -12,7 +14,6 @@ class NotesContainer extends Component {
            
         };
     }
-
 
 
     componentDidMount() {
@@ -27,7 +28,6 @@ class NotesContainer extends Component {
             })
     };
 
-  
    
     changeState = () => {
         axios.get("https://fe-notes.herokuapp.com/note/get/all").then(res =>
@@ -36,17 +36,26 @@ class NotesContainer extends Component {
       })
     );
       }
-   
+
+     
+
+
     render() {
         console.log('STATE', this.state);
         return (
             <div>
-                <h3>Your Notes:</h3>
                 <div className='notes-container'>
-                    <NotesList notes={this.state.notes} />
-
-                    <AddNote changeState={this.changeState} />
-
+                    <Route exact path='/' render={(Ownprops)=>{
+                        return(<NotesList {...Ownprops} notes={this.state.notes} />)
+                    }}/>
+                    
+                    <Route path ='/add-note' render={(Ownprops) =>{
+                        return(<AddNote {...Ownprops} changeState={this.changeState} />)
+                    }}/>
+                    <Route exact path = '/notes/:id' render={(props) =>{
+                        return(<Note {...props} />)
+                    }}/>
+                    
                 </div>
             </div>
 
