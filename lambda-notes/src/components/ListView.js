@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { fetchNotes } from "../actions";
 import {  NavLink } from "react-router-dom";
 import Note from "./Note";
-import NoteRoutes from './NoteRoutes'
 
 
 const NoteList = styled.div`
@@ -31,13 +30,13 @@ class ListView extends Component {
         </div>
         
           {this.props.notes.map(note => (
-            <NavLink exact to={`/note/${note._id}`} key={note._id}>
+            <NavLink exact to={`/notes/${note._id}`} key={note._id}>
               
                <Note note={note} id={note._id} />
             
             </NavLink>
           ))}
-                <NoteRoutes/>
+               
             
         </NoteList>
 

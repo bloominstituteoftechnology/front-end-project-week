@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 
-
 const NoteCard = styled.div`
   box-sizing: border-box;
   width: 190px;
@@ -30,16 +29,15 @@ const NoteCard = styled.div`
 `;
 
 const Note = props => {
+  
   return (
-
-
-        <NoteCard>
-          <h5>{props.note.title}</h5>
-          <p>{props.note.textBody}</p>
-        </NoteCard>
+    <div>
+      <NoteCard>
+        <h5>{props.note.title}</h5>
+        <p>{props.note.textBody}</p>
+      </NoteCard>
       
-
-
+    </div>
   );
 };
 
