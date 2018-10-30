@@ -22,21 +22,12 @@ class YourNotes extends React.Component {
     }
 
     render() {
-        if (!this.state.notes.length) {
-            return (
-                <div className="your-notes" >
-                    <h2 className="your-notes-header">Your Notes</h2>
-                    <h2>Loading...</h2>
-                </div >
-            );
-        } else {
-            return (
-                <div className="your-notes" >
-                    <h2 className="your-notes-header">Your Notes</h2>
-                    {this.state.notes.map((note) => <NoteCard key={note._id} note={note} />)}
-                </div >
-            );
-        }
+        return (
+            <div className="your-notes" >
+                <h2 className="your-notes-header">Your Notes</h2>
+                {this.state.notes.length ? this.state.notes.map((note) => <NoteCard key={note._id} note={note} />) : <h2>Loading...</h2>}
+            </div >
+        );
     }
 }
 
