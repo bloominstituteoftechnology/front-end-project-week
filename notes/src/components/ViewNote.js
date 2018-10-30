@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import DeleteNoteModul from './deleteNoteModul';
 
 // const EditNote = props => {
 //     return(
@@ -41,6 +42,7 @@ class ViewNote extends React.Component{
     render(){
         return(
             <div className="view-note">
+                <DeleteNoteModul ID={this.props.match.params.id}/>
                 <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>
                 <a href='#'>delete</a>
                 <div className="note-section">
