@@ -2,7 +2,7 @@
     background: #d3d2d3;
     height: 100vh;
     border-right: 1px solid rgb(180, 180, 180);
-    width: 70%;
+    width: 40%;
   }
 
 h1{
@@ -28,6 +28,11 @@ h1{
     padding: 15px 5px;
     cursor: pointer;
   }
+
+  h2{
+    margin-right: 500px;
+    margin-left: 15px;
+  }
   
   .button:hover {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.342);
@@ -35,9 +40,13 @@ h1{
   }
   
   .notes-container {
+    background: rgb(235, 235, 235);
     display: flex;
     flex-direction: row;
-    /* width: 90%; */
+    flex-wrap: wrap;
+    max-width: 1024px;
+    width: 100%;
+
   }
   
   .card {
@@ -46,7 +55,7 @@ h1{
     margin: 15px;
     padding: 10px;
     border: 1px solid lightgrey;
-    width: 275px;
+    width: 175px;
     height: 175px;
     cursor: pointer;
   }
