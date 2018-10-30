@@ -3,6 +3,7 @@ import './App.css';
 
 import SideMenu from './components/SideMenu';
 import data from './data';
+import axios from 'axios';
 
 import { Route } from 'react-router-dom';
 import DisplayNoteList from './components/DisplayNoteList';
@@ -25,7 +26,12 @@ class App extends Component {
     
 
     componentDidMount() {
-      this.setState({ notes: data });
+      // this.setState({ notes: data });
+
+      axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+ 
       }
 
 
