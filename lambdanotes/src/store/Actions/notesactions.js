@@ -1,8 +1,6 @@
 import Axios from 'axios';
 require('dotenv').config();
 
-const port = process.env.PORT || 8088;
-
 export const POSTING_NOTE = 'POSTING_NOTE';
 export const POSTED_NOTE = 'POSTED_NOTE';
 export const GETTING_NOTES = 'GETTING_NOTES';
@@ -18,7 +16,7 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETED_NOTE = 'DELETED_NOTE';
 export const NOTE_ERROR = 'NOTE_ERROR';
 
-const dataSource = `http://localhost:${port}/note`;
+const dataSource = process.env.SERVER_URL || 'http://localhost:8088/note';
 
 export const postNote = (newNote) => {
 	return (dispatch) => {
