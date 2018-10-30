@@ -23,6 +23,23 @@ export default class AllNotes extends Component {
     }
 
     selectNote = id => this.setState({ selected: id });
+
+    alphabeticalSort = e => {
+        e.preventDefault();
+        this.setState(
+            { notes: 
+                this.state.notes.sort(function(a, b){
+                    let titleA=a.title.toLowerCase()
+                    let titleB=b.title.toLowerCase()
+                    if (titleA < titleB) { 
+                        return -1; 
+                    }
+                    if (titleA > titleB) {
+                        return 1;
+                    }
+                    return 0; 
+            })})
+    }
      
     headers = [
         { label: "Title", key: "title" },
@@ -36,6 +53,7 @@ export default class AllNotes extends Component {
             <CSVLink data={this.state.notes} headers={this.headers}>
                 Download your notes!
             </CSVLink>
+            <h2 onClick={this.alphabeticalSort}>Sort</h2>
             <h2>Your Notes:</h2>
             <div className="notes">
                 {this.state.notes.map(note => {
