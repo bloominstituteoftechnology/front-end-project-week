@@ -47,7 +47,19 @@ class App extends Component {
                     )}
                     />
 
-        <Route      
+
+         <Route     
+                    path="/Notes/edit/:id"
+                    render={props => (
+                    <EditNote {...props} 
+                         notes={this.state.notes}
+                        submitEdit={this.submitEdit}
+                      />
+                    )}
+                    />
+
+
+        <Route      exact
                     path="/Notes/:id"
                     render={props => (
                     <DisplayNote {...props} 
@@ -67,15 +79,7 @@ class App extends Component {
                     )}
                     />
 
-         <Route
-                    path="/Notes/edit/:id"
-                    render={props => (
-                    <EditNote {...props} 
-                         notes={this.state.notes}
-                        submitEdit={this.submitEdit}
-                      />
-                    )}
-                    />
+
 
         <Route
                    exact

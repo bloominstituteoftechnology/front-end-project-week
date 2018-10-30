@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
  const DisplayNote = props => {
+ console.log("DisplayNote Props : ", props.match.params.id);
  
  let note = '';
 let noteId = '';
@@ -25,13 +26,13 @@ let noteId = '';
 //     props.history.push(`/item-list/${item.id}`);
 //   }
 
-
+console.log(note);
   return (
    
     <div className="displayNote">
      <nav>
-         <NavLink to={`/Notes/edit/${note._id}`}> Edit  </NavLink>
-        <NavLink to={`/Notes/${note._id}/delete`}> Delete </NavLink>
+         <NavLink to={`/Notes/edit/${props.match.params.id}`}> Edit  </NavLink>
+        <NavLink to={`/Notes/${props.match.params.id}/delete`}> Delete </NavLink>
      
     
         </nav>  
