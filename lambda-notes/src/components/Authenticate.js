@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from './Login'
+import NotesPage from '../NotesPage';
 
 const Authenticate = App =>
   class extends React.Component {
@@ -15,9 +16,9 @@ const Authenticate = App =>
       componentDidMount() {
         localStorage.setItem('username', 'shawn');
         localStorage.setItem('password', 'cat');
-        if (localStorage.getItem('loggedIn')) {
-          this.setState({ login: true });
-        }
+        // if (localStorage.getItem('loggedIn')) {
+        //   this.setState({ login: true });
+        // }
       }
 
       handleUsername = event => {
@@ -36,7 +37,7 @@ const Authenticate = App =>
         } else {
           this.setState({ login: false });
         }
-        window.location.reload();
+        // window.location.reload();
       };
       
     render() {
