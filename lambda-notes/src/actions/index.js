@@ -1,7 +1,7 @@
-import axios from 'axios'
+import axios from "axios";
 
 // some variables
-const url = 'http://localhost:8800/api/notes/';
+const url = "http://localhost:8800/api/notes/";
 const userUrl = null;
 
 // getNotes action creator
@@ -10,13 +10,13 @@ export const getNotes = () => {
     axios
       .get(url)
       .then(response => {
-        dispatch({ type: 'NOTES_FETCHED', payload: response.data });
+        dispatch({ type: "NOTES_FETCHED", payload: response.data });
       })
       .catch(error => {
-        dispatch({ type: 'ERROR', payload: error });
+        dispatch({ type: "ERROR", payload: error });
       });
-  }
-}
+  };
+};
 
 // addNotes action creator
 export const addNote = newNote => {
@@ -25,10 +25,10 @@ export const addNote = newNote => {
       .post(url, newNote)
       .then(() => getNotes()(dispatch))
       .catch(error => {
-        dispatch({ type: 'ERROR', payload: error });
+        dispatch({ type: "ERROR", payload: error });
       });
-  }
-}
+  };
+};
 
 // getNote action creator
 export const getNote = id => {
@@ -36,13 +36,13 @@ export const getNote = id => {
     axios
       .get(`${url}${id}`)
       .then(response => {
-        dispatch({ type: 'NOTE_FETCHED', payload: response.data });
+        dispatch({ type: "NOTE_FETCHED", payload: response.data });
       })
       .catch(error => {
-        dispatch({ type: 'ERROR', payload: error });
+        dispatch({ type: "ERROR", payload: error });
       });
-  }
-}
+  };
+};
 
 // editNote action creator
 export const editNote = editedNote => {
@@ -50,15 +50,17 @@ export const editNote = editedNote => {
     axios
       .put(`${url}${editedNote.id}`, editedNote)
       .then(response => {
-        dispatch({ type: 'NOTE_EDITED', payload: response.data });
+        dispatch({ type: "NOTE_EDITED", payload: response.data });
       })
       .then(() => getNotes()(dispatch))
       .catch(error => {
-        dispatch({ type: 'ERROR', payload: error });
+        dispatch({ type: "ERROR", payload: error });
       });
-  }
-}
+  };
+};
+// users
 
+export const getUsers = () => {};
 // deleteNote action creator
 export const deleteNote = id => {
   return dispatch => {
@@ -66,7 +68,21 @@ export const deleteNote = id => {
       .delete(`${url}${id}`)
       .then(() => getNotes()(dispatch))
       .catch(error => {
-        dispatch({ type: 'ERROR', payload: error });
+        dispatch({ type: "ERROR", payload: error });
       });
-  }
-}
+  };
+};
+
+// TODO: signUp action creator
+export const signUp = credentials => {
+  return dispatch => {
+    axios
+      .push(`${url}`)
+      .then(() => getUsers()(dispatch))
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};
+
+// TODO: signIn action creator
