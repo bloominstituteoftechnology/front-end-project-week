@@ -108,7 +108,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <SideBar changeHandler={this.changeHandler} search={this.search} />
+          <SideBar changeHandler={this.changeHandler} search={this.search} updateNotes={this.updateNotes} />
 
           <Route
             exact

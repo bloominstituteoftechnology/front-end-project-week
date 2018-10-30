@@ -9,7 +9,7 @@ class SideBar extends React.Component {
         <h1>Lambda Notes</h1>
         <div className="buttonContainer">
           <Link exact to="/">
-            <button className="sideButtons">View Your Notes</button>
+            <button onClick={ev => {this.props.updateNotes()}} className="sideButtons">View Your Notes</button>
           </Link>
           <Link exact to="/create">
             <button className="sideButtons">+ Create New Note</button>
@@ -23,6 +23,7 @@ class SideBar extends React.Component {
           value={this.props.searchText}
           placeholder="Search Your Notes"
           />
+          <br/>
           <button type="submit"> Search </button>
         </form>
       </div>
