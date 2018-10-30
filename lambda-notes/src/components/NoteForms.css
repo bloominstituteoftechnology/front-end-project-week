@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .page-container {
   display: flex;
   width: 75%;
@@ -20,10 +22,12 @@
 .form title {
     width: 55%;
     height: 40px;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 20px;
 }
 
 .form textBody {
     width: 90%;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 20px;
 }

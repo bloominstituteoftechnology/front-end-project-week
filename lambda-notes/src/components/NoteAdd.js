@@ -21,13 +21,13 @@ const NoteAdd = props => {
                     />
 
                     <textarea
-                        className="textBody"
+                        className="content"
                         rows="25"
                         type="text"
-                        name="textBody"
+                        name="content"
                         placeholder="Note Content"
                         onChange={props.handleInput}
-                        value={props.newNote.textBody}
+                        value={props.newNote.content}
                     />
                     <button onClick={props.addNote}>Submit</button>
                 </form>

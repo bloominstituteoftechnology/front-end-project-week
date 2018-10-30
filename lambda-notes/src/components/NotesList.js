@@ -20,7 +20,7 @@ const NotesList = props => {
                             <div className="note">
                                 <Note
                                     note={note}
-                                    key={note._id}
+                                    key={note.id}
                                 />
                             </div>
                         )

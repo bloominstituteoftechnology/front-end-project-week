@@ -12,7 +12,7 @@ class NoteUpdate extends Component {
         this.state = {
             _id: props.note._id,
             title: props.note.title,
-            textBody: props.note.textBody
+            content: props.note.content
         }
     }
 
@@ -40,13 +40,13 @@ class NoteUpdate extends Component {
                         />
 
                         <textarea
-                            className="textBody"
+                            className="content"
                             rows="25"
                             type="text"
-                            name="textBody"
+                            name="content"
                             placeholder="Note Content"
                             onChange={this.handleInput}
-                            value={this.state.textBody}
+                            value={this.state.content}
                         />
                         <button onClick={this.props.updateNote(this.state)}>Submit</button>
                     </form>

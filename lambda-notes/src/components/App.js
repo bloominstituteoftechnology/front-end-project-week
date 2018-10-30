@@ -16,7 +16,7 @@ class App extends Component {
     newNote: {
       _id: "",
       title: "",
-      textBody: ""
+      content: ""
     },
     selectedNote: {}
   }
@@ -42,7 +42,7 @@ class App extends Component {
         ...this.state.newNote,
         _id: "",
         title: "",
-        textBody: ""
+        content: ""
       }
     })
   }

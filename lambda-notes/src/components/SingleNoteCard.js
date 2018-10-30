@@ -11,16 +11,16 @@ class SingleNoteCard extends Component {
         super(props);
         this.state = {
             fetchedNote: {
-                _id: "",
+                id: "",
                 title: "",
-                textBody: ""
+                content: ""
             }
         }
     }
 
     componentDidMount() {
-        const _id = this.props.match.params._id;
-        this.props.fetchSingleNote(_id);
+        const id = this.props.match.params.id;
+        this.props.fetchSingleNote(id);
     }
 
     render() {
@@ -29,16 +29,16 @@ class SingleNoteCard extends Component {
                 <Sidebar />
                 <div className="section-container">
                     <div className="buttons">
-                        <Link to={{ pathname: `/edit/${this.props.note._id}` }}>
+                        <Link to={{ pathname: `/edit/${this.props.note.id}` }}>
                             <a>edit</a>
                         </Link>
-                        {/* <Link to={{ pathname: `/delete/${this.props.note._id}` }} > */}
-                            <a onClick={() => this.props.deleteNote(this.props.note._id)}>delete</a>
+                        {/* <Link to={{ pathname: `/delete/${this.props.note.id}` }} > */}
+                            <a onClick={() => this.props.deleteNote(this.props.note.id)}>delete</a>
                         {/* </Link> */}
                     </div>
                     <div className="single-note">
                         <h1>{this.props.note.title}</h1>
-                        <p>{this.props.note.textBody}</p>
+                        <p>{this.props.note.content}</p>
                     </div>
                 </div>
             </div>
