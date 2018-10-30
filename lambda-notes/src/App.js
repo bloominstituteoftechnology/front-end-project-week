@@ -30,17 +30,14 @@ class App extends Component {
     this.setState({ title: '', textBody: '' });
     this.props.history.push('/');
   };
-  handleDelete=(event)=> {  
-    event.preventDefault();  
-    console.log(event.currentTarget.value)
-    this.props.deleteNote(event.currentTarget.value);
+  handleDelete=(event)=> { 
+    this.props.deleteNote(event);
+    this.props.history.push('/'); 
   };
   handleEdit=(event)=> {  
-    event.preventDefault();  
-    console.log(event.currentTarget.value)
-    this.props.deleteNote(event.currentTarget.value);
+    event.preventDefault();
   };
-  render() {
+  render() { 
     return (
       <div className="App">
         <Navigation className='nav-bar'/>
@@ -61,7 +58,7 @@ class App extends Component {
             edit={this.handleEdit} />
         } />
         <Route path="/notes/:id" render={props => (
-            <SingleNote {...props}/>
+            <SingleNote {...props} handleDelete={this.handleDelete}/>
           )}
         />
       </div>

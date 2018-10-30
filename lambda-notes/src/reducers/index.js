@@ -29,17 +29,17 @@ const notesReducer = (state = initialState, action) => {
         ...state, 
         adding: false, 
         error: action.payload 
-      }
+      }  
     case DELETING_NOTE:
       return {...state, deleting: true};
     case DELETE_NOTE_SUCCESS:
-      return {...state, notes: action.payload};
+      return { ...state, notes: action.payload, deleting: false };
     case DELETE_NOTE_FAILURE:
-      return {
+      return { 
         ...state, 
-        deleting: false, 
-        error: action.payload
-      };        
+        adding: false, 
+        error: action.payload 
+      }         
     default:
       return state; 
   }

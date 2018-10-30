@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 class SingleNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: null
+      note: null,
+      deleting: false,
+      currentId: ''
     }
   };
   componentDidMount(){
@@ -19,9 +23,28 @@ class SingleNote extends Component {
         this.setState(() => ({ note: response.data }));
       })
       .catch(err => {console.log(err)});
-};
+  };
+  toggleDeletingOn=()=> { 
+    const id = this.props.match.params.id
+    this.setState(() => ({ deleting: true, currentId: id }));
+    console.log(this.state.currentId)
+  };
+  toggleDeletingOff=()=> { 
+    this.setState(() => ({ deleting: false }));
+  };
 
   render() {
+    if (this.state.deleting === true){
+      return(
+        <div className='delete-container'>
+          <div className='delete-modal'>
+            <p>Are you sure you want to delete this note?</p>
+            <button onClick={()=>{this.props.handleDelete(this.state.currentId)}} className='delete'>Delete</button>
+            <button onClick={this.toggleDeletingOff}>Cancel</button>
+          </div>
+        </div>
+      );
+    }    
     if (this.state.note === null) {
       return (
           <div className='container'>
@@ -33,15 +56,20 @@ class SingleNote extends Component {
         <div className='single-container'>
           <div className='button-container'> 
             <Link to='/edit-form'>Edit</Link>
-            <a>Delete</a>
+            <p onClick={this.toggleDeletingOn}>Delete</p>
           </div> 
           <h2>{this.state.note.title}</h2>
           <p>{this.state.note.textBody}</p>
-          {/* <span onClick={() => this.deleteHandler(this.state.note._id)}>X</span> */}
         </div>
     );
   }
 } 
 
 
-export default SingleNote;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
+};
+
+export default connect(mapStateToProps,{})(SingleNote);

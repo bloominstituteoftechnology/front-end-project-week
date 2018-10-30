@@ -12,7 +12,7 @@ const AddNoteForm = props => {
         value={props.data.title}
         placeholder='Note Title'
         onChange={props.inputChange}/>
-      <input 
+      <textarea 
         className='body'
         type='text'
         name='textBody' 
