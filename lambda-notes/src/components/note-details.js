@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 class NoteDetails extends Component {
   constructor(props) {
@@ -17,31 +18,11 @@ class NoteDetails extends Component {
       .catch(error => console.log(error));
   }
 
-  buttonClickHandler = e => {
-    e.preventDefault();
-    console.log("click");
-    axios
-      .put(
-        `https://fe-notes.herokuapp.com/note/edit/${
-          this.props.match.params._id
-        }`,
-        {
-          textBody: "edited"
-        }
-      )
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  };
-
   render() {
     return (
       <div>
         <div>
-          <button onClick={this.buttonClickHandler}>Edit</button>
+          <NavLink to={`/edit-form/${this.state.notes._id}`}>Edit</NavLink>
           <button>Delete</button>
         </div>
         <h1>{this.state.notes.title}</h1>

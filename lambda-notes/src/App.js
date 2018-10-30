@@ -8,6 +8,7 @@ import NoteList from "./components/note-list";
 import NoteForm from "./components/note-form";
 import Note from "./components/note";
 import NoteDetails from "./components/note-details";
+import EditForm from "./components/edit-form";
 
 class App extends Component {
   onSubmitHelper = e => {
@@ -28,6 +29,7 @@ class App extends Component {
           render={() => <NoteForm onSubmitHelper={this.onSubmitHelper} />}
         />
         <Route path="/note-details/:_id" component={NoteDetails} />
+        <Route path="/edit-form" component={EditForm} />
       </div>
     );
   }
