@@ -172,14 +172,19 @@ form textarea {
 
 .note-container p {
 	font-size: 1.4rem;
+	white-space: pre-wrap;
 }
 
 .modal {
-	border: 3px dotted gray;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #524e4d;
 	z-index: 1;
 	width: 100vw;
 	height: 100vh;
-	padding-top: 30%; 
+	padding-top: 30%;
+	opacity: .97;
 }
 
 .delete-modal {
@@ -191,7 +196,6 @@ form textarea {
 	padding: 30px;
 	margin: auto;
 	background: white;
-	border-radius: 5px;
 }
 
 .delete-modal h2{
