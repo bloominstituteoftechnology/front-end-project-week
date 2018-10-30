@@ -21,18 +21,26 @@ class App extends Component {
       .catch(error => console.log(error))
   };  //add ID specific request 
 
-  createNewNote = () => {
-    const note = {
-      tags: [this.state.tags],  
-      title: this.state.title,
-      textBody: this.state.textBody
-    };
+  createNewNote = (newNote) => {
+    // const note = {
+    //   tags: [this.state.tags],  
+    //   title: this.state.title,
+    //   textBody: this.state.textBody
+    // };
     axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, note)
-      .then(newNote => console.log(newNote))
+      .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
+      .then(response => {
+        this.setState({ list: response.data })
+      }) //this.props.history.push('/')
       .catch(error => console.log(error))
-    this.setState({ tags: [], title: '', textBody: ''});
+      //this.setState({ tags: [], title: '', textBody: '' })
   };
+
+  // deleteNote = () => {
+  //   const deletion = axios
+  //     .delete(deletion) => (`https://fe-notes.herokuapp.com/note/get/all/${id}`, {note})
+  // }
+
 
   render() {
     return (

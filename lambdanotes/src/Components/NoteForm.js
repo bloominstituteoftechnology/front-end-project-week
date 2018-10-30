@@ -13,10 +13,14 @@ class NoteForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+    //edit
+
+    //delete 
+    
     render() {
         return(
-            <div className='create-new-note'>
-                <h2 className="page-title">Create New Note:</h2>
+            <div className='create-new-note'>  
+                <h3 className="page-title">Create New Note:</h3>  
                 <input 
                     type='text'
                     placeholder='Note Title'
