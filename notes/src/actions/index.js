@@ -56,3 +56,16 @@ export const fetchNote = noteId => {
 }
 
 // to do delete and update
+export const deleteNote = noteId => {
+    return dispatch => {
+        dispatch ({ type: DELETING });
+        axios
+        .delete(`https://fe-notes.herokuapp.com/note/edit/${noteId}`)
+        .then(response => {
+            dispatch({ type: DELETED, payload: response.data})
+        })
+        .catch(error => {
+            dispatch({type: ERROR, payload: error })
+        })
+    }
+}
