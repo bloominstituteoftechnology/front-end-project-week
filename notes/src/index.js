@@ -7,6 +7,8 @@ import './index.css';
 // React
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Router
+import {BrowserRouter as Router} from 'react-router-dom';
 // Redux
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -24,7 +26,9 @@ const store = createStore(
 //-- Render View ---------------------------------
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <App />
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

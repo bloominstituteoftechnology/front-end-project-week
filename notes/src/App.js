@@ -6,6 +6,7 @@
 import React from 'react';
 import './App.css';
 import NoteList from './components/note-list.js';
+import {Route, Link} from 'react-router-dom';
 
 
 //== Components ================================================================
@@ -16,9 +17,16 @@ export default class App extends React.Component {
         return (
             <div className="app">
                 <Header title="Lambda Notes" />
-                <Content title="Your Notes">
-                    <NoteList />
-                </Content>
+                <Route exact path="/" render={props => (
+                    <Content title="Your Notes">
+                        <NoteList />
+                    </Content>
+                )} />
+                <Route path="/test" render={props => (
+                    <Content title="Your Notes">
+                        <h1>Hi neighbor!</h1>
+                    </Content>
+                )} />
             </div>
         );
     }
@@ -32,8 +40,8 @@ function Header(props) {
                 {props.title}
             </h1>
             <nav>
-                <a class="button">View Your Notes</a>
-                <a>+ Create New Note</a>
+                <Link to="/">View Your Notes</Link>
+                <Link to="/test">+ Create New Note</Link>
             </nav>
         </header>
     );
