@@ -4,7 +4,7 @@ import Notes from './Notes';
 import NoteForm from './NoteForm';
 import SideBar from './SideBar';
 import { getNotes } from '../actions';
-import {Route} from 'react-router-dom';
+import {withRouter, Route} from 'react-router-dom';
 
 class App extends Component {
     componentDidMount() {
@@ -20,14 +20,14 @@ class App extends Component {
 
            <Notes notes={this.props.notes}/>
 
-          <Route
+          {/* <Route
             exact path = "/"
             render = {props => (
             <Notes 
             {...props}
             notes={this.props.notes} 
             />
-            )}/>
+            )}/> */}
   
            <Route
             path = "/newnote"
@@ -50,4 +50,4 @@ class App extends Component {
     };
   };
   
-  export default connect(mapStateToProps, { getNotes })(App);
+  export default withRouter(connect(mapStateToProps, { getNotes })(App));
