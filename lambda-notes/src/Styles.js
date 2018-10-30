@@ -167,3 +167,39 @@ export const FormContainer = styled.div`
   height: 150vh;
   padding-top: 80px;
 `;
+
+export const NoteCardContainer = styled.div`
+  width: 70%;
+  margin-left: 21%;
+  text-align: center;
+  height: 700px;
+`;
+
+export const NoteTitle = styled.h2`
+    margin-right: 70%;
+    margin-top: 3%;
+    font-size: 25px;
+`;
+
+export const NoteP = styled.p`
+    padding: 5px;
+    text-align: start;
+    margin-left: 4%;
+    line-height: 1.5;
+`;
+
+export const EditNoteLink = styled.p`
+    padding: 5px;
+    text-align: start;
+    display: inline-flex;
+    margin-left: 85%;
+    text-decoration-line: underline;
+`;
+
+export const DeleteNoteLink = styled.p`
+    padding: 5px;
+    text-align: start;
+    margin-left: 2%;
+    display: inline-flex;
+    text-decoration-line: underline;
+`;
