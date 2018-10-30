@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import NoteList from './NoteList'
 import '../styles/index.css'
-import AddNote from './AddNote'
+import NoteForm from './NoteForm'
 import axios from 'axios'
 import { Route } from 'react-router-dom'
-import ViewNote from '../components/ViewNote'
+import Note from './Note'
+import Home from './Home'
 
 const blankNote = {
     title: '',
@@ -21,8 +22,8 @@ class App extends Component {
             tags: [],
         },
         editingId: null,
-        activeNote: null,
         isEditing: false,
+        activeNote: [],
     }
 
     componentDidMount() {
@@ -40,20 +41,17 @@ class App extends Component {
 
     getNoteById = id => {
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/all/${id}`)
-            .then(res => this.setState({ activeNote: res.data }))
+            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .then(res => {
+                this.setState({ activeNote: res })
+            })
             .catch(err => console.log(err))
     }
-
-    addNote = e => {
-        e.preventDefault()
-        e.target.reset()
+    addNote = () => {
         axios
             .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
-            .then(res => {
-                this.setState({ notes: res.data })
-                this.props.history.push('/note-list')
-            })
+            .then(res => this.setState({ ...this.state.notes, note: res.data }))
+            .then(this.setState({ state: this.state }))
             .catch(err => console.log(err))
     }
 
@@ -97,6 +95,7 @@ class App extends Component {
         this.setState({
             note,
             isEditing: true,
+            activeNote: {},
             editingId: note._id,
         })
     }
@@ -104,28 +103,34 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Route exact path='/' component={App} />
+                <Route exact path='/' component={Home} />
                 <Route
                     exact
                     path='/note-list'
-                    render={props => <NoteList {...props} notes={this.state.notes} getNoteById={this.getNoteById} />}
+                    render={props => (
+                        <NoteList
+                            {...props}
+                            notes={this.state.notes}
+                            getNoteById={this.getNoteById}
+                            state={this.state}
+                        />
+                    )}
                 />
-                )}
                 <Route
                     path='note-list/:id'
                     render={props => (
                         <Note
                             {...props}
                             deleteNote={this.deleteNote}
-                            note={this.state.activeNote}
+                            activeNote={this.state.activeNote}
                             updateNote={this.setUpUpdateForm}
                         />
                     )}
                 />
                 <Route
-                    path='/add-note'
+                    path='/note-form'
                     render={props => (
-                        <AddNote
+                        <NoteForm
                             {...props}
                             addNote={this.addNote}
                             handleChange={this.handleChange}
