@@ -15,16 +15,16 @@ function CreateNew(props) {
             <br/>
             <input className="title1" 
                 type ="text" 
-                name="title" 
-                value={props.note.title} 
+                name="name" 
+                defaultValue={props.note.name} 
                 onChange={props.handleChange}/>
             <br/>
             <label>New Notes</label>
             <br/>
             <input className="comment" 
                 type ="text" 
-                name="textBody" 
-                value ={props.note.textBody} 
+                name="description" 
+                defautValue ={props.note.description} 
                 onChange={props.handleChange}/>
             <br/>
         <button className="savebutton" onClick={props.handleAddNewNote}><span>Save</span></button>
@@ -39,7 +39,7 @@ function CreateNew(props) {
 //     note: PropTypes.shape({
 //         tags: PropTypes.arrayOf(PropTypes.string),
 //         title: PropTypes.string,
-//         textBody: PropTypes.string
+//         description: PropTypes.string
 //     }),
 //         handleChange: PropTypes.func,
 

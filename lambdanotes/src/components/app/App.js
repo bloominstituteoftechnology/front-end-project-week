@@ -4,7 +4,6 @@ import SideBar from '../sidebar/SideBar';
 import NoteView from '../noteview/NoteView';
 import CreateNew from '../createnew/CreateNew';
 import SingleNote from '../singlenote/SingleNote';
-// import Notes from '../notes/Notes';
 import EditNote from '../editnote/EditNote';
 import axios from 'axios';
 import './App.css';
@@ -77,6 +76,7 @@ class App extends Component {
 
   render() {
     console.log(this.state.notes);
+
     return (
       // <Router>
       <div className="App">
@@ -123,14 +123,6 @@ class App extends Component {
           <SingleNote {...props} 
             notes={this.state.notes}/>}
          />
-
-         <Route path='/notes/:noteId/delete'
-            render={routeProps => 
-          <DeleteNote {...routeProps}
-            handleDeleteNote = {this.handleDeleteNote}  
-            notes={this.state.notes}/>}
-         />
-         
         </Switch>
         </div>
       </div>

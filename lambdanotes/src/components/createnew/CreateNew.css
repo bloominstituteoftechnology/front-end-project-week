@@ -24,9 +24,6 @@ label {
 }
 
 .title1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     height: 35px;
     width: 300px;
     font-size: 1em;
@@ -34,13 +31,9 @@ label {
 
 
 .comment {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     height: 257px;
     width: 500px;
     font-size: 1em;
-    text-align: justify;
 }
 
 .savebutton {

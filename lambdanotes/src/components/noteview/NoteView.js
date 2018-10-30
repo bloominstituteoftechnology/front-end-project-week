@@ -14,7 +14,7 @@ function noteView(props){
         <div className="cards">
         {props.notes.map( note => (
           <Notes {...props}
-          key ={note._id}
+          key ={note.id}
           note ={note}
           />
         ))}

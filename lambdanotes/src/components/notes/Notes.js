@@ -10,17 +10,17 @@ import './Notes.css';
 
 
 function Notes(props) {
-  console.log(props.notes);
+  console.log(props.note);
 
     
 return (  
 
     <div className ="card">
-    <Link to={`/notes/${props.note._id}`}  style={{ textDecoration:'none', activeStyle:'none', color:'black' }}> 
-        <h3 className="cardtitle" > {props.note.title}</h3>
-    </Link> 
-        <hr/> 
-        <p>{props.note.textBody}</p>
+        <Link to={`/notes/${props.note.id}`}  style={{ textDecoration:'none', activeStyle:'none', color:'black' }}> 
+            <h3 className="cardtitle" > {props.note.name}</h3>
+        </Link> 
+            <hr/> 
+            <p>{props.note.description}</p>
     </div>
 )
 }

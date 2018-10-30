@@ -5,31 +5,33 @@ import './SingleNote.css';
 
 
 function SingleNote(props){
-    // console.log(props.);
+    console.log(props.notes);
     
     const note = props.notes.find(
-        note => note._id === props.match.params.noteId);
-    
+        note => note.id == props.match.params.noteId);
+        
+        console.log(note);
 
     return (
     <div className="cards-container">
         <div className="links">
-            <Link to ={`/notes/${note._id}/edit`}>
+            <Link to ={`/notes/${note.id}/edit`}>
                 <button className="edit">
                     <span>edit</span>
                 </button>
             </Link>
-            <Link to ={`/notes/${note._id}/delete`}>
+            <Link to ={`/notes/${note.id}/delete`}>
                 <button className="delete">
                     <span>delete</span>
                 </button>
             </Link>
                 </div>
                 <div className="statement">
-                    <h2>{note.title}</h2>
+                    <h2>{note.name}</h2>
                 </div>
+                <hr/>
                 <div className="cards">
-                    <p>{note.textBody}</p>
+                    <p>{note.description}</p>
                 </div>
          </div>
         );
