@@ -13,7 +13,7 @@ const SideBar = props => {
             <button>View Your Notes</button>
             </Link>
             <Link to='/add-note'>
-            <button>+Create New Note</button>
+            <button>+ Create New Note</button>
             </Link>
         </div>
     )

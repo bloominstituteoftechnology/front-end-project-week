@@ -49,6 +49,9 @@ class NotesContainer extends Component {
 
     // }
 
+    editNoteMaybe = data=>{
+        this.setState({notes:data})
+    }
 
     render() {
         console.log('STATE', this.state);
@@ -63,7 +66,8 @@ class NotesContainer extends Component {
                         return(<AddNote {...Ownprops} changeState={this.changeState} />)
                     }}/>
                     <Route exact path = '/notes/:id' render={(props) =>{
-                        return(<Note {...props} changeState={this.changeState}/>)
+                        console.log('OWNPROPs', props);
+                        return(<Note {...props} changeState={this.changeState} editNoteMaybe= {this.editNoteMaybe}/>)
                     }}/>
                     
                 </div>

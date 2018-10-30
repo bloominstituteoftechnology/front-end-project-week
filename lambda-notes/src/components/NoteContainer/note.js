@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DeleteModal from './deleteModal';
 // import NoteCard from './noteCard';
+import EditNote from './editNote';
+import { Route, Link } from 'react-router-dom';
 
 
 
 class Note extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
-            note: [],
+            note: null,
+            noteEditor: false,
+            editTitle: '',
+            editTextBody: '',
         };
+        
     }
 
     componentDidMount() {
@@ -22,7 +29,6 @@ class Note extends Component {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                console.log('HOPE', response);
                 this.setState(() => ({ note: response.data }))
             })
             .catch(error => {
@@ -43,22 +49,63 @@ class Note extends Component {
         this.props.history.push('/');
     }
 
-    // componentWillReceiveProps(newProps){
-    //     if(this.props.match.param.id !== newProps.match.params.id){
-    //         this.fetchNote(newProps.match.params.id);
-    //     }
-    // }
 
+    openEditForm = () => {
+        this.setState({ noteEditor: !this.state.noteEditor });
+    };
+   
+    componentWillReceiveProps(newProps){
+        if(this.props.match.params.id !== newProps.match.params.id){
+            this.fetchNote(newProps.match.params._id);
+        }
+    }
 
+    saveEdits = event => {
+        event.preventDefault();
+        const saveEditNotes = {
+            title: this.state.editTitle,
+            textBody: this.state.editTextBody
+        }
+
+        axios
+            .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, saveEditNotes)
+            .then(response => {
+                console.log('EDIT RESPONSE', response);
+                this.props.editNoteMaybe(response.data)
+            })
+            .catch(err =>
+                console.log(err));
+
+                this.setState({
+                    editTitle:'',
+                    editTextBody: '',
+
+                })
+
+    }
+
+    editHandler = event => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
 
     render() {
+        if(!this.state.note){
+            return<div> Loading Note...</div>
+        }
         console.log('NOTES maybe', this.state);
         return (
             <div>
-                edit
-                <DeleteModal deleteNote = {this.deleteNote}/>
-                {this.state.note.title}
-                <h2>{this.state.note.textBody}</h2>
+                {this.state.noteEditor ? (
+                    <EditNote notes={this.state.note}
+                        saveEdits={this.saveEdits}
+                        editHandler={this.editHandler} 
+                        openEditForm={this.openEditForm}/>
+                ) : ((<h1>{this.state.note.title}</h1>, 
+                    <h1>{this.state.note.textBody}</h1>))}
+
+                <p onClick={this.openEditForm}>edit </p>
+                <DeleteModal deleteNote={this.deleteNote} />
+
             </div>
         )
     }
