@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../Styles/Styles.css';
+import '../styles/Styles.css';
 
 import { data } from '../data';
 

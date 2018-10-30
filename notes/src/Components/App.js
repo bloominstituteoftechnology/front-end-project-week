@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { ListNotes } from '../Views/ListNotes';
+import { getNotes, postNote } from '../actions';
+
+import { ListNotes } from '../views/ListNotes';
 // import AddNote from './Views/AddNote';
 // import ReadNote from './Views/ReadNote';
 // import UpdateNote from './Views/UpdateNote';
