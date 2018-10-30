@@ -28,6 +28,14 @@ import { NavLink } from 'react-router-dom';
 //     props.history.push(`/item-list/${item.id}`);
 //   }
 
+const displayItem = (note)?
+  (<div>
+    <h3> {note.title}  </h3>
+    <p> {note._id} </p>
+    <p> {note.textBody} </p>
+  </div>)
+  :(<h3> Loading... </h3>);
+
 
   return (
    
@@ -36,12 +44,10 @@ import { NavLink } from 'react-router-dom';
          <NavLink to={`/edit/${props.match.params.id}`}> Edit  </NavLink>
         <NavLink to={`/Notes/${props.match.params.id}/delete`}> Delete </NavLink>
      
+     </nav>  
     
-        </nav>  
-      <h3> {note.title}  </h3>
-      <p> {note.textBody} </p>
-    </div>
-  
+      {displayItem}
+      </div>
   );
 }
 

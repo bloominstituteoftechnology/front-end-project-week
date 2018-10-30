@@ -36,9 +36,17 @@ class App extends Component {
 
 
       submitAdd = (note) =>{
-        this.setState({idCount : this.state.idCount +1})
-        note._id = String(this.state.idCount);
-        this.setState({notes : [...this.state.notes, note]});
+        // this.setState({idCount : this.state.idCount +1})
+        // note._id = String(this.state.idCount);
+        // this.setState({notes : [...this.state.notes, note]});
+      
+        axios.post('https://fe-notes.herokuapp.com/note/create', note)
+        .then(response => this.setState({ notes: [...this.state.notes, {...note, _id: response.data.success}] }))
+        .catch(error => console.log(error));
+        
+        
+        console.log("submit add, note = ", note);
+     
       }
 
       submitEdit = (editedNote) => {

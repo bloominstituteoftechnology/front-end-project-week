@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
   
      <Link to={`/Notes/${props.note._id}`} style={{ textDecoration: 'none'} }>
       <h3> {props.note.title} </h3>
+      <p> {props.note._id}</p>
       <p> {props.note.textBody}</p>
      </Link>
      </div>
