@@ -17,6 +17,15 @@ import { NavLink } from 'react-router-dom';
     props.history.push('/');
   }
 
+  const handleDelete = () =>{
+    
+    props.submitdelete(note._id);
+    props.history.push('/');
+  }
+
+  const handleCancel = () =>{
+    props.history.push(`/Notes/${note._id}`);
+  }
 
 //     function routeToItem(ev, item) {
 //     ev.preventDefault();
@@ -27,9 +36,13 @@ import { NavLink } from 'react-router-dom';
   return (
    
     <div className="deleteNote">
-    
-     <button> Delete </button>
-     <button > No </button>
+     <div className="deleteNoteWindow">
+      <p>Are you sure you want to delete this?</p>
+      <div className="deleteButton">
+        <button className="delete" onClick={handleDelete}> Delete </button>
+        <button onClick={handleCancel}> No </button>
+     </div>
+     </div>
     </div>
   
   );

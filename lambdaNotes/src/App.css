@@ -189,7 +189,7 @@ width: 100vw;
   cursor : pointer;
 }
 
-.sideMenu button {
+ button {
    width : 90%;
    background :  #24B8BD;
    margin : 10px; 
@@ -223,6 +223,7 @@ margin-bottom : 20px;
   margin : 0 auto;
   padding : 20px 20px;
   margin : 0 10px;
+  text-align: left;
 }
 .editNote input{
 width : 100%;
@@ -240,4 +241,52 @@ margin : 20px 0 10px 0;
    border-radius: 4px;
    resize: none;
    margin-bottom : 20px;
+}
+
+.editNote button {
+  width : 200px;
+}
+
+.deleteNote{
+  height: 100vh;
+  width: 100vw;
+  z-index : 5;
+  background : #D8D8D8;
+  position : fixed;
+  top : 0;
+  left: 0;
+  opacity : 0.9;
+}
+
+.deleteNote .deleteNoteWindow{
+  position : absolute;
+  top : 150px;
+ left : 500px;
+  background : white;
+  z-index : 10;
+  width : 400px;
+  height : 120px;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding : 10px 0;
+  opacity : 1;
+  border : 1px solid black;
+}
+
+.deleteNote .deleteNoteWindow .deleteButton{
+display : flex;
+align-items: center;
+justify-content : space-around;
+}
+
+
+ .deleteButton button{
+  width : 150px;
+  height : 40px;
+}
+
+ .deleteButton .delete{
+  background : red;
 }

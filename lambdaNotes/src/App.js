@@ -39,6 +39,15 @@ class App extends Component {
    
       }
 
+      submitdelete = (deleteId) => {
+   
+        let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
+ 
+        this.setState({notes : [...newNoteList]});
+   
+      }
+
+
   render() {
     return (
       <div className="App">
@@ -69,8 +78,7 @@ class App extends Component {
                     render={props => (
                     <DisplayNote {...props} 
                          notes={this.state.notes}
-                        submitEdit={this.submitEdit}
-                        deleteNote={this.props.deleteNote}/>
+                       />
                     )}
                     />
 
@@ -80,7 +88,7 @@ class App extends Component {
                     <DeleteNote {...props} 
                          notes={this.state.notes}
                         
-                        deleteNote={this.props.deleteNote}/>
+                         submitdelete={this.submitdelete}/>
                     )}
                     />
 
