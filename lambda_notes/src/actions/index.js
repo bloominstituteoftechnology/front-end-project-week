@@ -11,6 +11,9 @@ export const ADDING_NOTE = 'ADDING_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETING_NOTE = 'DELETING_NOTE';
 
+export const EDIT_NOTE = 'EDIT_NOTE';
+export const EDITING_NOTE = 'EDITING_NOTE';
+
 const URL = 'https://fe-notes.herokuapp.com/note';
 
 export const getNotes = () => {
@@ -54,6 +57,22 @@ export const deleteNote = id => {
       axios.delete(`${URL}/delete/${id}`)
         .then(response => {
           dispatch({ type: DELETE_NOTE, payload: response.data });
+        })
+        .catch(err => {
+          dispatch({ type: ERROR, payload: err });
+        })
+    }
+  );
+}
+
+export const editNote = (id, note) => {
+  return (
+    dispatch => {
+      dispatch({ type: EDITING_NOTE });
+
+      axios.put(`${URL}/edit/${id}`, note)
+        .then(response => {
+          dispatch({ type: EDIT_NOTE, payload: { id, ...response.data } });
         })
         .catch(err => {
           dispatch({ type: ERROR, payload: err });

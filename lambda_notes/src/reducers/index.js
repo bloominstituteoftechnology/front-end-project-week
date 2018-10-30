@@ -5,6 +5,7 @@ const initialState = {
   gettingNotes: false,
   addingNote: false,
   deletingNote: false,
+  editingNote: false,
   error: null
 }
 
@@ -22,12 +23,29 @@ export default (state = initialState, action) => {
       return { ...state, deletingNote: true };
     case actionTypes.DELETE_NOTE:
       return { ...state, notes: [...action.payload], deletingNote: false };
+    case actionTypes.EDITING_NOTE:
+      return { ...state, editingNote: true };
+    case actionTypes.EDIT_NOTE:
+      return {
+        ...state,
+        notes: state.notes.map(note => {
+          if (note.id === action.id) {
+            console.log('from reducer action.id', action.id)
+            console.log('from reducer note.id', note.id)
+            return [{ ...state.notes, ...action.payload }];
+          } else {
+            return note;
+          }
+        }),
+        editingNote: false
+      };
     case actionTypes.ERROR:
       return {
         ...state,
         gettingNotes: false,
         addingNote: false,
         deletingNote: false,
+        editingNote: false,
         error: action.payload
       };
     default:

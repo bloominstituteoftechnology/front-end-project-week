@@ -6,6 +6,7 @@ import NavigationBar from './components/Navigation/NavigationBar';
 import SingleNoteView from './views/SingleNoteView';
 import NewNoteView from './views/NewNoteView';
 import ListView from './views/ListView';
+import EditNoteView from './views/EditNoteView';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path='/' component={ListView} />
             <Route path='/notes/:id' component={SingleNoteView} />
             <Route path='/create' component={NewNoteView} />
+            <Route path='/edit/:id' component={EditNoteView} />
           </div>
         </div>
       </div>

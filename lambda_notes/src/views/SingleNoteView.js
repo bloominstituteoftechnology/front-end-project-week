@@ -6,13 +6,14 @@ import SingleNote from '../components/Notes/SingleNote';
 
 class SingleNoteView extends Component {
   // this worked idk why :)
-  componentDidMount() {
-    this.props.getNotes();
-  }
+  // componentDidMount() {
+  //   this.props.getNotes();
+  // }
 
   deleteNote = (e, id) => {
     e.preventDefault();
     this.props.deleteNote(id);
+    this.props.history.push('/');
   }
 
   render() {

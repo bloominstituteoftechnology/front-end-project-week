@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleNote = props => {
   return (
     <div>
       <div>
-        <button type="submit">Edit</button>
+        <Link to={`/edit/${props.note._id}`}>Edit</Link>
         <button type="button" onClick={(e) => props.deleteNote(e, props.note._id)}>Delete</button>
       </div>
 
