@@ -5,16 +5,17 @@
 import {
   FETCHING_NOTES,
   FETCHING_NOTES_SUCCESS,
-  FETCHING_NOTES_FAILURE
-  // CREATE_SMURF,
-  // ADDING_SMURF_SUCCESS,
-  // ADDING_SMURF_FAILURE,
+  FETCHING_NOTES_FAILURE,
+  CREATE_NOTE,
+  ADDING_NOTE_SUCCESS,
+  ADDING_NOTE_FAILURE
   // DELETING_SMURF_SUCCESS
 } from '../actions/index';
 
 const initialState = {
   notes: [],
   fetchingNotes: false,
+  addingNote: false,
   error: null
 };
 
@@ -49,26 +50,26 @@ export default (state = initialState, action) => {
         error: action.payload
       };
 
-    // case CREATE_SMURF:
-    //   return {
-    //     ...state,
-    //     addingSmurf: true
-    //   };
+    case CREATE_NOTE:
+      return {
+        ...state,
+        addingNote: true
+      };
 
-    // case ADDING_SMURF_SUCCESS:
-    //   return {
-    //     ...state,
-    //     addingSmurf: false,
-    //     smurfs: action.payload,
-    //     error: null
-    //   };
+    case ADDING_NOTE_SUCCESS:
+      return {
+        ...state,
+        addingNote: false,
+        smurfs: action.payload,
+        error: null
+      };
 
-    // case ADDING_SMURF_FAILURE:
-    //   return {
-    //     ...state,
-    //     addingSmurf: false,
-    //     error: action.payload
-    //   };
+    case ADDING_NOTE_FAILURE:
+      return {
+        ...state,
+        addingNote: false,
+        error: action.payload
+      };
 
     // case DELETING_SMURF_SUCCESS:
     //   return {

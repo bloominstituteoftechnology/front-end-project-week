@@ -8,9 +8,9 @@ import axios from 'axios';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHING_NOTES_SUCCESS = 'FETCHING_NOTES_SUCCESS';
 export const FETCHING_NOTES_FAILURE = 'FETCHING_NOTES_FAILURE';
-// export const CREATE_SMURF = 'CREATE_SMURF';
-// export const ADDING_SMURF_SUCCESS = 'ADDING_SMURF_SUCCESS';
-// export const ADDING_SMURF_FAILURE = 'ADDING_SMURF_FAILURE';
+export const CREATE_NOTE = 'CREATE_NOTE';
+export const ADDING_NOTE_SUCCESS = 'ADDING_NOTE_SUCCESS';
+export const ADDING_NOTE_FAILURE = 'ADDING_NOTE_FAILURE';
 // export const DELETING_SMURF_SUCCESS = 'DELETING_SMURF_SUCCESS';
 // export const DELETING_SMURF_FAILURE = 'DELETING_SMURF_FAILURE';
 
@@ -33,7 +33,7 @@ export const getNotes = () => dispatch => {
   axios
     .get(url)
     .then(response => {
-      console.log('response in component ', response);
+      console.log('Response from getNotes is: ', response);
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
     })
     .catch(error => {
@@ -41,18 +41,20 @@ export const getNotes = () => dispatch => {
     });
 };
 
-// export const addSmurf = smurf => dispatch => {
-//   dispatch({ type: CREATE_SMURF });
-//   axios
-//     .post(url, smurf)
-//     .then(response => {
-//       dispatch({ type: ADDING_SMURF_SUCCESS, payload: response.data });
-//     })
-//     .catch(error => {
-//       console.log(error);
-//       dispatch({ type: ADDING_SMURF_FAILURE, payload: error });
-//     });
-// };
+export const addNote = smurf => dispatch => {
+  dispatch({ type: CREATE_NOTE });
+  axios
+    .post(url, smurf)
+    .then(response => {
+      console.log('Response from addNote is: ', response);
+      // dispatch({ type: ADDING_SMURF_SUCCESS, payload: response.data });
+    })
+    .catch(error => {
+      console.log('Error from addNote is: ', error);
+
+      // dispatch({ type: ADDING_SMURF_FAILURE, payload: error });
+    });
+};
 
 // export const deleteSmurf = id => dispatch => {
 //   axios

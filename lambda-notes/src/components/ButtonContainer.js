@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 const SideBar = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,7 +13,7 @@ const SideBar = styled.div`
 const NoteAppButtons = styled.button`
   background-color: #2ac0c4;
   color: white;
-  width: 90%;
+  width: 28rem;
   margin-bottom: 30px;
   font-size: 2rem;
   padding: 30px 0;
@@ -21,8 +23,14 @@ class ButtonContainer extends Component {
   render() {
     return (
       <SideBar>
-        <NoteAppButtons>View Your Notes</NoteAppButtons>
-        <NoteAppButtons>+ Create New Note</NoteAppButtons>
+        <Link to="/">
+          {' '}
+          <NoteAppButtons>View Your Notes</NoteAppButtons>
+        </Link>
+        <Link to="/new-note">
+          {' '}
+          <NoteAppButtons>+ Create New Note</NoteAppButtons>
+        </Link>
       </SideBar>
     );
   }

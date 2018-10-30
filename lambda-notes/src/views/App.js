@@ -3,7 +3,7 @@ import './App.css';
 import SideBarView from './SideBarView';
 import ListView from './ListView';
 import styled from 'styled-components';
-
+import { Route } from 'react-router-dom';
 const AppContainer = styled.div`
   background: #d7d7d7;
   min-height: 100vh;
@@ -25,8 +25,8 @@ class App extends Component {
     return (
       <div className="App">
         <AppContainer>
-          <SideBarView />
-          <ListView />
+          <Route path="/" render={props => <SideBarView {...props} />} />
+          <Route exact path="/" render={props => <ListView {...props} />} />
         </AppContainer>
       </div>
     );
