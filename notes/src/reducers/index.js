@@ -84,7 +84,7 @@ import {
         return {
           ...state, 
           deletingNote: false,
-          notes: action.payload
+          notes: state.notes.filter(note => note._id !== action.payload)
         }
   
       default: return {...state};

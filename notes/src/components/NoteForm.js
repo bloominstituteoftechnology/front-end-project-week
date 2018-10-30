@@ -11,6 +11,11 @@ const FormContainer = styled.form`
     margin: 32px auto 16px auto;
     position: relative;
     background-color: white;
+    .initial-input{
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
     input {
         border: none;
         height: 46px;

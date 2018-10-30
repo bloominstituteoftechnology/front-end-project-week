@@ -79,8 +79,8 @@ export const updateNote = (note) => async dispatch => {
 export const deleteNote = (id) => async dispatch => {
   try {
     dispatch({type: DELETE_NOTE});
-    const res = await axios.delete(`${url}/note/delete/${id}`)
-    dispatch({type: DELETE_NOTE_SUCCESS, payload: res.data})
+    await axios.delete(`${url}/note/delete/${id}`)
+    dispatch({type: DELETE_NOTE_SUCCESS, payload: id})
   } catch(err) {
     dispatch({type: DELETE_NOTE_FAILURE, payload: err})
   }

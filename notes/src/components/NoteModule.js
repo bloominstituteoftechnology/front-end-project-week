@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
-
+import DeleteConfirm from './DeleteConfirm';
 
 const NoteModule = ({
     note = false, 
@@ -62,32 +62,13 @@ const NoteModule = ({
             </NoteModuleForm>
 
             {
-                // !showDelete ? null
-                // : (
-                //     <div className="module-container">
-                //         <div className="module">
-                //             <h3>Are you sure you want to delete?</h3>
-                //             <div>
-                //                 <button 
-                //                     className='close' 
-                //                     onClick={e => {
-                //                         e.preventDefault();
-                //                         setShowDelete(false);
-                //                     }}
-                //                 >Close</button>
-                //                 <button 
-                //                     className='delete'
-                //                     onClick={e => {
-                //                         e.preventDefault();
-                //                         deleteNote(note._id)
-                //                         setShowDelete(false);
-                //                         history.push('/');
-                //                     }}
-                //                 >DELETE</button>
-                //             </div>
-                //         </div>
-                //     </div>
-                // )
+                !showDelete ? null
+                    : <DeleteConfirm 
+                        setShowDelete={setShowDelete} 
+                        deleteNote={deleteNote} 
+                        history={history} 
+                        id={note._id} 
+                    />
             }
         </NoteModuleContainer>
     );
