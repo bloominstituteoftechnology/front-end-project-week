@@ -29,7 +29,7 @@ class App extends Component {
 
   fetchNotes = () => {
     axios 
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('http://localhost:5000/api/notes')
       .then(response => {
         this.setState({notes: response.data});
       })
@@ -41,7 +41,7 @@ class App extends Component {
 
   addNote = note => {
     axios 
-      .post('https://killer-notes.herokuapp.com/note/create', note)
+      .post('http://localhost:5000/api/notes', note)
       .then(response => {
         this.setState(
           {notes: response.data},
@@ -52,6 +52,7 @@ class App extends Component {
         console.log('Server Error', error)
       ));
   }
+
 
 
   // deleteNote = id => {
@@ -67,6 +68,7 @@ class App extends Component {
   // }
 
   render() {
+    console.log('PROCESS:', process.env);
     return (
       <div className="App">
         <NavBar />
