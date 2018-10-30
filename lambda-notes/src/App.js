@@ -7,12 +7,14 @@ import './App.css';
 import Sidebar from "./components/Sidebar";
 import NoteList from "./components/NoteList";
 import NoteView from "./components/NoteView";
+import EditForm from "./components/EditForm";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: [],
+      editing: false,
       titleInputText: "",
       textInputText: ""
     }
@@ -25,12 +27,17 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  startEditing(note) {
+
+  }
+
   render() {
     return (
       <div className="App">
         <Sidebar />
         <Route exact path="/" render={props => <NoteList {...props} noteList={this.state.notes} />} />
         <Route path="/note/:id" render={props => <NoteView {...props} />} />
+        <Route path="/edit/:id" render={props => <EditForm {...props} />} />
       </div>
     );
   }

@@ -1,8 +1,7 @@
 import React from "react";
 import axios from 'axios';
-import { Link } from "react-router-dom";
 
-export default class NoteView extends React.Component {
+export default class EditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,14 +34,18 @@ export default class NoteView extends React.Component {
             );
         }
         return(
-            <div className="main-content">
-                <div className="edit-delete-links">
-                    <Link to={`/edit/${this.state.note._id}`}>edit</Link>
-                    <Link to="/">delete</Link>
-                </div>
-                <h2>{this.state.note.title}</h2>
-                <p>{this.state.note.textBody}</p>
-            </div>
+            <form className="edit-form">
+                <h2>Edit Note:</h2>
+                <input
+                    type="text"
+                    placeholder="Note Title"
+                    required
+                />
+                <textarea
+                    placeholder="Note Content"
+                />
+                <button type="submit">Update</button>
+            </form>
         );
     }
 }
