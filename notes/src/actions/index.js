@@ -10,8 +10,7 @@ export const fetchAll = () => {
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
-                console.log(response);
-                dispatch({ type: SUCCESS, payload: response })
+                dispatch({ type: SUCCESS, payload: response.data })
                 
             })
             .catch(error => {
