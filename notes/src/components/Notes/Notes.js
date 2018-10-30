@@ -4,7 +4,7 @@ const Notes = props => {
     return (
         <div className="notes">
             {props.notes.map(note => {
-                <Note title={note.title} content={note.content} />
+                <Note title={note.title} content={note.textBody} />
             })}
         </div>
     )
