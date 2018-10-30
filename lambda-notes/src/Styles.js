@@ -7,6 +7,8 @@ export const Container = styled.div`
   border: 1px solid black;
   position: relative;
   top: -10px;
+  max-height: 100%;
+  height: auto;
 `;
 
 export const CardList = styled.div`
@@ -96,7 +98,7 @@ export const CardsP = styled.p`
   font-size: 16px;
   padding: 5px;
   overflow: hidden;
-  height: 70px;
+  height: 50px;
 `;
 
 export const Modal = styled.div`
@@ -172,34 +174,34 @@ export const NoteCardContainer = styled.div`
   width: 70%;
   margin-left: 21%;
   text-align: center;
-  height: 700px;
+  height: auto;
 `;
 
 export const NoteTitle = styled.h2`
-    margin-right: 70%;
-    margin-top: 3%;
-    font-size: 25px;
+  margin-right: 70%;
+  margin-top: 3%;
+  font-size: 25px;
 `;
 
 export const NoteP = styled.p`
-    padding: 5px;
-    text-align: start;
-    margin-left: 4%;
-    line-height: 1.5;
+  padding: 5px;
+  text-align: start;
+  margin-left: 4%;
+  line-height: 1.5;
 `;
 
 export const EditNoteLink = styled.p`
-    padding: 5px;
-    text-align: start;
-    display: inline-flex;
-    margin-left: 85%;
-    text-decoration-line: underline;
+  padding: 5px;
+  text-align: start;
+  display: inline-flex;
+  margin-left: 85%;
+  text-decoration-line: underline;
 `;
 
 export const DeleteNoteLink = styled.p`
-    padding: 5px;
-    text-align: start;
-    margin-left: 2%;
-    display: inline-flex;
-    text-decoration-line: underline;
+  padding: 5px;
+  text-align: start;
+  margin-left: 2%;
+  display: inline-flex;
+  text-decoration-line: underline;
 `;
