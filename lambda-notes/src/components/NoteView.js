@@ -57,12 +57,12 @@ deleteHandler = event => {
       this.props.history.push('/')
 }
 
-editSubmitHandler = event => {
-      event.preventDefault();
-      this.editNote(this.state.note.id);
-      if (event.keyCode === 13) {
-    this.setState({ editing: false });
-}}
+// submitHandler = event => {
+//       event.preventDefault();
+//       this.editNote(this.state.note.id);
+//       if (event.keyCode === 13) {
+//     this.setState({ editing: false });
+// }}
 
 changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -71,12 +71,13 @@ changeHandler = event => {
 
 editHandler = event => {
     event.preventDefault();
-    this.setState({ editing: true, editedText: this.state.note })
+    this.setState({ editing: true, editedTitle: this.state.note.title, editedTextBody: this.state.note.textBody })
 }
 
 saveHandler = event => {
     event.preventDefault();
-    this.setState({ editing: false })
+    this.setState({ editing: false, note: {title: this.state.editedTitle, textBody: this.state.editedTextBody} })
+    this.editNote(this.state.note_id);
 };
 
 render(){
@@ -99,20 +100,20 @@ render(){
             </div>
 
                 <input
-                name="title"
+                name="editedTitle"
                 type= "text"
                 style={editStyle}
-                onKeyDown={this.editSubmitHandler}
+                onKeyDown={this.submitHandler}
                 onChange={this.ChangeHandler}
-                value={this.state.editedText}/>
+                value={this.state.editedTitle}/>
 
                 <input
-                name="textBody"
+                name="editedTextBody"
                 type="textarea"
                 style={editStyle}
-                onKeyDown={this.editSubmitHandler}
+                onKeyDown={this.submitHandler}
                 onChange={this.ChangeHandler}
-                value={this.state.editedText}/>
+                value={this.state.editedTextBody}/>
 
                 <Button onClick={this.saveHandler} style={editStyle}>Save</Button>
 
