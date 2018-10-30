@@ -33,6 +33,20 @@ var webAuth = new auth0.WebAuth({
   clientID: process.env.REACT_APP_CLIENT_ID,
   redirectUri: 'http://localhost:3000/callback'
 });
+webAuth.parseHash((err, authResult) => {
+  if (authResult) {
+    // save the tokens from authResult in local storage or a cookie
+    console.log('Auth Result:', authResult);
+    let expiresAt = JSON.stringify(
+      authResult.expiresIn * 1000 + new Date().getTime()
+    );
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('expires_at', expiresAt);
+  } else if (err) {
+    // handle errors
+    console.log(err);
+  }
+});
 
 const NavBar = props => {
   return (
