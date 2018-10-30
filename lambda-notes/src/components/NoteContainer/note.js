@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NoteCard from './noteCard';
+// import NoteCard from './noteCard';
 
 
 
@@ -29,6 +29,19 @@ class Note extends Component {
             });
     };
 
+    deleteNote= event =>{
+        event.preventDefault();
+        axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+        .then(response =>{
+            this.props.changeState(response.data)
+        })
+        .catch(err=>
+            console.log(err));
+
+            this.props.history.push('/');
+    }
+
     // componentWillReceiveProps(newProps){
     //     if(this.props.match.param.id !== newProps.match.params.id){
     //         this.fetchNote(newProps.match.params.id);
@@ -42,7 +55,7 @@ class Note extends Component {
         return (
             <div>
                 edit
-                delete
+                <h4 onClick={this.deleteNote}> delete</h4>
                 {this.state.note.title}
                 <h2>{this.state.note.textBody}</h2>
             </div>

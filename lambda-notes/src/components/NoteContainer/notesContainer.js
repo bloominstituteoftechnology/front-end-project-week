@@ -37,7 +37,17 @@ class NotesContainer extends Component {
     );
       }
 
-     
+    //   deleteNote= event =>{
+    //     event.preventDefault();
+    //     axios
+    //     .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    //     .then(response =>{
+    //         this.changeState(response.data)
+    //     })
+    //     .catch(err=>
+    //         console.log(err));
+
+    // }
 
 
     render() {
@@ -53,7 +63,7 @@ class NotesContainer extends Component {
                         return(<AddNote {...Ownprops} changeState={this.changeState} />)
                     }}/>
                     <Route exact path = '/notes/:id' render={(props) =>{
-                        return(<Note {...props} />)
+                        return(<Note {...props} changeState={this.changeState}/>)
                     }}/>
                     
                 </div>
