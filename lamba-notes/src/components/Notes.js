@@ -8,7 +8,7 @@ class Notes extends React.Component {
         {this.props.notes.map(note => {
           return (
             <div key={note._id} className="card">
-              <Link to={`/friends/${note._id}`}>
+              <Link to={`/note/get/${note._id}`}>
                 <h1 className="card__title" key={note._id}>
                   {note.title}
                 </h1>
