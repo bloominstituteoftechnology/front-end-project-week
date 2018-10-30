@@ -41,17 +41,6 @@ class FullNote extends React.Component {
       });
   };
 
-  editNote = id => {
-    axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.notes)
-      .then(response => {
-        this.setState({ note: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   render() {
     if (this.state.deleted === true) {
       return <Redirect to="/" />;
@@ -62,9 +51,6 @@ class FullNote extends React.Component {
         <p>{this.state.notes.textBody}</p>
         <button onClick={() => this.deleteNote(this.state.notes._id)}>
           delete
-        </button>
-        <button onClick={() => this.editNote(this.state.notes._id)}>
-          edit
         </button>
       </div>
     );

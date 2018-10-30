@@ -11,7 +11,9 @@ class MainBox extends React.Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      title: "",
+      content: ""
     };
   }
 
@@ -49,10 +51,12 @@ class MainBox extends React.Component {
           path="/"
           render={props => <ListView {...props} notes={this.state.notes} />}
         />
-        <Route path="/notes/:id" render={props => <FullNote {...props} />} />
+        <Route
+          path="/notes/:id"
+          render={props => <FullNote {...props} editNote={this.editNote} />}
+        />
       </div>
     );
   }
 }
-
 export default MainBox;
