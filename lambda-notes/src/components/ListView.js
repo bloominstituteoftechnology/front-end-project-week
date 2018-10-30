@@ -16,7 +16,7 @@ import clippy from "../Images/clippy.jpg";
 
 class ListView extends React.Component {
   state = {
-    term: "",
+    term: ""
   };
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class ListView extends React.Component {
   compareAscending = (a, b) => {
     const genreA = a.title.toUpperCase();
     const genreB = b.title.toUpperCase();
-  
+
     let comparison = 0;
     if (genreA > genreB) {
       comparison = 1;
@@ -38,12 +38,12 @@ class ListView extends React.Component {
       comparison = -1;
     }
     return comparison;
-  }
+  };
 
   compareDescending = (a, b) => {
     const genreA = a.title.toUpperCase();
     const genreB = b.title.toUpperCase();
-  
+
     let comparison = 0;
     if (genreA > genreB) {
       comparison = -1;
@@ -51,17 +51,17 @@ class ListView extends React.Component {
       comparison = 1;
     }
     return comparison;
-  }
+  };
 
   handleAscending = () => {
     this.props.notes.sort(this.compareAscending);
     this.forceUpdate();
-  }
+  };
 
   handleDescending = () => {
     this.props.notes.sort(this.compareDescending);
     this.forceUpdate();
-  }
+  };
 
   render() {
     const { term } = this.state;
@@ -79,8 +79,18 @@ class ListView extends React.Component {
             onChange={this.handleChange}
           />
           <div className="sort-container">
-          <button className="btn btn-lg p-3 ascending" onClick={this.handleAscending}>Ascending</button>
-          <button className="btn btn-lg p-3 descending" onClick={this.handleDescending}>Descending</button>
+            <button
+              className="btn btn-lg p-3 ascending"
+              onClick={this.handleAscending}
+            >
+              Ascending
+            </button>
+            <button
+              className="btn btn-lg p-3 descending"
+              onClick={this.handleDescending}
+            >
+              Descending
+            </button>
           </div>
         </div>
         <h2 className="text-center">Your Notes: </h2>
@@ -94,11 +104,10 @@ class ListView extends React.Component {
         >
           {this.props.notes
             .filter(note => {
-              if (term.trim()) {
+              if (term) {
                 if (
                   note.title.toLowerCase().includes(term.toLowerCase()) ||
-                  note.textBody.toLowerCase().includes(term.toLowerCase()) ||
-                  note.tags.toLowerCase().includes(term.toLowerCase())
+                  note.textBody.toLowerCase().includes(term.toLowerCase())
                 ) {
                   return note;
                 }
