@@ -5,7 +5,7 @@ import './App.css';
 import NavigationBar from './components/Navigation/NavigationBar';
 import NotesList from './components/Notes/NotesList';
 import Note from './components/Notes/Note';
-
+import NewNote from './components/Notes/NewNote';
 
 class App extends Component {
   render() {
@@ -14,8 +14,13 @@ class App extends Component {
       <div className="app-container">
         <NavigationBar />
 
-        <Route exact path='/' component={NotesList} />
-        <Route path='/:id' component={Note} />
+        <div className="content-container">
+          <div className="content-wrapper">
+            <Route exact path='/' component={NotesList} />
+            <Route path='/notes/:id' component={Note} />
+            <Route path='/create' component={NewNote} />
+          </div>
+        </div>
       </div>
     );
   }

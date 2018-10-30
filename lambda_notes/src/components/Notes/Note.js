@@ -8,7 +8,10 @@ class Note extends Component {
     console.log('single Note', note.title)
 
     return (
-      <p>{note.title}</p>
+      <>
+        <h2>{note.title}</h2>
+        <p>{note.textBody}</p>
+      </>
     );
   }
 }

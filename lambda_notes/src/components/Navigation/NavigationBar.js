@@ -8,10 +8,12 @@ const NavigationBar = () => {
     <Container>
       <Wrapper>
         <h1>Lambda Notes</h1>
-        <Link exact to="/">
+        <Link exact="true" to="/">
           <button type="button">View Your Notes</button>
         </Link>
-        <button type="button">+ Create New Note</button>
+        <Link to="/create">
+          <button type="button">+ Create New Note</button>
+        </Link>
       </Wrapper>
     </Container>
   );

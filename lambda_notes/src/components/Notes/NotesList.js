@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getNotes } from '../../actions';
 
+import { NotesContainer, NotesWrapper, NoteCard } from './Styles';
+
 class NotesList extends Component {
   componentDidMount() {
     this.props.getNotes();
@@ -10,13 +12,22 @@ class NotesList extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.notes.map(note => (
-          <Link to={`/${note._id}`} key={note._id}>
-            <p>{note.title}</p>
-          </Link>
-        ))}
-      </div>
+      <NotesContainer>
+        <h2>Your Notes:</h2>
+
+        <NotesWrapper>
+          {this.props.notes.map(note => (
+            <NoteCard key={note._id}>
+              <Link to={`/notes/${note._id}`} >
+                <h2>{note.title}</h2>
+              </Link>
+              <hr />
+              <p>{note.textBody}</p>
+            </NoteCard>
+          ))}
+        </NotesWrapper>
+
+      </NotesContainer>
     );
   }
 
