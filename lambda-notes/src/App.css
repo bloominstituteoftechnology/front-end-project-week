@@ -1,23 +1,37 @@
-.modal {
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    z-index: 1000;
-    justify-content: center;
-    align-self: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+
 
 .innerModal {
-    background: red;
+    background: #FBFAFB;
     padding: 20px;
-    color: white;
+    color: black;
     font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 208px;
+    margin-left: 29%;
+    margin-top: 15%;
 }
    
 .show {
     display: block;
+}
+
+.btnRed {
+    background-color: red;
+    color: white;
+    width: 150px;
+    height: 50px;
+    margin-right: 22px;
+    font-weight: bold;
+}
+
+.btnAqua {
+    background-color: #24B8BD;
+    color: white;
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
 }

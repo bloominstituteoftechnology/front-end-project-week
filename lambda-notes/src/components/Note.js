@@ -4,6 +4,7 @@ import NoteCard from './NoteCard';
 import EditNote from './EditNote';
 import { Link } from "react-router-dom";
 import '../App.css';
+import { Modal, ModalH3 } from '../Styles';
 
 class Note extends React.Component {
     constructor(props) {
@@ -79,13 +80,15 @@ class Note extends React.Component {
                 <NoteCard note={this.state.note} />
                 <button onClick={this.editNote}>Edit</button>
                 <button onClick={this.deleteModal}>Delete</button>
-                    <div className='modal'>
+                    <Modal className='modal'>
                         <div className='innerModal'>
-                            <h3>Are you sure you want to delete this note?</h3>
-                            <div onClick={this.deleteNote}>Delete</div>
-                            <div onClick={this.deleteModal}>Cancel</div>
+                            <ModalH3>Are you sure you want to delete this?</ModalH3>
+                                <div>
+                                    <button className="btnRed" onClick={this.deleteNote}>Delete</button>
+                                    <button className="btnAqua" onClick={this.deleteModal}>Cancel</button>
+                                </div>
                         </div>
-                    </div>
+                    </Modal>
             </div>   
         )
     }

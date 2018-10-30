@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link} from "react-router-dom";
 import axios from 'axios';
-import { ContainCards, LeftBar, StyledLink } from '../Styles';
+import { LeftBar, StyledLink, ContainCards } from '../Styles';
 
 import NoteCard from './NoteCard';
 
@@ -24,8 +24,8 @@ class NotesList extends React.Component {
         return(
             <div>
                 <LeftBar>
-                    <Link to={'/'}><StyledLink>Lambda Notes</StyledLink></Link>
-                    <Link to={'/note/create'}><StyledLink>Add New Note</StyledLink></Link>
+                    <StyledLink to={'/'}>Lambda Notes</StyledLink>
+                    <StyledLink to={'/note/create'}>Add New Note</StyledLink>
                 </LeftBar>
                 {this.state.notes.map(note => (
                     <ContainCards key={note._id}>
