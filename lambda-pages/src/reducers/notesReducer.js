@@ -90,10 +90,11 @@ export const notesReducer = (state = initalState, action) => {
       state.notes.forEach(
         (note, i) => (note._id === action.payload._id ? (index = i) : null)
       );
-      state.notes.splice(index, 1, action.payload);
+      const newStateNotes = [...state.notes];
+      newStateNotes.splice(index, 1, action.payload);
       return {
         ...state,
-        notes: [...state.notes],
+        notes: [...newStateNotes],
         isUpdatingNote: false
       };
     case UPDATE_NOTE_FAILURE:
