@@ -7,7 +7,8 @@ import {
   SideNavigationView,
   ListView,
   NoteFormView,
-  SingleNoteView
+  SingleNoteView,
+  EditNoteFormView
 } from './views';
 // React Router imports
 import { Route } from 'react-router-dom';
@@ -23,8 +24,12 @@ class App extends Component {
           render={props => <SingleNoteView {...props} />}
         />
         <Route
-          path="/notes-form"
+          path="/add-notes-form"
           render={props => <NoteFormView {...props} />}
+        />
+        <Route
+          path="/edit-note-form/:id"
+          render={props => <EditNoteFormView {...props} />}
         />
       </div>
     );

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // CSS import
 import './SingleNote.css';
 // React Router import
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 // Modal import
 import ReactModal from 'react-modal';
 
@@ -35,7 +35,9 @@ class SingleNote extends Component {
     const { title, textBody } = this.props.note;
     return (
       <div className="singleNote">
-        <span className="modify">Edit</span>
+        <Link to={`/edit-note-form/${this.props.note._id}`}>
+          <span className="modify">Edit</span>
+        </Link>
         <span className="modify" onClick={this.handleOpenModal}>
           Delete
         </span>

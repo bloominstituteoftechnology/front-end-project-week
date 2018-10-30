@@ -5,7 +5,8 @@ import {
   ADD_NOTE_SUCCESS,
   ADD_NOTE_FAILURE,
   FETCH_SINGLE_NOTE,
-  DELETE_NOTE
+  DELETE_NOTE,
+  EDIT_NOTE
 } from '../actions';
 
 // InitialState Set
@@ -25,7 +26,16 @@ export const notesReducer = (state = initialState, action) => {
     case FETCH_SINGLE_NOTE:
       return [action.payload];
     case DELETE_NOTE:
-      return (state = state.filter(note => note._id !== action.payload));
+      return state.filter(note => note._id !== action.payload);
+    case EDIT_NOTE:
+      const updated = state.map(note => {
+        if (note._id === action.payload._id) {
+          return action.payload;
+        } else {
+          return note;
+        }
+      });
+      return updated;
     default:
       return state;
   }

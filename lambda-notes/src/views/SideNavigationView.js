@@ -21,7 +21,7 @@ class SideNavigationView extends Component {
         <Link to="/" className="navLink">
           <button>View Your Notes</button>
         </Link>
-        <Link to="/notes-form" className="navLink">
+        <Link to="/add-notes-form" className="navLink">
           <button>+ Create New Note</button>
         </Link>
       </header>

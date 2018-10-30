@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 // CSS import
 import './NoteForm.css';
 
-class NoteForm extends Component {
+class EditNoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +14,16 @@ class NoteForm extends Component {
         textBody: ''
       }
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      note: {
+        ...this.state.note,
+        title: this.props.notes[0].title + '',
+        textBody: this.props.notes[0].textBody + ''
+      }
+    });
   }
 
   changeHandler = e => {
@@ -27,7 +37,12 @@ class NoteForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.addNote(this.state.note);
+    this.props.history.push('/');
+  };
+
+  editNote = e => {
+    e.preventDefault();
+    this.props.editNote(this.props.notes[0]._id, this.state.note);
     this.props.history.push('/');
   };
 
@@ -35,7 +50,7 @@ class NoteForm extends Component {
     const { title, textBody } = this.state.note;
     return (
       <form className="noteForm">
-        <h2>Create New Note:</h2>
+        <h2>Edit Note:</h2>
         <input
           type="text"
           name="title"
@@ -53,10 +68,10 @@ class NoteForm extends Component {
           onChange={this.changeHandler}
         />
         <br />
-        <button onClick={this.submitHandler}>Add Note</button>
+        <button onClick={this.editNote}>Update</button>
       </form>
     );
   }
 }
 
-export default withRouter(NoteForm);
+export default withRouter(EditNoteForm);

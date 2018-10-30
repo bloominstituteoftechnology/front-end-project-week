@@ -8,6 +8,7 @@ export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
 export const FETCH_SINGLE_NOTE = 'FETCH_SINGLE_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
+export const EDIT_NOTE = 'EDIT_NOTE';
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES });
@@ -53,5 +54,14 @@ export const deleteNote = id => dispatch => {
     })
     .catch(error => {
       dispatch({ type: FETCH_NOTES_FAILURE, payload: error });
+    });
+};
+
+export const editNote = (id, note) => dispatch => {
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(response => {
+      console.log(response);
+      dispatch({ type: EDIT_NOTE, payload: response.data });
     });
 };
