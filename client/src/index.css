@@ -12,3 +12,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.home-view {
+  display: flex;
+}
+.list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.Note {
+  width: 10rem;
+  text-overflow: ellipsis;
+  height: 15rem;
+  border: 1px solid black;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.sidebar-button {
+  padding: 1rem;
+  width: 10rem;
+  font-size: 1.5rem;
+  border: 1px solid black;
+}

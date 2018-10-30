@@ -14,11 +14,11 @@ const Sidebar = props => {
     <section className="Sidebar">
       <h1>Lambda Notes</h1>
       <Link to="/">
-        <div className="view-notes-button">View Your Notes</div>
+        <div className="sidebar-button">View Your Notes</div>
       </Link>
 
-      <Link to="create">
-        <div className="create-note-button">+ Create New Note</div>
+      <Link to="/create">
+        <div className="sidebar-button">+ Create New Note</div>
       </Link>
     </section>
   );

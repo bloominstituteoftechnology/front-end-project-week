@@ -7,6 +7,7 @@ import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
 import Sidebar from "./components/Sidebar";
+import NoteView from "./components/NoteView";
 
 class App extends Component {
   constructor(props) {
@@ -23,26 +24,39 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  updateState = newState => {
+  handleData = data => {
     this.setState({
-      notes: newState
+      notes: data
     });
   };
 
   render() {
     return (
       <div className="App">
-        <Sidebar />
-        <Route
-          exact
-          path="/"
-          render={props => <NotesList {...props} notes={this.state.notes} />}
-        />
-
+        <div className="home-view">
+          <Sidebar />
+          <Route
+            exact
+            path="/"
+            render={props => <NotesList {...props} notes={this.state.notes} />}
+          />
+        </div>
         <Route
           exact
           path="/create"
           render={props => <NoteForm {...props} notes={this.state.notes} />}
+        />
+
+        <Route
+          exact
+          path="/:id"
+          render={props => (
+            <NoteView
+              {...props}
+              items={this.state.items}
+              notes={this.state.notes}
+            />
+          )}
         />
       </div>
     );
