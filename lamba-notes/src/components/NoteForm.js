@@ -14,12 +14,13 @@ class NoteForm extends React.Component {
     event.preventDefault();
 
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", {
+      .post("https://fe-notes.herokuapp.com/note/create", {
         title: this.state.title,
         textBody: this.state.textBody
       })
       .then(response => console.log(response))
       .catch(error => console.log(error));
+    this.props.history.push("/");
 
     this.setState({
       title: "",
@@ -53,7 +54,7 @@ class NoteForm extends React.Component {
             name="textBody"
             className="noteForm__input--big"
           />
-          <button type="submit" class="btn">
+          <button type="submit" className="btn">
             Save
           </button>
         </form>
