@@ -1,3 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  display: flex;
+}
+
+.sidebar {
+  display:flex;
+  flex-direction: column;
+  background: #D6D6D6;
+  color: #4B4A4B;
+  width:25%;
+  height:100vh;
+  padding: 0 2%;
+  font-size:24px;
+  text-align:left;
+  line-height:40px;
+  border:2px solid #BDBDBD;
+}
+
+.sidebar button {
+  background:#30BEC3;
+  color:#ffffff;
+  font-size:24px;
+  font-weight: bold;
+  padding:15px 0;
+  margin:10px 0;
+border: 2px solid #8A9B9C;
 }
