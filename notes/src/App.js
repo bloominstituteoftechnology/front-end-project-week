@@ -12,16 +12,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDoList: []
+      noteList: []
     }
   }
 
   componentDidMount() {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
+      .then(({ data }) => {
         this.setState({
-          toDoList: response.data
+          noteList: data
         })
       })
       .catch(error => console.log(error))
@@ -31,7 +31,7 @@ class App extends Component {
       <div className="App">
         <HeadNav />
         <div className='mainView'>
-          <ListView />
+          <ListView noteList={this.state.noteList}/>
         </div>
 
       </div>

@@ -1,19 +1,22 @@
 import React from 'react';
 
+//components
+import Note from './Note';
+
 //styling
 import './ListView.css';
 
-const listView = () => {
+const listView = props => {
+    console.log(props)
     return (
         <div className='listView'>
             <h3>Your Notes:</h3>
             <div className='notesWrapper'>
-                <div className='notesBox'>1</div>
-                <div className='notesBox'>2</div>
-                <div className='notesBox'>3</div>
-                {/* <div className='notesBox'>4</div>
-                <div className='notesBox'>5</div>
-                <div className='notesBox'>6</div> */}
+                {props.noteList.map(note => {
+                    return (
+                        <Note key={note._id} note={note}/>
+                    )
+                })}
             </div>
         </div>
     );
