@@ -1,58 +1,31 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addNote } from '../../actions';
+import React from 'react';
 
-class NewNote extends Component {
-  state = {
-    title: '',
-    textBody: ''
-  }
+const NewNote = props => {
+  return (
+    <div>
+      <h2>Create New Note</h2>
 
-  handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+      <form onSubmit={props.addNote}>
+        <input
+          type="text"
+          placeholder="Note Title"
+          onChange={props.handleInput}
+          name="title"
+          value={props.title}
+        />
 
-  addNote = e => {
-    e.preventDefault();
-    const { title, textBody } = this.state;
-    this.props.addNote({ title, textBody });
-    this.setState({ title: '', textBody: '' });
-    this.props.history.push('/');
-  }
+        <textarea
+          type="text"
+          placeholder="Note Content"
+          onChange={props.handleInput}
+          name="textBody"
+          value={props.textBody}
+        />
 
-  render() {
-    return (
-      <div>
-        <h2>Create New Note</h2>
-
-        <form onSubmit={this.addNote}>
-          <input
-            type="text"
-            placeholder="Note Title"
-            onChange={this.handleInput}
-            name="title"
-            value={this.state.title}
-          />
-
-          <textarea
-            type="text"
-            placeholder="Note Content"
-            onChange={this.handleInput}
-            name="textBody"
-            value={this.state.textBody}
-          />
-
-          <button type="submit">Save</button>
-        </form>
-      </div>
-    );
-  }
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  );
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes
-  }
-}
-
-export default connect(mapStateToProps, { addNote })(NewNote);
+export default NewNote;

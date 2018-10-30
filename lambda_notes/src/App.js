@@ -3,9 +3,9 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 import NavigationBar from './components/Navigation/NavigationBar';
-import NotesList from './components/Notes/NotesList';
 import Note from './components/Notes/Note';
-import NewNote from './components/Notes/NewNote';
+import NewNoteView from './views/NewNoteView';
+import ListView from './views/ListView';
 
 class App extends Component {
   render() {
@@ -16,9 +16,9 @@ class App extends Component {
 
         <div className="content-container">
           <div className="content-wrapper">
-            <Route exact path='/' component={NotesList} />
+            <Route exact path='/' component={ListView} />
             <Route path='/notes/:id' component={Note} />
-            <Route path='/create' component={NewNote} />
+            <Route path='/create' component={NewNoteView} />
           </div>
         </div>
       </div>

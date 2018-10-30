@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import NoteCard from './NoteCard';
+
 class Note extends Component {
   render() {
     const noteId = this.props.match.params.id;
@@ -8,10 +10,7 @@ class Note extends Component {
     console.log('single Note', note.title)
 
     return (
-      <>
-        <h2>{note.title}</h2>
-        <p>{note.textBody}</p>
-      </>
+      <NoteCard note={note} />
     );
   }
 }
