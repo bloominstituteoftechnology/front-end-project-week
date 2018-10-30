@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import { updateNote } from '../actions';
 
@@ -8,7 +9,8 @@ class EditPage extends Component {
         this.state = {
             title: '',
             textBody: '',
-            id: null
+            id: null,
+            edited: false
         }
     }
 
@@ -22,7 +24,9 @@ class EditPage extends Component {
     }
 
     changeHandler = event => {
-        this.setState({ [event.target.name]: event.target.value })
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
     };
 
     editNote = event => {
@@ -30,10 +34,13 @@ class EditPage extends Component {
         const { title, textBody, id } = this.state;
         let editedNote = {title, textBody, id}
         this.props.updateNote(editedNote);
+        this.setState({ edited: true })
     }
 
     render() {
-        return (
+        return this.state.edited ? 
+        <Redirect to='/' /> :
+        (
             <div className='edit'>
                 <form className='edit-form' onSubmit={this.editNote}>Edit Note
                     <input className='edit-input' name='title' value={this.state.title} onChange={this.changeHandler} type='text' placeholder='Title' required></input>

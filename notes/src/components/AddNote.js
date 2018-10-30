@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { addNote } from '../actions';
 
 class AddNote extends Component {
@@ -8,11 +9,14 @@ class AddNote extends Component {
         this.state = {
             title: '',
             textBody: '',
+            added: false
         }
     }
 
     changeHandler = event => {
-        this.setState({ [event.target.name]: event.target.value })
+        this.setState({ 
+            [event.target.name]: event.target.value,
+        })
     };
 
     addNote = event => {
@@ -20,14 +24,17 @@ class AddNote extends Component {
         const { title, textBody } = this.state;
         let newNote = {title, textBody}
         this.props.addNote(newNote)
-        this.setState(() => ({
+        this.setState({
             title: '',
             textBody: '',
-        }))
+            added: true
+        })
     }
 
     render() {
-        return (
+        return this.state.added ? 
+        (<Redirect to='/'/>) :
+        (
             <div className='add'>
                 <form className='add-form' onSubmit={this.addNote}>Add Note
                     <input className='add-input' name='title' value={this.state.title} onChange={this.changeHandler} type='text' placeholder='Title' required></input>

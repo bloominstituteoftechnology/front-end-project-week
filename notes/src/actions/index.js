@@ -5,6 +5,7 @@ export const FETCHED = 'FETCHED';
 export const ERROR = 'ERROR';
 export const ADDED = 'ADDED';
 export const UPDATED = 'UPDATED';
+export const DELETED = 'DELETED';
 const url = 'https://fe-notes.herokuapp.com/note'
 
 export const fetchNotes = () => dispatch => {
@@ -35,6 +36,17 @@ export const updateNote = (editedNote) => dispatch => {
         .put(`${url}/edit/${editedNote.id}`, editedNote)
         .then(response => {
             dispatch({ type: UPDATED, payload: response.data });
+        })
+        .catch(error => {
+            dispatch({ type: ERROR, payload: error });
+        });
+};
+
+export const deleteNote = (id) => dispatch => {
+    axios
+        .delete(`${url}/delete/${id}`)
+        .then(response => {
+            dispatch({ type: DELETED, payload: response.data });
         })
         .catch(error => {
             dispatch({ type: ERROR, payload: error });

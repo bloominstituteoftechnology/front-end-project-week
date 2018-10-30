@@ -1,4 +1,4 @@
-import { FETCHING, FETCHED, ADDED, UPDATED, ERROR } from '../actions';
+import { FETCHING, FETCHED, ADDED, UPDATED, DELETED, ERROR } from '../actions';
 
 const initialState = {
     fetching: false,
@@ -14,21 +14,23 @@ export default (state = initialState, action) => {
             return { 
                 ...state, 
                 fetching: false, 
-                notes: [...state.notes, ...action.payload]
+                notes: [...action.payload]
             };
         case ADDED: 
             return {
                 ...state,
-                //notes: [...state.notes, action.payload] new note may need to be part of application state to work around payload of just the ID
             };
         case UPDATED:
-            console.log(action.payload)
             return {
                 ...state,
                 notes: state.notes.map(note => {
                     return note._id === action.payload._id ? action.payload : note
                 })
             };
+        case DELETED: 
+            return {
+                ...state,
+        };
         case ERROR: 
             return { 
                 ...state, 
