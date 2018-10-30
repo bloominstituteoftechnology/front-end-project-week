@@ -97,7 +97,9 @@
 
 .note-view {
   padding: 5%;
-  width: 80%;
+  margin: 5%;
+  width: 20%;
+  border: 1px solid black;
 }
 
 .links {
