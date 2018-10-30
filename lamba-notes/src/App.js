@@ -23,6 +23,18 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  deleteNote = id => {
+    axios
+      // .delete(`http://localhost:3000/smurfs/${id}`)
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        this.setState({ notes: response._id });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div className="App">
