@@ -53,6 +53,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 ---
 
 ## Trello Link
+
 [Steve's Trello Board for the Notes Project](https://trello.com/b/JOxzvSYP/lambda-notes)
 
 

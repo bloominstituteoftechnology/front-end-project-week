@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import { ListNotes } from './Views/ListNotes';
+import { ListNotes } from '../Views/ListNotes';
 // import AddNote from './Views/AddNote';
 // import ReadNote from './Views/ReadNote';
 // import UpdateNote from './Views/UpdateNote';
 
-import Sidebar from './Components/Sidebar';
+import Sidebar from './Sidebar';
 
 import './App.css';
 
