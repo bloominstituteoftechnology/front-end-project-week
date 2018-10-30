@@ -10,13 +10,21 @@ import NoteList from './NoteList'
 import NoteForm from './NoteForm'
 import NoteModule from './NoteModule'
 
+import styled from 'styled-components';
+
+
+const NoteContainer = styled.div`
+  margin-left: 280px;
+  display: block;
+  direction: ltr;
+  width: calc(100vw - 280px);
+`;
 
 class App extends Component {
 
   componentDidMount() {
     this.props.getNotes();
   }
-
 
   noteClicked = (ev, id, history) => {
     ev.preventDefault();
@@ -41,28 +49,30 @@ class App extends Component {
         <Header />
         <ToolBar />
 
-        <Route 
-          path='/'
-          exact
-          render={props =>
-            <NoteList 
-              {...props}
-              notes={this.props.notes} 
-              noteClicked={this.noteClicked}
-            />
-          }
-        />
+        <NoteContainer>
+          <Route 
+            path='/'
+            exact
+            render={props => 
+              <NoteForm
+                {...props}
+                onSubmit={this.formSubmited}
+              />
+            }
+          />
 
-        <Route 
-          path='/add'
-          exact
-          render={props => 
-            <NoteForm
-              {...props}
-              onSubmit={this.formSubmited}
-            />
-          }
-        />
+          <Route 
+            path='/'
+            exact
+            render={props =>
+              <NoteList 
+                {...props}
+                notes={this.props.notes} 
+                noteClicked={this.noteClicked}
+              />
+            }
+          />
+        </NoteContainer>
 
         <Route 
           path='/note/:id'

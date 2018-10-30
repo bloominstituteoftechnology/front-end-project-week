@@ -2,6 +2,18 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+const SideBar = styled.div`
+    width: 280px;
+    height: 100%;
+    background-color: white;
+    padding: 8px 0px;
+    position: fixed;
+    left: 0;
+    a {
+        text-decoration: none;
+    }
+`;
+
 const Section = styled(NavLink)`
     font-family: 'Open Sans';
     letter-spacing: .55px;
@@ -33,7 +45,7 @@ const Section = styled(NavLink)`
     }
     span.title {
         margin-left: 32px;
-        letter-spacing: .25px;
+        letter-spacing: 0.75px;
     }
     span.icon {
         width: 24px;
@@ -57,12 +69,12 @@ const Section = styled(NavLink)`
             content: 'Reminders'
         }
     `}
-    ${props => props.editLables && css`
+    ${props => props.editlables && css`
         span.icon {
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.41 4.94l-1.35-1.35c-.78-.78-2.05-.78-2.83 0L13.4 6.41 3 16.82V21h4.18l10.46-10.46 2.77-2.77c.79-.78.79-2.05 0-2.83zm-14 14.12L5 19v-1.36l9.82-9.82 1.41 1.41-9.82 9.83z"></path></svg>')
         }
         span.title:after {
-            content: 'Edit Lables'
+            content: 'Edit lables'
         }
     `}
     ${props => props.archives && css`
@@ -70,7 +82,7 @@ const Section = styled(NavLink)`
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.42l.82-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.59L16 13.5z"></path></svg>')
         }
         span.title:after {
-            content: 'Archives'
+            content: 'Archive'
         }
     `}
     ${props => props.trash && css`
@@ -108,31 +120,31 @@ const ToolBarLabel = styled.div`
 
 const ToolBar = () => {
     return (
-        <div className={'tool-bar'}>
-            <Section to='/' exact notes>
+        <SideBar>
+            <Section to='/' exact notes="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
-            <Section to='/reminders' reminders>
+            <Section to='/reminders' reminders="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
             <Seperator />
             <ToolBarLabel />
-            <Section to='/editlables' editLables>
+            <Section to='/editLables' editlables="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
             <Seperator />
-            <Section to='/archives' archives>
+            <Section to='/archives' archives="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
-            <Section to='/trash' trash>
+            <Section to='/trash' trash="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
-        </div>
+        </SideBar>
     );
 }
 
