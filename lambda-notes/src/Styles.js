@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
   width: 100%;
   background-color: #f2f1f2;
-  border: 1px solid black;
   position: relative;
   top: -10px;
   max-height: 100%;

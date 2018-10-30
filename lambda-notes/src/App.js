@@ -6,6 +6,7 @@ import Note from "./components/Note.js";
 import EditNote from "./components/EditNote";
 import AddNote from "./components/AddNote";
 import { Container } from './Styles';
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
