@@ -26,7 +26,7 @@ export const fetchNotes = () => {
         }
     }
 
-export const addNote = note => {
+export const addNote = (note, history) => {
     return dispatch => {
         dispatch({ type: SAVING });
         axios.post('https://fe-notes.herokuapp.com/note/create', {
@@ -35,6 +35,9 @@ export const addNote = note => {
         })
         .then(response => {
             dispatch({ type: SAVED, payload: response.data })
+        })
+        .then(response => {
+            history.push('/');
         })
         .catch(error => {
             dispatch({ type: ERROR, payload: error })
@@ -56,13 +59,16 @@ export const fetchNote = noteId => {
 }
 
 // to do delete and update
-export const deleteNote =  NoteId => {
+export const deleteNote =  (NoteId, history) => {
     return dispatch => {
         dispatch ({ type: DELETING });
         axios
         .delete(`https://fe-notes.herokuapp.com/note/edit/${NoteId}`)
         .then(response => {
             dispatch({ type: DELETED, payload: response.data})
+        })
+        .then(response => {
+            history.push('/');
         })
         .catch(error => {
             dispatch({type: ERROR, payload: error })
