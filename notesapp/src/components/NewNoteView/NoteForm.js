@@ -1,16 +1,18 @@
 import React from 'react'
 import {NoteFormCont,TitleInput, TextInput,
-FormTitle, NewNoteBtn, NewNoteButtonText} from '../../Styles/NoteFormStyles'
+FormTitle, NewNoteBtn, NewNoteButtonText,} from '../../Styles/NoteFormStyles'
 
 const NoteForm = props => {
-    const {title, textBody} = props.noteObj;
-    const routeFromNewNote = ev => {
-        ev.preventDefault()
-        props.addNote()
-        props.history.push('/home')
-    }
+    const {title, textBody, tags} = props.noteObj;
 
-    
+    const handleClick = (ev) => {
+        ev.preventDefault();
+        if (props.isEditing) {
+            props.editNote();
+        } else {
+            props.addNote();
+        }
+    }
     
     return (
         
@@ -29,10 +31,15 @@ const NoteForm = props => {
         name="textBody"
         onChange={props.changeHandler}
         value={textBody}
-
         />
-        <NewNoteBtn onClick={ev => routeFromNewNote(ev)}><NewNoteButtonText>Save</NewNoteButtonText> </NewNoteBtn>
-
+        <TitleInput 
+        placeholder="tags"
+        type="text"
+        name="tags"
+        onChange={props.changeHandler}
+        value={tags}
+        />
+        <NewNoteBtn onClick={ev => {handleClick(ev); props.history.push('/home') }}><NewNoteButtonText>{props.isEditing ? 'Update' : 'Save'}</NewNoteButtonText> </NewNoteBtn>
         </NoteFormCont>
         
     )

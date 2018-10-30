@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const ModalDiv = styled.div `
 display: flex;
 justify-content: space-evenly;
+align-items: center;
+height: 65%;
 `
 
 export const ModalText = styled.p `
@@ -22,6 +24,7 @@ export const NoButton = styled.button `
   color: white;
   margin-bottom: 20px;
   text-align: center;
+  height: 50px;
 `
 
 export const NoButtonText = styled.p `
@@ -45,6 +48,7 @@ export const DeleteButton = styled.button `
   color: white;
   margin-bottom: 20px;
   text-align: center;
+  height: 50px;
 `
 
 export const DeleteButtonText = styled.p `

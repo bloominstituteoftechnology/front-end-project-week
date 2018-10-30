@@ -8,6 +8,7 @@ const NoteList = props => {
         <NoteListTitle>Your Notes:</NoteListTitle>
         <NoteListDiv>
             {props.notes.map(note => {
+                console.log(note)
                 return (
                     <Note note={note} key={note._id}
                     _id={note._id}/>

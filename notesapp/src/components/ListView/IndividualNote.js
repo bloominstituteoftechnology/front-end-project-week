@@ -31,12 +31,12 @@ closeModal = () => {
 
 
   render() {
-      const {title, textBody} = this.state.note;
+      const {title, textBody, tags} = this.state.note;
     return (
     
         <IndNoteContainer> 
             <NoteToolDiv>
-                <ToolBtn>edit</ToolBtn> <ToolBtn onClick={() => this.openModal()}>delete</ToolBtn>
+                <ToolBtn onClick={ev => {this.props.toggleEditNoteForm(ev, this.state.note); this.props.history.push('/form')}}>edit</ToolBtn> <ToolBtn onClick={() => this.openModal()}>delete</ToolBtn>
             </NoteToolDiv>
             <IndNoteTitle>{title}</IndNoteTitle>
             <IndNoteText>{textBody}</IndNoteText>
@@ -52,7 +52,7 @@ closeModal = () => {
             </ModalDiv>
             </Modal>
 
-            
+            <IndNoteText>{tags}</IndNoteText>
         </IndNoteContainer>
      
     );
@@ -68,7 +68,7 @@ const customStyles = {
     top: "200px",
     left: "30%",
     right: "30%",
-    bottom: "270px",
+    bottom: "40%",
     border: "1px solid #b7b7b7",
     background: "#fff",
     overflow: "auto",

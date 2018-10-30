@@ -21,14 +21,14 @@ width: 50%;
 height: 40px;
 border-radius: 4px;
 margin-bottom: 10px;
+outline: none;
 `
 
-export const TextInput = styled.input `
+export const TextInput = styled.textarea `
 width: 80%;
+height: 290px;
 border-radius: 4px;
-display: flex;
-align-content: flex-start;
-padding-bottom: 290px;
+outline: none;
 `
 
 export const NewNoteBtn = styled.div`
