@@ -10,7 +10,7 @@ export const Container = styled.div`
   padding: 15px;
 
   > * {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
   border-right: 1px solid #434343;
 `
@@ -35,4 +35,9 @@ export const Button = styled.button`
   &:hover {
     background: #007f82;
   }
+`
+
+export const SearchInput = styled.input`
+  padding: 10px 5px;
+  font-size: 1.6rem;
 `

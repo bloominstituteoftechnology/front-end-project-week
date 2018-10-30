@@ -15,7 +15,6 @@ export const getAllNotes = () => dispatch => {
     .catch(err => console.log(err))
 }
 
-
 export const postNote = ({ title, text }) => dispatch => {
   console.log('posting')
 
@@ -112,11 +111,11 @@ export const bulkAddNotes = num => async dispatch => {
   let newIds = []
 
   await Promise.all(
-    [...Array(num)].map(async id => {
+    [...Array(num)].map(async (id, i) => {
       await axios
         .post('https://fe-notes.herokuapp.com/note/create', {
-          title: 'Bulk note',
-          textBody: `Testing bulk add option for ${num} notes.`
+          title: 'Bulk Note',
+          textBody: `This is note ${i + 1} of ${num}`
         })
         .then(res => newIds.push(res.data.success))
         .catch(err => console.log(err))
