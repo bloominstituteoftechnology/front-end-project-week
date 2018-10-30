@@ -3,8 +3,9 @@ import axios from 'axios';
 export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
-export const FETCH_DATA = 'FETCH_DATA';
 export const GET_DATA = 'GET_DATA';
+export const GET_A_NOTE = 'GET_A_NOTE';
+export const FETCH_DATA = 'FETCH_DATA';
 export const ERROR = 'ERROR';
 
 export const GET_TASKS = 'GET_TASK';
@@ -17,6 +18,16 @@ export const getData = () => {
     axios
       .get('http://localhost:7777/api/notes')
       .then(response => dispatch({ type: GET_DATA, payload: response.data }))
+      .catch(err => dispatch({ type: ERROR, err }));
+  };
+};
+
+export const getANote = id => {
+  return dispatch => {
+    dispatch({ type: FETCH_DATA });
+    axios
+      .get(`http://localhost:7777/api/notes/${id}`)
+      .then(response => dispatch({ type: GET_A_NOTE, payload: response.data }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
 };

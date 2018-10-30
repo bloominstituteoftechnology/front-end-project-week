@@ -2,8 +2,9 @@ import {
   ADD_NOTE,
   DELETE_NOTE,
   EDIT_NOTE,
-  FETCH_DATA,
   GET_DATA,
+  GET_A_NOTE,
+  FETCH_DATA,
   ERROR,
   GET_TASKS,
   ADD_TASK,
@@ -12,6 +13,7 @@ import {
 
 const initialState = {
   notes: [],
+  note: {},
   fetching: false,
   success: false,
   error: null,
@@ -33,12 +35,24 @@ export const noteReducers = (state = initialState, action) => {
       return { ...state, fetching: true, success: false };
 
     case ERROR:
-      return { ...state, error: 'Error with notes' + action.err };
+      return {
+        ...state,
+        error: 'Error with notes' + action.err,
+        fetching: false,
+        success: false,
+      };
 
     case GET_DATA:
       return {
         ...state,
         notes: action.payload,
+        fetching: false,
+        success: true,
+      };
+
+    case GET_A_NOTE:
+      return {
+        note: action.payload,
         fetching: false,
         success: true,
       };
