@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import ListViewSection from './Components/ListView/ListViewSection';
 import AddNewNoteContainer from './Views/AddNewNoteContainer';
 import styled from 'styled-components';
-
+import EditNoteContainer from './Views/EditNoteContainer';
 
 const WrapperDiv = styled.div`
   margin:0 auto;
