@@ -1,6 +1,5 @@
 html {
   box-sizing: border-box;
-  font-size: 1.6rem;
 }
 
 body {
@@ -11,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
 }
 
 code {
