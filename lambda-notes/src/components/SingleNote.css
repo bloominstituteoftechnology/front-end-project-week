@@ -1,0 +1,12 @@
+.singleNote h3 {
+  padding: 65px 0 35px 30px;
+  font-weight: bold;
+  font-size: 3rem;
+  color: #4b4a4b;
+}
+
+.singleNote p {
+  color: #4b4a4b;
+  padding-left: 30px;
+  font-size: 1.6rem;
+}

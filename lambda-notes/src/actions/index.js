@@ -6,6 +6,7 @@ export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
 export const FETCH_NOTES_FAILURE = 'FETCH_NOTES_FAILURE';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
+export const FETCH_SINGLE_NOTE = 'FETCH_SINGLE_NOTE';
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES });
@@ -28,5 +29,17 @@ export const addNote = note => dispatch => {
     })
     .catch(error => {
       dispatch({ type: ADD_NOTE_FAILURE, payload: error });
+    });
+};
+
+export const fetchSingleNote = id => dispatch => {
+  dispatch({ type: FETCH_NOTES });
+  axios
+    .get(`http://fe-notes.herokuapp.com/note/get/${id}`)
+    .then(response => {
+      dispatch({ type: FETCH_SINGLE_NOTE, payload: response.data });
+    })
+    .catch(error => {
+      dispatch({ type: FETCH_NOTES_FAILURE, payload: error });
     });
 };

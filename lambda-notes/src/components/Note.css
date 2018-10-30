@@ -1,4 +1,4 @@
-.note {
+.cardLink {
   border: 1px solid #ababab;
   max-width: 210px;
   width: 100%;
@@ -20,4 +20,9 @@
 
 .note .noteBody {
   margin-top: 12px;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: #4b4a4b;
 }
