@@ -23,13 +23,6 @@ class App extends Component {
       .catch(error => console.log(error))
   };  //add ID specific request 
 
-
-  // deleteNote = () => {
-  //   const deletion = axios
-  //     .delete(deletion) => (`https://fe-notes.herokuapp.com/note/get/all/${id}`, {note})
-  // }
-
-
   render() {
     return (
       <div className="App">

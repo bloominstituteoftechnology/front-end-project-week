@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Note from './Note';
 
 function ListView(props) {
     return (
         <div className='list-container'>
-            {props.list.map(note => <Note note={note} key={note._id} /> )}
+            {props.list.map(note => {
+                return (
+                    <Link to={`/Note/${note.id}`} >
+                        <Note note={note} key={note._id} />
+                    </Link>
+                    )
+                })}
         </div>   
     )
 };
