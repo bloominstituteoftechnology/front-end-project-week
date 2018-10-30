@@ -1,32 +1,70 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 1.6rem;
+}
+
+.sidebar {
+  width: 25%;
+  padding: 20px;
+  border-right: 2px solid #444444;
+  background: #cccccc;
+}
+
+.sidebar h1 {
+  color: #444444;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.sidebar .button {
+  background: #2BC1C4;
+  margin: 20px 0;
+  border: 2px solid #444444;
+  padding: 15px;
   color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px;
+  background: #eeeeee;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-content h2 {
+  color: #444444;
+  width: 100%;
+}
+
+.main-content .thumbnail {
+  width: 31%;
+  height: 250px;
+  margin: 15px 0;
+  border: 1px solid #444444;
+  background: white;
+  padding: 0 20px 10px;
+}
+
+.main-content .thumbnail h3 {
+  height: 50px;
+  margin: 10px 0 5px;
+  border-bottom: 2px solid #cccccc;
+  font-size: 3rem;
+  overflow: hidden;
+}
+
+.main-content .thumbnail p {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  overflow: hidden;
 }
