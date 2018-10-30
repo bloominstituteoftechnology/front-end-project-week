@@ -49,7 +49,7 @@
   height: 100%;
   background: #D7D7D7;
   position: fixed;
-  z-index: 99;
+  z-index: 50;
 }
 
 .nav-button {
@@ -104,4 +104,36 @@ textarea {
   border: gray 1px solid;
   width: 40%;
   height: 40px;
+}
+
+/* single note page */
+
+.single-note-container {
+  border: dotted green 8px;
+}
+
+/* delete modal page */
+.modal-div {
+  height: 200px;
+  width: 50%;
+  border: black solid 2px;
+  background: white;
+  z-index: 100;
+  margin-top: 75px;
+}
+
+.full-page-modal {
+  display: flex;
+  justify-content: center;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  background: #D7D7D7;
+  position: fixed;
+  opacity: 0.5;
+}
+
+
+.full-page-modal > .modal-div {
+  opacity: 1;
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class NoteForm extends Component {
   constructor() {
@@ -8,15 +7,25 @@ class NoteForm extends Component {
         title: '',
         textBody: '',
         tags: '',
+        isEditing: false, 
+        editingId: null,
       }
+  }
+
+  handleClick = (event) => {
+    event.preventDefault()
+    if(this.state.isEditing) {
+      this.props.updateItem();
+    } else {
+      this.newNote();
+    }
   }
 
   handleInputChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
   }
 
-  newNote = (event) => {
-    event.preventDefault();
+  newNote = () => {
     this.props.createNote(this.state)
     this.setState({title: '', textBody: '', tags: ''})
   }
@@ -25,10 +34,10 @@ class NoteForm extends Component {
     return (
       <div className='form-container'>
       <div className='form-headline'>
-        <h2>Create New Note:</h2>
+        <h2>{this.state.isEditing ? "Update Note" : "Create Note"}</h2>
       </div >
       <div className="form">
-          <form onSubmit={this.newNote} >
+          <form onSubmit={this.handleClick} >
             <input
               onChange={this.handleInputChange}
               placeholder="title"
@@ -42,8 +51,8 @@ class NoteForm extends Component {
               value={this.state.textBody}
               name="textBody"
             />
-            <button className="new-note-button" onClick={this.newNote} type="submit">
-              New Note
+            <button className="new-note-button" onClick={this.handleClick} type="submit">
+              {this.state.isEditing ? "Update Note" : "Create Note"}
             </button>
           </form>
         </div>

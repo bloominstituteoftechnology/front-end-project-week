@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import '../App.css';
 import {Link} from 'react-router-dom'
-import NoteCard from './NoteCard';
+// import NoteCard from './NoteCard';
 
 class NoteList extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   //componentDidMount() {
   //  axios
@@ -35,7 +32,7 @@ class NoteList extends Component {
         <h2>Your Notes:</h2>
       </div>
       {this.props.notes.map(note => (
-            <div className='note-card'>
+            <div key={note._id}className='note-card'>
             <div className='note-card-text'>
               <Link to={`/note/${note._id}`}><h4>{note.title}</h4></Link>
                 <div className='note-card-text-body'>
