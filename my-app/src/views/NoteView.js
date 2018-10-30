@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchNoteById, deleteNote } from "../actions";
-import { Note, Sidebar } from "../components";
+import { Note, Sidebar, Delete } from "../components";
 import { Route } from "react-router-dom";
 import EditView from "./EditView";
 
@@ -19,12 +19,14 @@ class NoteView extends React.Component {
         <Route
           exact
           path="/:id"
+          render={props => <Note {...props} note={this.props.note} />}
+        />
+        <Route
+          path="/:id/delete"
           render={props => (
-            <Note
-              {...props}
-              note={this.props.note}
-              delete={this.props.deleteNote}
-            />
+            <div className="modal">
+              <Delete {...props} deleteNote={this.props.deleteNote} />
+            </div>
           )}
         />
         <Route path="/:id/edit" render={props => <EditView {...props} />} />

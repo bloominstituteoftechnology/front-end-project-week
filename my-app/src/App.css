@@ -242,3 +242,35 @@ form textarea {
 .note-container p {
   font-size: 1.4rem;
 }
+
+.modal {
+  border: 3px dotted gray;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 30%;
+}
+.delete-modal {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-around;
+  padding: 30px;
+  margin: auto;
+  background: white;
+  border-radius: 5px;
+}
+.delete-modal h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.delete-modal .button {
+  width: 100px;
+  margin: 5px 15px;
+}
+.delete-modal .yes-button {
+  background: #ca001a;
+}
