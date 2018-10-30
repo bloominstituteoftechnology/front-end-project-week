@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
 
 class CreateNote extends Component {
     constructor() {
@@ -23,25 +25,34 @@ class CreateNote extends Component {
 
     render(){
         return (
-            <div className="group">
-                <input 
-                    onChange = {this.handleInputChange}
-                    placeholder = 'Title'
-                    name = 'title'
-                    value= {this.state.title}
-                />
-                <textarea 
-                    onChange = {this.handleInputChange}
-                    placeholder = 'Text Body'
-                    name= 'textBody'
-                    value= {this.state.textBody}
-                />
-                <button 
-                    onClick={this.addNote}
-                >
-                Save
-                </button>
-            </div>
+            <Form>
+                <FormGroup>
+                    <Label for="title" lg={12}>Title</Label>
+                    <Col lg={10}>
+                        <Input 
+                            bsSize="lg"
+                            onChange = {this.handleInputChange}
+                            placeholder = 'Title'
+                            name = 'title'
+                            value= {this.state.title}
+                        />
+                    </Col>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="textBody">Text Area</Label>
+                    <Col lg={10}>
+                    <Input 
+                        bsSize="lg"
+                        type="textarea"
+                        onChange = {this.handleInputChange}
+                        placeholder = 'Text Body'
+                        name= 'textBody'
+                        value= {this.state.textBody}
+                    />
+                    </Col>
+                </FormGroup>
+                <Button onClick={this.addNote}>Save</Button>
+            </Form>
         );
     }
 };

@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import axios from "axios";
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import {Button} from 'reactstrap';
+
 
 
 class Note extends React.Component {
@@ -38,11 +40,12 @@ class Note extends React.Component {
     return (
       <Fragment>
         <div>
-          <div>
-            <button>
-            <Link to={`./edit/${this.props.match.params.id}`}>Edit</Link>
-            </button>
-            <button onClick={this.deleteNote}>Delete</button>
+          <div class='single-note'>
+            <Button color='primary'>
+            <NavLink to={`./edit/${this.props.match.params.id}`}>Edit</NavLink>
+            </Button>
+          
+            <Button color='danger' onClick={this.deleteNote}>Delete</Button>
           </div>
           <h1>{this.state.note.title}</h1>
           <p>{this.state.note.textbody}</p>

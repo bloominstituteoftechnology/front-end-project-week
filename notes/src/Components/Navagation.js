@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {Button} from 'reactstrap';
 
 const Navagation = () => {
     return (
@@ -7,14 +8,16 @@ const Navagation = () => {
         <div className='nav-bar'>
             <h1>Lambda Notes</h1>
             <ul >
-                <button>
+                <Button color='secondary'>
                   <NavLink exact to='/'>View Your Notes</NavLink>
-                </button>
-                <button>
+                </Button>
+                <br/> <br/>
+                <Button color='secondary'>
                     <NavLink exact to='/create'>Create New Note</NavLink>
-                </button>
+                </Button>
             </ul>
         </div> 
+        
         
     );
 };
