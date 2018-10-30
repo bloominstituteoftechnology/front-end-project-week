@@ -112,7 +112,7 @@ class App extends React.Component {
           )}
         />
         <Route
-          path="note-form"
+          path="/note-form"
           render={props => (
             <NoteForm
               {...props}
