@@ -44,7 +44,7 @@ export const deleteNote = (id) => {
   return dispatch => {
     dispatch({type: DELETING_NOTE})
     axios
-    .delete(URL+'notes', id )
+    .delete('http://localhost:8000/notes', { data: { id: id }})
     .then(response =>{ dispatch({type: NOTE_DELETED, payload: response.data })
     })
     .catch(error => {
