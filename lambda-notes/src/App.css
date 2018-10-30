@@ -15,14 +15,17 @@
   width:25%;
   height:100vh;
   padding: 0 1%;
-  font-size:40px;
+  font-size:38px;
   text-align:left;
   line-height:60px;
   border:2px solid #BDBDBD;
   position:fixed;
 }
 
+
+
 .sidebar button {
+  width:100%;
   background:#30BEC3;
   color:#ffffff;
   font-size:32px;
