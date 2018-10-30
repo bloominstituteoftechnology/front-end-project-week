@@ -24,9 +24,20 @@ class NoteSingle extends Component {
     this.props.history.push("/")
   }
 
+  cloneNoteToAPI = (note) => {
+    const clonedNote = {
+      title: note.title,
+      text: note.text,
+      tags: note.tags,
+    }
+    axios.post('http://localhost:9000/notes', clonedNote)
+      .then(resp => console.log(resp))
+      .catch(err => console.log(err))
+    this.props.history.push("/")
+  }
+
   render() {
     const note = this.props.notes.filter(note => note.id === Number(this.props.match.params.id))[0]
-
     return (
       <Div1 className="NoteSingle">
         {
@@ -45,9 +56,11 @@ class NoteSingle extends Component {
 
         <Div4>
           <Link1 to={`/notes/${note.id}/edit`} onClick={() => this.props.editNote(Number(note.id))}>
-            edit&nbsp;
+            Edit
           </Link1>
-          <A1 onClick={this.openModal}>delete</A1>
+          <A1 onClick={() => this.cloneNoteToAPI(note)}>Clone</A1>
+          &nbsp;
+          <A1 onClick={this.openModal}>Delete</A1>
         </Div4>
         <H2>{note.title}</H2>
         <P1>{note.text}</P1>
