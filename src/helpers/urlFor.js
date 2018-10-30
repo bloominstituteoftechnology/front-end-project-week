@@ -1,5 +1,5 @@
 const urlFor = (endpoint) => {
- return `https://notes-rails-api.herokuapp.com/${endpoint}`;
+ return `http://localhost:9001/api/${endpoint}`;
 };
 
 export default urlFor;
