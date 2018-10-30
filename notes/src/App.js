@@ -6,6 +6,8 @@ import * as actions from './actions'
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import SingleNote from './components/SingleNote';
+import Nav from './components/Nav';
+
 
 class App extends Component {
   componentDidMount = () => {
@@ -14,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <h1>Lambda Notes</h1>
+      <Nav className='nav-bar'/>
       <Route exact path="/" render={props => (
         <Notes {...props} notes={this.props.notes} fetch={this.props.fetch} fetching={this.props.fetching} />
       )} />
@@ -38,6 +40,7 @@ const mapStateToProps = state => {
     fetchingNote: state.fetchingNotes,
     noteFetched: state.notesFetched,
     note: state.note,
+    updating: state.updating,
   }
 }
 
