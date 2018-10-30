@@ -7,7 +7,6 @@ import Note from './Note';
 import './ListView.css';
 
 const listView = props => {
-    console.log(props)
     return (
         <div className='listView'>
             <h3>Your Notes:</h3>

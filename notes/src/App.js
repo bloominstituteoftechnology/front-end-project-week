@@ -4,6 +4,7 @@ import axios from 'axios';
 //components needed
 import HeadNav from './components/HeadNav/HeadNav';
 import ListView from './components/ListView/ListView';
+import NoteView from './components/NoteView/NoteView';
 
 //page styling
 import './App.css';
@@ -31,7 +32,8 @@ class App extends Component {
       <div className="App">
         <HeadNav />
         <div className='mainView'>
-          <ListView noteList={this.state.noteList}/>
+          {/* <ListView noteList={this.state.noteList}/> */}
+          <NoteView />
         </div>
 
       </div>
