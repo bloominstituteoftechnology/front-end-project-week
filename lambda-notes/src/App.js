@@ -10,6 +10,13 @@ import NoteView from './Components/NoteView';
 import EditForm from './Components/EditForm';
 // import DeleteModal from './Components/DeleteModal';
 
+import { Auth0Lock } from 'auth0-lock';
+
+var lock = new Auth0Lock(
+  process.env.REACT_APP_CLIENT_ID,
+  process.env.REACT_APP_DOMAIN_URL
+);
+
 class App extends Component {
   constructor(props) {
     super(props);
