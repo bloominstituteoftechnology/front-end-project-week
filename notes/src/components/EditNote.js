@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Button from './sidebar/Button'
 
 class EditNote extends React.Component{
 
@@ -43,10 +42,11 @@ class EditNote extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="edit-note">
                 <form onSubmit={this.editNote}>
 
-                    <input 
+                    <input
+                    className="title-input" 
                     onChange={this.onChangeHandler}
                     name="title"
                     type="text" 
@@ -54,6 +54,7 @@ class EditNote extends React.Component{
                     />
 
                     <input 
+                    className="text-body-input"
                     onChange={this.onChangeHandler}
                     name="textBody"
                     type="text" 

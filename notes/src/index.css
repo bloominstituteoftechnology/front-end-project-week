@@ -65,12 +65,12 @@ code {
   height:500px;
   margin-bottom:20px;
 }
-.create-new form .form-save{
+.form-save{
   background : #24B8BD;
   width:20%;
   height: 50px;
   cursor:pointer;
-}.create-new form .form-save:hover{
+}.form-save:hover{
   background:lightblue;
   transition : 0.15s ease-in-out;
 }
@@ -91,4 +91,26 @@ code {
   display:flex;
   flex-direction: column;
   align-items: flex-start;
+}
+/* Edit Note Styling */
+.edit-note{
+  height : 100vh;
+  width:70%;
+}
+.edit-note form{
+  display : flex;
+  flex-direction: column;
+}
+.edit-note form input{
+  border-radius:5px;
+}
+.edit-note .title-input{
+  width:30%;
+  height:50px;
+  margin-bottom: 20px;
+}
+.edit-note .text-body-input{
+  width:90%;
+  height:500px;
+  margin-bottom:20px;
 }
