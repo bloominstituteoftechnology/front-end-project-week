@@ -19,6 +19,15 @@ class SingleNote extends Component {
       })
     );
   }
+  componentWillReceiveProps() {
+    const id = localStorage.getItem("noteID");
+    console.log(id);
+    axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`).then(res =>
+      this.setState({
+        note: res.data
+      })
+    );
+  }
 
   handleDeleteNote = () => {
     axios
@@ -29,6 +38,7 @@ class SingleNote extends Component {
       )
       .then(this.props.handleDeleteNote, this.props.history.push("/"));
   };
+
   render() {
     return (
       <React.Fragment>

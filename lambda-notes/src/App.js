@@ -5,7 +5,6 @@ import { Route } from "react-router-dom";
 import axios from "axios";
 import Notes from "./components/Notes";
 import SideBar from "./components/SideBar";
-import Note from "./components//Note";
 import NoteForm from "./components/NoteForm";
 import SingleNote from "./components/SingleNote";
 import EditNote from "./components/EditNote";
@@ -74,6 +73,7 @@ class App extends Component {
               {...props}
               singleNoteId={this.state.singleNoteId}
               handleDeleteNote={this.handleDeleteNote}
+              handleEditNote={this.handleEditNote}
             />
           )}
         />
