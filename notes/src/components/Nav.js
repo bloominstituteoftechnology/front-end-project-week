@@ -5,7 +5,9 @@ import { NavLink } from 'react-router-dom';
 const Nav = () => {
   return (
     <NavBar>
-      <NavTitle>Lambda Notes</NavTitle>
+      <NavTitle>
+        Lambda <Span>Notes</Span>
+      </NavTitle>
       <StyledNavLink exact to="/" activeClassName="activeNavButton">
         View Your Notes
       </StyledNavLink>
@@ -45,4 +47,8 @@ const NavTitle = styled.h1`
   font-size: 2.2rem;
   margin: 10px 0;
   font-weight: 600;
+`;
+
+const Span = styled.span`
+  color: #b92626;
 `;

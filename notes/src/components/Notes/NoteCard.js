@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const NoteCard = (props) => {
   // console.log(props);
   return (
-    <Card to={`/note/${props.note._id}`}>
+    <Card to={`/note/${props.note.id}`}>
       <Title>{props.note.title}</Title>
       <Text>{props.note.textBody}</Text>
     </Card>

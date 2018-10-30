@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NoteForm = (props) => {
-  console.log('note form', props.form);
+  // console.log('note form', props.form);
   return (
     <Form onSubmit={props.handleSubmit}>
       <Title>{props.editForm ? 'Edit Note:' : 'Create New Note:'}</Title>

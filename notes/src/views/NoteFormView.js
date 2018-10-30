@@ -19,7 +19,7 @@ class AddNoteView extends Component {
     if (this.props.editForm) {
       // console.log('editForm', this.props.notes);
       const note = this.props.notes.find(
-        (note) => note._id === this.props.match.params.noteId
+        (note) => note.id.toString() === this.props.match.params.noteId
       );
       if (note) {
         // console.log(note);
@@ -63,8 +63,8 @@ class AddNoteView extends Component {
 
   handleEdit = () => {
     console.log('handleEdit', this.state.note);
-    this.props.editData(this.state.form, this.state.note._id);
-    this.props.history.push(`/note/${this.state.note._id}`);
+    this.props.editData(this.state.form, this.state.note.id);
+    this.props.history.push(`/note/${this.state.note.id}`);
   };
 
   handleSubmit = (event) => {
@@ -72,7 +72,7 @@ class AddNoteView extends Component {
 
     if (this.props.editForm) {
       console.log('edit form submit test', this.state.note);
-      this.handleEdit(this.state.note._id);
+      this.handleEdit(this.state.note.id);
     } else {
       this.handleAddData(event);
     }

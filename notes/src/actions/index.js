@@ -22,7 +22,7 @@ export const LOG_IN = 'LOG_IN';
 
 export const fetchData = () => (dispatch) => {
   dispatch({ type: FETCHING_DATA });
-  const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
+  const promise = axios.get('http://localhost:8000/api/notes');
 
   promise
     .then((response) => {
@@ -35,16 +35,13 @@ export const fetchData = () => (dispatch) => {
 
 export const addData = (newData) => (dispatch) => {
   dispatch({ type: ADDING_DATA });
-  const promise = axios.post(
-    'https://killer-notes.herokuapp.com/note/create',
-    newData
-  );
+  const promise = axios.post('http://localhost:8000/api/notes', newData);
 
   promise
     .then((response) => {
       dispatch({ type: ADDED_DATA });
       return axios
-        .get('https://killer-notes.herokuapp.com/note/get/all')
+        .get('http://localhost:8000/api/notes')
         .then((response) => {
           dispatch({ type: FETCHED_DATA, payload: response.data });
         })
@@ -59,14 +56,12 @@ export const addData = (newData) => (dispatch) => {
 
 export const deleteData = (id) => (dispatch) => {
   dispatch({ type: DELETING_DATA });
-  const promise = axios.delete(
-    `https://killer-notes.herokuapp.com/note/delete/${id}`
-  );
+  const promise = axios.delete(`http://localhost:8000/api/notes/${id}`);
   promise
     .then((response) => {
       dispatch({ type: DELETED_DATA });
       return axios
-        .get('https://killer-notes.herokuapp.com/note/get/all')
+        .get('http://localhost:8000/api/notes')
         .then((response) => {
           dispatch({ type: FETCHED_DATA, payload: response.data });
         })
@@ -81,15 +76,12 @@ export const deleteData = (id) => (dispatch) => {
 
 export const editData = (note, id) => (dispatch) => {
   dispatch({ type: EDITING_DATA });
-  const promise = axios.put(
-    `https://killer-notes.herokuapp.com/note/edit/${id}`,
-    note
-  );
+  const promise = axios.put(`http://localhost:8000/api/notes/${id}`, note);
   promise
     .then((response) => {
       dispatch({ type: EDITED_DATA });
       return axios
-        .get('https://killer-notes.herokuapp.com/note/get/all')
+        .get('http://localhost:8000/api/notes')
         .then((response) => {
           dispatch({ type: FETCHED_DATA, payload: response.data });
         })

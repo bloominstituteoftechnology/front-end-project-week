@@ -24,7 +24,7 @@ class SingleNoteView extends Component {
   };
 
   render() {
-    // console.log('SingleNoteView', this.state.isModalVisible);
+    console.log('SingleNoteView', this.props.notes);
     return (
       <SingleNote
         {...this.props}

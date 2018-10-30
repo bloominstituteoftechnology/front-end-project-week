@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import './styles/App.css';
 import Nav from './components/Nav';
 import Routes from './components/Routes';
-import Authenticate from './components/authenticate/Authenticate';
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +25,7 @@ class App extends Component {
   }
 }
 
-export default withRouter(Authenticate(withRouter(App)));
+export default withRouter(withRouter(App));
 
 const Container = styled.div`
   display: flex;

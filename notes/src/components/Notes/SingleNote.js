@@ -5,19 +5,18 @@ import { Link } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
 
 const SingleNote = (props) => {
-  // console.log(props);
   const note = props.notes.find(
-    (note) => note._id === props.match.params.noteId
+    (note) => note.id.toString() === props.match.params.noteId
   );
-  // console.log(note);
+  // console.log('single note', note);
 
   if (!note) return <div />;
-  console.log('SingleNote', props.isModalVisible);
+  // console.log('SingleNote', props.notes);
   return (
     <Container>
       <Title>{note.title}</Title>
       <Content>{note.textBody}</Content>
-      <EditLink to={`/note/${note._id}/edit`}>edit</EditLink>
+      <EditLink to={`/note/${note.id}/edit`}>edit</EditLink>
       <DeleteButton onClick={props.handleModalVisible}>delete</DeleteButton>
       <DeleteModal {...props} note={note} />
     </Container>

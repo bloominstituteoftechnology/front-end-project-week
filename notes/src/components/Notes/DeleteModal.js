@@ -6,7 +6,7 @@ const DeleteModal = (props) => {
 
   const handleDelete = () => {
     console.log('handleDelete');
-    props.deleteData(props.note._id);
+    props.deleteData(props.note.id);
     props.history.push('/');
   };
 

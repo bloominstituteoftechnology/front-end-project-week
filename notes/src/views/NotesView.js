@@ -37,23 +37,26 @@ class NotesView extends Component {
       return <Title>Loading notes...</Title>;
     }
     return (
-      <Container>
-        <Search
-          handleInput={this.handleInput}
-          handleSearch={this.handleSearch}
-          {...this.state}
-        />
-        <Title> Your Notes:</Title>
-        <List>
-          {this.props.notes.length === 0 ? (
-            <Title>No notes to see! Go add some!</Title>
-          ) : (
-            this.props.notes.map((note) => {
-              return <NoteCard note={note} key={note._id} />;
-            })
-          )}
-        </List>
-      </Container>
+      console.log(this.props.notes),
+      (
+        <Container>
+          <Search
+            handleInput={this.handleInput}
+            handleSearch={this.handleSearch}
+            {...this.state}
+          />
+          <Title> Your Notes:</Title>
+          <List>
+            {this.props.notes.length === 0 ? (
+              <Title>No notes to see! Go add some!</Title>
+            ) : (
+              this.props.notes.map((note) => {
+                return <NoteCard note={note} key={note.id} />;
+              })
+            )}
+          </List>
+        </Container>
+      )
     );
   }
 }
