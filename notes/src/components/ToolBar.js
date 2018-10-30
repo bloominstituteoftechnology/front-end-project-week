@@ -69,20 +69,20 @@ const Section = styled(NavLink)`
             content: 'Reminders'
         }
     `}
-    ${props => props.editlables && css`
+    ${props => props.tags && css`
         span.icon {
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.41 4.94l-1.35-1.35c-.78-.78-2.05-.78-2.83 0L13.4 6.41 3 16.82V21h4.18l10.46-10.46 2.77-2.77c.79-.78.79-2.05 0-2.83zm-14 14.12L5 19v-1.36l9.82-9.82 1.41 1.41-9.82 9.83z"></path></svg>')
         }
         span.title:after {
-            content: 'Edit lables'
+            content: 'Edit tags'
         }
     `}
-    ${props => props.archives && css`
+    ${props => props.csv && css`
         span.icon {
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.42l.82-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.59L16 13.5z"></path></svg>')
         }
         span.title:after {
-            content: 'Archive'
+            content: 'Export CSV'
         }
     `}
     ${props => props.trash && css`
@@ -114,7 +114,7 @@ const ToolBarLabel = styled.div`
     color: #5f6368;
     letter-spacing: 0.8px;
     &::after {
-        content: 'LABELS';
+        content: 'TAGS';
     }
 `;
 
@@ -131,12 +131,12 @@ const ToolBar = () => {
             </Section>
             <Seperator />
             <ToolBarLabel />
-            <Section to='/editLables' editlables="true">
+            <Section to='/tags' tags="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
             <Seperator />
-            <Section to='/archives' archives="true">
+            <Section to='/csv' csv="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>

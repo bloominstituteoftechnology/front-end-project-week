@@ -52,7 +52,6 @@ class App extends Component {
         <NoteContainer>
           <Route 
             path='/'
-            exact
             render={props => 
               <NoteForm
                 {...props}
@@ -63,7 +62,6 @@ class App extends Component {
 
           <Route 
             path='/'
-            exact
             render={props =>
               <NoteList 
                 {...props}

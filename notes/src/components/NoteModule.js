@@ -23,11 +23,8 @@ const NoteModule = ({
         getNote(id);
         setGotNote(true);
     });
-
-    if(note.title === undefined) return (<h2>Loading Note</h2>)
     return (
         <NoteModuleContainer>
-
             <NoteModuleForm onSubmit={e => {
                 updateNote(note);
                 history.push('/');
@@ -44,7 +41,7 @@ const NoteModule = ({
                     value={note.title}
                     onChange={activeNoteHandler}
                 />
-                <input 
+                <textarea
                     className="body" 
                     type="text" 
                     name="textBody"
@@ -96,7 +93,7 @@ const NoteModuleForm = styled.form`
     margin: 132px auto 16px auto;
     position: relative;
     background-color: white;
-    input {
+    input, textarea {
         border: none;
         height: 46px;
         padding: 12px 16px;
@@ -109,6 +106,11 @@ const NoteModuleForm = styled.form`
         ::placeholder {
             color: #202124;
         }
+    }
+    textarea {
+        resize: none;
+        overflow: visible;
+        height: 125px;
     }
     .title {
         font-size: 15px;

@@ -10,7 +10,7 @@ const NoteListContainer = styled.div`
 `;
 
 const NoteList = ({ notes, noteClicked, history}) => {
-    if (!notes.length) return <h2>Loading Notes ...</h2>;
+    // if (!notes.length) return <h2>Loading Notes ...</h2>;
     return (
         <NoteListContainer>
             {notes.map(note => 
