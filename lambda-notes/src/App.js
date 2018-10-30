@@ -45,13 +45,8 @@ class App extends Component {
 
   addNewNotes = addedNote => {
     console.log(addedNote)
-    const addedNotes = this.state.notes.map(note => {
-      if (note._id === addedNote._id) {
-        return addedNote
-      }
-      return note;
-    });
-    this.setState({ notes: addedNotes });
+    let newNotesList = [...this.state.notes, addedNote]
+    this.setState({ notes: newNotesList });
   };
 
   render() {
