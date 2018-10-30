@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import NoteContainer from '../../Views/NoteContainer'
+import NoteContainer from '../../Views/NoteContainer';
+import { Link } from 'react-router-dom';
+
 
 const WrapperDiv = styled.div`
     margin-top:10px;
@@ -19,7 +21,7 @@ const NoteSection = styled.div`
     background-color: #F2F1F2;
 `
 const SectionWrapper = styled.div`
-    margin-top:50px;
+    margin-top:62px;
     padding-left:20px;
     padding-right:20px;
 `
@@ -28,12 +30,25 @@ const NotesTitle = styled.div`
     font-size:2rem;
     font-weight:bold;
 `
+const NavButton = styled.div`
+    background-color:#2FB8BC;
+    width:150px;
+    height:35px;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+`
+
 
 const ListViewBody = props =>{
     return(
         <WrapperDiv>
             <NavSection>
-                &nbsp;
+                <p>Lambda Notes</p>
+                <Link to="/AddNote"><NavButton>
+                    <p>+ Create New Note</p>
+                </NavButton></Link>
             </NavSection>
             <NoteSection>
                 <SectionWrapper>

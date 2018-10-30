@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
-import ListViewSection from './Components/ListView/ListViewSection'
+import ListViewSection from './Components/ListView/ListViewSection';
+import AddNewNoteContainer from './Views/AddNewNoteContainer';
 import styled from 'styled-components';
 
 
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <WrapperDiv>
         <Route exact path ='/' component={ListViewSection}></Route>
+        <Route exact path ='/AddNote' component={AddNewNoteContainer}></Route>
       </WrapperDiv>
     );
   }

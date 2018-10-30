@@ -8,12 +8,19 @@ const Loading = styled.h1`
     font-size:4rem;
 `
 
+const WrapperDiv = styled.div`
+    border:1px solid red;
+    display:flex;
+    flex-wrap:wrap;
+`
+
 
 class NoteContainer extends React.Component{
     constructor(){
         super();
     }
     componentDidMount(){
+        console.log("calling cdm")
         this.props.fetchNotes();
     }
     render(){
@@ -23,19 +30,20 @@ class NoteContainer extends React.Component{
         } else 
         {
             return (
-                <div>
+                <WrapperDiv>
                     {
                         this.props.noteList.map(el =>{
                             return <Note key={el._id} data={el}></Note>
                         })
                     }
-                </div>
+                </WrapperDiv>
             )
         }        
     }
 }
 
 const mapStateToProps = state => {
+    console.log('what was on state???',state)
     return {
         isFetching: state.isFetching,
         noteList: state.notes,
