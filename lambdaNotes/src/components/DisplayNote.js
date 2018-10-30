@@ -2,10 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
  const DisplayNote = props => {
- console.log("DisplayNote Props : ", props.match.params.id);
+ 
  
  let note = '';
-let noteId = '';
+
+ console.log("Display Note, props.notes = ", props.notes)
 
   if (props.match.params.id) {
     note = props.notes.filter(
@@ -30,7 +31,7 @@ console.log(note);
   return (
    
     <div className="displayNote">
-     <nav>
+     <nav className="displayNoteNav">
          <NavLink to={`/Notes/edit/${props.match.params.id}`}> Edit  </NavLink>
         <NavLink to={`/Notes/${props.match.params.id}/delete`}> Delete </NavLink>
      

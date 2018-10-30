@@ -19,6 +19,7 @@ class App extends Component {
     };
 
     this.submitAdd = this.submitAdd.bind(this);
+    this.submitEdit = this.submitEdit.bind(this);
     }
     
 
@@ -30,8 +31,12 @@ class App extends Component {
       submitAdd = (note) =>{
 
       }
-      submitEdit = (note) => {
-        console.log("submit Edit function in App")
+      submitEdit = (editedNote) => {
+   
+        let newNoteList = this.state.notes.filter( note => note._id !== editedNote._id);
+ 
+        this.setState({notes : [...newNoteList, editedNote]});
+   
       }
 
   render() {

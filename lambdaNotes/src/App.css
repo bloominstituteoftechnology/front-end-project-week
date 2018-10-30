@@ -203,3 +203,18 @@ width: 100vw;
   padding : 20px 20px;
   margin : 0 10px;
 }
+
+.displayNote *{
+text-align: left;
+margin-bottom : 20px;
+}
+
+
+.displayNoteNav{
+  text-align : right;
+}
+
+.displayNoteNav *{
+  padding-right : 20px;
+
+}

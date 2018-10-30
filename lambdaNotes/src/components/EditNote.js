@@ -10,23 +10,30 @@ import React, { Component } from "react";
     tags:{},
     _id:'',
     };
-  
-   
-    }
+    this.note = {};
 
-    componentDidMount(){
+    this.submitEdit = this.submitEdit.bind(this);
+  }
+
+ 
+ 
+  
+  componentDidMount(){
+    console.log("EditNote begin props = ", this.props);
   if(this.props.match.params.id) {
-   let note = this.props.notes.filter(
+   this.note = this.props.notes.filter(
       item => item._id === this.props.match.params.id
     );
+    this.note = this.note[0];
+    console.log("EditNote begin this.note = ", this.note);
    this.setState({
-     title : note.title,
-     textBody : note.textBody, 
-     tags : note.tags,
-      _id : note._id
+     title :  this.note.title,
+     textBody :  this.note.textBody, 
+     tags :  this.note.tags,
+      _id :  this.note._id
    })
+   console.log("EDIT NOTE this.state.title = ",this.state.title);
 
-   console.log("EDIT NOTE",this.state.title);
   } else {
     alert("wrong note ID");
     this.props.history.push('/');
@@ -34,7 +41,7 @@ import React, { Component } from "react";
     }
 
 submitEdit = () =>{
-  this.props.submitEdit({...this.state});
+  this.props.submitEdit(this.state);
  this.props.history.push(`/Notes/${this.state._id}`);
 }
 
