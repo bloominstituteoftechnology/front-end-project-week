@@ -13,8 +13,9 @@ const StyledHeader = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 5;
     background: white;
+    background-color: white;
     border: none;
     border-bottom: 1px solid rgb(218, 220, 224);
 `;

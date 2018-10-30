@@ -65,7 +65,7 @@ import {
         return {
           ...state, 
           addingNote: false,
-          notes: action.payload
+          notes: [...state.notes, action.payload]
         }
   
       case UPDATE_NOTE : return {...state, updatingNote: true}

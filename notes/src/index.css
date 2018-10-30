@@ -23,27 +23,7 @@ code {
   width: 100%;
   position: relative;
 }
-.note-actions {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 2;
-  height: 100%;
-  width: 200px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
 
-.note-actions svg {
-  opacity: .54;
-  height: 100%;
-  margin-right: 25px;
-}
-
-.note-actions svg:hover {
-  opacity: 1;
-}
 
 .app-container {
   width: 100%;

@@ -36,9 +36,9 @@ class App extends Component {
 
   }
 
-  formSubmited = (title, body, history) => {
-    if (!title.length || !body.length) return;
-    const note = {title, body};
+  formSubmited = (title, textBody, history) => {
+    if (!title.length || !textBody.length) return;
+    const note = {title, textBody};
     this.props.addNote(note);
     history.push('/');
   }
