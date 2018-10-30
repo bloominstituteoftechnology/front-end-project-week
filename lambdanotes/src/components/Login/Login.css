@@ -1,0 +1,328 @@
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans';
+.loginPage {
+    height: 100vh;
+    font-family: "Noto Sans", sans-serif;
+    background-image: url("./ceruza.jpg");
+    background-size: cover;
+}
+
+.Modal a {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 0 10px 0;
+    margin: 10px;
+}
+
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #740078;
+    background-size: cover;
+    border-radius: 5px;
+    background-image: url("./ceruza.jpg");
+    background: no-repeat center fixed;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.6);
+    transition: 1.6s;
+}
+
+.Modal:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(40, 75, 99, 0.8);
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.signIn{
+    position: relative;
+    margin: 15px 0 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #58a4b0;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    width: 85%;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.social-signin {
+    position: relative;
+    width: 85%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 30px white;
+    margin: 5px 0 5px 0;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.i {
+    font-size: 20px;
+    color: white;
+}
+
+.social-signin button.fb {
+    background: #3A5A98;
+   
+}
+
+.fb {
+   text-rendering: auto;
+    align-items: flex-start;
+    width: 85%;
+    height: 30px;
+}
+
+.button {
+    align-items: flex-start;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    width: 85px;
+    height: 40px;
+    text-align: start;
+    margin: 5px;
+    font: 400 13.3333px Arial;
+    border-radius: 5px;
+}
+
+.tw {
+    background: #55ACEE;
+    align-items: flex-start;
+    width: 85%;
+    height: 30px;
+}
+
+div {
+    display: block;
+}
+
+.bringitback {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    background: #58a4b0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    width: 200px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.logo {
+    text-align: center;
+    color: white;
+}
+
+.logo i {
+    display: block;
+    padding: 5px 0 0 0;
+    font-size: 45px;
+    transform: translateX(-5px);
+}
+
+.logo {
+    color: white;
+    text-transform: uppercase;
+    font-size: 25px;
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px 0 0 0;
+}
+
+div {
+    display: block;
+}
+
+a {
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 0 10px 0;
+    margin: 10px
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+label::before {
+    padding: 5px 5px 0 0;
+    opacity: 0.5;
+}
+
+label {
+    cursor: default;
+}
+
+label {
+    font-family: FontAwesome;
+    color: white;
+    font-size: 14px;
+    margin-top: 17px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+label {
+    cursor: default;
+}
+
+.Input {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    border-bottom: 1px solid #58a4b0;
+    margin: 0 20px;
+}
+
+.Input input:required {
+    box-shadow: none;
+}
+
+.Input input {
+    border: 0;
+    background: transparent;
+    padding: 2px 10px;
+    margin: 18px 4px 0 4px;
+    font-size: 14px;
+    font-family: "Noto Sans", sans-serif;
+    color: rgba(255, 255, 255, .7);
+    box-shadow: none;
+}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+}
+
+/* $darkblue: rgba(40, 75, 99, 0.8) $fadedwhite: rgba(255, 255, 255, .7) $accentcolor: #58a4b0 $fbcolor: #3A5A98 $twcolor: #55ACEE .modal { */
+
+/* } */
+
+/* 
+/* 
+/* .login-form {
+    width: 500px;
+    background: lightblue;
+    border-radius: 10px;
+    margin: 100px auto;
+    padding: 10px 25px;
+    border: 1px solid black;
+    box-shadow: 8 8px 8px 8 rgba(1, 1,1, 1);
+    transition: 1.6s;
+}
+
+.login-form:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.note:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.login-logo {
+    max-height: 50px;
+    margin-bottom: 10px;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 32px;
+}
+
+.login-wrapper form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 55px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 2 4px 8px 2 rgba(0, 0, 0, 0.6);
+    transition: 1.6s;
+}
+
+
+.login-form input {
+    width: 220px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 0 15px;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button p {
+    width: 150px;
+    height: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5% 15px 1px;
+    text-align: center;
+    padding: 5%;
+    border: solid #740078 .5px;
+    background-color: pink;
+    justify-content: center;
+    box-shadow: 2 4px 8px 2 rgba(0, 0, 0, 0.6);
+    transition: 1.6s;
+}
+
+button a:hover {
+    background-color: #740078;
+    cursor: pointer;
+}
+
+button {
+    width: 100px;
+    height: 25px;
+    margin: 5px;
+    padding: 15px;
+    font-size: 14px;
+    background-color: rgb(156, 30, 156);
+}
+
+button a:hover {
+    background-color: 2c6666;
+    cursor: pointer;
+} */

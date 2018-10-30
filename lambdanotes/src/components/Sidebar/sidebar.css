@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.sidebar-container {
+    background: yellow;
+    width: 20%;
+    height: 100%;
+    border-right: 1px #979797 solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    position: fixed;
+}
+
+.section-container {
+    background-image: url("../Login/ceruza.jpg");
+    background-size: cover;
+}
+
+.sideBar .title h1 {
+    color: #424343;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 6%;
+    margin-bottom: 20px;
+}
+
+.title h1 {
+    margin: unset;
+    font-family: 'Roboto', sans-serif;
+    line-height: 0.90;
+}
+
+.sidebar-button a:hover {
+    background-color: 2c6666;
+    cursor: pointer;
+}
+
+.sidebar-button {
+    font-family: 'Raleway', sans-serif;
+    background: #2BC1C4;
+    color: #FFFFFF;
+    border: unset;
+    border: solid #740078 0.5px;
+    width: 80%;
+    height: 30px;
+    margin: 0 7.5% 15px;
+    padding: 8px;
+    justify-content: center;
+}
+
+.sideBar {
+    background: rgb(240, 193, 236)
+}
