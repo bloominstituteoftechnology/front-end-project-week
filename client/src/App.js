@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
 import NotesList from "./components/NotesList";
@@ -8,6 +8,8 @@ import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
 import Sidebar from "./components/Sidebar";
 import NoteView from "./components/NoteView";
+import SidebarHeader from "./components/SidebarHeader";
+import ListHeader from "./components/ListHeader";
 
 class App extends Component {
   constructor(props) {
@@ -34,30 +36,38 @@ class App extends Component {
     return (
       <div className="App">
         <div className="home-view">
-          <Sidebar />
-          <Route
-            exact
-            path="/"
-            render={props => <NotesList {...props} notes={this.state.notes} />}
-          />
-        </div>
-        <Route
-          exact
-          path="/create"
-          render={props => <NoteForm {...props} notes={this.state.notes} />}
-        />
+          <div>
+            <Sidebar />
+          </div>
 
-        <Route
-          exact
-          path="/:id"
-          render={props => (
-            <NoteView
-              {...props}
-              items={this.state.items}
-              notes={this.state.notes}
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <NotesList {...props} notes={this.state.notes} />
+              )}
             />
-          )}
-        />
+
+            <Route
+              exact
+              path="/create"
+              render={props => <NoteForm {...props} notes={this.state.notes} />}
+            />
+
+            <Route
+              exact
+              path="/:id"
+              render={props => (
+                <NoteView
+                  {...props}
+                  items={this.state.items}
+                  notes={this.state.notes}
+                />
+              )}
+            />
+          </Switch>
+        </div>
       </div>
     );
   }

@@ -6,33 +6,136 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
+.home-view a {
+  text-decoration: none;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .home-view {
+  display: grid;
+  grid-template-columns: 25% 75%;
+
+  text-align: left;
+}
+
+.sidebar-header {
+  font-size: 3rem;
+  padding-left: 1rem;
   display: flex;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  background: darkgray;
+  height: 8rem;
+}
+.list-header {
+  font-size: 2.5rem;
+  padding-left: 2.5rem;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  background: lightgray;
+
+  height: 8rem;
+}
+.sidebar {
+  width: 100%;
+  min-height: 1200px;
+  height: 100%;
+  background: darkgray;
+}
+.note-view {
+  background: rgb(253, 250, 245);
+  display: flex;
+  flex-direction: column;
+}
+.note-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.75rem;
+}
+.note-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.note-header {
+  font-size: 2.5rem;
+  padding-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  background: rgb(253, 250, 245);
+  order: 1;
+  height: 8rem;
+  justify-content: space-between;
+}
+.note-body {
+  order: 2;
+}
+.note-body p {
+  margin: 0 0 0 2.5rem;
+  padding: 0;
 }
 .list {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  margin: 0 auto;
+  background: lightgray;
 }
 
 .Note {
-  width: 10rem;
+  width: 12rem;
+  height: 12rem;
   text-overflow: ellipsis;
-  height: 15rem;
+  text-align: center;
   border: 1px solid black;
-  margin: 1rem;
+  background: rgb(253, 250, 245);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.Note p {
+  width: 80%;
+  margin: 0.5rem auto;
+  color: black;
+  text-overflow: ellipsis;
   overflow: hidden;
 }
+.title {
+  color: black;
+  border-bottom: 1px solid black;
+  width: 80%;
+  display: flex;
 
+  justify-content: left;
+  margin: 0 auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 25%;
+}
 .sidebar-button {
-  padding: 1rem;
-  width: 10rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  width: 80%;
+  padding: 0.5rem;
   border: 1px solid black;
+  margin: 0 auto;
+  background: teal;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem 0.3rem;
+}
+
+.NotesList h1 {
+  margin-left: 2.5rem;
+  display: grid;
+  grid-template-rows: 5rem;
 }

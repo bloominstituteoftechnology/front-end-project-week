@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Sidebar from "./Sidebar";
 
 class NoteView extends Component {
   constructor(props) {
@@ -57,8 +58,16 @@ class NoteView extends Component {
     } else {
       return (
         <div className="note-view">
-          <h1>{this.state.title}</h1>
-          <p>{this.state.textBody}</p>
+          <div className="note-header">
+            <div className="note-buttons">
+              <button className="edit-button">edit</button>
+              <button className="delete-button">delete</button>
+            </div>
+            <div className="note-title">{this.state.title}</div>
+          </div>
+          <div className="note-body">
+            <p>{this.state.textBody}</p>
+          </div>
         </div>
       );
     }
