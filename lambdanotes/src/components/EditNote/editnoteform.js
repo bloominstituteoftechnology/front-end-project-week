@@ -57,32 +57,22 @@ class EditNoteForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   componentDidMount() {
-    localStorage.setItem("location", this.props.location.pathname);
-    if (this.props.note.title && this.props.note.textBody) {
+    console.log(this.props)
+    if (this.props.note.title && this.props.note.content) {
       this.setState(
         {
           title: this.props.note.title,
-          content: this.props.note.textBody,
-          id: this.props.note._id,
+          content: this.props.note.content,
+          id: this.props.note.id,
           tags: this.props.note.tags.toString().replace(/,/g, " ")
-        },
-        () => localStorage.setItem("note", JSON.stringify(this.props.note))
+        }
       );
-    } else {
-      const note = JSON.parse(localStorage.getItem("note"));
-     
-      this.setState({
-        title: note.title,
-        content: note.textBody,
-        id: note._id,
-        tags: note.tags.toString().replace(/,/g, " ")
-      });
     }
   }
   editNoteObj = () => {
     const editedNote = {
       title: this.state.title,
-      textBody: this.state.content,
+      content: this.state.content,
       tags: this.state.tags.split(" "),
       id: this.state.id
     };

@@ -22,10 +22,10 @@ class NoteList extends Component {
                 </h1>
               </div>}
           {this.props.searching && this.props.searchList.map(note => (
-            <Note key={note._id} note={note} />
+            <Note key={note.id} note={note} />
           ))}
           {!this.props.searching && this.props.notes.map(note => (
-            <Note key={note._id} note={note} />
+            <Note key={note.id} note={note} />
           ))}
           </div>
         </div>

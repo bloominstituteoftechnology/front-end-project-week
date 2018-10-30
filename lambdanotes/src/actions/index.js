@@ -12,16 +12,16 @@ export const FETCHED = "FETCHED";
 export const FETCHING = "FETCHING";
 export const SINGLE_FETCHED = "SINGLE_FETCHED";
 export const FETCHING_SINGLE = "FETCHING_SINGLE";
-export const SEARCH ="SEARCH";
+export const SEARCH = "SEARCH";
 export const SORT_CHARACTERS = "SORT_CHARACTERS";
 export const SORT_CONTENT = "SORT_CONTENT";
 export const NO_SORT = "NO_SORT";
 export const fetchNotes = () => {
-  const noteData = axios.get("https://killer-notes.herokuapp.com/note/get/all");
+  const noteData = axios.get(`http://localhost:5500/api/notes`);
   return function(dispatch) {
     noteData
       .then(({ data }) => {
-        dispatch({ type: FETCHED, payload: data });
+        dispatch({ type: FETCHED, payload: data.notes });
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
@@ -29,10 +29,7 @@ export const fetchNotes = () => {
   };
 };
 export const addNote = newNote => {
-  const noteData = axios.post(
-    "https://killer-notes.herokuapp.com/note/create",
-    newNote
-  );
+  const noteData = axios.post(`http://localhost:5500/api/notes/`, newNote);
   return function(dispatch) {
     dispatch({ type: ADDING_NOTE });
     noteData
@@ -49,9 +46,7 @@ export const addNote = newNote => {
 };
 
 export const fetchSingleNote = id => {
-  const noteData = axios.get(
-    `https://killer-notes.herokuapp.com/note/get/${id}`
-  );
+  const noteData = axios.get(`http://localhost:5500/api/notes/${id}`);
   return function(dispatch) {
     dispatch({ type: FETCHING_SINGLE });
     noteData
@@ -66,9 +61,11 @@ export const fetchSingleNote = id => {
 
 export const updateNote = (noteID, updatedNote) => {
   const noteData = axios.put(
-    `https://killer-notes.herokuapp.com/note/edit/${noteID}`,
+    `http://localhost:5500/api/notes/edit/${noteID}`,
     updatedNote
   );
+
+  //`https://killer-notes.herokuapp.com/note/edit/${noteID}`
   return function(dispatch) {
     dispatch({ type: UPDATING_NOTE });
 
@@ -83,9 +80,7 @@ export const updateNote = (noteID, updatedNote) => {
   };
 };
 export const deleteNote = id => {
-  const noteData = axios.delete(
-    `https://killer-notes.herokuapp.com/note/delete/${id}`
-  );
+  const noteData = axios.delete(`http://localhost:5500/api/notes/${id}`);
   return function(dispatch) {
     dispatch({ type: DELETING });
     noteData
@@ -99,19 +94,16 @@ export const deleteNote = id => {
 };
 export const search = sString => {
   return dispatch => {
-    dispatch({ type: SEARCH, sString })
-  }
-}
+    dispatch({ type: SEARCH, sString });
+  };
+};
 export const sort = sortType => {
-  console.log('CALLED')
-  console.log(sortType)
+  console.log("CALLED");
+  console.log(sortType);
   return dispatch => {
-    console.log('IN DISPATCH')
-    if (sortType === 'CHARACTERS')
-      dispatch({ type: SORT_CHARACTERS })
-    else if (sortType === 'CONTENT')
-      dispatch({ type: SORT_CONTENT })
-    else
-      dispatch({ type: NO_SORT })
-  }
-}
+    console.log("IN DISPATCH");
+    if (sortType === "CHARACTERS") dispatch({ type: SORT_CHARACTERS });
+    else if (sortType === "CONTENT") dispatch({ type: SORT_CONTENT });
+    else dispatch({ type: NO_SORT });
+  };
+};

@@ -16,13 +16,17 @@ class NoteCard extends React.Component {
   };
   componentDidMount() {
     const id = this.props.match.params.id;
-    const newNote = this.props.notes.filter(note => {
-      return note._id === id;
-    });
-    this.setState({ id: id });
-    this.setState({ note: newNote[0] });
     this.props.fetchSingleNote(id);
+    this.setState({ id: id });
   }
+
+  componentWillReceiveProps(props) {
+    if (props.note && props.note.note && props.note.note[0]) this.setState({
+        note: props.note.note[0]
+    });
+    return true
+  }
+
   showDeleteHandler() {
     this.setState({ deleteFormShow: !this.state.deleteFormShow });
   }
@@ -36,8 +40,7 @@ class NoteCard extends React.Component {
     const idFinder = newNotes.indexOf(newNotes.find(isIndex));
     newNotes.splice(idFinder, 1);
 
-    console.log(this.props.note);
-    this.props.deleteNote(this.props.note._id);
+    this.props.deleteNote(this.props.note.id);
     this.forceUpdate();
   }
   render() {
@@ -79,8 +82,8 @@ class NoteCard extends React.Component {
           </div>
           <div className="note-container">
           <div className="note">
-          <h1 className="notes-title card">{this.props.note.title}</h1>
-          <a className="single-notes-content">{this.props.note.textBody}</a>
+          <h1 className="notes-title card">{this.state.note.title}</h1>
+          <a className="single-notes-content">{this.state.note.content}</a>
           </div>
           </div>
         </div>
@@ -90,7 +93,6 @@ class NoteCard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     notes: state.notes,
     note: state.note

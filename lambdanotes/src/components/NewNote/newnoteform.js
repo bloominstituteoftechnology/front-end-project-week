@@ -10,7 +10,6 @@ class NewNoteForm extends Component {
     id: -1,
     title: "",
     textBody: "",
-    tags:""
   };
 
   handleInputChange = e => {
@@ -18,9 +17,9 @@ class NewNoteForm extends Component {
   };
 
   addHandler = () => {
-    const { title, textBody, tags} = this.state;
-    this.props.addNote({ title, textBody, tags });
-    this.setState({ title: "", textBody: "", tags:"" });
+    const { title, textBody} = this.state;
+    this.props.addNote({ title, textBody});
+    this.setState({ title: "", textBody: "" });
   };
 
   render() {
@@ -32,7 +31,6 @@ class NewNoteForm extends Component {
             <form className="create-form">
               <textarea placeholder="Title" onChange={this.handleInputChange} className="title-input" value={this.state.title} name="title" />
               <textarea placeholder="Type your note here.." onChange={this.handleInputChange} className="content-input" value={this.state.textBody} name="textBody" />
-              <textarea placeholder="Note Tags" onChange={this.handleInputChange} className="title-input" value={this.state.title} name="title" />
 
               <Link to="/">
                 <button className="create-button" type="button" onClick={() => this.addHandler()}>

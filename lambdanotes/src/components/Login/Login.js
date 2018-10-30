@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup } from "reactstrap";
+import { Button } from "reactstrap";
 import "./Login.css";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
@@ -63,7 +63,6 @@ class Input extends React.Component {
   }
 }
 
-// Fake logo
 class Logo extends React.Component {
   render() {
     return <div className="logo">

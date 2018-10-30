@@ -6,10 +6,10 @@ import {Link} from 'react-router-dom';
 const Note = props =>{
     return(
         <div className='note'>
-            <Link to={`/note/${props.note._id}`}>
+            <Link to={`/note/${props.note.id}`}>
                 <h3>{props.note.title}</h3>
             </Link>
-            <a>{props.note.textBody}</a>
+            <a>{props.note.content}</a>
         </div>
     )
 }

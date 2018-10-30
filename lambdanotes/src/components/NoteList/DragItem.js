@@ -12,7 +12,7 @@ class Item extends Component {
 					<NoteTitle>
 						<H4>{this.props.title}</H4>
 					</NoteTitle>
-					<P>{this.props.textBody}</P>
+					<P>{this.props.content}</P>
 					<Tags>
 						{this.props.tags.map(tag => <Tag color={getRandomColor}>{tag}</Tag>)}
 					</Tags>
