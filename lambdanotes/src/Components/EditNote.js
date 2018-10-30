@@ -6,7 +6,7 @@ class EditNote extends Component {
         super(props);
         this.state = {
             title: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).title,
-            text: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).text,
+            content: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).text,
             id: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).id
         }
     }
@@ -25,8 +25,8 @@ class EditNote extends Component {
                 <h3 className="Header">Edit Note:</h3>
                 <form className="add-form">
                    <input className="title-input" name="title" onChange={this.handleInputChange} value={this.state.title} /> <br/>
-                   <textarea className="text-input" name="text" onChange={this.handleInputChange} value={this.state.text} />
-                   <Link to={`/notes/${denoted.id}`} ><div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.text); this.props.history.push(`/notes/${denoted.id}`); }}  >Update</div></Link>
+                   <textarea className="text-input" name="text" onChange={this.handleInputChange} value={this.state.content} />
+                   <Link to={`/notes/${denoted.id}`} ><div className="save-btn"  onClick={(event) =>{event.preventDefault(); this.props.editNoteSubmit(this.state.id, this.state.title, this.state.content); this.props.history.push(`/notes/${denoted.id}`); }}  >Update</div></Link>
                </form>
            </div>
        )  

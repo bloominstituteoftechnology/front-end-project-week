@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import Route from 'react-router-dom/Route';
-import Note from './Components/Note';
+// import Note from './Components/Note';
 import NoteList from './Components/NoteList';
 import NoteView from './Components/NoteView';
 import AddNote from './Components/AddNote';
@@ -13,18 +13,25 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      id: '',
-      title: '',
-      text: '',
-      showModal: false
-    }
+    };
   }
 
-  componentDidMount(){
-    this.setState({ 
-      notes: Note,
-     })
+  componentDidMount() {
+    this.getNotes('http://localhost:7000/api/notes/')
   }
+
+  getNotes = URL => {
+    fetch(URL)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        this.setState({ notes: data.results });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -36,20 +43,20 @@ class App extends Component {
     notes.push({ 
       id: Number(Date.now().toString().slice(-2)), 
       title: this.state.title, 
-      text: this.state.text 
+      content: this.state.content 
     });
     this.setState({ 
       notes, 
       id: '',
       title: '',
-      text: '' 
+      content: '' 
     });
   }
 
-  editNoteSubmit = (noteID, title, text) => {
+  editNoteSubmit = (noteID, title, content) => {
     this.setState(function (prevState) {
       return {
-        notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, text} : note )
+        notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, content} : note )
       }
     } );
  }
@@ -57,7 +64,7 @@ class App extends Component {
   deleteNote = id => {
    let notes = this.state.notes.slice();
    notes = notes.filter(note => note.id !== id);
-   this.setState({ notes, id: '', title: '', text: ''  });
+   this.setState({ notes, id: '', title: '', content: ''  });
   }
 
   modalToggle = () => {
@@ -85,5 +92,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
