@@ -2,6 +2,7 @@ import React from 'react';
 // import Notes from './Notes';
 import styled from 'styled-components';
 import Axios from 'axios';
+import Navbar from '../NavBar/Navbar';
 
 class FullNote extends React.Component {
 	constructor(props) {
@@ -41,6 +42,7 @@ class FullNote extends React.Component {
 			return (
 				<div>
 					<StyledNoteWrapper>
+						<Navbar />
 						<StyledNoteContainer key={note._id}>
 							<StyledH1>{note.title}</StyledH1>
 							<p>{note.textBody}</p>
