@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Route, NavLink } from "react-router-dom";
 
+import Note from "./components/Note";
 import Notes from "./components/Notes";
 import NoteForm from "./components/NoteForm";
 import "./styles.css";
-// import "./card.css";
 
 class App extends Component {
   constructor(props) {
@@ -56,6 +56,10 @@ class App extends Component {
             render={() => <Notes notes={this.state.notes} />}
           />
           <Route path="/submit" component={NoteForm} />
+          <Route
+            path="/note/get/:id"
+            render={() => <Note notes={this.state.notes} />}
+          />
         </div>
       </div>
     );
