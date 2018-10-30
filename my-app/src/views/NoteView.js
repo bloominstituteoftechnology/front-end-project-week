@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchNoteById } from "../actions";
+import { fetchNoteById, deleteNote } from "../actions";
 import { Note, Sidebar } from "../components";
+import { Route } from "react-router-dom";
+import EditView from "./EditView";
 
 class NoteView extends React.Component {
   componentDidMount() {
@@ -14,7 +16,18 @@ class NoteView extends React.Component {
     return (
       <div className="container">
         <Sidebar />
-        <Note note={this.props.note} />
+        <Route
+          exact
+          path="/:id"
+          render={props => (
+            <Note
+              {...props}
+              note={this.props.note}
+              delete={this.props.deleteNote}
+            />
+          )}
+        />
+        <Route path="/:id/edit" render={props => <EditView {...props} />} />
       </div>
     );
   }
@@ -22,6 +35,7 @@ class NoteView extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    noteUpdated: state.notesReducer.noteUpdated,
     note: state.noteReducer.note,
     error: state.noteReducer.error,
     fetchingNote: state.noteReducer.fetchingNote
@@ -30,6 +44,7 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    fetchNoteById
+    fetchNoteById,
+    deleteNote
   }
 )(NoteView);

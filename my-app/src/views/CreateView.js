@@ -8,7 +8,11 @@ class CreateView extends React.Component {
     return (
       <div className="container">
         <Sidebar />
-        <Form submit={this.props.addNote} />
+        <Form
+          submit={this.props.addNote}
+          match={this.props.match}
+          history={this.props.history}
+        />
       </div>
     );
   }

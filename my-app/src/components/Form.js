@@ -3,19 +3,22 @@ import React from "react";
 class Form extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      id: null,
+      tags: [],
+      title: "",
+      textBody: ""
+    };
+  }
+  componentDidMount() {
+    console.log("form props are", this.props);
     if (this.props.note) {
-      this.state = {
+      this.setState({
         id: this.props.note._id,
         tags: this.props.note.tags,
         title: this.props.note.title,
         textBody: this.props.note.textBody
-      };
-    } else {
-      this.state = {
-        tags: [],
-        title: "",
-        textBody: ""
-      };
+      });
     }
   }
 
@@ -25,10 +28,13 @@ class Form extends React.Component {
       ...this.state
     };
     if (this.props.note) {
-      console.log("editing form");
+      this.props.submit(note);
+      this.props.history.push(`/${this.props.match.params.id}`);
+      window.location.reload();
     } else {
       console.log("what are you submitting?", note);
       this.props.submit(note);
+      this.props.history.goBack();
     }
   };
 
@@ -38,7 +44,6 @@ class Form extends React.Component {
     });
   };
   render() {
-    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>{this.props.note ? "Edit Note:" : "Create New Note:"}</h2>
