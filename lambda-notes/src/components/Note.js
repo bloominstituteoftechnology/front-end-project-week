@@ -32,6 +32,14 @@ class Note extends React.Component {
             this.fetchNote(newProps.match.params._id);
         }
     }
+    deleteHandler = (event) => {
+        event.preventDefault();
+        this.setState({
+            note: [this.state.note].filter(note => {
+                return !note._id;
+            })
+        });
+    }
 
     render() {
         if (!this.state.note) {
@@ -41,6 +49,7 @@ class Note extends React.Component {
         return (
             <div className="save-wrapper">
                 <NoteCard note={this.state.note} />
+                <button onClick={this.deleteHandler}>delete</button>
             </div>
         );
     }
