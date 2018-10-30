@@ -49,13 +49,13 @@ class App extends Component {
 
   addNewNote = (event) => {
     //event.preventDefault();
-    axios.post('http://localhost:5000/notes', this.state.note)
+    axios.post('http://localhost:8000/notes', this.state.note)
     .then(response => this.setState({ notesData: response.data, note: { title: '', content: ''} },
-    () => this.props.history.push('/notes')))
+    () => this.props.history.push('/api/notes')))
   }
 
   deleteNote = noteId => {
-    return axios.delete(`http://localhost:5000/notes/${noteId}`)
+    return axios.delete(`http://localhost:8000/notes/${noteId}`)
     .then(response => this.setState({ notesData: response.data }))
   }
 
@@ -68,7 +68,7 @@ class App extends Component {
   }
 
   updateNote = noteId => {
-    axios.put(`http://localhost:5000/notes/${noteId}`, this.state.note)
+    axios.put(`http://localhost:8000/notes/${noteId}`, this.state.note)
     .then(response => {
       this.setState({
         notesData: response.data,
