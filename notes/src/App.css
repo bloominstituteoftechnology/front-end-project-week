@@ -2,25 +2,26 @@
   display: flex;
 }
 
-.btn-container {
+/* .btn-container {
   background: #D8D8D8;
-  width: 29%;
+  width: 24%;
   border: 1px solid #979797;
+  padding-left: 10px;
 }
 
 .btn-container h1 {
   font-size: 55px;
   padding-left: 20px;
-  margin-top: 35px;
+  margin-top: 32px;
   line-height: 45px;
   letter-spacing: 1px;
   color: #4A4A4A;
-  margin-bottom: 45px;
+  margin-bottom: 48px;
 }
 
 .main-btn button {
-  width: 87%;
-  height: 65px;
+  width: 89%;
+  height: 67px;
   margin-left: 20px;
   background: #2CC1C5;
   color: white;
@@ -28,4 +29,5 @@
   font-weight: bold;
   border: 1px solid #979797;
   margin-bottom: 30px;
-}
+  
+} */

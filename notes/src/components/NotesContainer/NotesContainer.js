@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+
 import NoteCard from './NoteCard';
 
 export default class NotesContainer extends React.Component{
@@ -24,10 +25,12 @@ export default class NotesContainer extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="notes-container">
+        <h2>Your Notes:</h2>
         {this.state.notes.map( note => (
-          <NoteCard key={note.id} note={note} />
+          <NoteCard key={note._id} note={note} />
         ))}
+        
       </div>
     )
   }
