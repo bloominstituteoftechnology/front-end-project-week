@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { Auth0Lock } from 'auth0-lock';
+
 const NavbarContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
@@ -20,6 +22,11 @@ const NavButton = styled.button`
   font-size: 14px;
 `;
 
+var lock = new Auth0Lock(
+  process.env.REACT_APP_CLIENT_ID,
+  process.env.REACT_APP_DOMAIN_URL
+);
+
 const NavBar = props => {
   return (
     <NavbarContainer>
@@ -32,6 +39,14 @@ const NavBar = props => {
       <Link to='/new'>
         <NavButton>+ Create New Note</NavButton>
       </Link>
+
+      <div 
+        onClick={function() {
+          lock.show();
+        }}
+      >
+        LOG IN
+      </div>
     
     </NavbarContainer>
   );
