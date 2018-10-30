@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
+
 
 import { Route, withRouter, Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -12,6 +14,7 @@ import NoteOptions from './NoteOptions'
 import SearchBar from './SearchBar.js'
 import Authenticate from '../Authentication/Authenticate'
 import PaginationContainer from './PaginationContainer'
+
 // import Header from './Header';
 
 let filteredNoteList = ''
@@ -21,10 +24,18 @@ class App extends Component {
   state = {
     filter: '',
     active: 'page0',
+    notes: []
   }
 
   componentDidMount() {
-    this.props.fetchNotes()
+    axios
+    .get('http://localhost:8000/notes')
+    .then(res => {
+      this.setState({notes: res.data})
+    })
+    .catch(err => {
+      console.error(err);
+    })
   }
 
   componentDidUpdate() {
@@ -45,10 +56,11 @@ class App extends Component {
 
   render() {
 
-    filteredNoteList = this.props.state.notes.filter(item =>
+    filteredNoteList = this.state.notes.filter(item =>
       (JSON.stringify(item.title)+JSON.stringify(item.textBody))
       .toLowerCase().includes(this.state.filter.toLowerCase()))
 
+      console.log('Unfiltered:', this.props.state.notes);
       console.log('filtered length:', filteredNoteList.length);
 
     return (

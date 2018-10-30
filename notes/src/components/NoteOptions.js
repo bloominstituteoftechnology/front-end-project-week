@@ -16,8 +16,6 @@ class NoteOptions extends Component {
   }
 
   render() {
-    console.log('Im also firing');
-    console.log('NO noteList:', this.props.noteList);
     let ans = this.props.noteList.find(item => item._id == this.props.match.params.id)
     console.log('Ans:', ans);
     if (ans) {

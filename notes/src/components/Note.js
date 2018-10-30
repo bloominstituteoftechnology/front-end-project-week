@@ -20,7 +20,7 @@ import './App.css';
         <Link to={`/note-list/${this.props.note._id}`}>
           <h3 className='note-title'>{this.props.note.title}</h3>
          </Link>
-        <p className='note-textBody'>{this.props.note.textBody}</p>
+        <p className='note-textBody'>{this.props.note.content}</p>
         {/* <div
           className='delete-button'
           // onClick={this.handleClick}>Delete Me

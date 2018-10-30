@@ -11,14 +11,17 @@ export const NOTE_DELETED = 'NOTE_DELETED'
 export const NOTES = 'NOTES'
 export const ERROR = 'ERROR'
 
-const URL = 'https://killer-notes.herokuapp.com/note/'
+const URL = 'https://localhost:8000/'
 
 export const fetchNotes = () => {
   return dispatch => {
     dispatch({type: FETCHING_NOTES})
     axios
-      .get(URL+'get/all')
-      .then(response => { dispatch({type: NOTES_FETCHED, payload: response.data}) })
+      .get(URL+'notes')
+      .then(response => {
+        console.log(response);
+        dispatch({type: NOTES_FETCHED, payload: response.data})
+      })
       .catch(error => {
         dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
       })
