@@ -8,7 +8,7 @@ function NotesList(props) {
                         <h2 onClick={() => props.history.push(`/notes/${note.id}`)}>{note.notes_title}</h2>
                         <p>{note.notes_content}</p>
                     </div>
-                ))};
+                ))}
         </div>
     ); 
 }

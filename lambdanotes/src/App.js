@@ -56,40 +56,6 @@ class App extends Component {
 
  export default withRouter(App);
 
-//  componentDidMount() {
-//   this.getNotes();
-// }
-
-// getNotes = () => {
-//   axios.get('https://killer-notes.herokuapp.com/note/get/all')
-//   .then(response => {
-//     this.setState({ notes: response.data });
-//   })
-//   .catch(err => console.log(err));
-// }
-
-
-// handleChange = event => {
-//   this.setState({ note: {...this.state.note, [event.target.name]: event.target.value}});
-//   };
-
-// handleAddNewNote = event => { 
-//   event.preventDefault();
-//   console.log("We've got a new note here!");
-//   axios.post('https://killer-notes.herokuapp.com/note/create', this.state.note)
-//   .then(response => this.setState({ note: response.data }))
-// }
-
-// handleDeleteNote = noteId => {
-//   axios.delete(`https://killer-notes.herokuapp.com/note/delete/id/${noteId}`)
-//   .then(response => this.getNotes());
-// }
-
-// goToUpdateNoteForm = note => {
-//   console.log("going to update note form!", note);
-//   this.setState({ note, updatingNote: true })
-//   this.props.history.push('/notesform')
-// }
 
 
 

@@ -13,11 +13,13 @@ import App from './App';
 
 const store = createStore(notesReducer, applyMiddleware(thunk));
 
+const rootElement = document.getElementById('root');
 ReactDOM.render(
-        <Provider store={store}>
-            <Router>
-                <App />
-            </Router>
-        </Provider>
-  , document.getElementById('root'));
+  <Provider store={store}>
+    <Router>
+        <App />
+    </Router>
+  </Provider>,
+  rootElement
+);
 // registerServiceWorker();

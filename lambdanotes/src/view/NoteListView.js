@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { grabbingNotes } from '../store/actions';
 import NotesList from '../components/NotesList';
 
-class NoteListView extends React.Component {
+class NoteListView extends Component {
     componentDidMount() {
-        this.props.grabbingNotes();
+        this.state.grabbingNotes();
     }
     render() {
         return (
-            <NotesList {...this.props} />
+            <NotesList {...this.state} />
         );
     }
 }

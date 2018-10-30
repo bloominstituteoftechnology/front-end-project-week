@@ -31,14 +31,14 @@ export const notesReducer = (state = initialState, action) => {
         case FETCHED_NOTES:
             return Object.assign({}, state, {gettingNotes: false, notes: action.payload,});
         case ERROR_FETCHING_NOTES:
-            console.log("Error reducer error grabbing ntoes", action.payload)
+            console.log("Error reducer error grabbing notes", action.payload)
             return Object.assign({}, state, {gettingNotes: false, error: action.payload,});
         case ADDING_NEW_NOTE:
             return Object.assign({}, state, {addedNewNote: true,});
         case NEW_NOTE_ADDED:
             return Object.assign({}, state, {addedNewNote: false, notes: action.payload,});
         case ERROR_ADDING_NEW_NOTE:
-            console.log("Error reducer error adding new ntoes", action.payload)
+            console.log("Error reducer error adding new notes", action.payload)
             return Object.assign({}, state, {addedNewNotes: false, error: action.payload,});
         case DELETING_NOTE:
             return Object.assign({}, state, {isDeletingNote: true,});
@@ -52,7 +52,7 @@ export const notesReducer = (state = initialState, action) => {
         case UPDATED_NOTE:
             return Object.assign({}, state, {isUpdatingNote: false, note: action.payload,});
         case ERROR_UPDATING_NOTE:
-            console.log("Error reducer error updating ntoe", action.payload)
+            console.log("Error reducer error updating note", action.payload)
             return Object.assign({}, state, {isUpdatingNote: false, error: action.payload,});
         case SET_UPDATE_NOTE:
             const note = state.notes.find(note => note.id === action.payload);

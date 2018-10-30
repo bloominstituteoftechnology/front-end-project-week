@@ -20,11 +20,15 @@ export const ERROR_UPDATING_NOTE = 'ERROR_UPDATING_NOTE';
 
 export const grabbingNotes = () => dispatch => {
     dispatch({ type: FETCHING_NOTES });
-    const promise = axios.get('https://localhost:9000/api/notes');
+    const promise = axios.get('https://localhost:9000/api/notes')
+    
 
     promise
         .then(response => {
+            this.setState({ notes: response.data.note })
+           
             dispatch({ type: FETCHED_NOTES, payload: response.data });
+            console.log(this.state);
         })
         .catch(error => {
             console.log("Error grabbing all notes", error)
@@ -69,4 +73,39 @@ export const updateNote = noteId => dispatch => {
         dispatch({ type: ERROR_UPDATING_NOTE, payload: error });
     });
 };
+
+//  componentDidMount() {
+//   this.getNotes();
+// }
+
+// getNotes = () => {
+//   axios.get('https://killer-notes.herokuapp.com/note/get/all')
+//   .then(response => {
+//     this.setState({ notes: response.data });
+//   })
+//   .catch(err => console.log(err));
+// }
+
+
+// handleChange = event => {
+//   this.setState({ note: {...this.state.note, [event.target.name]: event.target.value}});
+//   };
+
+// handleAddNewNote = event => { 
+//   event.preventDefault();
+//   console.log("We've got a new note here!");
+//   axios.post('https://killer-notes.herokuapp.com/note/create', this.state.note)
+//   .then(response => this.setState({ note: response.data }))
+// }
+
+// handleDeleteNote = noteId => {
+//   axios.delete(`https://killer-notes.herokuapp.com/note/delete/id/${noteId}`)
+//   .then(response => this.getNotes());
+// }
+
+// goToUpdateNoteForm = note => {
+//   console.log("going to update note form!", note);
+//   this.setState({ note, updatingNote: true })
+//   this.props.history.push('/notesform')
+// }
 
