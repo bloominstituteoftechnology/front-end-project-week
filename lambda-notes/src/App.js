@@ -21,8 +21,10 @@ class App extends Component {
           title: '',
           textBody:''
         }
+       
     }
 }
+
 
 componentDidMount() {
   axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
@@ -70,8 +72,7 @@ this.setState({
        <Sidebar />
 <Route exact path="/" render={ownProps=>(<NoteList {...ownProps} notes={this.state.notes}/>)} />
 <Route exact path="/create_new_note" render={ownProps=>(<CreateNote {...ownProps} changeHandler={this.changeHandler} createNote={this.createNote} newNote={this.state.newNote}/>)} />
-{/* not implemented yet */}
-<Route exact path="/note/:id" render={ownProps=>(<Note {...ownProps}/>)}/>
+<Route exact path="/note/:id" render={ownProps=>(<Note {...ownProps} notes={this.state.notes}/>)}/>
        
       
       </div>
