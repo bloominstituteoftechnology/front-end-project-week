@@ -61,7 +61,7 @@ export const fetchSingleNote = id => {
 
 export const updateNote = (noteID, updatedNote) => {
   const noteData = axios.put(
-    `http://localhost:5500/api/notes/edit/${noteID}`,
+    `http://localhost:5500/api/notes/${noteID}`,
     updatedNote
   );
 
@@ -82,7 +82,7 @@ export const updateNote = (noteID, updatedNote) => {
 export const deleteNote = id => {
   const noteData = axios.delete(`http://localhost:5500/api/notes/${id}`);
   return function(dispatch) {
-    dispatch({ type: DELETING });
+    dispatch({ type: DELETING }); 
     noteData
       .then(({ data }) => {
         dispatch({ type: DELETED, id });

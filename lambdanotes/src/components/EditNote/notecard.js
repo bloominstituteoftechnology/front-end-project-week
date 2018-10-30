@@ -40,8 +40,8 @@ class NoteCard extends React.Component {
     const idFinder = newNotes.indexOf(newNotes.find(isIndex));
     newNotes.splice(idFinder, 1);
 
-    this.props.deleteNote(this.props.note.id);
-    this.forceUpdate();
+    this.props.deleteNote(this.props.note.note[0].id);
+    window.location.href = '/';
   }
   render() {
     return (

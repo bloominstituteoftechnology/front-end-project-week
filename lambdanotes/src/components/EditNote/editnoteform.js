@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import get from 'lodash/get';
 import { updateNote } from "../../actions";
 import SideBar from "../Sidebar/sidebar";
 
@@ -57,14 +58,12 @@ class EditNoteForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   componentDidMount() {
-    console.log(this.props)
     if (this.props.note.title && this.props.note.content) {
       this.setState(
         {
           title: this.props.note.title,
           content: this.props.note.content,
           id: this.props.note.id,
-          tags: this.props.note.tags.toString().replace(/,/g, " ")
         }
       );
     }
@@ -119,7 +118,7 @@ class EditNoteForm extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    note: state.note
+    note: get(state, 'note.note[0]', {}),
   };
 };
 export default connect(

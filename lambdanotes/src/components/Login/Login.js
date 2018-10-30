@@ -66,7 +66,7 @@ class Input extends React.Component {
 class Logo extends React.Component {
   render() {
     return <div className="logo">
-        <i class="fa fa-edit fa-spin" />
+        <i className="fa fa-edit fa-spin" />
         <span> Lambda Notes </span>
       </div>;
   }
