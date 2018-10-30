@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function SingleNote(props) {
-  const note = props.notesList.find(note => note.id === props.match.params.id);
+  const note = props.notesList.find(note => note.id == props.match.params.id);
   console.log("Single Note", note, props);
 
   function handleDelete() {
@@ -35,6 +35,6 @@ export default function SingleNote(props) {
       </button>
     </div>
   ) : (
-    <p>loading</p>
+    <p>Loading...</p>
   );
 }
