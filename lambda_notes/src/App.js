@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import NotesList from './components/ListNotes';
 import SingleNote from './components/DisplayedNote';
 import SideBar from './components/SideBar';
+import CreateNote from './components/CreateNote';
 
 class App extends Component {
   constructor() {
@@ -32,35 +33,39 @@ class App extends Component {
       })
   }
 
-  getItemById = id => {
+  componentDidUpdate() {
+    const endpoint = 'https://fe-notes.herokuapp.com/note/get/all';
+
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .then(response => this.setState({ activeNote: response.data }))
-      .catch(error => console.log('Error: ', error));
-  };
+      .get(endpoint)
+      .then(response => {
+        this.setState({notes: response.data });
+      })
+      .catch(error => {
+        console.log('Error: ', error);
+      })
+  }
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
-    const newNote = {
-      title: this.state.title,
-      text: this.state.textBody,
-    };
-    this.setState({ title: '', textBody: ''});
+  handleSubmit = () => {
     axios
-      .post('https://fe-notes.herokuapp.com/note/create', newNote)
+      .post('https://fe-notes.herokuapp.com/note/create', {
+        title: this.state.title,
+        textBody: this.state.textBody
+      })
       .then(response => {
-        this.setState({
-          title: '',
-          textBody: '',
-          notes: response.data
-        });
+        console.log(response.data)
       })
       .catch(error => {
         console.log('Error: ', error);
       });
+      this.setState({
+          title: '',
+          textBody: ''
+        });
   };
 
  
@@ -73,14 +78,14 @@ class App extends Component {
     this.setState({ deleting: false });
   };
 
-  deleteItem = (event, id) => {
-    event.preventDefault();
+  deleteItem = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
-        this.setState({ notes: response.data });
+        console.log(response)
       })
       .catch(error => console.log(error));
+      this.setState();
   };
 
 
@@ -104,7 +109,8 @@ class App extends Component {
         <SideBar />
         <Route exact path='/' render={props => <NotesList 
         {...props}
-        notes={this.state.notes} />} />
+        notes={this.state.notes} 
+        />} />
         <Route exact path='/note/:id' render={props => <SingleNote 
         {...props}
         notes={this.state.notes}
@@ -113,6 +119,13 @@ class App extends Component {
         toggleDeletingOff={this.toggleDeletingOff}
         deleteNote={this.deleteItem}
         editingNote={this.editingNote}
+        />} />
+        <Route exact path='/createnote' render={props => <CreateNote 
+        {...props}
+        title={this.state.title}
+        textBody={this.state.textBody}
+        handleInput={this.handleInput}
+        submit={this.handleSubmit}
         />} />
       </div>
     );
