@@ -1,17 +1,19 @@
 import React from 'react';
 
-<h1>Lambda</h1>
-<h1>Notes</h1>
 
-const Sidebar = () => {
+const SideBar = () => {
    return ( 
-        <div className='sidebar-buttons'>
-            <button className='view-your-notes'>View Your Notes</button>
-            <button className='create-new-note'>+Create New Note</button>
+       <div>
+           <h1>Lambda</h1>
+            <h1>Notes</h1>
+            <div className='sidebar-buttons'>
+                <button className='view-your-notes'>View Your Notes</button>
+                <button className='create-new-note'>+Create New Note</button>
+            </div>
         </div>
    )
 }
-export default Sidebar;
+export default SideBar;
 //view routes to list
 //create routes to noteform
 

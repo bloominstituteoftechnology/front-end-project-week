@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NoteForm extends Component {
     constructor() {
@@ -13,10 +14,22 @@ class NoteForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+    createNewNote = e => {
+        e.preventDefault();
+        const { title, textBody } = this.state;
+        const newNote = { title, textBody };
+        const saveNote = axios 
+            .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
+            .then(response => {
+                this.setState({ title: '', textBody: '' })
+            })
+            .catch(error => console.log(error));
+    };
+    
     //edit
 
     //delete 
-    
+
     render() {
         return(
             <div className='create-new-note'>  
@@ -35,7 +48,7 @@ class NoteForm extends Component {
                     value={this.state.textBody}
                     onChange={this.handleTextInput}
                 />
-                <button onClick={this.state.newNote}>Save</button>
+                <button onClick={this.createNewNote}>Save</button>
             </div>
         )
     }

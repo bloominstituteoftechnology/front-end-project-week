@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import ListView from './Components/ListView';
 import NoteForm from './Components/NoteForm';
+import SideBar from './Components/SideBar';
 
 class App extends Component {
   constructor() {
@@ -21,20 +22,6 @@ class App extends Component {
       .catch(error => console.log(error))
   };  //add ID specific request 
 
-  createNewNote = (newNote) => {
-    // const note = {
-    //   tags: [this.state.tags],  
-    //   title: this.state.title,
-    //   textBody: this.state.textBody
-    // };
-    axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
-      .then(response => {
-        this.setState({ list: response.data })
-      }) //this.props.history.push('/')
-      .catch(error => console.log(error))
-      //this.setState({ tags: [], title: '', textBody: '' })
-  };
 
   // deleteNote = () => {
   //   const deletion = axios
@@ -45,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <SideBar />
         <ListView list={this.state.list} />
         <NoteForm />
       </div>
