@@ -21,14 +21,17 @@ class App extends Component {
   componentDidMount() {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => this.setState({notes: response.data}))
+      .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
 
   addNote = note => {
     axios
         .post('https://fe-notes.herokuapp.com/note/create', note)
-        .then(response => console.log(response))
+        .then(axios
+                .get('https://fe-notes.herokuapp.com/note/get/all')
+                .then(response => this.setState({ notes: response.data }))
+                .catch(error => console.log(error)))
         .catch(error => console.log(error));
   }
 
