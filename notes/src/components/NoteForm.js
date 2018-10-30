@@ -51,9 +51,11 @@ class NoteForm extends Component {
               value={this.state.textBody}
               name="textBody"
             />
-            <button className="new-note-button" onClick={this.handleClick} type="submit">
-              {this.state.isEditing ? "Update Note" : "Create Note"}
-            </button>
+            <div className="form-button">
+              <button className="new-note-button" onClick={this.handleClick} type="submit">
+                {this.state.isEditing ? "Update Note" : "Create Note"}
+              </button>
+            </div>
           </form>
         </div>
 

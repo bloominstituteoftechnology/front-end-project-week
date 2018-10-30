@@ -5,7 +5,7 @@ import NoteForm from './components/NoteForm'
 import NavBar from './components/NavBar'
 import NoteCard from './components/NoteCard'
 import UpdateForm from './components/UpdateForm'
-import DeleteNote from './components/DeleteNote'
+// import DeleteNote from './components/DeleteNote'
 import {Route } from 'react-router-dom'
 import './App.css';
 

@@ -45,10 +45,9 @@ class UpdateForm extends React.Component {
     return (
       <div className='form-container'>
       <div className='form-headline'>
-        <h2>Update Note</h2>
+        <h3>Edit:</h3>
       </div >
       <div className="form">
-          <p>{this.state._id}</p>
           <form onSubmit={this.updateNote} >
             <input
               onChange={this.handleInputChange}
@@ -62,9 +61,11 @@ class UpdateForm extends React.Component {
               value={this.state.textBody}
               name="textBody"
             />
-            <button className="new-note-button" onClick={this.updateNote} type="submit">
-            Update Note
-            </button>
+            <div className="form-button">
+              <button className="new-note-button" onClick={this.updateNote} type="submit">
+              Update
+              </button>
+            </div>
           </form>
         </div>
 
