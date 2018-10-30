@@ -70,3 +70,21 @@ export const DELETING = 'DELETING';
 export const DELETED = 'DELETED';
 export const DELETE_FAILURE = 'DELETE_FAILURE';
 
+export const deleteNote = id => {
+    return function(dispatch) {
+        dispatch({ type: DELETING });
+        axios
+            .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+            .then(response => {
+                dispatch({ type: DELETED,
+                payload: response.data
+                })
+            })
+            .catch(error => {
+                dispatch({ 
+                    type: DELETE_FAILURE,
+                    payload: error
+                })
+            })
+    }
+}
