@@ -3,8 +3,6 @@ import { Route, Link } from "react-router-dom";
 import { EditView } from "../views";
 
 const Note = props => {
-  console.log("in note", props.note);
-
   if (!props.note) {
     return <h1>Loading note...</h1>;
   }

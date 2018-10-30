@@ -23,7 +23,8 @@ const initialState = {
   deletingNote: false,
   noteDeleted: false,
   notes: [],
-  error: null
+  error: null,
+  note: null
 };
 export const notesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -52,8 +53,8 @@ export const notesReducer = (state = initialState, action) => {
     case DELETE_NOTE_SUCCESS:
       return {
         ...state,
-        deletingNote: false,
-        notes: [...action.payload]
+        deletingNote: false
+        // notes: [...action.payload]
       };
     case DELETE_NOTE_FAILURE:
       return {
@@ -69,8 +70,8 @@ export const notesReducer = (state = initialState, action) => {
     case POST_NOTE_SUCCESS:
       return {
         ...state,
-        savingNotes: false,
-        notes: [...action.payload]
+        savingNotes: false
+        //notes: [...action.payload]
       };
     case POST_NOTE_FAILURE:
       return {
@@ -87,7 +88,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         updatingNote: false,
-        notes: [...action.payload]
+        note: [action.payload]
       };
     case PUT_NOTE_FAILURE:
       return {
