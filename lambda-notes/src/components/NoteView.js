@@ -9,7 +9,8 @@ class NoteView extends React.Component {
             note: [],
             modal: false,
             editing: false,
-            editedText: ''
+            editedTitle: '',
+            editedTextBody: ''
         }
         this.toggle = this.toggle.bind(this);
     }
@@ -60,13 +61,12 @@ editSubmitHandler = event => {
       event.preventDefault();
       this.editNote(this.state.note.id);
       if (event.keyCode === 13) {
-          this.setState({ editing: false });
+    this.setState({ editing: false });
 }}
 
-editChangeHandler = event => {
-    let _editedText = event.target.value;
-    this.setState({ editedText: _editedText });
-  }
+changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
 
 editHandler = event => {
@@ -74,7 +74,12 @@ editHandler = event => {
     this.setState({ editing: true, editedText: this.state.note })
 }
 
-    render(){
+saveHandler = event => {
+    event.preventDefault();
+    this.setState({ editing: false })
+};
+
+render(){
         let viewStyle = {};
         let editStyle = {};
 
@@ -90,6 +95,7 @@ editHandler = event => {
             <div style={viewStyle} onDoubleClick={this.editHandler}>
             <h2>{this.state.note.title}</h2>
             <p>{this.state.note.textBody}</p>
+            <Button onClick={this.editHandler}>Edit</Button>
             </div>
 
                 <input
@@ -108,7 +114,7 @@ editHandler = event => {
                 onChange={this.ChangeHandler}
                 value={this.state.editedText}/>
 
-            <Button onSubmit={this.editHandler}>Edit</Button>
+                <Button onClick={this.saveHandler} style={editStyle}>Save</Button>
 
 
                 <div>
