@@ -21,7 +21,7 @@ class App extends Component {
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => this.setState({ list: response.data }))
       .catch(error => console.log(error))
-  };  //add ID specific request 
+  }; 
 
   render() {
     return (
@@ -34,9 +34,7 @@ class App extends Component {
             return <ListView {...props} list={this.state.list} />
           }}
         />
-        <Route 
-          path="/NoteForm" component={NoteForm}
-        />
+        <Route path="/NoteForm" component={NoteForm} />
       </div>
     );
   };

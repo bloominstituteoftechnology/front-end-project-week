@@ -25,10 +25,6 @@ class NoteForm extends Component {
             })
             .catch(error => console.log(error));
     };
-    
-    //edit
-
-    //delete 
 
     render() {
         return(
