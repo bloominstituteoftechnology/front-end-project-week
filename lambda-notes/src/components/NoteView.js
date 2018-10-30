@@ -18,11 +18,14 @@ componentDidMount() {
     this.getNote(id)
 }
 
-toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
+getNote = id => {
+    axios
+    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    .then(response => {
+        this.setState({ note: response.data})
+    })
+        .catch(error => console.log(error));
+}
 
 deleteNote = id => {
     axios
@@ -31,21 +34,7 @@ deleteNote = id => {
       console.log('response', response)
     })
     .catch(error => console.log(error))
-  }
-
-deleteHandler = event => {
-      event.preventDefault();
-      this.deleteNote(this.state.note._id);
-      this.props.history.push('/')
-  }
-
-editSubmitHandler = event => {
-      event.preventDefault();
-      this.editNote(this.state.note.id);
-      if (event.keyCode === 13) {
-          this.setState({ editing: false });
-      }
-  }
+}
 
 editNote = id => {
     axios
@@ -54,30 +43,36 @@ editNote = id => {
       this.setState({ notes: response.data})
     })
     .catch(error => console.log(error))
-  }
+}
 
-//   changeHandler = event => {
-//     this.setState({ [event.target.name]: event.target.value });
-//   };
+toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });}
 
-  editChangeHandler = event => {
+deleteHandler = event => {
+      event.preventDefault();
+      this.deleteNote(this.state.note._id);
+      this.props.history.push('/')
+}
+
+editSubmitHandler = event => {
+      event.preventDefault();
+      this.editNote(this.state.note.id);
+      if (event.keyCode === 13) {
+          this.setState({ editing: false });
+}}
+
+editChangeHandler = event => {
     let _editedText = event.target.value;
     this.setState({ editedText: _editedText });
   }
 
-getNote = id => {
-    axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    .then(response => {
-        this.setState({ note: response.data})
-    })
-        .catch(error => console.log(error));
-    }
 
-    editHandler = event => {
-        event.preventDefault();
-        this.setState({ editing: true, editedText: this.state.note })
-    }
+editHandler = event => {
+    event.preventDefault();
+    this.setState({ editing: true, editedText: this.state.note })
+}
 
     render(){
         let viewStyle = {};
@@ -113,7 +108,7 @@ getNote = id => {
                 onChange={this.ChangeHandler}
                 value={this.state.editedText}/>
 
-            <Button>Edit</Button>
+            <Button onSubmit={this.editHandler}>Edit</Button>
 
 
                 <div>
