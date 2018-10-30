@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Notes from "./components/notes/Notes";
 import AddNote from "./components/notes/AddNote";
+import SingleNote from "./components/notes/SingleNote";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -19,6 +20,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Notes} />
               <Route exact path="/add" component={AddNote} />
+              <Route exact path="/notes/:id" component={SingleNote} />
             </Switch>
           </div>
         </Router>
