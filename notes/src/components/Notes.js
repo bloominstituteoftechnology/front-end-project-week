@@ -8,8 +8,8 @@ class Notes extends Component {
       <div>
         {this.props.notes.map(note => {
             return (
-                <div className="notes">
-                    <Link to={`/notes/${note._id}`} key={note._id}>
+                <div className="notes" key={note._id}>
+                    <Link to={`/notes/${note._id}`}>
                         <Note 
                         title={note.title} 
                         content={note.textBody}

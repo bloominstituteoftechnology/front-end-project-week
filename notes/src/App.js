@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 import { connect } from 'react-redux';
 import { withRouter, Route } from 'react-router-dom';
 import * as actions from './actions'
@@ -7,7 +8,7 @@ import NoteForm from './components/NoteForm';
 import SingleNote from './components/SingleNote';
 
 class App extends Component {
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.fetchNotes();
   }
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
       <div className="App">
       <h1>Lambda Notes</h1>
       <Route exact path="/" render={props => (
-        <Notes {...props} notes={this.props.notes} />
+        <Notes {...props} notes={this.props.notes} fetch={this.props.fetch} fetching={this.props.fetching} />
       )} />
       <Route path="/notes/add" render={props => (
         <NoteForm {...props} addNote={this.props.addNote} />

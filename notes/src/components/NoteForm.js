@@ -17,11 +17,12 @@ import React, { Component } from 'react';
              title: this.state.title,
              content: this.state.content
             }
-            this.props.addNote(newNote);
+            this.props.addNote(newNote, this.props.history);
             this.setState({
                 title: '',
                 content: ''
             }, () => this.props.history.replace('/'))
+            
         }
         render() {
         console.log(this.props);

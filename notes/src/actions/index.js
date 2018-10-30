@@ -12,6 +12,7 @@ export const ERROR = 'ERROR';
 export const FETCHING_NOTE = 'FETCHING_NOTE';
 export const FETCHED_NOTE = 'FETCHED_NOTE';
 
+
 export const fetchNotes = () => {
     return dispatch => {
          dispatch({ type: FETCHING });
@@ -63,7 +64,7 @@ export const deleteNote =  (NoteId, history) => {
     return dispatch => {
         dispatch ({ type: DELETING });
         axios
-        .delete(`https://fe-notes.herokuapp.com/note/edit/${NoteId}`)
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${NoteId}`)
         .then(response => {
             dispatch({ type: DELETED, payload: response.data})
         })
@@ -72,6 +73,23 @@ export const deleteNote =  (NoteId, history) => {
         })
         .catch(error => {
             dispatch({type: ERROR, payload: error })
+        })
+    }
+}
+
+export const updateNote = note => {
+    return dispatch => {
+        dispatch({ type: UPDATING});
+        axios
+        .put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, {
+            title: note.title,
+            textBody: note.content
+        })
+        .then(response => {
+            dispatch({ type: UPDATED, payload: response.data})
+        })
+        .catch(error => {
+            dispatch({type: ERROR, payload: error})
         })
     }
 }
