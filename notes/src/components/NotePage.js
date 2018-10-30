@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, Link } from 'react-router-dom';
-import { fetchNote, deleteNote } from '../actions';
+import { fetchNote, fetchNotes, deleteNote } from '../actions';
 import Note from './Note';
 
 class NotePage extends Component {
@@ -17,7 +17,7 @@ class NotePage extends Component {
     }
 
     deleteNote = (id) => {
-        this.props.deleteNote(id);
+        this.props.deleteNote(id).then(() => this.props.fetchNotes())
         this.setState({ deleted: true })
     }
 
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { fetchNote, deleteNote })(NotePage);
+export default connect(mapStateToProps, { fetchNote, fetchNotes, deleteNote })(NotePage);

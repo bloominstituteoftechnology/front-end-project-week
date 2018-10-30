@@ -8,7 +8,7 @@ class NoteList extends Component {
     constructor() {
         super();
     }
-    
+
     componentDidMount() {
         this.props.fetchNotes()
     }

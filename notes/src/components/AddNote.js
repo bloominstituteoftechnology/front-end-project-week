@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { fetchNotes, addNote } from '../actions';
 
 class AddNote extends Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class AddNote extends Component {
         event.preventDefault();
         const { title, textBody } = this.state;
         let newNote = {title, textBody}
-        this.props.addNote(newNote)
+        this.props.addNote(newNote).then(() => this.props.fetchNotes())
         this.setState({
             title: '',
             textBody: '',
@@ -52,4 +52,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { addNote })(AddNote);
+export default connect(mapStateToProps, { fetchNotes, addNote })(AddNote);

@@ -18,12 +18,13 @@ export default (state = initialState, action) => {
                 notes: [...action.payload]
             };
         case FETCHONE:
-        return { 
-            ...state, 
-            fetching: false, 
-            note: action.payload
-        };
+            return { 
+                ...state, 
+                fetching: false, 
+                note: action.payload
+            };
         case ADDED: 
+            console.log(action.payload)
             return {
                 ...state,
             };
@@ -37,7 +38,7 @@ export default (state = initialState, action) => {
         case DELETED: 
             return {
                 ...state,
-        };
+            };
         case ERROR: 
             return { 
                 ...state, 

@@ -34,7 +34,7 @@ export const fetchNote = (id) => dispatch => {
 }
 
 export const addNote = (newNote) => dispatch => {
-    axios
+    return axios
         .post(`${url}/create`, newNote)
         .then(response => {
             dispatch({ type: ADDED, payload: response.data });
@@ -56,7 +56,7 @@ export const updateNote = (editedNote) => dispatch => {
 };
 
 export const deleteNote = (id) => dispatch => {
-    axios
+    return axios
         .delete(`${url}/delete/${id}`)
         .then(response => {
             dispatch({ type: DELETED, payload: response.data });
