@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { NotesContainer, NotesWrapper, NoteCard } from './Styles';
 
 const NotesList = props => {
-  console.log('noteslist', props)
   return (
     <NotesContainer>
       <h2>Your Notes:</h2>
