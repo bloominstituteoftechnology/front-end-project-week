@@ -42,7 +42,7 @@ editNote = id => {
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.note)
     .then(response => {
         console.log('response', response)
-      this.setState({ notes: response.data })
+      this.setState({ note: response.data })
     })
     .catch(error => console.log(error))
 }
@@ -70,8 +70,8 @@ editHandler = event => {
 
 saveHandler = event => {
     event.preventDefault();
-    this.setState({ editing: false, note: {title: this.state.editedTitle, textBody: this.state.editedTextBody} })
-    this.editNote(this.state.note._id);
+    this.setState({ editing: false, note: {title: this.state.editedTitle, textBody: this.state.editedTextBody, _id: this.state.note._id, tags: []} })
+    setTimeout(() => { this.editNote(this.state.note._id); }, 500);
 };
 
 render(){

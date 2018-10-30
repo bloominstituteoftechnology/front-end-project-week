@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
 
 class NoteForm extends Component {
@@ -57,4 +58,4 @@ render() {
     )
 }
 }
-export default NoteForm; 
+export default withRouter(NoteForm); 
