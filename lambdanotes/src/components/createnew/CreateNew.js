@@ -7,7 +7,7 @@ import './CreateNew.css';
 function CreateNew(props) {
 // console.log(props.note.title);
     return (
-      <div className="main-container">
+      <div className="create-container">
       <h2> Create New Note </h2>
         <div className="title-form">
         <form>
@@ -18,8 +18,6 @@ function CreateNew(props) {
                 name="title" 
                 value={props.note.title} 
                 onChange={props.handleChange}/>
-        {/* </div> */}
-        {/* <div className="comment-form"> */}
             <br/>
             <label>New Notes</label>
             <br/>
@@ -28,6 +26,7 @@ function CreateNew(props) {
                 name="textBody" 
                 value ={props.note.textBody} 
                 onChange={props.handleChange}/>
+            <br/>
         <button className="savebutton" onClick={props.handleAddNewNote}><span>Save</span></button>
         </form>
         </div>

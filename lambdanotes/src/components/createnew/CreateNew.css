@@ -1,26 +1,46 @@
-.main-container {
+.create-container {
+    height: 100%vh;
+    width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: left;
-    padding-left: 5%;
-    padding-top: 0%;
+    justify-content: space-between;
+    border-left: 1px solid #84001a;
+    border-right: 1px solid #84001a;
+
+}
+
+h2 {
+    padding-left: 4%;
 }
 
 .title-form {
-    height: 60px;
+    /* height: 60px; */
+    padding-left: 4%;
+
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
 }
 
 .title1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     height: 35px;
     width: 300px;
     font-size: 1em;
 }
 
+
 .comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     height: 257px;
-    width: 650px;
+    width: 500px;
     font-size: 1em;
+    text-align: justify;
 }
 
 .savebutton {
@@ -29,16 +49,13 @@
     color: #2d2527;
     height: 50px;
     width: 200px;
-    border: .2px solid black;
-    background: #E0EAFC;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    -webkit-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
-    -moz-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
-    box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
+    border: .2px solid #84001a;
+    -webkit-box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
+    box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
     transition: all 0.5s;
     cursor: pointer;
-    margin: 4px 4px 4px 0px;
+    margin: 5px;
 
 }
 

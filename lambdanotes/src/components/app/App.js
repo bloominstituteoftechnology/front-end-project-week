@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Route, withRouter, Switch} from "react-router-dom";
+import { Route, withRouter, Switch } from 'react-router-dom';
 import SideBar from '../sidebar/SideBar';
 import NoteView from '../noteview/NoteView';
 import CreateNew from '../createnew/CreateNew';
@@ -16,10 +16,12 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
-      note: {
+      note: 
+      {
         tags: [],
-        title: '',
-        textBody: '',
+        name: '',
+        description: '',
+        completed:''
       },
     };
   }
@@ -36,13 +38,12 @@ class App extends Component {
       //    note: "Hey, I have even more stuff to do",    
       //    id: 3, 
       // },
-
-      // note: ''
    componentDidMount() {
      axios
-     .get('https://killer-notes.herokuapp.com/note/get/all')
+     .get('http://localhost:9000/notes')
      .then((response) => {
-      this.setState({ notes: response.data})
+      this.setState({ ...this.state, notes: response.data})
+      console.log(response.data);
      })
      .catch(err => {
        console.log(err);
@@ -60,44 +61,13 @@ class App extends Component {
     });
   };
 
-  // handleEdit( title, textBody, noteId) {
-  //   console.log(title, textBody, noteId);
-  //   axios
-  //   .put(`https://killer-notes.herokuapp.com/note/edit/${noteId}`)
-  //   .then(response => {})
-  // }
-
-
   handleAddNewNote = event => {
     event.preventDefault();
     // console.log('firing');
     axios
-    .post('https://killer-notes.herokuapp.com/note/create', this.state.note)
+    .post('http://localhost:9000/notes', this.state.note)
     .then(response => this.setState({note: response.data }));
   };
-
-  // handleDeleteNote( noteId ) {
-    
-  //   axios
-  //   .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
-  //   .then(response => this.props.history.push('/notes')
-  //   )
-
-  // };
-
-  ///Bind this above?
-
-
- 
-
-  // handleID = event => {
-  //   event.preventDefault();
-  //   console.log('firing');
-  //   axios.
-  //   .get('https://killer-notes.herokuapp.com/note/get/id', this.state.note._id)
-  //   .then(response => this.)
-    
-  // }
 
     clickID = (event) => {
       event.preventDefault();
@@ -106,7 +76,7 @@ class App extends Component {
 
 
   render() {
-    // console.log(this.state.notes);
+    console.log(this.state.notes);
     return (
       // <Router>
       <div className="App">
@@ -114,12 +84,12 @@ class App extends Component {
           <SideBar />
         </div>
         <div className="note-view">
-        <Switch> 
+        <Switch>
           <Route exact path='/notes' 
             render={(props) => 
-          <NoteView {...props} 
+          (<NoteView {...props} 
             notes={this.state.notes}
-          />}
+          />)}
           />
           <Route path='/notes/new'
             render={(props) => 
@@ -154,19 +124,13 @@ class App extends Component {
             notes={this.state.notes}/>}
          />
 
-         {/* <Route path='/notes/:noteId/delete'
+         <Route path='/notes/:noteId/delete'
             render={routeProps => 
           <DeleteNote {...routeProps}
             handleDeleteNote = {this.handleDeleteNote}  
             notes={this.state.notes}/>}
-         /> */}
-
-         {/* <Route path='/:noteId'
-          render={(props) => 
-          <Notes {...props} 
-          notes={this.state.notes}/>}
-         /> */}
-
+         />
+         
         </Switch>
         </div>
       </div>

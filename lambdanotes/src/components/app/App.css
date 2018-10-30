@@ -7,8 +7,8 @@
   width: auto;
 }
 
-/* .note-view {
+.note-view {
 flex: 2;
 padding: 1%;
-height: 100;
-} */
+height: 100%vh;
+}

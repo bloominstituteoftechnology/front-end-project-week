@@ -4,13 +4,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     border-left: 1px solid #84001a;
     border-right: 1px solid #84001a;
 
 }
 
 .cards{
+    height: 100%vh;
+    width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

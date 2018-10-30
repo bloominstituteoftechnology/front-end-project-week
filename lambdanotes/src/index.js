@@ -5,18 +5,17 @@ import ReactDOM from 'react-dom';
 // import rootReducer from './reducers';
 import './index.css';
 import App from './components/app/App';
-import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // const store = createStore(rootReducer , applyMiddleware(thunk));
 
 ReactDOM.render((
 
 // <Provider store ={store}>
-    <BrowserRouter>
+    <Router>
         <App />
-    </BrowserRouter>),
+    </Router>),
 // </Provider>,
 
 document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();
