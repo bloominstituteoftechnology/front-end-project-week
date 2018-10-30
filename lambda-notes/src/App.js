@@ -47,8 +47,8 @@ createNote = event=>{
      axios.post("https://fe-notes.herokuapp.com/note/create", note)
      .then(
       response=>{
-        this.setState({notes:response.data})
-      })
+        this.setState({notes:[...this.state.notes, {...note, _id:response.data}]
+      }) })
      .catch(error=>{console.log("An error occurred and your note was not added: ", error)}) 
 
 this.setState({
@@ -57,7 +57,7 @@ this.setState({
     title:'',
     textBody:''
   }
-})
+});
     } else {
     alert("Please fill out both the title and note text before submitting")
   }

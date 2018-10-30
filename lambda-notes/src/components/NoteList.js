@@ -6,6 +6,7 @@ class NoteList extends React.Component {
 
 
 render(){
+
     if (!this.props.notes) {
         return (<h1>Loading notes...</h1>)
     } else {
