@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import { Button } from 'reactstrap';
 import './SinglePage.css';
 import Modal from './Modal.js';
+
 export default class SinglePage extends Component {
   constructor(props) {
     super(props);
@@ -79,9 +80,6 @@ console.log(this.state.message),)
 
 });
 
-
-
-
 }
 
 
@@ -151,7 +149,7 @@ console.log(this.state.message);
 
       <form >
       <div className= 'row'>
-        <input placeholder = 'Title' name= 'newTitle' onChange ={this.handleInputChange} value = {this.state.newTitle}/>
+        <input className ='TitleInput' placeholder = 'Title' name= 'newTitle' onChange ={this.handleInputChange} value = {this.state.newTitle}/>
       </div>
       <div className= 'row'>
         <input className='textComment' placeholder = 'Content' name= 'newTextBody'  onChange ={this.handleInputChange} value = {this.state.newTextBody}/>
@@ -169,7 +167,7 @@ console.log(this.state.message);
                 onClose={this.toggleModal}
                 deleteNote={this.deleteNote}
                 id={this.state.notes._id} >
-                Are you sure you want to delete?
+                Are you sure you want to delete this note?
               </Modal>
       </div>
 
