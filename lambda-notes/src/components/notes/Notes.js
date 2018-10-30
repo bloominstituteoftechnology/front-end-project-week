@@ -3,7 +3,7 @@ import Note from "./Note";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-
+import Spinner from "../layout/Spinner";
 class Notes extends Component {
   state = {};
   render() {
@@ -18,7 +18,7 @@ class Notes extends Component {
         </div>
       );
     } else {
-      return <h1>loading...</h1>;
+      return <Spinner />;
     }
   }
 }
