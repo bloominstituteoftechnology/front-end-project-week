@@ -25,13 +25,25 @@ export default function CreateEditNote(props) {
             onChange={props.handleChange}
           />
         </div>
+
+        <div className="note-title">
+          <input
+            className="note-title-input"
+            type="number"
+            placeholder="User ID"
+            value={props.note.user_id}
+            name="user_id"
+            onChange={props.handleChange}
+          />
+        </div>
+
         <div className="note-text">
           <textarea
             className="note-text-input"
             type="text"
             placeholder="Note Text"
-            value={props.note.textBody}
-            name="textBody"
+            value={props.note.note_text}
+            name="note_text"
             onChange={props.handleChange}
           />
         </div>

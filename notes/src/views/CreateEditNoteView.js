@@ -7,7 +7,8 @@ class CreateEditNoteView extends React.Component {
   state = {
     note: {
       title: "",
-      textBody: ""
+      note_text: "",
+      user_id: ""
     },
     updatingNote: false
   };

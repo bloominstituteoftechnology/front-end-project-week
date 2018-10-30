@@ -9,8 +9,8 @@ export default function List(props) {
   return (
     <div className="notes-list-wrapper">
       {props.notesList.map(note => (
-        <div className="note-card" key={note._id}>
-          <Link to={`/note/get/${note._id}`}>
+        <div className="note-card" key={note.id}>
+          <Link to={`/notes/${note.id}`}>
             <Note note={note} />
           </Link>
         </div>

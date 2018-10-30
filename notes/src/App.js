@@ -22,7 +22,7 @@ class App extends Component {
         </ul>
         <Route exact path="/" component={ListView} />
         <Route path="/create-note" component={CreateEditNoteView} />
-        <Route path="/note/get/:id" component={SingleNoteView} />
+        <Route path="/notes/:id" component={SingleNoteView} />
       </div>
     );
   }

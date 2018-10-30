@@ -1,10 +1,11 @@
 import React from "react";
 
 export default function SingleNote(props) {
-  const note = props.notesList.find(note => note._id === props.match.params.id);
+  const note = props.notesList.find(note => note.id === props.match.params.id);
+  console.log("Single Note", note, props);
 
   function handleDelete() {
-    props.handleDeleteNote(note._id);
+    props.handleDeleteNote(note.id);
     props.history.push("/");
   }
 
@@ -17,14 +18,14 @@ export default function SingleNote(props) {
     }
   }
 
-  return (
+  return note ? (
     <div className="single-note">
       <h3>{note.title}</h3>
-      <p>{note.textBody}</p>
+      <p>{note.note_text}</p>
       <button
         onClick={event => {
           event.preventDefault();
-          props.goToUpdateForm(event, note._id);
+          props.goToUpdateForm(event, note.id);
         }}
       >
         Edit
@@ -33,5 +34,7 @@ export default function SingleNote(props) {
         Delete
       </button>
     </div>
+  ) : (
+    <p>loading</p>
   );
 }

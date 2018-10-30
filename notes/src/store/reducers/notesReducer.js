@@ -52,7 +52,7 @@ export const notesReducer = (state = initialState, action) => {
     case NOTES_ADD_ERROR:
       console.log(action.payload);
     case SET_UPDATE_NOTE:
-      const note = state.notes.find(note => note._id === action.payload);
+      const note = state.notes.find(note => note.id === action.payload);
       console.log("note in reduc", note);
       return { ...state, noteToUpdate: note ? note : null };
     case NOTES_UPDATE_START:
