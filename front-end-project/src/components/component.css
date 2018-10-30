@@ -24,7 +24,6 @@
     margin: 12px;
     margin-top: 25px;
     width: 138%;
-    height: 30px;
     color: white;
     border: 1px solid #9BB2B3;
     font-size: 20px;
@@ -37,7 +36,6 @@
     margin: 12px;
     margin-top: 25px;
     width: 138%;
-    height: 30px;
     color: white;
     border: 1px solid #9BB2B3;
     font-size: 20px;
@@ -46,12 +44,10 @@
 /* Notes List css */
 
 .note-container {
-   display: flex;
-   width: 80%;
-   flex-wrap: wrap;
-    justify-content: space-around;
+    width: 80%;
     padding: 30px;
     background: #F2F1F2;
+    min-height: 100vh;
 
 }
 
@@ -62,14 +58,12 @@
     margin-top: 28px;
 }
 
+
 .note-container h1 {
     margin-right: 1256px;
 }
 
 .list-contain {
-    display: flex;
-    flex-direction: column;
-    width: 15%;
     height: 150px;
     background: white;
     border: 2px solid #D9D9D9;
@@ -77,6 +71,7 @@
     overflow: hidden;
     margin-top: 30px;
     cursor: pointer;
+    flex-basis: 15%;
 }
 
 .note-title {

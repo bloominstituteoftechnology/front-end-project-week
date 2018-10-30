@@ -1,3 +1,8 @@
+
+* {
+  box-sizing: border-box;
+}
+
 .App {
   display: flex;
   width: 100%;

@@ -20,7 +20,9 @@ class App extends Component {
       notes:  [],
       title: "",
       textBody: "",
-      activeNote: null,
+      unEditTitle:"",
+      unEditBody:"",
+      activeNote: "",
       editId: null
     }
   }
@@ -28,13 +30,24 @@ class App extends Component {
 
 
   componentDidMount() {
+    // axios.get("https://fe-notes.herokuapp.com/note/get/all")
+    //      .then(response => {
+    //        this.setState({ notes: response.data })
+    //      })
+    //      .catch(error => {
+    //        console.log("error", error)
+    //      })
+    this.getNotes();
+  }
+
+  getNotes = () => {
     axios.get("https://fe-notes.herokuapp.com/note/get/all")
-         .then(response => {
-           this.setState({ notes: response.data })
-         })
-         .catch(error => {
-           console.log("error", error)
-         })
+    .then(response => {
+      this.setState({ notes: response.data })
+    })
+    .catch(error => {
+      console.log("error", error)
+    })
   }
 
 
@@ -42,6 +55,10 @@ class App extends Component {
     this.setState({
       [ev.target.name]: ev.target.value
     })
+  }
+
+  unEditView = (title, textBody) => {
+    this.setState({ unEditTitle: title, unEditBody: textBody})
   }
 
 
@@ -78,7 +95,8 @@ class App extends Component {
      axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
      .then(res => {
        console.log("delete this",res.data)
-       this.setState({ notes: [...this.state.notes]})
+      //  this.setState({ notes: [...this.state.notes]})
+      this.getNotes();
      })
      .catch(error => {
        console.log("error", error)
@@ -86,16 +104,16 @@ class App extends Component {
   }
 
 
-  editNote = (ev) => {
-    ev.preventDefault();
-    console.log("this state id editnote", this.state.editId)
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.editId}`,
-         {title: this.state.title, textBody: this.state.textBody})
-          .then(res => {
-            console.log("edit", res.data)
-            this.setState({ notes: [...this.state.notes], editId: null, title:"", textBody:"" })
-          })
-  }
+  // editNote = () => {
+  //   console.log("this state id editnote", this.state.editId)
+
+  //   axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.editId}`,
+  //        {title: this.state.title, textBody: this.state.textBody})
+  //         .then(res => {
+  //           console.log("edit", res.data)
+  //           this.setState({ notes: [...this.state.notes], editId: null, title:"", textBody:"" })
+  //         })
+  // }
 
   goToEditForm = (ev, notes) => {
     ev.preventDefault();
@@ -118,7 +136,7 @@ class App extends Component {
       <Route exact path ="/note-list/:id" render={props => (
         <SingleNote {...props} deleteNote={this.deleteNote} note={this.state.activeNote} goToEditForm={this.goToEditForm} />
       )} />
-      <Route exact path="/note-list" render={props => (
+      <Route exact path="/note-list/" render={props => (
         <NoteListContainer {...props} notes={this.state.notes} getNoteId={this.getNoteId} />
       )} />
       <Route exact path="/add-Note" render={props => (
@@ -132,14 +150,17 @@ class App extends Component {
       <Route exact path="/edit-Note/:id" render={props => (
         <EditNote 
         {...props}
-        title={this.state.title}
-        textBody={this.state.textBody}
-        changeHandler={this.changeHandler} 
-        addBody={this.state.textBody}
-        addTitle={this.state.title}
+        unEditView={this.unEditView}
+        getNote={this.getNotes}
+        // title={this.state.title}
+        // textBody={this.state.textBody}
+        // changeHandler={this.changeHandler} 
+        // addBody={this.state.textBody}
+        // addTitle={this.state.title}
         editNote={this.editNote}
         note={this.state.activeNote}
-        notes={this.state.notes} />
+        // notes={this.state.notes}
+         />
       )} />
       </div>
     );
