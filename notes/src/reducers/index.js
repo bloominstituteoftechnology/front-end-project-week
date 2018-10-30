@@ -56,7 +56,7 @@ import {
         return {
           ...state, 
           fetchingNotes: false,
-          notes: action.payload
+          notes: action.payload.reverse(),
         }
   
       case ADD_NOTE : return {...state, addingNote: true}
@@ -65,7 +65,7 @@ import {
         return {
           ...state, 
           addingNote: false,
-          notes: [...state.notes, action.payload]
+          notes: [...state.notes.reverse(), action.payload].reverse(),
         }
   
       case UPDATE_NOTE : return {...state, updatingNote: true}
@@ -74,7 +74,8 @@ import {
         return {
           ...state, 
           updatingNote: false,
-          notes: action.payload
+          notes: state.notes.map(
+            note => note._id === action.payload._id ? action.payload : note)
         }
   
       case DELETE_NOTE : return {...state, deletingNote: true}

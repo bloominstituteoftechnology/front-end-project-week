@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const FormContainer = styled.form`
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
@@ -10,6 +10,7 @@ const FormContainer = styled.form`
     height: 46px;
     margin: 32px auto 16px auto;
     position: relative;
+    background-color: white;
     input {
         border: none;
         height: 46px;

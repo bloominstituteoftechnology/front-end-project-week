@@ -76,7 +76,6 @@ class App extends Component {
 
         <Route 
           path='/note/:id'
-          exact
           render={props => 
             <NoteModule
               {...props}
