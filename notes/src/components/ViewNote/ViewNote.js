@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Modal from '../Modal/Modal';
 
 export default class ViewNote extends Component {
   state = {
     note: null,
+    showModal: false,
+    confirm: false,
   };
 
   componentDidMount() {
@@ -24,15 +27,22 @@ export default class ViewNote extends Component {
   };
 
   deleteNote = () => {
-    const result = window.confirm('Are you sure you want to delete this note?');
-    if (result) {
+    // const result = window.confirm('Are you sure you want to delete this note?');
+    this.displayModal()
       axios
         .delete(
           `https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`
         )
         .then(() => this.props.history.push('/'))
         .catch((error) => console.error(error));
-    }
+  };
+
+  displayModal = () => {
+    this.setState({ ...this.state, showModal: !this.state.showModal })
+  }
+
+  confirmDelete = () => {
+    this.setState({ ...this.state, confirm: true });
   };
 
   render() {
@@ -43,6 +53,11 @@ export default class ViewNote extends Component {
     const { title, textBody } = this.state.note;
     return (
       <div>
+        <Modal
+          showModal={this.state.showModal.toString()}
+          deleteNote={this.deleteNote}
+          displayModal={this.displayModal}
+        />
         <div>
           <Link
             to={{
@@ -52,7 +67,7 @@ export default class ViewNote extends Component {
           >
             <span>edit</span>
           </Link>
-          <span onClick={this.deleteNote}>delete</span>
+          <span onClick={this.displayModal}>delete</span>
         </div>
         <div>
           <h3>{title}</h3>
