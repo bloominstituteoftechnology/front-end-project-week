@@ -6,6 +6,8 @@ import axios from 'axios'
 import { Route } from 'react-router-dom'
 import Note from './Note'
 import Home from './Home'
+import { connect } from 'react-redux'
+import { getNotes } from '../actions/index'
 
 const blankNote = {
     title: '',
@@ -27,16 +29,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
-            .then(res => {
-                this.setState({
-                    notes: res.data,
-                })
-            })
-            .catch(err => {
-                console.log('error', err)
-            })
+       this.props.getNotes()
     }
 
     getNoteById = id => {
@@ -110,7 +103,7 @@ class App extends Component {
                     render={props => (
                         <NoteList
                             {...props}
-                            notes={this.state.notes}
+                            notes={this.props.notes}
                             getNoteById={this.getNoteById}
                             state={this.state}
                         />
@@ -144,5 +137,12 @@ class App extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+        error: state.error,
+        gettingFriends: state.gettingFriends,
+    }
+}
 
-export default App
+export default connect(mapStateToProps, { getNotes })(App)

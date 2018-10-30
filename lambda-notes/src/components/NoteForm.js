@@ -6,7 +6,7 @@ const NoteForm = props => {
             <form
                 onSubmit={() => {
                     props.addNote()
-                    props.history.push('/note-list')
+                    props.history.push('/')
                 }}
             >
                 <input type='title' name='title' onChange={props.handleChange} />
