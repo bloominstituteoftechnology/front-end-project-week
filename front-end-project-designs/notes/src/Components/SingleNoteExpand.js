@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class SingleNoteExpand extends React.Component{
     constructor(props) {
@@ -26,8 +27,15 @@ class SingleNoteExpand extends React.Component{
         return (
             <div className = "expand-div">
                 <div className = "span-div">
-                    <span>Edit</span>
-                    <span>Delete</span>
+                    {/*Link Edit button... */}
+                    <Link to = {`/notes/edit/${this.props.match.params._id}`} className = "no-decoration">
+                        <span>Edit</span>
+                    </Link>                    
+                    
+                    {/*Link Delete button... */}
+                    <Link to = {`/notes/delete/${this.props.match.params._id}`} className = "no-decoration">
+                        <span>Delete</span>
+                    </Link>
                 </div>
                 <div className = "note-div">
                     <h2> {this.state.title} </h2>

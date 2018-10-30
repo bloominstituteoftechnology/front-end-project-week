@@ -16,22 +16,15 @@ class CreateNewNote extends React.Component {
     }
 
     createNewNoteObject = () => {
-        //const { title, textbody } = this.state
-        if(this.state.title !== '' && this.state.textbody !== '') {
-            const newNote = {
-                
-                    "tags": [],
-                    "title": "Note Title",
-                    "textBody": "Note Body",
-                
-            }
-            axios
-                .post('https://fe-notes.herokuapp.com/note/create', { newNote })
-                .then(response => {console.log("RESPONSE  :  ",response)})
-                .catch(err => console.log("ERROR : ",err)) 
-        } else {
-            alert ('Need correct data')
+        const newNote = {
+              title : this.state.title,
+              textBody : this.state.textbody
         }
+        this.setState({title : '', textbody : ''});
+        axios
+            .post('https://fe-notes.herokuapp.com/note/create', newNote )
+            .then(response => {console.log("RESPONSE  :  ",response)})
+            .catch(err => console.log("ERROR : ",err)) 
     }
 
     render() {
@@ -53,7 +46,7 @@ class CreateNewNote extends React.Component {
                            value = {this.state.textbody} 
                            onChange = {this.handleInputChange}
                     />
-                    <button onClick = {this.createNewNoteObject }> Save </button>
+                    <button onClick = {this.createNewNoteObject}> Save </button>
                 </form>
 
             </div>
