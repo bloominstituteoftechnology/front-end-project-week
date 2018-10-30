@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
-import { CreateView, EditView, NoteView, ListView } from './views';
+import { CreateView, NoteView, ListView } from './views';
 import './App.css';
 // import { DeleteModal } from './components';
 // import { connect } from 'react-redux';

@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
-import {NotesData} from '../NotesData';
 import { Sidebar, NotesList } from '../components';
 import { fetchNotes, addNote, deleteNote } from '../actions';
 

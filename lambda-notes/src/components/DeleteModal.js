@@ -14,7 +14,7 @@ const DeleteModal = props => {
 
   return (
     <div className='delete-modal'>
-    <h2>Are you sure you want to delete this?</h2>
+    <h4>Are you sure you want to delete this?</h4>
     <button className='button yes-button' onClick={deleteIt}>Delete</button>
     <button className='button no-button' onClick={cancelDelete}>No</button>
     </div>

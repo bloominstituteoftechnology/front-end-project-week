@@ -48,7 +48,6 @@ export const addNote = note => dispatch => {
 }
 
 export const editNote = note => dispatch => {
-  const noteID = note.id;
   dispatch({ type: PUT_NOTE });
   axios
     .put(`${url}/edit/${note.id}`, note)

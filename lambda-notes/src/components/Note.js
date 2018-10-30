@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import { EditView } from '../views';
+import { Link } from 'react-router-dom';
+
 
 const Note = props => {
   if (!props.note) {
@@ -21,7 +21,7 @@ const Note = props => {
           </div>
         </Link>
         </div>
-        <h2>{props.note.title}</h2>
+        <h3>{props.note.title}</h3>
         <p>{props.note.textBody}</p>
       </div>
     </div>
