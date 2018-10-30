@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const ACTIVE_NOTE_HANDLER = 'active_note_handler';
-export const SEARCH_NOTE_HANDLER = 'active_note_handler';
+export const SEARCH_NOTE_HANDLER = 'search_note_handler';
 
 export const GET_NOTE = 'get_note';
 export const GET_NOTE_SUCCESS = 'get_note_success';

@@ -2,6 +2,39 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+const ToolBar = ({ notes }) => {
+    return (
+        <SideBar>
+            <Section to='/' exact notes="true">
+                <span className="icon" />
+                <span className="title"/>
+            </Section>
+            <Section to='/reminders' reminders="true">
+                <span className="icon" />
+                <span className="title"/>
+            </Section>
+            <Seperator />
+            <ToolBarLabel />
+            <Section to='/tags' tags="true">
+                <span className="icon" />
+                <span className="title"/>
+            </Section>
+            <Seperator />
+            <Section to='/csv' csv="true">
+                <span className="icon" />
+                <span className="title"/>
+            </Section>
+            <Section to='/trash' trash="true">
+                <span className="icon" />
+                <span className="title"/>
+            </Section>
+        </SideBar>
+    );
+}
+
+export default ToolBar;
+
+
 const SideBar = styled.div`
     width: 280px;
     height: 100%;
@@ -118,34 +151,3 @@ const ToolBarLabel = styled.div`
     }
 `;
 
-const ToolBar = () => {
-    return (
-        <SideBar>
-            <Section to='/' exact notes="true">
-                <span className="icon" />
-                <span className="title"/>
-            </Section>
-            <Section to='/reminders' reminders="true">
-                <span className="icon" />
-                <span className="title"/>
-            </Section>
-            <Seperator />
-            <ToolBarLabel />
-            <Section to='/tags' tags="true">
-                <span className="icon" />
-                <span className="title"/>
-            </Section>
-            <Seperator />
-            <Section to='/csv' csv="true">
-                <span className="icon" />
-                <span className="title"/>
-            </Section>
-            <Section to='/trash' trash="true">
-                <span className="icon" />
-                <span className="title"/>
-            </Section>
-        </SideBar>
-    );
-}
-
-export default ToolBar;

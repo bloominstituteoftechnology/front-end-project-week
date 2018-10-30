@@ -81,6 +81,7 @@ const Search = styled.div`
         background-color: transparent;
         outline: none;
         font: normal 16px Roboto,sans-serif;
+        width: 60%;
 
     }
 `;

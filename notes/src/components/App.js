@@ -58,7 +58,7 @@ class App extends Component {
         <Header 
           searchHandler={this.props.searchHandler}
         />
-        <ToolBar />
+        <ToolBar notes={this.props.notes}/>
 
         <NoteContainer>
           <Route 
