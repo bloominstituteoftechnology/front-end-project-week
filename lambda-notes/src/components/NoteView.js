@@ -5,8 +5,7 @@ import axios from 'axios';
 export default class NoteView extends React.Component {
     constructor(props){
         super(props);
-    this.note = this.props.notes.filter(note => note._id === this.props.match.params.id );
-    this.note = this.note[0];
+   
     this.state = {
         note: this.note,
         editNote: false,
@@ -33,26 +32,42 @@ toggleDelete = () => {
 
 
 deleteNote = () => {
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.note._id}`)
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
          .then(res => console.log(res))
+         .then(res => this.props.update())
          .catch(err => console.log(err));
 
     this.props.history.push('/')
 }
 
-submitNote = () => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.note._id}`, this.state.note)
-         .then(res => {console.log('put success', res)
-                       this.setState({editNote: !this.state.editNote})})
-         .catch(err => console.log(err))
 
+
+submitNote = () => {
+    
+    this.props.submitNote(this.state.note._id, this.state.note);
+    this.setState({editNote: !this.state.editNote})
     
 }
+componentWillMount(){
+    
+}
+
+componentDidMount(){
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(res => {
+     console.log('works',res);
+     let note = res.data.filter(note => note._id === this.props.match.params.id );
+     this.setState({note: note[0]})  
+     })
+    .catch(err => console.log(err));
+}
     render(){
+
         
         return (
+            
             <div className="cont-body">
-
+            
             { ( this.state.deleteNote && <div className="modal">
                 <div className="modal-card">
                 <p><strong>Are you sure you want to delete this?</strong></p>
@@ -63,10 +78,11 @@ submitNote = () => {
                 </div>
             </div> ) }
 
-
+                {!this.state.note ? <h1>Loading Note</h1> :  
+                <React.Fragment>
                 <div className="top-cont">
 
-                    {!this.state.editNote ? <h1>{this.note.title}</h1> :
+                    {!this.state.editNote ? <h1>{this.state.note.title}</h1> :
                     <input type='text' name="title" id='title-input' onChange={this.inputChange} value={this.state.note.title}/>
                 }
                     <div className="options">
@@ -77,13 +93,14 @@ submitNote = () => {
 
                 <div className="bottom-cont">
                 
-                {!this.state.editNote ? <p>{this.note.textBody}</p> :
+                {!this.state.editNote ? <p>{this.state.note.textBody}</p> :
                 <div className='txt-cont'>
-                <textarea id='textarea' name='textBody' onChange={this.inputChange}>{this.note.textBody}</textarea>
+                <textarea id='textarea' name='textBody' onChange={this.inputChange}>{this.state.note.textBody}</textarea>
                 <div className='button' onClick={this.submitNote}>SAVE</div>
                 </div> }
                 </div>
-            
+                </React.Fragment>
+            }
             </div>
         )
     }

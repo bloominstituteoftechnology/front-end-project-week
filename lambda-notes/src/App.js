@@ -25,14 +25,15 @@ class App extends Component {
   }
 
   saveNote = () => {
-    console.log('hi');
-    console.log(this.state.newNote);
     axios.post('https://fe-notes.herokuapp.com/note/create', this.state.newNote)
-        .then(res => {console.log('success',res.data);
-  })
+        .then(res => {console.log('success',res)
+        
+  }).then(res => this.updateNotes())
         .catch(err => console.log(err))
-    this.setState({newNote: {title: '', textBody: '', tags: []} })
+    this.setState({newNote: {title: '', textBody: '', tags: []} });
+
     this.props.history.push('/');
+    
   }
 
   editNote = (e) => {
@@ -40,15 +41,34 @@ class App extends Component {
     
   }
 
+  updateNotes = () => {
+
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(res => {console.log('hiUN',res);
+     this.setState({notes: res.data})  
+     })
+    .catch(err => console.log(err));
+  }
+
+  submitNote = (id, note) => {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+         .then(res => {console.log('put success', res)
+                       }).then(res => this.updateNotes())
+         .catch(err => console.log(err))
+
+    
+}
+
+  componentDidUpdate(){
+    console.log('cDU');
+    
+  }
 
 
   componentDidMount(){
-      axios.get('https://fe-notes.herokuapp.com/note/get/all')
-           .then(res => {console.log(res);
-            this.setState({notes: res.data})  
-            })
-           .catch(err => console.log(err))
+      this.updateNotes()
   }
+
 
 
   render() {
@@ -63,7 +83,11 @@ class App extends Component {
             <h1>Lambda Notes</h1>
           </div>
           <div className='button'><NavLink to='/'>View Your Notes</NavLink></div>
-          <div className='button'><NavLink to='/create-note'>+Create New Note</NavLink></div>
+          <div className='button'><NavLink to='/create-note' 
+          onClick={()=> this.setState({createNote: !this.state.createNote,
+                                       viewNotes: false,
+                                       editNote: false,
+                                      notePage: false })}>+Create New Note</NavLink></div>
 
         </div>
         
@@ -76,9 +100,9 @@ class App extends Component {
               this.state.editNote ? 'Edit Note' : '' } </h2>
           </div>
           <Switch>
-          <Route exact path='/' render={ props => <NotesView {...props} editNote={this.editNote} notes={this.state.notes}/>} />
+          <Route exact path='/' render={ props => <NotesView {...props} update={this.updateNotes} editNote={this.editNote} notes={this.state.notes}/>} />
           <Route path='/create-note' render={ props => <Form saveNote={this.saveNote} inputHandler={this.inputHandler} {...props} />} />
-          <Route path="/note/:id" render={props => <NoteView {...props} notes={this.state.notes} />}/>
+          <Route path="/note/:id" render={props => <NoteView {...props}  update={this.updateNotes} submitNote={this.submitNote}notes={this.state.notes} />}/>
           </Switch>
           
           

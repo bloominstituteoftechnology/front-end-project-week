@@ -226,3 +226,8 @@
 .red {
   background: red;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
