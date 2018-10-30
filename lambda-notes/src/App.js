@@ -73,12 +73,12 @@ class App extends Component {
           />
 
           <Route 
-                exact path='/individual-note-view/' 
+                exact path='/note/:id' 
                 render=
                 {props =>
                     <NoteView
                     {...props}
-                    notes = {this.state.notes} 
+                    note = {this.state.notes} 
                      />
                 }
                 />
