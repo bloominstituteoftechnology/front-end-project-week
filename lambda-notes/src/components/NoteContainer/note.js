@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import DeleteModal from './deleteModal';
 // import NoteCard from './noteCard';
 
 
@@ -15,31 +16,31 @@ class Note extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         this.fetchNote(id);
-      }
+    }
 
-      fetchNote = id => {
+    fetchNote = id => {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
                 console.log('HOPE', response);
-                this.setState(()=>({ note: response.data }))
+                this.setState(() => ({ note: response.data }))
             })
             .catch(error => {
                 console.log(error);
             });
     };
 
-    deleteNote= event =>{
+    deleteNote = event => {
         event.preventDefault();
         axios
-        .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
-        .then(response =>{
-            this.props.changeState(response.data)
-        })
-        .catch(err=>
-            console.log(err));
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+            .then(response => {
+                this.props.changeState(response.data)
+            })
+            .catch(err =>
+                console.log(err));
 
-            this.props.history.push('/');
+        this.props.history.push('/');
     }
 
     // componentWillReceiveProps(newProps){
@@ -55,7 +56,7 @@ class Note extends Component {
         return (
             <div>
                 edit
-                <h4 onClick={this.deleteNote}> delete</h4>
+                <DeleteModal deleteNote = {this.deleteNote}/>
                 {this.state.note.title}
                 <h2>{this.state.note.textBody}</h2>
             </div>
