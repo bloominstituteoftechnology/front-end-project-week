@@ -1,25 +1,26 @@
 import React from 'react';
 import Note from './Note';
 
-class Notes extends React.Component {
-    componentDidMount(){
-        console.log('notesprops', this.props);
-    }
-    render() {
-        return (
+const Notes = props => {
+        return(
             <div>
-                <h1>Your Notes</h1>
-                <div className="note-container">
-                    {this.props.notes.map(note => {
-                        return (
-                            <div key={note._id} className="notes">
-                            <Note note={note}/>
-                            </div>
+                <h1>Your Notes:</h1>
+                <div>
+                    {props.notes.map(note => {
+                        return(
+                            <div key={note._id}>
+                            <Note
+                            title={note.title}
+                            textBody={note.textBody}
+                            id={note._id}
+                            />
+                            </div> 
                         )
                     })}
                 </div>
             </div>
         )
     }
-}
+
+
 export default Notes;
