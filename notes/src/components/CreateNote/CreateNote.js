@@ -21,8 +21,8 @@ class CreateNote extends Component {
             <div className="createNote">
                 <h3>Create New Note:</h3>
                 <form>
-                    <input className="newTitle" type="text" value={this.state.title} name="title" onChange={event => this.changeHandler(event)} />
-                    <textarea className="newContent" value={this.state.textBody} name="textBody" onChange={event => this.changeHandler(event)} />
+                    <input className="newTitle" type="text" placeholder="Title" value={this.state.title} name="title" onChange={event => this.changeHandler(event)} />
+                    <textarea className="newContent" placeholder="Content" value={this.state.textBody} name="textBody" onChange={event => this.changeHandler(event)} />
                     <input className="saveButton" type="submit" value="save" />
                 </form>
             </div>
