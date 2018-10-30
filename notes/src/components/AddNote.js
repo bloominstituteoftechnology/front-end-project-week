@@ -4,7 +4,7 @@ import { addNote } from '../actions';
 // import { v1 } from 'uuid';
 import styled from 'styled-components';
 
-const AddNoteWrapper = styled.div`
+export const AddNoteWrapper = styled.div`
   h2 {
     padding: 2.8rem 0 1.4rem;
     font-size:1.4rem;
@@ -13,7 +13,7 @@ const AddNoteWrapper = styled.div`
   }
 `;
 
-const AddNoteForm = styled.form`
+export const AddNoteForm = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -59,7 +59,7 @@ class AddNote extends React.Component {
 
   handleChange = e => {
     e.preventDefault();
-    console.log(e.target.name, e.target.value)
+    // console.log(e.target.name, e.target.value)
     this.setState({
       [e.target.name]: e.target.value
     });

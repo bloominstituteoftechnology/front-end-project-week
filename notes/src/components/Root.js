@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from '../App.js';
 import AddNote from './AddNote.js';
 import EditNote from './EditNote.js';
+import ViewNote from './ViewNote.js';
 import Navbar from './Navbar.js';
 import styled from 'styled-components';
 
@@ -31,6 +32,7 @@ const Root = ({ store }) => (
           <Switch>
             <Route exact path='/' component={App} />
             <Route exact path='/newnote' component={AddNote} />
+            <Route exact path='/notes/:id' render={props => <ViewNote {...props}/>} />
             <Route path='/notes/:id' render={props => <EditNote {...props}/>} />
           </Switch>
         </MyContent>

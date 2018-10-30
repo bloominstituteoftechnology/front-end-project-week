@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { editNote, deleteNote } from '../actions';
-import { NavLink } from 'react-router-dom';
+import { AddNoteWrapper, AddNoteForm }from './AddNote';
 
 // needs refactor with axios get request that uses this.props.match.params.id inside componentDidMount
 // Currently only works when clicked on from the home page -- if someone tries to navigate directly to the specific url, app crashes
@@ -43,16 +43,14 @@ class EditNote extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <AddNoteWrapper>
         <h2>EDIT NOTE</h2>
-        <form onSubmit={this.editThisNote}>
+        <AddNoteForm onSubmit={this.editThisNote}>
           <input type='text' value={this.state.title} name='title' onChange={this.handleChange} required/>
-          <input type='text' value={this.state.content} name='content' onChange={this.handleChange} required/>
+          <textarea type='text' value={this.state.content} name='content' onChange={this.handleChange} required/>
           <button type='submit'>Edit note</button>
-        </form>
-        <button onClick={this.deleteThisNote}>Delete</button>
-        <NavLink to='/'>Return Home</NavLink>
-      </React.Fragment>
+        </AddNoteForm>
+      </AddNoteWrapper>
   )
   }
 };
