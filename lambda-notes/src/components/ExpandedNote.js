@@ -1,26 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './ExpandedNote.css';
     
-const ExpandedNote = props => {
-    return (
-        <div className='expandedNote'>
-            <div>
-                <Link to={`/editNote/${props.expandedNote.id}`}>edit</Link>
-                <Link to={'/delete'}>delete</Link>
-            </div>
-            <h1>{props.expandedNote.title}</h1>
-            <p>{props.expandedNote.text}</p>
-            <div className='modal'>
-                <div className='modalMenu'>
-                    <p>Are you sure you want to delete this?</p>
-                    <div className='modalButtons'>
-                        <button className='button deleteButton'>Delete</button>
-                        <button className='button retreatButton'>Retreat</button>
+class ExpandedNote extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showModal: false
+        }
+    }
+
+    toggleModal = () => {
+        this.setState({ showModal: !this.state.showModal });
+    }
+
+    render() {
+        return (
+            <div className='expandedNote'>
+                <div>
+                    <Link to={`/editNote/${this.props.expandedNote.id}`}>edit</Link>
+                    <div onClick={this.toggleModal}>delete</div>
+                </div>
+                <h1>{this.props.expandedNote.title}</h1>
+                <p>{this.props.expandedNote.text}</p>
+                <div className={this.state.showModal ? 'modal' : 'hidden'}>
+                    <div className='modalMenu'>
+                        <p>Are you sure you want to delete this?</p>
+                        <div className='modalButtons'>
+                            <button className='button deleteButton'>Delete</button>
+                            <button onClick={this.toggleModal} className='button retreatButton'>Retreat</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default ExpandedNote;

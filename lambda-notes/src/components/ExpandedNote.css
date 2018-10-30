@@ -1,0 +1,20 @@
+.modal {
+    background: rgba(0, 0, 0, 0.6);
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.modalMenu {
+    background: white;
+    width: 60%;
+    margin: 100px auto;
+}
+
+.hidden {
+    display: none;
+}
