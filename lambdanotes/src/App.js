@@ -126,7 +126,7 @@ class App extends React.Component {
           )}
         />
         <Route
-          path="/notes/:noteId"
+          path="/:noteId"
           render={props => (
             <Note
               {...props}

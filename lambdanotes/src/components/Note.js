@@ -6,10 +6,11 @@ import './ComponentStyle.css';
 function Note(props) {
   console.log(props);
   const note = props.notesList.find(
-    note => note.id === parseInt(props.match.params.noteId, 10)
+    note => note._id === props.match.params.noteId
   );
+  console.log(note);
   function handleDelete() {
-    props.handleDeleteNote(note.id);
+    props.handleDeleteNote(note._id);
     props.history.push('/note');
   }
 
@@ -25,7 +26,7 @@ function Note(props) {
       </button>
       <button onClick={handleDelete}>Delete</button>
       <div>
-        <Link to={`/notes/${note.id}/info`}>
+        <Link to={`/${note._id}`}>
           <h1>{note.title}</h1>
           <h4>({note.textBody})</h4>
         </Link>

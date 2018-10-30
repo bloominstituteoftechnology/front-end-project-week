@@ -4,16 +4,16 @@ import './ComponentStyle.css';
 
 function NotesList(props) {
   if (!props.notesList || !props.notesList.length) {
-    return <h1>No notes!</h1>;
+    return <h1>Fetching notes!</h1>;
   }
   return (
     <div className="note-container">
       <h1 className="notes-title">Your Notes:</h1>
       {props.notesList.map(note => (
-        <div key={note.id} className="note-card">
+        <div key={note._id} className="note-card">
           <h1
             className="note-title"
-            onClick={() => props.history.push(`/notes/${note.id}/info`)}
+            onClick={() => props.history.push(`/${note._id}`)}
           >
             {note.title}
           </h1>
