@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 class FullPageNote extends Component {
     constructor(props) {
@@ -63,7 +64,8 @@ class FullPageNote extends Component {
                 
                 <div className='fullpage'>
                     <h2 className='title'>{this.state.note.title}</h2>
-                    <p className='body'>{this.state.note.textBody}</p>
+                    <ReactMarkdown className='body' source={this.state.note.textBody} />
+                    {/* <p className='body'>{this.state.note.textBody}</p> */}
                     <span className='delete' onClick={this.deleteModal}>✖</span>
                     <Link className='edit' to={{ pathname: '/add', state: { note: this.state.note} }}>EDIT</Link>
                 </div>

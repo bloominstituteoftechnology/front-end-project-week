@@ -6,13 +6,15 @@ import Notes from './components/Notes';
 import Form from './components/Form';
 import Nav from './components/Nav';
 import FullPageNote from './components/FullPageNote'
+import Login from './components/Login'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: [],
-      sorted: false
+      sorted: false,
+      username: '',
     }
   }
 
@@ -55,6 +57,12 @@ class App extends Component {
 
   render() {
     // Just some basic routes with render props. The only real prop passed down is notes from state (from the server).
+    // if (this.state.username === '') {
+    //   return(
+    //     <Login />
+    //   )
+    // }
+
     return (
       <div className="App">
         <Nav/>
