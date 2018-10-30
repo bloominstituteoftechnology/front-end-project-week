@@ -74,6 +74,8 @@ button {
 /*CreateNewNote.js style */
 .no-decoration{
     text-decoration: none;
+    color : black;
+    cursor: pointer;
 }
 
 .form {
@@ -118,4 +120,33 @@ textarea {
 .create-note-main-div button{
     margin-left : 3px;
     width : 20%;
+}
+
+/*SingleNoteExpand.js style*/
+.expand-div{
+    
+    background-color: #ddd;
+    width: 100%;
+    text-align: left;
+}
+
+.span-div{
+    display: flex;
+    height: 60px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 5%;
+}
+.span-div span{
+    margin-left : 2%;
+    cursor: pointer;
+}
+
+.note-div{
+    background-color: #ddd;
+    width : 75%;
+}
+
+.note-div h2{
+    margin-left : 10%;
 }

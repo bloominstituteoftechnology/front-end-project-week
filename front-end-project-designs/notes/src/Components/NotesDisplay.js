@@ -19,7 +19,7 @@ class NotesDisplay extends React.Component {
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
-                    console.log(response.data);
+                    console.log("RR  : ",response.data);
                     this.setState({ notes : response.data})
              })
             .catch(error => console.log(error))

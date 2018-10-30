@@ -11,7 +11,7 @@ const NotesSideBar = (props) => {
        {/* <button>View Your Notes</button>
            <button>+Create New Note</button>*/}
             
-            <Link to = "/" className = "no-decoration">
+            <Link to = "/notes" className = "no-decoration">
                 <button> View Your Notes </button>
             </Link>
 
