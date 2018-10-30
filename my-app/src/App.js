@@ -7,7 +7,7 @@ import Sidebar from "./components/SideBar";
 import NoteList from "./components/NoteList/NoteList";
 import NewNote from "./components/NewNote";
 import NoteView from "./components/NoteView";
-// import EditNote from "./components/EditNote";
+import EditNote from "./components/EditNote";
 
 class App extends Component {
   constructor() {
@@ -54,6 +54,7 @@ class App extends Component {
             )}
           />
           <Route exact path="/:id" component={NoteView} />
+          <Route path="/edit-view/:id" component={EditNote} />
           )} />
         </Switch>
       </div>

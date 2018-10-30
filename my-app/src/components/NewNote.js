@@ -21,12 +21,12 @@ export default class NoteForm extends Component {
     this.setState({ title: "", textBody: "" });
     console.log("state updated");
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", {
+      .post("http://localhost:3333/add-note", {
         title: this.state.title,
         textBody: this.state.textBody
       })
       .then(response => {
-        console.log(response);
+        console.log(response, "Note Added!");
         this.setState({ title: "", textBody: "" });
         console.log("new state set");
       })

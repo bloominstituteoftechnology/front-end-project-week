@@ -1,43 +1,49 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+
 import styled from "styled-components";
+import axios from "axios";
 
 class EditNote extends Component {
   state = {
+    // note: [],
     title: "",
-    content: "",
-    updating: false
+    textBody: ""
   };
-
-  componentDidMount() {
-    console.log("is component firing?", this.state, this.state.isUpdating);
-    if (this.props.isUpdating) {
-      this.setState({
-        title: this.props.isUpdating.title,
-        content: this.props.isUpdating.content,
-        updating: true
-      });
-    }
-  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log("edit props:", this.props);
-    if (this.state.updating) {
-      const editedNote = {
+  updateNotes = e => {
+    console.log("inside updateNotes");
+    const id = this.props.match.params.id;
+    console.log(id);
+
+    // const path = `https://killer-notes.herokuapp.com/note/edit/${id}`;
+
+    axios
+      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
         title: this.state.title,
-        content: this.state.content,
-        id: this.props.match.params.id
-      };
-      console.log("handleSubmit:", editedNote);
-      this.props.editingNote(editedNote);
-      console.log("this1:", this.props.editingNote);
-      this.props.history.push("/list-view");
-    }
+        textBody: this.state.textBody
+      })
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+        this.setState({ title: "", textBody: "" });
+        console.log("new state set");
+      })
+      .catch(error => {
+        console.log(`There was an error updating notes: ${error.message}`);
+      });
+  };
+
+  handleUpdate = e => {
+    console.log("update handled");
+    e.preventDefault();
+    this.setState({ title: "", textBody: "" });
+    this.updateNotes();
+    console.log("note updated");
   };
 
   render() {
@@ -51,14 +57,14 @@ class EditNote extends Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
-        <InputContent
+        <InputtextBody
           type="text"
-          placeholder="Note Content..."
-          name="content"
-          value={this.state.content}
+          placeholder="Note textBody..."
+          name="textBody"
+          value={this.state.textBody}
           onChange={this.handleChange}
         />
-        <Button onClick={this.handleSubmit}>Update</Button>
+        <Button onClick={this.handleUpdate}>Update</Button>
       </Form>
     );
   }
@@ -68,6 +74,7 @@ const Form = styled.form`
   margin: 38px 4% 0 4%;
   display: flex;
   flex-direction: column;
+  margin-left: 275px;
 `;
 
 const H2 = styled.h2`
@@ -83,7 +90,7 @@ const InputTitle = styled.input`
   border: 1px solid grey;
 `;
 
-const InputContent = styled.input`
+const InputtextBody = styled.input`
   width: 98.75%;
   height: 345px;
   border-radius: 5px;
@@ -101,4 +108,4 @@ const Button = styled.button`
   border: 1px solid grey;
 `;
 
-export default withRouter(EditNote);
+export default EditNote;

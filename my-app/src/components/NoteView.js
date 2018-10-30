@@ -40,7 +40,7 @@ class NoteView extends React.Component {
           <Link>
             {" "}
             <NavLink
-              to={`/edit-view/${this.state.note.id}`}
+              to={`/edit-view/${this.props.match.params.id}`}
               //   onClick={() => props.editNote(note.id)}
             >
               edit
