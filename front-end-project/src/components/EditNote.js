@@ -2,7 +2,7 @@ import React from "react";
 
 
 const EditView = ({changeHandler, title, textBody, notes, editNote, note}) => {
-    console.log("props id editview", notes._id)
+    console.log("props id editview", notes)
     
     return (
         <div>
@@ -23,7 +23,7 @@ const EditView = ({changeHandler, title, textBody, notes, editNote, note}) => {
                     cols="45"
                     rows="10" />
             </div>
-            <button onClick={()=>editNote(notes)} className="save-btn">Update</button>
+            <button onClick={editNote} className="save-btn">Update</button>
         </form>
         </div>
         </div>

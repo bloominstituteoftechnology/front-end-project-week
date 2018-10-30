@@ -8,6 +8,11 @@ import SingleNote from './components/SingleNote';
 import EditNote from './components/EditNote';
 import { Route } from "react-router-dom";
 
+const blankItem = {
+  title: "",
+  textBody: "",
+}
+
 class App extends Component {
   constructor(){
     super()
@@ -16,9 +21,7 @@ class App extends Component {
       title: "",
       textBody: "",
       activeNote: null,
-      isEditing: false,
-      editInput: "",
-      editTextBody:""
+      editId: null
     }
   }
 
@@ -41,12 +44,7 @@ class App extends Component {
     })
   }
 
-  setEditInputBody = (title, body) => {
-    this.setState({
-      editInput: title,
-      editTextBody: body
-    })
-  }
+
 
   addNewNote = () => {
     const newNotes = {
@@ -88,13 +86,24 @@ class App extends Component {
   }
 
 
-  editNote = (id) => {
-    console.log("editenote",id)
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
-          console.log("edit id", id)
+  editNote = (ev) => {
+    ev.preventDefault();
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.editId}`,
+         {title: this.state.title, textBody: this.state.textBody})
           .then(res => {
             console.log("edit", res.data)
+            this.setState({ notes: res.data, editId: null, title:"", textBody:"" })
           })
+  }
+
+  goToEditForm = (ev, notes) => {
+    ev.preventDefault();
+    console.log("goeditform", notes._id)
+    this.setState({
+      title: this.state.title,
+      textBody: this.state.textBody,
+      editId: notes._id
+    })
   }
        
   
@@ -107,7 +116,7 @@ class App extends Component {
       <div className="nav-width"></div>
       <NavSideBar />
       <Route exact path ="/note-list/:id" render={props => (
-        <SingleNote {...props} deleteNote={this.deleteNote} note={this.state.activeNote} />
+        <SingleNote {...props} deleteNote={this.deleteNote} note={this.state.activeNote} goToEditForm={this.goToEditForm} />
       )} />
       <Route exact path="/note-list" render={props => (
         <NoteListContainer {...props} notes={this.state.notes} getNoteId={this.getNoteId} />
