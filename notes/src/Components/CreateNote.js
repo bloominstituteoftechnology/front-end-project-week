@@ -15,7 +15,7 @@ class CreateNote extends Component {
     };
     
     addNote = () => {
-        axios.post  (`https://killer-notes.herokuapp.com/note/create`, this.state)
+        axios.post  (`http://localhost:8000/api/notes/`, this.state)
         .then (res => {this.setState({notes: res.data})
         })
         .then(() => {this.props.history.push('/')})

@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://killer-notes.herokuapp.com/note/get/all`)
+    axios.get(`http://localhost:8000/api/notes/`)
     .then(res => {
         this.setState({notes: res.data});
     })

@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 
+
 class Note extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ class Note extends React.Component {
   
   componentDidMount() {
     const id = this.props.match.params.id;
-    axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+    axios.get(`http://localhost:8000/api/notes/${id}`)
     .then(response => {
       this.setState({note: response.data});
     })
@@ -24,7 +25,7 @@ class Note extends React.Component {
   deleteNote = () => {
     const id = this.props.match.params.id;
     axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .delete(`http://localhost:8000/api/notes/${id}`)
     .then (res => {
       this.setState({notes: res.data});
     })

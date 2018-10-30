@@ -13,7 +13,7 @@ class EditNote extends Component {
     componentDidMount = () => {
         console.log('before get', this.state)
         axios
-        .get(`https://killer-notes.herokuapp.com/note/get/all`)
+        .get(`http://localhost:8000/api/notes`)
         .then(res => {
             let notes = res.data;
             let note = notes.filter(note => {
@@ -36,7 +36,7 @@ class EditNote extends Component {
             textBody: this.state.textBody,
         };
         axios
-          .put  (`https://killer-notes.herokuapp.com/note/edit/${id}/`, newNote)
+          .put  (`https://localhost:8000/api/notes/${id}/`, newNote)
           .then (res => this.setState({notes: res.data}))
           .then (
                 this.setState({ 
