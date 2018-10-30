@@ -137,6 +137,10 @@ body {
   color: #524e4d;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   font-size: 3.6rem;
   margin: 5px;
@@ -148,8 +152,9 @@ h1 {
 
 .sidebar {
   background: #d3d2d3;
-  width: 35%;
-  height: 100vh;
+  min-height: 100vh;
+  width: 25%;
+  max-width: 200px;
   padding: 10px;
   border: 1px solid #524e4d;
 }
@@ -167,7 +172,9 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 20px;
   align-items: center;
+  width: 75%;
 }
 .notes-list .note-preview {
   border: 1px solid #524e4d;
@@ -190,4 +197,21 @@ h1 {
   margin: 5px;
   padding: 5px;
   font-size: 1.2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 70%;
+}
+form h2 {
+  font-size: 2.6rem;
+}
+form input {
+  padding: 3px;
+  margin: 10px 0;
+}
+form textarea {
+  height: 50%;
 }

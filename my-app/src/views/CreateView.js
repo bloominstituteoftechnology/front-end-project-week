@@ -5,7 +5,6 @@ class CreateView extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Create View</h1>
         <Sidebar />
         <Form />
       </div>
