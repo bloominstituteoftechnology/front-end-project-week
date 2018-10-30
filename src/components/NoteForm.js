@@ -17,7 +17,7 @@ class NoteForm extends Component {
         editing: true,
         title: this.props.noteUpdate.title,
         text: this.props.noteUpdate.text,
-        tags: this.props.noteUpdate.tags
+        tags: JSON.parse(this.props.noteUpdate.tags)
       })
     }
   }
@@ -31,7 +31,7 @@ class NoteForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { id } = this.props.match.params
-    const formattedTags = JSON.stringify(this.state.tags.split(",").map(word => word.trim().toLocaleLowerCase()))
+    const formattedTags = JSON.stringify(this.state.tags.split(',').map(word => word.trim().toLocaleLowerCase()))
     if (this.state.editing) {
       const updatedNote = {
         id: this.props.noteUpdate.id,
@@ -42,7 +42,6 @@ class NoteForm extends Component {
       axios.put(`http://localhost:9000/notes/${id}/edit`, updatedNote)
         .then(resp => console.log(resp))
         .catch(err => console.log(err))
-      // this.props.updateNote(updatedNote)
       this.props.history.push("/")
       this.setState({ editing: false })
     }
@@ -52,7 +51,6 @@ class NoteForm extends Component {
         text: this.state.text,
         tags: formattedTags,
       }
-      console.log(formattedTags, typeof formattedTags)
       const emptyNote = {
         title: '',
         text: '',
