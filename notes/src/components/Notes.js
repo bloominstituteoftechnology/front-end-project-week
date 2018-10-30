@@ -26,8 +26,12 @@ let Notes = props => {
     return (
         <div className="container"> 
             <h1>Your Notes:</h1>
+            
             {/* Ensuring that data is on state before rendering up the CSV download link */}
             {props.notes ? <PropDataUpdatedCSVLink className='download' data={props.notes} headers={headers} filename={"VellumNotes.csv"}> Download All </PropDataUpdatedCSVLink> : null }
+            
+            {/* <button onClick={() => props.AZSort(props.notes)}>Sort</button> */}
+            
             <div className='notes'>
                 {props.notes.map(note => <Note key={note._id} note={note} deleteHandler={props.deleteHandler}/>)}
             </div>

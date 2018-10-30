@@ -12,26 +12,46 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
+      sorted: false
     }
   }
 
   // brings in the notes from the server
   componentDidMount() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-         .then(res => this.setState({
-           notes: res.data
-          }))
-         .catch(err => console.log(err))
+      axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(res => this.setState({
+        notes: res.data
+       }))
+      .catch(err => console.log(err))
   }
 
   // brings in the notes from the server (mindful of updates)
   componentDidUpdate() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(res => this.setState({
-      notes: res.data
-     }))
-    .catch(err => console.log(err))
+      axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(res => this.setState({
+          notes: res.data
+        }))
+        .catch(err => console.log(err))
   }
+
+  // AZSort = arr => {
+  //   function compare(a, b) {
+  //     const titleA = a.title.toUpperCase();
+  //     const titleB = b.title.toUpperCase();
+    
+  //     let comparison = 0;
+  //     if (titleA > titleB) {
+  //       comparison = 1;
+  //     } else if (titleA < titleB) {
+  //       comparison = -1;
+  //     }
+  //     return comparison;
+  //   }
+  //   this.setState({
+  //     sorted: true, 
+  //     notes: arr.sort(compare)
+  //   })
+  // }
 
   render() {
     // Just some basic routes with render props. The only real prop passed down is notes from state (from the server).
@@ -42,7 +62,7 @@ class App extends Component {
         <Route
           exact path="/"
           render={props => (
-            <Notes {...props} notes={this.state.notes} />
+            <Notes {...props} notes={this.state.notes} AZSort={this.AZSort} />
           )} 
         />
 
