@@ -10,7 +10,7 @@ class NoteUpdate extends Component {
         super(props);
         console.log(this.props);
         this.state = {
-            _id: props.note._id,
+            id: props.note.id,
             title: props.note.title,
             content: props.note.content
         }

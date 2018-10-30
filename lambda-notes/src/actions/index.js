@@ -74,11 +74,11 @@ export const addNote = (newNote) => {
   }
 }
 
-export const fetchSingleNoteCard = _id => {
+export const fetchSingleNoteCard = id => {
   return dispatch => {
     dispatch({ type: FETCHING_SINGLE_NOTECARD });
     axios
-      .get(`http://localhost:8000/api/notes/${_id}`)
+      .get(`http://localhost:8000/api/notes/${id}`)
       .then(({data}) => {
         dispatch({ 
           type: FETCHED_SINGLE_NOTECARD, 
@@ -99,7 +99,7 @@ export const updateNote = note => {
     dispatch({ type: UPDATING_NOTE });
 
     axios
-      .put(`http://localhost:8000/api/notes/${note._id}`, note)
+      .put(`http://localhost:8000/api/notes/${note.id}`, note)
       .then(response => {
         dispatch({
           type: UPDATED_NOTE,
@@ -115,14 +115,14 @@ export const updateNote = note => {
   }
 };
 
-export const deleteNote = (_id) => {
+export const deleteNote = (id) => {
   return dispatch => {
     dispatch({ type: DELETING_NOTE });
 
     axios
-      .delete(`http://localhost:8000/api/notes/${_id}`)
+      .delete(`http://localhost:8000/api/notes/${id}`)
       .then(() => {
-        dispatch({ type: DELETED_NOTE, _id })
+        dispatch({ type: DELETED_NOTE, id })
       })
       .then(
         () =>
