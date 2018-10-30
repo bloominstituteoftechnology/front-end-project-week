@@ -1,6 +1,6 @@
 import React from 'react';
 import { NotesList, Note, NoteForm } from './components';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, NavLink, withRouter, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import './components/ComponentStyle.css';
@@ -103,39 +103,40 @@ class App extends React.Component {
             <NavLink to="/note-form">+ Create New Note</NavLink>
           </button>
         </div>
-
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <NotesList {...props} notesList={this.state.notesData} />
-          )}
-        />
-        <Route
-          path="/note-form"
-          render={props => (
-            <NoteForm
-              {...props}
-              notesList={this.state.notesData}
-              note={this.state.note}
-              handleAddNewNote={this.handleAddNewNote}
-              handleChange={this.handleChange}
-              handleUpdateNote={this.handleUpdateNote}
-              isUpdating={this.state.isUpdating}
-            />
-          )}
-        />
-        <Route
-          path="/:noteId"
-          render={props => (
-            <Note
-              {...props}
-              notesList={this.state.notesData}
-              handleDeleteNote={this.handleDeleteNote}
-              goToUpdateNoteForm={this.goToUpdateNoteForm}
-            />
-          )}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <NotesList {...props} notesList={this.state.notesData} />
+            )}
+          />
+          <Route
+            path="/note-form"
+            render={props => (
+              <NoteForm
+                {...props}
+                notesList={this.state.notesData}
+                note={this.state.note}
+                handleAddNewNote={this.handleAddNewNote}
+                handleChange={this.handleChange}
+                handleUpdateNote={this.handleUpdateNote}
+                isUpdating={this.state.isUpdating}
+              />
+            )}
+          />
+          <Route
+            path="/:noteId"
+            render={props => (
+              <Note
+                {...props}
+                notesList={this.state.notesData}
+                handleDeleteNote={this.handleDeleteNote}
+                goToUpdateNoteForm={this.goToUpdateNoteForm}
+              />
+            )}
+          />
+        </Switch>
       </div>
     );
   }
