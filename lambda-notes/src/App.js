@@ -29,9 +29,19 @@ class App extends Component {
     axios
         .post('https://fe-notes.herokuapp.com/note/create', note)
         .then(() => axios
-                .get('https://fe-notes.herokuapp.com/note/get/all')
-                .then(response => this.setState({ notes: response.data }))
-                .catch(error => console.log(error)))
+                      .get('https://fe-notes.herokuapp.com/note/get/all')
+                      .then(response => this.setState({ notes: response.data }))
+                      .catch(error => console.log(error)))
+        .catch(error => console.log(error));
+  }
+
+  editNote = note => {
+    axios 
+        .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.expandedNote.id}`, note)
+        .then(() => axios
+                      .get('https://fe-notes.herokuapp.com/note/get/all')
+                      .then(response => this.setState({ notes: response.data }))
+                      .catch(error => console.log(error)))
         .catch(error => console.log(error));
   }
 
@@ -46,7 +56,7 @@ class App extends Component {
         <Route render={props => (<NotesList {...props} passThisNote={this.passThisNote} notes={this.state.notes} />)} exact path='/'/>
         <Route render={props => (<AddNoteForm {...props} addNote={this.addNote} />)} exact path='/AddNoteForm'/>
         <Route render={props => (<ExpandedNote {...props} expandedNote={this.state.expandedNote} />)} exact path='/ExpandedNote/:id'/>
-        <Route render={props => (<EditNoteForm {...props} expandedNote={this.state.expandedNote} />)} exact path='/EditNote/:id'/>
+        <Route render={props => (<EditNoteForm {...props} editNote={this.editNote} expandedNote={this.state.expandedNote} />)} exact path='/EditNote/:id'/>
       </div>
     );
   }

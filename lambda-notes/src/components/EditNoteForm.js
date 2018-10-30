@@ -19,7 +19,7 @@ class EditNoteForm extends React.Component {
             <div className='editNoteForm'>
                 <input type='text' onChange={this.changeHandler} name='titleText' value={this.state.titleText} />
                 <input type='text' onChange={this.changeHandler} name='bodyText' value={this.state.bodyText} />
-                <div >Update</div>
+                <button onClick={() => this.props.editNote({title: this.state.titleText, textBody: this.state.bodyText})}>Update</button>
             </div>
         )
     }

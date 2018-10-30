@@ -20,7 +20,7 @@ class AddNoteForm extends React.Component {
                 <h2>Create New Note:</h2>
                 <input placeholder='Note Title' name='titleText' value={this.state.titleText} onChange={this.changeHandler}/>
                 <input placeholder='Note Content' name='bodyText' value={this.state.bodyText} onChange={this.changeHandler}/>
-                <div onClick={() => this.props.addNote({title: this.state.titleText, textBody: this.state.bodyText})}>Save</div>
+                <button onClick={() => this.props.addNote({title: this.state.titleText, textBody: this.state.bodyText})}>Save</button>
             </div>
         )
     }
