@@ -33,6 +33,7 @@
   padding:25px 0;
   margin:15px 0;
 border: 2px solid #8A9B9C;
+cursor: pointer;
 }
 
 .note-list-wrapper {
@@ -65,7 +66,7 @@ font-size:42px;
 border:3px solid #8A9B9C;
 padding: 0 2.5% 10px;
 overflow-y: hidden;
-
+cursor: pointer;
 }
 
 .note h3 {
@@ -82,4 +83,56 @@ overflow-y: hidden;
   font-size:28px;
 margin:0;
 padding:10px 0;
+}
+
+.create-note-wrapper {
+  width:75%;
+  margin: 0 0 0 25%;
+  background: #F2F0F1;
+  color: #4B4A4B; 
+  padding:50px 3%;
+text-align: left;
+font-size:28px;
+height:200vh;
+}
+
+.create-note-wrapper h2 {
+  padding:30px 0;
+}
+
+.create-note-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-note-title, .create-note-text {
+  font-size:28px;
+  font-weight:bold;
+  padding:25px 2%;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid #8A9B9C;
+  margin-bottom:30px;
+}
+
+.create-note-title {
+  width:60%;
+  
+}
+
+.create-note-text {
+  height:735px;
+  padding: 0 4% 600px;
+}
+
+.create-note-form button {
+    width:32%;
+    background:#30BEC3;
+    color:#ffffff;
+    font-size:32px;
+    font-weight: bold;
+    padding:25px 0;
+    cursor: pointer;
+  border: 2px solid #8A9B9C;
+  
 }

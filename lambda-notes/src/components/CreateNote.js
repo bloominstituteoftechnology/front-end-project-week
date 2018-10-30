@@ -1,38 +1,15 @@
 import React from 'react';
-import axios from 'axios';
 
 class CreateNote extends React.Component {
-    constructor(){
-        super();
-        this.state={
-            title:'',
-            text:''
-        }
-    }
-
-changeHandler=(key, value) => {
-    this.setState({
-        ...this.state,
-        [key]: value
-    })
-}
-
-// createNote = event=>{
-//     event.preventDefault();
-//     let note=this.state;
-//     if (note.title!=='' && note.text!==''){
-//        axios.post("https://fe-notes.herokuapp.com/note/create", this.state)
-//        .then(response=>{this.setState({notes:response.data})}) 
-//     }
-// }
 
     render(){
         return (
             <div className="create-note-wrapper">
-<h2>Create New Note</h2>
-<form>
-    <input></input>
-    <input></input>
+<h2>Create New Note:</h2>
+<form className="create-note-form" onSubmit={this.props.createNote}>
+    <input className="create-note-title" type="text" placeholder="Note Title" name="title" value={this.props.newNote.title} onChange={event=>this.props.changeHandler(event.target.name, event.target.value)}></input>
+    <input className="create-note-text" type="text" placeholder="Note Content" name="textBody" value={this.props.newNote.textBody} onChange={event=>this.props.changeHandler(event.target.name, event.target.value)}></input>
+<button type="submit">Save</button>
 </form>
             </div>
         )
