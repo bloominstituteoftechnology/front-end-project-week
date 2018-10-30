@@ -22,12 +22,15 @@ render(){
     } else {
     return(
         
+        <div className="note-list-wrapper">
+        <h2>Your Notes:</h2>
         <div className="note-list">
         {this.state.notes.map(note => {
             return (
-                <Note key={note.id} note={note}/>
+                <Note key={note._id} note={note}/>
             )
         })}       
+        </div>
         </div>
     )
 }

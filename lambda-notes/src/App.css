@@ -14,19 +14,69 @@
   color: #4B4A4B;
   width:25%;
   height:100vh;
-  padding: 0 2%;
-  font-size:24px;
+  padding: 0 1%;
+  font-size:40px;
   text-align:left;
-  line-height:40px;
+  line-height:60px;
   border:2px solid #BDBDBD;
+  position:fixed;
 }
 
 .sidebar button {
   background:#30BEC3;
   color:#ffffff;
-  font-size:24px;
+  font-size:32px;
   font-weight: bold;
-  padding:15px 0;
-  margin:10px 0;
+  padding:25px 0;
+  margin:15px 0;
 border: 2px solid #8A9B9C;
+}
+
+.note-list-wrapper {
+  width:75%;
+  margin: 0 0 0 25%;
+  background: #F2F0F1;
+  color: #4B4A4B; 
+  padding:50px 3%;
+text-align: left;
+font-size:42px;
+}
+
+.note-list-wrapper h2 {
+  margin:65px 0 40px;
+  font-size:42px;
+}
+
+.note-list {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.note {
+  background: #ffffff;
+  color: #161514;
+  width:31%;
+  margin:25px 0;
+  height:420px;
+border:3px solid #8A9B9C;
+padding: 0 2.5% 10px;
+overflow-y: hidden;
+
+}
+
+.note h3 {
+  font-size: 36px;
+  margin:0;
+  padding:20px 0;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 4px solid #8A9B9C;
+}
+
+.note h4 {
+  font-size:28px;
+margin:0;
+padding:10px 0;
 }
