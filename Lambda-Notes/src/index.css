@@ -16,7 +16,7 @@ code {
 }
 .App .sidebar{
   width:30%;
-  background-color:rgb(190, 190, 190);
+  background-color:rgb(160, 159, 159);
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ code {
   margin:1%;
 }
 .note-card .card-title{
-  border-bottom : 2px solid grey;
+  border-bottom : 2px solid rgb(231, 231, 231);
 }
 
 .create-new{
@@ -63,8 +63,23 @@ code {
   text-align: center;
 }
 .create-new form .form-save{
-  background : rgba(39, 194, 199, 0.685);
-  width:20%;
+  background : rgba(52, 191, 195, 0.685);
+  width:25%;
   height: 50px;
 }
-
+.view-note{
+  height : 100vh;
+  box-sizing: border-box;
+  padding : 20px;
+  background-color: #f1f2f1;
+  width:70%;
+  text-align: right;
+}
+.view-note a{
+  margin : 10px;
+}
+.view-note .note-section{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

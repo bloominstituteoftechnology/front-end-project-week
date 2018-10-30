@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import DeleteNoteModul from './deleteNoteModul';
 
 class ViewNote extends React.Component{
     constructor(){
@@ -11,7 +12,7 @@ class ViewNote extends React.Component{
     }
      componentDidMount(){
         const ID = this.props.match.params;
-        console.log(ID)
+        // console.log(ID)
         this.fetchNoteById(ID.id);//why? how lol?
     }
      fetchNoteById = id => {
@@ -19,7 +20,7 @@ class ViewNote extends React.Component{
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
                 this.setState({note : response.data})
-                console.log("NOTE : ", response.data)
+                // console.log("NOTE : ", response.data)
             })
             .catch(error => alert(error))
     }
@@ -27,7 +28,8 @@ class ViewNote extends React.Component{
     render(){
         return(
             <div className="view-note">
-                <Link to='/' >Edit</Link>
+                <DeleteNoteModul ID={this.props.match.params.id}/>
+                <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>
                 <a href='#'>delete</a>
                 <div className="note-section">
                     <h2>{this.state.note.title}</h2>
