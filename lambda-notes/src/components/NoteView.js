@@ -31,13 +31,13 @@ class NoteView extends React.Component {
     this.setState({[e.target.name]: e.target.value});
   };
 
-  handleSubmit = (e, id) => {
-    e.preventDefault();
+  handleSubmit = id => {
     console.log(id);
     const {tags, title, textBody} = this.state;
     const updatedNote = {tags, title, textBody};
     this.props.update(id, updatedNote);
     this.setState({tags: [], title: "", textBody: ""});
+    this.props.history.push("/notes");
   };
 
   render() {
@@ -59,12 +59,12 @@ class NoteView extends React.Component {
         ) : (
           <div className="new-note">
             <h2>Edit Note:</h2>
-            <form onSubmit={e => this.handleSubmit(e, this.note._id)}>
+            <form onSubmit={() => this.handleSubmit(this.note._id)}>
               <input
                 required
                 type="text"
                 name="title"
-                placeholder="Note Title"
+                placeholder={this.note.title}
                 value={this.state.title}
                 onChange={this.updateHandler}
               />
@@ -74,13 +74,13 @@ class NoteView extends React.Component {
                 cols="30"
                 rows="10"
                 name="textBody"
-                placeholder="Note Content"
+                placeholder={this.note.textBody}
                 value={this.state.textBody}
                 onChange={this.updateHandler}
               />
               <br />
               <button>Save</button>
-              <button>Cancel</button>
+              <button onClick={this.toggleEdit}>Cancel</button>
             </form>
           </div>
         )}
