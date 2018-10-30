@@ -6,6 +6,7 @@ import Note from '../Components/ListView/Note';
 import { fetchNotes, fetchNotesById } from '../Actions';
 
 
+
 const Loading = styled.h1`
     font-size:4rem;
 `
@@ -26,6 +27,7 @@ class NoteContainer extends React.Component{
     }
 
     handleClick = (event,id) =>{
+        console.log('in the handleclick... ', id)
         this.props.fetchNotesById(id);
     }
     render(){

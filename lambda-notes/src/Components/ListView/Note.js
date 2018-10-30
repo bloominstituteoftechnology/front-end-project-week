@@ -33,7 +33,7 @@ const NoteBody = styled.p`
 const Note = props =>{
     return(
 
-            <WrapperDiv onClick={(event)=>{props.handleClick(event,props.data.id)}}>
+            <WrapperDiv onClick={(event)=>{props.handleClick(event,props.data._id)}}>
                 <InnerCard>
                     <BorderDiv>
                         <CardHeading>{props.data.title}</CardHeading>

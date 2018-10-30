@@ -17,7 +17,7 @@ export const FETCHING_NOTES_BY_ID_FAILURE = 'FETCHING_NOTES_BY_ID_FAILURE';
 
   export const fetchNotesById = (Id) => dispatch => {
     dispatch({ type: FETCHING_NOTES_BY_ID });
-    
+
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${Id}`)
       .then(response => {

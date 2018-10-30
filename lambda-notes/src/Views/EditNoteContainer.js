@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 
 const ActionsDiv = styled.div`
@@ -34,7 +35,11 @@ const NavButton = styled.div`
     align-items:center;
 `
 class EditNoteContainer extends React.Component{
+    constructor(props){
+        super(props)
+    }
     render(){
+        console.log('them props is..',this.props)
         return(
             <WrapperDiv>
 
@@ -49,7 +54,10 @@ class EditNoteContainer extends React.Component{
                         <Link to='/edit'><p>Edit</p></Link>   
                         <Link to='/edit'><p>Delete</p></Link>   
                     </ActionsDiv>
-
+                    <p>
+                        {this.props.data.title}
+                    </p>
+                    <p>{this.props.data.bodyText}</p>
                 </NoteSection>
 
 
@@ -59,5 +67,12 @@ class EditNoteContainer extends React.Component{
         )
     }
 }
+const mapStateToProps = state => {
+    console.log('whats on state?',state)
+    return {
+        data: state.note,
+    };
+  };
 
-export default EditNoteContainer
+
+  export default connect(mapStateToProps,{ })(EditNoteContainer);
