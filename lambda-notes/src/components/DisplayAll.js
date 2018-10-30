@@ -6,7 +6,9 @@ import {
   PageHeader,
   Note,
   NoteTitle,
-  NoteBody
+  NoteBody,
+  HeaderWrapper,
+  Checkbox
 } from '../styles/DisplayAll'
 
 // notebody click handler is to make it easy to clean up notes
@@ -18,12 +20,15 @@ const DisplayAll = ({ notes, changeDisplayedPage, deleteNote }) => (
     <NotesContainer>
       {notes.map(({ title, textBody, _id }) => (
         <Note key={_id}>
-          <Link to={`/note/${_id}`}>
-            <NoteTitle>
-              {title.length > 40 ? `${title.substring(0, 40)} ...` : title}
-              }
-            </NoteTitle>
-          </Link>
+          <HeaderWrapper>
+            <Link to={`/note/${_id}`}>
+              <NoteTitle>
+                {title.length > 40 ? `${title.substring(0, 40)} ...` : title}
+                }
+              </NoteTitle>
+            </Link>
+            <Checkbox type="checkbox" />
+          </HeaderWrapper>
           <NoteBody onClick={() => deleteNote()}>
             {textBody.length > 200
               ? `${textBody.substring(0, 200)} ...`

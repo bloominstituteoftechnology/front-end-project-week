@@ -32,11 +32,22 @@ export const NoteTitle = styled.h2`
   cursor: pointer;
   font-weight: bold;
   font-size: 2rem;
-  border-bottom: 1px solid grey;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  max-width: 150px;
 `
 
 export const NoteBody = styled.p`
   font-size: 1.6rem;
+`
+
+export const HeaderWrapper = styled.div`
+  border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  margin-bottom: 10px;
+`
+
+export const Checkbox = styled.input`
+  color: red;
 `
