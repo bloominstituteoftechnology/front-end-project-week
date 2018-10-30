@@ -2,6 +2,19 @@ body {
     background-color: #f2f1f2;
 }
 
+.modal {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(216, 216, 216, 0.377);
+    z-index: 1000;
+    justify-content: center;
+    align-self: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 .innerModal {
     background: #FBFAFB;
     padding: 20px;

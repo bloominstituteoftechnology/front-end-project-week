@@ -18,7 +18,7 @@ export const LeftBar = styled.div`
   width: 20%;
   display: flex;
   flex-direction: column;
-  height: 1000px;
+  height: 1200px;
   background-color: #d3d2d3;
   border: 1px solid grey;
   position: fixed;

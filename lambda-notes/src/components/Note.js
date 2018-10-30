@@ -50,6 +50,7 @@ class Note extends React.Component {
   };
 
   deleteModal = () => {
+      console.log('button clicked')
     document.querySelector(".modal").classList.toggle("show");
   };
 
@@ -106,7 +107,7 @@ class Note extends React.Component {
           <NoteTitle>{this.state.note.title}</NoteTitle>
           <NoteP>{this.state.note.textBody}</NoteP>
         </NoteCardContainer>
-        <Modal className="modal">
+        <div className="modal">
           <div className="innerModal">
             <ModalH3>Are you sure you want to delete this?</ModalH3>
             <div>
@@ -118,7 +119,7 @@ class Note extends React.Component {
               </button>
             </div>
           </div>
-        </Modal>
+        </div>
       </div>
     );
   }
