@@ -7,13 +7,15 @@ const NoteForm = props => {
     const routeFromNewNote = ev => {
         ev.preventDefault()
         props.addNote()
-        props.history.push('/Home')
+        props.history.push('/home')
     }
+
+    
     
     return (
         
         <NoteFormCont>
-        <FormTitle>Create New Note</FormTitle>
+        <FormTitle>Create New Note:</FormTitle>
         <TitleInput 
         placeholder="New Title"
         type="text"

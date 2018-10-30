@@ -41,8 +41,20 @@ class App extends Component {
   addNote = () => {
     axios
     .post(`https://fe-notes.herokuapp.com/note/create`, this.state.noteObj)
-    .then(response => this.setState(response.data))
+    .then(response => { 
+      this.state.noteObj._id = response.data.success 
+      this.setState({notes: [...this.state.notes, this.state.noteObj]})
+      })
     .catch(error => alert(error))
+  }
+
+  deleteNote = (ev, id) => {
+    ev.preventDefault();
+    axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      this.setState({notes: [...this.state.notes]})
+    })
   }
 
   render() {
@@ -51,11 +63,11 @@ class App extends Component {
         <NavigationBar />
         <Route
         exact
-          path="/Home"
+          path="/home"
           render={props => <NoteList {...props} notes={this.state.notes} />}
         />
-        <Route path="/Home/:id" render={props => <IndividualNote {...props} notes={this.state.notes} />}/>
-    <Route path="/Form" render={props => 
+        <Route path="/home/:id" render={props => <IndividualNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}/>
+    <Route path="/form" render={props => 
     <NoteForm 
       {...props}
       noteObj={this.state.noteObj}

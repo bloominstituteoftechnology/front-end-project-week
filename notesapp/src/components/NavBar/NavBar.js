@@ -8,8 +8,8 @@ const NavigationBar = () => {
         <NavBarDiv>
             <NavBarHeader>Lambda Notes</NavBarHeader>
             <NavLinkDiv>
-            <NavLinkBtn><NavButtonText><Link to="/Home" className="a"> View Your Notes</Link></NavButtonText></NavLinkBtn>
-            <NavLinkBtn><NavButtonText><Link to="/Form" className="a"> + Create New Note</Link></NavButtonText></NavLinkBtn>
+            <NavLinkBtn><NavButtonText><Link to="/home" className="a"> View Your Notes</Link></NavButtonText></NavLinkBtn>
+            <NavLinkBtn><NavButtonText><Link to="/form" className="a"> + Create New Note</Link></NavButtonText></NavLinkBtn>
             </NavLinkDiv>
         </NavBarDiv>
     )
