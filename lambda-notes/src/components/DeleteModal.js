@@ -1,5 +1,4 @@
 import React from 'react';
-import { deleteNote } from '../actions';
 
 
 const DeleteModal = props => {

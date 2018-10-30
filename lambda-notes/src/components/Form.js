@@ -34,7 +34,7 @@ class Form extends React.Component {
     } else {
       console.log('what are you submitting?', note);
       this.props.submit(note);
-      this.props.history.goBack();
+      this.props.history.push('/');
     }
   }
 

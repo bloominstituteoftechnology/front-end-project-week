@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import {NotesData} from '../NotesData';
 import { Sidebar, NotesList } from '../components';
@@ -12,16 +13,17 @@ class ListView extends React.Component {
   //   }
   // }
 
+
+
   componentDidMount() {
     this.props.fetchNotes();
 
   }
 
-  componentDidUpdate(){
-    this.props.fetchNotes();
-  }
-  
   render() {
+      if(this.props.notesSaved) {
+        this.props.fetchNotes();
+      }
     if (this.props.fetchingFriends) {
       return (
         <div className='loading'>
@@ -44,6 +46,7 @@ const mapStateToProps = state => {
     fetchingNotes: state.notesReducer.fetchingNotes,
     error: state.notesReducer.error,
     deletingNote: state.notesReducer.deletingNote,
+    notesSaved: state.notesReducer.notesSaved,
   }
 }
 

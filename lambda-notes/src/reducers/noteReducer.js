@@ -2,6 +2,7 @@ import {
   FETCH_NOTE_ID,
   FETCH_NOTE_ID_FAILURE,
   FETCH_NOTE_ID_SUCCESS,
+  PUT_NOTE_SUCCESS,
 } from '../actions';
 
 const initialNoteState = {
@@ -31,7 +32,13 @@ export const noteReducer = (state = initialNoteState, action) => {
         fetchingNote: false,
         error: action.payload,
       };
-      
+
+    case PUT_NOTE_SUCCESS:
+      return {
+        ...state,
+        note: action.payload, 
+      }
+
     default:
     return state;
   }

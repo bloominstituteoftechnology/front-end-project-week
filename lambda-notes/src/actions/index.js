@@ -31,26 +31,24 @@ export const fetchNotes = () => dispatch => {
     })
     .catch(error => {
       dispatch({ type: FETCH_NOTES_FAILURE, payload: error });
-    })
+    });
 }
 
 export const addNote = note => dispatch => {
-  console.log('in addNote', note);
   dispatch({ type: POST_NOTE });
   axios
     .post(`${url}/create`, note)
-    .then(response => {
-      console.log(response);
-    })
     .then(response => {
       dispatch({ type: POST_NOTE_SUCCESS, payload: response.data});
     })
     .catch(error => {
       dispatch({ type: POST_NOTE_FAILURE, payload: error });
-    })
+    });
+
 }
 
 export const editNote = note => dispatch => {
+  const noteID = note.id;
   dispatch({ type: PUT_NOTE });
   axios
     .put(`${url}/edit/${note.id}`, note)
@@ -59,11 +57,13 @@ export const editNote = note => dispatch => {
     })
     .catch(error => {
       dispatch({ type: PUT_NOTE_FAILURE, payload: error});
-    })
+    });
+
 }
 
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETE_NOTE });
+
   axios
     .delete(`${url}/delete/${id}`)
     .then(response => {
@@ -71,7 +71,7 @@ export const deleteNote = id => dispatch => {
     })
     .catch(error => {
       dispatch({ type: DELETE_NOTE_FAILURE, payload: error });
-    })
+    });
 }
 
 export const fetchNoteById = id => dispatch => {

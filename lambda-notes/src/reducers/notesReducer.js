@@ -40,7 +40,8 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingNotes: false,
-        notes: [...action.payload]
+        notes: [...action.payload],
+        notesSaved: false,
       };
 
     case FETCH_NOTES_FAILURE:
@@ -60,6 +61,8 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         deletingNote: false,
+        note: null,
+        notesSaved: true,
         // notes: [...action.payload]
       };
 
@@ -80,7 +83,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         savingNotes: false,
-        // notes: [...action.payload]
+        notesSaved: true,
       };
 
     case POST_NOTE_FAILURE:

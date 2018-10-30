@@ -15,11 +15,6 @@ class NoteView extends React.Component {
     this.props.fetchNoteById(noteId);
   }
 
-  componentDidUpdate(){
-    const noteId = this.props.match.params.id;
-    this.props.fetchNoteById(noteId);
-  }
-
 
   render() {
     console.log(this.props)
@@ -38,6 +33,8 @@ class NoteView extends React.Component {
     )
   }
 }
+
+
 
 const mapStateToProps = state => {
   return{
