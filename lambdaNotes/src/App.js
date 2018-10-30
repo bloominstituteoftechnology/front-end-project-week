@@ -44,25 +44,33 @@ class App extends Component {
         .then(response => this.setState({ notes: [...this.state.notes, {...note, _id: response.data.success}] }))
         .catch(error => console.log(error));
         
-        
-        console.log("submit add, note = ", note);
-     
       }
 
       submitEdit = (editedNote) => {
    
-        let newNoteList = this.state.notes.filter( note => note._id !== editedNote._id);
- 
-        this.setState({notes : [...newNoteList, editedNote]});
+        // let newNoteList = this.state.notes.filter( note => note._id !== editedNote._id);
+        // this.setState({notes : [...newNoteList, editedNote]});
    
+        axios.put(`https://fe-notes.herokuapp.com/note/edit/${editedNote._id}`, editedNote)
+        .then(response =>{
+          let newList = this.state.notes.filter(note => note._id !== response.data._id);
+          this.setState({ notes: [...newList, response.data] });
+        } )
+        .catch(error => console.log(error));
       }
 
       submitdelete = (deleteId) => {
    
-        let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
+        // let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
+        //  this.setState({notes : [...newNoteList]});
  
-        this.setState({notes : [...newNoteList]});
-   
+         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${deleteId}`)
+        .then(response =>{
+            let newNoteList = this.state.notes.filter( note => note._id !== deleteId);
+             this.setState({notes : [...newNoteList]});
+          } )
+        .catch(error => console.log(error));
+
       }
 
 

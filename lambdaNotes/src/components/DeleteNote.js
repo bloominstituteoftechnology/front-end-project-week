@@ -18,7 +18,6 @@ import { NavLink } from 'react-router-dom';
   }
 
   const handleDelete = () =>{
-    
     props.submitdelete(note._id);
     props.history.push('/');
   }
