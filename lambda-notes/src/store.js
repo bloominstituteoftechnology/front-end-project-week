@@ -7,14 +7,15 @@ import { reduxFirestore, firestoreReducer } from "redux-firestore";
 // reducers
 // @todo
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDbzxL5Zsn1404IwWTXsiKZ8O6GNP7h-qw",
-  authDomain: "lambda-notes-c4dd2.firebaseapp.com",
-  databaseURL: "https://lambda-notes-c4dd2.firebaseio.com",
-  projectId: "lambda-notes-c4dd2",
-  storageBucket: "lambda-notes-c4dd2.appspot.com",
-  messagingSenderId: "879359842368"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDbzxL5Zsn1404IwWTXsiKZ8O6GNP7h-qw",
+//   authDomain: "lambda-notes-c4dd2.firebaseapp.com",
+//   databaseURL: "https://lambda-notes-c4dd2.firebaseio.com",
+//   projectId: "lambda-notes-c4dd2",
+//   storageBucket: "lambda-notes-c4dd2.appspot.com",
+//   messagingSenderId: "879359842368"
+// };
+const testing = 123;
 
 // react redux firebase config
 const rrfConfig = {
