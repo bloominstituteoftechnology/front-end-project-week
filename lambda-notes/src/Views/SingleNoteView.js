@@ -6,7 +6,8 @@ export default class SingleNoteView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          note: 0
+          note: 0,
+          delete: false
         };
       }
 
@@ -22,9 +23,38 @@ export default class SingleNoteView extends React.Component {
           .catch(err => console.log(err));
       }
 
+      deleteToggle = e => {
+          e.preventDefault();
+          this.setState({delete: !this.state.delete})
+      }
+
+      deleteNote = e => {
+          e.preventDefault();
+          axios
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+            .then(res => this.props.history.push("/"))
+      }
+
     render() {
         return (
+            this.state.delete ? 
             <div className="single-note">
+                <a>edit</a>
+                <a onClick={this.deleteToggle}>delete</a>
+                <h3>{this.state.note.title}</h3>
+                <p>{this.state.note.textBody}</p>
+                <div className="delete-modal">
+                    <div className="delete-menu">
+                        <p>Are you sure you want to delete this?</p>
+                        <a className="delete" onClick={this.deleteNote}>Delete</a>
+                        <a className="cancel" onClick={this.deleteToggle}>No</a>
+                    </div>
+                </div>
+            </div>
+            :
+            <div className="single-note">
+                <a>edit</a>
+                <a onClick={this.deleteToggle}>delete</a>
                 <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.textBody}</p>
             </div>
