@@ -5,6 +5,8 @@ const NoteView = props =>{
         <div>
             Title: {props.note.title}
             Text: {props.note.textBody}
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
     )
 }
