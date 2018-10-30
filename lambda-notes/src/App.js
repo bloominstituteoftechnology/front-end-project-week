@@ -28,7 +28,7 @@ class App extends Component {
   addNote = note => {
     axios
         .post('https://fe-notes.herokuapp.com/note/create', note)
-        .then(axios
+        .then(() => axios
                 .get('https://fe-notes.herokuapp.com/note/get/all')
                 .then(response => this.setState({ notes: response.data }))
                 .catch(error => console.log(error)))
