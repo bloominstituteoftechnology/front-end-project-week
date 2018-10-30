@@ -57,17 +57,14 @@ class EditForm extends Component {
             title: this.state.title,
             textBody: this.state.textBody
         }
-        this.props.updateNote(updatedNote);
-    }
-
-    updatedNote = note => {
-        const id = this.props.match.params.id;
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+            .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, updatedNote)
             .then(response => {
-                this.setState({notes: response.data})
+                this.setState({notes: response.data, updatedNote});
+                this.props.fetchNotes();
             })
             .catch(error => console.log(error))
+            this.props.history.push('/')
     }
 
     render() {
@@ -78,7 +75,7 @@ class EditForm extends Component {
                 <Title 
                     name='title'
                     placeholder='Note Title'
-                    value={this.props.match.params.id}
+                    value={this.state.title}
                     onChange={this.handleInputChange}
                 />
                 <Text 

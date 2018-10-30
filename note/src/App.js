@@ -70,7 +70,7 @@ class App extends Component {
         />
         <Route 
           path='/edit/:id'
-          render={props => <EditForm {...props} updateNote={this.updateNote} />}
+          render={props => <EditForm {...props} updateNote={this.updateNote} fetchNotes={this.fetchNotes}/>}
         />
       </HomePage>
     );
