@@ -4,12 +4,13 @@ import NoteCard from "./NoteCard";
 import SingleNoteView from "../Views/SingleNoteView";
 import axios from "axios";
 import './AllNotes.css';
+import { CSVLink } from "react-csv";
 
 export default class AllNotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
+            notes: false,
             selected: 0,
         }
     }
@@ -22,17 +23,27 @@ export default class AllNotes extends Component {
     }
 
     selectNote = id => this.setState({ selected: id });
+     
+    headers = [
+        { label: "Title", key: "title" },
+        { label: "Note Content", key: "textBody" },
+    ];
 
   render() {
     return (
+        this.state.notes ?
         <section>
+            <CSVLink data={this.state.notes} headers={this.headers}>
+                Download your notes!
+            </CSVLink>
             <h2>Your Notes:</h2>
             <div className="notes">
                 {this.state.notes.map(note => {
                     return <NoteCard key={note._id} note={note} />
                 })}
             </div>
-        </section>
+        </section> :
+        <h3>Your Notes are loading...</h3>
     )
   }
 }
