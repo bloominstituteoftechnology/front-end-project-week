@@ -39,11 +39,11 @@ render(){
  {this.props.notes.notes.map(note => {
    return(
 
-   <div key ={note._id} className='NoteContainer'>
-      <NavLink to ={`/notes/${note._id}`}>
+   <div key ={note.id} className='NoteContainer'>
+      <NavLink to ={`/notes/${note.id}`}>
    <h3>{note.title}</h3>
    <hr/>
-   <p> {note.textBody}</p>
+   <p> {note.content}</p>
     </NavLink>
    </div>
 
