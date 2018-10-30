@@ -7,30 +7,44 @@ class FullNote extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			note: []
+			note: {
+				_id: '',
+				title: '',
+				textBody: ''
+			}
 		};
 	}
 
 	componentDidMount() {
 		Axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
-			.then((res) => this.setState({ note: res.data }))
+			.then((res) =>
+				this.setState({
+					note: {
+						_id: res.data._id,
+						title: res.data.title,
+						textBody: res.data.textBody
+					}
+				})
+			)
 			.catch((err) => console.log(err));
 	}
 
 	render() {
-		console.log('this bullshit note', this.state.note);
-		// console.log(props.match);
-		// const id = props.match.params.id;
+		console.log(this.state.note);
+		if (!this.state.length) {
+			return (
+				<div>
+					<h1>Loading Your trash</h1>
+				</div>
+			);
+		}
 		return (
 			<div>
-				{this.state.note.map((note, index) => {
+				{this.state.note.map((note) => {
 					return (
-						<StyledNoteContainer key={note[index]._id}>
-							<StyledH1>{note[index].title}</StyledH1>
-							<p>{note[index].textBody}</p>
-							<p>
-								<StyledSpan>{note[index].tags}</StyledSpan>
-							</p>
+						<StyledNoteContainer key={note._id}>
+							<StyledH1>{note.title}</StyledH1>
+							<p>{note.textBody}</p>
 						</StyledNoteContainer>
 					);
 				})}
@@ -76,7 +90,7 @@ export const StyledNoteContainer = styled.div`
 
 export const StyledH1 = styled.h1`
 	margin: 0;
-	font-size: 22px;
+	font-size: 60px;
 	border-bottom: 2px solid rgba(80, 80, 80, 0.3);
 `;
 
