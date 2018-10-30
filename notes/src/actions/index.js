@@ -4,13 +4,15 @@ export const FETCHING = 'FETCHING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
-export const fetchData = () => {
+export const fetchAll = () => {
     return function(dispatch) {
         dispatch({ type: FETCHING });
         axios
-            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
-                dispatch({ type: SUCCESS, payload: response.data })
+                console.log(response);
+                dispatch({ type: SUCCESS, payload: response })
+                
             })
             .catch(error => {
                 dispatch({ type: FAILURE, payload: error })
@@ -26,7 +28,7 @@ export const addNote = () => {
     return function(dispatch) {
         dispatch({ type: ADDING });
         axios
-            .post('https://killer-notes.herokuapp.com/note/create')
+            .post('https://fe-notes.herokuapp.com/note/create')
             .then(response => {
                 dispatch({ 
                     type: SUCCESS,
@@ -50,7 +52,7 @@ export const editNote = id => {
     return function(dispatch) {
         dispatch({ type: EDITING });
         axios
-            .put(`https://killer-notes.herokuapp.com/note/edit/${id}`)
+            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
             .then(response => {
                 dispatch({
                     type: EDITED,
@@ -75,7 +77,7 @@ export const deleteNote = id => {
     return function(dispatch) {
         dispatch({ type: DELETING });
         axios
-            .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then(response => {
                 dispatch({ 
                     type: DELETED,
