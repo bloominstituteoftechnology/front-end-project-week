@@ -29,6 +29,7 @@
 .note-container {
   background-color: #f3f3f3;
   border: 1px solid gray;
+
   padding: 20px 40px;
   width: 100%;
   display: flex;
