@@ -69,3 +69,27 @@ h1{
   .card h4 {
     border-bottom: 1px solid lightgrey;
   }
+
+  .NoteForm {
+    margin: 35px;
+  }
+
+  input {
+    border: 1px solid lightgrey;
+    width: 650px;
+  }
+
+  .input {
+    margin-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+  }
+
+  .inputBody {
+    margin-bottom: 25px;
+    height: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+  }

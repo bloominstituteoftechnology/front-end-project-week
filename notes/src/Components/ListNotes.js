@@ -6,14 +6,15 @@ export default class ListNotes extends Component {
   render() {
     return(
       <div className="notes-container">
-      <div><h2>Your Notes:</h2></div>
+      <div className="title">
+        <h2>Your Notes:</h2>
+      </div>
       
         {this.props.notes.map(note => {
             return(
               <Note
                 NoteTitle={note.title}
                 NoteContent={note.textBody}
-                NoteTimeStamp={note.timeStamp}
                 Note={note}
                />
             )
