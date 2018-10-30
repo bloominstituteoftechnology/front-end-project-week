@@ -1,0 +1,23 @@
+{
+  "name": "front-end-project-week",
+  "version": "1.0.0",
+  "description": "React Project Week",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duckets615/front-end-project-week.git"
+  },
+  "author": "Chris Reilly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duckets615/front-end-project-week/issues"
+  },
+  "homepage": "https://github.com/duckets615/front-end-project-week#readme",
+  "dependencies": {
+    "react-router": "^4.3.1",
+    "redux": "^4.0.0"
+  }
+}
