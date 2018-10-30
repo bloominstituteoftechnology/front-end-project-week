@@ -1,42 +1,42 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getNotes } from "../actions"
+import { getNotes } from "../actions";
 
 class NoteList extends React.Component {
   componentDidMount() {
-    this.props.getNotes()
+    this.props.getNotes();
   }
   render() {
     if (this.props.fetching) {
-    return (
-      <h3>fetching</h3>
-    )
+      return (
+        <div className="note-list">
+          <h3>fetching</h3>
+        </div>
+      );
     } else {
       return (
         <div className="note-list">
-        <h2 className="your-notes">Your Notes:</h2>
-        <div className="the-notes">
-          <ul>
-            {this.props.notes.map(note => {
-              return (
-                <div className="note">
-                  <div key={note.id} className="title">
-                    <Link to={note._id}>{note.title}</Link>
+          <h2 className="your-notes">Your Notes:</h2>
+          <div className="the-notes">
+            <ul>
+              {this.props.notes.map(note => {
+                return (
+                  <div className="note">
+                    <div key={note.id} className="title">
+                      <Link to={note._id}>{note.title}</Link>
+                    </div>
+                    <div className="content">{note.textBody}</div>
                   </div>
-                  <div className="content">{note.textBody}</div>
-                </div>
-              );
-            })}
-          </ul>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-      </div>
-    );
-      
+      );
     }
   }
 }
-
 
 const mapStateToProps = state => {
   return {
@@ -47,5 +47,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {getNotes}
+  { getNotes }
 )(NoteList);
