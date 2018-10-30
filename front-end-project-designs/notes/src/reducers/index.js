@@ -5,21 +5,22 @@ import {
     FETCHING_NOTES,
     NOTES_FETCHED,
     NOTES_FETCH_FAIL
-} from './actions';
+} from '../actions';
 const initialState={
-    selected=false,
-    notes=[],
-    erorr: null
-    
+    selected:false,
+    notes:[],
+    erorr: null,
+    fetchingNote: false
 }
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCHING_NOTES:
-            return { ...state };
+            return { ...state, fetchingNote:true };
         case NOTES_FETCHED:
             return {
               ...state,
+              fetchingNote:false,
               notes: [...state.notes, ...action.payload]
             };
         case NOTES_FETCH_FAIL :
