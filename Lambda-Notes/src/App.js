@@ -5,7 +5,8 @@ import { Route } from 'react-router-dom';
 // Component Imports
 import SideBar from './Components/Sidebar/SideBar'
 import NoteList from './Components/NoteList';
-import CreateNew from './Components/Sidebar/SideBar';
+import CreateNew from './Components/CreateNew';
+import ViewNote from './Components/ViewNote'
 class App extends Component {
   constructor(){
     super();
@@ -39,13 +40,15 @@ class App extends Component {
       <div className="App">
         <SideBar />
         <Route exact path='/' render={() => <NoteList notes={this.state.notes} /> } />
-        {/* New Card  */}
+        {/* New  */}
         <Route path='/create-new' render={() => <CreateNew 
         submit={this.createNewSubmit} 
         onChangeHandler ={this.onChangeHandler}
         />} />
+        {/* Edit */}
+        <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} /> } />
       </div>
     );
   }
 }
-export default App;
+ export default App;
