@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import {Link} from "react-router-dom";
 import "./SingleNoteView.css"
 
 export default class SingleNoteView extends React.Component {
@@ -39,7 +40,7 @@ export default class SingleNoteView extends React.Component {
         return (
             this.state.delete ? 
             <div className="single-note">
-                <a>edit</a>
+                <Link to={`/edit/${this.state.note._id}`}>edit</Link>
                 <a onClick={this.deleteToggle}>delete</a>
                 <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.textBody}</p>
@@ -53,7 +54,7 @@ export default class SingleNoteView extends React.Component {
             </div>
             :
             <div className="single-note">
-                <a>edit</a>
+                <Link to={`/edit/${this.state.note._id}`}>edit</Link>
                 <a onClick={this.deleteToggle}>delete</a>
                 <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.textBody}</p>

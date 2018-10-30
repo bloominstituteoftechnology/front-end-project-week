@@ -5,6 +5,7 @@ import AllNotes from "./Views/AllNotes";
 import NewNote from "./Components/NewNote"
 import './App.css';
 import SingleNoteView from './Views/SingleNoteView';
+import UpdateNote from "./Components/UpdateNote"
 
 export default class App extends Component {
   
@@ -15,6 +16,7 @@ export default class App extends Component {
         <Route exact path="/" component={AllNotes} />
         <Route exact path="/add-note" component={NewNote} />
         <Route path={`/note/:id`} component={SingleNoteView} />
+        <Route path={`/edit/:id`} component={UpdateNote} />
       </div>
     )
   }
