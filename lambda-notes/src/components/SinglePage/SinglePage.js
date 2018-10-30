@@ -47,7 +47,7 @@ fetchNote = id => {
       .get(`http://localhost:3300/api/notes/${id}`)
       .then(response => {
         console.log(response.data)
-        this.setState(() => ({ notes:response.data
+        this.setState(() => ({ notes:response.data[0]
         }));
       })
       .catch(error => {
@@ -117,7 +117,11 @@ noteTaking(id)
     console.log("success", response);
     this.setState(
       {
-      notes:response.data,
+      notes:{
+        title:response.data.title,
+        content:response.data.content
+      }
+      ,
 
     },
       () => {
@@ -135,9 +139,9 @@ console.log(this.state.message);
   }
 
   render(){
-  console.log(this.state.notes[0].title);
-  const title = this.state.notes[0].title;
-  const content = this.state.notes[0].content;
+  console.log(this.state.notes);
+  const title = this.state.notes.title;
+  const content = this.state.notes.content;
     return (
 
 
@@ -159,7 +163,7 @@ console.log(this.state.message);
         <input className='textComment' placeholder = 'Content' name= 'newTextBody'  onChange ={this.handleInputChange} value = {this.state.newTextBody}/>
       </div>
       <div className="ButtonContainer">
-        <Button  color="success" onClick ={this.editNote(this.state.notes._id)} >Edit Note</Button>
+        <Button  color="success" onClick ={this.editNote(this.state.notes.id)} >Edit Note</Button>
       </div>
       <div className="ButtonContainer">
         <Button  color="danger" onClick ={this.toggleModal} >Delete Note</Button>
