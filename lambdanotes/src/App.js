@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import ListView from './Components/ListView';
 import NoteForm from './Components/NoteForm';
@@ -33,8 +34,16 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar />
-        <ListView list={this.state.list} />
-        <NoteForm />
+
+        <Route
+          exact path="/"
+          render={props => {
+            return <ListView {...props} list={this.state.list} />
+          }}
+        />
+        <Route 
+          path="/NoteForm" component={NoteForm}
+        />
       </div>
     );
   };
