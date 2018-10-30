@@ -58,7 +58,7 @@ class App extends Component {
           <Route path="/submit" component={NoteForm} />
           <Route
             path="/note/get/:id"
-            render={() => <Note notes={this.state.notes} />}
+            render={() => <Note notes={this._id} />}
           />
         </div>
       </div>

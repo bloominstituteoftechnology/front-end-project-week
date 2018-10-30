@@ -1,12 +1,22 @@
 import React from "react";
 
-const Note = props => {
-  return (
-    <div>
-      <h1>{props.title}</h1>
-      <h3>{props.textBody}</h3>
-    </div>
-  );
-};
+class Note extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    };
+  }
+
+  componentDidMount() {}
+
+  render() {
+    return (
+      <div>
+        <h1>ok</h1>
+      </div>
+    );
+  }
+}
 
 export default Note;
