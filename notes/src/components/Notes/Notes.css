@@ -1,0 +1,7 @@
+.notes {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+    width: 80%;
+}
