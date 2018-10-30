@@ -40,11 +40,11 @@ export const createNote = (note) => {
   }
 }
 
-export const deleteNote = (noteId) => {
+export const deleteNote = (id) => {
   return dispatch => {
     dispatch({type: DELETING_NOTE})
     axios
-    .delete(URL+`delete/${noteId}`)
+    .delete(URL+'notes', id )
     .then(response =>{ dispatch({type: NOTE_DELETED, payload: response.data })
     })
     .catch(error => {

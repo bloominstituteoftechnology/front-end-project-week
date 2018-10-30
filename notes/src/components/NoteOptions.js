@@ -16,12 +16,12 @@ class NoteOptions extends Component {
   }
 
   render() {
-    let ans = this.props.noteList.find(item => item._id == this.props.match.params.id)
+    let ans = this.props.noteList.find(item => item.id == this.props.match.params.id)
     console.log('Ans:', ans);
     if (ans) {
       return(
         <div className="note-options">
-          <NavLink to={`/edit-note/${ans._id}`}>edit</NavLink>
+          <NavLink to={`/edit-note/${ans.id}`}>edit</NavLink>
           <button
             className='delete-button'
             onClick={this.handleModal}>delete</button>
