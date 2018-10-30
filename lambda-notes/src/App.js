@@ -3,6 +3,7 @@ import NoteContainer from './Components/Maincontent/NoteContainer';
 import SidebarContainer from './Components/Sidebar/SidebarContainer';
 import NewNote from './Components/Maincontent/NewNote';
 import styled from 'styled-components';
+import FullNote from './Components/Maincontent/FullNote';
 import { Route } from 'react-router-dom';
 
 const App = (props) => {
@@ -11,6 +12,7 @@ const App = (props) => {
 			<Route path="*" render={() => <SidebarContainer />} />
 			<Route exact path="/" render={() => <NoteContainer />} />
 			<Route exact path="/create-new-note/" render={() => <NewNote />} />
+			<Route exact path="/note/:id" render={(props) => <FullNote {...props} />} />
 		</StyledContainer>
 	);
 };

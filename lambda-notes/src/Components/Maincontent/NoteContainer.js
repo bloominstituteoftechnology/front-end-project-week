@@ -1,7 +1,6 @@
 import React from 'react';
 import Notes from './Notes';
 import axios from 'axios';
-import FullNote from './FullNote';
 import { Route } from 'react-router-dom';
 
 class NoteContainer extends React.Component {
@@ -9,7 +8,7 @@ class NoteContainer extends React.Component {
 		super(props);
 		this.state = {
 			notes: [],
-			noteId: 0
+			noteId: ''
 		};
 	}
 	componentDidMount() {
@@ -17,9 +16,9 @@ class NoteContainer extends React.Component {
 	}
 
 	getAllNotes = () => {
-		const URL = `https://fe-notes.herokuapp.com/note/get/`;
+		const URL = `https://fe-notes.herokuapp.com/note/get/all`;
 		axios
-			.get(`${URL}all`)
+			.get(`${URL}`)
 			.then((res) => {
 				this.setState({ notes: res.data });
 			})
@@ -27,20 +26,14 @@ class NoteContainer extends React.Component {
 	};
 
 	getNoteId = (id) => {
-		const noteId = id;
+		let noteId = id;
 		this.setState({ noteId });
 	};
 
 	render() {
 		return (
 			<div>
-				<Notes notes={this.state.notes} getNoteId={this.getNoteId} />
-				<Route
-					path="/note/:id"
-					render={(props) => {
-						return <FullNote {...props} deleteNote={this.deleteNote} />;
-					}}
-				/>
+				<Route exact path="/" render={() => <Notes notes={this.state.notes} getNoteId={this.getNoteId} />} />
 			</div>
 		);
 	}
