@@ -8,7 +8,9 @@ import {
   putNote,
   deleteNote,
   addChecked,
-  removeChecked
+  removeChecked,
+  deleteAllChecked,
+  clearAllChecked
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -16,7 +18,7 @@ import DisplayAll from './DisplayAll'
 import DisplayOne from './DisplayOne'
 import Add from './Add'
 
-const mapStateToProps = ({ notes }) => ({ notes })
+const mapStateToProps = ({ notes, checked }) => ({ notes, checked })
 
 class App extends Component {
   componentDidMount() {
@@ -26,17 +28,19 @@ class App extends Component {
   render() {
     const {
       notes,
+      checked,
       postNote,
       putNote,
       deleteNote,
       addChecked,
       removeChecked,
+      deleteAllChecked,
       history
     } = this.props
 
     return (
       <PageContainer>
-        <Sidebar />
+        <Sidebar deleteAllChecked={deleteAllChecked} />
 
         <Route
           exact
@@ -46,6 +50,7 @@ class App extends Component {
               {...props}
               history={history}
               notes={notes}
+              checked={checked}
               deleteNote={deleteNote}
               addChecked={addChecked}
               removeChecked={removeChecked}
@@ -87,7 +92,9 @@ export default withRouter(
       putNote,
       deleteNote,
       addChecked,
-      removeChecked
+      removeChecked,
+      deleteAllChecked,
+      clearAllChecked
     }
   )(App)
 )

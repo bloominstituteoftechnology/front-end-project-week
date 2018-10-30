@@ -62,8 +62,6 @@ export const deleteNote = id => dispatch => {
   axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(res => {
-      console.log('got res')
-      console.log(res)
 
       dispatch(getAllNotes())
       // dispatch({ type: GET_ALL_NOTES, payload: res.data })
@@ -83,3 +81,18 @@ export const removeChecked = id => ({
   type: REMOVE_CHECKED,
   id
 })
+
+export const clearAllChecked = () => (dispatch, getState) => {
+  const { checked } = getState()
+  checked.forEach(id => dispatch(removeChecked(id)))
+}
+
+export const deleteAllChecked = () => (dispatch, getState) => {
+  const { checked } = getState()
+
+  console.log(checked)
+  checked.forEach(id => {
+    dispatch(deleteNote(id))
+    dispatch(removeChecked(id))
+  })
+}
