@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import axios from 'axios';
 
 class EditForm extends Component {
     constructor(props) {
@@ -12,6 +13,16 @@ class EditForm extends Component {
 
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value })
+    }
+
+    updateNote = note => {
+        const id = this.props.match.params.id;
+        axios
+            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+            .then(response => {
+                this.setState({notes: response.data})
+            })
+            .catch(error => console.log(error))
     }
 
     render() {

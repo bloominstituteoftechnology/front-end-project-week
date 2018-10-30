@@ -34,21 +34,6 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  addNote = note => {
-    axios
-      .post('https://fe-notes.herokuapp.com/note/create', note)
-      .then(response => {
-        this.setState({
-          notes: response.data
-        },
-        window.location.reload(),
-        this.props.history.push('/')
-        )
-      })
-      .catch(error => console.log(error));
-  }
-
-
   render() {
     return (
       <HomePage>
