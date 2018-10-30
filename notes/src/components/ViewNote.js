@@ -28,7 +28,7 @@ class ViewNote extends React.Component{
             .catch(error => alert(error))
     }
 
-    toggleHidden(e){
+    toggleHidden=()=>{
         if(this.state.hidden === ''){
             this.setState({hidden : 'hidden'})
         }else{
