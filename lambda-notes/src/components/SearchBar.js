@@ -2,38 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      searchInput: '',
-    }
-  }
 
-  handleInput = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
-
-  handleSearch = event => {
-    event.preventDefault();
-    const search = this.state.searchInput;
-  }
-  
+handleSubmit = event => {
+  event.preventDefault();
+}
   render(){
     return (
       <div className='search-bar'>
-      <form onSubmit={this.handleSearch}>
+      <form onSubmit={this.handleSubmit}>
         <input
           type='text'
           name='searchInput'
-          value='this.state.searchInput'
-          onChange={this.handleInput}
+          defaultValue=''
+          placeholder='search notes'
+          onChange={this.props.handleInput}
         />
-        <button type='submit' className='button search-button'>
-        Search
-        </button>
-      </form>
+        </form>
       </div>
     )
   }

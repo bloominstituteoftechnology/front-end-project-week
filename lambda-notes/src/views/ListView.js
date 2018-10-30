@@ -4,24 +4,17 @@ import { Sidebar, NotesList } from '../components';
 import { fetchNotes, addNote, deleteNote } from '../actions';
 
 class ListView extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     notes: [],
-  //   }
-  // }
-
 
 
   componentDidMount() {
     this.props.fetchNotes();
-
   }
 
   render() {
       if(this.props.notesSaved) {
         this.props.fetchNotes();
       }
+
     return(
       <div className='container'>
       <Sidebar />
