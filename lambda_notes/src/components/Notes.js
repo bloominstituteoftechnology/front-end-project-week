@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import './Components.css';
  
 const Note = props => (
     <div className="note">

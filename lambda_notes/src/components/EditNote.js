@@ -1,4 +1,5 @@
 import React from 'react';
+import './Components.css';
 
 const EditNote = props => {
     if (props.notes.length) {

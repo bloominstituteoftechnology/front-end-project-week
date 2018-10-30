@@ -1,5 +1,6 @@
 import React from 'react';
 import Note from './Notes';
+import './Components.css';
 
 const NotesList = props => (
     <div className="noteslist">

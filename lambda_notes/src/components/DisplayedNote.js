@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Components.css';
 
 const SingleNote = props => {
   if (props.notes.length) {

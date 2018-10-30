@@ -1,4 +1,5 @@
 import React from 'react';
+import './Components.css';
 
 const CreateNote = props => {
     const createNewNote = event => {
@@ -20,6 +21,8 @@ const CreateNote = props => {
                 <textarea 
                     type="text"
                     name="textBody"
+                    cols="35"
+                    rows="15"
                     placeholder="Note Content"
                     onChange={props.handleInput}
                     value={props.textBody}

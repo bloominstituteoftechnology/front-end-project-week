@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Components.css';
 
 const SideBar = () => (
-    <div>
+    <div className="sidebar-container">
         <h1>
             Lambda <br /> Notes
         </h1>
