@@ -21,7 +21,8 @@ class App extends Component {
         title: "",
         textBody: ""
       },
-      editing: false
+      editing: false,
+      open: false
     };
   }
 
@@ -55,7 +56,10 @@ class App extends Component {
   handleDelete = id => {
     axios
       .delete(`${URL}delete/${id}`)
-      .then(this.redirect)
+      .then(() => {
+        this.redirect();
+        this.setState({ open: false });
+      })
       .catch(err => console.log(err));
   };
 
@@ -90,6 +94,10 @@ class App extends Component {
     this.props.history.push("/notes");
   };
 
+  showModal = () => this.setState({ open: true });
+
+  hideModal = () => this.setState({ open: false });
+
   render() {
     if (this.state.notes.length < 1) {
       return <div>Loading...</div>;
@@ -97,7 +105,7 @@ class App extends Component {
 
     return (
       <Container>
-        <Navigation editing={this.state.editing} cancelEdit={this.cancelEdit} />
+        <Navigation editing={this.state.editing} cancelEdit={this.cancelForm} />
         <Route
           exact
           path="/notes"
@@ -128,6 +136,9 @@ class App extends Component {
               {...props}
               handleDelete={this.handleDelete}
               handleUpdate={this.handleUpdate}
+              open={this.state.open}
+              showModal={this.showModal}
+              hideModal={this.hideModal}
             />
           )}
         />

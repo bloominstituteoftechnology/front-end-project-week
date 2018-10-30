@@ -79,9 +79,17 @@ export const NoteWrapper = styled.div`
 
 export const EditDelete = styled.div`
   position: relative;
+  right: -80%;
   span {
     text-decoration: underline;
     font-weight: bold;
+    cursor: pointer;
+    &:first-child {
+      margin-right: 10px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
   }
 `;
 
@@ -119,7 +127,21 @@ export const Button = styled.button`
   margin: 10px 0;
   cursor: pointer;
   &:hover {
-    background: #666666;
+    background: ${props => (props.delete ? "#ffffff" : "#666666")};
+    color: ${props => (props.delete ? "#CA2418" : "#ffffff")}
+  }
+`;
+
+export const DeleteModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 500px;
+  height: 200px;
+  background: #fbfafb;
+  button {
+    margin: 0 20px;
   }
 `;
 
@@ -133,17 +155,4 @@ export const Delete = styled.div`
   position: fixed;
   top: 0;
   left: -50%;
-`;
-
-export const DeleteModal = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 500px;
-  height: 200px;
-  background: #fbfafb;
-  button {
-      margin: 0 20px;
-  }
 `;

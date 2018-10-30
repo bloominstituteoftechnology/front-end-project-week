@@ -152,3 +152,17 @@ h3 {
 button:focus {
   outline: 0;
 }
+
+[data-reach-dialog-overlay] {
+  background: rgba(210, 210, 210, 0.8);
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  z-index: 111;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
