@@ -25,7 +25,7 @@ class CreateNote extends React.Component {
               placeholder="Note Title"
             />
             <br/>
-            <input className="contentInput"
+            <textarea className="contentInput"
               onChange={ev => this.props.changeHandler(ev)}
               type="text"
               name="content"
