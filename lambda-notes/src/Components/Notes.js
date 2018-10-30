@@ -52,26 +52,20 @@ class Notes extends Component {
         <NotesDisplay>
           {this.props.notes.map(note => {
             return (
-              <Link to={`/note/${note._id}`}>
+              <Link to={`/note/${note.id}`}>
                 <NoteCard
-                  key={note._id}
+                  key={note.id}
                   style={{ textDecoration: 'none' }}
                 >
                   <NoteTitle
                     // key={note._id}
                   >
-                    {note.title.length >= 15
-                      ? note.title.substring(0, 15) + '...'
-                      : note.title
-                    }
+                    {note.title}
                   </NoteTitle>
                   <NoteBody
                     // key={note._id}
                   >
-                    {note.textBody.length >= 100
-                      ? note.textBody.substring(0, 100) + '...'
-                      : note.textBody
-                    }
+                    {note.textBody}
                   </NoteBody>
                 </NoteCard>
               </Link>
