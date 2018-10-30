@@ -33,9 +33,15 @@ class App extends Component {
 
   addNewNote(note) {
     const url = "http://localhost:8000/api/notes";
+    const token = localStorage.getItem("jwt");
+    const options = {
+      headers: {
+        Authorization: token
+      }
+    };
     if (note.title.length > 0) {
       axios
-        .post(url, note)
+        .post(url, note, options)
         .then(response => {
           if (response.status === 201) {
             axios
