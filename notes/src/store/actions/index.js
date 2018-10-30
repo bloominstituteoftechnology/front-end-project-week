@@ -55,7 +55,9 @@ export const editNote = note => {
     dispatch({ type: FETCH_DATA });
     axios
       .put(`http://localhost:7777/api/notes/${note._id}`, note)
-      .then(response => dispatch({ type: EDIT_NOTE, payload: response }))
+      .then(response =>
+        dispatch({ type: EDIT_NOTE, payload: response.data.note })
+      )
       .catch(err => dispatch({ type: ERROR, err }));
   };
 };

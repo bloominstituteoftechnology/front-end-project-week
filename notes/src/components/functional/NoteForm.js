@@ -35,12 +35,11 @@ class NoteForm extends React.Component {
     const pathName = this.props.match.url;
     if (pathName === '/noteform') {
       this.props.addNote(this.state);
-      this.props.history.push('/note');
     } else {
       this.props.editNote(this.state);
-      this.props.history.push(`/note/${this.state._id}`);
     }
     this.setState({ title: '', textBody: '' });
+    this.props.history.push('/');
   };
 
   render() {

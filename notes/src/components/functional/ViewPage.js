@@ -30,8 +30,6 @@ class ViewPage extends React.Component {
     console.log('me');
     if (this.props.success !== prevProps.success) {
       this.filterProps();
-    } else if (prevProps) {
-      console.log(prevProps);
     }
   }
 
