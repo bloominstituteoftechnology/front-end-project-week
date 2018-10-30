@@ -15,7 +15,7 @@ class NoteApp extends Component {
       showNote: false,
       notes: [],
       note: {},
-      newTag: false,
+      tags: false,
       error: ''
     };
   }
@@ -87,11 +87,11 @@ class NoteApp extends Component {
   }
 
   showTagForm = () => {
-    this.setState({ newTag: true });
+    this.setState({ tags: true });
   }
 
   closeTagForm = () => {
-    this.setState({ newTag: false });
+    this.setState({ tags: false });
   }
   
   submitTag = (data, noteId) => {
@@ -118,7 +118,7 @@ class NoteApp extends Component {
   }
 
   render() {
-    const { showNote,viewNote, notes, note, newTag, error } = this.state;
+    const { showNote,viewNote, notes, note, tags, error } = this.state;
 
     return (
       <div className="App">
@@ -131,7 +131,7 @@ class NoteApp extends Component {
         { showNote && viewNote?
             <Note
               note={note}
-              newTag={newTag}
+              tags={tags}
               submitNote={this.submitNote}
               showTagForm={this.showTagForm}
               closeTagForm={this.closeTagForm}

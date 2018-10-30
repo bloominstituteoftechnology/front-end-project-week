@@ -30,7 +30,7 @@ class SingleNote extends Component {
   
   renderTagForm(note) {
     if ( note.id !== undefined) {
-      if(!this.props.newTag) {
+      if(!this.props.tags) {
         return (
           <span>
             Tag your note:
