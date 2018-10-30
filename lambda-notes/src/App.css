@@ -13,6 +13,7 @@
     height: 208px;
     margin-left: 29%;
     margin-top: 15%;
+    margin-bottom: 35px;
 }
    
 .show {
@@ -20,10 +21,10 @@
 }
 
 .btnRed {
-    background-color: red;
+    background-color: #CA001A;
     color: white;
-    width: 150px;
-    height: 50px;
+    width: 202px;
+    height: 42px;
     margin-right: 22px;
     font-weight: bold;
 }
@@ -31,7 +32,7 @@
 .btnAqua {
     background-color: #24B8BD;
     color: white;
-    width: 150px;
-    height: 50px;
+    width: 202px;
+    height: 42px;
     font-weight: bold;
 }
