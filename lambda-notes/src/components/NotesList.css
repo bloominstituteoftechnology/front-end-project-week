@@ -1,9 +1,3 @@
-.notesList {
-    padding: 20px;
-    background: rgb(233, 233, 233);
-    width: 75%;
-}
-
 .notesDisplay {
     display: flex;
     flex-wrap: wrap-reverse;

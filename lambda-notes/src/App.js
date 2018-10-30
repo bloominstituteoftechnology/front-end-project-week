@@ -69,10 +69,12 @@ class App extends Component {
     return (
       <div className="App">
         <Route path='/' component={LeftBar}/>
-        <Route render={props => (<NotesList {...props} passThisNote={this.passThisNote} notes={this.state.notes} />)} exact path='/'/>
-        <Route render={props => (<AddNoteForm {...props} addNote={this.addNote} />)} exact path='/AddNoteForm'/>
-        <Route render={props => (<ExpandedNote {...props} deleteNote={this.deleteNote} expandedNote={this.state.expandedNote} />)} exact path='/ExpandedNote/:id'/>
-        <Route render={props => (<EditNoteForm {...props} editNote={this.editNote} expandedNote={this.state.expandedNote} />)} exact path='/EditNote/:id'/>
+        <div className='content'>
+          <Route render={props => (<NotesList {...props} passThisNote={this.passThisNote} notes={this.state.notes} />)} exact path='/'/>
+          <Route render={props => (<AddNoteForm {...props} addNote={this.addNote} />)} exact path='/AddNoteForm'/>
+          <Route render={props => (<ExpandedNote {...props} deleteNote={this.deleteNote} expandedNote={this.state.expandedNote} />)} exact path='/ExpandedNote/:id'/>
+          <Route render={props => (<EditNoteForm {...props} editNote={this.editNote} expandedNote={this.state.expandedNote} />)} exact path='/EditNote/:id'/>
+        </div>
       </div>
     );
   }

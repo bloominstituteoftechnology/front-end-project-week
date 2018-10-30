@@ -1,4 +1,5 @@
 import React from 'react';
+import './AddNoteForm.css';
 
 class AddNoteForm extends React.Component {
     constructor(props) {
@@ -18,9 +19,9 @@ class AddNoteForm extends React.Component {
         return(
             <div className='addNoteForm'>
                 <h2>Create New Note:</h2>
-                <input placeholder='Note Title' name='titleText' value={this.state.titleText} onChange={this.changeHandler}/>
-                <input placeholder='Note Content' name='bodyText' value={this.state.bodyText} onChange={this.changeHandler}/>
-                <button onClick={() => this.props.addNote({title: this.state.titleText, textBody: this.state.bodyText})}>Save</button>
+                <input className='titleInput' placeholder='Note Title' name='titleText' value={this.state.titleText} onChange={this.changeHandler}/>
+                <textarea className='contentInput' placeholder='Note Content' name='bodyText' value={this.state.bodyText} onChange={this.changeHandler}/>
+                <button className='button' onClick={() => this.props.addNote({title: this.state.titleText, textBody: this.state.bodyText})}>Save</button>
             </div>
         )
     }
