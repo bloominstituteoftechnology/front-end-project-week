@@ -135,7 +135,7 @@ export const Button = styled.button`
     transition: all 0.4s ease 0s;
     background: ${props => (props.delete ? "#ffffff" : "#0E3A56")};
     color: ${props => (props.delete ? "#CA2418" : "#ffffff")};
-    opacity: .8;
+    opacity: 0.8;
   }
 `;
 

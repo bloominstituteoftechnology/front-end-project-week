@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
 
 import { Container } from "../styles";
 
@@ -10,27 +10,29 @@ import NoteContainer from "./NoteContainer";
 import FormContainer from "./FormContainer";
 import Note from "../components/Note";
 
-import { URL, blankFormValues } from "../constants";
+import { blankFormValues } from "../constants";
+
+import {
+  fetchNotes,
+  addNote,
+  editNote,
+  displayEditForm,
+  hideEditForm
+} from "../actions";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
       newNote: {
         title: "",
         textBody: ""
-      },
-      editing: false,
-      open: false
+      }
     };
   }
 
   componentDidMount() {
-    axios
-      .get(`${URL}get/all`)
-      .then(res => this.setState({ notes: res.data }))
-      .catch(err => console.log(err));
+    this.props.fetchNotes();
   }
 
   handleInputChange = e => {
@@ -44,72 +46,53 @@ class App extends Component {
   };
 
   handleUpdate = id => {
-    const noteToUpdate = this.state.notes.find(note => note._id === id);
+    const noteToUpdate = this.props.notes.find(note => note._id === id);
     this.setState({
-      newNote: noteToUpdate,
-      editing: true
+      newNote: noteToUpdate
     });
+    this.props.displayEditForm();
     this.props.history.push("/form");
-  };
-
-  handleDelete = id => {
-    axios
-      .delete(`${URL}delete/${id}`)
-      .then(() => {
-        this.redirect();
-        this.setState({ open: false });
-      })
-      .catch(err => console.log(err));
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    axios
-      .post(`${URL}create`, this.state.newNote)
-      .then(this.redirect)
-      .catch(err => console.log(err));
+    this.props.addNote(this.state.newNote);
+    this.setState({ newNote: blankFormValues });
+    this.redirect();
   };
 
   handleSubmitUpdate = e => {
     e.preventDefault();
-    axios
-      .put(`${URL}edit/${this.state.newNote._id}`, this.state.newNote)
-      .then(this.redirect)
-      .catch(err => console.log(err));
+    this.props.editNote(this.state.newNote);
+    this.setState({ newNote: blankFormValues });
+    this.props.hideEditForm();
+    this.redirect();
   };
 
   redirect = () => {
-    axios
-      .get(`${URL}get/all`)
-      .then(res => {
-        this.setState({ notes: res.data, newNote: blankFormValues });
-        this.props.history.push("/notes");
-      })
-      .catch(err => console.log(err));
+    this.props.history.push("/notes");
   };
 
   cancelForm = () => {
-    this.setState({ newNote: blankFormValues, editing: false });
+    if (this.props.editing === true) {
+      this.props.hideEditForm();
+    }
+    this.setState({ newNote: blankFormValues });
     this.props.history.goBack();
   };
-
-  showModal = () => this.setState({ open: true });
-
-  hideModal = () => this.setState({ open: false });
-
   render() {
-    if (this.state.notes.length < 1) {
+    if (this.props.notes.length < 1) {
       return <div>Loading...</div>;
     }
 
     return (
       <Container>
-        <Navigation editing={this.state.editing} cancelEdit={this.cancelForm} />
+        <Navigation editing={this.props.editing} cancelEdit={this.cancelForm} />
         <Route
           exact
           path="/notes"
           render={props => (
-            <NoteContainer {...props} notes={this.state.notes} />
+            <NoteContainer {...props} notes={this.props.notes} />
           )}
         />
         <Route
@@ -117,33 +100,39 @@ class App extends Component {
           render={props => (
             <FormContainer
               {...props}
-              editing={this.state.editing}
+              editing={this.props.editing}
               newNote={this.state.newNote}
               handleInputChange={this.handleInputChange}
               handleSubmit={
-                this.state.editing ? this.handleSubmitUpdate : this.handleSubmit
+                this.props.editing ? this.handleSubmitUpdate : this.handleSubmit
               }
               handleCancel={this.cancelForm}
-              onKeyDown={this.handleKeyDown}
             />
           )}
         />
         <Route
           path="/notes/:id"
-          render={props => (
-            <Note
-              {...props}
-              handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
-              open={this.state.open}
-              showModal={this.showModal}
-              hideModal={this.hideModal}
-            />
-          )}
+          render={props => <Note {...props} handleUpdate={this.handleUpdate} />}
         />
       </Container>
     );
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = state => ({
+  notes: state.notes,
+  editing: state.editing
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      fetchNotes,
+      addNote,
+      editNote,
+      displayEditForm,
+      hideEditForm
+    }
+  )(App)
+);

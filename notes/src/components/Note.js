@@ -1,57 +1,56 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Modal from "./Modal";
 
-import axios from "axios";
-import { URL } from "../constants";
-
 import { MainContent, NoteWrapper, EditDelete } from "../styles";
+import { fetchNote, deleteNote, openModal, closeModal } from "../actions";
 
-export default class Note extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      note: null,
-    };
-  }
-
+class Note extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.fetchNote(id);
+    this.props.fetchNote(id);
   }
 
-  fetchNote = id => {
-    axios
-      .get(`${URL}get/${id}`)
-      .then(res => this.setState({ note: res.data }))
-      .catch(err => console.log(err));
-  };
-
   render() {
-    if (!this.state.note) {
+    if (!this.props.note) {
       return <div>Loading...</div>;
     }
 
     return (
       <MainContent>
         <EditDelete>
-          <span onClick={() => this.props.handleUpdate(this.state.note._id)}>
+          <span onClick={() => this.props.handleUpdate(this.props.note._id)}>
             Edit
           </span>
           <Modal
-            showModal={this.props.showModal}
-            note={this.state.note}
-            handleDelete={() => this.props.handleDelete(this.state.note._id)}
+            showModal={this.props.openModal}
+            note={this.props.note}
+            handleDelete={() => {
+              this.props.deleteNote(this.props.note._id);
+              this.props.closeModal();
+              this.props.history.push("/notes");
+            }}
             open={this.props.open}
             isOpen={this.props.open}
-            hideModal={this.props.hideModal}
+            hideModal={this.props.closeModal}
           />
         </EditDelete>
         <NoteWrapper>
-          <h2>{this.state.note.title}</h2>
-          <p> {this.state.note.textBody}</p>
+          <h2>{this.props.note.title}</h2>
+          <p> {this.props.note.textBody}</p>
         </NoteWrapper>
       </MainContent>
     );
   }
 }
+
+const mapStateToProps = state => ({ note: state.note, open: state.open });
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchNote, deleteNote, openModal, closeModal }
+  )(Note)
+);

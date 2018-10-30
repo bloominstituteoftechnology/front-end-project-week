@@ -3,7 +3,6 @@ import { Dialog } from "@reach/dialog";
 import { Button, DeleteModal } from "../styles";
 
 export default class Modal extends Component {
-
   componentDidMount() {
     document.addEventListener("keydown", this.onKeyDown);
   }
@@ -18,8 +17,8 @@ export default class Modal extends Component {
     }
   };
 
-  disableScrolling(open) {
-    if (open) {
+  disableScrolling() {
+    if (this.props.open === true) {
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
     } else {
@@ -29,10 +28,6 @@ export default class Modal extends Component {
   }
 
   render() {
-    if (typeof document !== "undefined") {
-      this.disableScrolling(this.props.open);
-    }
-
     return (
       <>
         <span onClick={this.props.showModal}>Delete</span>
