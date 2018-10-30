@@ -13,7 +13,7 @@ class NoteView extends React.Component {
 
   handleDelete = () => {
     const id = this.props.match.params.id;
-    axios.delete("localhost:3333/dashboard/:id").then(res => {
+    axios.delete(`http://localhost:3333/dashboard/${id}`).then(res => {
       this.setState(() => ({ notes: res.data }));
     });
   };
@@ -21,9 +21,10 @@ class NoteView extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
-      .get("localhost:3333/dashboard/:id")
+      .get(`http://localhost:3333/dashboard/${id}`)
       .then(response => {
-        this.setState({ note: response.data });
+        console.log("I'm logged", response);
+        this.setState({ note: response.data[0] });
       })
       .catch(err => {
         console.log("error", err);
@@ -43,6 +44,9 @@ class NoteView extends React.Component {
             >
               edit
             </NavLink>
+            {/* <Link to="/dashboard">
+              <button class="delete" aria-label="close" />
+            </Link> */}
           </Link>
           <Link>
             <NavLink to="/list-view" onClick={this.handleDelete}>

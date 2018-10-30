@@ -10,10 +10,9 @@ const NoteList = props => {
       <NoteCardContainer>
         {props.notes.map(note => (
           <NoteCard>
-            {/* <NavLink key={note._id} to={`/${note._id}`}> */}
-            <NavLink to={`http://localhost:3333/dashboard/${note.id}`}>
+            <NavLink key={note.id} to={`/${note.id}`}>
               <H3>{note.title}</H3>
-              <P>{note.content} ...</P>
+              <P>{note.textBody} ...</P>
             </NavLink>
           </NoteCard>
         ))}

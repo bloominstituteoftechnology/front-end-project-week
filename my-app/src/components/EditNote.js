@@ -23,7 +23,7 @@ class EditNote extends Component {
     // const path = `https://killer-notes.herokuapp.com/note/edit/${id}`;
 
     axios
-      .put("http://localhost:3333/dashboard/" + id, {
+      .put(`localhost:3333/dashboard/${id}`, {
         title: this.state.title,
         textBody: this.state.textBody
       })
