@@ -83,3 +83,41 @@ code {
   flex-direction: column;
   align-items: flex-start;
 }
+.delete-modul{
+  position : fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin  : 15% 10%;
+  width:500px;
+  border : 1px solid black;
+  background : white;
+}
+.delete-modul .btn-section{
+  display:flex;
+  justify-content: center;
+  align-items : center;
+  width:100%;
+}
+.delete-modul .btn-section div{
+  height : 30px;
+  width : 100px;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:10px;
+  color : white;
+  cursor : pointer;
+}
+.delete-modul .btn-section div:hover{
+  background : rgb(109, 236, 98);
+  transition : 1s ease;
+}
+.delete-modul .btn-section .r-btn{
+  background : #CA001A;
+  margin-right:10px;
+}
+.delete-modul .btn-section .b-btn{
+  background : rgb(47, 215, 221);
+}
+

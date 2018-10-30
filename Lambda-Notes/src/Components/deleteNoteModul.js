@@ -5,7 +5,7 @@ import axios from 'axios';
         super();
     }
      deleteNote = () => {
-        axios.delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.ID}`)
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.ID}`)
         .then(response => alert("Note has been deleted",response))
         .catch(error => console.log(error))
     }
