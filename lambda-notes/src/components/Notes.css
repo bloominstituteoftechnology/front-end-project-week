@@ -23,21 +23,22 @@
   display: flex;
   flex-wrap: wrap;
   width: 80%;
-  margin-left: auto;
+  margin-left: 250px;
   background: #f2f1f2;
   padding-top: 60px;
+  max-width: 1200px;
 }
 
 .your-notes {
   width: 100%;
-  margin-left: 20px;
+  margin-left: 30px;
   font-size: 1.5rem;
   opacity: 0.6;
 }
 
 .note-form {
   width: 80%;
-  margin-left: auto;
+  margin-left: 250px;
   padding-top: 50px;
 }
 
@@ -63,6 +64,7 @@
   text-align: center;
   font-weight: 500;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 .note-form h1 {
@@ -74,8 +76,7 @@
 
 .single-note {
   width: 80%;
-  margin-left: auto;
-
+  margin-left: 250px;
   padding: 30px;
 }
 .single-note h1 {
@@ -96,6 +97,9 @@
   font-size: 1.2rem;
   text-decoration: underline;
   cursor: pointer;
+}
+.edit-and-delete i {
+  margin: 0 5px;
 }
 
 .delete-modal {
@@ -146,4 +150,37 @@
   text-align: center;
   font-size: 1.2rem;
   opacity: 0.8;
+}
+
+@media (max-width: 960px) {
+  .notes-container {
+    margin: auto;
+    width: 100%;
+  }
+  .single-note {
+    margin: auto;
+    margin-top: 30px;
+  }
+  .edit-and-delete {
+    position: absolute;
+    right: 100px;
+    top: 50px;
+  }
+  .note-form {
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 650px) {
+  .note {
+    width: 90%;
+  }
+  .note-form {
+    width: 100%;
+  }
+  .note-form form {
+    width: 90%;
+  }
 }

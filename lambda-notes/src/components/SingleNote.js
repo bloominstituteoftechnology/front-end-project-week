@@ -72,6 +72,7 @@ class SingleNote extends Component {
               )
             }
           >
+            <i className="fas fa-edit" />
             Edit
           </span>
           <span
@@ -79,6 +80,7 @@ class SingleNote extends Component {
               this.setState({ deleteMenuToggle: !this.state.deleteMenuToggle })
             }
           >
+            <i className="fas fa-trash-alt" />
             Delete
           </span>
         </div>

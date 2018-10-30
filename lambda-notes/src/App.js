@@ -8,6 +8,7 @@ import SideBar from "./components/SideBar";
 import NoteForm from "./components/NoteForm";
 import SingleNote from "./components/SingleNote";
 import EditNote from "./components/EditNote";
+import MobileNav from "./components/MobileNav";
 class App extends Component {
   constructor() {
     super();
@@ -54,6 +55,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" component={SideBar} />
+        <Route path="/" component={MobileNav} />
         <Route
           exact
           path="/"
