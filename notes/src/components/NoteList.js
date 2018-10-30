@@ -5,44 +5,45 @@ import {Link} from 'react-router-dom'
 import NoteCard from './NoteCard';
 
 class NoteList extends Component {
-  // constructor() {
-  //   super()
-  //     this.state = {
-  //       notes: [],
-  //     }
-  // }
-
-  componentDidMount() {
-    // axios
-    //   .get('https://killer-notes.herokuapp.com/note/get/all')
-    //   .then(res => this.setState({notes: res.data}))
-    //   .catch(error => console.log(error))
-    //axios stuff here
-
+  constructor(props) {
+    super(props)
   }
+
+  //componentDidMount() {
+  //  axios
+  //    .get('https://killer-notes.herokuapp.com/note/get/all')
+  //    .then(res => this.setState({notes: res.data}))
+  //    .catch(error => console.log(error))
+  //  //axios stuff here
+
+  //}
   
- createNote = (noteData) => {
-      // .post('https://killer-notes.herokuapp.com/note/create', noteData ) 
-      // .then(res => this.setState({notes: res.data}) )
-      // .catch(err => console.log(err))
+ // createNote = (noteData) => {
+ //     axios
+ //      .post('https://killer-notes.herokuapp.com/note/create', noteData ) 
+ //      .then(res => this.setState({notes: res.data}) )
+ //      .catch(err => console.log(err))
     
     
-  }
+ //  }
 
 
   render() {
     return (
-      <div className="App">
-      {this.state.notes.map(note => (
-        <div>
-          <Link 
-            to={{pathname: `/note/${note._id}`, state: note}}
-            >
-            {note.title}
-          </Link>
-            <p>{note.textBody}</p>
-        </div>
-       ))}
+      <div className='note-container'>
+      <div className='notes-headline'>
+        <h2>Your Notes:</h2>
+      </div>
+      {this.props.notes.map(note => (
+            <div className='note-card'>
+            <div className='note-card-text'>
+              <Link to={`/note/${note._id}`}><h4>{note.title}</h4></Link>
+                <div className='note-card-text-body'>
+                  <p>{note.textBody}</p>
+                </div>
+            </div>
+            </div>
+      ))}
       </div>
     );
   }

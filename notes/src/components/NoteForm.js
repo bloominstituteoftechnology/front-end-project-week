@@ -18,11 +18,16 @@ class NoteForm extends Component {
   newNote = (event) => {
     event.preventDefault();
     this.props.createNote(this.state)
+    this.setState({title: '', textBody: '', tags: ''})
   }
 
   render() {
     return (
-      <div >
+      <div className='form-container'>
+      <div className='form-headline'>
+        <h2>Create New Note:</h2>
+      </div >
+      <div className="form">
           <form onSubmit={this.newNote} >
             <input
               onChange={this.handleInputChange}
@@ -37,17 +42,11 @@ class NoteForm extends Component {
               value={this.state.textBody}
               name="textBody"
             />
-            <input
-              onChange={this.handleInputChange}
-              placeholder="tags"
-              value={this.state.tags}
-              name="tags"
-              type="text"
-            />
-            <button onClick={this.newNote} type="submit">
+            <button className="new-note-button" onClick={this.newNote} type="submit">
               New Note
             </button>
           </form>
+        </div>
 
       </div>
     );
