@@ -34,7 +34,7 @@ class NoteForm extends Component {
   render() {
     const { title, textBody } = this.state.note;
     return (
-      <form className="noteForm">
+      <form className="noteForm" onSubmit={this.submitHandler}>
         <h2>Create New Note:</h2>
         <input
           type="text"
@@ -53,7 +53,7 @@ class NoteForm extends Component {
           onChange={this.changeHandler}
         />
         <br />
-        <button onClick={this.submitHandler}>Add Note</button>
+        <button>Add Note</button>
       </form>
     );
   }

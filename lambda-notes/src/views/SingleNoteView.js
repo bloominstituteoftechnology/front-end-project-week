@@ -1,7 +1,7 @@
 // React import
 import React, { Component } from 'react';
 // Action imports
-import { fetchSingleNote } from '../actions';
+import { fetchSingleNote, deleteNote } from '../actions';
 // Redux imports
 import { connect } from 'react-redux';
 // Component imports
@@ -34,7 +34,13 @@ class SingleNoteView extends Component {
     return (
       <div className="singleNoteView">
         {this.props.notes.map(note => {
-          return <SingleNote note={note} key={note._id} />;
+          return (
+            <SingleNote
+              note={note}
+              key={note._id}
+              deleteNote={this.props.deleteNote}
+            />
+          );
         })}
       </div>
     );
@@ -50,5 +56,5 @@ const mapStateToProps = ({ notes, loading }) => {
 
 export default connect(
   mapStateToProps,
-  { fetchSingleNote }
+  { fetchSingleNote, deleteNote }
 )(SingleNoteView);
