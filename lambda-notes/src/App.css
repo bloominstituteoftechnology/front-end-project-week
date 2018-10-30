@@ -15,8 +15,11 @@ body {
 
 .side-bar {
   width: 250px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: #d3d2d3;
+  position: fixed;
+  top: 0;
+  bottom: 0;
 }
 
 .side-bar div {

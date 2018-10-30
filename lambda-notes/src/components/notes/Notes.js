@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Note from "./Note";
+import "./Notes.css";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -11,11 +12,14 @@ class Notes extends Component {
 
     if (notes) {
       return (
-        <div>
-          {notes.map(note => (
-            <Note note={note} key={note.id} />
-          ))}
-        </div>
+        <React.Fragment>
+          <div className="notes-container">
+            <h1 className="your-notes">Your Notes:</h1>
+            {notes.map(note => (
+              <Note note={note} key={note.id} />
+            ))}
+          </div>
+        </React.Fragment>
       );
     } else {
       return <Spinner />;
