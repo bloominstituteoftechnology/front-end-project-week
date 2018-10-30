@@ -28,7 +28,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/notes')
+      .get('http://localhost:8000/api/notes')
       .then(response => {
         this.setState({ notesData: response.data, isUpdating: false })
       })
