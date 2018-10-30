@@ -30,26 +30,28 @@ class FullNote extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.note);
-		if (!this.state.length) {
+		const { note } = this.state;
+		if (!note._id.length) {
+			return (
+				<StyledNoteWrapper>
+					<h1>Loading Your trash...</h1>
+				</StyledNoteWrapper>
+			);
+		} else {
 			return (
 				<div>
-					<h1>Loading Your trash</h1>
+					{Object.values(note).forEach((item, idx) => {
+						console.log(item);
+						return (
+							<StyledNoteContainer key={item[idx]}>
+								<StyledH1>{item[idx]}</StyledH1>
+								<p>{item[idx]}</p>
+							</StyledNoteContainer>
+						);
+					})}
 				</div>
 			);
 		}
-		return (
-			<div>
-				{this.state.note.map((note) => {
-					return (
-						<StyledNoteContainer key={note._id}>
-							<StyledH1>{note.title}</StyledH1>
-							<p>{note.textBody}</p>
-						</StyledNoteContainer>
-					);
-				})}
-			</div>
-		);
 	}
 }
 
@@ -64,7 +66,7 @@ export const StyledNoteWrapper = styled.div`
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	margin-left: 325px;
+	margin-left: 600px;
 `;
 
 export const StyledNoteContainer = styled.div`
