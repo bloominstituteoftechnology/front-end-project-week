@@ -32,8 +32,6 @@ class Edit extends Component {
     const { title, text } = this.state
     const { handleInputChange, handleSubmit } = this
 
-    console.log(this.props)
-
     return (
       <Container>
         <Title>Edit Note:</Title>

@@ -6,6 +6,9 @@ export const POST_NOTE = 'POST_NOTE'
 export const PUT_NOTE = 'PUT_NOTE'
 export const DELETE_NOTE = 'DELETE_NOTE'
 
+export const ADD_CHECKED = 'ADD_CHECKED'
+export const REMOVE_CHECKED = 'REMOVE_CHECKED'
+
 export const getAllNotes = () => dispatch => {
   axios
     .get('https://fe-notes.herokuapp.com/note/get/all')
@@ -67,3 +70,16 @@ export const deleteNote = id => dispatch => {
     })
     .catch(err => console.log(err))
 }
+
+
+// for selecting notes en mass to do things with ie delete
+
+export const addChecked = id => ({
+  type: ADD_CHECKED,
+  id
+})
+
+export const removeChecked = id => ({
+  type: REMOVE_CHECKED,
+  id
+})

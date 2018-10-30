@@ -6,7 +6,9 @@ import {
   getNoteById,
   postNote,
   putNote,
-  deleteNote
+  deleteNote,
+  addChecked,
+  removeChecked
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -17,21 +19,24 @@ import Add from './Add'
 const mapStateToProps = ({ notes }) => ({ notes })
 
 class App extends Component {
-  state = {
-    pageToDisplay: 'all'
-  }
-
   componentDidMount() {
     this.props.getAllNotes()
   }
 
   render() {
-    const { notes, postNote, putNote, deleteNote } = this.props
-    const { changeDisplayedPage } = this
+    const {
+      notes,
+      postNote,
+      putNote,
+      deleteNote,
+      addChecked,
+      removeChecked,
+      history
+    } = this.props
 
     return (
       <PageContainer>
-        <Sidebar changeDisplayedPage={changeDisplayedPage} />
+        <Sidebar />
 
         <Route
           exact
@@ -39,9 +44,11 @@ class App extends Component {
           render={props => (
             <DisplayAll
               {...props}
+              history={history}
               notes={notes}
               deleteNote={deleteNote}
-              changeDisplayedPage={changeDisplayedPage}
+              addChecked={addChecked}
+              removeChecked={removeChecked}
             />
           )}
         />
@@ -51,18 +58,19 @@ class App extends Component {
           render={props => (
             <DisplayOne
               {...props}
+              history={history}
               deleteNote={deleteNote}
               putNote={putNote}
-              changeDisplayedPage={changeDisplayedPage}
-            {...notes.filter(({ _id }) => _id === props.match.params.id)[0]}
-              
+              {...notes.filter(({ _id }) => _id === props.match.params.id)[0]}
             />
           )}
         />
 
         <Route
           path="/add"
-          render={props => <Add {...props} postNote={postNote} />}
+          render={props => (
+            <Add {...props} history={history} postNote={postNote} />
+          )}
         />
       </PageContainer>
     )
@@ -72,6 +80,14 @@ class App extends Component {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getAllNotes, getNoteById, postNote, putNote, deleteNote }
+    {
+      getAllNotes,
+      getNoteById,
+      postNote,
+      putNote,
+      deleteNote,
+      addChecked,
+      removeChecked
+    }
   )(App)
 )

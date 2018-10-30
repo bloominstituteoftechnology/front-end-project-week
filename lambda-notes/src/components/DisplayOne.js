@@ -25,10 +25,10 @@ class DisplayOne extends Component {
   }
 
   deleteItem = () => {
-    const { _id, deleteNote, changeDisplayedPage } = this.props
+    const { _id, deleteNote, history } = this.props
 
     deleteNote(_id)
-    changeDisplayedPage('all')
+    history.push('/')
   }
 
   render() {
