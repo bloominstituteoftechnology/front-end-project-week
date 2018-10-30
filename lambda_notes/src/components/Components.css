@@ -78,7 +78,7 @@
   }
 
   .singleNote {
-    width: 100%;
+    width: 80%;
   }
   
   .editDelete {
@@ -108,18 +108,18 @@
   
   .deleteModal {
     position: fixed;
-    top: 40%;
-    left: 35%;
+    top: 20%;
+    left: 38%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #fbfafb;
+    background: #ffffff;
     padding: 30px 50px;
-    border: 2px solid #acacac;
+    border: 1px solid black;
     z-index: 1;
   }
-  
+
   .deleteModal p {
     margin-bottom: 15px;
   }
@@ -150,8 +150,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #d8d8d8;
-    opacity: 0.7;
+    background: #d9d9d9;
+    opacity: 0.6;
     z-index: -1;
   }
   
