@@ -1,18 +1,34 @@
 import React from "react";
-
+import './component.css'
 
 const AddNote = (props) => {
 
+    const addtoList = () => {
+        props.addNewNote();
+        props.history.push("/note-list")
+        
+    }
+
     return (
-        <div>
-          <div>
+        <div className="input-container">
+        <form onSubmit={addtoList}>
+          <div className="new-note-input">
             <h3>Create New Note: </h3>
-            <input type="text" onChange={props.changeHandler} value={props.addTitle} name="title" placeholder="Note Title"></input>
+            <input className="input-field" type="text" onChange={props.changeHandler} value={props.addTitle} name="title" placeholder="Note Title"></input>
            </div>
-            <div>
-                <input type="text" onChange={props.changeHandler} value={props.addBody} name="textBody" placeholder="Note Content"></input>
+            <div className="text-area">
+                <textarea 
+                    className="text-field"
+                    type="text" 
+                    onChange={props.changeHandler}
+                    value={props.addBody}
+                    name="textBody"
+                    placeholder="Note Content"
+                    cols="45"
+                    rows="10" />
             </div>
-            <button onClick={props.addNewNote}>Save</button>
+            <button className="save-btn" onClick={addtoList}>Save</button>
+        </form>
         </div>
     )
 }

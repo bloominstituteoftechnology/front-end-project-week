@@ -15,10 +15,10 @@ const NavSideBar = () => {
                 </header>
                 <div className="view-notes">
                     <div className="view-btn">
-                        <Link to="/noteList"><h4 className="note-btn">View Your Notes</h4></Link>
+                        <Link to="/note-list"><h4 className="note-btn">View Your Notes</h4></Link>
                     </div>
                     <div className="create-btn">
-                        <Link to="/addNote"><h4 className="crt-btn">+ Create Your Notes</h4></Link>
+                        <Link to="/add-Note"><h4 className="crt-btn">+ Create Your Notes</h4></Link>
                     </div>
                 </div>
             </div>

@@ -5,15 +5,16 @@
     height: 100%;
     background: #D3D2D3;
     margin: 10px;
-    margin-top: 35px;
+    top: -10px;
     display: flex;
     position: fixed;
 }
 
 .nav-title {
-    line-height: 29px;
+    line-height: 50px;
     margin: 10px;
     margin-top: 50px;
+    font-size: 50px;
 }
 
 .note-btn {
@@ -22,9 +23,11 @@
     padding: 10px;
     margin: 12px;
     margin-top: 25px;
-    width: 154px;
+    width: 138%;
+    height: 30px;
     color: white;
     border: 1px solid #9BB2B3;
+    font-size: 20px;
 }
 
 .crt-btn {
@@ -33,9 +36,11 @@
     padding: 10px;
     margin: 12px;
     margin-top: 25px;
-    width: 154px;
+    width: 138%;
+    height: 30px;
     color: white;
     border: 1px solid #9BB2B3;
+    font-size: 20px;
 }
 
 /* Notes List css */
@@ -46,20 +51,91 @@
    flex-wrap: wrap;
     justify-content: space-around;
     padding: 30px;
+    background: #F2F1F2;
 
+}
+
+.note-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 28px;
+}
+
+.note-container h1 {
+    margin-right: 1256px;
 }
 
 .list-contain {
-  flex-basis: 10%;
-  border: 1px solid black;
-    margin-bottom: 10px;
-    padding: 10px;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 150px;
+    background: white;
+    border: 2px solid #D9D9D9;
+    padding: 15px;
     overflow: hidden;
+    margin-top: 30px;
+    cursor: pointer;
 }
 
 .note-title {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #D9D9D9;
+}
+
+/* Single page note view */
+
+.single-note {
+    flex-basis: 80%;
+    margin-left: 50px;
+}
+
+.single-title {
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.single-para {
+    margin-left: 50px
+}
+
+/* Add note page */
+
+.input-container {
+    margin-left: 70px;
+    margin-top: 40px;
+}
+
+.input-field {
+    margin-bottom: 20px;
+    width: 140%;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.text-field {
+    width: 350%;
+    height: 400px;
+    border-radius: 5px;
+}
+
+.save-btn {
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+    color: white;
+    background: #24B8BD;
+}
+
+.delete-edit {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 41px;
+}
+
+.delete-edit h1 {
+    font-size: 16px;
+    margin: 20px;
 }
 
 
