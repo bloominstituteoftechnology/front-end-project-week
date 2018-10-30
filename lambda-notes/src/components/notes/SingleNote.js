@@ -12,6 +12,14 @@ class SingleNote extends Component {
       deleteMenuToggle: false
     };
   }
+
+  // delete note
+  handleDeleteNote = () => {
+    const { note, firestore } = this.props;
+    firestore
+      .delete({ collection: "notes", doc: note.id })
+      .then(() => this.props.history.push("/"));
+  };
   render() {
     const { note } = this.props;
 
@@ -42,11 +50,7 @@ class SingleNote extends Component {
           </div>
           <div className="edit-and-delete">
             <span
-              onClick={() =>
-                this.props.history.push(
-                  `/notes/${localStorage.getItem("noteID")}/edit`
-                )
-              }
+              onClick={() => this.props.history.push(`/notes/${note.id}/edit`)}
             >
               <i className="fas fa-edit" />
               Edit
