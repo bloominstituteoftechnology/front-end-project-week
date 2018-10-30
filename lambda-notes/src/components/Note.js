@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Note.css';
 
 
 
@@ -7,7 +8,7 @@ const Note = props => {
     return (
         <Link to={`/ExpandedNote/${props.id}`} className='note' onClick={() => props.passThisNote(props)}>
             <h2>{props.title}</h2>
-            <div>{props.text}</div>
+            <div>{(props.text.length > 200) ? `${props.text.slice(0, 200)}...` : props.text}</div>
         </Link>
     )
 }

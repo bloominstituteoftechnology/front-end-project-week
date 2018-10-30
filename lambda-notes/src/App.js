@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import axios from 'axios';
+
 
 import LeftBar from './components/LeftBar';
 import NotesList from './components/NotesList';
@@ -33,6 +34,7 @@ class App extends Component {
                       .then(response => this.setState({ notes: response.data }))
                       .catch(error => console.log(error)))
         .catch(error => console.log(error));
+    this.props.history.push('/');
   }
 
   editNote = note => {
@@ -43,6 +45,20 @@ class App extends Component {
                       .then(response => this.setState({ notes: response.data }))
                       .catch(error => console.log(error)))
         .catch(error => console.log(error));
+    this.props.history.push('/');
+  }
+
+  deleteNote = () => {
+    axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.expandedNote.id}`)
+        .then(() => axios
+                      .get('https://fe-notes.herokuapp.com/note/get/all')
+                      .then(response => this.setState({ notes: response.data }))
+                      .catch(error => console.log(error)))
+        .catch(error => console.log(error));
+    this.props.history.push('/');
+    
+
   }
 
   passThisNote = note => {
@@ -55,11 +71,11 @@ class App extends Component {
         <Route path='/' component={LeftBar}/>
         <Route render={props => (<NotesList {...props} passThisNote={this.passThisNote} notes={this.state.notes} />)} exact path='/'/>
         <Route render={props => (<AddNoteForm {...props} addNote={this.addNote} />)} exact path='/AddNoteForm'/>
-        <Route render={props => (<ExpandedNote {...props} expandedNote={this.state.expandedNote} />)} exact path='/ExpandedNote/:id'/>
+        <Route render={props => (<ExpandedNote {...props} deleteNote={this.deleteNote} expandedNote={this.state.expandedNote} />)} exact path='/ExpandedNote/:id'/>
         <Route render={props => (<EditNoteForm {...props} editNote={this.editNote} expandedNote={this.state.expandedNote} />)} exact path='/EditNote/:id'/>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

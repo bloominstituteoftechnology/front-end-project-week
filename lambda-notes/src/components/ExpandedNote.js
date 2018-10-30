@@ -27,7 +27,7 @@ class ExpandedNote extends React.Component {
                     <div className='modalMenu'>
                         <p>Are you sure you want to delete this?</p>
                         <div className='modalButtons'>
-                            <button className='button deleteButton'>Delete</button>
+                            <button onClick={this.props.deleteNote} className='button deleteButton'>Delete</button>
                             <button onClick={this.toggleModal} className='button retreatButton'>Retreat</button>
                         </div>
                     </div>
