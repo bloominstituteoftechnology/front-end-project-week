@@ -26,6 +26,8 @@ class Edit extends Component {
       title: '',
       text: ''
     })
+
+    this.props.history.push('/')
   }
 
   render() {

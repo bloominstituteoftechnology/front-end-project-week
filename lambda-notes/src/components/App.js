@@ -10,7 +10,8 @@ import {
   addChecked,
   removeChecked,
   deleteAllChecked,
-  clearAllChecked
+  clearAllChecked,
+  checkAll
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -36,6 +37,8 @@ class App extends Component {
       removeChecked,
       deleteAllChecked,
       getAllNotes,
+      clearAllChecked,
+      checkAll,
       history
     } = this.props
 
@@ -46,6 +49,8 @@ class App extends Component {
         <Sidebar
           deleteAllChecked={deleteAllChecked}
           getAllNotes={getAllNotes}
+          clearAllChecked={clearAllChecked}
+          checkAll={checkAll}
         />
 
         <Route
@@ -57,7 +62,6 @@ class App extends Component {
               history={history}
               notes={notes}
               checked={checked}
-              deleteNote={deleteNote}
               addChecked={addChecked}
               removeChecked={removeChecked}
             />
@@ -100,7 +104,8 @@ export default withRouter(
       addChecked,
       removeChecked,
       deleteAllChecked,
-      clearAllChecked
+      clearAllChecked,
+      checkAll
     }
   )(App)
 )

@@ -9,6 +9,7 @@ export const DELETE_NOTE = 'DELETE_NOTE'
 export const ADD_CHECKED = 'ADD_CHECKED'
 export const REMOVE_CHECKED = 'REMOVE_CHECKED'
 export const CLEAR_ALL_CHECKED = 'CLEAR_ALL_CHECKED'
+export const CHECK_ALL = 'CHECK_ALL'
 
 export const getAllNotes = () => dispatch => {
   axios
@@ -69,7 +70,8 @@ export const deleteNote = id => dispatch => {
     .catch(err => console.log(err))
 }
 
-// for selecting notes en mass to do things with ie delete
+// FOR SELECTING NOTES EN MASS
+// IN ORDER TO DELETE OR PERFORM OTHER ACTION
 
 export const addChecked = id => ({
   type: ADD_CHECKED,
@@ -80,6 +82,16 @@ export const removeChecked = id => ({
   type: REMOVE_CHECKED,
   id
 })
+
+export const checkAll = () => (dispatch, getState) => {
+  const { notes } = getState()
+  const allIds = notes.map(note => note._id)
+
+  console.log('checking all')
+  console.log(allIds)
+
+  dispatch({ type: CHECK_ALL, allIds })
+}
 
 export const clearAllChecked = () => ({
   type: CLEAR_ALL_CHECKED

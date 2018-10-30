@@ -31,7 +31,7 @@ class DisplayAll extends Component {
   }
 
   render() {
-    const { notes, checked, deleteNote } = this.props
+    const { notes, checked } = this.props
     const { handleCheckChange } = this
 
     return (
@@ -54,7 +54,7 @@ class DisplayAll extends Component {
                   <StyledCheckbox isChecked={checked.includes(_id)} />
                 </CheckboxContainer>
               </HeaderWrapper>
-              <NoteBody onClick={() => deleteNote()}>
+              <NoteBody>
                 {textBody.length > 200
                   ? `${textBody.substring(0, 200)} ...`
                   : textBody}
