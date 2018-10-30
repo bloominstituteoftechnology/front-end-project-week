@@ -58,4 +58,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, { editNote })(NoteForm)
+export default connect(mapStateToProps, { editNote })(NoteForm) 
