@@ -11,6 +11,7 @@ const FullView = props => {
         </ul>
         <Form handleChanges= {props.handleChanges}
               addNewNote={props.addNewNote}
+              deleteNote={props.deleteNote}
         />
       </div>
     );

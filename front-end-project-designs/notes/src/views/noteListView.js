@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import FullView from "../components/fullView";
-import {fetchNotes,addNote } from "../actions";
+import {fetchNotes,addNote,deleteNote } from "../actions";
 import NoteView from '../components/noteView';
 
 
@@ -32,6 +32,9 @@ class NoteListView extends React.Component {
   addNewNote= event=>{
     this.props.addNote(this.state.newNote)
   }
+  deleteNote= id=>{
+    this.props.deleteNote(id);
+  }
   render() {
       console.log('render here')
     if (this.props.fetchingNotes) {
@@ -48,6 +51,7 @@ class NoteListView extends React.Component {
         <FullView notes= {this.props.notes}
                   handleChanges={this.handleChanges}
                   addNewNote={this.addNewNote}
+                  deleteNote={this.deleteNote}
 
         />
     )
@@ -65,5 +69,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { fetchNotes,addNote }
+  { fetchNotes,addNote,deleteNote }
 )(NoteListView);

@@ -26,3 +26,11 @@ export const addNote=(newNote)=>dispatch =>{
     //   dispatch({type:ADD_NOTE, payload:response.data})
     // })
 }
+export const deleteNote=(id)=>dispatch=>{
+  axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log(response);
+      dispatch({type:DELETE_NOTE, payload:response.data})
+    })
+}
