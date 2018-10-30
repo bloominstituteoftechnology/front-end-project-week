@@ -121,6 +121,7 @@ left: 0;
   margin-left: 100px;
 }
 .FormContainer{
+  top: 600px;
   z-index: -20;
   position: absolute;
       left: 200px;

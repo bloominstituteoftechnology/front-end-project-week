@@ -44,10 +44,11 @@ this.setState({
 
 fetchNote = id => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:3300/api/notes/${id}`)
       .then(response => {
-        console.log(response)
-        this.setState(() => ({ notes: response.data }));
+        console.log(response.data)
+        this.setState(() => ({ notes:response.data[0]
+        }));
       })
       .catch(error => {
         console.error(error);
@@ -64,7 +65,7 @@ deleteNote = id => event => {
 console.log(id)
 
 axios
-.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+.delete(`http://localhost:3300/api/notes/${id}`)
 .then(response => {
   console.log("success", response);
   this.setState(
@@ -97,11 +98,11 @@ toggleModal = () =>{
   const note = {
 
       title: this.state.newTitle,
-      textBody:this.state.newTextBody
+      content:this.state.newTextBody
 
   }
     console.log(id);
-    return axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`,note)
+    return axios.put(`http://localhost:3300/api/notes/${id}`,note)
   };
 
 
@@ -116,7 +117,11 @@ noteTaking(id)
     console.log("success", response);
     this.setState(
       {
-      notes:response.data,
+      notes:{
+        title:response.data.title,
+        content:response.data.content
+      }
+      ,
 
     },
       () => {
@@ -134,15 +139,18 @@ console.log(this.state.message);
   }
 
   render(){
+  console.log(this.state.notes);
+  const title = this.state.notes.title;
+  const content = this.state.notes.content;
     return (
 
 
     <div className="Notes">
       <div className='NoteContainer'>
-        <div key ={this.state.notes._id} >
-        <h3>{this.state.notes.title}</h3>
+        <div key ={this.state.notes.id} >
+        <h3>{title}</h3>
         <hr/>
-        <p> {this.state.notes.textBody}</p>
+        <p> {content}</p>
         </div>
       </div>
       <div className="FormContainer">
@@ -155,7 +163,7 @@ console.log(this.state.message);
         <input className='textComment' placeholder = 'Content' name= 'newTextBody'  onChange ={this.handleInputChange} value = {this.state.newTextBody}/>
       </div>
       <div className="ButtonContainer">
-        <Button  color="success" onClick ={this.editNote(this.state.notes._id)} >Edit Note</Button>
+        <Button  color="success" onClick ={this.editNote(this.state.notes.id)} >Edit Note</Button>
       </div>
       <div className="ButtonContainer">
         <Button  color="danger" onClick ={this.toggleModal} >Delete Note</Button>
@@ -166,7 +174,7 @@ console.log(this.state.message);
       <Modal show={this.state.isOpen}
                 onClose={this.toggleModal}
                 deleteNote={this.deleteNote}
-                id={this.state.notes._id} >
+                id={this.state.notes.id} >
                 Are you sure you want to delete this note?
               </Modal>
       </div>

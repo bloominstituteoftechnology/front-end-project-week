@@ -8,7 +8,7 @@ state = {
 
     id:Number(''),
     title:'',
-    textBody:''
+    content:''
 
 
 
@@ -26,17 +26,17 @@ createANote = event => {
   event.preventDefault();
   const notes = {
         title: this.state.title,
-        textBody:this.state.textBody
+        content:this.state.content
       };
-  const URL = 'https://killer-notes.herokuapp.com/note'
+  const URL = 'http://localhost:3300/api/notes'
   axios
-  .post(`${URL}/create`,notes)
+  .post(`${URL}`,notes)
   .then(response => {
     console.log(response);
     this.setState(
       {
       notes:response.data,
-      notes:{ id:Number(''),title:'',  textBody:''}
+      notes:{ id:Number(''),title:'',  content:''}
     },
       () => this.props.history.push('/')
     );
@@ -57,7 +57,7 @@ render(){
     <input className='TitleInput' placeholder = 'Title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
   </div>
   <div className= 'row'>
-    <input className='textComment' placeholder = 'Content' name= 'textBody'  onChange ={this.handleInputChange} value = {this.state.textBody}/>
+    <input className='textComment' placeholder = 'Content' name= 'content'  onChange ={this.handleInputChange} value = {this.state.content}/>
   </div>
 
   <Button onClick ={this.createANote} >Add Note</Button>
