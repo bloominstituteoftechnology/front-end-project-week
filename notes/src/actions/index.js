@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const ACTIVE_NOTE_HANDLER = 'active_note_handler';
+export const SEARCH_NOTE_HANDLER = 'active_note_handler';
 
 export const GET_NOTE = 'get_note';
 export const GET_NOTE_SUCCESS = 'get_note_success';
@@ -25,6 +26,12 @@ export const DELETE_NOTE_FAILURE = 'delete_note_failure';
 // const url = 'http://localhost:3333';
 const url = 'https://fe-notes.herokuapp.com';
 
+export const searchHandler = (value) => {
+  return {
+    type: SEARCH_NOTE_HANDLER,
+    payload: value,
+  }
+}
 export const activeNoteHandler = (ev) => {
   return {
     type: ACTIVE_NOTE_HANDLER,

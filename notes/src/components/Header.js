@@ -1,5 +1,89 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+
+const Header = ({searchHandler}) => {
+    const [search, setSearch] = useState('');
+
+    return (
+        <StyledHeader>
+            <MenuLogoContainer>
+                <div className="hamburger">
+                    {/* <i className="fas fa-bars"></i> */}
+                    <svg 
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                        fill="#767676"
+                    >
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
+                </div>
+                <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />
+                <span className="keep-name">Keep</span>
+            </MenuLogoContainer>
+            <ActionContainer>
+                <Search>
+                    <svg focusable="false" height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                    <input 
+                        type="text" 
+                        placeholder="Search"
+                        value={search}
+                        name="searchValue"
+                        onChange={e => {
+                            setSearch(e.target.value);
+                            searchHandler(e.target.value);
+                        }}
+                    />
+                    {
+                        !search.length ? null
+                        : (<svg onClick={() => {
+                                setSearch('');
+                                searchHandler('');
+                            }
+                        } focusable="false" height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>)
+                    }
+                </Search>
+                <Actions>
+                    <Action refresh />
+                    <Action listView />
+                    <Action settings />
+                </Actions>
+            </ActionContainer>
+        </StyledHeader>
+    );
+}
+
+export default Header;
+
+
+const Search = styled.div`
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.24);
+    width: 63%;
+    height: 48px;
+    border-radius: 8px;
+    background: white;
+    margin-right: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    svg {
+        opacity: .54;
+        :hover {opacity: 1};
+        margin: 11px 15px;
+    }
+    input {
+        position: absolute;
+        left: 64px;
+        height: 48px;
+        line-height: 48px;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font: normal 16px Roboto,sans-serif;
+
+    }
+`;
 
 const StyledHeader = styled.div`
     width: 100vw;
@@ -61,15 +145,6 @@ const ActionContainer = styled.div`
     display: flex;
 `;
 
-const Search = styled.div`
-    width: 63%;
-    height: 48px;
-    /* border: 1px solid rgba(0, 0, 0, 0.12); */
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.04);
-    margin-right: 16px;
-`;
-
 const Actions = styled.div`
     height: 100%;
     display: flex;
@@ -95,34 +170,3 @@ const Action = styled.div`
         background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBkPSJNMTMuODUgMjIuMjVoLTMuN2MtLjc0IDAtMS4zNi0uNTQtMS40NS0xLjI3bC0uMjctMS44OWMtLjI3LS4xNC0uNTMtLjI5LS43OS0uNDZsLTEuOC43MmMtLjcuMjYtMS40Ny0uMDMtMS44MS0uNjVMMi4yIDE1LjUzYy0uMzUtLjY2LS4yLTEuNDQuMzYtMS44OGwxLjUzLTEuMTljLS4wMS0uMTUtLjAyLS4zLS4wMi0uNDYgMC0uMTUuMDEtLjMxLjAyLS40NmwtMS41Mi0xLjE5Yy0uNTktLjQ1LS43NC0xLjI2LS4zNy0xLjg4bDEuODUtMy4xOWMuMzQtLjYyIDEuMTEtLjkgMS43OS0uNjNsMS44MS43M2MuMjYtLjE3LjUyLS4zMi43OC0uNDZsLjI3LTEuOTFjLjA5LS43LjcxLTEuMjUgMS40NC0xLjI1aDMuN2MuNzQgMCAxLjM2LjU0IDEuNDUgMS4yN2wuMjcgMS44OWMuMjcuMTQuNTMuMjkuNzkuNDZsMS44LS43MmMuNzEtLjI2IDEuNDguMDMgMS44Mi42NWwxLjg0IDMuMThjLjM2LjY2LjIgMS40NC0uMzYgMS44OGwtMS41MiAxLjE5Yy4wMS4xNS4wMi4zLjAyLjQ2cy0uMDEuMzEtLjAyLjQ2bDEuNTIgMS4xOWMuNTYuNDUuNzIgMS4yMy4zNyAxLjg2bC0xLjg2IDMuMjJjLS4zNC42Mi0xLjExLjktMS44LjYzbC0xLjgtLjcyYy0uMjYuMTctLjUyLjMyLS43OC40NmwtLjI3IDEuOTFjLS4xLjY4LS43MiAxLjIyLTEuNDYgMS4yMnptLTMuMjMtMmgyLjc2bC4zNy0yLjU1LjUzLS4yMmMuNDQtLjE4Ljg4LS40NCAxLjM0LS43OGwuNDUtLjM0IDIuMzguOTYgMS4zOC0yLjQtMi4wMy0xLjU4LjA3LS41NmMuMDMtLjI2LjA2LS41MS4wNi0uNzhzLS4wMy0uNTMtLjA2LS43OGwtLjA3LS41NiAyLjAzLTEuNTgtMS4zOS0yLjQtMi4zOS45Ni0uNDUtLjM1Yy0uNDItLjMyLS44Ny0uNTgtMS4zMy0uNzdsLS41Mi0uMjItLjM3LTIuNTVoLTIuNzZsLS4zNyAyLjU1LS41My4yMWMtLjQ0LjE5LS44OC40NC0xLjM0Ljc5bC0uNDUuMzMtMi4zOC0uOTUtMS4zOSAyLjM5IDIuMDMgMS41OC0uMDcuNTZhNyA3IDAgMCAwLS4wNi43OWMwIC4yNi4wMi41My4wNi43OGwuMDcuNTYtMi4wMyAxLjU4IDEuMzggMi40IDIuMzktLjk2LjQ1LjM1Yy40My4zMy44Ni41OCAxLjMzLjc3bC41My4yMi4zOCAyLjU1eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMuNSIvPgo8L3N2Zz4K);
     `}
 `;
-
-const Header = () => {
-    return (
-        <StyledHeader>
-            <MenuLogoContainer>
-                <div className="hamburger">
-                    {/* <i className="fas fa-bars"></i> */}
-                    <svg 
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                        fill="#767676"
-                    >
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </div>
-                <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />
-                <span className="keep-name">Keep</span>
-            </MenuLogoContainer>
-            <ActionContainer>
-                <Search></Search>
-                <Actions>
-                    <Action refresh />
-                    <Action listView />
-                    <Action settings />
-                </Actions>
-            </ActionContainer>
-        </StyledHeader>
-    );
-}
-
-export default Header;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { getNotes, addNote, getNote, deleteNote, updateNote, activeNoteHandler} from '../actions';
+import { getNotes, addNote, getNote, deleteNote, updateNote, activeNoteHandler, searchHandler } from '../actions';
 
 import Header from './Header';
 import ToolBar from './ToolBar';
@@ -43,10 +43,21 @@ class App extends Component {
     history.push('/');
   }
 
+  searchList = () => {
+    // if(!this.props.notes.length) return this.props.notes;
+    return this.props.notes.filter(note => 
+      note.title.toLowerCase().indexOf(this.props.searchValue.toLowerCase()) !== -1
+      ||
+      note.textBody.toLowerCase().indexOf(this.props.searchValue.toLowerCase()) !== -1
+    )
+  }
+
   render() {
     return (
       <div className={'app-container'}>
-        <Header />
+        <Header 
+          searchHandler={this.props.searchHandler}
+        />
         <ToolBar />
 
         <NoteContainer>
@@ -65,7 +76,7 @@ class App extends Component {
             render={props =>
               <NoteList 
                 {...props}
-                notes={this.props.notes} 
+                notes={this.searchList()} 
                 noteClicked={this.noteClicked}
               />
             }
@@ -91,8 +102,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { notes, activeNote } = state;
-  return { notes, activeNote };
+  const { notes, activeNote, searchValue } = state;
+  return { notes, activeNote, searchValue };
 }
 
 export default withRouter(connect(
@@ -104,5 +115,6 @@ export default withRouter(connect(
     deleteNote,
     updateNote,
     activeNoteHandler,
+    searchHandler,
   }
 )(App));

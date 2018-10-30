@@ -1,5 +1,6 @@
 import {
     ACTIVE_NOTE_HANDLER,
+    SEARCH_NOTE_HANDLER,
     GET_NOTE,
     GET_NOTE_FAILURE,
     GET_NOTE_SUCCESS,
@@ -26,12 +27,19 @@ import {
     addingNote: false,
     updatingNote: false,
     deletingNote: false,
+    searchValue: '',
     error: null,
   }
   
   export default (state = initialState, action) => {
     switch(action.type) {
   
+      case SEARCH_NOTE_HANDLER : 
+        return {
+          ...state,
+          searchValue: action.payload
+        }
+
       case ACTIVE_NOTE_HANDLER : 
         return {
           ...state,
