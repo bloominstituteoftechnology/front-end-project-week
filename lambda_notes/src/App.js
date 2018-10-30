@@ -6,6 +6,7 @@ import NotesList from './components/ListNotes';
 import SingleNote from './components/DisplayedNote';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   constructor() {
@@ -68,8 +69,6 @@ class App extends Component {
         });
   };
 
- 
-
   toggleDeletingOn = () => {
     this.setState({ deleting: true });
   };
@@ -101,6 +100,7 @@ class App extends Component {
     })
     .then(response => console.log(response.data))
     .catch(error => console.log(error));
+    this.setState();
   }
 
   render() {
@@ -126,6 +126,14 @@ class App extends Component {
         textBody={this.state.textBody}
         handleInput={this.handleInput}
         submit={this.handleSubmit}
+        />} />
+        <Route exact path='/note/:id/edit' render={props => <EditNote 
+        {...props}
+        notes={this.state.notes}
+        udpatedTitle={this.state.udpatedTitle}
+        updatedText={this.state.updatedText}
+        handleInput={this.handleInput}
+        editedNote={this.editedNote}
         />} />
       </div>
     );
