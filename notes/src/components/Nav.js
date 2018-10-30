@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 
-let Nav = () => {
+
+
+let Nav = props => {
     return (
         <nav>
             <Link to='/'><h1 className='logo'>Vellum</h1></Link>

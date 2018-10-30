@@ -5,7 +5,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.6.0",
+    "react-csv": "^1.0.18",
+    "react-csv-downloader": "^0.2.0",
     "react-dom": "^16.6.0",
+    "react-pose": "^3.3.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5"

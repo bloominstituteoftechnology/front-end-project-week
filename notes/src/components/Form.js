@@ -73,7 +73,7 @@ class Form extends Component {
         return (
             <div className='container'>
                 <h1>{this.state.note !== null ? 'Edit Note:' : 'Add Note:'}</h1>
-                <form onSubmit={this.submitHandler} autoComplete='off'>
+                <form onSubmit={this.submitHandler} autoComplete='off' className='fullpage'>
 
                     <input 
                         className='title'

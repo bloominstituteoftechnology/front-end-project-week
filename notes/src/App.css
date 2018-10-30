@@ -18,7 +18,7 @@ nav {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 90px;
   height: 100px;
   width: 100vw;
   z-index: 2000;
@@ -35,7 +35,7 @@ nav {
 }
 
 .links a {
-  color: white;
+  color: #fefdfa;
 }
 
 .navlink {
@@ -45,6 +45,26 @@ nav {
 .container {
   margin-top: 125px;
   padding: 0 50px;
+  position: relative;
+}
+
+.download {
+  position: absolute;
+  font-size: 14px;
+  padding: 5px 10px; 
+  color: #fefdfa;
+  border: 1px solid #0d1c49;
+  background: #0d1c49;
+  border-radius: 3px;
+  width: 110px;
+  text-align: center;
+  top: 30px;
+  right: 80px;
+} 
+
+.download:hover {
+  color: #0d1c49;
+  background: #fefdfa;
 }
 
 .notes {
@@ -82,9 +102,10 @@ nav {
   border-radius: 3px;
   border: .1px solid lightgrey;
   padding: 20px;
-  width: 100%;
-  margin-bottom: 50px;
+  width: 97%;
+  margin: 0 auto 50px;
   overflow: hidden;
+  min-height: 300px;
   height: 100%;
   background: #fefdfa;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -95,12 +116,12 @@ nav {
   font-size: 50px;
   display: inline;
   font-weight: bold;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #fefdfa;
 }
 
 .body {
   font-size: 20px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #fefdfa;
 }
 
 .delete {
@@ -123,12 +144,12 @@ nav {
   padding: 2.5px 7.5px; 
   color: #0d1c49;
   border: 1px solid #0d1c49;
-  background: white;
+  background: #fefdfa;
   border-radius: 3px;
 }
 
 .edit:hover {
-  color: white;
+  color: #fefdfa;
   border: 1px solid #0d1c49; 
   background: #0d1c49; 
 }
@@ -136,16 +157,6 @@ nav {
 form {
   display: flex;
   flex-direction: column;
-  border-radius: 3px;
-  border: .1px solid lightgrey;
-  padding: 20px;
-  width: 100%;
-  margin-bottom: 50px;
-  overflow: hidden;
-  height: 100%;
-  background: #fefdfa;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 input, textarea {
@@ -170,7 +181,7 @@ input[type='submit'] {
   font-size: 20px;
   padding: 5px 10px; 
   font-weight: bold;
-  color: white;
+  color: #fefdfa;
   border: 1px solid #0d1c49;
   background: #0d1c49;
   border-radius: 3px;
@@ -180,7 +191,7 @@ input[type='submit'] {
 
 input[type='submit']:hover {
   border: 1px solid #0d1c49;
-  background: white;
+  background: #fefdfa;
   color: #0d1c49;
 }
 
@@ -204,7 +215,7 @@ input[type='submit']:hover {
 }
 
 .modal {
-  background: white;
+  background: #fefdfa;
   opacity: 2;
   border-radius: 3px;
   color: #0d1c49;
@@ -226,21 +237,21 @@ input[type='submit']:hover {
 .delete-confirm {
   background: #C02F1D;
   border: 1px solid #C02F1D;
-  color: white;
+  color: #fefdfa;
   padding: 5px 15px;
   border-radius: 3px;
   cursor: pointer;
 }
 
 .delete-confirm:hover {
-  background: white;
+  background: #fefdfa;
   border: 1px solid #C02F1D;
   color: #C02F1D;
 }
 
 .cancel {
   border: 1px solid #0d1c49;
-  background: white;
+  background: #fefdfa;
   padding: 5px 15px;
   border-radius: 3px;
   cursor: pointer;
@@ -249,5 +260,5 @@ input[type='submit']:hover {
 .cancel:hover {
   background: #0d1c49;
   border: 1px solid #0d1c49;
-  color: white;
+  color: #fefdfa;
 }

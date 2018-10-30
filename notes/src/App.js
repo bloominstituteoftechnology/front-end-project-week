@@ -35,7 +35,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        <Nav />
+        <Nav/>
 
         <Route
           exact path="/"
