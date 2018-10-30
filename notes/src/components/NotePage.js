@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import Note from './Note';
-// render edit & delete btns, sidebar, and the correct note
+
 class NotePage extends Component {
     constructor() {
         super();
     }
-
+    
     render() {
-        let note = this.props.notes.find(note => note._id === this.props.match.params.id)
+        let id = this.props.match.params.id
+        let note = this.props.notes.find(note => note._id === id)
         return (
-            <Note note={note}/>
+            <div className='note-page'>
+                <div className='note-btns'>
+                    <Link to={`/${id}/edit`}>Edit</Link>
+                    <div className='note-btn'>Delete</div>
+                </div>
+                <Note note={note}/>
+            </div>
+            
         )
     }
 }

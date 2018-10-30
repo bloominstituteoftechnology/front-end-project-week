@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { updateNote } from '../actions';
 
 class EditPage extends Component {
     constructor() {
@@ -8,6 +9,25 @@ class EditPage extends Component {
             title: '',
             textBody: '',
         }
+    }
+
+    componentDidMount() {
+        const currentNote = this.props.notes.find(note => note._id === this.props.match.params.id)
+        this.setState({
+            title: currentNote.title,
+            textBody: currentNote.textBody
+        })
+    }
+
+    changeHandler = event => {
+        this.setState({ [event.target.name]: event.target.value })
+    };
+
+    editNote = event => {
+        event.preventDefault();
+        const { title, textBody } = this.state;
+        let editedNote = {title, textBody}
+        this.props.updateNote(editedNote);
     }
 
     render() {
@@ -23,6 +43,10 @@ class EditPage extends Component {
     }
 }
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => { 
+    return {
+        notes: state.notes,
+    };
+};
 
-export default connect(mapStateToProps)(EditPage);
+export default connect(mapStateToProps, { updateNote })(EditPage);

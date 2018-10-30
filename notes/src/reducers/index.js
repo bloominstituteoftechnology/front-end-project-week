@@ -1,4 +1,4 @@
-import { FETCHING, FETCHED, ADDED, ERROR } from '../actions';
+import { FETCHING, FETCHED, ADDED, UPDATED, ERROR } from '../actions';
 
 const initialState = {
     fetching: false,
@@ -19,8 +19,13 @@ export default (state = initialState, action) => {
         case ADDED: 
             return {
                 ...state,
-                notes: [...action.payload]
-            }
+                // notes: [action.payload]
+            };
+        case UPDATED:
+            return {
+                ...state,
+                // notes: [action.payload]
+            };
         case ERROR: 
             return { 
                 ...state, 

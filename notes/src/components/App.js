@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import NoteList from './NoteList';
 import AddNote from './AddNote';
@@ -12,10 +12,12 @@ class App extends Component {
 		return (
 			<div className="App">
 				<SideNav />
-				<Route path='/add' component={AddNote} />
-				<Route exact path='/' component={NoteList} />
-				<Route path='/:id' render={ (props) => <NotePage {...props}/> } />
-				<Route path='/:id/edit' render={ (props) => <EditPage {...props} />} />
+				<Switch>
+					<Route path='/add' component={AddNote} />
+					<Route exact path='/' component={NoteList} />
+					<Route exact path='/:id' render={ (props) => <NotePage {...props}/> } />
+					<Route path='/:id/edit' render={ (props) => <EditPage {...props}/> } />
+				</Switch>
 			</div>
 		);
   	}

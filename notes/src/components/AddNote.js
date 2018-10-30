@@ -39,6 +39,10 @@ class AddNote extends Component {
     }
 }
 
-const mapStateToProps = () => {};
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+    };
+};
 
 export default connect(mapStateToProps, { addNote })(AddNote);
