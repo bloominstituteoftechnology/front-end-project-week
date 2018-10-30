@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { deleteNote, getData } from '../../store/actions';
+import { deleteNote, getData, getANote } from '../../store/actions';
 import Modal from '../presentational/Modal';
 // import Todo from './Todo'
 
@@ -9,27 +9,20 @@ import { Button, ViewContainer } from '../style/noteStyle';
 
 class ViewPage extends React.Component {
   state = {
-    note: {},
+    note: this.props.note,
     showModal: false,
   };
 
-  filterProps = () => {
-    this.props.notes.forEach(note => {
-      if (parseInt(this.props.match.params.id, 10) === note._id) {
-        this.setState({ note });
-      }
-    });
-  };
-
   componentDidMount() {
-    console.log('hi');
-    this.props.getData();
+    const id = this.props.match.params.id;
+    this.props.getANote(id);
   }
 
   componentDidUpdate(prevProps) {
-    console.log('me');
-    if (this.props.success !== prevProps.success) {
-      this.filterProps();
+    const id = this.props.match.params.id;
+    if (this.props.note._id !== prevProps.note._id) {
+      this.props.getANote(id);
+      this.setState({ note: this.props.note });
     }
   }
 
@@ -81,10 +74,11 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     success: state.success,
+    note: state.note,
   };
 };
 
 export default connect(
   mapStateToProps,
-  { deleteNote, getData }
+  { deleteNote, getData, getANote }
 )(ViewPage);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNote, editNote } from '../../store/actions';
+import { addNote, editNote, getANote } from '../../store/actions';
 
 import { Form, Input, Textarea, Button } from '../style/noteFormStyle';
 
@@ -20,8 +20,33 @@ class NoteForm extends React.Component {
     });
   };
 
+  componentDidMount() {
+    this.setState({
+      title: '',
+      textBody: '',
+      _id: null,
+    });
+  }
+
+  // componentDidUpdate(prevProps) {
+  //   const id = this.props.match.params.id;
+  //   if (this.props.note._id !== prevProps.note._id) {
+  //     this.props.getANote(id);
+  //     this.setState({ note: { ...this.props.note } });
+  //   }
+  // }
+
   componentWillReceiveProps() {
-    this.filterProps();
+    console.log('hi');
+    if (this.props.match.url === '/noteform/create') {
+      this.setState({
+        title: '',
+        textBody: '',
+        _id: null,
+      });
+    } else {
+      this.setState({ ...this.props.note });
+    }
   }
 
   handleChange = e => {
@@ -33,7 +58,7 @@ class NoteForm extends React.Component {
   handleClick = e => {
     e.preventDefault();
     const pathName = this.props.match.url;
-    if (pathName === '/noteform') {
+    if (pathName === '/noteform/create') {
       this.props.addNote(this.state);
     } else {
       this.props.editNote(this.state);
@@ -46,7 +71,9 @@ class NoteForm extends React.Component {
     const pathName = this.props.match.url;
     return (
       <Form>
-        <h2>{pathName === '/noteform' ? 'Create New Note:' : 'Edit Note:'}</h2>
+        <h2>
+          {pathName === '/noteform/create' ? 'Create New Note:' : 'Edit Note:'}
+        </h2>
         <Input
           name="title"
           type="text"
@@ -70,11 +97,11 @@ class NoteForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
+    note: state.note,
   };
 };
 
 export default connect(
   mapStateToProps,
-  { addNote, editNote }
+  { addNote, editNote, getANote }
 )(NoteForm);
