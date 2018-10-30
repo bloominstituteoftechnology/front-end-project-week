@@ -50,7 +50,6 @@ handleInputChange = event => {
             value={this.state.textBody}
             name="textBody"
           />
-
         <button type="submit">Save</button>
         </form>
       </div>

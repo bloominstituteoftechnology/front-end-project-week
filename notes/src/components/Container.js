@@ -5,7 +5,6 @@ import {Route } from 'react-router-dom';
 
 import ButtonContainer from './ButtonContainer/ButtonContainer';
 import NotesList from './Notes/NotesList';
-import Note from './Notes/Note';
 import CreateNote from './Notes/CreateNote';
 
 export default class NotesContainer extends React.Component{
@@ -32,11 +31,11 @@ export default class NotesContainer extends React.Component{
       <div>
         <ButtonContainer />
         <Route exact path='/' render={ props => (
-          <NotesList  {...props} notes={this.state.notes}/>
+          <NotesList  notes={this.state.notes}/>
         )}
         />
         <Route path='/note/create' component={CreateNote} />
-        <Route path='/get/:id' conponent={Note} />
+        
       </div>
       
     )
