@@ -57,7 +57,7 @@ nav {
 .note {
   border-radius: 3px;
   border: .1px solid lightgrey;
-  padding: 20px;
+  padding: 5px 20px;
   width: 300px;
   margin: 20px;
   overflow: hidden;
@@ -72,7 +72,8 @@ nav {
 }
 
 .note h2 {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid lightgrey;
+  font-size: 25px;
   padding-bottom: 10px;
 }
 
@@ -82,6 +83,7 @@ nav {
   border: .1px solid lightgrey;
   padding: 20px;
   width: 100%;
+  margin-bottom: 50px;
   overflow: hidden;
   height: 100%;
   background: #fefdfa;
@@ -92,10 +94,13 @@ nav {
 .title {
   font-size: 50px;
   display: inline;
+  font-weight: bold;
+  border-bottom: 2px solid white;
 }
 
 .body {
   font-size: 20px;
+  border-bottom: 2px solid white;
 }
 
 .delete {
@@ -131,15 +136,50 @@ nav {
 form {
   display: flex;
   flex-direction: column;
-  width: 1000px;
-  align-items: center;
-  margin-top: 100px
+  border-radius: 3px;
+  border: .1px solid lightgrey;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 50px;
+  overflow: hidden;
+  height: 100%;
+  background: #fefdfa;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-input {
-  width: 70%;
-  padding: 10px;
-  margin: 10px;
+input, textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
+}
+
+textarea {
+  margin: 20px 0;
+  height: 120px;
+}
+
+input:focus, textarea:focus {
+  border-bottom: 2px solid #0d1c49;
+}
+
+input[type='submit'] {
+  font-size: 20px;
+  padding: 5px 10px; 
+  font-weight: bold;
+  color: white;
+  border: 1px solid #0d1c49;
+  background: #0d1c49;
+  border-radius: 3px;
+  width: 150px;
+  align-self: flex-end;
+}
+
+input[type='submit']:hover {
+  border: 1px solid #0d1c49;
+  background: white;
+  color: #0d1c49;
 }
 
 .modalBG {
@@ -147,7 +187,7 @@ input {
   width: 100%;
   height: 100vh;
   position: fixed;
-  background: slategrey;
+  background: #3C6478;
   z-index: 1000;
   top: 100px;
   left: 0;
@@ -163,7 +203,7 @@ input {
 
 .modal {
   background: white;
-  opacity: 1;
+  opacity: 2;
   border-radius: 3px;
   color: #0d1c49;
   position: fixed;

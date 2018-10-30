@@ -15,6 +15,7 @@ class Form extends Component {
 
     componentDidMount() {
         if (this.props.location.state !== undefined) {
+            alert('Just type over a field to edit.')
             this.setState({
                 note: this.props.location.state.note,
                 title: this.props.location.state.note.title,
@@ -74,10 +75,11 @@ class Form extends Component {
         }
         return (
             <div className='container'>
-                <h1>{this.state.note !== null ? 'Edit Note:' : 'Add Note'}</h1>
+                <h1>{this.state.note !== null ? 'Edit Note:' : 'Add Note:'}</h1>
                 <form onSubmit={this.submitHandler} autoComplete='off'>
 
                     <input 
+                        className='title'
                         type='text' 
                         name='title' 
                         placeholder='Note title...' 
@@ -85,11 +87,11 @@ class Form extends Component {
                         onChange={this.changeHandler}
                     />
 
-                    <input 
-                        type='textarea' 
+                    <textarea  
+                        className='body'
                         name='body' 
                         placeholder='Note body...' 
-                        defaultValue={this.state.note !== null ? this.state.note.textBody : this.props.value}
+                        value={this.state.note !== null ? this.state.note.textBody : this.props.value}
                         onChange={this.changeHandler}/>
                     
                     <input type='submit' />
