@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class EditNote extends Component {
     constructor(props) {
@@ -52,21 +53,29 @@ class EditNote extends Component {
     render(){
         return (
             <div className="group">
-                <form onSubmit={this.updateNote} >
-                    <input 
-                        onChange = {this.handleInputChange}
-                        placeholder = 'Title'
-                        name = 'title'
-                        value= {this.state.title}
-                    />
-                    <textarea 
-                        onChange = {this.handleInputChange}
-                        placeholder = 'Text Body'
-                        name= 'textbody'
-                        value= {this.state.textbody}
-                    />
-                    <button type='submit' >Save</button>
-                </form>
+                <Form onSubmit={this.updateNote} >
+                <Label for="title" lg={12}>Title</Label>
+                    <Col lg={12}>
+                        <input 
+                            onChange = {this.handleInputChange}
+                            placeholder = 'Title'
+                            name = 'title'
+                            value= {this.state.title}
+                        />
+                    </Col>
+                    <Label lg={12} for="textBody">Text Area</Label>
+                        <Col lg={12}>
+                            <Input 
+                                type="textarea"
+                                onChange = {this.handleInputChange}
+                                placeholder = 'Text Body'
+                                name= 'textbody'
+                                value= {this.state.textbody}
+                            />
+                        </Col>
+                        <br/>
+                    <Button type='submit' >Save</Button>
+                </Form>
             </div>
         );
     }
