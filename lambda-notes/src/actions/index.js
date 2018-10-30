@@ -9,9 +9,7 @@ export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
-export const GET_SINGLE_NOTE = 'GET_SINGLE_NOTE';
-export const GET_SINGLE_NOTE_SUCCESS = 'GET_SINGLE_NOTE_SUCCESS';
-export const GET_SINGLE_NOTE_FAILURE = 'GET_SINGLE_NOTE_FAILURE';
+
 
 
 export const fetchNotes = () => dispatch => {
@@ -27,18 +25,6 @@ export const fetchNotes = () => dispatch => {
     });
 };
 
-export const singleNote = id => dispatch => {
-  dispatch({ type: GET_SINGLE_NOTE  });
-  axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    .then(response => {
-      dispatch({ type: GET_SINGLE_NOTE_SUCCESS, payload: response.data 
-      });
-    })
-    .catch(error => {
-      dispatch({ type: GET_SINGLE_NOTE_FAILURE, payload: error });
-    });
-};
 
 export const addNote = note => dispatch => {
   console.log('this is the note in the actions', note)

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, addNote, deleteNote, singleNote } from './actions'
+import { fetchNotes, addNote, deleteNote } from './actions'
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
 import { connect } from 'react-redux';
 import { Route } from'react-router-dom';
 import AddNoteForm from './components/addNoteForm';
 import EditForm from './components/editForm';
+import SingleNote from './components/singleNote';
 
 
 class App extends Component {
@@ -59,6 +60,10 @@ class App extends Component {
             inputChange={this.handleInputChange} 
             edit={this.handleEdit} />
         } />
+        <Route path="/notes/:id" render={props => (
+            <SingleNote {...props}/>
+          )}
+        />
       </div>
     );
   }
@@ -71,4 +76,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps,{ fetchNotes, addNote, deleteNote, singleNote })(App);
+export default connect(mapStateToProps,{ fetchNotes, addNote, deleteNote })(App);
