@@ -1,32 +1,64 @@
 .App {
-  text-align: center;
+  max-width: 685px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+  background-color: #f2f1f2;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.side-bar {
+  background-color: #dddddd;
   display: flex;
   flex-direction: column;
+  width: 200px;
+}
+
+.nav-title {
+  margin-left: 27px;
+}
+
+.nav-button-container {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+}
+
+.nav-buttons {
+  text-decoration: none;
+  font-size: 10px;
+  background-color: #35c0c3;
+  height: 32px;
+  width: 143px;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #94a3a4;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.new-note-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form {
+  flex-direction: column;
+  display: flex;
+}
+
+.note-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-card {
+  width: 144px;
+  height: 148px;
+  border: 1px solid black;
+  margin: 20px;
 }

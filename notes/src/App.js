@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
-import List from "./components/List";
+import Note from "./components/Note";
 import AddNoteForm from "./components/AddNoteForm";
-import { Route } from "react-router-dom";
+import { Route, NavLink, withRouter } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -28,7 +28,6 @@ class App extends Component {
         newNote._id = res.data.success;
         this.setState({ notes: [...this.state.notes, newNote] });
       })
-      .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };
 
@@ -36,8 +35,15 @@ class App extends Component {
     e.preventDefault();
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      // .then(this.updateDOM())
-      .then(res => {})
+
+      .then(() => {
+        const deletedNote = this.state.notes.filter(note => {
+          if (note._id !== id) {
+            return note;
+          }
+        });
+        this.setState({ notes: deletedNote });
+      })
       .catch(err => console.log(err));
   };
 
@@ -45,32 +51,53 @@ class App extends Component {
     e.preventDefault();
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
-      .then(this.updateDOM())
+      .then(res => {
+        const updtedArray = this.state.notes.map(note => {
+          if (note._id !== res.data._id) {
+            return res.data;
+          }
+          return note;
+        });
+
+        this.setState({ notes: updtedArray });
+      })
       .catch(err => console.log(err));
   };
 
-  updateDOM = () => {
-    setTimeout(() => {
-      console.log("updateDom fired");
-      axios
-        .get("https://fe-notes.herokuapp.com/note/get/all")
-        .then(res => this.setState({ notes: res.data }))
-        .catch(err => console.log(err));
-    }, 500);
-  };
-
   render() {
-    console.log(this.state.notes);
     return (
       <div className="App">
-        <nav className="side-bar">
-          <h1>Lambda Notes</h1>
-        </nav>
-        <Route exact path="/" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
-        <List notes={this.state.notes} deleteNote={this.deleteNote} addNote={this.addNote} editNote={this.editNote} />
+        <div className="side-bar">
+          <h1 className="nav-title">
+            Lambda <br />
+            Notes
+          </h1>
+          <div className="nav-button-container">
+            <NavLink className="nav-buttons" to="/">
+              View Your Notes
+            </NavLink>
+            <NavLink className="nav-buttons" to="add-note">
+              + Create New Note
+            </NavLink>
+          </div>
+        </div>
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Note
+              {...props}
+              notes={this.state.notes}
+              deleteNote={this.deleteNote}
+              addNote={this.addNote}
+              editNote={this.editNote}
+            />
+          )}
+        />
+        <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

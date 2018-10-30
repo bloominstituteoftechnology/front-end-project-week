@@ -21,7 +21,8 @@ class AddNoteForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="new-note-container">
+        <h1>Create New Note:</h1>
         <form onSubmit={this.helper}>
           <input name="title" value={this.state.title} onChange={this.changeHandler} type="text" />
           <textarea name="textBody" value={this.state.textBody} onChange={this.changeHandler} type="text" />

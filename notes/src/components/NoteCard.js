@@ -1,9 +1,10 @@
 import React from "react";
 import EditNoteForm from "./EditNoteForm";
+import { Link } from "react-router-dom";
 
-const ListCard = props => {
+const NoteCard = props => {
   return (
-    <div>
+    <div className="note-card">
       <h4>{props.note.title}</h4>
       <p>{props.note.textBody}</p>
       <button
@@ -18,4 +19,4 @@ const ListCard = props => {
   );
 };
 
-export default ListCard;
+export default NoteCard;
