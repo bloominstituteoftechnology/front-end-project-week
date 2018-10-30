@@ -125,7 +125,7 @@ export const StyledForm = styled.form`
 export const FormH1 = styled.h1`
   font-size: 20px;
   text-align: center;
-  margin-left: -45%;
+  margin-left: -42.5%;
 `;
 
 export const TitleInput = styled.input`
@@ -145,12 +145,11 @@ export const BodyInput = styled.textarea`
   margin-left: 23%;
   width: 60%;
   height: 400px;
-  resize: none;
   border: 1.5px solid gray;
 
   ::-webkit-input-placeholder {
-    padding-top: 2%;
-    padding-left: 7%;
+    padding-top: 1%;
+    padding-left: 3%;
   }
 `;
 
@@ -161,4 +160,10 @@ export const Formbtn = styled.button`
   background-color: #24b8bd;
   margin-left: 23%;
   margin-top: 1%;
+`;
+
+export const FormContainer = styled.div`
+  width: 100vw;
+  height: 150vh;
+  padding-top: 80px;
 `;

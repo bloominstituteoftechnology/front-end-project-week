@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import { LeftBar, StyledLink, FormH1, TitleInput, BodyInput, StyledForm, Formbtn, TitleH1 } from '../Styles';
+import { LeftBar, StyledLink, FormH1, TitleInput, BodyInput, StyledForm, Formbtn, TitleH1, FormContainer } from '../Styles';
 
 class AddNote extends React.Component {
   constructor(props) {
@@ -39,14 +39,14 @@ class AddNote extends React.Component {
 
   render() {
     return (
-      <div>
+      <FormContainer>
         <LeftBar>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
           <StyledLink to={"/note/create"}>Add New Note</StyledLink>
         </LeftBar>
         <StyledForm onSubmit={this.handleSubmit}>
-          <FormH1>New Note</FormH1>
+          <FormH1>Create New Note:</FormH1>
           <TitleInput
             type="text"
             name="title"
@@ -63,7 +63,7 @@ class AddNote extends React.Component {
           />
           <Formbtn type="submit">Save</Formbtn>
         </StyledForm>
-      </div>
+      </FormContainer>
     );
   }
 }
