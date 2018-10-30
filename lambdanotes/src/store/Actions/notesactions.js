@@ -15,7 +15,7 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETED_NOTE = 'DELETED_NOTE';
 export const NOTE_ERROR = 'NOTE_ERROR';
 
-const dataSource = 'http://localhost:8088/note';
+const dataSource = 'https://ln-notes.herokuapp.com/note';
 
 export const postNote = (newNote) => {
 	return (dispatch) => {
