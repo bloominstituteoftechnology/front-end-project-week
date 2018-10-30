@@ -12,32 +12,22 @@ class NoteForm extends React.Component {
     _id: null,
   };
 
-  filterProps = () => {
-    this.props.notes.forEach(note => {
-      if (parseInt(this.props.match.params.id, 10) === note._id) {
-        this.setState({ ...note });
-      }
-    });
-  };
-
   componentDidMount() {
-    this.setState({
-      title: '',
-      textBody: '',
-      _id: null,
-    });
+    if (this.props.match.url === '/noteform/create') {
+      return null;
+    } else {
+      const id = this.props.match.params.id;
+      this.props.getANote(id);
+    }
   }
 
-  // componentDidUpdate(prevProps) {
-  //   const id = this.props.match.params.id;
-  //   if (this.props.note._id !== prevProps.note._id) {
-  //     this.props.getANote(id);
-  //     this.setState({ note: { ...this.props.note } });
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.note._id !== prevProps.note._id) {
+      this.setState({ ...this.props.note });
+    }
+  }
 
   componentWillReceiveProps() {
-    console.log('hi');
     if (this.props.match.url === '/noteform/create') {
       this.setState({
         title: '',
@@ -88,7 +78,7 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         />
         <Button type="submit" onClick={this.handleClick}>
-          {pathName === '/noteform' ? 'Save' : 'Upadate'}
+          {pathName === '/noteform' ? 'Save' : 'Update'}
         </Button>
       </Form>
     );

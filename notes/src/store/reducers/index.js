@@ -88,7 +88,6 @@ export const noteReducers = (state = initialState, action) => {
       let editPosition = state.notes.findIndex(
         note => note._id === parseInt(action.payload._id, 10)
       );
-      console.log(editPosition);
       return {
         ...state,
         notes: [
