@@ -7,7 +7,7 @@ export const NotesContainer = styled.div`
 `;
 
 export const NotesWrapper = styled.section`
-  ${customLayout('space-between')}
+  ${customLayout()}
   border: 1px solid blue;
   width: 100%;
   max-height: 100%;
@@ -17,8 +17,9 @@ export const NotesWrapper = styled.section`
 
 export const NoteCard = styled.div`
   border: 1px solid green;
-  width: 32%;
+  width: 29%;
   height: 280px;
+  margin: 0 2%;
   margin-bottom: 30px;
   padding: 20px;
 `;

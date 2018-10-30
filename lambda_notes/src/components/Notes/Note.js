@@ -1,35 +1,27 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getNotes } from '../../actions';
 
-class Note extends Component {
+import SingleNote from './SingleNote';
 
-  // this worked idk why :)
-  componentDidMount() {
-    this.props.getNotes();
-  }
+// class Note extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-  render() {
-    const noteId = this.props.match.params.id;
-    const note = this.props.notes.find(note => note._id === noteId);
+//   render() {
+//     // const noteId = this.props.match.params.id;
+//     // const note = this.props.notes.find(note => note._id === noteId);
 
-    if (this.props.notes.length === 0) {
-      return <h1>Loading notes...</h1>
-    }
+//     // if (this.props.notes.length === 0) {
+//     //   return <h1>Loading notes...</h1>
+//     // }
 
-    return (
-      <>
-        <h2>{note.title}</h2>
-        <p>{note.textBody}</p>
-      </>
-    );
-  }
+//     return <SingleNote note={this.props.note} deleteNote={this.props.deleteNote} />;
+//   }
+// }
+
+const Note = props => {
+  console.log('props from note', props)
+  return <SingleNote note={props.note} deleteNote={props.deleteNote} />;
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes
-  }
-};
-
-export default connect(mapStateToProps, { getNotes })(Note);
+export default Note;

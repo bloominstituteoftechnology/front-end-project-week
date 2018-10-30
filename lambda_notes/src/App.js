@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 import NavigationBar from './components/Navigation/NavigationBar';
-import Note from './components/Notes/Note';
+import SingleNoteView from './views/SingleNoteView';
 import NewNoteView from './views/NewNoteView';
 import ListView from './views/ListView';
 
@@ -17,7 +17,7 @@ class App extends Component {
         <div className="content-container">
           <div className="content-wrapper">
             <Route exact path='/' component={ListView} />
-            <Route path='/notes/:id' component={Note} />
+            <Route path='/notes/:id' component={SingleNoteView} />
             <Route path='/create' component={NewNoteView} />
           </div>
         </div>
