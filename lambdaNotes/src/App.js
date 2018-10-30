@@ -8,7 +8,8 @@ import { Route } from 'react-router-dom';
 import DisplayNoteList from './components/DisplayNoteList';
 import DisplayNote from './components/DisplayNote';
 import CreateNote from './components/CreateNote';
-
+import DeleteNote from './components/DeleteNote';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class App extends Component {
     notes: []
     };
 
-    this.SubmitAdd = this.SubmitAdd.bind(this);
+    this.submitAdd = this.submitAdd.bind(this);
     }
     
 
@@ -26,10 +27,12 @@ class App extends Component {
       }
 
 
-      SubmitAdd = (note) =>{
+      submitAdd = (note) =>{
 
       }
-
+      submitEdit = (note) => {
+        console.log("submit Edit function in App")
+      }
 
   render() {
     return (
@@ -44,7 +47,7 @@ class App extends Component {
                     )}
                     />
 
-        <Route
+        <Route      
                     path="/Notes/:id"
                     render={props => (
                     <DisplayNote {...props} 
@@ -53,12 +56,33 @@ class App extends Component {
                         deleteNote={this.props.deleteNote}/>
                     )}
                     />
+
+  <Route            exact
+                    path="/Notes/:id/delete"
+                    render={props => (
+                    <DeleteNote {...props} 
+                         notes={this.state.notes}
+                        
+                        deleteNote={this.props.deleteNote}/>
+                    )}
+                    />
+
+         <Route
+                    path="/Notes/edit/:id"
+                    render={props => (
+                    <EditNote {...props} 
+                         notes={this.state.notes}
+                        submitEdit={this.submitEdit}
+                      />
+                    )}
+                    />
+
         <Route
                    exact
                     path="/createNote"
                     render={props => 
                     <CreateNote {...props} 
-                        SubmitAdd={this.SubmitAdd}/>}
+                        submitAdd={this.submitAdd}/>}
                     />
       </div>
     );

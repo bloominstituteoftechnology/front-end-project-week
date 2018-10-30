@@ -1,19 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
- const DisplayNote = props => {
+ const DeleteNote = props => {
  
  let note = '';
-let noteId = '';
+
 
   if (props.match.params.id) {
     note = props.notes.filter(
       item => item._id === props.match.params.id
     );
-    note = note[0];
-  //  noteId = note._id;
-  //  console.log(note);
-  //  console.log("noteId = ", noteId);
+   note = note[0];
+   console.log(note);
   } else {
     alert("wrong note ID");
     props.history.push('/');
@@ -28,18 +26,13 @@ let noteId = '';
 
   return (
    
-    <div className="displayNote">
-     <nav>
-         <NavLink to={`/Notes/edit/${note._id}`}> Edit  </NavLink>
-        <NavLink to={`/Notes/${note._id}/delete`}> Delete </NavLink>
-     
+    <div className="deleteNote">
     
-        </nav>  
-      <h3> {note.title}  </h3>
-      <p> {note.textBody} </p>
+     <button> Delete </button>
+     <button > No </button>
     </div>
   
   );
 }
 
-export default DisplayNote;
+export default DeleteNote;
