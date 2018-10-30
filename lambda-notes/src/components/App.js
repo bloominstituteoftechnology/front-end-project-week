@@ -35,6 +35,7 @@ class App extends Component {
       addChecked,
       removeChecked,
       deleteAllChecked,
+      getAllNotes,
       history
     } = this.props
 
@@ -42,7 +43,10 @@ class App extends Component {
 
     return (
       <PageContainer>
-        <Sidebar deleteAllChecked={deleteAllChecked} />
+        <Sidebar
+          deleteAllChecked={deleteAllChecked}
+          getAllNotes={getAllNotes}
+        />
 
         <Route
           exact

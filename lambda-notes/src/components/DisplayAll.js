@@ -8,7 +8,9 @@ import {
   NoteTitle,
   NoteBody,
   HeaderWrapper,
-  Checkbox
+  CheckboxContainer,
+  HiddenDefault,
+  StyledCheckbox
 } from '../styles/DisplayAll'
 
 // notebody click handler is to make it easy to clean up notes
@@ -29,7 +31,7 @@ class DisplayAll extends Component {
   }
 
   render() {
-    const { notes, deleteNote } = this.props
+    const { notes, checked, deleteNote } = this.props
     const { handleCheckChange } = this
 
     return (
@@ -46,11 +48,11 @@ class DisplayAll extends Component {
                       : title}
                   </NoteTitle>
                 </Link>
-                <Checkbox
-                  type="checkbox"
-                  onChange={handleCheckChange}
-                  name={_id}
-                />
+
+                <CheckboxContainer onChange={handleCheckChange}>
+                  <HiddenDefault type="checkbox" name={_id} />
+                  <StyledCheckbox isChecked={checked.includes(_id)} />
+                </CheckboxContainer>
               </HeaderWrapper>
               <NoteBody onClick={() => deleteNote()}>
                 {textBody.length > 200
