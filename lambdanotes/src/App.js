@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink } from 'react-router-dom';
-import Home from './components/Home';
-import NotesForm from './components/NotesForm';
-import NotesList from './components/NotesList';
-import Notes from './components/Notes';
+import { Route, NavLink, withRouter } from 'react-router-dom';
+import HomeView from './view/HomeView.js';
+import NoteFormView from './view/NoteFormView.js';
+import NoteListView from './view/NoteListView.js';
+import NoteView from './view/NoteView.js';
 
 class App extends Component {
   render() {
@@ -34,27 +34,27 @@ class App extends Component {
           </div>
         </header>
         <Route 
-          exact path="/" c
-          omponent={Home} 
+          exact path="/" 
+          component={HomeView} 
         />
         <Route 
           exact path="/notes"
-          component={NotesList}
+          component={NoteListView}
         />
         <Route 
           path="/notes/:noteId"
-          component={Notes}
+          component={NoteView}
           />
         <Route 
           path="/notesform"
-          component={NotesForm}
+          component={NoteFormView}
         />
       </div>
     );
   }
 }
 
- export default (App);
+ export default withRouter(App);
 
 //  componentDidMount() {
 //   this.getNotes();

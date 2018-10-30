@@ -18,10 +18,11 @@ export const UPDATING_NOTE = 'UPDATING_NOTE';
 export const UPDATED_NOTE = 'UPDATED_NOTE';
 export const ERROR_UPDATING_NOTE = 'ERROR_UPDATING_NOTE'; 
 
-export function grabbingNotes() {
-    return function (dispatch) {
-        dispatch({ type: FETCHING_NOTES });
-        axios.get('https:localhost:9000/api/notes')
+export const grabbingNotes = () => dispatch => {
+    dispatch({ type: FETCHING_NOTES });
+    const promise = axios.get('https://localhost:9000/api/notes');
+
+    promise
         .then(response => {
             dispatch({ type: FETCHED_NOTES, payload: response.data });
         })
@@ -29,26 +30,23 @@ export function grabbingNotes() {
             console.log("Error grabbing all notes", error)
             dispatch({ type: ERROR_FETCHING_NOTES, payload: error});
         });
-    };
-}
+};
 
-export function addNewNote(note) {
-    return function(dispatch) {
-        dispatch({ type: ADDING_NEW_NOTE });
-        axios.post('https:localhost:9000/api/notes', note)
-        .then(response => {
-            dispatch({ type: NEW_NOTE_ADDED, payload: response.data });
-        })
-        .catch(error => {
-            console.log("Error adding new note", error)
-            dispatch({ type: ERROR_ADDING_NEW_NOTE, payload: error});
-        });
-    };
-}
+export const addNewNote = note => dispatch => {
+    dispatch({ type: ADDING_NEW_NOTE });
+    axios.post('https://localhost:9000/api/notes', note)
+    .then(response => {
+        dispatch({ type: NEW_NOTE_ADDED, payload: response.data });
+    })
+    .catch(error => {
+        console.log("Error adding new note", error)
+        dispatch({ type: ERROR_ADDING_NEW_NOTE, payload: error});
+    });
+};
 
 export const deleteNote = noteId => dispatch => {
     dispatch({ type: DELETING_NOTE });
-    axios.delete(`https:localhost:9000/api/notes/${noteId}`)
+    axios.delete(`https://localhost:9000/api/notes/${noteId}`)
     .then(response => {
         dispatch({ type: DELETED_NOTE, payload: response.data });
     })
@@ -63,7 +61,7 @@ export const setUpdateNote = id => {
 
 export const updateNote = noteId => dispatch => {
     dispatch({ type: UPDATING_NOTE });
-    axios.put(`https:localhost:9000/api/notes/${noteId}`)
+    axios.put(`https://localhost:9000/api/notes/${noteId}`)
     .then(response => {
         dispatch({ type: UPDATED_NOTE, payload: response.data });
     })

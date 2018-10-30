@@ -16,8 +16,8 @@ import {
 
 const initialState = {
     notes: [],
-    grabbingNotes: false,
-    addNewNote: false,
+    gettingNotes: false,
+    addedNewNote: false,
     isUpdatingNote: false,
     isDeletingNote: false,
     error: null,
@@ -27,19 +27,19 @@ const initialState = {
 export const notesReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCHING_NOTES:
-            return Object.assign({}, state, {grabbingNotes: true,});
+            return Object.assign({}, state, {gettingNotes: true,});
         case FETCHED_NOTES:
-            return Object.assign({}, state, {grabbingNotes: false, notes: action.payload,});
+            return Object.assign({}, state, {gettingNotes: false, notes: action.payload,});
         case ERROR_FETCHING_NOTES:
             console.log("Error reducer error grabbing ntoes", action.payload)
-            return Object.assign({}, state, {grabbingNotes: false, error: action.payload,});
+            return Object.assign({}, state, {gettingNotes: false, error: action.payload,});
         case ADDING_NEW_NOTE:
-            return Object.assign({}, state, {addNewNote: true,});
+            return Object.assign({}, state, {addedNewNote: true,});
         case NEW_NOTE_ADDED:
-            return Object.assign({}, state, {addNewNote: false, notes: action.payload,});
+            return Object.assign({}, state, {addedNewNote: false, notes: action.payload,});
         case ERROR_ADDING_NEW_NOTE:
             console.log("Error reducer error adding new ntoes", action.payload)
-            return Object.assign({}, state, {addNewNotes: false, error: action.payload,});
+            return Object.assign({}, state, {addedNewNotes: false, error: action.payload,});
         case DELETING_NOTE:
             return Object.assign({}, state, {isDeletingNote: true,});
         case DELETED_NOTE:
