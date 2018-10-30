@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "cd fescpw && yarn start",
-    "build": "cd fescpw && yarn build"
+    "build": "cd fescpw && yarn install && yarn build"
   },
   "dependencies": {
     "@material-ui/core": "^3.1.1",
