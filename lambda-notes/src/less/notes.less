@@ -38,20 +38,18 @@
 }
 
 // styles for individual note pages
-.note-page-wrapper {
-    height: 100%;
-    width: 100%;
-    margin-left: 220px;
+.action-wrapper {
+
 }
 
 // styles for form adding new notes
-.new-note-form {
+.note-form {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
 
-    .new-note-title {
+    .note-title {
         width: 200px;
         margin-top: 30px;
         padding: 12px;
@@ -61,7 +59,7 @@
         outline-color: @buttonOutlineColor;
     }
 
-    .new-note-content {
+    .note-content {
         max-width: 600px;
         height: 345px;
         margin: 15px 0;
@@ -73,7 +71,46 @@
         outline-color: @buttonOutlineColor;
     }
 
-    button.new-note-button {
+    button.note-button {
         .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 10px);
+    }
+}
+
+.delete-modal {
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(185, 185, 185, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .delete-modal-content{
+        height: 150px;
+        width: 450px;
+        padding: 20px;
+        margin-bottom: 200px;
+        background: @white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .delete-modal-header {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        button.delete-button {
+            .custom-button(@buttonBgRed, @buttonHoverBgRed, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px);
+            margin-right: 20px;
+        }
+    
+        button.no-button {
+            .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px);
+        }
     }
 }

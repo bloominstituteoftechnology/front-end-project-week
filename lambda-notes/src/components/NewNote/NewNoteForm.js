@@ -41,13 +41,13 @@ class NewNoteForm extends React.Component {
             return <Redirect to={`/notes/${this.state.redirectId}`} />
         } else {
             return (
-                <div className="new-note-wrapper view-wrapper">
+                <div className="view-wrapper">
                     <h2 className="view-header">Create New Note:</h2>
-                    <form className="new-note-form" onSubmit={this.submitHandler}>
+                    <form className="note-form" onSubmit={this.submitHandler}>
                         <input
                             type="text"
                             name="title"
-                            className="new-note-title"
+                            className="note-title"
                             onChange={this.changeHandler}
                             placeholder="Note Title"
                             value={this.state.title}
@@ -55,12 +55,12 @@ class NewNoteForm extends React.Component {
                         <textarea
                             type="text"
                             name="textBody"
-                            className="new-note-content"
+                            className="note-content"
                             onChange={this.changeHandler}
                             placeholder="Note Content"
                             value={this.state.textBody}
                         />
-                        <button type="submit" className="new-note-button">Save</button>
+                        <button type="submit" className="note-button">Save</button>
                     </form>
                 </div>
             )

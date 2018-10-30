@@ -9,8 +9,11 @@ class NotePage extends React.Component {
             isEditing: false,
             isLoaded: false,
             shouldRedirect: false,
+            modalShowing: false,
             title: '',
+            tempTitle: '',
             textBody: '',
+            tempTextBody: '',
             error: null
         }
     }
@@ -49,11 +52,19 @@ class NotePage extends React.Component {
 
     editHandler = () => {
         this.setState(prevState => ({
-            isEditing: !prevState.isEditing
+            isEditing: !prevState.isEditing,
+            tempTitle: prevState.title,
+            tempTextBody: prevState.textBody
         }));
     }
 
-    deleteHandler = () => {
+    modalToggle = () => {
+        this.setState(prevState => ({
+            modalShowing: !prevState.modalShowing
+        }))
+    }
+
+    deleteFunction = () => {
         const id = this.props.match.params.id;
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
@@ -70,63 +81,80 @@ class NotePage extends React.Component {
             event.preventDefault();
             event.stopPropagation();
             const id = this.props.match.params.id;
-            const newNote = Object.assign({}, { title: this.state.title, textBody: this.state.textBody });
+            const editNote = Object.assign({}, { title: this.state.tempTitle, textBody: this.state.tempTextBody });
             axios
-                .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
-                .then(() => this.setState({
-                    isEditing: false
-                }))
+                .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editNote)
+                .then((response) => {
+                    this.setState({
+                        isEditing: false,
+                        title: response.data.title,
+                        textBody: response.data.textBody
+                    });
+                })
                 .catch(err => console.log(err));
         }
     }
 
-    render() {
-        if (this.state.shouldRedirect) {
-            return <Redirect to="/" />
-        } else {
-            if (!this.state.isLoaded) {
-                if (this.state.error) {
-                    return (
-                        <div className="note-page-wrapper view-wrapper">
-                            <h1>Page Not Found 404</h1>
-                        </div>
-                    )
-                }
-                return (
-                    <div className="note-page-wrapper view-wrapper">
-                        <h1>Loading...</h1>
-                    </div>
-                )
-            } else {
+render() {
+    if (this.state.shouldRedirect) {
+        return <Redirect to="/" />
+    } else {
+        if (!this.state.isLoaded) {
+            if (this.state.error) {
                 return (
                     <div className="view-wrapper">
-                        <div onClick={this.editHandler}>{!this.state.isEditing ? 'edit' : 'cancel'}</div>
-                        <div onClick={this.deleteHandler}>delete</div>
-                        {!this.state.isEditing ?
-                            <div>
-                                <h3 className="view-header">{this.state.title}</h3>
-                                <p className="view-paragraph">{this.state.textBody}</p>
-                            </div> :
-                            <form onSubmit={this.submitHandler}>
-                                <input
-                                    type="text"
-                                    name="title"
-                                    onChange={this.changeHandler}
-                                    value={this.state.title}
-                                />
-                                <input
-                                    type="text"
-                                    name="textBody"
-                                    onChange={this.changeHandler}
-                                    value={this.state.textBody}
-                                />
-                                <button type="submit">Submit</button>
-                            </form>}
+                        <h1>Page Not Found 404</h1>
                     </div>
                 )
             }
+            return (
+                <div className="view-wrapper">
+                    <h1>Loading...</h1>
+                </div>
+            )
+        } else {
+            return (
+                <div className="view-wrapper">
+                    <h3 className="view-header">{!this.state.isEditing ? this.state.title : 'Edit Note:'}</h3>
+                    <div className="action-wrapper">
+                        <div onClick={this.editHandler}>{!this.state.isEditing ? 'edit' : 'cancel'}</div>
+                        <div onClick={this.modalToggle}>delete</div>
+                    </div>
+                    {!this.state.isEditing ?
+                        <div>
+                            <p className="view-paragraph">{this.state.textBody}</p>
+                        </div> :
+                        <form onSubmit={this.submitHandler} className="note-form">
+                            <input
+                                type="text"
+                                name="tempTitle"
+                                className="note-title"
+                                onChange={this.changeHandler}
+                                value={this.state.tempTitle}
+                            />
+                            <textarea
+                                type="text"
+                                name="tempTextBody"
+                                className="note-content"
+                                onChange={this.changeHandler}
+                                value={this.state.tempTextBody}
+                            />
+                            <button type="submit" className="note-button">Submit</button>
+                        </form>}
+                    {!this.state.modalShowing ? null :
+                        <div className="delete-modal">
+                            <div className="delete-modal-content">
+                                <div className="delete-modal-header">Are you sure you want to delete this?</div>
+                                <button className="delete-button" onClick={this.deleteFunction}>Delete</button>
+                                <button className="no-button" onClick={this.modalToggle}>No</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            )
         }
     }
+}
 }
 
 export default NotePage;

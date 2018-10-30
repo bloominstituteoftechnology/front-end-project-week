@@ -152,14 +152,18 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
+  position: relative;
 }
 .view-wrapper .view-header {
   font-size: 2rem;
   font-weight: 900;
   width: 100%;
+  position: relative;
 }
 .view-wrapper .view-paragraph {
   margin: 20px 0;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
 }
 .App {
   width: 100%;
@@ -236,18 +240,13 @@ body {
   height: 100%;
   max-height: 200px;
 }
-.note-page-wrapper {
-  height: 100%;
-  width: 100%;
-  margin-left: 220px;
-}
-.new-note-form {
+.note-form {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.new-note-form .new-note-title {
+.note-form .note-title {
   width: 200px;
   margin-top: 30px;
   padding: 12px;
@@ -256,7 +255,7 @@ body {
   border: 1px solid #202529;
   outline-color: #202529;
 }
-.new-note-form .new-note-content {
+.note-form .note-content {
   max-width: 600px;
   height: 345px;
   margin: 15px 0;
@@ -267,7 +266,7 @@ body {
   resize: none;
   outline-color: #202529;
 }
-.new-note-form button.new-note-button {
+.note-form button.note-button {
   background: #24b8bd;
   color: #ffffff;
   width: 187px;
@@ -279,7 +278,67 @@ body {
   outline-width: thin;
   outline-color: #202529;
 }
-.new-note-form button.new-note-button:hover {
+.note-form button.note-button:hover {
+  background: #187e82;
+  cursor: pointer;
+}
+.delete-modal {
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(185, 185, 185, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete-modal .delete-modal-content {
+  height: 150px;
+  width: 450px;
+  padding: 20px;
+  margin-bottom: 200px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.delete-modal .delete-modal-content .delete-modal-header {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.delete-modal .delete-modal-content button.delete-button {
+  background: #ca001a;
+  color: #ffffff;
+  width: 187px;
+  border: 1px solid #afafaf;
+  padding: 15px 0;
+  margin: 0px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+  margin-right: 20px;
+}
+.delete-modal .delete-modal-content button.delete-button:hover {
+  background: #800011;
+  cursor: pointer;
+}
+.delete-modal .delete-modal-content button.no-button {
+  background: #24b8bd;
+  color: #ffffff;
+  width: 187px;
+  border: 1px solid #afafaf;
+  padding: 15px 0;
+  margin: 0px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+}
+.delete-modal .delete-modal-content button.no-button:hover {
   background: #187e82;
   cursor: pointer;
 }
