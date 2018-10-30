@@ -6,7 +6,7 @@ class EditNote extends Component {
       super(props);
         this.state = {
             title: '',
-            textBody: ''
+            textbody: ''
         }
     }
 
@@ -33,16 +33,16 @@ class EditNote extends Component {
         const id = this.props.match.params.id;
         const newNote = {
             title: this.state.title,
-            textBody: this.state.textBody,
+            textbody: this.state.textbody,
         };
         axios
-          .put  (`https://localhost:8000/api/notes/${id}/`, newNote)
+          .put  (`http://localhost:8000/api/notes/${id}/`, newNote)
           .then (res => this.setState({notes: res.data}))
           .then (
                 this.setState({ 
                     title: '',
-                    textBody: '',
-                    _id: this.props.id
+                    textbody: '',
+                    id: this.props.id
                 }) )
             .then(() => {this.props.history.push('/')})
           .catch(err => console.log(err));
@@ -62,8 +62,8 @@ class EditNote extends Component {
                     <textarea 
                         onChange = {this.handleInputChange}
                         placeholder = 'Text Body'
-                        name= 'textBody'
-                        value= {this.state.textBody}
+                        name= 'textbody'
+                        value= {this.state.textbody}
                     />
                     <button type='submit' >Save</button>
                 </form>

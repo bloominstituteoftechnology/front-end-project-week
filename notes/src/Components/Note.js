@@ -45,7 +45,7 @@ class Note extends React.Component {
             <button onClick={this.deleteNote}>Delete</button>
           </div>
           <h1>{this.state.note.title}</h1>
-          <p>{this.state.note.textBody}</p>
+          <p>{this.state.note.textbody}</p>
         </div>
       </Fragment>
     );
