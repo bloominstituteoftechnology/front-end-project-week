@@ -42,8 +42,7 @@ export const editNote = note => dispatch => {
   axios
     .put(`${URL}edit/${note._id}`, note)
     .then(res => {
-      note = res.data;
-      dispatch({ type: EDIT_NOTE, payload: note });
+      dispatch({ type: EDIT_NOTE, payload: res.data });
     })
     .catch(err => console.log(err));
 };

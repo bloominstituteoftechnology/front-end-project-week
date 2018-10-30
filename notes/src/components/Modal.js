@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Dialog } from "@reach/dialog";
 import { Button, DeleteModal } from "../styles";
+import '@reach/dialog/styles.css';
 
 export default class Modal extends Component {
   componentDidMount() {

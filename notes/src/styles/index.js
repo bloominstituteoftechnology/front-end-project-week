@@ -42,6 +42,7 @@ export const MainContent = styled.section`
 
 export const ListHeading = styled.h2`
   margin-left: 20px;
+  margin-bottom: 10px;
 `;
 
 export const NoteListWrapper = styled.div`

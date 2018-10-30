@@ -17,10 +17,10 @@ const NoteCard = ({ note }) => (
         : note.title}
     </h3>
     <p>
-      {note.textBody.split("").length > 150
+      {note.textBody.split("").length > 100
         ? note.textBody
             .split("")
-            .splice(0, 150)
+            .splice(0, 100)
             .join("")
             .concat("...")
         : note.textBody}
