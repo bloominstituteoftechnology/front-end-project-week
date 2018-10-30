@@ -1,7 +1,5 @@
 import React from 'react';
-// import NoteCard from './Note';
-// import { Link } from 'react-router-dom';
-import {Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 const SideBar = () => {
         return (
@@ -9,8 +7,8 @@ const SideBar = () => {
                 <h1>Lambda</h1>
                 <h1>Notes</h1>
                 <div className="sidebar-buttons">
-                <Button>View Your Notes</Button>
-                <Button>+ Create New Note</Button>
+                <Link to="/">View Your Notes</Link>
+                <Link to="/newnote">+ Create New Note</Link>
                 </div>
             </div>
         )

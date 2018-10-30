@@ -51,6 +51,7 @@ const mapStateToProps = state => {
     return {
         error: state.error,
         creatingNote: state.noteReducer.creatingNote
+        
     };
 };
 

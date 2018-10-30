@@ -1,6 +1,6 @@
-import { noteReducer } from './NoteReducer';
+import { noteReducer } from './noteReducer';
 import { combineReducers } from 'redux';
 
 export default combineReducers({
-    noteReducer
+  noteReducer
 });

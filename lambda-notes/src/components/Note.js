@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Note extends Component {
-    render() {
-        return(
+const Note = props => {
+        return (
             <div>
-                <h2>{this.props.title}</h2>
-                <p>{this.props.textBody}</p>
-            </div>
-
+                <h3>{props.note.title}</h3>
+                <p>{props.note.textBody}</p>
+                </div>
         )
     }
-}
 
 export default Note;
