@@ -1,5 +1,6 @@
 import React, { Component }from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const AddNote = styled.div`
     border: 1px solid black;
@@ -53,13 +54,14 @@ class NoteForm extends Component {
           title: this.state.title,
           textBody: this.state.textBody,
         };
-        console.log('newNote: ', newNote);
-        this.props.addNote(newNote);
-    
-        this.setState({
-          title: '',
-          textBody: ''
-        });
+        axios
+            .post('https://fe-notes.herokuapp.com/note/create', newNote)
+            .then(response => {
+                this.setState({notes: response.data, newNote})
+                this.props.fetchNotes();
+            })
+            .catch(error => console.log(error))
+            this.props.history.push('/')
     }
 
     

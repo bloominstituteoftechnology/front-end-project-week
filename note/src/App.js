@@ -49,6 +49,7 @@ class App extends Component {
         )
       })
       .catch(error => console.log(error));
+      this.props.history.push('/')
   }
 
 
@@ -62,7 +63,7 @@ class App extends Component {
         />
         <Route
           path='/new'
-          render={props => <NoteForm {...props} addNote={this.addNote} />}
+          render={props => <NoteForm {...props} addNote={this.addNote} fetchNotes={this.fetchNotes} />}
         />
         <Route 
           path='/note/:id'

@@ -55,6 +55,24 @@ class NoteView extends Component {
         this.props.history.push(`/edit/${id}`)
     }
 
+    handleDelete = () => {
+        this.props.handleDeleteNote(NoteView.id);
+        this.props.history.push('/')
+    }
+
+    handleDeleteNote = noteId => {
+        axios
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+            .then(response => {
+                this.setState({
+                    note: this.state.notes.filter(note => {
+                        return note.id !== noteId;
+                    })
+                })
+                this.props.history.push('/')
+            })
+    }
+
     
 
     render() {
@@ -62,7 +80,7 @@ class NoteView extends Component {
             <ViewContainer>
                 <ViewNav>
                     <Button onClick={this.editNote}>edit</Button>
-                    <Button>delete</Button>
+                    <Button onClick={this.handleDeleteNote}>delete</Button>
                 </ViewNav>
 
                 <ViewNote>
