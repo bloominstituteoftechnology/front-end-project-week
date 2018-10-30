@@ -38,14 +38,7 @@ class NoteContainer extends React.Component {
 				<Route
 					path="/note/:id"
 					render={(props) => {
-						return (
-							<FullNote
-								{...props}
-								note={this.state.notes[this.state.selected]}
-								deleteNote={this.deleteNote}
-								id={this.state.notes[this.state.selected]._id}
-							/>
-						);
+						return <FullNote {...props} deleteNote={this.deleteNote} />;
 					}}
 				/>
 			</div>
