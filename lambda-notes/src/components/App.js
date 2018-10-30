@@ -3,7 +3,6 @@ import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
   getAllNotes,
-  getNoteById,
   postNote,
   putNote,
   deleteNote,
@@ -45,8 +44,6 @@ class App extends Component {
       removeSelfAdded,
       history
     } = this.props
-
-    console.log(notes)
 
     return (
       <PageContainer>
@@ -103,7 +100,6 @@ export default withRouter(
     mapStateToProps,
     {
       getAllNotes,
-      getNoteById,
       postNote,
       putNote,
       deleteNote,
