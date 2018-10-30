@@ -14,7 +14,7 @@ class App extends Component {
           <Route exact path="/" component={ListView} />
           <Route path="/add" component={CreateView} />
           <Route path="/edit" component={EditView} />
-          <Route path="/:id" component={NoteView} />
+          <Route path="/:id" render={props => <NoteView {...props} />} />
         </Switch>
       </div>
     );

@@ -139,6 +139,7 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 h1 {
@@ -153,8 +154,7 @@ h1 {
 .sidebar {
   background: #d3d2d3;
   min-height: 100vh;
-  width: 25%;
-  max-width: 200px;
+  width: 200px;
   padding: 10px;
   border: 1px solid #524e4d;
 }
@@ -183,6 +183,8 @@ h1 {
   margin: 20px;
   background: white;
   overflow: hidden;
+  padding: 5px;
+  text-overflow: ellipsis;
 }
 
 .notes-list .note-preview h3 {
@@ -195,8 +197,9 @@ h1 {
 
 .notes-list .note-preview p {
   margin: 5px;
-  padding: 5px;
   font-size: 1.2rem;
+  width: 90%;
+  text-overflow: ellipsis;
 }
 
 form {
@@ -214,4 +217,28 @@ form input {
 }
 form textarea {
   height: 50%;
+}
+
+.note-container {
+  margin: 20px auto;
+  width: 60%;
+}
+.note-container .note-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.note-buttons .button2 {
+  margin: 5px;
+  padding: 3px;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.note-container h2 {
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+.note-container p {
+  font-size: 1.4rem;
 }
