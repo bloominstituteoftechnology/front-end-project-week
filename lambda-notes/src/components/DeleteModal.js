@@ -9,3 +9,5 @@ const DeleteModal = props => {
     </div>
   );
 };
+
+export default DeleteModal;

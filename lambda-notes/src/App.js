@@ -9,15 +9,15 @@ import NewNote from "./components/NewNote";
 import NoteView from "./components/NoteView";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: []
     };
   }
 
   componentDidMount = () => {
-    console.log("CDM: Notes fetched", this.state.notes);
+    // console.log("CDM: Notes fetched", this.state.notes);
     this.fetchNotes();
   };
 
@@ -31,8 +31,16 @@ class App extends Component {
   viewNote = (e, id) => {
     console.log(id);
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-      // .then(this.fetchNotes())
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => this.setState({notes: response.data}))
+      .catch(err => console.log(err));
+  };
+
+  deleteNote = (e, id) => {
+    e.preventDefault();
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => this.setState({notes: response.data}))
       .catch(err => console.log(err));
   };
 
@@ -45,11 +53,14 @@ class App extends Component {
           <Switch>
             <Route
               path="/new"
-              render={props => <NewNote fetchNotes={this.fetchNotes} />}
+              render={props => (
+                <NewNote {...props} fetchNotes={this.fetchNotes} />
+              )}
             />
 
             <Route
-              path="/all"
+              exact
+              path="/notes"
               render={props => (
                 <ListView notes={this.state.notes} viewNote={this.viewNote} />
               )}
@@ -57,10 +68,15 @@ class App extends Component {
 
             <Route
               path="/:id"
-              render={props => <NoteView {...props} notes={this.state.notes} />}
+              render={props => (
+                <NoteView
+                  {...props}
+                  notes={this.state.notes}
+                  delete={this.deleteNote}
+                />
+              )}
             />
           </Switch>
-          {/* <ListView notes={this.state.notes} /> */}
         </div>
       </div>
     );

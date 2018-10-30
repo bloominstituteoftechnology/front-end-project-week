@@ -1,7 +1,5 @@
 import React from "react";
-import {Link, Route} from "react-router-dom";
-
-import NewNote from "./NewNote";
+import {Link} from "react-router-dom";
 
 const Menu = () => {
   return (
@@ -10,7 +8,7 @@ const Menu = () => {
         Lambda <br />
         Notes
       </h1>
-      <Link to="/all">
+      <Link to="/notes">
         <button className="menu-btn">View Your Notes</button>
       </Link>
       <Link to="/new">

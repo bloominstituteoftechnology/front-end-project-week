@@ -75,6 +75,10 @@ button:hover {
   overflow: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* NEW NOTE */
 
 .new-note input,

@@ -31,9 +31,10 @@ class NewNote extends React.Component {
       textBody: this.state.textBody
     };
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", newNote)
-      .then(this.setState({tags: [], title: "", textBody: ""}))
-      .then(this.props.fetchNotes());
+      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .then(this.props.fetchNotes())
+      .then(this.props.history.push("/notes"))
+      .then(this.setState({tags: [], title: "", textBody: ""}));
   };
 
   render() {
@@ -61,7 +62,7 @@ class NewNote extends React.Component {
           />
           <br />
           <button>Save</button>
-          <Link to="/all">
+          <Link to="/notes">
             <button>Cancel</button>
           </Link>
         </form>
