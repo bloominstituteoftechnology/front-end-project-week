@@ -7,14 +7,14 @@ class DeleteNoteModul extends React.Component {
     }
 
     deleteNote = () => {
-        axios.delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.ID}`)
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.ID.id}`)
         .then(response => alert("Note has been deleted",response))
         .catch(error => console.log(error))
     }
 
     render(){
         return(
-            <div className="delete-modul">
+            <div className={`delete-modul ${this.props.hidden}`}>
                 <h3>Are you sure you want to delete this?</h3>
                 <div className="btn-section">
 
@@ -24,6 +24,7 @@ class DeleteNoteModul extends React.Component {
                     >Delete</div>
 
                     <div
+                    onClick={() => this.props.toggleHidden()}
                     className="b-btn"
                     >No</div>
 

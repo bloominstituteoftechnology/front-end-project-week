@@ -3,23 +3,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 import DeleteNoteModul from './deleteNoteModul';
 
-// const EditNote = props => {
-//     return(
-//         <div className="edit-note">
-//             <p>edit</p>
-//             <p>delete</p>
-//             <div className="edit-note-section">
-//                 <h2>Note Name</h2>
-//                 <p>Note innerds</p>
-//             </div>
-//         </div>
-//     );
-// }
 class ViewNote extends React.Component{
     constructor(){
         super();
         this.state = {
             note : {},
+            hidden : 'hidden',
         }
     }
 
@@ -38,13 +27,26 @@ class ViewNote extends React.Component{
             })
             .catch(error => alert(error))
     }
-    
+
+    toggleHidden(e){
+        if(this.state.hidden === ''){
+            this.setState({hidden : 'hidden'})
+        }else{
+            this.setState({hidden : ''});
+        }
+    }
+
     render(){
         return(
             <div className="view-note">
-                <DeleteNoteModul ID={this.props.match.params.id}/>
+                <DeleteNoteModul
+                toggleHidden={this.toggleHidden} 
+                hidden={this.state.hidden} 
+                ID={this.props.match.params.id}
+                />
+
                 <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>
-                <a href='#'>delete</a>
+                <a href='#' onClick={() => this.toggleHidden()}>delete</a>
                 <div className="note-section">
                     <h2>{this.state.note.title}</h2>
                     <p>{this.state.note.textBody}</p>

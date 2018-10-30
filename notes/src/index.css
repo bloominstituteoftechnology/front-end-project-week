@@ -114,3 +114,44 @@ code {
   height:500px;
   margin-bottom:20px;
 }
+.delete-modul{
+  position : fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin  : 15% 10%;
+  width:500px;
+  border : 1px solid black;
+  background : white;
+}
+.delete-modul .btn-section{
+  display:flex;
+  justify-content: center;
+  align-items : center;
+  width:100%;
+}
+.delete-modul .btn-section div{
+  height : 40px;
+  width : 100px;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:10px;
+  color : white;
+  cursor : pointer;
+}
+.delete-modul .btn-section div:hover{
+  background : rgb(98, 107, 236);
+  transition : 0.5s ease;
+}
+.delete-modul .btn-section .r-btn{
+  background : #CA001A;
+  margin-right:10px;
+}
+.delete-modul .btn-section .b-btn{
+  background : #24B8BD;
+}
+
+.hidden{
+  display : none;
+}
