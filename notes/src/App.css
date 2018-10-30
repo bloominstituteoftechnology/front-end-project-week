@@ -4,7 +4,7 @@
 
 .App {
   display: flex;
-  flex-direction: row nowrap;
+  flex-direction: column;
 }
 
 a {
@@ -13,18 +13,37 @@ a {
 }
 
 nav {
+  background: #0d1c49;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 20%;
-  position: fixed;
-  margin-right: 100px;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   align-items: center;
-  background: paleturquoise;
+  padding: 0 50px;
+  height: 100px;
+  width: 100vw;
+  position: fixed;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);
+}
+
+.links {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+}
+
+.links a {
+  color: white;
+}
+
+.navlink {
+  border: 1px solid #0d1c49;
 }
 
 .container {
-  margin-left: 21%;
+  margin-top: 125px;
+  padding: 0 50px;
 }
 
 .notes {
@@ -35,18 +54,48 @@ nav {
 }
 
 .note {
-  border: 0.5px solid grey;
   border-radius: 3px;
+  border: .1px solid lightgrey;
   padding: 20px;
   width: 300px;
   margin: 20px;
   overflow: hidden;
   height: 300px;
+  background: #fefdfa;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.note:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .note h2 {
   border-bottom: 1px solid grey;
   padding-bottom: 10px;
+}
+
+.fullpage {
+  position: relative;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.delete {
+  position: absolute;
+  top: 130px;
+  right: 50px;
+  font-size: 20px;
+}
+
+.edit {
+  position: absolute;
+  font-weight: bold;
+  top: 130px;
+  left: 100px;
+  font-size: 12px;
 }
 
 form {
