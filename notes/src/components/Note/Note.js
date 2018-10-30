@@ -4,7 +4,9 @@ import './Note.css';
 const Note = props => {
     return (
         <div className="note">
-            <h3>{props.title}</h3>
+            <header>
+                <h3>{props.title}</h3>
+            </header>
             <p>{props.content}</p>
         </div>
     )

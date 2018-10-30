@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/Nav/Nav';
 import Notes from './components/Notes/Notes';
+import CreateNote from './components/CreateNote/CreateNote';
 import data from './data';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -15,7 +17,8 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Notes notes={this.state.notes} />
+        <Route exact path="/" render={() => <Notes notes={this.state.notes} />} />
+        <Route path="/new" render={() => <CreateNote />} />
       </div>
     );
   }
