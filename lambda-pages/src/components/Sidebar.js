@@ -13,8 +13,9 @@ const StyledSidebar = styled.div`
   left: 0;
 
   h1 {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 5rem;
+    font-weight: 400;
+    text-transform: uppercase;
     line-height: 1.2;
     margin-bottom: 2.5rem;
     span {

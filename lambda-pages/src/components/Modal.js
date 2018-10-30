@@ -15,6 +15,8 @@ const StyledModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 3px 6px -3px #000;
+
   h3 {
     font-size: 1.8rem;
     width: 100%;

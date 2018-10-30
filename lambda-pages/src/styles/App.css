@@ -9,14 +9,8 @@
 }
 
 .View h2 {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 3rem;
   width: 100%;
   margin-bottom: 3rem;
-}
-
-.NoteView {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
