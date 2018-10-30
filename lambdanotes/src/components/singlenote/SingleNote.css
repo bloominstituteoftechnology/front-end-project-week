@@ -1,3 +1,10 @@
+.singletitle {
+  padding-left: 2%;
+}
+
+.singledescrip {
+  padding-left: 2%;
+}
 .links {
     display: flex;
     flex-direction: row;

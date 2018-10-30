@@ -13,14 +13,14 @@ class EditNote extends React.Component {
 
         //JB---/Convert to stateful comp. and utilize ref. to avoid passing state back App.js....REDUX starts to make more sense.
     }
-
+////Add description back in
     handleEdit( name, description, noteId, history){
             console.log(noteId);
             axios
                 .put(`http://localhost:9000/notes/${noteId}`,
                     {
                     "name": name, 
-                    "description": description
+                    "id": noteId
                     })
                 .then(response => history.push('/notes'))
                     };
@@ -28,12 +28,11 @@ class EditNote extends React.Component {
     render(){
 
         const note = this.props.notes.find(
-            note => note.id == this.props.match.params.noteId);
+            note => note.id === parseInt(this.props.match.params.noteId, 10));
 
-            console.log(this.props.history);
 
     return (
-        <div className="cards-container">
+        <div>
             <div className="links">
                 <Link to ={`/notes/${note.id}/edit`}>
                     <button className="edit">
@@ -46,12 +45,16 @@ class EditNote extends React.Component {
                         </button>
                 </Link>
             </div>
-            <div className="title-edit">
+            <h2>Edit</h2>
+            <div className="title1">
+                <label>Note Name</label>
+                <br/>
                 <input defaultValue ={note.name} ref={this.nameField}/>
             </div>
-            <div className="description-edit">
+            <div className="comment">
+                <label>Note Description</label>
+                <br/>
                 <input defaultValue ={note.description} ref={this.descriptionField}/>
-                    <br/>
                 <button className="edit-button" onClick={() => this.handleEdit(this.nameField.current.value, this.descriptionField.current.value, note.id, this.props.history)}>
                     <span>Submit</span>
                 </button>

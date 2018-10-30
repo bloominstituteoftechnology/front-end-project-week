@@ -9,7 +9,7 @@ function DeleteNote(props){
     // console.log(props.);
     
     const note = props.notes.find(
-        note => note.id == props.match.params.noteId);
+        note => note.id === parseInt(props.match.params.noteId, 10));
 
     const handleDeleteNote = (noteId, history) => {
     

@@ -1,56 +1,70 @@
-.edit-button {
-    font-size: .8em;
-    font-family: 'Open Sans', sans-serif;
-    color: #2d2527;
-    height: 40px;
-    width: 100px;
-    border: .2px solid #84001a;
-    background: #E0EAFC;  
-    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  
-    background: linear-gradient(to right, #CFDEF3, #E0EAFC); 
-    -webkit-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
-    -moz-box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
-    box-shadow: -8px 6px 9px -5px rgba(0,0,0,0.75);
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
+h2 {
+  font-family: 'Roboto', sans-serif;
+}
+h2 {
+  padding-left: 4%;
+}
 
-    /* font-size: 1em;
-    font-family: 'Open Sans', sans-serif;
-    color: #2d2527;
-    height: 50px;
-    width: 200px;
-    border: .2px solid #84001a;
-    -webkit-box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
-    -moz-box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
-    box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px; */
+.title-form {
+  /* height: 60px; */
+  padding-left: 4%;
+
+}
+
+label {
+  font-family: 'Roboto', sans-serif;
+}
+
+.title1 {
+  height: 35px;
+  width: 300px;
+  font-size: 1em;
+}
+
+
+.comment {
+  height: 257px;
+  width: 500px;
+  font-size: 1em;
+}
+
+.edit-button {
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  color: #2d2527;
+  height: 50px;
+  width: 200px;
+  border: .2px solid #84001a;
+  -webkit-box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
+  box-shadow: -4px 3px 4.5px -5px rgba(0,0,0,0.75);
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 
 }
 
 .edit-button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
 .edit-button span:after {
-    content: '\00d7';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
 .edit-button:hover span {
-    padding-right: 25px;
-  }
-  
+  padding-right: 25px;
+}
+
 .edit-button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
+  opacity: 1;
+  right: 0;
+}

@@ -8,12 +8,12 @@ function SingleNote(props){
     console.log(props.notes);
     
     const note = props.notes.find(
-        note => note.id == props.match.params.noteId);
+        note => note.id === parseInt(props.match.params.noteId, 10));
         
         console.log(note);
 
     return (
-    <div className="cards-container">
+    <div>
         <div className="links">
             <Link to ={`/notes/${note.id}/edit`}>
                 <button className="edit">
@@ -26,12 +26,12 @@ function SingleNote(props){
                 </button>
             </Link>
                 </div>
-                <div className="statement">
-                    <h2>{note.name}</h2>
+                <div>
+                    <h2 className="singletitle">{note.name}</h2>
                 </div>
                 <hr/>
-                <div className="cards">
-                    <p>{note.description}</p>
+                <div>
+                    <p className="singledescrip">{note.description}</p>
                 </div>
          </div>
         );
