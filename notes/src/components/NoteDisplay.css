@@ -100,6 +100,26 @@ form {
     margin-left: 0px;
 }
 
-NavLink {
-    text-decoration: none;
+.editNoteContainer {
+    width: 100%;
+}
+
+.Note {
+    width: 80%;
+    text-align: start;
+}
+
+.Note h2 {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.Note input {
+    border-radius: 4px;
+    border: 1.5px solid #9BA3A3; 
+}
+
+.Note button {
+    width: 300px;
+    margin-top: 20px;
 }

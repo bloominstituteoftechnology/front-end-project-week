@@ -8,9 +8,9 @@ export const POSTING_NOTE = "POSTING_NOTE";
 export const POSTING_NOTE_SUCCESS = "POSTING_NOTE_SUCCESS"
 export const POSTING_NOTE_FAILURE = "POSTING_NOTE_FAILURE"
 
-export const ID_FETCHING = "ID_FETCHING";
-export const ID_FETCHING_SUCCESS = "ID_FETCHING_SUCCESS"
-export const ID_FETCHING_FAILURE = "ID_FETCHING_FAILURE"
+export const EDITING_NOTE = "EDITING_NOTE";
+export const EDITING_NOTE_SUCCESS = "EDITING_NOTE_SUCCESS"
+export const EDITING_NOTE_FAILURE = "EDITING_NOTE_FAILURE"
 
 export const fetchNotes = () => dispatch => {
     dispatch({type: FETCHING_NOTES});
@@ -37,14 +37,14 @@ export const postNote = (note) => dispatch => {
     })
 }
 
-export const fetchByID = (id) => dispatch => {
-    dispatch({type: ID_FETCHING});
+export const editNote = (id, note) => dispatch => {
+    dispatch({type: EDITING_NOTE});
     axios
-    .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
     .then(response => {
-        dispatch({type: ID_FETCHING_SUCCESS, payload: response.data})
+        dispatch({type: EDITING_NOTE_SUCCESS, payload: response.data})
     })
     .catch(error => {
-        dispatch({type: ID_FETCHING_FAILURE, payload: error})
+        dispatch({type: EDITING_NOTE_FAILURE, payload: error})
     })
 }
