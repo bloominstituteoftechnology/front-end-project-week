@@ -1,10 +1,11 @@
 import React from 'react';
+import Note from '../Note/Note';
 
 const Notes = props => {
     return (
         <div className="notes">
             {props.notes.map(note => {
-                <Note title={note.title} content={note.textBody} />
+                return <Note title={note.title} content={note.textBody} />
             })}
         </div>
     )

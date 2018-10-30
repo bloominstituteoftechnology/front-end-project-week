@@ -1,6 +1,6 @@
 import {
     FETCHING,
-    FETCHED,
+    SUCCESS,
     FAILURE,
     ADDING,
     ADDED,
@@ -26,14 +26,14 @@ const initialState = {
     error: null
 }
 
-export const friendsReducer = (state = initialState, action) => {
+export const notesReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCHING:
             return {
                 ...state,
                 fetching: true
             }
-        case FETCHED:
+        case SUCCESS:
             return {
                 ...state,
                 notes: {
