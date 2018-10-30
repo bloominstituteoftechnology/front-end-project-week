@@ -58,15 +58,42 @@ export const editNote = editedNote => {
       });
   };
 };
-// users
 
-export const getUsers = () => {};
 // deleteNote action creator
 export const deleteNote = id => {
   return dispatch => {
     axios
       .delete(`${url}${id}`)
       .then(() => getNotes()(dispatch))
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};
+
+// users
+
+export const getUsers = () => {
+  return dispatch => {
+    axios
+      .get(userUrl)
+      .then(response => {
+        dispatch({ type: "USERS_FETCHED", payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: "ERROR", payload: error });
+      });
+  };
+};
+
+// getNote action creator
+export const getUser = id => {
+  return dispatch => {
+    axios
+      .get(`${userUrl}${id}`)
+      .then(response => {
+        dispatch({ type: "USER_FETCHED", payload: response.data });
+      })
       .catch(error => {
         dispatch({ type: "ERROR", payload: error });
       });
