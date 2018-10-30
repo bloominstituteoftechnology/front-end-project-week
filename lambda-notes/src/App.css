@@ -15,9 +15,7 @@ body {
 
 .side-bar {
   width: 250px;
-  position: fixed;
-  top: 0;
-  bottom: 0;
+  min-height: 100vh;
   background: #d3d2d3;
 }
 
