@@ -19,12 +19,15 @@ export default (state = initialState, action) => {
         case ADDED: 
             return {
                 ...state,
-                // notes: [action.payload]
+                //notes: [...state.notes, action.payload] new note may need to be part of application state to work around payload of just the ID
             };
         case UPDATED:
+            console.log(action.payload)
             return {
                 ...state,
-                // notes: [action.payload]
+                notes: state.notes.map(note => {
+                    return note._id === action.payload._id ? action.payload : note
+                })
             };
         case ERROR: 
             return { 

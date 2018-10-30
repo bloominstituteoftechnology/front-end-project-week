@@ -8,6 +8,7 @@ class EditPage extends Component {
         this.state = {
             title: '',
             textBody: '',
+            id: null
         }
     }
 
@@ -15,7 +16,8 @@ class EditPage extends Component {
         const currentNote = this.props.notes.find(note => note._id === this.props.match.params.id)
         this.setState({
             title: currentNote.title,
-            textBody: currentNote.textBody
+            textBody: currentNote.textBody,
+            id: currentNote._id
         })
     }
 
@@ -25,8 +27,8 @@ class EditPage extends Component {
 
     editNote = event => {
         event.preventDefault();
-        const { title, textBody } = this.state;
-        let editedNote = {title, textBody}
+        const { title, textBody, id } = this.state;
+        let editedNote = {title, textBody, id}
         this.props.updateNote(editedNote);
     }
 

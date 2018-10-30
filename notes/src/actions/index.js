@@ -32,7 +32,7 @@ export const addNote = (newNote) => dispatch => {
 
 export const updateNote = (editedNote) => dispatch => {
     axios
-        .put(`${url}/edit/${editedNote._id}`, editedNote)
+        .put(`${url}/edit/${editedNote.id}`, editedNote)
         .then(response => {
             dispatch({ type: UPDATED, payload: response.data });
         })
