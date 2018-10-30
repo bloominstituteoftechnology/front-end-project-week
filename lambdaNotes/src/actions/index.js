@@ -12,6 +12,11 @@ export const DELETING = "DELETING";
 export const DELETING_SUCCESS = "DELETING_SUCCESS";
 export const DELETING_FAILURE = "DELETING_FAILURE";
 
+export const EDITING_REQUEST = "EDITING_REQUEST";
+export const EDITING_SUCCESS = "EDITING_SUCCESS";
+export const EDITING_FAILURE = "EDITING_FAILURE";
+
+
 export const fetchNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
   dispatch({ type: FETCHING_REQUEST });
@@ -35,11 +40,6 @@ export const addNote = Note => dispatch => {
       dispatch({ type: ADDING_FAILURE, payload: error });
     });
 
-
-
-        //   axios.post('https://fe-notes.herokuapp.com/note/create', note)
-      //   .then(response => this.setState({ notes: [...this.state.notes, {...note, _id: response.data.success}] }))
-      //   .catch(error => console.log(error));
 };
 
 export const deleteNote = id => dispatch => {
@@ -53,6 +53,18 @@ export const deleteNote = id => dispatch => {
     .catch(error => {
       dispatch({ type: DELETING_FAILURE, payload: error });
     });
-
-
 };
+
+export const editNote = editedNote => dispatch => {
+  // let's do some async stuff! Thanks react-thunk :)
+  dispatch({ type: "EDITING_REQUEST" });
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${editedNote._id}`, editedNote)
+    .then(response => {
+      dispatch({ type: EDITING_SUCCESS, payload: response.data });
+    })
+    .catch(error => {
+      dispatch({ type: EDITING_FAILURE, payload: error });
+    });
+};
+

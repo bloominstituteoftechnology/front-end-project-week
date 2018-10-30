@@ -5,7 +5,7 @@ import SideMenu from './components/SideMenu';
 // import data from './data';
 // import axios from 'axios';
 import { connect } from "react-redux";
-import { fetchNotes, addNote, deleteNote } from "./actions";
+import { fetchNotes, addNote, deleteNote, editNote } from "./actions";
 import { Route, withRouter } from 'react-router-dom';
 import DisplayNoteList from './components/DisplayNoteList';
 import DisplayNote from './components/DisplayNote';
@@ -44,18 +44,20 @@ class App extends Component {
       this.props.addNote(note);
       }
 
-      // submitEdit = (editedNote) => {
+      submitEdit = (editedNote) => {
    
-      //   // let newNoteList = this.state.notes.filter( note => note._id !== editedNote._id);
-      //   // this.setState({notes : [...newNoteList, editedNote]});
+        // let newNoteList = this.state.notes.filter( note => note._id !== editedNote._id);
+        // this.setState({notes : [...newNoteList, editedNote]});
    
-      //   axios.put(`https://fe-notes.herokuapp.com/note/edit/${editedNote._id}`, editedNote)
-      //   .then(response =>{
-      //     let newList = this.state.notes.filter(note => note._id !== response.data._id);
-      //     this.setState({ notes: [...newList, response.data] });
-      //   } )
-      //   .catch(error => console.log(error));
-      // }
+        // axios.put(`https://fe-notes.herokuapp.com/note/edit/${editedNote._id}`, editedNote)
+        // .then(response =>{
+        //   let newList = this.state.notes.filter(note => note._id !== response.data._id);
+        //   this.setState({ notes: [...newList, response.data] });
+        // } )
+        // .catch(error => console.log(error));
+
+        this.props.editNote(editedNote);
+      }
 
       submitdelete = (deleteId) => {
    
@@ -140,6 +142,6 @@ const mapStateToProps = ({ fetching, notes }) => {
 export default withRouter(
   connect(
   mapStateToProps,
-  { fetchNotes, addNote, deleteNote }
+  { fetchNotes, addNote, deleteNote, editNote }
 )(App)
 );
