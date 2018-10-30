@@ -15,6 +15,16 @@ class SideBar extends React.Component {
             <button className="sideButtons">+ Create New Note</button>
           </Link>
         </div>
+        <form onSubmit={ev => {this.props.search(ev)}}>
+          <input 
+          onChange={ev => this.props.changeHandler(ev)}
+          type="text"
+          name="searchText"
+          value={this.props.searchText}
+          placeholder="Search Your Notes"
+          />
+          <button type="submit"> Search </button>
+        </form>
       </div>
     );
   }

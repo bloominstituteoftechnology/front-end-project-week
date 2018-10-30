@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       title: "",
       content: "",
+      searchText: "",
       notes: [],
       selected: 0
     };
@@ -94,11 +95,20 @@ class App extends Component {
       .then(this.updateNotes());
   };
 
+  search = ev => {
+    ev.preventDefault();
+    this.setState({
+      notes: this.state.notes.filter(note => {
+        return note.title.indexOf(this.state.searchText) !== -1;
+      })
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
-          <SideBar />
+          <SideBar changeHandler={this.changeHandler} search={this.search} />
 
           <Route
             exact
