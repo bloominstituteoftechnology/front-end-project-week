@@ -41,7 +41,8 @@ editNote = id => {
     axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.note)
     .then(response => {
-      this.setState({ notes: response.data})
+        console.log('response', response)
+      this.setState({ notes: response.data })
     })
     .catch(error => console.log(error))
 }
@@ -57,13 +58,6 @@ deleteHandler = event => {
       this.props.history.push('/')
 }
 
-// submitHandler = event => {
-//       event.preventDefault();
-//       this.editNote(this.state.note.id);
-//       if (event.keyCode === 13) {
-//     this.setState({ editing: false });
-// }}
-
 changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -77,7 +71,7 @@ editHandler = event => {
 saveHandler = event => {
     event.preventDefault();
     this.setState({ editing: false, note: {title: this.state.editedTitle, textBody: this.state.editedTextBody} })
-    this.editNote(this.state.note_id);
+    this.editNote(this.state.note._id);
 };
 
 render(){
@@ -98,13 +92,13 @@ render(){
             <p>{this.state.note.textBody}</p>
             <Button onClick={this.editHandler}>Edit</Button>
             </div>
-
+                <form onSubmit={this.saveHandler}>
                 <input
                 name="editedTitle"
                 type= "text"
                 style={editStyle}
                 onKeyDown={this.submitHandler}
-                onChange={this.ChangeHandler}
+                onChange={this.changeHandler}
                 value={this.state.editedTitle}/>
 
                 <input
@@ -112,8 +106,9 @@ render(){
                 type="textarea"
                 style={editStyle}
                 onKeyDown={this.submitHandler}
-                onChange={this.ChangeHandler}
+                onChange={this.changeHandler}
                 value={this.state.editedTextBody}/>
+                </form>
 
                 <Button onClick={this.saveHandler} style={editStyle}>Save</Button>
 
