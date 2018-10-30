@@ -8,14 +8,22 @@ body {
   color: #131516;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+ 
+ h1 {
   font-family: 'Libre Baskerville', serif;
+  margin-bottom: 50px;
 }
 
 .logo {
   font-family: 'Expletus Sans', cursive;
   color: white;
   font-size: 50px;
+  margin: 0;
 }
 
 code {

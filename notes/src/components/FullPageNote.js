@@ -51,15 +51,22 @@ class FullPageNote extends Component {
         }
         return (
             <div className='container'>
-                <h2 className='title'>{this.state.note.title}</h2>
-                <p className='body'>{this.state.note.textBody}</p>
-                <span className='delete' onClick={this.deleteModal}>✕</span>
-                <Link className='edit' to={{ pathname: '/add', state: { note: this.state.note} }}>EDIT</Link>
+                <h1>View Note:</h1>
+                
+                <div className='fullpage'>
+                    <h2 className='title'>{this.state.note.title}</h2>
+                    <p className='body'>{this.state.note.textBody}</p>
+                    <span className='delete' onClick={this.deleteModal}>✖</span>
+                    <Link className='edit' to={{ pathname: '/add', state: { note: this.state.note} }}>EDIT</Link>
+                </div>
+                
                 <div className='modalBG'>
                     <div className='modal'>
                         <h3>Are you sure you want to delete this note?</h3>
-                        <div onClick={() => this.deleteHandler(this.state.note._id)}>Delete</div>
-                        <div onClick={this.deleteModal}>Cancel</div>
+                        <div className='buttons'>
+                            <div className='delete-confirm' onClick={() => this.deleteHandler(this.state.note._id)}>Delete</div>
+                            <div className='cancel' onClick={this.deleteModal}>Cancel</div>
+                        </div>
                     </div>
                 </div>
             </div>
