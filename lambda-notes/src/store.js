@@ -15,7 +15,6 @@ import { reduxFirestore, firestoreReducer } from "redux-firestore";
 //   storageBucket: "lambda-notes-c4dd2.appspot.com",
 //   messagingSenderId: "879359842368"
 // };
-const testing = 123;
 
 // react redux firebase config
 const rrfConfig = {
