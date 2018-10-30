@@ -61,10 +61,13 @@ class App extends Component {
     if(this.props.overlay === true) {
         overlay = <div className='overlay'>
             <div className='overlay-box'>
-              <Link to='/'>
-                <button onClick={this.deletingNote}>Delete</button>
-              </Link>
-                <button onClick ={this.togglingOverlay}>Cancel</button>
+              <p>Are you sure you want to delete this?</p>
+              <div className='overlay-buttons'>
+                <Link to='/'>
+                  <button className='deletebutton' onClick={this.deletingNote}>Delete</button>
+                </Link>
+                  <button onClick ={this.togglingOverlay}>Cancel</button>
+              </div>
             </div>
         </div>
 

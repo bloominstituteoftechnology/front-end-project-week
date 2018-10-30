@@ -40,3 +40,43 @@
     transform: rotate(360deg);
   }
 }
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgba(0, 0, 0, 0.5);
+  
+}
+
+
+.deletebutton {
+  background: #cc0000;
+}
+.overlay-box  {
+  position: fixed;
+  background: white;
+  padding: 25px 80px;
+  border: 1px solid black;
+}
+
+.overlay-box button {
+ 
+  padding: 15px 80px;
+}
+
+.overlay-box p {
+  font-size: 1.3rem;
+}
+
+.overlay-buttons {
+  margin-top: 40px;
+  display: flex;
+}
+
+.overlay-box a {
+  margin-right: 25px;
+}

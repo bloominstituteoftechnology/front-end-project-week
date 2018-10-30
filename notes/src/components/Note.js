@@ -50,7 +50,7 @@ class Note extends Component {
     render() {
       return (
         <div className="Note">
-           <Route path='/note/:id' render ={(props) => (
+           <Route exact path='/note/:id' render ={(props) => (
                  <DisplayNote {...props} overlayToggle={this.togglingOverlay} note={this.state.note}/>
             )}/>
             <Route exact path='/note/edit/:id' render ={(props) => (
