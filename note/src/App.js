@@ -1,80 +1,26 @@
 import React, { Component } from 'react';
+import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar'
-import axios from 'axios'
-import Notes from './components/Notes';
-import { Route } from 'react-router-dom';
-import styled from 'styled-components';
-import NoteForm from './components/NoteForm';
-import NoteView from './components/NoteView';
-import EditForm from './components/EditForm';
-
-const HomePage = styled.div`
-`;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: [],
-      note: {
-        id: '',
-        title: '',
-        textBody: ''
-      }
-    }
-  }
-
-  componentDidMount() {
-    this.fetchNotes();
-  }
-
-  fetchNotes = () => {
-    axios 
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState({notes: response.data});
-      })
-      .catch(error => (
-        console.log('Server Error', error)
-      ));
-  }
-
-  addNote = note => {
-    axios
-      .post('https://fe-notes.herokuapp.com/note/create', note)
-      .then(response => {
-        this.setState({
-          notes: response.data
-        },
-        this.fetchNotes(),
-        )
-      })
-      .catch(error => console.log(error));
-  }
-
-
   render() {
     return (
-      <HomePage>
-        <NavBar />
-        <Route
-          exact path='/'
-          render={props => <Notes {...props} notes={this.state.notes} />}   
-        />
-        <Route
-          path='/new'
-          render={props => <NoteForm {...props} addNote={this.addNote} />}
-        />
-        <Route 
-          path='/note/:id'
-          render={props => <NoteView {...props} getNote={this.getNote} />}
-        />
-        <Route 
-          path='/edit/:id'
-          render={props => <EditForm {...props} updateNote={this.updateNote} />}
-        />
-      </HomePage>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
     );
   }
 }
