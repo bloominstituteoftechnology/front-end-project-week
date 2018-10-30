@@ -10,7 +10,7 @@ const App = (props) => {
 	return (
 		<StyledContainer>
 			<Route path="*" render={() => <SidebarContainer />} />
-			<Route exact path="/" render={() => <NoteContainer />} />
+			<Route path="/" render={() => <NoteContainer />} />
 			<Route exact path="/create-new-note/" render={() => <NewNote />} />
 			<Route exact path="/note/:id" render={(props) => <FullNote {...props} />} />
 		</StyledContainer>

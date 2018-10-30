@@ -40,15 +40,12 @@ class FullNote extends React.Component {
 		} else {
 			return (
 				<div>
-					{Object.values(note).forEach((item, idx) => {
-						console.log(item);
-						return (
-							<StyledNoteContainer key={item[idx]}>
-								<StyledH1>{item[idx]}</StyledH1>
-								<p>{item[idx]}</p>
-							</StyledNoteContainer>
-						);
-					})}
+					<StyledNoteWrapper>
+						<StyledNoteContainer key={note._id}>
+							<StyledH1>{note.title}</StyledH1>
+							<p>{note.textBody}</p>
+						</StyledNoteContainer>
+					</StyledNoteWrapper>
 				</div>
 			);
 		}
@@ -61,38 +58,30 @@ export const StyledNoteWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	max-width: 75%;
-	border: 2px solid rgba(80, 80, 80, 0.3);
+	max-width: 100%;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	margin-left: 600px;
+	margin-left: 298px;
 `;
 
 export const StyledNoteContainer = styled.div`
 	text-decoration: none;
 	color: #000000;
-	max-height: 200px;
+	height: 400px;
 	display: flex;
 	padding: 15px;
 	flex-direction: column;
 	background-color: #ffffff;
 	text-align: start;
 	overflow: hidden;
-	width: 18%;
+	width: 100%;
 	margin: 10px;
-	border: 1px solid rgba(80, 80, 80, 0.3);
-	transition: 0.5s ease-in-out;
-	&:hover {
-		cursor: pointer;
-		background-color: rgba(200, 240, 200, 1);
-		box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);
-	}
 `;
 
 export const StyledH1 = styled.h1`
 	margin: 0;
-	font-size: 60px;
+	font-size: 24px;
 	border-bottom: 2px solid rgba(80, 80, 80, 0.3);
 `;
 

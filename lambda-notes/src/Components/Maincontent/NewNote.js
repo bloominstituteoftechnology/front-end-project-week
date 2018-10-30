@@ -3,8 +3,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 class NewNote extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			noteTitle: '',
 			noteContent: ''
@@ -40,6 +40,7 @@ class NewNote extends React.Component {
 	};
 
 	render() {
+		console.log(this.props.history);
 		return (
 			<StyledContainer>
 				<h1>Create New Note:</h1>
