@@ -34,13 +34,13 @@ h1{
     transition: .5s;
   }
   
-  .note-list {
+  .notes-container {
     display: flex;
     flex-direction: row;
     /* width: 90%; */
   }
   
-  .note-list--note {
+  .card {
     background: white;
     text-align: left;
     margin: 15px;
@@ -51,12 +51,12 @@ h1{
     cursor: pointer;
   }
 
-  .note-list--note:hover {
+  .card:hover {
       border: 1px solid black;
       box-shadow: 7px 10px lightseagreen;
       transition: .5s;
   }
   
-  .note-list--note h4 {
+  .card h4 {
     border-bottom: 1px solid lightgrey;
   }
