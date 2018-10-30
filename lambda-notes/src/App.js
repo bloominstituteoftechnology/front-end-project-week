@@ -9,6 +9,7 @@ import NotesList from "./components/NotesList/NotesList";
 import Menu from "./components/Menu/Menu";
 import NewNote from "./components/NewNote/NewNote";
 import NoteView from "./components/NoteView/NoteView";
+import Authenticate from "./components/Authenticate/Authenticate.js";
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(process.env.REACT_APP_CLIENT_ID);
     //Get notes from Backend Project - 10/29/2018
     axios
       .get("http://localhost:8000/api/notes")
@@ -32,11 +34,6 @@ class App extends Component {
   addNewNote(note) {
     const url = "http://localhost:8000/api/notes";
     if (note.title.length > 0) {
-      // console.log(this.state);
-      // const notes = [...this.state.notes];
-      // note.id = this.state.notes.length;
-      // notes.push(note);
-      // this.setState(...this.state, { notes });
       axios
         .post(url, note)
         .then(response => {
@@ -172,4 +169,4 @@ class App extends Component {
 //   };
 // };
 
-export default App;
+export default Authenticate(App);
