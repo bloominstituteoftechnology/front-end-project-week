@@ -10,7 +10,10 @@ import {
   ADD_NOTE_FAILURE,
   UPDATE_NOTE,
   UPDATE_NOTE_SUCCESS,
-  UPDATE_NOTE_FAILURE
+  UPDATE_NOTE_FAILURE,
+  DELETE_NOTE,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAILURE
 } from '../actions';
 
 const initalState = {
@@ -20,6 +23,7 @@ const initalState = {
   isFetchingNote: false,
   isAddingNote: false,
   isUpdatingNote: false,
+  isDeletingNote: false,
   error: null
 };
 
@@ -79,7 +83,7 @@ export const notesReducer = (state = initalState, action) => {
     case UPDATE_NOTE:
       return {
         ...state,
-        isupdatingNote: true
+        isUpdatingNote: true
       };
     case UPDATE_NOTE_SUCCESS:
       let index;
@@ -90,13 +94,31 @@ export const notesReducer = (state = initalState, action) => {
       return {
         ...state,
         notes: [...state.notes],
-        isupdatingNote: false
+        isUpdatingNote: false
       };
     case UPDATE_NOTE_FAILURE:
       return {
         ...state,
         error: action.payload,
         isUpdatingNote: false
+      };
+    case DELETE_NOTE:
+      return {
+        ...state,
+        isDeletingNote: true
+      };
+    case DELETE_NOTE_SUCCESS:
+      const newNotes = state.notes.filter(note => note._id !== action.payload);
+      return {
+        ...state,
+        notes: [...newNotes],
+        isDeletingNote: false
+      };
+    case DELETE_NOTE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isDeletingNote: false
       };
     default:
       return state;

@@ -9,12 +9,19 @@ const StyledNoteNav = styled.nav`
   justify-content: flex-end;
   align-items: center;
 
-  a {
+  a,
+  button {
     color: #000;
     font-weight: bold;
     margin-left: 2rem;
     font-size: 2rem;
     text-decoration: none;
+    background: transparent;
+    border: none;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
 
@@ -22,7 +29,7 @@ const NoteNav = props => {
   return (
     <StyledNoteNav>
       <NavLink to={`/note/${props.id}/edit`}>edit</NavLink>
-      <NavLink to="/">delete</NavLink>
+      <button onClick={props.toggleModal}>delete</button>
     </StyledNoteNav>
   );
 };

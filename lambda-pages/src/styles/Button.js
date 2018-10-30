@@ -16,6 +16,16 @@ const Button = styled.button`
       width: 100%;
       margin-bottom: 1.5rem;
     `};
+  ${props =>
+    props.halfWidth &&
+    css`
+      width: 48%;
+    `};
+  ${props =>
+    props.delete &&
+    css`
+      background: #ca001a;
+    `};
 `;
 
 export default Button;

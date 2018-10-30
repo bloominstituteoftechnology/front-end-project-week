@@ -16,6 +16,10 @@ export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const UPDATE_NOTE_SUCCESS = 'UPDATE_NOTE_SUCCESS';
 export const UPDATE_NOTE_FAILURE = 'UPDATE_NOTE_FAILURE';
 
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
+export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
+
 // GET request
 export const getAllNotes = () => dispatch => {
   dispatch({ type: GET_ALL_NOTES });
@@ -57,7 +61,6 @@ export const addNote = note => dispatch => {
 };
 
 // PUT request
-// POST request
 export const updateNote = note => dispatch => {
   dispatch({ type: UPDATE_NOTE });
   axios
@@ -69,4 +72,18 @@ export const updateNote = note => dispatch => {
       });
     })
     .catch(err => dispatch({ type: UPDATE_NOTE_FAILURE, payload: err }));
+};
+
+// DELETE request
+export const deleteNote = id => dispatch => {
+  dispatch({ type: DELETE_NOTE });
+  axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(res => {
+      dispatch({
+        type: DELETE_NOTE_SUCCESS,
+        payload: id
+      });
+    })
+    .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
 };
