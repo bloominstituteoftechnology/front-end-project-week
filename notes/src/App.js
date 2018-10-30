@@ -28,7 +28,7 @@ class App extends Component {
     e.preventDefault();
     axios.post('https://fe-notes.herokuapp.com/note/create',this.state.newNote)
     .then(response => {
-      this.setState({newNote : {
+      this.setState({/*notes : {response.data} */newNote : {
         title : '',
         textBody : '',
       }})

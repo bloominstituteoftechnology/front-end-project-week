@@ -2,9 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 class DeleteNoteModul extends React.Component {
-    constructor(){
-        super();
-    }
 
     deleteNote = () => {
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.ID}`)
