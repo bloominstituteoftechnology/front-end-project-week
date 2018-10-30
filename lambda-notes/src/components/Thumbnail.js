@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Thumbnail = props => {
     return(
-        <div className="thumbnail">
+        <Link to={`/note/${props.note._id}`} className="thumbnail">
             <h3>{props.note.title}</h3>
             <p>{props.note.textBody}</p>
-        </div>
+        </Link>
     );
 }
 
