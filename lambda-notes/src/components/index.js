@@ -3,4 +3,5 @@ export { default as Note } from "./Note";
 export { default as Form } from './Form';
 export { default as DeleteModal } from './DeleteModal';
 export { default as NotePreview } from './NotePreview';
-export { default as Sidebar } from './Sidebar'; 
+export { default as Sidebar } from './Sidebar';
+export { default as SearchBar } from './SearchBar'; 

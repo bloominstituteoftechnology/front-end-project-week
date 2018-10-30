@@ -22,17 +22,13 @@ class ListView extends React.Component {
       if(this.props.notesSaved) {
         this.props.fetchNotes();
       }
-    if (this.props.fetchingFriends) {
-      return (
-        <div className='loading'>
-          <h1>Getting notes...</h1>
-        </div>
-      )
-    }
     return(
       <div className='container'>
       <Sidebar />
-      <NotesList notes={this.props.notes} />
+      {this.props.fetchingNotes ? <div className='loading'>
+        <h1>Getting notes...</h1>
+      </div> : <NotesList notes={this.props.notes} />}
+
       </div>
     )
   }

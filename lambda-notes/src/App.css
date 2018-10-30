@@ -134,7 +134,7 @@ p {
 	border: 1px solid #524e4d;
 	width: 185px;
 	height: 185px;
-	margin: 15px 0;
+	margin: 15px 5px;
 	padding: 5px 10px;
 	background: white;
 	overflow: hidden;
@@ -148,7 +148,7 @@ p {
 	font-weight: bold;
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis; 
+	text-overflow: ellipsis;
 }
 
 .notes-list .note-preview p {
@@ -159,6 +159,7 @@ p {
 	align-self: flex-start;
 	font-weight: bold;
 	line-height: 1.8;
+	white-space: pre-wrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -237,8 +238,7 @@ form .button {
 }
 
 .delete-modal {
-	width: 80%;
-	height: 25%;
+	width: 60%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -248,7 +248,7 @@ form .button {
 	background: white;
 }
 
-.delete-modal h3{
+.delete-modal h4{
 	width: 100%;
 	text-align: center;
 	font-size: 1.8rem;
@@ -256,11 +256,15 @@ form .button {
 }
 
 .delete-modal .button{
-	padding: 0px;
+	padding: 10px;
 	width: 184px;
-	margin: 5px 15px;
+	margin: 15px;
 }
 
 .delete-modal .yes-button{
 	background: #CA001A;
+}
+
+.loading {
+	margin: 10% 5%; 
 }
