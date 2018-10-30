@@ -7,6 +7,7 @@ import Form from './components/Form';
 import { HashRouter as Router, Link, NavLink, Route, Switch } from 'react-router-dom';
 import {withRouter} from 'react-router';
 import NoteView from './components/NoteView';
+import TopicMap from './components/TopicMap';
 
 
 class App extends Component {
@@ -91,7 +92,7 @@ class App extends Component {
                                        viewNotes: false,
                                        editNote: false,
                                       notePage: false })}>+Create New Note</NavLink></div>
-
+          <div className='button'><NavLink to="/topic-map">+New Topic Map</NavLink></div>
         </div>
         
         <div className='main-view'>
@@ -106,6 +107,7 @@ class App extends Component {
           <Route exact path='/' render={ props => <NotesView {...props} update={this.updateNotes} editNote={this.editNote} notes={this.state.notes}/>} />
           <Route path='/create-note' render={ props => <Form saveNote={this.saveNote} inputHandler={this.inputHandler} {...props} />} />
           <Route path="/note/:id" render={props => <NoteView {...props}  update={this.updateNotes} submitNote={this.submitNote}notes={this.state.notes} />}/>
+          <Route path="/topic-map" render={props => <TopicMap {...props} notes={this.state.notes}/> } />
           </Switch>
           
           

@@ -231,3 +231,38 @@ a {
   text-decoration: none;
   color: white;
 }
+
+/* Topic map */
+
+.topic-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.note-map {
+  width: 90%;
+  border-radius: 25px;
+  min-height: 350px;
+  background: rgba(255, 255, 255, 0.616);
+}
+
+.topicNote {
+  background: #24B8BD;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#textarea2 {
+  margin: 25px 0;
+  width: 90%;
+  background: white;
+  padding: 5px;
+  height: 500px;
+  border-radius: 10px;
+  border: none;
+}
