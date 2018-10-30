@@ -18,6 +18,11 @@ export default class List extends Component {
       });
   }
   render() {
+    if(this.state.notes.length === 0) {
+      return (
+        <h3>Loading your notes...</h3>
+      )
+    }
     return (
       <div>
         {this.state.notes.map((note) => (
