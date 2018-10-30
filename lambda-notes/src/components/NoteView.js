@@ -1,7 +1,8 @@
 import React from "react";
-import {Link, Route} from "react-router-dom";
+// import {Link, Route} from "react-router-dom";
+import "../App.css";
 
-import DeleteModal from "./DeleteModal";
+// import DeleteModal from "./DeleteModal";
 
 class NoteView extends React.Component {
   constructor(props) {
@@ -42,16 +43,16 @@ class NoteView extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="note-view">
         {!this.state.isEditing ? (
           <div>
-            <div>
+            <div className="edit-delete">
               <span onClick={this.toggleEdit}>edit</span>
               <span onClick={this.toggleDelete}>delete</span>
             </div>
 
             <button onClick={() => this.props.delete(this.note._id)}>
-              Delete
+              Delete Test
             </button>
             <h2>{this.note.title}</h2>
             <p>{this.note.textBody}</p>

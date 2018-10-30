@@ -104,3 +104,21 @@ a {
   width: 15%;
   margin-right: 30px;
 }
+
+/* NOTE VIEW */
+.note-view {
+  color: #4b4a4b;
+}
+
+/* EDIT NOTE */
+
+.edit-delete {
+  text-align: right;
+}
+
+.edit-delete span {
+  margin-left: 15px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}

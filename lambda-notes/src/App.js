@@ -18,10 +18,7 @@ class App extends Component {
 
   componentDidMount = () => {
     // console.log("CDM: Notes fetched", this.state.notes);
-    this.fetchNotes();
-  };
-
-  fetchNotes = () => {
+    // this.fetchNotes();
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => {
@@ -31,22 +28,36 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  addNewNote = newNote => {
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .then(res => {
+        const newN = {
+          _id: res.data.success,
+          title: newNote.title,
+          textBody: newNote.textBody,
+          tags: newNote.tags
+        };
+        console.log(newN);
+        this.setState({notes: this.state.notes.concat(newN)});
+      });
+
+    // this.setState({notes: [...this.state.notes, response.data]})
+  };
+
   deleteNote = id => {
-    // e.preventDefault();
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      // .then(response => {
-      //   console.log(response.data);
-      //   this.setState({notes: response.data});
-      // })
-      .then(this.props.history.push("/notes"))
+      .then(response => {
+        const filteredNotes = this.state.notes.filter(note => note._id !== id);
+        this.setState({notes: filteredNotes});
+      })
+      // .then(this.props.history.push("/notes"))
       .catch(err => console.log(err));
   };
 
   updateNote = (id, updated) => {
-    axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated)
-      .then(response => console.log(response.data));
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated);
   };
 
   render() {
@@ -59,7 +70,7 @@ class App extends Component {
             <Route
               path="/new"
               render={props => (
-                <NewNote {...props} fetchNotes={this.fetchNotes} />
+                <NewNote {...props} addNewNote={this.addNewNote} />
               )}
             />
 
