@@ -7,16 +7,9 @@ class AddNoteForm extends Component {
     title:'',
     textBody:'',
    };
-   
-  
   }
 
- 
- 
-  
-  
-
-handleSubmitAdd = () =>{
+ handleSubmitAdd = () =>{
   this.props.submitAdd(this.state);
  this.props.history.push("/");
 }
@@ -43,8 +36,6 @@ render() {
             placeholder="textBody"
             value={this.state.textBody}
             name="textBody"
-            
-            
           />
 
           <button type="submit">Save</button>

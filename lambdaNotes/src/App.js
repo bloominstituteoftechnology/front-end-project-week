@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import SideMenu from './components/SideMenu';
-import data from './data';
+// import data from './data';
 import axios from 'axios';
 
 import { Route } from 'react-router-dom';
@@ -17,7 +17,7 @@ class App extends Component {
     super();
     this.state = {
     notes: [],
-    idCount : 1000,
+    // idCount : 1000,
     };
 
     this.submitAdd = this.submitAdd.bind(this);
