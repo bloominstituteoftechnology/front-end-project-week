@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 
 import './ComponentStyle.css';
 
@@ -16,11 +15,12 @@ function NoteForm(props) {
 
   return (
     <Fragment>
-      <Link to="/note-form">
-        <h2>{props.isUpdating ? 'Edit Note' : 'Create New Note'}</h2>
+      <div className="note-form-view">
+        <h2>{props.isUpdating ? 'Edit Note:' : 'Create New Note:'}</h2>
         <form>
           <div>
             <input
+              className="title-input"
               type="text"
               value={props.note.title}
               placeholder="Note Title"
@@ -29,19 +29,23 @@ function NoteForm(props) {
             />
           </div>
           <div>
-            <input
+            <textarea
+              placeholder="Note Content"
+              rows="1"
+              cols="50"
+              wraps="physical"
+              className="content-input"
               type="text"
               value={props.note.textBody}
-              palceholder="Note Content"
               name="textBody"
               onChange={props.handleChange}
             />
           </div>
-          <button onClick={handleSubmit}>
+          <button className="button create" onClick={handleSubmit}>
             {props.isUpdating ? 'Update' : 'Save'}
           </button>
         </form>
-      </Link>
+      </div>
     </Fragment>
   );
 }
