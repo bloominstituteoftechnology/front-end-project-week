@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { getNotes, addNote, getNote, deleteNote, updateNote, activeNoteHandler, searchHandler } from '../actions';
+import { getNotes, addNote, getNote, deleteNote, updateNote, activeNoteHandler, searchHandler, setSortMode } from '../actions';
 
 import Header from './Header';
 import ToolBar from './ToolBar';
@@ -44,12 +44,43 @@ class App extends Component {
   }
 
   searchList = () => {
-    // if(!this.props.notes.length) return this.props.notes;
-    return this.props.notes.filter(note => 
+    const filterdNotes = this.props.notes.filter(note => 
       note.title.toLowerCase().indexOf(this.props.searchValue.toLowerCase()) !== -1
       ||
       note.textBody.toLowerCase().indexOf(this.props.searchValue.toLowerCase()) !== -1
-    )
+      );
+
+    if (this.props.sortMode === 'default') {
+      return filterdNotes;
+    }
+    if (this.props.sortMode === 'alpha') {
+      return filterdNotes.sort((a, b) => {
+          var nameA = a.title.toUpperCase(); // ignore upper and lowercase
+          var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          // names must be equal
+          return 0;
+        });
+    }
+    if (this.props.sortMode === 'reverse-alpha') {
+      return filterdNotes.sort((a, b) => {
+        var nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        // names must be equal
+        return 0;
+      }).reverse();
+    }
   }
 
   render() {
@@ -57,6 +88,9 @@ class App extends Component {
       <div className={'app-container'}>
         <Header 
           searchHandler={this.props.searchHandler}
+          refreshList={this.props.getNotes}
+          sortMode={this.props.sortMode}
+          setSortMode={this.props.setSortMode}
         />
         <ToolBar notes={this.props.notes}/>
 
@@ -102,8 +136,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { notes, activeNote, searchValue } = state;
-  return { notes, activeNote, searchValue };
+  const { notes, activeNote, searchValue, sortMode } = state;
+  return { notes, activeNote, searchValue, sortMode };
 }
 
 export default withRouter(connect(
@@ -116,5 +150,6 @@ export default withRouter(connect(
     updateNote,
     activeNoteHandler,
     searchHandler,
+    setSortMode,
   }
 )(App));

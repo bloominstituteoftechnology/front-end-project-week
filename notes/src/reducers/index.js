@@ -1,4 +1,5 @@
 import {
+    SET_SORT_MODE,
     ACTIVE_NOTE_HANDLER,
     SEARCH_NOTE_HANDLER,
     GET_NOTE,
@@ -28,11 +29,23 @@ import {
     updatingNote: false,
     deletingNote: false,
     searchValue: '',
+    sortMode: 'default',
+    sortModes: ['default', 'alpha', 'reverse-alpha'],
+    sortNum: 0,
     error: null,
   }
   
   export default (state = initialState, action) => {
     switch(action.type) {
+
+      case SET_SORT_MODE :
+        let num = state.sortNum + 1;
+        if(num >= 3) num = 0;
+        return {
+          ...state,
+          sortNum: num,
+          sortMode: state.sortModes[num],
+        }
   
       case SEARCH_NOTE_HANDLER : 
         return {
