@@ -8,18 +8,25 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 import { CssResets } from './styling/';
-import rootReducer from './store/reducers/';
+import rootReducer from './store/Reducers/';
 import { App } from './components/';
 
 injectGlobal`${CssResets}`;
 
 const reduxDevToolsHook = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const store = createStore(rootReducer, compose(applyMiddleware(thunk, logger), reduxDevToolsHook) );
+const store = createStore(
+	rootReducer,
+	compose(
+		applyMiddleware(thunk, logger),
+		reduxDevToolsHook
+	)
+);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>, 
-document.getElementById('root'));
+	<Provider store={store}>
+		<Router>
+			<App />
+		</Router>
+	</Provider>,
+	document.getElementById('root')
+);
