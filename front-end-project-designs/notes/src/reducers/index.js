@@ -21,7 +21,7 @@ const rootReducer = (state = initialState, action) => {
             return {
               ...state,
               fetchingNote:false,
-              notes: [...state.notes, ...action.payload]
+              notes: [...action.payload]
             };
         case NOTES_FETCH_FAIL :
             return { ...state, error: action.payload };
