@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+//import './App.css';
 import { connect } from 'react-redux';
 import { withRouter, Route } from 'react-router-dom';
 import * as actions from './actions'
-
+import Notes from './components/Notes';
 
 class App extends Component {
   componentDidMount() {
@@ -12,6 +13,9 @@ class App extends Component {
     return (
       <div className="App">
       <h1>Lambda Notes</h1>
+      <Route path="/" render={props => (
+      <Notes {...props} notes={this.props.notes} />
+      )} />
       </div>
     );
   }
