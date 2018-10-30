@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Sidebar from "./Sidebar";
+import EditView from "./EditView";
+import { Link } from "react-router-dom";
 
 class NoteView extends Component {
   constructor(props) {
@@ -60,7 +62,9 @@ class NoteView extends Component {
         <div className="note-view">
           <div className="note-header">
             <div className="note-buttons">
-              <button className="edit-button">edit</button>
+              <Link to="/edit">
+                <button className="edit-button">edit</button>
+              </Link>
               <button className="delete-button">delete</button>
             </div>
             <div className="note-title">{this.state.title}</div>

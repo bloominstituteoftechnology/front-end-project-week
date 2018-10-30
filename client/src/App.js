@@ -10,6 +10,7 @@ import Sidebar from "./components/Sidebar";
 import NoteView from "./components/NoteView";
 import SidebarHeader from "./components/SidebarHeader";
 import ListHeader from "./components/ListHeader";
+import EditView from "./components/EditView";
 
 class App extends Component {
   constructor(props) {
@@ -20,12 +21,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchNotes();
+  }
+
+  fetchNotes = () => {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
-  }
-
+  };
   handleData = data => {
     this.setState({
       notes: data
@@ -54,17 +58,14 @@ class App extends Component {
               path="/create"
               render={props => <NoteForm {...props} notes={this.state.notes} />}
             />
-
+            <Route
+              path="/edit"
+              render={props => <EditView {...props} notes={this.state.notes} />}
+            />
             <Route
               exact
               path="/:id"
-              render={props => (
-                <NoteView
-                  {...props}
-                  items={this.state.items}
-                  notes={this.state.notes}
-                />
-              )}
+              render={props => <NoteView {...props} notes={this.state.notes} />}
             />
           </Switch>
         </div>
