@@ -1,61 +1,67 @@
-import React from 'react';
-import Axios from 'axios';
+import React from "react";
+import Axios from "axios";
+import { LeftBar, StyledLink, FormH1, TitleInput, BodyInput, StyledForm, Formbtn } from '../Styles';
 
 class AddNote extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: '',
-            text: '',
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      text: ""
+    };
+  }
 
-    handleInputChange = event => {
-        event.preventDefault();
-        this.setState({ [event.target.name]: event.target.value })
-    }
+  handleInputChange = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-    handleSubmit = event => {
-        event.preventDefault()
-        const newNote = {
-            tags: [],
-            title: this.state.title,
-            textBody: this.state.text,
-        }
-        Axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
-         .then(response => {
-             console.log(response);
-         })
-         .catch(error => {
-             console.error(error);
-         })
-        this.props.history.push('/');
-    }
+  handleSubmit = event => {
+    event.preventDefault();
+    const newNote = {
+      tags: [],
+      title: this.state.title,
+      textBody: this.state.text
+    };
+    Axios.post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .then(response => {
+        console.log(response);
+        this.props.updateNotes(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    this.props.history.push("/");
+  };
 
-    render() {
-        return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <h1>New Note</h1>
-                    <input 
-                        type="text"
-                        name="title"
-                        placeholder="title"
-                        value={this.props.value}
-                        onChange={this.handleInputChange}
-                    />
-                    <input 
-                        type="text"
-                        name="text"
-                        placeholder="text body"
-                        value={this.props.value}
-                        onChange={this.handleInputChange}
-                    />
-                    <button type="submit">Add Note</button>
-                </form>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <LeftBar>
+          <StyledLink to={"/"}>Lambda Notes</StyledLink>
+          <StyledLink to={"/note/create"}>Add New Note</StyledLink>
+        </LeftBar>
+        <StyledForm onSubmit={this.handleSubmit}>
+          <FormH1>New Note</FormH1>
+          <TitleInput
+            type="text"
+            name="title"
+            placeholder="Note Title"
+            value={this.state.title}
+            onChange={this.handleInputChange}
+          />
+          <BodyInput
+            type="textarea"
+            name="text"
+            placeholder="Note content"
+            value={this.state.text}
+            onChange={this.handleInputChange}
+          />
+          <Formbtn type="submit">Save</Formbtn>
+        </StyledForm>
+      </div>
+    );
+  }
 }
 
 export default AddNote;

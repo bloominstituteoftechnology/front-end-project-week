@@ -11,14 +11,8 @@ class Note extends React.Component {
         super(props);
         this.state = {
             editing: false,
-            notes: [
-                {
-                    title: '',
-                    textBody: '',
-                    editTitle: '',
-                    editBody: '',
-                }
-            ],
+            title: this.props.notes.title,
+            textBody: this.props.notes.textBody,
         };
     }
 
@@ -33,6 +27,7 @@ class Note extends React.Component {
         axios.delete(url)
         .then(response => {
             console.log(response);
+            this.props.updateDelete(response.data)
         })
         .catch(error => {
             console.error(error);
@@ -72,7 +67,7 @@ class Note extends React.Component {
             return <div>Loading Note information...</div>;
         }
         if (this.state.editing === true) {
-            return <EditNote updateNote={this.props.updateNote} editNote={this.editNote} {...this.props} note={this.state.note}/>
+            return <EditNote updateNotes={this.props.updateNotes} editNote={this.editNote} {...this.props} note={this.state.note}/>
         }
         return (
             <div>

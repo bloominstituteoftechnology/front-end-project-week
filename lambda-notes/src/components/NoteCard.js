@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { ContainCards, Cards } from '../Styles';
+import { Cards } from '../Styles';
 
 const NoteCard = props => {
     return (
