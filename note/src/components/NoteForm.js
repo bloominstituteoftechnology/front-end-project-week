@@ -1,6 +1,5 @@
 import React, { Component }from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 
 const AddNote = styled.div`
     border: 1px solid black;
@@ -46,32 +45,30 @@ class NoteForm extends Component {
 
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value });
-      };
+    };
 
-    addNotes = event => {
+    addNote = event => {
         event.preventDefault();
         const newNote = {
           title: this.state.title,
           textBody: this.state.textBody,
         };
-        axios
-            .post('https://fe-notes.herokuapp.com/note/create', newNote)
-            .then(response => {
-                this.setState({
-                    notes: response.data
-                },
-                    this.props.history.push('/')
-                )
-            })
-            .catch(error => console.log(error));
-                console.log('newNote: ', newNote);
-        }
+        console.log('newNote: ', newNote);
+        this.props.addNote(newNote);
+    
+        this.setState({
+          title: '',
+          textBody: ''
+        });
+    }
+
+    
 
     render() {
         return (
             <AddNote>
                 <Heading>Create New Note:</Heading>
-                <FormCard onSubmit={this.addNotes}>
+                <FormCard onSubmit={this.addNote}>
                     <Title
                         name='title'
                         placeholder='Note Title'

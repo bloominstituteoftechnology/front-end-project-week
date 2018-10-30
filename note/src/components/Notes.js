@@ -44,6 +44,7 @@ const NotesContainer = styled.div`
 `;
 
 class Notes extends Component {
+
     render() {
         return (
             <NotesContainer>
@@ -54,6 +55,7 @@ class Notes extends Component {
                             <Link to={`/note/${note._id}`}>
                             <NoteCard
                                 key={note._id}
+                                style={{ textDecoration: 'none' }}
                             >
                                 <NoteTitle>
                                     {note.title.length >= 15

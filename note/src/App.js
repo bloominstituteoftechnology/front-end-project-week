@@ -26,13 +26,33 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios
+    this.fetchNotes();
+  }
+
+  fetchNotes = () => {
+    axios 
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState({notes: response.data});
       })
+      .catch(error => (
+        console.log('Server Error', error)
+      ));
+  }
+
+  addNote = note => {
+    axios
+      .post('https://fe-notes.herokuapp.com/note/create', note)
+      .then(response => {
+        this.setState({
+          notes: response.data
+        },
+        this.fetchNotes(),
+        )
+      })
       .catch(error => console.log(error));
   }
+
 
   render() {
     return (
