@@ -1,17 +1,17 @@
 import React from 'react';
-import Single_note from './Single_note.js';
+import SingleNote from './SingleNote.js';
 
 const Notes_container= props => {
     console.log(props)
     return (
     <div>
     {props.notes.map(note => (
-    <Single_note 
-    key={note.id} 
+    <SingleNote 
+    key={note._id} 
     title={note.title} 
     body={note.textBody} 
-    editedNoteTitleHandler={this.editedNoteTitleHandler}
-    editedNoteBodyHandler={this.editedNoteBodyHandler}/>
+    editedNoteTitleHandler={props.editedNoteTitleHandler}
+    editedNoteBodyHandler={props.editedNoteBodyHandler}/>
     ))}
     </div>
     )

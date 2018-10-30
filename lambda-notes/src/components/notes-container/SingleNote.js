@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class Single_note extends Component {
+export default class SingleNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
       note:null
     };
   }
-  
 
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -30,17 +29,17 @@ export default class Single_note extends Component {
     if (!this.state.note) {
       return <div>Loading note information...</div>;
     }
-
     const { title, textBody} = this.state.note;
     return (
       <div className="note-card">
         <div className="note-title">
           <h2>{title}</h2>
+          </div>
           <div className="note-body">
             <p>{textBody}</p>
           </div>
         <div className="save-button">Save</div>
-      </div>
+        </div>
     );
   }
 }
