@@ -1,0 +1,8 @@
+
+.NoteCard {
+  margin: 2%;
+  width: 28%;
+  border: 1px solid black;
+  overflow: hidden;
+  height: 300px;
+}

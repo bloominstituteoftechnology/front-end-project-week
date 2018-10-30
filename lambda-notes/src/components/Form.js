@@ -12,7 +12,7 @@ const useInputValue = (initialValue) => {
 }
 
 
-export default ({onSubmit}) => {
+export const Form = ({onSubmit}) => {
   const text = useInputValue("");
   
   return (

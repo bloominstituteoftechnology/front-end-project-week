@@ -1,1 +1,1 @@
-export { default as NotesView } from './NotesView'
+export { ListView } from './ListView'
