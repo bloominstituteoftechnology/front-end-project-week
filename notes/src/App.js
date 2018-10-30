@@ -18,7 +18,8 @@ class App extends Component {
       textBody: "",
       utitle: "",
       utextBody: "",
-      isDeleting: false
+      isDeleting: false,
+      search: ""
     };
   }
   componentDidMount() {
@@ -75,13 +76,25 @@ class App extends Component {
     this.setState();
   };
   render() {
+    let filteredNotes = this.state.notes.filter(
+      note =>
+        note.title.includes(this.state.search) ||
+        note.textBody.includes(this.state.search)
+    );
     return (
       <div className="app">
         <Navigation />
         <Route
           exact
           path="/"
-          render={props => <NotesList {...props} notes={this.state.notes} />}
+          render={props => (
+            <NotesList
+              {...props}
+              notes={filteredNotes}
+              search={this.state.search}
+              handleInput={this.handleInput}
+            />
+          )}
         />
         <Route
           exact
