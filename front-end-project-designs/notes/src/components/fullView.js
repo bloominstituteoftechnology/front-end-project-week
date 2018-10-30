@@ -6,12 +6,12 @@ const FullView = props => {
       <div className="container">
         <ul>
           {props.notes.map(note => {
-            return <NoteView key={note.id} note={note} />;
+            return <NoteView key={note.id} note={note} handleDelete={props.handleDelete} />;
           })}
         </ul>
         <Form handleChanges= {props.handleChanges}
               addNewNote={props.addNewNote}
-              deleteNote={props.deleteNote}
+              
         />
       </div>
     );

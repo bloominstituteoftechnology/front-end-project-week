@@ -25,6 +25,8 @@ const rootReducer = (state = initialState, action) => {
             };
         case NOTES_FETCH_FAIL :
             return { ...state, error: action.payload };
+        case DELETE_NOTE:
+            return {...state, notes: [...state.notes]};
         default:
             return state;
         }

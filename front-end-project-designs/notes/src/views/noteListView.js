@@ -32,7 +32,7 @@ class NoteListView extends React.Component {
   addNewNote= event=>{
     this.props.addNote(this.state.newNote)
   }
-  deleteNote= id=>{
+  handleDelete= id=>{
     this.props.deleteNote(id);
   }
   render() {
@@ -51,7 +51,7 @@ class NoteListView extends React.Component {
         <FullView notes= {this.props.notes}
                   handleChanges={this.handleChanges}
                   addNewNote={this.addNewNote}
-                  deleteNote={this.deleteNote}
+                  handleDelete={this.handleDelete}
 
         />
     )

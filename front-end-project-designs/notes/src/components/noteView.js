@@ -7,7 +7,7 @@ const NoteView = props =>{
             Text: {props.note.textBody}
             id: {props.note._id}
             <button>Edit</button>
-            <button onClick={()=>{props.deleteNote(props.note._id)}} >Delete</button>
+            <button onClick={()=>props.handleDelete(props.note._id)} >Delete</button>
         </div>
     )
 }
