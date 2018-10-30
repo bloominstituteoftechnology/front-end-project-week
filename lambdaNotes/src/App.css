@@ -165,7 +165,7 @@ width: 100vw;
   background :  #F2F1F2;
   display : flex;
   flex-wrap : wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 
@@ -176,6 +176,7 @@ width: 100vw;
   overflow: hidden;
   background : white;
   padding : 10px;
+  margin : 10px;
 }
 
 .displayNoteCard *{

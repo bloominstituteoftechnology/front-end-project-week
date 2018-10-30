@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
      <Link to="/">
        <button>View Your Notes</button>
      </Link>
-     <Link to="/createNote">
+     <Link to="/addNote">
       <button>+ Create New Notes</button>
      </Link>
      </div>

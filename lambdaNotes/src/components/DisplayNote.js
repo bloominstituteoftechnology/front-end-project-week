@@ -7,12 +7,13 @@ import { NavLink } from 'react-router-dom';
  let note = '';
 
  console.log("Display Note, props.notes = ", props.notes)
-
+ console.log("Display Note, params.id = ", props.match.params.id)
   if (props.match.params.id) {
     note = props.notes.filter(
       item => item._id === props.match.params.id
     );
     note = note[0];
+    console.log("displayNote  note = ", note);
   //  noteId = note._id;
   //  console.log(note);
   //  console.log("noteId = ", noteId);
@@ -27,7 +28,7 @@ import { NavLink } from 'react-router-dom';
 //     props.history.push(`/item-list/${item.id}`);
 //   }
 
-console.log(note);
+
   return (
    
     <div className="displayNote">

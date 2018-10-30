@@ -7,7 +7,7 @@ import data from './data';
 import { Route } from 'react-router-dom';
 import DisplayNoteList from './components/DisplayNoteList';
 import DisplayNote from './components/DisplayNote';
-import CreateNote from './components/CreateNote';
+import AddNoteForm from './components/AddNoteForm';
 import DeleteNote from './components/DeleteNote';
 import EditNote from './components/EditNote';
 
@@ -15,7 +15,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-    notes: []
+    notes: [],
+    idCount : 1000,
     };
 
     this.submitAdd = this.submitAdd.bind(this);
@@ -29,8 +30,11 @@ class App extends Component {
 
 
       submitAdd = (note) =>{
-
+        this.setState({idCount : this.state.idCount +1})
+        note._id = String(this.state.idCount);
+        this.setState({notes : [...this.state.notes, note]});
       }
+
       submitEdit = (editedNote) => {
    
         let newNoteList = this.state.notes.filter( note => note._id !== editedNote._id);
@@ -96,9 +100,9 @@ class App extends Component {
 
         <Route
                    exact
-                    path="/createNote"
+                    path="/addNote"
                     render={props => 
-                    <CreateNote {...props} 
+                    <AddNoteForm {...props} 
                         submitAdd={this.submitAdd}/>}
                     />
       </div>
