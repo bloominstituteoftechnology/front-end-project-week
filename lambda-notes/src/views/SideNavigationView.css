@@ -16,12 +16,19 @@
   margin: 20px 0;
 }
 
-.mainNav button {
-  border: none;
-  border: 1px solid #c1c6c7;
+.navLink {
   width: 208px;
   margin: 0 auto;
   margin-bottom: 20px;
+  text-decoration: none;
+  color: #4b4a4b;
+}
+
+.mainNav button {
+  border: none;
+  border: 1px solid #c1c6c7;
+  width: 100%;
+  margin: 0 auto;
   background: #00bec2;
   color: #fff;
   font-weight: bold;
@@ -37,4 +44,9 @@
 
 .mainNav button:active {
   transform: scale(0.97);
+}
+
+.mainNav button .navLink {
+  text-decoration: none;
+  color: #fff;
 }

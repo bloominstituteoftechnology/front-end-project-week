@@ -13,6 +13,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from './reducers';
+// React Router import
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // Redux Devtools set up
 const composeEnhancers = composeWithDevTools({});
@@ -24,7 +26,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

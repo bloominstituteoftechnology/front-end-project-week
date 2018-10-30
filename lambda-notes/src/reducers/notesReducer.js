@@ -1,5 +1,10 @@
 // Action imports
-import { FETCH_NOTES_SUCCESS, FETCH_NOTES_FAILURE } from '../actions';
+import {
+  FETCH_NOTES_SUCCESS,
+  FETCH_NOTES_FAILURE,
+  ADD_NOTE_SUCCESS,
+  ADD_NOTE_FAILURE
+} from '../actions';
 
 // InitialState Set
 const initialState = [];
@@ -9,6 +14,10 @@ export const notesReducer = (state = initialState, action) => {
     case FETCH_NOTES_SUCCESS:
       return action.payload;
     case FETCH_NOTES_FAILURE:
+      return action.payload;
+    case ADD_NOTE_SUCCESS:
+      return [...state, action.payload];
+    case ADD_NOTE_FAILURE:
       return action.payload;
     default:
       return state;

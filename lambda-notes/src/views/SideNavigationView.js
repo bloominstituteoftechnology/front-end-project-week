@@ -6,17 +6,24 @@ import './SideNavigationView.css';
 // import { connect } from 'react-redux';
 // React Router import
 // import { route, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 class SideNavigationView extends Component {
   render() {
     return (
       <header className="mainNav">
         <h1>
-          Lambda
-          <br />
-          Notes
+          <Link to="/" className="navLink">
+            Lambda
+            <br />
+            Notes
+          </Link>
         </h1>
-        <button>View Your Notes</button>
-        <button>+ Create New Note</button>
+        <Link to="/" className="navLink">
+          <button>View Your Notes</button>
+        </Link>
+        <Link to="/notes-form" className="navLink">
+          <button>+ Create New Note</button>
+        </Link>
       </header>
     );
   }
