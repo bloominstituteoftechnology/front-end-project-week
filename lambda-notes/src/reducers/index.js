@@ -5,7 +5,8 @@ import {
   PUT_NOTE,
   DELETE_NOTE,
   ADD_CHECKED,
-  REMOVE_CHECKED
+  REMOVE_CHECKED,
+  CLEAR_ALL_CHECKED
 } from '../actions'
 
 const initialState = {
@@ -23,6 +24,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         checked: [...state.checked.filter(id => id !== action.id)]
+      }
+    case CLEAR_ALL_CHECKED:
+      return {
+        ...state,
+        checked: []
       }
 
     // case GET_NOTE_BY_ID:

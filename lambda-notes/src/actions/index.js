@@ -8,6 +8,7 @@ export const DELETE_NOTE = 'DELETE_NOTE'
 
 export const ADD_CHECKED = 'ADD_CHECKED'
 export const REMOVE_CHECKED = 'REMOVE_CHECKED'
+export const CLEAR_ALL_CHECKED = 'CLEAR_ALL_CHECKED'
 
 export const getAllNotes = () => dispatch => {
   axios
@@ -62,13 +63,11 @@ export const deleteNote = id => dispatch => {
   axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(res => {
-
       dispatch(getAllNotes())
       // dispatch({ type: GET_ALL_NOTES, payload: res.data })
     })
     .catch(err => console.log(err))
 }
-
 
 // for selecting notes en mass to do things with ie delete
 
@@ -82,17 +81,28 @@ export const removeChecked = id => ({
   id
 })
 
-export const clearAllChecked = () => (dispatch, getState) => {
-  const { checked } = getState()
-  checked.forEach(id => dispatch(removeChecked(id)))
-}
+export const clearAllChecked = () => ({
+  type: CLEAR_ALL_CHECKED
+})
 
-export const deleteAllChecked = () => (dispatch, getState) => {
+export const deleteAllChecked = () => async (dispatch, getState) => {
+  // get all checked items
   const { checked } = getState()
 
-  console.log(checked)
-  checked.forEach(id => {
-    dispatch(deleteNote(id))
-    dispatch(removeChecked(id))
-  })
+  // fire off api request for each item to delete
+  // await completion of all promises before continuing
+  await Promise.all(
+    checked.map(async id => {
+      await axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(res => console.log(`Successfully deleted ${id}`))
+        .catch(err => console.log(err))
+    })
+  )
+
+  // clear checked values
+  dispatch(clearAllChecked())
+
+  // get updated notes
+  dispatch(getAllNotes())
 }

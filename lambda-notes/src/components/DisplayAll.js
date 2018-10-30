@@ -44,7 +44,6 @@ class DisplayAll extends Component {
                     {title.length > 40
                       ? `${title.substring(0, 40)} ...`
                       : title}
-                    }
                   </NoteTitle>
                 </Link>
                 <Checkbox

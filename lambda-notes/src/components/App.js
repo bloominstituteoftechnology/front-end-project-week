@@ -38,6 +38,8 @@ class App extends Component {
       history
     } = this.props
 
+    console.log(notes)
+
     return (
       <PageContainer>
         <Sidebar deleteAllChecked={deleteAllChecked} />
