@@ -15,11 +15,12 @@ class SingleNote extends Component {
 
   // delete note
   handleDeleteNote = () => {
-    const { note, firestore } = this.props;
+    const { note, firestore, history } = this.props;
     firestore
       .delete({ collection: "notes", doc: note.id })
-      .then(() => this.props.history.push("/"));
+      .then(history.push("/"));
   };
+
   render() {
     const { note } = this.props;
 
