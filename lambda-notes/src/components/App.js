@@ -25,16 +25,9 @@ class App extends Component {
     this.props.getAllNotes()
   }
 
-  changeDisplayedPage = page => {
-    this.setState({ pageToDisplay: page })
-  }
-
   render() {
-    const { pageToDisplay } = this.state
     const { notes, postNote, putNote, deleteNote } = this.props
     const { changeDisplayedPage } = this
-
-    console.log(notes)
 
     return (
       <PageContainer>
@@ -82,25 +75,3 @@ export default withRouter(
     { getAllNotes, getNoteById, postNote, putNote, deleteNote }
   )(App)
 )
-
-// {pageToDisplay === 'all' && (
-//           <DisplayAll
-//             notes={notes}
-//             deleteNote={deleteNote}
-//             changeDisplayedPage={changeDisplayedPage}
-//           />
-//         )}
-
-//         {pageToDisplay.length > 20 && (
-//           <DisplayOne
-//             deleteNote={deleteNote}
-//             putNote={putNote}
-//             changeDisplayedPage={changeDisplayedPage}
-//             {...notes.filter(({ _id }) => _id === pageToDisplay)[0]}
-//           />
-//         )}
-
-//         {pageToDisplay === 'create' && <Add postNote={postNote} />}
-
-
-// {...notes.filter(({ _id }) => true)[0]}

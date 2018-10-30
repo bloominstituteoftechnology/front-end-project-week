@@ -6,14 +6,10 @@ const Sidebar = ({ changeDisplayedPage }) => (
   <Container>
     <Title>Lambda Notes</Title>
     <Link to="/">
-      <Button onClick={() => changeDisplayedPage('all')}>
-        View Your Notes
-      </Button>
+      <Button>View Your Notes</Button>
     </Link>
     <Link to="/add">
-      <Button onClick={() => changeDisplayedPage('create')}>
-        + Create New Note
-      </Button>
+      <Button>+ Create New Note</Button>
     </Link>
   </Container>
 )
