@@ -12,8 +12,7 @@ import NoteOptions from './NoteOptions'
 import SearchBar from './SearchBar.js'
 import Authenticate from '../Authentication/Authenticate'
 import PaginationContainer from './PaginationContainer'
-
-// import Header from './Header';
+import FileUpload from './FileUpload'
 
 let filteredNoteList = ''
 
@@ -54,6 +53,7 @@ class App extends Component {
 
     return (
       <div className="App">
+      <FileUpload />
         <header className="App-header">
           <h1 className="App-title">Lambda Notes</h1>
           <NavLink

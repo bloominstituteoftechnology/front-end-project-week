@@ -8,7 +8,10 @@ import {
   DELETING_NOTE,
   NOTE_DELETED,
   NOTES,
-  ERROR
+  ERROR,
+  UPLOADING_FILE,
+  UPLOAD_SUCCESS,
+  UPLOAD_FAIL,
 } from '../actions'
 
 
@@ -27,6 +30,26 @@ const initState = {
 
 export const notesReducer = (state = initState, action) => {
   switch(action.type) {
+    case UPLOADING_FILE:
+      return {
+        ...state,
+        uploadingFile: true,
+        fileUploaded: false
+      }
+    case UPLOAD_SUCCESS:
+      return {
+        ...state,
+        uploadingFile: false,
+        fileUploaded: true,
+        data: action.payload
+      }
+    case UPLOAD_FAIL:
+      return {
+        ...state,
+        uploadingFile: false,
+        fileUploaded: false,
+        error: action.payload
+      }
     case FETCHING_NOTES:
       return {
         ...state,

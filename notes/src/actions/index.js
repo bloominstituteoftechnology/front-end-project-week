@@ -10,8 +10,31 @@ export const DELETING_NOTE = 'DELETING_NOTE'
 export const NOTE_DELETED = 'NOTE_DELETED'
 export const NOTES = 'NOTES'
 export const ERROR = 'ERROR'
+export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS'
+export const UPLOAD_FAIL = 'UPLOAD_FAIL'
+export const UPLOADING_FILE = 'UPLOADING_FILE'
+
 
 const URL = 'http://localhost:8000/'
+
+export function uploadDocumentRequest({ file, name }) {
+  let data = new FormData();
+  data.append('file', document);
+  data.append('name', name);
+
+  return (dispatch) => {
+    dispatch({type: UPLOADING_FILE})
+    axios
+    .post(URL + '/files', data)
+      .then(response => {
+        dispatch({type: UPLOAD_SUCCESS, payload: response.data})
+      })
+      .catch(error => {
+        dispatch({type: UPLOAD_FAIL, payload: error.data});
+      })
+  };
+}
+
 
 export const fetchNotes = () => {
   return dispatch => {
