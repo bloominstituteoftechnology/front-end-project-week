@@ -1,22 +1,54 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class EditNote extends Component {
   state = {
-    note: null,
     title: '',
     textBody: '',
+    id: this.props.match.params.id,
   };
 
   componentDidMount() {
-    const id = this.props.match.params.id;
-    this.props.fetchNote(id);
+    this.setState({
+      ...this.state,
+      ...this.props.location.state,
+    });
   }
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  saveEdit = (event) => {
+    event.preventDefault();
+    const { title, textBody } = this.state;
+    const editedNote = { title, textBody };
+    if (this.state.title.length > 0 && this.state.textBody.length > 0) {
+      axios
+        .put(
+          `https://fe-notes.herokuapp.com/note/edit/${this.state.id}`,
+          editedNote
+        )
+        .then(() => {
+          this.fetchData(this.state.id);
+          this.props.history.push(`/note/${this.state.id}`);
+        })
+        .catch((error) => console.error(error));
+    }
+  };
+
+  fetchData = (id) => {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then()
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   render() {
+    console.log(this.state.id);
+    // const { title, textBody } = this.state.note;
     return (
       <div>
         <form>
@@ -24,14 +56,14 @@ export default class EditNote extends Component {
             type="text"
             name="title"
             onChange={this.handleChange}
-            value={this.props.note.title}
+            value={this.state.title}
           />
           <textarea
             name="textBody"
             onChange={this.handleChange}
-            value={this.props.note.textBody}
+            value={this.state.textBody}
           />
-          <button onClick={this.saveNote}>Save</button>
+          <button onClick={this.saveEdit}>Save</button>
         </form>
       </div>
     );

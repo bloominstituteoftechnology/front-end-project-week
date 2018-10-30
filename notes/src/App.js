@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
         <Sidebar />
         <Route exact path="/" component={List} />
-        <Route path="/note/:id" component={ViewNote} />
+        <Route exact path="/note/:id" component={ViewNote} />
         <Route path="/create" component={CreateNote} />
         <Route path="/note/:id/edit" component={EditNote} />
       </div>

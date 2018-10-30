@@ -44,7 +44,12 @@ export default class ViewNote extends Component {
     return (
       <div>
         <div>
-          <Link to={`/note/${this.state.note._id}/edit`} fetchNote={this.fetchNote}>
+          <Link
+            to={{
+              pathname: `/note/${this.state.note._id}/edit`,
+              state: this.state.note,
+            }}
+          >
             <span>edit</span>
           </Link>
           <span onClick={this.deleteNote}>delete</span>
