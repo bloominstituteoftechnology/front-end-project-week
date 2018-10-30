@@ -8,7 +8,7 @@ import NoteForm from './NoteForm'
 class NewNote extends Component {
   state = {
     title: '',
-    textBody: '',
+    content: '',
   }
 
   handleChange = (event) => {
@@ -19,10 +19,10 @@ class NewNote extends Component {
     event.preventDefault();
     let newNote = {
       title: this.state.title,
-      textBody: this.state.textBody,
+      content: this.state.content,
     }
     this.props.createNote(newNote)
-    this.setState({ title:'', textBody:'' })
+    this.setState({ title:'', content:'' })
 
   }
 
@@ -46,4 +46,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { createNote}) (NewNote))
+export default withRouter(connect(mapStateToProps, { createNote }) (NewNote))

@@ -19,8 +19,8 @@ function NoteForm (props) {
           <textarea
             className='input-textBody'
             type='textarea'
-            name='textBody'
-            value={props.state.textBody}
+            name='content'
+            value={props.state.content}
             placeholder='Note Content'
             onChange={props.handleChange}
             ></textarea>
