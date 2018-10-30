@@ -1,19 +1,16 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import AllNotes from './AllNotes.js';
 import SingleNote from './SingleNote.js';
 
-const Notes_container= props => {
-    console.log(props)
+const NotesContainer= props => {
+   
     return (
     <div>
-    {props.notes.map(note => (
-    <SingleNote 
-    key={note._id} 
-    title={note.title} 
-    body={note.textBody} 
-    editedNoteTitleHandler={props.editedNoteTitleHandler}
-    editedNoteBodyHandler={props.editedNoteBodyHandler}/>
-    ))}
+     <Route exact path='/' component={AllNotes}/>
+     <Route exact path='/notes/:id' component={SingleNote}/>
     </div>
     )
 }
-export default Notes_container;
+export default NotesContainer;
+// 

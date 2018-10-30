@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import Smurf from './Smurf';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-class Smurfs extends Component {
+export default class AllNotes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      notes: []
     };
   }
+
   componentDidMount() {
     axios
-      .get('http://localhost:3333/smurfs')
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-        this.setState(() => ({ smurfs: response.data }));
+        this.setState(() => ({ notes: response.data }));
       })
       .catch(error => {
         console.error('Server Error', error);
@@ -22,28 +23,30 @@ class Smurfs extends Component {
 
   render() {
     return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          {this.state.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
-            );
-          })}
-        </ul>
+      <div className="notes-list">
+        {this.state.notes.map(note => (
+         <Link to={`/notes/${note._id}`} key={note._id}>
+          <SingleNoteDetails
+          key={note._id} 
+          note={note}/>
+         </Link>
+        ))}
       </div>
     );
   }
 }
 
-Smurf.defaultProps = {
-smurfs: [],
-};
-
-export default Smurfs;
+function SingleNoteDetails({ note }) {
+  const { title, textBody } = note;
+  return (
+    <div className="note-card">
+      <div className="note-title">
+        <h2>{title}</h2>
+        </div>
+        <div className="note-body">
+          <p>{textBody}</p>
+        </div>
+      <div className="save-button">Save</div>
+      </div>
+  );
+}

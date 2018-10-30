@@ -101,6 +101,7 @@ class App extends Component {
       editedNoteBodyHandler={this.editedNoteBodyHandler}
       saveNewNoteHandler={this.saveNewNoteHandler}/>
       </div>
+
     );
   }
 }
