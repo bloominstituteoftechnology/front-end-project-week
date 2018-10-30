@@ -24,24 +24,29 @@ class App extends Component {
   fetchNotes = () => {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
-      .then(response => this.setState({notes: response.data}))
+      .then(response => {
+        console.log(response.data);
+        this.setState({notes: response.data});
+      })
       .catch(err => console.log(err));
   };
 
-  viewNote = (e, id) => {
-    console.log(id);
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .then(response => this.setState({notes: response.data}))
-      .catch(err => console.log(err));
-  };
-
-  deleteNote = (e, id) => {
-    e.preventDefault();
+  deleteNote = id => {
+    // e.preventDefault();
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => this.setState({notes: response.data}))
+      // .then(response => {
+      //   console.log(response.data);
+      //   this.setState({notes: response.data});
+      // })
+      .then(this.props.history.push("/notes"))
       .catch(err => console.log(err));
+  };
+
+  updateNote = (id, updated) => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated)
+      .then(response => console.log(response.data));
   };
 
   render() {
@@ -73,6 +78,7 @@ class App extends Component {
                   {...props}
                   notes={this.state.notes}
                   delete={this.deleteNote}
+                  update={this.updateNote}
                 />
               )}
             />

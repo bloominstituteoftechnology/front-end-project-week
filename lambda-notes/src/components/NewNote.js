@@ -24,7 +24,7 @@ class NewNote extends React.Component {
   //   };
 
   addNewNote = e => {
-    e.preventDefault();
+    //  e.preventDefault();
     const newNote = {
       tags: this.state.tags,
       title: this.state.title,

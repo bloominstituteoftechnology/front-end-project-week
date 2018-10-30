@@ -3,6 +3,9 @@ import "../App.css";
 import NoteCard from "./NoteCard";
 
 const ListView = props => {
+  if (!props.notes.length) {
+    return <h2>Loading</h2>;
+  }
   return (
     <div className="list-view">
       <h1>Your Notes:</h1>
