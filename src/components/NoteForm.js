@@ -7,7 +7,7 @@ class NoteForm extends Component {
   state = {
     title: "",
     text: "",
-    // tags: "",
+    tags: "",
     editing: false
   }
 
@@ -31,13 +31,13 @@ class NoteForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { id } = this.props.match.params
-    // const formattedTags = this.state.tags.split(",").map(word => word.trim().toLocaleLowerCase())
+    const formattedTags = JSON.stringify(this.state.tags.split(",").map(word => word.trim().toLocaleLowerCase()))
     if (this.state.editing) {
       const updatedNote = {
-        // id: this.props.noteUpdate.id,
+        id: this.props.noteUpdate.id,
         title: this.state.title,
         text: this.state.text,
-        // tags: formattedTags
+        tags: formattedTags
       }
       axios.put(`http://localhost:9000/notes/${id}/edit`, updatedNote)
         .then(resp => console.log(resp))
@@ -47,20 +47,18 @@ class NoteForm extends Component {
       this.setState({ editing: false })
     }
     else if (this.state.text.length > 50) {
-      // const newNote = {
-      //   title: this.state.title,
-      //   text: this.state.text,
-      //   tags: formattedTags,
-      // }
+      const newNote = {
+        title: this.state.title,
+        text: this.state.text,
+        tags: formattedTags,
+      }
+      console.log(formattedTags, typeof formattedTags)
       const emptyNote = {
         title: '',
         text: '',
-        // tags: ''
+        tags: ''
       }
-      axios.post('http://localhost:9000/notes', {
-        title: this.state.title,
-        text: this.state.text,
-      })
+      axios.post('http://localhost:9000/notes', newNote)
         .then(resp => console.log(resp))
         .catch(err => console.log(err))
       this.setState(emptyNote)
@@ -95,14 +93,14 @@ class NoteForm extends Component {
             title="50 characters minimum"
             required
           />
-          {/* <Input2
+          <Input2
             name="tags"
             type="text"
             placeholder="Tags (with commas)"
             value={this.state.tags}
             onChange={this.handleChange}
             required
-          /> */}
+          />
           <Button1>{this.state.editing ? "Update" : "Save"}</Button1>
         </Form>
       </Div>
@@ -124,13 +122,13 @@ const Input1 = styled.input`
   margin: 2% 0;
   border-radius: 2px;
 `
-// const Input2 = styled.input`
-//   width: 100%;
-//   font-size: 1.6rem;
-//   padding: 2%;
-//   margin: 2% 0;
-//   border-radius: 2px;
-// `
+const Input2 = styled.input`
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 2%;
+  margin: 2% 0;
+  border-radius: 2px;
+`
 const Textarea = styled.textarea`
   width: 100%;
   font-size: 1.6rem;
