@@ -1,5 +1,4 @@
 import Axios from 'axios';
-require('dotenv').config();
 
 export const POSTING_NOTE = 'POSTING_NOTE';
 export const POSTED_NOTE = 'POSTED_NOTE';
@@ -16,7 +15,7 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETED_NOTE = 'DELETED_NOTE';
 export const NOTE_ERROR = 'NOTE_ERROR';
 
-const dataSource = process.env.SERVER_URL || 'http://localhost:8088/note';
+const dataSource = 'http://localhost:8088/note';
 
 export const postNote = (newNote) => {
 	return (dispatch) => {
