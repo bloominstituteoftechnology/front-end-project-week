@@ -21,7 +21,7 @@ class NoteTags extends React.Component {
             <div>
             <div className = 'note-list'>
             {filteredNotes.map(note => {
-                return <Note {...note} key = {note._id} />
+                return <Note {...note} key = {note.id} />
             })}
 
         </div>

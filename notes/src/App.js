@@ -39,7 +39,7 @@ class App extends Component {
 
     let newNotes = this.props.notes;
     if(this.state.search.length > 0){
-      newNotes = this.props.notes.filter(note => note.title.includes(this.state.search) || note.textBody.includes(this.state.search) || note.tags.includes(this.state.search))
+      newNotes = this.props.notes.filter(note => note.title.includes(this.state.search) || note.content.includes(this.state.search) || note.tags.includes(this.state.search))
       }
 
     return (

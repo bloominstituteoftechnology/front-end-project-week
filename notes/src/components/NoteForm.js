@@ -11,7 +11,7 @@ class NoteForm extends React.Component {
         this.state = {
             tags: '',
             title: '',
-            textBody: '',
+            content: '',
             submitted: false
         }
     }
@@ -25,13 +25,8 @@ class NoteForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        /* Set tag to Uncategorized if no input is given */
-        let noteTags;
-        if(this.state.tags === ''){
-            noteTags = 'Uncategorized'
-        } else {
-            noteTags = this.state.tags.split(/\s*,\s*/);
-        }
+        // split tags into an array in order to remove duplicates
+        let noteTags = this.state.tags.split(/\s*,\s*/);
 
         let uniqueTags = noteTags;
         if(this.state.tags !== ''){
@@ -48,26 +43,28 @@ class NoteForm extends React.Component {
             noteTitle = this.state.title;
         }
 
-        let textBody;
-        if(this.state.textBody === ''){
-            textBody = 'No Content';
+        let content;
+        if(this.state.content === ''){
+            content = 'No Content';
         } else {
-            textBody = this.state.textBody;
+            content = this.state.content;
         }
-
+        /*******************************************************************************************/
+        /** SET DEFAULT USER ID TO 1 UNTIL LOGIN FUNCTION IS COMPLETE **/
+        /*******************************************************************************************/
         let newNote = {
-            tags: uniqueTags,
+            // rejoin unique tags array before sending resulting string to the database
+            tags: uniqueTags.join(', '),
             title: noteTitle,
-            textBody: textBody,
+            content: content,
+            user_id: 1
         }
-
-        console.log(newNote);
         this.props.addNote(newNote);
 
         this.setState({
             tags: [],
             title: '',
-            textBody: '',
+            content: '',
             submitted: !this.state.submitted
         })
 
@@ -82,7 +79,7 @@ class NoteForm extends React.Component {
             <h1>Create New Note:</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleInput} type = 'text' placeholder = 'Note Title' name='title' value={this.state.title}></input>
-                    <textarea onChange={this.handleInput} placeholder = 'Note Content' name='textBody' value={this.state.textBody}></textarea>
+                    <textarea onChange={this.handleInput} placeholder = 'Note Content' name='content' value={this.state.content}></textarea>
                     <input onChange={this.handleInput} type='text' placeholder='Tags, separated by commas' name='tags' value={this.state.tags} maxLength='50'></input>
                     <button type = 'submit'>Save</button>
                 </form>

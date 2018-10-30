@@ -9,20 +9,23 @@ class NoteEdit extends React.Component {
         this.props.fetchSingleNote(this.props.match.params.id);
     }
 
+    componentWillReceiveProps(nextProps){
+        if(nextProps.currentNote !== this.props.currentNote){
+            this.setState({
+                title: nextProps.currentNote.title,
+                content: nextProps.currentNote.content,
+                tags: nextProps.currentNote.tags,
+            })
+        }
+    }
 
     constructor(props){
         super(props)
-
-        let mapTags = this.props.currentNote.tags.map(tag => {
-            return tag;
-        })
-
-        let stringTags = mapTags.join(', ');
-
         this.state = {
             title: this.props.currentNote.title,
-            textBody: this.props.currentNote.textBody,
-            tags: stringTags,
+            content: this.props.currentNote.content,
+            tags: this.props.currentNote.tags,
+            fetched: this.props.singleFetched,
             edited: false
         }
     }
@@ -37,17 +40,15 @@ class NoteEdit extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        let noteTags;
-        if(this.state.tags === ''){
-            noteTags = [];
-        } else {
-            noteTags = this.state.tags.split(/\s*,\s*/);
-        }
+        let noteTags = this.state.tags.split(/\s*,\s*/);
 
-        let uniqueTags = noteTags.reduce(function(a,b){
+        let uniqueTags = noteTags;
+        if(this.state.tags !== ''){
+        uniqueTags = noteTags.reduce(function(a,b){
             if (a.indexOf(b) < 0 ) a.push(b);
             return a;
           },[]);
+        }
 
         let noteTitle;
         if(this.state.title === ''){
@@ -56,20 +57,22 @@ class NoteEdit extends React.Component {
             noteTitle = this.state.title;
         }
 
-        let textBody;
-        if(this.state.textBody === ''){
-            textBody = 'No Content';
+        let noteContent;
+        if(this.state.content === ''){
+            noteContent = 'No Content';
         } else {
-            textBody = this.state.textBody;
+            noteContent = this.state.content;
         }
 
+        // SET USER ID TO 1 UNTIL LOGIN IS COMPLETE
         let newNote = {
-            tags: uniqueTags,
+            tags: uniqueTags.join(', '),
             title: noteTitle,
-            textBody: textBody,
+            content: noteContent,
+            user_id: 1
         }
 
-        this.props.editNote(this.props.currentNote._id, newNote);
+        this.props.editNote(this.props.currentNote.id, newNote);
 
         this.setState({
             edited: !this.state.edited
@@ -78,13 +81,12 @@ class NoteEdit extends React.Component {
     }
 
     render() {
-
         return(
             <div className = 'note-edit-container'>
             
             <form onSubmit = {this.handleSubmit}>
             <input type = 'text' onChange={this.handleInput} name = 'title' value={this.state.title}></input>
-            <textarea onChange={this.handleInput} name='textBody' value={this.state.textBody}></textarea>
+            <textarea onChange={this.handleInput} name='content' value={this.state.content}></textarea>
             <input type = 'text' name='tags' onChange = {this.handleInput} value = {this.state.tags} maxLength='50'></input>
             <button type='submit'>Update</button>
             </form>
@@ -95,7 +97,6 @@ class NoteEdit extends React.Component {
             </ModalBody>
             </Modal>
 
-
             </div>
         )
     }
@@ -104,7 +105,8 @@ class NoteEdit extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      currentNote: state.currentNote
+      currentNote: state.currentNote,
+      singleFetched: state.singleFetched
     }
   }
   

@@ -15,7 +15,7 @@ export const FETCHED_SINGLE = 'FETCHED_SINGLE';
 
 export const fetchNotes = () => {
 
-    const fetchAllRequest = axios.get(`https://killer-notes.herokuapp.com/note/get/all`);
+    const fetchAllRequest = axios.get(`http://localhost:9000/api/notes`);
 
     return dispatch => {
         dispatch({type: FETCHING})
@@ -30,7 +30,7 @@ export const fetchNotes = () => {
 }
 
 export const addNote = note => {
-    const addNoteRequest = axios.post(`https://killer-notes.herokuapp.com/note/create`, note);
+    const addNoteRequest = axios.post(`http://localhost:9000/api/notes`, note);
 
     return dispatch => {
 
@@ -49,7 +49,7 @@ export const addNote = note => {
 
 export const deleteNote = id => {
 
-    const deleteNoteRequest = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
+    const deleteNoteRequest = axios.delete(`http://localhost:9000/api/notes/${id}`);
 
     return dispatch => {
 
@@ -66,7 +66,7 @@ export const deleteNote = id => {
 
 export const editNote = (id, newNote) => {
 
-    const editNoteRequest = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newNote);
+    const editNoteRequest = axios.put(`http://localhost:9000/api/notes/${id}`, newNote);
 
     return dispatch => {
 
@@ -82,8 +82,7 @@ export const editNote = (id, newNote) => {
 }
 
 export const fetchSingleNote = (id) => {
-
-    const fetchSingleRequest = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
+    const fetchSingleRequest = axios.get(`http://localhost:9000/api/notes/${id}`);
 
     return dispatch => {
         dispatch({type: FETCHING_SINGLE});

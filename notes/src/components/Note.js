@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import Markdown from 'react-markdown';
 
 const Note = (props) => {
-    let truncatedBody = props.textBody;
-    if(props.match.path === '/' && props.textBody.length > 170){
-        truncatedBody = props.textBody.substring(0, 170)+' ...';
+    let truncatedBody = props.content;
+    if(props.match.path === '/' && props.content.length > 145){
+        truncatedBody = props.content.substring(0, 145)+' ...';
     }
 
     let truncatedTitle = props.title;
@@ -14,17 +14,20 @@ const Note = (props) => {
         truncatedTitle = props.title.substring(0, 40)+' ...';
     }
 
-    let truncatedTags = props.tags;
-    if(props.match.path === '/' && props.tags.length > 5){
-        truncatedTags = [];
+    let tagsArray = props.tags.split(/\s*,\s*/);
+
+    let truncatedTags = [];
+    if(props.match.path === '/' && tagsArray.length > 5){
         for(let i = 0; i < 5; i++){
-            truncatedTags.push(props.tags[i]);
+            truncatedTags.push(tagsArray[i]);
         }
+    } else {
+        truncatedTags = tagsArray;
     }
 
     return (
         <div className = 'note-container'>
-        <Link to = {`/notes/${props._id}`} key={`${props._id}`}>
+        <Link to = {`/notes/${props.id}`} key={`${props.id}`}>
             <div>
             <div className = 'note-title'><Markdown escapeHtml={true} source={`${truncatedTitle}`} /></div>
             
@@ -34,11 +37,10 @@ const Note = (props) => {
             </Link>
 
             <div className='note-tags'>
-           
-            
             {truncatedTags.map(tag => {
-                return <Link to = {`/notes/tags/${tag}`} key={`${tag}${props._id}`}><span className = 'tag-span'>{tag}</span></Link>
+                return <Link to = {`/notes/tags/${tag}`} key={`${tag}${props.id}`}><span className = 'tag-span'>{tag}</span></Link>
             })}
+                        
             </div>
 
         </div>

@@ -8,7 +8,8 @@ import Markdown from 'react-markdown';
 class NoteDetails extends React.Component {
 
     componentDidMount(){
-        this.props.fetchSingleNote(this.props.match.params.id);   
+        const noteID = this.props.match.params.id;
+        this.props.fetchSingleNote(noteID);
         }
 
     constructor(props){
@@ -38,7 +39,7 @@ class NoteDetails extends React.Component {
 
     handleDelete = event => {
         event.preventDefault();
-        this.props.deleteNote(this.props.currentNote._id);
+        this.props.deleteNote(this.props.currentNote.id);
         
         this.toggle();
 
@@ -50,19 +51,20 @@ class NoteDetails extends React.Component {
     
     render(){
         let tags;
-        if(this.props.currentNote.tags){
+        if(this.props.singleFetched){
+            let tagsArray = this.props.currentNote.tags.split(/\s*,\s*/);
             tags = (
-                <p>{this.props.currentNote.tags.map(tag => {
-                    return <Link to = {`/notes/tags/${tag}`} key={tag}><span className = 'tag-span'>{tag}</span></Link>
-                })}</p>
-            )
+                        <p>{tagsArray.map(tag => {
+                            return <Link to = {`/notes/tags/${tag}`} key={tag}><span className = 'tag-span'>{tag}</span></Link>
+                        })}</p>
+                    )
         }
         
     return (
 
         <div className = 'note-details'>
             <div className = 'edit-delete'>
-            <Link to = {`/notes/edit/${this.props.currentNote._id}`}><span >edit</span></Link>
+            <Link to = {`/notes/edit/${this.props.currentNote.id}`}><span >edit</span></Link>
             <span onClick={this.toggle}>delete</span>
             </div>
 
@@ -70,7 +72,7 @@ class NoteDetails extends React.Component {
             <Markdown escapeHtml={true} source={this.props.currentNote.title}/>
             </div>
             <div className = 'note-details-content'>
-            <Markdown escapeHtml={true} source={this.props.currentNote.textBody} />
+            <Markdown escapeHtml={true} source={this.props.currentNote.content} />
             </div>
             <div className = 'note-details-tags'>
             {tags}
@@ -100,13 +102,14 @@ class NoteDetails extends React.Component {
 
         </div>
     )
-}
+    }
 }
 
 
 const mapStateToProps = state => {
     return {
-      currentNote : state.currentNote
+      currentNote : state.currentNote,
+      singleFetched: state.singleFetched
     }
   }
   
