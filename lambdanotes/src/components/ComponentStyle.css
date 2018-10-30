@@ -58,6 +58,7 @@
 }
 
 .button {
+  text-decoration: none;
   background-color: #35c0c3;
   color: #fff;
   width: 200px;
@@ -66,5 +67,9 @@
   font-weight: bold;
   border: 1px solid gray;
   margin: 20px 30px;
+}
+
+a {
   text-decoration: none;
+  color: #fff;
 }
