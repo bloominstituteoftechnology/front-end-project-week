@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Container,
   NotesContainer,
@@ -17,9 +18,12 @@ const DisplayAll = ({ notes, changeDisplayedPage, deleteNote }) => (
     <NotesContainer>
       {notes.map(({ title, textBody, _id }) => (
         <Note key={_id}>
-          <NoteTitle onClick={() => changeDisplayedPage(_id)}>
-            {title.length > 40 ? `${title.substring(0, 40)} ...` : title}
-          </NoteTitle>
+          <Link to={`/note/${_id}`}>
+            <NoteTitle>
+              {title.length > 40 ? `${title.substring(0, 40)} ...` : title}
+              }
+            </NoteTitle>
+          </Link>
           <NoteBody onClick={() => deleteNote()}>
             {textBody.length > 200
               ? `${textBody.substring(0, 200)} ...`

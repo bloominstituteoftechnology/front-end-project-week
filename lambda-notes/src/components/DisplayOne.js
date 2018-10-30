@@ -36,6 +36,9 @@ class DisplayOne extends Component {
     const { edit, toggleDeleteModal, deleteItem } = this
     const { editing, deleteChoice } = this.state
 
+    console.log('DisplayOne props')
+    console.log(this.props)
+
     return (
       <Container>
         <InnerContainer style={{ position: deleteChoice ? '' : 'relative' }}>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
   getAllNotes,
@@ -39,27 +40,67 @@ class App extends Component {
       <PageContainer>
         <Sidebar changeDisplayedPage={changeDisplayedPage} />
 
-        {pageToDisplay === 'all' && (
-          <DisplayAll notes={notes} deleteNote={deleteNote} changeDisplayedPage={changeDisplayedPage} />
-        )}
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <DisplayAll
+              {...props}
+              notes={notes}
+              deleteNote={deleteNote}
+              changeDisplayedPage={changeDisplayedPage}
+            />
+          )}
+        />
 
-        {pageToDisplay.length > 20 && (
-          <DisplayOne
-            deleteNote={deleteNote}
-            putNote={putNote}
-            changeDisplayedPage={changeDisplayedPage}
-            {...notes.filter(({ _id }) => _id === pageToDisplay)[0]}
-          />
-        )}
+        <Route
+          path="/note/:id"
+          render={props => (
+            <DisplayOne
+              {...props}
+              deleteNote={deleteNote}
+              putNote={putNote}
+              changeDisplayedPage={changeDisplayedPage}
+            {...notes.filter(({ _id }) => _id === props.match.params.id)[0]}
+              
+            />
+          )}
+        />
 
-        {pageToDisplay === 'create' && <Add postNote={postNote} />}
-
+        <Route
+          path="/add"
+          render={props => <Add {...props} postNote={postNote} />}
+        />
       </PageContainer>
     )
   }
 }
 
-export default connect(
-  mapStateToProps,
-  { getAllNotes, getNoteById, postNote, putNote, deleteNote }
-)(App)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getAllNotes, getNoteById, postNote, putNote, deleteNote }
+  )(App)
+)
+
+// {pageToDisplay === 'all' && (
+//           <DisplayAll
+//             notes={notes}
+//             deleteNote={deleteNote}
+//             changeDisplayedPage={changeDisplayedPage}
+//           />
+//         )}
+
+//         {pageToDisplay.length > 20 && (
+//           <DisplayOne
+//             deleteNote={deleteNote}
+//             putNote={putNote}
+//             changeDisplayedPage={changeDisplayedPage}
+//             {...notes.filter(({ _id }) => _id === pageToDisplay)[0]}
+//           />
+//         )}
+
+//         {pageToDisplay === 'create' && <Add postNote={postNote} />}
+
+
+// {...notes.filter(({ _id }) => true)[0]}
