@@ -1,10 +1,11 @@
 .note {
   padding: 20px;
   background: #fff;
-  margin: 20px;
-  width: 20%;
+  /* margin: 20px; */
+  width: 45%;
   border: 1px solid lightgrey;
   max-height: 300px;
+  margin: 10px auto;
   overflow: hidden;
 }
 .note a {
