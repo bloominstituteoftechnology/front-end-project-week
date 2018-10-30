@@ -68,7 +68,7 @@ class EditForm extends Component {
       textBody: this.state.textBody
     };
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, updatedNote)
+      .put(`http://localhost:5000/api/notes/${this.props.match.params.id}`, updatedNote)
       .then(response => {
         this.setState({notes: response.data, updatedNote});
         this.props.fetchNotes();
