@@ -25,7 +25,7 @@ class NewNote extends React.Component {
 			alert('Please fill out both fields');
 		} else {
 			axios
-				.post('https://killer-notes.herokuapp.com/note/create', { title: noteTitle, textBody: noteContent })
+				.post('https://fe-notes.herokuapp.com/note/create', { title: noteTitle, textBody: noteContent })
 				.then((res) => {
 					console.log(res);
 					this.setState({

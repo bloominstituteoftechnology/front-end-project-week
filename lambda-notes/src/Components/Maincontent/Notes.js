@@ -8,7 +8,11 @@ const Notes = (props) => {
 			<StyledHeader>Your Notes:</StyledHeader>
 			{props.notes.map((note) => {
 				return (
-					<StyledNoteContainer to={`/${note._id}/notes`} key={note._id}>
+					<StyledNoteContainer
+						onClick={() => props.getNoteId(note._id)}
+						key={note._id}
+						to={`/note/${note._id}`}
+					>
 						<StyledH1>{note.title}</StyledH1>
 						<p>{note.textBody}</p>
 						<p>
@@ -49,13 +53,27 @@ export const StyledNoteContainer = styled(Link)`
 	margin: 10px;
 	border: 1px solid rgba(80, 80, 80, 0.3);
 	transition: 0.5s ease-in-out;
-
 	&:hover {
 		cursor: pointer;
 		background-color: rgba(200, 240, 200, 1);
 		box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);
 	}
 `;
+
+/* export const StyledNoteContainer = styled.div`
+	text-decoration: none;
+	color: #000000;
+	max-height: 200px;
+	display: flex;
+	padding: 15px;
+	flex-direction: column;
+	background-color: #ffffff;
+	text-align: start;
+	overflow: hidden;
+	width: 18%;
+	margin: 10px;
+	border: 1px solid rgba(80, 80, 80, 0.3);
+	transition: 0.5s ease-in-out; */
 
 export const StyledH1 = styled.h1`
 	margin: 0;

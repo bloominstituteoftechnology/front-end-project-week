@@ -1,30 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import Notes from './Notes';
 
-class FullNote extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-        edit: []
-    }
-  }
-
-  componentDidMount() {
-    const id = params.match.id;
-    axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}
-`)
-.then(res => {
-  this.setState({ edit: res.id})
-})
-  }
-
+const FullNote = ({ match }) => {
 	return (
-		<Link to={this.state.edit}>
-			<h1>{}!</h1>
-			<p>{}</p>
-		</Link>
+		<div>
+			<h1>Heeeeeeeeeeeeeeeello World!!!!!! {match.params.title}</h1>
+			{/* <Route path={`/note/${this.props.match.id}`} render={(props) => <Notes {...props} />} /> */}
+		</div>
 	);
 };
 
