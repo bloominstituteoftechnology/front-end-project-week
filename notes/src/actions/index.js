@@ -50,6 +50,24 @@ export function notReady(error) {
     };
 }
 
+//-- (null) - Agent submits a new note
+export function addNote(noteData) {
+    return function (dispatch) {
+        dispatch({type: FETCHING});
+        axios.post(server.formatUrl('note/create'), noteData)
+        .then(response => {
+            //dispatch(notesResponse(response.data));
+            console.log('got note: ', response)
+        })
+        .catch(error => {
+            console.log(error);
+            console.log(Object.keys(error));
+            //let errorMessage = `Error ${error.response.status}: ${error.response.data.Error}`;
+            //dispatch(fetchError(errorMessage));
+        });
+    }
+}
+
 //== Utilities =================================================================
 
 //-- Server (should probably be middleware) ------

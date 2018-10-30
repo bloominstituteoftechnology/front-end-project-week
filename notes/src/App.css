@@ -1,13 +1,31 @@
 
 
-/*============================================================================*/
+/*== Application Wide Styles =================================================*/
 
+/*-- Global Classes ----------------------------*/
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 29rem;
+  height: 6.4rem;
+  background:#24b8bd;
+  color: white;
+  border: 1px solid #979797;
+  font-weight: bold;
+  font-size: 2rem;
+}
+h1, h2 {
+  color: #4a4a4a;
+}
+
+/*----------------------------------------------*/
 .app {
   font-family: sans-serif;
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  width: 88.8rem;
   margin: 0 auto;
   background: #f2f2f2;
   min-height: 100vh;
@@ -15,59 +33,76 @@
 .app > * {
   border: 1px solid #afafaf;
 }
+
+/*-- Header (sidebar with links) ---------------*/
 .app header {
-  width: 22.2rem;
   background: #d3d3d3;
-  padding: 1.5rem;
+  padding: 0 1.5rem;
 }
 .app header h1 {
-  font-size: 3.6rem;
-  margin: 1rem 0;
+  font-size: 5rem;
+  margin: 3rem 0;
+  font-weight: bold;
+  min-height: 10rem;
+  max-width: 29rem;
 }
 .app header nav {
   display: flex;
   flex-direction: column;
 }
 .app header nav a {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 4rem;
-  background:#24b8bd;
-  color: white;
-  border: 1px solid #afafaf;
   margin-bottom: 1.8rem;
-  font-weight: bold;
-}
-.app main {
-  flex-grow: 1;
-  padding: 3rem;
-}
-h2 {
-  font-size: 2.4rem;
-  font-weight: bold;
-  margin: 1em 0;
 }
 
+/*-- Main Content Area (all views) -------------*/
+.app main {
+  padding: 0 3rem;
+  flex-grow: 1;
+}
+.app main h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 10rem 0 3rem 0;
+}
+
+
+/*== Individual Views ========================================================*/
+
+/*-- NoteList view -----------------------------*/
 .note-list {
-  display: grid;
-  grid: auto-flow dense / repeat(3, 1fr);
-  justify-content: center;
-  grid-column-gap: 1.6rem;
-  grid-row-gap: 2.4rem;
+  display: flex;
+  flex-flow: row wrap;
 }
 .note {
   background: white;
   border: 1px solid #afafaf;
-  height: 19rem;
-  width: 19rem;
+  height: 30rem;
+  width: 29.5rem;
   overflow-y: hidden;
   padding: 0.5rem 1.5rem;
+  margin-right: 2.4rem;
+  margin-bottom: 3.6rem;
 }
 .note h3 {
   font-size: 2rem;
   font-weight: bold;
   margin: 0.5rem auto;
+}
+
+/*-- Note Creator View -------------------------*/
+.note-creator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.note-creator input {
+  height: 4rem;  
+}
+.note-creator textarea {
+  width: 100%;
+}
+
+/*-- Individual Note View ----------------------*/
+.note-view {
+  
 }

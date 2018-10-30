@@ -6,7 +6,9 @@
 import React from 'react';
 import './App.css';
 import NoteList from './components/note-list.js';
+import NoteCreator from './components/note-creator.js';
 import {Route, Link} from 'react-router-dom';
+import * as actions from './actions';
 
 
 //== Components ================================================================
@@ -17,14 +19,14 @@ export default class App extends React.Component {
         return (
             <div className="app">
                 <Header title="Lambda Notes" />
-                <Route exact path="/" render={props => (
+                <Route exact path="/" render={() => (
                     <Content title="Your Notes">
                         <NoteList />
                     </Content>
                 )} />
-                <Route path="/test" render={props => (
-                    <Content title="Your Notes">
-                        <h1>Hi neighbor!</h1>
+                <Route path="/create" render={() => (
+                    <Content title="Create New Note">
+                        <NoteCreator />
                     </Content>
                 )} />
             </div>
@@ -40,8 +42,12 @@ function Header(props) {
                 {props.title}
             </h1>
             <nav>
-                <Link to="/">View Your Notes</Link>
-                <Link to="/test">+ Create New Note</Link>
+                <Link to="/" onClick={actions.getNotes}>
+                    <span class="button">View Your Notes</span>
+                </Link>
+                <Link to="/create">
+                    <span class="button">+ Create New Note</span>
+                </Link>
             </nav>
         </header>
     );
@@ -52,7 +58,7 @@ function Content(props) {
     return (
         <main className="view">
             <h2 className="view-title">
-                {props.title}
+                {props.title}:
             </h2>
             <div className="view-body">
                 {props.children}

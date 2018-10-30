@@ -31,9 +31,9 @@ class NoteList extends React.Component {
                 {loadNotifier}
                 {this.props.notes.map(note => (
                     <Note
-                        key={note.name}
+                        key={note._id}
                         note={note}
-                        onClick={() => this.props.onFocus(note.id)}
+                        onClick={() => this.props.onFocus(note._id)}
                     />
                 ))}
             </div>
@@ -48,7 +48,6 @@ class NoteList extends React.Component {
 
 //-- Redux Coupling ------------------------------
 function mapStateToProps(state) {
-    console.log(state)
     return {
         notes: state.notes,
         error: state.error,

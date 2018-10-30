@@ -33,7 +33,6 @@ function handleFetching(state, action) {
     };
 }
 function handleNotesList(state, action) {
-    console.log(action)
     return {
         ...state,
         fetching: false,
