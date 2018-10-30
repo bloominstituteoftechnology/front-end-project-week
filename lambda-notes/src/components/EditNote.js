@@ -15,7 +15,7 @@ class EditNote extends Component {
   componentDidMount() {
     const id = localStorage.getItem("noteID");
     console.log(id);
-    axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`).then(
+    axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`).then(
       res =>
         this.setState({
           editedNote: res.data
