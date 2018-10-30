@@ -9,10 +9,12 @@ class Note extends React.Component {
 
   render() {
     return (
-      <div className="note">
-        <h2>{this.props.title}</h2>
-        <hr />
-        <p>{this.props.textBody}</p>
+      <div className="outerNoteContainer">
+        <div className="note">
+          <h2>{this.props.title}</h2>
+          <hr />
+          <p>{this.props.textBody}</p>
+        </div>
       </div>
     );
   }
