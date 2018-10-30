@@ -4,7 +4,7 @@ import All from './components/ViewAll/All'
 import { NavLink, Route } from 'react-router-dom'
 import CreateNew from './components/nav/CreateNew'
 import NoteView  from './components/NoteView/NoteView'
-
+import EditNoteForm from './components/NoteView/edit'
 import './App.css';
 
 
@@ -13,31 +13,51 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
+      expandedNote: {},
     }
   }
 
   componentDidMount () {
-    axios 
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        console.log(response);
-        this.setState({notes: response.data})
-      }) 
-      .catch (error => {
-        console.log('Error', error);
-      })
+    axios
+    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => {
+      console.log(response);
+      this.setState({notes: response.data})
+    }) 
+    .catch (error => {
+      console.log('Error', error);
+    })
   }
 
   addNewNote = data => {
     this.setState({notes: data})
   }
 
-  routeToSingleNote = noteId => {
-    // this.setState({
-    //   singleNoteId: noteId
-    // });
-    localStorage.setItem("noteID", noteId);
-  };
+  deleteNoteButton = (ev,id) => {
+    ev.preventDefault();
+    axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.notes._id}`)
+    .then(res => {
+      this.setState({
+        notes: res.data
+      });
+    })
+    .catch (error => console.log('Error: ', error ))
+  }
+ 
+
+editNote = note => {
+  axios 
+      .put(`https://fe-notes.herokuapp.com/note/edit/${this.event.target.id}`, note)
+      .then(() =>
+        axios
+          .get('https://fe-notes.herokuapp.com/note/get/all')
+          .then(response => this.setState({ notes: response.data }))
+          .catch(error => console.log(error)))
+      .catch(error => console.log(error));
+}
+
+
 
   render() {
     return (
@@ -79,9 +99,22 @@ class App extends Component {
                     <NoteView
                     {...props}
                     note = {this.state.notes} 
+                    updateButton= {this.updateButton}
+                    expandedNote={this.state.expandedNote}
                      />
                 }
                 />
+
+              <Route
+                exact path='/EditNote/:id'
+                render=
+                  {props =>     
+                    (<EditNoteForm 
+                      {...props} 
+                      editNote={this.editNote} 
+                      expandedNote={this.state.expandedNote} />)} />
+
+
         </div>          
       
       </div>

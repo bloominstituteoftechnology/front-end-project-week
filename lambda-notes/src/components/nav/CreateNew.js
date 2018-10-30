@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { NavLink, Route } from 'react-router-dom'
+//import { NavLink } from 'react-router-dom'
 // import NoteView from '../NoteView/NoteView'
 
 class CreateNew extends Component {
@@ -38,14 +38,14 @@ addNew = event => {
             textBody: ''
           });
 
-          
+        // this.props.history.push('/');
       
 
 }
 
 
 handleInputChange = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState ({ [event.target.name]: event.target.value});
      
 };
@@ -70,7 +70,10 @@ render() {
                     value = {this.state.textBody}
                     name = 'textBody'
                 />
-                <button > Save </button>
+                {/* <Redirect to="/"> */}
+                <button > Save</button>
+                {/* </Redirect> */}
+                
                
             </form>
 

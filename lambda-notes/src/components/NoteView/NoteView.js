@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Link, } from 'react-router-dom';
+//import Edit from './edit'
 
 class NoteView extends React.Component {
     constructor(props) {
@@ -37,9 +39,12 @@ class NoteView extends React.Component {
         
         return (
           <div className="notes-container">
-            < div className ='editDelete'>
-                <span>Edit</span>
-                <span>Delete</span>
+            <div className ='editDelete'>
+                 <button onClick= {this.props.deleteNoteButton} id={this.props.note._id}> Delete </button>
+                 <Link to={`/editNote/${this.props.notes.id}`}>edit</Link>
+                 
+                  
+               
             </div>
             <h1>{this.state.note.title}</h1>
             <p>{this.state.note.textBody}</p>
