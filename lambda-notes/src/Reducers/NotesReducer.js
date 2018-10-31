@@ -1,12 +1,15 @@
 import { FETCHING_NOTES, FETCHING_NOTES_SUCCESS, FETCHING_NOTES_FAILURE } from "../Actions";
 import { ADDING_NOTES, ADDING_NOTES_SUCCESS, ADDING_NOTES_FAILURE } from "../Actions";
 import { FETCHING_NOTES_BY_ID, FETCHING_NOTES_BY_ID_SUCCESS, FETCHING_NOTES_BY_ID_FAILURE } from "../Actions";
+import { EDITTING_NOTES,EDITTING_NOTES_SUCCESS,EDITTING_NOTES_FAILURE} from "../Actions";
 const InitialState = {
     notes:[],
     individualNote:null,
     isFetching:false,
     isAdding:false,
     isAdded:false,
+    isEditting:false,
+    isEdited:false,
   }
 
 
@@ -44,7 +47,6 @@ export const NotesReducer = (state=InitialState,action) =>{
             ...state,isFetching:true, isAdded:false,
         }
         case FETCHING_NOTES_BY_ID_SUCCESS:
-        console.log('received payload..',action.payload)
         return {
             ...state, individualNote: action.payload, isFetching: false, isAdded:false,
         }
@@ -52,6 +54,21 @@ export const NotesReducer = (state=InitialState,action) =>{
         return {
             ...state,isFetching:false, isAdded:false,
         }
+
+        case EDITTING_NOTES:
+        return {
+            ...state,isFetching:true, isAdded:false, isEditting:true,isEdited:false
+        }
+        case EDITTING_NOTES_SUCCESS:
+        return {
+            ...state, individualNote: action.payload, isFetching: false, isAdded:false, isEditting:false, isEdited:true
+        }
+        case EDITTING_NOTES_FAILURE:
+        return {
+            ...state,isFetching:false, isAdded:false, isEditting:false,isEdited:false
+        }
+
+
 
         default:
         return state

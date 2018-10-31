@@ -71,20 +71,35 @@ class EditNoteContainer extends React.Component{
         }
     }
     handleEditClick =event =>{
-        this.setState({isEditting:true})
+        this.setState({
+            body:this.props.data.textBody,
+            title:this.props.data.title,
+            id:this.props.data._id,
+            isEditting:true
+        })
     }
     handleTextChange = event =>{
         this.setState({[event.target.id]: event.target.value})
     }
-    componentDidUpdate(){
-
-            this.setState({
-                body:this.props.data.textBody,
-                title:this.props.data.title,
-                id:this.props.data._id,
-            })
-
+    handleSubmit = event =>{
+        event.preventDefault()
+        this.props.editNote(this.state.id,{
+            textBody:this.state.body,
+            title:this.state.title
+        })
     }
+
+    componentDidUpdate(){
+        if(this.props.isEdited){
+            this.setState({
+                body:'',
+                title:'',
+                id:'',
+                isEditting:false
+            },()=>{this.props.history.push('/')});
+        }
+    }
+
     render(){
 
         if(this.props.isFetching){
@@ -147,10 +162,11 @@ class EditNoteContainer extends React.Component{
     }
 }
 const mapStateToProps = state => {
-    console.log('whats on state?',state)    
     return {
         data: state.individualNote,
-        isFetching: state.isFetching
+        isFetching: state.isFetching,
+        isEdited:state.isEdited,
+        isEditting:state.isEditting,
     };
   };
 
