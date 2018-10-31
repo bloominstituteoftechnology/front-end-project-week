@@ -18,8 +18,8 @@ class SideNavigationView extends Component {
     };
   }
 
-  handleChange = e => {
-    this.setState({
+  handleChange = async e => {
+    await this.setState({
       [e.target.name]: e.target.value
     });
     this.props.searchNotes(this.state.searchTerm);
