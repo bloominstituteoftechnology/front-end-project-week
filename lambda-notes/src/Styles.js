@@ -271,7 +271,7 @@ export const LoginButton = styled.button`
 `;
 
 export const LoginContainer = styled.div`
-    background-color: black;
+    background-color: #cccccc;
     width: 40.5%;
     height: 350px;
     color: white;
