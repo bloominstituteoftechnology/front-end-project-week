@@ -77,10 +77,12 @@
 .card {
   border: 1px solid gray;
   width: 200px;
-  height: 250px;
+  height: 260px;
   background: white;
   margin: 10px;
   padding: 10px;
+  overflow: hidden;
+  
   
 }
 

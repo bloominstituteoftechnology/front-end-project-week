@@ -15,6 +15,8 @@ class CreateNew extends Component {
 
 addNew = event => {
     event.preventDefault();
+    this.props.history.push('/');
+    window.location.reload();
 
     const newNote = {
         title: this.state.title,
@@ -42,6 +44,8 @@ addNew = event => {
       
 
 }
+
+
 
 
 handleInputChange = event => {
@@ -72,7 +76,7 @@ render() {
                     name = 'textBody'
                 />
                 {/* <Redirect to="/"> */}
-                <button className = 'links' > Save</button>
+                <button onClick = { this.saveHandler} className = 'links' > Save</button>
                 {/* </Redirect> */}
                 
                
