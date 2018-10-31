@@ -36,10 +36,10 @@ export const notesReducer = (state = initialState, action) => {
         case SUCCESS:
             return {
                 ...state,
-                notes: {
+                notes: [
                     ...state.notes,
                     ...action.payload
-                },
+                ],
                 fetching: false,
                 fetched: true
             }

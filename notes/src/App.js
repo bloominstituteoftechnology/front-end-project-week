@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 
 class App extends Component {
 
+
+
   componentDidMount() {
     this.props.fetchAll();
   }
