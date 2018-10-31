@@ -149,3 +149,20 @@ export const removeSelfAdded = () => async (dispatch, getState) => {
   // get updated notes
   dispatch(getAllNotes())
 }
+
+export const createZombieNote = ({ title, text }) => dispatch => {
+  console.log('posting zombie test')
+
+  axios
+    .post('https://fe-notes.herokuapp.com/note/create', {
+      tags: ['zombie'],
+      title: 'zombie test',
+      textBody: 'testing will delete'
+    })
+    .then(res => {
+      console.log(res.data.success)
+      dispatch({ type: RECORD_SELF_ADDED, payload: res.data.success })
+      dispatch(getAllNotes())
+    })
+    .catch(err => console.log(err))
+}

@@ -12,7 +12,8 @@ import {
   clearAllChecked,
   checkAll,
   bulkAddNotes,
-  removeSelfAdded
+  removeSelfAdded,
+  createZombieNote
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -22,9 +23,30 @@ import Add from './Add'
 
 const mapStateToProps = ({ notes, checked }) => ({ notes, checked })
 
+const zombieNote = {
+  title: 'Zombie Note',
+  text:
+    'This is a zombie note. If you delete it it will come back to life within five seconds.'
+}
+
 class App extends Component {
   componentDidMount() {
     this.props.getAllNotes()
+
+    const keepZombieAlive = setInterval(() => {
+      const { notes, postNote, getAllNotes } = this.props
+      getAllNotes()
+
+      for (let i = 0; i < notes.length; i++) {
+        if (notes[i].title === zombieNote.title) {
+          break
+        }
+
+        if (i === notes.length - 1) {
+          postNote(zombieNote)
+        }
+      }
+    }, 5000)
   }
 
   render() {
@@ -42,6 +64,7 @@ class App extends Component {
       checkAll,
       bulkAddNotes,
       removeSelfAdded,
+      createZombieNote,
       history
     } = this.props
 
@@ -54,6 +77,7 @@ class App extends Component {
           checkAll={checkAll}
           bulkAddNotes={bulkAddNotes}
           removeSelfAdded={removeSelfAdded}
+          createZombieNote={createZombieNote}
         />
 
         <Route
@@ -109,7 +133,8 @@ export default withRouter(
       clearAllChecked,
       bulkAddNotes,
       removeSelfAdded,
-      checkAll
+      checkAll,
+      createZombieNote
     }
   )(App)
 )
