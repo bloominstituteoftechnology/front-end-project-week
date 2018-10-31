@@ -98,7 +98,7 @@
   console.log('Successful login for: ' + response.name);
   document.getElementById('status').innerHTML =
   'Thanks for logging in, ' + response.name + '!';
-  
+
   });
   }
   </script>
@@ -107,9 +107,8 @@
   function checkLoginState() {
   FB.getLoginStatus(function(response) {
   statusChangeCallback(response);
-  });
-  }
   
+    
   <div id="status">
   </div>
 
