@@ -13,7 +13,7 @@ export const StyledCard = styled.div`
 `;
 
 export const StyledH5 = styled.h5`
-  color: rgb(0, 0, 0);
+  color: rgb(74, 73, 74);
   font-size: 1.8rem;
   text-align: left;
   padding-bottom: 9px;
@@ -24,10 +24,11 @@ export const StyledH5 = styled.h5`
 `;
 
 export const CardP = styled(StyledP)`
+  position: relative;
   height: 166px;
   overflow: hidden;
   text-overflow: ellipsis;
-  position: relative;
+  line-height: 2.2rem;
   ::before {
     content: '';
     width: 100%;
