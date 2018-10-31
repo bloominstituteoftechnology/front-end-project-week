@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "flexbox-react": "^4.4.0",
+    "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.0",
+    "reactstrap": "^6.5.0",
     "redux": "^4.0.1"
   },
   "scripts": {
