@@ -64,15 +64,6 @@ class App extends Component {
               <Note {...props} wtf={this.state.test} notes={this.state.notes} />
             )}
           />
-
-          {/* <Route
-            path="/note/get/:id"
-            render={() => (
-              <Note
-                
-              />
-            )}
-          /> */}
         </div>
       </div>
     );
