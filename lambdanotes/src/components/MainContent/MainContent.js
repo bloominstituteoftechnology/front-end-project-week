@@ -9,8 +9,6 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 
 
-
-
 class MainContent extends Component {
     constructor() {
         super();
@@ -23,7 +21,7 @@ class MainContent extends Component {
       console.log('hi');
     
     axios
-      .get('http://localhost:7000/notes')
+      .get('http://localhost:7000/api/notes')
       .then(response => this.setState({notes: response.data}))
       .catch(error => console.log(error));
     }
@@ -35,7 +33,7 @@ class MainContent extends Component {
     getNoteView = () => {
    
     axios
-    .get('http://localhost:7000/notes/:id')
+    .get('http://localhost:7000/api/notes/:id')
     .then(response => this.setState({notes: response.data}))
     .catch(error => console.log(error));
     }
@@ -49,7 +47,7 @@ class MainContent extends Component {
             console.log('hi');
           
           axios
-            .put('http://localhost:7000/notes/:id')
+            .put('http://localhost:7000/api/notes/:id')
             .then(response => this.setState({notes: response.data}))
             .catch(error => console.log(error));
           }
@@ -59,7 +57,7 @@ class MainContent extends Component {
             console.log('hi');
           
           axios
-            .post('http://localhost:7000/notes')
+            .post('http://localhost:7000/api/notes')
             .then(response => this.setState({notes: response.data}))
             .catch(error => console.log(error));
           }
@@ -69,7 +67,7 @@ class MainContent extends Component {
             console.log('hi');
           
           axios
-            .delete('http://localhost:7000/notes/:id')
+            .delete('http://localhost:7000/api/notes/:id')
             .then(response => this.setState({notes: response.data}))
             .catch(error => console.log(error));
           }
