@@ -2,6 +2,8 @@ import React from 'react';
 import axios from "axios";
 import DeleteModal from "./DeleteModal";
 
+import {Route} from "react-router-dom";
+
 class Note extends React.Component {
 constructor(props){
     super(props);
@@ -69,7 +71,9 @@ render(){
  </div>
     <h3 className="full-note-title">{this.state.activeNote.title}</h3>
 <h4 className="full-note-text">{this.state.activeNote.textBody}</h4>
-    <DeleteModal show={this.state.showDeleteModal} toggleModal={this.toggleModal}/>
+<Route render={ownProps=>(<DeleteModal {...ownProps} show={this.state.showDeleteModal} toggleModal={this.toggleModal} deleteNote={this.props.deleteNote}/>
+    )}/>
+    
     </div>
  )
 } else {

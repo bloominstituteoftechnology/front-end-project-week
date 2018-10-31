@@ -45,6 +45,14 @@ changeHandler=(key, value) => {
     })
 }
 
+deleteNote = (event, id) => {
+  event.preventDefault();
+  axios.delete(`http://fe-notes.herokuapp.com/note/delete/${id}`)
+  .then(response=>{console.log(response)})
+  .catch(error=>{console.log("We were unable to delete this note: ", error)})
+  this.getNoteList();
+}
+
 createNote = event=>{
   event.preventDefault();
   let note=this.state.newNote;
@@ -75,7 +83,7 @@ this.setState({
        <Sidebar getNoteList={this.getNoteList}/>
 <Route exact path="/" render={ownProps=>(<NoteList {...ownProps} notes={this.state.notes}/>)} />
 <Route exact path="/create_new_note" render={ownProps=>(<CreateNote {...ownProps} changeHandler={this.changeHandler} createNote={this.createNote} newNote={this.state.newNote}/>)} />
-<Route exact path="/note/:id" render={ownProps=>(<Note {...ownProps} notes={this.state.notes}/>)}/>
+<Route exact path="/note/:id" render={ownProps=>(<Note {...ownProps} deleteNote={this.deleteNote} notes={this.state.notes}/>)}/>
        
       
       </div>
