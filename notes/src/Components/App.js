@@ -34,16 +34,13 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  getNoteById(noteId) {
-    console.log('getNoteById called');
-    axios
-      .get(`${url}/get/${noteId}`)
-      .then(response => console.log(response.data))
-      .catch(error => console.log(error))
-  }
-
   componentDidMount(){
     this.getNotes();
+  }
+
+  renderNote=({ match }) => {
+    const selectedNote = this.state.notes.find(note => note._id === match.params.noteId );
+    return <ReadNote {...selectedNote} />
   }
 
   render() {
@@ -56,10 +53,8 @@ class App extends Component {
             path="/"
             render={() => <ListNotes notes={this.state.notes} />}
           />
-          <Route path='/:noteId' render={({ match }) => (
-            <ReadNote noteId={this.state.notes.find(note => note._id === match.params.noteId )} />
-          )} />
-          {/* <Route path='/AddNote' render={() => <AddNote postNote={this.postNote}} /> */}
+          <Route path='/:noteId' render={this.renderNote} />
+          <Route path='/AddNote' component={AddEditNote} />
         </div>
       </Router>
     );
