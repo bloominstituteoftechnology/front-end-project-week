@@ -24,17 +24,15 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  // deleteNote = id => {
-  //   axios
-  //     // .delete(`http://localhost:3000/smurfs/${id}`)
-  //     .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-  //     .then(response => {
-  //       this.setState({ notes: response._id });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
+  deleteNote = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        const deletedNotes = this.state.notes.filter(note => note._id !== id);
+        this.setState({ notes: deletedNotes });
+      });
+  };
 
   render() {
     return (
@@ -58,12 +56,7 @@ class App extends Component {
           />
           <Route path="/submit" component={NoteForm} />
 
-          <Route
-            path="/note/get/:id"
-            render={props => (
-              <Note {...props} wtf={this.state.test} notes={this.state.notes} />
-            )}
-          />
+          <Route path="/note/get/:id" render={props => <Note {...props} />} />
         </div>
       </div>
     );

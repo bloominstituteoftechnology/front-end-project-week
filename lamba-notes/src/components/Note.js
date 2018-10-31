@@ -20,29 +20,12 @@ class Note extends React.Component {
   render() {
     return (
       <div>
+        <h5>Edit Delete</h5>
         <h1>{this.state.note.title}</h1>
+        <h3>{this.state.note.textBody}</h3>
       </div>
     );
   }
 }
 
 export default Note;
-
-// import React from "react";
-
-// function Note(props) {
-//   console.log(props.notes.id);
-
-//   const id = props.match.params.id;
-//   const singleUser = props.notes.find(user => user.id === id);
-//   console.log("single user:" + singleUser);
-
-//   console.log(id);
-//   return (
-//     <div>
-//     <h1>{}</h1>
-//     </div>
-//   );
-// }
-
-// export default Note;
