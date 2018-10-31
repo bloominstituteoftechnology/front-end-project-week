@@ -4,7 +4,8 @@
     padding: 15px;
     border-radius: 5px;
     margin: 200px auto;
-    background: #c0c0c0;
+    background: #D3D2D3;
+    border: 0.5px solid black;
 }
 
 .login-button {
@@ -12,7 +13,7 @@
     width: 100px;
     border-radius: 5px;
     font-size: 20px;
-    background: #882829;
+    background: #56b9bd;
     color: white;
     margin-top: 15px;
 }
