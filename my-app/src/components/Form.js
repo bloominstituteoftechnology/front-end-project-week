@@ -45,7 +45,7 @@ class Form extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h2>{this.props.note ? "Edit Note:" : "Create New Note:"}</h2>
+        <h3>{this.props.note ? "Edit Note:" : "Create New Note:"}</h3>
         <input
           type="text"
           name="title"

@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const NoteList = props => {
   return (
-    <div className="note-list">
+    <div className="notes-list">
+      <h3>Your Notes:</h3>
       {props.notes.map(note => {
         return (
           <Link to={`/${note._id}`} key={note._id}>

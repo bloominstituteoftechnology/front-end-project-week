@@ -128,6 +128,7 @@ table {
 }
 html {
   font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -145,6 +146,20 @@ a {
 h1 {
   font-size: 3.6rem;
   margin: 5px;
+  font-weight: bold;
+  line-height: 0.9;
+}
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+p {
+  font-size: 1.4rem;
+  font-family: "Raleway", sans-serif;
 }
 
 .container {
@@ -154,7 +169,8 @@ h1 {
 .sidebar {
   background: #d3d2d3;
   min-height: 100vh;
-  width: 200px;
+  max-width: 240px;
+  min-width: 240px;
   padding: 10px;
   border: 1px solid #524e4d;
 }
@@ -162,9 +178,10 @@ h1 {
   background: #24b8bd;
   color: white;
   border: 1px solid #524e4d;
-  padding: 5px;
+  width: 184px;
+  padding: 10px;
   font-size: 1.6rem;
-  margin: 10px 5px;
+  margin: 25px 0 5px 10px;
   cursor: pointer;
   text-align: center;
 }
@@ -176,29 +193,47 @@ h1 {
   align-items: center;
   width: 75%;
 }
-.notes-list .note-preview {
-  border: 1px solid #524e4d;
-  width: 150px;
-  height: 150px;
-  margin: 20px;
-  background: white;
-  overflow: hidden;
-  padding: 5px;
-  text-overflow: ellipsis;
+
+.notes-list h3 {
+  width: 100%;
+  font-weight: bold;
+  margin: 8% 2% 3%;
 }
 
-.notes-list .note-preview h3 {
-  font-size: 2rem;
+.notes-list .note-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #524e4d;
+  width: 185px;
+  height: 185px;
+  margin: 15px 5px;
+  background: white;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.notes-list .note-preview h4 {
+  font-size: 1.8rem;
+  width: 90%;
   border-bottom: 1px solid #524e4d;
-  margin: 5px;
-  padding: 5px;
+  padding: 7px 0;
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .notes-list .note-preview p {
   margin: 5px;
   font-size: 1.2rem;
-  width: 90%;
+  width: 80%;
+  height: 80%;
+  align-self: flex-start;
+  font-weight: bold;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -206,22 +241,33 @@ form {
   display: flex;
   flex-direction: column;
   margin: 20px;
-  width: 70%;
+  width: 100%;
 }
-form h2 {
-  font-size: 2.6rem;
+form h3 {
+  margin: 8% 0 5%;
 }
 form input {
-  padding: 3px;
+  padding: 12px;
   margin: 10px 0;
+  border-radius: 3px;
+  border: 1px solid #a9a9a9;
+  width: 85%;
 }
 form textarea {
-  height: 50%;
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+  border-radius: 3px;
+  width: 140%;
+  height: 43%;
+}
+form .button {
+  margin-top: 10px;
 }
 
 .note-container {
   margin: 20px auto;
-  width: 60%;
+  width: 100%;
+  padding: 5px 25px;
 }
 .note-container .note-buttons {
   display: flex;
@@ -234,24 +280,29 @@ form textarea {
   text-decoration: underline;
   cursor: pointer;
 }
-.note-container h2 {
-  font-size: 2.6rem;
-  font-weight: bold;
-  margin: 20px 0;
+.note-container h3 {
+  margin-bottom: 25px;
 }
 .note-container p {
-  font-size: 1.4rem;
+  font-family: "Raleway", sans-serif;
+  white-space: pre-wrap;
+  font-weight: bold;
+  line-height: 1.7;
 }
 
 .modal {
-  border: 3px dotted gray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #524e4d;
   z-index: 1;
   width: 100vw;
   height: 100vh;
-  padding-top: 30%;
+  padding: 25% 0 0 10;
+  opacity: 0.97;
 }
 .delete-modal {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -259,17 +310,17 @@ form textarea {
   padding: 30px;
   margin: auto;
   background: white;
-  border-radius: 5px;
 }
-.delete-modal h2 {
+.delete-modal h4 {
   width: 100%;
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
 .delete-modal .button {
-  width: 100px;
-  margin: 5px 15px;
+  width: 184px;
+  margin: 15px;
+  padding: 10px;
 }
 .delete-modal .yes-button {
   background: #ca001a;
