@@ -46,6 +46,12 @@ button:hover {
   background: #29aeb3;
 }
 
+/* SEARCH */
+input[type="search"] {
+  position: absolute;
+  top: 30px;
+}
+
 /* LIST VIEW */
 
 .display {
