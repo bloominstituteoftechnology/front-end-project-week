@@ -43,7 +43,9 @@ const NoteContainer = styled.div`
         letter-spacing: 0.2px;
         padding-top: 4px;
         padding-bottom: 12px;
-        overflow: scroll;
+        overflow: hidden;
+        white-space: wrap;
+        overflow-wrap: break-word;
     };
     .edit-icon {
         width: 25px;

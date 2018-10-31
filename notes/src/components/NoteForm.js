@@ -128,6 +128,9 @@ const FormContainer = styled.form`
         border-radius: 8px;
         background: transparent;
         width: 100%;
+        overflow: hidden;
+        white-space: wrap;
+        overflow-wrap: break-word;
         ::placeholder {
             color: #202124;
         }

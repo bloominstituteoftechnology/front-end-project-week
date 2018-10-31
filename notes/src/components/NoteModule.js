@@ -109,7 +109,9 @@ const NoteModuleForm = styled.form`
     }
     textarea {
         resize: none;
-        overflow: visible;
+        overflow: hidden;
+        white-space: wrap;
+        overflow-wrap: break-word;
         height: 125px;
     }
     .title {

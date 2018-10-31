@@ -60,13 +60,13 @@ const NoteContainer = styled.div`
             font-size: 24px;
         }
         .fa-square{
+            color: rgba(0,0,0,0.54);
             background: #F5F5F5;
         }
         .fa-check-square{
             color: #F5B504;
             background: white;
         }
-
     }
     width: 100%;
     border: 1px solid rgb(218, 220, 224);
@@ -94,7 +94,9 @@ const NoteContainer = styled.div`
         letter-spacing: 0.2px;
         padding-top: 4px;
         padding-bottom: 12px;
-        overflow: scroll;
+        overflow: hidden;
+        white-space: wrap;
+        overflow-wrap: break-word;
     };
     .edit-icon {
         width: 24px;
@@ -123,5 +125,12 @@ const NoteContainer = styled.div`
     }
     :hover {
         box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+        span.check {
+            .fa-square{
+                color: rgba(0,0,0,1);
+                background: white;
+            }
+        }
+        }
     };
 `;

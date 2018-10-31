@@ -176,7 +176,7 @@ const Actions = styled.div`
     display: flex;
     align-items: center;
     position: absolute;
-    right: 16px;
+    right: 26px;
     top: 0;
 `;
 
