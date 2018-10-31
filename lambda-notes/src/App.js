@@ -52,12 +52,21 @@ class App extends Component {
         const filteredNotes = this.state.notes.filter(note => note._id !== id);
         this.setState({notes: filteredNotes});
       })
-      // .then(this.props.history.push("/notes"))
+      // .then(this.props.hiupdatedNotess"))
       .catch(err => console.log(err));
   };
 
   updateNote = (id, updated) => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated);
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated)
+      .then(res => {
+        // const updatedNotes = this.state.notes.map(note => note);
+        // console.log(updatedNotes);
+        // this.setState({notes: updatedNotes});
+        axios
+          .get("https://fe-notes.herokuapp.com/note/get/all")
+          .then(res => this.setState({notes: res.data}));
+      });
   };
 
   render() {
