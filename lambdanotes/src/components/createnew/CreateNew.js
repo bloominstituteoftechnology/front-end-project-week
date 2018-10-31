@@ -15,7 +15,7 @@ function CreateNew(props) {
             <label>Note Title</label>
         </div>
             <br/>
-            <input 
+            <input className="title1" 
                 type ="text" 
                 name="name" 
                 defaultValue={props.note.name} 

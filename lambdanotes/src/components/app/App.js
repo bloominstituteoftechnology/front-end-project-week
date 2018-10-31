@@ -71,7 +71,7 @@ class App extends Component {
     // console.log('firing');
     axios
     .post('http://localhost:9000/notes', this.state.note)
-    .then(response => this.setState({note: response.data }))
+    .then(response => this.setState({note: response.data }), window.location ="/notes")
   };
 
     clickID = (event) => {
