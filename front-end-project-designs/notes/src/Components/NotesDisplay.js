@@ -10,7 +10,9 @@ class NotesDisplay extends React.Component {
     constructor() {
         super();
         this.state = {
-            notes : []
+            notes : [],
+            filteredNotes : '',
+            filterparameter : ''
         }
     }//Constructor end..
 
@@ -25,12 +27,35 @@ class NotesDisplay extends React.Component {
             .catch(error => console.log(error))
     }
 
+    inputChange = (event) => {
+        this.setState({ [event.target.name] : event.target.value }, () => {
+            let filteredNotes = this.state.notes.slice();
+            console.log("++++++++ " ,filteredNotes);
+            filteredNotes = filteredNotes.filter(note => 
+                                                note.title.includes(this.state.filterparameter || note.textbody.includes(this.state.filterparameter)) 
+                                                )
+            return this.setState({filteredNotes:filteredNotes}, ()=>   console.log(this.state.filteredNotes))
+        })
+    }
+
     render() {
         console.log("State from API .. ", this.state.notes);
         return (
             <div className = "note-display-maindiv">
-                <div className = "notes-list-heading"> Your Notes : </div>
                 
+                <div className = "notes-list-heading-search"> Your Notes : 
+            
+                <input className = "search-input"
+                      placeholder = "Search..."
+                      type = "text" 
+                      name = "filterparameter"
+                      value = {this.state.value} 
+                      onChange = {this.inputChange}
+                />
+                </div>
+
+                
+
                 <div className = "notes">
                     {this.state.notes.map((note, index) => 
                                                         <SingleNote

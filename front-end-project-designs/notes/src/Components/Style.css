@@ -57,11 +57,13 @@ button {
     width: 80%;
 }
 
-.notes-list-heading{    
+.notes-list-heading-search{    
     margin-left: 7%;
     margin-top : 20px;
     font-weight : bold;
     margin-bottom : 20px;
+    display : flex;
+    justify-content: space-between;
 }
 .notes{
     width: 88%;
@@ -70,6 +72,10 @@ button {
     align-items: center;
     flex-wrap: wrap;
     margin-left: 7%;
+}
+.search-input {
+    background: rgb(236, 223, 191);
+    margin-right : 15px;
 }
 
 /*CreateNewNote.js style */
@@ -197,3 +203,4 @@ textarea {
     justify-content: flex-start;
     margin-top: 40px;
 }
+
