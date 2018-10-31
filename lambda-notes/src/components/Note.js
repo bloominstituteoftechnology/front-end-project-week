@@ -50,7 +50,7 @@ class Note extends React.Component {
   };
 
   deleteModal = () => {
-      console.log('button clicked')
+    console.log("button clicked");
     document.querySelector(".modal").classList.toggle("show");
   };
 

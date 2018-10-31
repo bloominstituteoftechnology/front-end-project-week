@@ -1,6 +1,16 @@
 import React from "react";
 import Axios from "axios";
-import { LeftBar, StyledLink, FormH1, TitleInput, BodyInput, StyledForm, Formbtn, TitleH1, FormContainer } from '../Styles';
+import {
+  LeftBar,
+  StyledLink,
+  FormH1,
+  TitleInput,
+  BodyInput,
+  StyledForm,
+  Formbtn,
+  TitleH1,
+  FormContainer
+} from "../Styles";
 
 class AddNote extends React.Component {
   constructor(props) {
@@ -28,7 +38,7 @@ class AddNote extends React.Component {
     Axios.post("https://fe-notes.herokuapp.com/note/create", newNote)
       .then(response => {
         console.log(response.data);
-        newNote._id = response.data.success
+        newNote._id = response.data.success;
         this.props.addNewNotes(newNote);
       })
       .catch(error => {

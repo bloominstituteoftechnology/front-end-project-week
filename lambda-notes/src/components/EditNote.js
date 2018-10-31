@@ -1,16 +1,16 @@
 import React from "react";
 import axios from "axios";
 import {
-    LeftBar,
-    StyledLink,
-    TitleH1,
-    StyledForm,
-    EditFormH1,
-    TitleInput,
-    BodyInput,
-    Formbtn,
-    FormContainer
-  } from "../Styles";
+  LeftBar,
+  StyledLink,
+  TitleH1,
+  StyledForm,
+  EditFormH1,
+  TitleInput,
+  BodyInput,
+  Formbtn,
+  FormContainer
+} from "../Styles";
 
 class EditNote extends React.Component {
   constructor(props) {

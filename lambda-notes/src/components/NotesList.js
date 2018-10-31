@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LeftBar, StyledLink, ContainCards, NotesH2, CardList, TitleH1 } from "../Styles";
+import {
+  LeftBar,
+  StyledLink,
+  ContainCards,
+  NotesH2,
+  CardList,
+  TitleH1
+} from "../Styles";
 
 import NoteCard from "./NoteCard";
 

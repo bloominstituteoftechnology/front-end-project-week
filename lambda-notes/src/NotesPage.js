@@ -6,7 +6,7 @@ import NotesList from "./components/NotesList";
 import Note from "./components/Note.js";
 import EditNote from "./components/EditNote";
 import AddNote from "./components/AddNote";
-import { Container } from './Styles';
+import { Container } from "./Styles";
 import "./App.css";
 
 class NotesPage extends Component {
@@ -25,7 +25,7 @@ class NotesPage extends Component {
   }
 
   updateNotes = updatedNote => {
-    console.log(updatedNote)
+    console.log(updatedNote);
     const updatedNotes = this.state.notes.map(note => {
       if (note._id === updatedNote._id) {
         return updatedNote;
@@ -36,7 +36,7 @@ class NotesPage extends Component {
   };
 
   updateDeleted = targetID => {
-    console.log(targetID)
+    console.log(targetID);
     const updatedLists = this.state.notes.filter(note => {
       if (note._id === targetID) {
         return false;
@@ -47,15 +47,15 @@ class NotesPage extends Component {
   };
 
   addNewNotes = addedNote => {
-    console.log(addedNote)
-    let newNotesList = [...this.state.notes, addedNote]
+    console.log(addedNote);
+    let newNotesList = [...this.state.notes, addedNote];
     this.setState({ notes: newNotesList });
   };
 
   render() {
     return (
       <Container>
-        <Route path="/login" component={Login}/>
+        <Route path="/login" component={Login} />
         <Route
           exact
           path="/"
