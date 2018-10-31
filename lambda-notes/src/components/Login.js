@@ -6,12 +6,13 @@ import {
   LoginInput,
   LoginButton,
   LoginContainer,
-  LambdaH1
+  LambdaH1,
+  LoginBackground
 } from "../Styles";
 
 const Login = props => {
   return (
-    <div>
+    <LoginBackground>
       <LambdaH1>Lambda Notes</LambdaH1>
       <LoginContainer>
         <LoginH1>Login</LoginH1>
@@ -32,7 +33,7 @@ const Login = props => {
         <LoginHint>Hint: user: shawn</LoginHint>
         <LoginHint>Hint: password: cat</LoginHint>
       </LoginContainer>
-    </div>
+    </LoginBackground>
   );
 };
 

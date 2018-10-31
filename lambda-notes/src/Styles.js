@@ -88,7 +88,7 @@ export const Cards = styled.div`
   margin-bottom: 40px;
 
   &:hover {
-    background: #F2F1F2;
+    background: #f2f1f2;
     border: 2px solid white;
     box-shadow: 5px 10px #888888;
   }
@@ -271,20 +271,20 @@ export const LoginButton = styled.button`
 `;
 
 export const LoginContainer = styled.div`
-  background-color: black;
-  width: 50%;
-  height: 350px;
-  margin: 0 auto;
-  color: white;
+    background-color: black;
+    width: 40.5%;
+    height: 350px;
+    color: white;
 `;
 
 export const LambdaH1 = styled.div`
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  font-size: 50px;
-  margin-top: 140px;
-  margin-bottom: -100px;
+    /* text-align: center; */
+    color: black;
+    font-weight: bold;
+    font-size: 50px;
+    margin-top: 118px;
+    margin-bottom: -100px;
+    margin-left: 10%;
 `;
 
 export const ExportBtn = styled.div`
@@ -317,4 +317,16 @@ export const SignOut = styled.div`
     background: #d3d2d3;
     color: crimson;
   }
+`;
+
+export const LoginBackground = styled.div`
+  background-image: url(https://lambdaschool.com/static/images/herogirl.png);
+  background-image: url(https://lambdaschool.com/static/images/herogirl.png);
+  background-size: auto;
+  background-position: 634px -5%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 1534px;
+  margin-top: -2px;
+  overflow: hidden;
 `;
