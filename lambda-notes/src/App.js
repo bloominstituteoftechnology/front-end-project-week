@@ -42,14 +42,25 @@ class App extends Component {
   finishAdd(note, history) {
     axios
       .post("https://fe-notes.herokuapp.com/note/create", note)
-      .then(response => history.push(`/note/${response.data.success}`))
+      .then(response => {
+        history.push(`/note/${response.data.success}`);
+        this.setState({
+          notes: [...this.state.notes, note]
+        });
+      })
       .catch(error => console.log(error));
   }
 
   deleteNote(id, history) {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(() => history.push("/"))
+      .then(() => {
+        history.push("/");
+        axios
+          .get("https://fe-notes.herokuapp.com/note/get/all")
+          .then(response => this.setState({ notes: response.data }))
+          .catch(error => console.log(error));
+      })
       .catch(error => console.log(error));
   }
 
