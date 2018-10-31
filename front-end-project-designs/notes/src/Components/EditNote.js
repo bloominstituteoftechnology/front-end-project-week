@@ -31,7 +31,7 @@ class EditNote extends React.Component{
         }
         this.setState({title : '', textbody : ''});
         axios
-            .put(`https://fe-notes.herokuapp.com/note/get/put/${this.props.match.params.noteId}`, editedNote)
+            .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params._id}`, editedNote)
             .then(response => this.props.history.push('/notes'))
             .catch(error => console.log(error));
     }

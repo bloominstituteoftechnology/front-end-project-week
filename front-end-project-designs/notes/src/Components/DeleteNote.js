@@ -7,7 +7,7 @@ class DeleteNote extends React.Component{
     
     delete = (id) => {
         axios  
-            .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`) // eroor says this not defined
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`) // eroor says this not defined
             .then(response => console.log(response))
             .catch(err=>console.log(err));
     }
