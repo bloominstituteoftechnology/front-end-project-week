@@ -7,8 +7,6 @@ export default class SingleNote extends Component {
     super(props);
     this.state = {
       note:null,
-      editedNote:'',
-      editedTitle:'',
     };
   }
 
@@ -72,11 +70,8 @@ export default class SingleNote extends Component {
             <p>{textBody}</p>
           </div>
          
-          <EditBar  />
+          <EditBar singleNote = {this.state.note} id = {this.props.match.params.id} />
         </div>
     );
   }
 }
-/*editedNoteTitleHandler={props.route.editedNoteTitleHandler}
-     editedNoteBodyHandler={props.route.editedNoteBodyHandler}
-     editedNoteHandler={props.route.editedNoteBodyHandler}*/
