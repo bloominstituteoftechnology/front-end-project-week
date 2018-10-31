@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAllNotes } from '../actions';
 import Notes from '../components/Notes';
+import StyledSpinner from '../styles/StyledSpinner';
 
 class NotesView extends Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class NotesView extends Component {
       <div className="View NoteView">
         <h2>Your Notes:</h2>
         {isFetching ? (
-          <div>Loading Your Notes...</div>
+          <StyledSpinner />
         ) : (
           <Notes
             FilterResults={this.props.FilterResults}

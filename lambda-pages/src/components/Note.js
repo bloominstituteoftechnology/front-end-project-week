@@ -1,7 +1,13 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const Note = props => {
-  return <div>{props.note.textBody}</div>;
+  const input = props.note.textBody;
+  return (
+    <div>
+      <ReactMarkdown source={input} />
+    </div>
+  );
 };
 
 export default Note;

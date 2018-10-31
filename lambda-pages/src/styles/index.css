@@ -59,14 +59,7 @@ fieldset,
 form,
 label,
 legend,
-table,
 caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
 article,
 aside,
 canvas,
@@ -109,10 +102,10 @@ section {
 body {
   line-height: 1;
 }
-ol,
+/* ol,
 ul {
   list-style: none;
-}
+} */
 blockquote,
 q {
   quotes: none;
@@ -154,7 +147,61 @@ body {
   color: #2f3640;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.6rem;
+}
+
+h3 {
+  font-size: 3.2rem;
+}
+
+h4 {
+  font-size: 2.8rem;
+}
+
+h5 {
+  font-size: 2.4rem;
+}
+
+h6 {
+  font-size: 2rem;
+}
+
+ol,
+ul {
+  padding-left: 2rem;
+}
+
+a,
+a:visited {
+  color: #2f3640;
+  text-decoration: none;
+  transition: all 200ms;
+}
+
+a:hover {
+  color: #00a8ff;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: monospace;
+  display: block;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  background: #2f3640;
+  color: #f5f6fa;
 }

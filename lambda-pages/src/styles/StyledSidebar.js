@@ -53,7 +53,7 @@ const StyledSidebar = styled.div`
     font-size: 5rem;
     font-weight: 400;
     text-transform: uppercase;
-    line-height: 1.2;
+    line-height: 0.8;
     margin-bottom: 2.5rem;
     @media (max-width: 940px) {
       font-size: 4.2rem;

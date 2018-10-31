@@ -36,3 +36,9 @@
     margin-top: 100px;
   }
 }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

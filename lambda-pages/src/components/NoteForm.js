@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../styles/Button';
+var Markdown = require('react-markdown');
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   input,
   textarea {
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 5px;
     padding: 1rem 1.5rem;
     font-size: inherit;
     margin-bottom: 2rem;
+    background: #2f3640;
+    color: #f5f6fa;
+    outline: none;
+    font-family: monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  textarea {
+    resize: none;
   }
   .body-input {
     height: 50vh;
@@ -58,6 +68,7 @@ class NoteForm extends Component {
           name="title"
           value={title}
         />
+
         <textarea
           className="body-input"
           type="text"
@@ -66,6 +77,7 @@ class NoteForm extends Component {
           name="textBody"
           value={textBody}
         />
+
         <Button>Save</Button>
       </StyledForm>
     );
