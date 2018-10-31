@@ -20,10 +20,8 @@ const NotePage = props => {
                         </div>
                     </div>
                 )}
-                    <Link
-                        to={`/note/${note._id}/edit`}
-                        onClick={() => props.editNote(note.title, note.textBody)}>edit</Link>{" "}
-                    <p onClick={props.deleteToggleOn}>delete</p>
+                <Link to={`/note/${note._id}/edit`} onClick={() => props.editNote(note.title, note.textBody)}>edit</Link>{" "}
+                <span onClick={props.deleteToggleOn}>delete</span>
                 <h2>{note.title}</h2>
                 <p>{note.textBody}</p>
             </div>

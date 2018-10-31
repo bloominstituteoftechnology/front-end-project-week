@@ -109,8 +109,8 @@ class App extends Component {
               notes={this.state.notes}
               editNoteInputHandler={this.editNoteInputHandler }
               delete={this.state.delete}
-              toggleOnDeleting={this.toggleOnDeleting}
-              toggleOffDeleting={this.toggleOffDeleting}
+              deleteToggleOn={this.deleteToggleOn}
+              deleteToggleOff={this.deleteToggleOff}
               deleteNote={this.deleteNote}
             />
           )}
