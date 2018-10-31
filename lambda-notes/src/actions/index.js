@@ -48,18 +48,13 @@ export const addNote = note => dispatch => {
     .post(postUrl, note)
     .then(response => {
       console.log('Response from addNote is: ', response);
-      getNotes();
+      dispatch({ type: ADDING_NOTE_SUCCESS });
     })
-    .then(response => {
-      console.log('Response from getNotes is: ', response);
-      dispatch({ type: ADDING_NOTE_SUCCESS, payload: response.data });
-    })
+    .then(getNotes())
     .catch(error => {
-      console.log('Error from addNote is: ', error);
       dispatch({ type: ADDING_NOTE_FAILURE, payload: error });
     });
 };
-
 // export const deleteSmurf = id => dispatch => {
 //   axios
 //     .delete(`${url}/${id}`)
