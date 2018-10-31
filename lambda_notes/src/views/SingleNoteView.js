@@ -5,6 +5,8 @@ import { getNotes, deleteNote } from '../actions';
 import SingleNote from '../components/Notes/SingleNote';
 
 class SingleNoteView extends Component {
+  state = { show: false };
+
   componentDidMount() {
     this.props.getNotes();
   }
@@ -16,6 +18,14 @@ class SingleNoteView extends Component {
     this.props.history.push('/');
   }
 
+  showModal = () => {
+    this.setState({ show: true });
+  }
+
+  hideModal = () => {
+    this.setState({ show: false });
+  }
+
   render() {
     const noteId = this.props.match.params.id;
     const note = this.props.notes.find(note => note._id === noteId);
@@ -25,7 +35,7 @@ class SingleNoteView extends Component {
     }
 
     if (note) {
-      return <SingleNote note={note} deleteNote={this.deleteNote} />
+      return <SingleNote note={note} deleteNote={this.deleteNote} hideModal={this.hideModal} showModal={this.showModal} show={this.state.show} />
     } else {
       return <h2>404: Note Not Found</h2>
     }

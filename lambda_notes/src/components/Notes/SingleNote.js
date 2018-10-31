@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { SingleNoteContainer, SingleNoteActions } from './Styles';
+import DeleteModal from './DeleteModal';
 
 const SingleNote = props => {
   return (
@@ -10,7 +11,14 @@ const SingleNote = props => {
         <Link to={`/edit/${props.note._id}`}>
           <button type="button">Edit</button>
         </Link>
-        <button type="button" onClick={(e) => props.deleteNote(e, props.note._id)}>Delete</button>
+        <DeleteModal
+          show={props.show}
+          hideModal={props.hideModal}
+          deleteNote={props.deleteNote}
+          noteID={props.note._id}
+        />
+
+        <button type="button" onClick={props.showModal}>Delete</button>
       </SingleNoteActions>
 
       <h2>{props.note.title}</h2>

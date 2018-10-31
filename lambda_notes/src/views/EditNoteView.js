@@ -10,6 +10,16 @@ class EditNoteView extends Component {
     textBody: ''
   }
 
+  componentDidMount() {
+    const noteId = this.props.match.params.id;
+    const note = this.props.notes.find(note => note._id === noteId);
+
+    this.setState({
+      title: note.title,
+      textBody: note.textBody
+    })
+  }
+
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   }

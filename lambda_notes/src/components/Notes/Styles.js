@@ -35,6 +35,7 @@ export const NoteCard = styled.div`
 export const TitleHeading = styled.h3`
   font-size: 2rem;
   font-weight: bold;
+  word-break: break-word;
 `;
 
 export const Hr = styled.hr`
@@ -42,9 +43,12 @@ export const Hr = styled.hr`
 `;
 
 export const TextBody = styled.p`
+  height: 200px;
   font-size: 1.4rem;
   line-height: 25px;
   color: #4B4B4A;
+  word-break: break-all;
+  overflow-y: hidden;
 `;
 
 // SingleNote component
@@ -67,6 +71,7 @@ export const SingleNoteContainer = styled.div`
   p {
     font-size: 1.6rem;
     line-height: 25px;
+    word-break: break-all;
   }
 `;
 
