@@ -6,6 +6,7 @@ import CSVLink from './CSVLink'
 const ToolBar = ({ notes, showMenu }) => {
     return (
         <SideBar showMenu={showMenu}>
+            <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />   
             <Section to='/' exact notes="true">
                 <span className="icon" />
                 <span className="title"/>
@@ -42,14 +43,20 @@ const SideBar = styled.div`
     left: 0;
     transform: translateX(0);
     transition: all 450ms ease-in-out;
-    @media(max-width: 850px) {
+    img {display: none};
+    @media(max-width: 890px) {
         box-shadow: 0 0 16px rgba(0,0,0,.28);
         z-index: 4;
+        img{
+            display: flex;
+            padding: 16px 0px 16px 24px;
+            object-fit: none;
+        };
     }
     a {
         text-decoration: none;
     }
-    @media(min-width: 850px) {
+    @media(min-width: 890px) {
         transform: translateX(-280px);
         ${props => props.showMenu === true && css`
             transform: translateX(0px);
