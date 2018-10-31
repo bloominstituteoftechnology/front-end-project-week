@@ -14,7 +14,7 @@ class DeleteNoteModul extends React.Component {
 
     render(){
         return(
-            <div className="modul-bg">
+            <div className={`modul-bg ${this.props.hidden}`}>
                 <div className={`delete-modul ${this.props.hidden}`}>
                     <h3>Are you sure you want to delete this?</h3>
                     <div className="btn-section">

@@ -52,6 +52,7 @@ class ViewNote extends React.Component{
                     <h2>{this.state.note.title}</h2>
                     <p>{this.state.note.textBody}</p>
                 </div>
+                
             </div>
         );
     }

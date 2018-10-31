@@ -115,12 +115,19 @@ code {
   height:500px;
   margin-bottom:20px;
 }
+.modul-bg{
+  background : rgba(128, 128, 128, 0.459);
+  height:100vh;
+  width : 100vw;
+  margin-left : -20%;
+  margin-top:-20px;
+}
 .delete-modul{
   position : fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin  : 15% 10%;
+  margin  : 20% 40%;
   width:500px;
   border : 1px solid black;
   background : white;
