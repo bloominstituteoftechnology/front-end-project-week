@@ -32,7 +32,7 @@ class NoteCard extends React.Component {
 
           <div className='single-note-links'>
             <Link to={`/note/deleteNote/${this.state.note._id}`}>delete</Link>
-            <Link to={`/updateForm/${this.state.note._id}`}>Update</Link>
+            <Link to={`/updateForm/${this.state.note._id}`}>update</Link>
           </div>
 
         <div className='single-note-container-page'>

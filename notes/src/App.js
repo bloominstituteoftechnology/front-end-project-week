@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        notes: []
+        notes: [].reverse()
       }
 
   }
@@ -34,22 +34,26 @@ class App extends Component {
       .post('https://fe-notes.herokuapp.com/note/create', noteData ) 
       .then(res => this.props.history.push(`/note/${res.data.success}`))
       .catch(err => console.log(err))
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(res => this.setState({notes: res.data}))
+      .catch(error => console.log(error))
+
   }
 
  deleteNote = (noteId) => {
    axios
      .delete(`https://fe-notes.herokuapp.com/note/delete/${noteId}`)
-     .then(res => console.log(res))
+     .then(res => this.refreshNotes())
      .catch(err => console.log(err))
-     this.refreshNotes()
  }
 
 
  refreshNotes = () => {
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(res => this.setState({notes: res.data}))
-      .catch(error => console.log(error))
+    console.log('refresh notes called but it is not working')
+    // axios
+    //   .then(res => this.setState({notes: res.data}))
+    //   .catch(error => console.log(error))
  }
 
 

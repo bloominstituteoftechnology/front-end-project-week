@@ -6,13 +6,13 @@ const NavBar = props => {
         <h1>Lambda Notes</h1>
         <Link to={'/'}>
           <div className='nav-button'>
-            View Your Notes
+            <p>View Your Notes</p>
           </div>
         </Link>
 
         <Link to={'/newNote'}>
           <div className="nav-button">
-            + Create New Note
+            <p>+ Create New Note</p>
           </div>
         </Link>
       </div>

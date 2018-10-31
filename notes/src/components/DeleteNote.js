@@ -4,7 +4,6 @@ import React from 'react'
 const DeleteNote = props => {
   return (
       <div >
-        <div className='full-page-modal'>
           <div className='modal-div'>
             <h4> Are you sure you want to delete this? </h4>
 
@@ -17,6 +16,7 @@ const DeleteNote = props => {
               onClick={() => {props.history.goBack()}}
             >No</button>
           </div>
+        <div className='full-page-modal'>
         </div>
       </div>
       );
