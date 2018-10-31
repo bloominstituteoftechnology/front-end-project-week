@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Note from '../Components/ListView/Note';
 import { fetchNotes, fetchNotesById } from '../Actions';
+import './styles.css' 
 
 
 
@@ -19,9 +20,6 @@ const WrapperDiv = styled.div`
 
 
 class NoteContainer extends React.Component{
-    constructor(props){
-        super(props);
-    }
     componentDidMount(){
         this.props.fetchNotes();
     }
@@ -40,7 +38,7 @@ class NoteContainer extends React.Component{
                 <WrapperDiv>
                     {
                         this.props.noteList.map(el =>{
-                            return <NavLink key={el._id} to={`/Note/${el._id}`}><Note data={el} handleClick={this.handleClick} ></Note></NavLink>
+                            return <NavLink className='link' key={el._id} to={`/Note/${el._id}`}><Note data={el} handleClick={this.handleClick} ></Note></NavLink>
                         })
                     }
                 </WrapperDiv>

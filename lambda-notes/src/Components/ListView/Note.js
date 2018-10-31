@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const WrapperDiv = styled.div`
     background-color: white;   
-    border:1px solid blue;
+    border:1px solid #D3D2D3;
     height:196px;
     width:193px;
     margin-right:15px;
@@ -20,13 +20,15 @@ const InnerCard = styled.div`
 const CardHeading = styled.p`
     font-size:1.8rem;
     font-weight:bold;
+    color:black;
     margin-bottom:5px;
 `
 const BorderDiv = styled.div`
-    border-bottom:1px solid black;
+    border-bottom:1px solid #D3D2D3;
 `
 const NoteBody = styled.p`
     font-size:1.6rem;
+    color:black;
     margin-top:10px;
 `
 

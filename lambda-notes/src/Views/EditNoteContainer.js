@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { editNote,deleteNote } from '../Actions';
 import Modal from "../Components/Modal";
+import NavSection from '../Components/NavView/NavSection'
 
 
 const ModalDiv = styled.div`
@@ -20,9 +21,13 @@ const ModalDiv = styled.div`
 const ModalContainer = styled.div`
     background:white;
     border:1px solid #ccc;
-    min-height:400px;
-    min-width:400px;
+    min-height:190px;
+    min-width:530px;
     border-radius:5px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center
 `;
 const Loading = styled.h1`
     font-size:4rem;
@@ -38,15 +43,12 @@ const WrapperDiv = styled.div`
     display:flex;
 `
 
-const NavSection = styled.div`
-    background-color:#D3D2D3;
-    width:25%;
-    border:1px solid #CECECE;
-
-`
 const NoteSection = styled.div`
     width:75%;
     background-color: #F2F1F2;
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:25px;
 `
 const NavButton = styled.div`
     background-color:#2FB8BC;
@@ -58,6 +60,8 @@ const NavButton = styled.div`
     align-items:center;
 `
 const FormSection = styled.div`
+    padding-left:25px;
+    padding-right:25px;
 
 `
 
@@ -67,18 +71,70 @@ const Form = styled.form`
 `
 
 const TitleInput = styled.input`
-    width:300px;
-    height:25px;
+    width:355px;
+    height:43px;
 `
 const TextArea = styled.textarea`
     margin-top:25px;
-    width:300px;
-    height:500px;
+    width:610px;
+    height:350px;
 `
 const SaveButton = styled.button`
-    width:150px;
-    height:25px;
-    margin-top:25px;
+    width:190px;
+    height:40px;
+    margin-top:15px;
+    background-color:#2FB8BC;
+    color:white;
+    font-size:1.7rem;
+    margin-bottom:100px;
+`
+const DeleteButton = styled.button`
+    background-color:#C3001F;
+    width:190px;
+    height:40px;
+    color:white;
+    font-size:1.7rem;
+    margin-right:10px;
+`
+const CancelButton = styled.button`
+    width:190px;
+    height:40px;
+    background-color:#2FB8BC;
+    color:white;
+    font-size:1.7rem; 
+    margin-left:10px;   
+`
+const WarningText = styled.p`
+    font-size:1.6rem;
+`
+const ModalActions = styled.div`
+    display:flex;
+    justify-content:space-around;
+`
+const FormTitle = styled.p`
+    margin-top:50px;
+    font-weight:bold;
+    font-size:2.3rem;
+    margin-bottom:30px;
+`   
+const EditLink = styled.p`
+    text-decoration:underline;
+    font-size:1.6rem;
+    margin-right:10px;
+`
+const DeleteLink = styled.p`
+    text-decoration:underline;
+    font-size:1.6rem;
+    margin-left:10px;
+`
+const NoteTitle = styled.p`
+    margin-top:50px;
+    font-weight:bold;
+    font-size:2.3rem;
+    margin-bottom:30px;    
+`
+const NoteBody = styled.p`
+    font-size:1.6rem;
 `
 class EditNoteContainer extends React.Component{
     constructor(){
@@ -142,8 +198,11 @@ class EditNoteContainer extends React.Component{
                 <Modal>
                 <ModalDiv>
                     <ModalContainer>
-                        <button onClick={this.handleCancel}>Cancel</button>
-                        <button onClick={(event)=>{this.handleModalDelete(event,this.props.id)}}>Delete</button>
+                        <WarningText>Are you sure you want to delete this?</WarningText>
+                        <ModalActions>
+                            <DeleteButton onClick={this.handleCancel}>Delete</DeleteButton>
+                            <CancelButton onClick={(event)=>{this.handleModalDelete(event,this.props.id)}}>No</CancelButton>
+                        </ModalActions>                            
                     </ModalContainer>
                 </ModalDiv>
                 </Modal>          
@@ -160,14 +219,10 @@ class EditNoteContainer extends React.Component{
         if(this.state.isEditting){
             return(
                 <WrapperDiv>
-                    <NavSection>
-                        <p>Lambda Notes</p>
-                        <Link to="/AddNote"><NavButton>
-                            <p>+ Create New Note</p>
-                        </NavButton></Link>
-                    </NavSection>
+                    <NavSection></NavSection>
                     <NoteSection>
                         <FormSection>
+                            <FormTitle>Edit Note:</FormTitle>
                             <Form onSubmit={this.handleSubmit}>  
                                 <TitleInput onChange={this.handleTextChange} id='title' type='text' value={this.state.title}></TitleInput>
                                 <TextArea onChange={this.handleTextChange} id='body' value={this.state.body}></TextArea>
@@ -182,22 +237,16 @@ class EditNoteContainer extends React.Component{
         {
             return(
                 <WrapperDiv>
-    
-                    <NavSection>
-                        <p>Lambda Notes</p>
-                        <Link to="/AddNote"><NavButton>
-                            <p>+ Create New Note</p>
-                        </NavButton></Link>
-                    </NavSection>
+                    <NavSection></NavSection>
                     <NoteSection>
                         <ActionsDiv>
-                            <p onClick={this.handleEditClick}>Edit</p>
-                            <p onClick={this.handleDelete}>Delete</p>
+                            <EditLink onClick={this.handleEditClick}>Edit</EditLink>
+                            <DeleteLink onClick={this.handleDelete}>Delete</DeleteLink>
                         </ActionsDiv>
-                        <p>
+                        <NoteTitle>
                             {this.props.data.title}
-                        </p>
-                        <p>{this.props.data.textBody}</p>
+                        </NoteTitle>
+                        <NoteBody>{this.props.data.textBody}</NoteBody>
                     </NoteSection>
                 </WrapperDiv>
             )
