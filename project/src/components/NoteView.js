@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
@@ -16,6 +15,7 @@ class NoteView extends Component {
     }
 
     render(){
+        
         return(
             
             <div className = "note-page-wrap" >
@@ -35,12 +35,12 @@ class NoteView extends Component {
                         <Link to = {`/${this.props.match.params.id}/edit`}><span>edit</span></Link>
                         <span onClick={this.toggleModal}>delete</span>
                     </div>
-                    <h2 className = "note-title">{this.props.notes[this.props.match.params.id].title}</h2>
-                    <p className = "note-content">{this.props.notes[this.props.match.params.id].note}</p>
+                    <h2 className = "note-title">{this.props.title}</h2>
+                    <p className = "note-content">{this.props.content}</p>
                 </div>
             </div>
         )
     }
 } 
 
-export default withRouter(NoteView)
+export default withRouter(NoteView) 

@@ -15,7 +15,7 @@ class NoteList extends Component {
                         <Link to = {`/${note.id}`} onClick = {()=>this.props.handleId(note.id)}><NoteCard
                             key = {note.id}
                             title = {note.title}
-                            note = {note.note}
+                            content = {note.content}
                             id ={note.id}
                         />
                         </Link>

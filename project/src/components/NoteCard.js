@@ -9,7 +9,7 @@ class NoteCard extends Component {
         return(
             <div className = "note-card">
                 <h2 className = "card-title">{this.props.title}</h2>
-                <NoteText text= {this.props.note} />
+                <NoteText text= {this.props.content} />
             </div>
         )
     }
