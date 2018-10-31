@@ -28,14 +28,14 @@ class CreateNew extends Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-    submit = event => {
+    handleSubmit = event => {
         event.preventDefault();
           const newNote = {
             tags: [],
             title: this.state.title,
             textBody: this.state.content,
           }
-          // if there's a note on state to edit, start PUT
+
           if (this.state.note === null) {
             axios
                 .post('https://fe-notes.herokuapp.com/note/create', newNote)
@@ -47,6 +47,7 @@ class CreateNew extends Component {
                  .then(res => {console.log(res)})
                  .catch(err => {console.log(err)})
           }
+          
           this.setState({
               newNote: true,
               title: '',
@@ -59,7 +60,7 @@ class CreateNew extends Component {
         return (
             <div className='container'>
                 <h1>CREATE NEW PAGE</h1>
-                <form onSubmit={this.submit}>
+                <form onSubmit={this.handleSubmit}>
                     <input 
                         defaultValue={this.state.note !== null
                                         ? this.state.note.title

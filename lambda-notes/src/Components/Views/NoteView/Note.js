@@ -6,7 +6,8 @@ class Note extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            note: []
+            note: [],
+            delete: false
         }
     }
 
@@ -20,13 +21,27 @@ class Note extends Component {
         }
         fetch(id)
     }
+
+    handleDelete = id => {
+        axios
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .then(response => {this.setState({ delete: true })})
+            .catch(error => console.log(error))
+    }
     
     render() {
         return (
             <div className="full-note-container">
                 <div>NOTE PAGE</div>
                 <div className="edit-note">
-                    <p> <span>edit</span> <span>delete</span> </p>
+                    <p> 
+                        <span>edit</span> 
+                        <span
+                            onClick={() => this.handleDelete(this.state.note._id)}
+                        >
+                            delete
+                        </span> 
+                    </p>
                 </div>   
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
