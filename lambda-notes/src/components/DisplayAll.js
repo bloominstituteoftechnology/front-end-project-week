@@ -63,42 +63,43 @@ class DisplayAll extends Component {
             : `You currently have ${notes.length} notes:`}
         </PageHeader>
         <NotesContainer>
-          {sortedNotes.map(({ title, textBody, _id }) => (
-            <Note
-              key={_id}
-              style={{
-                border: selfAdded
-                  ? selfAdded.includes(_id)
-                    ? '1px solid red'
+          {sortedNotes &&
+            sortedNotes.map(({ title, textBody, _id }) => (
+              <Note
+                key={_id}
+                style={{
+                  border: selfAdded
+                    ? selfAdded.includes(_id)
+                      ? '1px solid red'
+                      : '1px solid black'
                     : '1px solid black'
-                  : '1px solid black'
-              }}
-            >
-              <SortToBeginning onClick={() => sortToBeginning(_id)}>
-                Sort to beginning
-              </SortToBeginning>
+                }}
+              >
+                <SortToBeginning onClick={() => sortToBeginning(_id)}>
+                  Sort to beginning
+                </SortToBeginning>
 
-              <HeaderWrapper>
-                <Link to={`/note/${_id}`}>
-                  <NoteTitle>
-                    {title.length > 40
-                      ? `${title.substring(0, 40)} ...`
-                      : title}
-                  </NoteTitle>
-                </Link>
+                <HeaderWrapper>
+                  <Link to={`/note/${_id}`}>
+                    <NoteTitle>
+                      {title.length > 40
+                        ? `${title.substring(0, 40)} ...`
+                        : title}
+                    </NoteTitle>
+                  </Link>
 
-                <CheckboxContainer onChange={handleCheckChange}>
-                  <HiddenDefault type="checkbox" name={_id} />
-                  <StyledCheckbox isChecked={checked.includes(_id)} />
-                </CheckboxContainer>
-              </HeaderWrapper>
-              <NoteBody>
-                {textBody.length > 200
-                  ? `${textBody.substring(0, 200)} ...`
-                  : textBody}
-              </NoteBody>
-            </Note>
-          ))}
+                  <CheckboxContainer onChange={handleCheckChange}>
+                    <HiddenDefault type="checkbox" name={_id} />
+                    <StyledCheckbox isChecked={checked.includes(_id)} />
+                  </CheckboxContainer>
+                </HeaderWrapper>
+                <NoteBody>
+                  {textBody.length > 200
+                    ? `${textBody.substring(0, 200)} ...`
+                    : textBody}
+                </NoteBody>
+              </Note>
+            ))}
         </NotesContainer>
       </Container>
     )

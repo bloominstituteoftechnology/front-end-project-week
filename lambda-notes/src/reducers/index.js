@@ -53,7 +53,12 @@ export default (state = initialState, action) => {
     case SORT_TO_BEGINNING:
       return {
         ...state,
-        sortedOrder: [action.id, ...state.sortedOrder]
+        sortedOrder: [
+          action.id,
+          ...(state.sortedOrder.includes(action.id)
+            ? state.sortedOrder.filter(item => item !== action.id)
+            : state.sortedOrder)
+        ]
       }
     default:
       return state
