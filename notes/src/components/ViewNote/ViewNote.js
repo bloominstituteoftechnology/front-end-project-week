@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Modal from '../Modal/Modal';
+import { NoteView, NoteTitle, NoteLinkContainer, NoteLink, NoteTextContainer, NoteContent } from './styles';
 
 export default class ViewNote extends Component {
   state = {
@@ -52,28 +53,28 @@ export default class ViewNote extends Component {
 
     const { title, textBody } = this.state.note;
     return (
-      <div>
+      <NoteView>
         <Modal
           showModal={this.state.showModal.toString()}
           deleteNote={this.deleteNote}
           displayModal={this.displayModal}
         />
-        <div>
+        <NoteLinkContainer>
           <Link
             to={{
               pathname: `/note/${this.state.note._id}/edit`,
               state: this.state.note,
             }}
           >
-            <span>edit</span>
+            <NoteLink>edit</NoteLink>
           </Link>
-          <span onClick={this.displayModal}>delete</span>
-        </div>
-        <div>
-          <h3>{title}</h3>
-          <p>{textBody}</p>
-        </div>
-      </div>
+          <NoteLink onClick={this.displayModal}>delete</NoteLink>
+        </NoteLinkContainer>
+        <NoteTextContainer>
+          <NoteTitle>{title}</NoteTitle>
+          <NoteContent>{textBody}</NoteContent>
+        </NoteTextContainer>
+      </NoteView>
     );
   }
 }
