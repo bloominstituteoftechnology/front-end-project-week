@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import DeleteNote from './DeleteNote'
 import axios from 'axios';
 class NoteCard extends React.Component {
@@ -19,26 +19,22 @@ class NoteCard extends React.Component {
   }
 
   prepareToDelete = (event, id) => {
-
+    event.preventDefault()
+    this.props.deleteNote(id);
+    this.props.history.push('/');
   }
 
 
   render() {
     return(
         <div className="single-note-and-delete-container">
-        <Route path={'/note/deleteNote/:id'}  render={(props => <DeleteNote {...props} deleteNote={this.props.deleteNote}/>)} />
+        <Route path={'/note/deleteNote/:id'}  render={(props => <DeleteNote {...props} prepareToDelete={this.prepareToDelete}/>)} />
+
           <div className='single-note-links'>
-          <button
-           onClick={event => {this.props.history.push(`/note/deleteNote/${this.state.note._id}`)}}>Delete Note</button>
-          <button
-              value={this.state.note.id}
-              onClick={event => {
-                this.props.history.push(`/updateForm/${this.state.note._id}`)
-                console.log('button event', event.target.value)
-              }} >
-              Update Note
-              </button>
-            </div>
+            <Link to={`/note/deleteNote/${this.state.note._id}`}>delete</Link>
+            <Link to={`/updateForm/${this.state.note._id}`}>Update</Link>
+          </div>
+
         <div className='single-note-container-page'>
           <div className='single-note-container'>
             <h3>{this.state.note.title}</h3>

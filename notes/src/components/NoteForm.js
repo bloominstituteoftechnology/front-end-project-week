@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NoteForm extends Component {
   constructor() {
@@ -6,9 +7,6 @@ class NoteForm extends Component {
       this.state ={
         title: '',
         textBody: '',
-        tags: '',
-        isEditing: false, 
-        editingId: null,
       }
   }
 
@@ -26,8 +24,11 @@ class NoteForm extends Component {
   }
 
   newNote = () => {
-    this.props.createNote(this.state)
-    this.setState({title: '', textBody: '', tags: ''})
+     axios
+      .post('https://fe-notes.herokuapp.com/note/create', this.state ) 
+      .then(res => this.props.history.push(`/note/${res.data.success}`)) 
+      .catch(err => console.log(err))
+      this.setState({title: '', textBody: '', tags: ''})
   }
 
   render() {

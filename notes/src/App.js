@@ -10,8 +10,8 @@ import {Route } from 'react-router-dom'
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
       this.state = {
         notes: []
       }
@@ -32,12 +32,7 @@ class App extends Component {
  createNote = (noteData) => {
      axios
       .post('https://fe-notes.herokuapp.com/note/create', noteData ) 
-      // .then(res => console.log(res))
-      //we need to try to get get an update of the notes here.
-     // .get('https://fe-notes.herokuapp.com/note/get/all')
-      // .then(res => this.setState({notes: res.data}))
       .then(res => this.props.history.push(`/note/${res.data.success}`))
-      // .then(res => this.setState({notes: res.data}) )
       .catch(err => console.log(err))
   }
 
@@ -46,8 +41,16 @@ class App extends Component {
      .delete(`https://fe-notes.herokuapp.com/note/delete/${noteId}`)
      .then(res => console.log(res))
      .catch(err => console.log(err))
+     this.refreshNotes()
  }
 
+
+ refreshNotes = () => {
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(res => this.setState({notes: res.data}))
+      .catch(error => console.log(error))
+ }
 
 
 
@@ -56,9 +59,9 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Route exact path={'/'} render={(props) => <NoteList notes={this.state.notes} />} />
-        <Route path={'/newNote'} render={(props) => <NoteForm {...props}  createNote={this.createNote} updateNote={this.updateNote}/>} />
-        <Route path={'/note/:id'}  render={(props) => <NoteCard {...props} notes={this.state.notes} deleteNote={this.deleteNote} />  }/>
-        <Route path={'/updateForm/:id'} component={UpdateForm} />
+        <Route path={'/newNote'} render={(props) => <NoteForm {...props}  createNote={this.createNote} updateNote={this.updateNote} refreshNotes={this.refreshNotes}/>} />
+        <Route path={'/note/:id'}  render={(props) => <NoteCard {...props} notes={this.state.notes} deleteNote={this.deleteNote} refreshNotes={this.refreshNotes} />  }/>
+        <Route path={'/updateForm/:id'} component={UpdateForm} refreshNotes={this.refreshNotes} />
       </div>
     );
   }

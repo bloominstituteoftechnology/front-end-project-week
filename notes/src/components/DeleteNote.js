@@ -7,9 +7,15 @@ const DeleteNote = props => {
         <div className='full-page-modal'>
           <div className='modal-div'>
             <h4> Are you sure you want to delete this? </h4>
-            <button className='delete-note'>Delete</button>
-            {console.log('from delete:', props)}
-            <button>No</button>
+
+            <button 
+              onClick={(event) => props.prepareToDelete(event, props.match.params.id)}
+              className='delete-note'>Delete</button>
+
+            {console.log('from delete:', props.history.goBack)}
+            <button
+              onClick={() => {props.history.goBack()}}
+            >No</button>
           </div>
         </div>
       </div>
