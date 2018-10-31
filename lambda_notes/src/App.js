@@ -18,7 +18,8 @@ class App extends Component {
       updatedTitle: '',
       updatedText: '',
       deleting: false,
-      filteredNotes: []
+      filteredNotes: [],
+      searchTerm: ''
     }
   }
 
@@ -104,9 +105,9 @@ class App extends Component {
     this.setState();
   };
 
-  searchNoteHandler = event => {
+  searchNoteHandler = () => {
     const notes = this.state.notes.filter(note => {
-      if (note.title.includes(event.target.value)) {
+      if (note.title.includes(this.state.searchTerm)) {
         return note;
       }
     })
@@ -123,6 +124,8 @@ class App extends Component {
           ? this.state.filteredNotes
           : this.state.notes} 
         searchNote={this.searchNoteHandler}
+        searchTerm={this.state.searchTerm}
+        handleInput={this.handleInput}
         />} />
         <Route exact path='/note/:id' render={props => <SingleNote 
         {...props}
