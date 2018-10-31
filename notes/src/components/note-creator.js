@@ -77,13 +77,16 @@ class NoteCreator extends React.Component {
         // Generate note data and clear state
         let noteData = Object.assign({}, this.state);
         this.clearState();
+        // Prep redirect
+        let callback = (noteId) => {
+            this.props.history.push(`/note/${noteId}`);
+        };
         // Send to server as new note
-        this.props.addNote(noteData);   
+        this.props.addNote(noteData, callback);
         /* else{ // Update Notes
             this.props.updateNote(NoteData);
         }*/
-        // Redirect to view updated note
-        this.props.history.push(`/note/${noteData.id}`);
+        
     }
 
     //-- Utility Methods -----------------------------

@@ -17,6 +17,9 @@ export default function ActionBar(props) {
 }
 
 function createLink(text, action) {
-    if(typeof action === 'function'){}
+    if(typeof action === 'function'){
+        console.log('asdf');
+        return <span key={text} onClick={action} children={text} />;
+    }
     return <Link key={text} to={action} children={text} />;
 }

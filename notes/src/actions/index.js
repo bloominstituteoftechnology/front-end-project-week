@@ -52,13 +52,14 @@ export function notReady(error) {
 }
 
 //-- (null) - Agent submits a new note
-export function addNote(noteData) {
+export function addNote(noteData, callback) {
     return function (dispatch) {
         dispatch({type: FETCHING});
         axios.post(server.formatUrl('note/create'), noteData)
         .then(response => {
-            //dispatch(notesResponse(response.data));
-            console.log('got note: ', response)
+            dispatch(getNotes());
+            let newNoteId = response.data.success;
+            callback(newNoteId);
         })
         .catch(error => {
             console.log(error);
@@ -73,15 +74,31 @@ export function addNote(noteData) {
 export function updateNote(noteData) {
     return function (dispatch) {
         dispatch({type: FETCHING});
-        let noteUrl = `note/edit/${noteData.id}`
+        let noteUrl = `note/edit/${noteData.id}`;
         axios.put(server.formatUrl(noteUrl), noteData)
         .then(response => {
             console.log(response)
-            dispatch(getNotes())
+            dispatch(getNotes());
         })
         .catch(error => {
-            console.log(error)
+            console.log(error);
         });
+    }
+}
+
+//-- (null) - Agent requests to delete note
+export function deleteNote(noteId) {
+    return function (dispatch) {
+        dispatch({type: FETCHING});
+        let noteUrl = `note/delete/${noteId}`;
+        axios.delete(server.formatUrl(noteUrl))
+        .then(response => {
+            console.log(response);
+            dispatch(getNotes());
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 }
 

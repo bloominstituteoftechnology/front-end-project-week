@@ -23,7 +23,7 @@ class NoteList extends React.Component {
     render() {
         let loadNotifier;
         let classText = 'note-list';
-        if(this.props.loading){
+        if(!this.props.ready){
             loadNotifier = (<div className="load-notifier">(Loading)</div>);
             classText += ' note-list_loading';
         }
@@ -33,7 +33,7 @@ class NoteList extends React.Component {
                 <h2>Your Notes:</h2>
                 <div className={classText}>
                     {loadNotifier}
-                    {this.props.notes.map(note => (
+                    {!this.props.ready? null : this.props.notes.map(note => (
                         <Note
                             key={note._id}
                             note={note}
@@ -53,6 +53,7 @@ class NoteList extends React.Component {
 //-- Redux Coupling ------------------------------
 function mapStateToProps(state) {
     return {
+        ready: !state.fetching,
         notes: state.notes,
         error: state.error,
     };

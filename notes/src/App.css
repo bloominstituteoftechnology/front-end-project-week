@@ -80,9 +80,12 @@ h1, h2 {
   font-weight: bold;
   color: #4a4a4a;
 }
-.action-bar a {
+.action-bar > * {
   cursor: pointer;
   margin: 0 1rem;
+  text-decoration: underline;
+}
+.action-bar > a:any-link {
   text-decoration: underline;
 }
 
