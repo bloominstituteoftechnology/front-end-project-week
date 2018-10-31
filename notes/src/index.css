@@ -178,12 +178,22 @@ body {
 }
 
 .single-note {
-  margin-left: 28%;
-  margin-top: 40px;
+  margin-left: 31%;
+  margin-top: 100px;
   position: relative;
-  width: 100%;
+  width: 60%;
+  padding-right: 3%;
+  height: 400px;
+  overflow: hidden;
+  background: whitesmoke;
+  text-decoration: none;
+  box-shadow: 10px 10px 30px #222;
+  opacity: 0.9;
 }
 
+.single-note-text {
+  padding-left: 3%;
+}
 .single-note h3 {
   font-size: 1.5rem;
 }
@@ -192,17 +202,31 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  margin-right: 13%;
+  margin-right: 21%;
   border: none;
   background: none;
-  text-decoration: underline;
+  text-decoration: none;
   font-size: 1rem;
-  color: #4a494a;
+  color: #222;
   cursor: pointer;
+  margin-top: 15px;
+  border: 1px solid #222;
+  padding: 10px;
+  width: 100px;
+}
+
+.single-note button:hover {
+  background: #222;
+  color: whitesmoke;
 }
 
 .single-note .delete {
-  margin-right: 3%;
+  margin-right: 2.5%;
+}
+
+.single-note .delete:hover {
+  color: #222;
+  background: #f6ae36;
 }
 
 .log-out {

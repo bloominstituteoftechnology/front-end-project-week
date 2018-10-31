@@ -20,19 +20,23 @@ export default function SingleNote(props) {
 
   return note ? (
     <div className="single-note">
-      <h3>{note.title}</h3>
-      <p>{note.note_text}</p>
-      <button
-        onClick={event => {
-          event.preventDefault();
-          props.goToUpdateForm(event, note.id);
-        }}
-      >
-        Edit
-      </button>
-      <button className="delete" onClick={confirmDelete}>
-        Delete
-      </button>
+      <div className="single-note-text">
+        <h3>{note.title}</h3>
+        <p>{note.note_text}</p>
+      </div>
+      <div classname="note-buttons">
+        <button
+          onClick={event => {
+            event.preventDefault();
+            props.goToUpdateForm(event, note.id);
+          }}
+        >
+          Edit
+        </button>
+        <button className="delete" onClick={confirmDelete}>
+          Delete
+        </button>
+      </div>
     </div>
   ) : (
     <p>Loading...</p>

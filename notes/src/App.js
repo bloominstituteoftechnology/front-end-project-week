@@ -68,7 +68,7 @@ class App extends Component {
                 lock.show();
               }}
             >
-              Log In
+              Log In or Sign Up
             </div>
           </div>
         </div>
