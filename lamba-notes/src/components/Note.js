@@ -21,7 +21,6 @@ class Note extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.props.deleteNote)}
         <button onClick={this.props.deleteNote}>Delete</button>
         <h1>{this.state.note.title}</h1>
         <h3>{this.state.note.textBody}</h3>

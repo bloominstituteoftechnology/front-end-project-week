@@ -26,12 +26,11 @@ class App extends Component {
   deleteNote = (event, id) => {
     event.preventDefault();
     axios
-      .delete(
-        `https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`
-      )
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
-        const deletedNotes = this.state.notes.filter(note => note._id !== id);
-        this.setState({ notes: deletedNotes });
+        const updatedNotes = this.state.notes.filter(note => note._id !== id);
+        this.setState({ notes: updatedNotes });
+        console.log(this);
       });
   };
 
@@ -55,11 +54,12 @@ class App extends Component {
             path="/"
             render={() => <Notes notes={this.state.notes} />}
           />
+
           <Route path="/submit" component={NoteForm} />
 
           <Route
             path="/note/get/:id"
-            render={props => <Note {...props} deleteNote />}
+            render={props => <Note {...props} deleteNote={this.deleteNote} />}
           />
         </div>
       </div>

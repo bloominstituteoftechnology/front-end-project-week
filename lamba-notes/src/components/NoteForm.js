@@ -47,6 +47,7 @@ class NoteForm extends React.Component {
             name="title"
             className="noteForm__input"
           />
+
           <input
             onChange={this.handleInputChange}
             placeholder="Note Content"
