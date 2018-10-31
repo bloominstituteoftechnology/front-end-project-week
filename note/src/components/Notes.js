@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Dragact } from 'dragact';
 
 const NotesContainer = styled.div`
   border: 1px solid black;

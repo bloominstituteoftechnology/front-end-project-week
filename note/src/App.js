@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar'
 import axios from 'axios'
 import Notes from './components/Notes';
-import { Route, withRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NoteForm from './components/NoteForm';
 import NoteView from './components/NoteView';
@@ -56,11 +56,11 @@ class App extends Component {
         />
         <Route 
           path='/edit/:id'
-          render={props => <EditForm {...props} updateNote={this.updateNote} fetchNotes={this.fetchNotes}/>}
+          render={props => <EditForm {...props} updateNote={this.updateNote} fetchNotes={this.fetchNotes} />}
         />
       </HomePage>
     );
   }
 }
 
-export default withRouter(App);
+export default App;
