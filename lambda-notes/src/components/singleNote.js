@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class SingleNote extends Component {
   constructor(props) {
@@ -9,12 +8,15 @@ class SingleNote extends Component {
     this.state = {
       note: null,
       deleting: false,
-      currentId: ''
+      currentId: '',
+      editTitle: '',
+      editTextBody: ''
     }
   };
   componentDidMount(){
     const {id} = this.props.match.params;
     this.singleNote(id);
+    this.setState(() => ({ currentId: id }));
   };
   singleNote(id) {
     Axios
@@ -31,8 +33,13 @@ class SingleNote extends Component {
   toggleDeletingOff=()=> { 
     this.setState(() => ({ deleting: false }));
   };
+  editClick(props) {
+    console.log(props)
+    console.log(this.state.currentId)
+  };
 
   render() {
+    console.log(this.props.title, this.props.body)
     if (this.state.deleting === true){
       return(
         <div className='delete-container'>
@@ -45,6 +52,7 @@ class SingleNote extends Component {
       );
     }    
     if (this.state.note === null) {
+      console.log(this.props)
       return (
           <div className='container'>
               Fetching note...
@@ -54,7 +62,7 @@ class SingleNote extends Component {
     return (
         <div className='single-container'>
           <div className='button-container'> 
-            <Link to='/edit-form'>Edit</Link>
+            <Link onClick={()=>{this.editClick()}} to='/edit-form'>Edit</Link>
             <p onClick={this.toggleDeletingOn}>Delete</p>
           </div> 
           <h2>{this.state.note.title}</h2>
@@ -65,10 +73,6 @@ class SingleNote extends Component {
 } 
 
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes
-  };
-};
 
-export default withRouter(connect(mapStateToProps,{})(SingleNote));
+
+export default SingleNote;
