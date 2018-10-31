@@ -11,7 +11,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      searchTerm:''
     };
   }
 
@@ -20,6 +21,7 @@ class App extends Component {
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
+      this.searchFilter()
   }
 
   addNote = (e, newNote) => {
@@ -60,11 +62,22 @@ class App extends Component {
           }
           return note;
         });
-        console.log("inside edit note");
         this.setState({ notes: updatedArray });
       })
       .catch(err => console.log(err));
   };
+
+  searchFilter = search => {
+    const filteredNotes = this.state.notes.filter(note => note.title.includes(search));
+    return filteredNotes
+  };
+
+
+
+  searchFilterHandler = e => {
+    this.setState({ searchTerm: e.target.value });
+  };
+  
 
   render() {
     return (
@@ -90,10 +103,13 @@ class App extends Component {
             render={props => (
               <NoteList
                 {...props}
-                notes={this.state.notes}
+                notes={this.searchFilter(this.state.searchTerm)}
                 deleteNote={this.deleteNote}
                 addNote={this.addNote}
                 editNote={this.editNote}
+                searchFilterHandler={this.searchFilterHandler}
+                searchTerm={this.state.searchTerm}
+
               />
             )}
           />
