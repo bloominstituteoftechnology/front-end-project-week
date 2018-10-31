@@ -19,7 +19,7 @@ export const getNotes = () => dispatch => {
 }
 
 export const viewNote = event => dispatch => {
-    dispatch({ type: FIND_NOTE, payload: event.currentTarget.id})
+    // dispatch({ type: FIND_NOTE, payload: event.currentTarget.id})
     // dispatch({ type: NOTE_SELECTOR })
     // dispatch({ type: SINGLE_NOTE })
     console.log(event.currentTarget.id)
