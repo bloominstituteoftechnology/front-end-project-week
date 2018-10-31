@@ -33,10 +33,10 @@ class App extends Component {
       .post("https://fe-notes.herokuapp.com/note/create", newNote)
       .then(res => {
         const newN = {
+          tags: newNote.tags,
           _id: res.data.success,
           title: newNote.title,
-          textBody: newNote.textBody,
-          tags: newNote.tags
+          textBody: newNote.textBody
         };
         console.log(newN);
         this.setState({notes: this.state.notes.concat(newN)});
@@ -52,7 +52,9 @@ class App extends Component {
         const filteredNotes = this.state.notes.filter(note => note._id !== id);
         this.setState({notes: filteredNotes});
       })
-      // .then(this.props.hiupdatedNotess"))
+      .then(res => {
+        axios.get("https://fe-notes.herokuapp.com/note/get/all");
+      })
       .catch(err => console.log(err));
   };
 
@@ -60,9 +62,6 @@ class App extends Component {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated)
       .then(res => {
-        // const updatedNotes = this.state.notes.map(note => note);
-        // console.log(updatedNotes);
-        // this.setState({notes: updatedNotes});
         axios
           .get("https://fe-notes.herokuapp.com/note/get/all")
           .then(res => this.setState({notes: res.data}));

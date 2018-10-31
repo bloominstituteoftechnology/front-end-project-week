@@ -1,14 +1,14 @@
 import React from "react";
-// import {Link, Route} from "react-router-dom";
 import "../App.css";
+import Modal from "react-modal";
 
-// import DeleteModal from "./DeleteModal";
+// Modal.setAppElement(".note-view");
 
 class NoteView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDeleting: false,
+      showDelete: false,
       isEditing: false,
       tags: [],
       title: "",
@@ -20,8 +20,8 @@ class NoteView extends React.Component {
     );
   }
 
-  toggleDelete = () => {
-    this.setState({isDeleting: !this.state.isDeleting});
+  toggleShowDelete = () => {
+    this.setState({showDelete: !this.state.showDelete});
   };
 
   toggleEdit = () => {
@@ -48,12 +48,20 @@ class NoteView extends React.Component {
           <div>
             <div className="edit-delete">
               <span onClick={this.toggleEdit}>edit</span>
-              <span onClick={this.toggleDelete}>delete</span>
+              <span onClick={this.toggleShowDelete}>delete</span>
             </div>
 
-            <button onClick={() => this.props.delete(this.note._id)}>
+            <Modal isOpen={this.state.showDelete} portalClassName="modal">
+              <p>Are you sure you want to delete this?</p>
+              <div>
+                <button className="cancel">Delete</button>
+                <button onClick={this.toggleShowDelete}>No</button>
+              </div>
+            </Modal>
+
+            {/* <button onClick={() => this.props.delete(this.note._id)}>
               Delete Test
-            </button>
+            </button> */}
             <h2>{this.note.title}</h2>
             <p>{this.note.textBody}</p>
           </div>

@@ -122,3 +122,29 @@ a {
   text-decoration: underline;
   font-weight: bold;
 }
+
+.ReactModal__Content {
+  width: 60%;
+  max-width: 600px;
+  margin: 100px auto;
+  top: 50%;
+  height: 250px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ReactModal__Content button {
+  max-width: 200px;
+  min-width: 100px;
+  margin: 30px 15px 10px;
+}
+
+.cancel {
+  background: rgb(247, 33, 33);
+}
+
+.cancel:hover {
+  background: rgb(221, 9, 9);
+}
