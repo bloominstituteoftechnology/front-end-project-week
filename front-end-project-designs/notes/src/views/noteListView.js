@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import FullView from "../components/fullView";
 import { fetchNotes, addNote, deleteNote, fecthSingle } from "../actions";
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import SingleView from "../components/singleNoteView";
 import Form from "../components/form";
 class NoteListView extends React.Component {
@@ -51,41 +51,30 @@ class NoteListView extends React.Component {
     //     })
     // );
     return (
-      // <Route
-      //   exact
-      //   path="/"
-      //   render={(props) => {
-      //     <FullView
-      //       notes={this.props.notes}
-      //       handleChanges={this.handleChanges}
-      //       addNewNote={this.addNewNote}
-      //       handleDelete={this.handleDelete}
-      //     />;
-      //   }}
-      // />
-      <div>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <FullView
-              notes={this.props.notes}
-              handleChanges={this.handleChanges}
-              addNewNote={this.addNewNote}
-            />
-          )}
-        />
-        <Route
-          path="notes/:id"
-          render={props => (
-            <SingleView
-              handleDelete={this.handleDelete}
-              handleFetchSingle={this.handleFetchSingle}
-            />
-          )}
-        />
-        <Route path="/form" Component={Form} />
-      </div>
+        <Switch>
+          <Route path="/form" render={()=>(<Form />)} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <FullView
+                notes={this.props.notes}
+                handleChanges={this.handleChanges}
+                addNewNote={this.addNewNote}
+              />
+            )}
+          />
+          <Route
+            path="/notes/:id"
+            render={props => (
+              <SingleView
+                handleDelete={this.handleDelete}
+                handleFetchSingle={this.handleFetchSingle}
+              />
+            )}
+          />
+          
+        </Switch>
     );
   }
 }
@@ -100,7 +89,9 @@ const mapStateToProps = state => {
     singleNote: state.singleNote
   };
 };
-export default withRouter(connect(
-  mapStateToProps,
-  { fetchNotes, addNote, deleteNote, fecthSingle }
-)(NoteListView));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchNotes, addNote, deleteNote, fecthSingle }
+  )(NoteListView)
+);
