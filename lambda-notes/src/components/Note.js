@@ -1,57 +1,13 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import NoteCard from './NoteCard';
+const Note = props => (
+    <div className="note">
+        <h3>
+            <Link to={`/note/${props.note._id}`}>{props.note.title}</Link>
+        </h3>
+        <p>{props.note.textBody}</p>
+    </div>
+);
 
-class Note extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: null
-        };
-    }
-
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        this.fetchNote(id);
-    }
-
-    fetchNote = id => {
-        axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-            .then(response => {
-                this.setState(() => ({ note: response.data }));
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    };
-
-    componentWillReceiveProps(newProps) {
-        if (this.props.match.params._id !== newProps.match.params._id) {
-            this.fetchNote(newProps.match.params._id);
-        }
-    }
-    deleteHandler = (event) => {
-        event.preventDefault();
-        this.setState({
-            note: [this.state.note].filter(note => {
-                return !note._id;
-            })
-        });
-    }
-
-    render() {
-        if (!this.state.note) {
-            return <div>Loading note information...</div>;
-        }
-
-        return (
-            <div className="save-wrapper">
-                <NoteCard note={this.state.note} />
-                <button onClick={this.deleteHandler}>delete</button>
-            </div>
-        );
-    }
-}
 export default Note;
