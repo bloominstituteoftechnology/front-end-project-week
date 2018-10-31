@@ -31,8 +31,10 @@ class ViewNote extends React.Component{
     toggleHidden=()=>{
         if(this.state.hidden === ''){
             this.setState({hidden : 'hidden'})
+            this.props.refresh();
         }else{
             this.setState({hidden : ''});
+            this.props.refresh();
         }
     }
 
@@ -43,6 +45,7 @@ class ViewNote extends React.Component{
                 toggleHidden={this.toggleHidden} 
                 hidden={this.state.hidden} 
                 ID={this.props.match.params.id}
+                refresh={this.props.refresh}
                 />
 
                 <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>

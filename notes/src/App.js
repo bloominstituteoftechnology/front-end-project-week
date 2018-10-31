@@ -23,6 +23,11 @@ class App extends Component {
       }
     }
   }
+  refreshState(){
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => this.setState({notes : response.data}))
+    .catch(error => console.log("Refresh State ::: Axios says :", error))
+  }
   //        Functions for other components
   createNewSubmit = e =>{
     e.preventDefault();
@@ -32,8 +37,8 @@ class App extends Component {
         title : '',
         textBody : '',
       }})
-      console.log("New Note has been added", response)
-      this.forceUpdate();
+      alert("New Note has been added", response)
+      this.refreshState();
     })
     .catch(error => alert("ERROR :::", error));
   }
@@ -50,6 +55,7 @@ class App extends Component {
       .catch(error => alert("CDM ::: Axios says :", error))
   }
 
+
   render() {
     return (
       <div className="App">
@@ -61,7 +67,7 @@ class App extends Component {
         onChangeHandler ={this.onChangeHandler}
         />} />
         {/* View Card Route */}
-        <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} /> } />
+        <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
         {/* Edit Card Route */}
         <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} /> } />
       </div>
