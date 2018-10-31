@@ -13,18 +13,19 @@
 .NoteCard {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .NoteCard h1 {
   font-size: 2.4rem;
   border-bottom: 1px solid black;
   text-align: center;
-  width: 95%;
-  margin: 10px;
+  width: 100%;
+  margin: 10px 0 10px 0;
 }
 
 .NoteCard p {
   font-size: 1.6rem;
-  margin: 10px;
+  margin: 10px 0 10px 0;
 }

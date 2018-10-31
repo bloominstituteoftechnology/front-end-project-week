@@ -4,6 +4,13 @@ import './Sidebar.css';
 
 export const Sidebar = props => (
   <div className="Sidebar">
-    hey I'm the sidebar
+    <h1>hey I'm the sidebar</h1>
+    <Link to='/'>
+      <button>View All Notes</button>
+    </Link>
+    <Link to='/create'>
+      <button>Create Note</button>
+    </Link>
+
   </div>
 )

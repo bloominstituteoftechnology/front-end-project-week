@@ -1,3 +1,8 @@
+.NoteView {
+  margin: 10px;
+  padding: 10px;
+}
+
 
 .NoteView .controls {
   display: flex;
@@ -8,3 +13,14 @@
 .NoteView span {
   margin-right: 1rem;
 }
+
+.NoteView h1 {
+  font-size: 3.6rem;
+  text-align: 'left';
+  margin-left: '2%';
+}
+
+.NoteView p {
+  font-size: 2.4rem;
+}
+

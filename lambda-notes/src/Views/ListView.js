@@ -15,13 +15,9 @@ export const ListView = props => {
         'flexWrap': 'wrap',
       }}>
         {props.notes.map((note, i) => (
-          <Link 
-            key={note._id} 
-            to={{
-              pathname: `/note/${note._id}`,
-              state: {id: note._id}
-            }}
-          >
+          <Link
+            key={note._id}
+            to={ `/note/${note._id}` }>
             <NoteCard {...note} />
           </Link>
         ))}

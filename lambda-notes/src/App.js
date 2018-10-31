@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import { ListView, NoteView, Sidebar } from './Views';
+import { ListView, NoteView, Sidebar, CreateNoteView } from './Views';
 
 
 const URL = 'https://fe-notes.herokuapp.com'
@@ -59,32 +59,16 @@ class App extends Component {
     )
   }
   render() {
-    console.log(this.findNote('5bd89d8bdba2c40015df0b44'))
+    return (
 
-    // this.setState({
-    //   currentPath: document.location.pathname
-    // })
-    /*const ROOT = '/',
-      NOTE = '/note/'
+      <div className="App">
+        <Sidebar />
 
-    switch (document.location.pathname) {
-      case ROOT:
-        return (
+
+        <div className="page-wrapper">
+
           <Route
-
-            route='/'
-            render={(props) => (
-              <ListView
-                {...props}
-                setNote={this.setNote}
-                notes={this.state.notes} />
-            )}
-          />
-        )
-      case NOTE:
-        return (
-          <Route
-            route={'/note/:id'}
+            path={'/note/:id'}
             render={(props) => {
 
               console.log(props)
@@ -98,41 +82,23 @@ class App extends Component {
               )
             }}
           />
-        )
-      default:
-    }*/
-    return (
-
-      <div className="App">
-        <Sidebar />
-        <Route
-
-          route='/'
-          render={(props) => (
-            <ListView
-              {...props}
-              setNote={this.setNote}
-              notes={this.state.notes} />
-          )}
-        />
-
-
-        <Route
-          exact
-          route={'/note/:id'}
-          render={(props) => {
-
-            console.log(props)
-            return (
-              <NoteView
+          <Route 
+            path='/create'
+            component={CreateNoteView}/>
+          <Route
+            exact
+            path='/'
+            render={(props) => (
+              <ListView
                 {...props}
-                notes={this.state.notes}
-                match={props.match}
-                findNote={this.findNote}
-              />
-            )
-          }}
-        />
+                setNote={this.setNote}
+                notes={this.state.notes} />
+            )}
+          />
+
+
+        </div>
+
       </div>
     );
   }

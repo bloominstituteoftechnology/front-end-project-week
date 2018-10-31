@@ -1,0 +1,15 @@
+.Sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20%;
+  border-right: 1px solid black;
+  align-items: center;
+  height: 100%;
+}
+
+.page-wrapper {
+  margin-left: 20%;
+  position: relative;
+}

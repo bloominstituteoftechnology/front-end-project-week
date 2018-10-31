@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './NoteView.css'
 
 export const NoteView = props => {
   // const { id } = props;
   console.log('passed props', props);
   // const urlParam = props.location.state.id;
-  const id = props.location.pathname.slice('/note/'.length)
+  const id = props.match.params.id
   const note = props.notes.find(note => note._id == id); 
   console.log('note', note)
   if (!note) {
@@ -16,16 +17,17 @@ export const NoteView = props => {
     return (
     <div className="NoteView">
       <div className="controls">
+      <Link to={`/edit/${id}`}>
         <span className="edit">edit</span>
-        <span className="delete">delete</span>
+      </Link>
+      <span className="delete">delete</span>
       </div>
-      <h2 style={{
-        'textAlign': 'left',
-        'marginLeft': '2%'
-      }}>{note.title}</h2>
-      <div className="note-text-body">
+      <h1>
+        {note.title}
+      </h1>
+      <p>
         {note.textBody}
-      </div>
+      </p>
     </div>
     )
   }
