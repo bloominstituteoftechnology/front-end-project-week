@@ -17,7 +17,7 @@ export const SORT_CHARACTERS = "SORT_CHARACTERS";
 export const SORT_CONTENT = "SORT_CONTENT";
 export const NO_SORT = "NO_SORT";
 export const fetchNotes = () => {
-  const noteData = axios.get(`http://localhost:5500/api/notes`);
+  const noteData = axios.get(`https://csilla-notes.herokuapp.com/api/notes`);
   return function(dispatch) {
     noteData
       .then(({ data }) => {
@@ -29,7 +29,7 @@ export const fetchNotes = () => {
   };
 };
 export const addNote = newNote => {
-  const noteData = axios.post(`http://localhost:5500/api/notes/`, newNote);
+  const noteData = axios.post(`https://csilla-notes.herokuapp.com/api/notes/`, newNote);
   return function(dispatch) {
     dispatch({ type: ADDING_NOTE });
     noteData
@@ -46,7 +46,7 @@ export const addNote = newNote => {
 };
 
 export const fetchSingleNote = id => {
-  const noteData = axios.get(`http://localhost:5500/api/notes/${id}`);
+  const noteData = axios.get(`https://csilla-notes.herokuapp.com/api/notes/${id}`);
   return function(dispatch) {
     dispatch({ type: FETCHING_SINGLE });
     noteData
@@ -61,7 +61,7 @@ export const fetchSingleNote = id => {
 
 export const updateNote = (noteID, updatedNote) => {
   const noteData = axios.put(
-    `http://localhost:5500/api/notes/${noteID}`,
+    `https://csilla-notes.herokuapp.com/api/notes/${noteID}`,
     updatedNote
   );
 
@@ -80,7 +80,7 @@ export const updateNote = (noteID, updatedNote) => {
   };
 };
 export const deleteNote = id => {
-  const noteData = axios.delete(`http://localhost:5500/api/notes/${id}`);
+  const noteData = axios.delete(`https://csilla-notes.herokuapp.com/api/notes/${id}`);
   return function(dispatch) {
     dispatch({ type: DELETING }); 
     noteData
