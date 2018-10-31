@@ -4,21 +4,21 @@ import './Notes.css';
 
 
 
-const NoteCard = props=>{
+const NoteCard = props => {
 
-    
 
-        return(
-            <div className='note-card'>
-                <div className='notes'>
+
+    return (
+        <div className='note-card'>
+            <div className='notes'>
                 <h2>{props.note.title}</h2>
                 <p>{props.note.textBody}</p>
-               
-                </div>
-                
+
             </div>
-        )
-    }
+
+        </div>
+    )
+}
 
 
 export default NoteCard;

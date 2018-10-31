@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-// import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import React from 'react';
+
 import './NoteEdit.css';
 
 
 const EditNote = props => {
 
+
     return (
-        
+
         <form onSubmit={props.saveEdits} className='edit-note'>
             <h1>Edit Note:</h1>
             <input

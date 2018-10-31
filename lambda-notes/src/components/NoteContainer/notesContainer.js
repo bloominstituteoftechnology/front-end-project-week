@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NotesList from './notesList';
 import AddNote from './addNote';
-import SideBar from '../sidebar/sidebar';
 import { Route } from 'react-router-dom';
 import Note from './note';
 import './Notes.css';
@@ -12,7 +11,7 @@ class NotesContainer extends Component {
         super(props);
         this.state = {
             notes: [],
-           
+
         };
     }
 
@@ -29,17 +28,17 @@ class NotesContainer extends Component {
             })
     };
 
-   
+
     changeState = () => {
         axios.get("https://fe-notes.herokuapp.com/note/get/all").then(res =>
-      this.setState({
-        notes: res.data
-      })
-    );
-      }
+            this.setState({
+                notes: res.data
+            })
+        );
+    }
 
-    editNoteMaybe = data=>{
-        this.setState({notes:data})
+    editNoteMaybe = data => {
+        this.setState({ notes: data })
     }
 
     render() {
@@ -47,18 +46,18 @@ class NotesContainer extends Component {
         return (
             <div className='all-notes'>
                 <div>
-                    <Route exact path='/' render={(Ownprops)=>{
-                        return(<NotesList {...Ownprops} notes={this.state.notes} />)
-                    }}/>
-                    
-                    <Route path ='/add-note' render={(Ownprops) =>{
-                        return(<AddNote {...Ownprops} changeState={this.changeState} />)
-                    }}/>
-                    <Route exact path = '/notes/:id' render={(props) =>{
+                    <Route exact path='/' render={(Ownprops) => {
+                        return (<NotesList {...Ownprops} notes={this.state.notes} />)
+                    }} />
+
+                    <Route path='/add-note' render={(Ownprops) => {
+                        return (<AddNote {...Ownprops} changeState={this.changeState} />)
+                    }} />
+                    <Route exact path='/notes/:id' render={(props) => {
                         console.log('OWNPROPs', props);
-                        return(<Note {...props} changeState={this.changeState} editNoteMaybe= {this.editNoteMaybe}/>)
-                    }}/>
-                    
+                        return (<Note {...props} changeState={this.changeState} editNoteMaybe={this.editNoteMaybe} />)
+                    }} />
+
                 </div>
             </div>
 

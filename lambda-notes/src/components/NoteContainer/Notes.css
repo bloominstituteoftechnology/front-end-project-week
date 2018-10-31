@@ -7,8 +7,6 @@
     width:95%
 }
 
-
-
 .notes-header{
     font-size: 2.3rem;
     font-weight: bold;
@@ -42,18 +40,17 @@
 
 .note-card p{
     font-size: 1.8rem;
-    margin: 10px 0;
+    margin: 15px 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     width: 100%;
-    line-height: 20px;
+    line-height: 25px;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 4;
     /* autoprefixer: off */
     -webkit-box-orient: vertical;
     /* autoprefixer: on */
-    
 }
 
 .note-links{
@@ -68,5 +65,4 @@
     color: black;
     text-overflow: ellipsis;
     overflow: hidden;
-
 }

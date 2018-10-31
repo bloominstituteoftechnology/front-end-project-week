@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
 import Modal from 'react-responsive-modal';
 import './deleteModal.css';
 

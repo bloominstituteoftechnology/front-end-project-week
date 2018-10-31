@@ -63,7 +63,6 @@ class Note extends Component {
             title: this.state.editTitle,
             textBody: this.state.editTextBody
         }
-
         axios
             .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, saveEditNotes)
             .then(response => {
@@ -75,14 +74,11 @@ class Note extends Component {
             .then(response => {
                 this.props.changeState(this.state.note);
             })
-
             .catch(err =>
                 console.log(err));
-
         this.setState({
             editTitle: '',
             editTextBody: '',
-
         })
         this.openEditForm();
     }
@@ -96,7 +92,7 @@ class Note extends Component {
         if (!this.state.note) {
             return <div className='loading-note'> Loading Note...</div>
         }
-        console.log('NOTES maybe', this.state);
+        console.log('NOTES maybe', this.state.note);
         return (
             <div className='single-note-view'>
                 <div className='edit-delete'>
