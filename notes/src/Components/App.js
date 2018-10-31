@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-
-import { getNotes, postNote } from "../actions";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import axios from 'axios';
 
 import ListNotes from "../views/ListNotes";
 // import AddNote from './Views/AddNote';
@@ -14,7 +12,27 @@ import Sidebar from "./Sidebar";
 import "./App.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: []
+    };
+  }
+
+  getNotes() {
+    console.log('getNotes called');
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error))
+  }
+
+  componentDidMount(){
+    this.getNotes();
+  }
+
   render() {
+    console.log(this.state.notes);
     return (
       <Router>
         <div className="App">
@@ -31,17 +49,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log("the state", state);
-  return {
-    notes: state.notes,
-    fetchingNotes: state.fetchingNotes
-  };
-};
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { getNotes, postNote }
-  )(App)
-);
+export default App;

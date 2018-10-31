@@ -10,6 +10,7 @@ class ListNotes extends Component {
       <div className="view note-list">
         {this.props.notes.map(note => (
           <Note
+            key={note._id}
             id={note._id}
             title={note.title}
             content={note.textBody}
@@ -19,9 +20,5 @@ class ListNotes extends Component {
     );
   }
 }
-
-Note.defaultProps = {
-  notes: [],
-};
 
 export default ListNotes;
