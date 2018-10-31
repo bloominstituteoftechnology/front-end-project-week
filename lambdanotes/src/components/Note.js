@@ -11,7 +11,7 @@ function Note(props) {
   console.log(note);
   function handleDelete() {
     props.handleDeleteNote(note._id);
-    props.history.push(`/note`);
+    props.history.push(`/`);
   }
 
   return (

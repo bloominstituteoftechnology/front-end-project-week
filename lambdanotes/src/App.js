@@ -65,7 +65,10 @@ class App extends React.Component {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${noteId}`)
       .then(response => {
-        this.fetchNotes();
+        const filteredNotes = this.state.notesData.filter(
+          note => note._id !== noteId
+        );
+        this.setState({ notesData: filteredNotes });
       })
       .catch(err => {
         console.log(err);
@@ -82,12 +85,21 @@ class App extends React.Component {
 
   handleUpdateNote = noteId => {
     axios
-      .put(`https://fe-notes.herokuapp.com/edit/${noteId}`, this.state.note)
+      .put(
+        `https://fe-notes.herokuapp.com/note/edit/${noteId}`,
+        this.state.note
+      )
       .then(response => {
-        this.state.note._id = response.data;
-
+        console.log('response', response);
+        const updatedNotes = this.state.notesData.map(note => {
+          if (note._id === response.data._id) {
+            return response.data;
+          } else {
+            return note;
+          }
+        });
         this.setState({
-          notesData: [...this.state.notesData, this.state.note._id],
+          notesData: updatedNotes,
           isUpdating: false
         });
       });
