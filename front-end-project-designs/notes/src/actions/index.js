@@ -5,6 +5,7 @@ export const DELETE_NOTE = "DELETE_NOTE";
 export const FETCHING_NOTES = "FETCHING_NOTE";
 export const NOTES_FETCHED = "NOTE_FETCHED";
 export const NOTES_FETCH_FAIL = "NOTE_FETCH_FAIL";
+export const FETCH_SINGLE="FETCH_SINGLE";
 
 
 export const fetchNotes = () => dispatch => {
@@ -33,5 +34,12 @@ export const deleteNote=(id)=>dispatch=>{
     .then(response => {
       dispatch({ type: DELETE_NOTE });
       
+    })
+}
+export const fecthSingle=(id)=>dispatch=>{
+  axios
+    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    .then(response=>{
+      dispatch({type: FETCH_SINGLE, payload: response.data})
     })
 }
