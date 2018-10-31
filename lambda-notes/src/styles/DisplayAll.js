@@ -103,3 +103,16 @@ export const StyledCheckbox = styled.span`
       }
     `};
 `
+
+export const SortToBeginning = styled.button`
+  background: #28ff3e;
+  border: 1px dashed transparent;
+  border-radius: 5px;
+  padding: 3px 10px;
+  margin: 3px;
+  font-size: 1.6rem;
+
+  &:hover {
+    background: #005608;
+  }
+`

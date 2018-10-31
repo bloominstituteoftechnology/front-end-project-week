@@ -13,7 +13,8 @@ import {
   checkAll,
   bulkAddNotes,
   removeSelfAdded,
-  setSearchParam
+  setSearchParam,
+  sortToBeginning
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -21,11 +22,12 @@ import DisplayAll from './DisplayAll'
 import DisplayOne from './DisplayOne'
 import Add from './Add'
 
-const mapStateToProps = ({ notes, checked, searchParam, selfAdded }) => ({
+const mapStateToProps = ({ notes, checked, searchParam, selfAdded, sortedOrder }) => ({
   notes,
   checked,
   searchParam,
-  selfAdded
+  selfAdded,
+  sortedOrder
 })
 
 const zombieNote = {
@@ -72,6 +74,8 @@ class App extends Component {
       setSearchParam,
       searchParam,
       selfAdded,
+      sortedOrder,
+      sortToBeginning,
       history
     } = this.props
 
@@ -101,6 +105,8 @@ class App extends Component {
               removeChecked={removeChecked}
               searchParam={searchParam}
               selfAdded={selfAdded}
+              sortedOrder={sortedOrder}
+              sortToBeginning={sortToBeginning}
             />
           )}
         />
@@ -144,7 +150,8 @@ export default withRouter(
       bulkAddNotes,
       removeSelfAdded,
       checkAll,
-      setSearchParam
+      setSearchParam,
+      sortToBeginning
     }
   )(App)
 )

@@ -8,6 +8,7 @@ export const CHECK_ALL = 'CHECK_ALL'
 export const RECORD_SELF_ADDED = 'RECORD_SELF_ADDED'
 export const CLEAR_SELF_ADDED = 'CLEAR_SELF_ADDED'
 export const SET_SEARCH_PARAM = 'SET_SEARCH_PARAM'
+export const SORT_TO_BEGINNING = 'SORT_TO_BEGINNING'
 
 export const getAllNotes = () => dispatch => {
   axios
@@ -155,4 +156,11 @@ export const removeSelfAdded = () => async (dispatch, getState) => {
 export const setSearchParam = param => ({
   type: SET_SEARCH_PARAM,
   param
+})
+
+// HANDLE SORTING
+
+export const sortToBeginning = id => ({
+  type: SORT_TO_BEGINNING,
+  id
 })

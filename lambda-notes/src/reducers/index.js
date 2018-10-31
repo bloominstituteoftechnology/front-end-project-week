@@ -5,14 +5,16 @@ import {
   CLEAR_ALL_CHECKED,
   CHECK_ALL,
   RECORD_SELF_ADDED,
-  SET_SEARCH_PARAM
+  SET_SEARCH_PARAM,
+  SORT_TO_BEGINNING
 } from '../actions'
 
 const initialState = {
   notes: [],
   checked: [],
   selfAdded: [],
-  searchParam: ''
+  searchParam: '',
+  sortedOrder: []
 }
 
 export default (state = initialState, action) => {
@@ -47,6 +49,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         searchParam: action.param
+      }
+    case SORT_TO_BEGINNING:
+      return {
+        ...state,
+        sortedOrder: [action.id, ...state.sortedOrder]
       }
     default:
       return state

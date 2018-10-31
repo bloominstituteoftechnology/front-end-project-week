@@ -10,7 +10,8 @@ import {
   HeaderWrapper,
   CheckboxContainer,
   HiddenDefault,
-  StyledCheckbox
+  StyledCheckbox,
+  SortToBeginning
 } from '../styles/DisplayAll'
 
 class DisplayAll extends Component {
@@ -26,11 +27,31 @@ class DisplayAll extends Component {
   }
 
   render() {
-    const { notes, checked, searchParam, selfAdded } = this.props
+    const {
+      notes,
+      checked,
+      searchParam,
+      selfAdded,
+      sortedOrder,
+      sortToBeginning
+    } = this.props
     const { handleCheckChange } = this
+
     const filteredNotes = notes.filter(({ title }) =>
       title.toLowerCase().match(searchParam)
     )
+
+    const sortedNotes = []
+
+    sortedOrder.forEach(sortedId =>
+      sortedNotes.push(filteredNotes.find(({ _id }) => _id === sortedId))
+    )
+
+    filteredNotes.forEach(note => {
+      if (!sortedOrder.includes(note._id)) {
+        sortedNotes.push(note)
+      }
+    })
 
     return (
       <Container>
@@ -42,7 +63,7 @@ class DisplayAll extends Component {
             : `You currently have ${notes.length} notes:`}
         </PageHeader>
         <NotesContainer>
-          {filteredNotes.map(({ title, textBody, _id }) => (
+          {sortedNotes.map(({ title, textBody, _id }) => (
             <Note
               key={_id}
               style={{
@@ -53,6 +74,10 @@ class DisplayAll extends Component {
                   : '1px solid black'
               }}
             >
+              <SortToBeginning onClick={() => sortToBeginning(_id)}>
+                Sort to beginning
+              </SortToBeginning>
+
               <HeaderWrapper>
                 <Link to={`/note/${_id}`}>
                   <NoteTitle>
