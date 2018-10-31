@@ -17,9 +17,24 @@ export const EDITTING_NOTES = 'EDITTING_NOTES';
 export const EDITTING_NOTES_SUCCESS = 'EDITTING_NOTES_SUCCESS';
 export const EDITTING_NOTES_FAILURE = 'EDITTING_NOTES_FAILURE';
 
+export const DELETING_NOTES = 'DELETING_NOTES';
+export const DELETING_NOTES_SUCCESS = 'DELETING_NOTES_SUCCESS';
+export const DELETING_NOTES_FAILURE = 'DELETING_NOTES_FAILURE';
 
 
 
+export const deleteNote = (Id) => dispatch => {
+  dispatch({ type: DELETING_NOTES });
+
+  axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${Id}`)
+    .then(response => {
+      dispatch({ type: DELETING_NOTES_SUCCESS, payload: response.data});
+    })
+    .catch(error => {
+      dispatch({ type: DELETING_NOTES_FAILURE, payload: error });
+  });  
+}
 
 export const editNote = (Id,data) => dispatch => {
   dispatch({ type: EDITTING_NOTES });

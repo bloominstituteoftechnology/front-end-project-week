@@ -2,8 +2,28 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { editNote } from '../Actions';
+import { editNote,deleteNote } from '../Actions';
+import Modal from "../Components/Modal";
 
+
+const ModalDiv = styled.div`
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const ModalContainer = styled.div`
+    background:white;
+    border:1px solid #ccc;
+    min-height:400px;
+    min-width:400px;
+    border-radius:5px;
+`;
 const Loading = styled.h1`
     font-size:4rem;
 `
@@ -68,6 +88,7 @@ class EditNoteContainer extends React.Component{
             id:'',
             title:'',
             body:'',
+            showModal:false
         }
     }
     handleEditClick =event =>{
@@ -88,9 +109,21 @@ class EditNoteContainer extends React.Component{
             title:this.state.title
         })
     }
+    handleModalDelete = (event,id) =>{
+        event.preventDefault();
+        this.props.deleteNote(id);
+    }
+    handleDelete = (event,id) =>{
+        event.preventDefault();
+        this.setState({showModal:true})
+    }
 
+    handleCancel = event =>{
+        event.preventDefault();
+        this.setState({showModal:false})
+    }
     componentDidUpdate(){
-        if(this.props.isEdited){
+        if((this.props.isEdited)||(this.props.isDeleted)){
             this.setState({
                 body:'',
                 title:'',
@@ -101,6 +134,23 @@ class EditNoteContainer extends React.Component{
     }
 
     render(){
+        console.log(this.props, this.state)
+        if (this.state.showModal) {
+            return (
+            <div>
+                <div id='modalRoot'></div>
+                <Modal>
+                <ModalDiv>
+                    <ModalContainer>
+                        <button onClick={this.handleCancel}>Cancel</button>
+                        <button onClick={(event)=>{this.handleModalDelete(event,this.props.id)}}>Delete</button>
+                    </ModalContainer>
+                </ModalDiv>
+                </Modal>          
+                
+            </div>
+            )
+        }
 
         if(this.props.isFetching){
             return <Loading>Loading...</Loading>
@@ -142,33 +192,31 @@ class EditNoteContainer extends React.Component{
                     <NoteSection>
                         <ActionsDiv>
                             <p onClick={this.handleEditClick}>Edit</p>
-                            <Link to='/edit'><p>Delete</p></Link>   
+                            <p onClick={this.handleDelete}>Delete</p>
                         </ActionsDiv>
                         <p>
                             {this.props.data.title}
                         </p>
                         <p>{this.props.data.textBody}</p>
                     </NoteSection>
-    
-    
-    
-    
                 </WrapperDiv>
             )
-    
         }
 
         }
     }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
     return {
         data: state.individualNote,
+        id:ownProps.match.params.id,
         isFetching: state.isFetching,
         isEdited:state.isEdited,
         isEditting:state.isEditting,
+        isDeleted:state.isDeleted,
+        isDeleting:state.isDeleting
     };
   };
 
 
-  export default connect(mapStateToProps,{editNote})(EditNoteContainer);
+  export default connect(mapStateToProps,{editNote,deleteNote})(EditNoteContainer);
