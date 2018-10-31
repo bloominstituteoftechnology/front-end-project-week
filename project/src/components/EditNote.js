@@ -2,12 +2,18 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
 class EditNote extends Component {
-    state = {
-      content:'',
-      title:'',
-      id:null
-    }
+    constructor(props) {
+        super(props);
+        this.state = {};
+      }
     
+      handleEditClick = event => {
+        event.preventDefault();
+        this.props.handleEditNote;
+        
+      };
+    
+
     render(){
         return(
             <div className = "form-wrap">

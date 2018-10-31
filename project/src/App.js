@@ -90,23 +90,20 @@ axios
     this.setState({selectedId: id})
   }
 
-//   handleDelete = () => {
+  handleDelete = (id) => {
 //   //   let notes = this.state.notes.filter(note =>{
 //   //     return note.id !== this.state.selectedId
 //   //   })
 //   //   this.setState({notes: notes})
 //   // }
 
-//   axios
-//   .delete(`${url}/${id}`, {
-//     title: this.state.title,
-//     content: this.state.content
-//   }).then(response => {
-//     axios.get(url).then(response => {
-//       this.setState({ notes: response.data });
-//     });
-//   });
-// };
+  
+  axios.delete(`${url}/${id}`).then(response => {
+    axios.get(url).then(response => {
+      this.setState({ notes: response.data });
+    });
+  });
+};
 
   render() {console.log(this.state)
     return (
