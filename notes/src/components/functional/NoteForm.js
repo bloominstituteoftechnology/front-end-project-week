@@ -9,7 +9,6 @@ class NoteForm extends React.Component {
   state = {
     title: '',
     textBody: '',
-    _id: null,
   };
 
   componentDidMount() {
@@ -32,7 +31,6 @@ class NoteForm extends React.Component {
       this.setState({
         title: '',
         textBody: '',
-        _id: null,
       });
     } else {
       this.setState({ ...this.props.note });
