@@ -77,7 +77,6 @@ html {
         text-overflow: ellipsis;
         hyphens: auto;
         -moz-hyphens: auto;
-        // padding: 10px 0;
     }
 }
 
@@ -107,5 +106,22 @@ html {
             color: @dark-grey;
             margin-top: 30px;
         }
+    }
+}
+
+.form {
+    .flex(flex-start, flex-start, column);
+    font-size: 4rem;
+    font-weight: 600;
+    color: @dark-grey;
+    margin: 40px 10px;
+    .title-input {
+       .input(50%, auto, 30px 0 10px);
+    }
+    .content-input {
+        .input(70%, 400px, 10px 0 20px);
+    }
+    .form-submit {
+        .button(@teal, white);
     }
 }

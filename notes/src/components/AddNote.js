@@ -36,10 +36,25 @@ class AddNote extends Component {
         (<Redirect to='/'/>) :
         (
             <div className='add'>
-                <form className='add-form' onSubmit={this.addNote}>Add Note
-                    <input className='add-input' name='title' value={this.state.title} onChange={this.changeHandler} type='text' placeholder='Title' required></input>
-                    <input className='add-input' name='textBody' value={this.state.textBody} onChange={this.changeHandler} type='text' placeholder='Content' required></input>
-                    <input className='add-submit' type='submit' value='submit'/>
+                <form className='form' onSubmit={this.addNote}>Add Note
+                    <input 
+                        className='title-input' 
+                        name='title' 
+                        value={this.state.title} 
+                        onChange={this.changeHandler} 
+                        type='text' 
+                        placeholder='Title' 
+                        required 
+                    />
+                    <textarea 
+                        className='content-input' 
+                        name='textBody' 
+                        value={this.state.textBody} 
+                        onChange={this.changeHandler} 
+                        placeholder='Content' 
+                        required
+                    />
+                    <input className='form-submit' type='submit' value='Save'/>
                 </form>
             </div>
         )

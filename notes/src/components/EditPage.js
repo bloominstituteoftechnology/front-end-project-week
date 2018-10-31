@@ -43,10 +43,25 @@ class EditPage extends Component {
         <Redirect to='/' /> :
         (
             <div className='edit'>
-                <form className='edit-form' onSubmit={this.editNote}>Edit Note
-                    <input className='edit-input' name='title' value={this.state.title} onChange={this.changeHandler} type='text' placeholder='Title' required></input>
-                    <input className='edit-input' name='textBody' value={this.state.textBody} onChange={this.changeHandler} type='text' placeholder='Content' required></input>
-                    <input className='edit-submit' type='submit' value='submit'/>
+                <form className='form' onSubmit={this.editNote}>Edit Note
+                    <input 
+                        className='title-input' 
+                        name='title' 
+                        value={this.state.title} 
+                        onChange={this.changeHandler} 
+                        type='text' 
+                        placeholder='Title' 
+                        required 
+                    />
+                    <textarea 
+                        className='content-input' 
+                        name='textBody' 
+                        value={this.state.textBody} 
+                        onChange={this.changeHandler} 
+                        placeholder='Content' 
+                        required
+                    />
+                    <input className='form-submit' type='submit' value='Update'/>
                 </form>
             </div>
         )
@@ -56,7 +71,6 @@ class EditPage extends Component {
 const mapStateToProps = state => { 
     return {
         note: state.note,
-        fetching: state.fetching
     };
 };
 

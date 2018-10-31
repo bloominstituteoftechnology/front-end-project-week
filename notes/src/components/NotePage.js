@@ -24,6 +24,8 @@ class NotePage extends Component {
         let id = this.props.match.params.id
         return this.state.deleted ?
         <Redirect to='/' /> :
+        this.props.fetching ?
+        <div>Loading Note</div> :
         (
             <div className='note-page'>
                 <div className='note-btns'>
