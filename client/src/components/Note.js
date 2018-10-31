@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Note = props => {
   return (
@@ -12,10 +12,17 @@ const Note = props => {
     </div>
   );
 };
-//
+
+//Sets default prop values
 Note.defaultProps = {
   title: "",
   textBody: ""
+};
+
+//Type validation for props
+Note.propTypes = {
+  title: PropTypes.string.isRequired,
+  textBody: PropTypes.string.isRequired
 };
 
 export default Note;

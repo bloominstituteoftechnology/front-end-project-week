@@ -10,11 +10,17 @@ class NoteForm extends Component {
     };
   }
 
+  //Adds new note to API
   addNote = event => {
     event.preventDefault();
+
+    //Validates form input
     if (this.state.title.length < 1 || this.state.textBody.length < 1) {
       alert("Please fill out all fields!");
-    } else {
+    }
+
+    //Adds new note, renders the notes list, sets to top of page
+    else {
       axios
         .post("https://fe-notes.herokuapp.com/note/create", this.state)
         .then(() =>
@@ -29,6 +35,7 @@ class NoteForm extends Component {
     }
   };
 
+  //Change handler for form input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };

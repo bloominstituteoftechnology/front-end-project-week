@@ -5,11 +5,8 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
-import Note from "./components/Note";
 import Sidebar from "./components/Sidebar";
 import NoteView from "./components/NoteView";
-import SidebarHeader from "./components/SidebarHeader";
-import ListHeader from "./components/ListHeader";
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +28,7 @@ class App extends Component {
     this.fetchNotes();
   }
 
-  //gets all notes
+  //Gets all notes from database
   fetchNotes = () => {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
@@ -39,7 +36,7 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  //edits notes
+  //Edits notes, takes an object as a parameter
   editNote = obj => {
     const index = this.state.notes.findIndex(note => note._id === obj.id);
     console.log(index);
@@ -53,7 +50,7 @@ class App extends Component {
       .catch(err => console.dir(err));
   };
 
-  //deletes notes
+  //Deletes note by id
   deleteNote = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)

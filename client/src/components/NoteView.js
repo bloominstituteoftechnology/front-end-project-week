@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { render } from "react-dom";
 import Modal from "react-responsive-modal";
+import PropTypes from "prop-types";
+
+//NoteView is the class that displays a single note. This class deploys the editNote() and deleteNote() functions, which live in the App.js file
 
 class NoteView extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class NoteView extends Component {
     };
   }
 
-  //Mounts fetched note to state
+  //Mounts fetched note from fetch() function to state
   componentDidMount() {
     window.scrollTo(0, 0);
     const id = this.props.match.params.id;
@@ -67,14 +69,19 @@ class NoteView extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  /****** Delete Handling Functions *******/
+
+  //Opens delete modal
   openModal = () => {
     this.setState({ open: true });
   };
 
+  //Closes delete modal
   closeModal = () => {
     this.setState({ open: false });
   };
 
+  //Triggers the delete function and renders the main page view
   delete = e => {
     e.preventDefault();
     this.props.deleteNote(this.state.id);
@@ -141,5 +148,12 @@ class NoteView extends Component {
     );
   }
 }
+
+//Type validation for props
+NoteView.propTypes = {
+  id: PropTypes.string,
+  editNote: PropTypes.func.isRequired,
+  deleteNote: PropTypes.func.isRequired
+};
 
 export default NoteView;

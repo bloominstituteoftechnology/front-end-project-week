@@ -1,5 +1,7 @@
 import React from "react";
 
+//Simple sidebar header functional component
+
 const SidebarHeader = () => {
   return (
     <div className="header">
