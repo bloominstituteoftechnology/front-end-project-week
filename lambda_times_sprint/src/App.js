@@ -6,10 +6,17 @@ import './components/Note.css';
 
 import { Route, NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
+import { Auth0Lock } from 'auth0-lock';
+import auth0 from 'auth0-js';
 
 import NotesList from './components/NotesList';
 import NoteForm from './components/NoteForm';
 import Note from './components/Note';
+
+var lock = new Auth0Lock(
+  process.env.REACT_APP_CLIENT_ID,
+  process.env.REACT_APP_DOMAIN_URL
+);
 
 class App extends Component {
   state = {
@@ -27,7 +34,7 @@ fetchNotes = ()=> {
   // axios.get('https://killer-notes.herokuapp.com/note/get/all')
   axios.get('http://localhost:9900/api/')
       .then(response => {
-        console.log(response);
+        // console.log(response);
         this.setState({ tags: response.data });
       })
       .catch(err => {
@@ -55,10 +62,16 @@ fetchNotes = ()=> {
   }
 
   render() {
+    // console.log("PROCESS: ", process.env);
     return (
       <div className="App">
         <header className="sidebar">
           <h1 className="App-title">Lambda Notes</h1>
+          <div className="login"
+            onClick={function() {
+              lock.show();
+            }}
+            >Log In</div>
           <ul className="navbar">
           <li>
             <NavLink exact to="/" activeClassName="activeNavButton">

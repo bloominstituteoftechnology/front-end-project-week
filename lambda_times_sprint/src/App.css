@@ -79,6 +79,16 @@ a {
   text-decoration: none;
 }
 
+.login {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 250px;
+  text-align: center;
+}
+
 li a {
   font-family: sans-serif;
   text-decoration: none;
