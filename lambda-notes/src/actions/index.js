@@ -49,11 +49,11 @@ export const getNote = id => {
     }
 }
 
-export const addNote = note => {
+export const addNote = ({title, textBody}) => {
     return dispatch => {
         dispatch({ type: ADD_NOTE })
         axios
-            .post('https://fe-notes.herokuapp.com/note/create', note)
+            .post('https://fe-notes.herokuapp.com/note/create', {title, textBody})
             .then(res => {
                 dispatch({ type: ADD_NOTE_SUCCESS, payload: res.data })
             })
@@ -79,11 +79,11 @@ export const deleteNote = id => {
     }
 }
 
-export const updateNote = (id, note) => {
+export const updateNote = (id, {title, textBody}) => {
     return dispatch => {
         dispatch({ type: UPDATE_NOTE })
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title, textBody})
             .then(res => {
                 dispatch({ type: UPDATE_NOTE_SUCCESS, payload: res.data })
             })

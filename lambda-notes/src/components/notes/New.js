@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { addNote } from '../../actions/index'
+import { connect } from 'react-redux'
 
 class New extends Component {
     constructor(props) {
         super(props)
-        this.state = { note: { title: '', textBody: '' }, error: '', posted: false }
+        this.state = {title: '', textBody: ''}
     }
 
     handleChange = e => {
-        this.setState({ note: { [e.target.name]: e.target.value } })
+        this.setState({[e.target.name]: e.target.value })
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addNote()
+        this.props.addNote(this.state)
+        this.setState({
+            title: '',
+            textBody: '',
+        })
+        
     }
 
     render() {
@@ -25,35 +29,35 @@ class New extends Component {
                     <h3 className='title is-3'>Create Note</h3>
                     <hr />
 
-                    <form onSubmit={this.handleSubmit}>
-                        <input type='text' name='title' placeholder='title' onChange={this.handleChange} />
-                        <p className='control'>
-                            <textarea className='textarea' name='bodyText' onChange={this.handleChange} />
-                            {this.state.error && (
-                                <p>
-                                    <span className='help is-danger'>{this.state.error}</span>
-                                </p>
-                            )}
-                        </p>
+                    <form
+                        onSubmit={e => {
+                            this.handleSubmit(e)
+                        }}
+                    >
+                        <input
+                            type='text'
+                            name='title'
+                            placeholder='title'
+                            onChange={e => {
+                                this.handleChange(e)
+                            }}
+                        />
 
+                        <textarea
+                            className='textarea'
+                            name='bodyText'
+                            onChange={e => {
+                                this.handleChange(e)
+                            }}
+                        />
                         <div className='control is-grouped'>
-                            <p className='control'>
-                                <input className='button is-primary' type='submit' value='Save' />
-                            </p>
+                            <input className='button is-primary' type='submit' value='Save' />
                         </div>
                     </form>
-
-                    {this.state.posted && <Redirect to='/' />}
                 </section>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({
-    error: this.state.error,
-    posted: this.state.posted,
-    note: this.state.note,
-})
-
-export default connect(mapStateToProps, { addNote })(New)
+export default connect(null, { addNote })(New)

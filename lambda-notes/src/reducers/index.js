@@ -23,9 +23,11 @@ const initialState = {
     updatingNote: false,
     noteDeleted: false,
     noteAdded: false,
+    posted: false,
+
 }
 
-export const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_NOTES:
             return {
@@ -36,7 +38,7 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                notes: [...state, ...action.payload]
+                notes: [ ...action.payload ],
             }
         case GET_NOTES_ERROR:
             return {
@@ -52,7 +54,7 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                note: action.payload,
+                note: { ...action.payload },
             }
         case GET_NOTE_ERROR:
             return {
@@ -69,7 +71,7 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                notes: [ ...action.payload ],
+                notes: [...state.notes, ...action.payload]
             }
         case ADD_NOTE_ERROR:
             return {
@@ -86,7 +88,7 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                notes: action.payload,
+                notes: [...action.payload]
             }
         case DELETE_NOTE_ERROR:
             return {
@@ -103,7 +105,7 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                notes: [ ...state, ...action.payload ],
+                notes: [...state.notes, ...action.payload ],
             }
         case UPDATE_NOTE_ERROR:
             return {
@@ -114,3 +116,5 @@ export const rootReducer = (state = initialState, action) => {
             return state
     }
 }
+
+export default rootReducer

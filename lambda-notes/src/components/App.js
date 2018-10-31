@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getNotes } from '../actions/index'
+import { addNote } from '../actions/index'
+import { deleteNote } from '../actions/index'
+import { updateNote } from '../actions/index'
 
+ 
 import Header from './Header'
 import Footer from './Footer'
 
@@ -24,13 +28,10 @@ class App extends Component {
 
                         <div className='main'>
                             <Switch>
-                                <Route exact path='/' component={List} />
-                                <Route exact path='/notes/new' component={New} />
-                                <Route path='/notes/:id' component={Detail} />
+                                <Route exact path='/' render={props => (<List {...props} notes={this.props.notes}/>)}/>
+                                <Route exact path='/notes/new' render={props => (<New {...props} addNote={this.props.addNote} notes={this.props.notes} /> )} />
+                                <Route path='/:id' render={props => (<Detail {...props} deleteNote={this.props.deleteNote}/>)}/>
 
-                                <Route
-                                    render={({ location }) => <strong> Nothing matched {location.pathname} :( </strong>}
-                                />
                             </Switch>
                         </div>
 
@@ -51,4 +52,4 @@ const mapStateToProps = state => ({
     noteAdded: state.noteAdded,
 })
 
-export default connect(mapStateToProps, { getNotes })(App)
+export default connect(mapStateToProps, { getNotes, addNote, deleteNote, updateNote })(App)

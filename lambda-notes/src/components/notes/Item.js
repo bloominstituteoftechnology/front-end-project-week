@@ -1,41 +1,42 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import './notestyles/notes.css'
+import { deleteNote } from '../../actions/index'
+import { connect } from 'react-redux'
 
 
 class Item extends Component {
-    handleRemove = id => {
-        this.props.deleteNote(id)
-    }
-
     render() {
         return (
-            <li className='note-item'>
-                <div className='card'>
-                    <header className='card-header'>
-                        <p className='card-header-title'>{this.props.title}</p>
-                    </header>
+            <ul>
+                <li className='note-item'>
+                    <div className='card'>
+                        <header className='card-header'>
+                            <p className='card-header-title'>{this.props.title}</p>
+                        </header>
 
-                    <div className='card-content'>
-                        <div className='content'>
-                            {this.props.bodyText}
+                        <div className='card-content'>
+                            <div className='content'>{this.props.bodyText}</div>
                         </div>
-                    </div>
 
-                    <footer className='card-footer'>
-                        <Link to={`notes/${this.props._id}`} className='card-footer-item'>
-                            Edit
-                        </Link>
-                        <button onClick={this.handleRemove} className='card-footer-item'>
-                            Delete
-                        </button>
-                    </footer>
-                </div>
-            </li>
+                        <footer className='card-footer'>
+                            <Link to={`notes/${this.props.id}`} className='card-footer-item'>
+                                Edit
+                            </Link>
+                            <button
+                                onClick={() => {
+                                    this.props.deleteNote(this.props.id)
+                                }}
+                                className='card-footer-item'
+                            >
+                                Delete
+                            </button>
+                        </footer>
+                    </div>
+                </li>
+            </ul>
         )
     }
 }
 
-
-
-export default Item
+export default connect(null, { deleteNote })(Item)
