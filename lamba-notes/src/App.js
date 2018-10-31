@@ -19,7 +19,6 @@ class App extends Component {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => this.setState({ notes: response.data }))
-      .then(console.log(this.state.notes))
       .catch(error => console.log(error));
   }
 
@@ -28,9 +27,10 @@ class App extends Component {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
+        console.log(response);
         const updatedNotes = this.state.notes.filter(note => note._id !== id);
         this.setState({ notes: updatedNotes });
-        console.log(this);
+        console.log(this.state.notes.length);
       });
   };
 
@@ -58,6 +58,7 @@ class App extends Component {
           <Route path="/submit" component={NoteForm} />
 
           <Route
+            exact
             path="/note/get/:id"
             render={props => <Note {...props} deleteNote={this.deleteNote} />}
           />
