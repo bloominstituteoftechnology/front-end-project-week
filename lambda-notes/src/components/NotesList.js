@@ -3,6 +3,8 @@ import NotePreview from './NotePreview';
 import { Link } from 'react-router-dom';
 import TopBar from './TopBar';
 
+
+
 class NotesList extends React.Component {
   constructor(props){
     super(props);
@@ -41,7 +43,6 @@ class NotesList extends React.Component {
   }
 
   sortByTitleDes = () => {
-    console.log('sorting title z-a')
     let sortedTitleDes = this.props.notes.slice().sort(function(a, b) {
       let titleA = a.title.toLowerCase(),
       titleB = b.title.toLowerCase()
@@ -66,6 +67,8 @@ class NotesList extends React.Component {
   }
 
   render(){
+
+
     return (
       <div className='notes-list'>
       <TopBar handleInput={this.handleInput} search={this.searchNotes} sortByTitleAsc={this.sortByTitleAsc} sortByTitleDes={this.sortByTitleDes}
@@ -77,6 +80,7 @@ class NotesList extends React.Component {
               <NotePreview note={note} />
             </Link>)
         })}
+
       </div>
     )
   }

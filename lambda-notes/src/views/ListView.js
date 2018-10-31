@@ -17,7 +17,7 @@ class ListView extends React.Component {
 
     return(
       <div className='container'>
-      <Sidebar />
+      <Sidebar notes={this.props.notes}/>
       {this.props.fetchingNotes ? <div className='loading'>
         <h1>Getting notes...</h1>
       </div> : <NotesList notes={this.props.notes} />}
