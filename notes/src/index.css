@@ -19,8 +19,8 @@ body {
 }
 
 .navbar {
-  width: 22%;
-  background: white;
+  width: 18%;
+  background: whitesmoke;
   margin: 0 2% 0 0;
   padding: 0 3% 0 3%;
   list-style-type: none;
@@ -42,6 +42,11 @@ body {
   text-decoration: none;
   color: #222;
   font-weight: 700;
+  padding: 20px 0;
+}
+
+.navbar a:hover {
+  transform: scale(1.1);
 }
 
 .navbar li {
@@ -55,14 +60,20 @@ body {
   padding: 0 5px;
 }
 
+.navbar .create-note {
+  border-bottom: 1px solid gray;
+}
+
 .list-view {
   width: 100%;
-  padding-left: 27%;
+  padding-left: 22%;
+  overflow: hidden;
 }
 
 .list-view h2 {
-  padding: 20px 0 0 1%;
+  padding: 20px 0 0 5%;
   color: whitesmoke;
+  letter-spacing: 1px;
 }
 
 .notes-list-wrapper {
@@ -74,15 +85,19 @@ body {
 }
 
 .note-card {
-  width: 22%;
+  width: 20%;
   margin: 10px;
   padding: 10px 4%;
   height: 200px;
   overflow: hidden;
-  background: white;
+  background: whitesmoke;
   text-decoration: none;
   box-shadow: 10px 10px 30px #222;
   opacity: 0.9;
+}
+
+.note-card:hover {
+  transform: scale(1.1);
 }
 
 .note-card h3 {
@@ -144,7 +159,7 @@ body {
   font-size: 1.2rem;
   margin: 20px 0;
   padding: 0 5px;
-  color: white;
+  color: whitesmoke;
   font-weight: 700;
 }
 
@@ -177,18 +192,24 @@ body {
 }
 
 .log-out {
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
-  width: 100%;
-  height: 50px;
+  border: 1px solid #222;
+  padding: 10px 30px;
+  margin-top: 30px;
+  width: 41%;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  margin: 0px 0 20px 0;
+  margin: 56px 0 20px 13%;
   cursor: pointer;
   color: #222;
   font-weight: 700;
+}
+
+.log-out:hover {
+  background: #222;
+  color: whitesmoke;
 }
 
 .log-in-container {
@@ -200,7 +221,7 @@ body {
 
 .log-in-container .log-in {
   width: 40%;
-  background: white;
+  background: whitesmoke;
   margin: 0 2% 0 0;
   padding: 0 3% 0 3%;
   display: flex;
@@ -225,5 +246,5 @@ body {
 
 .log-in-container .log-in-button:hover {
   background: #222;
-  color: white;
+  color: whitesmoke;
 }

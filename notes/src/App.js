@@ -45,7 +45,7 @@ class App extends Component {
                 View Your Notes
               </NavLink>
             </li>
-            <li>
+            <li className="create-note">
               <NavLink to="/create-note">+ Create New Note</NavLink>
             </li>
             <div className="log-out" onClick={this.logout}>
