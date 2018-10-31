@@ -54,14 +54,14 @@ class App extends Component {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
       .then(res => {
-        const updtedArray = this.state.notes.map(note => {
+        const updatedArray = this.state.notes.map(note => {
           if (note._id === res.data._id) {
             return res.data;
           }
           return note;
         });
-
-        this.setState({ notes: updtedArray });
+        console.log("inside edit note");
+        this.setState({ notes: updatedArray });
       })
       .catch(err => console.log(err));
   };

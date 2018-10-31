@@ -14,12 +14,13 @@ class AddNoteForm extends Component {
   };
 
   helper = e => {
-    e.preventDefault();
     this.props.addNote(e, this.state);
     this.setState({ title: "", textBody: "" });
+    this.props.history.push("/");
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="new-note-container">
         <div className="notes-header">
