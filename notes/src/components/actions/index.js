@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GETTING_NOTES = 'GETTING_NOTES';
 export const NOTE_SUCCESS = 'NOTE_SUCCESS';
 export const SINGLE_NOTE = 'SINGLE_NOTE';
+export const FIND_NOTE = 'FIND_NOTE';
 
 
 export const getNotes = () => dispatch => {
@@ -18,6 +19,7 @@ export const getNotes = () => dispatch => {
 }
 
 export const viewNote = event => dispatch => {
+    dispatch({ type: FIND_NOTE, payload: event.currentTarget.id})
     // dispatch({ type: NOTE_SELECTOR })
     // dispatch({ type: SINGLE_NOTE })
     console.log(event.currentTarget.id)

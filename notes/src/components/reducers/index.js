@@ -1,5 +1,5 @@
 //import actions
-import { GETTING_NOTES, NOTE_SUCCESS } from '../actions';
+import { GETTING_NOTES, NOTE_SUCCESS, FIND_NOTE } from '../actions';
 
 const initialState = {
     noteList: [],
@@ -28,6 +28,10 @@ const noteReducer = (state = initialState, action) => {
                 ...state,
                 noteList: action.payload,
                 listLoading: false
+            }
+        case FIND_NOTE:
+            return {
+                
             }
         default:
             return state
