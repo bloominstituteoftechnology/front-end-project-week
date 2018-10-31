@@ -121,11 +121,13 @@ const EditLink = styled.p`
     text-decoration:underline;
     font-size:1.6rem;
     margin-right:10px;
+    cursor:pointer;
 `
 const DeleteLink = styled.p`
     text-decoration:underline;
     font-size:1.6rem;
     margin-left:10px;
+    cursor:pointer;
 `
 const NoteTitle = styled.p`
     margin-top:50px;
@@ -200,8 +202,8 @@ class EditNoteContainer extends React.Component{
                     <ModalContainer>
                         <WarningText>Are you sure you want to delete this?</WarningText>
                         <ModalActions>
-                            <DeleteButton onClick={this.handleCancel}>Delete</DeleteButton>
-                            <CancelButton onClick={(event)=>{this.handleModalDelete(event,this.props.id)}}>No</CancelButton>
+                            <DeleteButton onClick={(event)=>{this.handleModalDelete(event,this.props.id)}}>Delete</DeleteButton>
+                            <CancelButton onClick={this.handleCancel}>No</CancelButton>
                         </ModalActions>                            
                     </ModalContainer>
                 </ModalDiv>
