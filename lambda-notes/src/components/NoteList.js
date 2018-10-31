@@ -24,6 +24,7 @@ render(){
                 >
                   <h3 className="note-title">{note.title}</h3>
 <h4 className="note-text">{note.textBody}</h4>
+
                 </div> 
         ))}       
         </div>

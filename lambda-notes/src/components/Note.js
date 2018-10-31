@@ -21,7 +21,7 @@ componentDidMount() {
     axios.get(`http://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
     .then(response => 
         this.setState({ 
-      activeNote: {title: response.data.title, textBody:response.data.textBody, id:response.data.id}
+      activeNote: {title: response.data.title, textBody:response.data.textBody, tags:[...response.data.tags]}
     })
     )
     .catch(error=>{console.log("The server failed to retrieve this note: ", error)})
@@ -37,7 +37,7 @@ toggleModal = event => {
     this.setState({...this.state, showDeleteModal:!this.state.showDeleteModal});
 }
 
-changeHandler=(key, value) => {
+editChangeHandler=(key, value) => {
     this.setState({
         ...this.state,
         activeNote:{
@@ -46,7 +46,7 @@ changeHandler=(key, value) => {
         }
       })
   }
-  
+
   editNote= event => {
       event.preventDefault();
       let note=this.state.activeNote;
@@ -81,8 +81,9 @@ return (
     <div className="edit-note-wrapper">
     <h2>Edit Note:</h2>
     <form className="edit-note-form" onSubmit={this.editNote}>
-        <input className="edit-note-title" type="text" placeholder="Note Title" name="title" value={this.state.activeNote.title} onChange={event=>this.changeHandler(event.target.name, event.target.value)}></input>
-        <input className="edit-note-text" type="text" placeholder="Note Content" name="textBody" value={this.state.activeNote.textBody} onChange={event=>this.changeHandler(event.target.name, event.target.value)}></input>
+        <input className="edit-note-title" type="text" placeholder="Note Title" name="title" value={this.state.activeNote.title} onChange={event=>this.editChangeHandler(event.target.name, event.target.value)}></input>
+        <input className="edit-note-text" type="text" placeholder="Note Content" name="textBody" value={this.state.activeNote.textBody} onChange={event=>this.editChangeHandler(event.target.name, event.target.value)}></input>
+
     <button type="submit">Update</button>
     </form>
                 </div>
