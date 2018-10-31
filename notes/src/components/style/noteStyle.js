@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const NotesContainer = styled.div`
   margin: 50px 10%;
@@ -29,7 +29,7 @@ export const NoteStyle = styled.div`
   }
 
   &:active {
-    background: #EEEDEE;
+    background: #eeedee;
   }
 
   h3 {
@@ -73,7 +73,7 @@ export const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    transform: scale(1.1)
+    transform: scale(1.1);
   }
 
   &.left {

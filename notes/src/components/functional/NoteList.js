@@ -13,19 +13,16 @@ class NoteList extends React.Component {
   }
 
   render() {
+    console.log(this.props.notes);
     return (
       <NotesContainer>
         <h2>Your Notes:</h2>
         <NoteAlign>
-          {this.props.notes ? (
-            this.props.notes.map(note => (
-              <Link to={`/notes/${note._id}`} key={note._id}>
-                <Note note={note} />
-              </Link>
-            ))
-          ) : (
-            <h2>Loading...</h2>
-          )}
+          {this.props.notes.map(note => (
+            <Link to={`/notes/${note._id}`} key={note._id}>
+              <Note note={note} />
+            </Link>
+          ))}
         </NoteAlign>
       </NotesContainer>
     );

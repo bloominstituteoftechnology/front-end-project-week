@@ -52,6 +52,7 @@ export const noteReducers = (state = initialState, action) => {
 
     case GET_A_NOTE:
       return {
+        ...state,
         note: action.payload,
         fetching: false,
         success: true,
