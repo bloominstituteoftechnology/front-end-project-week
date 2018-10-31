@@ -14,9 +14,11 @@ export const CLOSE_MODAL = "CLOSE_MODAL";
 export const SHOW_EDIT = "SHOW_EDIT";
 export const HIDE_EDIT = "HIDE_EDIT";
 
-export const SORT = "SORT"
+export const SORT = "SORT";
 
-export const TOGGLE_SORT = "TOGGLE_SORT"
+export const TOGGLE_SORT = "TOGGLE_SORT";
+
+export const SEARCH = "SEARCH";
 
 export const fetchNotes = () => dispatch => {
   axios
@@ -66,6 +68,8 @@ export const displayEditForm = () => ({ type: SHOW_EDIT });
 
 export const hideEditForm = () => ({ type: HIDE_EDIT });
 
-export const toggleSort = () => ({ type: TOGGLE_SORT })
+export const toggleSort = () => ({ type: TOGGLE_SORT });
 
-export const sortList = criteria => ({ type: SORT, payload: criteria })
+export const sortList = criteria => ({ type: SORT, payload: criteria });
+
+export const searchList = criteria => ({ type: SEARCH, payload: criteria });

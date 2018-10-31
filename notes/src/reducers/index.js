@@ -9,7 +9,8 @@ import {
   SHOW_EDIT,
   HIDE_EDIT,
   TOGGLE_SORT,
-  SORT
+  SORT,
+  SEARCH
 } from "../actions";
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
   note: null,
   editing: false,
   open: false,
-  showSort: false
+  showSort: false,
+  criteria: ""
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -80,6 +82,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         showSort: !state.showSort
+      };
+    case SEARCH:
+      return {
+        ...state,
+        criteria: action.payload
       };
     default:
       return state;

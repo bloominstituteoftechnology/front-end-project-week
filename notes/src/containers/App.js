@@ -123,7 +123,11 @@ class App extends Component {
           render={props => (
             <NoteContainer
               {...props}
-              notes={this.props.notes}
+              notes={this.props.notes.filter(
+                note =>
+                  note.title.toLowerCase().includes(this.props.criteria) ||
+                  note.textBody.toLowerCase().includes(this.props.criteria)
+              )}
               toggleSort={this.props.toggleSort}
               sortAToZ={this.sortAToZ}
               sortZToA={this.sortZToA}
@@ -158,7 +162,8 @@ class App extends Component {
 const mapStateToProps = state => ({
   notes: state.notes,
   editing: state.editing,
-  showSort: state.showSort
+  showSort: state.showSort,
+  criteria: state.criteria
 });
 
 export default withRouter(

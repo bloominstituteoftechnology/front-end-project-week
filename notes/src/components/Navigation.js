@@ -1,4 +1,7 @@
 import React from "react";
+
+import Search from "../components/Search";
+
 import { NavLink } from "react-router-dom";
 
 import { NavBar, Button } from "../styles";
@@ -14,6 +17,7 @@ const Navigation = ({ editing, cancelEdit }) => (
     <NavLink to="/form">
       <Button>{editing ? "Edit Note" : "+ Create New Note"}</Button>
     </NavLink>
+    <Search />
   </NavBar>
 );
 

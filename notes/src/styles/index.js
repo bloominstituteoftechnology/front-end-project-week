@@ -166,43 +166,51 @@ export const Delete = styled.div`
 `;
 
 export const Dropdown = styled.div`
-position: absolute;
-background: #ffffff;
-z-index: 111;
-top: 5px;
-left: 600px;
-width: 300px;
-line-height: 24px;
-flex-direction: column;
-padding: 12px 0;
-border-radius: 5px;
-border: 1px solid #666;
-ul {
-  display: flex;
+  position: absolute;
+  background: #ffffff;
+  z-index: 111;
+  top: 5px;
+  left: 600px;
+  width: 300px;
+  line-height: 24px;
   flex-direction: column;
-  justify-content: space-between;
-  font-size: 1.4rem;
-  font-weight: 300;
-  li {
-    cursor: pointer; 
-    padding: 6px 30px 6px 20px;
-    &:hover {
-      background: #F2F2F2;
+  padding: 12px 0;
+  border-radius: 5px;
+  border: 1px solid #666;
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-weight: 300;
+    li {
+      cursor: pointer;
+      padding: 6px 30px 6px 20px;
+      &:hover {
+        background: #f2f2f2;
+      }
     }
   }
-}`
+`;
 
 export const DropdownHeader = styled.h3`
-font-weight: 300;
-font-size: 1.5rem;
-padding: 0 30px 5px 20px;
-`
-
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding: 0 30px 5px 20px;
+`;
 
 export const DropdownToggle = styled.img`
-cursor: pointer;
-position: absolute;
-left: 600px;
-top: -30px;
-
-`
+  cursor: pointer;
+  position: absolute;
+  left: 600px;
+  top: -30px;
+`;
+export const SearchBar = styled.input`
+padding-left: 10px;
+font-size: 1.6rem;
+border-radius: 3px;
+border: none;
+margin: 10px 0;
+width: 200px
+height: 40px
+`;

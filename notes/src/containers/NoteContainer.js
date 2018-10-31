@@ -4,6 +4,7 @@ import { MainContent, ListHeading, DropdownToggle } from "../styles";
 
 import SortDropdown from "../components/SortDropdown";
 import NoteList from "../components/NoteList";
+
 import dropdown from "../assets/dropdown.svg";
 
 const NoteContainer = ({
@@ -18,6 +19,7 @@ const NoteContainer = ({
     <CSVLink data={notes} filename={"lambda-notes.csv"} target="_blank">
       <span style={{ marginLeft: "20px" }}>Download All Notes as CSV</span>
     </CSVLink>
+
     <div style={{ position: "relative", width: "0", height: "0" }}>
       <DropdownToggle
         src={dropdown}
