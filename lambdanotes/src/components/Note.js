@@ -3,6 +3,8 @@ import ReactModal from 'react-modal';
 
 import './ComponentStyle.css';
 
+ReactModal.setAppElement('#root');
+
 function Note(props) {
   console.log(props);
   const note = props.notesList.find(
@@ -10,6 +12,8 @@ function Note(props) {
   );
   console.log(note);
   function handleDelete() {
+    props.handleOpenModal();
+    props.handleCloseModal();
     props.handleDeleteNote(note._id);
     props.history.push(`/`);
   }
@@ -27,9 +31,9 @@ function Note(props) {
           Edit
         </button>
         {/* <ReactModal
-          isOpen={this.state.showModal}
+          isOpen={props.showModal}
           contentLabel="onRequestCloseExample"
-          onRequestClose={this.handleCloseModal}
+          onRequestClose={props.handleCloseModal}
           className="modal"
           overlayClassName="overlay"
         >
@@ -37,10 +41,10 @@ function Note(props) {
         <button className="note-button" onClick={handleDelete}>
           Delete
         </button>
-        {/* <button onClick={this.handleCloseModal} className="not-delete">
-            No
-          </button>
-        </ReactModal> */}
+        {/* <button onClick={props.handleCloseModal} className="not-delete">
+          No
+        </button> */}
+        {/* </ReactModal> */}
         <div>
           <h1 className="note-name">{note.title}</h1>
           <h4 className="note-body">{note.textBody}</h4>

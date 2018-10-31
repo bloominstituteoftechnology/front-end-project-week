@@ -1,6 +1,7 @@
 import React from 'react';
 import { NotesList, Note, NoteForm } from './components';
 import { Route, NavLink, withRouter, Switch } from 'react-router-dom';
+import ReactModal from 'react-modal';
 import axios from 'axios';
 
 import './components/ComponentStyle.css';
@@ -12,6 +13,8 @@ const blankNoteForm = {
   textBody: ''
 };
 
+ReactModal.setAppElement('#root');
+
 class App extends React.Component {
   constructor() {
     super();
@@ -22,9 +25,18 @@ class App extends React.Component {
         title: '',
         textBody: ''
       },
-      isUpdating: false
+      isUpdating: false,
+      showModal: false
     };
   }
+
+  handleOpenModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  };
 
   componentDidMount() {
     this.fetchNotes();
@@ -152,6 +164,8 @@ class App extends React.Component {
                 {...props}
                 notesList={this.state.notesData}
                 handleDeleteNote={this.handleDeleteNote}
+                handleOpenModal={this.handleOpenModal}
+                handleCloseModal={this.handleCloseModal}
                 goToUpdateNoteForm={this.goToUpdateNoteForm}
               />
             )}
