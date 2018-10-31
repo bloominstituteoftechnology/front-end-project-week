@@ -21,10 +21,11 @@ import DisplayAll from './DisplayAll'
 import DisplayOne from './DisplayOne'
 import Add from './Add'
 
-const mapStateToProps = ({ notes, checked, searchParam }) => ({
+const mapStateToProps = ({ notes, checked, searchParam, selfAdded }) => ({
   notes,
   checked,
-  searchParam
+  searchParam,
+  selfAdded
 })
 
 const zombieNote = {

@@ -46,11 +46,11 @@ class DisplayAll extends Component {
             <Note
               key={_id}
               style={{
-                color: selfAdded
+                border: selfAdded
                   ? selfAdded.includes(_id)
-                    ? 'red'
-                    : 'black'
-                  : 'black'
+                    ? '1px solid red'
+                    : '1px solid black'
+                  : '1px solid black'
               }}
             >
               <HeaderWrapper>
