@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import './App.css';
+import '../css/index.css';
 import NoteList from './NoteList';
 import AddNote from './AddNote';
 import NotePage from './NotePage';
