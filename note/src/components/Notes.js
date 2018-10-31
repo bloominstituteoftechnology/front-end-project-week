@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Dragact } from 'dragact';
 
 const NotesContainer = styled.div`
   border: 1px solid black;
@@ -52,10 +51,9 @@ const Notes = props =>  {
                 <NotesDisplay>
                     {props.notes.map(note => {
                         return (
-                            <Link to={`/note/${note._id}`}>
+                            <Link to={`/note/${note._id}`} style={{textDecoration: 'none'}}>
                             <NoteCard
                                 key={note._id}
-                                style={{ textDecoration: 'none' }}
                             >
                                 <NoteTitle>
                                     {note.title.length >= 15
