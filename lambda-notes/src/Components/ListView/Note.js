@@ -33,14 +33,36 @@ const NoteBody = styled.p`
 `
 
 const Note = props =>{
+
+    let text = props.data.textBody;
+    if(text.length > 100)
+    {
+        text = text.substring(0,100)
+        text = text + ' ...'
+    }
+
+    let testArray = text.split(' ');
+    if(testArray[0].length>20)
+    {
+        text = text.substring(0,20)
+        text = text + ' ...'
+    }
+    let header = props.data.title;
+    if(header.length > 13)
+    {
+        header = header.substring(0,13)
+        header = header + ' ...'
+    }
+
+
     return(
 
             <WrapperDiv onClick={(event)=>{props.handleClick(event,props.data._id)}}>
                 <InnerCard>
                     <BorderDiv>
-                        <CardHeading>{props.data.title}</CardHeading>
+                        <CardHeading>{header}</CardHeading>
                     </BorderDiv>
-                    <NoteBody>{props.data.textBody}</NoteBody>
+                    <NoteBody>{text}</NoteBody>
 
 
                 </InnerCard>

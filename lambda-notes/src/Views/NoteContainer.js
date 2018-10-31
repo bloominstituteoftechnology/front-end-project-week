@@ -13,7 +13,6 @@ const Loading = styled.h1`
 `
 
 const WrapperDiv = styled.div`
-    border:1px solid red;
     display:flex;
     flex-wrap:wrap;
 `
@@ -25,7 +24,6 @@ class NoteContainer extends React.Component{
     }
 
     handleClick = (event,id) =>{
-        console.log('in the handleclick... ', id)
         this.props.fetchNotesById(id);
     }
     render(){
