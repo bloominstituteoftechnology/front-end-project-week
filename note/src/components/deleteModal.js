@@ -11,15 +11,11 @@ const DeleteButton = styled.button`
 `;
 
 const PopUpBox = styled.div`
-    border: 1px solid black;
-    width: 400px;
-    height: 200px;
 `;
 
 const ModalBody = styled.div`
-    width: 400px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 2%;
 `;
 
 const ModalFooter = styled.footer`
@@ -49,6 +45,17 @@ const Nobutton = styled.button`
     font-size: 14px;
 `;
 
+const modalStyles = {
+    content: {
+        top: '40%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        transform: 'translate(-30%,-50%)',
+        padding: '30px 70px'
+    }
+}
+
 class DeleteModal extends Component {
     constructor(props) {
         super(props);
@@ -74,10 +81,11 @@ class DeleteModal extends Component {
                     toggle={this.toggle}
                     className={this.props.className}
                     center
+                    style={modalStyles}
                 >
 
                 <PopUpBox>
-                    <ModalBody>Are you suer you want to delete this</ModalBody>
+                    <ModalBody>Are you suer you want to delete this?</ModalBody>
                     <ModalFooter>
                         <DeleteDanger color='danger' onClick={() => {
                             this.props.handleDelete();
