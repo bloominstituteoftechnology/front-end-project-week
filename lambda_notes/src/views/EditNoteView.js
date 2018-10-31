@@ -10,10 +10,6 @@ class EditNoteView extends Component {
     textBody: ''
   }
 
-  componentDidMount() {
-    this.props.getNotes();
-  }
-
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -23,6 +19,8 @@ class EditNoteView extends Component {
     const { title, textBody } = this.state;
     this.props.editNote(id, { title, textBody });
     this.setState({ title: '', textBody: '' });
+    this.props.getNotes();
+    this.props.history.push('/');
   }
 
   render() {

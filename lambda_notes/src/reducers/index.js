@@ -18,11 +18,11 @@ export default (state = initialState, action) => {
     case actionTypes.ADDING_NOTE:
       return { ...state, addingNote: true };
     case actionTypes.ADD_NOTE:
-      return { ...state, notes: [{ ...state.notes, ...action.payload }], addingNote: false };
+      return { ...state, addingNote: false };
     case actionTypes.DELETING_NOTE:
       return { ...state, deletingNote: true };
     case actionTypes.DELETE_NOTE:
-      return { ...state, notes: [...action.payload], deletingNote: false };
+      return { ...state, deletingNote: false };
     case actionTypes.EDITING_NOTE:
       return { ...state, editingNote: true };
     case actionTypes.EDIT_NOTE:
@@ -32,7 +32,8 @@ export default (state = initialState, action) => {
           if (note.id === action.id) {
             console.log('from reducer action.id', action.id)
             console.log('from reducer note.id', note.id)
-            return [{ ...state.notes, ...action.payload }];
+            // return [{ ...state.notes, ...action.payload }];
+            return action.payload;
           } else {
             return note;
           }

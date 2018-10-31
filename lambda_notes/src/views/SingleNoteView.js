@@ -5,9 +5,12 @@ import { getNotes, deleteNote } from '../actions';
 import SingleNote from '../components/Notes/SingleNote';
 
 class SingleNoteView extends Component {
+
   deleteNote = (e, id) => {
     e.preventDefault();
     this.props.deleteNote(id);
+    this.props.getNotes();
+    this.props.history.push('/')
   }
 
   render() {

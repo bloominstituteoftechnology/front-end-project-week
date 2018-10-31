@@ -10,9 +10,9 @@ class ListView extends Component {
   }
 
   render() {
-    if (this.props.gettingNotes) {
-      return <h1>Loading Notes...</h1>
-    }
+    // if (this.props.gettingNotes) {
+    //   return <h1>Loading Notes...</h1>
+    // }
 
     return (
       <NotesList notes={this.props.notes} />
@@ -22,6 +22,7 @@ class ListView extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('STATE from ListView', state)
   return {
     notes: state.notes,
     gettingNotes: state.gettingNotes
