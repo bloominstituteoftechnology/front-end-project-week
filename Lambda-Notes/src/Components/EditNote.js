@@ -19,6 +19,7 @@ class EditNote extends React.Component{
         const ID = this.props.match.params;
         axios.put(`https://fe-notes.herokuapp.com/note/edit/${ID.id}`,this.state.note)
         .then(response => console.log(response))
+        this.props.refresh()
         .catch(error => console.log("EDIT ERROR ::", error))
 
     }

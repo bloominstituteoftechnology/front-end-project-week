@@ -13,11 +13,10 @@ code {
 }
 .App{
   display:flex;
-
-  background-color:#F2F1F2;
+  background-image: url("https://jooinn.com/images1280_/old-paper-background.jpg");
 }
 .App .sidebar{
-  width:70%;
+  width:15%;
   background-color:#D3D2D3;
   display:flex;
   flex-direction: column;
@@ -25,6 +24,7 @@ code {
 }
 
 .note-list{
+  width:85%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -33,14 +33,15 @@ code {
   height:300px;
   padding: 5px 20px;
   background : rgb(253, 253, 253);
-  border : 1px solid black;
+  border : 3px solid black;
   margin:1%;
   overflow: hidden;
   color : black;
+  background-image: url("https://img.freepik.com/free-photo/white-marble-texture-background_38679-514.jpg?size=338&ext=jpg");
   
 }
 .note-card:hover {
-  box-shadow: 0 14px 28px rgba(48, 199, 236, 0.25), 0 12px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 50px 50px rgba(2, 3, 3, 0.25), 0 50px 50px rgba(0,0,0,0.22);
 }
 .note-card .card-title{
   border-bottom : 2px solid rgb(231, 231, 231);
@@ -52,12 +53,14 @@ code {
   width:70%;
   height:100vh;
   background-color:#F2F1F2;
+  background-image: url("https://jooinn.com/images1280_/old-paper-background.jpg");
 }
 .create-new form{
   display:flex;
   flex-direction: column;
   box-sizing: border-box;
   padding:20px;
+  background-image: url("https://img.freepik.com/free-photo/white-marble-texture-background_38679-514.jpg?size=338&ext=jpg");
 }
 .create-new form input{
   border-radius:5px;
@@ -104,6 +107,7 @@ code {
   border : 1px solid black;
   background : white;
 }
+
 .delete-modul .btn-section{
   display:flex;
   justify-content: center;

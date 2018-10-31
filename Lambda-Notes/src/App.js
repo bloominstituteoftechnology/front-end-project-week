@@ -23,6 +23,12 @@ class App extends Component {
     }
   }
 
+  refreshState(){
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => this.setState({notes : response.data}))
+    .catch(error => console.log("Refresh State ::: Axios says :", error))
+  }
+
   createNewSubmit = e =>{
     e.preventDefault();
     axios.post('https://fe-notes.herokuapp.com/note/create',this.state.newNote)
@@ -31,8 +37,8 @@ class App extends Component {
         title : '',
         textBody : '',
       }})
-      console.log("New Note has been added", response)
-      this.forceUpdate();
+     alert("New Note has been added", response)
+      this.refreshState();
     })
     .catch(error => alert("ERROR :::", error));
   }
@@ -51,7 +57,7 @@ class App extends Component {
 render() {
     return (
       <div className="App">
-        <SideBar />
+        <SideBar refresh={this.refreshState()}/>
         <Route exact path='/' render={() => <NoteList notes={this.state.notes} /> } />
         {/*  New   */}
         <Route path='/create-new' render={() => <CreateNew 
@@ -59,9 +65,9 @@ render() {
         onChangeHandler ={this.onChangeHandler}
         />} />
         {/* View  */}
-        <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} /> } />
+        <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
         {/* Edit  */}
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} /> } />
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
       
         
       </div>
