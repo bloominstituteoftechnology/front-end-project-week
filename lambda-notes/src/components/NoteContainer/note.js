@@ -66,7 +66,6 @@ class Note extends Component {
         axios
             .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, saveEditNotes)
             .then(response => {
-                console.log('EDIT RESPONSE', response);
                 this.setState({
                     note: response.data
                 })
@@ -92,7 +91,6 @@ class Note extends Component {
         if (!this.state.note) {
             return <div className='loading-note'> Loading Note...</div>
         }
-        console.log('NOTES maybe', this.state.note);
         return (
             <div className='single-note-view'>
                 <div className='edit-delete'>
