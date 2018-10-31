@@ -29,6 +29,7 @@ class NoteForm extends Component {
       .then(res => this.props.history.push(`/note/${res.data.success}`)) 
       .catch(err => console.log(err))
       this.setState({title: '', textBody: '', tags: ''})
+      this.props.refreshNotes()
   }
 
   render() {

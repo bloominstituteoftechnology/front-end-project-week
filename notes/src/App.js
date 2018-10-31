@@ -28,7 +28,7 @@ class App extends Component {
 
 
 
-
+//this doesn't work anymore. I moved it to the note form. It redirects to the new note view.
  createNote = (noteData) => {
      axios
       .post('https://fe-notes.herokuapp.com/note/create', noteData ) 
