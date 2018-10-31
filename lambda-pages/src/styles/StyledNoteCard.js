@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledNoteCard = styled.div`
   height: 265px;
-  width: 90%;
+  width: 31%;
   position: relative;
   background: #fff;
   margin-bottom: 2rem;
@@ -15,7 +15,7 @@ const StyledNoteCard = styled.div`
 
   &:hover {
     transform: scaleY(1.05);
-    background: #24b8bd;
+    background: #00a8ff;
     color: #fff;
   }
   h3 {

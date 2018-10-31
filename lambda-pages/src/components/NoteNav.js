@@ -28,7 +28,7 @@ const StyledNoteNav = styled.nav`
     cursor: pointer;
 
     &:hover {
-      color: #ca001a;
+      color: #c23616;
       transform: scaleY(1.2);
     }
   }

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const Button = styled.button`
   color: #fff;
-  background: #24b8bd;
+  background: #00a8ff;
   font-size: 2.4rem;
   font-weight: 700;
   padding: 1rem 2rem;
@@ -24,7 +24,7 @@ const Button = styled.button`
   ${props =>
     props.delete &&
     css`
-      background: #ca001a;
+      background: #c23616;
     `};
 `;
 

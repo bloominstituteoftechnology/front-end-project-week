@@ -2476,6 +2476,11 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
+debounce@^1.0.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
+  integrity sha512-mYtLl1xfZLi1m4RtQYlZgJUNQjl4ZxVnHzIR8nLLgi4q1YT8o/WM+MK/f8yfcc9s5Ir5zRaPZyZU6xs1Syoocg==
+
 debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -3529,6 +3534,11 @@ function-bind@^1.1.0, function-bind@^1.1.1:
 functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
+
+fuse.js@^3.1.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.3.0.tgz#1e4fe172a60687230fb54a5cb247eb96e2e7e885"
+  integrity sha512-ESBRkGLWMuVkapqYCcNO1uqMg5qbCKkgb+VS6wsy17Rix0/cMS9kSOZoYkjH8Ko//pgJ/EEGu0GTjk2mjX2LGQ==
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -6694,7 +6704,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -6925,6 +6935,16 @@ react-dom@^16.6.0:
 react-error-overlay@^5.0.5:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.0.5.tgz#716ff1a92fda76bb89a39adf9ce046a5d740e71a"
+
+react-fuzzy-filter@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-fuzzy-filter/-/react-fuzzy-filter-4.0.0.tgz#1bb7a5fc66098c581692050bdace94df98e9639b"
+  integrity sha512-jYteIVEABH0biFx6VQWURb2vZOwXrL9PtW5DiDCkOurvmCCYT90EDBenScbbQWjJW+54ihDsdxpQ7f/+h30H7A==
+  dependencies:
+    debounce "^1.0.2"
+    fuse.js "^3.1.0"
+    prop-types "^15.6.0"
+    valoo "^2.1.0"
 
 react-is@^16.3.1, react-is@^16.3.2, react-is@^16.6.0:
   version "16.6.0"
@@ -8404,6 +8424,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+valoo@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/valoo/-/valoo-2.1.0.tgz#06d3d8f1245b22b307fc5181c57b5912853c4d46"
+  integrity sha512-4JyQxbB/57AlRJzpYnalW90qpjBNjFWNUreOkpe0fF0olPgoZ7Z/vwwTiZJUF4zwQjRC4WYhnqzYG+7oIo0ijQ==
 
 value-equal@^0.4.0:
   version "0.4.0"

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import SearchForm from './SearchForm';
 import Button from '../styles/Button';
 
 const StyledSidebar = styled.div`
-  background: #d3d2d3;
+  background: #dcdde1;
   width: 25%;
   min-height: 100vh;
   height: 100%;
@@ -25,11 +26,13 @@ const StyledSidebar = styled.div`
 `;
 
 const Sidebar = props => {
+  const InputFilter = props.InputFilter;
   return (
     <StyledSidebar>
       <h1>
         Lambda <span>Notes</span>
       </h1>
+      <InputFilter />
       <Button fullWidth onClick={() => props.history.push('/')}>
         View Your Notes
       </Button>
