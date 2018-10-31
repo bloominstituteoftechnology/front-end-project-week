@@ -153,12 +153,12 @@ width: 100vw;
   text-align : left;
   padding : 30px 10px
 }
-
-.NoteListContainer{
+.displayNotesView{
   margin : 30px 20px;
   text-align: left;
   width :80%;
 }
+/* .NoteListContainer{ */
 
 .noteList{
 

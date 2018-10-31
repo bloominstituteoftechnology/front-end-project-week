@@ -1,4 +1,8 @@
-This is Project for FSW program at Lambda School
+This is a project for FSW program at Lambda School.
+This project tests the front-end skills that includes react and redux.
+Design files were given and I created the app from scratch.
+
+I started the app using local data.  Once the app is working, I applied API calls and then redux.
 
 Trello URL for this project is https://trello.com/b/TvHEjkdC/lambda-notes-edward-jeong
 

@@ -79,7 +79,6 @@ class DisplayNotesView extends Component {
 
 // gets the state and map them to props
 const mapStateToProps = ({ fetching, notes }) => {
-  console.log("App MapStatetoProps  notes = ", notes);
   return { notes, fetching };
 };
 

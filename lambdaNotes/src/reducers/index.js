@@ -27,8 +27,7 @@ export const NoteReducer = (state = initialState, action) => {
       return { ...state, fetching: true };
 
     case FETCHING_SUCCESS:
-      console.log("fetching success", action.payload);
-      return { ...state, fetching: false, notes: [...action.payload] };
+        return { ...state, fetching: false, notes: [...action.payload] };
 
     case FETCHING_FAILURE:
       return { ...state, fetching: false, error: action.payload };
@@ -60,8 +59,7 @@ export const NoteReducer = (state = initialState, action) => {
 
     case EDITING_SUCCESS:
     // API returns edited note.  so, delete old version of the note and add the edited note
-    console.log("EDIT SUCCESS  payload= ", action.payload);
-     let newNotes = state.notes.filter(note => note._id !== action.payload._id);
+      let newNotes = state.notes.filter(note => note._id !== action.payload._id);
 
       return { ...state, fetching: false, notes: [...newNotes, action.payload] };
 
