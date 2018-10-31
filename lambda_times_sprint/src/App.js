@@ -86,15 +86,11 @@ fetchNotes = ()=> {
 
   render() {
     // console.log("PROCESS: ", process.env);
+    if (this.isAuthenticated()) {
     return (
       <div className="App">
         <header className="sidebar">
           <h1 className="App-title">Lambda Notes</h1>
-          <div className="login"
-            onClick={function() {
-              lock.show();
-            }}
-            >Log In</div>
           <ul className="navbar">
           <li>
             <NavLink exact to="/notes" activeClassName="activeNavButton">
@@ -140,6 +136,26 @@ fetchNotes = ()=> {
 
       </div>
     );
+  } else {
+    return (
+      <div className="please-login">
+      <h1 className="access-notes">Please Log In to Access Notes</h1>
+      <div className="login"
+          onClick={function() {
+            lock.show();
+          }}
+          >Log In</div>
+      </div>
+    )
+  }
+  }
+
+  // Check if authenticated
+  isAuthenticated() {
+    // Check whether the current time is past the
+    // Access Token's expiry time
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return new Date().getTime() < expiresAt;
   }
 }
 

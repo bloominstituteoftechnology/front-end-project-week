@@ -79,6 +79,16 @@ a {
   text-decoration: none;
 }
 
+.please-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.access-notes {
+  width: 250px;
+}
 .login {
   font-family: sans-serif;
   text-decoration: none;
