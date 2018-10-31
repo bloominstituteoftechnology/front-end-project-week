@@ -5,7 +5,9 @@ export default class EditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: {}
+            note: {},
+            titleText: "",
+            contentText: ""
         }
     }
 
@@ -18,11 +20,35 @@ export default class EditForm extends React.Component {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                this.setState({ note: response.data });
+                this.setState({
+                    note: response.data,
+                    titleText: response.data.title,
+                    contentText: response.data.textBody
+                });
             })
             .catch(error => {
                 console.log(error);
             });
+    }
+
+    typingHandler = ev => {
+        this.setState({
+            [ev.target.name]: ev.target.value
+        });
+    }
+
+    handleSubmit = ev => {
+        ev.preventDefault();
+        this.setState({
+            note: {
+                ...this.state.note,
+                title: this.state.titleText,
+                textBody: this.state.contentText
+            }
+        }, () => {
+            this.props.finishEdit(this.state.note);
+            this.props.history.push(`/note/${this.state.note._id}`);
+        });
     }
 
     render() {
@@ -39,12 +65,18 @@ export default class EditForm extends React.Component {
                 <input
                     type="text"
                     placeholder="Note Title"
+                    value={this.state.titleText}
+                    name="titleText"
+                    onChange={this.typingHandler}
                     required
                 />
                 <textarea
                     placeholder="Note Content"
+                    value={this.state.contentText}
+                    name="contentText"
+                    onChange={this.typingHandler}
                 />
-                <button type="submit">Update</button>
+                <button type="submit" onClick={this.handleSubmit}>Update</button>
             </form>
         );
     }

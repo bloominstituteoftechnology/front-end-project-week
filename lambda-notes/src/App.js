@@ -13,10 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
-      editing: false,
-      titleInputText: "",
-      textInputText: ""
+      notes: []
     }
   }
 
@@ -27,8 +24,12 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  startEditing(note) {
-
+  finishEdit(note) {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, note)
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+    
   }
 
   render() {
@@ -37,7 +38,7 @@ class App extends Component {
         <Sidebar />
         <Route exact path="/" render={props => <NoteList {...props} noteList={this.state.notes} />} />
         <Route path="/note/:id" render={props => <NoteView {...props} />} />
-        <Route path="/edit/:id" render={props => <EditForm {...props} />} />
+        <Route path="/edit/:id" render={props => <EditForm {...props} finishEdit={this.finishEdit} />} />
       </div>
     );
   }
