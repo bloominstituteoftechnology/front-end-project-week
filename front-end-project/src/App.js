@@ -8,10 +8,7 @@ import SingleNote from './components/SingleNote';
 import EditNote from './components/EditNote';
 import { Route } from "react-router-dom";
 
-const blankItem = {
-  title: "",
-  textBody: "",
-}
+
 
 class App extends Component {
   constructor(){
@@ -20,8 +17,6 @@ class App extends Component {
       notes:  [],
       title: "",
       textBody: "",
-      unEditTitle:"",
-      unEditBody:"",
       activeNote: "",
       editId: null,
     }
@@ -56,12 +51,6 @@ class App extends Component {
       [ev.target.name]: ev.target.value
     })
   }
-
-  unEditView = (title, textBody) => {
-    this.setState({ unEditTitle: title, unEditBody: textBody})
-  }
-
-
 
   addNewNote = () => {
     const newNotes = {

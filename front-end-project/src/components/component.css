@@ -76,6 +76,7 @@
 
 .note-title {
     border-bottom: 2px solid #D9D9D9;
+    
 }
 
 /* Single page note view */
@@ -88,10 +89,26 @@
 .single-title {
     margin-top: 100px;
     margin-left: 50px;
+    border-radius: 5px;
+    background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+    width: 599px;
+    height: 53px;
+    font: normal 20px verdana;
+    line-height: 25px;
+    padding: 2px 10px;
+    border: solid 1px #ddd;
 }
 
 .single-para {
-    margin-left: 50px
+    margin-left: 50px;
+    border-radius: 5px;
+    background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+    width: 600px;
+    height: 100vh;
+    font: normal 14px verdana;
+    line-height: 25px;
+    padding: 2px 10px;
+    border: solid 1px #ddd;
 }
 
 /* Add note page */
@@ -103,15 +120,20 @@
 
 .input-field {
     margin-bottom: 20px;
-    width: 140%;
+    width: 1;
     height: 40px;
     border-radius: 5px;
 }
 
 .text-field {
-    width: 350%;
-    height: 400px;
     border-radius: 5px;
+    background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+    width: 600px;
+    height: 300px;
+    font: normal 14px verdana;
+    line-height: 25px;
+    padding: 2px 10px;
+    border: solid 1px #ddd;
 }
 
 .save-btn {
