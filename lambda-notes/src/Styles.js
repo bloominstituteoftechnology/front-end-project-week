@@ -229,11 +229,13 @@ export const LoginH1 = styled.h1`
   font-weight: bold;
   margin-top: 150px;
   padding-top: 40px;
+  color: black;
 `;
 
 export const LoginHint = styled.h3`
   font-size: 20px;
   text-align: center;
+  color: black;
 `;
 
 export const LoginForm = styled.form`
@@ -271,7 +273,7 @@ export const LoginButton = styled.button`
 `;
 
 export const LoginContainer = styled.div`
-    background-color: #cccccc;
+    background-color: #D3D2D3;
     width: 43.89%;
     height: 350px;
     color: white;
