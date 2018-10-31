@@ -11,15 +11,19 @@ function CreateNew(props) {
       <h2> Create New Note </h2>
         <div className="title-form">
         <form>
+        <div className="title1">
             <label>Note Title</label>
+        </div>
             <br/>
-            <input className="title1" 
+            <input 
                 type ="text" 
                 name="name" 
                 defaultValue={props.note.name} 
                 onChange={props.handleChange}/>
             <br/>
+            <br/>
             <label>New Notes</label>
+            <br/>
             <br/>
             <input className="comment" 
                 type ="text" 

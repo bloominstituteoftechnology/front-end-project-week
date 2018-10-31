@@ -1,8 +1,6 @@
 h2 {
   font-family: 'Roboto', sans-serif;
-}
-h2 {
-  padding-left: 4%;
+  padding-left: 2%;
 }
 
 .title-form {
@@ -11,14 +9,15 @@ h2 {
 
 }
 
-label {
-  font-family: 'Roboto', sans-serif;
-}
-
 .title1 {
   height: 35px;
   width: 300px;
   font-size: 1em;
+  padding-top: 1%;
+}
+
+input {
+  width: 200px
 }
 
 
@@ -26,6 +25,7 @@ label {
   height: 257px;
   width: 500px;
   font-size: 1em;
+  padding-top: 1%;
 }
 
 .edit-button {

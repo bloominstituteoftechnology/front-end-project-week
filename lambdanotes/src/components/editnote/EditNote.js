@@ -13,7 +13,7 @@ class EditNote extends React.Component {
 
         //JB---/Convert to stateful comp. and utilize ref. to avoid passing state back App.js....REDUX starts to make more sense.
     }
-////Add description back in
+
     handleEdit( name, description, noteId, history){
             console.log(noteId);
             axios
@@ -50,13 +50,20 @@ class EditNote extends React.Component {
             <div className="title1">
                 <label>Note Name</label>
                 <br/>
-                <input defaultValue ={note.name} ref={this.nameField}/>
+                <br/>
+                <input className="title1"  defaultValue ={note.name} ref={this.nameField}/>
             </div>
+            <br/>
+            <br/>
+            <br/>
             <div className="comment">
                 <label>Note Description</label>
                 <br/>
-                <input defaultValue ={note.description} ref={this.descriptionField}/>
-                <button className="edit-button" onClick={() => this.handleEdit(this.nameField.current.value, this.descriptionField.current.value, note.id, this.props.history)}>
+                <br/>
+                <input className="comment" defaultValue ={note.description} ref={this.descriptionField}/>
+                <br/>
+                <br/>
+                <button className="savebutton" onClick={() => this.handleEdit(this.nameField.current.value, this.descriptionField.current.value, note.id, this.props.history)}>
                     <span>Submit</span>
                 </button>
             </div>
