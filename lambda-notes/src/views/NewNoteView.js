@@ -53,9 +53,14 @@ class NewNoteView extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  clickHandler = event => {
+    event.preventDefault();
+    this.props.addNote(this.state);
+    this.props.history.push('/');
+  };
+
   render() {
     const { title, textBody } = this.state;
-    const { addNote } = this.props;
 
     return (
       <NewNoteViewContainer>
@@ -72,7 +77,7 @@ class NewNoteView extends Component {
             onChange={this.handleInput}
           />
         </InputContainer>
-        <NoteAppButton onClick={() => addNote({ title, textBody })}>Save</NoteAppButton>
+        <NoteAppButton onClick={this.clickHandler}>Save</NoteAppButton>
       </NewNoteViewContainer>
     );
   }

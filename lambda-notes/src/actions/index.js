@@ -48,6 +48,10 @@ export const addNote = note => dispatch => {
     .post(postUrl, note)
     .then(response => {
       console.log('Response from addNote is: ', response);
+      getNotes();
+    })
+    .then(response => {
+      console.log('Response from getNotes is: ', response);
       dispatch({ type: ADDING_NOTE_SUCCESS, payload: response.data });
     })
     .catch(error => {

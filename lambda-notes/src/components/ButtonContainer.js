@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
 
 const SideBar = styled.div`
   display: flex;
@@ -20,20 +20,45 @@ const NoteAppButton = styled.button`
 `;
 
 class ButtonContainer extends Component {
+  ViewNotesclickHandler = event => {
+    event.preventDefault();
+    this.setState({ addingNote: false });
+    this.props.history.push('/');
+  };
+
+  AddNoteclickHandler = event => {
+    event.preventDefault();
+    console.log('State before: ', this.state);
+    this.setState({ addingNote: true });
+    console.log('State after: ', this.state);
+    this.props.history.push('/new-note');
+  };
+
   render() {
     return (
       <SideBar>
         <Link to="/">
           {' '}
-          <NoteAppButton>View Your Notes</NoteAppButton>
+          <NoteAppButton onClick={this.ViewNotesclickHandler}>View Your Notes</NoteAppButton>
         </Link>
-        <Link to="/new-note">
+        <Link onClick={this.AddNoteclickHandler} to="/new-note">
           {' '}
-          <NoteAppButton>+ Create New Note</NoteAppButton>
+          <NoteAppButton onClick={this.AddNoteclickHandler}>+ Create New Note</NoteAppButton>
         </Link>
       </SideBar>
     );
   }
 }
 
-export default ButtonContainer;
+const mapStateToProps = state => {
+  return {
+    addingNote: state.addingNote
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {}
+  )(ButtonContainer)
+);

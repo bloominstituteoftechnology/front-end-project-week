@@ -4,7 +4,7 @@ import SideBarView from './SideBarView';
 import ListView from './ListView';
 import NewNoteView from './NewNoteView';
 import styled from 'styled-components';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 const AppContainer = styled.div`
   background: #d7d7d7;
@@ -36,4 +36,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
