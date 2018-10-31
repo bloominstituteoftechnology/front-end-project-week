@@ -11,12 +11,21 @@ html {
 
 .App {
     .flex(space-between, flex-start, row);
+    @media @tablet {
+        .flex(flex-start, flex-start, column);
+    }
     .side-nav {
         .flex(flex-start, flex-start, column);
         width: 20%;
         background-color: @medium-grey;
         position: fixed;
         height: 100vh;
+        @media @tablet {
+            height: 20vh;
+            width: 100%;
+            .flex(space-evenly, center, row);
+            z-index: 2;
+        }
         .nav-title {
             font-size: 4rem;
             color: @dark-grey;
@@ -25,6 +34,7 @@ html {
         .nav-link {
             .button(@teal, white);
             margin: 10px auto;
+            max-width: 95%;
         }
     }
     .current-page {
@@ -33,6 +43,11 @@ html {
         margin-left: 20%;
         padding: 10px 30px;
         background-color: @light-grey;
+        @media @tablet {
+            min-height: 80vh;
+            margin: 20vh 0 0;
+            width: 100%;
+        }
     }
 }
 
@@ -44,7 +59,7 @@ html {
         margin-left: 10px;
     }
     .notes-container {
-        .flex(space-between, center, row);
+        .flex(flex-start, flex-start, row);
         flex-wrap: wrap;
         a {
             text-decoration: none;
@@ -70,6 +85,7 @@ html {
         text-overflow: ellipsis;
     }
     .note-body {
+        margin-top: 10px;
         font-size:  1.8rem;
         height: 200px;
         word-break: break-word;
