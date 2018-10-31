@@ -4,14 +4,22 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class DeleteNote extends React.Component{
-    
-    delete = (id) => {
-        axios  
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`) // eroor says this not defined
-            .then(response => console.log(response))
-            .catch(err=>console.log(err));
+    constructor(props) {
+        super(props);
+        this.state = {
+          title: "",
+          textbody: ""
+        };
     }
 
+    delete = () => {
+        axios
+          .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params._id}`)    
+          .then(response => this.props.history.push('/notes'))
+          .catch(error => console.log(error));
+    }
+
+ 
     render() {
         console.log("DeleteNote  :  ", this.props.match.params._id) //getting correct id passed thro route here
         return (
