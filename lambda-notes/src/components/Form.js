@@ -10,7 +10,7 @@ const useInputValue = (initialValue) => {
   };
 }
 
-export const Form = ({ onSubmit, action }) => {
+export const Form = ({ onSubmit, action, history }) => {
   const title = useInputValue("");
   const textBody = useInputValue("")
 
@@ -22,6 +22,7 @@ export const Form = ({ onSubmit, action }) => {
           title: title.value,
           textBody: textBody.value
         })
+        history.push('/')
       }}>
         <input {...title} />
         <input {...textBody} />

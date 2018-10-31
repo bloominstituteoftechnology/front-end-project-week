@@ -4,7 +4,6 @@ import './NoteView.css'
 
 export const NoteView = props => {
   // const { id } = props;
-  console.log('passed props', props);
   // const urlParam = props.location.state.id;
   const id = props.match.params.id
   const note = props.notes.find(note => note._id == id); 
@@ -17,7 +16,7 @@ export const NoteView = props => {
     return (
     <div className="NoteView">
       <div className="controls">
-      <Link to={`/edit/${id}`}>
+      <Link to={`/note/edit/${id}`}>
         <span className="edit">edit</span>
       </Link>
       <span className="delete">delete</span>

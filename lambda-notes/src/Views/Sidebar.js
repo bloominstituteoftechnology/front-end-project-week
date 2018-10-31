@@ -8,7 +8,7 @@ export const Sidebar = props => (
     <Link to='/'>
       <button>View All Notes</button>
     </Link>
-    <Link to='/create'>
+    <Link to='/note/create'>
       <button>Create Note</button>
     </Link>
 

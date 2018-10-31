@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import { ListView, NoteView, Sidebar, CreateNoteView } from './Views';
+import { 
+  ListView, 
+  NoteView, 
+  Sidebar, 
+  CreateNoteView,
+  EditNoteView
+} from './Views';
 
 
 const URL = 'https://fe-notes.herokuapp.com'
@@ -12,26 +18,10 @@ class App extends Component {
     super(props)
     this.state = {
       notes: [],
-      currentNote: '',
-      currentPath: '/'
     }
+    console.log(this.state)
   }
-  getNote = id => {
-    if (id === undefined) {
-      if (this.state.currentNote === '') {
-        return { title: 'no notes', textBody: 'Nope no notes here' }
-      } else {
-        return this.state.currentNote
-      }
-    } else {
-      return this.state.notes.find(note => note._id === id)
-    }
-  }
-  setNote = (note, i) => {
-    this.setState(prevState => ({
-      notes: prevState.notes[i]
-    }))
-  }
+
   componentDidMount() {
     this.getAllNotes()
   }
@@ -53,9 +43,8 @@ class App extends Component {
     axios
       .post(URL + '/note/create', note)
       .then(data => {
-        console.log('create note', data)
         const newNote = {
-          id: data.data.success,
+          _id: data.data.success,
           title: note.title,
           textBody: note.textBody
         }
@@ -69,6 +58,28 @@ class App extends Component {
         console.log(err)
       })
   }
+
+  editNote = note => {
+    axios
+      .put(URL + '/note/edit/' + note._id, note)
+      .then(data => {
+        console.log('edit response', data)
+        this.setState(prev => {
+          const editedIndex = prev.notes.indexOf(n => (
+                n._id == note._id
+              ))
+          prev.notes[editedIndex] = data.data
+          console.log('editied state vars', editedIndex, data.data)
+          return prev
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+
+
   findNote = (id) => {
     console.log(this.state.notes.find(note => (
       note._id === id
@@ -95,6 +106,7 @@ class App extends Component {
               console.log(props)
               return (
                 <NoteView
+                  exact
                   {...props}
                   notes={this.state.notes}
                   match={props.match}
@@ -103,8 +115,9 @@ class App extends Component {
               )
             }}
           />
+
           <Route 
-            path='/create'
+            path='/note/create'
             render={props => (
               <CreateNoteView 
                 {...props}
@@ -112,13 +125,22 @@ class App extends Component {
               />
             )}
           />
+          <Route 
+            path='/note/edit/:id'
+            render={props => (
+              <EditNoteView 
+                {...props}
+                onSubmit={this.editNote}  
+              />
+            )}
+          />
+
           <Route
             exact
             path='/'
             render={(props) => (
               <ListView
                 {...props}
-                setNote={this.setNote}
                 notes={this.state.notes} />
             )}
           />
