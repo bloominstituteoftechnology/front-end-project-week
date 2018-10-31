@@ -1,15 +1,19 @@
 import styled from 'styled-components';
-import { Button } from '../../mixins';
-import { Link } from 'react-router-dom';
+import { Button, StyledLink } from '../../mixins';
 
 export const StyledSidebar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-shrink: 0;
   height: 100vh;
   width: 249px;
   background: rgb(215, 215, 215);
   overflow-x: hidden;
   padding: 25px 16px;
-  overflow: hidden;
+  border: 1px solid rgb(152, 152, 152);
+  border-right: none;
+  /* overflow: hidden; */
 `;
 
 export const StyledH1 = styled.h1`
@@ -20,7 +24,7 @@ export const StyledH1 = styled.h1`
   margin: 0 0 37px;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledSidebarLink = styled(StyledLink)`
   text-decoration: none;
 `;
 

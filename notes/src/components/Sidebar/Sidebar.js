@@ -1,16 +1,16 @@
 import React from 'react';
-import { StyledSidebar, StyledH1, StyledButton, StyledLink } from './styles';
+import { StyledSidebar, StyledH1, StyledButton, StyledSidebarLink } from './styles';
 
 function Sidebar() {
   return (
     <StyledSidebar>
       <StyledH1>Lambda Notes</StyledH1>
-      <StyledLink to="/">
+      <StyledSidebarLink to="/">
         <StyledButton>View Your Notes</StyledButton>
-      </StyledLink>
-      <StyledLink to="/create">
+      </StyledSidebarLink>
+      <StyledSidebarLink to="/create">
         <StyledButton>+ Create New Note</StyledButton>
-      </StyledLink>
+      </StyledSidebarLink>
     </StyledSidebar>
   );
 }
