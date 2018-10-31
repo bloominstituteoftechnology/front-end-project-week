@@ -23,7 +23,7 @@ class Note extends Component {
     
     render() {
         return (
-            <div className="note-container">
+            <div className="full-note-container">
                 <div>NOTE PAGE</div>
                 <div className="edit-note">
                     <p> <span>edit</span> <span>delete</span> </p>

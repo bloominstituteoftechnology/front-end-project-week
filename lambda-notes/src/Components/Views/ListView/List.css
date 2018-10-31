@@ -6,13 +6,15 @@
 
 .note-links {
     text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+
+.note-links {
+    text-decoration: none;
     border: 1px solid black;
     background: #FFFFFF;
     margin: 10px;
     color: black;
     width: 300px;
-}
-
-.note-container .note-title {
-    color: black;
 }

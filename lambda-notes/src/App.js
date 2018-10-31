@@ -6,7 +6,6 @@ import Navigation from './Components/Navigation/Navigation'
 import List from './Components/Views/ListView/List'
 import CreateNew from './Components/Views/CreateNewView/CreateNew'
 import Note from './Components/Views/NoteView/Note'
-import Delete from './Components/Views/Delete'
 import Edit from './Components/Views/Edit'
 
 class App extends Component {
@@ -21,7 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error))
   }
@@ -62,7 +61,6 @@ class App extends Component {
           )}
         />
 
-        <Route path='/delete' component={Delete}/>
 
         <Route path='/edit' component={Edit}/>
 
