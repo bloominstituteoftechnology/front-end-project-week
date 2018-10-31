@@ -52,3 +52,20 @@
   display: flex;
   flex-direction: column;
 }
+
+.add-edit-note-form .title {
+  padding: 10px;
+  margin: 10px 0;
+  width: 40%;
+}
+
+.add-edit-note-form .textBody {
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+  height: 30rem;
+}
+
+.add-edit-note-form .button {
+  width: 200px;
+}

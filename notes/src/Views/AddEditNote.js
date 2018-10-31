@@ -10,8 +10,10 @@ function AddEditNote () {
         <h1>Create New Note:</h1>
         <form>
           <input type="text" name="title" className="title"/>
+          <br/>
           <input type="textarea" name="textBody" className="textBody"/>
-          <button type="submit">Save</button>
+          <br/>
+          <button type="submit" className='button'>Save</button>
         </form>
       </div>
     );
