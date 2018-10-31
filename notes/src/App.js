@@ -55,7 +55,7 @@ class App extends Component {
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
       .then(res => {
         const updtedArray = this.state.notes.map(note => {
-          if (note._id !== res.data._id) {
+          if (note._id === res.data._id) {
             return res.data;
           }
           return note;
@@ -83,25 +83,24 @@ class App extends Component {
             </NavLink>
           </div>
         </div>
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <NoteList
-              {...props}
-              notes={this.state.notes}
-              deleteNote={this.deleteNote}
-              addNote={this.addNote}
-              editNote={this.editNote}
-            />
-          )}
-        />
-        <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
-        <Route
-          path="/note/:id"
-          render={props => <Note {...props} deleteNote={this.deleteNote} editNote={this.editNote} />}
-        />
-        <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.props.editNote} />} />
+        <div className="body">
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <NoteList
+                {...props}
+                notes={this.state.notes}
+                deleteNote={this.deleteNote}
+                addNote={this.addNote}
+                editNote={this.editNote}
+              />
+            )}
+          />
+          <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
+          <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
+          <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.editNote} />} />
+        </div>
       </div>
     );
   }

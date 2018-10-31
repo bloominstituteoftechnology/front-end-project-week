@@ -10,7 +10,6 @@ class Note extends Component {
       note: [],
       showModal: false
     };
-    console.log(props);
   }
 
   componentDidMount() {
@@ -46,14 +45,16 @@ class Note extends Component {
     const { title, textBody, _id } = this.state.note;
     return (
       <div>
-        <div>
-          <Link to={`/edit/${_id}`}>
-            <p>edit</p>
+        <div className="edit-delete-container">
+          <Link className="rr-link" to={`/edit/${_id}`}>
+            <p className="edit-note-link">edit</p>
           </Link>
-          <div onClick={this.openModal}>delete</div>
+          <p className="delete-note-link" onClick={this.openModal}>
+            delete
+          </p>
         </div>
         <div>
-          <h1>{title}</h1>
+          <h3>{title}</h3>
           <p>{textBody}</p>
         </div>
         <div>
@@ -62,10 +63,21 @@ class Note extends Component {
             onRequestClose={this.closeModal}
             contentLabel="Are you sure you want to delete?"
           >
-            <Link to="/">
-              <button onClick={this.deleteNoteHelper}>Delete</button>
-            </Link>
-            <button onClick={this.closeModal}>No</button>
+            <div className="modal">
+              <div className="modal-prompt">
+                <p>Are you sure you want to delete this?</p>
+              </div>
+              <div className="modal-button-container">
+                <Link className="rr-link" to="/">
+                  <div className="modal-delete-button" onClick={this.deleteNoteHelper}>
+                    Delete
+                  </div>
+                </Link>
+                <div className="modal-no-button" onClick={this.closeModal}>
+                  No
+                </div>
+              </div>
+            </div>
           </Modal>
         </div>
       </div>
