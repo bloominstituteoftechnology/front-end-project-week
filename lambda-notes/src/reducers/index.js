@@ -17,10 +17,9 @@ import {
 } from '../actions/index'
 
 const initialState = {
-    notes: null,
-    note: null,
+    notes: [],
+    note: {},
     gettingNotes: false,
-    getttingNote: false,
     updatingNote: false,
     noteDeleted: false,
     noteAdded: false,

@@ -43,7 +43,12 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-    state,
+    notes: state.notes,
+    note: state.note,
+    gettingNotes: state.gettingNotes,
+    updatingNote: state.updatingNote,
+    noteDeleted: state.noteDeleted,
+    noteAdded: state.noteAdded,
 })
 
 export default connect(mapStateToProps, { getNotes })(App)

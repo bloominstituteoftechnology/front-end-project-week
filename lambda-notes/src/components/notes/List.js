@@ -11,17 +11,10 @@ class List extends Component {
     render() {
         return (
             <div>
-                {
-                    this.props.gettingNotes ? <ul className='note-list'>
-                        {this.props.notes.map(note => (
-                            <Item key={note._id} id={note._id} title={note.title} body={note.textBody} />
-                        ))}
-                    </ul> :
-                    <div className='container has-text-centered'>
-                        <p style={{ margin: '1rem' }}>
-                            <strong>Start by adding a note!</strong>
-                        </p>
-                    </div>}
+                {this.props.notes.map(note => (
+                    <Item key={note._id} id={note._id} title={note.title} textBody={note.textBody} />
+                ))}
+                }
             </div>
         )
     }
@@ -30,7 +23,8 @@ class List extends Component {
 const mapStateToProps = state => {
     return {
         notes: state.notes,
-        fetchedInitial: state.fetchedInitial,
+        note: state.note,
+
     }
 }
 

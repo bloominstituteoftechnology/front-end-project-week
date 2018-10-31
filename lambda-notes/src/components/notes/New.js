@@ -1,25 +1,21 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { updateNote } from '../../actions/index'
+import { addNote } from '../../actions/index'
 
 class New extends Component {
     constructor(props) {
         super(props)
-        this.state = { textBody: '', error: '', posted: false }
+        this.state = { note: { title: '', textBody: '' }, error: '', posted: false }
     }
 
     handleChange = e => {
-        this.setState({ textBody: e.target.value })
+        this.setState({ note: { [e.target.name]: e.target.value } })
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        if (!this.state.textBody) {
-            this.setState({ error: 'Nothing to submit!' })
-        } else {
-            this.props.updateNote()
-        }
+        this.props.addNote()
     }
 
     render() {
@@ -30,8 +26,9 @@ class New extends Component {
                     <hr />
 
                     <form onSubmit={this.handleSubmit}>
+                        <input type='text' name='title' placeholder='title' onChange={this.handleChange} />
                         <p className='control'>
-                            <textarea className='textarea' onChange={this.handleChange} />
+                            <textarea className='textarea' name='bodyText' onChange={this.handleChange} />
                             {this.state.error && (
                                 <p>
                                     <span className='help is-danger'>{this.state.error}</span>
@@ -54,9 +51,9 @@ class New extends Component {
 }
 
 const mapStateToProps = state => ({
-    posted: state.posted,
-    error: state.error,
-    textBody: state.textBody,
+    error: this.state.error,
+    posted: this.state.posted,
+    note: this.state.note,
 })
 
-export default connect(mapStateToProps, { updateNote })(New)
+export default connect(mapStateToProps, { addNote })(New)
