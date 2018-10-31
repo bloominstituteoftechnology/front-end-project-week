@@ -165,7 +165,7 @@ class App extends Component {
       <div className="App">
       <div className="navbar">
        <h1 className="header">
-         Lambda Notes
+         Duly Noted
        </h1>
        <ul className="navlinks">
         
