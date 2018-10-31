@@ -1,7 +1,15 @@
 import React from 'react';
 
-function ReadNote(noteId) {
-  return (<div>Reading Note</div>);
+function ReadNote(note) {
+  console.log(note);
+  const noteTitle = `${note.title}`;
+  console.log(noteTitle);
+  return (
+    <div>
+      <h1>{noteTitle}</h1>
+      <p>{note.textBody}</p>
+    </div>
+  );
 }
 
 export default ReadNote;

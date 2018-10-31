@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 
 import ListNotes from "../views/ListNotes";
-// import AddNote from '../views/AddNote';
+import AddEditNote from '../views/AddEditNote';
 import ReadNote from '../views/ReadNote';
-// import UpdateNote from './views/UpdateNote';
 
 import Sidebar from "./Sidebar";
 
@@ -58,7 +57,7 @@ class App extends Component {
             render={() => <ListNotes notes={this.state.notes} />}
           />
           <Route path='/:noteId' render={({ match }) => (
-            <ReadNote note={this.state.notes.find(note => note._id === match.params.noteId )} />
+            <ReadNote noteId={this.state.notes.find(note => note._id === match.params.noteId )} />
           )} />
           {/* <Route path='/AddNote' render={() => <AddNote postNote={this.postNote}} /> */}
         </div>
