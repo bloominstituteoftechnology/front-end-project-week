@@ -125,3 +125,20 @@ html {
         .button(@teal, white);
     }
 }
+
+.modal {
+    padding: 60px 80px;
+    font-size: 2rem;
+    text-align: center;
+    .modal-btns {
+        .flex(center, center, row);
+        margin-top: 30px;
+        .modal-delete {
+            .button(@red, white);
+            margin-right: 30px;
+        }
+        .modal-no {
+            .button(@teal, white);
+        }
+    }
+}

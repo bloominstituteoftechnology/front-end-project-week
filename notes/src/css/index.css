@@ -172,3 +172,40 @@ html {
   text-decoration: none;
   cursor: pointer;
 }
+.modal {
+  padding: 60px 80px;
+  font-size: 2rem;
+  text-align: center;
+}
+.modal .modal-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 30px;
+}
+.modal .modal-btns .modal-delete {
+  width: 250px;
+  background: #DE0000;
+  color: white;
+  border: 1px solid #D3D2D3;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 30px;
+}
+.modal .modal-btns .modal-no {
+  width: 250px;
+  background: #00BDC0;
+  color: white;
+  border: 1px solid #D3D2D3;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
