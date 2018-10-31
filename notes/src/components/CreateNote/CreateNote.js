@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { CreateTitle, StyledCreateView, SaveNewButton, StyledCreateForm, NoteTitleInput, NoteContentInput } from './styles';
 
 export default class CreateNote extends Component {
   state = {
@@ -35,24 +36,25 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <input
+      <StyledCreateView>
+        <CreateTitle>Create New Note</CreateTitle>
+        <StyledCreateForm>
+          <NoteTitleInput
             type="text"
             name="title"
             placeholder="Note Title"
             onChange={this.handleChange}
             value={this.state.title}
           />
-          <textarea
+          <NoteContentInput
             name="textBody"
             placeholder="Note Content"
             onChange={this.handleChange}
             value={this.state.textBody}
           />
-          <button onClick={this.saveNote}>Save</button>
-        </form>
-      </div>
+          <SaveNewButton onClick={this.saveNote}>Save</SaveNewButton>
+        </StyledCreateForm>
+      </StyledCreateView>
     );
   }
 }

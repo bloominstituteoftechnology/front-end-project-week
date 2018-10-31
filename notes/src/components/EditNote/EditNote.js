@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { StyledEditView, StyledEditForm, NoteTitleInput, NoteContentInput, SaveEditedButton, EditTitle } from './styles';
 
 export default class EditNote extends Component {
   state = {
@@ -50,22 +51,23 @@ export default class EditNote extends Component {
     console.log(this.state.id);
     // const { title, textBody } = this.state.note;
     return (
-      <div>
-        <form>
-          <input
+      <StyledEditView>
+        <EditTitle>Edit Note:</EditTitle>
+        <StyledEditForm>
+          <NoteTitleInput
             type="text"
             name="title"
             onChange={this.handleChange}
             value={this.state.title}
           />
-          <textarea
+          <NoteContentInput
             name="textBody"
             onChange={this.handleChange}
             value={this.state.textBody}
           />
-          <button onClick={this.saveEdit}>Save</button>
-        </form>
-      </div>
+          <SaveEditedButton onClick={this.saveEdit}>Save</SaveEditedButton>
+        </StyledEditForm>
+      </StyledEditView>
     );
   }
 }
