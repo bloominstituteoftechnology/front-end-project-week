@@ -20,7 +20,12 @@ class ListView extends React.Component {
       <Sidebar notes={this.props.notes}/>
       {this.props.fetchingNotes ? <div className='loading'>
         <h1>Getting notes...</h1>
-      </div> : <NotesList notes={this.props.notes} />}
+      </div> : <NotesList notes={this.props.notes}
+      sortHelper={this.props.sortHelper}
+      titleAsc={this.props.titleAsc}
+      titleDes={this.props.titleDes}
+      lengthAsc={this.props.lengthAsc}
+      lengthDes={this.props.lengthDes}/>}
 
       </div>
     )

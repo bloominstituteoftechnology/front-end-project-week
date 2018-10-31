@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { CSVLink } from 'react-csv';
+import { Link, Route } from 'react-router-dom';
+import CSVButton from './CSVButton'; 
+
 
 const SideBar = props => {
 
@@ -25,8 +26,7 @@ const SideBar = props => {
         + Create New Note
         </div>
       </Link>
-      <CSVLink className='button csv-button' data={csvdata} headers={csvheaders}>
-       Download CSV</CSVLink>
+      <Route exact path='/' render={(props) => (<CSVButton {...props} csvheaders={csvheaders} csvdata={csvdata} />)}  />
     </div>
   )
 }

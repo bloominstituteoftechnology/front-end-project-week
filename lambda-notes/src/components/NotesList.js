@@ -13,6 +13,21 @@ class NotesList extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.titleAsc) {
+      this.sortByTitleAsc();
+    }
+    if (this.props.titleDes) {
+      this.sortByTitleDes();
+    }
+    if (this.props.lengthAsc) {
+      this.sortByLengthAsc();
+    }
+    if (this.props.lengthDes) {
+      this.sortByLengthDes(); 
+    }
+  }
+
 
   handleInput = event => {
     this.searchNotes(event.target.value.toLowerCase());
@@ -39,7 +54,8 @@ class NotesList extends React.Component {
     });
     this.setState({
       currentNotes: sortedTitle,
-    })
+    });
+    this.props.sortHelper('title', 'asc')
   }
 
   sortByTitleDes = () => {
@@ -54,16 +70,28 @@ class NotesList extends React.Component {
   });
     this.setState({
       currentNotes: sortedTitleDes,
-    })
+    });
+    this.props.sortHelper('title', 'des');
   }
 
-  sortByLength = () => {
+  sortByLengthAsc = () => {
     let sortedLength = this.props.notes.slice().sort(function(a, b) {
       return a.textBody.length - b.textBody.length;
     });
     this.setState({
       currentNotes: sortedLength,
     });
+    this.props.sortHelper('length', 'asc');
+  }
+
+  sortByLengthDes = () => {
+    let sortedLengthDes = this.props.notes.slice().sort(function(a, b) {
+      return b.textBody.length - a.textBody.length;
+    });
+    this.setState({
+      currentNotes: sortedLengthDes,
+    });
+    this.props.sortHelper('length', 'des');
   }
 
   render(){
@@ -72,7 +100,8 @@ class NotesList extends React.Component {
     return (
       <div className='notes-list'>
       <TopBar handleInput={this.handleInput} search={this.searchNotes} sortByTitleAsc={this.sortByTitleAsc} sortByTitleDes={this.sortByTitleDes}
-      sortByLength={this.sortByLength}/>
+      sortByLengthAsc={this.sortByLengthAsc}
+      sortByLengthDes={this.sortByLengthDes}/>
       <h3>Your Notes:</h3>
         {this.state.currentNotes.map(note => {
           return (
