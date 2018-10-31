@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {fetchNotes} from '../actions'
 
 
 const StyledBar = styled.div `
@@ -20,13 +22,13 @@ const StyledBar = styled.div `
 
 `
 
-const SideBar = () =>{
+const SideBar = props =>{
     return (
         <StyledBar>
             <h1>
             Lambda Notes</h1>
             <NavLink to='/'>
-            <div className='button'>View Your Notes</div>
+            <div onClick={props.fetchNotes} className='button'>View Your Notes</div>
             </NavLink>
             <NavLink to='/create'>
             <div className='button'>+ Create New Note</div>
@@ -36,4 +38,4 @@ const SideBar = () =>{
     )
 }
 
-export default SideBar
+export default connect(null, {fetchNotes})(SideBar)

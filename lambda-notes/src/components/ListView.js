@@ -14,6 +14,10 @@ const NoteList = styled.div`
       width:100%;
       margin-left:15px;
   }
+  .fetch{
+    margin: 25px 0;
+    width:100%;
+  }
 `;
 
 class ListView extends Component {
@@ -35,11 +39,11 @@ class ListView extends Component {
       
           <NoteList>
         <h3>Your Notes:</h3>
-        <div className={this.props.gettingNotes ? "" : "none"}>
+        <div className={this.props.gettingNotes ? "fetch" : "none"}>
           <h3>Fetching Notes</h3>
         </div>
         
-          {this.props.notes.map(note => (
+          {this.props.notes.reverse().map(note => (
             <NavLink exact to={`/notes/${note._id}`} key={note._id}>
               
                <Note note={note} id={note._id} />
