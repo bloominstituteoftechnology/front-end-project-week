@@ -14,29 +14,34 @@ class Signup extends Component {
     };
   }
 
-  handleLoginForm = e => {
+  handleSignupForm = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
-  handleLoginSubmit = e => {
+  handleSignupSubmit = e => {
     e.preventDefault();
 
     const { firebase, history } = this.props;
-
     const { email, password } = this.state;
-    firebase
-      .login({
-        email,
-        password
-      })
-      .then(history.push("/"))
-      .catch(err => alert("An error occured, please try again"));
+
+    const createNewUser = ({ email, password }) => {
+      firebase
+        .createUser({ email, password })
+        .catch(err => alert("This user already exists"));
+    };
+
+    createNewUser({
+      email: this.state.email,
+      password: this.state.password
+    });
+    // .then(history.push("/"))
+    // .catch(err => alert("An error occured, please try again"));
   };
   render() {
     return (
       <div className="login-form">
-        <form onSubmit={this.handleLoginSubmit}>
+        <form onSubmit={this.handleSignupSubmit}>
           <div className="login-icon-text">
             <i className="fas fa-user-plus" />
             <span>Sign Up</span>
@@ -44,7 +49,7 @@ class Signup extends Component {
           <input
             type="email"
             placeholder="Enter an Email"
-            onChange={this.handleLoginForm}
+            onChange={this.handleSignupForm}
             value={this.state.email}
             name="email"
             required
@@ -52,10 +57,11 @@ class Signup extends Component {
           <input
             type="password"
             placeholder="Enter a Password"
-            onChange={this.handleLoginForm}
+            onChange={this.handleSignupForm}
             value={this.state.password}
             name="password"
             required
+            minLength="6"
           />
           <input type="submit" value="Sign Up" id="login-submit" />
         </form>
