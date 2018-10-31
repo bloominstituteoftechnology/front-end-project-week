@@ -5,6 +5,11 @@ import { Container, Title, Button, SearchInput } from '../styles/Sidebar'
 const numToAdd = 25
 
 class Sidebar extends Component {
+  handleChange = event => {
+    const { setSearchParam } = this.props
+    setSearchParam(event.target.value)
+  }
+
   render() {
     const {
       deleteAllChecked,
@@ -13,13 +18,21 @@ class Sidebar extends Component {
       bulkAddNotes,
       removeSelfAdded,
       createZombieNote,
-      checkAll
+      checkAll,
+      searchParam
     } = this.props
+
+    const { handleChange } = this
 
     return (
       <Container>
         <Title>Lambda Notes</Title>
-        <SearchInput type="text" placeholder="search notes" />
+        <SearchInput
+          type="text"
+          placeholder="search notes"
+          value={searchParam}
+          onChange={handleChange}
+        />
         <Link to="/">
           <Button onClick={getAllNotes}>View Your Notes</Button>
         </Link>

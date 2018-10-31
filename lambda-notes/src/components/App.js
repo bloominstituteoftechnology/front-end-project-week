@@ -13,7 +13,8 @@ import {
   checkAll,
   bulkAddNotes,
   removeSelfAdded,
-  createZombieNote
+  createZombieNote,
+  setSearchParam
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -21,7 +22,11 @@ import DisplayAll from './DisplayAll'
 import DisplayOne from './DisplayOne'
 import Add from './Add'
 
-const mapStateToProps = ({ notes, checked }) => ({ notes, checked })
+const mapStateToProps = ({ notes, checked, searchParam }) => ({
+  notes,
+  checked,
+  searchParam
+})
 
 const zombieNote = {
   title: 'Zombie Note',
@@ -65,6 +70,8 @@ class App extends Component {
       bulkAddNotes,
       removeSelfAdded,
       createZombieNote,
+      setSearchParam,
+      searchParam,
       history
     } = this.props
 
@@ -78,6 +85,8 @@ class App extends Component {
           bulkAddNotes={bulkAddNotes}
           removeSelfAdded={removeSelfAdded}
           createZombieNote={createZombieNote}
+          setSearchParam={setSearchParam}
+          searchParam={searchParam}
         />
 
         <Route
@@ -91,6 +100,7 @@ class App extends Component {
               checked={checked}
               addChecked={addChecked}
               removeChecked={removeChecked}
+              searchParam={searchParam}
             />
           )}
         />
@@ -134,7 +144,8 @@ export default withRouter(
       bulkAddNotes,
       removeSelfAdded,
       checkAll,
-      createZombieNote
+      createZombieNote,
+      setSearchParam
     }
   )(App)
 )

@@ -31,36 +31,38 @@ class DisplayAll extends Component {
   }
 
   render() {
-    const { notes, checked } = this.props
+    const { notes, checked, searchParam } = this.props
     const { handleCheckChange } = this
 
     return (
       <Container>
         <PageHeader>Your Notes:</PageHeader>
         <NotesContainer>
-          {notes.map(({ title, textBody, _id }) => (
-            <Note key={_id}>
-              <HeaderWrapper>
-                <Link to={`/note/${_id}`}>
-                  <NoteTitle>
-                    {title.length > 40
-                      ? `${title.substring(0, 40)} ...`
-                      : title}
-                  </NoteTitle>
-                </Link>
+          {notes
+            .filter(({ title }) => title.toLowerCase().match(searchParam))
+            .map(({ title, textBody, _id }) => (
+              <Note key={_id}>
+                <HeaderWrapper>
+                  <Link to={`/note/${_id}`}>
+                    <NoteTitle>
+                      {title.length > 40
+                        ? `${title.substring(0, 40)} ...`
+                        : title}
+                    </NoteTitle>
+                  </Link>
 
-                <CheckboxContainer onChange={handleCheckChange}>
-                  <HiddenDefault type="checkbox" name={_id} />
-                  <StyledCheckbox isChecked={checked.includes(_id)} />
-                </CheckboxContainer>
-              </HeaderWrapper>
-              <NoteBody>
-                {textBody.length > 200
-                  ? `${textBody.substring(0, 200)} ...`
-                  : textBody}
-              </NoteBody>
-            </Note>
-          ))}
+                  <CheckboxContainer onChange={handleCheckChange}>
+                    <HiddenDefault type="checkbox" name={_id} />
+                    <StyledCheckbox isChecked={checked.includes(_id)} />
+                  </CheckboxContainer>
+                </HeaderWrapper>
+                <NoteBody>
+                  {textBody.length > 200
+                    ? `${textBody.substring(0, 200)} ...`
+                    : textBody}
+                </NoteBody>
+              </Note>
+            ))}
         </NotesContainer>
       </Container>
     )

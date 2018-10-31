@@ -4,13 +4,15 @@ import {
   REMOVE_CHECKED,
   CLEAR_ALL_CHECKED,
   CHECK_ALL,
-  RECORD_SELF_ADDED
+  RECORD_SELF_ADDED,
+  SET_SEARCH_PARAM
 } from '../actions'
 
 const initialState = {
   notes: [],
   checked: [],
-  self_added: []
+  self_added: [],
+  searchParam: ''
 }
 
 export default (state = initialState, action) => {
@@ -40,6 +42,11 @@ export default (state = initialState, action) => {
         self_added: Array.isArray(action.payload)
           ? [...state.self_added, ...action.payload]
           : [...state.self_added, action.payload]
+      }
+    case SET_SEARCH_PARAM:
+      return {
+        ...state,
+        searchParam: action.param
       }
     default:
       return state

@@ -10,7 +10,7 @@ export const Container = styled.div`
   padding: 15px;
 
   > * {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
   border-right: 1px solid #434343;
 `
