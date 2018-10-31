@@ -15,22 +15,16 @@ class App extends Component {
       notes: [],
       id: '',
       title: '',
-      text: '',
+      content: '',
       showModal: false
     }
   }
 
-  // componentDidMount(){
-  //   this.setState({ 
-  //     notes: Note,
-  //    })
-  // }
-
   componentDidMount() {
-    this.grabAllNotes();
+    this.getNotes();
   }
 
-  grabAllNotes = () => {
+  getNotes = () => {
     console.log("getting notes?", this.state);
     axios.get('http://localhost:7000/api/notes')
     .then(response => this.setState({ ...this.state, notes: response.data }))
@@ -47,20 +41,20 @@ class App extends Component {
     notes.push({ 
       id: Number(Date.now().toString().slice(-2)), 
       title: this.state.title, 
-      text: this.state.text 
+      content: this.state.content 
     });
     this.setState({ 
       notes, 
       id: '',
       title: '',
-      text: '' 
+      content: '' 
     });
   }
 
-  editNoteSubmit = (noteID, title, text) => {
+  editNoteSubmit = (noteID, title, content) => {
     this.setState(function (prevState) {
       return {
-        notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, text} : note )
+        notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, content} : note )
       }
     } );
  }
@@ -68,7 +62,7 @@ class App extends Component {
   deleteNote = id => {
    let notes = this.state.notes.slice();
    notes = notes.filter(note => note.id !== id);
-   this.setState({ notes, id: '', title: '', text: ''  });
+   this.setState({ notes, id: '', title: '', content: ''  });
   }
 
   modalToggle = () => {
@@ -87,10 +81,26 @@ class App extends Component {
           <Link to="/add" ><div className="nav-button" >+ Create New Note</div></Link>
         </div>
         <div className="display-right" >
-          <Route exact path="/notes" render={props => (<NoteList {...props} notes={this.state.notes} />)} />
-          <Route exact path="/notes/:id" render={props => (<NoteView {...props} notes={this.state.notes} modalToggle={this.modalToggle} showModal={this.state.showModal} deleteNote={this.deleteNote} /> )} />
-          <Route exact path="/add" render={props => (<AddNote {...props} notes={this.state.notes} handleInputChange={this.handleInputChange} inputTitle={this.state.title} inputText={this.state.text} addNewNote={this.addNewNote} /> ) } />
-          <Route exact path="/notes/:id/edit" render={props => (<EditNote {...props} notes={this.state.notes} editNoteSubmit={this.editNoteSubmit} />)}  />
+          <Route exact path="/notes" render={props => 
+            (<NoteList {...props} 
+              notes={this.state.notes} />)} />
+          <Route exact path="/notes/:id" render={props => 
+            (<NoteView {...props} 
+              notes={this.state.notes} 
+              modalToggle={this.modalToggle} 
+              showModal={this.state.showModal} 
+              deleteNote={this.deleteNote} /> )} />
+          <Route exact path="/add" render={props => 
+            (<AddNote {...props} 
+              notes={this.state.notes} 
+              handleInputChange={this.handleInputChange} 
+              inputTitle={this.state.title} 
+              inputText={this.state.content} 
+              addNewNote={this.addNewNote} /> ) } />
+          <Route exact path="/notes/:id/edit" render={props => 
+            (<EditNote {...props} 
+              notes={this.state.notes} 
+              editNoteSubmit={this.editNoteSubmit} />)}  />
         </div>
       </div>
     );

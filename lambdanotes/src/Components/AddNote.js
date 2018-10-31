@@ -12,7 +12,7 @@ export const AddNote = props => {
             <h3 className="Header">Create New Note:</h3>
               <form  className="add-form" >
                 <input className="title-input" placeholder="Title" name="title" onChange={props.handleInputChange} value={props.inputTitle} /> <br/>
-                <textarea className="text-input" placeholder="Content" name="text" onChange={props.handleInputChange} value={props.inputText} />
+                <textarea className="text-input" placeholder="Content" name="content" onChange={props.handleInputChange} value={props.inputText} />
                 <div onClick={handleClick} className="save-btn" >Save</div>
               </form>
         </div>
