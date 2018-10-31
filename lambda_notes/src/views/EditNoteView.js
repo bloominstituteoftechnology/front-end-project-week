@@ -34,6 +34,10 @@ class EditNoteView extends Component {
   }
 
   render() {
+    if (this.props.gettingNotes) {
+      return <h2>Loading note...</h2>
+    }
+
     const noteId = this.props.match.params.id;
     const note = this.props.notes.find(note => note._id === noteId);
 

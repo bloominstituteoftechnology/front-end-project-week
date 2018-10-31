@@ -3,6 +3,9 @@ import { customLayout, customButton } from '../../mixins/index';
 
 // NAVIGATION STYLES
 export const Container = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 30%;
   min-height: 100vh;
   max-height: 100%;
