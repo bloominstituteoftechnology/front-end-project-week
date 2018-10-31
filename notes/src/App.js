@@ -6,6 +6,7 @@ import CreateEditNoteView from "./views/CreateEditNoteView";
 import SingleNoteView from "./views/SingleNoteView";
 import { Auth0Lock } from "auth0-lock";
 import auth0 from "auth0-js";
+import SearchBarView from "./views/SearchBarView";
 
 var lock = new Auth0Lock(
   process.env.REACT_APP_CLIENT_ID,
@@ -32,7 +33,6 @@ webAuth.parseHash((err, authResult) => {
   }
 });
 
-console.log(process.env);
 class App extends Component {
   render() {
     if (this.isAuthenticated()) {
@@ -48,23 +48,28 @@ class App extends Component {
             <li>
               <NavLink to="/create-note">+ Create New Note</NavLink>
             </li>
+            <div className="log-out" onClick={this.logout}>
+              Log Out
+            </div>
           </ul>
           <Route exact path="/" component={ListView} />
           <Route path="/create-note" component={CreateEditNoteView} />
           <Route path="/notes/:id" component={SingleNoteView} />
-          <div onClick={this.logout}>LOG OUT</div>
         </div>
       );
     } else {
       return (
-        <div>
-          <h1> Please Log In to see your notes</h1>
-          <div
-            onClick={function() {
-              lock.show();
-            }}
-          >
-            Log In
+        <div className="log-in-container">
+          <div className="log-in">
+            <h1> Welcome to Lambda Notes!</h1>
+            <div
+              className="log-in-button"
+              onClick={function() {
+                lock.show();
+              }}
+            >
+              Log In
+            </div>
           </div>
         </div>
       );
