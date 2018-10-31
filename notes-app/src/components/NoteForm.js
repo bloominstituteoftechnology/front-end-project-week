@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import axios from 'axios'
 import styled from 'styled-components'
 
 class NoteForm extends Component {
@@ -16,7 +17,7 @@ class NoteForm extends Component {
         editing: true,
         title: this.props.noteUpdate.title,
         text: this.props.noteUpdate.text,
-        
+        tags: JSON.parse(this.props.noteUpdate.tags)
       })
     }
   }
@@ -37,7 +38,10 @@ class NoteForm extends Component {
         text: this.state.text,
         tags: formattedTags
       }
-      this.props.updateNote(updatedNote)
+      
+      axios.put(`http://localhost:7000/notes/${id}/edit`, updatedNote)
+        .then(resp => console.log(resp))
+        .catch(err => console.log(err))
       this.props.history.push("/")
       this.setState({ editing: false })
     }
