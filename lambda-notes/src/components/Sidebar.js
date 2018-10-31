@@ -17,7 +17,6 @@ class Sidebar extends Component {
       clearAllChecked,
       bulkAddNotes,
       removeSelfAdded,
-      createZombieNote,
       checkAll,
       searchParam
     } = this.props
@@ -46,7 +45,6 @@ class Sidebar extends Component {
           Add {numToAdd} notes
         </Button>
         <Button onClick={removeSelfAdded}>Remove self added</Button>
-        <Button onClick={createZombieNote}>Create zombie note</Button>
       </Container>
     )
   }

@@ -13,7 +13,6 @@ import {
   checkAll,
   bulkAddNotes,
   removeSelfAdded,
-  createZombieNote,
   setSearchParam
 } from '../actions'
 import { PageContainer } from '../styles/App'
@@ -69,7 +68,6 @@ class App extends Component {
       checkAll,
       bulkAddNotes,
       removeSelfAdded,
-      createZombieNote,
       setSearchParam,
       searchParam,
       history
@@ -84,7 +82,6 @@ class App extends Component {
           checkAll={checkAll}
           bulkAddNotes={bulkAddNotes}
           removeSelfAdded={removeSelfAdded}
-          createZombieNote={createZombieNote}
           setSearchParam={setSearchParam}
           searchParam={searchParam}
         />
@@ -144,7 +141,6 @@ export default withRouter(
       bulkAddNotes,
       removeSelfAdded,
       checkAll,
-      createZombieNote,
       setSearchParam
     }
   )(App)

@@ -70,11 +70,10 @@ export const removeChecked = id => ({
 })
 
 export const checkAll = () => (dispatch, getState) => {
-  const { notes } = getState()
-  const allIds = notes.map(note => note._id)
-
-  console.log('checking all')
-  console.log(allIds)
+  const { notes, searchParam } = getState()
+  const allIds = notes
+    .filter(({ title }) => title.toLowerCase().match(searchParam))
+    .map(note => note._id)
 
   dispatch({ type: CHECK_ALL, allIds })
 }
@@ -151,22 +150,7 @@ export const removeSelfAdded = () => async (dispatch, getState) => {
   dispatch(getAllNotes())
 }
 
-export const createZombieNote = ({ title, text }) => dispatch => {
-  console.log('posting zombie test')
-
-  axios
-    .post('https://fe-notes.herokuapp.com/note/create', {
-      tags: ['zombie'],
-      title: 'zombie test',
-      textBody: 'testing will delete'
-    })
-    .then(res => {
-      console.log(res.data.success)
-      dispatch({ type: RECORD_SELF_ADDED, payload: res.data.success })
-      dispatch(getAllNotes())
-    })
-    .catch(err => console.log(err))
-}
+// FOR PASSING THE SEARCH PARAM TO THE RELEVANT COMPONENTS
 
 export const setSearchParam = param => ({
   type: SET_SEARCH_PARAM,

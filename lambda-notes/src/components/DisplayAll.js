@@ -33,36 +33,43 @@ class DisplayAll extends Component {
   render() {
     const { notes, checked, searchParam } = this.props
     const { handleCheckChange } = this
+    const filteredNotes = notes.filter(({ title }) =>
+      title.toLowerCase().match(searchParam)
+    )
 
     return (
       <Container>
-        <PageHeader>Your Notes:</PageHeader>
+        <PageHeader>
+          {notes.length > filteredNotes.length
+            ? `Your search for ${searchParam} matches ${
+                filteredNotes.length
+              } notes:`
+            : `You currently have ${notes.length} notes:`}
+        </PageHeader>
         <NotesContainer>
-          {notes
-            .filter(({ title }) => title.toLowerCase().match(searchParam))
-            .map(({ title, textBody, _id }) => (
-              <Note key={_id}>
-                <HeaderWrapper>
-                  <Link to={`/note/${_id}`}>
-                    <NoteTitle>
-                      {title.length > 40
-                        ? `${title.substring(0, 40)} ...`
-                        : title}
-                    </NoteTitle>
-                  </Link>
+          {filteredNotes.map(({ title, textBody, _id }) => (
+            <Note key={_id}>
+              <HeaderWrapper>
+                <Link to={`/note/${_id}`}>
+                  <NoteTitle>
+                    {title.length > 40
+                      ? `${title.substring(0, 40)} ...`
+                      : title}
+                  </NoteTitle>
+                </Link>
 
-                  <CheckboxContainer onChange={handleCheckChange}>
-                    <HiddenDefault type="checkbox" name={_id} />
-                    <StyledCheckbox isChecked={checked.includes(_id)} />
-                  </CheckboxContainer>
-                </HeaderWrapper>
-                <NoteBody>
-                  {textBody.length > 200
-                    ? `${textBody.substring(0, 200)} ...`
-                    : textBody}
-                </NoteBody>
-              </Note>
-            ))}
+                <CheckboxContainer onChange={handleCheckChange}>
+                  <HiddenDefault type="checkbox" name={_id} />
+                  <StyledCheckbox isChecked={checked.includes(_id)} />
+                </CheckboxContainer>
+              </HeaderWrapper>
+              <NoteBody>
+                {textBody.length > 200
+                  ? `${textBody.substring(0, 200)} ...`
+                  : textBody}
+              </NoteBody>
+            </Note>
+          ))}
         </NotesContainer>
       </Container>
     )
