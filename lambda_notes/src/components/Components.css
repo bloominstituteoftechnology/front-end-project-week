@@ -154,4 +154,46 @@
     opacity: 0.6;
     z-index: -1;
   }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .form-heading {
+    color: #414141;
+    margin-top: 70px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+  }
+  
+  .form input {
+    width: 400px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
+  
+  .form textarea {
+    width: 600px;;
+    height: 300px;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
+  
+  .form button {
+    text-align: center;
+    background: #56b9bd;
+    color: white;
+    font-size: 1.1rem;
+    width: 200px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
   

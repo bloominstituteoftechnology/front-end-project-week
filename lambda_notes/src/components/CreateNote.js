@@ -9,8 +9,8 @@ const CreateNote = props => {
     }
     return (
         <div>
-            <h2>Create New Note: </h2>
-            <form onSubmit={createNewNote}>
+            <h2 className="form-heading">Create New Note: </h2>
+            <form onSubmit={createNewNote} className="form">
                 <input 
                     type="text"
                     name="title"
