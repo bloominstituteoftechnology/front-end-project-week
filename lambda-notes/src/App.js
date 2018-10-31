@@ -8,6 +8,8 @@ import SingleNote from "./components/notes/SingleNote";
 import EditNote from "./components/notes/EditNote";
 import Login from "./components/auth/Login";
 import MobileNav from "./components/layout/MobileNav";
+import Signup from "./components/auth/Signup";
+import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helpers/auth";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -22,11 +24,32 @@ class App extends Component {
             <SideBar />
             <MobileNav />
             <Switch>
-              <Route exact path="/" component={Notes} />
-              <Route exact path="/add" component={AddNote} />
-              <Route exact path="/notes/:id" component={SingleNote} />
-              <Route exact path="/notes/:id/edit" component={EditNote} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/" component={UserIsAuthenticated(Notes)} />
+              <Route
+                exact
+                path="/add"
+                component={UserIsAuthenticated(AddNote)}
+              />
+              <Route
+                exact
+                path="/notes/:id"
+                component={UserIsAuthenticated(SingleNote)}
+              />
+              <Route
+                exact
+                path="/notes/:id/edit"
+                component={UserIsAuthenticated(EditNote)}
+              />
+              <Route
+                exact
+                path="/login"
+                component={UserIsNotAuthenticated(Login)}
+              />
+              <Route
+                exact
+                path="/sign-up"
+                component={UserIsNotAuthenticated(Signup)}
+              />
             </Switch>
           </div>
         </Router>

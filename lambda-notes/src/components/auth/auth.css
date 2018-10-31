@@ -40,6 +40,20 @@
   font-size: 1.6rem;
   font-weight: 400;
 }
+.login-form form h4 {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: 400;
+}
+.login-form form h4:hover {
+  opacity: 1;
+}
+.login-form form a {
+  text-decoration: none;
+  color: #333;
+}
 
 @media (max-width: 960px) {
   .login-form {

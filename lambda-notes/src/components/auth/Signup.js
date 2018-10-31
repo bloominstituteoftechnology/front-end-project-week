@@ -4,9 +4,8 @@ import "./auth.css";
 // import { compose } from "redux";
 // import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
-import { Link } from "react-router-dom";
 
-class Login extends Component {
+class Signup extends Component {
   constructor() {
     super();
     this.state = {
@@ -32,38 +31,37 @@ class Login extends Component {
         password
       })
       .then(history.push("/"))
-      .catch(err => alert("Invalid Login Info"));
+      .catch(err => alert("An error occured, please try again"));
   };
   render() {
     return (
       <div className="login-form">
         <form onSubmit={this.handleLoginSubmit}>
           <div className="login-icon-text">
-            <i className="fas fa-lock" />
-            <span>Login</span>
+            <i className="fas fa-user-plus" />
+            <span>Sign Up</span>
           </div>
           <input
             type="email"
-            placeholder="Enter your Email"
+            placeholder="Enter an Email"
             onChange={this.handleLoginForm}
             value={this.state.email}
             name="email"
+            required
           />
           <input
             type="password"
-            placeholder="Enter your Password"
+            placeholder="Enter a Password"
             onChange={this.handleLoginForm}
             value={this.state.password}
             name="password"
+            required
           />
-          <input type="submit" value="Login" id="login-submit" />
-          <Link to="/sign-up">
-            <h4>Don't have an account? Sign up here</h4>
-          </Link>
+          <input type="submit" value="Sign Up" id="login-submit" />
         </form>
       </div>
     );
   }
 }
 
-export default firebaseConnect()(Login);
+export default firebaseConnect()(Signup);
