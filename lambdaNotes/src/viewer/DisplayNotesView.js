@@ -1,50 +1,91 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import DisplayNoteList from '../components/DisplayNoteList';
-import DisplayNote from '../components/DisplayNote';
+import React, { Component } from "react";
 
-class DisplayNotesView extends React.Component {
-    // add constructor and CDM
-    constructor() {
-    super();
-    // this.state = {
-    // items: []
-    // };
-        this.submitEdit = this.submitEdit.bind(this);
-    }
+import { connect } from "react-redux";
+import { Route, withRouter } from "react-router-dom";
+import {
+  DisplayNoteList,
+  DisplayNote,
+  AddNoteForm,
+  DeleteNote,
+  EditNote,
+} from "../components/";
+import { fetchNotes, addNote, deleteNote, editNote } from "../actions";
 
-    submitEdit = () =>{
+class DisplayNotesView extends Component {
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
 
-    }
-    
- 
-    render(){
+  submitAdd = note => {
+    this.props.addNote(note);
+  };
 
-        return(
-            <Router>
-            <div>
-                    <Route
-                    exact
-                    path="/"
-                    render={props => (
-                        <DisplayNoteList  {...props}  notes={this.props.notes}  />
-                    )}
-                    />
+  submitEdit = editedNote => {
+    this.props.editNote(editedNote);
+  };
 
-                    <Route
-                    path="/Notes/:id"
-                    render={props => 
-                    <DisplayNote {...props} 
-                         notes={this.state.notes} 
-                        submitEdit={this.submitEdit}
-                        deleteNote={this.props.deleteNote}/>}
-                    />
-</div>
-</Router>
-        )
+  submitdelete = deleteId => {
+    this.props.deleteNote(deleteId);
+  };
 
-    }
+  render() {
+    return (
+      <div className="displayNotesView">
+
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <DisplayNoteList {...props} notes={this.props.notes} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/edit/:id"
+          render={props => (
+            <EditNote {...props}  notes={this.props.notes}
+              submitEdit={this.submitEdit}
+            />
+          )}
+        />
+
+        <Route
+          path="/Notes/:id"
+          render={props => <DisplayNote {...props} notes={this.props.notes} />}
+        />
+
+        <Route
+          exact
+          path="/Notes/:id/delete"
+          render={props => (
+            <DeleteNote {...props}   notes={this.props.notes}
+              submitdelete={this.submitdelete}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/addNote"
+          render={props => (
+            <AddNoteForm {...props} submitAdd={this.submitAdd} />
+          )}
+        />
+      </div>
+    );
+  }
 }
 
-    export default DisplayNotesView;
+// gets the state and map them to props
+const mapStateToProps = ({ fetching, notes }) => {
+  console.log("App MapStatetoProps  notes = ", notes);
+  return { notes, fetching };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchNotes, addNote, deleteNote, editNote }
+  )(DisplayNotesView)
+);
