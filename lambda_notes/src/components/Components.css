@@ -196,4 +196,11 @@
     margin-bottom: 20px;
     margin-left: 25px;
   }
+
+  .searchbar {
+    margin-left: 10px;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+  }
   

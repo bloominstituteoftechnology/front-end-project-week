@@ -17,7 +17,8 @@ class App extends Component {
       text: '',
       updatedTitle: '',
       updatedText: '',
-      deleting: false
+      deleting: false,
+      filteredNotes: []
     }
   }
 
@@ -103,13 +104,25 @@ class App extends Component {
     this.setState();
   };
 
+  searchNoteHandler = event => {
+    const notes = this.state.notes.filter(note => {
+      if (note.title.includes(event.target.value)) {
+        return note;
+      }
+    })
+    this.setState({filteredNotes: notes});
+  }
+
   render() {
     return (
       <div className="App">
         <SideBar />
         <Route exact path='/' render={props => <NotesList 
         {...props}
-        notes={this.state.notes} 
+        notes={this.state.filteredNotes.length > 0 
+          ? this.state.filteredNotes
+          : this.state.notes} 
+        searchNote={this.searchNoteHandler}
         />} />
         <Route exact path='/note/:id' render={props => <SingleNote 
         {...props}

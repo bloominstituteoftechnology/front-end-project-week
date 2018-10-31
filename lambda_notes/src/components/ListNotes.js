@@ -4,7 +4,10 @@ import './Components.css';
 
 const NotesList = props => (
     <div className="noteslist">
-      <h2>Your Notes:</h2>
+      <h2>
+        Your Notes:
+        <input type="text" placeholder="Serach" onKeyDown={props.searchNote} className="searchbar"/>
+        </h2>
       <div className="notes">
         {props.notes.map((note, i) => (
           <Note note={note} key={i} />
