@@ -8,7 +8,7 @@ class NewNote extends React.Component {
     this.state = {
       title: "",
       content: "",
-      newNote: { title: "", content: "", id: 0 }
+      newNote: { title: "", content: "" }
     };
   }
   componentDidMount() {
@@ -29,9 +29,11 @@ class NewNote extends React.Component {
     e.preventDefault();
     const note = {
       title: this.state.title,
-      content: this.state.content,
-      id: this.props.isUpdatingNote ? this.props.note.id : null
+      content: this.state.content
     };
+    if (this.props.isUpdatingNote) {
+      note.id = this.props.note.id;
+    }
 
     if (this.props.isUpdatingNote) {
       console.log("to update: ");

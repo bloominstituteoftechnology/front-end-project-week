@@ -23,7 +23,7 @@ class App extends Component {
     console.log(process.env.REACT_APP_CLIENT_ID);
     //Get notes from Backend Project - 10/29/2018
     axios
-      .get("http://localhost:8000/api/notes")
+      .get("https://lambda-notes-backend-project.herokuapp.com/api/notes")
       .then(response => {
         console.log(response);
         this.setState({ ...this.state, notes: response.data });
@@ -32,7 +32,8 @@ class App extends Component {
   }
 
   addNewNote(note) {
-    const url = "http://localhost:8000/api/notes";
+    console.log(note);
+    const url = "https://lambda-notes-backend-project.herokuapp.com/api/notes";
     const token = localStorage.getItem("jwt");
     const options = {
       headers: {
@@ -41,7 +42,7 @@ class App extends Component {
     };
     if (note.title.length > 0) {
       axios
-        .post(url, note, options)
+        .post(url, note)
         .then(response => {
           if (response.status === 201) {
             axios
@@ -57,8 +58,8 @@ class App extends Component {
   }
 
   deleteNote(id) {
-    const url = `http://localhost:8000/api/notes/`;
-    const url_with_id = `http://localhost:8000/api/notes/${id}`;
+    const url = `https://lambda-notes-backend-project.herokuapp.com/api/notes/`;
+    const url_with_id = `https://lambda-notes-backend-project.herokuapp.com/api/notes/${id}`;
     axios
       .delete(url_with_id)
       .then(res => {
@@ -74,8 +75,8 @@ class App extends Component {
 
   updateNote(updatedNote) {
     const id = updatedNote.id;
-    const url = `http://localhost:8000/api/notes/`;
-    const url_with_id = `http://localhost:8000/api/notes/${id}`;
+    const url = `https://lambda-notes-backend-project.herokuapp.com/api/notes/`;
+    const url_with_id = `https://lambda-notes-backend-project.herokuapp.com/api/notes/${id}`;
     axios
       .put(url_with_id, updatedNote)
       .then(res => {
@@ -175,4 +176,4 @@ class App extends Component {
 //   };
 // };
 
-export default Authenticate(App);
+export default App;

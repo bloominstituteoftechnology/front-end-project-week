@@ -21,7 +21,8 @@ class Register extends React.Component {
     if (!user.username || !user.password) {
       alert("Please sign in ");
     }
-    const url = "http://localhost:8000/api/users/register";
+    const url =
+      "https://lambda-notes-backend-project.herokuapp.com/api/users/register";
     axios
       .post(url, user)
       .then(response => {
