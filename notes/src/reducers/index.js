@@ -1,4 +1,8 @@
 import {
+    NOTE_CHECKED,
+    NOTE_UNCHECKED,
+    NOTE_CHECKED_CLEAR,
+    TOGGLE_MENU,
     SET_SORT_MODE,
     ACTIVE_NOTE_HANDLER,
     SEARCH_NOTE_HANDLER,
@@ -17,7 +21,6 @@ import {
     DELETE_NOTE,
     DELETE_NOTE_FAILURE,
     DELETE_NOTE_SUCCESS,
-    TOGGLE_MENU,
   } from '../actions'
   
   
@@ -34,11 +37,30 @@ import {
     sortModes: ['default', 'alpha', 'reverse-alpha'],
     sortNum: 0,
     showMenu: false,
+    checkedNotes: [],
     error: null,
   }
   
   export default (state = initialState, action) => {
     switch(action.type) {
+
+      case NOTE_CHECKED : 
+        return {
+          ...state,
+          checkedNotes: [...state.checkedNotes, action.payload]
+        }
+
+      case NOTE_UNCHECKED : 
+        return {
+          ...state,
+          checkedNotes: state.checkedNotes.filter(id => id !== action.payload)
+        }
+
+      case NOTE_CHECKED_CLEAR : 
+        return {
+          ...state,
+          checkedNotes: [],
+        }
 
       case TOGGLE_MENU : return {...state, showMenu: !state.showMenu}
 

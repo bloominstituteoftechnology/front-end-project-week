@@ -16,7 +16,8 @@ const Header = ({searchHandler, refreshList, sortMode, setSortMode, menuToggle})
                         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
                     </svg>
                 </div>
-                <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />
+                {/* <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" /> */}
+                <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png" alt="logo" />
                 <span className="keep-name">Keep</span>
             </MenuLogoContainer>
             <ActionContainer>
@@ -130,7 +131,8 @@ const MenuLogoContainer = styled.div`
     }
     img {
         position: relative;
-        top: 2px;
+        height: 40px;
+        width: 40px;
     }
 
     .keep-name {

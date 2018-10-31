@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+export const NOTE_CHECKED = 'note_checked';
+export const NOTE_UNCHECKED = 'note_unchecked';
+export const NOTE_CHECKED_CLEAR = 'note_checked_clear';
+
 export const SET_SORT_MODE = 'set_srot_mode';
 export const TOGGLE_MENU = 'toggle_menu';
 export const ACTIVE_NOTE_HANDLER = 'active_note_handler';
@@ -27,6 +31,38 @@ export const DELETE_NOTE_FAILURE = 'delete_note_failure';
 
 // const url = 'http://localhost:3333';
 const url = 'https://fe-notes.herokuapp.com';
+
+export const deleteChecked = noteIds => async dispatch => {
+  noteIds.forEach(async id => {
+    try {
+      dispatch({type: DELETE_NOTE});
+      await axios.delete(`${url}/note/delete/${id}`);
+      dispatch({type: DELETE_NOTE_SUCCESS, payload: id});
+    } catch(err) {
+        dispatch({type: DELETE_NOTE_FAILURE, payload: err});
+    }
+  })
+};
+
+export const noteChecked = (id) => {
+  return {
+    type: NOTE_CHECKED,
+    payload: id,
+  }
+};
+
+export const noteUnChecked = (id) => {
+  return {
+    type: NOTE_UNCHECKED,
+    payload: id,
+  }
+};
+
+export const noteCheckedClear = () => {
+  return {
+    type: NOTE_CHECKED_CLEAR
+  }
+};
 
 export const menuToggle = () => {
   return {

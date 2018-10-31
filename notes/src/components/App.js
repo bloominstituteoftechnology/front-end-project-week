@@ -11,7 +11,11 @@ import {
   activeNoteHandler, 
   searchHandler, 
   setSortMode, 
-  menuToggle 
+  menuToggle,
+  noteChecked,
+  noteUnChecked,
+  noteCheckedClear,
+  deleteChecked
 } from '../actions';
 
 import Header from './Header';
@@ -124,6 +128,8 @@ class App extends Component {
               <NoteForm
                 {...props}
                 onSubmit={this.formSubmited}
+                deleteChecked={this.props.deleteChecked}
+                checkedNotes={this.props.checkedNotes}
               />
             }
           />
@@ -134,6 +140,8 @@ class App extends Component {
                 {...props}
                 notes={this.searchList()} 
                 noteClicked={this.noteClicked}
+                noteChecked={this.props.noteChecked}
+                noteUnChecked={this.props.noteUnChecked}
               />
             }
           />
@@ -158,8 +166,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { notes, activeNote, searchValue, sortMode, showMenu } = state;
-  return { notes, activeNote, searchValue, sortMode, showMenu };
+  const { notes, activeNote, searchValue, sortMode, showMenu, checkedNotes} = state;
+  return { notes, activeNote, searchValue, sortMode, showMenu, checkedNotes};
 }
 
 export default withRouter(connect(
@@ -174,5 +182,9 @@ export default withRouter(connect(
     searchHandler,
     setSortMode,
     menuToggle,
+    noteChecked,
+    noteUnChecked,
+    noteCheckedClear,
+    deleteChecked,
   }
 )(App));
