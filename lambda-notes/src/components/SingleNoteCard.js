@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import Sidebar from './Sidebar';
 
@@ -11,7 +12,6 @@ class SingleNoteCard extends Component {
         super(props);
         this.state = {
             fetchedNote: {
-                id: "",
                 title: "",
                 content: ""
             }
@@ -25,23 +25,33 @@ class SingleNoteCard extends Component {
 
     render() {
         return (
-            <div className="page-container">
-                <Sidebar />
-                <div className="section-container">
-                    <div className="buttons">
-                        <Link to={{ pathname: `/edit/${this.props.note.id}` }}>
-                            <a>edit</a>
-                        </Link>
-                        {/* <Link to={{ pathname: `/delete/${this.props.note.id}` }} > */}
-                            <a onClick={() => this.props.deleteNote(this.props.note.id)}>delete</a>
-                        {/* </Link> */}
-                    </div>
-                    <div className="single-note">
-                        <h1>{this.props.note.title}</h1>
-                        <p>{this.props.note.content}</p>
+            this.props.note.length > 0 ? (
+                <div className="page-container">
+                    <Sidebar />
+                    <div className="section-container">
+                        <div className="buttons">
+                            <Link to={{ pathname: `/edit/${this.props.note[0].id}` }}>
+                                edit
+                                {/* <NoteUpdate
+                                    updateNote={this.props.updateNote}
+                                    singleFetchedNote={this.props.singleFetchedNote}
+                                /> */}
+                            </Link>
+                            {/* <Link to={{ pathname: `/delete/${this.props.note.id}` }} > */}
+                            <a onClick={() => {this.props.deleteNote(this.props.note[0].id);
+                            this.props.history.push('/');}}>delete</a>
+                            {/* </Link> */}
+                        
+                        </div>
+                        <div className="single-note">
+                            <h1>{this.props.note[0].title}</h1>
+                            <p>{this.props.note[0].content}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            ) : (
+                    <div>Loading...</div>
+                )
         )
     }
 }
@@ -52,4 +62,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(SingleNoteCard);
+export default withRouter(connect(mapStateToProps, {})(SingleNoteCard));

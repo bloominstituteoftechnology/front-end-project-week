@@ -103,10 +103,12 @@ export const updateNote = note => {
       .then(response => {
         dispatch({
           type: UPDATED_NOTE,
-          payload: response.data
+          payload: note
         });
+
+        fetchNotes();
       })
-      .catch(() => {
+      .catch((err) => {
         dispatch({
           type: ERROR_UPDATING_NOTE,
           payload: "ERROR: unable to update note"

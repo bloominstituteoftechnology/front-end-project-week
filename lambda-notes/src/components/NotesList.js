@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import Note from './Note';
 import Sidebar from './Sidebar';
@@ -7,8 +8,6 @@ import Sidebar from './Sidebar';
 import './Note.css';
 
 const NotesList = props => {
-    console.log(props.notes);
-
     return (
         <div className="page-container">
             <Sidebar />
@@ -31,6 +30,12 @@ const NotesList = props => {
     );
 }
 
+const mapStateToProps = state => {
+    return {
+      notes: state.notes
+    }
+  }
+
 NotesList.propTypes = {
     notes: PropTypes.array,
     history: PropTypes.shape({
@@ -38,4 +43,4 @@ NotesList.propTypes = {
     })
 };
 
-export default NotesList;
+export default connect(mapStateToProps, {})(NotesList);

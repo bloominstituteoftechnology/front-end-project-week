@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { updateNote } from '../actions';
+import { withRouter } from 'react-router';
 
 import Sidebar from './Sidebar';
 
@@ -8,11 +10,10 @@ import './NoteForms.css';
 class NoteUpdate extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
         this.state = {
-            id: props.note.id,
-            title: props.note.title,
-            content: props.note.content
+            id: this.props.match.params.id,
+            title: this.props.note[0].title,
+            content: this.props.note[0].content
         }
     }
 
@@ -48,8 +49,11 @@ class NoteUpdate extends Component {
                             onChange={this.handleInput}
                             value={this.state.content}
                         />
-                        <button onClick={this.props.updateNote(this.state)}>Submit</button>
+                        <button onClick={() => {this.props.updateNote(this.state);
+                            this.props.history.push('/');
+                        }}>Submit</button>
                     </form>
+                    
                 </div>
             </div>
         )
@@ -62,4 +66,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(NoteUpdate);
+export default withRouter(connect(mapStateToProps, { updateNote })(NoteUpdate));

@@ -21,7 +21,7 @@ const Sidebar = props => {
 
             <Route exact path='/notes' component={NotesList} />
             <Route exact path='/addNote' component={NoteAdd} />
-            <Route exact path='/notes/:note._id' component={Note} />
+            <Route exact path='/notes/:id' component={Note} />
         </div>
     )
 }

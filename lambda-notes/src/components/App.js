@@ -14,7 +14,6 @@ import './App.css';
 class App extends Component {
   state = {
     newNote: {
-      _id: "",
       title: "",
       content: ""
     },
@@ -40,7 +39,6 @@ class App extends Component {
     this.setState({
       newNote: {
         ...this.state.newNote,
-        _id: "",
         title: "",
         content: ""
       }
@@ -51,11 +49,7 @@ class App extends Component {
     return (
       <div className="App-container">
 
-        <Route exact path="/" render={ (props) => {
-          return(<NotesList {...props} 
-            notes={this.props.notes} 
-            />)
-        }} />
+        <Route exact path="/" component={NotesList} />
 
         <Route path='/create' render={props => {
           return(<NoteAdd {...props}
@@ -65,21 +59,20 @@ class App extends Component {
             />)
         }} />
 
-        <Route path='/note/:_id' render={props => {
+        <Route exact path='/note/:id' render={props => {
           return(
             <SingleNoteCard {...props}
               notes={this.props.notes}
+              updateNote={this.props.updateNote}
               deleteNote={this.props.deleteNote} 
               fetchSingleNote={this.props.fetchSingleNoteCard}
             />)
         }}/>
 
-        <Route path='/edit/:_id' render={props => {
+        <Route exact path='/edit/:id' render={props => {
           return(
             <NoteUpdate {...props}
-              notes={this.props.notes}
               updateNote={this.props.updateNote}
-              singleFetchedNote={this.props.singleFetchedNote}
             />)
         }} />
       </div>
@@ -89,7 +82,6 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
     fetchingNotes: state.fetchingNotes,
     addingNote: state.addingNote,
     updatingNote: state.updatingNote,

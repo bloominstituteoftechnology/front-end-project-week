@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 import Sidebar from './Sidebar';
 
@@ -36,4 +37,4 @@ const NoteAdd = props => {
     );
 }
 
-export default NoteAdd;
+export default withRouter(NoteAdd);

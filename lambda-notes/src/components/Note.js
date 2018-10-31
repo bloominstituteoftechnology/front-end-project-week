@@ -6,7 +6,7 @@ import './Note.css';
 const Note = props => {
     return (
         <div>
-            <Link to={`/note/${props.note._id}`}>
+            <Link to={`/note/${props.note.id}`}>
                 <h2>{props.note.title}</h2>
             </Link>
             <p>{props.note.content}</p>

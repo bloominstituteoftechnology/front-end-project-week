@@ -102,8 +102,15 @@ export const rootReducer = (state = initialState, action) => {
             }
         case UPDATED_NOTE:
         console.log("UPDATED_NOTES");
+        let notesTemp = [... state.notes];
+        notesTemp = notesTemp.map(note => {
+            if(note.id == action.payload.id) {
+                return action.payload;
+            } else return note;
+        });
             return {
                 ...state,
+                notes: notesTemp,
                 updatingNotes: false
             }
         case ERROR_UPDATING_NOTE:
