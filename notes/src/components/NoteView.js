@@ -7,8 +7,8 @@ class NoteView extends Component {
         super(props);
         this.state = {
             note: {},
-            noteTitleInput: '',
-            noteBodyInput: '',
+            titleInput: '',
+            contentInput: '',
         }
     }
     
@@ -24,16 +24,16 @@ class NoteView extends Component {
         //     .catch(error => {
         //         console.error(error);
         //     });
-        const note = this.props.notes.find(note => note._id === this.props.match.params.id);
+        const note = this.props.notes.find(note => note.id === this.props.match.params.id);
         this.setState({note});
     }
 
     deleteNote = event => {
         event.preventDefault();
-        const id = this.state.note._id;
+        const id = this.state.note.id;
         axios
         .delete(
-            `https://killer-notes.herokuapp.com/note/delete/${id}`
+            `http://localhost:3300/${id}`
         )
         .then(response => {
             this.props.getNotes();
@@ -46,10 +46,10 @@ class NoteView extends Component {
 
     updateNote = event => {
         event.preventDefault();
-        const id = this.state.note._id;
+        const id = this.state.note.id;
         const updatedNote = {
-            title: this.state.noteTitleInput, 
-            textBody: this.state.noteBodyInput,
+            title: this.state.titleInput, 
+            textBody: this.state.contentInput,
         };
         axios
             .put(
