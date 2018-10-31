@@ -78,11 +78,11 @@ class Form extends Component {
 
     render() {
         // once form is submitted, redirect home.
-        // if (this.state.added === true) {
-        //     return (
-        //         <Redirect to='/'></Redirect>
-        //     )
-        // }
+        if (this.state.added === true) {
+            return (
+                <Redirect to='/'></Redirect>
+            )
+        }
         return (
             <div className='container'>
                 <h1>{this.state.note !== null ? 'Edit Note:' : 'Add Note:'}</h1>
