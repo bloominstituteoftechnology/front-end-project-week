@@ -32,8 +32,12 @@ render(){
 
  return(
  <div className="note-full-view">
-    <h3 className="note-title">{this.state.activeNote.title}</h3>
-<h4 className="note-text">{this.state.activeNote.textBody}</h4>
+ <div className="edit-delete-wrapper">
+ <p className="edit-button">edit</p>
+ <p className="delete-button">delete</p>
+ </div>
+    <h3 className="full-note-title">{this.state.activeNote.title}</h3>
+<h4 className="full-note-text">{this.state.activeNote.textBody}</h4>
     </div>
  )
 }
