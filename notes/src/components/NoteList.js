@@ -11,27 +11,25 @@ class NoteList extends React.Component {
     if (this.props.fetching) {
       return (
         <div className="note-list">
-          <h3>fetching</h3>
+          <h3>Loading...</h3>
         </div>
       );
     } else {
       return (
         <div className="note-list">
           <h2 className="your-notes">Your Notes:</h2>
-          <div className="the-notes">
-            <ul>
-              {this.props.notes.map(note => {
-                return (
-                  <div className="note">
-                    <div key={note.id} className="title">
-                      <Link to={note._id}>{note.title}</Link>
-                    </div>
-                    <div className="content">{note.textBody}</div>
+          <ul>
+            {this.props.notes.map(note => {
+              return (
+                <div className="note">
+                  <div key={note.id} className="title">
+                    <Link to={note._id}>{note.title}</Link>
                   </div>
-                );
-              })}
-            </ul>
-          </div>
+                  <div className="content">{note.textBody}</div>
+                </div>
+              );
+            })}
+          </ul>
         </div>
       );
     }
