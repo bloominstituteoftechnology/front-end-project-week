@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import NoteCard from './NoteCard';
-import { StyledView } from './styles';
+import NoteCard from '../NoteCard/NoteCard';
+import { StyledView, ListTitle, StyledListDiv, StyledNoteLink } from './styles';
 
 export default class List extends Component {
   state = {
@@ -21,16 +20,19 @@ export default class List extends Component {
   render() {
     if(this.state.notes.length === 0) {
       return (
-        <h3>Loading your notes...</h3>
+        <ListTitle>Loading your notes...</ListTitle>
       )
     }
     return (
       <StyledView>
-        {this.state.notes.map((note) => (
-          <Link to={`/note/${note._id}`} key={note._id}>
-            <NoteCard note={note} />
-          </Link>
-        ))}
+        <ListTitle>Your Notes:</ListTitle>
+        <StyledListDiv>
+          {this.state.notes.map((note) => (
+            <StyledNoteLink to={`/note/${note._id}`} key={note._id}>
+              <NoteCard note={note} />
+            </StyledNoteLink>
+          ))}
+        </StyledListDiv>
       </StyledView>
     );
   }
