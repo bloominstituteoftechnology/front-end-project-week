@@ -11,29 +11,20 @@ class SearchNote extends Component {
     this.SearchedResultNotes = [];
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  handleSearch = (e) => {
-    e.preventDefault();
-    this.SearchedResultNotes = searchFunc(this.state.query, this.props.notes);
-    this.props.handleSearch(this.SearchedResultNotes);
-  };
-
+ 
   render() {
     return (
      
-        <form className="searchNote" onSubmit={this.handleSearch} >
+        <form className="searchNote"  >
         
             <input
               type="input"
-              onChange={this.handleInputChange}
-              value={this.state.query}
+              onChange={this.props.handleInputChange}
+              value={this.props.query}
               name="query"
               placeholder="Search notes..."
             />
-            <button type="submit">Search</button>
+    
          
         </form>
       

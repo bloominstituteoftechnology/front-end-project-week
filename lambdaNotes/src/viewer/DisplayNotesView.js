@@ -40,6 +40,7 @@ class DisplayNotesView extends Component {
           )}
         />
 
+      
         <Route
           exact
           path="/edit/:id"
