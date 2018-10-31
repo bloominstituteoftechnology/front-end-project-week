@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import CreateNoteView from './views/CreateNoteView';
-import EditNoteView from './views/EditNoteView';
-import NoteView from './views/NoteView';
-import NotesListView from './views/NotesListView';
-import Sidenav from './components/Sidenav';
-// import axios from 'axios';
+import CreateNoteView from './components/CreateNoteView';
+import EditNoteView from './components/EditNoteView';
+import NoteView from './components/NoteView';
+import NotesListView from './components/NotesListView';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -16,27 +15,67 @@ class App extends Component {
       
     }
   }
-  // componentDidMount = () => {
-  //   axios
-  //   .get(`https://fe-notes.herokuapp.com/note/get/all`)
-  //   .then(response => {
-  //     this.setState({notes: [...response.data] });
-  //   })
-  //   .catch(error => console.log(error));
-  // }
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
+
+  updateNotes = updatedNote => {
+    console.log(updatedNote)
+    const updatedNotes = this.state.notes.map(note => {
+      if (note._id === updatedNote._id) {
+        return updatedNote;
+      }
+      return note;
+    });
+    this.setState({ notes: updatedNotes });
+  };
+
+  updateDeleted = targetID => {
+    console.log(targetID)
+    const updatedLists = this.state.notes.filter(note => {
+      if (note._id === targetID) {
+        return false;
+      }
+      return true;
+    });
+    this.setState({ notes: updatedLists });
+  };
+
+  addNewNotes = addedNote => {
+    console.log(addedNote)
+    let newNotesList = [...this.state.notes, addedNote]
+    this.setState({ notes: newNotesList });
+  };
+
   render() {
     return (
       <div className="App">
-      <Sidenav/>
+     
       <Switch>
       <Route exact path='/' 
             render = {props =>
-               <NotesListView {...props}
+               <NotesListView {...props}    
+                notes={this.state.notes}
+                updateNotes={this.updateNotes}
+                updateDeleted={this.updateDeleted}
               //  componentDidMount={this.componentDidMount}
                 />} />
-      <Route path='/create-note' component={CreateNoteView} />
-      <Route path='/note/get/:id' render={props => <NoteView {...props} />} />
-      <Route path='/edit-note/id' component={EditNoteView} />
+      <Route path='/note/create' 
+          render = {props => 
+            <CreateNoteView {...props}
+              notes={this.state.notes}
+              updateNotes={this.updateNotes}
+              addNewNotes={this.addNewNotes} />} />
+      <Route path='/note/get/:id' 
+          render={props => 
+            <NoteView {...props}
+              notes={this.state.notes}
+              updateNotes={this.updateNotes}
+              updateDeleted={this.updateDeleted} />} />
+      <Route path='/note/edit/:id' render = {props => <EditNoteView {...props} />} />
       </Switch>
 
 

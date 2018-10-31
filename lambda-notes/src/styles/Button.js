@@ -1,5 +1,6 @@
 import styled from 'styled-components';
- const Button = styled.button`
+import { Link } from 'react-router-dom';
+ const Button = styled.link`
   color: #fff;
   background: #24b8bd;
   font-size: 2.4rem;
