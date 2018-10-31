@@ -48,7 +48,7 @@ const NoteContainer = styled.div`
         align-items: center;
         position: absolute;
         line-height: 24px;
-        z-index: 55;
+        z-index: 2;
         left: -10px;
         top: -10px;
         height: 24px;
