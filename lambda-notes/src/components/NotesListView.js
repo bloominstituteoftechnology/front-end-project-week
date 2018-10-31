@@ -2,6 +2,7 @@ import React from "react";
 import { LeftBar, StyledLink, ContainCards, NotesH2, CardList, TitleH1 } from "../Styles";
 import { Link } from 'react-router-dom';
 import NoteCard from "./NoteCard";
+import NotePreview from "./NotePreview";
 
 class NotesListView extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class NotesListView extends React.Component {
           <NotesH2>Your Notes:</NotesH2>
           <ContainCards>
             {this.props.notes.map(note => (
-              <NoteCard key={note._id} note={note} />
+              <NotePreview key={note._id} note={note} />
             )).reverse()}
           </ContainCards>
         </CardList>

@@ -1,37 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
-
-
-const PreviewContainer = styled.div`
-display:flex;
-border : 1px solid #D3D2D3;
-width: 250x;
-height: 250px;
-flex-flow: column;
-
-`
-
-const NoteTitle = styled.h3`
-`
-
-const NoteBody = styled.p`
-`
+import { Cards, CardsH2, StyledLinkCard, CardsHr, CardsP } from '../Styles';
 
 const NotePreview = props => {
-  return (
-    <PreviewContainer>
-        <NoteTitle>
-            {props.note.title.length >= 15
+    return (
+        <Cards>
+            <StyledLinkCard to={`/note/get/${props.note._id}`}>
+                <CardsH2>{props.note.title.length >= 15
                 ? props.note.title.substring(0,15)+'...'
-                : props.note.title}
-        </NoteTitle>
-        <NoteBody>
-            {props.note.textBody.length >=15 
-                ? props.note.textBody.substring(0,15)+'...' 
-                : props.note.textBody}
-        </NoteBody> 
-    </PreviewContainer>
-  )
+                : props.note.title}</CardsH2>
+                <CardsHr></CardsHr>
+                <CardsP>{props.note.textBody.length >=50
+                ? props.note.textBody.substring(0,50)+'...' 
+                : props.note.textBody}</CardsP>
+            </StyledLinkCard>
+        </Cards>
+    );
 }
 
 export default NotePreview;
+

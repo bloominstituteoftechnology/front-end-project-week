@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+
+
 export const Container = styled.div`
   width: 100%;
   background-color: #f2f1f2;
@@ -11,10 +13,19 @@ export const Container = styled.div`
 
 export const CardList = styled.div`
   padding-top: 20px;
+  width 100%;
+  height: 100%;
+  position: relative;
+  right: 0;
+  display: flex;
+  flex-flow: column;
+  
+
+ 
 `;
 
 export const LeftBar = styled.div`
-  width: 20%;
+  width: 250px;
   display: flex;
   flex-direction: column;
   height: 1200px;
@@ -36,7 +47,7 @@ export const TitleH1 = styled.h1`
 
 export const NotesH2 = styled.h2`
   font-weight: bold;
-  margin-left: 23%;
+  margin-left: 270px;
 `;
 
 export const StyledLink = styled(Link)`
@@ -51,6 +62,7 @@ export const StyledLink = styled(Link)`
   margin-left: 5%;
   color: white;
   text-align: center;
+  cursor: pointer;
 `;
 
 export const StyledLinkCard = styled(Link)`
@@ -61,24 +73,26 @@ export const StyledLinkCard = styled(Link)`
 `;
 
 export const ContainCards = styled.div`
-  width: 70%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-flow: row wrap;
   flex-wrap: wrap;
-  margin-left: 25%;
+  margin-left: 270px;
   text-align: center;
+
 `;
 
 export const Cards = styled.div`
   display: flex;
-  width: 30%;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
-  border: 1px solid black;
+  border : 1px solid #D3D2D3;
   justify-content: center;
   background-color: white;
-  margin-bottom: 40px;
+  margin: 0 40px 40px 0;
+  -webkit-box-shadow: 7px 7px 8px -4px rgba(191,191,191,0.49);
+  -moz-box-shadow: 7px 7px 8px -4px rgba(191,191,191,0.49);
+  box-shadow: 7px 7px 8px -4px rgba(191,191,191,0.49);
 `;
 
 export const CardsH2 = styled.h2`
@@ -88,7 +102,7 @@ export const CardsH2 = styled.h2`
 `;
 
 export const CardsHr = styled.hr`
-  width: 70%;
+  width: 175px;
 `;
 
 export const CardsP = styled.p`
