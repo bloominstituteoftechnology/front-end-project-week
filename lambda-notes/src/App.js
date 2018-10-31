@@ -8,7 +8,7 @@ import Sidebar from "./components/Sidebar";
 import NoteList from "./components/NoteList";
 import NoteView from "./components/NoteView";
 import EditForm from "./components/EditForm";
-import NewNoteForm from "./components.NewNoteForm";
+import NewNoteForm from "./components/NewNoteForm";
 
 class App extends Component {
   constructor() {
@@ -39,12 +39,26 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  finishAdd(note, history) {
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", note)
+      .then(response => history.push(`/note/${response.data.success}`))
+      .catch(error => console.log(error));
+  }
+
+  deleteNote(id, history) {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(() => history.push("/"))
+      .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <div className="App">
         <Sidebar />
         <Route exact path="/" render={props => <NoteList {...props} noteList={this.state.notes} />} />
-        <Route path="/note/:id" render={props => <NoteView {...props} />} />
+        <Route path="/note/:id" render={props => <NoteView {...props} delNote={this.deleteNote} />} />
         <Route path="/edit/:id" render={props => <EditForm {...props} finishEdit={this.finishEdit} />} />
         <Route path="/add" render={props => <NewNoteForm {...props} finishAdd={this.finishAdd} />} />
       </div>

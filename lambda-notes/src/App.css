@@ -78,12 +78,13 @@
   justify-content: flex-end;
 }
 
-.main-content .edit-delete-links a {
+.main-content .edit-delete-links a, .main-content .edit-delete-links span {
   margin-left: 10px;
   text-decoration: underline;
+  cursor: pointer;
 }
 
-.edit-form {
+.edit-form, .add-form {
   width: 70%;
   padding: 40px;
   background: #eeeeee;
@@ -92,13 +93,13 @@
   align-items: flex-start;
 }
 
-.edit-form input {
+.edit-form input, .add-form input {
   width: 300px;
   margin: 0 0 20px;
   padding: 10px;
 }
 
-.edit-form textarea {
+.edit-form textarea, .add-form textarea {
   width: 100%;
   height: 300px;
   margin: 0 0 20px;
@@ -109,7 +110,7 @@
     sans-serif;
 }
 
-.edit-form button {
+.edit-form button, .add-form button {
   display: block;
   width: 150px;
   background: #2BC1C4;

@@ -38,7 +38,7 @@ export default class NoteView extends React.Component {
             <div className="main-content">
                 <div className="edit-delete-links">
                     <Link to={`/edit/${this.state.note._id}`}>edit</Link>
-                    <Link to="/">delete</Link>
+                    <span onClick={() => this.props.delNote(this.state.note._id, this.props.history)}>delete</span>
                 </div>
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>

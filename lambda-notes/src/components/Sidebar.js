@@ -8,9 +8,9 @@ const Sidebar = props => {
             <Link to="/" className="button">
                 View Your Notes
             </Link>
-            <div className="button">
+            <Link to="/add" className="button">
                 + Create New Note
-            </div>
+            </Link>
         </div>
     );
 }
