@@ -10,7 +10,6 @@ import Sidebar from "./components/Sidebar";
 import NoteView from "./components/NoteView";
 import SidebarHeader from "./components/SidebarHeader";
 import ListHeader from "./components/ListHeader";
-import EditView from "./components/EditView";
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +39,7 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  //edit notes
+  //edits notes
   editNote = obj => {
     const index = this.state.notes.findIndex(note => note._id === obj.id);
     console.log(index);
@@ -54,19 +53,14 @@ class App extends Component {
       .catch(err => console.dir(err));
   };
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  saveHandler = event => {
-    event.preventDefault();
-    this.setState({ editing: false });
-  };
-
-  handleData = data => {
-    this.setState({
-      notes: data
-    });
+  //deletes notes
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+        console.log("deleted", res);
+      })
+      .catch(err => console.dir(err));
   };
 
   render() {
@@ -97,10 +91,7 @@ class App extends Component {
               path="/create"
               render={props => <NoteForm {...props} notes={this.state.notes} />}
             />
-            <Route
-              path="/edit"
-              render={props => <EditView {...props} notes={this.state.notes} />}
-            />
+
             <Route
               exact
               path="/:id"

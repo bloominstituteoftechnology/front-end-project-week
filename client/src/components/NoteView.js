@@ -12,6 +12,7 @@ class NoteView extends Component {
     // this.toggle = this.toggle.bind(this);
   }
 
+  //mounts note to state
   componentDidMount() {
     window.scrollTo(0, 0);
     const id = this.props.match.params.id;
@@ -19,6 +20,7 @@ class NoteView extends Component {
     this.fetch(id);
   }
 
+  //fetches an individual note by id and sets its values to state of this component
   fetch = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -35,11 +37,13 @@ class NoteView extends Component {
       });
   };
 
+  //toggles the edit form
   toggleEdit = e => {
     e.preventDefault();
     this.setState({ editing: true });
   };
 
+  //validates form input and then triggers edit function
   editSubmitHandler = e => {
     e.preventDefault();
     if (this.state.title.length < 1 || this.state.textBody.length < 1) {
@@ -56,17 +60,10 @@ class NoteView extends Component {
     }
   };
 
+  //change handler
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  // deleteNote = id => {
-  //   axios
-  //     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-  //     .then(res => {
-  //       console.log("deleted", res);
-  //     })
-  //     .catch(err => console.dir(err));
-  // };
 
   // toggle() {
   //   this.setState({
