@@ -10,9 +10,10 @@
 }
 
 .button {
+  background: teal;
   border: 1px solid darkgray;
   color: white;
-  background: teal;
+  font-weight: bold;
   margin-top: 10px;
   padding: 5px;
   text-align: center;

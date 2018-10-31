@@ -1,4 +1,4 @@
-.addNoteForm {
+.editNoteForm {
     display: flex;
     flex-direction: column;
 }

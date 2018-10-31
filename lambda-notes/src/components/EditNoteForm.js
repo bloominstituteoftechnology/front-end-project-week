@@ -1,4 +1,5 @@
 import React from 'react';
+import './EditNoteForm.css';
     
 class EditNoteForm extends React.Component {
     constructor(props) {
@@ -17,9 +18,10 @@ class EditNoteForm extends React.Component {
     render() {
         return (
             <div className='editNoteForm'>
-                <input type='text' onChange={this.changeHandler} name='titleText' value={this.state.titleText} />
-                <input type='text' onChange={this.changeHandler} name='bodyText' value={this.state.bodyText} />
-                <button onClick={() => this.props.editNote({title: this.state.titleText, textBody: this.state.bodyText})}>Update</button>
+                <h2>Edit Note:</h2>
+                <input className='titleInput' type='text' onChange={this.changeHandler} name='titleText' value={this.state.titleText} placeholder='Note Title'/>
+                <textarea className='contentInput' type='text' onChange={this.changeHandler} name='bodyText' value={this.state.bodyText} placeholder='Note Content'/>
+                <button className='button' onClick={() => this.props.editNote({title: this.state.titleText, textBody: this.state.bodyText})}>Update</button>
             </div>
         )
     }

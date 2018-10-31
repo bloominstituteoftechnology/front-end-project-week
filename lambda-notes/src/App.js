@@ -22,7 +22,7 @@ class App extends Component {
   componentDidMount() {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => this.setState({ notes: response.data }))
+      .then(response => this.setState({ notes: response.data.reverse() }))
       .catch(error => console.log(error));
   }
 
