@@ -17,11 +17,6 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      activeNote: {
-        title: "",
-        textBody: "",
-        tags: []
-      }
     };
   }
 
@@ -31,6 +26,14 @@ class App extends Component {
       .get(`${url}/get/all`)
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
+  }
+
+  postNote(newNote) {
+    console.log('Posting new note');
+    axios
+      .post(`${url}/create`, newNote)
+      .then(this.getNotes)
+      .catch(error => console.log(error))
   }
 
   componentDidMount() {
@@ -44,10 +47,10 @@ class App extends Component {
     return <ReadNote {...selectedNote} />;
   };
 
-  addEditNote = () => {
-    console.log("addEditNoteCalled");
-    return <AddEditNote />;
-  };
+  // addEditNote = () => {
+  //   console.log("addEditNoteCalled");
+  //   return <AddEditNote />;
+  // };
 
   render() {
     return (
@@ -61,7 +64,7 @@ class App extends Component {
               render={() => <ListNotes notes={this.state.notes} />}
             />
             <Route exact path="/n/:noteId" render={this.renderNote} />
-            <Route path="/AddEditNote" render={this.addEditNote} />
+            <Route path="/AddEditNote" render={() => <AddEditNote postNote={this.postNote} />} />
           </Switch>
         </div>
       </Router>
