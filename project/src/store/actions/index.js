@@ -25,12 +25,11 @@ export const getNotes = () => {
   return dispatch => {
     dispatch({ type: NOTES_FETCH_START });
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:5000/notes")
       .then(response => {
         dispatch({ type: NOTES_FETCH_COMPLETE, payload: response.data });
       })
       .catch(err => {
-        console.log(err);
         dispatch({ type: NOTES_FETCH_ERROR });
       });
   };
@@ -40,12 +39,11 @@ export const addNewNote = notes => {
   return dispatch => {
     dispatch({ type: ADD_NOTE_START });
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", notes)
+      .post("http://localhost:5000/notes", notes)
       .then(response => {
         dispatch({ type: ADD_NOTE_COMPLETE, payload: response.data });
       })
       .catch(err => {
-        console.log(err);
         dispatch({ type: ADD_NOTE_ERROR });
       });
   };
@@ -55,9 +53,9 @@ export const getNote = id => {
   return dispatch => {
     dispatch({ type: VIEW_NOTE_START });
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:5000/notes/${id}`)
       .then(res => {
-        dispatch({ type: VIEW_NOTE_COMPLETED, payload: res.data });
+        dispatch({ type: VIEW_NOTE_COMPLETED, payload: res.data[0] });
       })
       .catch(err => {
         dispatch({ type: VIEW_NOTE_ERROR, payload: err });
@@ -69,7 +67,7 @@ export const updateNote = note => dispatch => {
   dispatch({ type: UPDATE_NOTE_START });
   console.log(note);
   axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
+    .put(`http://localhost:5000/notes/edit/${note.id}`, note)
     .then(response => {
       console.log(response);
       dispatch({ type: UPDATE_NOTE_COMPLETE, payload: response.data });
@@ -90,7 +88,7 @@ export const setUpdateNote = id => {
 export const deleteNote = noteId => dispatch => {
   dispatch({ type: DELETE_NOTE_START });
   axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${noteId}`)
+    .delete(`http://localhost:5000/notes/delete/${noteId}`)
     .then(response => {
       dispatch({ type: DELETE_NOTE_COMPLETE, payload: response.data });
     })

@@ -26,7 +26,7 @@ class App extends React.Component {
             </li>
             <li>
               <NavLink to="/note-form" className="button">
-                Add Note
+                +Create New Note
               </NavLink>
             </li>
           </ul>
@@ -34,7 +34,7 @@ class App extends React.Component {
         <div className="right-side">
           <Route exact path="/" component={Home} />
           <Route exact path="/notes" component={NotesList} />
-          <Route path="/note/:id" component={Singlet} />
+          <Route path="/notes/:id" component={Singlet} />
           <Route path="/note-form" component={NotesForm} />
         </div>
       </div>

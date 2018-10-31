@@ -42,20 +42,20 @@ class Singlet extends React.Component {
   render() {
     return (
       <div className="singlenoteDisplay">
-        <h1 className="note-page-title">
+        <h2 className="note-page-title">
           Note Title:
+          {console.log(this.props.note)}
           <br /> {this.props.note.title}
-        </h1>
+        </h2>
         <br />
         <h3 className="note-page-text">
-          Note Body: <br /> {this.props.note.textBody}
+          Note Body: <br /> {this.props.note.content}
         </h3>
         <div className="button-flex">
           <Button
             color="blue"
             onClick={event => {
-              this.goToUpdateNoteForm(event, this.props.note._id);
-              console.log("id", this.props.note._id);
+              this.goToUpdateNoteForm(event, this.props.note.id);
             }}
           >
             Edit

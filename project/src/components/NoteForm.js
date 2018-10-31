@@ -7,8 +7,7 @@ class NoteForm extends Component {
   state = {
     note: {
       title: "",
-      textBody: "",
-      _id: ""
+      content: ""
     },
     updatingNote: false
   };
@@ -47,7 +46,6 @@ class NoteForm extends Component {
   }
 
   handleUpdateNote = () => {
-    console.log(this.state.note);
     this.props.updateNote(this.state.note);
     this.props.history.push("/notes");
   };
@@ -60,8 +58,9 @@ class NoteForm extends Component {
   render() {
     return (
       <React.Fragment>
+        {console.log(this.state.updatingNote)}
         <h2 className="edit-delete">
-          {this.props.updatingNote ? "Edit Note:" : "Create New Note:"}
+          {this.state.updatingNote ? "Edit Note:" : "Create New Note:"}
         </h2>
         <form className="Column-Layout">
           <input
@@ -72,10 +71,11 @@ class NoteForm extends Component {
             placeholder="Note Title"
             onChange={this.handleChange}
           />
+          {console.log(this.state.note)}
           <input
             className="input-body"
-            value={this.state.note.textBody}
-            name="textBody"
+            value={this.state.note.content}
+            name="content"
             type="text"
             placeholder="Note Content"
             onChange={this.handleChange}
