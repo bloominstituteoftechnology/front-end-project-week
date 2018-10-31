@@ -19,7 +19,8 @@ class EditNote extends React.Component {
             axios
                 .put(`http://localhost:9000/notes/${noteId}`,
                     {
-                    "name": name, 
+                    "name": name,
+                    "description": description, 
                     "id": noteId
                     })
                 .then(response => history.push('/notes'))

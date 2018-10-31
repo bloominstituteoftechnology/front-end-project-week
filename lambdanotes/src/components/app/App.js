@@ -49,6 +49,12 @@ class App extends Component {
      })
    }
 
+  //  componentDidUpdate(prevProps, prevState) {
+  //    if(prevProps !== this.props.data) {
+
+  //    }
+  //  }
+
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -65,7 +71,7 @@ class App extends Component {
     // console.log('firing');
     axios
     .post('http://localhost:9000/notes', this.state.note)
-    .then(response => this.setState({note: response.data }));
+    .then(response => this.setState({note: response.data }))
   };
 
     clickID = (event) => {
