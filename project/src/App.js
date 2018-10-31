@@ -10,7 +10,7 @@ import AddNote from './components/AddNote'
 import axios from 'axios';
 
  const url = "http://localhost:9000/notes";
- const urll = "http://localhost:9000/notes/:id";
+ 
 
 class App extends Component {
   constructor(){
@@ -59,7 +59,7 @@ class App extends Component {
 
   handleNoteView = (id) =>
   axios
-  .get(`${urll}/${id}`).then(response => {
+  .get(`${url}/${id}`).then(response => {
     this.setState({ notes: response.data });
   });
   
@@ -73,13 +73,15 @@ class App extends Component {
     // });
   //   this.setState({notes: notes, content:'', title:''})
   // }
-  
- 
-
+  console.log("url", url)
+  console.log("id", id)
+  console.log("title", this.state.title)
+  console.log("content", this.state.content)
 axios
-      .put(`${urll}/${id}`, { title: this.state.title, content: this.state.content })
+      .put(`${url}/${id}`, { title: this.state.title, content: this.state.content })
+      
       .then(response => {
-        axios.get(urll).then(response => {
+        axios.get(url).then(response => {
           this.setState({ notes: response.data });
         });
         this.setState({ notes: response.data });
@@ -102,6 +104,7 @@ axios
     axios.get(url).then(response => {
       this.setState({ notes: response.data });
     });
+    this.setState({ notes: response.data });
   });
 };
 
@@ -122,12 +125,13 @@ axios
               handleDelete = {this.handleDelete}
             />} 
           />
-          <Route exact path = '/:id/edit' render = {() => 
-            <EditNote 
+          <Route exact path = '/:id/edit' render = {props => 
+            <EditNote {...props}
               handleEditNote = {this.handleEditNote}
               handleChange = {this.handleChange}
               content = {this.state.content}
               title = {this.state.title}
+              
             />} 
           />
           <Route exact path = '/note/new' render = {props =>

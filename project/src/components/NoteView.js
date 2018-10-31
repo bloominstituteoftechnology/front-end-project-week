@@ -29,7 +29,7 @@ class NoteView extends Component {
                         <p>Are you sure you want to delete this?</p>
                         <div className="modal-btns">
                             <Link to = '/'>
-                                <button className="delete-btn" onClick = {this.props.handleDelete}>Delete</button>
+                                <button className="delete-btn" onClick = {() => this.props.handleDelete(this.props.match.params.id)}>Delete</button>
                             </Link>                            
                             <button onClick={this.toggleModal}>No</button>
                         </div>
