@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import DeleteModal from "./DeleteModal";
 
 class Note extends React.Component {
 constructor(props){
@@ -9,7 +10,8 @@ constructor(props){
             title:'',
             textBody:''
         },
-        isEditing: false
+        isEditing: false,
+        showDeleteModal:false
     }
 }
     
@@ -26,6 +28,11 @@ componentDidMount() {
 toggleEditing = event => {
 event.preventDefault();
 this.setState({...this.state, isEditing:!this.state.isEditing})
+}
+
+toggleModal = event => {
+    event.preventDefault();
+    this.setState({...this.state, showDeleteModal:!this.state.showDeleteModal});
 }
 
 changeHandler=(key, value) => {
@@ -58,10 +65,11 @@ render(){
  <div className="note-full-view">
  <div className="edit-delete-wrapper">
  <p className="edit-button" onClick={this.toggleEditing}>edit</p>
- <p className="delete-button">delete</p>
+ <p className="delete-button" onClick={this.toggleModal}>delete</p>
  </div>
     <h3 className="full-note-title">{this.state.activeNote.title}</h3>
 <h4 className="full-note-text">{this.state.activeNote.textBody}</h4>
+    <DeleteModal show={this.state.showDeleteModal} toggleModal={this.toggleModal}/>
     </div>
  )
 } else {

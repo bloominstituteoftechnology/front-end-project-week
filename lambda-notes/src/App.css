@@ -221,5 +221,67 @@ height:150vh;
     padding:25px 0;
     cursor: pointer;
   border: 2px solid #8A9B9C;
+}
+
+.modal {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
   
+}
+
+.modal-content {
+  position: fixed;
+  background:white;
+  width:60%;
+  height:auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -35%);
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 30px;
+  font-weight:bold;
+  padding:60px 0;
+}
+
+.modal-content p {
+  padding:20px 0;
+}
+
+.modal-content .button-wrapper {
+  display:flex;
+  justify-content: center;
+padding:20px 0;
+}
+
+.show-modal {
+  display:block;
+}
+
+.hide-modal {
+  display:none;
+}
+
+.modal-cancel-button, .modal-delete-button {
+  width:35%;
+  color:#ffffff;
+  font-size:32px;
+  font-weight: bold;
+  padding:25px 0;
+  cursor: pointer;
+border: 2px solid #8A9B9C;
+margin: 0 2%;
+}
+
+.modal-delete-button{
+  background: #C80A1D;
+}
+
+.modal-cancel-button {
+  background: #30BEC3;
 }
