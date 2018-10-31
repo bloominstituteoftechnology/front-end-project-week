@@ -99,6 +99,14 @@ a {
   text-align: center;
 }
 
+.logout {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
 li a {
   font-family: sans-serif;
   text-decoration: none;
