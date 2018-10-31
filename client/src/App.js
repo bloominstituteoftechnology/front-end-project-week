@@ -28,6 +28,10 @@ class App extends Component {
     this.fetchNotes();
   }
 
+  componentDidUpdate() {
+    this.fetchNotes();
+  }
+
   //gets all notes
   fetchNotes = () => {
     axios
@@ -36,20 +40,15 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  // this.setState({
-  //   notes: this.state.notes.splice(
-  //     findIndex(note => note._id === id),
-  //     1,
-  //     res.data
-
   //edit notes
-  editNote = id => {
+  editNote = obj => {
+    const index = this.state.notes.findIndex(note => note._id === obj.id);
+    console.log(index);
+
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+      .put(`https://fe-notes.herokuapp.com/note/edit/${obj.id}`, obj)
       .then(res => {
-        this.setState({
-          notes: res.data
-        });
+        this.setState({ notes: this.state.notes.splice(index, 1, res.data) });
         console.log("edited", res);
       })
       .catch(err => console.dir(err));

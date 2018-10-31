@@ -22,7 +22,8 @@ class NoteForm extends Component {
         })
       )
       .catch(error => console.log(error));
-    window.location.reload();
+    this.props.history.push("/");
+    window.scrollTo(0, 0);
   };
 
   handleInputChange = e => {

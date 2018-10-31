@@ -6,15 +6,16 @@ class NoteView extends Component {
     super(props);
     this.state = {
       editing: false,
-      id: "",
-      title: "",
-      textBody: "",
+      eid: "",
+      etitle: "",
+      etextBody: "",
       modal: false
     };
     // this.toggle = this.toggle.bind(this);
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const id = this.props.match.params.id;
     console.log(id);
     this.fetch(id);
@@ -41,11 +42,16 @@ class NoteView extends Component {
     this.setState({ editing: true });
   };
 
-  editSubmitHandler = event => {
-    event.preventDefault();
-    console.log(this.state.id);
-    this.props.editNote(this.state.id);
-    this.setState({ editing: false });
+  editSubmitHandler = e => {
+    e.preventDefault();
+    this.props.editNote({
+      id: this.state.id,
+      title: this.state.title,
+      textBody: this.state.textBody
+    });
+    this.setState({
+      editing: false
+    });
   };
 
   handleChange = e => {
