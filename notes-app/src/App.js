@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 import { withRouter } from "react-router-dom";
 import './App.css';
+import axios from 'axios'
 import NoteForm from './components/NoteForm'
 import Note from './components/Note'
 import NotesMain from './components/NotesMain'
@@ -10,37 +11,26 @@ import SideBar from './components/SideBar'
 
 class App extends Component {
   state = {
-      notes: [
-        {
-          id: 1537805881051,
-          title: "1. Get a backpack",
-          text: "Find a Jansport backpack that can hold all your gear.",
-          tags: ["gear", "capacity"]
-        },
-        {
-          id: 1537805891197,
-          title: "2. Grab a buddy",
-          text: "Find an outdoorsy friend that loves to camp.",
-          tags: ["outsdoorsy", "friend"]
-        },
-        {
-          id: 1537905924075,
-          title: "3. Trailblazing",
-          text: "Get out there and breathe in nature. Throw on those hiking boots!",
-          tags: ["nature", "outdoors"]
-        },
-        {
-          id: 1537905911476,
-          title: "4. Go to the store",
-          text: "Read reviews online and find the rucksack that best fits your needs.",
-          tags: ["gear", "store"]
-        }  
-      ],
+      notes: [],
 
     filteredNotes: [],
     tags: ["all", "gear", "capacity", "nature", "outdoors", "outsdoorsy", "friend", "hiking groups", "store", "adventure"],
     noteUpdate: null
   }
+  componentDidMount() {
+    this.getNotesFromAPI()
+  }
+
+  componentDidUpdate() {
+    setTimeout(this.getNotesFromAPI, 5000)
+  }
+
+  getNotesFromAPI = () => {
+    axios.get('http://localhost:/notes')
+      .then(resp => this.setState({ notes: resp.data }))
+      .catch(err => console.log(err))
+  }
+
       addNote = (newNote) => {
         let filteredTags = [...newNote.tags].filter(excluded => ![...this.state.tags].includes(excluded))
         this.setState({ notes: [ ...this.state.notes, newNote], tags: [...this.state.tags, ...filteredTags] })
