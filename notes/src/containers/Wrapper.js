@@ -72,7 +72,7 @@ class Wrapper extends Component {
   };
 
   redirect = () => {
-    this.props.history.push("/notes");
+    this.props.history.push("/");
   };
 
   cancelForm = () => {
@@ -119,7 +119,7 @@ class Wrapper extends Component {
         <Navigation editing={this.props.editing} cancelEdit={this.cancelForm} />
         <Route
           exact
-          path="/notes"
+          path="/"
           render={props => (
             <NoteContainer
               {...props}

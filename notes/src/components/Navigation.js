@@ -8,10 +8,10 @@ import { NavBar, Button } from "../styles";
 
 const Navigation = ({ editing, cancelEdit }) => (
   <NavBar>
-    <NavLink exact to="/notes" onClick={editing ? cancelEdit : null}>
+    <NavLink exact to="/" onClick={editing ? cancelEdit : null}>
       <h1>Lambda Notes</h1>
     </NavLink>
-    <NavLink exact to="/notes" onClick={editing ? cancelEdit : null}>
+    <NavLink exact to="/" onClick={editing ? cancelEdit : null}>
       <Button>View Your Notes</Button>
     </NavLink>
     <NavLink to="/form">

@@ -30,7 +30,7 @@ class Note extends Component {
             handleDelete={() => {
               this.props.deleteNote(this.props.note._id);
               this.props.closeModal();
-              this.props.history.push("/notes");
+              this.props.history.push("/");
             }}
             open={this.props.open}
             isOpen={this.props.open}
