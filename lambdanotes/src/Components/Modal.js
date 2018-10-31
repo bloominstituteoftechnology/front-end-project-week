@@ -8,30 +8,17 @@ class Modal extends Component {
             note: {}, 
             title: '',
             textBody: '',
-            showModal: ''
         }
-        //this.handleclick = this.handleclick.bind(this);
     }
 
-    // componentDidMount() {
-    //     document.addEventListener('click', this.handleclick, false);
-    // }
-
-    // componentWillUnmount() {
-    //     document.removeEventListener('click', this.handleclick, false);
-    // }
-
-    deleteNote = (id) => {  //where is id coming from????
-        //const deleted =  this.props.match.params.id;
+    deleteNote = () => {  
+        let id = this.props.id
         axios 
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-            .then(response => this.setState({ note: response.data }))  //list? 
+            .then(response => this.setState({ note: response.data }))   
             .catch(error => console.log(error))
+        this.props.hideModal()
     }; 
-
-    closeModal() {
-        this.setState({ showModal: false })
-    }
 
     render() {
         return (
@@ -40,7 +27,7 @@ class Modal extends Component {
                     <div className="modal-content">
                         <h4>Are you sure you want to delete this?</h4>
                         <button onClick={this.deleteNote} className="delete">Delete</button>
-                        <button onClick={this.closeModal} className="No">No</button>
+                        <button onClick={this.props.hideModal} className="No">No</button>
                     </div>
                 </div>
             </div>

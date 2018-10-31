@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
+import Modal from './Modal';
 
 class Note extends Component {
     constructor(props) {
@@ -20,11 +20,14 @@ class Note extends Component {
         .then(response => this.setState({ note: response.data }))
         .catch(error => console.log(error))
     }
-        
-    handleToggleModal() {
-        this.setState({ showModal: !this.state.showModal });
-    };
     
+    openModal = () => {
+        this.setState({ showModal: true })
+    }
+    hideModal = () => {
+        this.setState({ showModal: false })
+    }
+
     render() {
         return (
             <div className="note-container">
@@ -34,11 +37,10 @@ class Note extends Component {
                             edit
                         </Link>
                     </div>
-                    <div className="delete">
-                        <Link to="/Modal" onClick={this.handleToggleModal}>
-                            delete
-                        </Link>
+                    <div onClick={this.openModal} className="delete">
+                        delete
                     </div>
+                    {this.state.showModal ? <Modal id={this.state.note._id} hideModal={this.hideModal} /> : null}
                 </div>
                 <div className="body-container">
                     <h3>{this.state.note.title}</h3>

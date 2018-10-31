@@ -50,7 +50,6 @@ class App extends Component {
 
         <Route path="/Edit/:id" component={Edit} />
 
-        <Route path="/Modal" component={Modal} />
       </div>
     );
   };

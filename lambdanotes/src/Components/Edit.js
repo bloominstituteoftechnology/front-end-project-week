@@ -65,6 +65,3 @@ class Edit extends Component {
 };
 export default Edit;
 
-
-//reuse form component? 
-//handletextinput?
