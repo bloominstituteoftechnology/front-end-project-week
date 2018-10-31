@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect, Link } from 'react-router-dom';
 import { fetchNote, fetchNotes, deleteNote } from '../actions';
 import ReactModal from 'react-modal';
+import Loading from './Loading';
 
 ReactModal.setAppElement('#root');
 const customStyles = {
@@ -47,7 +48,7 @@ class NotePage extends Component {
         return this.state.deleted ?
         <Redirect to='/' /> :
         this.props.fetching ?
-        <div>Loading Note</div> :
+        <Loading /> :
         (   <div>
                 <div className='note-page'>
                     <div className='note-btns'>

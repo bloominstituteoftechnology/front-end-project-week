@@ -9,6 +9,7 @@
     "less-loader": "^4.1.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-loading": "^2.0.3",
     "react-modal": "^3.6.1",
     "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",

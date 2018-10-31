@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchNotes } from '../actions';
 import Note from './Note';
+import Loading from './Loading';
 
 class NoteList extends Component {
     constructor() {
@@ -16,7 +17,7 @@ class NoteList extends Component {
     render() {
         return (
             this.props.fetching ? 
-            <div className='loading'>Loading Notes</div> :
+            <Loading /> :
             <div className="note-list">
                 <h2>Your Notes:</h2>
                 <div className='notes-container'>

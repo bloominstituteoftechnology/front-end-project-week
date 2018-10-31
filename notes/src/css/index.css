@@ -237,3 +237,6 @@ html {
   text-decoration: none;
   cursor: pointer;
 }
+.loading {
+  margin: 30vh auto;
+}
