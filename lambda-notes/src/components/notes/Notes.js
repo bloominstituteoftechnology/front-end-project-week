@@ -11,11 +11,14 @@ class Notes extends Component {
     const { notes } = this.props;
 
     if (notes) {
+      const filteredNotes = this.props.notes.filter(
+        note => note.userID === localStorage.getItem("userID")
+      );
       return (
         <React.Fragment>
           <div className="notes-container">
             <h1 className="your-notes">Your Notes:</h1>
-            {notes.map(note => (
+            {filteredNotes.map(note => (
               <Note note={note} key={note.id} />
             ))}
           </div>

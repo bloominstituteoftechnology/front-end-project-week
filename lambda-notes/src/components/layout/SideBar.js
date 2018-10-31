@@ -15,6 +15,7 @@ class SideBar extends Component {
     const { auth } = props;
 
     if (auth.uid) {
+      localStorage.setItem("userID", auth.uid);
       return { isAuthenticated: true };
     } else {
       return { isAuthenticated: false };

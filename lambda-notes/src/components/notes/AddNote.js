@@ -3,14 +3,16 @@ import "./Notes.css";
 
 // import { compose } from "redux";
 // import { connect } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
+import { firestoreConnect, firebaseConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
 class AddNote extends Component {
   constructor() {
     super();
     this.state = {
       title: "",
-      textBody: ""
+      textBody: "",
+      userID: localStorage.getItem("userID")
     };
   }
 

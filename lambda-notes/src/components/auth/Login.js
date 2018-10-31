@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./auth.css";
 
-// import { compose } from "redux";
-// import { connect } from "react-redux";
+import { compose } from "redux";
+import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
 import { Link } from "react-router-dom";
 
@@ -66,4 +66,10 @@ class Login extends Component {
   }
 }
 
-export default firebaseConnect()(Login);
+// export default firebaseConnect()(Login);
+export default compose(
+  firebaseConnect(),
+  connect((state, props) => ({
+    auth: state.firebase.auth
+  }))
+)(Login);
