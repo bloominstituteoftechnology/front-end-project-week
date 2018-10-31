@@ -38,9 +38,14 @@ class App extends Component {
     this.getNotes();
   }
 
-  renderNote=({ match }) => {
+  renderNote = ({ match }) => {
     const selectedNote = this.state.notes.find(note => note._id === match.params.noteId );
     return <ReadNote {...selectedNote} />
+  }
+
+  AddEditNote = () => {
+    console.log('addEditNoteCalled');
+    return <AddEditNote />
   }
 
   render() {
@@ -48,13 +53,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <Sidebar />
-          <Route
-            exact
-            path="/"
+          <Route exact path="/"
             render={() => <ListNotes notes={this.state.notes} />}
           />
-          <Route path='/:noteId' render={this.renderNote} />
-          <Route path='/AddNote' component={AddEditNote} />
+          <Route exact path='/n/:noteId' render={this.renderNote} />
+          <Route path='/AddNote' render={this.addEditNote} />
         </div>
       </Router>
     );
