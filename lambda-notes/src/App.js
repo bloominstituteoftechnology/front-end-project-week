@@ -10,7 +10,6 @@ import {
   EditNoteView
 } from './Views';
 
-
 const URL = 'https://fe-notes.herokuapp.com'
 
 class App extends Component {
@@ -64,10 +63,9 @@ class App extends Component {
       .put(URL + '/note/edit/' + note._id, note)
       .then(data => {
         console.log('edit response', data)
+        const matchIds = n => n._id == data.data._id
         this.setState(prev => {
-          const editedIndex = prev.notes.indexOf(n => (
-                n._id == note._id
-              ))
+          const editedIndex = prev.notes.findIndex(matchIds)
           prev.notes[editedIndex] = data.data
           console.log('editied state vars', editedIndex, data.data)
           return prev
@@ -77,8 +75,6 @@ class App extends Component {
         console.log(err)
       })
   }
-
-
 
   findNote = (id) => {
     console.log(this.state.notes.find(note => (
