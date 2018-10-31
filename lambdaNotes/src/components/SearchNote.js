@@ -23,6 +23,7 @@ class SearchNote extends Component {
               value={this.props.query}
               name="query"
               placeholder="Search notes..."
+              size = "30"
             />
     
          

@@ -21,8 +21,7 @@ class DisplayNoteList extends Component {
   // to reflect the latest props.note, componentDidUpdate is used
   componentDidUpdate(prevProps){
          if (prevProps.isSearched !== this.props.isSearched){
-           console.log("DisplayNote isSearched is toggled!!");
-      this.setState({
+       this.setState({
         isSearched: this.props.isSearched,
       query : ''});
      }

@@ -291,3 +291,13 @@ justify-content : space-around;
  .deleteButton .delete{
   background : red;
 }
+
+.searchNote{
+  margin : 0 20px ;
+  display : flex;
+  justify-content: flex-end;
+}
+
+.searchNote input{
+padding : 10px;
+}
