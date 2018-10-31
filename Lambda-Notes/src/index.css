@@ -136,4 +136,7 @@ code {
 .delete-modul .btn-section .b-btn{
   background : rgb(47, 215, 221);
 }
+.hidden{
+  display : none;
+}
 
