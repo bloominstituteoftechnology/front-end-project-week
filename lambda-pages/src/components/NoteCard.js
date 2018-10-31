@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import StyledNoteCard from '../styles/StyledNoteCard';
-// import { Draggable } from 'react-beautiful-dnd';
-// import '../styles/noteCard.css';
 
 class NoteCard extends Component {
   render() {
-    const { note, index } = this.props;
+    const { note } = this.props;
     return (
       <StyledNoteCard
         onClick={() => this.props.handleRedirectToNoteView(note._id)}

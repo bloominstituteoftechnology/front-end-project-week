@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAllNotes } from '../actions';
-
 import Notes from '../components/Notes';
-import styled from 'styled-components';
-
-// const ColumnContainer = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
 
 class NotesView extends Component {
   componentDidMount() {

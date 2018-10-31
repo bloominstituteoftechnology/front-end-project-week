@@ -15,6 +15,9 @@ const Button = styled.button`
     css`
       width: 100%;
       margin-bottom: 1.5rem;
+      @media (max-width: 800px) {
+        width: 40%;
+      }
     `};
   ${props =>
     props.halfWidth &&

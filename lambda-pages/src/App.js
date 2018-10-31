@@ -1,10 +1,11 @@
 // Dependencies
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import fuzzyFilterFactory from 'react-fuzzy-filter';
 // Components
 import CreateNoteView from './views/CreateNoteView';
 import EditNoteView from './views/EditNoteView';
+import LoginView from './views/LoginView';
 import NoteView from './views/NoteView';
 import NotesView from './views/NotesView';
 import Sidebar from './components/Sidebar';
@@ -14,14 +15,34 @@ import './styles/App.css';
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 
 class App extends Component {
+  state = {
+    path: this.props.location.pathname
+  };
+
+  componentDidMount() {
+    this.setState({ path: this.props.location.pathname });
+  }
+
+  componentDidUpdate() {
+    if (this.state.path !== this.props.location.pathname) {
+      this.setState({ path: this.props.location.pathname });
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Route
-          component={routerProps => (
-            <Sidebar {...routerProps} InputFilter={InputFilter} />
-          )}
-        />
+        {/* LOGIN */}
+        <Route path="/login" component={LoginView} />
+
+        {/* SIDEBAR DOESNT DISPLAY ON LOGIN */}
+        {this.state.path !== '/login' && (
+          <Route
+            component={routerProps => (
+              <Sidebar {...routerProps} InputFilter={InputFilter} />
+            )}
+          />
+        )}
         {/* Routes */}
         <Route
           exact
@@ -38,4 +59,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

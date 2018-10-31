@@ -13,6 +13,14 @@ const StyledNoteCard = styled.div`
   transform-origin: bottom;
   cursor: pointer;
 
+  @media (max-width: 940px) {
+    width: 48%;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+
   &:hover {
     transform: scaleY(1.05);
     background: #00a8ff;
