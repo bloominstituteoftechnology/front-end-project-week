@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DeleteModal from './deleteModal';
 import EditNote from './editNote';
-
+import './NoteView.css';
 
 
 class Note extends Component {

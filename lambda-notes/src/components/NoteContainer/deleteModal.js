@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import Modal from 'react-responsive-modal';
-
+import './deleteModal.css';
 
 
 class DeleteModal extends Component {
@@ -26,10 +26,13 @@ class DeleteModal extends Component {
             <div>
                 <p onClick={this.onOpenModal}>delete</p>
                 <div className='modal'>
-                <Modal open={open} onClose={this.onCloseModal}>
-                    <button onClick={this.props.deleteNote} className= 'delete-button'>delete</button>
-                    <button onClick={this.onCloseModal}className=' no-button'>No</button>
-                </Modal>
+                    <Modal open={open} onClose={this.onCloseModal}>
+                        <h3>Are you sure you want to delete this?</h3>
+                        <div className='buttons'>
+                            <button onClick={this.props.deleteNote} className='delete-button'>Delete</button>
+                            <button onClick={this.onCloseModal} className=' no-button'>No</button>
+                        </div>
+                    </Modal>
                 </div>
             </div>
         )
