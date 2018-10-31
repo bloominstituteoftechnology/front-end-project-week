@@ -47,14 +47,26 @@ export const addNote = note => dispatch => {
   axios
     .post(postUrl, note)
     .then(response => {
-      console.log('Response from addNote is: ', response);
       dispatch({ type: ADDING_NOTE_SUCCESS });
+      console.log('Response from addNote is: ', response);
     })
-    .then(getNotes())
+    .then(response => {
+      console.log('Response before getNotes is: ', response);
+      return getNotes; // using response.data);
+    })
     .catch(error => {
       dispatch({ type: ADDING_NOTE_FAILURE, payload: error });
     });
 };
+
+// axios.get(...)
+//   .then((response) => {
+//     return axios.get(...); // using response.data
+//   })
+//   .then((response) => {
+//     console.log('Response', response);
+//   });
+
 // export const deleteSmurf = id => dispatch => {
 //   axios
 //     .delete(`${url}/${id}`)

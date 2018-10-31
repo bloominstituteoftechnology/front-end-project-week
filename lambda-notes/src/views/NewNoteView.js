@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 const NewNoteViewContainer = styled.div`
   text-align: left;
@@ -90,9 +91,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    addNote
-  }
-)(NewNoteView);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      addNote
+    }
+  )(NewNoteView)
+);
