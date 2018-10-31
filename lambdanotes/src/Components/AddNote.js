@@ -3,8 +3,8 @@ import React from 'react';
 export const AddNote = props => {
     const handleClick = (event) => {
         event.preventDefault();
-       props.addNewNote(event);
-       props.history.push("/notes");
+        props.addNewNote(event);
+        props.history.push("/notes");
    }
 
 //    makingNewNote = event => {
