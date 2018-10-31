@@ -37,7 +37,7 @@ h1, h2 {
 /*-- Header (sidebar with links) ---------------*/
 .app header {
   background: #d3d3d3;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 .app header h1 {
   font-size: 5rem;
@@ -56,7 +56,7 @@ h1, h2 {
 
 /*-- Main Content Area (all views) -------------*/
 .app .view {
-  padding: 0 3rem;
+  padding: 0 4rem;
   flex-grow: 1;
 }
 .app .view h2 {
@@ -94,14 +94,18 @@ h1, h2 {
   height: 30rem;
   width: 29.5rem;
   overflow-y: hidden;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 2.5rem;
   margin-right: 2.4rem;
   margin-bottom: 3.6rem;
 }
 .note h3 {
-  font-size: 2rem;
+  font-size: 2.6rem;
   font-weight: bold;
-  margin: 0.5rem auto;
+  margin: 1.2rem 0 0.8rem 0;
+}
+.note hr {
+  border: none;
+  border-bottom: 1px solid #afafaf;
 }
 
 /*-- Note Creator View -------------------------*/
