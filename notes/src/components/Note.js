@@ -18,7 +18,7 @@ export default Note;
 
 
 const NoteContainer = styled.div`
-    width: 240px;
+    width: 100%;
     border: 1px solid rgb(218, 220, 224);
     border-radius: 8px;
     color: rgb(32, 33, 36);
@@ -29,6 +29,9 @@ const NoteContainer = styled.div`
     min-height: 150px;
     display: inline-block;
     cursor: pointer;
+    @media (min-width: 625px) {
+        width: 240px;
+    }
     .title {
         line-height: 24px;
         font-size: 16px;
@@ -40,6 +43,7 @@ const NoteContainer = styled.div`
         letter-spacing: 0.2px;
         padding-top: 4px;
         padding-bottom: 12px;
+        overflow: scroll;
     };
     .edit-icon {
         width: 25px;

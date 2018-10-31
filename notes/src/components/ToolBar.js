@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import CSVLink from './CSVLink'
 
-const ToolBar = ({ notes }) => {
+const ToolBar = ({ notes, showMenu }) => {
     return (
-        <SideBar>
+        <SideBar showMenu={showMenu}>
             <Section to='/' exact notes="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
-            <Section to='/tags' select="true">
+            <Section to='/select' select="true">
                 <span className="icon" />
                 <span className="title"/>
             </Section>
@@ -40,9 +40,14 @@ const SideBar = styled.div`
     padding: 8px 0px;
     position: fixed;
     left: 0;
+    transform: translateX(0);
+    transition: all 450ms ease-in-out;
     a {
         text-decoration: none;
     }
+    ${props => props.showMenu === false && css`
+        transform: translateX(-280px)
+    `}
 `;
 
 const StyledCSV = styled(CSVLink)`
@@ -130,6 +135,7 @@ const Section = styled(NavLink)`
         height: 24px;
         background-size: 24px 24px;
         opacity: .54;
+        background-repeat: no-repeat;
     }
     ${props => props.notes && css`
         span.icon {
@@ -149,7 +155,8 @@ const Section = styled(NavLink)`
     `}
     ${props => props.select && css`
         span.icon {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.41 4.94l-1.35-1.35c-.78-.78-2.05-.78-2.83 0L13.4 6.41 3 16.82V21h4.18l10.46-10.46 2.77-2.77c.79-.78.79-2.05 0-2.83zm-14 14.12L5 19v-1.36l9.82-9.82 1.41 1.41-9.82 9.83z"></path></svg>')
+            background-size: 24px 24px;
+            background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4Ny43IDQ4Ny43IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODcuNyA0ODcuNzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik04MC4yLDYyLjdjLTQuOC00LjgtMTIuNS00LjgtMTcuMy0wLjFDNTgsNjcuNCw1OCw3NS4xLDYyLjgsNzkuOUw5MiwxMDkuM2MyLjMsMi4zLDUuNCwzLjYsOC43LDMuNmwwLDAgICAgYzMuMiwwLDYuMy0xLjMsOC42LTMuNmw4OC45LTg4LjRjNC44LTQuOCw0LjgtMTIuNSwwLjEtMTcuM2MtNC44LTQuOC0xMi41LTQuOC0xNy4zLDBsLTI2LjksMjYuN0MxMzkuOCwxNS41LDExOS45LDcsOTksNyAgICBDNTYuNyw3LDIyLjMsNDEuNCwyMi4zLDgzLjdzMzQuNCw3Ni43LDc2LjcsNzYuN2MzNC4xLDAsNjMuNi0yMS45LDczLjUtNTQuNWMyLTYuNS0xLjctMTMuMy04LjItMTUuM2MtNi41LTEuOS0xMy4zLDEuNy0xNS4zLDguMiAgICBjLTYuNiwyMS44LTI3LjIsMzcuMS01MCwzNy4xYy0yOC44LDAtNTIuMi0yMy40LTUyLjItNTIuMlM3MC4yLDMxLjUsOTksMzEuNWMxNC4zLDAsMjcuOSw2LDM3LjcsMTYuMmwtMzUuOSwzNS43TDgwLjIsNjIuN3oiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNOTksMTcwLjZjLTQyLjMsMC03Ni43LDM0LjQtNzYuNyw3Ni43UzU2LjcsMzI0LDk5LDMyNHM3Ni43LTM0LjQsNzYuNy03Ni43UzE0MS4zLDE3MC42LDk5LDE3MC42eiBNOTksMjk5LjUgICAgYy0yOC44LDAtNTIuMi0yMy40LTUyLjItNTIuMnMyMy40LTUyLjIsNTIuMi01Mi4yczUyLjIsMjMuNCw1Mi4yLDUyLjJTMTI3LjgsMjk5LjUsOTksMjk5LjV6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTE3NS43LDQxMWMwLTQyLjMtMzQuNC03Ni43LTc2LjctNzYuN1MyMi4zLDM2OC43LDIyLjMsNDExczM0LjQsNzYuNyw3Ni43LDc2LjdTMTc1LjcsNDUzLjMsMTc1LjcsNDExeiBNOTksNDYzLjMgICAgYy0yOC44LDAtNTIuMi0yMy40LTUyLjItNTIuMnMyMy40LTUyLjIsNTIuMi01Mi4yczUyLjIsMjMuNCw1Mi4yLDUyLjJTMTI3LjgsNDYzLjMsOTksNDYzLjN6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTQ1My4xLDIzNUgyMTQuOGMtNi44LDAtMTIuMyw1LjUtMTIuMywxMi4zczUuNSwxMi4zLDEyLjMsMTIuM2gyMzguM2M2LjgsMCwxMi4zLTUuNSwxMi4zLTEyLjNTNDU5LjksMjM1LDQ1My4xLDIzNXoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNNDUzLjEsNzEuNUgyMTQuOGMtNi44LDAtMTIuMyw1LjUtMTIuMywxMi4zczUuNSwxMi4zLDEyLjMsMTIuM2gyMzguM2M2LjgsMCwxMi4zLTUuNSwxMi4zLTEyLjNTNDU5LjksNzEuNSw0NTMuMSw3MS41eiIgZmlsbD0iIzAwMDAwMCIvPgoJCTxwYXRoIGQ9Ik00NTMuMSwzOTguOEgyMTQuOGMtNi44LDAtMTIuMyw1LjUtMTIuMywxMi4zczUuNSwxMi4zLDEyLjMsMTIuM2gyMzguM2M2LjgsMCwxMi4zLTUuNSwxMi4zLTEyLjMgICAgQzQ2NS40LDQwNC4yLDQ1OS45LDM5OC44LDQ1My4xLDM5OC44eiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)
         }
         span.title:after {
             content: 'Multi select'
@@ -165,6 +172,7 @@ const Section = styled(NavLink)`
     `}
     ${props => props.logout && css`
         span.icon {
+            background-size: 22px 24px;
             background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzMjAuMDAyIDMyMC4wMDIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyMC4wMDIgMzIwLjAwMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8ZyBpZD0iWE1MSURfNl8iPgoJPHBhdGggaWQ9IlhNTElEXzdfIiBkPSJNNTEuMjEzLDE3NS4wMDFoMTczLjc4NWM4LjI4NCwwLDE1LTYuNzE2LDE1LTE1YzAtOC4yODQtNi43MTYtMTUtMTUtMTVINTEuMjEzbDE5LjM5NC0xOS4zOTQgICBjNS44NTgtNS44NTgsNS44NTgtMTUuMzU1LDAtMjEuMjEzYy01Ljg1Ny01Ljg1OC0xNS4zNTUtNS44NTgtMjEuMjEzLDBMNC4zOTYsMTQ5LjM5M2MtMC4zNTEsMC4zNTEtMC42ODMsMC43MTktMC45OTcsMS4xMDMgICBjLTAuMTM3LDAuMTY3LTAuMjU2LDAuMzQ0LTAuMzg1LDAuNTE1Yy0wLjE2NSwwLjIyLTAuMzM1LDAuNDM1LTAuNDg4LDAuNjY0Yy0wLjE0LDAuMjA5LTAuMjYxLDAuNDI2LTAuMzg5LDAuNjQgICBjLTAuMTIzLDAuMjA2LTAuMjUyLDAuNDA3LTAuMzY1LDAuNjE5Yy0wLjExOCwwLjIyLTAuMjE3LDAuNDQ2LTAuMzIzLDAuNjdjLTAuMTA0LDAuMjE5LTAuMjEzLDAuNDM1LTAuMzA2LDAuNjU5ICAgYy0wLjA5LDAuMjE5LTAuMTY0LDAuNDQyLTAuMjQzLDAuNjY0Yy0wLjA4NywwLjI0LTAuMTc5LDAuNDc3LTAuMjUzLDAuNzIyYy0wLjA2NywwLjIyMi0wLjExNiwwLjQ0Ny0wLjE3MiwwLjY3MiAgIGMtMC4wNjMsMC4yNDktMC4xMzMsMC40OTctMC4xODMsMC43NTFjLTAuMDUxLDAuMjU5LTAuMDgyLDAuNTIxLTAuMTE5LDAuNzgyYy0wLjAzMiwwLjIyMy0wLjA3NSwwLjQ0My0wLjA5NywwLjY2OSAgIGMtMC4wNDgsMC40ODQtMC4wNzMsMC45NzEtMC4wNzQsMS40NTdjMCwwLjAwNy0wLjAwMSwwLjAxNS0wLjAwMSwwLjAyMmMwLDAuMDA3LDAuMDAxLDAuMDE1LDAuMDAxLDAuMDIyICAgYzAuMDAxLDAuNDg3LDAuMDI2LDAuOTczLDAuMDc0LDEuNDU4YzAuMDIyLDAuMjIzLDAuMDY0LDAuNDQsMC4wOTUsMC42NjFjMC4wMzgsMC4yNjQsMC4wNjksMC41MjgsMC4xMjEsMC43OSAgIGMwLjA1LDAuMjUyLDAuMTE5LDAuNDk2LDAuMTgyLDAuNzQzYzAuMDU3LDAuMjI3LDAuMTA3LDAuNDU2LDAuMTc1LDAuNjgxYzAuMDczLDAuMjQxLDAuMTY0LDAuNDc0LDAuMjQ4LDAuNzEgICBjMC4wODEsMC4yMjYsMC4xNTUsMC40NTMsMC4yNDcsMC42NzVjMC4wOTEsMC4yMiwwLjE5OCwwLjQzMSwwLjMsMC42NDZjMC4xMDgsMC4yMjksMC4yMSwwLjQ2LDAuMzMsMC42ODUgICBjMC4xMSwwLjIwNSwwLjIzNSwwLjQsMC4zNTQsMC41OTljMC4xMzEsMC4yMjEsMC4yNTYsMC40NDQsMC40LDAuNjU5YzAuMTQ2LDAuMjE5LDAuMzA5LDAuNDI0LDAuNDY2LDAuNjM1ICAgYzAuMTM2LDAuMTgxLDAuMjYyLDAuMzY4LDAuNDA3LDAuNTQ0YzAuMjk5LDAuMzY0LDAuNjE2LDAuNzEzLDAuOTQ3LDEuMDQ4YzAuMDE2LDAuMDE2LDAuMDI5LDAuMDM0LDAuMDQ1LDAuMDVsNDUsNDUuMDAxICAgYzIuOTMsMi45MjksNi43NjgsNC4zOTQsMTAuNjA3LDQuMzk0YzMuODM4LTAuMDAxLDcuNjc4LTEuNDY1LDEwLjYwNi00LjM5M2M1Ljg1OC01Ljg1OCw1Ljg1OC0xNS4zNTUsMC4wMDEtMjEuMjEzTDUxLjIxMywxNzUuMDAxICAgeiIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggaWQ9IlhNTElEXzhfIiBkPSJNMzA1LjAwMiwyNWgtMTkwYy04LjI4NCwwLTE1LDYuNzE2LTE1LDE1djYwYzAsOC4yODQsNi43MTYsMTUsMTUsMTVzMTUtNi43MTYsMTUtMTVWNTVoMTYwdjIxMC4wMDFoLTE2MCAgIHYtNDUuMDAxYzAtOC4yODQtNi43MTYtMTUtMTUtMTVzLTE1LDYuNzE2LTE1LDE1djYwLjAwMWMwLDguMjg0LDYuNzE2LDE1LDE1LDE1aDE5MGM4LjI4NCwwLDE1LTYuNzE2LDE1LTE1VjQwICAgQzMyMC4wMDIsMzEuNzE2LDMxMy4yODYsMjUsMzA1LjAwMiwyNXoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K)
         }
         span.title:after {

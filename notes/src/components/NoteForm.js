@@ -36,14 +36,14 @@ const NoteForm = ({onSubmit, history, id=false}) => {
             }}
         >
             <div className="title-input">
-                <input ref={ref => titleRef = ref} value={title}  onChange={e => setTitle(e.target.value)} placeholder='Title' className="title" required/>
+                <input tabiidex="2" ref={ref => titleRef = ref} value={title}  onChange={e => setTitle(e.target.value)} placeholder='Title' className="title" required/>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path fill="none" d="M0 0h24v24H0z"/>
                     <path fill="#202124" d="M17 4v7l2 3v2h-6v5l-1 1-1-1v-5H5v-2l2-3V4c0-1.1.9-2 2-2h6c1.11 0 2 .89 2 2zM9 4v7.75L7.5 14h9L15 11.75V4H9z"/>
                 </svg>
             </div>
             <div className="initial-input">
-                <textarea ref={ref => bodyRef = ref} value={body}  onChange={e => setBody(e.target.value)}  placeholder='Take a note...' className="text-body" required/>
+                <textarea tabidex="1" ref={ref => bodyRef = ref} value={body}  onChange={e => setBody(e.target.value)}  placeholder='Take a note...' className="text-body" required/>
                 <NoteActions className='note-actions'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/><path d="M18 9l-1.4-1.4-6.6 6.6-2.6-2.6L6 13l4 4z"/></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.64 4.75L20 6.11l-7.79 7.79-1.36-1.36 7.79-7.79m0-2c-.51 0-1.02.2-1.41.59l-7.79 7.79c-.78.78-.78 2.05 0 2.83l1.36 1.36c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.79-7.79c.78-.78.78-2.05 0-2.83l-1.35-1.35c-.39-.4-.9-.6-1.42-.6zM7 14.25c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3z"/></svg>
@@ -68,7 +68,7 @@ const FormContainer = styled.form`
     color: rgb(32, 33, 36);
     width: 472px;
     height: 46px;
-    margin: 32px auto 16px auto;
+    margin: 32px auto 64px auto;
     position: relative;
     background-color: white;
     .initial-input{
@@ -156,7 +156,7 @@ const NoteActions = styled.div`
     right: 0;
     top: 0;
     z-index: 2;
-    height: 100%;
+    height: 45px;
     width: 200px;
     display: flex;
     justify-content: flex-end;

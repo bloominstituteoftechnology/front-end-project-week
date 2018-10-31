@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { getNotes, addNote, getNote, deleteNote, updateNote, activeNoteHandler, searchHandler, setSortMode } from '../actions';
+import { 
+  getNotes, 
+  addNote, 
+  getNote, 
+  deleteNote, 
+  updateNote, 
+  activeNoteHandler, 
+  searchHandler, 
+  setSortMode, 
+  menuToggle 
+} from '../actions';
 
 import Header from './Header';
 import ToolBar from './ToolBar';
@@ -10,7 +20,7 @@ import NoteList from './NoteList'
 import NoteForm from './NoteForm'
 import NoteModule from './NoteModule'
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 const NoteContainer = styled.div`
@@ -18,6 +28,11 @@ const NoteContainer = styled.div`
   display: block;
   direction: ltr;
   width: calc(100vw - 280px);
+  transition: all 450ms ease-in-out;
+  ${props => props.showMenu === false && css`
+    margin-left: 0px;
+    width: 100%;
+  `}
 `;
 
 class App extends Component {
@@ -91,10 +106,14 @@ class App extends Component {
           refreshList={this.props.getNotes}
           sortMode={this.props.sortMode}
           setSortMode={this.props.setSortMode}
+          menuToggle={this.props.menuToggle}
         />
-        <ToolBar notes={this.props.notes}/>
+        <ToolBar 
+          notes={this.props.notes}
+          showMenu={this.props.showMenu}
+        />
 
-        <NoteContainer>
+        <NoteContainer showMenu={this.props.showMenu}>
           <Route 
             path='/'
             render={props => 
@@ -104,7 +123,6 @@ class App extends Component {
               />
             }
           />
-
           <Route 
             path='/'
             render={props =>
@@ -136,8 +154,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { notes, activeNote, searchValue, sortMode } = state;
-  return { notes, activeNote, searchValue, sortMode };
+  const { notes, activeNote, searchValue, sortMode, showMenu } = state;
+  return { notes, activeNote, searchValue, sortMode, showMenu };
 }
 
 export default withRouter(connect(
@@ -151,5 +169,6 @@ export default withRouter(connect(
     activeNoteHandler,
     searchHandler,
     setSortMode,
+    menuToggle,
   }
 )(App));

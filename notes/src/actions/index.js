@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { ENGINE_METHOD_PKEY_METHS } from 'constants';
 
 export const SET_SORT_MODE = 'set_srot_mode';
+export const TOGGLE_MENU = 'toggle_menu';
 export const ACTIVE_NOTE_HANDLER = 'active_note_handler';
 export const SEARCH_NOTE_HANDLER = 'search_note_handler';
 
@@ -28,12 +28,16 @@ export const DELETE_NOTE_FAILURE = 'delete_note_failure';
 // const url = 'http://localhost:3333';
 const url = 'https://fe-notes.herokuapp.com';
 
+export const menuToggle = () => {
+  return {
+    type: TOGGLE_MENU,
+  }
+}
 export const setSortMode = () => {
   return {
     type: SET_SORT_MODE,
   }
 }
-
 export const searchHandler = (value) => {
   return {
     type: SEARCH_NOTE_HANDLER,

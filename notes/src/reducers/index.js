@@ -17,6 +17,7 @@ import {
     DELETE_NOTE,
     DELETE_NOTE_FAILURE,
     DELETE_NOTE_SUCCESS,
+    TOGGLE_MENU,
   } from '../actions'
   
   
@@ -32,11 +33,14 @@ import {
     sortMode: 'default',
     sortModes: ['default', 'alpha', 'reverse-alpha'],
     sortNum: 0,
+    showMenu: false,
     error: null,
   }
   
   export default (state = initialState, action) => {
     switch(action.type) {
+
+      case TOGGLE_MENU : return {...state, showMenu: !state.showMenu}
 
       case SET_SORT_MODE :
         let num = state.sortNum + 1;
