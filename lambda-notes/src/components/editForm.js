@@ -1,55 +1,52 @@
 import React, { Component } from 'react';
-import { editNote } from '../actions';
+import { editNote, fetchNotes } from '../actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class EditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        editTitle: '',
-        editTextBody: '',
-        id:''
+        title: '',
+        textBody: ''
     }
-  }
-  componentDidMount() {
-    // const currentNote = this.props.notes.find(note => note._id === this.props.match.params.id)
-    // this.setState({
-    //     editTitle: currentNote.title,
-    //     editTextBody: currentNote.textBody,
-    //     id: currentNote._id
-    // })
   }
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
   });
-  handleEdit = event => {
+  handleUpdate = id => {
+    const noteToUpdate = this.props.notes.find(note => note._id === id);
+    this.setState({ noteToUpdate });
+  }  
+  editNote = (event, id) => {
     event.preventDefault();
-    // this.props.editNote(this.state);
-    // this.props.history.push('/notes');
-  };
-  editClick(event, props) {
-    console.log(event);
-    console.log(props);
-  };
+    this.props.editNote(this.state );
+    this.setState({ title: '', textBody: '' });
+    this.props.history.push('/');
+  }
+
   render() {
+    const noteId = this.props.match.params.id;
+    let note = this.props.notes.find(note => note._id === noteId);
+    
     return (
-      <form onSubmit={()=>{}} className='form'>
+      <form onSubmit={(event) => this.editNote(event, noteId)} className='form'>
         <h3 className='add-header'>Edit Note:</h3>
         <input 
           onChange={this.handleInputChange}
           className='title'
           type='text'
-          name='editTitle' 
-          value={this.state.editTitle}
+          name='title' 
+          value={this.state.title}
           placeholder='Note Title'/>
-        <input 
+        <textarea 
           onChange={this.handleInputChange}
           className='body'
           type='text'
-          name='editTextBody' 
-          value={this.state.editTextBody}
+          name='textBody' 
+          value={this.state.textBody}
           placeholder='Note Content'/>
-        <button className='save' onClick={()=>{}}>Submit</button>
+        <button className='save' type='submit'>Submit</button>
     </form>
     );
   }
@@ -57,8 +54,7 @@ class EditForm extends Component {
 
 const mapStateToProps = state => { 
   return {
-      notes: state.notes,
-      editing: state.editing
+      notes: state.notes
   };
 };
-export default connect(mapStateToProps, { editNote })(EditForm);
+export default withRouter(connect(mapStateToProps, { editNote, fetchNotes })(EditForm));

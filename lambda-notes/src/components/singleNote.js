@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { editNote } from '../actions';
 
 class SingleNote extends Component {
   constructor(props) {
@@ -9,8 +11,6 @@ class SingleNote extends Component {
       note: null,
       deleting: false,
       currentId: '',
-      editTitle: '',
-      editTextBody: ''
     }
   };
   componentDidMount(){
@@ -27,19 +27,20 @@ class SingleNote extends Component {
       .catch(err => {console.log(err)});
   };
   toggleDeletingOn=()=> { 
-    const id = this.props.match.params.id
+    const id = this.props.match.params.id;
     this.setState(() => ({ deleting: true, currentId: id }));
   };
   toggleDeletingOff=()=> { 
     this.setState(() => ({ deleting: false }));
   };
-  editClick(props) {
-    console.log(props)
-    console.log(this.state.currentId)
-  };
-
+  handleInputChange = event => this.setState({ 
+    [event.target.name]: event.target.value 
+  });
+  editNote =()=>{
+    this.props.editNote();
+  }
   render() {
-    console.log(this.props.title, this.props.body)
+    const note = this.props.notes.find(note => note._id === this.state.currentId);
     if (this.state.deleting === true){
       return(
         <div className='delete-container'>
@@ -52,7 +53,6 @@ class SingleNote extends Component {
       );
     }    
     if (this.state.note === null) {
-      console.log(this.props)
       return (
           <div className='container'>
               Fetching note...
@@ -60,19 +60,25 @@ class SingleNote extends Component {
       );
     }
     return (
+      <Fragment>
         <div className='single-container'>
           <div className='button-container'> 
-            <Link onClick={()=>{this.editClick()}} to='/edit-form'>Edit</Link>
+            <Link to={`/edit-form/${this.state.currentId}`}>Edit</Link>
             <p onClick={this.toggleDeletingOn}>Delete</p>
           </div> 
           <h2>{this.state.note.title}</h2>
           <p>{this.state.note.textBody}</p>
-        </div>
+        </div>     
+      </Fragment>
     );
   }
 } 
 
 
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
+};
 
-
-export default SingleNote;
+export default withRouter(connect(mapStateToProps,{ editNote })(SingleNote));

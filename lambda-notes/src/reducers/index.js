@@ -6,7 +6,8 @@ const initialState = {
   error: null,
   adding: false,
   deleting: false,
-  single: false
+  single: false,
+  updating: false
 };
 const notesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -45,10 +46,12 @@ const notesReducer = (state = initialState, action) => {
         return {...state, editing: true};
       case EDIT_NOTE_SUCCESS:
         console.log('Editing', action.payload)
-        return { 
-        ...state, 
-        notes: [...state.notes, action.payload], 
-        editing: false };
+        return {
+          ...state,
+          notes: state.notes.map(
+            note => (note._id === action.payload._id ? action.payload : note)
+          )
+        };
     case EDIT_NOTE_FAILURE:
       return { 
         ...state, 
