@@ -84,9 +84,12 @@ class App extends React.Component {
     axios
       .put(`https://fe-notes.herokuapp.com/edit/${noteId}`, this.state.note)
       .then(response => {
-        this.fetchNotes();
-        this.props.history.push('/');
-        this.setState({ isUpdating: false });
+        this.state.note._id = response.data;
+
+        this.setState({
+          notesData: [...this.state.notesData, this.state.note._id],
+          isUpdating: false
+        });
       });
   };
 
