@@ -2,23 +2,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #f3f3f3;
+  background-image: url("img/list-background.jpg"); /* The image used */
+  background-color: #0084d3; /* Used if the image is unavailable */
+  height: 800px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .App {
   display: flex;
-  background: #f3f3f3;
-  color: #4a494a;
+  color: #222222;
   position: relative;
   max-width: 1024px;
   margin: 0 auto;
 }
 
 .navbar {
-  width: 20%;
-  background: #d7d7d7;
+  width: 22%;
+  background: white;
   margin: 0 2% 0 0;
-  padding: 0 3% 0 2%;
+  padding: 0 3% 0 3%;
   list-style-type: none;
   position: absolute;
   height: 100%; /* 100% Full-height */
@@ -27,6 +31,7 @@ body {
   top: 0; /* Stay at the top */
   left: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
+  opacity: 0.9;
 }
 
 .navbar h1 {
@@ -35,47 +40,49 @@ body {
 
 .navbar a {
   text-decoration: none;
-  color: whitesmoke;
+  color: #222;
   font-weight: 700;
 }
 
 .navbar li {
-  border: 1px solid gray;
-  background: #00c0c3;
+  border-top: 1px solid gray;
   width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  margin: 20px 0;
   padding: 0 5px;
 }
 
 .list-view {
   width: 100%;
-  margin-left: 27%;
+  padding-left: 27%;
 }
 
 .list-view h2 {
   padding: 20px 0 0 1%;
+  color: whitesmoke;
 }
 
 .notes-list-wrapper {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 30px;
+  padding-left: 5%;
 }
 
 .note-card {
   width: 22%;
   margin: 10px;
-  padding: 10px 3%;
+  padding: 10px 4%;
   height: 200px;
   overflow: hidden;
   background: white;
   text-decoration: none;
-  border: 1px solid gray;
+  box-shadow: 10px 10px 30px #222;
+  opacity: 0.9;
 }
 
 .note-card h3 {
@@ -167,4 +174,56 @@ body {
 
 .single-note .delete {
   margin-right: 3%;
+}
+
+.log-out {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0px 0 20px 0;
+  cursor: pointer;
+  color: #222;
+  font-weight: 700;
+}
+
+.log-in-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+}
+
+.log-in-container .log-in {
+  width: 40%;
+  background: white;
+  margin: 0 2% 0 0;
+  padding: 0 3% 0 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  opacity: 0.7;
+}
+
+.log-in-container .log-in {
+  text-align: center;
+}
+
+.log-in-container .log-in-button {
+  border: 1px solid #222;
+  padding: 10px 30px;
+  margin-top: 30px;
+}
+
+.log-in-container .log-in-button:hover {
+  background: #222;
+  color: white;
 }
