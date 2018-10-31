@@ -32,6 +32,7 @@ class CreateView extends Component {
   render() {
     return (
       <Form
+        header='Create New Note:'
         state={this.state}
         submitHandler={this.submitHandler}
         changeHandler={this.changeHandler}

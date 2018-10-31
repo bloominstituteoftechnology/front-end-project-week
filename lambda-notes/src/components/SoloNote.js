@@ -143,6 +143,7 @@ class SoloNote extends React.Component {
         </div>
         <div className={this.state.formView ? "" : "none"}>
           <Form
+            header='Edit Note:'
             state={this.state}
             submitHandler={this.submitHandler}
             changeHandler={this.changeHandler}
