@@ -17,13 +17,22 @@ class NoteDetails extends Component {
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
+  clickHandler = event => {
+    event.preventDefault();
+    axios.delete(
+      `https://fe-notes.herokuapp.com/note/delete/${
+        this.props.match.params._id
+      }`
+    );
+    alert("Note Deleted");
+  };
 
   render() {
     return (
       <div>
         <div>
           <NavLink to={`/edit-form/${this.state.notes._id}`}>Edit</NavLink>
-          <button>Delete</button>
+          <button onClick={this.clickHandler}>Delete</button>
         </div>
         <h1>{this.state.notes.title}</h1>
         <p>{this.state.notes.textBody}</p>

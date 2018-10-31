@@ -6,7 +6,8 @@ class EditForm extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: ""
+      textBody: "",
+      confirmDeleteDisplay: null
     };
   }
 
@@ -30,11 +31,17 @@ class EditForm extends Component {
         console.log(error);
       });
     console.log(this.props.match.params._id);
+    this.setState({
+      title: "",
+      textBody: ""
+    });
   };
 
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
+  modalDisplay = event => {};
 
   render() {
     return (
