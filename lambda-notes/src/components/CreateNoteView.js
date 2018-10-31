@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { LeftBar, StyledLink, ContainCards, NotesH2, CardList, TitleH1 } from "../Styles";
+import { LeftBar, StyledLink, ContainCards, NotesH2, CardList, TitleH1, BodyInput, TitleInput } from "../Styles";
+import '../App.css'
 
 
 class CreateNoteView extends React.Component {
@@ -44,26 +45,28 @@ class CreateNoteView extends React.Component {
               <LeftBar>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
-          <StyledLink to={"/note/create"}>Add New Note</StyledLink>
+          <StyledLink to={"/note/create"}>+ Create New Note</StyledLink>
         </LeftBar>
-                <form onSubmit={this.handleSubmit}>
+          <div className ='formHolder'>
+                <form className ='form' onSubmit={this.handleSubmit}>
                     <h1>New Note</h1>
-                    <input 
+                    <TitleInput 
                         type="text"
                         name="title"
                         placeholder="title"
                         value={this.props.value}
                         onChange={this.handleInputChange}
                     />
-                    <input 
+                    <BodyInput 
                         type="text"
                         name="text"
                         placeholder="text body"
                         value={this.props.value}
                         onChange={this.handleInputChange}
                     />
-                    <button type="submit">Add Note</button>
+                    <button className='saveBtn'  type="submit">Save</button>
                 </form>
+                </div>
             </div>
         );
     }

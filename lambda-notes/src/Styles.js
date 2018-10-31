@@ -35,6 +35,7 @@ export const LeftBar = styled.div`
   text-align: center;
   top: -1px;
   left: 0px;
+  z-index: 30000;
 `;
 
 export const TitleH1 = styled.h1`
@@ -144,10 +145,10 @@ export const FormH1 = styled.h1`
 
 export const TitleInput = styled.input`
   font-size: 20px;
-  margin-left: 23%;
   width: 30%;
   margin-bottom: 20px;
-  border: 1.5px solid gray;
+  border: 1px solid #d3d2d3;
+  border-radius: 5px;
   ::-webkit-input-placeholder {
     padding-left: 3%;
   }
@@ -155,10 +156,10 @@ export const TitleInput = styled.input`
 
 export const BodyInput = styled.textarea`
   font-size: 20px;
-  margin-left: 23%;
   width: 60%;
   height: 400px;
-  border: 1.5px solid gray;
+  border: 1px solid #d3d2d3;
+  border-radius: 5px;
   ::-webkit-input-placeholder {
     padding-top: 1%;
     padding-left: 3%;
@@ -181,14 +182,13 @@ export const FormContainer = styled.div`
 `;
 
 export const NoteCardContainer = styled.div`
-  width: 70%;
-  margin-left: 21%;
+  
+  margin-left: 270px;
   text-align: center;
   height: auto;
 `;
 
 export const NoteTitle = styled.h2`
-  margin-right: 62%;
   margin-top: 3%;
   font-size: 25px;
 `;
@@ -196,7 +196,6 @@ export const NoteTitle = styled.h2`
 export const NoteP = styled.p`
   padding: 5px;
   text-align: start;
-  margin-left: 4%;
   line-height: 1.5;
 `;
 

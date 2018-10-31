@@ -53,9 +53,10 @@ class EditNoteView extends React.Component {
         <LeftBar>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
-          <StyledLink to={"/note/create"}>Add New Note</StyledLink>
+          <StyledLink to={"/note/create"}>+ Create New Note</StyledLink>
         </LeftBar>
-        <StyledForm onSubmit={this.editNote}>
+        <div className ='formHolder'>
+        <form className='form' onSubmit={this.editNote}>
           <EditFormH1>Edit Note</EditFormH1>
           <TitleInput
             type="text"
@@ -70,9 +71,11 @@ class EditNoteView extends React.Component {
             placeholder="text body"
             value={this.state.text}
             onChange={this.handleInputChange}
+            
           />
-          <Formbtn type="submit">Update</Formbtn>
-        </StyledForm>
+          <button className='saveBtn' type="submit">Update</button>
+        </form>
+        </div>
       </FormContainer>
     );
   }

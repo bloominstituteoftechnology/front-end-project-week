@@ -94,13 +94,15 @@ class NoteView extends React.Component {
         <LeftBar>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
-          <StyledLink to={"/note/create"}>Add New Note</StyledLink>
+          <StyledLink to={"/note/create"}>+ Create New Note</StyledLink>
         </LeftBar>
         <NoteCardContainer>
           <EditNoteLink onClick={this.editNote}>Edit</EditNoteLink>
           <DeleteNoteLink onClick={this.deleteModal}>Delete</DeleteNoteLink>
-          <NoteTitle>{this.state.note.title}</NoteTitle>
-          <NoteP>{this.state.note.textBody}</NoteP>
+          <div className='noteContent'>
+            <NoteTitle>{this.state.note.title}</NoteTitle>
+            <NoteP>{this.state.note.textBody}</NoteP>
+          </div>
         </NoteCardContainer>
         <Modal className="modal">
           <div className="innerModal">
