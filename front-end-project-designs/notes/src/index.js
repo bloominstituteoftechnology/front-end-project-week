@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import NoteListView from './views/noteListView'
 import { BrowserRouter as Router } from "react-router-dom";
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -15,7 +16,7 @@ const store = createStore(rootReducer, middlewareQueue);
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-        <App />
+        <NoteListView />
     </Router >
   </Provider>,
   document.getElementById('root')
