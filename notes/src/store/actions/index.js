@@ -40,15 +40,16 @@ export const addNote = note => {
     dispatch({ type: FETCH_DATA });
     axios
       .post('https://lambda-notes-board.herokuapp.com/api/notes', note)
-      .then(response => {
+      .then(response =>
         dispatch({
           type: ADD_NOTE,
           payload: {
             title: note.title,
             textBody: note.textBody,
+            id: response.data.success,
           },
-        });
-      })
+        })
+      )
       .catch(err => dispatch({ type: ERROR, err }));
   };
 };

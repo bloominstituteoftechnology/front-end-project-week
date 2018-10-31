@@ -78,7 +78,7 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         />
         <Button type="submit" onClick={this.handleClick}>
-          {pathName === '/noteform/create' ? 'Save' : 'Update'}
+          {pathName === '/noteform' ? 'Save' : 'Update'}
         </Button>
       </Form>
     );
