@@ -7,6 +7,10 @@ html {
   background: #f3f3f3;
 }
 
+hr {
+  margin-bottom: 15px;
+}
+
 .menu {
   background: #d6d6d6;
   width: 300px;
@@ -18,11 +22,12 @@ html {
   padding: 25px;
 }
 
-h1 {
+.menu h1 {
   color: #4b4a4b;
   /* width: 90%; */
-  margin: 20px auto;
+  margin: 10px auto 40px;
   font-size: 50px;
+  line-height: 0.9;
 }
 
 button {
@@ -31,8 +36,9 @@ button {
   border: 1px solid #239599;
   margin: 0 auto 25px;
   width: 100%;
+  min-width: 150px;
   font-size: 20px;
-  padding: 15px;
+  padding: 15px 7px;
   cursor: pointer;
 }
 
@@ -50,10 +56,10 @@ button:hover {
   height: 100%;
 }
 
-.list-view h1 {
+h1 {
   color: #4b4a4b;
   font-size: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 
 .note-card-container {
@@ -107,13 +113,24 @@ a {
 
 /* NOTE VIEW */
 .note-view {
+  max-width: 700px;
   color: #4b4a4b;
+}
+
+.single-note-content {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 15px;
 }
 
 /* EDIT NOTE */
 
 .edit-delete {
   text-align: right;
+  margin-bottom: 45px;
 }
 
 .edit-delete span {
@@ -147,4 +164,71 @@ a {
 
 .cancel:hover {
   background: rgb(221, 9, 9);
+}
+
+@media (max-width: 1000px) {
+  .note-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu {
+    width: 250px;
+  }
+
+  .display {
+    margin-left: 250px;
+  }
+
+  .note-card {
+    width: 90%;
+  }
+
+  .new-note input,
+  .new-note textarea {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .menu {
+    height: 130px;
+    width: 100%;
+    border: none;
+    z-index: 1;
+  }
+
+  .menu h1 {
+    font-size: 24px;
+    width: 20%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .menu button {
+    /* width: 90%; */
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  /* .new-note-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+  } */
+
+  /* .view-all-btn {
+    margin: 0 auto;
+  } */
+
+  .menu-btn-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .display {
+    margin: 0;
+  }
 }

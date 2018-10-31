@@ -8,12 +8,14 @@ const Menu = () => {
         Lambda <br />
         Notes
       </h1>
-      <Link to="/notes">
-        <button className="menu-btn">View Your Notes</button>
-      </Link>
-      <Link to="/new">
-        <button className="menu-btn">+ Create New Note</button>
-      </Link>
+      <div className="menu-btn-container">
+        <Link to="/notes">
+          <button className="view-all-btn">View Your Notes</button>
+        </Link>
+        <Link to="/new">
+          <button className="new-note-btn">+ Create New Note</button>
+        </Link>
+      </div>
     </div>
   );
 };

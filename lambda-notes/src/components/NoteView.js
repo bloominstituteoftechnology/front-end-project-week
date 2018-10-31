@@ -5,6 +5,7 @@ import Modal from "react-modal";
 class NoteView extends React.Component {
   constructor(props) {
     super(props);
+
     this.note = this.props.notes.find(
       note => `${note._id}` === this.props.match.params.id
     );
@@ -69,12 +70,14 @@ class NoteView extends React.Component {
               </div>
             </Modal>
 
-            <h2>{this.note.title}</h2>
-            <p>{this.note.textBody}</p>
+            <div className="single-note-content">
+              <h2>{this.note.title}</h2>
+              <p>{this.note.textBody}</p>
+            </div>
           </div>
         ) : (
           <div className="new-note">
-            <h2>Edit Note:</h2>
+            <h1>Edit Note:</h1>
             <form onSubmit={() => this.handleSubmit(this.note._id)}>
               <input
                 required

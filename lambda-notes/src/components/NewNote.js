@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import "../App.css";
 
 class NewNote extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class NewNote extends React.Component {
   render() {
     return (
       <div className="new-note">
-        <h2>Create New Note:</h2>
+        <h1>Create New Note:</h1>
         <form onSubmit={() => this.newNoteHandler(this.state)}>
           <input
             required
