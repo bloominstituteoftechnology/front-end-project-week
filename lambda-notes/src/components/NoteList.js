@@ -17,6 +17,11 @@ render(){
         
         <div className="note-list-wrapper">
         <h2>Your Notes:</h2>
+        <div className="sort-options">
+        <button>Sort oldest to newest</button>
+        <button>Sort newest oldest</button>
+        <button>Sort alphabetically</button>
+        </div>
         <div className="note-list">
         {this.props.notes.map(note => (
                 <div className="note" key={note._id}

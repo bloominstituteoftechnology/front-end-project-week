@@ -51,7 +51,7 @@ editChangeHandler=(key, value) => {
       event.preventDefault();
       let note=this.state.activeNote;
       if (note.title!=="" && note.textBody!=='') {
-      axios.put(`http://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state.activeNote)
+      axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state.activeNote)
       .then(response=>{this.setState({...this.state, activeNote: response.data})})
       .catch(error=>{console.log("We were unable to edit this note: ", error)})
       this.toggleEditing(event);
