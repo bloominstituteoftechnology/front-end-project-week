@@ -12,7 +12,6 @@ class Form extends React.Component {
   }
 
   componentDidMount(){
-    console.log('form props are', this.props);
     if (this.props.note) {
       this.setState({
         id: this.props.note._id,
@@ -32,7 +31,6 @@ class Form extends React.Component {
       this.props.submit(note);
       this.props.history.push(`/${this.props.match.params.id}`);
     } else {
-      console.log('what are you submitting?', note);
       this.props.submit(note);
       this.props.history.push('/');
     }

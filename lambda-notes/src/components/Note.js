@@ -21,6 +21,7 @@ const Note = props => {
           </div>
         </Link>
         </div>
+        <p>tagged: {props.note.tags}</p>
         <h3>{props.note.title}</h3>
         <p>{props.note.textBody}</p>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import NotePreview from './NotePreview';
 import { Link } from 'react-router-dom';
-import SearchBar from './SearchBar';
+import TopBar from './TopBar';
 
 class NotesList extends React.Component {
   constructor(props){
@@ -24,10 +24,25 @@ class NotesList extends React.Component {
     })
   }
 
+  sortByTitle = () => {
+    let sortedTitle = this.props.notes.slice().sort(function (a, b) {
+      let titleA = a.title.toLowerCase(),
+          titleB = b.title.toLowerCase()
+        if (titleA < titleB)
+        return -1
+        if (titleA > titleB)
+        return 1
+      return 0;
+    });
+    this.setState({
+      currentNotes: sortedTitle, 
+    })
+  }
+
   render(){
     return (
       <div className='notes-list'>
-      <SearchBar handleInput={this.handleInput} search={this.searchNotes} input={this.state.searchInput}/>
+      <TopBar handleInput={this.handleInput} search={this.searchNotes} sortByTitle={this.sortByTitle}/>
       <h3>Your Notes:</h3>
         {this.state.currentNotes.map(note => {
           return (

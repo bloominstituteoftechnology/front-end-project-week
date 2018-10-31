@@ -121,10 +121,26 @@ p {
 	margin: 20px;
 }
 
+.notes-list .top-bar {
+	border: 1px solid black;
+	width: 100%;
+	display: flex;
+	padding: 10px;
+}
+
+.notes-list .top-bar .sort-bar {
+	display: flex;
+}
+
+.sort-bar .button {
+	height: 40px;
+	margin-top: 30px; 
+}
+
 .notes-list h3 {
 	width: 100%;
 	font-weight: bold;
-	margin: 8% 2% 3%;
+	margin-top: 50px;
 }
 
 .notes-list .note-preview {
@@ -266,5 +282,5 @@ form .button {
 }
 
 .loading {
-	margin: 10% 5%; 
+	margin: 10% 5%;
 }
