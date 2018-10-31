@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Note.css'
+import { Link } from 'react-router-dom'
 
 class Note extends Component {
     constructor(props) {
@@ -35,7 +36,11 @@ class Note extends Component {
                 <div>NOTE PAGE</div>
                 <div className="edit-note">
                     <p> 
-                        <span>edit</span> 
+                        <Link
+                            to={{ pathname: '/createnew', state: { note: this.state.note} }}
+                        >
+                            edit
+                        </Link> 
                         <span
                             onClick={() => this.handleDelete(this.state.note._id)}
                         >
