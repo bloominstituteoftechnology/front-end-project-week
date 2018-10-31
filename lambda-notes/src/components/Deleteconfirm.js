@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-function deleteNote(_id) {
+function deleteNote(id) {
     axios
-    .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
+    .delete(`https://agile-savannah-13496.herokuapp.com/api/notes/${id}`)
     .catch(err => console.log(err))
   } 
 

@@ -9,7 +9,7 @@ class NoteList extends Component {
 
     componentDidMount() {
         axios
-        .get('https://killer-notes.herokuapp.com/note/get/all')
+        .get('https://agile-savannah-13496.herokuapp.com/api/notes')
         .then(response => this.setState({notes: response.data}))
         .catch(err => console.log(err))
       }
@@ -21,11 +21,12 @@ class NoteList extends Component {
             <div className="noteList">
                 {this.state.notes.map(note => {
                     return (
-                        <div className="notes" key={note._id}>
-                            <Link to={`/notes/${note._id}`}>
-                                <h4>{note.title}</h4>
+                        <div className="notes" key={note.id}>
+                            <Link to={`/notes/${note.id}`}>
+                                <h4>{note.id} -- 
+                                {note.title}</h4>
                                 <hr></hr>
-                                <p>{note.textBody}</p>
+                                <p>{note.description}</p>
                             </Link>
                         </div>
                     )

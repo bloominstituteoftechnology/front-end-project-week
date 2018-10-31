@@ -6,19 +6,19 @@ class CreateNote extends React.Component {
         super(props);
         this.state = {
             title: '',
-            textBody: '',
+            description: '',
         };
     }
 
     addNote = event => {
         event.preventDefault();
         axios
-            .post("https://killer-notes.herokuapp.com/note/create", this.state)
+            .post("https://agile-savannah-13496.herokuapp.com/api/notes", this.state)
             .then(response => {
                 console.log(response);
                 this.props.history.push("/")
             })
-            .catch(error => console.log(error));
+            .catch(error => console.log("dsadsd", error));
     }
 
     handleChange = event => {
@@ -44,8 +44,8 @@ class CreateNote extends React.Component {
                         className="create-text"
                         placeholder='Note Info'
                         onChange={this.handleChange}
-                        name="textBody"
-                        value={this.state.textBody}
+                        name="description"
+                        value={this.state.description}
                     />
                 </form>
                 <div>

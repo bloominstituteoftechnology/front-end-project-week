@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import DeleteConfirm from './DeleteConfirm';
+import DeleteConfirm from './Deleteconfirm';
 
 
 export default class Note extends Component {
@@ -14,19 +14,19 @@ export default class Note extends Component {
   }
 
   componentDidMount() {
-    const _id = this.props.match.params._id;
-    this.fetchNote(_id);
+    const id = this.props.match.params.id;
+    this.fetchNote(id);
   }
 
   toggleDelete = () => {
     this.setState({ deleteConfirm: !this.state.deleteConfirm})
   }
 
-  fetchNote = _id => {
+  fetchNote = id => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${_id}`)
+      .get(`https://agile-savannah-13496.herokuapp.com/api/notes/${id}`)
       .then(response => {
-        this.setState(() => ({ note: response.data }));
+        this.setState(() => ({ note: response.data[0] }));
       })
       .catch(error => {
         console.error(error);
@@ -39,18 +39,18 @@ export default class Note extends Component {
       return <div>Loading note information...</div>;
     }
 
-    const { textBody, title } = this.state.note;
+    const { description, title } = this.state.note;
     return (
       <div className="note">
         <div className="noteHeader">
-          <Link to={{ pathname: `/notes/${this.state.note._id}/edit`, state: this.state.note}} className='editz'>Edit</Link>
+          <Link to={{ pathname: `/notes/${this.state.note.id}/edit`, state: this.state.note}} className='editz'>Edit</Link>
           <button className='editz' onClick={this.toggleDelete}>Delete</button>
         </div>
         <div className='noteBody'>
           <h1>{title}</h1>
-          <h3>{textBody}</h3>
+          <h3>{description}</h3>
         </div>
-        {this.state.deleteConfirm ? <DeleteConfirm deleteConfirm={this.state.deleteConfirm} id={this.props.match.params._id} toggleDelete={this.toggleDelete}/> : null}
+        {this.state.deleteConfirm ? <DeleteConfirm deleteConfirm={this.state.deleteConfirm} id={this.props.match.params.id} toggleDelete={this.toggleDelete}/> : null}
       </div>
     )
   }

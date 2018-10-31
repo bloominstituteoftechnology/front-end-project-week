@@ -5,15 +5,16 @@ class EditNote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.location.state.id,
             title: this.props.location.state.title,
-            textBody: this.props.location.state.textBody,
+            description: this.props.location.state.description,
         };
     }
 
     editNote = () => {
-        const id = this.props.location.state._id
+        const id = this.props.location.state.id
         axios
-            .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, this.state)
+            .put(`https://agile-savannah-13496.herokuapp.com/api/notes/${id}`, this.state)
             .then(() =>
                 this.props.history.push(`/notes/${id}`)
             )
@@ -43,8 +44,8 @@ class EditNote extends React.Component {
                         className="create-text"
                         placeholder='Note Info'
                         onChange={this.handleChange}
-                        name="textBody"
-                        value={this.state.textBody}
+                        name="description"
+                        value={this.state.description}
                     />
                 </form>
                 <div>
