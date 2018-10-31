@@ -10,7 +10,6 @@ export const fetchAll = () => {
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
-                console.log(response);
                 dispatch({ type: SUCCESS, payload: response.data })
                 
             })
@@ -24,14 +23,15 @@ export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
 export const ADD_FAILURE = 'ADD_FAILURE';
 
-export const addNote = () => {
+export const addNote = note => {
     return function(dispatch) {
         dispatch({ type: ADDING });
         axios
-            .post('https://fe-notes.herokuapp.com/note/create')
+            .post('https://fe-notes.herokuapp.com/note/create', note)
             .then(response => {
+                console.log(response);
                 dispatch({ 
-                    type: SUCCESS,
+                    type: ADDED,
                     payload: response.data 
                 })
             })

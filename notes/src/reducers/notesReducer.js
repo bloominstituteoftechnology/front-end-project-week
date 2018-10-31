@@ -60,7 +60,8 @@ export const notesReducer = (state = initialState, action) => {
                 adding: false,
                 added: true,
                 notes: [
-                    ...action.payload
+                    ...state.notes,
+                    action.payload
                 ]
             }
         case ADD_FAILURE:

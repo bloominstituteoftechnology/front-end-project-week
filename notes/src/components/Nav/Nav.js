@@ -6,7 +6,7 @@ const Nav = props => {
     return (
         <div className="nav">
             <h1>Lambda Notes</h1>
-            <NavLink className="button" to="">
+            <NavLink className="button" to="/">
                 <div>View Your Notes</div>
             </NavLink>
             <NavLink className="button" to="/new/">

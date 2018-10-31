@@ -18,9 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
-        <Route exact path="/" render={() => <Notes notes={this.props.notes} />} />
-        <Route path="/new" render={() => <CreateNote />} />
+        <Nav {...this.props} />
+        <Route exact path="/" render={(props) => <Notes {...props} notes={this.props.notes} />} />
+        <Route path="/new" render={(props) => <CreateNote {...props} />} />
       </div>
     );
   }
