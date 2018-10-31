@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -48,29 +48,71 @@ webAuth.parseHash((err, authResult) => {
   }
 });
 
-const NavBar = props => {
-  return (
-    <NavbarContainer>
-      <h1>Lambda Notes</h1>
+class NavBar extends Component {
+  render() {
+    if (this.isAuthenticated()) {
+      return (
+        <NavbarContainer>
+          <h1>Lambda Notes</h1>
 
-      <Link to='/'>
-        <NavButton>View Your Notes</NavButton>
-      </Link>
+          <Link to='/'>
+            <NavButton>View Your Notes</NavButton>
+          </Link>
 
-      <Link to='/new'>
-        <NavButton>+ Create New Note</NavButton>
-      </Link>
+          <Link to='/new'>
+            <NavButton>+ Create New Note</NavButton>
+          </Link>
 
-      <div 
-        onClick={function() {
-          lock.show();
-        }}
-      >
-        LOG IN
-      </div>
-    
-    </NavbarContainer>
-  );
+          <div onClick={this.logout}>Log out</div>
+        </NavbarContainer>
+      );
+    } else {
+      return (
+        <div>
+          <h3>Please click login to use Note App</h3>
+          <div 
+            id='btn-login'
+            onClick={function() {
+              lock.show();
+            }}
+          >
+            LOG IN
+          </div>
+        </div>
+      );
+    }
+  }
+  isAuthenticated() {
+    // check whether the current time is past the access Token's expire time
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return new Date().getTime() < expiresAt;
+  }
 }
 
 export default NavBar;
+
+// const NavBar = props => {
+//   return (
+//     <NavbarContainer>
+//       <h1>Lambda Notes</h1>
+
+//       <Link to='/'>
+//         <NavButton>View Your Notes</NavButton>
+//       </Link>
+
+//       <Link to='/new'>
+//         <NavButton>+ Create New Note</NavButton>
+//       </Link>
+
+//       <div 
+//         onClick={function() {
+//           lock.show();
+//         }}
+//       >
+//         LOG IN
+//       </div>
+    
+//     </NavbarContainer>
+//   );
+  
+// }
