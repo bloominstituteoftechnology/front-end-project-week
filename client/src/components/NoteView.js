@@ -6,9 +6,7 @@ class NoteView extends Component {
     super(props);
     this.state = {
       editing: false,
-      eid: "",
-      etitle: "",
-      etextBody: "",
+
       modal: false
     };
     // this.toggle = this.toggle.bind(this);
@@ -44,14 +42,18 @@ class NoteView extends Component {
 
   editSubmitHandler = e => {
     e.preventDefault();
-    this.props.editNote({
-      id: this.state.id,
-      title: this.state.title,
-      textBody: this.state.textBody
-    });
-    this.setState({
-      editing: false
-    });
+    if (this.state.title.length < 1 || this.state.textBody.length < 1) {
+      alert("Field cannot be empty!");
+    } else {
+      this.props.editNote({
+        id: this.state.id,
+        title: this.state.title,
+        textBody: this.state.textBody
+      });
+      this.setState({
+        editing: false
+      });
+    }
   };
 
   handleChange = e => {

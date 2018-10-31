@@ -12,18 +12,21 @@ class NoteForm extends Component {
 
   addNote = event => {
     event.preventDefault();
-
-    axios
-      .post("https://fe-notes.herokuapp.com/note/create", this.state)
-      .then(() =>
-        this.setState({
-          title: "",
-          textBody: ""
-        })
-      )
-      .catch(error => console.log(error));
-    this.props.history.push("/");
-    window.scrollTo(0, 0);
+    if (this.state.title.length < 1 || this.state.textBody.length < 1) {
+      alert("Please fill out all fields!");
+    } else {
+      axios
+        .post("https://fe-notes.herokuapp.com/note/create", this.state)
+        .then(() =>
+          this.setState({
+            title: "",
+            textBody: ""
+          })
+        )
+        .catch(error => console.log(error));
+      this.props.history.push("/");
+      window.scrollTo(0, 0);
+    }
   };
 
   handleInputChange = e => {

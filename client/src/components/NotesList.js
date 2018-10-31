@@ -17,18 +17,20 @@ class NotesList extends Component {
 
         <div>
           <ul className="list">
-            {this.props.notes.map(note => {
-              return (
-                <Link to={`/${note._id}`} id={note._id} key={note._id}>
-                  <Note
-                    title={note.title}
-                    id={note._id}
-                    textBody={note.textBody}
-                    key={note._id}
-                  />
-                </Link>
-              );
-            })}
+            {this.props.notes
+              .map(note => {
+                return (
+                  <Link to={`/${note._id}`} id={note._id} key={note._id}>
+                    <Note
+                      title={note.title}
+                      id={note._id}
+                      textBody={note.textBody}
+                      key={note._id}
+                    />
+                  </Link>
+                );
+              })
+              .reverse()}
           </ul>
         </div>
       </div>
