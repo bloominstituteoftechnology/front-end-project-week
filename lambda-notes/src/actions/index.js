@@ -48,14 +48,19 @@ export const addNote = note => dispatch => {
     .post(postUrl, note)
     .then(response => {
       dispatch({ type: ADDING_NOTE_SUCCESS });
-      console.log('Response from addNote is: ', response);
-    })
-    .then(response => {
-      console.log('Response before getNotes is: ', response);
-      return getNotes; // using response.data);
     })
     .catch(error => {
       dispatch({ type: ADDING_NOTE_FAILURE, payload: error });
+    })
+    .then(dispatch({ type: FETCHING_NOTES }));
+  axios
+    .get(getUrl)
+    .then(response => {
+      console.log('Response from getNotes is: ', response);
+      dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
+    })
+    .catch(error => {
+      dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
     });
 };
 
