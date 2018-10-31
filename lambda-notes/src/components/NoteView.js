@@ -26,6 +26,7 @@ class NoteView extends Component {
             console.error('SERVER ERROR', error)
           ));
     }
+    
 
 
 
