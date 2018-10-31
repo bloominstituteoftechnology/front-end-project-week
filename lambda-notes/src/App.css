@@ -122,19 +122,25 @@ p {
 }
 
 .notes-list .top-bar {
-	border: 1px solid black;
 	width: 100%;
 	display: flex;
 	padding: 10px;
+	justify-content: space-between;
 }
 
 .notes-list .top-bar .sort-bar {
 	display: flex;
+	width: 60%;
+	justify-content: space-around;
+
 }
 
 .sort-bar .button {
-	height: 40px;
-	margin-top: 30px; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 150px;
+	height: 50px;
 }
 
 .notes-list h3 {

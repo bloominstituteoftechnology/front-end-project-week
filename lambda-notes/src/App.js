@@ -7,10 +7,12 @@ import './App.css';
 // import { deleteNote } from './actions';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
       <Switch>
+        <Route exact path='/' render={(props) => (<ListView {...props} />)} />
         <Route exact path='/' component={ListView} />
         <Route path='/add' render={(props) => (<CreateView {...props} />)} />
         <Route path='/:id' render={(props) => (<NoteView {...props} />)} />

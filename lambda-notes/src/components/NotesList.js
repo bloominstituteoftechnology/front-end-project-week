@@ -11,9 +11,10 @@ class NotesList extends React.Component {
     }
   }
 
-    handleInput = event => {
-      this.searchNotes(event.target.value.toLowerCase());
-    }
+
+  handleInput = event => {
+    this.searchNotes(event.target.value.toLowerCase());
+  }
 
   searchNotes = search => {
     let newCurrent = this.props.notes.filter(function (el) {
@@ -35,14 +36,24 @@ class NotesList extends React.Component {
       return 0;
     });
     this.setState({
-      currentNotes: sortedTitle, 
+      currentNotes: sortedTitle,
     })
+  }
+
+  sortByLength = () => {
+    let sortedLength = this.props.notes.slice().sort(function(a, b) {
+      return a.textBody.length - b.textBody.length;
+    });
+    this.setState({
+      currentNotes: sortedLength,
+    });
   }
 
   render(){
     return (
       <div className='notes-list'>
-      <TopBar handleInput={this.handleInput} search={this.searchNotes} sortByTitle={this.sortByTitle}/>
+      <TopBar handleInput={this.handleInput} search={this.searchNotes} sortByTitle={this.sortByTitle}
+      sortByLength={this.sortByLength}/>
       <h3>Your Notes:</h3>
         {this.state.currentNotes.map(note => {
           return (

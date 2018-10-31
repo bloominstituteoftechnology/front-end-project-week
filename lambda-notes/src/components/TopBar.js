@@ -7,7 +7,7 @@ const TopBar = props => {
   return (
     <div className='top-bar'>
     <SearchBar handleInput={props.handleInput} search={props.search}/>
-    <SortBar sortByTitle={props.sortByTitle}/>
+    <SortBar sortByTitle={props.sortByTitle} sortByLength={props.sortByLength}/>
     </div>
   )
 }
