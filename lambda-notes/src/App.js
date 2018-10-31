@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar";
 import NoteList from "./components/NoteList";
 import NoteView from "./components/NoteView";
 import EditForm from "./components/EditForm";
+import NewNoteForm from "./components.NewNoteForm";
 
 class App extends Component {
   constructor() {
@@ -25,11 +26,17 @@ class App extends Component {
   }
 
   finishEdit(note) {
+    const id = note._id;
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, note)
-      .then(response => this.setState({ notes: response.data }))
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      .then(() => {
+        axios
+          .get("https://fe-notes.herokuapp.com/note/get/all")
+          .then(response => this.setState({ notes: response.data }))
+          .catch(error => console.log(error));
+        }
+      )
       .catch(error => console.log(error));
-    
   }
 
   render() {
@@ -39,6 +46,7 @@ class App extends Component {
         <Route exact path="/" render={props => <NoteList {...props} noteList={this.state.notes} />} />
         <Route path="/note/:id" render={props => <NoteView {...props} />} />
         <Route path="/edit/:id" render={props => <EditForm {...props} finishEdit={this.finishEdit} />} />
+        <Route path="/add" render={props => <NewNoteForm {...props} finishAdd={this.finishAdd} />} />
       </div>
     );
   }
