@@ -51,6 +51,28 @@ font-size:42px;
   font-size:42px;
 }
 
+.note-list-wrapper .sort-options {
+  display:flex;
+  justify-content: space-between;
+}
+
+.note-list-wrapper .sort-options button {
+  width:31%;
+  background:#30BEC3;
+  color:#ffffff;
+  font-size:24px;
+  font-weight: bold;
+  padding:15px 0;
+  margin:15px 0;
+border: 2px solid #8A9B9C;
+cursor: pointer;
+}
+
+.note-list-wrapper .sort-options button:focus {
+  color: #30BEC3;
+  background: #ffffff;
+}
+
 .note-list {
   display:flex;
   flex-wrap: wrap;

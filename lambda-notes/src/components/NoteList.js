@@ -2,7 +2,7 @@ import React from 'react';
 
 
 class NoteList extends React.Component {
-    
+
 routeToNote(event, id){
     event.preventDefault();
     this.props.history.push(`/note/${id}`);
@@ -18,9 +18,9 @@ render(){
         <div className="note-list-wrapper">
         <h2>Your Notes:</h2>
         <div className="sort-options">
-        <button>Sort oldest to newest</button>
-        <button>Sort newest oldest</button>
-        <button>Sort alphabetically</button>
+        <button onClick={this.props.getNoteList}>Sort oldest to newest</button>
+        <button onClick={this.props.sortNewToOld}>Sort newest to oldest</button>
+        <button onClick={this.props.sortAlphabetically}> Sort alphabetically</button>
         </div>
         <div className="note-list">
         {this.props.notes.map(note => (

@@ -31,6 +31,18 @@ getNoteList=()=>{
   .catch(err=>{console.log("Something went wrong and we couldn't retrieve your notes: ",err)})
 }
 
+sortNewToOld = () => {
+  axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+  .then(response=>this.setState({notes:response.data.reverse()}))
+  .catch(err=>{console.log("Something went wrong and we couldn't sort your notes: ",err)})
+}
+
+sortAlphabetically = () => {
+  axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+  .then(response=>this.setState({notes:response.data.sort((a,b)=>a.title.localeCompare(b.title))}))
+  .catch(err=>{console.log("Something went wrong and we couldn't sort your notes: ",err)})
+}
+
 componentDidMount() {
 this.getNoteList();
 }
@@ -80,7 +92,7 @@ this.setState({
     return (
       <div className="App">
        <Sidebar getNoteList={this.getNoteList}/>
-<Route exact path="/" render={ownProps=>(<NoteList {...ownProps} notes={this.state.notes}/>)} />
+<Route exact path="/" render={ownProps=>(<NoteList {...ownProps} notes={this.state.notes} sortNewToOld={this.sortNewToOld} getNoteList={this.getNoteList} sortAlphabetically={this.sortAlphabetically}/>)} />
 <Route exact path="/create_new_note" render={ownProps=>(<CreateNote {...ownProps} changeHandler={this.changeHandler} createNote={this.createNote} newNote={this.state.newNote}/>)} />
 <Route exact path="/note/:id" render={ownProps=>(<Note {...ownProps} deleteNote={this.deleteNote} notes={this.state.notes}/>)}/>
        
