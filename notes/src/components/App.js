@@ -29,6 +29,10 @@ const NoteContainer = styled.div`
   direction: ltr;
   width: calc(100vw - 280px);
   transition: all 450ms ease-in-out;
+  @media(max-width: 850px) {
+    margin-left: 0px;
+    width: 100%;
+  }
   ${props => props.showMenu === false && css`
     margin-left: 0px;
     width: 100%;

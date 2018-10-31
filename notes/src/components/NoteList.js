@@ -12,7 +12,7 @@ const NoteListContainer = styled.div`
         width: 500px;
         column-count: 2;
     }
-    @media (min-width: 1115px) {
+    @media (min-width: 1030px) {
         width: 750px;
         column-count: 3;
     }

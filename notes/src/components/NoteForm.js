@@ -71,6 +71,9 @@ const FormContainer = styled.form`
     margin: 32px auto 64px auto;
     position: relative;
     background-color: white;
+    @media (max-width: 625px) {
+        width: 90%;
+    }
     .initial-input{
         width: 100%;
         position: relative;

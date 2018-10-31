@@ -42,11 +42,21 @@ const SideBar = styled.div`
     left: 0;
     transform: translateX(0);
     transition: all 450ms ease-in-out;
+    @media(max-width: 850px) {
+        box-shadow: 0 0 16px rgba(0,0,0,.28);
+        z-index: 4;
+    }
     a {
         text-decoration: none;
     }
+    @media(min-width: 850px) {
+        transform: translateX(-280px);
+        ${props => props.showMenu === true && css`
+            transform: translateX(0px);
+        `}
+    }
     ${props => props.showMenu === false && css`
-        transform: translateX(-280px)
+        transform: translateX(-280px);
     `}
 `;
 
