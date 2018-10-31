@@ -272,7 +272,7 @@ export const LoginButton = styled.button`
 
 export const LoginContainer = styled.div`
     background-color: #cccccc;
-    width: 45%;
+    width: 43.89%;
     height: 350px;
     color: white;
 `;
@@ -322,10 +322,8 @@ export const SignOut = styled.div`
 export const LoginBackground = styled.div`
   background-image: url(https://lambdaschool.com/static/images/herogirl.png);
   background-size: auto;
-  background-position: 700px -5%;
+  background-position: 127% 0%;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 1534px;
-  margin-top: -2px;
+  height: 97vh;
   overflow: hidden;
 `;
