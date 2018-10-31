@@ -1,15 +1,20 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import NoteCard from './NoteCard'
 import {withRouter} from 'react-router-dom'
 
 class NoteView extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            modal:false
-        }
+    state = {
+      content:'',
+      title:'',
+      id:null
     }
-
+     componentDidMount(){
+    const id = this.props.match.params.id;
+    let note = this.props.notes.filter(note => note.id===Number(id));
+    note= note[0];
+    this.setState({content:note.content, title:note.title, id:note.id});
+    }
     toggleModal = () =>{
         this.setState({modal: !this.state.modal})
     }
@@ -35,8 +40,8 @@ class NoteView extends Component {
                         <Link to = {`/${this.props.match.params.id}/edit`}><span>edit</span></Link>
                         <span onClick={this.toggleModal}>delete</span>
                     </div>
-                    <h2 className = "note-title">{this.props.title}</h2>
-                    <p className = "note-content">{this.props.content}</p>
+                    <h2 className = "note-title"> {this.state.title}</h2>
+                    <p className = "note-content">{this.state.content}</p>
                 </div>
             </div>
         )

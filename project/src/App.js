@@ -10,6 +10,7 @@ import AddNote from './components/AddNote'
 import axios from 'axios';
 
  const url = "http://localhost:9000/notes";
+ const urll = "http://localhost:9000/notes/:id";
 
 class App extends Component {
   constructor(){
@@ -56,6 +57,14 @@ class App extends Component {
       });
   };
 
+  handleNoteView = (id) =>
+  axios
+  .get(`${urll}/${id}`).then(response => {
+    this.setState({ notes: response.data });
+  });
+  
+
+
   handleEditNote = (id) =>{
     // let notes = this.state.notes.map(note =>{
     //   if (note.id === this.state.selectedId)
@@ -65,18 +74,18 @@ class App extends Component {
   //   this.setState({notes: notes, content:'', title:''})
   // }
   
-  axios
-  .put(`${url}/${id}`, {
-    title: this.state.title,
-    content: this.state.content
-  })
-  .then(response => {
-    axios.get(url).then(response => {
-      this.setState({ notes: response.data });
-    });
-  });
-};
-  
+ 
+
+axios
+      .put(`${urll}/${id}`, { title: this.state.title, content: this.state.content })
+      .then(response => {
+        axios.get(urll).then(response => {
+          this.setState({ notes: response.data });
+        });
+        this.setState({ notes: response.data });
+      });
+  };
+
   handleId = id =>{
     this.setState({selectedId: id})
   }

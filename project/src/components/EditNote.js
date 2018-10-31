@@ -2,11 +2,12 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
 class EditNote extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-         }
-     }
+    state = {
+      content:'',
+      title:'',
+      id:null
+    }
+    
     render(){
         return(
             <div className = "form-wrap">
