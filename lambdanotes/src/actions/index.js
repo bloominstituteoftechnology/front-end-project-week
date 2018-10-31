@@ -14,6 +14,8 @@ export const DELETE_NOTE_ERROR = "DELETE_NOTE_ERROR";
 export const UPDATING_NOTE = "UPDATING_NOTE";
 export const UPDATED_NOTE = "UPDATED_NOTE";
 export const UPDATE_NOTE_ERROR = "UPDATE_NOTE_ERROR";
+export const SET_REDIRECT = "SET_REDIRECT";
+export const RESET_REDIRECT = "RESET_REDIRECT";
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,9 +28,9 @@ export const getNotes = () => {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
 
-      .then(async response => {
+      .then(async ({ data }) => {
         await sleep(1000);
-        dispatch({ type: GOT_NOTES, payload: response.data });
+        dispatch({ type: GOT_NOTES, payload: data });
       })
 
       .catch(error => dispatch({ type: GET_NOTES_ERROR, payload: error }));
@@ -40,11 +42,11 @@ export const getNote = id => {
     dispatch({ type: GETTING_NOTE });
 
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${noteId}`)
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
 
-      .then(async response => {
+      .then(async ({ data }) => {
         await sleep(1000);
-        dispatch({ type: GOT_NOTE, payload: response.data });
+        dispatch({ type: GOT_NOTE, payload: data });
       })
 
       .catch(error => dispatch({ type: GET_NOTE_ERROR, payload: error }));
@@ -72,16 +74,14 @@ export const deleteNote = id => {
     dispatch({ type: DELETING_NOTE });
 
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${NoteId}`)
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
 
       .then(async () => {
         await sleep(1000);
         dispatch({ type: DELETED_NOTE });
       })
 
-      .then.catch(error =>
-        dispatch({ type: DELETE_NOTE_ERROR, payload: error })
-      );
+      .catch(error => dispatch({ type: DELETE_NOTE_ERROR, payload: error }));
   };
 };
 
@@ -90,13 +90,28 @@ export const updateNote = updatedNote => {
     dispatch({ type: UPDATING_NOTE });
 
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, updatedNote)
+      .put(
+        `https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`,
+        updatedNote
+      )
 
-      .then(async response => {
+      .then(async ({ data }) => {
         await sleep(1000);
-        dispatch({ type: UPDATED_NOTE, payload: response.data });
+        dispatch({ type: UPDATED_NOTE, payload: data });
       })
 
       .catch(error => dispatch({ type: UPDATE_NOTE_ERROR, payload: error }));
+  };
+};
+
+export const setRedirect = url => {
+  return dispatch => {
+    dispatch({ type: SET_REDIRECT, payload: url });
+  };
+};
+
+export const resetRedirect = () => {
+  return dispatch => {
+    dispatch({ type: RESET_REDIRECT });
   };
 };

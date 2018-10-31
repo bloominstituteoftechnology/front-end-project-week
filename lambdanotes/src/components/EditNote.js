@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateNote } from "../actions";
-import "../styles/EditNote.css";
+import {
+  PageTitle,
+  StyledInput,
+  StyledTextArea,
+  SubmitInput
+} from "../styles/SharedStyles";
 
 class EditNote extends Component {
   state = {
+    tags: [],
     title: "",
     textBody: ""
   };
@@ -16,13 +22,12 @@ class EditNote extends Component {
   submitHandler = event => {
     event.preventDefault();
 
-    this.props.updateNote({
-      _id: this.props.note._id,
+    this.props.updateNote(this.props.note.id, {
       title: this.state.title,
       textBody: this.state.textBody
     });
 
-    this.props.doneEditing();
+    this.props.returnToNote("edit");
   };
 
   componentDidMount() {
@@ -34,10 +39,9 @@ class EditNote extends Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
-        <h2>Edit Note:</h2>
-        <input
-          className="title-input"
+      <form className="EditNote" onSubmit={this.submitHandler}>
+        <PageTitle>Edit Note:</PageTitle>
+        <StyledInput
           name="title"
           type="text"
           placeholder="Note Title"
@@ -45,8 +49,7 @@ class EditNote extends Component {
           onChange={this.changeHandler}
           required
         />
-        <input
-          className="content-input"
+        <StyledTextArea
           name="textBody"
           type="text"
           placeholder="Note Content"
@@ -54,7 +57,7 @@ class EditNote extends Component {
           onChange={this.changeHandler}
           required
         />
-        <input type="submit" value="Update" />
+        <SubmitInput type="submit" value="Update" />
       </form>
     );
   }
