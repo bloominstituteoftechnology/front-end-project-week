@@ -32,9 +32,9 @@
     width: 85%;
   }
 
-.noteslist h2 {
+.list-heading {
     color: #414141;
-    margin: 70px 0 20px 50px;
+    margin: 70px 0 40px 85px;
 }
 
 .notes {
@@ -200,7 +200,7 @@
   .searchbar {
     margin-left: 10px;
     height: 30px;
-    width: 300px;
+    width: 260px;
     border-radius: 5px;
   }
   

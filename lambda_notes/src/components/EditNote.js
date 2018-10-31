@@ -13,7 +13,7 @@ const EditNote = props => {
         };
         return (
           <form className="form" onSubmit={editTheNote}>
-            <h2>Edit Note:</h2>
+            <h2 className="form-heading">Edit Note:</h2>
             <input
               type="text"
               name="updatedTitle"
