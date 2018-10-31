@@ -25,8 +25,8 @@ class App extends Component {
   }
 
   getNotes = () => {
-    console.log("getting notes?", this.state);
-    axios.get('http://localhost:7000/api/notes')
+    axios
+    .get('http://localhost:7000/api/notes')
     .then(response => this.setState({ ...this.state, notes: response.data }))
     .catch(error => console.log(error));
   }
@@ -35,35 +35,67 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addNewNote = event => {
-    event.preventDefault();
-    const notes = this.state.notes.slice();
-    notes.push({ 
-      id: Number(Date.now().toString().slice(-2)), 
-      title: this.state.title, 
-      content: this.state.content 
-    });
-    this.setState({ 
-      notes, 
-      id: '',
-      title: '',
-      content: '' 
-    });
+  // addNewNote = event => {
+  //   event.preventDefault();
+  //   const notes = this.state.notes.slice();
+  //   notes.push({ 
+  //     id: Number(Date.now().toString().slice(-2)), 
+  //     title: this.state.title, 
+  //     content: this.state.content 
+  //   });
+  //   this.setState({ 
+  //     notes, 
+  //     id: '',
+  //     title: '',
+  //     content: '' 
+  //   });
+  // }
+
+
+  addNewNote = (note) => {
+    axios.post('http://localhost:7000/api/notes', note)
+    .then(response => this.getNotes())
+    .catch(error => console.log(error));
   }
 
-  editNoteSubmit = (noteID, title, content) => {
-    this.setState(function (prevState) {
-      return {
-        notes: prevState.notes.map(note => noteID === note.id ? {id: noteID, title, content} : note )
-      }
-    } );
- }
 
-  deleteNote = id => {
-   let notes = this.state.notes.slice();
-   notes = notes.filter(note => note.id !== id);
-   this.setState({ notes, id: '', title: '', content: ''  });
+
+editNoteSubmit = (id) => {
+  const editedNote = {
+      title: this.state.title,
+      content: this.state.content
   }
+  axios
+  .put(`http://localhost:7000/api/notes/${id}`, editedNote)
+  .then(response => {
+      console.log('put response', response);
+          this.setState({
+              title: '',
+              content: ''
+          })
+          this.props.resetState();
+  })
+  .catch(error => this.setState({editError: error.response.data})
+  )
+}
+
+
+ deleteNote = (id) => {
+  axios
+  .delete(`http://localhost:7000/api/notes/${id}`)
+  .then(response => {
+      console.log(response)
+      this.props.resetState();
+  })
+  .catch(err => console.log(err));
+}
+
+  // deleteNote = id => {
+  //  let notes = this.state.notes.slice();
+  //  notes = notes.filter(note => note.id !== id);
+  //  this.setState({ notes, id: '', title: '', content: ''  });
+  // }
+
 
   modalToggle = () => {
     this.setState(function(prevState) {

@@ -6,7 +6,7 @@ class EditNote extends Component {
         super(props);
         this.state = {
             title: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).title,
-            text: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).text,
+            content: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).content,
             id: props.notes.find(note => note.id === parseInt(props.match.params.id, 10)).id
         }
     }

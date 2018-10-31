@@ -7,6 +7,16 @@ export const AddNote = props => {
        props.history.push("/notes");
    }
 
+//    makingNewNote = event => {
+//     const newNote = {
+//         notes_title: this.state.notes_title,
+//         notes_content: this.state.notes_content,
+//     }
+//     this.props.makeNewNote(newNote)
+//     this.props.history.push('/notes');
+// }
+
+
     return (
        <div className="Container AddNote" >
             <h3 className="Header">Create New Note:</h3>
