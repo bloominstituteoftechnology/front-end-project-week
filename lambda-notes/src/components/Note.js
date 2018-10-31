@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 const Note = props => {
 
     return (
-        <Link to={`/notes/${props.id}`}>
-            <h3>{props.title}</h3>
-            <p>{props.textBody}</p>
+        <div className = "card-content">
+        <Link to={`/notes/${props.id}`} className="link">
+            <h3 className="title">{props.title}</h3>
+            <p className="text">{props.textBody}</p>
         </Link>
+        </div>
     )
 }
 

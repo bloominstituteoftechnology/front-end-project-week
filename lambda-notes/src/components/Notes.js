@@ -5,10 +5,10 @@ const Notes = props => {
         return(
             <div>
                 <h1>Your Notes:</h1>
-                <div>
+                <div className="card-container">
                     {props.notes.map(note => {
                         return(
-                            <div key={note._id}>
+                            <div key={note._id} className="card">
                             <Note
                             title={note.title}
                             textBody={note.textBody}
