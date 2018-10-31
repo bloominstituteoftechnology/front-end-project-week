@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { CSVLink } from "react-csv";
 import {
   LeftBar,
   StyledLink,
@@ -23,6 +23,8 @@ class NotesList extends React.Component {
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
           <StyledLink to={"/note/create"}>Add New Note</StyledLink>
+          <div onClick={this.props.signOut}>Sign Out</div>
+          <CSVLink data={this.props.notes}>Download me</CSVLink>
         </LeftBar>
         <CardList>
           <NotesH2>Your Notes:</NotesH2>

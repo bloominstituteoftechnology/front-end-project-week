@@ -59,7 +59,7 @@ class NotesPage extends Component {
         <Route
           exact
           path="/"
-          render={props => <NotesList {...props} notes={this.state.notes} />}
+          render={props => <NotesList {...props} notes={this.state.notes} signOut={this.props.signOut}/>}
         />
         <Route
           path="/note/get/:id"
