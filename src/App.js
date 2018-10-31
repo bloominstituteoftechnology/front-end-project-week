@@ -47,11 +47,11 @@ class App extends Component {
 
   render() {
     // Just some basic routes with render props. The only real prop passed down is notes from state (from the server).
-    // if (this.state.username === '') {
-    //   return(
-    //     <Login submitHandler={this.submitHandler}/>
-    //   )
-    // }
+    if (this.state.username === '') {
+      return(
+        <Login submitHandler={this.submitHandler}/>
+      )
+    }
 
     return (
       <div className="App">
@@ -60,7 +60,7 @@ class App extends Component {
         <Route
           exact path="/"
           render={props => (
-            <Notes {...props} notes={this.state.notes} AZSort={this.AZSort} />
+            <Notes {...props} notes={this.state.notes} />
           )} 
         />
 
