@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { Redirect, Link } from 'react-router-dom';
 import { fetchNote, fetchNotes, deleteNote } from '../actions';
 import ReactModal from 'react-modal';
+import ReactMarkdown from 'react-markdown';
 import Loading from './Loading';
+
 
 ReactModal.setAppElement('#root');
 const customStyles = {
@@ -57,7 +59,7 @@ class NotePage extends Component {
                     </div>
                     <div className="full-note">
                         <div className="full-title">{this.props.note.title}</div>
-                        <div className="full-body">{this.props.note.textBody}</div>
+                        <ReactMarkdown className="full-body" source={this.props.note.textBody} />
                     </div>
                 </div>
                 <ReactModal
