@@ -111,6 +111,7 @@ export const SortToBeginning = styled.button`
   padding: 3px 10px;
   margin: 3px;
   font-size: 1.6rem;
+  cursor: pointer;
 
   &:hover {
     background: #005608;

@@ -41,17 +41,25 @@ class DisplayAll extends Component {
       title.toLowerCase().match(searchParam)
     )
 
-    const sortedNotes = []
+    let sortedNotes = []
 
     sortedOrder.forEach(sortedId =>
       sortedNotes.push(filteredNotes.find(({ _id }) => _id === sortedId))
     )
+
+    // when notes that have been added to the sorted array disappear
+    // the find method above will return undefined, which will cause
+    // our app to crash. so the current solution is simply to filter out
+    // all the undefined notes.
+    sortedNotes = sortedNotes.filter(item => item !== undefined)
 
     filteredNotes.forEach(note => {
       if (!sortedOrder.includes(note._id)) {
         sortedNotes.push(note)
       }
     })
+
+    console.log(sortedNotes)
 
     return (
       <Container>
