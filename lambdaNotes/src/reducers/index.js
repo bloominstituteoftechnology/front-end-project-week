@@ -19,6 +19,7 @@ const initialState = {
   notes: [],
   error: null,
   newId : '',
+  isSearched : false,
 };
 
 export const NoteReducer = (state = initialState, action) => {
@@ -65,6 +66,14 @@ export const NoteReducer = (state = initialState, action) => {
 
     case EDITING_FAILURE:
       return { ...state, fetching: false, error: action.payload };
+
+      case "SEARCHTRUE":
+      return { ...state, isSearched : true };
+
+      case "SEARCHFALSE":
+      console.log("reducer at SEARCHFALSE");
+      return { ...state, isSearched : false };
+
     default:
       return state;
   }

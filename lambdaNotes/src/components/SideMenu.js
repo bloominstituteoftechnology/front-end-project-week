@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
- const SideMenu = () => {
+import { setSearchBoolean } from "../actions";
+
+ const SideMenu = (props) => {
  
   return (
     <div className="sideMenu">
      <h2> Lambda<br /> Notes</h2>
      <Link to="/">
-       <button>View Your Notes</button>
+       <button onClick={() => props.setSearchBoolean(false)}>View Your Notes</button>
      </Link>
      <Link to="/addNote">
       <button>+ Create New Notes</button>
@@ -17,4 +20,13 @@ import { Link } from 'react-router-dom';
   );
 }
 
-export default SideMenu;
+
+
+const mapStateToProps = () => {};
+
+export default 
+  connect(
+    mapStateToProps,
+    { setSearchBoolean }
+  )(SideMenu)
+;

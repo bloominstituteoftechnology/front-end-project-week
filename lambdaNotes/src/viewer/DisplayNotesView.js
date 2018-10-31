@@ -9,7 +9,7 @@ import {
   DeleteNote,
   EditNote,
 } from "../components/";
-import { fetchNotes, addNote, deleteNote, editNote } from "../actions";
+import { fetchNotes, addNote, deleteNote, editNote, setSearchBoolean } from "../actions";
 
 class DisplayNotesView extends Component {
   componentDidMount() {
@@ -28,6 +28,10 @@ class DisplayNotesView extends Component {
     this.props.deleteNote(deleteId);
   };
 
+  handleSearchBoolean = (bool) => {
+   this.props.setSearchBoolean(bool);
+}
+
   render() {
     return (
       <div className="displayNotesView">
@@ -36,7 +40,9 @@ class DisplayNotesView extends Component {
           exact
           path="/"
           render={props => (
-            <DisplayNoteList {...props} notes={this.props.notes} />
+            <DisplayNoteList {...props} notes={this.props.notes} 
+            isSearched = {this.props.isSearched} 
+            handleSearchBoolean = {this.handleSearchBoolean}/>
           )}
         />
 
@@ -79,13 +85,13 @@ class DisplayNotesView extends Component {
 }
 
 // gets the state and map them to props
-const mapStateToProps = ({ fetching, notes }) => {
-  return { notes, fetching };
+const mapStateToProps = ({ fetching, notes, isSearched }) => {
+  return { notes, fetching, isSearched };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchNotes, addNote, deleteNote, editNote }
+    { fetchNotes, addNote, deleteNote, editNote, setSearchBoolean }
   )(DisplayNotesView)
 );

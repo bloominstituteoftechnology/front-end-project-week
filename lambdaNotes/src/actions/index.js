@@ -68,3 +68,9 @@ export const editNote = editedNote => dispatch => {
     });
 };
 
+export const setSearchBoolean = (bool) =>  {
+  // let's do some async stuff! Thanks react-thunk :)
+ if (bool) return({type:"SEARCHTRUE"});
+ else return({type:"SEARCHFALSE"})
+};
+ 

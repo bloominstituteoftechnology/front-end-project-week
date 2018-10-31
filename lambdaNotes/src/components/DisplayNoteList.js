@@ -9,31 +9,43 @@ class DisplayNoteList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: this.props.notes || [],
-      query: ""
+      query: "",
+      isSearched : false,
     };
+
+    this.displayedNotes = [];
   }
 
 
   // props.note get updated a bit late due to api call.
   // to reflect the latest props.note, componentDidUpdate is used
   componentDidUpdate(prevProps){
-    
-    if(prevProps.notes !== this.props.notes){
-    this.setState({notes:[...this.props.notes]});
-    }
-
-    // if prevProp.isSearch !== this.props.iSearch
+         if (prevProps.isSearched !== this.props.isSearched){
+           console.log("DisplayNote isSearched is toggled!!");
+      this.setState({
+        isSearched: this.props.isSearched,
+      query : ''});
+     }
   }
+
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+
+    this.setState({ 
+      [e.target.name]: e.target.value,
+      isSearched : true });
+      this.props.handleSearchBoolean(true);
+      
   };
 
 
 
   render() {
     console.log("DisplayNote in Render props.note = ",this.props.notes);
-    let searchedNotes = searchFunc (this.state.query, this.state.notes)
+    if(this.state.isSearched)
+      this.displayedNotes = searchFunc (this.state.query, this.props.notes);
+    else
+      this.displayedNotes = [...this.props.notes];
+    
 
     return (
       <div className="NoteListContainer">
@@ -41,7 +53,7 @@ class DisplayNoteList extends Component {
             handleInputChange = {this.handleInputChange} />
         <h3> Your Notes : </h3>
         <div className="noteList">
-          {searchedNotes.map(note => (
+          {this.displayedNotes.map(note => (
             <DisplayNoteCard key={note._id} note={note} />
           ))}
         </div>
