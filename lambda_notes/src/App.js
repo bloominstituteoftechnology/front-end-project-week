@@ -7,6 +7,7 @@ import SingleNote from './components/DisplayedNote';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
+import Authenticate from './authentication/Authentication';
 
 class App extends Component {
   constructor() {
@@ -156,4 +157,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App);
