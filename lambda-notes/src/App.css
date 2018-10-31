@@ -4,9 +4,9 @@
 }
 
 .content {
-  padding: 20px;
   background: rgb(233, 233, 233);
-  width: 75%;
+  padding: 20px;
+  width: 100%;
 }
 
 .button {
