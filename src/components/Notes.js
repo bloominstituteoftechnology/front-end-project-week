@@ -30,7 +30,7 @@ let Notes = props => {
             {/* Ensuring that data is on state before rendering up the CSV download link */}
             {props.notes ? <PropDataUpdatedCSVLink className='download' data={props.notes} headers={headers} filename={"VellumNotes.csv"}> Download All </PropDataUpdatedCSVLink> : null }
             
-            {/* <button onClick={() => props.AZSort(props.notes)}>Sort</button> */}
+            {/* Code for sort button that doesn't work: <button onClick={() => props.AZSort(props.notes)}>Sort</button> */}
             
             <div className='notes'>
                 {props.notes.map(note => <Note key={note._id} note={note} deleteHandler={props.deleteHandler}/>)}

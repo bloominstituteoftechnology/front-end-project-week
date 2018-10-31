@@ -185,7 +185,7 @@ input, textarea {
 
 textarea {
   margin: 20px 0;
-  height: 120px;
+  height: auto;
   resize: vertical;
 }
 

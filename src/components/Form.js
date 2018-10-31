@@ -73,8 +73,12 @@ class Form extends Component {
         else {
           alert('Please fill out the form!')
         }
-      }
+    }
 
+    autosize = event => {
+        var el = event.target;
+        el.style.height = el.scrollHeight + 'px';
+    }
 
     render() {
         // once form is submitted, redirect home.
@@ -102,7 +106,8 @@ class Form extends Component {
                         name='body' 
                         placeholder='The main text of your note goes here...' 
                         value={this.state.note !== null ? this.state.body : this.props.value}
-                        onChange={this.changeHandler}>
+                        onChange={this.changeHandler}
+                        onKeyDown={this.autosize}>
                     </textarea>
 
                     <input 
