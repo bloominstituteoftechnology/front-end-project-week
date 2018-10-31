@@ -5,12 +5,11 @@ class Note extends React.Component {
 constructor(props){
     super(props);
     this.state={
-        activeNote:[],
-        isEditing: false,
-        updatedNote: {
+        activeNote:{
             title:'',
             textBody:''
-        }
+        },
+        isEditing: false
     }
 }
     
@@ -18,7 +17,7 @@ componentDidMount() {
     axios.get(`http://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
     .then(response => 
         this.setState({ 
-      activeNote: response.data
+      activeNote: {title: response.data.title, textBody:response.data.textBody, id:response.data.id}
     })
     )
     .catch(error=>{console.log("The server failed to retrieve this note: ", error)})
@@ -32,8 +31,8 @@ this.setState({...this.state, isEditing:!this.state.isEditing})
 changeHandler=(key, value) => {
     this.setState({
         ...this.state,
-        updatedNote:{
-        ...this.state.updatedNote,
+        activeNote:{
+        ...this.state.activeNote,
           [key]: value
         }
       })
@@ -41,10 +40,15 @@ changeHandler=(key, value) => {
   
   editNote= event => {
       event.preventDefault();
-      axios.put(`http://fe-notes.herokuapp.com/note/edit/${this.state.activeNote._id}`, this.state.updatedNote)
+      let note=this.state.activeNote;
+      if (note.title!=="" && note.textBody!=='') {
+      axios.put(`http://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state.activeNote)
       .then(response=>{this.setState({...this.state, activeNote: response.data})})
       .catch(error=>{console.log("We were unable to edit this note: ", error)})
       this.toggleEditing(event);
+      } else {
+          alert("All notes must have a title and text. Please fill out both fields before submitting any changes")
+      }
   }
 
 render(){
@@ -65,8 +69,8 @@ return (
     <div className="edit-note-wrapper">
     <h2>Edit Note:</h2>
     <form className="edit-note-form" onSubmit={this.editNote}>
-        <input className="edit-note-title" type="text" placeholder="Note Title" name="title" value={this.state.updatedNote.title} onChange={event=>this.changeHandler(event.target.name, event.target.value)}></input>
-        <input className="edit-note-text" type="text" placeholder="Note Content" name="textBody" value={this.state.updatedNote.textBody} onChange={event=>this.changeHandler(event.target.name, event.target.value)}></input>
+        <input className="edit-note-title" type="text" placeholder="Note Title" name="title" value={this.state.activeNote.title} onChange={event=>this.changeHandler(event.target.name, event.target.value)}></input>
+        <input className="edit-note-text" type="text" placeholder="Note Content" name="textBody" value={this.state.activeNote.textBody} onChange={event=>this.changeHandler(event.target.name, event.target.value)}></input>
     <button type="submit">Update</button>
     </form>
                 </div>
