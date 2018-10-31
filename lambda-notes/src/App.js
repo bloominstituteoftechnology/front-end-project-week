@@ -11,8 +11,7 @@ class App extends Component {
       notes: [],
       newNote:'',
       newTitle:'',
-      editedNote:'',
-      editedTitle:'',
+   
        };
     };
   
@@ -28,66 +27,6 @@ class App extends Component {
      
   }
   
-  viewNoteHandler = event =>  {
-    event.preventDefault();
-   }
-
-  newNoteTitleHandler= event =>  {
-    event.preventDefault();
-    this.setState ({newTitle: event.target.value});
-  }
-
-  newNoteBodyHandler= event =>  {
-    event.preventDefault();
-    this.setState ({newNote: event.target.value});
-  }
- 
- 
-
-  saveNewNoteHandler = event => {
-    event.preventDefault();
-    axios     
-    .post('https://fe-notes.herokuapp.com/note/create',  
-    {
-       title: this.state.newTitle,
-       textBody: this.state.newNote,
-
-    }
-    )
-    .then(response => {
-       this.setState(() => ({ notes: response.data }));
-    })
-    .catch(error => {
-      console.error('Server Error', error);
-    });
-    }
-    editedNoteTitleHandler= event =>  {
-      event.preventDefault();
-      this.setState ({editedTitle: event.target.value});
-    }
-  
-    editedNoteBodyHandler= event =>  {
-      event.preventDefault();
-      this.setState ({editedNote: event.target.value});
-    }
-  
-    editedNoteHandler = event => {
-      event.preventDefault();
-      axios     
-      .put(`https://fe-notes.herokuapp.com/note/edit/id`,
-      {
-         title: this.state.editedTitle,
-         textBody: this.state.editedNote,
-      }
-        )
-      .then(response => {
-         this.setState(() => ({ notes: response.data }));
-        })
-      .catch(error => {
-        console.error('Server Error', error);
-        });
-     
-        }
  
 
   render() {
@@ -96,13 +35,7 @@ class App extends Component {
       <SidebarContainer/>
       <NotesContainer 
       notes={this.state.notes} 
-      viewNoteHandler={this.viewNoteHandler} 
-      newNoteTitleHandler={this. newNoteTitleHandler} 
-      newNoteBodyHandler={this.newNoteBodyHandler} 
-      saveNewNoteHandler={this.saveNewNoteHandler}
-      editedNoteTitleHandler={this.editedNoteTitleHandler}
-      editedNoteBodyHandler={this.editedNoteBodyHandler}
-      editedNoteHandler={this.editedNoteBodyHandler}/>
+      />
       </div>
 
     );

@@ -5,30 +5,26 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      newNote:'',
+      newTitle:'',
     };
   }
 
-  addSmurf = event => {
+  addNewNote = event => {
     event.preventDefault();
-    // add code to create the smurf using the api
     axios     
-    .post('http://localhost:3333/smurfs',  
+    .post('https://fe-notes.herokuapp.com/note/create',  
     {
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
+      title: this.state.newNote,
+      textBody: this.state.newTitle,
     })
 
     .then(response => {
       console.log(response);
       console.log(response.data);
       this.setState(() => ({ 
-        name: '',
-        age: '',
-        height: ''
+        newNote:'',
+        newTitle:'',
         }));
       })
 
@@ -37,40 +33,31 @@ class SmurfForm extends Component {
     });
     }
 
-  
-
-
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
     return (
-      <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
+      <div className="NewForm">
+        <form onSubmit={this.addNewNote}>
           <input
             onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
+            placeholder="Title"
+            value={this.state.newTitle}
+            name="Title"
           />
           <input
             onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
+            placeholder="Note"
+            value={this.state.newNote}
+            name="Note"
           />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
+          <button type="submit">Add New Note</button>
         </form>
       </div>
     );
   }
 }
 
-export default SmurfForm;
+export default NewNoteForm;
