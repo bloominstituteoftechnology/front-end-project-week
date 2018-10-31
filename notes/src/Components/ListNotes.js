@@ -1,26 +1,16 @@
-import React, { Component } from 'react'
-import Note from './Note';
-import '../Styles/styling.css';
-
-export default class ListNotes extends Component {
-  render() {
+import React from 'react';
+import Note from './Note'
+ const NoteList = (props) => {
     return(
-      <div className="notes-container">
-      <div className="title">
+        <div className="note-list">
         <h2>Your Notes:</h2>
-      </div>
-      
-        {this.props.notes.map(note => {
-            return(
-              <Note
-                NoteTitle={note.title}
-                NoteContent={note.textBody}
-                Note={note}
-               />
-            )
-          })
-        }
-      </div>
-    )
-  }
+        <br/>
+        
+        <br/>
+            {props.notes.map(note => {
+                return (<Note id={note._id} key={note._id} title={note.title} textBody={note.textBody} />)
+            })}
+        </div>
+    );
 }
+ export default NoteList;

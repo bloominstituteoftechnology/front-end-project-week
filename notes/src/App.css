@@ -1,8 +1,135 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+}
+.App{
+  display:flex;
   max-width: 1024px;
   width: 100%;
-  display: flex;
   margin: 0px auto;
+  background-color:#F2F1F2;
+}
+.App .sidebar{
+  width: 70%;
+  background-color :#D3D2D3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.note-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-note{
+  width: 200px;
+  height: 200px;
+  padding: 5px 20px;
+  background : rgb(253, 253, 253);
+  border : 1px solid grey;
+  margin: 15px;
+  overflow: hidden;
+  color: black;
+  
+}
+.card-note:hover {
+  border: 1px solid black;
+  box-shadow: 7px 10px lightseagreen;
+  transition: .5s;
+}
 
+.create-new{
+  width: 70%;
+  height: 100vh;
+  background-color:#F2F1F2;
+}
+.create-new form{
+  display:flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding:20px;
+}
+.create-new form input{
+  border-radius:5px;
+}
+.create-new form .form-title{
+  width:30%;
+  height:50px;
+  margin-bottom: 20px;
+}
+.create-new form .form-content{
+  width: 90%;
+  height: 500px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.create-new form .form-save{
+  border-radius: 5%;
+  width:25%;
+  height: 50px;
+  cursor: pointer;
+  color: white;
+  background: lightseagreen;
+}
+
+.create-new form .form-save:hover {
+  border: 1px solid black;
+  box-shadow: 5px 7px lightgrey;
+  transition: .5s;
+}
+.view-note{
+  height : 100vh;
+  box-sizing: border-box;
+  padding : 20px;
+  background-color: #bdbdbd;
+  width:70%;
+  text-align: right;
+}
+.view-note a{
+  margin : 10px;
+}
+.view-note .note-section{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.delete-modul{
+  position : fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15% 10%;
+  width: 500px;
+  border : 1px solid black;
+  background : white;
+}
+.delete-modul .btn-section{
+  display:flex;
+  justify-content: center;
+  align-items : center;
+  width:100%;
+  
+}
+.delete-modul .btn-section div{
+  height : 30px;
+  width : 100px;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:10px;
+  color : white;
+  cursor : pointer;
+}
+.delete-modul .btn-section div:hover{
+  background : rgb(0, 0, 0);
+  color: white;
+  transition: .5s;
+}
+.delete-modul .btn-section .r-btn{
+  background : #CA001A;
+  margin-right:10px;
+}
+.delete-modul .btn-section .b-btn{
+  background : rgb(47, 215, 221);
+}

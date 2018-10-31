@@ -11,7 +11,7 @@ const Sidebar = () => {
         View Your Notes
       </div>
       </Link>
-      <Link to="/add-note">
+      <Link to="/create-new">
       <div className="button">
         + Create New Note
       </div>

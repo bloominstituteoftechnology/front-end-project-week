@@ -1,58 +1,34 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+const CreateNew = (props) => {
+    return(
+        <div className="create-new">
+            <h2>Create New Note:</h2>
+            <form onSubmit={props.submit}>
+                <input 
+                onChange={props.onChangeHandler}
+                className="form-title"
+                name="title" 
+                type="text" 
+                placeholder="Note Title" 
+                />
+                <input 
+                onChange={props.onChangeHandler}
+                className="form-content"
+                name="textBody" 
+                type="text" 
+                placeholder="Note Content" 
+                />
+                <Link to='/'>                
+                <input 
+                onChange={props.onChangeHandler}
+                className="form-save"
+                type="submit" 
+                value="Save" 
+                /></Link>
 
-export default class NoteForm extends Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        title: '',
-        textBody: ''
-      }
-    }
-
-    handleInputChange = e => {
-      this.setState({ [e.target.name]: e.target.value })
-    }
-
-    addNote = event => {
-      event.preventDefault()
-      const newNote = {
-        title: this.state.title,
-        textBody: this.state.textBody
-    }
-
-    this.props.postNote(newNote)
-
-    this.setState({
-      title: '',
-      textBody: ''
-    })
-
-    }
-
-    render() {
-      return(
-        <div className="NoteForm">
-        <form onSubmit={this.addNote}>
-            <div className="control">
-              <input className="input" type="text" placeholder="Note Title" name="title" value={this.state.title} onChange={this.handleInputChange}/>
-            </div>
-
-
-          <div className="field">
-              <input className="inputBody" type="text" placeholder="Note Content" name="textBody" value={this.state.textBody} onChange={this.handleInputChange}/>
-            </div>
-
-
-            <div className="field is-grouped">
-                <Link to="/">
-                    <div className="control">
-                        <button className="button is-link" type="submit" onClick={this.addNote}>Add Note</button>
-                    </div> 
-                </Link>
-            </div>
-          </form>
-      </div>
-      )
-    }
+            </form>
+        </div>
+    );
 }
+export default CreateNew;
