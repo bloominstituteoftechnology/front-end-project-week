@@ -23,22 +23,7 @@
 
 @media (max-width: 800px) {
   .View {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 130px;
-  }
-}
-
-@media (max-width: 600px) {
-  .View {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 100px;
-  }
-}
-
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
+    width: 65%;
+    margin-left: 35%;
   }
 }

@@ -23,7 +23,7 @@ const Sidebar = props => {
         View All
       </Button>
       <Button fullWidth onClick={() => props.history.push('/create-note')}>
-        <FontAwesomeIcon icon={faPlus} /> Add New Note
+        <FontAwesomeIcon icon={faPlus} /> Add Note
       </Button>
       <Button fullWidth delete onClick={() => props.history.push('/login')}>
         Log out

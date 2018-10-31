@@ -12,39 +12,26 @@ const StyledSidebar = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+
   button:last-child {
     margin-top: auto;
   }
+
   @media (max-width: 800px) {
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    z-index: 1200;
-    align-items: center;
-    flex-direction: row;
+    width: 35%;
+
     input {
       padding: 0.5rem;
-      order: 2;
-      /* margin-bottom: 1rem; */
     }
 
     button {
-      font-size: 1.6rem;
-      padding: 0.5rem;
       width: auto;
-      background: transparent;
-      color: #00a8ff;
-      margin-left: 1rem;
       margin-bottom: 1rem;
-
-      &:last-child {
-        margin-top: 0;
-      }
     }
 
     @media (max-width: 600px) {
       button {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
       }
     }
   }
@@ -58,19 +45,12 @@ const StyledSidebar = styled.div`
     @media (max-width: 940px) {
       font-size: 4.2rem;
     }
-    @media (max-width: 800px) {
-      font-size: 4.2rem;
-      margin-right: auto;
-      margin-bottom: 1rem;
-    }
     @media (max-width: 600px) {
-      font-size: 2.6rem;
+      font-size: 3rem;
     }
+
     span {
       display: block;
-      @media (max-width: 800px) {
-        display: inline;
-      }
     }
   }
 

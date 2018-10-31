@@ -23,8 +23,6 @@ const StyledNoteCard = styled.div`
 
   &:hover {
     transform: scaleY(1.05);
-    background: #00a8ff;
-    color: #fff;
   }
   h3 {
     font-weight: 700;
