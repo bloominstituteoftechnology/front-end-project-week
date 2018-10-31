@@ -171,6 +171,13 @@
     margin: auto;
     padding-top: 50px;
   }
+  .delete-modal-wrapper {
+    background: #fff;
+    width: 80%;
+    padding: 40px 20px;
+    margin: auto;
+    margin-top: 100px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -182,5 +189,10 @@
   }
   .note-form form {
     width: 90%;
+  }
+  .delete-modal-wrapper button {
+    width: 100%;
+    display: block;
+    margin: 10px auto;
   }
 }
