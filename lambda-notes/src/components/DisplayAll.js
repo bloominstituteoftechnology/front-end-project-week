@@ -13,25 +13,20 @@ import {
   StyledCheckbox
 } from '../styles/DisplayAll'
 
-// notebody click handler is to make it easy to clean up notes
-// if they get too busy
-
 class DisplayAll extends Component {
   handleCheckChange = event => {
     event.persist()
     const { addChecked, removeChecked } = this.props
 
     if (event.target.checked) {
-      // console.log(`${event.target.name} is checked`)
       addChecked(event.target.name)
     } else {
-      // console.log(`${event.target.name} is unchecked`)
       removeChecked(event.target.name)
     }
   }
 
   render() {
-    const { notes, checked, searchParam } = this.props
+    const { notes, checked, searchParam, selfAdded } = this.props
     const { handleCheckChange } = this
     const filteredNotes = notes.filter(({ title }) =>
       title.toLowerCase().match(searchParam)
@@ -48,7 +43,16 @@ class DisplayAll extends Component {
         </PageHeader>
         <NotesContainer>
           {filteredNotes.map(({ title, textBody, _id }) => (
-            <Note key={_id}>
+            <Note
+              key={_id}
+              style={{
+                color: selfAdded
+                  ? selfAdded.includes(_id)
+                    ? 'red'
+                    : 'black'
+                  : 'black'
+              }}
+            >
               <HeaderWrapper>
                 <Link to={`/note/${_id}`}>
                   <NoteTitle>

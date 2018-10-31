@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Title, Button, SearchInput } from '../styles/Sidebar'
 
-const numToAdd = 25
+const numToAdd = 5
 
 class Sidebar extends Component {
   handleChange = event => {

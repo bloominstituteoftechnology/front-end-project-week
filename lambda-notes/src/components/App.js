@@ -70,6 +70,7 @@ class App extends Component {
       removeSelfAdded,
       setSearchParam,
       searchParam,
+      selfAdded,
       history
     } = this.props
 
@@ -98,6 +99,7 @@ class App extends Component {
               addChecked={addChecked}
               removeChecked={removeChecked}
               searchParam={searchParam}
+              selfAdded={selfAdded}
             />
           )}
         />

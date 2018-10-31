@@ -11,7 +11,7 @@ import {
 const initialState = {
   notes: [],
   checked: [],
-  self_added: [],
+  selfAdded: [],
   searchParam: ''
 }
 
@@ -39,9 +39,9 @@ export default (state = initialState, action) => {
     case RECORD_SELF_ADDED:
       return {
         ...state,
-        self_added: Array.isArray(action.payload)
-          ? [...state.self_added, ...action.payload]
-          : [...state.self_added, action.payload]
+        selfAdded: Array.isArray(action.payload)
+          ? [...state.selfAdded, ...action.payload]
+          : [...state.selfAdded, action.payload]
       }
     case SET_SEARCH_PARAM:
       return {

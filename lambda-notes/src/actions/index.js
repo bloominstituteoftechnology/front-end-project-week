@@ -133,12 +133,12 @@ export const bulkAddNotes = num => async dispatch => {
 
 export const removeSelfAdded = () => async (dispatch, getState) => {
   // get all checked items
-  const { self_added } = getState()
+  const { selfAdded } = getState()
 
   // fire off api request for each item to delete
   // await completion of all promises before continuing
   await Promise.all(
-    self_added.map(async id => {
+    selfAdded.map(async id => {
       await axios
         .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then(res => console.log(`Successfully deleted ${id}`))
