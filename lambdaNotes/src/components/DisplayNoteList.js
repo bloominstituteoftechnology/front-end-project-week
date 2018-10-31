@@ -12,13 +12,13 @@ class DisplayNoteList extends Component {
       notes: this.props.notes || [],
       query: ""
     };
-
-    this.handleSearch = this.handleSearch.bind(this);
   }
+
 
   // props.note get updated a bit late due to api call.
   // to reflect the latest props.note, componentDidUpdate is used
   componentDidUpdate(prevProps){
+    
     if(prevProps.notes !== this.props.notes){
     this.setState({notes:[...this.props.notes]});
     }
@@ -30,11 +30,6 @@ class DisplayNoteList extends Component {
   };
 
 
-  handleSearch = (notes) => {
-    this.setState({notes:[...notes]});
-  }
-
- 
 
   render() {
     console.log("DisplayNote in Render props.note = ",this.props.notes);
@@ -43,7 +38,6 @@ class DisplayNoteList extends Component {
     return (
       <div className="NoteListContainer">
         <SearchNote notes={this.state.notes} query = {this.state.query} 
-            handleSearch = {this.handleSearch} 
             handleInputChange = {this.handleInputChange} />
         <h3> Your Notes : </h3>
         <div className="noteList">
