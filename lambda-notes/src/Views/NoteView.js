@@ -6,11 +6,14 @@ export const NoteView = props => {
   // const { id } = props;
   // const urlParam = props.location.state.id;
   const id = props.match.params.id
-  const note = props.notes.find(note => note._id == id); 
+  const note = props.notes.find(note => (
+    note._id == props.match.params.id)
+  )
+  // const { note } = props
   console.log('note', note)
   if (!note) {
     return (
-      <div>loading</div>
+      <div>loading (note may have been deleted)</div>
     )
   } else {
     return (
@@ -19,7 +22,9 @@ export const NoteView = props => {
       <Link to={`/note/edit/${id}`}>
         <span className="edit">edit</span>
       </Link>
-      <span className="delete">delete</span>
+      <span className="delete" onClick={(e)=>{
+        props.deleteNote(note)
+      }}>delete</span>
       </div>
       <h1>
         {note.title}

@@ -10,9 +10,15 @@ const useInputValue = (initialValue) => {
   };
 }
 
-export const Form = ({ onSubmit, action, history }) => {
-  const title = useInputValue("");
-  const textBody = useInputValue("")
+export const Form = ({ onSubmit, action, history, note }) => {
+  if (note === undefined) {
+    note = {
+      title: '',
+      textBody: ''
+    }
+  }
+  const title = useInputValue(note.title);
+  const textBody = useInputValue(note.textBody)
 
   return (
     <div className="note-form">

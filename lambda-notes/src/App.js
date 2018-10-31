@@ -76,16 +76,17 @@ class App extends Component {
       })
   }
 
-  findNote = (id) => {
-    console.log(this.state.notes.find(note => (
-      note._id === id
-    )))
-    return (
-      this.state.notes.find(note => (
-        note._id === id
-      ))
-    )
+  deleteNote = note => {
+    axios
+      .delete(URL + '/note/delete' + note._id)
+      .then(data => {
+        console.log('baleted!', data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
+
   render() {
     return (
 
@@ -105,8 +106,12 @@ class App extends Component {
                   exact
                   {...props}
                   notes={this.state.notes}
-                  match={props.match}
-                  findNote={this.findNote}
+                  note={
+                    this.state.notes.find(note => (
+                      note._id == props.match.params.id)
+                    )
+                  }
+                  deleteNote={this.deleteNote}
                 />
               )
             }}
@@ -126,6 +131,11 @@ class App extends Component {
             render={props => (
               <EditNoteView 
                 {...props}
+                note={
+                  this.state.notes.find(note => (
+                    note._id == props.match.params.id)
+                  )
+                }
                 onSubmit={this.editNote}  
               />
             )}
