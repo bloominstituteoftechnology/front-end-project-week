@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './login.css';
 
 class Login extends Component {
     constructor(props) {
@@ -42,6 +43,7 @@ class Login extends Component {
                 onChange={this.handleChange}
                 />
             <button
+                className="login-button"
                 onClick={this.handleLoginSubmit}
             >
                 Login
