@@ -49,6 +49,7 @@ button:hover {
 /* SEARCH */
 input[type="search"] {
   position: absolute;
+  padding: 7px 10px;
   top: 30px;
 }
 
@@ -218,6 +219,12 @@ h2 {
     font-size: 14px;
   }
 
+  input[type="search"] {
+    /* position: fixed; */
+    /* z-index: 5000; */
+    top: 40px;
+    width: 80%;
+  }
   /* .new-note-btn {
     position: fixed;
     bottom: 20px;
@@ -236,5 +243,6 @@ h2 {
 
   .display {
     margin: 0;
+    margin-top: 120px;
   }
 }

@@ -1,5 +1,7 @@
 import React from "react";
+import {CSVLink} from "react-csv";
 import "../App.css";
+
 import NoteCard from "./NoteCard";
 
 class ListView extends React.Component {
@@ -32,7 +34,18 @@ class ListView extends React.Component {
           className="search"
           onChange={this.updateSearch}
           value={this.state.search}
-        />
+          placeholder="Search notes"
+        />{" "}
+        <span>
+          <CSVLink
+            data={this.props.notes}
+            target="_blank"
+            filename={"lambda-notes.csv"}
+            className="btn btn-primary"
+          >
+            Download CSV
+          </CSVLink>
+        </span>
         <h1>Your Notes:</h1>
         <div className="note-card-container">
           {filteredNotes.map(note => {

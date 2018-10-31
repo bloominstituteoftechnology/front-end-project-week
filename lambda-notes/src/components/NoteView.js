@@ -2,6 +2,8 @@ import React from "react";
 import "../App.css";
 import Modal from "react-modal";
 
+import CheckList from "./CheckList";
+
 class NoteView extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +15,7 @@ class NoteView extends React.Component {
     this.state = {
       showDelete: false,
       isEditing: false,
+      showChecklist: false,
       tags: [],
       title: this.note.title,
       textBody: this.note.textBody
@@ -25,6 +28,10 @@ class NoteView extends React.Component {
 
   toggleEdit = () => {
     this.setState({isEditing: !this.state.isEditing});
+  };
+
+  toggleShowChecklist = () => {
+    this.setState({showChecklist: !this.state.showChecklist});
   };
 
   updateHandler = e => {
@@ -73,6 +80,9 @@ class NoteView extends React.Component {
             <div className="single-note-content">
               <h2>{this.note.title}</h2>
               <p>{this.note.textBody}</p>
+              <hr />
+              <h3 onClick={this.toggleShowChecklist}>Checklist</h3>
+              <CheckList note={this.note} />
             </div>
           </div>
         ) : (
