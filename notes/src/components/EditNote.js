@@ -20,9 +20,9 @@ class EditNote extends React.Component{
         .then(response => {
             this.setState({note : {title : '',textBody : ''}});
             console.log(response)
+            this.props.refresh();
         })
         .catch(error => console.log("EDIT ERROR ::", error))
-
     }
 
     fetchNoteById = () => {

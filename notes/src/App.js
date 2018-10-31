@@ -59,7 +59,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SideBar />
+        <SideBar refresh={this.refreshState()}/>
         <Route exact path='/' render={() => <NoteList notes={this.state.notes} /> } />
         {/* Create New Card Route  */}
         <Route path='/create-new' render={() => <CreateNew 
@@ -69,7 +69,7 @@ class App extends Component {
         {/* View Card Route */}
         <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
         {/* Edit Card Route */}
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} /> } />
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
       </div>
     );
   }

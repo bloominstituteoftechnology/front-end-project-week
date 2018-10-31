@@ -31,10 +31,8 @@ class ViewNote extends React.Component{
     toggleHidden=()=>{
         if(this.state.hidden === ''){
             this.setState({hidden : 'hidden'})
-            this.props.refresh();
         }else{
             this.setState({hidden : ''});
-            this.props.refresh();
         }
     }
 
