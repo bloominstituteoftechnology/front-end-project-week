@@ -33,7 +33,9 @@ class UpdateForm extends React.Component {
       .then(res => this.props.history.push(`/note/${this.state._id}`) )
       // .then(res => console.log(res))
       .catch(err => console.log(err))
-    console.log('update note button', event.target)
+      // this.props.refreshNotes({this.state._id, this.state.title, this.state.textBody})
+      this.setState({title: '', textBody: '', tags: ''})
+
   }
 
   newNote = () => {

@@ -28,17 +28,14 @@ class App extends Component {
 
 
 
-//this doesn't work anymore. I moved it to the note form. It redirects to the new note view.
  createNote = (noteData) => {
+     console.log('this is create from app.js')
      axios
       .post('https://fe-notes.herokuapp.com/note/create', noteData ) 
-      .then(res => this.props.history.push(`/note/${res.data.success}`))
+      //this is a temporary update of state. When you reload you will get a full update.
+      .then(res => this.setState({notes: [...this.state.notes, {...noteData, _id: res.data.success, _v: 0}]}))
+      // .then(res => this.props.history.push(`/note/${res.data.success}`))
       .catch(err => console.log(err))
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(res => this.setState({notes: res.data}))
-      .catch(error => console.log(error))
-
   }
 
  deleteNote = (noteId) => {
@@ -49,11 +46,13 @@ class App extends Component {
  }
 
 
- refreshNotes = () => {
-    console.log('refresh notes called but it is not working')
-    // axios
-    //   .then(res => this.setState({notes: res.data}))
-    //   .catch(error => console.log(error))
+ refreshNotes = (newNote) => {
+   // this.setState({notes: [...this.state.notes, newNote]})
+    // console.log('refresh notes called ')
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(res => this.setState({notes: res.data}))
+      .catch(error => console.log(error))
  }
 
 

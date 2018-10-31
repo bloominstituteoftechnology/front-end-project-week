@@ -24,12 +24,9 @@ class NoteForm extends Component {
   }
 
   newNote = () => {
-     axios
-      .post('https://fe-notes.herokuapp.com/note/create', this.state ) 
-      .then(res => this.props.history.push(`/note/${res.data.success}`)) 
-      .catch(err => console.log(err))
-      this.setState({title: '', textBody: '', tags: ''})
-      this.props.refreshNotes()
+      this.props.createNote(this.state)
+      this.setState({title: '', textBody: ''})
+      this.props.history.push('/');
   }
 
   render() {
@@ -54,7 +51,7 @@ class NoteForm extends Component {
               name="textBody"
             />
             <div className="form-button">
-              <button className="new-note-button" onClick={this.handleClick} type="submit">
+              <button className="new-note-button" onClick={this.newNote} type="submit">
                 {this.state.isEditing ? "Update Note" : "Create Note"}
               </button>
             </div>
