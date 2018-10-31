@@ -10,12 +10,10 @@ const NotesContainer= props => {
     <div>
  
      <Route exact path='/' component={AllNotes}/>
-     <Route exact path='/notes/:id' component={SingleNote} 
-     editedNoteBodyHandler={props.editedNoteBodyHandler}
-     editedNoteHandler={props.editedNoteBodyHandler}/>
-     <Route exact path='/EditNoteForm' component={EditNoteForm}/>   
+     <Route exact path='/notes/:id' component={SingleNote}/>
+     <Route exact path='/EditNoteForm' render ={matchHistoryLocationProps => <EditNoteForm {...matchHistoryLocationProps} editedNoteBodyHandler={props.editedNoteBodyHandler}
+     editedNoteHandler={props.editedNoteBodyHandler} editedNoteTitleHandler={props.editedNoteTitleHandler}/>}/>   
     </div>
     )
 }
 export default NotesContainer;
-// 

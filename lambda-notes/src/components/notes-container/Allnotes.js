@@ -9,6 +9,7 @@ export default class AllNotes extends Component {
       notes: []
     };
   }
+  
 
   componentDidMount() {
     axios
