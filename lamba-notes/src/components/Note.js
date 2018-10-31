@@ -28,7 +28,9 @@ class Note extends React.Component {
         >
           Delete
         </button>
-        <button>Edit</button>
+
+        {/* edit button, too */}
+
         <h1>{this.state.note.title}</h1>
         <h3>{this.state.note.textBody}</h3>
       </div>

@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import Note from "./components/Note";
 import Notes from "./components/Notes";
 import NoteForm from "./components/NoteForm";
+import NoteEdit from "./components/NoteEdit";
 import "./styles.css";
 
 class App extends Component {
@@ -34,6 +35,17 @@ class App extends Component {
       });
   };
 
+  editNote = id => {
+    const updatedNote = {
+      title: "",
+      textBody: ""
+    };
+    axios
+      .put(`http://fe-notes.herokuapp.com/note/${id}`, updatedNote)
+      .then(response => this.setState({ note: response.data }))
+      .catch(error => console.log(error));
+  };
+
   render() {
     return (
       <div className="App">
@@ -56,6 +68,11 @@ class App extends Component {
           />
 
           <Route path="/submit" component={NoteForm} />
+
+          <Route
+            path="/note/edit/:id"
+            render={props => <NoteEdit {...props} editNote={this.editNote} />}
+          />
 
           <Route
             exact
