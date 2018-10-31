@@ -34,7 +34,7 @@ class NotesDisplay extends React.Component {
             filteredNotes = filteredNotes.filter(note => 
                                                 note.title.includes(this.state.filterparameter || note.textbody.includes(this.state.filterparameter)) 
                                                 )
-            return this.setState({filteredNotes:filteredNotes}, ()=>   console.log(this.state.filteredNotes))
+            return this.setState({filteredNotes : filteredNotes}, () =>  console.log(this.state.filteredNotes))
         })
     }
 
@@ -55,7 +55,6 @@ class NotesDisplay extends React.Component {
                 </div>
 
                 
-
                 <div className = "notes">
                     {this.state.notes.map((note, index) => 
                                                         <SingleNote
@@ -63,6 +62,12 @@ class NotesDisplay extends React.Component {
                                                             data = {note}
                                                         />
                     )}
+                      {/* {this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.state.notes.map((note, index) => 
+                                                                                                                        <SingleNote  
+                                                                                                                            key = {note.id}
+                                                                                                                            data = {note}
+                                                                                                                        />
+                    )}*/}
                 </div>
             </div>
         )
