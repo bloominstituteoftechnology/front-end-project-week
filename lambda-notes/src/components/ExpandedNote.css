@@ -18,3 +18,15 @@
 .hidden {
     display: none;
 }
+
+.noteOptionsContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.noteOptions {
+    color: black;
+    font-weight: 600;
+    margin-right: 20px;
+    text-decoration: underline;
+}

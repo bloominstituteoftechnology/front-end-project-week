@@ -17,9 +17,9 @@ class ExpandedNote extends React.Component {
     render() {
         return (
             <div className='expandedNote'>
-                <div>
-                    <Link to={`/editNote/${this.props.expandedNote.id}`}>edit</Link>
-                    <div onClick={this.toggleModal}>delete</div>
+                <div className='noteOptionsContainer'>
+                    <Link className='noteOptions' to={`/editNote/${this.props.expandedNote.id}`}>edit</Link>
+                    <div className='noteOptions' onClick={this.toggleModal}>delete</div>
                 </div>
                 <h1>{this.props.expandedNote.title}</h1>
                 <p>{this.props.expandedNote.text}</p>

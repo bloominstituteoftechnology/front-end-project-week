@@ -4,10 +4,12 @@
 }
 
 .titleInput {
+    border: 1px solid darkgray;
     width: 40%;
 }
 
 .contentInput {
+    border: 1px solid darkgray;
     height: 300px;
     margin: 10px 0;
     width: 90%;
