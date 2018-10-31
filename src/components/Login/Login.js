@@ -29,7 +29,7 @@ class Modal extends React.Component {
             Sign In
           </button>
 
-          <div className="social-signin">
+          
             <Button class="fb-login-button"
               data-width="194.47"
               data-max-rows="1"
@@ -42,6 +42,7 @@ class Modal extends React.Component {
              onClick={this.props.onSubmit}>
              
             </Button>
+            <div className="social-signin">
             <Button className="tw" onClick={this.props.onSubmit}>
               <i className="fab fa-twitter" aria-hidden="true" />
             </Button>
