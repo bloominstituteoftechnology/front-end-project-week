@@ -13,10 +13,10 @@ class CreateNote extends React.Component {
   createNote = () => {
     const note = {
       title: this.state.title,
-      textBody: this.state.text
+      content: this.state.text
     };
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", note)
+      .post("http://localhost:8000/api/notes/", note)
       .then(response => {
         this.setState({ title: "", text: "" });
         console.log("THIS IS THE RESPONSE: ", response.data);

@@ -18,8 +18,9 @@ class App extends Component {
     this.fetchNotes();
   }
   fetchNotes = () => {
+    console.log("///this is fetchNotes///");
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:8000/api/notes/")
       .then(response => {
         this.setState({ notesInfo: response.data });
       })

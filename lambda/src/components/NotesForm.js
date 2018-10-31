@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SideView from "./SideView";
 
+// TweenMax.to(".note", 2, { left: 300 });
+
 const NotesForm = props => {
   console.log("THIS IS PROPS: ", props);
   return (
@@ -10,11 +12,11 @@ const NotesForm = props => {
         <h2>Notes:</h2>
         <div className="Notes-container">
           {Array.from(props.notes).map(note => (
-            <div className="note" key={note._id}>
-              <Link to={`/notes/${note._id}`}>
+            <div className="note" key={note.id}>
+              <Link to={`/notes/${note.id}`}>
                 <div className="Note-info">
-                  {note.title}
-                  <p>{note.textBody}</p>
+                  <div className="NoteTitle">{note.title}</div>
+                  <p>{note.content}</p>
                 </div>
               </Link>
             </div>

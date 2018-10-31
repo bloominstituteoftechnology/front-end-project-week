@@ -22,9 +22,11 @@ class SelectedNote extends React.Component {
     this.getNote(noteId);
   }
 
+  // https://killer-notes.herokuapp.com/note/get/${noteId}
+
   getNote = noteId => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
+      .get(`http://localhost:8000/api/notes/${noteId}`)
       .then(response => {
         console.log("HELLO FROM GET - RESPONSE IS: ", response.data);
         this.setState(() => ({ note: response.data }));
@@ -46,14 +48,11 @@ class SelectedNote extends React.Component {
   updateNote = () => {
     const updatedNote = {
       title: this.state.updateTitle,
-      textBody: this.state.updateContent
+      content: this.state.updateContent
     };
     // console.log("HELLO THIS IS ID:", id);
     axios
-      .put(
-        `https://killer-notes.herokuapp.com/note/edit/${this.state.note._id}`,
-        updatedNote
-      )
+      .put(`http://localhost:8000/api/notes/${this.state.note.id}`, updatedNote)
       .then(response => {
         console.log(response);
         this.setState({
@@ -67,9 +66,7 @@ class SelectedNote extends React.Component {
   };
   deleteNote = () => {
     axios
-      .delete(
-        `https://killer-notes.herokuapp.com/note/delete/${this.state.note._id}`
-      )
+      .delete(`http://localhost:8000/api/notes/${this.state.note.id}`)
       .then(response => {
         console.log("HELLO FROM DELETE: ", response.data);
         this.props.fetchNotes();
@@ -82,11 +79,12 @@ class SelectedNote extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   render() {
+    console.log(this.state.note);
     return (
       <div className="Background-color">
         <div className="NoteContainer">
           <div className="SelectedTitle">{this.state.note.title}</div>
-          <div className="SelectedText">{this.state.note.textBody}</div>
+          <div className="SelectedText">{this.state.note.content}</div>
 
           {this.state.toggleDelete ? null : (
             <div className="DeleteDiv">
@@ -118,7 +116,7 @@ class SelectedNote extends React.Component {
             <div className="EditContainer">
               <div className="EditNote">Edit Note</div>
               {this.state.note.title}
-              {this.state.note.textBody}
+              {this.state.note.content}
               <form>
                 <div className="InputDivs">
                   <input
@@ -142,6 +140,14 @@ class SelectedNote extends React.Component {
               <button className="UpdateNote" onClick={this.updateNote}>
                 Update Note
               </button>
+              <div className="OptionLinks">
+                <button className="EDIT" onClick={this.editButtons}>
+                  Edit
+                </button>
+                <button className="DELETE" onClick={this.unDelete}>
+                  Delete
+                </button>
+              </div>
             </div>
           )}
         </div>
