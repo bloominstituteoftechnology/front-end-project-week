@@ -7,6 +7,8 @@ import NoteList from "./components/NoteList";
 import Note from "./components/Note";
 import CreateNote from "./components/CreateNote";
 
+import Login from "./components/Login";
+import Authenticate from "./components/Authenticate";
 
 import './App.css';
 
@@ -102,4 +104,4 @@ this.setState({
   }
 }
 
-export default App;
+export default Authenticate(App, Login);
