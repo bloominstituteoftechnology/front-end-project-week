@@ -63,7 +63,7 @@ class DisplayAll extends Component {
             : `You currently have ${notes.length} notes:`}
         </PageHeader>
         <NotesContainer>
-          {sortedNotes &&
+          {sortedNotes.length > 0 &&
             sortedNotes.map(({ title, textBody, _id }) => (
               <Note
                 key={_id}

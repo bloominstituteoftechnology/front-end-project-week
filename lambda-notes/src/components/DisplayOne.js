@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react'
+import ReactMarkdown from 'react-markdown'
 import {
   Container,
   InnerContainer,
@@ -49,6 +50,7 @@ class DisplayOne extends Component {
               </ButtonsContainer>
               <Title>{title}</Title>
               <Body>{textBody}</Body>
+              <ReactMarkdown source={textBody} />
             </Fragment>
           )}
 
