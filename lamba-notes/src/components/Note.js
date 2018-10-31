@@ -18,10 +18,6 @@ class Note extends React.Component {
       .catch(error => console.log(error));
   }
 
-  // deleteNote = () => {
-
-  // }
-
   render() {
     return (
       <div>
@@ -32,9 +28,9 @@ class Note extends React.Component {
         >
           Delete
         </button>
+        <button>Edit</button>
         <h1>{this.state.note.title}</h1>
         <h3>{this.state.note.textBody}</h3>
-        <h5>{this.state.note._id}</h5>
       </div>
     );
   }
