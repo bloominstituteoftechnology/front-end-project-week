@@ -5,11 +5,11 @@ class SideBar extends React.Component {
 
 render(){
     return(
-        <div>
+        <div class="side-bar">
             <h1>Lambda</h1>
             <h1>Notes</h1>
-            <Link to='/'>View Notes</Link>
-            <Link to='/new-note'>+ Create a Note</Link>
+            <Link to='/' className="button">View Notes</Link>
+            <Link to='/new-note' className="button">+ Create a Note</Link>
         </div>
     )
 }

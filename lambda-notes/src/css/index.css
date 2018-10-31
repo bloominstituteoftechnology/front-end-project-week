@@ -1,0 +1,32 @@
+.side-bar {
+  position: fixed;
+  background-color: gray;
+  border-right: 1px solid black;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.button {
+  box-sizing: border-box;
+  width: 250px;
+  height: 60px;
+  border: 1px solid black;
+  color: white;
+  background-color: blue;
+  margin: 10px 0px;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 20px;
+}
+.App {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  background-color: lightgray;
+}
+.App .main-page-container {
+  margin-left: 320px;
+  margin-right: 5%;
+  margin-top: 20px;
+}

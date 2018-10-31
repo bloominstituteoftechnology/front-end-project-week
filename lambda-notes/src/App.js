@@ -45,6 +45,7 @@ componentDidUpdate() {
       <div className="App">
       <SideBar />
 
+      <div className="main-page-container">
       <Route
       path = "/new-note"
       render = {props => (
@@ -53,6 +54,7 @@ componentDidUpdate() {
         notes={this.state.notes}/>
       )}/>
 
+        
         <Route
         exact path = "/"
         render = {props =>(
@@ -67,6 +69,7 @@ componentDidUpdate() {
         render = {props => (
           <NoteView {...props}/>
         )}/>
+        </div>
 
       </div>
     );
