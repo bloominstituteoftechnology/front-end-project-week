@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NoteThumbnail from './NoteThumbnail';
 import { Container, Row } from 'reactstrap';
-import NoteButton from './NoteButton';
+// import NoteButton from './NoteButton';
  import { withRouter } from 'react-router-dom';
 
 class Notes extends Component {  
@@ -11,7 +11,7 @@ class Notes extends Component {
     }
 
     logout = () => {
-        console.log("Log")        
+        // console.log("Log")        
           localStorage.removeItem('token');
           localStorage.removeItem('userId');
           localStorage.removeItem('username');  
@@ -21,7 +21,7 @@ class Notes extends Component {
       };
 
         render() { 
-            console.log(this.props);
+            // console.log(this.props);
         return ( this.state.notes ? ( null) : (
 
             <Container>

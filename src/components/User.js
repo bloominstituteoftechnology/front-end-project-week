@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 
-// const backend = "https://lamb-notes.herokuapp.com/";
-let backend = 'http://localhost:5000/';
-let heroku = 'https://lamb-notes.herokuapp.com/';
-if (typeof(backend) !== 'string') {
-  backend = heroku;
-}
+const backend = "https://lamb-notes.herokuapp.com/";
+// let backend = 'http://localhost:5000/';
+// let heroku = 'https://lamb-notes.herokuapp.com/';
+// if (typeof(backend) !== 'string') {
+//   backend = heroku;
+// }
 
 class User extends React.Component {
     
@@ -33,17 +33,17 @@ class User extends React.Component {
         componentDidMount = () => {
        
         const id = localStorage.getItem('userId');
-        console.log("User component id", id)
+        // console.log("User component id", id)
             axios.get(`${backend}api/users/${id}`)
                 .then(response => { 
-                    console.log("Getting something", response)                                 
+                    // console.log("Getting something", response)                                 
                     this.setState({
                        username: response.data.username, 
                        email: response.data.email,
                     });     
                 })
                 .catch(err => {
-                    console.log(err)
+                    // console.log(err)
                     this.setState({
                         error: true,
                         errorMessage: err.message
@@ -69,10 +69,10 @@ class User extends React.Component {
             const id = localStorage.getItem('userId');
             axios.put(`${backend}api/users/update/${id}`, user)
             .then(response => { 
-                console.log("Getting something", response)                            
+                // console.log("Getting something", response)                            
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 this.setState({
                     error: true,
                     errorMessage: err.message
@@ -96,10 +96,10 @@ class User extends React.Component {
             const id = localStorage.getItem('userId');
             axios.put(`${backend}api/users/resetpassword/${id}`, user)
             .then(response => { 
-                console.log("Getting something for password", response)                                           
+                // console.log("Getting something for password", response)                                           
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 this.setState({
                     error: true,
                     errorMessage: err.message
@@ -174,7 +174,7 @@ class User extends React.Component {
                return (
                 <div className='change-form'>
                 <div className="form-group">
-                <input className="form-control" placeholder="username" name='newUsername' type="text" value={this.state.newUsername} onChange={this.handleInputChange} />
+                <input className="form-control" placeholder="Username" name='newUsername' type="text" value={this.state.newUsername} onChange={this.handleInputChange} />
                 </div>
                 <button type="submit" className="signup-button" onClick={this.updateUser}>
                         Confirm
@@ -188,7 +188,7 @@ class User extends React.Component {
                return (
                 <div className='change-form'>
                 <div className="form-group">
-                <input className="form-control" placeholder="email" name='newEmail' type="text" value={this.state.newEmail} onChange={this.handleInputChange} />
+                <input className="form-control" placeholder="Email" name='newEmail' type="text" value={this.state.newEmail} onChange={this.handleInputChange} />
                 </div>
                 <button type="submit" className="signup-button" onClick={this.updateUser}>
                         Confirm

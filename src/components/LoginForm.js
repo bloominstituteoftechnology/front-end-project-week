@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import  './LoginForm.css';
 
 
-// const backend = "https://lamb-notes.herokuapp.com/";
-let backend = 'http://localhost:5000/';
-let heroku = 'https://lamb-notes.herokuapp.com/';
-if (typeof(backend) !== 'string') {
-  backend = heroku;
-}
+const backend = "https://lamb-notes.herokuapp.com/";
+// let backend = 'http://localhost:5000/';
+// let heroku = 'https://lamb-notes.herokuapp.com/';
+// if (typeof(backend) !== 'string') {
+//   backend = heroku;
+// }
 
 
 
@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
                     localStorage.setItem('userId', response.data.userId);
                     localStorage.setItem('name', response.data.name);
                     localStorage.setItem('username', this.state.username);
-                    console.log("Fire", response)
+                    // console.log("Fire", response)
                     this.setState({
                         error: false
                     });
@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
                     }, 200)
                 })
                 .catch(err => {
-                    console.log(err)
+                    // console.log(err)
                     this.setState({
                         error: true,
                         errorMessage: err.response.data.error

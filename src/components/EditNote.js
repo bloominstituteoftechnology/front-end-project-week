@@ -20,7 +20,7 @@ class EditNote extends Component {
             return (this.props.match.params._id === note._id.toString())          
                        
         })[0]
-        console.log("Element", element);
+        // console.log("Element", element);
 
            this.setState({
                title: element.title,
@@ -37,14 +37,16 @@ class EditNote extends Component {
         let myobj = {};
       this.props.state.notes.map((note) => {
          if(note._id === this.state._id) {
+             return (
              myobj = {
                  title: this.state.title,
                  content: this.state.content, 
                  _id: this.state._id,              
-              }            
+              }  
+            )          
          }
      })
-     console.log("MY object", myobj )
+    //  console.log("MY object", myobj )
      this.props.edit(myobj);
         this.setState({edit: true})
             }

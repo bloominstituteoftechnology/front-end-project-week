@@ -14,12 +14,12 @@ import Home from "./components/Home";
 import axios from 'axios';
 
 
-// const backend = "https://lamb-notes.herokuapp.com/";
-let backend = 'http://localhost:5000/';
-let heroku = 'https://lamb-notes.herokuapp.com/';
-if (typeof(backend) !== 'string') {
-  backend = heroku;
-}
+const backend = "https://lamb-notes.herokuapp.com/";
+// let backend = 'http://localhost:5000/';
+// let heroku = 'https://lamb-notes.herokuapp.com/';
+// if (typeof(backend) !== 'string') {
+//   backend = heroku;
+// }
 
 class App extends Component {
   constructor() {
@@ -40,7 +40,7 @@ class App extends Component {
         this.setState({notes: notes.data })
       })
       .catch(err => {
-        console.log("Error", err);
+        // console.log("Error", err);
       })
 
     }
@@ -50,12 +50,12 @@ class App extends Component {
       const headers = { "headers": { "authorization": token } };
       axios.post(`${backend}api/notes`, note, headers)
       .then(notes => {
-        console.log("New Note", note);
+        // console.log("New Note", note);
         this.setState({ notes: [...this.state.notes, note]});
            
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       })
 }
 
@@ -69,12 +69,12 @@ const token = localStorage.getItem('token');
 const headers = { "headers": { "authorization": token } };
 axios.put(`${backend}api/notes/${element._id}`, element, headers)
 .then(result => {
-  console.log("Result", result)
+  // console.log("Result", result)
   this.setState({ notes: [...this.state.notes, result]});  
    
 })
 .catch(err => {
-  console.log("MY error Message", err);
+  // console.log("MY error Message", err);
 })
  }
  handleDelete = (element) => {
@@ -82,10 +82,10 @@ axios.put(`${backend}api/notes/${element._id}`, element, headers)
   const headers = { "headers": { "authorization": token } };
    axios.delete(`${backend}api/notes/${element._id}`, headers)
    .then(response => {
-    console.log("Handle Delete res", element._id)
+    // console.log("Handle Delete res", element._id)
    })
    .catch(err => {
-     console.log("Delete error", err);
+    //  console.log("Delete error", err);
    })
  }
 

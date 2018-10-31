@@ -18,7 +18,7 @@ class NewNote extends Component {
         this.setState({[e.target.name]: e.target.value})       
     } 
     submitNote = (event) => {
-        console.log(this.props);
+        // console.log(this.props);
         event.preventDefault(); 
         const newNote = {
             title: this.state.title,

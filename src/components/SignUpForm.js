@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 
 
-// const backend = "https://lamb-notes.herokuapp.com/";
-let backend = 'http://localhost:5000/';
-let heroku = 'https://lamb-notes.herokuapp.com/';
-if (typeof(backend) !== 'string') {
-  backend = heroku;
-}
+const backend = "https://lamb-notes.herokuapp.com/";
+// let backend = 'http://localhost:5000/';
+// let heroku = 'https://lamb-notes.herokuapp.com/';
+// if (typeof(backend) !== 'string') {
+//   backend = heroku;
+// }
 
 
 class SignUpForm extends React.Component {
@@ -43,7 +43,7 @@ class SignUpForm extends React.Component {
         };
         axios.post(`${backend}api/users/register`, user)
         .then(response => {
-            console.log("SignUp",response)
+            // console.log("SignUp",response)
             localStorage.setItem('token', response.data.token)
             this.props.history.push(`/login`)           
             this.setState({
@@ -65,7 +65,7 @@ class SignUpForm extends React.Component {
     render() {
         return (
            
-            <div className="col-sm-3" className="signup-wrap ">
+            <div className="signup-wrap ">
                 <div className='signup'>
                     <h3>Sign up </h3>                    
                     <div className='signup-form'>

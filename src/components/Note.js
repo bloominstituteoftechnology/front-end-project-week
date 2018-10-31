@@ -21,7 +21,7 @@ class Note extends Component {
 
     editNote = () => {
        const element = this.props.state.notes.map((note) => {
-           console.log("Element", element);
+        //    console.log("Element", element);
             if(this.props.match.params._id === note._id.toString()) { 
                return note;
               }
@@ -39,7 +39,7 @@ class Note extends Component {
         this.props.state.notes.map((note, index) => {
             if(this.props.match.params._id === note._id.toString()) { 
          const element =  this.props.state.notes.splice(index, 1);
-         console.log("Deleted Note", element)
+        //  console.log("Deleted Note", element)
          this.props.delete(element[0]);
             }            
         }) 
@@ -47,7 +47,7 @@ class Note extends Component {
       }       
 
     render() {         
-        console.log("ID", this.props.match.params._id)
+        // console.log("ID", this.props.match.params._id)
         return ( 
             this.state.delete ? (
            <Redirect to="/notes" />
