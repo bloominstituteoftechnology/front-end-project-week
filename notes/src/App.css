@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  max-width: 880px;
-  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .App-logo {
@@ -33,11 +34,46 @@
     transform: rotate(360deg);
   }
 }
+.nav-bar {
+  box-sizing: border-box;
+  width: 25%;
 
-a {
-  color: #2d3436;
+  padding: 0px 1%;
+  background-color: #1a1a1a;
+ 
 }
 
-button {
-  margin: 10px;
+.nav-bar a {  
+  background-color: #00ced1;
+  width: 30%;
+  height: 45px;
+  margin-right: 40%;
+  margin-bottom: 20px;
+  border: 1px solid grey;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 98%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
+
+
+
+/* 
+.nav-bar{
+  background-image: url('https://image.ibb.co/jE6tV0/lambdanotes.png');
+  background-repeat: no-repeat;
+  height: 80px;
+  display: block;
+  background-color: #ab2317;
+  padding-bottom: 10px;
+}
+
+.nav-items-container {
+  padding: 50px;
+
+} */

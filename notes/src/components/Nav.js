@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom';
 const Nav = () => {
   return (
     <div className='nav-bar'>
-      <h1>Lambda Notes</h1>
+        <div className="nav-items-container">
       <NavLink className='nav-items' to='/' >View Notes</NavLink>
       <NavLink className='nav-items' to='/notes/add'>+ Add New Note</NavLink>   
+      </div>
     </div>
   );
 
