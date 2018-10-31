@@ -5,9 +5,9 @@ import './Notes.css'
 const Notes = props => {
     return (
         <div className="notes">
-            {props.notes.map((note) => {
+            {props.notes.map((note, index) => {
                 return (
-                    <Note key={note.id} title={note.title} content={note.textBody} />
+                    <Note key={index} title={note.title} content={note.textBody} />
                 )
             })}
         </div>
