@@ -4,6 +4,7 @@
     background: lightgray;
     
     height: 100%;
+    border-bottom: 1.5px solid #9BA3A3;
 }
 
 .sidebar-content {

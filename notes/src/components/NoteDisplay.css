@@ -5,6 +5,7 @@ body {height: 100%; }
     display: flex;
     flex-wrap: wrap;
     padding-left: 20px;
+    height: 100%;
 }
 
 .singleNote {
@@ -46,6 +47,7 @@ body {height: 100%; }
     background: #E9E7E7;
     width: 100%;
     border: 1.5px solid #9BA3A3;
+    height: 100%;
 }
 
  h2 {
@@ -76,6 +78,7 @@ form {
     padding: 20px 40px;
     border: 1.5px solid #9BA3A3;
     background: #E9E7E7;
+    height: 100%;
 }
 
 .createNoteContainer input {
@@ -121,6 +124,7 @@ form {
 .Note {
     width: 100%;
     text-align: start;
+    height: 100%;
 }
 
 .Note h2 {

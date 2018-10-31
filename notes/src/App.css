@@ -52,7 +52,9 @@
   
 }
 
-
+#root {
+  height: 100%;
+}
 .deletebutton {
   background: #cc0000;
 }
