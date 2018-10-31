@@ -13,7 +13,28 @@ export const FETCHING_NOTES_BY_ID = 'FETCHING_NOTES_BY_ID';
 export const FETCHING_NOTES_BY_ID_SUCCESS = 'FETCHING_NOTES_BY_ID_SUCCESS';
 export const FETCHING_NOTES_BY_ID_FAILURE = 'FETCHING_NOTES_BY_ID_FAILURE';
 
+export const EDITTING_NOTES = 'EDITTING_NOTES';
+export const EDITTING_NOTES_SUCCESS = 'EDITTING_NOTES_SUCCESS';
+export const EDITTING_NOTES_FAILURE = 'EDITTING_NOTES_FAILURE';
 
+
+
+
+
+export const editNote = (Id,data) => dispatch => {
+  dispatch({ type: EDITTING_NOTES });
+
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${Id}`,data)
+    .then(response => {
+      
+      console.log('response',response)
+      dispatch({ type: EDITTING_NOTES_SUCCESS, payload: response.data});
+    })
+    .catch(error => {
+      dispatch({ type: EDITTING_NOTES_FAILURE, payload: error });
+  });  
+}
 
   export const fetchNotesById = (Id) => dispatch => {
     dispatch({ type: FETCHING_NOTES_BY_ID });
@@ -21,12 +42,20 @@ export const FETCHING_NOTES_BY_ID_FAILURE = 'FETCHING_NOTES_BY_ID_FAILURE';
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${Id}`)
       .then(response => {
+        
+        console.log('response',response)
         dispatch({ type: FETCHING_NOTES_BY_ID_SUCCESS, payload: response.data});
       })
       .catch(error => {
         dispatch({ type: FETCHING_NOTES_BY_ID_FAILURE, payload: error });
     });  
   }
+
+
+
+
+
+
 
   export const fetchNotes = () => dispatch => {
     dispatch({ type: FETCHING_NOTES });

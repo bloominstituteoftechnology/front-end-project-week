@@ -2,8 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
+import { editNote } from '../Actions';
 
-
+const Loading = styled.h1`
+    font-size:4rem;
+`
 const ActionsDiv = styled.div`
     display:flex;
     justify-content:flex-end;
@@ -34,45 +37,122 @@ const NavButton = styled.div`
     justify-content:center;
     align-items:center;
 `
+const FormSection = styled.div`
+
+`
+
+const Form = styled.form`
+    display:flex;
+    flex-direction:column;
+`
+
+const TitleInput = styled.input`
+    width:300px;
+    height:25px;
+`
+const TextArea = styled.textarea`
+    margin-top:25px;
+    width:300px;
+    height:500px;
+`
+const SaveButton = styled.button`
+    width:150px;
+    height:25px;
+    margin-top:25px;
+`
 class EditNoteContainer extends React.Component{
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
+        this.state = {
+            isEditting:false,
+            id:'',
+            title:'',
+            body:'',
+        }
+    }
+    handleEditClick =event =>{
+        this.setState({isEditting:true})
+    }
+    handleTextChange = event =>{
+        this.setState({[event.target.id]: event.target.value})
+    }
+    componentDidUpdate(){
+
+            this.setState({
+                body:this.props.data.textBody,
+                title:this.props.data.title,
+                id:this.props.data._id,
+            })
+
     }
     render(){
-        console.log('them props is..',this.props)
-        return(
-            <WrapperDiv>
 
-                <NavSection>
-                    <p>Lambda Notes</p>
-                    <Link to="/AddNote"><NavButton>
-                        <p>+ Create New Note</p>
-                    </NavButton></Link>
-                </NavSection>
-                <NoteSection>
-                    <ActionsDiv>
-                        <Link to='/edit'><p>Edit</p></Link>   
-                        <Link to='/edit'><p>Delete</p></Link>   
-                    </ActionsDiv>
-                    <p>
-                        {this.props.data.title}
-                    </p>
-                    <p>{this.props.data.bodyText}</p>
-                </NoteSection>
+        if(this.props.isFetching){
+            return <Loading>Loading...</Loading>
+        } else 
+        {
 
+        if(this.state.isEditting){
+            return(
+                <WrapperDiv>
+                    <NavSection>
+                        <p>Lambda Notes</p>
+                        <Link to="/AddNote"><NavButton>
+                            <p>+ Create New Note</p>
+                        </NavButton></Link>
+                    </NavSection>
+                    <NoteSection>
+                        <FormSection>
+                            <Form onSubmit={this.handleSubmit}>  
+                                <TitleInput onChange={this.handleTextChange} id='title' type='text' value={this.state.title}></TitleInput>
+                                <TextArea onChange={this.handleTextChange} id='body' value={this.state.body}></TextArea>
+                                <SaveButton>Save</SaveButton>
+                           </Form>
+                        </FormSection>
 
+                    </NoteSection>
+                </WrapperDiv>
+            )
+        } else 
+        {
+            return(
+                <WrapperDiv>
+    
+                    <NavSection>
+                        <p>Lambda Notes</p>
+                        <Link to="/AddNote"><NavButton>
+                            <p>+ Create New Note</p>
+                        </NavButton></Link>
+                    </NavSection>
+                    <NoteSection>
+                        <ActionsDiv>
+                            <p onClick={this.handleEditClick}>Edit</p>
+                            <Link to='/edit'><p>Delete</p></Link>   
+                        </ActionsDiv>
+                        <p>
+                            {this.props.data.title}
+                        </p>
+                        <p>{this.props.data.textBody}</p>
+                    </NoteSection>
+    
+    
+    
+    
+                </WrapperDiv>
+            )
+    
+        }
 
-
-            </WrapperDiv>
-        )
+        }
     }
 }
 const mapStateToProps = state => {
-    console.log('whats on state?',state)
+    console.log('whats on state?',state)    
     return {
-        data: state.note,
+        data: state.individualNote,
+        isFetching: state.isFetching
     };
   };
 
 
-  export default connect(mapStateToProps,{ })(EditNoteContainer);
+  export default connect(mapStateToProps,{editNote})(EditNoteContainer);

@@ -3,7 +3,7 @@ import { ADDING_NOTES, ADDING_NOTES_SUCCESS, ADDING_NOTES_FAILURE } from "../Act
 import { FETCHING_NOTES_BY_ID, FETCHING_NOTES_BY_ID_SUCCESS, FETCHING_NOTES_BY_ID_FAILURE } from "../Actions";
 const InitialState = {
     notes:[],
-    note:null,
+    individualNote:null,
     isFetching:false,
     isAdding:false,
     isAdded:false,
@@ -44,8 +44,9 @@ export const NotesReducer = (state=InitialState,action) =>{
             ...state,isFetching:true, isAdded:false,
         }
         case FETCHING_NOTES_BY_ID_SUCCESS:
+        console.log('received payload..',action.payload)
         return {
-            ...state, note: action.payload, isFetching: false, isAdded:false,
+            ...state, individualNote: action.payload, isFetching: false, isAdded:false,
         }
         case FETCHING_NOTES_BY_ID_FAILURE:
         return {
