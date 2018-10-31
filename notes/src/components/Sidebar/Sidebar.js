@@ -4,7 +4,7 @@ import { StyledSidebar, StyledH1, StyledButton, StyledSidebarLink } from './styl
 function Sidebar() {
   return (
     <StyledSidebar>
-      <StyledH1>Lambda Notes</StyledH1>
+      <StyledSidebarLink to="/"><StyledH1>Lambda Notes</StyledH1></StyledSidebarLink>
       <StyledSidebarLink to="/">
         <StyledButton>View Your Notes</StyledButton>
       </StyledSidebarLink>
