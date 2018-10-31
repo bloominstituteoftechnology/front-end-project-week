@@ -33,7 +33,7 @@ class NoteList extends React.Component {
                     <Note
                         key={note._id}
                         note={note}
-                        onClick={() => this.props.onFocus(note._id)}
+                        onClick={this.focusHandler}
                     />
                 ))}
             </div>
@@ -41,6 +41,10 @@ class NoteList extends React.Component {
     }
 
     //-- Interaction ---------------------------------
+    focusHandler = eventClick => {
+        let focusId = eventClick.currentTarget.dataset.id;
+        this.props.focusNote(focusId);
+    }
 }
 
 
@@ -55,7 +59,7 @@ function mapStateToProps(state) {
 }
 NoteList = connect(mapStateToProps, {
     getNotes: actions.getNotes,
-    //onFocus: actions.focusNote,
+    focusNote: actions.focusNote,
 })(NoteList);
 
 //-- Exporting -----------------------------------

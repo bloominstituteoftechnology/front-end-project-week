@@ -5,15 +5,16 @@
 //-- Dependencies --------------------------------
 import React from 'react';
 import './App.css';
-import NoteList from './components/note-list.js';
-import NoteCreator from './components/note-creator.js';
 import {Route, Link} from 'react-router-dom';
 import * as actions from './actions';
+import NoteList from './components/note-list.js';
+import NoteCreator from './components/note-creator.js';
+import NoteView from './components/note-view.js';
 
 
 //== Components ================================================================
 
-//-- App Component -------------------------------
+//-- Main Application Component ------------------
 export default class App extends React.Component {
     render() {
         return (
@@ -29,6 +30,12 @@ export default class App extends React.Component {
                         <NoteCreator />
                     </Content>
                 )} />
+                <Route path="/note/:id" render={() => (
+                    <Content>
+                        <NoteView />
+                    </Content>
+                )} />
+            )} />
             </div>
         );
     }
@@ -43,10 +50,10 @@ function Header(props) {
             </h1>
             <nav>
                 <Link to="/" onClick={actions.getNotes}>
-                    <span class="button">View Your Notes</span>
+                    <span className="button">View Your Notes</span>
                 </Link>
                 <Link to="/create">
-                    <span class="button">+ Create New Note</span>
+                    <span className="button">+ Create New Note</span>
                 </Link>
             </nav>
         </header>
@@ -55,11 +62,13 @@ function Header(props) {
 
 //-- Content Component ---------------------------
 function Content(props) {
+    let titleHeader;
+    if(props.title){
+        titleHeader = <h2 className="view-title" children={props.title} />;
+    }
     return (
         <main className="view">
-            <h2 className="view-title">
-                {props.title}:
-            </h2>
+            {titleHeader}
             <div className="view-body">
                 {props.children}
             </div>

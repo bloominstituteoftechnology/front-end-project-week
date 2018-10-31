@@ -15,6 +15,7 @@ export const FETCH_ERROR    = ++actionIndex;
 export const NOT_READY      = ++actionIndex;
 export const NOTES_RESPONSE = ++actionIndex;
 export const GET_NOTES      = ++actionIndex;
+export const FOCUS_NOTE     = ++actionIndex;
 
 
 //== Action Generators =========================================================
@@ -66,6 +67,14 @@ export function addNote(noteData) {
             //dispatch(fetchError(errorMessage));
         });
     }
+}
+
+//-- FOCUS_NOTE - Agent request to view a specific note
+export function focusNote(id) {
+    return {
+        type: FOCUS_NOTE,
+        id: id,
+    };
 }
 
 //== Utilities =================================================================

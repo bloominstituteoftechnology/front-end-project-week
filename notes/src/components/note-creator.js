@@ -39,7 +39,7 @@ class NoteCreator extends React.Component {
                     value={this.state.textBody}
                     name="textBody"
                 />
-                <button>Save</button>
+                <button className="button">Save</button>
             </form>
         );
     }

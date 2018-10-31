@@ -20,7 +20,7 @@ export default function (state = initialState, action){
         case actions.FETCH_ERROR   : return handleFetchError(state, action);
         case actions.FETCHING      : return handleFetching  (state, action);
         case actions.NOTES_RESPONSE: return handleNotesList (state, action);
-        //case actions.FOCUS_NOTE    : return handleFocus     (state, action);
+        case actions.FOCUS_NOTE    : return handleFocus     (state, action);
         default                    : return                  state         ;
     }
 };
@@ -52,5 +52,11 @@ function handleNotReady(state, action) {
     return {
         ...state,
         error: action.error,
+    };
+}
+function handleFocus(state, action) {
+    return {
+        ...state,
+        focusId: action.id,
     };
 }
