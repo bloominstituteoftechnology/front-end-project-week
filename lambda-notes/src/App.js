@@ -29,10 +29,10 @@ class App extends Component {
   addNote = note => {
     axios
         .post('https://fe-notes.herokuapp.com/note/create', note)
-        .then(() => axios
-                      .get('https://fe-notes.herokuapp.com/note/get/all')
-                      .then(response => this.setState({ notes: response.data }))
-                      .catch(error => console.log(error)))
+        .then(() => {
+          this.state.notes.unshift(note);
+          this.setState({ notes: this.state.notes });
+        })
         .catch(error => console.log(error));
     this.props.history.push('/');
   }
@@ -40,10 +40,9 @@ class App extends Component {
   editNote = note => {
     axios 
         .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.expandedNote.id}`, note)
-        .then(() => axios
-                      .get('https://fe-notes.herokuapp.com/note/get/all')
-                      .then(response => this.setState({ notes: response.data }))
-                      .catch(error => console.log(error)))
+        .then(() => {
+          
+        })
         .catch(error => console.log(error));
     this.props.history.push('/');
   }
