@@ -18,13 +18,6 @@ class MainBox extends React.Component {
     };
   }
 
-  componentDidMount() {
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.log(error));
-  }
-
   componentDidUpdate() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
@@ -39,14 +32,16 @@ class MainBox extends React.Component {
       .catch(error => console.log(error));
   };
 
-  editNote = editedNote => {
+  saveEdit = (ev, id) => {
+    ev.preventDefault();
+    console.log("edititing note", id);
     axios
-      .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.notes._id}`,
-        editedNote
-      )
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.log(error));
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+        tags: [],
+        title: this.state.title,
+        textBody: this.state.content
+      })
+      .then(res => console.log(res));
   };
 
   render() {
@@ -65,7 +60,14 @@ class MainBox extends React.Component {
         <Route path="/notes/:id" render={props => <FullNote {...props} />} />
         <Route
           path="/edit-note"
-          render={props => <EditNote {...props} editNote={this.editNote} />}
+          render={props => (
+            <EditNote
+              {...props}
+              note={this.state.notes}
+              editNote={this.editNote}
+              saveEdit={this.saveEdit}
+            />
+          )}
         />
       </div>
     );

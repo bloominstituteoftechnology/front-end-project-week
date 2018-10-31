@@ -59,7 +59,7 @@ class FullNote extends React.Component {
         <h2 className="header">{this.state.notes.title}</h2>
         <p className="note-paragraph">{this.state.notes.textBody}</p>
         <button onClick={this.deleteModal}>X</button>
-        <Link to={{ pathname: "/note-form", state: { note: this.state.note } }}>
+        <Link to={{ pathname: `/edit-note`, state: { note: this.state.note } }}>
           edit
         </Link>
         <div className="modal">
