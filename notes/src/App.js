@@ -3,7 +3,8 @@ import './App.css';
 import Nav from './components/Nav/Nav';
 import Notes from './components/Notes/Notes';
 import CreateNote from './components/CreateNote/CreateNote';
-import { Route } from 'react-router-dom';
+import SingleNote from './components/SingleNote/SingleNote';
+import { Route, withRouter } from 'react-router-dom';
 import { fetchAll } from './actions';
 import { connect } from 'react-redux';
 
@@ -21,6 +22,7 @@ class App extends Component {
         <Nav {...this.props} />
         <Route exact path="/" render={(props) => <Notes {...props} notes={this.props.notes} />} />
         <Route path="/new" render={(props) => <CreateNote {...props} />} />
+        <Route path="/notes/:id" render={(props) => <SingleNote {...props} />} />
       </div>
     );
   }
@@ -41,6 +43,6 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {
+export default withRouter(connect(mapStateToProps, {
   fetchAll
-})(App);
+})(App));

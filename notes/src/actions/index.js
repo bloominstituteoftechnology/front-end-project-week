@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 export const FETCHING = 'FETCHING';
 export const SUCCESS = 'SUCCESS';
@@ -16,6 +17,24 @@ export const fetchAll = () => {
             .catch(error => {
                 dispatch({ type: FAILURE, payload: error })
             })
+    }
+}
+
+export const FETCHING_NOTE = 'FETCHING_NOTE';
+export const FETCHED_NOTE = 'FETCHED_NOTE';
+export const FETCH_FAILURE = 'FETCH_FAILURE';
+
+export const fetchNote = id => {
+    return function(dispatch) {
+        dispatch({ type: FETCHING_NOTE });
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .then(response => {
+                dispatch({ type: FETCHED_NOTE, payload: response.data })
+            })
+            .catch(error => {
+                dispatch({ type: FETCH_FAILURE, payload: error })
+            });
     }
 }
 

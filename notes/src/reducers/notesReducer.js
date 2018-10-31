@@ -10,13 +10,19 @@ import {
     EDIT_FAILURE,
     DELETING,
     DELETED,
-    DELETE_FAILURE
+    DELETE_FAILURE,
+    FETCHING_NOTE,
+    FETCHED_NOTE,
+    FETCH_FAILURE
 } from '../actions';
 
 const initialState = {
     notes: [],
+    note: {},
     fetching: false,
     fetched: false,
+    fetchingNote: false,
+    fetchedNote: false,
     adding: false,
     added: false,
     editing: false,
@@ -47,6 +53,26 @@ export const notesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetching: false,
+                error: action.payload
+            }
+        case FETCHING_NOTE:
+            return {
+                ...state,
+                fetchingNote: true
+            }
+        case FETCHED_NOTE:
+            return {
+                ...state,
+                fetchingNote: false,
+                fetchedNote: true,
+                note: {
+                    ...action.payload
+                }
+            }
+        case FETCH_FAILURE:
+            return {
+                ...state,
+                fetchingNote: false,
                 error: action.payload
             }
         case ADDING:
