@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const FormContainer = styled.div`
   border: 1px solid black;
@@ -66,22 +67,40 @@ class NoteForm extends Component {
     event.preventDefault();
     const newNote = {
       title: this.state.title,
-      textBody: this.state.textBody,
+      textBody: this.state.textBody
     };
-    console.log('newNote: ', newNote);
-    this.props.addNote(newNote);
-
-    this.setState({
-      title: '',
-      textBody: ''
+    axios 
+    .post('http://localhost:5000/api/notes', newNote)
+    .then(response => {
+      this.setState({notes: response.data, newNote});
+      this.props.fetchNotes();
+    })
+    .catch(error => {
+      console.log('Server Error', error)
     });
+    this.props.history.push('/')
   }
+
+  // addNote = event => {
+  //   event.preventDefault();
+  //   const newNote = {
+  //     title: this.state.title,
+  //     textBody: this.state.textBody,
+  //   };
+  //   console.log('newNote: ', newNote);
+  //   this.props.addNote(newNote);
+
+  //   this.setState({
+  //     title: '',
+  //     textBody: ''
+  //   });
+  // }
 
   render() {
     return (
       <FormContainer>
         <Heading>Create New Note:</Heading>
-        <CreateForm onSubmit={this.addNote}>
+        <CreateForm>
           <InputTitle
             name='title'
             placeholder='Note Title'
@@ -94,7 +113,7 @@ class NoteForm extends Component {
             value={this.state.textBody}
             onChange={this.handleInputChange}
           />
-          <SaveButton type='submit'>Save</SaveButton>
+          <SaveButton onClick={this.addNote}>Save</SaveButton>
         </CreateForm>
       </FormContainer>
     );
