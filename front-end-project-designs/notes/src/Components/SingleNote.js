@@ -1,8 +1,7 @@
 import React from 'react';
 import './Style.css';
 import {Link} from 'react-router-dom';
-
-
+import ReactMarkdown from "react-markdown";
 
 
 const SingleNote = (props) => {
@@ -12,7 +11,8 @@ const SingleNote = (props) => {
             <Link to = {`/notes/${props.data._id}`} className = "no-decoration">
                 <h4 /*onClick = {alert(props.data._id)}*/>  {props.data.title} </h4>  </Link>
                 <p className =  "line"></p>
-                <p> {props.data.textBody} </p>
+                <ReactMarkdown source={props.data.textBody} />
+                {/*<p> {props.data.textBody} </p>*/}
            
         </div>
     )

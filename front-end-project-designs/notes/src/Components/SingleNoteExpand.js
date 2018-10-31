@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from "react-markdown";
 
 class SingleNoteExpand extends React.Component{
     constructor(props) {
@@ -39,7 +40,8 @@ class SingleNoteExpand extends React.Component{
                 </div>
                 <div className = "note-div">
                     <h2> {this.state.title} </h2>
-                    <p> {this.state.textbody} </p>
+                    <ReactMarkdown source={this.state.textbody} />
+                    {/*<p> {this.state.textbody} </p>*/}
                 </div>
             </div>
         )   
