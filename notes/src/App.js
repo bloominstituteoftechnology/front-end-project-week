@@ -9,6 +9,7 @@ import {Route, Link} from 'react-router-dom';
 import * as actions from './actions';
 import NoteList from './components/note-list.js';
 import NoteCreator from './components/note-creator.js';
+import NoteEditor from './components/note-editor.js';
 import NoteView from './components/note-view.js';
 
 
@@ -23,9 +24,9 @@ export default class App extends React.Component {
                 <main className="view">
                     <Route exact path="/" component={NoteList} />
                     <Route path="/create" component={NoteCreator} />
+                    <Route path="/edit/:id" component={NoteEditor} />
                     <Route path="/note/:id" component={NoteView} />
                 </main>
-            )} />
             </div>
         );
     }

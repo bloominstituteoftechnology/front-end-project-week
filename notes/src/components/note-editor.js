@@ -1,17 +1,18 @@
 
 
-//== NoteCreator ===============================================================
+//== NoteEditor ================================================================
 
 //-- Dependencies --------------------------------
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 import ActionBar from './action-bar.js';
+import {withRouter} from 'react-router-dom'
 
 
 //== Component =================================================================
 
-class NoteCreator extends React.Component {
+class NoteEditor extends React.Component {
 
     //-- Lifecycle -----------------------------------
     constructor() {
@@ -19,7 +20,19 @@ class NoteCreator extends React.Component {
         this.state = {
             title: '',
             textBody: '',
+            id: '',
         }    
+    }
+
+    componentDidMount() {
+        let focusId = this.props.match.params.id;
+        let focusNote = this.props.notes.find(note => note._id === focusId);
+        // TO DO: Handle bad note ids (note not found)
+        this.setState({
+            title: focusNote.title,
+            textBody: focusNote.textBody,
+            id: focusNote._id,
+        });
     }
 
     //-- Rendering -----------------------------------
@@ -27,7 +40,7 @@ class NoteCreator extends React.Component {
         return (
             <React.Fragment>
                 <ActionBar />
-                <h2>Create New Note:</h2>
+                <h2>Edit Note:</h2>
                 <form className="note-creator" onSubmit={this.handleSubmit}>
                     <input
                         type="text"
@@ -65,11 +78,13 @@ class NoteCreator extends React.Component {
         // Generate note data and clear state
         let noteData = Object.assign({}, this.state);
         this.clearState();
-        // Send to server as new note
-        this.props.addNote(noteData);   
+        // Send server updated note info
+        this.props.updateNote(noteData);   
         /* else{ // Update Notes
             this.props.updateNote(NoteData);
         }*/
+        // Redirect to view updated note
+        this.props.history.push(`/note/${noteData.id}`);
     }
 
     //-- Utility Methods -----------------------------
@@ -77,6 +92,7 @@ class NoteCreator extends React.Component {
         this.setState({
             title: '',
             textBody: '',
+            id: '',
         });
     }
 }
@@ -87,13 +103,17 @@ class NoteCreator extends React.Component {
 function mapStateToProps(state) {
     return {
         ready: !state.fetching,
+        notes: state.notes,
     };
 }
-NoteCreator = connect(mapStateToProps, {
-    addNote: actions.addNote,
+NoteEditor = connect(mapStateToProps, {
+    updateNote: actions.updateNote,
     //updateNote: actions.updateNote,
     notReady: actions.notReady,
-})(NoteCreator);
+})(NoteEditor);
+
+//-- Router Coupling -----------------------------
+NoteEditor = withRouter(NoteEditor);
 
 //-- Exporting -----------------------------------
-export default NoteCreator;
+export default NoteEditor;

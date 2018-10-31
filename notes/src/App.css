@@ -62,7 +62,22 @@ h1, h2 {
 .app .view h2 {
   font-size: 3rem;
   font-weight: bold;
-  margin: 10rem 0 3rem 0;
+  margin: 3rem 0 3rem 0;
+}
+.action-bar {
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+.action-bar a {
+  cursor: pointer;
+  margin: 0 1rem;
+  text-decoration: underline;
 }
 
 

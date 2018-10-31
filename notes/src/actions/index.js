@@ -15,7 +15,7 @@ export const FETCH_ERROR    = ++actionIndex;
 export const NOT_READY      = ++actionIndex;
 export const NOTES_RESPONSE = ++actionIndex;
 export const GET_NOTES      = ++actionIndex;
-export const FOCUS_NOTE     = ++actionIndex;
+export const UPDATE_NOTE    = ++actionIndex;
 
 
 //== Action Generators =========================================================
@@ -69,12 +69,20 @@ export function addNote(noteData) {
     }
 }
 
-//-- FOCUS_NOTE - Agent request to view a specific note
-export function focusNote(id) {
-    return {
-        type: FOCUS_NOTE,
-        id: id,
-    };
+//-- (null) - Agent submits changes to a note
+export function updateNote(noteData) {
+    return function (dispatch) {
+        dispatch({type: FETCHING});
+        let noteUrl = `note/edit/${noteData.id}`
+        axios.put(server.formatUrl(noteUrl), noteData)
+        .then(response => {
+            console.log(response)
+            dispatch(getNotes())
+        })
+        .catch(error => {
+            console.log(error)
+        });
+    }
 }
 
 //== Utilities =================================================================

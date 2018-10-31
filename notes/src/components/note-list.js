@@ -7,6 +7,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Note from './note.js';
+import ActionBar from './action-bar.js';
 
 
 //== Component =================================================================
@@ -28,6 +29,7 @@ class NoteList extends React.Component {
         }
         return (
             <React.Fragment>
+                <ActionBar />
                 <h2>Your Notes:</h2>
                 <div className={classText}>
                     {loadNotifier}
@@ -35,7 +37,6 @@ class NoteList extends React.Component {
                         <Note
                             key={note._id}
                             note={note}
-                            onClick={this.focusHandler}
                         />
                     ))}
                 </div>
@@ -44,10 +45,6 @@ class NoteList extends React.Component {
     }
 
     //-- Interaction ---------------------------------
-    focusHandler = eventClick => {
-        let focusId = eventClick.currentTarget.dataset.id;
-        this.props.focusNote(focusId);
-    }
 }
 
 
@@ -62,7 +59,6 @@ function mapStateToProps(state) {
 }
 NoteList = connect(mapStateToProps, {
     getNotes: actions.getNotes,
-    focusNote: actions.focusNote,
 })(NoteList);
 
 //-- Exporting -----------------------------------
