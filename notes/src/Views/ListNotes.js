@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-
-import Note from '../components/Note'
+import React, { Component } from "react";
+import { Link } from 'react-router-dom';
+import Note from "../components/Note";
 
 import "../styles/Styles.css";
 
@@ -9,13 +9,14 @@ class ListNotes extends Component {
     return (
       <div className="view note-list">
         {this.props.notes.map(note => (
-          <Note
-            key={note._id}
-            id={note._id}
-            title={note.title}
-            content={note.textBody}
-            tags={note.tags}
-          />
+          <Link to={`/${note._id}`} key={note._id}>
+            <Note
+              id={note._id}
+              title={note.title}
+              content={note.textBody}
+              tags={note.tags}
+            />
+          </Link>
         ))}
       </div>
     );
