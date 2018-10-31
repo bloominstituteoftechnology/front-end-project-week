@@ -16,7 +16,7 @@ export const getData = () => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .get('https://lambda-notes-board.herokuapp.com/api/notes')
+      .get('https://obscure-waters-68420.herokuapp.com/api/notes')
       .then(response => {
         console.log(response);
         dispatch({ type: GET_DATA, payload: response.data });
@@ -29,7 +29,7 @@ export const getANote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .get(`https://lambda-notes-board.herokuapp.com/api/notes/${id}`)
+      .get(`https://obscure-waters-68420.herokuapp.com/api/notes/${id}`)
       .then(response => dispatch({ type: GET_A_NOTE, payload: response.data }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -39,7 +39,7 @@ export const addNote = note => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .post('https://lambda-notes-board.herokuapp.com/api/notes', note)
+      .post('https://obscure-waters-68420.herokuapp.com/api/notes', note)
       .then(response =>
         dispatch({
           type: ADD_NOTE,
@@ -58,7 +58,7 @@ export const deleteNote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .delete(`https://lambda-notes-board.herokuapp.com/api/notes/${id}`)
+      .delete(`https://obscure-waters-68420.herokuapp.com/api/notes/${id}`)
       .then(response => dispatch({ type: DELETE_NOTE, id }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -69,7 +69,7 @@ export const editNote = note => {
     dispatch({ type: FETCH_DATA });
     axios
       .put(
-        `https://lambda-notes-board.herokuapp.com/api/notes/${note._id}`,
+        `https://obscure-waters-68420.herokuapp.com/api/notes/${note._id}`,
         note
       )
       .then(response =>
