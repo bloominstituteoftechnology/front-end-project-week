@@ -24,11 +24,13 @@ class SingleNote extends React.Component{
                     <h1 onClick={this.handleShowMessageClick
                     }>Delete</h1>
                 </div>
-                <h1 className="single-title">
-                    {this.props.note && this.props.note.title}
+                <h1 onClick={(ev)=> {this.props.goToEditForm(ev, this.props.note._id)
+                    this.props.history.push(`/edit-Note/${this.props.note._id}`)}} className="single-title">
+                    { this.props.note.title}
                 </h1>
-                <p className="single-para">
-                    {this.props.note && this.props.note.textBody}
+                <p onClick={(ev)=> {this.props.goToEditForm(ev, this.props.note._id)
+                    this.props.history.push(`/edit-Note/${this.props.note._id}`)}} className="single-para">
+                    { this.props.note.textBody}
                 </p>
                 {this.state.showModal ? (
                 <DeleteModal onClose={this.handleCloseModal} note={this.props.note} deleteNote={this.props.deleteNote}>
