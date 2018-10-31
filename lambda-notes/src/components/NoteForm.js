@@ -27,6 +27,9 @@ class NoteForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
+    if (!this.state.note.title && !this.state.note.textBody) {
+      return alert('Missing Information');
+    }
     this.props.addNote(this.state.note);
     this.props.history.push('/');
   };
@@ -37,6 +40,7 @@ class NoteForm extends Component {
       <form className="noteForm">
         <h2>Create New Note:</h2>
         <input
+          required
           type="text"
           name="title"
           placeholder="Note Title"
@@ -45,6 +49,7 @@ class NoteForm extends Component {
           onChange={this.changeHandler}
         />
         <textarea
+          required
           type="text"
           name="textBody"
           placeholder="Note Content"

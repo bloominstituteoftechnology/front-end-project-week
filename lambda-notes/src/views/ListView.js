@@ -17,7 +17,7 @@ class ListView extends Component {
 
   search = searchTerm => {
     const searchedNotes = this.props.notes.filter(note =>
-      note.title.includes(searchTerm)
+      note.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     return searchedNotes;
   };
