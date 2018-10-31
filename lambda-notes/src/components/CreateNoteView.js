@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { LeftBar, StyledLink, ContainCards, NotesH2, CardList, TitleH1 } from "../Styles";
 
 
 class CreateNoteView extends React.Component {
@@ -40,6 +41,11 @@ class CreateNoteView extends React.Component {
      render() {
         return(
             <div>
+              <LeftBar>
+          <TitleH1>Lambda Notes</TitleH1>
+          <StyledLink to={"/"}>View Your Notes</StyledLink>
+          <StyledLink to={"/note/create"}>Add New Note</StyledLink>
+        </LeftBar>
                 <form onSubmit={this.handleSubmit}>
                     <h1>New Note</h1>
                     <input 
