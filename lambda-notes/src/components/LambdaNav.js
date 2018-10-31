@@ -13,6 +13,10 @@ constructor(props){
   }
 }
 
+reset = event =>{
+  event.preventDefault()
+  window.location.reload()
+}
 
 
 handleInputChange = event => {
@@ -30,7 +34,7 @@ return (
   </div>
 
     <div className='SearchBar'>
-      
+
   <label>Search By Title</label>
   <input name='SearchTitle' onChange={this.handleInputChange}  value={this.state.SearchTitle} placeholder= 'Search'/>
   <Button onClick = {this.props.filterNotes(this.state.SearchTitle)}>Search</Button>
@@ -43,9 +47,8 @@ return (
   <NavLink to='/CreateNote'>
     <Button>+ Create New Note</Button>
   </NavLink>
-
+<Button onClick = {this.reset}>Reset</Button>
 </nav>
-
 </div>
 );
 

@@ -190,6 +190,8 @@ nav h1{
 
   }
   .App{
+    width: 1000px;
+
     z-index: -100;
   }
 }
