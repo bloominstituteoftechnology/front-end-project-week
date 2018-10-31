@@ -5,7 +5,8 @@
     border-radius: 5px;
     margin: 200px auto;
     background: #D3D2D3;
-    border: 0.5px solid black;
+    border: 0.5px solid darkgray;
+    box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
 }
 
 .login-button {
