@@ -74,7 +74,7 @@ axios
     message:response.data.success,
   }, );
 
-}, this.props.history.push(`/notes/${id}`),window.location.reload(),
+}, this.props.history.push(`/`),window.location.reload(),
 console.log(this.state.message),)
 .catch(err => {
   console.log(err)
@@ -126,7 +126,7 @@ noteTaking(id)
     },
       () => {
 console.log(this.state.message);
-        this.props.history.push(`/notes/${id}`);
+        this.props.history.push(`/notes/${id}`),window.location.reload();
 
       }
 

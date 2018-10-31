@@ -37,7 +37,7 @@ border: 1px solid #696565;
 height: 100vh;
 width: 20vw;
 top: 0;
-z-index: -1;
+z-index: 2000;
 
 }
 .cover{
@@ -81,21 +81,25 @@ float: right;
 Padding: 50px;
 border:  1px solid #696565;
 justify-content: space-between;
-box-shadow:5px 12px 18px 7px #4b408a;
+box-shadow: 0px 4px 20px 0px #242231;
 text-align: center;
-height: 402px;
+height: 202px;
 order: 3;
 overflow:hidden;
 display: flex;
 margin: 50px 50px 50px 50px;
 width: 202px;
-height: 402px;
-padding-left: 0px;
+height: 202px;
+padding-left: 15px;
 padding-right: 0px;
 padding-bottom: 0px;
 padding-top: 0px;
 border-radius: 10px;
 margin-top: 100px;
+margin-right: 5px;
+margin-left: 20px;
+
+
 }
 .NoteContainer:hover{
   background-color:#26b8bd;
@@ -125,6 +129,8 @@ left: 0;
   z-index: -20;
   position: absolute;
       left: 200px;
+      top: 0px;
+left: 220px;
 }
 .FormContainer form{
   justify-content: center;
@@ -152,14 +158,7 @@ color: black;
 
 }
 .SearchBar{
-border:1px solid #696565;
-padding-top: 10px;
-padding-bottom: 10px;
-position:fixed;
-width: 100%;
-z-index: -1;
-top: 0;
-background-color: #d3d2d3;
+
 }
 h2{
 margin-left: 600px;
@@ -181,14 +180,17 @@ nav h1{
   }
   nav{
     height: 100%;
-    z-index: 1;
+      z-index: 2000;
   }
   .NoteContainer{
 
   }
 
   .SearchBar{
-    padding-left: 100px;
+
+  }
+  .App{
+    z-index: -100;
   }
 }
 .SearchBar input{

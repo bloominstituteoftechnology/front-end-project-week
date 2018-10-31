@@ -8,30 +8,19 @@ constructor(props){
 }
 
 
-state ={
- SearchTitle:'',
-
-}
 
 
 
 
-handleInputChange = event => {
-  this.setState({ [event.target.name]: event.target.value });
-};
+
+
 
 
 render(){
 
   return (
 
-  <div >
-    <div className='SearchBar'>
-      <label className='LambdaNavLogo'>Lamda Notes</label>
-  <label>Search By Title</label>
-  <input name='SearchTitle' onChange={this.handleInputChange}  value={this.state.SearchTitle} placeholder= 'Search'/>
-  <Button onClick = {this.props.filterNotes(this.state.SearchTitle)}>Search</Button>
-   </div>
+
 
 
 
@@ -50,7 +39,7 @@ render(){
    )
  })}
 </div>
-</div>
+
 
 )
 }
