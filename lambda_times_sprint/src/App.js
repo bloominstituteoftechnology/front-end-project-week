@@ -18,6 +18,29 @@ var lock = new Auth0Lock(
   process.env.REACT_APP_DOMAIN_URL
 );
 
+// to deal with tokens
+var webAuth = new auth0.WebAuth({
+  domain: process.env.REACT_APP_DOMAIN_URL,
+  clientID: process.env.REACT_APP_CLIENT_ID,
+  redirectUrl: "http://localhost:3000/callback"
+});
+
+// parses out authentication result
+webAuth.parseHash((err, authResult) => {
+  if (authResult) {
+    // Save the tokens from the authResult in local storage or a cookie
+    console.log("AUTH RESULT: ", authResult);
+    let expiresAt = JSON.stringify(
+      authResult.expiresIn * 1000 + new Date().getTime()
+    );
+    localStorage.setItem("access_token", authResult.accessToken);
+    localStorage.setItem("expires_at", expiresAt);
+  } else if (err) {
+    // Handle errors
+    console.log(err);
+  }
+});
+
 class App extends Component {
   state = {
     tags: [],
@@ -32,7 +55,7 @@ componentDidMount() {
 // allows us to get all the notes data from the API
 fetchNotes = ()=> {
   // axios.get('https://killer-notes.herokuapp.com/note/get/all')
-  axios.get('http://localhost:9900/api/')
+  axios.get('http://localhost:9900/api/notes')
       .then(response => {
         // console.log(response);
         this.setState({ tags: response.data });
@@ -74,7 +97,7 @@ fetchNotes = ()=> {
             >Log In</div>
           <ul className="navbar">
           <li>
-            <NavLink exact to="/" activeClassName="activeNavButton">
+            <NavLink exact to="/notes" activeClassName="activeNavButton">
               View Your Notes
             </NavLink>
           </li>
@@ -87,7 +110,7 @@ fetchNotes = ()=> {
         <div className="notes-section">
         <Route
           exact
-          path="/"
+          path="/notes"
           render={props => (
             <NotesList {...props} notesList={this.state.tags} />
           )}
