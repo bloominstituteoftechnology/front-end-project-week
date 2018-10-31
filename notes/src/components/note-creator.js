@@ -7,6 +7,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 import ActionBar from './action-bar.js';
+import {withRouter} from 'react-router-dom'
 
 
 //== Component =================================================================
@@ -19,8 +20,19 @@ class NoteCreator extends React.Component {
         this.state = {
             title: '',
             textBody: '',
+
         }    
     }
+    /*componentDidMount() {
+        let focusId = this.props.match.params.id;
+        let focusNote = this.props.notes.find(note => note._id === focusId);
+        // TO DO: Handle bad note ids (note not found)
+        this.setState({
+            title: focusNote.title,
+            textBody: focusNote.textBody,
+            id: focusNote._id,
+        });
+    }*/
 
     //-- Rendering -----------------------------------
     render() {
@@ -28,7 +40,7 @@ class NoteCreator extends React.Component {
             <React.Fragment>
                 <ActionBar />
                 <h2>Create New Note:</h2>
-                <form className="note-creator" onSubmit={this.handleSubmit}>
+                <form className="note-editor" onSubmit={this.handleSubmit}>
                     <input
                         type="text"
                         onChange={this.handleInputChange}
@@ -70,6 +82,8 @@ class NoteCreator extends React.Component {
         /* else{ // Update Notes
             this.props.updateNote(NoteData);
         }*/
+        // Redirect to view updated note
+        this.props.history.push(`/note/${noteData.id}`);
     }
 
     //-- Utility Methods -----------------------------
@@ -77,6 +91,7 @@ class NoteCreator extends React.Component {
         this.setState({
             title: '',
             textBody: '',
+
         });
     }
 }
@@ -87,6 +102,7 @@ class NoteCreator extends React.Component {
 function mapStateToProps(state) {
     return {
         ready: !state.fetching,
+
     };
 }
 NoteCreator = connect(mapStateToProps, {
@@ -94,6 +110,9 @@ NoteCreator = connect(mapStateToProps, {
     //updateNote: actions.updateNote,
     notReady: actions.notReady,
 })(NoteCreator);
+
+//-- Router Coupling -----------------------------
+NoteCreator = withRouter(NoteCreator);
 
 //-- Exporting -----------------------------------
 export default NoteCreator;

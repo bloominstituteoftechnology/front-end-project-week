@@ -7,7 +7,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 import ActionBar from './action-bar.js';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
 
 
 //== Component =================================================================
@@ -23,7 +23,6 @@ class NoteEditor extends React.Component {
             id: '',
         }    
     }
-
     componentDidMount() {
         let focusId = this.props.match.params.id;
         let focusNote = this.props.notes.find(note => note._id === focusId);
@@ -41,7 +40,7 @@ class NoteEditor extends React.Component {
             <React.Fragment>
                 <ActionBar />
                 <h2>Edit Note:</h2>
-                <form className="note-creator" onSubmit={this.handleSubmit}>
+                <form className="note-editor" onSubmit={this.handleSubmit}>
                     <input
                         type="text"
                         onChange={this.handleInputChange}
@@ -55,7 +54,7 @@ class NoteEditor extends React.Component {
                         value={this.state.textBody}
                         name="textBody"
                     />
-                    <button className="button">Save</button>
+                    <button className="button">Update</button>
                 </form>
             </React.Fragment>
         );
