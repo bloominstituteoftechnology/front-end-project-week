@@ -12,16 +12,19 @@ const useInputValue = (initialValue) => {
 
 export const Form = ({ onSubmit, action }) => {
   const title = useInputValue("");
-  const body = useInputValue("")
+  const textBody = useInputValue("")
 
   return (
     <div className="note-form">
       <form onSubmit={e => {
         e.preventDefault();
-        onSubmit()
+        onSubmit({
+          title: title.value,
+          textBody: textBody.value
+        })
       }}>
         <input {...title} />
-        <input {...body} />
+        <input {...textBody} />
         <button type="submit">{action}</button>
       </form>
     </div>

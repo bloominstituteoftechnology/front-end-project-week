@@ -43,9 +43,30 @@ class App extends Component {
         this.setState({
           notes: data.data
         })
-          .catch(err => {
-            console.log(err)
-          })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  createNote = note => {
+    axios
+      .post(URL + '/note/create', note)
+      .then(data => {
+        console.log('create note', data)
+        const newNote = {
+          id: data.data.success,
+          title: note.title,
+          textBody: note.textBody
+        }
+        this.setState(prev => {
+          return {
+            notes: [...prev.notes, newNote]
+          } 
+        })
+      })
+      .catch(err => {
+        console.log(err)
       })
   }
   findNote = (id) => {
@@ -84,7 +105,13 @@ class App extends Component {
           />
           <Route 
             path='/create'
-            component={CreateNoteView}/>
+            render={props => (
+              <CreateNoteView 
+                {...props}
+                onSubmit={this.createNote}  
+              />
+            )}
+          />
           <Route
             exact
             path='/'
