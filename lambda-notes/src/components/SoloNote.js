@@ -10,7 +10,7 @@ const NoteBox = styled.div`
   margin: 23px 14px 0 0;
   padding: 12px 15px 28px;
   position: relative;
-  width: 100%;
+  width: 500px;
   word-wrap: break-word;
   max-width: 750px;
   h5 {
@@ -27,6 +27,10 @@ const NoteBox = styled.div`
     overflow: hidden;
     padding-bottom: 10px;
   }
+  .note-display{
+    display: flex;
+    flex-direction: column;
+  }
   .note-control {
     position: absolute;
     top: -30px;
@@ -39,6 +43,37 @@ const NoteBox = styled.div`
       cursor: pointer;
     }
   }
+  .delete-modal{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 25;
+    background: #D3D2D3a6;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    .delete-box{
+      width:530px;
+      height: 178px;
+      border: 1px solid #AFAFAF;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 167px;
+      h4{
+        margin: 15px;   
+        font-size: 16px;
+      }
+      .button-row{
+        width:400px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
 `;
 
 class SoloNote extends React.Component {
@@ -48,7 +83,8 @@ class SoloNote extends React.Component {
       title: "",
       textBody: "",
       tags: [],
-      formView: false
+      formView: false,
+      deleteView:false
     };
   }
 
@@ -68,6 +104,10 @@ class SoloNote extends React.Component {
     this.setState({ formView: !this.state.formView });
   };
 
+  toggleDelete = () =>{
+    this.setState({deleteView: !this.state.deleteView})
+  }
+
   changeHandler = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
@@ -85,7 +125,6 @@ class SoloNote extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     if (this.state.message || this.state.errorMessage) {
       this.props.history.push("/");
     }
@@ -94,13 +133,13 @@ class SoloNote extends React.Component {
         <div className={this.state.title ? "none" : ""}>
           <h3>Fetching Note</h3>
         </div>
-        <div className={this.state.formView ? "none" : ""}>
+        <div className={this.state.formView ? "none" : "note-display"}>
           <h5>{this.state.title}</h5>
           <p>{this.state.textBody}</p>
         </div>
         <div className="note-control">
           <p onClick={this.toggleForm}>edit</p>
-          <p onClick={this.deleteHandler}>delete</p>
+          <p onClick={this.toggleDelete}>delete</p>
         </div>
         <div className={this.state.formView ? "" : "none"}>
           <Form
@@ -108,6 +147,16 @@ class SoloNote extends React.Component {
             submitHandler={this.submitHandler}
             changeHandler={this.changeHandler}
           />
+        </div>
+        <div className={this.state.deleteView ? 'delete-modal': 'none'}>
+        <div className='delete-box'>
+          <h4>Are you sure you want to delete this?</h4>
+          <div className='button-row'>
+          <div onClick={this.deleteHandler} className='button delete'>Delete</div>
+          <div onClick={this.toggleDelete} className='button'>No</div>
+          </div>
+        </div>
+        
         </div>
       </NoteBox>
     );
