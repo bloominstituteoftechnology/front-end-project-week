@@ -40,3 +40,7 @@
     margin-right: 20px;
     text-decoration: underline;
 }
+
+.noteOptions:hover {
+    color: blue;
+}
