@@ -25,7 +25,9 @@ class CreateView extends Component {
       title: "",
       textBody: "",
       tags: []
-    });
+    } );
+    this.props.history.push('/')
+    
   };
   render() {
     return (
@@ -37,6 +39,8 @@ class CreateView extends Component {
     );
   }
 }
+
+
 
 export default connect(
   null,

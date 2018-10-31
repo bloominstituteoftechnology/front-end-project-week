@@ -11,6 +11,7 @@ const StyledBar = styled.div `
     padding: 22px 14px;
     box-sizing:border-box;
     position:fixed;
+    z-index: 5;
     h1{
         font-size: 36px;
         font-weight: bold;

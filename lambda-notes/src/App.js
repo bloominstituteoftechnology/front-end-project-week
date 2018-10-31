@@ -20,7 +20,6 @@ const AppContainer = styled.div`
 
 class App extends React.Component {
   render() {
-    console.log(window.location.pathname.slice(7));
     return (
       <AppContainer>
         <Route path="/" component={SideBar} />
@@ -31,12 +30,10 @@ class App extends React.Component {
             <Route
               path="/notes/:id"
               render={props => {
-                console.log(props.match.params.id);
                 return (
                   <SoloNote
                     {...props}
                     id={props.match.params.id}
-                    note={{ title: "here", textBody: "present" }}
                   />
                 );
               }}

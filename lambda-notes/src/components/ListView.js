@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { fetchNotes } from "../actions";
+import { fetchNotes, toggleDeleted, toggleAdded } from "../actions";
 import {  NavLink } from "react-router-dom";
 import Note from "./Note";
 
 
 const NoteList = styled.div`
+  
   display: flex;
   flex-wrap: wrap;
   h3{
@@ -21,6 +22,15 @@ class ListView extends Component {
   }
 
   render() {
+    if(this.props.noteAdded || this.props.noteDeleted){
+      setTimeout(this.props.fetchNotes(),500)
+      if (this.props.noteAdded){
+        this.props.toggleAdded()
+      }else{this.props.toggleDeleted()}
+       
+      
+      
+    }
     return (
       
           <NoteList>
@@ -50,11 +60,14 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     gettingNotes: state.gettingNotes,
-    error: state.error
+    error: state.error,
+    addingNote: state.addingNote,
+    noteAdded: state.noteAdded,
+    noteDeleted: state.noteDeleted
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchNotes }
+  { fetchNotes, toggleDeleted, toggleAdded}
 )(ListView);
