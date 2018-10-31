@@ -37,7 +37,19 @@ export const Button = styled.button`
   }
 `
 
+export const DeleteButton = styled(Button)`
+  background: #D50000;
+
+  &: hover {
+    background: #820202;
+  }
+`
+
 export const SearchInput = styled.input`
   padding: 10px 5px;
   font-size: 1.6rem;
+`
+
+export const HR = styled.div`
+  border: 2.5px solid grey;
 `

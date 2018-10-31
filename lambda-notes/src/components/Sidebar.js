@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Title, Button, SearchInput } from '../styles/Sidebar'
+import {
+  Container,
+  Title,
+  Button,
+  SearchInput,
+  HR,
+  DeleteButton
+} from '../styles/Sidebar'
 
 const numToAdd = 5
 
@@ -38,13 +45,18 @@ class Sidebar extends Component {
         <Link to="/add">
           <Button>+ Create New Note</Button>
         </Link>
+        <HR />
         <Button onClick={checkAll}>Check all notes</Button>
         <Button onClick={clearAllChecked}>Uncheck all notes</Button>
-        <Button onClick={deleteAllChecked}>Delete all checked</Button>
+        <HR />
         <Button onClick={() => bulkAddNotes(numToAdd)}>
           Add {numToAdd} notes
         </Button>
         <Button onClick={removeSelfAdded}>Remove self added</Button>
+        <HR />
+        <DeleteButton onClick={deleteAllChecked}>
+          Delete all checked
+        </DeleteButton>
       </Container>
     )
   }
