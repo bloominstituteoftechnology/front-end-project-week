@@ -31,9 +31,9 @@ export const getNotes = () => {
           dispatch({ type: ERROR, payload: err });
         });
     };
-  };
+};
   
-  export const createNote = newNote => {
+export const createNote = newNote => {
     console.log('createNote fired');
     console.log(newNote);
     return dispatch => {
@@ -49,5 +49,15 @@ export const getNotes = () => {
           dispatch({ type: ERROR, payload: err });
         });
     };
-  };
+};
+
+export const deleteNote = () => {
+
+};
+
+export const editNote = () => {
+
+};
+
+
 

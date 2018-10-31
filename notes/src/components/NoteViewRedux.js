@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import axios from '../../node_modules/axios';
-import { getNotes } from '../actions';
+import { getNotes, deleteNote, editNote } from '../actions';
 
 class NoteView extends Component {
     constructor(props) {
