@@ -60,7 +60,9 @@ class App extends Component {
 
           <Route
             path="/note/get/:id"
-            render={props => <Note {...props} wtf={this.state.test} />}
+            render={props => (
+              <Note {...props} wtf={this.state.test} notes={this.state.notes} />
+            )}
           />
 
           {/* <Route

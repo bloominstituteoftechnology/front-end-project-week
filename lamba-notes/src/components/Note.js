@@ -3,12 +3,13 @@
 // class Note extends React.Component {
 //   constructor(props) {
 //     super(props);
-//     this.state = {
-//       user: {}
-//     };
+//     this.state = {};
 //   }
 
-//   componentDidMount() {}
+//   componentDidMount() {
+//     let id = props.match.params.id;
+//     console.log(id);
+//   }
 
 //   render() {
 //     return (
@@ -21,12 +22,20 @@
 // }
 
 // export default Note;
+
 import React from "react";
 
 const Note = props => {
-  console.log(props);
   console.log(props.wtf);
-  return <h1>{props.wtf}</h1>;
+
+  let id = props.match.params.id;
+
+  console.log(id);
+  return (
+    <div>
+      <h1>{props.wtf}</h1>
+    </div>
+  );
 };
 
 export default Note;
