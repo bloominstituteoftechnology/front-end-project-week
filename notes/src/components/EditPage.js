@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
-import { updateNote } from '../actions';
+import { fetchNote, updateNote } from '../actions';
 
 class EditPage extends Component {
     constructor() {
@@ -15,11 +15,12 @@ class EditPage extends Component {
     }
 
     componentDidMount() {
-        const currentNote = this.props.notes.find(note => note._id === this.props.match.params.id)
-        this.setState({
-            title: currentNote.title,
-            textBody: currentNote.textBody,
-            id: currentNote._id
+        this.props.fetchNote(this.props.match.params.id).then(() => {
+            this.setState({
+                title: this.props.note.title,
+                textBody: this.props.note.textBody,
+                id: this.props.note._id
+            })
         })
     }
 
@@ -54,8 +55,9 @@ class EditPage extends Component {
 
 const mapStateToProps = state => { 
     return {
-        notes: state.notes,
+        note: state.note,
+        fetching: state.fetching
     };
 };
 
-export default connect(mapStateToProps, { updateNote })(EditPage);
+export default connect(mapStateToProps, { fetchNote, updateNote })(EditPage);

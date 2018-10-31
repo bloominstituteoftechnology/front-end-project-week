@@ -28,6 +28,8 @@ html {
         }
     }
     .current-page {
+        width: 80%;
+        min-height: 100vh;
         margin-left: 20%;
         padding: 10px 30px;
         background-color: @light-grey;
@@ -46,9 +48,7 @@ html {
         flex-wrap: wrap;
         a {
             text-decoration: none;
-            // word-break: break-all;
-            // overflow: hidden;
-            // text-overflow: ellipsis;
+            padding: 10px 0;
             color: black;
         }
     }
@@ -77,6 +77,35 @@ html {
         text-overflow: ellipsis;
         hyphens: auto;
         -moz-hyphens: auto;
-        padding: 10px 0;
+        // padding: 10px 0;
+    }
+}
+
+.note-page {
+    .flex(space-between, flex-start, column);
+    .note-btns {
+        align-self: flex-end;
+        .flex(space-evenly, center, row);
+        margin: 10px 30px;
+        .note-btn {
+            font-size: 1.8rem;
+            text-decoration: underline;
+            color: black;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    }
+    .full-note {
+        margin: 10px;
+        .full-title {
+            font-size: 4rem;
+            font-weight: 600;
+            color: @dark-grey;
+        }
+        .full-body {
+            font-size: 2rem;
+            color: @dark-grey;
+            margin-top: 30px;
+        }
     }
 }

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, Link } from 'react-router-dom';
 import { fetchNote, fetchNotes, deleteNote } from '../actions';
-import Note from './Note';
 
 class NotePage extends Component {
     constructor() {
@@ -28,10 +27,13 @@ class NotePage extends Component {
         (
             <div className='note-page'>
                 <div className='note-btns'>
-                    <Link to={`/${id}/edit`}>Edit</Link>
-                    <div className='note-btn' onClick={() => this.deleteNote(id)}>Delete</div>
+                    <Link className='note-btn' to={`/${id}/edit`}>edit</Link>
+                    <div className='note-btn' onClick={() => this.deleteNote(id)}>delete</div>
                 </div>
-                <Note note={this.props.note}/>
+                <div className="full-note">
+                    <div className="full-title">{this.props.note.title}</div>
+                    <div className="full-body">{this.props.note.textBody}</div>
+                </div>
             </div>
             
         )

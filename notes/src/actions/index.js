@@ -23,7 +23,7 @@ export const fetchNotes = () => dispatch => {
 
 export const fetchNote = (id) => dispatch => {
     dispatch({ type: FETCHING });
-    axios
+    return axios
         .get(`${url}/get/${id}`)
         .then(response => {
             dispatch({ type: FETCHONE, payload: response.data });
