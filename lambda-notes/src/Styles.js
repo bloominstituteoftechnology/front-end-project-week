@@ -192,6 +192,7 @@ export const EditNoteLink = styled.p`
   display: inline-flex;
   margin-left: 85%;
   text-decoration-line: underline;
+  cursor: pointer;
 `;
 
 export const DeleteNoteLink = styled.p`
@@ -200,6 +201,7 @@ export const DeleteNoteLink = styled.p`
   margin-left: 2%;
   display: inline-flex;
   text-decoration-line: underline;
+  cursor: pointer;
 `;
 
 export const EditFormH1 = styled.h1`

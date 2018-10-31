@@ -1,32 +1,53 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f2f1f2;
+}
+.show {
+  display: block !important;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.modal {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(216, 216, 216, 0.38);
+  z-index: 10;
+  justify-content: center;
+  align-self: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.innerModal {
+  background: #FBFAFB;
+  padding: 20px;
+  color: black;
+  font-size: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  width: 600px;
+  height: 208px;
+  margin-left: 29%;
+  margin-top: 15%;
+  margin-bottom: 35px;
+}
+ 
+
+.btnRed {
+  background-color: #CA001A;
   color: white;
+  width: 202px;
+  height: 42px;
+  margin-right: 22px;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnAqua {
+  background-color: #24B8BD;
+  color: white;
+  width: 202px;
+  height: 42px;
+  font-weight: bold;
 }
