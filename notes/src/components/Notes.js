@@ -5,7 +5,7 @@ import Note from './Note';
 class Notes extends Component {
   render() {
     return (
-      <div>
+      <div className="notes-container">
         {this.props.notes.map(note => {
             return (
                 <div className="notes" key={note._id}>

@@ -21,7 +21,7 @@ import React, { Component } from 'react';
             this.setState({
                 title: '',
                 content: ''
-            }, () => this.props.history.replace('/'))
+            }, () => this.props.history.push('/'))
             
         }
         render() {
@@ -29,7 +29,7 @@ import React, { Component } from 'react';
         return (
             <form onSubmit={this.addNote}>
                 <input type="text" name="title" onChange={this.handleChange} value={this.state.title} required></input>
-                <input type="text" name="content" onChange={this.handleChange} value={this.state.content} required></input>
+                <textarea name="content" onChange={this.handleChange} value={this.state.content} required></textarea>
                 <button>Add a Note</button>
             </form>
         )

@@ -26,45 +26,83 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .nav-bar {
   box-sizing: border-box;
-  width: 25%;
-
+  width: 20%;
+  overflow-x: hidden;
   padding: 0px 1%;
-  background-color: #1a1a1a;
- 
+  background-color: #ab2317;
+  
 }
 
 .nav-bar a {  
-  background-color: #00ced1;
-  width: 30%;
-  height: 45px;
-  margin-right: 40%;
+  background-color: #e6e6e6;;
+  width: 35%;
+  text-overflow: ellipsis;
   margin-bottom: 20px;
-  border: 1px solid grey;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
+  color: #ccc;;
+  font-size: 1rem;
   width: 98%;
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
 
-/* 
-.nav-bar{
+.nav-items-container {
+  padding-top: 30px;
+}
+
+ .top-nav { 
+   background-image: url('https://image.ibb.co/mV5AdL/Copy-of-Copy-of-Copy-of-LIKHABOUTIQUE-2.png'); 
+   background-repeat: no-repeat;
+  height: 80px;
+  display: block;
+  background-color: #ab2317;
+  width: 100%;
+  display: block;
+  background-origin: content-box;
+  display: flex;
+  justify-content: center;
+  PADDING-TOP: 50PX
+
+
+} 
+
+form {
+  width: 60%;
+  margin: 1rem auto;
+  border: 1px solid #b2bec3;
+  border-radius: 8px;
+  padding: 20px;
+
+}
+
+.note-form label {
+  font-size: 24px;
+}
+ .note-container {
+  width: 60%;
+  margin: 1rem auto;
+}
+
+a:hover {
+  color: #2d3436;
+}
+
+.note-form {
+  width: 60%;
+  margin: 1rem auto;
+}
+
+/* background-image: url('https://image.ibb.co/ihqha0/Copy-of-Copy-of-Copy-of-LIKHABOUTIQUE-2.png'); */
+
+ 
+/* .nav-bar{
   background-image: url('https://image.ibb.co/jE6tV0/lambdanotes.png');
   background-repeat: no-repeat;
   height: 80px;
@@ -77,3 +115,17 @@
   padding: 50px;
 
 } */
+
+.notes-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+.notes{
+width: 21.22%;
+justify-content: space-evenly;
+ padding: 20px;
+ border: 1px solid black;
+}
