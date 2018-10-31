@@ -25,7 +25,7 @@ class AddNote extends Component {
         axios
           .post('https://fe-notes.herokuapp.com/note/create', newNote)
           .then(response => {
-            console.log('ADDING SMURF', response);
+            console.log('ADDING', response);
             this.props.changeState(response.data)
           })
           .catch(err =>

@@ -44,12 +44,16 @@
     font-size: 1.8rem;
     margin: 10px 0;
     display: -webkit-box;
+    -webkit-box-orient: vertical;
     width: 100%;
     line-height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 6;
+    /* autoprefixer: off */
     -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    
 }
 
 .note-links{

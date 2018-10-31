@@ -94,25 +94,27 @@ class Note extends Component {
 
     render() {
         if (!this.state.note) {
-            return <div> Loading Note...</div>
+            return <div className='loading-note'> Loading Note...</div>
         }
         console.log('NOTES maybe', this.state);
         return (
-            <div>
-                <p onClick={this.openEditForm}>edit </p>
-                <DeleteModal deleteNote={this.deleteNote} />
+            <div className='single-note-view'>
+                <div className='edit-delete'>
+                    <p onClick={this.openEditForm}>edit </p>
+                    <DeleteModal deleteNote={this.deleteNote} />
+                </div>
+                <div className='note-title-body'>
+                    {this.state.noteEditor ? (
+                        <EditNote notes={this.state.note}
+                            saveEdits={this.saveEdits}
+                            editHandler={this.editHandler}
+                        />
+                    ) : (<h1>{this.state.note.title}
+                    </h1>)}
 
-                {this.state.noteEditor ? (
-                    <EditNote notes={this.state.note}
-                        saveEdits={this.saveEdits}
-                        editHandler={this.editHandler}
-                    />
-                ) : (<h1>{this.state.note.title}
-                </h1>)}
-
-                {this.state.noteEditor ? null :
-                    <p> {this.state.note.textBody}</p>}
-
+                    {this.state.noteEditor ? null :
+                        <p> {this.state.note.textBody}</p>}
+                </div>
             </div>
         )
     }
