@@ -10,7 +10,7 @@
 .sidebar-wrapper button{
     background-color: #2BC1C4;
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
     border: 1px solid #B1B1B1;
    
@@ -24,13 +24,13 @@
 }
 
 .button-view-notes{
-    padding: 7px 8%;
+    padding: 10px 11%;
     margin: 25px 0 10px 0
     
 
 }
 
 .button-create{
-    padding: 7px 2%;
+    padding: 10px 6%;
     margin: 10px 0 10px 0
 }
