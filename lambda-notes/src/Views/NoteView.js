@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NoteView.css'
+import { Modal } from '../components';
+
+const toggleValue = (initialValue) => {
+  const [value, setValue] = useState(initialValue)
+
+  return {
+    value,
+    toggle: () => setValue(!value)
+  };
+}
+
 
 export const NoteView = props => {
+  const displayModal = toggleValue(false)
   // const { id } = props;
   // const urlParam = props.location.state.id;
   const id = props.match.params.id
@@ -17,13 +29,19 @@ export const NoteView = props => {
     )
   } else {
     return (
-    <div className="NoteView">
+      <div className="NoteView">
+      {displayModal.value ?( 
+        <Modal 
+          note={note}
+          deleteNote={props.deleteNote} 
+          toggle={displayModal.toggle}/>
+      ) : ''}
       <div className="controls">
       <Link to={`/note/edit/${id}`}>
         <span className="edit">edit</span>
       </Link>
       <span className="delete" onClick={(e)=>{
-        props.deleteNote(note)
+        displayModal.toggle()
       }}>delete</span>
       </div>
       <h1>
