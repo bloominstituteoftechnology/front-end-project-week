@@ -2,8 +2,8 @@ import React from 'react'
 import axios from 'axios';
 
 class UpdateForm extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
       this.state ={
         title: '',
         textBody: '',
@@ -26,15 +26,10 @@ class UpdateForm extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
-  updateNote = (event) => {
+  prepUpdateNote = (event) => {
     event.preventDefault()
-    axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${this.state._id}`, this.state)
-      .then(res => this.props.history.push(`/note/${this.state._id}`) )
-      // .then(res => console.log(res))
-      .catch(err => console.log(err))
-      // this.props.refreshNotes({this.state._id, this.state.title, this.state.textBody})
-      this.setState({title: '', textBody: '', tags: ''})
+    this.props.updateNote(this.state)
+    this.setState({title: '', textBody: '', tags: ''})
 
   }
 
@@ -64,7 +59,7 @@ class UpdateForm extends React.Component {
               name="textBody"
             />
             <div className="form-button">
-              <button className="new-note-button" onClick={this.updateNote} type="submit">
+              <button className="new-note-button" onClick={this.prepUpdateNote} type="submit">
               Update
               </button>
             </div>

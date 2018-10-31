@@ -5,15 +5,16 @@ import NoteForm from './components/NoteForm'
 import NavBar from './components/NavBar'
 import NoteCard from './components/NoteCard'
 import UpdateForm from './components/UpdateForm'
+
 // import DeleteNote from './components/DeleteNote'
-import {Route } from 'react-router-dom'
+import {Route, Switch } from 'react-router-dom'
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        notes: [].reverse()
+        notes: []
       }
 
   }
@@ -45,6 +46,19 @@ class App extends Component {
      .catch(err => console.log(err))
  }
 
+ updateNote = (noteData) => {
+   let loneItem = this.state.notes.filter(item => noteData._id === item._id )
+
+   console.log('filtered item:', loneItem)
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${noteData._id}`, noteData)
+      .then(res => this.setState({notes: [...this.state.notes, noteData ]}))
+      // .then(res => console.log(res))
+      .catch(err => console.log(err))
+
+
+ }
+
 
  refreshNotes = (newNote) => {
    // this.setState({notes: [...this.state.notes, newNote]})
@@ -64,7 +78,7 @@ class App extends Component {
         <Route exact path={'/'} render={(props) => <NoteList notes={this.state.notes} />} />
         <Route path={'/newNote'} render={(props) => <NoteForm {...props}  createNote={this.createNote} updateNote={this.updateNote} refreshNotes={this.refreshNotes}/>} />
         <Route path={'/note/:id'}  render={(props) => <NoteCard {...props} notes={this.state.notes} deleteNote={this.deleteNote} refreshNotes={this.refreshNotes} />  }/>
-        <Route path={'/updateForm/:id'} component={UpdateForm} refreshNotes={this.refreshNotes} />
+        <Route path={'/updateForm/:id'} render={(props) => <UpdateForm {...props} updateNote={this.updateNote} />}  />
       </div>
     );
   }
