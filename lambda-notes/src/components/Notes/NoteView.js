@@ -29,13 +29,13 @@ class NoteView extends Component {
 			.then((response) => {
 				this.setState({
 					title: response.data.title,
-					textBody: response.data.textBody,
+					textBody: response.data.content,
 					id: response.data._id,
 				});
 
 				console.log({
 					title: response.data.title,
-					textBody: response.data.textBody,
+					textBody: response.data.content,
 					id: response.data._id,
 				});
 			})

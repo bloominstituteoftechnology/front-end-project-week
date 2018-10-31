@@ -15,7 +15,7 @@ class App extends Component {
 			notes: [],
 			note: {
 				title: '',
-				textBody: '',
+				content: '',
 			},
 			isUpdating: 'false',
 		};
@@ -59,13 +59,13 @@ class App extends Component {
 			.then((response) => {
 				this.setState({
 					title: response.data.title,
-					textBody: response.data.textBoday,
+					textBody: response.data.content,
 					id: response.data._id,
 				});
 
 				console.log({
 					title: response.data.title,
-					textBody: response.data.textBoday,
+					textBody: response.data.content,
 					id: response.data._id,
 				});
 			})

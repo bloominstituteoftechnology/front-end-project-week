@@ -10,7 +10,7 @@ class Notes extends Component {
 						return (
 							<Note
 								title={note.title}
-								text={note.textBody}
+								text={note.content}
 								id={note._id}
 								key={note._id}
 							/>
