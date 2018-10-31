@@ -137,9 +137,10 @@ p {
 
 .sort-bar .button {
 	display: flex;
+	padding: 10px;
 	align-items: center;
 	justify-content: center;
-	width: 150px;
+	width: 145px;
 	height: 50px;
 }
 

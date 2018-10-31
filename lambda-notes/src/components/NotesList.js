@@ -25,7 +25,7 @@ class NotesList extends React.Component {
     })
   }
 
-  sortByTitle = () => {
+  sortByTitleAsc = () => {
     let sortedTitle = this.props.notes.slice().sort(function (a, b) {
       let titleA = a.title.toLowerCase(),
           titleB = b.title.toLowerCase()
@@ -37,6 +37,22 @@ class NotesList extends React.Component {
     });
     this.setState({
       currentNotes: sortedTitle,
+    })
+  }
+
+  sortByTitleDes = () => {
+    console.log('sorting title z-a')
+    let sortedTitleDes = this.props.notes.slice().sort(function(a, b) {
+      let titleA = a.title.toLowerCase(),
+      titleB = b.title.toLowerCase()
+      if (titleA < titleB)
+      return 1
+      if (titleA > titleB)
+      return -1
+    return 0;
+  });
+    this.setState({
+      currentNotes: sortedTitleDes,
     })
   }
 
@@ -52,7 +68,7 @@ class NotesList extends React.Component {
   render(){
     return (
       <div className='notes-list'>
-      <TopBar handleInput={this.handleInput} search={this.searchNotes} sortByTitle={this.sortByTitle}
+      <TopBar handleInput={this.handleInput} search={this.searchNotes} sortByTitleAsc={this.sortByTitleAsc} sortByTitleDes={this.sortByTitleDes}
       sortByLength={this.sortByLength}/>
       <h3>Your Notes:</h3>
         {this.state.currentNotes.map(note => {
