@@ -28,6 +28,18 @@
     text-decoration: none;
 }
 
+.sidebar-container button {
+    align-self: center;
+    text-align: center;
+    background: #56b9bd;
+    color: white;
+    width: 80%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 1px solid #adb9ba;
+    text-decoration: none;
+}
+
 .noteslist {
     width: 85%;
   }
