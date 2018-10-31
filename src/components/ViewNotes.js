@@ -13,7 +13,12 @@ class ViewNotes extends React.Component {
   render() {
     return (
       <div className="mainSection">
-        <h2 className="yourNotes">Your Notes:</h2>
+        <div className="topHeader">
+          <h2>Sort by: </h2>
+          <button onClick={() => this.props.sort(1)}>Alphabetical Order</button>
+          <button onClick={() => this.props.sort(2)} >Title Length</button>
+          <button onClick={() => this.props.sort(3)} >Body Length</button>
+        </div>
         <div className="viewNotes">
           {this.props.notes.map((note, index) => {
             return (

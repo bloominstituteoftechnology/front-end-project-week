@@ -99,16 +99,33 @@ class App extends Component {
     ev.preventDefault();
     this.setState({
       notes: this.state.notes.filter(note => {
-        return note.title.indexOf(this.state.searchText) !== -1;
+        return (
+          note.title.indexOf(this.state.searchText) !== -1 ||
+          note.textBody.indexOf(this.state.searchText) !== -1
+        );
       })
     });
+  };
+
+  sort = type => {
+    switch (type) {
+      case 1:
+        this.setState({});
+        break;
+      default:
+        this.updateNotes();
+    }
   };
 
   render() {
     return (
       <div className="App">
         <div className="container">
-          <SideBar changeHandler={this.changeHandler} search={this.search} updateNotes={this.updateNotes} />
+          <SideBar
+            changeHandler={this.changeHandler}
+            search={this.search}
+            updateNotes={this.updateNotes}
+          />
 
           <Route
             exact
@@ -118,6 +135,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 selectNote={this.selectNote}
+                sort={this.sort}
               />
             )}
           />
