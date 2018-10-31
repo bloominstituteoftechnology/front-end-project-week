@@ -29,20 +29,10 @@ class Modal extends React.Component {
             Sign In
           </button>
 
-          
-            <Button class="fb-login-button"
-              data-width="194.47"
-              data-max-rows="1"
-              data-size="large"
-              data-button-type="login_with"
-              data-show-faces="false"
-              data-auto-logout-link="true"
-              data-use-continue-as="false"
-            
-             onClick={this.props.onSubmit}>
-             
+          <div className="social-signin">
+            <Button className="fb" onClick={this.props.onSubmit}>
+              <i className="fab fa-facebook" aria-hidden="true"/>
             </Button>
-            <div className="social-signin">
             <Button className="tw" onClick={this.props.onSubmit}>
               <i className="fab fa-twitter" aria-hidden="true" />
             </Button>
