@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import './App.css';
 
 import NavigationBar from './components/Navigation/NavigationBar';
@@ -18,7 +18,7 @@ class App extends Component {
         <div className="content-container">
           <div className="content-wrapper">
             <Route exact path='/' component={ListView} />
-            <Route path='/notes/:id' component={SingleNoteView} />
+            <Route path='/notes/:id' component={withRouter(SingleNoteView)} />
             <Route path='/create' component={NewNoteView} />
             <Route path='/edit/:id' component={EditNoteView} />
           </div>

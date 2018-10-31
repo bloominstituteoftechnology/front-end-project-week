@@ -1,21 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { NotesContainer, NotesWrapper, NoteCard } from './Styles';
+import {
+  NotesContainer,
+  SubHeading,
+  NotesWrapper,
+  NoteCard,
+  TitleHeading,
+  Hr,
+  TextBody
+} from './Styles';
 
 const NotesList = props => {
   return (
     <NotesContainer>
-      <h2>Your Notes:</h2>
+      <SubHeading>Your Notes:</SubHeading>
 
       <NotesWrapper>
         {props.notes.map((note, i) => (
           <NoteCard key={i}>
-            <Link to={`/notes/${note._id}`} >
-              <h2>{note.title}</h2>
+            <Link to={`/notes/${note._id}`} style={{ color: '#000' }} >
+              <TitleHeading>{note.title}</TitleHeading>
             </Link>
-            <hr />
-            <p>{note.textBody}</p>
+            <Hr />
+            <TextBody>{note.textBody}</TextBody>
           </NoteCard>
         ))}
       </NotesWrapper>

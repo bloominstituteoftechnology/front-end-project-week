@@ -5,7 +5,9 @@ const SingleNote = props => {
   return (
     <div>
       <div>
-        <Link to={`/edit/${props.note._id}`}>Edit</Link>
+        <Link to={`/edit/${props.note._id}`}>
+          <button type="button">Edit</button>
+        </Link>
         <button type="button" onClick={(e) => props.deleteNote(e, props.note._id)}>Delete</button>
       </div>
 

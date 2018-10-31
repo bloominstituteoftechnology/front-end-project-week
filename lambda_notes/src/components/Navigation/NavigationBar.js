@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, Wrapper } from './Styles';
+import { Container, Wrapper, Heading, Button } from './Styles';
 
 const NavigationBar = () => {
   return (
     <Container>
       <Wrapper>
-        <h1>Lambda Notes</h1>
-        <Link exact="true" to="/">
-          <button type="button">View Your Notes</button>
-        </Link>
-        <Link to="/create">
-          <button type="button">+ Create New Note</button>
-        </Link>
+        <Heading>Lambda Notes</Heading>
+        <Button type="button">
+          <Link exact="true" to="/">
+            View Your Notes
+          </Link>
+        </Button>
+        <Button type="button">
+          <Link to="/create">
+            + Create New Note
+          </Link>
+        </Button>
       </Wrapper>
     </Container>
   );
