@@ -2,4 +2,3 @@
     base = "lambdanotes/"
     publish = "lambdanotes/build/"
     command = "npm run build"
-    
