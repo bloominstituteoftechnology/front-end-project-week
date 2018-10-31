@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class SingleNote extends Component {
@@ -27,7 +27,6 @@ class SingleNote extends Component {
   toggleDeletingOn=()=> { 
     const id = this.props.match.params.id
     this.setState(() => ({ deleting: true, currentId: id }));
-    console.log(this.state.currentId)
   };
   toggleDeletingOff=()=> { 
     this.setState(() => ({ deleting: false }));
@@ -72,4 +71,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps,{})(SingleNote);
+export default withRouter(connect(mapStateToProps,{})(SingleNote));

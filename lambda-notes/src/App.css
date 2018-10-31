@@ -71,6 +71,7 @@
   padding: 10px 0;
   text-decoration: none;
   box-sizing: border-box;
+  word-wrap: break-word;
 }
 .note h2 {
   font-size: 1.2rem;

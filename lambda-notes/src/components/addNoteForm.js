@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AddNoteForm = props => {
-  console.log('add note form', props)
   return (
     <form onSubmit={props.clickHandler} className='form'>
       <h3 className='add-header'>Create New Note:</h3>

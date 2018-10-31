@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, addNote, deleteNote } from './actions'
+import { fetchNotes, addNote, deleteNote } from './actions';
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
 import { connect } from 'react-redux';
-import { Route } from'react-router-dom';
+import { Route, withRouter } from'react-router-dom';
 import AddNoteForm from './components/addNoteForm';
 import EditForm from './components/editForm';
 import SingleNote from './components/singleNote';
@@ -18,30 +18,29 @@ class App extends Component {
       textBody: ''
     }
   };
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchNotes();
   };
+
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
   });
   clickHandler = event => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    this.props.addNote(this.state)
     this.setState({ title: '', textBody: '' });
-    this.props.history.push('/');
+    this.props.history.push('/notes');  
   };
   handleDelete=(event)=> { 
     this.props.deleteNote(event);
-    this.props.history.push('/'); 
+    this.props.history.push('/notes'); 
   };
-  handleEdit=(event)=> {  
-    event.preventDefault();
-  };
-  render() { 
+
+  render() {
     return (
       <div className="App">
         <Navigation className='nav-bar'/>
-        <Route exact path='/' render={()=>
+        <Route exact path='/notes' render={()=>
           <NotesList {...this.props} delete={this.handleDelete} notes={this.props.notes} />
         } />        
         <Route path='/new-note' render={()=>
@@ -73,4 +72,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps,{ fetchNotes, addNote, deleteNote })(App);
+export default withRouter(connect(mapStateToProps,{ fetchNotes, addNote, deleteNote })(App));
