@@ -5,7 +5,8 @@ class NoteEdit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: {}
+      note: {},
+      updatedNote: {}
     };
   }
 
@@ -31,15 +32,16 @@ class NoteEdit extends React.Component {
       <div>
         <h1>EDIT</h1>
 
-        <form>
+        <form onSubmit={this.editNote}>
           <input
-            type="text"
             onChange={this.handleInputChange}
+            placeholder="Title"
             value={this.state.note.title}
             name="title"
           />
           <input
             type="text"
+            placeholder="text"
             onChange={this.handleInputChange}
             value={this.state.note.textBody}
             name="textBody"
@@ -47,8 +49,8 @@ class NoteEdit extends React.Component {
         </form>
 
         <button
-          onClick={event => {
-            this.props.editNote(event, this.state.note._id);
+          onClick={() => {
+            this.props.updatedNote(this.state.note._id);
           }}
         >
           Submit
