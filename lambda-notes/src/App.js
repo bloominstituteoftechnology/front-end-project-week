@@ -29,7 +29,7 @@ class App extends Component {
           render={() => <NoteForm onSubmitHelper={this.onSubmitHelper} />}
         />
         <Route path="/note-details/:_id" component={NoteDetails} />
-        <Route path="/edit-form" component={EditForm} />
+        <Route path="/edit-form/:_id" component={EditForm} />
       </div>
     );
   }

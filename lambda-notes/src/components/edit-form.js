@@ -19,7 +19,8 @@ class EditForm extends Component {
           this.props.match.params._id
         }`,
         {
-          textBody: "edited"
+          title: this.state.title,
+          textBody: this.state.textBody
         }
       )
       .then(response => {
@@ -41,7 +42,7 @@ class EditForm extends Component {
         <h1>Edit Note:</h1>
         <form onSubmit={this.buttonClickHandler}>
           <input
-            onChange={this.buttonClickHandler}
+            onChange={this.changeHandler}
             placeholder="Note Title"
             value={this.state.title}
             name="title"
