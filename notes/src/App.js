@@ -7,10 +7,12 @@ import AllNotes from './components/AllNotes';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import Modal from './components/Modal/Modal';
-import Tagged from './components/Tagged';
+//import Tagged from './components/Tagged';
 
 
 import './App.css';
+
+let URL = 'https://food-notes.herokuapp.com';
 
 class App extends Component {
   constructor() {
@@ -20,7 +22,7 @@ class App extends Component {
       note: {
         title: '',
         content: '',
-        // tags: ''
+        //tags: ''
       },
       isUpdating: false,
       show: false
@@ -28,9 +30,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:7000/api/notes')
+    axios.get(`${URL}/api/notes`)
     .then(response => {
-      console.log("componentDidMount response:",)
+      console.log("componentDidMount response:", response.data)
       this.setState({ notesData: response.data, isUpdating: false })
     })
     .catch(err => {
@@ -40,7 +42,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (JSON.stringify(this.state.notesData) !== JSON.stringify(prevState.notesData)) {
-    axios.get('http://localhost:7000/api/notes')
+    axios.get(`${URL}/api/notes`)
     .then(response => {
       console.log("componentDidUpdate response:", response.data);
       this.setState({ notesData: response.data, isUpdating: false })
@@ -52,16 +54,16 @@ class App extends Component {
   }
 
   handleChange = e => {
-    // if (e.target.name === 'tags') {
-    //   const tags = e.target.value.split(', ');
-    //   this.setState({
-    //     note: {
-    //       ...this.state.note,
-    //       tags: tags,
-    //     }
-    //   });
-    // } else 
-    //{
+    /* if (e.target.name === 'tags') {
+       const tags = e.target.value.split(', ');
+       this.setState({
+         note: {
+           ...this.state.note,
+           tags: tags,
+         }
+       });
+     } else 
+    { */
     this.setState({
       note: { 
         ...this.state.note,
@@ -79,13 +81,14 @@ class App extends Component {
       //tags: this.state.note.tags
     }
     console.log('adding new');
-    axios.post('http://localhost:7000/api/notes', this.state.note)
+    axios.post(`${URL}/api/notes`, this.state.note)
     .then(response => {
       newNote.id = response.data.success;
       this.setState({ 
-        notesData: [...this.state.notesData, newNote], note: { title: '', content: '', /* tags: [] */ }, isUpdating: false 
+        notesData: [...this.state.notesData, newNote], note: { title: '', content: '', /*tags: ''*/ }, isUpdating: false 
       },
-    () => this.props.history.push('/notes'))})
+    () => this.props.history.push('/notes'))
+    })
     .catch(err => {
       console.log(err);
     })
@@ -93,10 +96,13 @@ class App extends Component {
   }
 
   deleteNote = noteId => {
-    return axios.delete(`http://localhost:7000/api/notes/${noteId}`)
+    const newNotes = this.state.notesData.filter(note => note.id !== noteId);
+    axios.delete(`${URL}/api/notes/${noteId}`)
     .then(response => {
       console.log("delete response:", response.data);
-       this.setState({ show: false })})
+       this.setState({ notesData: newNotes, show: false },
+      () => this.props.history.push('/notes'))
+    })
     .catch(err =>
       console.log(err))
   }
@@ -109,7 +115,7 @@ class App extends Component {
   }
 
   updateNote = noteId => {
-    axios.put(`http://localhost:7000/api/notes/${noteId}`, this.state.note)
+    axios.put(`${URL}/api/notes/${noteId}`, this.state.note)
     .then(response => {
       console.log("response.data:", response.data)
       this.setState({
@@ -162,26 +168,30 @@ class App extends Component {
          Lambda Notes
        </h1>
        <ul className="navlinks">
-        <li className="blueButton">
+        
           <NavLink exact to="/"
           activeClassName="activeNavButton" >
+            <li className="blueButton">
           Home
+            </li>
           </NavLink>
-        </li>
-        <li className="blueButton">
+        
+       
           <NavLink exact to="/notes"
           activeClassName="activeNavButton" >
+           <li className="blueButton">
           View Your Notes
+          </li>
         </NavLink>
-        </li>
-        <li className="blueButton">
-          <NavLink exact to="/note-form"
+      
+           <NavLink exact to="/note-form"
           activeClassName="activeNavButton"
           onClick={this.cancelUpdate} >
+          <li className="blueButton"> 
           + Create New Note
+          </li>
           </NavLink>
-        </li>
-       </ul>
+        </ul>
        </div>
        <Route exact path="/" component={Home} />
        <Route 
@@ -192,7 +202,7 @@ class App extends Component {
           notesData={this.state.notesData}
           truncate={this.truncate}
           truncateTitle={this.truncateTitle}
-          filterByTag={this.filterByTag}
+          //filterByTag={this.filterByTag}
          />
         
        )}
@@ -225,7 +235,7 @@ class App extends Component {
           />
           )}
         />
-        <Route
+        {/* <Route
          exact
           path="notes/tagged/:tag"
           render={props => (
@@ -236,7 +246,7 @@ class App extends Component {
             handleChange={this.handleChange}
             />
           )}
-        />
+        /> */}
         <Modal show={this.state.show} />
       </div>
       

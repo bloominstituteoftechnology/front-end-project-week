@@ -1,3 +1,5 @@
+/* === THIS IS NOT THE BACK END PROJECT WEEK SERVER. THIS IS JUST WHAT I USED DURING FRONT END WEEK; PLEASE SEE README FOR BACKEND WEEK REPO LINK === */
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');

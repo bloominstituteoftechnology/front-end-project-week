@@ -5,38 +5,51 @@ class AllNotes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentNotes: []
+            currentNotes: [ ]//this.props.notesData
         }
     }
 
-    componentDidMount() {
-        console.log("this.props.notesData", this.props.notesData)
-        console.log("this.state.currentNotes (before setState)", this.state.currentNotes)
-            this.setState({ currentNotes: this.props.notesData }, () => console.log("this.state.currentNotes (after setState)", this.state.currentNotes))
-        console.log("this.props.location.state:", this.props.location.state);
+    componentWillMount() {
+        console.log("in componentWillMount");
+        this.setState({ currentNotes: this.props.notesData }, () =>  console.log("componentWillMount currentNotes", this.state.currentNotes));
+       
+        // this.state.currentNotes = this.props.notesData
+       
+        console.log("componentWillMount notesData", this.props.notesData)
     }
-
+/*
+    componentDidMount() {
+        console.log("this.props.notesData in componentDidMount", this.props.notesData)
+        //this.setState({ currentNotes: this.props.notesData });
+        console.log("this.state.currentNotes in componentDidMount()", this.state.currentNotes )
+    }
+*/
     componentDidUpdate(prevProps) {
+        console.log("in componentDidUpdate");
         if(JSON.stringify(this.props.notesData) !== JSON.stringify(prevProps.notesData)) {
             this.setState({ currentNotes: this.props.notesData })
         }
      }
 
+
     showAll() {
         this.setState({ currentNotes: this.props.notesData })
     }
 
-    // filterByTag(tag) {
-    //     if (this.state.currentNotes) {
-    //     console.log("inside filter")
-
-    //     const filteredNotes = this.props.notesData.filter(note => note.tags.includes(tag));
-    //     this.setState({ currentNotes: filteredNotes })
-    //     console.log("filtered", filteredNotes);
-    //     }
-    // }
+/*
+     filterByTag(tag) {
+         if (this.state.currentNotes) {
+         console.log("inside filter")
+         const filteredNotes = this.props.notesData.filter(note => note.tags.includes(tag));
+         this.setState({ currentNotes: filteredNotes })
+         console.log("filtered", filteredNotes);
+         }
+     }
+*/
 
     render() {
+        console.log("in render")
+        console.log("currentNotes in render", this.state)
         if (!this.props.notesData || !this.props.notesData.length) {
             return (
                 <div><h3>You don't have any Notes yet. :(</h3>
@@ -44,11 +57,10 @@ class AllNotes extends React.Component {
             )
         }
 
-        console.log("this.state.currentNotes in render", this.state.currentNotes)
         return (
             <div className="notes-list-wrapper">
             <h3>Your Notes:</h3>
-                {/* <div className="filter">
+                {/* { <div className="filter">
                 <h5 className="show-all" onClick={() => this.showAll()}>Show All Notes</h5>
                 <div className="by-tag"><h5>Filter by tag:</h5> {this.props.notesData.map(note => {
                     return note.tags.split(',').map(tag => (
@@ -56,9 +68,7 @@ class AllNotes extends React.Component {
                     ))
                 })}
                 </div>
-    
-    
-                </div> */}
+                </div> } */}
                 <div className="all-notes">
                 {  
                     this.state.currentNotes.map(note => (
