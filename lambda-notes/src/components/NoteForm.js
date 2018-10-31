@@ -39,8 +39,8 @@ class NoteForm extends React.Component {
     }
     return (
       <div>
+        <h2 className="header">CREATE A NOTE:</h2>
         <form className="form" onSubmit={this.addNote}>
-          <h2 className="create">CREATE A NOTE:</h2>
           <input
             onChange={this.handleInputChange}
             name="title"
@@ -57,7 +57,9 @@ class NoteForm extends React.Component {
             value={this.state.textBody}
             required
           />
-          <button type="submit">Save Note</button>
+          <button className="submit" type="submit">
+            Save
+          </button>
         </form>
       </div>
     );

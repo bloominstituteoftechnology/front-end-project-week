@@ -43,10 +43,10 @@ class FullNote extends React.Component {
 
   deleteModal = () => {
     let x = document.querySelector(".modal");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
+    if (x.style.display === "block") {
       x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
   };
 
@@ -56,8 +56,8 @@ class FullNote extends React.Component {
     }
     return (
       <div>
-        <h2>{this.state.notes.title}</h2>
-        <p>{this.state.notes.textBody}</p>
+        <h2 className="header">{this.state.notes.title}</h2>
+        <p className="note-paragraph">{this.state.notes.textBody}</p>
         <button onClick={this.deleteModal}>X</button>
         <div className="modal">
           <button onClick={() => this.deleteNote(this.state.notes._id)}>

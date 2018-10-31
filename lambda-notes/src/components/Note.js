@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Note = props => {
   return (
-    <Link to={`/notes/${props.note._id}`}>
+    <Link to={`/notes/${props.note._id}`} className="link">
       <div className="note-card">
         <h3>{props.note.title}</h3>
         <p>{props.note.textBody}</p>
