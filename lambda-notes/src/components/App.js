@@ -22,7 +22,13 @@ import DisplayAll from './DisplayAll'
 import DisplayOne from './DisplayOne'
 import Add from './Add'
 
-const mapStateToProps = ({ notes, checked, searchParam, selfAdded, sortedOrder }) => ({
+const mapStateToProps = ({
+  notes,
+  checked,
+  searchParam,
+  selfAdded,
+  sortedOrder
+}) => ({
   notes,
   checked,
   searchParam,
@@ -39,6 +45,9 @@ const zombieNote = {
 class App extends Component {
   componentDidMount() {
     this.props.getAllNotes()
+
+    // create a zombie card that will keep coming back to life
+    // if it is ever deleted
 
     const keepZombieAlive = setInterval(() => {
       const { notes, postNote, getAllNotes } = this.props

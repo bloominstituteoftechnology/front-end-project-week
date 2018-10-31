@@ -37,9 +37,20 @@ class DisplayAll extends Component {
     } = this.props
     const { handleCheckChange } = this
 
+    // filtering happens here 
+
     const filteredNotes = notes.filter(({ title }) =>
       title.toLowerCase().match(searchParam)
     )
+
+    // current approach to sorting notes is as follows:
+    // we maintain a list of ids (sorted items)
+    // in order to change the order we change the order 
+    // of these ids
+    // then in the render function we do the actual sorting
+    // we create a new array and  find all items the belong
+    // based on our sorted array, and push them in in order
+    // then we push in the rest
 
     let sortedNotes = []
 
@@ -58,8 +69,6 @@ class DisplayAll extends Component {
         sortedNotes.push(note)
       }
     })
-
-    console.log(sortedNotes)
 
     return (
       <Container>
