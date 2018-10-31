@@ -39,7 +39,7 @@ class NewNoteForm extends React.Component {
         className="form-group"
         style={{ height: "100vh", padding: "20px" }}
       >
-        <h2>Create New Note:</h2>
+        <h2>New Note:</h2>
         <input
           onChange={this.onChangeHandler}
           name="title"

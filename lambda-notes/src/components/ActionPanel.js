@@ -6,23 +6,31 @@ import { connect } from 'react-redux';
 // Purgatorial Packages
 import {Link} from 'react-router-dom';
 import { CSVLink } from 'react-csv';
+import Cookies from "js-cookie";
+
 
 
 // CSS
 import "../CSS/ActionPanel.css";
 
 class ActionPanel extends React.Component {
+  handleLogout = (e) => {
+    Cookies.remove('token');
+    localStorage.setItem('isLoggedIn', false);
+    this.props.history.push("/");
+  }
   render() {
     return (
       <React.Fragment>
         <h2 className="action-panel-title">Lambda Notes</h2>
-        <Link className="btn btn-block link" to="/">
+        <Link className="btn link my-3" to="/">
           View Your Notes
         </Link>
-        <Link className="btn btn-block link" to="/newNote">
-          + Create New Note
+        <Link className="btn link my-3" to="/newNote">
+          New Note
         </Link>
-        <CSVLink className="btn btn-block link" filename={"lambda-notes.csv"} data={this.props.notes}>Dowload Notes</CSVLink>
+        <CSVLink className="btn link my-3" filename={"lambda-notes.csv"} data={this.props.notes}>Dowload Notes</CSVLink>
+        <Link className="btn link my-3" to="/" onClick={this.handleLogout}>Logout</Link>
       </React.Fragment>
     );
   }

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export const FETCHING_NOTES = "FETCHING_NOTES";
 export const FETCHING_NOTES_SUCCESSFUL = "FETCHING_NOTES_SUCCESSFUL";
@@ -12,6 +13,9 @@ export const UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL";
 export const UPDATE_FAILURE = "UPDATE_FAILURE";
 export const DELETE_ALL_SUCCESS = "DELETE_ALL_SUCCESS";
 export const DELETE_ALL_FAILURE = "DELETE_ALL_FAILURE";
+export const REGISTER_SUCCESSFUL = "REGISTER_SUCCESSFUL";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
+export const IS_REGISTERING = "IS_REGISTERING";
 
 export const getNotes = () => {
   return dispatch => {
@@ -19,7 +23,11 @@ export const getNotes = () => {
       dispatch({ type: FETCHING_NOTES });
       setTimeout(() => {
         axios
-          .get("http://localhost:9000/api/notes")
+          .get("http://localhost:9000/api/notes", {
+            headers: {
+              authorization: Cookies.get("token")
+            }
+          })
           .then(resp =>
             dispatch({ type: FETCHING_NOTES_SUCCESSFUL, payload: resp.data })
           )
@@ -67,5 +75,22 @@ export const updateNote = note => {
       .catch(err =>
         dispatch({ type: UPDATE_FAILURE, payload: new Error(err) })
       );
+  };
+};
+
+export const registerUser = user => {
+  return dispatch => {
+    dispatch({ type: IS_REGISTERING });
+    axios
+      .post("http://localhost:9000/api/users/register", user)
+      .then(resp => {
+        localStorage.setItem('isLoggedIn', true);
+        Cookies.set("token", resp.data.token);
+        dispatch({ type: REGISTER_SUCCESSFUL, payload: resp.data });
+      })
+      .catch(error => {
+        console.log(`ERR: ${error}`);
+        dispatch({ type: REGISTER_FAILURE, payload: error });
+      });
   };
 };

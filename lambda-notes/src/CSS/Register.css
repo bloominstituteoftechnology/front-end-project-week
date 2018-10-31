@@ -1,0 +1,81 @@
+.register-form {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-header {
+  color: rgba(30, 153, 157);
+  font-weight: bold;
+}
+
+.register-form form {
+  font-weight: bold;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+}
+
+.form-ctrl {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-ctrl label {
+  width: 30%;
+}
+
+.form-ctrl input {
+  width: 80%;
+}
+
+@media screen and (max-width: 500px) {
+  .register-form {
+    padding: 0 5px;
+    justify-content: flex-start;
+  }
+  .register-form form {
+    max-width: 100%;
+}
+
+  .form-ctrl {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .form-ctrl label {
+    width: 100%;
+  }
+
+  .form-ctrl input {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+
+  .register-form button {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgba(30, 153, 157);
+    color: white;
+    font-weight: bold;
+  }
+}
