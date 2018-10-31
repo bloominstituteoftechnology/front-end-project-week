@@ -74,6 +74,7 @@ body {
   padding: 20px 0 0 5%;
   color: whitesmoke;
   letter-spacing: 1px;
+  text-shadow: 10px 10px 30px #222;
 }
 
 .notes-list-wrapper {
@@ -113,35 +114,40 @@ body {
 .form-wrapper h2 {
   margin-left: 50%;
   width: 100%;
+  color: whitesmoke;
+  letter-spacing: 1px;
+  text-shadow: 10px 10px 30px #222;
 }
 
 .note-title-input {
   width: 350px;
   margin-bottom: 20px;
+  opacity: 0.9;
+  box-shadow: 10px 10px 30px #222;
 }
 
 .note-text-input {
   width: 600px;
   height: 400px;
   padding: 0;
+  opacity: 0.9;
+  box-shadow: 10px 10px 30px #222;
 }
 
 .note-form input {
   padding: 15px;
-  border: 1px solid gray;
   font-size: 0.9rem;
   color: #222;
   font-weight: 100;
-  border-radius: 4px;
+  box-shadow: 10px 10px 30px #222;
 }
 
 .note-form textarea {
   padding: 15px;
-  border: 1px solid gray;
   font-size: 0.9rem;
   color: #222;
   font-weight: 100;
-  border-radius: 4px;
+  box-shadow: 10px 10px 30px #222;
 }
 
 .note-form {
@@ -150,7 +156,8 @@ body {
 
 .note-form button {
   border: 1px solid gray;
-  background: #00c0c3;
+  background: whitesmoke;
+  opacity: 0.9;
   width: 75%;
   height: 50px;
   display: flex;
@@ -159,8 +166,15 @@ body {
   font-size: 1.2rem;
   margin: 20px 0;
   padding: 0 5px;
-  color: whitesmoke;
+  color: #222;
   font-weight: 700;
+  border: 1px solid #222;
+  box-shadow: 10px 10px 30px #222;
+}
+
+.note-form button:hover {
+  background: #222;
+  color: whitesmoke;
 }
 
 .single-note {
