@@ -5,7 +5,7 @@ import { getNotes } from '../actions';
 import { connect } from 'react-redux';
 import NoteForm from './NoteForm';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Note from './Note';
 import NoteView from './NoteView';
 
@@ -63,34 +63,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-     
-        {/* <form className='create-note-form' onSubmit={this.createNote}>
+        <div className='nav-container'>
+          <NavLink to='/notes'>View Your Notes</NavLink>
+          <NavLink to='/note-form'>Create New Note</NavLink>
+        </div>
 
-          <input 
-              name='noteTitleInput'
-              type='text'
-              placeholder='Note Title'
-              value={this.state.noteTitleInput}
-              onChange={this.handleInputChange}
-          />
-
-          <input 
-              name='noteBodyInput'
-              type='text'
-              placeholder='Note Body'
-              value={this.state.noteBodyInput}
-              onChange={this.handleInputChange}
-          />
-
-          <button type='submit'>
-              Create Note
-          </button>
-        </form> */}
-          
-
-        {/* <NotesList 
-          notes= {this.state.notes} 
-        /> */}
         {/* <Route 
           exact 
           path='/notes' 
@@ -98,14 +75,31 @@ class App extends Component {
             <NotesList {...props} notes={this.props.notes} />
           )}
         /> */}
+
         {/* <Route 
           path='/notes/:id' 
-          render={props => (
+          render={() => (
             <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} />
           )}
         /> */}
-        <NoteForm />
-        <NotesList />
+
+        <Route
+          exact
+          path='/notes'
+          render={() => (
+            <NotesList />
+          )}
+        />
+        <Route
+          exact
+          path='/note-form'
+          render={() => (
+            <NoteForm />
+          )}
+        />
+        {/* <NoteForm /> */}
+        {/* <NotesList /> */}
+
       </div>
     );
   }

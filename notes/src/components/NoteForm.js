@@ -28,7 +28,7 @@ class NoteForm extends Component {
 
     render() {
         return (
-            <form onSubmit={() => this.handleCreateNote()}>
+            <form>
 
                 <input 
                     name='titleInput'
