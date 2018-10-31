@@ -53,7 +53,7 @@ class NoteView extends Component {
         };
         axios
             .put(
-                `https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote
+                `http://localhost:3300/${id}`, updatedNote
             )
             .then(response => {
                 this.props.getNotes();
@@ -72,7 +72,7 @@ class NoteView extends Component {
         return (
             <div>
                 <h1>{this.state.note.title}</h1>
-                <p>{this.state.note.textBody}</p>
+                <p>{this.state.note.content}</p>
 
                 <button onClick={this.deleteNote}>
                     Delete this note
@@ -80,17 +80,17 @@ class NoteView extends Component {
 
                 <form className='update-note-form'>
                     <input 
-                        name='noteTitleInput'
+                        name='titleInput'
                         type='text'
                         placeholder='Note Title'
-                        value={this.state.noteTitleInput}
+                        value={this.state.titleInput}
                         onChange={this.handleInputChange}
                     />
                     <input 
-                        name='noteBodyInput'
+                        name='contentInput'
                         type='text'
-                        placeholder='Note Body'
-                        value={this.state.noteBodyInput}
+                        placeholder='Note Content'
+                        value={this.state.contentInput}
                         onChange={this.handleInputChange}
                     />
                     <button onClick={this.updateNote}>
