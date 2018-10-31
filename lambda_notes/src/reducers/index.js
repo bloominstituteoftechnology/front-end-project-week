@@ -30,9 +30,6 @@ export default (state = initialState, action) => {
         ...state,
         notes: state.notes.map(note => {
           if (note.id === action.id) {
-            console.log('from reducer action.id', action.id)
-            console.log('from reducer note.id', note.id)
-            // return [{ ...state.notes, ...action.payload }];
             return action.payload;
           } else {
             return note;

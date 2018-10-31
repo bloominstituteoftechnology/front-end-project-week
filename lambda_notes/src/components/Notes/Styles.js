@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { customLayout } from '../../mixins';
+import { customLayout, customButton } from '../../mixins';
 
 // NotesList component
 export const NotesContainer = styled.div`
@@ -47,5 +47,82 @@ export const TextBody = styled.p`
   color: #4B4B4A;
 `;
 
-// Create/Edit Form
+// SingleNote component
+export const SingleNoteContainer = styled.div`
+  ${customLayout()}
+  width: 100%;
+  flex-wrap: wrap;
 
+  h2, p {
+    width: 98%;
+    color: #4B4B4A;
+  }
+
+  h2 {
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 25px;
+  }
+`;
+
+export const SingleNoteActions = styled.div`
+  ${customLayout('flex-end')}
+  width: 98%;
+
+  button {
+    margin-left: 1%;
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+    color: #4B4B4A;
+    font-weight: bold;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+`;
+
+// Create/Edit Form
+export const FormContainer = styled.div`
+  h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #4B4B4A;
+  }
+`;
+
+export const FormGroup = styled.form`
+  ${customLayout()}
+  flex-wrap: wrap;
+
+  input, textarea {
+    margin-bottom: 20px;
+    border: 1px solid #B7B5B7;
+    border-radius: 3px;
+    font-size: 1.6rem;
+    padding: 15px 10px;
+  }
+
+  input {
+    width: 50%;
+    height: 35px;
+  }
+
+  textarea {
+    width: 98%;
+    height: 450px;
+  }
+`;
+
+export const ActionButton = styled.button`
+  ${customButton}
+  width: 30%;
+  color: #FFF;
+  font-size: 2rem;
+  padding: 15px 0;
+`;

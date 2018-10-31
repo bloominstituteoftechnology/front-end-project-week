@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { FormContainer, FormGroup, ActionButton } from './Styles';
+
 const NewNote = props => {
   return (
-    <div>
-      <h2>Create New Note</h2>
+    <FormContainer>
+      <h2>Create New Note:</h2>
 
-      <form onSubmit={props.addNote}>
+      <FormGroup onSubmit={props.addNote}>
         <input
           type="text"
           placeholder="Note Title"
@@ -22,9 +24,9 @@ const NewNote = props => {
           value={props.textBody}
         />
 
-        <button type="submit">Save</button>
-      </form>
-    </div>
+        <ActionButton type="submit">Save</ActionButton>
+      </FormGroup>
+    </FormContainer>
   );
 }
 

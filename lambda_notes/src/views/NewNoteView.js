@@ -24,10 +24,6 @@ class NewNoteView extends Component {
   }
 
   render() {
-    // if (this.props.gettingNotes) {
-    //   return <h1>Loading Notes...</h1>
-    // }
-
     return (
       <NewNote addNote={this.addNote} handleInput={this.handleInput} title={this.state.title} textBody={this.state.textBody} />
     );
