@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
         
+    notes = this.props.notes;
     render() {
         return (
             <div className='notes-container'>
@@ -13,9 +14,9 @@ class NotesList extends Component {
                     My Notes:
                 </h1>
                 <div className='notes-list'>
-                    {this.props.notes.map(note => (
-                        <Link to={`/notes/${note._id}`}>
-                            <Note key={note._id} note={note} />
+                    {Object.keys(this.props.notes).map(key => (
+                        <Link to={`/notes/${key}`}>
+                            <Note key={key} note={this.props.notes[key]} />
                         </Link>
                     ))}
                 </div>

@@ -24,6 +24,7 @@ export const getNotes = () => {
       axios
         .get(`${GET_ALL_URL}`)
         .then(response => {
+          console.log(`response.data: `, response.data);
           dispatch({ type: GET_NOTES, payload: response.data });
         })
         .catch(err => {
@@ -47,8 +48,6 @@ export const getNotes = () => {
         .catch(err => {
           dispatch({ type: ERROR, payload: err });
         });
-      
-      
     };
   };
 
