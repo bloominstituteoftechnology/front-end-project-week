@@ -31,11 +31,9 @@ class FullNote extends React.Component {
 	}
 
 	deletePost = () => {
-		Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
-			.then(() => {
-				this.props.history.push('/');
-			})
-			.catch((err) => console.log(err));
+		Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`).catch((err) =>
+			console.log(err)
+		);
 	};
 
 	render() {

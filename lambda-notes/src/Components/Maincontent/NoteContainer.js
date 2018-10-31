@@ -1,6 +1,7 @@
 import React from 'react';
 import Notes from './Notes';
 import axios from 'axios';
+// import Navbar from '../NavBar/Navbar';
 import { Route } from 'react-router-dom';
 
 class NoteContainer extends React.Component {
@@ -8,8 +9,7 @@ class NoteContainer extends React.Component {
 		super(props);
 		this.state = {
 			notes: [],
-			noteId: '',
-			homeMounted: true
+			noteId: ''
 		};
 	}
 	componentDidMount() {
@@ -22,39 +22,39 @@ class NoteContainer extends React.Component {
 			.catch((err) => console.log(err));
 	}
 
-	static getDerivedStateFromProps(prevState) {
-		// if (notes !== prevState.id) {
-		// 	return {
-		// 		...notes
-		// 	};
-		// }
-		console.log(this.state.notes, prevState);
-		// return null;
+	// static getDerivedStateFromProps(prevState) {
+	// 	// if (notes !== prevState.id) {
+	// 	// 	return {
+	// 	// 		...notes
+	// 	// 	};
+	// 	// }
+	// 	console.log(this.state.notes, prevState);
+	// 	// return null;
+	// }
+
+	componentWillReceiveProps(nextProps) {
+		console.log('Component will receive props', nextProps);
 	}
 
-	// componentWillReceiveProps(nextProps) {
-	// 	console.log('Component will receive props', nextProps);
-	// }
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log('should component update?', nextProps, nextState);
+		if (this.state.notes.length !== nextState.length) {
+			return true;
+		}
+	}
 
-	// shouldComponentUpdate(nextProps, nextState) {
-	// 	console.log('should component update?', nextProps, nextState);
-	// 	if (this.state.notes.length !== nextState.length) {
-	// 		return true;
-	// 	}
-	// }
+	componentWillUpdate(nextProps, nextState) {
+		console.log('Component Will update:', nextProps, nextState);
+		return true;
+	}
 
-	// componentWillUpdate(nextProps, nextState) {
-	// 	console.log('Component Will update:', nextProps, nextState);
-	// 	return true;
-	// }
+	componentDidUpdate(prevProps, prevState) {
+		console.log('Component did update', prevProps, prevState);
+	}
 
-	// componentDidUpdate(prevProps, prevState) {
-	// 	console.log('Component did update', prevProps, prevState);
-	// }
-
-	// componentWillUnmount() {
-	// 	console.log('Component will unmount');
-	// }
+	componentWillUnmount() {
+		console.log('Component will unmount');
+	}
 
 	// onChangeHomeMounted() {
 	// 	this.setState({
@@ -68,15 +68,14 @@ class NoteContainer extends React.Component {
 	};
 
 	render() {
-		let homeCmp = '';
-		if (this.state.homeMounted) {
-			homeCmp = <Route exact path="/" render={() => <Notes notes={notes} getNoteId={this.getNoteId} />} />;
-		} else {
-			homeCmp = <h1>Loading...</h1>;
-		}
 		// what gets rendered
 		const { notes } = this.state;
-		return <div>{homeCmp}</div>;
+		return (
+			<div>
+				{/* <Route exact path="/note/:id" render={(props) => <Navbar deletePost={this.deletePost} {...props} />} /> */}
+				<Route exact path="/" render={() => <Notes notes={notes} getNoteId={this.getNoteId} />} />
+			</div>
+		);
 	}
 }
 

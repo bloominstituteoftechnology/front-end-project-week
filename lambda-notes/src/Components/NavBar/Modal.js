@@ -1,6 +1,7 @@
 import React from 'react';
 import './modal.css';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 // import Axios from 'axios';
 
 class ModalState extends React.Component {
@@ -39,9 +40,9 @@ const Modal = ({ handleClose, show, deletePost }) => {
 					<p>Are You Sure you Want to delete this?</p>
 				</div>
 				<div className="buttons">
-					<StyledButton Yes onClick={deletePost}>
+					<StyledDeleteButton to="/" Yes onClick={deletePost}>
 						Delete
-					</StyledButton>
+					</StyledDeleteButton>
 					<StyledButton No onClick={handleClose}>
 						No
 					</StyledButton>
@@ -61,12 +62,28 @@ export const UnstyledButton = styled.button`
 	cursor: pointer;
 `;
 
+export const StyledDeleteButton = styled(Link)`
+	margin: 10px;
+	padding: 10px;
+	width: 100px;
+	border-radius: 3px;
+	color: #ffffffff;
+	background: #CA001A;
+	border: 1px solid black;
+	font-size: 18px;
+	cursor: pointer;
+	&:hover {
+		background: #000000;
+		color: #ffffffff;
+	}`;
+
 export const StyledButton = styled.button`
 	margin: 10px;
 	padding: 10px;
 	width: 100px;
 	border-radius: 3px;
 	color: #ffffffff;
+	background: #24b8bd;
 	border: 1px solid black;
 	font-size: 18px;
 	cursor: pointer;
@@ -74,6 +91,4 @@ export const StyledButton = styled.button`
 		background: #000000;
 		color: #ffffffff;
 	}
-
-	${(props) => (props.Yes ? 'background: #24B8BD' : 'background: #CA001A')};
 `;
