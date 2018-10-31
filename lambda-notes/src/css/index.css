@@ -39,15 +39,17 @@
 .card-container .card {
   display: flex;
   flex-direction: column;
-  height: 250px;
-  width: 250px;
   border: 1px solid gray;
   margin: 10px;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .card-container .link {
   color: #424242;
-}
-.card-container .link .link:hover {
   text-decoration: none;
 }
 .card-content {

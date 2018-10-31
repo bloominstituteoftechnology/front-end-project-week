@@ -17,15 +17,21 @@
 .card{
     display: flex;
     flex-direction: column;
-    height: 250px;
-    width: 250px;
     border: 1px solid @borders;
     margin: 10px;
+    width: 250px;
+    height: 250px;
+    overflow : hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    p{
+    
+
+    }
 }
 .link {
  color: @text;
- .link:hover {
-     text-decoration: none;
- }
+ text-decoration: none;
 }
 }
