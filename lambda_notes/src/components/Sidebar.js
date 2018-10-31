@@ -3,6 +3,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 
@@ -37,13 +38,19 @@ import styled from 'styled-components';
 `;
  const SideBar = () => {
   return (
-    <StyledSideBar>
-      <MainHeading>
-        Lambda <br /> Notes
-      </MainHeading>
-       <SideButton>View Your Notes</SideButton>
-       <SideButton>+ Create a new note</SideButton>
-    </StyledSideBar>
+    // <StyledSideBar>
+    //   <MainHeading>
+    //     Lambda <br /> Notes
+    //   </MainHeading>
+    //    <SideButton>View Your Notes</SideButton>
+    //    <SideButton>+ Create a new note</SideButton>
+    // </StyledSideBar>
+    <div>
+      <h1>Lambda Notes</h1>
+      <Link to='/createnote'>CREATE NOTE</Link>
+      <Link to='/'>VIEW NOTE</Link>
+
+    </div>
   );
 };
  export default SideBar;

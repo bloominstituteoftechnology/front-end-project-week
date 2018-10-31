@@ -6,6 +6,7 @@ import AllNotes from "./components/AllNotes";
 import axios from "axios";
 import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
+import ViewNote from './components/ViewNote';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -54,28 +55,48 @@ class App extends Component {
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
-  componentDidUpdate() {
+
+  createNote=(newNote) => {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.log(error));
+          .post(`https://fe-notes.herokuapp.com/note/create`, {newNote})
+          .then(response => {
+            newNote._id = response.data.success
+
+            this.setState({notes:this.state.notes.concat(newNote)})
+
+
+                console.log('create note',this.state.notes.concat(newNote))
+              console.log(response);
+
+          })
+
   }
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+
+
+deleteNote= (id) => {
+  axios
+  .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then((response) => {
+      const deleteNote =  this.state.notes.filter(note => note._id !== id)
+        this.setState({notes: deleteNote})
+    })
+}
 
   render() {
     return (
       <div>
+      <Sidebar />
         <MainContent>
           <Route
             exact
             path="/"
-            render={() => <AllNotes notes={this.state.notes} />}
-          />
+            render={() => <AllNotes notes={this.state.notes} />}/>
+            <Route path='/createnote'render={(props) => <CreateNote createNote={this.createNote} {...props}/>} />
+            <Route path='/viewnote/:id'render={(props) => <ViewNote editNote={this.editNote} {...props} deleteNote={this.deleteNote} /> }/>
+
         </MainContent>
-        <Sidebar />
-        <CreateNote />
+
+
       </div>
     );
   }
