@@ -1,53 +1,25 @@
 import React from "react";
 import Login from "../Login/Login";
 
-const Authenticate = (App) =>
+const Authenticate = App =>
   class extends React.Component {
-    constructor() {
-      super()
+    constructor(props) {
+      super(props);
       this.state = {
-        logedIn: false,
-        userName: '',
-        password: ''
-      }
+        loggedIn: false
+      };
     }
-
     componentDidMount() {
-      const userName = localStorage.getItem('userName')
-      if (this.state.logedIn === false && userName) {
-        this.setState({ logedIn: true })
+      if (!localStorage.getItem("user")) {
+        this.setState({ loggedIn: false });
+      } else {
+        this.setState({ loggedIn: true });
       }
     }
-
-    loginUser(event) {
-      event.preventDefault()
-      console.log('Storing')
-      const userName = this.state.userName
-      const password = this.state.password
-      localStorage.setItem('userName', userName)
-      window.location.reload()
-      console.log(localStorage.getItem('userName'))
-    }
-
-    onUserInputChnage(event) {
-      this.setState({ userName: event.target.value })
-    }
-
-    onPasswordInputChange(event) {
-      this.setState({ password: event.target.value })
-    }
-
     render() {
-      if (this.state.logedIn)
-        return (<App />)
-      else
-        return (
-          <Login onChangeFunction={{
-            userName: this.onUserInputChnage.bind(this),
-            password: this.onPasswordInputChange.bind(this),
-            loginUser: this.loginUser.bind(this)
-          }} />)
-
+      if (this.state.loggedIn) return <App />;
+        return <div className="loginPage"><Login /></div>;
     }
-  }
+  };
+
 export default Authenticate;
