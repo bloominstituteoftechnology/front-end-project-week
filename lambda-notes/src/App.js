@@ -46,19 +46,19 @@ class App extends Component {
   }
 
 
-  addNote = note => {
-    axios 
-      .post('http://localhost:5000/api/notes', note)
-      .then(response => {
-        this.setState(
-          {notes: response.data},
-          this.props.history.push('/')
-        );
-      })
-      .catch(error => (
-        console.log('Server Error', error)
-      ));
-  }
+  // addNote = note => {
+  //   axios 
+  //     .post('http://localhost:5000/api/notes', note)
+  //     .then(response => {
+  //       this.setState(
+  //         {notes: response.data},
+  //         this.props.history.push('/')
+  //       );
+  //     })
+  //     .catch(error => (
+  //       console.log('Server Error', error)
+  //     ));
+  // }
 
 
 
@@ -95,6 +95,7 @@ class App extends Component {
             <NoteForm 
               {...props} 
               addNote={this.addNote} 
+              fetchNotes={this.fetchNotes}
             />
           )}
         />
