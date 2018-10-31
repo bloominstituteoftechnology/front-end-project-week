@@ -22,22 +22,31 @@ class Modal extends React.Component {
             handleInputChange={this.props.handleInputChange}
             placeholder="password"
           />
-          </form>
-          <div className="social-signin">
+        </form>
+        <div className="social-signin">
           <button className="signIn" onClick={this.props.onSubmit}>
             {" "}
             Sign In
           </button>
-        
-        <div className="social-signin">
-            <div class="fb-login-button" data-width="194.47" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true"></div>
-          <Button className="fb" onClick={this.props.onSubmit}>
-            <i className="fab fa-facebook" aria-hidden="true" />
-          </Button>
-          <Button className="tw" onClick={this.props.onSubmit}>
-            <i className="fab fa-twitter" aria-hidden="true" />
-          </Button>
-        </div>
+
+          <div className="social-signin">
+            <div
+              class="fb-login-button"
+              data-width="194.47"
+              data-max-rows="1"
+              data-size="large"
+              data-button-type="login_with"
+              data-show-faces="false"
+              data-auto-logout-link="true"
+              data-use-continue-as="false"
+            />
+            <Button className="fb" onClick={this.props.onSubmit}>
+              <i className="fab fa-facebook" aria-hidden="true" />
+            </Button>
+            <Button className="tw" onClick={this.props.onSubmit}>
+              <i className="fab fa-twitter" aria-hidden="true" />
+            </Button>
+          </div>
         </div>
         <a href="forget password">Lost your password ?</a>
       </div>
@@ -66,10 +75,12 @@ class Input extends React.Component {
 
 class Logo extends React.Component {
   render() {
-    return <div className="logo">
+    return (
+      <div className="logo">
         <i className="fa fa-edit fa-spin" />
         <span> Lambda Notes </span>
-      </div>;
+      </div>
+    );
   }
 }
 
@@ -131,38 +142,38 @@ class Login extends Component {
         {component}
       </ReactCSSTransitionGroup>
     );
-  //   return (
-  //     <Form className="login-form">
-  //       <h3>Welcome to My Notes</h3>
-  //       <div>Please Login</div>
-  //       <FormGroup>
-  //         <Input
-  //           type="text"
-  //           placeholder="User Name"
-  //           name="username"
-  //           value={this.state.username}
-  //           onChange={this.handleInputChange}
-  //         />
-  //       </FormGroup>
-  //       <FormGroup>
-  //         <Input
-  //           type="password"
-  //           placeholder="Password"
-  //           name="password"
-  //           value={this.state.password}
-  //           onChange={this.handleInputChange}
-  //         />
-  //         <br />
-  //         <div className="lbutton">
-  //           <Button size="lg" color="primary" onClick={this.handleLoginSubmit}>
-  //             Log In
-  //           </Button>
-  //         </div>
-  //       </FormGroup>
-  //     </Form>
-  //   );
-  // }
-}
+    //   return (
+    //     <Form className="login-form">
+    //       <h3>Welcome to My Notes</h3>
+    //       <div>Please Login</div>
+    //       <FormGroup>
+    //         <Input
+    //           type="text"
+    //           placeholder="User Name"
+    //           name="username"
+    //           value={this.state.username}
+    //           onChange={this.handleInputChange}
+    //         />
+    //       </FormGroup>
+    //       <FormGroup>
+    //         <Input
+    //           type="password"
+    //           placeholder="Password"
+    //           name="password"
+    //           value={this.state.password}
+    //           onChange={this.handleInputChange}
+    //         />
+    //         <br />
+    //         <div className="lbutton">
+    //           <Button size="lg" color="primary" onClick={this.handleLoginSubmit}>
+    //             Log In
+    //           </Button>
+    //         </div>
+    //       </FormGroup>
+    //     </Form>
+    //   );
+    // }
+  }
 }
 
 export default Login;
