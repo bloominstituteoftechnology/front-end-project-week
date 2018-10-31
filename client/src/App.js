@@ -80,8 +80,7 @@ class App extends Component {
                   {...props}
                   notes={this.state.notes}
                   editNote={this.editNote}
-                  editHandler={this.editHandler}
-                  handleChange={this.handleChange}
+                  deleteNote={this.deleteNote}
                 />
               )}
             />
@@ -102,6 +101,7 @@ class App extends Component {
                   editNote={this.editNote}
                   editHandler={this.editHandler}
                   handleChange={this.handleChange}
+                  deleteNote={this.deleteNote}
                 />
               )}
             />

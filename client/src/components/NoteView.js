@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { render } from "react-dom";
+import Modal from "react-responsive-modal";
 
 class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       editing: false,
-
-      modal: false
+      open: false
     };
-    // this.toggle = this.toggle.bind(this);
   }
 
-  //mounts note to state
+  //Mounts fetched note to state
   componentDidMount() {
     window.scrollTo(0, 0);
     const id = this.props.match.params.id;
@@ -20,7 +20,7 @@ class NoteView extends Component {
     this.fetch(id);
   }
 
-  //fetches an individual note by id and sets its values to state of this component
+  //Fetches an individual note by id and sets its values to state of this component.
   fetch = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -37,13 +37,15 @@ class NoteView extends Component {
       });
   };
 
-  //toggles the edit form
+  /****** Edit Handling Functions *******/
+
+  //Toggles the edit form
   toggleEdit = e => {
     e.preventDefault();
     this.setState({ editing: true });
   };
 
-  //validates form input and then triggers edit function
+  //Validates form input and then triggers edit() function
   editSubmitHandler = e => {
     e.preventDefault();
     if (this.state.title.length < 1 || this.state.textBody.length < 1) {
@@ -60,24 +62,28 @@ class NoteView extends Component {
     }
   };
 
-  //change handler
+  //Change Handler
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // toggle() {
-  //   this.setState({
-  //     modal: !this.state.modal
-  //   });
-  // }
+  openModal = () => {
+    this.setState({ open: true });
+  };
 
-  // deleteHandler = event => {
-  //   event.preventDefault();
-  //   this.deleteNote(this.state.note._id);
-  //   this.props.history.push("/");
-  // };
+  closeModal = () => {
+    this.setState({ open: false });
+  };
+
+  delete = e => {
+    e.preventDefault();
+    this.props.deleteNote(this.state.id);
+    this.props.history.push("/");
+  };
 
   render() {
+    const { open, title, textBody } = this.state;
+
     if (this.state.editing) {
       return (
         <div className="edit-form">
@@ -87,14 +93,14 @@ class NoteView extends Component {
               name="title"
               type="text"
               placeholder="new title"
-              value={this.state.title}
+              value={title}
               onChange={this.handleChange}
             />
             <input
               name="textBody"
               type="text"
               placeholder="new note"
-              value={this.state.textBody}
+              value={textBody}
               onChange={this.handleChange}
             />
             <button type="submit">Update</button>
@@ -111,13 +117,26 @@ class NoteView extends Component {
               edit
             </button>
 
-            <button className="delete-button">delete</button>
+            <button className="delete-button" onClick={this.openModal}>
+              delete
+            </button>
           </div>
           <div className="note-title">{this.state.title}</div>
         </div>
         <div className="note-body">
           <p>{this.state.textBody}</p>
         </div>
+
+        <Modal open={open} onClose={this.closeModal} center>
+          <h2>Are you sure you want to delete this?</h2>
+
+          <button className="modal-delete" onClick={this.delete}>
+            Delete
+          </button>
+          <button onClick={this.closeModal} className="modal-no">
+            No
+          </button>
+        </Modal>
       </div>
     );
   }
