@@ -15,8 +15,7 @@ function DeleteNote(props){
     
         axios
         .delete(`http://localhost:9000/notes/${noteId}`)
-        .then(response => history.push('/notes')
-        )
+        .then(response => window.location = "/notes")
     };
     
 
