@@ -41,7 +41,9 @@ class App extends Component {
     axios 
         .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.expandedNote.id}`, note)
         .then(() => {
-          
+          const targetIndex = this.state.notes.findIndex(note => note._id === this.state.expandedNote.id);
+          this.state.notes.splice(targetIndex, 1, note);
+          this.setState({ notes: this.state.notes });
         })
         .catch(error => console.log(error));
     this.props.history.push('/');
@@ -50,10 +52,11 @@ class App extends Component {
   deleteNote = () => {
     axios
         .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.expandedNote.id}`)
-        .then(() => axios
-                      .get('https://fe-notes.herokuapp.com/note/get/all')
-                      .then(response => this.setState({ notes: response.data }))
-                      .catch(error => console.log(error)))
+        .then(() => {
+          const targetIndex = this.state.notes.findIndex(note => note._id === this.state.expandedNote.id);
+          this.state.notes.splice(targetIndex, 1);
+          this.setState({ notes: this.state.notes });
+        })
         .catch(error => console.log(error));
     this.props.history.push('/');
     
