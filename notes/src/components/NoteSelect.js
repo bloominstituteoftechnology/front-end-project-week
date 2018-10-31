@@ -12,7 +12,7 @@ const NoteSelect = ({ note, noteChecked, noteUnChecked }) => {
             onClick={e => {
                 e.preventDefault();
                 setChecked(!checked);
-                checked ? noteChecked(note._id) : noteUnChecked(note._id)
+                !checked ? noteChecked(note._id) : noteUnChecked(note._id)
             }}
         >
             <div className="edit-icon">
@@ -20,7 +20,13 @@ const NoteSelect = ({ note, noteChecked, noteUnChecked }) => {
                     type="checkbox" 
                     name="note"
                     checked={checked}
+                    onChange={e => {
+                        e.preventDefault();
+                        setChecked(!checked);
+                        !checked ? noteChecked(note._id) : noteUnChecked(note._id)
+                    }}
                 ></input>
+                <span className="checkbox-cover"></span>
             </div>
             <div className="title">{note.title}</div>
             <MarkdownRenderer className="body" markdown={note.textBody}/>
@@ -76,6 +82,13 @@ const NoteContainer = styled.div`
             position: absolute;
             top: 3px;
             left: 4px;
+        }
+        .checkbox-cover {
+            position: absolute;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            background: transparent;
         }
     }
     :hover {
