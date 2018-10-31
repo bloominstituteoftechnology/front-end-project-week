@@ -12,12 +12,14 @@ class App extends Component {
 		return (
 			<div className="App">
 				<SideNav />
-				<Switch>
-					<Route path='/add' component={AddNote} />
-					<Route exact path='/' component={NoteList} />
-					<Route exact path='/:id' render={ (props) => <NotePage {...props}/> } />
-					<Route path='/:id/edit' render={ (props) => <EditPage {...props}/> } />
-				</Switch>
+				<div className='current-page'>
+					<Switch>
+						<Route path='/add' component={AddNote} />
+						<Route exact path='/' component={NoteList} />
+						<Route exact path='/:id' render={ (props) => <NotePage {...props}/> } />
+						<Route path='/:id/edit' render={ (props) => <EditPage {...props}/> } />
+					</Switch>
+				</div>
 			</div>
 		);
   	}

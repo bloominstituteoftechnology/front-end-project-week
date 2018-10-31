@@ -1,4 +1,89 @@
-body div {
-  margin: 5px;
-  border: 1px solid black;
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.App {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.App .side-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 20%;
+  background-color: #D3D2D3;
+  position: fixed;
+  height: 100vh;
+}
+.App .side-nav .nav-title {
+  font-size: 4rem;
+  color: #4D525D;
+  margin: 20px 20px 10px;
+}
+.App .side-nav .nav-link {
+  width: 250px;
+  background: #00BDC0;
+  color: white;
+  border: 1px solid #D3D2D3;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px auto;
+}
+.App .current-page {
+  margin-left: 20%;
+  padding: 10px 30px;
+  background-color: #F2F1F2;
+}
+.note-list {
+  margin-top: 50px;
+}
+.note-list h2 {
+  font-size: 3rem;
+  color: #4D525D;
+  margin-left: 10px;
+}
+.note-list .notes-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.note-list .notes-container a {
+  text-decoration: none;
+  color: black;
+}
+.note-card {
+  border: 1px solid #4D525D;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 250px;
+  height: 270px;
+  background-color: white;
+}
+.note-card .note-title {
+  font-size: 2.4rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #4D525D;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.note-card .note-body {
+  font-size: 1.8rem;
+  height: 200px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  hyphens: auto;
+  -moz-hyphens: auto;
+  padding: 10px 0;
 }

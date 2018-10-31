@@ -1,0 +1,82 @@
+@import './variables';
+@import './mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.App {
+    .flex(space-between, flex-start, row);
+    .side-nav {
+        .flex(flex-start, flex-start, column);
+        width: 20%;
+        background-color: @medium-grey;
+        position: fixed;
+        height: 100vh;
+        .nav-title {
+            font-size: 4rem;
+            color: @dark-grey;
+            margin: 20px 20px 10px;
+        }
+        .nav-link {
+            .button(@teal, white);
+            margin: 10px auto;
+        }
+    }
+    .current-page {
+        margin-left: 20%;
+        padding: 10px 30px;
+        background-color: @light-grey;
+    }
+}
+
+.note-list {
+    margin-top: 50px;
+    h2 {
+        font-size: 3rem;
+        color: @dark-grey;
+        margin-left: 10px;
+    }
+    .notes-container {
+        .flex(space-between, center, row);
+        flex-wrap: wrap;
+        a {
+            text-decoration: none;
+            // word-break: break-all;
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+            color: black;
+        }
+    }
+}
+
+.note-card {
+    border: 1px solid @dark-grey;
+    padding: 10px 20px;
+    margin: 10px;
+    width: 250px;
+    height: 270px;
+    background-color: white;
+    .note-title {
+        font-size: 2.4rem;
+        padding-bottom: 10px;
+        border-bottom: 1px solid @dark-grey;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .note-body {
+        font-size:  1.8rem;
+        height: 200px;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        hyphens: auto;
+        -moz-hyphens: auto;
+        padding: 10px 0;
+    }
+}
