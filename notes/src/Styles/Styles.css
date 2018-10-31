@@ -5,7 +5,7 @@
 }
 
 .view {
-  background: #f2f1f2
+  background: #f2f1f2;
 }
 
 .button {
@@ -43,4 +43,12 @@
 
 .note-list--note h4 {
   border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+.add-edit-note-form {
+  text-align: left;
+  padding: 30px;
+  background: #f2f1f2;
+  display: flex;
+  flex-direction: column;
 }
