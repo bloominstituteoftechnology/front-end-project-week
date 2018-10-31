@@ -4,11 +4,7 @@ import {Link} from "react-router-dom";
 
 const NoteCard = props => {
   return (
-    <Link
-      to={`/${props.note._id}`}
-      className="note-card"
-      // onClick={e => props.viewNote(e, props.note._id)}
-    >
+    <Link to={`/${props.note._id}`} className="note-card">
       <div>
         <h2>{props.note.title}</h2> <hr />
         <p>{props.note.textBody}</p>

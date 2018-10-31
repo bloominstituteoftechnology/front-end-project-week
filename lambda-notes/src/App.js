@@ -17,8 +17,6 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    // console.log("CDM: Notes fetched", this.state.notes);
-    // this.fetchNotes();
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => {
@@ -41,8 +39,6 @@ class App extends Component {
         console.log(newN);
         this.setState({notes: this.state.notes.concat(newN)});
       });
-
-    // this.setState({notes: [...this.state.notes, response.data]})
   };
 
   deleteNote = id => {

@@ -17,12 +17,6 @@ class NewNote extends React.Component {
   };
 
   newNoteHandler = newNote => {
-    //  const newNote = {
-    //    tags: this.state.tags,
-    //    title: this.state.title,
-    //    textBody: this.state.textBody
-    //  };
-
     this.props.addNewNote(newNote);
     this.props.history.push("/notes");
     this.setState({tags: [], title: "", textBody: ""});
