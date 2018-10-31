@@ -67,9 +67,9 @@ class App extends Component {
         onChangeHandler ={this.onChangeHandler}
         />} />
         {/* View Card Route */}
-        <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
+        <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState()} notes={this.state.notes} /> } />
         {/* Edit Card Route */}
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} refresh={this.refreshState()} notes={this.state.notes} /> } />
       </div>
     );
   }

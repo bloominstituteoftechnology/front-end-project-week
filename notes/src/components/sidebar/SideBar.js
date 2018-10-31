@@ -9,7 +9,7 @@ const Sidebar = (props) => {
     return(
         <div className="sidebar" >
             <h1>Lambda Notes</h1>
-            <Link onClick={props.refresh} to='/'><Button >View Your Notes</Button></Link>
+            <Link /*onClick={props.refresh}*/ to='/'><Button >View Your Notes</Button></Link>
             <Link to='/create-new' ><Button >+ Create New Note</Button> </Link>
         </div>
     )
