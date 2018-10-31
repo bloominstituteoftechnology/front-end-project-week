@@ -35,27 +35,9 @@ class App extends Component {
   }
 
 
-
-editNote = (event) => {
-  
-const updatedNote={
-  id: event.target.id,
-  title: this.state.notes.title,
-  textBody: this.state.notes.textBody,
+refresh () {
+  window.location.reload();
 }
-
-  axios     
-    .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.notes._id}`,
-    updatedNote
-      )
-    .then(response => {
-       this.setState(() => ({ notes: response.data }));
-      })
-    .catch(error => {
-      console.error('Server Error', error);
-      });
-}
-
 
 
   render() {
@@ -64,7 +46,7 @@ const updatedNote={
         <div className = 'wrapper' >
           <nav className = 'navBar'>
             <h1> Lambda Notes </h1>
-            <NavLink className = "links" to = '/'> View Your Notes </NavLink>
+            <NavLink onClick = {this.refresh} className = "links" to = '/' > View Your Notes </NavLink>
             <NavLink className = "links"
             to = '/create-new-note'> + Create New Note </NavLink>
           </nav>
