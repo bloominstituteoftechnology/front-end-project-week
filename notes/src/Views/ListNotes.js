@@ -14,6 +14,7 @@ class ListNotes extends Component {
             id={note._id}
             title={note.title}
             content={note.textBody}
+            tags={note.tags}
           />
         ))}
       </div>
