@@ -78,7 +78,7 @@ class App extends Component {
             <NavLink className="nav-buttons" to="/">
               View Your Notes
             </NavLink>
-            <NavLink className="nav-buttons" to="add-note">
+            <NavLink className="nav-buttons" to="/add-note">
               + Create New Note
             </NavLink>
           </div>
