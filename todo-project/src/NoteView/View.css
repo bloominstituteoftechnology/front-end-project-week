@@ -39,3 +39,21 @@
   .spacing {
       margin-right: 1%;
   }
+  .modalButton2 {
+    background: #24B8BD;
+    color: white;
+    margin-left: 1.5%;
+    padding: .5rem 4rem;
+    cursor: pointer;
+  }
+  .modalButton1 {
+    background: #CA001A;
+    color: white;
+    margin-right: 1.5%;
+    padding: .5rem 4rem;
+    cursor: pointer;
+  }
+  .buttonDiv {
+    display: flex;
+    justify-content: center;
+  }
