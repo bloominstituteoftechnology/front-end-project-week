@@ -15,6 +15,20 @@ class NoteContainer extends React.Component {
 		this.getAllNotes();
 	}
 
+	static getDerivedStateFromProps(nextProps, prevState) {
+		// Store prevUserId in state so we can compare when props change.
+		// Clear out any previously-loaded user data (so we don't render stale stuff).
+		if (nextProps.userId !== prevState.prevUserId) {
+			return {
+				prevUserId: nextProps.userId,
+				profileOrError: null
+			};
+		}
+
+		// No state update necessary
+		return null;
+	}
+
 	getAllNotes = () => {
 		const URL = `https://fe-notes.herokuapp.com/note/get/all`;
 		axios

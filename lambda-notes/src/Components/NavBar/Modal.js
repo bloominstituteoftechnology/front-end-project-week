@@ -1,9 +1,13 @@
 import React from 'react';
 import './modal.css';
 import styled from 'styled-components';
+// import Axios from 'axios';
 
 class ModalState extends React.Component {
-	state = { show: false };
+	constructor(props) {
+		super(props);
+		this.state = { show: false };
+	}
 
 	showModal = () => {
 		this.setState({ show: true });
@@ -16,7 +20,7 @@ class ModalState extends React.Component {
 	render() {
 		return (
 			<main>
-				<Modal show={this.state.show} handleClose={this.hideModal} />
+				<Modal show={this.state.show} handleClose={this.hideModal} deletePost={this.props.deletePost} />
 				<UnstyledButton type="button" onClick={this.showModal}>
 					delete
 				</UnstyledButton>
@@ -25,7 +29,7 @@ class ModalState extends React.Component {
 	}
 }
 
-const Modal = ({ handleClose, show, children }) => {
+const Modal = ({ handleClose, show, deletePost }) => {
 	const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
 	return (
@@ -35,7 +39,9 @@ const Modal = ({ handleClose, show, children }) => {
 					<p>Are You Sure you Want to delete this?</p>
 				</div>
 				<div className="buttons">
-					<StyledButton Yes>Delete</StyledButton>
+					<StyledButton Yes onClick={deletePost}>
+						Delete
+					</StyledButton>
 					<StyledButton No onClick={handleClose}>
 						No
 					</StyledButton>

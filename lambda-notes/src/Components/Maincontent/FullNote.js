@@ -30,27 +30,28 @@ class FullNote extends React.Component {
 			.catch((err) => console.log(err));
 	}
 
+	deletePost = () => {
+		console.log('clicked');
+		Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+			.then(() => {
+				this.props.history.push('/');
+			})
+			.catch((err) => console.log(err));
+	};
+
 	render() {
 		const { note } = this.state;
-		if (!note._id.length) {
-			return (
+		return (
+			<div>
 				<StyledNoteWrapper>
-					<h1>Loading Your trash...</h1>
+					<Navbar deletePost={this.deletePost} />
+					<StyledNoteContainer key={note._id}>
+						<StyledH1>{note.title}</StyledH1>
+						<p>{note.textBody}</p>
+					</StyledNoteContainer>
 				</StyledNoteWrapper>
-			);
-		} else {
-			return (
-				<div>
-					<StyledNoteWrapper>
-						<Navbar />
-						<StyledNoteContainer key={note._id}>
-							<StyledH1>{note.title}</StyledH1>
-							<p>{note.textBody}</p>
-						</StyledNoteContainer>
-					</StyledNoteWrapper>
-				</div>
-			);
-		}
+			</div>
+		);
 	}
 }
 
@@ -60,7 +61,7 @@ export const StyledNoteWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	max-width: 100%;
+	max-width: 900px;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -77,7 +78,7 @@ export const StyledNoteContainer = styled.div`
 	background-color: #ffffff;
 	text-align: start;
 	overflow: hidden;
-	width: 100%;
+	width: 400px;
 	margin: 10px;
 `;
 

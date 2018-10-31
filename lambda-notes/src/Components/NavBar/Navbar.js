@@ -4,9 +4,12 @@ import Modal from './Modal';
 // import { NavLink } from 'react-router-dom';
 
 class Navbar extends React.Component {
-	state = {
-		show: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			show: false
+		};
+	}
 
 	showModal = () => {
 		this.setState({ show: true });
@@ -19,7 +22,7 @@ class Navbar extends React.Component {
 	render() {
 		return (
 			<StyledContainer>
-				<Modal show={this.showModal} handleClose={this.hideModal} />
+				<Modal show={this.showModal} handleClose={this.hideModal} deletePost={this.props.deletePost} />
 			</StyledContainer>
 		);
 	}

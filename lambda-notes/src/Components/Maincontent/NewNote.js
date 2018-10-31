@@ -2,12 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-class NewNote extends React.Component {
+class NewNote extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
 			noteTitle: '',
-			noteContent: ''
+			noteContent: '',
+			submitted: false
 		};
 	}
 
@@ -18,29 +19,19 @@ class NewNote extends React.Component {
 		});
 	};
 
-	saveNote = (e) => {
+	saveNote = () => {
 		const { noteTitle, noteContent } = this.state;
-		e.preventDefault();
-		if (this.state.noteTitle === '' || this.state.noteContent === '') {
+		if (noteTitle === '' || noteContent === '') {
 			alert('Please fill out both fields');
 		} else {
 			axios
 				.post('https://fe-notes.herokuapp.com/note/create', { title: noteTitle, textBody: noteContent })
-				.then((res) => {
-					console.log(res);
-					this.setState({
-						notes: res.data,
-						noteTitle: '',
-						noteContent: ''
-					});
-				})
-				.catch((err) => console.log(err));
+				.then(this.setState({ submitted: true }))
+				.then(this.props.history.push('/'));
 		}
-		this.props.history.push('/');
 	};
 
 	render() {
-		console.log(this.props.history);
 		return (
 			<StyledContainer>
 				<h1>Create New Note:</h1>
