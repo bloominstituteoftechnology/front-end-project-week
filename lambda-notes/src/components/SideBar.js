@@ -7,8 +7,12 @@ class SideBar extends React.Component {
             <div className="side-bar">
                 <h1>Lambda Notes</h1>
                 <div className="link-section">
-                    <NavLink exact to="/" activeClassName="link">View Your Notes</NavLink>
-                    <NavLink to="/create" activeClassName="link">+ Create New Note</NavLink>
+                    <NavLink exact to="/" activeClassName="link">
+                        <button>View Your Notes</button>
+                    </NavLink>
+                    <NavLink to="/create" activeClassName="link">
+                    <button>+ Create New Note</button>
+                    </NavLink>
                 </div>
             </div>
 
