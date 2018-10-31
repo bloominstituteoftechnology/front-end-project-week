@@ -6,6 +6,7 @@ import Note from '../components/Note';
 import NoteNav from '../components/NoteNav';
 import Modal from '../components/Modal';
 import Portal from '../components/Portal';
+import StyledSpinner from '../styles/StyledSpinner';
 
 const StyledNote = styled.div`
   background: #fff;
@@ -51,7 +52,7 @@ class NoteView extends Component {
     return (
       <div className="View">
         {isFetchingNote ? (
-          <div>Loading note...</div>
+          <StyledSpinner />
         ) : (
           <>
             {showModal ? (
