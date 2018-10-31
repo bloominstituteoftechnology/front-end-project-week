@@ -6,7 +6,9 @@ export default class TopicMap extends React.Component {
         title: 'Title',
         notes: [],
         newNote: {'title': '', 'textBody': '', 'tags': []},
-        topicNotes: [{'title': 'spaggle', 'textBody': '', 'tags': []}]
+        topicNotes: [{'title': 'spaggle', 'textBody': '', 'tags': []}],
+        subtopics: [],
+        newSubtopic: ''
 
     }
 
@@ -22,6 +24,24 @@ export default class TopicMap extends React.Component {
         this.setState({topicNotes: [...this.state.topicNotes, this.state.newNote], newNote: {'title': '', 'textBody': '', 'tags': []} });
         
       }
+
+    stInputHandler = (e) => {
+        this.setState({newSubtopic: e.target.value})
+    }
+
+    addSubTopic = () => {
+        let subtopic = this.state.newSubtopic.split('-');
+        if(!subtopic[1]){
+            alert('Must append topic with hyphen followed by a color. \n Ex: middleware-green');
+        }
+        else {
+        this.setState({subtopics: [...this.state.subtopics, {subtopic: subtopic[0], 
+                                                             color: subtopic[1]}
+                                    ],
+                       newSubtopic: ''
+                                                            });
+    }
+    }
 
 
     render(){
@@ -42,6 +62,38 @@ export default class TopicMap extends React.Component {
                 <MiniMap />
                 <MiniMap />
                 <MiniMap />
+                </div>
+                <div className="subtopic-area">
+                    <table>
+                        <tr>
+                            <td>
+                                <span className="td-txt">SUBTOPICS</span>
+                                <div className="add-btn" onClick={this.addSubTopic}>ADD</div>
+                            </td>
+                            <td className='st-data'>
+                                <div className='tab-holder'>
+                                {this.state.subtopics.map(topic => 
+                                    (<div className="topic-tab">
+                                        
+                                        {topic.subtopic} 
+                                        <div style={{backgroundColor: topic.color}} 
+                                             className='swab'>
+                                        </div>
+                                    
+                                    </div>)
+                                )}
+                                </div>
+                                <div className='subtopics-list'>
+                                    <textarea id="subtopicTA" 
+                                              rows="1" 
+                                              value={this.state.newSubtopic}
+                                              onChange={this.stInputHandler}>
+                                    </textarea>
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <input name="title" 
                        type="text" 

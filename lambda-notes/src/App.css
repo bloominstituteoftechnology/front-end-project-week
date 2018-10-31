@@ -239,6 +239,7 @@ a {
   display: flex;
   flex-direction: column;
   padding: 15px;
+  align-items: center;
 }
 
 .note-map {
@@ -250,19 +251,21 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px 0px;
+  margin: 25px 0 ;
+
 }
 
 .topicNote {
   background: #24B8BD;
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   margin: 5px;
   border-radius: 50%;
   cursor: pointer;
 }
 
 #textarea2 {
-  margin: 25px 0;
+  margin: 0px 0 25px 0;
   width: 90%;
   background: white;
   padding: 5px;
@@ -276,18 +279,19 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  height: 100px;
-  max-width: 100px;
+  height: 105px;
+  max-width: 105px;
   justify-items: center;
-  margin: 0 20px;
-  border: 1px solid rgb(204, 203, 203);
-  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+  box-shadow: 1px 1px 1px 1px gray;
+  border-radius: 50%;
 
 }
 
 .circle {
   border-radius: 50%;
-  background: #24B8BD;
+  background: rgb(230, 231, 231);
   height: 30px;
   width: 30px;
   cursor: pointer;
@@ -314,3 +318,79 @@ a {
   grid-column: 3;
   grid-row: 3;
 }
+
+.subtopic-area{
+  width: 80%;
+  display: flex;
+}
+
+table {
+  width: 100%;
+}
+
+#subtopicTA {
+  resize: none;
+  border-radius: 30px;
+  line-height: 40px;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: start;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  border: none;
+}
+
+td {
+  display: flex;
+
+}
+.td-txt {
+  align-self: right;
+}
+
+.subtopics-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-btn {
+  background: #24B8BD;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 0 10px;
+  margin: 0 10px;
+  border: black solid 1px;
+}
+
+.topic-tab {
+  background: lightslategray;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+
+}
+
+/* .tab-holder {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.swab {
+  width: 8px;
+  height: 8px;
+  margin: 0 5px; 
+  border-radius: 50%;
+}
+.st-data {
+  width: 100%;
+  display: flex;
+  background: white;
+  border-radius: 30px;
+  border: 2px lightgray solid;
+}
+
+
