@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 // const EditView = ({changeHandler, title, textBody, notes, editNote, history}) => {
 
 class EditView extends React.Component {

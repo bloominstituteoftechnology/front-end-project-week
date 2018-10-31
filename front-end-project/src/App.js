@@ -23,7 +23,7 @@ class App extends Component {
       unEditTitle:"",
       unEditBody:"",
       activeNote: "",
-      editId: null
+      editId: null,
     }
   }
 

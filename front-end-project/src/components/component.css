@@ -133,4 +133,30 @@
     margin: 20px;
 }
 
+/* Module delete */
+
+.delete {
+    width: 40%;
+    height: 40px;
+    margin-left: 25px;
+    margin-right: 20px;
+    background: red;
+    font-size: 16px;
+    color: white;
+}
+
+.no {
+    width: 40%;
+    height: 40px;
+    margin-left: 4px;
+    margin-right: 2px;
+    background: #198084;
+    font-size: 16px;
+    color: white;
+}
+
+.modal-text {
+    text-align: center;
+}
+
 
