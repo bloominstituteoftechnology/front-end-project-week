@@ -32,7 +32,7 @@ const initialState = {
 export const noteReducers = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_DATA:
-      return { ...state, fetching: true, success: false };
+      return { ...state, fetching: true, success: false, error: null };
 
     case ERROR:
       return {
@@ -59,7 +59,7 @@ export const noteReducers = (state = initialState, action) => {
 
     case ADD_NOTE:
       const newNote = { ...action.payload };
-
+      console.log('newnote', newNote);
       return {
         ...state,
         notes: [

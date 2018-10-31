@@ -16,9 +16,8 @@ export const getData = () => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .get('https://obscure-waters-68420.herokuapp.com/api/notes')
+      .get('https://lambda-notes-board.herokuapp.com/api/notes')
       .then(response => {
-        console.log(response);
         dispatch({ type: GET_DATA, payload: response.data });
       })
       .catch(err => dispatch({ type: ERROR, err }));
@@ -29,7 +28,7 @@ export const getANote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .get(`https://obscure-waters-68420.herokuapp.com/api/notes/${id}`)
+      .get(`https://lambda-notes-board.herokuapp.com/api/notes/${id}`)
       .then(response => dispatch({ type: GET_A_NOTE, payload: response.data }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -39,17 +38,17 @@ export const addNote = note => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .post('https://obscure-waters-68420.herokuapp.com/api/notes', note)
-      .then(response =>
+      .post('https://lambda-notes-board.herokuapp.com/api/notes', note)
+      .then(response => {
+        console.log('response', response);
         dispatch({
           type: ADD_NOTE,
           payload: {
             title: note.title,
             textBody: note.textBody,
-            id: response.data.success,
           },
-        })
-      )
+        });
+      })
       .catch(err => dispatch({ type: ERROR, err }));
   };
 };
@@ -58,7 +57,7 @@ export const deleteNote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .delete(`https://obscure-waters-68420.herokuapp.com/api/notes/${id}`)
+      .delete(`https://lambda-notes-board.herokuapp.com/api/notes/${id}`)
       .then(response => dispatch({ type: DELETE_NOTE, id }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -69,7 +68,7 @@ export const editNote = note => {
     dispatch({ type: FETCH_DATA });
     axios
       .put(
-        `https://obscure-waters-68420.herokuapp.com/api/notes/${note._id}`,
+        `https://lambda-notes-board.herokuapp.com/api/notes/${note._id}`,
         note
       )
       .then(response =>
