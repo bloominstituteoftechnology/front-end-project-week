@@ -22,7 +22,7 @@ import {
   toggleSort
 } from "../actions";
 
-class App extends Component {
+class Wrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -178,5 +178,5 @@ export default withRouter(
       sortList,
       toggleSort
     }
-  )(App)
+  )(Wrapper)
 );
