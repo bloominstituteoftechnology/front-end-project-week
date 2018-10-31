@@ -117,8 +117,8 @@ render() {
                 <div className="view-wrapper">
                     <h3 className="view-header">{!this.state.isEditing ? this.state.title : 'Edit Note:'}</h3>
                     <div className="action-wrapper">
-                        <div onClick={this.editHandler}>{!this.state.isEditing ? 'edit' : 'cancel'}</div>
-                        <div onClick={this.modalToggle}>delete</div>
+                        <button className="edit-cancel-button" onClick={this.editHandler}>{!this.state.isEditing ? 'Edit' : 'Cancel'}</button>
+                        <button className="delete-button" onClick={this.modalToggle}>Delete</button>
                     </div>
                     {!this.state.isEditing ?
                         <div>

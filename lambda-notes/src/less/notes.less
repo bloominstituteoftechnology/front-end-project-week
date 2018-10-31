@@ -39,7 +39,18 @@
 
 // styles for individual note pages
 .action-wrapper {
+    margin-top: 30px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    button.delete-button {
+        .custom-button(@buttonBgRed, @buttonHoverBgRed, @buttonFontColor, 75px, @buttonBorderColor, 5px, 0px, 1.2rem);
+    }
 
+    button.edit-cancel-button {
+        .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 75px, @buttonBorderColor, 5px, 0px, 1.2rem);
+        margin-right: 10px;
+    }
 }
 
 // styles for form adding new notes
@@ -72,7 +83,7 @@
     }
 
     button.note-button {
-        .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 10px);
+        .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 10px, 1.8rem);
     }
 }
 
@@ -105,12 +116,12 @@
         }
 
         button.delete-button {
-            .custom-button(@buttonBgRed, @buttonHoverBgRed, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px);
+            .custom-button(@buttonBgRed, @buttonHoverBgRed, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px, 1.8rem);
             margin-right: 20px;
         }
     
         button.no-button {
-            .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px);
+            .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px, 1.8rem);
         }
     }
 }
