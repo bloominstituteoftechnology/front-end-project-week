@@ -3,12 +3,12 @@ import { GETTING_NOTES, NOTE_SUCCESS } from '../actions';
 
 const initialState = {
     noteList: [],
-    listLoading: false
-    // note: {
-    //     tags: [],
-    //     title: '',
-    //     textBody: ''
-    // }
+    listLoading: false,
+    note: {
+        tags: [],
+        title: '',
+        textBody: ''
+    }
     // editNote:
     // createNote:
     // noteLoading:

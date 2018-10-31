@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
 //components needed
@@ -9,38 +8,23 @@ import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditCreate/EditNote';
 
 //actions
-import { getNotes } from './components/actions';
+import { getNotes, viewNote } from './components/actions';
 
 //page styling
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      noteList: []
-    }
-  }
-
   componentDidMount() {
     this.props.getNotes()
-    // axios
-    //   .get('https://fe-notes.herokuapp.com/note/get/all')
-    //   .then(({ data }) => {
-    //     this.setState({
-    //       noteList: data
-    //     })
-    //   })
-    //   .catch(error => console.log(error))
   }
   render() {
     return (
       <div className="App">
         <HeadNav />
         <div className='mainView'>
-          {/* <ListView noteList={this.state.noteList}/> */}
+          <ListView noteList={this.props.noteList} viewNote={this.props.viewNote}/>
           {/* <NoteView /> */}
-          <EditNote />
+          {/* <EditNote /> */}
         </div>
 
       </div>
@@ -55,4 +39,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getNotes })(App);
+export default connect(mapStateToProps, { getNotes, viewNote })(App);
