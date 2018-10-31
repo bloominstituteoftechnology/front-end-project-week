@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const EditBar= props => {
+
+export default class EditBar extends Component {
+    constructor(props) {
+        super(props);
+     
+    }
+
+ deleteNote = event => {
+        axios
+          .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.id}`)
+          .then(response => {
+            window.location.reload()
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
+
+    render(){
+
     return (
     <div>
-    <Link to={`/EditNoteForm/${props.id}`}>
-          edit
-         </Link>
+    <Link to={`/EditNoteForm/${this.props.id}`}>edit</Link>
+    <Link to='/' onClick={this.deleteNote} >delete</Link>
     </div>
-    )
+    );
 }
-export default EditBar;
-// `<Link to={/*javascript here*/}>{ /* javascript here */}</Link>
-// so you can pass whatever you need 
-// to into the Link as far as where it redirects to and what it says in the text
-// so you can have the link's to attribute make use of the note id that way*/
+}
+//<Link to={this.deleteNote(this.props.id)}>delete</Link>
