@@ -9,7 +9,8 @@ import {
   CREATE_NOTE,
   ADDING_NOTE_SUCCESS,
   ADDING_NOTE_FAILURE,
-  SHOW_NOTE
+  SHOW_NOTE,
+  GO_HOME
   // DELETING_SMURF_SUCCESS
 } from '../actions/index';
 
@@ -42,14 +43,16 @@ export default (state = initialState, action) => {
         ...state,
         fetchingNotes: false,
         notes: action.payload,
-        error: null
+        error: null,
+        activeNote: null
       };
 
     case FETCHING_NOTES_FAILURE:
       return {
         ...state,
         fetchingNotes: false,
-        error: action.payload
+        error: action.payload,
+        activeNote: null
       };
 
     case CREATE_NOTE:
@@ -76,6 +79,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         activeNote: action.payload
+      };
+
+    case GO_HOME:
+      return {
+        ...state,
+        activeNote: null
       };
 
     // case DELETING_SMURF_SUCCESS:

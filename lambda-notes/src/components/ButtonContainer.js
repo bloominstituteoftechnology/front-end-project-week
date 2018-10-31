@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
+import { showNote } from '../actions';
+
 const SideBar = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,7 +24,7 @@ const NoteAppButton = styled.button`
 class ButtonContainer extends Component {
   ViewNotesClickHandler = event => {
     event.preventDefault();
-    this.setState({ addingNote: false });
+    this.props.showNote(this.props.activeNote);
     this.props.history.push('/');
   };
 
@@ -59,6 +61,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    {}
+    { showNote }
   )(ButtonContainer)
 );

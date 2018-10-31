@@ -12,6 +12,7 @@ export const CREATE_NOTE = 'CREATE_NOTE';
 export const ADDING_NOTE_SUCCESS = 'ADDING_NOTE_SUCCESS';
 export const ADDING_NOTE_FAILURE = 'ADDING_NOTE_FAILURE';
 export const SHOW_NOTE = 'SHOW_NOTE';
+export const GO_HOME = 'GO_HOME';
 
 // export const DELETING_SMURF_SUCCESS = 'DELETING_SMURF_SUCCESS';
 // export const DELETING_SMURF_FAILURE = 'DELETING_SMURF_FAILURE';
@@ -66,8 +67,12 @@ export const addNote = note => dispatch => {
     });
 };
 
-export const showNote = id => dispatch => {
-  dispatch({ type: SHOW_NOTE, payload: id });
+export const showNote = note => dispatch => {
+  dispatch({ type: SHOW_NOTE, payload: note });
+};
+
+export const goHome = () => dispatch => {
+  dispatch({ type: GO_HOME, payload: '' });
 };
 
 // axios.get(...)

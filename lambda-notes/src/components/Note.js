@@ -45,7 +45,7 @@ const NoteContent = styled.p`
 class Note extends Component {
   ViewNoteClickHandler = event => {
     event.preventDefault();
-    this.props.showNote(this.props.note._id);
+    this.props.showNote(this.props.note);
     this.props.history.push(`/${this.props.note._id}`);
   };
 

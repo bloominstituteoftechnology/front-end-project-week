@@ -3,8 +3,10 @@ import './App.css';
 import SideBarView from './SideBarView';
 import ListView from './ListView';
 import NewNoteView from './NewNoteView';
+import SingleNoteView from './SingleNoteView';
 import styled from 'styled-components';
 import { Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const AppContainer = styled.div`
   background: #d7d7d7;
@@ -24,16 +26,30 @@ const AppContainer = styled.div`
 
 class App extends Component {
   render() {
+    console.log('trying to find the id', this.props);
     return (
       <div className="App">
         <AppContainer>
           <Route path="/" render={props => <SideBarView {...props} />} />
           <Route exact path="/" render={props => <ListView {...props} />} />
           <Route exact path="/new-note" render={props => <NewNoteView {...props} />} />
+
+          {this.props.activeNote === null ? null : <SingleNoteView />}
         </AppContainer>
       </div>
     );
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = state => {
+  return {
+    activeNote: state.activeNote
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {}
+  )(App)
+);
