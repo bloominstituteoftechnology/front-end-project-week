@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Note = props {
+const Note = props => {
   return (
     <div className="note-list--note" key={props._id}>
       <h4>{props.title}</h4>
@@ -8,3 +8,5 @@ const Note = props {
     </div>
   )
 }
+
+export default Note;
