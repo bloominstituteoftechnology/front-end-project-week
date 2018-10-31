@@ -6,7 +6,7 @@ import './Note.css'
 
 const Note = props => {
     return (
-        <div className='noteCard'>
+        <div className='noteCard' >
         <NavLink exact to={`/${props.note._id}`} >
             <div className='innerContent'>
             <h1 className='title' >{props.note.title}</h1>

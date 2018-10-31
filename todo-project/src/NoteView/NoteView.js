@@ -9,7 +9,6 @@ export default class ViewNote extends Component {
         super(props)
         this.state = {
             notes: [],
-            modalIsOpen: false,
         }
     }
 
@@ -25,25 +24,18 @@ export default class ViewNote extends Component {
             })
     }
 
-
-    
-
-    
-
     deleteNote = (id) => {
         console.log(id)
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then(response => {
                 console.log(response)
+                this.setState({notes: response.data})
             })
             .catch(err => {
                 console.log(err)
             })
     }
-    
-
- 
  
   render() {
       return (
@@ -53,7 +45,6 @@ export default class ViewNote extends Component {
               {...props} 
               note={note} 
               deleteNote={this.deleteNote}
-              
               /> 
               )} ></Route>
               })}
@@ -62,9 +53,3 @@ export default class ViewNote extends Component {
   }
 }
 
-//   console.log('current url id' + this.props.match.params.id)
-//  const note = this.state.notes.find(thing => console.log(thing._id))
-//  {this.note.map(notes => {
-//     return <View note={notes} />
-//  })}
-//   // note = this.state.notes.find(thing => `${thing._id}` === this.props.match.params.id)
