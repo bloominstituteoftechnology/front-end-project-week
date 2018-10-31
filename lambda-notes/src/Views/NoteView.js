@@ -4,8 +4,9 @@ import './NoteView.css'
 export const NoteView = props => {
   // const { id } = props;
   console.log('passed props', props);
-  const urlParam = (new URL(document.location)).searchParams.get('id');
-  const note = props.notes.find(note => note._id == urlParam); 
+  // const urlParam = props.location.state.id;
+  const id = props.location.pathname.slice('/note/'.length)
+  const note = props.notes.find(note => note._id == id); 
   console.log('note', note)
   if (!note) {
     return (

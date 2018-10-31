@@ -9,3 +9,22 @@
   overflow: hidden;
   height: 300px;
 }
+
+.NoteCard {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.NoteCard h1 {
+  font-size: 2.4rem;
+  border-bottom: 1px solid black;
+  text-align: center;
+  width: 95%;
+  margin: 10px;
+}
+
+.NoteCard p {
+  font-size: 1.6rem;
+  margin: 10px;
+}

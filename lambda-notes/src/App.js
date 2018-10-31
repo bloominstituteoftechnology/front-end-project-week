@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import { ListView, NoteView } from './Views';
+import { ListView, NoteView, Sidebar } from './Views';
 
 
 const URL = 'https://fe-notes.herokuapp.com'
@@ -12,18 +12,19 @@ class App extends Component {
     super(props)
     this.state = {
       notes: [],
-      currentNote: ''
+      currentNote: '',
+      currentPath: '/'
     }
   }
   getNote = id => {
     if (id === undefined) {
       if (this.state.currentNote === '') {
-        return {title: 'no notes', textBody: 'Nope no notes here'}
+        return { title: 'no notes', textBody: 'Nope no notes here' }
       } else {
         return this.state.currentNote
       }
     } else {
-      return this.state.notes.find( note => note._id === id)
+      return this.state.notes.find(note => note._id === id)
     }
   }
   setNote = (note, i) => {
@@ -38,55 +39,101 @@ class App extends Component {
   getAllNotes = () => {
     axios
       .get(URL + '/note/get/all')
-      .then( data => {
+      .then(data => {
         this.setState({
           notes: data.data
         })
-        .catch( err => {
-          console.log(err)
-        })
+          .catch(err => {
+            console.log(err)
+          })
       })
   }
   findNote = (id) => {
-    console.log(this.state.notes.find( note => (  
+    console.log(this.state.notes.find(note => (
       note._id === id
     )))
     return (
-      this.state.notes.find( note => (  
+      this.state.notes.find(note => (
         note._id === id
       ))
     )
   }
-
-
   render() {
     console.log(this.findNote('5bd89d8bdba2c40015df0b44'))
 
-    return (
+    // this.setState({
+    //   currentPath: document.location.pathname
+    // })
+    /*const ROOT = '/',
+      NOTE = '/note/'
 
-        <div className="App">
+    switch (document.location.pathname) {
+      case ROOT:
+        return (
+          <Route
 
-          <Route 
-            
-            route='/' 
+            route='/'
             render={(props) => (
-              <ListView 
+              <ListView
                 {...props}
                 setNote={this.setNote}
-                notes={this.state.notes}/>
-            )}  
-            />      
-          <Route 
+                notes={this.state.notes} />
+            )}
+          />
+        )
+      case NOTE:
+        return (
+          <Route
             route={'/note/:id'}
-            render={(props) => (
+            render={(props) => {
+
+              console.log(props)
+              return (
+                <NoteView
+                  {...props}
+                  notes={this.state.notes}
+                  match={props.match}
+                  findNote={this.findNote}
+                />
+              )
+            }}
+          />
+        )
+      default:
+    }*/
+    return (
+
+      <div className="App">
+        <Sidebar />
+        <Route
+
+          route='/'
+          render={(props) => (
+            <ListView
+              {...props}
+              setNote={this.setNote}
+              notes={this.state.notes} />
+          )}
+        />
+
+
+        <Route
+          exact
+          route={'/note/:id'}
+          render={(props) => {
+
+            console.log(props)
+            return (
               <NoteView
+                {...props}
                 notes={this.state.notes}
                 match={props.match}
                 findNote={this.findNote}
-                />
-            )}
-           />
-        </div>
+              />
+            )
+          }}
+        />
+      </div>
     );
   }
 }

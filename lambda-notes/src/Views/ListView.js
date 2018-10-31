@@ -18,7 +18,7 @@ export const ListView = props => {
           <Link 
             key={note._id} 
             to={{
-              pathname: `/note/?id=${note._id}`,
+              pathname: `/note/${note._id}`,
               state: {id: note._id}
             }}
           >
