@@ -1,18 +1,19 @@
 import React from 'react';
+import { LoginH1, LoginForm, LoginHint, LoginInput, LoginButton } from '../Styles';
 
 const Login = props => {
 
     return (
         <div>
-            <h1>Login</h1>
-                <form onSubmit={props.loginEvent}>
-                    <input type="text" placeholder="Username" onChange={props.handleUsername} />
-                    <input type="password" placeholder="Password" onChange={props.handlePassword} />
-                    <button>Login</button>
-                </form>
+            <LoginH1>Login</LoginH1>
+                <LoginForm onSubmit={props.loginEvent}>
+                    <LoginInput type="text" placeholder="Username" onChange={props.handleUsername} />
+                    <LoginInput type="password" placeholder="Password" onChange={props.handlePassword} />
+                    <LoginButton>Login</LoginButton>
+                </LoginForm>
 
-                <h3>Hint: user: shawn</h3>
-                <h3>Hint: password: cat</h3>
+                <LoginHint>Hint: user: shawn</LoginHint>
+                <LoginHint>Hint: password: cat</LoginHint>
         </div>
     );
 }

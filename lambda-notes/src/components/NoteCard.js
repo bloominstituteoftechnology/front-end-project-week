@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { Cards, CardsH2, StyledLinkCard, CardsHr, CardsP } from '../Styles';
 
 const NoteCard = props => {

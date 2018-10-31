@@ -210,3 +210,34 @@ export const EditFormH1 = styled.h1`
   text-align: center;
   margin-left: -47.5%;
 `;
+
+export const LoginH1 = styled.h1`
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15%;
+`;
+
+export const LoginHint = styled.h3`
+  font-size: 20px;
+  text-align: center;
+`;
+
+export const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+`;
+
+export const LoginInput = styled.input`
+  width: 20%;
+  margin-top: 10px;
+  padding: 5px;
+`;
+
+export const LoginButton = styled.button`
+  margin-top: 10px;
+  width: 100px;
+  background-color: blue;
+  color: white;
+`;
