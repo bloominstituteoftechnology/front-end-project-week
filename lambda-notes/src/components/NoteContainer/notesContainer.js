@@ -5,6 +5,7 @@ import AddNote from './addNote';
 import SideBar from '../sidebar/sidebar';
 import { Route } from 'react-router-dom';
 import Note from './note';
+import './Notes.css';
 
 class NotesContainer extends Component {
     constructor(props) {
@@ -37,18 +38,6 @@ class NotesContainer extends Component {
     );
       }
 
-    //   deleteNote= event =>{
-    //     event.preventDefault();
-    //     axios
-    //     .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    //     .then(response =>{
-    //         this.changeState(response.data)
-    //     })
-    //     .catch(err=>
-    //         console.log(err));
-
-    // }
-
     editNoteMaybe = data=>{
         this.setState({notes:data})
     }
@@ -56,8 +45,8 @@ class NotesContainer extends Component {
     render() {
         console.log('STATE', this.state);
         return (
-            <div>
-                <div className='notes-container'>
+            <div className='all-notes'>
+                <div>
                     <Route exact path='/' render={(Ownprops)=>{
                         return(<NotesList {...Ownprops} notes={this.state.notes} />)
                     }}/>

@@ -1,10 +1,9 @@
 .App {
-  text-align: center;
+ width: 100%;
+ background-color: #F3F3F3;
+ display: flex;
+ margin: 50px 0;
+ flex-wrap: wrap;
+ flex-direction: row;
 }
-
-
-.App-header {
- 
-}
-
 

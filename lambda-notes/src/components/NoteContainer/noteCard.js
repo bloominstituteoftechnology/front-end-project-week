@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './Notes.css';
 
 
 
@@ -8,7 +9,7 @@ const NoteCard = props=>{
     
 
         return(
-            <div>
+            <div className='note-card'>
                 <div className='notes'>
                 <h2>{props.note.title}</h2>
                 <p>{props.note.textBody}</p>

@@ -1,0 +1,63 @@
+.all-notes{
+    width: 80%
+}
+
+.notes-wrapper{
+    border: 1px solid orange;
+    margin: 20px 3%;
+    width:95%
+}
+
+
+
+.notes-header{
+    font-size: 2.3rem;
+    font-weight: bold;
+
+}
+
+.all-note-cards{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.note-card{
+    width: 100%;
+    
+}
+
+.note-card h2{
+    font-size: 2rem;
+    border-bottom: 2px solid #B1B1B1;
+    font-weight: bold;
+    margin: 0 0;
+    padding: 10px 0 10px 0;
+}
+
+.note-card p{
+    font-size: 1.8rem;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    line-height: 20px;
+    overflow: hidden;
+/* white-space: nowrap; */
+
+
+    
+}
+
+.note-links{
+    text-decoration: none;
+    margin: 20px 0;
+    padding: 0 0;
+    width: 31%;
+    border: 1px solid #B1B1B1;
+    background-color: white;
+    flex-wrap: wrap;
+    padding: 10px 2%;
+    color: black;
+}

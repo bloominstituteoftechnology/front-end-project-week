@@ -1,0 +1,35 @@
+.sidebar-wrapper{
+    background-color: #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 20px;
+}
+
+
+.sidebar-wrapper button{
+    background-color: #2BC1C4;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+   
+}
+
+.lambda-notes{
+    font-size: 3rem;
+    font-weight: bold;
+    color:#4A4A4A;
+     
+}
+
+.button-view-notes{
+    padding: 7px 8%;
+    margin: 20px 0 10px 0
+    
+
+}
+
+.button-create{
+    padding: 7px 2%;
+    margin: 10px 0 10px 0
+}
