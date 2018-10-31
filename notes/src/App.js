@@ -36,32 +36,22 @@ class App extends Component {
         .catch(err => console.log(err))
   }
 
-  // AZSort = arr => {
-  //   function compare(a, b) {
-  //     const titleA = a.title.toUpperCase();
-  //     const titleB = b.title.toUpperCase();
-    
-  //     let comparison = 0;
-  //     if (titleA > titleB) {
-  //       comparison = 1;
-  //     } else if (titleA < titleB) {
-  //       comparison = -1;
-  //     }
-  //     return comparison;
-  //   }
-  //   this.setState({
-  //     sorted: true, 
-  //     notes: arr.sort(compare)
-  //   })
-  // }
+  submitHandler = username => {
+    if (username !== '') {
+      this.setState({username: username})
+    }
+    else {
+      alert('Please log in.')
+    }
+  }
 
   render() {
     // Just some basic routes with render props. The only real prop passed down is notes from state (from the server).
-    // if (this.state.username === '') {
-    //   return(
-    //     <Login />
-    //   )
-    // }
+    if (this.state.username === '') {
+      return(
+        <Login submitHandler={this.submitHandler}/>
+      )
+    }
 
     return (
       <div className="App">
@@ -93,3 +83,25 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+// SORT FUNCTIONALITY THAT DIDN'T WORK
+  // AZSort = arr => {
+  //   function compare(a, b) {
+  //     const titleA = a.title.toUpperCase();
+  //     const titleB = b.title.toUpperCase();
+    
+  //     let comparison = 0;
+  //     if (titleA > titleB) {
+  //       comparison = 1;
+  //     } else if (titleA < titleB) {
+  //       comparison = -1;
+  //     }
+  //     return comparison;
+  //   }
+  //   this.setState({
+  //     sorted: true, 
+  //     notes: arr.sort(compare)
+  //   })
+  // }
