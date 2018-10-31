@@ -38,7 +38,9 @@ const rootReducer = (state = initialState, action) => {
     case EDIT_NOTE:
       return {
         ...state,
-        notes: [...state.notes, action.payload]
+        notes: state.notes.map(
+          note => (note._id === action.payload._id ? action.payload : note)
+        )
       };
     case DELETE_NOTE:
       return {
