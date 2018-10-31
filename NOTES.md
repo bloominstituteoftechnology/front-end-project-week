@@ -8,7 +8,7 @@
 
 ```js
   {
-    "tags": ["tag", "otherTag"],
+    "tags": ["tag", "otherTag"], // I can do this later
     "title": "Note Title",
     "textBody": "Note Body",
   }
