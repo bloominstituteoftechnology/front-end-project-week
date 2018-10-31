@@ -25,33 +25,36 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  finishEdit(note) {
+  finishEdit = (note, history) => {
     const id = note._id;
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
       .then(() => {
+        history.push(`/note/${id}`);
         axios
           .get("https://fe-notes.herokuapp.com/note/get/all")
           .then(response => this.setState({ notes: response.data }))
           .catch(error => console.log(error));
-        }
-      )
+      })
       .catch(error => console.log(error));
   }
 
-  finishAdd(note, history) {
+  finishAdd = (note, history) => {
     axios
       .post("https://fe-notes.herokuapp.com/note/create", note)
       .then(response => {
         history.push(`/note/${response.data.success}`);
         this.setState({
-          notes: [...this.state.notes, note]
+          notes: [
+            ...this.state.notes,
+            {...note, _id: response.data.success}
+          ]
         });
       })
       .catch(error => console.log(error));
   }
 
-  deleteNote(id, history) {
+  deleteNote = (id, history) => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(() => {

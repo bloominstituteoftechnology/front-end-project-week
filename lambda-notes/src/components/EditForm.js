@@ -46,8 +46,7 @@ export default class EditForm extends React.Component {
                 textBody: this.state.contentText
             }
         }, () => {
-            this.props.finishEdit(this.state.note);
-            this.props.history.push(`/note/${this.state.note._id}`);
+            this.props.finishEdit(this.state.note, this.props.history);
         });
     }
 
