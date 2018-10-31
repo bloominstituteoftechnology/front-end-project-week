@@ -38,7 +38,6 @@ class Note extends Component {
     }
 
     editingNote = (ev) => {
-        ev.preventDefault();
         this.props.editNote(this.state.note._id, this.state.note);
     }
 

@@ -8,7 +8,7 @@ import SideBar from './components/SideBar';
 import { Route } from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Note from './components/Note';
-import { Link} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -39,7 +39,6 @@ class App extends Component {
   }
 
   postHandler = (ev) => {
-    ev.preventDefault();
     this.props.postNote(this.state.note)
   }
 
@@ -50,8 +49,6 @@ class App extends Component {
   }
 
   deletingNote = (ev) => {
-    console.log(this.props.note)
-    ev.preventDefault();
     this.props.overlayToggle();
     this.props.deleteNote(this.props.note._id);
   }
@@ -63,9 +60,9 @@ class App extends Component {
             <div className='overlay-box'>
               <p>Are you sure you want to delete this?</p>
               <div className='overlay-buttons'>
-                <Link to='/'>
+                <NavLink to='/'>
                   <button className='deletebutton' onClick={this.deletingNote}>Delete</button>
-                </Link>
+                </NavLink>
                   <button onClick ={this.togglingOverlay}>Cancel</button>
               </div>
             </div>
