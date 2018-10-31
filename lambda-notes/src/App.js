@@ -78,7 +78,7 @@ class App extends Component {
 
   deleteNote = note => {
     axios
-      .delete(URL + '/note/delete' + note._id)
+      .delete(URL + '/note/delete/' + note._id)
       .then(data => {
         console.log('baleted!', data)
       })
