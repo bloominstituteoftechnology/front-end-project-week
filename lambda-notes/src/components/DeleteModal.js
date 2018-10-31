@@ -7,6 +7,7 @@ this.props.history.push("/");
 }
 
 deleteAndGoBack = event => {
+    event.preventDefault();
     this.props.deleteNote(event, this.props.match.params.id);
     this.backToList();
 }
