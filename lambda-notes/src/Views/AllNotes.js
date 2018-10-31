@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
 import NoteCard from "./NoteCard";
-import SingleNoteView from "../Views/SingleNoteView";
 import axios from "axios";
 import './AllNotes.css';
 import { CSVLink } from "react-csv";
@@ -24,8 +22,9 @@ export default class AllNotes extends Component {
 
     selectNote = id => this.setState({ selected: id });
 
-    alphabeticalSort = e => {
+    sortNotes = (e, alphaSort) => {
         e.preventDefault();
+        alphaSort === true ?
         this.setState(
             { notes: 
                 this.state.notes.sort(function(a, b){
@@ -38,7 +37,20 @@ export default class AllNotes extends Component {
                         return 1;
                     }
                     return 0; 
-            })})
+            })}) :
+            this.setState(
+                { notes: 
+                    this.state.notes.sort(function(b, a){
+                        let titleA=a.title.toLowerCase()
+                        let titleB=b.title.toLowerCase()
+                        if (titleA < titleB) { 
+                            return -1; 
+                        }
+                        if (titleA > titleB) {
+                            return 1;
+                        }
+                        return 0; 
+                })})
     }
      
     headers = [
@@ -50,10 +62,18 @@ export default class AllNotes extends Component {
     return (
         this.state.notes ?
         <section>
-            <CSVLink data={this.state.notes} headers={this.headers}>
-                Download your notes!
-            </CSVLink>
-            <h2 onClick={this.alphabeticalSort}>Sort</h2>
+            <div className="btn-container">
+                <CSVLink download="mynotes.csv" data={this.state.notes} headers={this.headers}>
+                    Download your notes!
+                </CSVLink>
+                <div class="dropdown">
+                    <button class="dropbtn">Sort Options</button>
+                    <div class="dropdown-content">
+                        <div onClick={(e) => this.sortNotes(e, true)}>A-Z</div>
+                        <div onClick={(e) => this.sortNotes(e, false)}>Z-A</div>
+                    </div>
+                </div>
+            </div>
             <h2>Your Notes:</h2>
             <div className="notes">
                 {this.state.notes.map(note => {

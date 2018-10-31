@@ -25,11 +25,14 @@ nav .btn-container a {
     text-decoration: none;
     background-color: #24B8BD;
     color: #FFFFFF;
-    border: 1px black solid;
     width: 75%;
     padding: 5%;
     margin: 1%;
     margin-bottom: 10%;
     font-size: 1.2rem;
     text-align: center;
+}
+
+nav .btn-container a:hover {
+    background-color: #14696C;
 }

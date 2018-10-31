@@ -33,7 +33,6 @@
     text-decoration: none;
     background-color: #24B8BD;
     color: #FFFFFF;
-    border: 1px black solid;
     width: 20%;
     padding: 1%;
     margin: 1%;
@@ -42,4 +41,8 @@
     font-size: 1.2rem;
     text-align: center;
     cursor: pointer;
+}
+
+.new-note div:hover {
+    background-color: #14696C;
 }
