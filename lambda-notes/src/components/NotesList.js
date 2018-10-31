@@ -1,5 +1,4 @@
 import React from "react";
-import { CSVLink } from "react-csv";
 import axios from "axios";
 import {
   LeftBar,
@@ -7,7 +6,9 @@ import {
   ContainCards,
   NotesH2,
   CardList,
-  TitleH1
+  TitleH1,
+  ExportBtn,
+  SignOut
 } from "../Styles";
 
 import NoteCard from "./NoteCard";
@@ -18,7 +19,6 @@ class NotesList extends React.Component {
     this.state = {
       data: []
     };
-    
   }
 
   componentDidMount() {
@@ -30,21 +30,18 @@ class NotesList extends React.Component {
 
   exportCsv() {
     let csvRow = [];
-    let A = [[ 'id','id', 'title', 'textbody']];
+    let A = [["id", "id", "title", "textbody"]];
     let re = this.state.data;
 
     for (let item = 0; item < re.length; item++) {
       A.push([re[item]._id, re[item].title, re[item].textBody]);
     }
-    // console.warn(A);
     for (let i = 0; i < A.length; ++i) {
-      csvRow.push(A[i].join(','));
+      csvRow.push(A[i].join(","));
     }
-    let csvString = csvRow.join('%0A');
-    console.warn(csvString);
-
-    let a = document.createElement('a');
-    a.href='data:attachment/csv' + csvString;
+    let csvString = csvRow.join("%0A");
+    let a = document.createElement("a");
+    a.href = "data:attachment/csv" + csvString;
     a.target = "_blank";
     a.download = "Notes.csv";
     document.body.appendChild(a);
@@ -52,20 +49,20 @@ class NotesList extends React.Component {
   }
 
   render() {
-    
-    console.log(this.props.notes);
-    // console.log(this.props.notes);
     return (
       <div>
         <LeftBar>
+          <SignOut onClick={this.props.signOut}>Sign Out</SignOut>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
           <StyledLink to={"/note/create"}>Add New Note</StyledLink>
-          <div onClick={this.props.signOut}>Sign Out</div>
-            {/* <CSVLink data={this.props.notes} filename={"notes.csv"}>
-              Download me
-            </CSVLink> */}
-            <button onClick={() => {this.exportCsv()}}>Export</button>
+          <ExportBtn
+            onClick={() => {
+              this.exportCsv();
+            }}
+          >
+            Export
+          </ExportBtn>
         </LeftBar>
         <CardList>
           <NotesH2>Your Notes:</NotesH2>

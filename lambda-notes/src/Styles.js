@@ -52,6 +52,12 @@ export const StyledLink = styled(Link)`
   margin-left: 5%;
   color: white;
   text-align: center;
+
+  &:hover {
+    background: #d3d2d3;
+    color: crimson;
+    border: 1.5px solid crimson;
+  }
 `;
 
 export const StyledLinkCard = styled(Link)`
@@ -80,6 +86,12 @@ export const Cards = styled.div`
   justify-content: center;
   background-color: white;
   margin-bottom: 40px;
+
+  &:hover {
+    background: #F2F1F2;
+    border: 2px solid white;
+    box-shadow: 5px 10px #888888;
+  }
 `;
 
 export const CardsH2 = styled.h2`
@@ -212,9 +224,11 @@ export const EditFormH1 = styled.h1`
 `;
 
 export const LoginH1 = styled.h1`
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
-  margin-top: 15%;
+  font-weight: bold;
+  margin-top: 150px;
+  padding-top: 40px;
 `;
 
 export const LoginHint = styled.h3`
@@ -230,14 +244,78 @@ export const LoginForm = styled.form`
 `;
 
 export const LoginInput = styled.input`
-  width: 20%;
+  width: 25%;
+  font-size: 20px;
   margin-top: 10px;
   padding: 5px;
+  text-align: center;
+  background-color: red;
+
+  :-webkit-autofill {
+    -webkit-text-fill-color: black;
+    -webkit-box-shadow: 0 0 0 100px white inset;
+  }
 `;
 
 export const LoginButton = styled.button`
-  margin-top: 10px;
-  width: 100px;
-  background-color: blue;
+  margin-top: 15px;
+  width: 75px;
+  height: 30px;
+  background-color: crimson;
   color: white;
+
+  &:hover {
+    background: white;
+    color: crimson;
+    border: 1.5px solid crimson;
+  }
+`;
+
+export const LoginContainer = styled.div`
+  background-color: black;
+  width: 50%;
+  height: 350px;
+  margin: 0 auto;
+  color: white;
+`;
+
+export const LambdaH1 = styled.div`
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 50px;
+  margin-top: 140px;
+  margin-bottom: -100px;
+`;
+
+export const ExportBtn = styled.div`
+  margin-top: 10px;
+  width: 75%;
+  padding: 15px;
+  margin-left: 5%;
+  color: white;
+  text-align: center;
+  background-color: #24b8bd;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+
+  &:hover {
+    background: #d3d2d3;
+    color: crimson;
+    border: 1.5px solid crimson;
+  }
+`;
+
+export const SignOut = styled.div`
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 10px;
+
+  &:hover {
+    background: #d3d2d3;
+    color: crimson;
+  }
 `;
