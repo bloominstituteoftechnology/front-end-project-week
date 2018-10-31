@@ -18,9 +18,10 @@ class NoteForm extends Component {
         e.preventDefault();
         const { title, textBody } = this.state;
         const newNote = { title, textBody };
-        const saveNote = axios 
+        axios 
             .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
             .then(response => {
+                console.log('newnote response', response)
                 this.setState({ title: '', textBody: '' })
             })
             .catch(error => console.log(error));
@@ -50,3 +51,6 @@ class NoteForm extends Component {
     }
 }
 export default NoteForm;
+
+
+//make form? 

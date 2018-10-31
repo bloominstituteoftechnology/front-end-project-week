@@ -4,6 +4,12 @@ import axios from 'axios';
 class Modal extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            note: {}, 
+            title: '',
+            textBody: '',
+            showModal: ''
+        }
         //this.handleclick = this.handleclick.bind(this);
     }
 
@@ -15,16 +21,17 @@ class Modal extends Component {
     //     document.removeEventListener('click', this.handleclick, false);
     // }
 
-    deleteNote = (id) => {
+    deleteNote = (id) => {  //where is id coming from????
+        //const deleted =  this.props.match.params.id;
         axios 
-            .delete(`https://fe-notes.herokuapp.com/note/${id}`)
-            .then(response => this.setState({ list: response.data }))
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .then(response => this.setState({ note: response.data }))  //list? 
             .catch(error => console.log(error))
     }; 
 
-    // closeModal() {
-
-    // }
+    closeModal() {
+        this.setState({ showModal: false })
+    }
 
     render() {
         return (
