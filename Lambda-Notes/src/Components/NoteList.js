@@ -9,4 +9,4 @@ import NoteCard from './NoteCard'
         </div>
     );
 }
- export default NoteList; 
+ export default NoteList;
