@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class FullNote extends React.Component {
   constructor(props) {
@@ -59,6 +59,9 @@ class FullNote extends React.Component {
         <h2 className="header">{this.state.notes.title}</h2>
         <p className="note-paragraph">{this.state.notes.textBody}</p>
         <button onClick={this.deleteModal}>X</button>
+        <Link to={{ pathname: "/note-form", state: { note: this.state.note } }}>
+          edit
+        </Link>
         <div className="modal">
           <button onClick={() => this.deleteNote(this.state.notes._id)}>
             delete

@@ -6,6 +6,7 @@ import NoteForm from "../components/NoteForm";
 import NavBar from "../components/NavBar";
 import FullNote from "../components/FullNote";
 import ListView from "../components/ListView";
+import EditNote from "../components/EditNote";
 
 class MainBox extends React.Component {
   constructor() {
@@ -38,6 +39,16 @@ class MainBox extends React.Component {
       .catch(error => console.log(error));
   };
 
+  editNote = editedNote => {
+    axios
+      .put(
+        `https://fe-notes.herokuapp.com/note/edit/${this.notes._id}`,
+        editedNote
+      )
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  };
+
   render() {
     return (
       <div className="main-box">
@@ -51,9 +62,10 @@ class MainBox extends React.Component {
           path="/"
           render={props => <ListView {...props} notes={this.state.notes} />}
         />
+        <Route path="/notes/:id" render={props => <FullNote {...props} />} />
         <Route
-          path="/notes/:id"
-          render={props => <FullNote {...props} editNote={this.editNote} />}
+          path="/edit-note"
+          render={props => <EditNote {...props} editNote={this.editNote} />}
         />
       </div>
     );

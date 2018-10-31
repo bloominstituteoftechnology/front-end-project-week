@@ -2,25 +2,26 @@ import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-class NoteForm extends React.Component {
+class EditNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       textBody: "",
       addedNote: false,
-      note: null
+      note: null,
+      editedNote: false
     };
   }
 
-  addNote = event => {
+  editNote = event => {
     event.preventDefault();
     const newNote = {
       title: this.state.title,
       textBody: this.state.textBody
     };
     console.log("newNote", newNote);
-    this.props.addNote(newNote);
+    this.props.editNote(newNote);
 
     this.setState({
       title: "",
@@ -55,13 +56,6 @@ class NoteForm extends React.Component {
           .catch(err => {
             console.log(err);
           });
-      } else {
-        axios
-          .post("https://fe-notes.herokuapp.com/note/create", newNote)
-          .then(res => {
-            console.log(res);
-          })
-          .catch(err => console.log(err));
       }
       this.setState({
         added: true,
@@ -75,14 +69,12 @@ class NoteForm extends React.Component {
 
   render() {
     if (this.state.addedNote === true) {
-      return <Redirect to="/" />;
+      return <Redirect to={`notes/${this.props.note._id}`} />;
     }
     return (
       <div>
-        <h2 className="header">
-          {this.state.note !== null ? "EDIT NOTE:" : "CREATE A NOTE:"}
-        </h2>
-        <form className="form" onSubmit={this.addNote}>
+        <h2 className="header">EDIT NOTE:</h2>
+        <form className="form" onSubmit={this.editNote}>
           <input
             onChange={this.handleInputChange}
             name="title"
@@ -108,7 +100,7 @@ class NoteForm extends React.Component {
             required
           />
           <button className="submit" type="submit">
-            Save
+            Save edit
           </button>
         </form>
       </div>
@@ -116,4 +108,4 @@ class NoteForm extends React.Component {
   }
 }
 
-export default NoteForm;
+export default EditNote;
