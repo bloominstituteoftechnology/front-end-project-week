@@ -35,9 +35,11 @@ changeHandler = event => {
 
 render() {
     return(
-        <div>
+        <div className="input-form">
+            <h2>Create New Note</h2>
             <form onSubmit={this.newNoteHandler}>
             <input
+            className="title-input"
             onChange={this.changeHandler}
             type="text"
             placeholder="title"
@@ -45,14 +47,15 @@ render() {
             name="title" />
 
 
-            <input
+            <textarea
+            className="text-input"
             onChange={this.changeHandler}
             type="textarea"
             placeholder="text"
             value={this.state.textBody}
             name="textBody" />
 
-            <button onClick={this.newNoteHandler} type="submit">Add Note</button>
+            <button onClick={this.newNoteHandler} type="submit" className="button">Add Note</button>
             </form>
         </div>
     )

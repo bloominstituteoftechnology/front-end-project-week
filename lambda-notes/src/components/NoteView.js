@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 class NoteView extends React.Component {
     constructor(props) {
@@ -85,15 +85,23 @@ render(){
         }
     return(
 
-            <div>
+            <div className="view-note">
+
+            <div className="actions">
+            <Button onClick={this.editHandler}>Edit</Button>
+            <Button color="secondary" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
+            </div>
 
             <div style={viewStyle} onDoubleClick={this.editHandler}>
             <h2>{this.state.note.title}</h2>
             <p>{this.state.note.textBody}</p>
-            <Button onClick={this.editHandler}>Edit</Button>
+
             </div>
+
+                <div  className="edit-note">
                 <form onSubmit={this.saveHandler}>
                 <input
+                className="title-input"
                 name="editedTitle"
                 type= "text"
                 style={editStyle}
@@ -101,7 +109,8 @@ render(){
                 onChange={this.changeHandler}
                 value={this.state.editedTitle}/>
 
-                <input
+                <textarea
+                className="text-input"
                 name="editedTextBody"
                 type="textarea"
                 style={editStyle}
@@ -110,13 +119,12 @@ render(){
                 value={this.state.editedTextBody}/>
                 </form>
 
-                <Button onClick={this.saveHandler} style={editStyle}>Save</Button>
+                <Button onClick={this.saveHandler} style={editStyle} className="update">Update</Button>
+                </div>
 
 
-                <div>
-                  <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
+            <div>
                   <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
                     <ModalBody>
                         Are you sure you want to delete this note?
                     </ModalBody>
