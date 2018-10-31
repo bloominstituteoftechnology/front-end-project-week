@@ -17,7 +17,9 @@ import {
   addNote,
   editNote,
   displayEditForm,
-  hideEditForm
+  hideEditForm,
+  sortList,
+  toggleSort
 } from "../actions";
 
 class App extends Component {
@@ -80,6 +82,59 @@ class App extends Component {
     this.setState({ newNote: blankFormValues });
     this.props.history.goBack();
   };
+
+  sortAToZ = e => {
+    e.preventDefault();
+    this.props.sortList((a, b) => {
+      if (a.title.toLowerCase() < b.title.toLowerCase()) {
+        return -1;
+      }
+      if (a.title.toLowerCase() > b.title.toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    });
+  };
+
+  sortZToA = e => {
+    e.preventDefault();
+    this.props.sortList((a, b) => {
+      if (a.title.toLowerCase() < b.title.toLowerCase()) {
+        return 1;
+      }
+      if (a.title.toLowerCase() > b.title.toLowerCase()) {
+        return -1;
+      }
+      return 0;
+    });
+  };
+
+  sortByDateOldest = e => {
+    e.preventDefault();
+    this.props.sortList((a, b) => {
+      if (a._id > b._id) {
+        return 1;
+      }
+      if (a._id < b._id) {
+        return -1;
+      }
+      return 0;
+    });
+  };
+
+  sortByDateNewest = e => {
+    e.preventDefault();
+    this.props.sortList((a, b) => {
+      if (a._id < b._id) {
+        return 1;
+      }
+      if (a._id > b._id) {
+        return -1;
+      }
+      return 0;
+    });
+  };
+
   render() {
     if (this.props.notes.length < 1) {
       return <div>Loading...</div>;
@@ -92,7 +147,16 @@ class App extends Component {
           exact
           path="/notes"
           render={props => (
-            <NoteContainer {...props} notes={this.props.notes} />
+            <NoteContainer
+              {...props}
+              notes={this.props.notes}
+              toggleSort={this.props.toggleSort}
+              sortAToZ={this.sortAToZ}
+              sortZToA={this.sortZToA}
+              sortByDateOldest={this.sortByDateOldest}
+              sortByDateNewest={this.sortByDateNewest}
+              showDropdown={this.props.showSort}
+            />
           )}
         />
         <Route
@@ -121,7 +185,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   notes: state.notes,
-  editing: state.editing
+  editing: state.editing,
+  showSort: state.showSort
 });
 
 export default withRouter(
@@ -132,7 +197,9 @@ export default withRouter(
       addNote,
       editNote,
       displayEditForm,
-      hideEditForm
+      hideEditForm,
+      sortList,
+      toggleSort
     }
   )(App)
 );

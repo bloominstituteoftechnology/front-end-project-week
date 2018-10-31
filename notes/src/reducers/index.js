@@ -7,14 +7,17 @@ import {
   OPEN_MODAL,
   CLOSE_MODAL,
   SHOW_EDIT,
-  HIDE_EDIT
+  HIDE_EDIT,
+  TOGGLE_SORT,
+  SORT
 } from "../actions";
 
 const initialState = {
   notes: [],
   note: null,
   editing: false,
-  open: false
+  open: false,
+  showSort: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -67,6 +70,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         editing: false
+      };
+    case SORT:
+      return {
+        ...state,
+        notes: [...state.notes.sort(action.payload)]
+      };
+    case TOGGLE_SORT:
+      return {
+        ...state,
+        showSort: !state.showSort
       };
     default:
       return state;

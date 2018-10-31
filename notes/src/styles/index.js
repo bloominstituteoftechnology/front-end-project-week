@@ -164,3 +164,45 @@ export const Delete = styled.div`
   top: 0;
   left: -50%;
 `;
+
+export const Dropdown = styled.div`
+position: absolute;
+background: #ffffff;
+z-index: 111;
+top: 5px;
+left: 600px;
+width: 300px;
+line-height: 24px;
+flex-direction: column;
+padding: 12px 0;
+border-radius: 5px;
+border: 1px solid #666;
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-weight: 300;
+  li {
+    cursor: pointer; 
+    padding: 6px 30px 6px 20px;
+    &:hover {
+      background: #F2F2F2;
+    }
+  }
+}`
+
+export const DropdownHeader = styled.h3`
+font-weight: 300;
+font-size: 1.5rem;
+padding: 0 30px 5px 20px;
+`
+
+
+export const DropdownToggle = styled.img`
+cursor: pointer;
+position: absolute;
+left: 600px;
+top: -30px;
+
+`
