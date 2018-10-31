@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Route} from 'react-router-dom';
 
 
-import NoteCard from './NoteCard';
+
 
 export default class Note extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Note extends React.Component {
   }
 
   componentDidMount() {
-    const id = this.props.match.params._id;
+    const id = this.props.match.params.id;
     this.fetchNote(id);
   }
 
@@ -22,7 +22,7 @@ export default class Note extends React.Component {
     axios
       .get(`'https://fe-notes.herokuapp.com/note/get/${id}`)
       .then( response => {
-        this.setState( () => ({ note: response.data }))
+        this.setState( ({ note: response.data }))
       })
       .catch( error => {
         console.error(error)
@@ -31,9 +31,7 @@ export default class Note extends React.Component {
 
   render() {
       return (
-        <Route path='/get/:id' render={ props => (
-          <NoteCard {...props} note={this.state.note} />
-        )}
-          />
+        <div>
+        </div>
       )
 }}

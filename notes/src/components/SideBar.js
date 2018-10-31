@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const ButtonContainer = ( ) => {
+const SideBar = ( ) => {
   return (
     <div className="btn-container">
       <h1>Lambda Notes</h1>
@@ -18,4 +18,4 @@ const ButtonContainer = ( ) => {
   )
 }
 
-export default ButtonContainer;
+export default SideBar;
