@@ -4,7 +4,7 @@ import All from './components/ViewAll/All'
 import { NavLink, Route } from 'react-router-dom'
 import CreateNew from './components/nav/CreateNew'
 import NoteView  from './components/NoteView/NoteView'
-import EditNoteForm from './components/NoteView/edit'
+import EditNoteForm from './components/NoteView/EditNoteForm'
 import './App.css';
 
 
@@ -34,18 +34,7 @@ class App extends Component {
     this.setState({notes: data})
   }
 
-  deleteNoteButton = (ev) => {
-    
-    axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.notes._id}`)
-    .then(response => {
-      this.setState({
-        notes: response.data
-      });
-    })
-    .catch (error => console.log('Error: ', error ))
-  }
- 
+
 
 editNote = (event) => {
   
@@ -72,14 +61,14 @@ const updatedNote={
   render() {
     return (
       <div className="App">
-        <div className = 'navBar'>
-          <nav>
+        <div className = 'wrapper' >
+          <nav className = 'navBar'>
             <h1> Lambda Notes </h1>
-            <NavLink to = '/'> View Your Notes </NavLink>
-            <NavLink
+            <NavLink className = "links" to = '/'> View Your Notes </NavLink>
+            <NavLink className = "links"
             to = '/create-new-note'> + Create New Note </NavLink>
           </nav>
-        
+          <div className = 'mainPage'>
           <Route 
             exact path='/' 
             render=
@@ -111,7 +100,7 @@ const updatedNote={
                     note = {this.state.notes} 
                     updateButton= {this.updateButton}
                     expandedNote={this.state.expandedNote}
-                    deleteNoteButton = {this.deleteNoteButton}
+                   
                      />
                 }
                 />
@@ -124,7 +113,7 @@ const updatedNote={
                       {...props} 
                       editNote={this.editNote}notes = {this.notes} 
                       expandedNote={this.state.expandedNote} />)} />
-
+           </div>           
 
         </div>          
       

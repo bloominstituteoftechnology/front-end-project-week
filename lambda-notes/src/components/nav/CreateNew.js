@@ -54,10 +54,11 @@ handleInputChange = event => {
 
 render() {
     return(
-        <div>
-            <form onSubmit = {this.addNew}>
-                <h2>Create New Note:</h2>
+        <div className = 'createPage'>
+            <form className ='create'onSubmit = {this.addNew}>
+                <h2 > Create New Note:</h2>
                 <input
+                    className = 'titleHolder'
                     onChange = {this.handleInputChange} 
                     placeholder = 'Note Title'
                     value = {this.state.title}
@@ -71,7 +72,7 @@ render() {
                     name = 'textBody'
                 />
                 {/* <Redirect to="/"> */}
-                <button > Save</button>
+                <button className = 'links' > Save</button>
                 {/* </Redirect> */}
                 
                

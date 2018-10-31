@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import NoteCard from './NoteCard';
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 class All extends Component {
     render() {
         return (
-            <div>
+            <div className = 'noteslist'>
                 <h1> Your Notes: </h1>
+                <div className = 'cardList'>
                 {this.props.notes.map(note => {
                     return (
                         <Link to={`/note/${note._id}`} key={note._id}>
@@ -19,6 +21,7 @@ class All extends Component {
                          </Link>
                     )
                 })}
+                </div>
             </div>
         )
     }

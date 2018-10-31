@@ -2,31 +2,138 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navBar {
+  background: #d3d3d3;
   display: flex;
+  width: 210px;
   flex-direction: column;
+  margin: 0px;
+  height: 500px;
+  padding: 10px;
+  height: auto;
+
+
+}
+
+.navBar h1 {
+  font-size: 38px;
+  text-align: left;
+  margin: 0px;
+  color: #434343;
+  margin-bottom: 20px;
+  
+}
+
+.links{
+  border: 1px solid grey;
+  height: 50px;
+  width: 200px;
+  margin: 10px 0px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #24b8bd
+}
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 75%;
+ 
 }
 
-.App-link {
-  color: #61dafb;
+.noteslist {
+  display: flex;
+  flex-direction: column;
+  background: #f2f1f2;
+  width: 760px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 20px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.noteslist h1 {
+  color: #434343;
+  margin-top: 50px;
+  font-size: 28px;
 }
+
+.noteCardTitle {
+  color: black;
+  font-size: 22px;
+  text-decoration-line: none;
+}
+
+.card {
+  border: 1px solid gray;
+  width: 200px;
+  height: 250px;
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  
+}
+
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  height: auto;
+  
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+
+}
+
+.createPage {
+  display: flex;
+  flex-direction: column;
+  background: #f2f1f2;
+  width: 760px;
+  /* justify-content: flex-start; */
+  /* align-items: flex-start; */
+  padding: 0px 20px;
+  height: 500px;
+}
+
+.create h2 {
+  color: #434343;
+  margin-top: 50px;
+  font-size: 28px;
+  text-align: left;
+}
+
+.titleHolder {
+  margin: 10px 0px;
+  padding: 10px 5px;
+  width: 350px;
+}
+
+.noteContent {
+  margin: 0px 0px;
+  padding: 20px 10px;
+  width: 600px;
+  height: 150px;
+  text-align: top;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+ 
+}
+
