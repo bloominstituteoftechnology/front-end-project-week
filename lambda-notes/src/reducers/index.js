@@ -8,7 +8,8 @@ import {
   FETCHING_NOTES_FAILURE,
   CREATE_NOTE,
   ADDING_NOTE_SUCCESS,
-  ADDING_NOTE_FAILURE
+  ADDING_NOTE_FAILURE,
+  SHOW_NOTE
   // DELETING_SMURF_SUCCESS
 } from '../actions/index';
 
@@ -16,7 +17,8 @@ const initialState = {
   notes: [],
   fetchingNotes: false,
   addingNote: false,
-  error: null
+  error: null,
+  activeNote: ''
 };
 
 /*
@@ -68,6 +70,12 @@ export default (state = initialState, action) => {
         ...state,
         addingNote: false,
         error: action.payload
+      };
+
+    case SHOW_NOTE:
+      return {
+        ...state,
+        activeNote: action.payload
       };
 
     // case DELETING_SMURF_SUCCESS:

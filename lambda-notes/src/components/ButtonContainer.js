@@ -20,13 +20,13 @@ const NoteAppButton = styled.button`
 `;
 
 class ButtonContainer extends Component {
-  ViewNotesclickHandler = event => {
+  ViewNotesClickHandler = event => {
     event.preventDefault();
     this.setState({ addingNote: false });
     this.props.history.push('/');
   };
 
-  AddNoteclickHandler = event => {
+  AddNoteClickHandler = event => {
     event.preventDefault();
     console.log('State before: ', this.state);
     this.setState({ addingNote: true });
@@ -39,11 +39,11 @@ class ButtonContainer extends Component {
       <SideBar>
         <Link to="/">
           {' '}
-          <NoteAppButton onClick={this.ViewNotesclickHandler}>View Your Notes</NoteAppButton>
+          <NoteAppButton onClick={this.ViewNotesClickHandler}>View Your Notes</NoteAppButton>
         </Link>
-        <Link onClick={this.AddNoteclickHandler} to="/new-note">
+        <Link onClick={this.AddNoteClickHandler} to="/new-note">
           {' '}
-          <NoteAppButton onClick={this.AddNoteclickHandler}>+ Create New Note</NoteAppButton>
+          <NoteAppButton onClick={this.AddNoteClickHandler}>+ Create New Note</NoteAppButton>
         </Link>
       </SideBar>
     );

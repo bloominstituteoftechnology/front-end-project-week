@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Route, Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { showNote } from '../actions';
 
 const NoteContainer = styled.div`
   border: 1px solid gray;
@@ -9,6 +13,19 @@ const NoteContainer = styled.div`
   margin-top: 20px;
   margin-bottom: 40px;
   overflow: hidden;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  color: black;
 `;
 
 const NoteTitle = styled.header`
@@ -26,14 +43,33 @@ const NoteContent = styled.p`
 `;
 
 class Note extends Component {
+  ViewNoteClickHandler = event => {
+    event.preventDefault();
+    this.props.showNote(this.props.note._id);
+    this.props.history.push(`/${this.props.note._id}`);
+  };
+
   render() {
     return (
       <NoteContainer>
-        <NoteTitle>{this.props.note.title}</NoteTitle>
-        <NoteContent>{this.props.note.textBody}</NoteContent>
+        <StyledLink onClick={this.ViewNoteClickHandler} to={`/${this.props.note._id}`}>
+          <NoteTitle>{this.props.note.title}</NoteTitle>
+          <NoteContent>{this.props.note.textBody}</NoteContent>
+        </StyledLink>
       </NoteContainer>
     );
   }
 }
 
-export default Note;
+const mapStateToProps = state => {
+  return {
+    activeNote: state.activeNote
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { showNote }
+  )(Note)
+);

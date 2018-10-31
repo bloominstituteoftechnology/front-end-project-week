@@ -11,6 +11,8 @@ export const FETCHING_NOTES_FAILURE = 'FETCHING_NOTES_FAILURE';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const ADDING_NOTE_SUCCESS = 'ADDING_NOTE_SUCCESS';
 export const ADDING_NOTE_FAILURE = 'ADDING_NOTE_FAILURE';
+export const SHOW_NOTE = 'SHOW_NOTE';
+
 // export const DELETING_SMURF_SUCCESS = 'DELETING_SMURF_SUCCESS';
 // export const DELETING_SMURF_FAILURE = 'DELETING_SMURF_FAILURE';
 
@@ -62,6 +64,10 @@ export const addNote = note => dispatch => {
     .catch(error => {
       dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
     });
+};
+
+export const showNote = id => dispatch => {
+  dispatch({ type: SHOW_NOTE, payload: id });
 };
 
 // axios.get(...)
