@@ -1,11 +1,12 @@
 .app{
   display: flex;
-  border:2px solid purple;
 }
 
 .note{
   border:1px solid black;
   padding:10px;
+  width:200px;
+  overflow-wrap: break-word;
 }
 
 .side-bar{
@@ -29,4 +30,15 @@
   font-weight: bold;
   color:white;
   outline: none;
+}
+.notes-list{
+  border:1px solid black;
+  width:100%;
+  display: flex;
+}
+
+.notes-list .notes{
+  border:3px solid pink;
+  display: flex;
+  flex-wrap: wrap;
 }
