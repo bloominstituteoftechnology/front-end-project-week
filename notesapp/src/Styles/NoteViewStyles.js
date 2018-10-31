@@ -46,7 +46,7 @@ width: 100%;
 margin: 5px 0;
 `
 
-export const NoteText = styled.p `
+export const NoteText = styled.div `
 margin: 0;
 `
 

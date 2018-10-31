@@ -7,6 +7,7 @@ import {
   NoteContentDiv
 } from "../../Styles/NoteViewStyles";
 import { withRouter } from "react-router-dom";
+import Markdown from 'react-markdown'
 
 const Note = props => {
   const { title, textBody, tags } = props.note;
@@ -20,7 +21,7 @@ const Note = props => {
       <NoteContentDiv>
         <NoteH2>{title}</NoteH2>
         <BorderDiv />
-        <NoteText>{textBody}</NoteText>
+        <NoteText><Markdown source={textBody}/></NoteText>
       </NoteContentDiv>
       <NoteContentDiv>
         <span>tags: {tags}</span>

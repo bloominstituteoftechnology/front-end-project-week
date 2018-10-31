@@ -11,7 +11,7 @@ import axios from "axios";
 const existingNote = {
   title: "",
   textBody: "",
-  tags: ""
+  tags: []
 };
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
       noteObj: {
         title: "",
         textBody: "",
-        tags: ""
+        tags: []
       },
       isEditing: false,
       editingID: null,
@@ -49,6 +49,15 @@ class App extends Component {
     });
   };
 
+  tagsHandler = ev => {
+    this.setState({
+      noteObj: {
+        ...this.state.noteObj,
+        [ev.target.name]: ev.target.value.split("")
+      }
+    })
+  }
+
   //SearchBar Change Handler
   searchBarHandler = ev => {
     this.setState({
@@ -65,7 +74,6 @@ class App extends Component {
      return {filteredNotes: filteredNotes}
     })
   }
-  // return console.log('filtered notes:', filteredNotes)
 
   addNote = () => {
     axios
@@ -98,13 +106,12 @@ class App extends Component {
   editNote = () => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingID}`,
-        this.state.noteObj
+        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingID}`, this.state.noteObj
       )
       .then(response => {
         const updatedNotes = this.state.notes.map(note => {
           if (note._id === response.data._id) {
-            return response.data;
+            return response.data
           }
           return note;
         });
@@ -163,6 +170,7 @@ class App extends Component {
               editingID={this.state.editingID}
               isEditing={this.state.isEditing}
               editNote={this.editNote}
+              tagsHandler={this.tagsHandler}
             />
           )}
         />

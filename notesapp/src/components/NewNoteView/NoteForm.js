@@ -36,7 +36,7 @@ const NoteForm = props => {
         placeholder="tags"
         type="text"
         name="tags"
-        onChange={props.changeHandler}
+        onChange={props.tagsHandler}
         value={tags}
         />
         <NewNoteBtn onClick={ev => {handleClick(ev); props.history.push('/home') }}><NewNoteButtonText>{props.isEditing ? 'Update' : 'Save'}</NewNoteButtonText> </NewNoteBtn>

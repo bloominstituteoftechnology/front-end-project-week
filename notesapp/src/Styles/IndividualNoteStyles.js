@@ -28,6 +28,7 @@ padding-bottom: 23px;
 export const IndNoteText = styled.p `
 color: #424242;
 margin: 0;
+min-width: 680px;
 `
 
 export const ToolBtn = styled.button `
@@ -39,4 +40,16 @@ color: #424242;
 text-decoration: underline;
 cursor: pointer;
 outline: none;
+`
+
+export const IndTaskTextDiv = styled.div `
+display: flex;
+`
+
+export const TaskDiv = styled.div `
+    border: 1px solid #b7b7b7;
+    margin-right: 5%;
+    margin-left: 5%;
+    padding: 1%;
+    background: #d3d2d3;
 `
