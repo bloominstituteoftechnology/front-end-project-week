@@ -3,7 +3,7 @@ import Note from "./Note";
 
 const NotesList = props => (
     <div className="notes-list">
-        <h3>Your Notes:</h3>
+        <h3 className="your-notes">Your Notes:</h3>
         <div className="notes">
             {props.notes.map((note, index) => (
                 <Note note={note} key={index} />

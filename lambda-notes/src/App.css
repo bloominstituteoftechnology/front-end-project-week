@@ -1,18 +1,15 @@
 .app{
   display: flex;
-}
-
-.note{
-  border:1px solid black;
-  padding:10px;
-  width:200px;
-  overflow-wrap: break-word;
+  background-color: #F2F1F2;
 }
 
 .side-bar{
   background:rgb(227, 227, 227);
   height:100vh;
   padding:10px;
+  position: sticky;
+  height:100vh;
+  top:0;
 }
 .link-section {
   display: flex;
@@ -32,13 +29,36 @@
   outline: none;
 }
 .notes-list{
-  border:1px solid black;
   width:100%;
   display: flex;
+  flex-direction: column;
 }
 
+.notes-list .your-notes {
+  color: #414141;
+  margin: 5% 0 20px 5%;
+}
+
+
 .notes-list .notes{
-  border:3px solid pink;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding:8px;
 }
+
+.note{
+  border:1px solid rgb(167, 167, 167);
+  padding:10px;
+  width:150px;
+  height: 200px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  margin-bottom:30px;
+  background: white;
+}
+.note .note-title{
+  text-decoration: none;
+  color:black;
+}
+
