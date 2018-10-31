@@ -9,7 +9,8 @@ import {
   TitleInput,
   BodyInput,
   Formbtn,
-  FormContainer
+  FormContainer,
+  SignOut
 } from "../Styles";
 
 class EditNote extends React.Component {
@@ -51,6 +52,7 @@ class EditNote extends React.Component {
     return (
       <FormContainer>
         <LeftBar>
+          <SignOut onClick={this.props.signOut}>Sign Out</SignOut>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
           <StyledLink to={"/note/create"}>Add New Note</StyledLink>

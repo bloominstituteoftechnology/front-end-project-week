@@ -69,6 +69,7 @@ class NotesPage extends Component {
               notes={this.state.notes}
               updateNotes={this.updateNotes}
               updateDeleted={this.updateDeleted}
+              signOut={this.props.signOut}
             />
           )}
         />
@@ -80,12 +81,13 @@ class NotesPage extends Component {
               updateNotes={this.updateNotes}
               notes={this.state.notes}
               addNewNotes={this.addNewNotes}
+              signOut={this.props.signOut}
             />
           )}
         />
         <Route
           path="/note/edit/:id"
-          render={props => <EditNote {...props} />}
+          render={props => <EditNote {...props} signOut={this.props.signOut}/>}
         />
       </Container>
     );

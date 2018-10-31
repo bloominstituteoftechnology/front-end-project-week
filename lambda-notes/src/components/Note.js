@@ -1,20 +1,18 @@
 import React from "react";
 import axios from "axios";
-import NoteCard from "./NoteCard";
 import EditNote from "./EditNote";
-import { Link } from "react-router-dom";
 import "../App.css";
 import {
   LeftBar,
   StyledLink,
-  Modal,
   ModalH3,
   TitleH1,
   NoteCardContainer,
   NoteTitle,
   NoteP,
   EditNoteLink,
-  DeleteNoteLink
+  DeleteNoteLink,
+  SignOut
 } from "../Styles";
 
 class Note extends React.Component {
@@ -94,6 +92,7 @@ class Note extends React.Component {
     return (
       <div>
         <LeftBar>
+          <SignOut onClick={this.props.signOut}>Sign Out</SignOut>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
           <StyledLink to={"/note/create"}>Add New Note</StyledLink>

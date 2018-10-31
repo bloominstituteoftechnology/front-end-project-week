@@ -249,7 +249,6 @@ export const LoginInput = styled.input`
   margin-top: 10px;
   padding: 5px;
   text-align: center;
-  background-color: red;
 
   :-webkit-autofill {
     -webkit-text-fill-color: black;
