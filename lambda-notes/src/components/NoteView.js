@@ -5,17 +5,17 @@ import Modal from "react-modal";
 class NoteView extends React.Component {
   constructor(props) {
     super(props);
+    this.note = this.props.notes.find(
+      note => `${note._id}` === this.props.match.params.id
+    );
+
     this.state = {
       showDelete: false,
       isEditing: false,
       tags: [],
-      title: "",
-      textBody: ""
+      title: this.note.title,
+      textBody: this.note.textBody
     };
-
-    this.note = this.props.notes.find(
-      note => `${note._id}` === this.props.match.params.id
-    );
   }
 
   toggleShowDelete = () => {
@@ -80,7 +80,6 @@ class NoteView extends React.Component {
                 required
                 type="text"
                 name="title"
-                placeholder={this.note.title}
                 value={this.state.title}
                 onChange={this.updateHandler}
               />
@@ -90,7 +89,6 @@ class NoteView extends React.Component {
                 cols="30"
                 rows="10"
                 name="textBody"
-                placeholder={this.note.textBody}
                 value={this.state.textBody}
                 onChange={this.updateHandler}
               />
