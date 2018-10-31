@@ -31,6 +31,14 @@ class NewNote extends React.PureComponent {
 		}
 	};
 
+	componentWillUnmount() {
+		this.setState({
+			noteTitle: '',
+			noteContent: '',
+			submitted: false
+		});
+	}
+
 	render() {
 		return (
 			<StyledContainer>
