@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import DeleteModal from './deleteModal'
 
 const ViewContainer = styled.div`
     border: 1px solid black;
@@ -14,7 +15,8 @@ const ViewNav = styled.div`
 `;
 
 const Button = styled.button`
-    margin: 10px;
+    margin-top: 10px;
+    width: 70px;
 `;
 
 const ViewNote = styled.div`
@@ -35,6 +37,7 @@ class NoteView extends Component {
         const id = this.props.match.params.id;
         this.getNote(id);
     }
+
 
     getNote = id => {
         axios
@@ -64,11 +67,12 @@ class NoteView extends Component {
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
             .then(response => {
-                this.setState({
+                /*this.setState({
                     note: this.state.notes.filter(note => {
                         return note.id !== noteId;
                     })
-                })
+                })*/
+                this.props.fetchNotes();
                 this.props.history.push('/')
             })
     }
@@ -80,7 +84,10 @@ class NoteView extends Component {
             <ViewContainer>
                 <ViewNav>
                     <Button onClick={this.editNote}>edit</Button>
-                    <Button onClick={this.handleDeleteNote}>delete</Button>
+                    <DeleteModal 
+                        {...this.props}
+                        handleDelete={this.handleDeleteNote}
+                    />
                 </ViewNav>
 
                 <ViewNote>

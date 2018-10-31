@@ -38,21 +38,6 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  addNote = note => {
-    axios
-      .post('https://fe-notes.herokuapp.com/note/create', note)
-      .then(response => {
-        this.setState({
-          notes: response.data
-        },
-        this.fetchNotes()
-        )
-      })
-      .catch(error => console.log(error));
-      this.props.history.push('/')
-  }
-
-
   render() {
     return (
       <HomePage>
@@ -67,7 +52,7 @@ class App extends Component {
         />
         <Route 
           path='/note/:id'
-          render={props => <NoteView {...props} getNote={this.getNote} />}
+          render={props => <NoteView {...props} getNote={this.getNote} handleDeleteNote={this.handleDeleteNote} fetchNotes={this.fetchNotes} />}
         />
         <Route 
           path='/edit/:id'
