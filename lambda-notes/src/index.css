@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f2f1f2;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* NavBar */
+
+.nav-bar {
+  position: fixed;
+  height: 100vh;
+  background-color: #d3d2d3;
+  top: 0%;
+  border: 1px solid #8e8e8e;
+  max-width: 300px;
+}
+
+.logo-wrapper {
+  margin-top: 30px;
+  width: 80%;
+  padding-left: 31px;
+}
+
+.logo {
+  color: #424242;
+  display: flex;
+  justify-self: flex-start;
+  margin: 0 auto;
+  font-size: 40px;
+}
+
+h1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button-primary {
+  background-color: #24b8bd;
+  border: none;
+  border: 1px solid #8e8e8e;
+  margin: 26px 0px 4px;
+  padding: 16px 30px;
+  width: 80%;
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* List View */
+
+.header {
+  color: #424242;
+  margin: 0px 0px 0px 0px;
+  position: absolute;
+  top: 100px;
+  left: 322px;
+}
+
+.list-view {
+  position: absolute;
+  top: 150px;
+  left: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 70%;
+  margin: 0;
+}
+
+.note-card {
+  border: 1px solid lightslategrey;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 20px 0px 0px;
+  margin: 20px;
+  box-shadow: 8px 10px 25px rgb(142, 142, 142);
+}
+
+.note-card p {
+  padding: 0px 190px 150px 20px;
+  margin: 0px;
+  width: 20px;
+  height: 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: column;
+}
+
+.note-card h3 {
+  overflow: hidden;
+  padding: 0px 185px 10px 0px;
+  margin-left: 15px;
+  width: 30px;
+  height: 20px;
+  white-space: nowrap;
+  border-bottom: 1px solid black;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+/* Modal */
+.modal {
+  background-color: red;
+  display: none;
+}
+
+/* Form */
+
+.form {
+  position: absolute;
+  top: 165px;
+  left: 320px;
+  background-color: #24b8bd;
+}
+
+.input1 {
+  position: fixed;
+  border-radius: 4px;
+  border: 1px solid lightslategrey;
+  text-indent: 10px;
+  margin-bottom: 15px;
+  padding: 15px 200px 20px 5px;
+}
+
+.input2 {
+  position: fixed;
+  border-radius: 4px;
+  border: 1px solid lightslategrey;
+  text-indent: 10px;
+  margin-bottom: 15px;
+  padding: 20px 400px 300px 5px;
+  top: 250px;
+  width: 200px;
+}
+
+.submit {
+  position: fixed;
+  top: 620px;
+  background-color: #24b8bd;
+  border: none;
+  border: 1px solid #8e8e8e;
+  padding: 16px 30px;
+  width: 27%;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Full Note Page */
+
+.note-paragraph {
+  position: absolute;
+  top: 150px;
+  left: 300px;
+}
