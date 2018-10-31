@@ -27,12 +27,7 @@ flex-flow: row wrap;
      constructor(props){
          super(props);
          this.state = {
-             notes: [{
-                 'tags':['tag', 'otherTag'],
-                 'title': 'Note Title',
-                 'textBody':'Note Body',
-                 '_id': ''
-             }]
+             notes: []
          }
      }
      componentDidMount = () => {
@@ -49,7 +44,7 @@ flex-flow: row wrap;
         <YourNotes>Your Notes:</YourNotes>
         <NotesList>
             {this.state.notes.map(note =>
-                <Link to = {`/note/${note._id}`} className='linkTags'>
+                <Link to = {`/note/get/${note._id}`} key={note._id} className='linkTags'>
                     <NotePreview note={note} />                          
                  </Link>)}
         </NotesList>
