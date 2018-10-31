@@ -15,6 +15,13 @@ class ListView extends Component {
     this.props.fetchNotes();
   }
 
+  search = searchTerm => {
+    const searchedNotes = this.props.notes.filter(note =>
+      note.title.includes(searchTerm)
+    );
+    return searchedNotes;
+  };
+
   render() {
     if (this.props.loading) {
       return (
@@ -31,16 +38,20 @@ class ListView extends Component {
     }
     return (
       <div className="listView">
-        <NotesList notes={this.props.notes} />
+        <NotesList
+          notes={this.search(this.props.searchTerm)}
+          sortNotes={this.props.sortNotes}
+        />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ notes, loading }) => {
+const mapStateToProps = ({ notes, loading, searchTerm }) => {
   return {
     notes,
-    loading
+    loading,
+    searchTerm
   };
 };
 

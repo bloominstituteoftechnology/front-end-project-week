@@ -9,7 +9,9 @@ export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
 export const FETCH_SINGLE_NOTE = 'FETCH_SINGLE_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
+export const SEARCH_TERM = 'SEARCH_TERM';
 
+// Will fetch the notes data from the API
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES });
   axios
@@ -22,6 +24,7 @@ export const fetchNotes = () => dispatch => {
     });
 };
 
+// Adds a note
 export const addNote = note => dispatch => {
   axios
     .post('https://fe-notes.herokuapp.com/note/create', note)
@@ -34,6 +37,7 @@ export const addNote = note => dispatch => {
     });
 };
 
+// Displays one note
 export const fetchSingleNote = id => dispatch => {
   dispatch({ type: FETCH_NOTES });
   axios
@@ -46,6 +50,7 @@ export const fetchSingleNote = id => dispatch => {
     });
 };
 
+// Deletes a note
 export const deleteNote = id => dispatch => {
   axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
@@ -57,6 +62,7 @@ export const deleteNote = id => dispatch => {
     });
 };
 
+// Edit one note
 export const editNote = (id, note) => dispatch => {
   axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
@@ -64,4 +70,9 @@ export const editNote = (id, note) => dispatch => {
       console.log(response);
       dispatch({ type: EDIT_NOTE, payload: response.data });
     });
+};
+
+// Filters notes based on search
+export const searchNotes = searchTerm => dispatch => {
+  dispatch({ type: SEARCH_TERM, payload: searchTerm });
 };
