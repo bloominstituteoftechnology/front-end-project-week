@@ -20,9 +20,7 @@ const TitleContainer = styled.div`
 const SingleNoteView = props => {
   return (
     <SingleNoteViewContainer>
-      <TitleContainer>
-        <h2>{props.activeNote.title}</h2>
-      </TitleContainer>
+      <TitleContainer>{props.activeNote === undefined ? null : <h2>{props.activeNote.title}</h2>}</TitleContainer>
     </SingleNoteViewContainer>
   );
 };
