@@ -142,6 +142,7 @@ nav {
   right: 20px;
   font-size: 20px;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .delete:hover {
@@ -202,6 +203,7 @@ input[type='submit'] {
   width: 150px;
   align-self: flex-end;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 input[type='submit']:hover {
@@ -257,6 +259,7 @@ input[type='submit']:hover {
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .delete-confirm:hover {
@@ -273,6 +276,7 @@ input[type='submit']:hover {
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .cancel:hover {
