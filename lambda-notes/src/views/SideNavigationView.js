@@ -24,6 +24,7 @@ class SideNavigationView extends Component {
         <Link to="/add-notes-form" className="navLink">
           <button>+ Create New Note</button>
         </Link>
+        <input type="text" placeholder="Search Notes" className="searchBar" />
       </header>
     );
   }
