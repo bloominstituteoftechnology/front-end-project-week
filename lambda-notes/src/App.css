@@ -246,6 +246,10 @@ a {
   border-radius: 25px;
   min-height: 350px;
   background: rgba(255, 255, 255, 0.616);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px 0px;
 }
 
 .topicNote {
@@ -265,4 +269,48 @@ a {
   height: 500px;
   border-radius: 10px;
   border: none;
+}
+
+.minimap {
+  width: 25%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 100px;
+  max-width: 100px;
+  justify-items: center;
+  margin: 0 20px;
+  border: 1px solid rgb(204, 203, 203);
+  border-radius: 10px;
+
+}
+
+.circle {
+  border-radius: 50%;
+  background: #24B8BD;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.one{ 
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.two{ 
+  grid-column: 3;
+  grid-row: 1;
+}
+.three{ 
+  grid-column: 2;
+  grid-row: 2;
+}
+.four{ 
+  grid-column: 1;
+  grid-row: 3;
+}
+.five{ 
+  grid-column: 3;
+  grid-row: 3;
 }

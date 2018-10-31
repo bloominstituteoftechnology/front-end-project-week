@@ -1,4 +1,5 @@
 import React from 'react';
+import MiniMap from './MiniMap';
 
 export default class TopicMap extends React.Component {
     state = {
@@ -34,13 +35,13 @@ export default class TopicMap extends React.Component {
                        onChange={this.inputHandler} />
 
                 <div className="note-map">
-                { this.state.topicNotes.map(note => 
-                (
-                
-                <div className="topicNote">{note.title}</div>
-                )
-                )
-                }
+                <MiniMap />
+                <MiniMap />
+                <MiniMap />
+                <MiniMap />
+                <MiniMap />
+                <MiniMap />
+                <MiniMap />
                 </div>
                 <input name="title" 
                        type="text" 
