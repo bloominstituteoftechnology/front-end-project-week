@@ -6,6 +6,7 @@ import {CSVLink} from 'react-csv'
 
 const NoteList = props => {
     return (
+        
         <NoteListContainer>
         <NoteListTitle>Your Notes:</NoteListTitle>
         <NoteListDiv>

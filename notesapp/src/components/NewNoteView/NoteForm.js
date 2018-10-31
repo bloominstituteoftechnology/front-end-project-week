@@ -33,7 +33,7 @@ const NoteForm = props => {
         value={textBody}
         />
         <TitleInput 
-        placeholder="tags"
+        placeholder="write tags here separated by a comma"
         type="text"
         name="tags"
         onChange={props.tagsHandler}

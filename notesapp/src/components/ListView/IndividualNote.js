@@ -28,7 +28,6 @@ class IndividualNote extends React.Component {
       modalIsOpen: false,
       todoData: [],
       inputTask: "",
-      filteredTaskText: ""
     };
   }
 

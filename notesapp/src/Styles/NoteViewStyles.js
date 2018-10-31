@@ -32,6 +32,7 @@ margin: 1%;
 padding: 1.5%;
 background: white;
 cursor: pointer;
+overflow: hidden;
 `
 
 export const NoteH2 = styled.h2 `

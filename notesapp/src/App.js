@@ -14,6 +14,14 @@ const existingNote = {
   tags: []
 };
 
+const reorder = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
+
 class App extends Component {
   constructor() {
     super();
@@ -28,7 +36,6 @@ class App extends Component {
       editingID: null,
       filteredNotes: [],
       filterTarget: '',
-
     };
   }
 
@@ -53,7 +60,7 @@ class App extends Component {
     this.setState({
       noteObj: {
         ...this.state.noteObj,
-        [ev.target.name]: ev.target.value.split("")
+        [ev.target.name]: ev.target.value.split(",")
       }
     })
   }
@@ -76,6 +83,9 @@ class App extends Component {
   }
 
   addNote = () => {
+    if (this.state.noteObj.title === "" || this.state.noteObj.textBody === "" || this.state.noteObj.tags === "") {
+      return alert("All fields must have content, please try again.")
+    }
     axios
       .post(`https://fe-notes.herokuapp.com/note/create`, this.state.noteObj)
       .then(response => {
@@ -87,7 +97,6 @@ class App extends Component {
             textBody: "",
             tags: ""
           },
-
         });
       })
       .catch(error => alert(error));
@@ -133,6 +142,21 @@ class App extends Component {
     });
   };
 
+  onDragEnd = result => {
+    if (!result.destination) {
+      return;
+    }
+   
+    const notes = reorder(
+      this.state.notes,
+      result.source.index,
+      result.destination.index
+    )
+    this.setState({
+      notes,
+    })
+  }
+
   render() {
     return (
       <AppDiv>
@@ -146,6 +170,7 @@ class App extends Component {
                ? this.state.filteredNotes
                : this.state.notes
               } 
+              onDragEnd={this.onDragEnd}
           />}
         />
         <Route

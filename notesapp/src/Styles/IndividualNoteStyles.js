@@ -28,7 +28,7 @@ padding-bottom: 23px;
 export const IndNoteText = styled.p `
 color: #424242;
 margin: 0;
-min-width: 680px;
+width: 680px;
 `
 
 export const ToolBtn = styled.button `

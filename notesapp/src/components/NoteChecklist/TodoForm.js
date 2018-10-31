@@ -1,10 +1,11 @@
 import React from 'react';
+import {AddTaskBtn, AddTaskBtnText, TaskInput, ClearTaskBtn, ClearTaskBtnText, TaskTitle} from '../../Styles/NoteTasksStyles'
 
 const TodoForm = props => {
     return (
         <div>
         <div className="introBox">
-                    <p>Add tasks to this note?</p>
+                    <TaskTitle>Add tasks to this note?</TaskTitle>
                 </div>
 
         <div className="formContainer">
@@ -12,17 +13,17 @@ const TodoForm = props => {
             <div className="formDiv">
         
                 <form onSubmit={props.addNewTask}>
-                <input 
+                <TaskInput 
                 type="text" 
                 value={props.inputTask}
                 name="inputTask"
                 onChange={props.changeHandler}
                 placeholder="Enter new task here"
                 />
-                <button type="submit" onClick={props.addNewTask}>Add Task</button>
+                <AddTaskBtn type="submit" onClick={props.addNewTask}><AddTaskBtnText>Add Task</AddTaskBtnText></AddTaskBtn>
                 </form>
 
-                <button onClick={props.clearTask}>Clear Completed Tasks</button>
+                <ClearTaskBtn onClick={props.clearTask}><ClearTaskBtnText>Clear Completed</ClearTaskBtnText></ClearTaskBtn>
 
             </div>
 

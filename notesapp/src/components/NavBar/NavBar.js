@@ -10,6 +10,13 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
 const NavigationBar = props => {
+
+  const logoutFunction = (ev) => {
+    ev.preventDefault()
+    localStorage.clear()
+    window.location.reload()
+  }
+
   return (
     <NavBarDiv>
       <NavBarHeader>Lambda Notes</NavBarHeader>
@@ -29,6 +36,11 @@ const NavigationBar = props => {
               {" "}
               + Create New Note
             </Link>
+          </NavButtonText>
+        </NavLinkBtn>
+        <NavLinkBtn onClick={(ev) => logoutFunction(ev)}>
+          <NavButtonText>
+              Logout
           </NavButtonText>
         </NavLinkBtn>
       </NavLinkDiv>
