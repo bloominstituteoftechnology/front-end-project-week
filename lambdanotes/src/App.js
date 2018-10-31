@@ -53,7 +53,7 @@ class App extends React.Component {
     axios
       .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
       .then(response => {
-        this.state.note._id = response.data;
+        this.state.note = response.data;
         this.setState({
           notesData: [...this.state.notesData, this.state.note],
           note: blankNoteForm
@@ -100,7 +100,8 @@ class App extends React.Component {
         });
         this.setState({
           notesData: updatedNotes,
-          isUpdating: false
+          isUpdating: false,
+          note: blankNoteForm
         });
       });
   };
