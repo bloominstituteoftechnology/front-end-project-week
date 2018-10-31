@@ -18,7 +18,7 @@ constructor(props){
 }
     
 componentDidMount() {
-    axios.get(`http://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+    axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
     .then(response => 
         this.setState({ 
       activeNote: {title: response.data.title, textBody:response.data.textBody, tags:[...response.data.tags]}

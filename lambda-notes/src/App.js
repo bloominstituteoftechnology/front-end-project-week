@@ -47,7 +47,7 @@ changeHandler=(key, value) => {
 
 deleteNote = (event, id) => {
   event.preventDefault();
-  axios.delete(`http://fe-notes.herokuapp.com/note/delete/${id}`)
+  axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
   .then(this.getNoteList)
   .catch(error=>{console.log("We were unable to delete this note: ", error)})
 }
