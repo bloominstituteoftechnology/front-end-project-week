@@ -8,6 +8,7 @@ function NoteForm(props) {
 
     if (props.isUpdating) {
       props.handleUpdateNote(props.note._id);
+      props.history.push('/');
     } else {
       props.handleAddNewNote();
       props.history.push('/');
