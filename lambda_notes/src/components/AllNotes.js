@@ -1,6 +1,9 @@
+// this is where the notes are styled on the main page
+
 import React from 'react';
 import Note from './Note';
 import styled from 'styled-components';
+
 
 
  const SecondaryHeading = styled.h2`
@@ -9,9 +12,9 @@ import styled from 'styled-components';
  const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -1.5rem;
+  margin-left: 18rem;
 `;
- const CardContainer = ({ notes }) => {
+ const AllNotes = ({ notes }) => {
   return (
     <div>
       <SecondaryHeading>Your Notes:</SecondaryHeading>
@@ -23,4 +26,4 @@ import styled from 'styled-components';
     </div>
   );
 };
- export default CardContainer;
+ export default AllNotes;

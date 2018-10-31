@@ -1,4 +1,7 @@
+// This is how each individual note is styled and displayed when it is passed to AllNotes
+
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -24,10 +27,12 @@ const NoteBody = styled.div`
 
 const Note = ({ note: { id, title, textBody } }) => {
   return (
-    <SingleCard>
-      <CardTitle>{title}</CardTitle>
-      <NoteBody>{textBody.substr(0, 50) + "..."}</NoteBody>
-    </SingleCard>
+    // <Link to={`/notes/${props.id}`}>
+      <SingleCard>
+        <CardTitle>{title.substr(0, 15) + "..."} </CardTitle>
+        <NoteBody>{textBody.substr(0, 50) + "..."}</NoteBody>
+      </SingleCard>
+    // </Link>
   );
 };
 

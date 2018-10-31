@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Sidebar from "./components/Sidebar";
 import styled from "styled-components";
 import { Route } from "react-router-dom";
-import CardContainer from "./components/CardContainer";
+import AllNotes from "./components/AllNotes";
+import axios from "axios";
+import CreateNote from "./components/CreateNote";
+import Note from "./components/Note";
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -27,20 +30,52 @@ class App extends Component {
         id: 2,
         title: "Note 3",
         textBody
+      },
+      {
+        id: 4,
+        title: "Note 4",
+        textBody
+      },
+      {
+        id: 5,
+        title: "Note 5",
+        textBody
+      },
+      {
+        id: 6,
+        title: "Note 6",
+        textBody
       }
     ]
+  };
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
+  componentDidUpdate() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
     return (
       <div>
-      <MainContent>
-      <Route
-      exact
-      path="/"
-      render={() => <CardContainer notes={this.state.notes} />}/>
-      </MainContent>
-      <Sidebar />
+        <MainContent>
+          <Route
+            exact
+            path="/"
+            render={() => <AllNotes notes={this.state.notes} />}
+          />
+        </MainContent>
+        <Sidebar />
+        <CreateNote />
       </div>
     );
   }

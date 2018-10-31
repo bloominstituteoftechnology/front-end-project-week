@@ -1,29 +1,4 @@
-// import React, { Component } from "react";
-// import styled from "styled-components";
-// import Button from "./Button";
-
-// const styledSidebar = styled.div`
-//   height: 100vh;
-//   width: 200px;
-//   display: flex;
-//   border: 3px solid red;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   background-color: lightgray;
-// `;
-
-// class Sidebar extends Component {
-//   render() {
-//     return (
-//       <styledSidebar>
-//         <Button VIEW YOUR NOTES />
-//         <Button CREATE NEW NOTE />
-//       </styledSidebar>
-//     );
-//   }
-// }
-
-// export default Sidebar;
+// this is the sidebar it's the same on every page
 
 
 import React from 'react';
