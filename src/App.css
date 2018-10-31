@@ -18,7 +18,7 @@ nav {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 90px;
+  padding: 0 80px;
   height: 100px;
   width: 100vw;
   z-index: 2000;
@@ -113,7 +113,7 @@ nav {
   position: relative;
   border-radius: 3px;
   border: .1px solid lightgrey;
-  padding: 20px;
+  padding: 50px;
   width: 97%;
   margin: 0 auto 50px;
   overflow: hidden;
@@ -125,7 +125,7 @@ nav {
 }
 
 .title {
-  font-size: 50px;
+  font-size: 40px;
   display: inline;
   font-weight: bold;
   border-bottom: 2px solid #fefdfa;
@@ -180,6 +180,7 @@ input, textarea {
   outline: none;
   font-family: 'Open Sans', sans-serif;
   max-width: 100%;
+  transition: all 0.2s;
 }
 
 textarea {

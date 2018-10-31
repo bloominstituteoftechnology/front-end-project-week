@@ -8,6 +8,7 @@ class Form extends Component {
         this.state = {
             title: '',
             body: '',
+            tags: '',
             added: false,
             note: null,
         }
@@ -20,6 +21,7 @@ class Form extends Component {
                 note: this.props.location.state.note,
                 title: this.props.location.state.note.title,
                 body: this.props.location.state.note.textBody,
+                tags: this.props.location.state.note.tags,
             })
         }
         this.setState({
@@ -40,11 +42,13 @@ class Form extends Component {
         event.preventDefault();
         if (this.state.title !== '' && this.state.body !== '') {
           // create a new note
+          // const tags = this.state.tags.split(',')
           const newNote = {
-            tags: [],
+            // tags: tags,
             title: this.state.title,
             textBody: this.state.body,
           }
+          console.log(newNote)
           // if there's a note on state to edit, start PUT
           if (this.state.note !== null) {
             axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
@@ -74,11 +78,11 @@ class Form extends Component {
 
     render() {
         // once form is submitted, redirect home.
-        if (this.state.added === true) {
-            return (
-                <Redirect to='/'></Redirect>
-            )
-        }
+        // if (this.state.added === true) {
+        //     return (
+        //         <Redirect to='/'></Redirect>
+        //     )
+        // }
         return (
             <div className='container'>
                 <h1>{this.state.note !== null ? 'Edit Note:' : 'Add Note:'}</h1>
@@ -100,6 +104,15 @@ class Form extends Component {
                         value={this.state.note !== null ? this.state.body : this.props.value}
                         onChange={this.changeHandler}>
                     </textarea>
+
+                    <input 
+                        className='tags'
+                        type='text' 
+                        name='tags' 
+                        placeholder='Tag your note (comma-separated)' 
+                        defaultValue={this.state.note !== null ? this.state.note.tags : this.props.value}
+                        onChange={this.changeHandler}
+                    />
                     
                     <input type='submit' />
                 </form>
