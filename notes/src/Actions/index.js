@@ -22,15 +22,15 @@ export const getNotes = () => dispatch => {
     });
 }
 
-// export const postNote = (newSmurf) => dispatch => {
-//   console.log('postNote called');
-//   dispatch({ type: POSTING });
-//   axios
-//     .post('https://fe-notes.herokuapp.com/note', newNote)
-//     .then(response => {
-//       dispatch({ type: POSTING_SUCCESS, payload: response.data })
-//     })
-//     .catch(error => {
-//       dispatch({ type: POSTING_ERROR, payload: error })
-//     });
-// }
+export const postNote = (newNote) => dispatch => {
+  console.log('postNote called');
+  dispatch({ type: POSTING });
+  axios
+    .post('https://fe-notes.herokuapp.com/note', newNote)
+    .then(response => {
+      dispatch({ type: POSTING_SUCCESS, payload: response.data })
+    })
+    .catch(error => {
+      dispatch({ type: POSTING_ERROR, payload: error })
+    });
+}

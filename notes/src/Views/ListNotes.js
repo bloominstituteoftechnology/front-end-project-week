@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import '../styles/Styles.css';
+import Note from '../components/Note'
 
-import { data } from '../data';
+import "../styles/Styles.css";
 
-export const ListNotes = () => {
-  return (
-    <div className="view note-list">
-      {data.map(item => 
-        <div className="note-list--note" key={item._id}>
-          <h4>{item.title}</h4>
-          <p>{item.textBody}</p>
-        </div>
-      )}
-    </div>
-  )
+class ListNotes extends Component {
+  render() {
+    return (
+      <div className="view note-list">
+        {this.props.notes.map(note => (
+          <Note
+            id={note._id}
+            title={note.title}
+            content={note.textBody}
+          />
+        ))}
+      </div>
+    );
+  }
 }
+
+Note.defaultProps = {
+  notes: [],
+};
+
+export default ListNotes;
