@@ -11,8 +11,6 @@ const NoteContainer = ({
   toggleSort,
   sortAToZ,
   sortZToA,
-  sortByDateOldest,
-  sortByDateNewest,
   showDropdown
 }) => (
   <MainContent>
@@ -31,8 +29,6 @@ const NoteContainer = ({
       <SortDropdown
         sortAToZ={sortAToZ}
         sortZToA={sortZToA}
-        sortByDateOldest={sortByDateOldest}
-        sortByDateNewest={sortByDateNewest}
         showDropdown={showDropdown}
       />
     </div>

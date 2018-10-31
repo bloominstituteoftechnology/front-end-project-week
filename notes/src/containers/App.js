@@ -109,32 +109,6 @@ class App extends Component {
     });
   };
 
-  sortByDateOldest = e => {
-    e.preventDefault();
-    this.props.sortList((a, b) => {
-      if (a._id > b._id) {
-        return 1;
-      }
-      if (a._id < b._id) {
-        return -1;
-      }
-      return 0;
-    });
-  };
-
-  sortByDateNewest = e => {
-    e.preventDefault();
-    this.props.sortList((a, b) => {
-      if (a._id < b._id) {
-        return 1;
-      }
-      if (a._id > b._id) {
-        return -1;
-      }
-      return 0;
-    });
-  };
-
   render() {
     if (this.props.notes.length < 1) {
       return <div>Loading...</div>;
@@ -153,8 +127,6 @@ class App extends Component {
               toggleSort={this.props.toggleSort}
               sortAToZ={this.sortAToZ}
               sortZToA={this.sortZToA}
-              sortByDateOldest={this.sortByDateOldest}
-              sortByDateNewest={this.sortByDateNewest}
               showDropdown={this.props.showSort}
             />
           )}
