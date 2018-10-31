@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class SmurfForm extends Component {
+class NewNoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,16 +42,18 @@ class SmurfForm extends Component {
       <div className="NewForm">
         <form onSubmit={this.addNewNote}>
           <input
+            type="text"
             onChange={this.handleInputChange}
             placeholder="Title"
             value={this.state.newTitle}
-            name="Title"
+            name="newTitle"
           />
           <input
+            type="text"
             onChange={this.handleInputChange}
             placeholder="Note"
             value={this.state.newNote}
-            name="Note"
+            name="newNote"
           />
           <button type="submit">Add New Note</button>
         </form>

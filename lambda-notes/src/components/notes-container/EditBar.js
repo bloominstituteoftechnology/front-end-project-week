@@ -5,7 +5,7 @@ const EditBar= props => {
 
     return (
     <div>
-    <Link to='/EditNoteForm'>
+    <Link to='/EditNoteForm/:id'>
           edit
          </Link>
     </div>

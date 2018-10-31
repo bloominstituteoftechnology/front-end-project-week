@@ -41,7 +41,7 @@ export default class SingleNote extends Component {
   editedNoteHandler = event => {
     event.preventDefault();
     axios     
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,
+    .put(`https://fe-notes.herokuapp.com/note/edit/id`,
     {
        title: this.state.editedTitle,
        textBody: this.state.editedNote,
