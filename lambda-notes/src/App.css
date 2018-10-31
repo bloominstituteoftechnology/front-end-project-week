@@ -62,3 +62,23 @@
   color:black;
 }
 
+/*forms*/
+form{
+  border:1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 1% 0 1%;
+}
+form input{
+  border:1px solid black;
+  padding:10px;
+  width:300px;
+  font-size:20px;
+  outline: none;
+}
+form textarea{
+  border:1px solid black;
+  width:600px;
+  height:300px;
+  outline: none;
+}
