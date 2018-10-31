@@ -42,8 +42,6 @@ export const editNote = (Id,data) => dispatch => {
   axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${Id}`,data)
     .then(response => {
-      
-      console.log('response',response)
       dispatch({ type: EDITTING_NOTES_SUCCESS, payload: response.data});
     })
     .catch(error => {
@@ -57,8 +55,6 @@ export const editNote = (Id,data) => dispatch => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${Id}`)
       .then(response => {
-        
-        console.log('response',response)
         dispatch({ type: FETCHING_NOTES_BY_ID_SUCCESS, payload: response.data});
       })
       .catch(error => {

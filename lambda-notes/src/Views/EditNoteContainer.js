@@ -192,7 +192,6 @@ class EditNoteContainer extends React.Component{
     }
 
     render(){
-        console.log(this.props, this.state)
         if (this.state.showModal) {
             return (
             <div>
