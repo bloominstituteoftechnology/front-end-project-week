@@ -15,6 +15,7 @@ import NewNoteForm from "./components/NewNoteForm";
 import GotOne from "./components/GotOne";
 import EditNoteForm from "./components/EditNoteForm";
 import Register from "./components/Register";
+import Login from "./components/Login";
 
 // CSS
 import "./App.css";
@@ -32,16 +33,12 @@ class App extends Component {
           }
         >
           <div className="col-md-3 p-5 border-left action-container left-side">
-            {
-              localStorage.getItem('isLoggedIn') === "true" ?
+            {localStorage.getItem("isLoggedIn") === "true" ? (
               <ActionPanel />
-              :
-              null
-            }
-            
+            ) : null}
           </div>
           <div className={`col-md-9 p-5 border right-side`}>
-            {localStorage.getItem('isLoggedIn') === "true" ? (
+            {localStorage.getItem("isLoggedIn") === "true" ? (
               <React.Fragment>
                 <Route exact path="/" component={ListView} />
                 <Route exact path="/newNote" component={NewNoteForm} />
@@ -55,7 +52,10 @@ class App extends Component {
                 />
               </React.Fragment>
             ) : (
-              <Route path="/" component={Register} />
+              <React.Fragment>
+                <Route exact path="/" component={Register} />
+                <Route exact path="/login" component={Login} />
+              </React.Fragment>
             )}
           </div>
         </div>

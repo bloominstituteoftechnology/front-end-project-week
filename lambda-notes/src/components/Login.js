@@ -1,53 +1,29 @@
 import React from "react";
 
-// purgatorial code
+// Auxillary Packages
 import { connect } from "react-redux";
-import { registerUser } from "../actions/index";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-// css
+// CSS
 import "../CSS/Register.css";
 
-class Register extends React.Component {
+class Login extends React.Component {
   state = {
     username: "",
     email: "",
-    password: "",
     error: null,
-    isRegistering: this.props.isRegistering
   };
 
   handleOnChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleRegister = e => {
-    e.preventDefault();
-    this.setState({ isRegistering: this.props.isRegistering });
-    setTimeout(() => {
-      this.props.registerUser({
-        username: this.state.username.trim(),
-        email: this.state.email.trim(),
-        password: this.state.password.trim()
-      });
-    }, 300);
-  };
-
   render() {
     return (
       <div className="register-form">
-        <h1 className="register-header">Register</h1>
+        <h1 className="register-header">Login</h1>
         <form type="submit">
-          <div className="form-ctrl">
-            <label htmlFor="username">Username: </label>
-            <input
-              type="text"
-              required
-              name="username"
-              onChange={this.handleOnChange}
-            />
-          </div>
           <div className="form-ctrl">
             <label htmlFor="email">Email Address: </label>
             <input
@@ -75,8 +51,8 @@ class Register extends React.Component {
             )}
           </div>
         </form>
-        <Link to="/login" className="my-3" href="" onClick={this.handleIsMember}>
-          Already a Member?
+        <Link to="/" className="my-3" href="" onClick={this.handleIsMember}>
+          Need to Register?
         </Link>
       </div>
     );
@@ -93,7 +69,6 @@ const mapStateToProps = state => {
 
 export default withRouter(
   connect(
-    mapStateToProps,
-    { registerUser }
-  )(Register)
+    mapStateToProps
+  )(Login)
 );
