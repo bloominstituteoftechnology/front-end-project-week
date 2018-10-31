@@ -5,6 +5,7 @@ import axios from 'axios';
 import HeadNav from './components/HeadNav/HeadNav';
 import ListView from './components/ListView/ListView';
 import NoteView from './components/NoteView/NoteView';
+import EditNote from './components/EditCreate/EditNote';
 
 //page styling
 import './App.css';
@@ -33,7 +34,8 @@ class App extends Component {
         <HeadNav />
         <div className='mainView'>
           {/* <ListView noteList={this.state.noteList}/> */}
-          <NoteView />
+          {/* <NoteView /> */}
+          <EditNote />
         </div>
 
       </div>
