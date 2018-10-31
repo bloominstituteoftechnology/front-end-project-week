@@ -22,6 +22,7 @@ class ModalState extends React.Component {
 		return (
 			<main>
 				<Modal show={this.state.show} handleClose={this.hideModal} deletePost={this.props.deletePost} />
+				<UnstyledButton type="button">edit</UnstyledButton>
 				<UnstyledButton type="button" onClick={this.showModal}>
 					delete
 				</UnstyledButton>
@@ -40,12 +41,10 @@ const Modal = ({ handleClose, show, deletePost }) => {
 					<p>Are You Sure you Want to delete this?</p>
 				</div>
 				<div className="buttons">
-					<StyledDeleteButton to="/" Yes onClick={deletePost}>
+					<StyledDeleteButton to="/" onClick={deletePost}>
 						Delete
 					</StyledDeleteButton>
-					<StyledButton No onClick={handleClose}>
-						No
-					</StyledButton>
+					<StyledButton onClick={handleClose}>No</StyledButton>
 				</div>
 			</section>
 		</div>
@@ -63,8 +62,10 @@ export const UnstyledButton = styled.button`
 `;
 
 export const StyledDeleteButton = styled(Link)`
+	text-decoration: none;
 	margin: 10px;
-	padding: 10px;
+	    padding: 9px 20px;
+
 	width: 100px;
 	border-radius: 3px;
 	color: #ffffffff;

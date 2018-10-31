@@ -2,7 +2,7 @@ import React from 'react';
 import Notes from './Notes';
 import axios from 'axios';
 // import Navbar from '../NavBar/Navbar';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 
 class NoteContainer extends React.Component {
 	constructor(props) {
@@ -22,46 +22,6 @@ class NoteContainer extends React.Component {
 			.catch((err) => console.log(err));
 	}
 
-	// static getDerivedStateFromProps(prevState) {
-	// 	// if (notes !== prevState.id) {
-	// 	// 	return {
-	// 	// 		...notes
-	// 	// 	};
-	// 	// }
-	// 	console.log(this.state.notes, prevState);
-	// 	// return null;
-	// }
-
-	componentWillReceiveProps(nextProps) {
-		console.log('Component will receive props', nextProps);
-	}
-
-	shouldComponentUpdate(nextProps, nextState) {
-		console.log('should component update?', nextProps, nextState);
-		if (this.state.notes.length !== nextState.length) {
-			return true;
-		}
-	}
-
-	componentWillUpdate(nextProps, nextState) {
-		console.log('Component Will update:', nextProps, nextState);
-		return true;
-	}
-
-	componentDidUpdate(prevProps, prevState) {
-		console.log('Component did update', prevProps, prevState);
-	}
-
-	componentWillUnmount() {
-		console.log('Component will unmount');
-	}
-
-	// onChangeHomeMounted() {
-	// 	this.setState({
-	// 		homeMounted: !this.state.homeMounted
-	// 	});
-	// }
-
 	getNoteId = (id) => {
 		let noteId = id;
 		this.setState({ noteId });
@@ -69,13 +29,18 @@ class NoteContainer extends React.Component {
 
 	render() {
 		// what gets rendered
-		const { notes } = this.state;
-		return (
-			<div>
-				{/* <Route exact path="/note/:id" render={(props) => <Navbar deletePost={this.deletePost} {...props} />} /> */}
-				<Route exact path="/" render={() => <Notes notes={notes} getNoteId={this.getNoteId} />} />
-			</div>
-		);
+		if (!this.state.notes.length) {
+			return <h1>Loaaaaaaaaaaaaaaaaaaaaaadddding............</h1>;
+		} else {
+			const { notes } = this.state;
+			return (
+				<div>
+					{/* <Route exact path="/note/:id" render={(props) => <Navbar deletePost={this.deletePost} {...props} />} /> */}
+					{/*<Route exact path="/" render={() => <Notes notes={notes} getNoteId={this.getNoteId} />} /> */}
+					<Notes notes={notes} getNoteId={this.getNoteId} deletePost={this.deletePost} />
+				</div>
+			);
+		}
 	}
 }
 

@@ -11,9 +11,9 @@ const App = (props) => {
 	return (
 		<StyledContainer>
 			<Route path="*" render={() => <SidebarContainer />} />
-			<Route path="/" render={(props) => <NoteContainer {...props} getAllNotes={props.getAllNotes} />} />
-			<Route exact path="/create-new-note/" render={(props) => <NewNote {...props} />} />
-			<Route exact path="/note/:id" render={(props) => <FullNote {...props} />} />
+			<Route exact path="/" component={NoteContainer} />
+			<Route path="/create-new-note/" component={NewNote} />
+			<Route path="/note/:id" component={FullNote} />
 			{/* <Route exact path="/note/:id" render={(props) => <Navbar {...props} />} /> */}
 		</StyledContainer>
 	);
