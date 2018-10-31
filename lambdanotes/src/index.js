@@ -5,7 +5,6 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { BrowserRouter as Router } from "react-router-dom";
-import registerServiceWorker from "./registerServiceWorker";
 import rootReducer from "./reducers";
 import App from "./components/App";
 import "./index.css";
@@ -20,4 +19,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
