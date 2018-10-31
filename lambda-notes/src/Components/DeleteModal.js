@@ -11,6 +11,10 @@ const DeleteButton = styled.button`
   border-radius: 1px solid gray;
   background: #24b8bd;
   color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const PopUpBox = styled.div`
@@ -41,7 +45,10 @@ const DeleteDanger = styled.button`
   font-weight: bold;
   font-size: 14px;
   margin-right: 15px;
-  
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const NoButton = styled.button`
@@ -52,6 +59,10 @@ const NoButton = styled.button`
   color: white;
   font-weight: bold;
   font-size: 14px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 class DeleteModal extends Component {

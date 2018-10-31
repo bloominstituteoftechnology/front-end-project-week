@@ -43,6 +43,10 @@ const SaveButton = styled.button`
   color: white;
   font-weight: bold;
   font-size: 14px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 class NoteForm extends Component {

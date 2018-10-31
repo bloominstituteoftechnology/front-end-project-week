@@ -44,6 +44,10 @@ const UpdateButton = styled.button`
   color: white;
   font-weight: bold;
   font-size: 14px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 class EditForm extends Component {

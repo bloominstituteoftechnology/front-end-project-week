@@ -24,6 +24,10 @@ const EditButton = styled.button`
   border-radius: 1px solid gray;
   background: #24b8bd;
   color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const SingleNote = styled.div`
