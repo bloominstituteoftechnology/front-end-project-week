@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Route, NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Note from "./components/Note";
 import Notes from "./components/Notes";
@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      test: "wtf"
     };
   }
 
@@ -19,21 +20,21 @@ class App extends Component {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => this.setState({ notes: response.data }))
-      .then(console.log(this.state))
+      .then(console.log(this.state.notes))
       .catch(error => console.log(error));
   }
 
-  deleteNote = id => {
-    axios
-      // .delete(`http://localhost:3000/smurfs/${id}`)
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        this.setState({ notes: response._id });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  // deleteNote = id => {
+  //   axios
+  //     // .delete(`http://localhost:3000/smurfs/${id}`)
+  //     .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+  //     .then(response => {
+  //       this.setState({ notes: response._id });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
 
   render() {
     return (
@@ -56,10 +57,20 @@ class App extends Component {
             render={() => <Notes notes={this.state.notes} />}
           />
           <Route path="/submit" component={NoteForm} />
+
           <Route
             path="/note/get/:id"
-            render={() => <Note notes={this._id} />}
+            render={props => <Note {...props} wtf={this.state.test} />}
           />
+
+          {/* <Route
+            path="/note/get/:id"
+            render={() => (
+              <Note
+                
+              />
+            )}
+          /> */}
         </div>
       </div>
     );
