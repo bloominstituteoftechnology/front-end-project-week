@@ -19,7 +19,7 @@ class App extends Component {
   //   }
   // }
 
-  componentDidMount() {
+  componentDidMount() { 
     this.props.dispatchGetNotes(); //this doesn't do anything until mapDispatchToProps is called
   }
 
