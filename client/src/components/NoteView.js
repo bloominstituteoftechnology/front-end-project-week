@@ -1,80 +1,121 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Sidebar from "./Sidebar";
-import EditView from "./EditView";
-import { Link } from "react-router-dom";
 
 class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isEditing: false,
-      isLoaded: false,
+      editing: false,
+      id: "",
       title: "",
       textBody: "",
-      error: null
+      modal: false
     };
+    // this.toggle = this.toggle.bind(this);
   }
 
   componentDidMount() {
     const id = this.props.match.params.id;
+    console.log(id);
     this.fetch(id);
   }
 
   fetch = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .then(response => {
-        console.log("noteview", response);
+      .then(res => {
+        console.log("noteview", res);
         this.setState(() => ({
-          title: response.data.title,
-          textBody: response.data.textBody,
-          isLoaded: true
+          id: res.data._id,
+          title: res.data.title,
+          textBody: res.data.textBody
         }));
       })
-      .catch(error => {
-        console.dir(error);
+      .catch(err => {
+        console.dir(err);
       });
   };
 
-  //   componentWillReceiveProps(newProps) {
-  //     if (this.props.match.params.id !== newProps.match.params.id) {
-  //       this.fetch(newProps.match.params.id);
-  //     }
-  //   }
+  toggleEdit = e => {
+    e.preventDefault();
+    this.setState({ editing: true });
+  };
+
+  editSubmitHandler = event => {
+    event.preventDefault();
+    console.log(this.state.id);
+    this.props.editNote(this.state.id);
+    this.setState({ editing: false });
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  // deleteNote = id => {
+  //   axios
+  //     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+  //     .then(res => {
+  //       console.log("deleted", res);
+  //     })
+  //     .catch(err => console.dir(err));
+  // };
+
+  // toggle() {
+  //   this.setState({
+  //     modal: !this.state.modal
+  //   });
+  // }
+
+  // deleteHandler = event => {
+  //   event.preventDefault();
+  //   this.deleteNote(this.state.note._id);
+  //   this.props.history.push("/");
+  // };
 
   render() {
-    if (!this.state.isLoaded) {
-      if (this.state.error) {
-        return (
-          <div className="error">
-            <h1>404</h1>
-          </div>
-        );
-      }
+    if (this.state.editing) {
       return (
-        <div className="loading-screen">
-          <h1>Loading...</h1>
-        </div>
-      );
-    } else {
-      return (
-        <div className="note-view">
-          <div className="note-header">
-            <div className="note-buttons">
-              <Link to="/edit">
-                <button className="edit-button">edit</button>
-              </Link>
-              <button className="delete-button">delete</button>
-            </div>
-            <div className="note-title">{this.state.title}</div>
-          </div>
-          <div className="note-body">
-            <p>{this.state.textBody}</p>
-          </div>
+        <div className="edit-form">
+          <h1>Edit Note:</h1>
+          <form onSubmit={this.editSubmitHandler}>
+            <input
+              name="title"
+              type="text"
+              placeholder="new title"
+              value={this.state.title}
+              onChange={this.handleChange}
+            />
+            <input
+              name="textBody"
+              type="text"
+              placeholder="new note"
+              value={this.state.textBody}
+              onChange={this.handleChange}
+            />
+            <button type="submit">Update</button>
+          </form>
         </div>
       );
     }
+
+    return (
+      <div className="note-view">
+        <div className="note-header">
+          <div className="note-buttons">
+            <button className="edit-button" onClick={this.toggleEdit}>
+              edit
+            </button>
+
+            <button className="delete-button">delete</button>
+          </div>
+          <div className="note-title">{this.state.title}</div>
+        </div>
+        <div className="note-body">
+          <p>{this.state.textBody}</p>
+        </div>
+      </div>
+    );
   }
 }
+
 export default NoteView;

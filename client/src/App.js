@@ -16,7 +16,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      id: "",
+      title: "",
+      textBody: "",
+      isUpdating: false
     };
   }
 
@@ -24,12 +28,42 @@ class App extends Component {
     this.fetchNotes();
   }
 
+  //gets all notes
   fetchNotes = () => {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   };
+
+  // this.setState({
+  //   notes: this.state.notes.splice(
+  //     findIndex(note => note._id === id),
+  //     1,
+  //     res.data
+
+  //edit notes
+  editNote = id => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+      .then(res => {
+        this.setState({
+          notes: res.data
+        });
+        console.log("edited", res);
+      })
+      .catch(err => console.dir(err));
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  saveHandler = event => {
+    event.preventDefault();
+    this.setState({ editing: false });
+  };
+
   handleData = data => {
     this.setState({
       notes: data
@@ -49,7 +83,13 @@ class App extends Component {
               exact
               path="/"
               render={props => (
-                <NotesList {...props} notes={this.state.notes} />
+                <NotesList
+                  {...props}
+                  notes={this.state.notes}
+                  editNote={this.editNote}
+                  editHandler={this.editHandler}
+                  handleChange={this.handleChange}
+                />
               )}
             />
 
@@ -65,7 +105,15 @@ class App extends Component {
             <Route
               exact
               path="/:id"
-              render={props => <NoteView {...props} notes={this.state.notes} />}
+              render={props => (
+                <NoteView
+                  {...props}
+                  notes={this.state.notes}
+                  editNote={this.editNote}
+                  editHandler={this.editHandler}
+                  handleChange={this.handleChange}
+                />
+              )}
             />
           </Switch>
         </div>
