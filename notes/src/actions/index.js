@@ -33,7 +33,7 @@ export const DELETE_NOTE_FAILURE = 'delete_note_failure';
 const url = 'https://fe-notes.herokuapp.com';
 
 export const deleteChecked = noteIds => async dispatch => {
-  noteIds.forEach(async id => {
+  await noteIds.forEach(async id => {
     try {
       dispatch({type: DELETE_NOTE});
       await axios.delete(`${url}/note/delete/${id}`);
@@ -42,6 +42,7 @@ export const deleteChecked = noteIds => async dispatch => {
         dispatch({type: DELETE_NOTE_FAILURE, payload: err});
     }
   })
+  dispatch({type: NOTE_CHECKED_CLEAR});
 };
 
 export const noteChecked = (id) => {

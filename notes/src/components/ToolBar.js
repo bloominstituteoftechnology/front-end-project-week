@@ -3,27 +3,27 @@ import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import CSVLink from './CSVLink'
 
-const ToolBar = ({ notes, showMenu }) => {
+const ToolBar = ({ notes, showMenu, menuToggle}) => {
     return (
         <SideBar showMenu={showMenu}>
             <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />   
-            <Section to='/' exact notes="true">
+            <Section to='/' exact notes="true" onClick={e => menuToggle()}>
                 <span className="icon" />
                 <span className="title"/>
             </Section>
-            <Section to='/select' select="true">
+            <Section to='/select' select="true" onClick={e => menuToggle()}>
                 <span className="icon" />
                 <span className="title"/>
             </Section>
             <Seperator />
-            <ToolBarLabel export="true"/>
-            <StyledCSV data={notes}>
+            <ToolBarLabel export="true" />
+            <StyledCSV data={notes} onClick={e => menuToggle()}>
                 <span className="icon" />
                 <span className="title"/>
             </StyledCSV>
             <Seperator />
             <ToolBarLabel account="true"/>
-            <Section to='/logout' logout="true">
+            <Section to='/logout' logout="true" onClick={e => menuToggle()}>
                 <span className="icon" />
                 <span className="title"/>
             </Section>

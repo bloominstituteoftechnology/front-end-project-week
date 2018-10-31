@@ -2,9 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import Note from './Note';
 import NoteSelect from './NoteSelect'
+import Loading from './Loading';
 import { Route } from 'react-router-dom';
 
-const NoteList = ({ notes, noteClicked, noteChecked, noteUnChecked, history}) => {
+const NoteList = ({ 
+    notes, 
+    noteClicked, 
+    noteChecked, 
+    noteUnChecked, 
+    history,
+    fetchingNote,
+    fetchingNotes,
+    addingNote,
+    updatingNote,
+    deletingNote,
+}) => {
+    if(
+        fetchingNotes
+        || addingNote
+        || updatingNote
+        || deletingNote
+    ) return <Loading />
     return (
         <NoteListContainer>
             <span className="title-seperator">NOTES</span>

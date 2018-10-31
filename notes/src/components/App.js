@@ -119,6 +119,7 @@ class App extends Component {
         <ToolBar 
           notes={this.props.notes}
           showMenu={this.props.showMenu}
+          menuToggle={this.props.menuToggle}
         />
 
         <NoteContainer showMenu={this.props.showMenu}>
@@ -142,6 +143,11 @@ class App extends Component {
                 noteClicked={this.noteClicked}
                 noteChecked={this.props.noteChecked}
                 noteUnChecked={this.props.noteUnChecked}
+                fetchingNote={this.props.fetchingNote}
+                fetchingNotes={this.props.fetchingNotes}
+                addingNote={this.props.addingNote}
+                updatingNote={this.props.updatingNote}
+                deletingNote={this.props.deletingNote}
               />
             }
           />
@@ -166,8 +172,33 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { notes, activeNote, searchValue, sortMode, showMenu, checkedNotes} = state;
-  return { notes, activeNote, searchValue, sortMode, showMenu, checkedNotes};
+  const { 
+    notes, 
+    activeNote, 
+    searchValue, 
+    sortMode, 
+    showMenu, 
+    checkedNotes,
+    fetchingNote,
+    fetchingNotes,
+    addingNote,
+    updatingNote,
+    deletingNote,
+  } = state;
+
+  return { 
+    notes, 
+    activeNote, 
+    searchValue, 
+    sortMode, 
+    showMenu, 
+    checkedNotes,
+    fetchingNote,
+    fetchingNotes,
+    addingNote,
+    updatingNote,
+    deletingNote,
+  };
 }
 
 export default withRouter(connect(

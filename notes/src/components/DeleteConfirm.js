@@ -67,14 +67,13 @@ const DeleteContainer = styled.div`
     }
     .delete {
         :hover {
-            background: rgba(255,0,0,0.6);
+            background: #F5B504;
             color: white;
         }
     }
     .close {
         :hover {
-            background: rgba(0, 138, 0, 0.4);
-            color: white;
+            background: #F5F5F5;
         }
     }
 `;

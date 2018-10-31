@@ -14,20 +14,24 @@ const NoteSelect = ({ note, noteChecked, noteUnChecked }) => {
                 setChecked(!checked);
                 !checked ? noteChecked(note._id) : noteUnChecked(note._id)
             }}
+            checked={checked}
         >
-            <div className="edit-icon">
-                <input 
+            <span className="check">
+                <input
                     type="checkbox" 
-                    name="note"
                     checked={checked}
                     onChange={e => {
                         e.preventDefault();
                         setChecked(!checked);
                         !checked ? noteChecked(note._id) : noteUnChecked(note._id)
                     }}
-                ></input>
-                <span className="checkbox-cover"></span>
-            </div>
+                />
+                {
+                    checked
+                    ? <i className="far fa-check-square"></i>
+                    : <i className="far fa-square"></i>
+                }
+            </span>
             <div className="title">{note.title}</div>
             <MarkdownRenderer className="body" markdown={note.textBody}/>
         </NoteContainer>
@@ -38,6 +42,32 @@ export default NoteSelect;
 
 
 const NoteContainer = styled.div`
+    span.check { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        line-height: 24px;
+        z-index: 55;
+        left: -10px;
+        top: -10px;
+        height: 24px;
+        width: 24px;
+        input {
+            display: none;
+        }
+        i {
+            font-size: 24px;
+        }
+        .fa-square{
+            background: #F5F5F5;
+        }
+        .fa-check-square{
+            color: #F5B504;
+            background: white;
+        }
+
+    }
     width: 100%;
     border: 1px solid rgb(218, 220, 224);
     border-radius: 8px;
@@ -81,7 +111,7 @@ const NoteContainer = styled.div`
         input {
             position: absolute;
             top: 3px;
-            left: 4px;
+            left: 3px;
         }
         .checkbox-cover {
             position: absolute;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import DeleteConfirm from './DeleteConfirm';
 
 const NoteModule = ({
-    note = false, 
+    note, 
     getNote,
     deleteNote,
     updateNote,
@@ -139,14 +139,15 @@ const NoteModuleForm = styled.form`
             cursor: pointer;
             padding: 8px 24px;
             border: none;
-            background-color: transparent;
+            background: transparent;
             border-radius: 8px;
         }
         .delete:hover {
-            background-color: rgba(255,0,0,.1);
+            background: #F5F5F5;
         }
         .save:hover {
-            background-color: rgba(0,255,0,.1);
+            color: white;
+            background: #F5B504;
         }
     }
     .close-icon {
