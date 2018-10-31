@@ -20,21 +20,11 @@ export default class App extends React.Component {
         return (
             <div className="app">
                 <Header title="Lambda Notes" />
-                <Route exact path="/" render={() => (
-                    <Content title="Your Notes">
-                        <NoteList />
-                    </Content>
-                )} />
-                <Route path="/create" render={() => (
-                    <Content title="Create New Note">
-                        <NoteCreator />
-                    </Content>
-                )} />
-                <Route path="/note/:id" render={() => (
-                    <Content>
-                        <NoteView />
-                    </Content>
-                )} />
+                <main className="view">
+                    <Route exact path="/" component={NoteList} />
+                    <Route path="/create" component={NoteCreator} />
+                    <Route path="/note/:id" component={NoteView} />
+                </main>
             )} />
             </div>
         );
@@ -57,21 +47,5 @@ function Header(props) {
                 </Link>
             </nav>
         </header>
-    );
-}
-
-//-- Content Component ---------------------------
-function Content(props) {
-    let titleHeader;
-    if(props.title){
-        titleHeader = <h2 className="view-title" children={props.title} />;
-    }
-    return (
-        <main className="view">
-            {titleHeader}
-            <div className="view-body">
-                {props.children}
-            </div>
-        </main>
     );
 }

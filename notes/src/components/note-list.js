@@ -27,16 +27,19 @@ class NoteList extends React.Component {
             classText += ' note-list_loading';
         }
         return (
-            <div className={classText}>
-                {loadNotifier}
-                {this.props.notes.map(note => (
-                    <Note
-                        key={note._id}
-                        note={note}
-                        onClick={this.focusHandler}
-                    />
-                ))}
-            </div>
+            <React.Fragment>
+                <h2>Your Notes:</h2>
+                <div className={classText}>
+                    {loadNotifier}
+                    {this.props.notes.map(note => (
+                        <Note
+                            key={note._id}
+                            note={note}
+                            onClick={this.focusHandler}
+                        />
+                    ))}
+                </div>
+            </React.Fragment>
         );
     }
 

@@ -55,11 +55,11 @@ h1, h2 {
 }
 
 /*-- Main Content Area (all views) -------------*/
-.app main {
+.app .view {
   padding: 0 3rem;
   flex-grow: 1;
 }
-.app main h2 {
+.app .view h2 {
   font-size: 3rem;
   font-weight: bold;
   margin: 10rem 0 3rem 0;
@@ -104,5 +104,5 @@ h1, h2 {
 
 /*-- Individual Note View ----------------------*/
 .note-view {
-  
+
 }

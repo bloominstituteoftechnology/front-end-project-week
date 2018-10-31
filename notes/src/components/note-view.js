@@ -21,10 +21,10 @@ class NoteCreator extends React.Component {
         let focusNote = this.props.notes.find(note => note._id === id);
         // TO DO: what happens if the note no longer exists? (currently: crash)
         return (
-            <div>
+            <React.Fragment>
                 <h2 className="view-title">{focusNote.title}</h2>
                 <p>{focusNote.textBody}</p>
-            </div>
+            </React.Fragment>
         );
     }
 

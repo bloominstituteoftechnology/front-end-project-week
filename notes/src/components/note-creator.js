@@ -25,22 +25,25 @@ class NoteCreator extends React.Component {
     render() {
         console.log('asdf')
         return (
-            <form className="note-creator" onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    onChange={this.handleInputChange}
-                    placeholder="Note Title"
-                    value={this.state.title}
-                    name="title"
-                />
-                <textarea
-                    onChange={this.handleInputChange}
-                    placeholder="Note Content"
-                    value={this.state.textBody}
-                    name="textBody"
-                />
-                <button className="button">Save</button>
-            </form>
+            <React.Fragment>
+                <h2>Create New Note:</h2>
+                <form className="note-creator" onSubmit={this.handleSubmit}>
+                    <input
+                        type="text"
+                        onChange={this.handleInputChange}
+                        placeholder="Note Title"
+                        value={this.state.title}
+                        name="title"
+                    />
+                    <textarea
+                        onChange={this.handleInputChange}
+                        placeholder="Note Content"
+                        value={this.state.textBody}
+                        name="textBody"
+                    />
+                    <button className="button">Save</button>
+                </form>
+            </React.Fragment>
         );
     }
 
