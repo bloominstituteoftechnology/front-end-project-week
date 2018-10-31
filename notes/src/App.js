@@ -17,12 +17,20 @@ class App extends Component {
   componentDidMount() {
     this.props.getNotes()
   }
+
+  getNote = event => {
+    const singleNote = this.props.noteList.filter(note => note._id === event.currentTarget.id)[0]
+    this.props.viewNote(singleNote)
+    // console.log(singleNote._id)
+    // console.log(event.currentTarget.id)
+  }
+
   render() {
     return (
       <div className="App">
         <HeadNav />
         <div className='mainView'>
-          <ListView noteList={this.props.noteList} viewNote={this.props.viewNote}/>
+          <ListView noteList={this.props.noteList} getNote={this.getNote}/>
           {/* <NoteView /> */}
           {/* <EditNote /> */}
         </div>

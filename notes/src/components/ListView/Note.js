@@ -9,7 +9,7 @@ import './ListView.css';
 
 const Note = props => {
     return (
-        <div id={props.note._id} className='notesBox' onClick={event => props.viewNote(event)}>
+        <div id={props.note._id} className='notesBox' onClick={event => props.getNote(event)}>
             <p className='prevTitle'>{props.note.title}</p>
             <p className='prevContent'>{props.note.textBody}</p>
             {/* <p className='prevContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …</p> */}
