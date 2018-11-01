@@ -2,8 +2,8 @@ import React from 'react';
 
 import axios from 'axios';
 import SingleNote from './SingleNote';
-
-
+import {CSVLink, CSVDownload} from 'react-csv';
+import { Route } from 'react-router-dom';
 
 
 class NotesDisplay extends React.Component {
@@ -69,6 +69,12 @@ class NotesDisplay extends React.Component {
                                                                                                                         />
                     )}
                 </div>
+
+                <Route exact path = '/csv-file'  component = {<CSVDownload
+                                                                    data = {this.state.notes.map(x => ({ title : x.title, textBody :  x.textBody })) }
+                                                                    target = "_blank"  />}
+                />
+             
             </div>
         )
     }

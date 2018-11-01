@@ -18,6 +18,10 @@ const NotesSideBar = (props) => {
             <Link to = "/create" className = "no-decoration">
                 <button> +Create New Note </button>
             </Link>
+           
+            <Link to = "/csv-file" className = "no-decoration">
+                <button>Download CSV </button>
+            </Link>
         </div>
     )
 }
