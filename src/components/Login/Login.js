@@ -1,9 +1,11 @@
+
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import "./Login.css";
+import { NavItem, NavLink } from "reactstrap";
+import { Link } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-
-// Modal
+import Register from "../Register";
 class Modal extends React.Component {
   render() {
     return (
@@ -28,18 +30,31 @@ class Modal extends React.Component {
             {" "}
             Sign In
           </button>
-
-          <div className="social-signin">
-            <Button className="fb" onClick={this.props.onSubmit}>
-              <i className="fab fa-facebook" aria-hidden="true"/>
-            </Button>
-            <Button className="tw" onClick={this.props.onSubmit}>
-              <i className="fab fa-twitter" aria-hidden="true" />
-            </Button>
-          </div>
         </div>
-        <a href="forget password">Lost your password ?</a>
+        <Button className="signIn">
+
+          <Link tag={Link} to="../register">
+            Register
+            </Link>
+
+        </Button>
+
+
+        <div className="social-signin">
+          <Button className="fb" onClick={this.props.onSubmit}>
+            <i className="fab fa-facebook" aria-hidden="true" />
+          </Button>
+          <Button className="tw" onClick={this.props.onSubmit}>
+            <i className="fab fa-twitter" aria-hidden="true" />
+          </Button>
+        </div>
+        <div>
+          <a href className="forget password">
+            Lost your password?
+          </a>
+        </div>
       </div>
+
     );
   }
 }
@@ -74,7 +89,7 @@ class Logo extends React.Component {
   }
 }
 
-// Button to brind the modal back
+// Button to back
 class ModalBack extends React.Component {
   render() {
     return (
@@ -83,7 +98,7 @@ class ModalBack extends React.Component {
         onClick={this.props.onClick}
         key={this.props.className}
       >
-        Brind the modal back !
+        Go back and fix it!
       </button>
     );
   }
@@ -113,13 +128,13 @@ class Login extends Component {
     // const for React CSS transition declaration
     let component = this.state.isVisible ? (
       <Modal
-        handleInputChange={this.handleInputChange}
         onSubmit={this.handleLoginSubmit}
+        handleInputChange={this.handleInputChange}
         key="modal"
       />
     ) : (
-      <ModalBack onClick={this.handleRemount} key="bringitback" />
-    );
+        <ModalBack onClick={this.handleRemount} key="bringitback" />
+      );
 
     return (
       <ReactCSSTransitionGroup
@@ -132,37 +147,6 @@ class Login extends Component {
         {component}
       </ReactCSSTransitionGroup>
     );
-    //   return (
-    //     <Form className="login-form">
-    //       <h3>Welcome to My Notes</h3>
-    //       <div>Please Login</div>
-    //       <FormGroup>
-    //         <Input
-    //           type="text"
-    //           placeholder="User Name"
-    //           name="username"
-    //           value={this.state.username}
-    //           onChange={this.handleInputChange}
-    //         />
-    //       </FormGroup>
-    //       <FormGroup>
-    //         <Input
-    //           type="password"
-    //           placeholder="Password"
-    //           name="password"
-    //           value={this.state.password}
-    //           onChange={this.handleInputChange}
-    //         />
-    //         <br />
-    //         <div className="lbutton">
-    //           <Button size="lg" color="primary" onClick={this.handleLoginSubmit}>
-    //             Log In
-    //           </Button>
-    //         </div>
-    //       </FormGroup>
-    //     </Form>
-    //   );
-    // }
   }
 }
 

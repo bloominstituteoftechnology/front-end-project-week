@@ -12,10 +12,15 @@ export const FETCHED = "FETCHED";
 export const FETCHING = "FETCHING";
 export const SINGLE_FETCHED = "SINGLE_FETCHED";
 export const FETCHING_SINGLE = "FETCHING_SINGLE";
+export const REGISTERING_USER = "REGISTERING_USER";
+export const REGISTERED_USER = "REGISTERED_USER";
 export const SEARCH = "SEARCH";
 export const SORT_CHARACTERS = "SORT_CHARACTERS";
 export const SORT_CONTENT = "SORT_CONTENT";
 export const NO_SORT = "NO_SORT";
+
+const url = `http://localhost:5500/api/notes/`;
+const baseUrl = `http://localhost:5500`;
 export const fetchNotes = () => {
   const noteData = axios.get(`https://csilla-notes.herokuapp.com/api/notes`);
   return function(dispatch) {
@@ -65,7 +70,6 @@ export const updateNote = (noteID, updatedNote) => {
     updatedNote
   );
 
-  //`https://killer-notes.herokuapp.com/note/edit/${noteID}`
   return function(dispatch) {
     dispatch({ type: UPDATING_NOTE });
 
@@ -95,6 +99,22 @@ export const deleteNote = id => {
 export const search = sString => {
   return dispatch => {
     dispatch({ type: SEARCH, sString });
+  };
+};
+export const registerUser = (user, history) => {
+  return dispatch => {
+    dispatch({ type: REGISTERING_USER });
+
+    axios
+      .post(`${baseUrl}/register`, user)
+      .then(res => {
+        localStorage.setItem("token", res.data.token);
+        dispatch({ type: REGISTERED_USER });
+      })
+      .then(() => history.push("/"))
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err.response.data.message });
+      });
   };
 };
 export const sort = sortType => {
