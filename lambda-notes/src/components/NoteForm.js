@@ -8,16 +8,16 @@ const StyledForm = styled.form`
   flex-direction: column;
   input,
   textarea {
-    border: none;
-    border-radius: 5px;
+    border: 1px solid darkgray;
+    border-radius: 4px;
     padding: 1rem 1.5rem;
     font-size: inherit;
     margin-bottom: 2rem;
-    background: #2f3640;
-    color: #f5f6fa;
+    background: #fff;
+    color: #7D8189;
     outline: none;
-    font-family: monospace;
-    font-weight: bold;
+    font-family: Arial;
+    font-weight: 400;
     letter-spacing: 1px;
   }
   textarea {

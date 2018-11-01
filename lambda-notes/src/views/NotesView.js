@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAllNotes } from '../actions';
 import { CSVLink } from 'react-csv';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
+
 import Notes from '../components/Notes';
 import StyledSpinner from '../styles/StyledSpinner';
 
@@ -22,18 +21,18 @@ class NotesView extends Component {
     return (
       <div className="View NoteView">
         <nav
-          style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}
+          style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
         >
           <CSVLink
             data={notes}
             style={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'center',
             }}
           >
-            <FontAwesomeIcon icon={faFileDownload} />
-            <span style={{ 'font-size': '1.2rem' }}>CSV</span>
+            
+            <span style={{ 'font-size': '1.2rem' }}>EXPORT: CSV</span>
           </CSVLink>
         </nav>
         <h2>Your Notes:</h2>

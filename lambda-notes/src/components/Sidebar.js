@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import StyledSidebar from '../styles/StyledSidebar';
 import Button from '../styles/Button';
 
@@ -10,7 +8,7 @@ const Sidebar = props => {
     <StyledSidebar>
       <h1>
         Lambda{' '}
-        <span style={{ color: '#00a8ff' }}>
+        <span style={{ color: '#000000' }}>
           Notes{' '}
           {/* <FontAwesomeIcon
             style={{ 'font-size': '2.5rem' }}
@@ -18,14 +16,14 @@ const Sidebar = props => {
           /> */}
         </span>
       </h1>
-      <InputFilter inputProps={{ placeholder: 'Search notes' }} />
       <Button fullWidth onClick={() => props.history.push('/')}>
-        View All
+        View Your Notes
       </Button>
       <Button fullWidth onClick={() => props.history.push('/create-note')}>
-        <FontAwesomeIcon icon={faPlus} /> Add Note
+        Create New Notes
       </Button>
-      <Button fullWidth delete onClick={() => props.history.push('/login')}>
+      <InputFilter inputProps={{ placeholder: 'Search notes' }} />
+      <Button style={{"background":"#24B8BD"}} fullWidth delete onClick={() => props.history.push('/login')}>
         Log out
       </Button>
     </StyledSidebar>

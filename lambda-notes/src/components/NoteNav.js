@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+
 
 const StyledNoteNav = styled.nav`
   width: 100%;
@@ -16,20 +15,25 @@ const StyledNoteNav = styled.nav`
     color: #000;
     font-weight: bold;
     margin-left: 2rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-decoration: none;
     background: transparent;
     border: none;
     transform-origin: bottom;
     transition: all 200ms;
+
+    &:hover {
+        color: #24B8BD;
+      transform: scaleY(1.1);
+    }
   }
 
   button {
     cursor: pointer;
-
+    font-size: 1.5rem;
     &:hover {
-      color: #c23616;
-      transform: scaleY(1.2);
+      color: #24B8BD;
+      transform: scaleY(1.1);
     }
   }
 `;
@@ -38,10 +42,10 @@ const NoteNav = props => {
   return (
     <StyledNoteNav>
       <NavLink to={`/note/${props.id}/edit`}>
-        <FontAwesomeIcon icon={faEdit} />
+        <button>EDIT</button>
       </NavLink>
       <button onClick={props.toggleModal}>
-        <FontAwesomeIcon icon={faTrash} />
+        DELETE
       </button>
     </StyledNoteNav>
   );

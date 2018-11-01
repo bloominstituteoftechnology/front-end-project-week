@@ -31,10 +31,10 @@ class Modal extends Component {
       <StyledModal>
         <h3>Are you sure you want to delete this?</h3>
         <Button delete halfWidth onClick={this.props.deleteNote}>
-          Delete
+          DELETE
         </Button>
         <Button halfWidth onClick={this.props.toggleModal}>
-          No
+          NO
         </Button>
       </StyledModal>
     );
