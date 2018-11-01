@@ -1,33 +1,30 @@
 import React, { Component } from 'react';
-//import './App.css';
-import { connect } from 'react-redux';
-import { withRouter, Route } from 'react-router-dom';
-import * as actions from './actions'
-import Notes from './components/Notes';
+import { Route } from 'react-router-dom';
+import './App.css';
+
+import NavigationBar from './components/Views/NavigationBar';
+import NoteView from './components/Views/NoteView';
+import NotesView from './components/Views/NotesView';
+import CreateNoteView from './components/Views/CreateNoteView';
+import EditNoteView from './components/Views/EditNoteView';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchNotes();
-  }
   render() {
+
     return (
-      <div className="App">
-      <h1>Lambda Notes</h1>
-      <Route path="/" render={props => (
-      <Notes {...props} notes={this.props.notes} />
-      )} />
+      <div className="container">
+        <NavigationBar />
+        <div className="content">
+          <div className="wrapper">
+            <Route exact path='/' component={NotesView} />
+            <Route path='/notes/:id' component={NoteView} />
+            <Route path='/create' component={CreateNoteView} />
+            <Route path='/edit/:id' component={EditNoteView} />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    fetching: state.fetching,
-    fetched: state.fetched,
-    notes: state.notes,
-    error: state.error,
-  }
-}
-
-export default withRouter(connect(mapStateToProps, actions)(App))
+export default App;

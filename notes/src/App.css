@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content {
+  width: 70%;
+  max-height: 100%;
+  margin-left: 30%;
+  background-color: #F2F1F2;
+}
+
+.wrapper {
+  margin: 40px 2%;
+  min-height: 100vh;
+  max-height: 100%;
+}
