@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default NewNoteForm = props => {
+const NewNoteForm = props => {
 
     return (
       <div className="NewForm">
@@ -25,7 +25,7 @@ export default NewNoteForm = props => {
     );
   }
 
-
+  export default NewNoteForm 
 /*
 import axios from 'axios';
 

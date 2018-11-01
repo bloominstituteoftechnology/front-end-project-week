@@ -33,10 +33,11 @@ const NotesContainer= props => {
      <HeadlineWrap>Your Notes:</HeadlineWrap>
      <Route exact path='/' component={AllNotes}/>
      <Route exact path='/notes/:id' render ={matchHistoryLocationProps => <SingleNote {...matchHistoryLocationProps} deleteNote={props.deleteNote} 
-        singleNote={props.note}/>}/>
+        singleNote={props.singleNote} fetchNote={props.fetchNote}  handleInputChange={props.handleInputChange}/>}/>
      <Route exact path='/NewNote' render ={matchHistoryLocationProps => <NewNoteForm {...matchHistoryLocationProps}   handleInputChange={props.handleInputChange}
       addNewNote={props.addNewNote} newTitle= {props.newTitle} newNote={props.newNote}/>}/>
      <Route exact path='/EditNoteForm/:id' render ={matchHistoryLocationProps => <EditNoteForm {...matchHistoryLocationProps} editedTitle={props.editedTitle}
+        singleNote={props.singleNote}
         editedNote={props.editedNote}
         handleInputChange={props.handleInputChange}
         fetchNote={props.fetchNote}

@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 
 
 
-export default EditBar = props => {
+const EditBar = props => {
     return (
     <div>
-    <Link to={`/EditNoteForm/${this.props.id}`}>edit</Link>
-    <Link to='/' onClick={props.deleteNote} >delete</Link>
+    <Link to={`/EditNoteForm/${props.id}`}>edit</Link>
+    <Link to='/' onClick={props.deleteNote} onChange={props.handleInputChange} name="noteId" value={props.id} >delete</Link>
     </div>
     );
 }
+export default EditBar
 
 /*<Link to={this.deleteNote(this.props.id)}>delete</Link>
 import axios from 'axios';

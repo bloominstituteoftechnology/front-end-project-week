@@ -23,6 +23,7 @@ class App extends Component {
       note:null,
       editedNote:'',
       editedTitle:'',
+      noteId:null,
    
        };
     };
@@ -71,7 +72,7 @@ class App extends Component {
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
         console.log(response.data)
-        this.setState(() => ({ note: response.data }));
+        this.setState(() => ({ note: response.data}));
       })
       .catch(error => {
         console.error(error);
@@ -80,17 +81,17 @@ class App extends Component {
   
   editNote = event => {
     event.preventDefault();
-    const id = this.props.match.params.id;
+    const id = this.state.noteId;
     axios     
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,  
     {
-      title: this.state.editedNote,
-      textBody: this.state.editedTitle,
+      title: this.state.editedTitle,
+      textBody: this.state.editedNote,
     })
 
     .then(response => {
       this.setState(() => ({ notes: response.data }));
-      })
+   })
 
     .catch(error => {
       console.error('Server Error', error);
@@ -100,8 +101,9 @@ class App extends Component {
   //DELETE NOTE-------------------------------------
   
   deleteNote = event => {
+    const id = this.state.noteId;
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.id}`)
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
         window.location.reload()
       })

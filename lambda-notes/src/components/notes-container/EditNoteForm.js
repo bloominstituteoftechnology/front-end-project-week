@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class EditNoteForm extends Component {
   constructor(props) {
     super(props);
@@ -9,31 +8,31 @@ class EditNoteForm extends Component {
   componentDidMount() {
     console.log(this.props)
     const id = this.props.match.params.id;
-    props.fetchNote(id);
+    this.props.fetchNote(id);
   }
 
   
   render() {
-    if (!props.note) {
+    if (!this.props.singleNote) {
       return <div>Loading note information...</div>;
     }
     
-    const { title, textBody} = props.note;
+    const { title, textBody} = this.props.singleNote;
     return (
       <div className="NewForm">
-        <form onSubmit={props.editNote}>
+        <form onSubmit={this.props.editNote} name="noteId" value={this.props.match.params.id}>
           <input
             type="text"
-            onChange={props.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder={title}
-            value={props.editedTitle}
+            value={this.props.editedTitle}
             name="editedTitle"
           />
           <input
             type="text"
-            onChange={props.handleInputChange}
+            onChange={this.props.handleInputChange}
             placeholder={textBody}
-            value={props.editedNote}
+            value={this.props.editedNote}
             name="editedNote"
           />
           <button type="submit">Save Edits</button>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import EditBar from './EditBar.js';
 
 export default class SingleNote extends Component {
@@ -8,15 +8,15 @@ export default class SingleNote extends Component {
   componentDidMount() {
     console.log(this.props)
     const id = this.props.match.params.id;
-    props.fetchNote(id);
+    this.props.fetchNote(id);
   }
 
   render() {
-    if (!props.note) {
+    if (!this.props.singleNote) {
       return <div>Loading note information...</div>;
     }
     
-    const { title, textBody} = props.note;
+    const { title, textBody} = this.props.singleNote;
     return (
       <div className="note-card">
         <div className="note-title">
@@ -26,7 +26,7 @@ export default class SingleNote extends Component {
             <p>{textBody}</p>
           </div>
          
-          <EditBar deleteNote={props.deleteNote} singleNote = {props.note} id = {props.id}
+          <EditBar deleteNote={this.props.deleteNote}  handleInputChange={this.props.handleInputChange} singleNote = {this.props.singleNote} id = {this.props.match.params.id}
              />
         </div>
     );
