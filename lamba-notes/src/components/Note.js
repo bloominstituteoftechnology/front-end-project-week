@@ -1,43 +1,21 @@
+
 import React from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-class Note extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      note: {},
-      updatedNote: {}
-    };
-  }
+const Note = props => {
+  if(props.notes.length){
+    let note = props.notes.find(note => `${note._id}` === props.match.params.id);
 
-  componentDidMount() {
-    axios
-      .get(
-        `http://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
-      )
-      .then(response => this.setState({ note: response.data }))
-      .catch(error => console.log(error));
-  }
-
-  handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  clickHandler = event => {
-    event.preventDefault();
-  };
-
-  render() {
-    return (
-      <div className="singleNote">
-        <Link
-          to={`/note/${note._id}/edit`}
-          onClick={() => props.editNote(note.title, note.textBody)}
-        >
-          edit
-        </Link>{" "}
-        <span onClick={props.deleteToggleOn}>delete</span>
-        {/* <button
+  return (
+    <div className="singleNote">
+      <Link
+        to={`/note/edit/${note.id}`}
+        onClick={() => props.editNote(note.title, note.textBody)}
+      >
+        edit
+      </Link>{" "}
+      <span onClick={props.deleteToggleOn}>delete</span>
+      {/* <button
           onClick={event => {
             this.props.deleteNote(this.state.note._id);
             console.log(this.state.note);
@@ -45,18 +23,44 @@ class Note extends React.Component {
         >
           Delete
         </button> */}
-        {/* <button
+      {/* <button
           onClick={() => {
             this.props.editNote(this.state.note._id);
           }}
         >
           Edit
         </button> */}
-        <h1>{this.state.note.title}</h1>
-        <p>{this.state.note.textBody}</p>
-      </div>
-    );
-  }
-}
+      <h1>{this.state.note.title}</h1>
+      <p>{this.state.note.textBody}</p>
+    </div>
+  );
+};
 
 export default Note;
+
+
+
+
+
+
+
+// class Note extends React.Component {
+//   }
+
+// componentDidMount() {
+//   axios
+//     .get(
+//       `http://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
+//     )
+//     .then(response => this.setState({ note: response.data }))
+//     .catch(error => console.log(error));
+// }
+
+// handleInputChange = event => {
+//   this.setState({ [event.target.name]: event.target.value });
+// };
+
+// clickHandler = event => {
+//   event.preventDefault();
+// };
+
