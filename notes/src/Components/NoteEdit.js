@@ -43,23 +43,24 @@ class EditNote extends React.Component{
     render(){
         return(
             <div>
-                <form onSubmit={this.editNote}>
+                <form onSubmit={this.editNote} className="edit-form">
+				<h2>Edit Note:</h2>
 
-                    <input 
+                    <input className="form-title"
                     onChange={this.onChangeHandler}
                     name="title"
                     type="text" 
                     value={this.state.note.title} 
                     />
 
-                    <input 
+                    <input className="form-content"
                     onChange={this.onChangeHandler}
                     name="textBody"
                     type="text" 
                     value={this.state.note.textBody} 
                     />
 
-                    <input 
+                    <input className="form-save"
                         onClick={this.editNote}
                         className="form-save"
                         type="submit" 

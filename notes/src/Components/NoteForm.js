@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-const CreateNew = (props) => {
+import '../App.css'
+const NoteForm = (props) => {
     return(
         <div className="create-new">
             <h2>Create New Note:</h2>
@@ -19,16 +19,14 @@ const CreateNew = (props) => {
                 type="text" 
                 placeholder="Note Content" 
                 />
-                <Link to='/'>                
                 <input 
                 onChange={props.onChangeHandler}
                 className="form-save"
                 type="submit" 
                 value="Save" 
-                /></Link>
-
+                />
             </form>
         </div>
     );
 }
-export default CreateNew;
+export default NoteForm;

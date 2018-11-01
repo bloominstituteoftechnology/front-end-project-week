@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { Route } from 'react-router-dom';
-// Component Imports
 import SideBar from './Components/Sidebar'
 import ListNotes from './Components/ListNotes';
 import NoteForm from './Components/NoteForm';
@@ -22,6 +21,13 @@ class App extends Component {
       }
     }
   }
+
+  refreshState(){
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => this.setState({notes : response.data}))
+    .catch(error => console.log("Refresh State ::: Axios says :", error))
+  }
+
   componentDidMount(){
     
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
@@ -46,6 +52,7 @@ class App extends Component {
   onChangeHandler = e => {
     this.setState({newNote : {...this.state.newNote,[e.target.name] : e.target.value }})
     
+    
   }
   
 
@@ -55,14 +62,11 @@ render() {
       <div className="App">
         <SideBar />
         <Route exact path='/' render={() => <ListNotes notes={this.state.notes} /> } />
-        {/*  New   */}
         <Route path='/create-new' render={() => <NoteForm 
         submit={this.createNewSubmit} 
         onChangeHandler ={this.onChangeHandler}
         />} />
-        {/* View  */}
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} /> } />
-        {/* Edit  */}
         <Route path='/edit/:id' render={(props) => <NoteEdit {...props} notes={this.state.notes} /> } />
       
         

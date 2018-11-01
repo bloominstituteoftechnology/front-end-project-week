@@ -8,29 +8,44 @@ class ViewNote extends React.Component{
         super();
         this.state = {
             note : {},
+            hidden : 'hidden',
         }
     }
-     componentDidMount(){
+
+    componentDidMount(){
         const ID = this.props.match.params;
-        // console.log(ID)
-        this.fetchNoteById(ID.id);//why? how lol?
+        this.fetchNoteById(ID.id);
     }
-     fetchNoteById = id => {
+
+    fetchNoteById = id => {
         console.log(`https://fe-notes.herokuapp.com/note/get/${id}`)
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
                 this.setState({note : response.data})
-                // console.log("NOTE : ", response.data)
             })
             .catch(error => alert(error))
     }
-    
+
+    toggleHidden=()=>{
+        if(this.state.hidden === ''){
+            this.setState({hidden : 'hidden'})
+        }else{
+            this.setState({hidden : ''});
+        }
+    }
+
     render(){
         return(
             <div className="view-note">
-                <Modal ID={this.props.match.params.id}/>
+                <Modal
+                toggleHidden={this.toggleHidden} 
+                hidden={this.state.hidden} 
+                ID={this.props.match.params.id}
+                refresh={this.props.refresh}
+                />
+
                 <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>
-                <a href='#'>delete</a>
+                <a href='#' onClick={() => this.toggleHidden()}>Delete</a>
                 <div className="note-section">
                     <h2>{this.state.note.title}</h2>
                     <p>{this.state.note.textBody}</p>
@@ -39,4 +54,5 @@ class ViewNote extends React.Component{
         );
     }
 }
- export default ViewNote;
+
+export default ViewNote;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import '../Styles/styling.css';
+import '../App.css';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <div className='sidebar'>
       <h1>Lambda Notes</h1>
-      <Link to="/">
+      <Link onClick={props.refresh} to="/">
       <div className="button">
         View Your Notes
       </div>
