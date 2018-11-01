@@ -26,11 +26,16 @@ class NoteEditor extends React.Component {
     componentDidMount() {
         let focusId = this.props.match.params.id;
         let focusNote = this.props.notes.find(note => note._id === focusId);
-        // TO DO: Handle bad note ids (note not found)
+        if(!focusNote){
+            this.props.history.push('/');
+            return;
+        }
+        let focusTitle = focusNote? focusNote.title    : '';
+        let focusBody  = focusNote? focusNote.textBody : '';
         this.setState({
-            title: focusNote.title,
-            textBody: focusNote.textBody,
-            id: focusNote._id,
+            title: focusTitle,
+            textBody: focusBody,
+            id: focusId,
         });
     }
 

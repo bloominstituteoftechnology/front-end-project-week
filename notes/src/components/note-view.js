@@ -15,26 +15,44 @@ import ActionBar from './action-bar.js';
 class NoteView extends React.Component {
 
     //-- Lifecycle -----------------------------------
+    constructor() {
+        super(...arguments);
+        this.state = {
+            confirmDelete: false,
+        };
+    }
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        let focusNote = this.props.notes.find(note => note._id === id);
+        if(!focusNote){
+            this.props.history.push('/');
+            return;
+        }
+        if(this.state.confirmDelete){
+            this.state({confirmDelete: false})
+        }
+    }
 
     //-- Rendering -----------------------------------
     render() {
         const id = this.props.match.params.id;
         let focusNote = this.props.notes.find(note => note._id === id);
         if(!focusNote){
-            focusNote = {
-                title: '',
-                textBody: '',
-                _id: '',
-            }
+            return null;
         }
         let editUrl = `/edit/${focusNote._id}`;
         // TO DO: what happens if the note no longer exists? (currently: crash)
+        let deleteModal;
+        if(this.state.confirmDelete){
+            deleteModal = (<DeleteModal
+                cancel={this.cancelModal}
+                confirm={this.confirmDelete}
+            />);
+        }
         return (
             <React.Fragment>
-                <ActionBar edit={editUrl} delete={clickEvent => {
-                    clickEvent.preventDefault();
-                    this.handleDelete(focusNote._id);
-                }} />
+                {deleteModal}
+                <ActionBar edit={editUrl} delete={this.handleDelete} />
                 <h2 className="view-title">{focusNote.title}</h2>
                 <p>{focusNote.textBody}</p>
             </React.Fragment>
@@ -42,14 +60,51 @@ class NoteView extends React.Component {
     }
 
     //-- Interaction ---------------------------------
-    handleDelete(id){
-        this.props.deleteNote(id, );
+    handleDelete = eventClick => {
+        eventClick.preventDefault();
+        this.setState({confirmDelete: true});
+    }
+    cancelModal = eventClick => {
+        eventClick.preventDefault();
+        this.setState({confirmDelete: false});
+    }
+    confirmDelete = eventClick => {
+        eventClick.preventDefault();
+        this.setState({confirmDelete: false});
+        const id = this.props.match.params.id;
+        this.props.deleteNote(id);
         this.props.history.push('/');
     }
 
     //-- Utility Methods -----------------------------
 }
-  
+
+
+//== Utility Components ========================================================
+
+function DeleteModal(props) {
+    return (
+        <div className="modal-container">
+            <div className="modal">
+                <span>Are you sure you want to delete this?</span>
+                <div className="modal-buttons">
+                    <button
+                        className="button button-danger"
+                        onClick={props.confirm}
+                        children="Delete"
+                    />
+                    <button
+                        className="button"
+                        onClick={props.cancel}
+                        children="No"
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
 //== Export, and Redux Preparation =============================================
 
 //-- Redux Coupling ------------------------------

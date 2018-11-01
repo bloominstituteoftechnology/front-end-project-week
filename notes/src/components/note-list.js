@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Note from './note.js';
 import ActionBar from './action-bar.js';
+import Loading from './loading.js';
 
 
 //== Component =================================================================
@@ -24,7 +25,7 @@ class NoteList extends React.Component {
         let loadNotifier;
         let classText = 'note-list';
         if(!this.props.ready){
-            loadNotifier = (<div className="load-notifier">(Loading)</div>);
+            loadNotifier = (<Loading />);
             classText += ' note-list_loading';
         }
         return (
@@ -32,8 +33,7 @@ class NoteList extends React.Component {
                 <ActionBar />
                 <h2>Your Notes:</h2>
                 <div className={classText}>
-                    {loadNotifier}
-                    {!this.props.ready? null : this.props.notes.map(note => (
+                    {loadNotifier || this.props.notes.map(note => (
                         <Note
                             key={note._id}
                             note={note}

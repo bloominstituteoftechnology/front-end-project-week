@@ -31,7 +31,15 @@ export function notesResponse(notesData) {
 //-- GET_NOTES - Agent requests list of all notes
 export function getNotes() {
     return function (dispatch) {
-        server.get('note/get/all', null, dispatch)
+        dispatch({type: FETCHING});
+        axios.get(server.formatUrl('note/get/all'))
+        .then(response => {
+            dispatch(notesResponse(response.data));
+        })
+        .catch(error => {
+            let errorMessage = `Error ${error.response.status}: ${error.response.data.Error}`;
+            dispatch(fetchError(errorMessage));
+        });
     };
 };
 
@@ -109,46 +117,7 @@ export function deleteNote(noteId) {
 const server = {
     // Configuration
     address: REMOTE_SERVER,
-    // Http Methods
-    get(url, data, dispatch){
-        dispatch({type: FETCHING});
-        this.standardHandling(
-            axios.get(this.formatUrl(url), data),
-            dispatch,
-        );
-    },
-    post(url, data, dispatch){
-        dispatch({type: FETCHING});
-        this.standardHandling(
-            axios.post(this.formatUrl(url), data),
-            dispatch,
-        );
-    },
-    put(url, data, dispatch){
-        dispatch({type: FETCHING});
-        this.standardHandling(
-            axios.put(this.formatUrl(url), data),
-            dispatch,
-        );
-    },
-    delete(url, data, dispatch){
-        dispatch({type: FETCHING});
-        this.standardHandling(
-            axios.delete(this.formatUrl(url), data),
-            dispatch,
-        );
-    },
     // Utilities
-    standardHandling(axiosPromise, dispatch) {
-        axiosPromise
-        .then(response => {
-            dispatch(notesResponse(response.data));
-        })
-        .catch(error => {
-            let errorMessage = `Error ${error.response.status}: ${error.response.data.Error}`;
-            dispatch(fetchError(errorMessage));
-        });
-    },
     formatUrl(path) {
         return `${this.address}/${path}`;
     }
