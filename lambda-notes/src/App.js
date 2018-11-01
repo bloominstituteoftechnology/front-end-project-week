@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   addNote = note => {
+    console.log('hello');
     axios
         .post('https://fe-notes.herokuapp.com/note/create', note)
         .then(() => {
