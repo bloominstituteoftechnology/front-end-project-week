@@ -84,7 +84,7 @@ class App extends Component {
       .then(response => {
         this.state.noteObj._id = response.data.success;
         this.setState({
-          notes: [...this.state.notes, this.state.noteObj],
+          notes: [this.state.noteObj, ...this.state.notes],
           noteObj: {
             title: "",
             textBody: "",

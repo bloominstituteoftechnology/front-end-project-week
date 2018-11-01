@@ -159,7 +159,7 @@ const customStyles = {
     top: "200px",
     left: "30%",
     right: "30%",
-    bottom: "40%",
+    bottom: "55%",
     border: "1px solid #b7b7b7",
     background: "#fff",
     overflow: "auto",
