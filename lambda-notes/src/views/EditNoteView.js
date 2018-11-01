@@ -53,7 +53,7 @@ const NoteInputTitle = styled.input`
   margin-bottom: 30px; */
 `;
 
-const NoteInputContent = styled(NoteInputTitle)`
+const NoteInputContent = styled.textarea`
   /* height: 500px; */
 `;
 

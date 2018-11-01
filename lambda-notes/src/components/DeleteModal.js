@@ -12,12 +12,14 @@ const ModalViewContainer = styled.div`
   width: 100%;
   max-width: 2000px;
   border: 1px solid gray;
-  margin: 0;
   font-size: 62.5%;
   box-sizing: border-box;
   position: fixed;
+  border: solid red;
   opacity: 0.9;
   z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
 `;
