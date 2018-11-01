@@ -40,7 +40,7 @@ export const notesReducer = (state = initialState, action) => {
         case ADD_USER:
             return Object.assign({}, state, { user: action.payload })
         case ERROR:
-            return Object.assign({}.state, { error: action.payload })
+            return Object.assign({}, state, { error: action.payload })
         default:
             return state;
 

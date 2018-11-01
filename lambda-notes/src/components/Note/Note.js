@@ -24,4 +24,5 @@ console.log(props)
 
 }
 
+
 export default Note;

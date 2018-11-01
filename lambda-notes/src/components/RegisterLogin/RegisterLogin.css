@@ -2,9 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
+    height: 100%;
     align-items: center;
-    background-color: gray;
+    background-image: url('../../assets/sidney-m-607220-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .login-register{
@@ -13,15 +16,16 @@
 
 .login-header {
     height: 18vh;
-    background-color: rgb(22, 20, 20);
+    /* background-color:lightgray; */
     width: 100%;
-    padding-top: 80px;
+    padding-top: 20px;
     padding-left: 50%;
 }
 
 .login-input {
     display: inline-block;
     margin-right: 20px;
+    width: 150px;
 }
 
 .loginBtn {
@@ -39,21 +43,30 @@
 
 .LambdaNotes {
     font-family: 'Acme', sans-serif;
-    color: #660066;
-    margin-top: 30px;
+    color: #5647aa;
+    opacity: 0.8;
+    margin-top: 20px;
     font-size: 85px;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 6px;
     word-spacing: 1.5rem;
 }
 
 .register-form {
-    width: 50%;
+    width: 30%;
+    bottom: 200px;
     background-color: lightgray;
-    margin-top: 60px;
-    
+    margin-top: 5px;
+    margin-bottom: 55px;
+    /* align-self: flex-end; */
+    opacity: 0.7;
     border-radius: 5px;
     padding: 3%;
+}
+
+label {
+    font-weight: bold;
+    color: black;
 }
 
 .register-form input {
