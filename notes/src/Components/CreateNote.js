@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Button, Form, Label, Input } from 'reactstrap';
 
 
 class CreateNote extends Component {
@@ -26,31 +26,29 @@ class CreateNote extends Component {
     render(){
         return (
             <Form>
-                <FormGroup>
-                    <Label for="title" lg={12}>Title</Label>
-                    <Col lg={10}>
-                        <Input 
-                            bsSize="lg"
-                            onChange = {this.handleInputChange}
-                            placeholder = 'Title'
-                            name = 'title'
-                            value= {this.state.title}
-                        />
-                    </Col>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="textBody">Text Area</Label>
-                    <Col lg={10}>
+                
+                <Label for="title" lg={12}>Title</Label>
+                <Col lg={12}>
                     <Input 
-                        bsSize="lg"
-                        type="textarea"
                         onChange = {this.handleInputChange}
-                        placeholder = 'Text Body'
-                        name= 'textBody'
-                        value= {this.state.textBody}
+                        placeholder = 'Title'
+                        name = 'title'
+                        value= {this.state.title}
                     />
-                    </Col>
-                </FormGroup>
+                </Col>
+                
+             
+                <Label for="textBody">Text Area</Label>
+                <Col lg={12}>
+                <Input
+                    type="textarea"
+                    onChange = {this.handleInputChange}
+                    placeholder = 'Text Body'
+                    name= 'textBody'
+                    value= {this.state.textBody}
+                />
+                </Col>
+                <br/>
                 <Button onClick={this.addNote}>Save</Button>
             </Form>
         );

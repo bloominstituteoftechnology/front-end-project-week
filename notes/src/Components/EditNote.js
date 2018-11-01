@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Button, Form, Label, Input } from 'reactstrap';
 
 class EditNote extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class EditNote extends Component {
     }
 
     componentDidMount = () => {
-        console.log('before get', this.state)
+       
         axios
         .get(`http://localhost:8000/api/notes`)
         .then(res => {
@@ -56,7 +56,7 @@ class EditNote extends Component {
                 <Form onSubmit={this.updateNote} >
                 <Label for="title" lg={12}>Title</Label>
                     <Col lg={12}>
-                        <input 
+                        <Input 
                             onChange = {this.handleInputChange}
                             placeholder = 'Title'
                             name = 'title'
