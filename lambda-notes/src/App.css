@@ -54,3 +54,32 @@
 .container {
   width: 90%;
 }
+
+.detailedNote {
+  width: 90%;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.buttonBar {
+  margin-top: 50px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.buttonBar button {
+  border: 1px solid black;
+  background: white;
+  width: 50px;
+}
+
+.buttonBar a {
+  border: 1px solid black;
+  background: white;
+  width: 40px;
+  color: black;
+  text-decoration: none;
+}

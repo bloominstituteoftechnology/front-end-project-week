@@ -30,12 +30,14 @@ class NoteDetails extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="detailedNote">
+          <h1>{this.state.notes.title}</h1>
+          <p>{this.state.notes.textBody}</p>
+        </div>
+        <div className="buttonBar">
           <NavLink to={`/edit-form/${this.state.notes._id}`}>Edit</NavLink>
           <button onClick={this.clickHandler}>Delete</button>
         </div>
-        <h1>{this.state.notes.title}</h1>
-        <p>{this.state.notes.textBody}</p>
       </div>
     );
   }
