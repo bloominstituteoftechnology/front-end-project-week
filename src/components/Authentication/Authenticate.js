@@ -1,5 +1,7 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import Login from "../Login/Login";
+import Register from "../../components/Register.js";
 
 const Authenticate = App =>
   class extends React.Component {
@@ -18,7 +20,12 @@ const Authenticate = App =>
     }
     render() {
       if (this.state.loggedIn) return <App />;
-        return <div className="loginPage"><Login /></div>;
+      return (
+        <div className="loginPage">
+          <Route exact path="/register" component={Register} />;
+          <Route exact path="/" component={Login} />;
+        </div>
+      );
     }
   };
 

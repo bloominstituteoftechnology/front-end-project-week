@@ -5,7 +5,7 @@ import "./Login.css";
 import { NavItem, NavLink } from "reactstrap";
 import { Link } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import Register from "../Register";
+
 class Modal extends React.Component {
   render() {
     return (
@@ -34,7 +34,7 @@ class Modal extends React.Component {
         <div>
         <button className="register-btn">
 
-          <Link tag={Link} to="../register">
+          <Link to="/register">
             Register
             </Link>
 
