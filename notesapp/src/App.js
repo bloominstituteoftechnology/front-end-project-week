@@ -14,13 +14,6 @@ const existingNote = {
   tags: []
 };
 
-const reorder = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-
-  return result;
-};
 
 class App extends Component {
   constructor() {
@@ -76,7 +69,7 @@ class App extends Component {
     this.searchBarHandler(ev);
     this.setState(prevState => {
       const filteredNotes = prevState.notes.filter(note => {
-        return note.title.includes(prevState.filterTarget) || note.textBody.includes(this.state.filterTarget)
+        return note.title.toLowerCase().includes(prevState.filterTarget) || note.textBody.toLowerCase().includes(this.state.filterTarget)
       })
      return {filteredNotes: filteredNotes}
     })
@@ -142,20 +135,6 @@ class App extends Component {
     });
   };
 
-  onDragEnd = result => {
-    if (!result.destination) {
-      return;
-    }
-   
-    const notes = reorder(
-      this.state.notes,
-      result.source.index,
-      result.destination.index
-    )
-    this.setState({
-      notes,
-    })
-  }
 
   render() {
     return (
@@ -170,7 +149,7 @@ class App extends Component {
                ? this.state.filteredNotes
                : this.state.notes
               } 
-              onDragEnd={this.onDragEnd}
+              
           />}
         />
         <Route
