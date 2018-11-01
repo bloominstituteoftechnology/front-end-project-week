@@ -28,6 +28,8 @@ class App extends React.Component {
       isUpdating: false,
       showModal: false
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   handleOpenModal = () => {

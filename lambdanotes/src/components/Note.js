@@ -30,21 +30,22 @@ function Note(props) {
         >
           Edit
         </button>
-        {/* <ReactModal
+        <ReactModal
           isOpen={props.showModal}
           contentLabel="onRequestCloseExample"
           onRequestClose={props.handleCloseModal}
           className="modal"
           overlayClassName="overlay"
         >
-          <p>Are you sure you want to delete this?</p> */}
+          <p>Are you sure you want to delete this?</p>
+          <button onClick={props.handleCloseModal} className="not-delete">
+            No
+          </button>
+        </ReactModal>
         <button className="note-button" onClick={handleDelete}>
           Delete
         </button>
-        {/* <button onClick={props.handleCloseModal} className="not-delete">
-          No
-        </button> */}
-        {/* </ReactModal> */}
+
         <div>
           <h1 className="note-name">{note.title}</h1>
           <h4 className="note-body">{note.textBody}</h4>
