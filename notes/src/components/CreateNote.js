@@ -29,8 +29,7 @@ handleInputChange = event => {
 
   render() {
     return(
-      <div>
-        
+      <div className="form-styles">
         <form onSubmit={this.addNote}>
         <h2>Create New Note:</h2>
           <input

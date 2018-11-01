@@ -1,33 +1,79 @@
+h2 {
+  font-size: 3.2rem;
+  margin-top: 80px;
+}
+
 .App {
   display: flex;
-}
-
-/* .btn-container {
-  background: #D8D8D8;
-  width: 24%;
+  width: 90%;
+  margin: 0 auto;
   border: 1px solid #979797;
-  padding-left: 10px;
 }
 
-.btn-container h1 {
-  font-size: 55px;
-  padding-left: 20px;
-  margin-top: 32px;
-  line-height: 45px;
-  letter-spacing: 1px;
-  color: #4A4A4A;
-  margin-bottom: 48px;
+.sidebar {
+  width: 25%;
+  background: #d8d8d8;
+  min-height: 100vh; 
+  border-right: 1px solid #979797;
 }
 
-.main-btn button {
-  width: 89%;
-  height: 67px;
-  margin-left: 20px;
-  background: #2CC1C5;
-  color: white;
-  font-size: 25px;
+.sidebar h1 {
+  font-size: 4.8rem;
   font-weight: bold;
-  border: 1px solid #979797;
+  margin: 29px 0px 40px 15px;
+  letter-spacing: 3px;
+  line-height: 43px;
+}
+
+.sidebar button {
+  color: white;
+  width: 85%;
+  margin-left: 20px;
+  border-radius: 0px;
+  height: 60px;
+  font-size: 2.3rem;
   margin-bottom: 30px;
+  background: #2cc1c5;
+  border: 1px solid #979797;
+}
+
+.notes-main {
+  width: 75%;
+  margin-left: 20px;
+ 
+}
+
+.notes-main h2 {
+  margin-bottom: 41px;
+  margin-left: 18px;
+}
+
+.notes-main a {
+  text-decoration: none;
+  color: black;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
   
-} */
+}
+
+.notecard-container {
+  border: 1px solid black;
+  height: 285px;
+  width: 30%; 
+  margin-left: 19px;
+  margin-bottom: 34px;
+  margin-right: 0px;
+  padding: 18px 29px 0px 28px;
+  
+}
+
+.notecard-container h3 {
+  font-size: 2.3rem;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid black;
+}
+

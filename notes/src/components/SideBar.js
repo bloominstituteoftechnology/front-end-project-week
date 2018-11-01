@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 const SideBar = ( ) => {
   return (
-    <div className="btn-container">
+    <div className="sidebar">
       <h1>Lambda Notes</h1>
       <div className="main-btn">
         <Link to={'/'}>

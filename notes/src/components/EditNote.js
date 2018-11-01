@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import '../App.css';
+
 export default class EditNote extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +40,9 @@ export default class EditNote extends React.Component {
     }
     render() {
       return (
-        <div>
-          <form onSubmit={this.update}>
-          <h3>Edit Note:</h3>
+        <div  >
+          <form className="form-styles" onSubmit={this.update}>
+          <h2>Edit Note:</h2>
           <input
             onChange={this.handleInputChange}
             placeholder="Note Title"

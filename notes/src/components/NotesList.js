@@ -30,11 +30,14 @@ export default class NotesList extends React.Component{
 
   render(){
     return (
-      <div>
-      <h2>Your Notes:</h2>
-      {this.state.notes.map( note => (
-        <NoteCard key={note._id} note={note} />
-      ))}
+      <div className="notes-main">
+        <h2>Your Notes:</h2>
+       <div className="notes">
+        {this.state.notes.map( note => (
+          <NoteCard key={note._id} note={note} />
+        ))}
+        </div>
+      
       </div>
     )
   }

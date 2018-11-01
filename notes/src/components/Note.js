@@ -3,8 +3,6 @@ import axios from 'axios';
 import { Link , Route } from 'react-router-dom';
 
 
-
-import DeleteNote from './DeleteNote';
 import EditNote from './EditNote';
 
 
@@ -16,7 +14,7 @@ export default class Note extends React.Component {
     super(props);
     this.state = {
       note: '',
-      modalIsOpen: false
+      deleted: false
     }
   }
 
@@ -36,15 +34,26 @@ export default class Note extends React.Component {
       })
   }
 
+  modalDeleteToggle = event => {
+    event.preventDefault();
+    this.setState({ delete: !this.state.delete})
+  }
+
+  delete = () => {
+    axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+    .then( () => this.props.history.push('/'))
+    .catch( error => {
+      console.error(error)
+    })
+  }
   
   render() {
       return (
-        <div>
+        <div className="create-note">
         <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
-        <Link  to='/delete'>Delete</Link>
-        <Route path='/delete' render={ props => (
-          <DeleteNote {...props}/>
-        )} />
+        <a  onClick={this.modalDeleteToggle}>Delete</a>
+        
         <Route path='/edit' component={EditNote} />
         <h3>{this.state.note.title}</h3>
         <p>{this.state.note.textBody}</p>
