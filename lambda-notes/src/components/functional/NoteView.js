@@ -13,7 +13,7 @@ class NoteView extends React.Component {
   filterProps = () => {
     //map through all the notes and load up the one that correctly corresponds with the ID of the note clicked
     this.props.notes.forEach(note => {
-      if (this.props.match.params.id === note._id) {
+      if (this.props.match.params.id === note.id) {
         this.setState({ note: note });
       }
     });
@@ -38,22 +38,22 @@ class NoteView extends React.Component {
   deleteClick = event => {
     event.preventDefault();
     //Feed the note id to the deleteNote fxn
-    this.props.deleteNote(this.state.note._id);
+    this.props.deleteNote(this.state.note.id);
     //after successful deletion, go back to main note page
     this.props.history.goBack();
   };
 
   editClick = event => {
     event.preventDefault();
-    // push the new state that the noreform contains
-    this.props.history.push(`/noteform/${this.state.note._id}`);
+    // push the new state that the noteform contains
+    this.props.history.push(`/noteform/${this.state.note.id}`);
   };
 
   render() {
-    // prevents an undefined description section from breaking the rendering
-    const description = this.state.note.textBody === undefined
+    // prevents an undefined content section from breaking the rendering
+    const content = this.state.note.content === undefined
         ? []
-        : this.state.note.textBody.split("\n");
+        : this.state.note.content.split("\n");
 
     return (
       <ViewContainer>
@@ -63,8 +63,8 @@ class NoteView extends React.Component {
         <Button onClick={this.toggleModal}>delete</Button>
         <div>
           <h3>{this.state.note.title}</h3>
-          {description.map((descript, index) => {
-            return <p key={index}>{descript}</p>;
+          {content.map((content, index) => {
+            return <p key={index}>{content}</p>;
           })}
         </div>
         <Modal
