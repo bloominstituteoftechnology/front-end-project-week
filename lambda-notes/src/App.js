@@ -53,7 +53,7 @@ class App extends Component {
         }
 
         this.setState(prev => {
-          let tempDraft = prev.state.draftNote;
+          let tempDraft = prev.draftNote;
           if (newNote.title === tempDraft.title) {
             tempDraft = {
               title: '',
