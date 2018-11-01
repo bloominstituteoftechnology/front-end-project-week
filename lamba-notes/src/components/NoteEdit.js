@@ -23,6 +23,7 @@ const NoteEdit = props => {
           placeholder="Title"
           onChange={props.handleInputChange}
           value={props.updatedTitle}
+          className="noteForm__input"
         />
         <input
           name="updatedTextBody"
@@ -32,8 +33,11 @@ const NoteEdit = props => {
           placeholder="Note Content"
           onChange={props.handleInputChange}
           value={props.updatedTextBody}
+          className="noteForm__input--big"
         />
-        <button onClick={editNotes}>Update</button>
+        <button className="btn" onClick={editNotes}>
+          Update
+        </button>
       </form>
     </div>
   );

@@ -84,12 +84,6 @@
   flex-wrap: wrap;
 }
 
-.notes-list .notes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .note {
   border: 1px solid rgb(167, 167, 167);
   padding: 10px;
@@ -101,7 +95,7 @@
   background: white;
 }
 
-.note__title {
+.card__title {
   text-decoration: none !important;
   color: black;
 }
@@ -125,6 +119,9 @@
   text-align: start;
 }
 
-.edit {
+.form {
   width: 75vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
 }

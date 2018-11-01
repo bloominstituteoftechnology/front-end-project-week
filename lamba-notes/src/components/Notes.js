@@ -9,7 +9,7 @@ class Notes extends React.Component {
           return (
             <div key={note._id} className="card">
               <Link to={`/note/get/${note._id}`} deleteNote>
-                <h2 className="note__title" key={note._id}>
+                <h2 className="card__title" key={note._id}>
                   {note.title}
                 </h2>
               </Link>
