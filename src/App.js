@@ -136,13 +136,17 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
   }
   button {
-    background-color: #24B8BD;
-    color: white;
-    font-size: 1.5rem;
-    width: 190px;
-    padding: 5%;
-    border-radius: 2px;
+    font-size: 1.6rem;
     font-family: 'Average Sans';
+    color: black;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+    &:hover {
+      background: black;
+      color: white;
+      box-shadow: 0 0 20px lightgray;
+      cursor: pointer;
+    }
   }
 `
 const Div = styled.div``
