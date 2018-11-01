@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      searchTerm:''
+      searchTerm: ""
     };
   }
 
@@ -21,7 +21,6 @@ class App extends Component {
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
-      this.searchFilter()
   }
 
   addNote = (e, newNote) => {
@@ -30,7 +29,7 @@ class App extends Component {
       .post("https://fe-notes.herokuapp.com/note/create", newNote)
       .then(res => {
         newNote._id = res.data.success;
-        this.setState({ notes: [...this.state.notes, newNote] });
+        this.setState({ notes: [newNote, ...this.state.notes] });
       })
       .catch(err => console.log(err));
   };
@@ -69,15 +68,12 @@ class App extends Component {
 
   searchFilter = search => {
     const filteredNotes = this.state.notes.filter(note => note.title.includes(search));
-    return filteredNotes
+    return filteredNotes;
   };
-
-
 
   searchFilterHandler = e => {
     this.setState({ searchTerm: e.target.value });
   };
-  
 
   render() {
     return (
@@ -109,7 +105,6 @@ class App extends Component {
                 editNote={this.editNote}
                 searchFilterHandler={this.searchFilterHandler}
                 searchTerm={this.state.searchTerm}
-
               />
             )}
           />

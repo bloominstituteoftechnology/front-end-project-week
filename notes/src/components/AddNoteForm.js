@@ -43,6 +43,7 @@ class AddNoteForm extends Component {
             type="text"
             placeholder="Note Content"
           />
+
           <button className="form-button">Save</button>
         </form>
       </div>

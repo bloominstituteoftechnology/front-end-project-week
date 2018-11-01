@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Markdown from "react-markdown";
 
 const NoteCard = props => {
   return (
@@ -10,7 +11,7 @@ const NoteCard = props => {
         </Link>
         <div className="card-line" />
         <div className="note-card-body">
-          <p>{props.note.textBody}</p>
+          <Markdown source={props.note.textBody} />
         </div>
       </div>
     </div>

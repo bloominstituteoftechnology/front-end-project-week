@@ -6,9 +6,11 @@
     "axios": "^0.18.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-markdown": "^4.0.3",
     "react-modal": "^3.6.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5"
+    "react-scripts": "2.0.5",
+    "react-simplemde-editor": "^3.6.21"
   },
   "scripts": {
     "start": "react-scripts start",
