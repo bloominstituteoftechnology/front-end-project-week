@@ -56,6 +56,20 @@ font-size:42px;
   font-size:42px;
 }
 
+.note-list-wrapper .searchbar-form {
+  width:31%;
+  margin:0 auto;
+  padding-bottom:20px;
+}
+
+.note-list-wrapper .searchbar-input {
+  width:100%;
+  padding:10px;
+  border-radius:5px;
+  border: 2px solid #8A9B9C;  
+font-size:26px;
+}
+
 .note-list-wrapper .sort-options {
   display:flex;
   justify-content: space-between;

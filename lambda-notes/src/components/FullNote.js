@@ -18,6 +18,7 @@ constructor(props){
     }
 }
     
+//sets particular note on state for viewing based on url the user was pushed to
 componentDidMount() {
     axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
     .then(response => 
@@ -28,11 +29,13 @@ componentDidMount() {
     .catch(error=>{console.log("The server failed to retrieve this note: ", error)})
 }
 
+//allows single page to render either view state or edit state without being taken to separate page/url
 toggleEditing = event => {
 event.preventDefault();
 this.setState({...this.state, isEditing:!this.state.isEditing})
 }
 
+//summons delete modal
 toggleModal = event => {
     event.preventDefault();
     this.setState({...this.state, showDeleteModal:!this.state.showDeleteModal});
@@ -70,7 +73,9 @@ render(){
  <p className="edit-button" onClick={this.toggleEditing}>edit</p>
  <p className="delete-button" onClick={this.toggleModal}>delete</p>
  </div>
-    <Markdown className="full-note-title">{this.state.activeNote.title}</Markdown> <br/><br/>
+ 
+    <h3 className="full-note-title">{this.state.activeNote.title}</h3>
+{/* allows markdown support for string being entered in text field */}
 <Markdown className="full-note-text">{this.state.activeNote.textBody}</Markdown>
 <Route render={ownProps=>(<DeleteModal {...ownProps} show={this.state.showDeleteModal} toggleModal={this.toggleModal} deleteNote={this.props.deleteNote}/>
     )}/>

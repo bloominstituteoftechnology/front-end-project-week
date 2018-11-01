@@ -2,10 +2,12 @@ import React from 'react';
 
 class DeleteModal extends React.Component {
 
+
 backToList(){
 this.props.history.push("/");
 }
 
+//makes sure user is taken back to full list view when the note they're viewing is deleted
 deleteAndGoBack = event => {
     event.preventDefault();
     this.props.deleteNote(event, this.props.match.params.id);
