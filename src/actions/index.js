@@ -39,7 +39,7 @@ export const fetchData = () => {
   return (dispatch) => {
     dispatch({ type: NOTE_FETCHING_DATA  });
     axios
-      .get('http://localhost:3300/notes')
+      .get('https://notes-backend-server.herokuapp.com/notes')
       .then((response) => {
         dispatch({ type: NOTE_DATA_FETCHED , payload: response.data.notes });
       })
@@ -54,7 +54,7 @@ export const addNote = (notes) => {
   return (dispatch) => {
     dispatch({ type: INITIALIZE_NOTE_ADD });
     axios
-      .post('http://localhost:3300/addNote', notes)
+      .post('https://notes-backend-server.herokuapp.com/addNote', notes)
       .then((response) => {
         dispatch({ type: COMPLETE_NOTE_ADD, payload: response.data });
       })
@@ -70,7 +70,7 @@ export const getNote = id => {
   return dispatch => {
       dispatch({ type: VIEWING_NOTE });
        axios
-          .get(`http://localhost:3300/notes/${id}`)
+          .get(`https://notes-backend-server.herokuapp.com//notes/${id}`)
           .then(res => {
               dispatch ({ type: VIEWED_NOTE, payload: res.data.notes[0] });
           })
@@ -85,7 +85,7 @@ export const updateNote = note => {
       dispatch({ type: UPDATING_NOTES });
 
       axios
-      .put(`http://localhost:3300/updateNote/${note.id}`, {title: note.title, content: note.content})
+      .put(`https://notes-backend-server.herokuapp.com//updateNote/${note.id}`, {title: note.title, content: note.content})
       .then(res => {
           dispatch({ type: UPDATED_NOTES, payload: res.data })
       })
@@ -100,7 +100,7 @@ export const deleteNote = (NoteId, history) => {
       dispatch({ type: DELETING_NOTES });
 
       axios
-          .delete(`http://localhost:3300/deleteNote/${NoteId}`)
+          .delete(`https://notes-backend-server.herokuapp.com//deleteNote/${NoteId}`)
           .then(res => {
               dispatch({ type: DELETED_NOTES });
           })
