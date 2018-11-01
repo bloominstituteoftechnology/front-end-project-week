@@ -6,8 +6,9 @@ import * as actions from './actions'
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import SingleNote from './components/SingleNote';
-//  import TopNav from './components/TopNav';
+ import TopNav from './components/TopNav';
 import { Navbar, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
+import lambdanotes  from './lambdanotes.png';
 
 
 
@@ -20,7 +21,9 @@ class App extends Component {
       <div className="App">
       <Navbar>
       <NavbarBrand>
-            Lambda<br/>Notes
+            {/* Lambda<br/>Notes */}
+            <img src={lambdanotes} alt={"logo"}/> 
+            <TopNav />
             </NavbarBrand>
           <Nav>
             <NavItem>
