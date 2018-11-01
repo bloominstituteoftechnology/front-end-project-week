@@ -7,9 +7,11 @@ import './App.css';
 
 const ContainerWrap = styled.div `
 width: 100%;
+height:auto;
 display: flex;
 flex-direction: row;
 `
+
 
 class App extends Component {
   constructor(props) {
