@@ -1,14 +1,28 @@
 import React from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 import styled from 'styled-components';
 
-class NewNote extends React.PureComponent {
+class EditNote extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
 			noteTitle: '',
 			noteContent: ''
 		};
+	}
+
+	componentDidMount() {
+		Axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+			.then((res) =>
+				this.setState({
+					note: {
+						_id: res.data._id,
+						title: res.data.title,
+						textBody: res.data.textBody
+					}
+				})
+			)
+			.catch((err) => console.log(err));
 	}
 
 	changeHandler = (e) => {
@@ -18,21 +32,17 @@ class NewNote extends React.PureComponent {
 		});
 	};
 
-	saveNote = () => {
+	editNote = () => {
 		const { noteTitle, noteContent } = this.state;
-		if (noteTitle === '' && noteContent === '') {
-			alert('Please edit at least one of the fields');
+		if (noteTitle === '' || noteContent === '') {
+			alert('Please fill out both fields');
 		} else {
-			axios
-				.post('https://fe-notes.herokuapp.com/note/create', { title: noteTitle, textBody: noteContent })
+			Axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, {
+				title: noteTitle,
+				textBody: noteContent
+			})
 				.then(window.location.reload())
-				.then(
-					setTimeout(
-						setTimeout(function() {
-							this.props.history.push('/');
-						}, 1500)
-					)
-				);
+				.then(this.props.history.push('/'));
 		}
 	};
 
@@ -47,8 +57,8 @@ class NewNote extends React.PureComponent {
 	render() {
 		return (
 			<StyledContainer>
-				<h1>Create New Note:</h1>
-				<StyledForm onSubmit={this.saveNote}>
+				<h1>Edit Your Note:</h1>
+				<StyledForm onSubmit={this.editNote}>
 					<StyledInput
 						type="text"
 						name="noteTitle"
@@ -70,7 +80,7 @@ class NewNote extends React.PureComponent {
 	}
 }
 
-export default NewNote;
+export default EditNote;
 
 export const StyledContainer = styled.div`
 	margin-left: 325px;

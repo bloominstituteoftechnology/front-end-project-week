@@ -31,18 +31,23 @@ class FullNote extends React.Component {
 	}
 
 	deletePost = () => {
-		Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`).catch((err) =>
-			console.log(err)
-		);
-		window.location.reload();
+		Axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+			.then(() => window.location.reload())
+			.catch((err) => console.log(err));
+	};
+
+	getID = () => {
+		const id = this.props.match.params.id;
+		return id;
 	};
 
 	render() {
+		const id = this.props.match.params.id;
 		const { note } = this.state;
 		return (
 			<div>
 				<StyledNoteWrapper>
-					<Navbar deletePost={this.deletePost} />
+					<Navbar deletePost={this.deletePost} id={{ id }} />
 					<StyledNoteContainer key={note._id}>
 						<StyledH1>{note.title}</StyledH1>
 						<p>{note.textBody}</p>

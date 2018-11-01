@@ -22,7 +22,12 @@ class Navbar extends React.Component {
 	render() {
 		return (
 			<StyledContainer>
-				<Modal show={this.showModal} handleClose={this.hideModal} deletePost={this.props.deletePost} />
+				<Modal
+					show={this.showModal}
+					id={this.props.id}
+					handleClose={this.hideModal}
+					deletePost={this.props.deletePost}
+				/>
 			</StyledContainer>
 		);
 	}

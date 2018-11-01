@@ -7,7 +7,15 @@ import { Link } from 'react-router-dom';
 class ModalState extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { show: false };
+		this.state = {
+			show: false,
+			id: this.props.id
+		};
+	}
+
+	componentDidMount() {
+		const id = this.props.id;
+		this.setState({ id });
 	}
 
 	showModal = () => {
@@ -19,10 +27,14 @@ class ModalState extends React.Component {
 	};
 
 	render() {
+		const { id } = this.state;
+		console.log('random ass ID:', id);
 		return (
 			<main>
 				<Modal show={this.state.show} handleClose={this.hideModal} deletePost={this.props.deletePost} />
-				<UnstyledButton type="button">edit</UnstyledButton>
+				<UnstyledEditButton id={this.props.id} to={`/${Object.values(id)}/edit-note`} type="button">
+					edit
+				</UnstyledEditButton>
 				<UnstyledButton type="button" onClick={this.showModal}>
 					delete
 				</UnstyledButton>
@@ -54,6 +66,14 @@ const Modal = ({ handleClose, show, deletePost }) => {
 export default ModalState;
 
 export const UnstyledButton = styled.button`
+	border: 0;
+	text-decoration: underline;
+	font-weight: bold;
+	background-color: transparent;
+	cursor: pointer;
+`;
+
+export const UnstyledEditButton = styled(Link)`
 	border: 0;
 	text-decoration: underline;
 	font-weight: bold;

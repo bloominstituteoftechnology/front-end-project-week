@@ -1,8 +1,6 @@
 import React from 'react';
 import Notes from './Notes';
 import axios from 'axios';
-// import Navbar from '../NavBar/Navbar';
-// import { Route } from 'react-router-dom';
 
 class NoteContainer extends React.Component {
 	constructor(props) {
@@ -27,17 +25,24 @@ class NoteContainer extends React.Component {
 		this.setState({ noteId });
 	};
 
+	getEditId = (editId) => {
+		this.getNoteId(editId);
+	};
+
 	render() {
-		// what gets rendered
 		if (!this.state.notes.length) {
 			return <h1>Loaaaaaaaaaaaaaaaaaaaaaadddding............</h1>;
 		} else {
 			const { notes } = this.state;
 			return (
 				<div>
-					{/* <Route exact path="/note/:id" render={(props) => <Navbar deletePost={this.deletePost} {...props} />} /> */}
-					{/*<Route exact path="/" render={() => <Notes notes={notes} getNoteId={this.getNoteId} />} /> */}
-					<Notes notes={notes} getNoteId={this.getNoteId} deletePost={this.deletePost} />
+					<Notes
+						notes={notes}
+						{...this.props}
+						getEditId={this.getEditId}
+						getNoteId={this.getNoteId}
+						deletePost={this.deletePost}
+					/>
 				</div>
 			);
 		}
