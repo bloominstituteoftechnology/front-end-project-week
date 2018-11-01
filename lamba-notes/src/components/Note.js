@@ -48,18 +48,21 @@ class Note extends Component {
   render() {
     return (
       <div className="singleNote">
-        <Link
-          className="singleNote__edit"
-          to={`/note/edit/${this.state.note._id}`}
-        >
-          edit
-        </Link>
-        <span
-          className="singleNote__delete"
-          onClick={() => this.props.deleteNote(this.state.note._id)}
-        >
-          delete
-        </span>
+        <div className="note__options">
+          <Link
+            className="singleNote__edit"
+            to={`/note/edit/${this.state.note._id}`}
+          >
+            edit
+          </Link>
+          <span
+            className="singleNote__delete"
+            onClick={() => this.props.deleteNote(this.state.note._id)}
+          >
+            delete
+          </span>
+        </div>
+
         <h1>{this.state.editTitle}</h1>
         <p>{this.state.editBody}</p>
       </div>
