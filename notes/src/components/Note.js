@@ -36,7 +36,7 @@ export default class Note extends React.Component {
 
   modalDeleteToggle = event => {
     event.preventDefault();
-    this.setState({ delete: !this.state.delete})
+    this.setState({ deleted: !this.state.delete})
   }
 
   delete = () => {

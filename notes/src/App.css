@@ -8,6 +8,7 @@ h2 {
   width: 90%;
   margin: 0 auto;
   border: 1px solid #979797;
+  color: #4a4a4a;
 }
 
 .sidebar {
@@ -39,8 +40,8 @@ h2 {
 
 .notes-main {
   width: 75%;
-  margin-left: 20px;
- 
+  padding-left: 20px;
+  background: #f3f3f3;
 }
 
 .notes-main h2 {
@@ -66,14 +67,18 @@ h2 {
   margin-left: 19px;
   margin-bottom: 34px;
   margin-right: 0px;
-  padding: 18px 29px 0px 28px;
-  
+  padding: 18px 33px 0px 23px;
+  background: white;
 }
 
 .notecard-container h3 {
   font-size: 2.3rem;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   padding-bottom: 12px;
   border-bottom: 1px solid black;
 }
 
+.notecard-container p {
+  font-size: 1.8rem;
+  line-height: 31px;
+}
