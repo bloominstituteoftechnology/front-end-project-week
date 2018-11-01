@@ -1,20 +1,38 @@
 {
-  "name": "server",
+  "name": "front-end-project-week",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "This is a simple note taking application built with React and Redux.",
+  "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.3",
-    "express": "^4.15.2",
-    "styled-components": "^4.0.2"
+    "axios": "^0.18.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.0.3",
+    "uuid": "^3.3.2"
   },
-  "devDependencies": {
-    "nodemon": "^1.17.2"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
-  "author": "Lambda School",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrewMoody/front-end-project-week.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrewMoody/front-end-project-week/issues"
+  },
+  "homepage": "https://github.com/DrewMoody/front-end-project-week#readme"
 }

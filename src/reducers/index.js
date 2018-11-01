@@ -11,7 +11,7 @@ const notesReducer = (state = [], action) => {
     case 'ADD_NOTE_SUCCESS':
       return {
         ...state,
-        notes: action.payload,
+        // notes: action.payload,
         fetching: false,
         fetched: true
       };

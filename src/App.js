@@ -13,12 +13,7 @@ class App extends Component {
     this.props.getNotes();
   }
 
-  state = {
-    test: true
-  }
-
   render() {
-    console.log(this.state.test)
     return (
       <div className="App">
         {this.props.isLoading ?

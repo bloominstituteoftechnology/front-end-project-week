@@ -50,6 +50,7 @@ const EachNote = styled.div`
 `;
 
 const NotesList = props => {
+  console.log(props)
   return (
     <NotesWrapper>
       <h2>Your Notes:</h2>
