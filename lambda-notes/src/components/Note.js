@@ -8,7 +8,7 @@ const Note = props => {
     return (
         <Link to={`/ExpandedNote/${props.id}`} className='note' onClick={() => props.passThisNote(props)}>
             <h2>{props.title}</h2>
-            <div>{(props.text.length > 150) ? `${props.text.slice(0, 200)}...` : props.text}</div>
+            <div>{(props.text.length > 150) ? `${props.text.slice(0, 150)}...` : props.text}</div>
         </Link>
     )
 }
