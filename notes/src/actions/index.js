@@ -64,7 +64,7 @@ export const deleteNote = id => dispatch => {
         `http://localhost:3300/notes/${id}`
       )
       .then(response => {
-        getNotes();
+        // getNotes();
         dispatch({ type: DELETE_NOTE, payload: response.data });
         
         console.log('Note deleted: response: ', response);

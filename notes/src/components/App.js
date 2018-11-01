@@ -12,9 +12,12 @@ import Note from './Note';
 
 class App extends Component {
 
-  componentDidMount() { 
+  componentWillMount() { 
     this.props.dispatchGetNotes(); //this doesn't do anything until mapDispatchToProps is called
   }
+  // componentDidUpdate() {
+  //   this.props.dispatchGetNotes();
+  // };
  
   render() {
     return (

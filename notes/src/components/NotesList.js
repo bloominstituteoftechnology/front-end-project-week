@@ -8,9 +8,8 @@ import NoteView from './NoteView';
 import {getNotes} from '../actions';
 
 class NotesList extends Component {
-    componentDidMount() {
-        this.props.getNotes();
-    }
+    
+
     notes = this.props.notes;
     render() {
         return (
