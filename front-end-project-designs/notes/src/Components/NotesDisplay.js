@@ -4,6 +4,7 @@ import axios from 'axios';
 import SingleNote from './SingleNote';
 import {CSVLink, CSVDownload} from 'react-csv';
 import { Route } from 'react-router-dom';
+import Logout from '../Authenticate/Logout';
 
 
 class NotesDisplay extends React.Component {
@@ -74,6 +75,8 @@ class NotesDisplay extends React.Component {
                                                                     data = {this.state.notes.map(x => ({ title : x.title, textBody :  x.textBody })) }
                                                                     target = "_blank"  />}
                 />
+
+                <Logout />
              
             </div>
         )
