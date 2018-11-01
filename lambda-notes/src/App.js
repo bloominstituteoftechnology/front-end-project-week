@@ -25,6 +25,7 @@ export default App;
 
 export const StyledContainer = styled.div`
 	display: flex;
+	max-width: 100%;
 	flex-direction: row;
 	margin: 0;
 `;

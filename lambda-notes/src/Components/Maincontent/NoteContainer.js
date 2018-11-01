@@ -31,7 +31,7 @@ class NoteContainer extends React.Component {
 
 	render() {
 		if (!this.state.notes.length) {
-			return <h1>Loaaaaaaaaaaaaaaaaaaaaaadddding............</h1>;
+			return <h1>Loading............</h1>;
 		} else {
 			const { notes } = this.state;
 			return (

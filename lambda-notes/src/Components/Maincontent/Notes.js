@@ -31,25 +31,34 @@ export const StyledNoteWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	max-width: 75%;
+	width: 2280px;
 	border: 2px solid rgba(80, 80, 80, 0.3);
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	margin-left: 325px;
+	margin-left: 261px;
+	@media (max-width: 1680px) {
+		max-width: 1680px;
+	}
+	@media (max-width: 1122px) {
+		max-width: 1122px;
+	}
+	@media (max-width: 560px) {
+		max-width: 560px;
+	}
 `;
 
 export const StyledNoteContainer = styled(Link)`
 	text-decoration: none;
 	color: #000000;
-	max-height: 200px;
+	/* max-height: 200px; */
 	display: flex;
 	padding: 15px;
 	flex-direction: column;
 	background-color: #ffffff;
 	text-align: start;
 	overflow: hidden;
-	width: 18%;
+	width: 500px;
 	margin: 10px;
 	border: 1px solid rgba(80, 80, 80, 0.3);
 	transition: 0.5s ease-in-out;
@@ -58,6 +67,7 @@ export const StyledNoteContainer = styled(Link)`
 		background-color: rgba(200, 240, 200, 1);
 		box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);
 	}
+
 `;
 
 export const StyledH1 = styled.h1`

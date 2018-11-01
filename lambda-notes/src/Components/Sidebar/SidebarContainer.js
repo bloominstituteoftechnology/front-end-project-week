@@ -19,7 +19,7 @@ export default SidebarContainer;
 export const StyledContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 18%;
+	width: 221px;
 	background-color: #d3d2d3;
 	padding: 20px;
 	position: fixed;
