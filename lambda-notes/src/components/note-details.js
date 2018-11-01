@@ -24,7 +24,7 @@ class NoteDetails extends Component {
         this.props.match.params._id
       }`
     );
-    alert("Note Deleted");
+    alert("Note Deleted (Im not lying, it's gone, go check for yourself)");
   };
 
   render() {

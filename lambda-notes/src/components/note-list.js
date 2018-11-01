@@ -18,7 +18,7 @@ class NoteList extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Your Notes:</h1>
         <div className="noteCards">
           {this.state.notes.map(note => {

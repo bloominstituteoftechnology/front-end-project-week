@@ -11,17 +11,20 @@
 
 .sideBar {
   border-right: 1px solid black;
-  width: 30%;
+  width: 20%;
   display: flex;
   flex-flow: column;
   align-items: center;
+  background-color: lightgray;
+  height: 1000px;
 }
 
 .noteCards {
   display: flex;
-  width: 70%;
+  width: 60%;
   flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: space-evenly;
 }
 
 .noteCard {
@@ -29,4 +32,25 @@
   display: inline-block;
   height: 300px;
   width: 300px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  color: black;
+}
+
+.sideButton {
+  border: 1px solid black;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: lightseagreen;
+}
+
+.container {
+  width: 90%;
 }

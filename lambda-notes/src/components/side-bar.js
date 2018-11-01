@@ -5,8 +5,12 @@ const SideBar = props => {
   return (
     <div className="sideBar">
       <h1>Lambda Notes</h1>
-      <NavLink to="/notes">View Your Notes</NavLink>
-      <NavLink to="/note-form">+Create New Note</NavLink>
+      <NavLink className="sideButton" to="/notes">
+        View Your Notes
+      </NavLink>
+      <NavLink className="sideButton" to="/note-form">
+        +Create New Note
+      </NavLink>
     </div>
   );
 };
