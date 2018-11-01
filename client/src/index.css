@@ -49,11 +49,17 @@ code {
 
   height: 8rem;
 }
+
 .sidebar {
   width: 100%;
   min-height: 1200px;
   height: 100%;
   background: rgb(194, 194, 194);
+}
+.Search {
+  margin-left: 1rem;
+  width: 85%;
+  float: center;
 }
 .note-view {
   background: rgb(236, 236, 236);

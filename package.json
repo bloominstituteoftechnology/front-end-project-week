@@ -1,0 +1,19 @@
+{
+  "name": "lambda-notes",
+  "version": "1.0.0",
+  "description": "note-taking-app",
+  "main": "server.js",
+  "repository": "https://github.com/sabrinagear/front-end-project-week.git",
+  "author": "SabrinaGear <sabrinagear.ft@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.5"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}

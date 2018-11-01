@@ -13,7 +13,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      notes: []
+      notes: [],
+      fnotes: []
     };
   }
 
@@ -57,12 +58,22 @@ class App extends Component {
       .catch(err => console.dir(err));
   };
 
+  // //Search
+  // search = e => {
+  //   const arr = this.state.notes.filter(n => {
+  //     if (n.title === `${e.target.value}`) {
+  //       return n;
+  //     }
+  //   });
+  //   return this.setState({ fnotes: arr });
+  // };
+
   render() {
     return (
       <div className="App">
         <div className="home-view">
           <div>
-            <Sidebar />
+            <Sidebar search={this.search} />
           </div>
 
           <Switch>
@@ -72,7 +83,11 @@ class App extends Component {
               render={props => (
                 <NotesList
                   {...props}
-                  notes={this.state.notes}
+                  notes={
+                    this.state.fnotes.length > 0
+                      ? this.state.fnotes
+                      : this.state.notes
+                  }
                   editNote={this.editNote}
                   deleteNote={this.deleteNote}
                 />

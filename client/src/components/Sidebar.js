@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 //The sidebar component with buttons linking to view page and create page
 
-const Sidebar = () => {
+const Sidebar = props => {
   return (
     <section className="sidebar">
       <div className="header">
@@ -16,6 +16,15 @@ const Sidebar = () => {
         <Link to="/create">
           <div className="sidebar-button">+ Create New Note</div>
         </Link>
+
+        <form>
+          <input
+            className="Search"
+            type="search"
+            placeholder="Search"
+            onKeyDown={props.search}
+          />
+        </form>
       </div>
     </section>
   );

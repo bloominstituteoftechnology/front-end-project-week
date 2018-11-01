@@ -6,7 +6,8 @@ class NoteForm extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: ""
+      textBody: "",
+      s: ""
     };
   }
 
