@@ -1,15 +1,10 @@
 import React from "react";
 
-
+// DownloadCSV component is presentation component with download button
 const DownloadCSV = props => {
-  let note = "";
-
-
-
-
   return (
     <div className="downloadCSV">
-     <button onClick={props.downloadCSV}>Download CSV</button> 
+      <button onClick={props.downloadCSV}>Download CSV</button>
     </div>
   );
 };

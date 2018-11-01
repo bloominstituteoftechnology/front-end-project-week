@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import {searchFunc} from '../util';
 
 
+// SearchNote is presentational component that display search box
 class SearchNote extends Component {
   constructor(props) {
     super(props);
@@ -11,24 +11,18 @@ class SearchNote extends Component {
     this.SearchedResultNotes = [];
   }
 
- 
   render() {
     return (
-     
-        <form className="searchNote"  >
-        
-            <input
-              type="input"
-              onChange={this.props.handleInputChange}
-              value={this.props.query}
-              name="query"
-              placeholder="Search notes..."
-              size = "30"
-            />
-    
-         
-        </form>
-      
+      <form className="searchNote">
+        <input
+          type="input"
+          onChange={this.props.handleInputChange}
+          value={this.props.query}
+          name="query"
+          placeholder="Search notes..."
+          size="30"
+        />
+      </form>
     );
   }
 }

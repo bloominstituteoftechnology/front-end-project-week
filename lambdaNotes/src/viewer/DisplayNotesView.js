@@ -7,9 +7,18 @@ import {
   DisplayNote,
   AddNoteForm,
   DeleteNote,
-  EditNote,
+  EditNote
 } from "../components/";
-import { fetchNotes, addNote, deleteNote, editNote, setSearchBoolean } from "../actions";
+import {
+  fetchNotes,
+  addNote,
+  deleteNote,
+  editNote,
+  setSearchBoolean
+} from "../actions";
+
+// this is view component that manage main display area
+// it has most of logics and also manage all route component
 
 class DisplayNotesView extends Component {
   componentDidMount() {
@@ -28,30 +37,33 @@ class DisplayNotesView extends Component {
     this.props.deleteNote(deleteId);
   };
 
-  handleSearchBoolean = (bool) => {
-   this.props.setSearchBoolean(bool);
-}
+  handleSearchBoolean = bool => {
+    this.props.setSearchBoolean(bool);
+  };
 
   render() {
     return (
       <div className="displayNotesView">
-
         <Route
           exact
           path="/"
           render={props => (
-            <DisplayNoteList {...props} notes={this.props.notes} 
-            isSearched = {this.props.isSearched} 
-            handleSearchBoolean = {this.handleSearchBoolean}/>
+            <DisplayNoteList
+              {...props}
+              notes={this.props.notes}
+              isSearched={this.props.isSearched}
+              handleSearchBoolean={this.handleSearchBoolean}
+            />
           )}
         />
 
-      
         <Route
           exact
           path="/edit/:id"
           render={props => (
-            <EditNote {...props}  notes={this.props.notes}
+            <EditNote
+              {...props}
+              notes={this.props.notes}
               submitEdit={this.submitEdit}
             />
           )}
@@ -66,7 +78,9 @@ class DisplayNotesView extends Component {
           exact
           path="/Notes/:id/delete"
           render={props => (
-            <DeleteNote {...props}   notes={this.props.notes}
+            <DeleteNote
+              {...props}
+              notes={this.props.notes}
               submitdelete={this.submitdelete}
             />
           )}

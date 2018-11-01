@@ -16,11 +16,11 @@ class EditNote extends Component {
 
   componentDidMount() {
     if (this.props.match.params.id) {
+      // get the note with corresponding id from URL
       this.note = this.props.notes.filter(
         item => item._id === this.props.match.params.id
       );
-    
-      this.setState({...this.note[0]} );  // set state variables to this.note.  ie title=this.note.title 
+      this.setState({ ...this.note[0] }); // set state variables to this.note.  ie title=this.note.title
     } else {
       alert("wrong note ID");
       this.props.history.push("/");
@@ -29,7 +29,7 @@ class EditNote extends Component {
 
   submitEdit = () => {
     this.props.submitEdit(this.state);
-    this.props.history.push(`/Notes/${this.state._id}`);
+    this.props.history.push(`/Notes/${this.state._id}`); // change the URL to display the edited note
   };
 
   handleInputChange = e => {

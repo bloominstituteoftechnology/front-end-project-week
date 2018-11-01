@@ -2,17 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
-import { setSearchBoolean } from "../actions";
 import DownloadCSV from './DownloadCSV';
 import {downloadNotesToCSV} from '../util';
 
+// SideMenu component handles left side menu
  const SideMenu = (props) => {
- 
-
-  const downloadCSV = () =>{
-    downloadNotesToCSV(props.notes);
-  }
-
 
   return (
     <div className="sideMenu">
@@ -24,14 +18,11 @@ import {downloadNotesToCSV} from '../util';
       <button>+ Create New Notes</button>
      </Link>
 
-     <DownloadCSV notes={props.notes}  downloadCSV={downloadCSV}/>
+     <DownloadCSV notes={props.notes}  downloadCSV={()=>{downloadNotesToCSV(props.notes)}}/>
      </div>
   
   );
 }
-
-
-
 
 const mapStateToProps = ({ notes }) => {
   return { notes };
@@ -40,6 +31,6 @@ const mapStateToProps = ({ notes }) => {
 export default 
   connect(
     mapStateToProps,
-    { setSearchBoolean }
+    {}
   )(SideMenu)
 ;
