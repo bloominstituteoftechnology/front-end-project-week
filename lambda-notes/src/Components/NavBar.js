@@ -43,6 +43,22 @@ const LogoutBtn = styled.button`
   }
 `;
 
+const CSVBtn = styled.button`
+  border-radius: 5px;
+  width: 130px;
+  height: 30px;
+  margin-right: 10px;
+  border: 1px solid blue;
+  color: green;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 var webAuth = new auth0.WebAuth({
   domain: process.env.REACT_APP_DOMAIN_URL,
   clientID: process.env.REACT_APP_CLIENT_ID,
@@ -90,9 +106,9 @@ class NavBar extends Component {
           <NavButton>+ Create New Note</NavButton>
         </Link>
 
-        {/* <button>
+        <CSVBtn>
           <CSVLink filename={'notes.csv'} data={this.props.notes}>Download Notes</CSVLink>
-        </button> */}
+        </CSVBtn>
         <LogoutBtn onClick={this.logout}>Log out</LogoutBtn>
       </NavbarContainer>
     );
