@@ -8,10 +8,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { notesReducer } from './reducers';
 import thunk from 'redux-thunk';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   notesReducer,
-  compose(applyMiddleware(thunk)),
+  composeEnhancers(applyMiddleware(thunk)),
 );
 
 
