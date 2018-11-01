@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Note extends Component {
   constructor(props) {
@@ -31,6 +31,7 @@ class Note extends Component {
 
   deleteRequest() {
     let id = this.props.match.params.id;
+    // delete
   }
 
   editRequest() {
@@ -47,8 +48,22 @@ class Note extends Component {
 
   render() {
     return (
-      <div>
-        {!this.state.edit ? <h1>{this.state.note.title}</h1> : null}
+      <div className="singleNote">
+        <Link
+          className="singleNote__edit"
+          to={`/note/edit/${this.state.note._id}`}
+        >
+          edit
+        </Link>
+        <span
+          className="singleNote__delete"
+          onClick={() => this.props.deleteNote(this.state.note._id)}
+        >
+          delete
+        </span>
+        <h1>{this.state.editTitle}</h1>
+        <p>{this.state.editBody}</p>
+        {/* {!this.state.edit ? <h1>{this.state.note.title}</h1> : null}
         {!this.state.edit ? <p>{this.state.note.textBody}</p> : null}
 
         {this.state.edit ? (
@@ -56,7 +71,7 @@ class Note extends Component {
         ) : null}
         {this.state.edit ? (
           <input name="editBody" value={this.state.note.editBody} />
-        ) : null}
+        ) : null} */}
       </div>
     );
   }

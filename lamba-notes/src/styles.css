@@ -35,3 +35,20 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.singleNote {
+  margin: 50px;
+  width: 60vw;
+}
+
+.singleNote__edit {
+  font-size: 16px;
+  color: red;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.singleNote__delete {
+  font-size: 16px;
+  color: red;
+}
