@@ -9,7 +9,7 @@ import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditCreate/EditNote';
 
 //actions
-import { getNotes, viewNote, create, createMode, edit } from './components/actions';
+import { getNotes, viewNote, create, createMode, editMode } from './components/actions';
 
 //page styling
 import './App.css';
@@ -28,8 +28,8 @@ class App extends Component {
     props.history.push('/')
   }
   
-  editNote= (props) => {
-    this.props.edit()
+  editNote = (props) => {
+    this.props.editMode()
     props.history.push('/edit')
   }
   
@@ -85,4 +85,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, viewNote, create, createMode, edit })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, viewNote, create, createMode, editMode })(App));

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { create } from '../actions';
+import { create, edit } from '../actions';
 
 //styling
 import './EditCreate.css';
@@ -10,6 +10,7 @@ class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            _id: this.props.note._id,
             title: this.props.note.title,
             textBody: this.props.note.textBody
         }
@@ -21,13 +22,19 @@ class EditNote extends Component {
         })
     }
 
-    newNote = (event) => {
+    newNote = (event, props) => {
         event.preventDefault();
+        const noteId = this.state._id
         const note = {
             title: this.state.title,
             textBody: this.state.textBody
         }
-        this.props.create(note)
+        // console.log(noteId)
+        if (this.props.editNote) {
+            this.props.edit(note, noteId)
+        } else {
+            this.props.create(note)
+        }
     }
 
     render() {
@@ -67,4 +74,4 @@ const mapStateToProps = state => {
     }
 }
  
-export default connect(mapStateToProps, { create })(EditNote);
+export default connect(mapStateToProps, { create, edit })(EditNote);

@@ -33,6 +33,7 @@ const noteReducer = (state = initialState, action) => {
             return {
                 ...state,
                 note: {
+                    _id: action.payload._id,
                     tags: action.payload.tags,
                     title: action.payload.title,
                     textBody: action.payload.textBody

@@ -46,6 +46,17 @@ export const create = (note) => dispatch => {
     )
 }
 
-export const edit = () => dispatch => {
+export const editMode = () => dispatch => {
     dispatch({ type: EDIT })
+}
+
+export const edit = (note, noteId) => dispatch => {
+    return (
+        axios
+            .put(`https://fe-notes.herokuapp.com/note/edit/${noteId}`, note)
+            .then(({ data }) => {
+                console.log(data)
+            })
+            .catch(error => console.log(error))
+    )
 }
