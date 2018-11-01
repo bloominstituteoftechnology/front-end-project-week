@@ -17,6 +17,7 @@ class NoteView extends Component {
     }
     toggleModal = () =>{
         this.setState({modal: !this.state.modal})
+        
     }
 
     render(){
@@ -28,8 +29,8 @@ class NoteView extends Component {
                     <div className="modal-content">                        
                         <p>Are you sure you want to delete this?</p>
                         <div className="modal-btns">
-                            <Link to = '/'>
-                                <button className="delete-btn" onClick = {() => this.props.handleDelete(this.props.match.params.id)}>Delete</button>
+                            <Link to = '/' onClick = {() => this.props.handleDelete(this.props.match.params.id)}>
+                                <button className="delete-btn">Delete</button>
                             </Link>                            
                             <button onClick={this.toggleModal}>No</button>
                         </div>

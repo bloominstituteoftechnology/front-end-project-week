@@ -11,10 +11,12 @@ class EditNote extends Component {
         event.preventDefault();
         this.props.handleEditNote;
         
+        
       };
     
 
     render(){
+        
         return(
             <div className = "form-wrap">
                 <h1 className = "form-title">Edit Note:</h1>

@@ -13,7 +13,7 @@ class AddNote extends Component {
                 <h1 className = "form-title">Create New Note:</h1>
                 <input onChange = {this.props.handleChange} name = "title" value = {this.props.title} placeholder = "Note Title"></input>
                 <textarea onChange = {this.props.handleChange} name = "content" value = {this.props.content} placeholder = "Note Content" rows='30' cols = '100'></textarea>
-                <Link to = "/"><button onClick = {this.props.handleAddNote}>Save</button></Link>                
+                <Link to = "/" onClick = {this.props.handleAddNote}><button >Save</button></Link>                
             </div>
         )
     }

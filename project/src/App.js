@@ -52,9 +52,12 @@ class App extends Component {
       .then(response => {
         axios.get(url).then(response => {
           this.setState({ notes: response.data });
+          
         });
+        axios.get(url).then(response => window.location = "/")
         this.setState({ notes: response.data });
       });
+      
   };
 
   handleNoteView = (id) =>
@@ -84,6 +87,7 @@ axios
         axios.get(url).then(response => {
           this.setState({ notes: response.data });
         });
+        axios.get(url).then(response => window.location = "/")
         this.setState({ notes: response.data });
       });
   };
@@ -100,10 +104,11 @@ axios
 //   // }
 
   
-  axios.delete(`${url}/${id}`).then(response => {
+  axios.delete(`${url}/${id}`, { title: this.state.title, content: this.state.content }).then(response => {
     axios.get(url).then(response => {
       this.setState({ notes: response.data });
     });
+    axios.get(url).then(response => window.location = "/")
     this.setState({ notes: response.data });
   });
 };
