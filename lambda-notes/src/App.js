@@ -25,7 +25,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:6000/notes')
+      .get('http://localhost:8000/notes')
 
       .then(response => {
         console.log('response', response);
@@ -42,12 +42,12 @@ class App extends Component {
 
   submitNote = () => {
     axios
-      .post('http://localhost:6000/notes', {
+      .post('http://localhost:8000/notes', {
         title: this.state.notetitle,
         content: this.state.notebody
       })
       .then(() => {
-        axios.get('http://localhost:6000/notes').then(response => {
+        axios.get('http://localhost:8000/notes').then(response => {
           console.log(response.data);
           this.setState(() => ({ notes: response.data }));
         });
@@ -67,12 +67,12 @@ class App extends Component {
 
   submitChange = id => {
     axios
-      .put(`http://localhost:6000/notes/${id}`, {
+      .put(`http://localhost:8000/notes/${id}`, {
         title: this.state.edittitle,
         content: this.state.edittext
       })
       .then(() => {
-        axios.get('http://localhost:6000/notes').then(response => {
+        axios.get('http://localhost:8000/notes').then(response => {
           this.setState({ notes: response.data });
         });
       });
@@ -88,8 +88,8 @@ class App extends Component {
   };
 
   noteDelete = id => {
-    axios.delete(`http://localhost:6000/notes/${id}`).then(() => {
-      axios.get('http://localhost:6000/notes').then(response => {
+    axios.delete(`http://localhost:8000/notes/${id}`).then(() => {
+      axios.get('http://localhost:8000/notes').then(response => {
         this.setState({ notes: response.data, deleting: false });
       });
     });

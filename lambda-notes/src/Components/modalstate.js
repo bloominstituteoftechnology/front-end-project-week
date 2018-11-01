@@ -25,7 +25,7 @@ class Modalstate extends React.Component {
   addTag = id => {
     if (this.state.tag !== '') {
       this.state.note.tags.push(this.state.tag);
-      axios.put(`https://localhost:6000/notes/edit${id}`, {
+      axios.put(`https://localhost:8000/notes/edit${id}`, {
         tags: this.state.note.tags
       });
       this.setState({ tagging: false, tag: '' });
@@ -38,7 +38,7 @@ class Modalstate extends React.Component {
         return tag;
       }
     });
-    axios.put(`https://localhost:6000/notes/${id}`, {
+    axios.put(`https://localhost:8000/notes/${id}`, {
       tags: tags
     });
     let note = { ...this.state.note, tags: tags };
