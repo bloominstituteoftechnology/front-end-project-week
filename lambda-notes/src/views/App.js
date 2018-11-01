@@ -4,6 +4,7 @@ import SideBarView from './SideBarView';
 import ListView from './ListView';
 import NewNoteView from './NewNoteView';
 import SingleNoteView from './SingleNoteView';
+import EditNoteView from './EditNoteView';
 import styled from 'styled-components';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -35,7 +36,9 @@ class App extends Component {
           <Route exact path="/" render={props => <ListView {...props} />} />
           <Route exact path="/new-note" render={props => <NewNoteView {...props} />} />
 
-          {this.props.activeNote === null ? null : <SingleNoteView />}
+          <Route exact path="/edit-note" render={props => <EditNoteView {...props} />} />
+
+          {this.props.activeNote && !this.props.editingNote ? <SingleNoteView /> : null}
         </AppContainer>
       </div>
     );
@@ -44,7 +47,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    activeNote: state.activeNote
+    activeNote: state.activeNote,
+    isActive: state.isActive,
+    editingNote: state.editingNote
   };
 };
 

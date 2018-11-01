@@ -16,10 +16,14 @@ export const GO_HOME = 'GO_HOME';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETING_NOTE_SUCCESS = 'DELETING_NOTE_SUCCESS';
 export const DELETING_NOTE_FAILURE = 'DELETING_NOTE_FAILURE';
+export const EDIT_NOTE = 'EDIT_NOTE';
+export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
+export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
 const getUrl = 'https://fe-notes.herokuapp.com/note/get/all';
 const postUrl = 'https://fe-notes.herokuapp.com/note/create';
 const deleteUrl = 'https://fe-notes.herokuapp.com/note/delete';
+const putUrl = 'https://fe-notes.herokuapp.com/note/edit';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
@@ -75,7 +79,7 @@ export const deleteNote = id => dispatch => {
       return axios
         .get(getUrl)
         .then(response => {
-          console.log('Response from getNotes is: ', response);
+          console.log('Response from deleteNote is: ', response);
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
         .catch(error => {
@@ -89,16 +93,30 @@ export const deleteNote = id => dispatch => {
     });
 };
 
-axios
-  .get('http://google.com')
-  .then(res => {
-    // do something with Google res
+export const editingNote = () => dispatch => {
+  dispatch({ type: EDIT_NOTE });
+};
 
-    return axios.get('http://apple.com');
-  })
-  .then(res => {
-    // do something with Apple res
-  })
-  .catch(err => {
-    // handle err
-  });
+export const editNote = (id, note) => dispatch => {
+  console.log('this is the id kid', id);
+  axios
+    .put(`${putUrl}/${id}`, note)
+    .then(response => {
+      dispatch({ type: EDIT_NOTE_SUCCESS, payload: response });
+
+      return axios
+        .get(getUrl)
+        .then(response => {
+          console.log('Response from editNote is: ', response);
+          dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
+        })
+        .catch(error => {
+          dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
+        });
+    })
+
+    .catch(error => {
+      console.log(error);
+      dispatch({ type: EDIT_NOTE_FAILURE, payload: error });
+    });
+};

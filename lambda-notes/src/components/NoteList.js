@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getNotes } from '../actions';
 import Note from './Note';
 import styled from 'styled-components';
-import { Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const NotesContainer = styled.div`
   background: #f3f3f3;

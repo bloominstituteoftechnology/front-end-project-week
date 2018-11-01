@@ -13,16 +13,21 @@ import {
   GO_HOME,
   DELETE_NOTE,
   DELETING_NOTE_SUCCESS,
-  DELETING_NOTE_FAILURE
+  DELETING_NOTE_FAILURE,
+  EDIT_NOTE,
+  EDIT_NOTE_SUCCESS,
+  EDIT_NOTE_FAILURE
 } from '../actions/index';
 
 const initialState = {
   notes: [],
   fetchingNotes: false,
   addingNote: false,
-  error: null,
+  isActive: false,
   activeNote: null,
-  deletingNote: false
+  deletingNote: false,
+  editingNote: false,
+  error: null
 };
 
 /*
@@ -80,13 +85,15 @@ export default (state = initialState, action) => {
     case SHOW_NOTE:
       return {
         ...state,
+        isActive: true,
         activeNote: action.payload
       };
 
     case GO_HOME:
       return {
         ...state,
-        activeNote: null
+        activeNote: null,
+        editingNote: false
       };
 
     case DELETE_NOTE:
@@ -106,6 +113,26 @@ export default (state = initialState, action) => {
       return {
         ...state,
         deletingNote: false,
+        activeNote: null
+      };
+
+    case EDIT_NOTE:
+      return {
+        ...state,
+        editingNote: true
+      };
+
+    case EDIT_NOTE_SUCCESS:
+      return {
+        ...state,
+        editingNote: false,
+        activeNote: null
+      };
+
+    case EDIT_NOTE_FAILURE:
+      return {
+        ...state,
+        editingNote: false,
         activeNote: null
       };
 

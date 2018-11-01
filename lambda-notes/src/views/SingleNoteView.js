@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { deleteNote } from '../actions';
+import { deleteNote, editingNote } from '../actions';
 import { connect } from 'react-redux';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const SingleNoteViewContainer = styled.div`
   text-align: left;
@@ -39,23 +39,30 @@ class SingleNoteView extends Component {
     this.props.history.push('/');
   };
 
+  EditClickHandler = event => {
+    event.preventDefault();
+    this.props.editingNote();
+    this.props.history.push('/edit-note');
+  };
+
   render() {
+    console.log('does this console log', this.props.editingNote);
     return (
       <SingleNoteViewContainer>
-        {this.props.activeNote === undefined ? null : this.props.activeNote === undefined ? null : (
-          <TitleContainer>
-            <LinkContainer>
-              <StyledLink to="/">Edit</StyledLink>
-              <StyledLink onClick={this.DeleteClickHandler} to="/">
-                Delete
-              </StyledLink>
-            </LinkContainer>
-            <h2>{this.props.activeNote.title}</h2>
-            <SingleNoteContainer>
-              <p>{this.props.activeNote.textBody}</p>
-            </SingleNoteContainer>
-          </TitleContainer>
-        )}
+        <TitleContainer>
+          <LinkContainer>
+            <StyledLink to="/" onClick={this.EditClickHandler}>
+              Edit
+            </StyledLink>
+            <StyledLink to="/" onClick={this.DeleteClickHandler}>
+              Delete
+            </StyledLink>
+          </LinkContainer>
+          <h2>{this.props.activeNote.title}</h2>
+          <SingleNoteContainer>
+            <p>{this.props.activeNote.textBody}</p>
+          </SingleNoteContainer>
+        </TitleContainer>
       </SingleNoteViewContainer>
     );
   }
@@ -63,13 +70,15 @@ class SingleNoteView extends Component {
 
 const mapStateToProps = state => {
   return {
-    activeNote: state.activeNote
+    activeNote: state.activeNote,
+    isActive: state.isActive,
+    editingNote: state.editingNote
   };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { deleteNote }
+    { deleteNote, editingNote }
   )(SingleNoteView)
 );
