@@ -297,6 +297,28 @@ a {
   cursor: pointer;
 }
 
+.minimap-click1{
+  height: 30px;
+  width: 30px;
+  grid-column: 2;
+  grid-row: 3;
+  cursor: pointer;
+}
+.minimap-click2{
+  height: 30px;
+  width: 30px;
+  grid-column: 3;
+  grid-row: 2;
+  cursor: pointer;
+}
+.minimap-click3{
+  height: 30px;
+  width: 30px;
+  grid-column: 1;
+  grid-row: 2;
+  cursor: pointer;
+}
+
 .one{ 
   grid-column: 1;
   grid-row: 1;
@@ -371,13 +393,17 @@ td {
   justify-content: space-between;
   align-items: center;
   border-radius: 30px;
+  max-height: 30px;
+  margin: 1px 2px;
+  cursor: pointer;
 
 }
 
-/* .tab-holder {
+ .tab-holder {
   display: flex;
-  justify-content: space-between;
-} */
+  justify-content: center;
+  align-items: center;
+} 
 
 .swab {
   width: 8px;
@@ -391,6 +417,25 @@ td {
   background: white;
   border-radius: 30px;
   border: 2px lightgray solid;
+}
+
+.st-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background: white;
+  border: 2px solid gray;
+  z-index: 10;
+  position: absolute;
+  bottom: -45px;
+}
+
+.hidden {
+  display: none;
+}
+
+.lit {
+  box-shadow: 0px 0px 5px 0px #24B8BD;
 }
 
 

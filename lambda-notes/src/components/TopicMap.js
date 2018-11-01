@@ -18,12 +18,14 @@ export default class TopicMap extends React.Component {
         this.setState({newNote: {...this.state.newNote, [e.target.name]: e.target.value}})
       }
 
-      saveNote = () => {
-        let tN = [...this.state.topicNotes];
-
-        this.setState({topicNotes: [...this.state.topicNotes, this.state.newNote], newNote: {'title': '', 'textBody': '', 'tags': []} });
+    saveNote = () => {
+        let newNote = {...this.state.newNote, id: Date.now()}
         
-      }
+        this.setState({topicNotes: [...this.state.topicNotes, newNote], newNote: {'title': '', 'textBody': '', 'tags': []} });  
+        
+    }
+    
+    
 
     stInputHandler = (e) => {
         this.setState({newSubtopic: e.target.value})
@@ -32,7 +34,7 @@ export default class TopicMap extends React.Component {
     addSubTopic = () => {
         let subtopic = this.state.newSubtopic.split('-');
         if(!subtopic[1]){
-            alert('Must append topic with hyphen followed by a color. \n Ex: middleware-green');
+            alert('Must append topic with a hyphen followed by a color. \n Ex: middleware-green');
         }
         else {
         this.setState({subtopics: [...this.state.subtopics, {subtopic: subtopic[0], 
@@ -55,13 +57,13 @@ export default class TopicMap extends React.Component {
                        onChange={this.inputHandler} />
 
                 <div className="note-map">
-                <MiniMap />
-                <MiniMap />
-                <MiniMap />
-                <MiniMap />
-                <MiniMap />
-                <MiniMap />
-                <MiniMap />
+                <MiniMap subtopics={this.state.subtopics}/>
+                <MiniMap subtopics={this.state.subtopics}/>
+                <MiniMap subtopics={this.state.subtopics}/>
+                <MiniMap subtopics={this.state.subtopics}/>
+                <MiniMap subtopics={this.state.subtopics}/>
+                <MiniMap subtopics={this.state.subtopics}/>
+                <MiniMap subtopics={this.state.subtopics}/>
                 </div>
                 <div className="subtopic-area">
                     <table>
