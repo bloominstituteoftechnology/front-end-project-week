@@ -157,11 +157,26 @@
   font-size: 1.2rem;
   opacity: 0.8;
 }
+.form-search-filter {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 20px;
+}
+.form-search-filter input {
+  border: 1px solid lightgrey;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-align: center;
+}
 
 @media (max-width: 960px) {
   .notes-container {
     margin: auto;
     width: 100%;
+  }
+  .form-search-filter {
+    display: none;
   }
   .single-note {
     margin: auto;
