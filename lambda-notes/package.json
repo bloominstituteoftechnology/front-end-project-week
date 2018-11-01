@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "markdown-to-jsx": "^6.8.3",
     "react": "^16.6.0",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5"

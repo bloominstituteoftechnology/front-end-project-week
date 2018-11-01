@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Sidebar from "./components/Sidebar";
 import NoteList from "./components/NoteList";
-import Note from "./components/Note";
+import FullNote from "./components/FullNote";
 import CreateNote from "./components/CreateNote";
 
 import Login from "./components/Login";
@@ -96,7 +96,7 @@ this.setState({
        <Sidebar getNoteList={this.getNoteList}/>
 <Route exact path="/" render={ownProps=>(<NoteList {...ownProps} notes={this.state.notes} sortNewToOld={this.sortNewToOld} getNoteList={this.getNoteList} sortAlphabetically={this.sortAlphabetically}/>)} />
 <Route exact path="/create_new_note" render={ownProps=>(<CreateNote {...ownProps} changeHandler={this.changeHandler} createNote={this.createNote} newNote={this.state.newNote}/>)} />
-<Route exact path="/note/:id" render={ownProps=>(<Note {...ownProps} deleteNote={this.deleteNote} notes={this.state.notes}/>)}/>
+<Route exact path="/note/:id" render={ownProps=>(<FullNote {...ownProps} deleteNote={this.deleteNote} notes={this.state.notes}/>)}/>
        
       
       </div>

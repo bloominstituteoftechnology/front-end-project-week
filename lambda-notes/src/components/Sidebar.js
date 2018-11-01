@@ -17,7 +17,7 @@ logout = () => {
             <Link to="/create_new_note">
             <button>+ Create New Note</button>
             </Link>
-            <button onClick={this.logout}>Logout</button>
+            <button className="logout-button" onClick={this.logout}>Logout</button>
             </div>
         )
     }

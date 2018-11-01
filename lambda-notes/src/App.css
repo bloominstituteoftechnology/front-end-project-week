@@ -36,8 +36,13 @@ border: 2px solid #8A9B9C;
 cursor: pointer;
 }
 
+.sidebar .logout-button {
+  background: #C80A1D;
+}
+
 .note-list-wrapper {
   width:75%;
+min-height:100vh;
   margin: 0 0 0 25%;
   background: #F2F0F1;
   color: #4B4A4B; 
@@ -167,8 +172,9 @@ height:200vh;
   padding:0 3%;
 text-align: left;
 font-size:28px;
-height:100vh;
+min-height:100vh;
 }
+
 
 .edit-delete-wrapper {
   display:flex;

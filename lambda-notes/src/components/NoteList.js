@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Markdown from 'markdown-to-jsx';
 
 class NoteList extends React.Component {
 
@@ -28,7 +28,7 @@ render(){
                 onClick={event=> this.routeToNote(event, note._id)}
                 >
                   <h3 className="note-title">{note.title}</h3>
-<h4 className="note-text">{note.textBody}</h4>
+<Markdown className="note-text">{note.textBody}</Markdown>
 
                 </div> 
         ))}       
