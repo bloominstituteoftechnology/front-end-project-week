@@ -16,6 +16,7 @@ class NoteView extends React.Component {
       if (this.props.match.params.id === note.id) {
         this.setState({ note: note });
       }
+      console.log('notes:' + note);
     });
   };
 
@@ -54,6 +55,7 @@ class NoteView extends React.Component {
     const content = this.state.note.content === undefined
         ? []
         : this.state.note.content.split("\n");
+        console.log('content:' + content);
 
     return (
       <ViewContainer>

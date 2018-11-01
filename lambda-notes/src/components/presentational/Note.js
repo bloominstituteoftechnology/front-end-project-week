@@ -6,7 +6,7 @@ function Note(props) {
     <NoteStyling>
       <h3>{props.note.title}</h3>
       <p>
-        {props.note.textBody}
+        {props.note.content}
       </p>
       {/* <p>Tag: #{props.note.tag}</p> */}
     </NoteStyling>
