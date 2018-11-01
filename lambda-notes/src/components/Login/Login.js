@@ -46,14 +46,13 @@ const Button = styled.button`
 	font-size: 13px;
 	margin-right: 2%;
 	margin-bottom: 2%;
+	background-color: #fff;
 	&:hover {
         background-color: #acb6e5;
 	color: white;
         }
 
 `
-
-
 
 class Login extends React.Component {
 
@@ -68,12 +67,12 @@ constructor(props){
 
 }
 
-/*componentDidMount() {
+componentDidMount() {
         const token = localStorage.getItem('token');
         if (token) {
             this.setState({logged: true});
         }
-    }*/
+    }
 
 
 
