@@ -109,6 +109,7 @@ h2 {
   background: white;
   border: 1px solid #979797;
   margin-bottom: 20px;
+  padding-left: 30px;
 }
 
 .form-styles input::placeholder, .form-styles textarea::placeholder {
@@ -122,6 +123,7 @@ h2 {
  margin-bottom: 20px;
  border-radius: 3px;
  border: 1px solid #979797;
+ resize: none;
 }
 .edit-styles textarea {
   width: 100%;
@@ -129,9 +131,12 @@ h2 {
  margin-bottom: 20px;
  border-radius: 3px;
  border: 1px solid #979797;
+ resize: none;
+ padding-left: 30px;
+ padding-top: 40px;
 }
 
-.form-styles textarea::placeholder {
+.form-styles textarea::placeholder,  {
   padding-top: 25px;
   padding-left: 30px;
 }
@@ -181,46 +186,48 @@ h2 {
   z-index: 2;
   position: absolute;
   height: 100vh;
-  width: 100vw;
-  left: 0;
-  right: 0;
-  top: 0;
+  width: 89vw;
   opacity: 0.75;
-  background-color: #99A4Af;
+  background-color: #D7D8D9;
   display: flex;
   justify-content: center;
 }
+
  .modal-delete {
-  background-color: #FFFFFF;
+  background-color: #f3f3f3;
   border: 1px solid #979797;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 60%;
-  height: 150px;
-  margin-top: 10%;
+  width: 50%;
+  height: 250px;
+  margin-top: 180px;
   z-index: 3;
   position: absolute;
 }
+
  .modal  p {
   width: 100%;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 60px;
+  font-size: 1.6rem;
 }
+
  .modal  button {
   color: #FFFFFF;
   border: 1px solid #979797;
-  width: 15%;
-  height: 15%;
-  font-size: .8rem;
+  width: 25%;
+  height: 40px;
+  font-size: 1.6rem;
   margin-right: 3%;
- 
   align-items: center;
   cursor: pointer;
 }
+
  .modal  .no {
   background-color: #24B8BD;
 }
+
  .modal  .delete {
   background-color: #CA001A;
 }

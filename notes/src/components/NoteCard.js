@@ -12,7 +12,8 @@ const NoteCard = props => {
     <Link to={`/get/${props.note._id}`}>
       <div>
           <h3>{props.note.title.substring(0,17)}</h3>
-          <p>{props.note.textBody.substring(0,75)}</p>
+          <p>{props.note.textBody.substring(0,75)} ...</p>
+          
          
     </div>
     </Link>
