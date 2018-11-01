@@ -10,10 +10,9 @@ const initialState = {
         textBody: ''
     },
     editNote: true,
-    // editNote:
     // noteLoading:
     // deleteNote:
-    // deleteModal:
+    deleteModal: false
 }
 
 const noteReducer = (state = initialState, action) => {

@@ -65,14 +65,11 @@ class App extends Component {
             />
           )} />
           <Route exact path='/edit' render={(props) => (
-            <EditNote
-              // note={this.props.note}
-              // editNote={this.props.editNote}
-            />
+            <EditNote />
           )} />
-          <Route path='/' render={(props) => (
+          <Route path='/' render={this.props.deleteModal ? (props) => (
             <Delete />
-          )} />
+          ) : null} />
         </div>
 
       </div>
@@ -85,7 +82,8 @@ const mapStateToProps = state => {
     noteList: state.noteList,
     listLoading: state.listLoading,
     note: state.note,
-    editNote: state.editNote
+    editNote: state.editNote,
+    deleteModal: state.deleteModal
   }
 }
 
