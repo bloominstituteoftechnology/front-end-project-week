@@ -1,48 +1,38 @@
-// this is where you can edit an existing note. the look is the same as createNote but some functionality is different
+// this is where you can create a new note
 
-import React,{ Component } from "react";
-import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
-import axios from 'axios';
-import { styled } from 'styled-components';
-import { SideButton } from './Sidebar';
+import React, { Component } from "react";
+import axios from "axios";
+import { styled } from "styled-components";
+import { SideButton } from "./Sidebar";
 
+class EditNote extends Component {
+  state = {
+    title: "",
+    textBody: ""
+  };
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
- class CreateNote extends  Component {
-    state = {
-       title: '',
-       textBody: ''
-    }
-handleChange = event => {
-  this.setState({ [event.target.name]: event.target.value });
-};
-
-handleSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
     const newNote = {
-        title: this.state.title,
-        textBody:this.state.textBody
-    }
-    axios
-        .post(`https://fe-notes.herokuapp.com/note/get/all`, {newNote})
-        .then(res => {
-            console.log(res);
-
-        })
-
-}
-
-
+      title: this.state.title,
+      textBody: this.state.textBody
+    };
+      console.log(newNote)
+    this.props.editNote(this.props.match.params.id, newNote);
+    this.props.history.push("/");
+  };
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormGroup>
-          <Label for="exampleText">Text Area</Label>
-          <Input type="textarea" name="text" id="exampleText" onChange={this.handleChange}/>
-          <button>UPDATE</button>
-        </FormGroup>
-      </Form>
+      <form onSubmit={this.handleSubmit}>
+        <input value={this.state.title} type="text" name="title" id="" onChange={this.handleChange}/>
+        <textarea value={this.state.textBody} name="textBody" id="" cols="30" rows="10" onChange={this.handleChange}/>
+        <button>SUBMIT</button>
+      </form>
     );
   }
-};
-export default CreateNote;
+}
+export default EditNote;

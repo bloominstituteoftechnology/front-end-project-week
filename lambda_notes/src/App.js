@@ -6,7 +6,8 @@ import AllNotes from "./components/AllNotes";
 import axios from "axios";
 import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
-import ViewNote from './components/ViewNote';
+import ViewNote from "./components/ViewNote";
+import EditNote from "./components/EditNote";
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -56,47 +57,76 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  createNote=(newNote) => {
+  createNote = newNote => {
     axios
-          .post(`https://fe-notes.herokuapp.com/note/create`, {newNote})
-          .then(response => {
-            newNote._id = response.data.success
+      .post(`https://fe-notes.herokuapp.com/note/create`, { newNote })
+      .then(response => {
+        newNote._id = response.data.success;
 
-            this.setState({notes:this.state.notes.concat(newNote)})
+        this.setState({ notes: this.state.notes.concat(newNote) });
 
+        console.log("create note", this.state.notes.concat(newNote));
+        console.log(response);
+      });
+  };
+  editNote = (id, newNote) => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
+      .then(response => {
+        console.log(response);
+        newNote._id = response.data;
 
-                console.log('create note',this.state.notes.concat(newNote))
-              console.log(response);
-
+        this.setState({
+          notes: this.state.notes.map(note => {
+            if (note._id === id) return response.data
+            return note
           })
+        });
+      });
+  };
 
-  }
+  // if id === id return response.data return note
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        const deleteNote = this.state.notes.filter(note => {
+          console.log(note._id, id, note._id !== id);
 
-
-deleteNote= (id) => {
-  axios
-  .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-    .then((response) => {
-      const deleteNote =  this.state.notes.filter(note => note._id !== id)
-        this.setState({notes: deleteNote})
-    })
-}
+          return note._id !== id;
+        });
+        console.log("deleted note", deleteNote);
+        this.setState({ notes: deleteNote }, console.log(this.state));
+      });
+  };
 
   render() {
     return (
       <div>
-      <Sidebar />
+        <Sidebar />
         <MainContent>
           <Route
             exact
             path="/"
-            render={() => <AllNotes notes={this.state.notes} />}/>
-            <Route path='/createnote'render={(props) => <CreateNote createNote={this.createNote} {...props}/>} />
-            <Route path='/viewnote/:id'render={(props) => <ViewNote editNote={this.editNote} {...props} deleteNote={this.deleteNote} /> }/>
-
+            render={() => <AllNotes notes={this.state.notes} />}
+          />
+          <Route
+            path="/createnote"
+            render={props => (
+              <CreateNote createNote={this.createNote} {...props} />
+            )}
+          />
+          <Route
+            path="/viewnote/:id"
+            render={props => (
+              <ViewNote {...props} deleteNote={this.deleteNote} />
+            )}
+          />
+          <Route
+            path="/editnote/:id"
+            render={props => <EditNote editNote={this.editNote} {...props} />}
+          />
         </MainContent>
-
-
       </div>
     );
   }

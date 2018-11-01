@@ -20,7 +20,7 @@ import styled from 'styled-components';
       <SecondaryHeading>Your Notes:</SecondaryHeading>
       <CardsContainer>
         {notes.map(note => (
-          <Note note={note} key={note.id} />
+          <Note note={note} key={note._id} />
         ))}
       </CardsContainer>
     </div>

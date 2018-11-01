@@ -16,11 +16,11 @@
 
 - There is also an "\_id" attribute, which is a long string of numbers and letters. It is automatically assigned by the server and will be returned as part of the data.
 
-### https://killer-notes.herokuapp.com/note/get/all
+### https://fe-notes.herokuapp.com/note/get/all
 
 a `GET` request to this route will return a list of all the notes.
 
-### https://killer-notes.herokuapp.com/note/get/id
+### https://fe-notes.herokuapp.com/note/get/id
 
 a `GET` request to this route (with "id" replaced by the note ID) will return the note with the specified ID.
 

@@ -25,14 +25,14 @@ const NoteBody = styled.div`
   font-family: "Raleway", sans-serif;
 `;
 
-const Note = ({ note: { id, title, textBody } }) => {
+const Note = ({ note: { _id, title, textBody } }) => {
   return (
-    // <Link to={`/notes/${props.id}`}>
+    <Link to={`/viewnote/${_id}`}>
       <SingleCard>
         <CardTitle>{title.substr(0, 15) + "..."} </CardTitle>
         <NoteBody>{textBody.substr(0, 50) + "..."}</NoteBody>
       </SingleCard>
-    // </Link>
+    </Link>
   );
 };
 
