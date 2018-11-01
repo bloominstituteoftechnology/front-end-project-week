@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Route, Link } from "react-router-dom";
 import axios from "axios";
+import Fuse from "fuse.js";
 
 //Import components
 import NotesList from "./components/NotesList/NotesList";
@@ -10,6 +11,7 @@ import Menu from "./components/Menu/Menu";
 import NewNote from "./components/NewNote/NewNote";
 import NoteView from "./components/NoteView/NoteView";
 import Authenticate from "./components/Authenticate/Authenticate.js";
+import SearchBar from "./components/SearchBar/SearchBar.js";
 
 class App extends Component {
   constructor(props) {
@@ -99,14 +101,31 @@ class App extends Component {
     return note;
   }
 
-  handleSearch(e) {
-    // not implemented
-  }
+  handleSearch = term => {
+    let options = {
+      shouldSort: true,
+      tokenize: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: ["title", "content"]
+    };
+
+    if (term.length > 0) {
+      const f = new Fuse(this.state.notes, options);
+      const result = f.search(term);
+      this.setState({ ...this.state, notes: result });
+      console.log(result);
+    }
+  };
   render() {
     return (
       <div className="App">
         <Menu />
         <div className="container">
+          <SearchBar handleSearch={this.handleSearch} />
           <Route
             exact
             path="/"

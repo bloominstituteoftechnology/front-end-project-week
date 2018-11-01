@@ -1,6 +1,7 @@
 import React from "react";
 import "./NotesList.css";
 import Note from "./Note";
+import SearchBar from "../SearchBar/SearchBar.js";
 
 const NotesList = props => {
   return (

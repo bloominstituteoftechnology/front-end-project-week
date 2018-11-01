@@ -7,6 +7,7 @@
     "auth0-lock": "^11.11.0",
     "axios": "^0.18.0",
     "dotenv": "^6.1.0",
+    "fuse.js": "^3.3.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
