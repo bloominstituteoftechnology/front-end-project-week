@@ -7,6 +7,6 @@
 #    that is where we will look for package.json/.nvmrc/etc not repo root!
 
 [build]
-  base    = "./lambda-notes"
-  publish = "./lambda-notes/build"
+  base    = "./lambdaNotes"
+  publish = "./lambdaNotes/build"
   command = "yarn build"
