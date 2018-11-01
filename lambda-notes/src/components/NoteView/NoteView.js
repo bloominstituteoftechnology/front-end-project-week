@@ -110,16 +110,16 @@ class NoteView extends React.Component {
                  {/* <button onClick= {this.deleteNoteButton} id={this.state.note._id}> Delete </button> */}
 
                 <Button className = 'editDeleteButton' onClick={this.toggle}> Delete</Button>
-                <Modal 
+                <Modal className = 'modal'
                   isOpen={this.state.modal}
                   toggle={this.toggle}>
                 
-                <ModalBody>
+                <ModalBody className ='popout'>
                     Are you sure you want to delete this note?
                 </ModalBody>
-                <ModalFooter>
-                  <Button  onClick={this.deleteHandler}>Delete</Button>
-                  <Button  onClick={this.toggle}>Cancel</Button>
+                <ModalFooter className = 'modalFooter'>
+                  <Button className= 'delete' onClick={this.deleteHandler}>Delete</Button>
+                  <Button className = 'cancel' onClick={this.toggle}>No</Button>
                 </ModalFooter>
                 </Modal>
            
@@ -132,8 +132,9 @@ class NoteView extends React.Component {
             </div>
             
                 <form className = 'editform' onSubmit={this.saveHandler}>
-                <h1 style={editStyle} >Edit Form: </h1>
+                <h1  className = 'editHeader' style={editStyle} >Edit Form: </h1>
                   <input
+                    className = 'input1'
                     name="editedTitle"
                     type= "text"
                     style={editStyle}
@@ -141,6 +142,7 @@ class NoteView extends React.Component {
                     onChange={this.changeHandler}
                     value={this.state.editedTitle}/>
                   <input
+                    className = 'input2'
                     name="editedTextBody"
                     type="textarea"
                     style={editStyle}
@@ -148,7 +150,7 @@ class NoteView extends React.Component {
                     onChange={this.changeHandler}
                     value={this.state.editedTextBody}/>
 
-                    <Button onClick={this.saveHandler} style={editStyle} >Save</Button>
+                    <Button className = 'links' onClick={this.saveHandler} style={editStyle} >Save</Button>
                 </form>
                  
                
