@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import Modal from "react-modal";
+import Markdown from "react-markdown";
 
 class Note extends Component {
   constructor(props) {
@@ -55,7 +56,8 @@ class Note extends Component {
         </div>
         <div>
           <h3>{title}</h3>
-          <p>{textBody}</p>
+          {/* <p>{textBody}</p> */}
+          <Markdown>{textBody}</Markdown>
         </div>
         <div>
           <Modal
