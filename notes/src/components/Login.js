@@ -1,4 +1,12 @@
 import React, { Component } from "react";
+import {
+  LoginInput,
+  StyledForm,
+  SpinnerWrapper,
+  LoginWrapper,
+  LoginButton,
+  LoginHeader
+} from "../styles";
 
 class Login extends Component {
   constructor(props) {
@@ -17,28 +25,33 @@ class Login extends Component {
   };
   render() {
     return (
-      <>
-        <h2>Log in</h2>
-        <form>
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            onChange={this.handleChange}
-            value={this.state.username}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-          <button onClick={this.handleSubmit} onSubmit={this.handleSubmit}>
-            Log In
-          </button>
-        </form>
-      </>
+      <SpinnerWrapper>
+        <LoginWrapper>
+          <StyledForm>
+            <LoginHeader>Lambda Notes</LoginHeader>
+            <LoginInput
+              type="text"
+              name="username"
+              placeholder="username"
+              onChange={this.handleChange}
+              value={this.state.username}
+            />
+            <LoginInput
+              type="password"
+              name="password"
+              placeholder="password"
+              onChange={this.handleChange}
+              value={this.state.password}
+            />
+            <LoginButton
+              onClick={this.handleSubmit}
+              onSubmit={this.handleSubmit}
+            >
+              Log In
+            </LoginButton>
+          </StyledForm>
+        </LoginWrapper>
+      </SpinnerWrapper>
     );
   }
 }

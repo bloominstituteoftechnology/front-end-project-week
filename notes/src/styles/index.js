@@ -215,9 +215,55 @@ width: 200px
 height: 40px`;
 
 export const SpinnerWrapper = styled.div`
-height: 100vh;
-width: 100vw;
-display: flex;
-justify-content: center;
-align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LoginWrapper = styled.div`
+  max-width: 512px;
+  margin: 0px auto 28px auto;
+  padding: 62.12px 99px 48px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  text-align: left;
+  font-size: 1.8rem;
+`;
+
+export const LoginInput = styled.input`
+  border-radius: 7px;
+  color: #333333;
+  border: 1px solid #e6e6e6;
+  padding: 12px 16px;
+  font-size: 1.8rem;
+  width: 300px;
+  height: 45px;
+  margin: 5px 0;
+`;
+
+export const LoginButton = styled.button`
+  height: 45px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  width: 300px;
+  text-align: center;
+  padding: 0 20px;
+  margin-top: 5px;
+  border-radius: 7px;
+  background: #36b9bd;
+  color: #fff;
+  opacity: .9;
+  &:hover {
+    opacity: 1;
+    transition: all 0.4s ease 0s;
+  }
+`;
+
+export const LoginHeader = styled.h1`
+  font-size: 4rem;
+  text-align: center;
+  margin: 20px 0;
+  color: 545454;
 `;
