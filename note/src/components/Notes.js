@@ -64,8 +64,8 @@ const Notes = props =>  {
     else {
         return (
             <NotesContainer>
-                <CSVLink data={props.notes} headers={headers}>
-                    Download The List as CSV
+                <CSVLink data={props.notes} headers={headers} style={{textDecoration: 'none'}}>
+                    Download The Notes as CSV
                 </CSVLink>
                 <Heading>Your Notes:</Heading>
                 <NotesDisplay>
