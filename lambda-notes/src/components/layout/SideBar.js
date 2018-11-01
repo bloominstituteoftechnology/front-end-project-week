@@ -29,10 +29,12 @@ class SideBar extends Component {
     const { isAuthenticated } = this.state;
     return (
       <div className="side-bar">
-        <h1>
-          Lambda <br />
-          Notes
-        </h1>
+        <Link to="/">
+          <h1>
+            Lambda <br />
+            Notes
+          </h1>
+        </Link>
         {isAuthenticated ? (
           <Link to="/">
             <div className="view-note">View Your Notes</div>

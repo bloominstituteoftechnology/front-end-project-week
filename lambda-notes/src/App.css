@@ -36,6 +36,10 @@ body {
 }
 .side-bar h1 {
   margin: 15px;
+  text-align: center;
+}
+.side-bar a {
+  color: #333;
 }
 .side-bar h5 {
   margin-top: 100px;

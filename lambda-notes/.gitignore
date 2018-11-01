@@ -21,3 +21,8 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/store.js
+/firebase.json
+/firestore.indexes.json
+/firestore.rules
+/.firebase/
+/.firebaserc
