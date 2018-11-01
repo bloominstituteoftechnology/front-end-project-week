@@ -26,20 +26,21 @@ class App extends Component {
 
   exportCsv = () => {
     var csvRow =[];
-    var A = [['title','name']];
-    var data = this.state.notes;
+    var A = [['title','name']];//this will be the header portion of csv
+    var data = this.state.notes; // bringing in all the notes from state
     for(var i =0;i < data.length;i++){
-      A.push([data[i].title,data[i].textBody])
+      A.push([data[i].title,data[i].textBody])//pushes all the data from state.notes and brings it in with A
     }
     for(let i = 0; i < A.length; i++){
-      csvRow.push(A[i].join(','))
+      csvRow.push(A[i].join(','))//joins all the the arrays together and separates with a comma
     }
-    let csvString=csvRow.join("%0A");
-    let a = document.createElement("a");
-    a.href = 'data:attachment/csv,' + csvString;
+    let csvString=csvRow.join("%0A");//adds a space after every line
+    //This is all the code to start the download
+    let a = document.createElement("a");//creates an element through the document object
+    a.href = 'data:attachment/csv,' + csvString; // href is set to  a csv file and filled with csvString
     a.target = "_Blank";
-    a.download = "NotesFile.csv";
-    document.body.appendChild(a);
+    a.download = "NotesFile.csv";//downloads file with the string being the download name
+    document.body.appendChild(a);//IDK what this does
     a.click();
   }
 
