@@ -78,6 +78,8 @@ class  IndividualNote extends React.Component {
         super(props)
     }
 
+        
+
        routeToItem = (ev, note) => {
         ev.preventDefault();
         this.props.getNoteId(note)

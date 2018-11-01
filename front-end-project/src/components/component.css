@@ -89,7 +89,20 @@
     
 }
 
+.note-body {
+    line-height: 1.8;
+}
+
 /* Single page note view */
+.sort-btn {
+    margin-left: 15px;
+    width: 10%;
+    height: 30px;
+    background: #24B8BD;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
 
 .single-note {
     flex-basis: 80%;
@@ -119,6 +132,7 @@
     line-height: 1.7;
     padding: 2px 10px;
     border: solid 1px #ddd;
+    overflow: hidden;
 }
 
 /* Add note page */
@@ -134,6 +148,7 @@
     height: 40px;
     border-radius: 5px;
     font-size: 20px;
+    background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
 }
 
 .text-field {

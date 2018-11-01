@@ -13,6 +13,7 @@ class NoteListContainer extends React.Component {
         return (
             <div className="note-container">
                 <h1>Your Notes:</h1>
+                <button className="sort-btn" onClick={this.props.sortAtoZ}>Sort: A-Z</button>
                 <div className="note-wrapper">
                   {this.props.notes.map((note, i) => {
                       return <IndividualNote key={note._id} moveCard={this.props.moveCard} index={i} note={note} id={note._id} getNoteId={this.props.getNoteId} />

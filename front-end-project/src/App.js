@@ -18,7 +18,7 @@ class App extends Component {
     super()
     this.state = {
       notes:  [],
-      filterNotes: [],
+      filterNotes:[],
       title: "",
       textBody: "",
       searchInput:"",
@@ -66,12 +66,17 @@ class App extends Component {
   }
 
   searchNoteBar = event => {
+    // const prevNotes = this.state.notes.slice();
+    console.log("event",event)
     const notes = this.state.notes.filter(note => {
       if(note.title.toLowerCase().includes(event.target.value)){
-        return note;
+        return note
       }
+    });
+    this.setState({
+      filterNotes: notes
     })
-    this.setState({ filterNotes: notes})
+    
   }
 
   changeHandler = ev => {
@@ -120,6 +125,19 @@ class App extends Component {
      })
   }
 
+  sortAtoZ = e =>{
+    e.preventDefault();
+    const sortedNote = this.state.notes;
+    sortedNote.sort(function(a,b) 
+                      {return (a.title > b.title) ?
+                      1 : ((b.title > a.title) ?
+                       -1 : 0);} );
+    console.log("sorted", sortedNote)
+    this.setState({
+      notes: sortedNote
+    })
+  }
+
 
   // editNote = () => {
   //   console.log("this state id editnote", this.state.editId)
@@ -154,7 +172,7 @@ class App extends Component {
         <SingleNote {...props} deleteNote={this.deleteNote} note={this.state.activeNote} goToEditForm={this.goToEditForm} />
       )} />
       <Route exact path="/note-list/" render={props => (
-        <NoteListContainer {...props} notes={this.state.filterNotes.length > 0 ? this.state.filterNotes : this.state.notes} moveCard={this.moveCard} getNoteId={this.getNoteId} />
+        <NoteListContainer {...props}  moveCard={this.moveCard} sortAtoZ={this.sortAtoZ} notes={this.state.filterNotes.length > 0 ? this.state.filterNotes : this.state.notes} getNoteId={this.getNoteId} />
       )} />
       <Route exact path="/add-Note" render={props => (
         <AddNote 

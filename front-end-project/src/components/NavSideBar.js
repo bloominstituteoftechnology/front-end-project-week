@@ -21,7 +21,7 @@ const NavSideBar = (props) => {
                         <Link to="/add-Note"><h4 className="crt-btn">+ Create Your Notes</h4></Link>
                     </div>
                     <div>
-                        <input className="nav-search" type="text" onChange={props.changeHandler} placeholder="Search" value={props.searchInput} onKeyDown={props.searchNoteBar} name="searchInput"></input>
+                        <input className="nav-search" type="text" onChange={props.changeHandler} placeholder="Search"  onKeyDown={props.searchNoteBar} name="searchInput"></input>
                     </div>
                 </div>
             </div>
