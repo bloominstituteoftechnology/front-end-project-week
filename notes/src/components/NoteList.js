@@ -20,10 +20,17 @@ class NoteList extends Component {
     componentDidMount() {
         this.props.fetchNotes()
     }
+    
+    filterNotes = note => {
+        const lowerCaseSearch = this.state.searchInput.toLowerCase();
+        if (note.title.toLowerCase().includes(lowerCaseSearch) || 
+            note.textBody.toLowerCase().includes(lowerCaseSearch)) {
+            return note
+        }    
+    }
 
     render() {
-        const lowerCaseSearch = this.state.searchInput.toLowerCase();
-        const filteredNotes = this.props.notes.filter(note => note.title.toLowerCase().includes(lowerCaseSearch) || note.textBody.toLowerCase().includes(lowerCaseSearch))
+        const filteredNotes = this.props.notes.filter(note => this.filterNotes(note))
         return (
             this.props.fetching ? 
             <Loading /> :
