@@ -30,7 +30,7 @@ export const Button = styled.div`
   text-align: center;
   padding: 15px 0;
   border: 1px solid gray;
-  border-radius: 3px;
+  border-radius: 2px;
   :active {
     box-shadow: inset 0px 2px 5px -1px rgb(0, 0, 0);
   }
