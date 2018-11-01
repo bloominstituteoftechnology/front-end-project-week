@@ -72,7 +72,7 @@ export default class ViewNote extends Component {
         </NoteLinkContainer>
         <NoteTextContainer>
           <NoteTitle>{title}</NoteTitle>
-          <NoteContent>{textBody}</NoteContent>
+          <NoteContent source={textBody} />
         </NoteTextContainer>
       </NoteView>
     );

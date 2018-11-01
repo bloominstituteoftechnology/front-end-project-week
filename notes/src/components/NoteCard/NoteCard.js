@@ -5,7 +5,7 @@ function NoteCard(props) {
   return (
     <StyledCard>
       <StyledH5>{props.note.title}</StyledH5>
-      <CardP>{props.note.textBody}</CardP>
+      <CardP source={props.note.textBody} />
     </StyledCard>
   );
 }

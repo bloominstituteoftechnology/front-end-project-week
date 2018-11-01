@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Markdown from 'react-markdown';
 
 export const ViewContainer = styled.div`
   flex-grow: 1;
@@ -35,13 +36,42 @@ export const Button = styled.div`
 export const StyledH3 = styled.h3`
   font-size: 2.3rem;
   color: rgb(74, 73, 74);
-  `;
+`;
 
-export const StyledP = styled.p`
+export const StyledP = styled(Markdown)`
   text-align: left;
   font-size: 1.6rem;
   color: rgb(74, 73, 74);
   margin-top: 9px;
+  & p, th, td, div, span, applet, object, iframe, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+  & h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+  & h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  & h3 {
+    font-size: 2.3rem;
+    line-height: 2.3rem;
+  }
+  & h4 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  & h5 {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+  & h6 {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+  
 `;
 
 export const StyledForm = styled.form`
@@ -63,7 +93,7 @@ export const StyledInput = styled.input`
   border: 1px solid rgb(152, 152, 152);
   border-radius: 2px;
   margin-bottom: 16px;
-  `;
+`;
 
 export const StyledTextarea = styled.textarea`
   width: 100%;
