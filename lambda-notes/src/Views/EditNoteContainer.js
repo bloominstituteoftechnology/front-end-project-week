@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { editNote,deleteNote } from '../Actions';
 import Modal from "../Components/Modal";
@@ -36,13 +35,11 @@ const ActionsDiv = styled.div`
     display:flex;
     justify-content:flex-end;
 `
-
 const WrapperDiv = styled.div`
     margin-top:10px;
     border:1px solid #CECECE;
     display:flex;
 `
-
 const NoteSection = styled.div`
     width:75%;
     background-color: #F2F1F2;
