@@ -114,7 +114,8 @@ export default (state = initialState, action) => {
     case DELETE_NOTE:
       return {
         ...state,
-        deletingNote: true
+        deletingNote: true,
+        mightDelete: false
       };
 
     case DELETING_NOTE_SUCCESS:

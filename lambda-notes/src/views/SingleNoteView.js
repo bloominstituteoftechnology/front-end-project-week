@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import DeleteModal from '../components/DeleteModal';
 import { showDeleteModal, editingNote } from '../actions';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
