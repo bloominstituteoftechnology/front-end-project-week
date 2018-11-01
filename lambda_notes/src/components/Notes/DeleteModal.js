@@ -1,5 +1,5 @@
 import React from 'react';
-import './DeleteModal.css';
+import './Modal.css';
 
 const DeleteModal = props => {
   const showHideClassName = props.show ? "modal display-block" : "modal display-none";

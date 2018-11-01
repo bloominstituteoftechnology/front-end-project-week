@@ -1,5 +1,5 @@
 import React from 'react';
-import './DeleteModal.css'
+import './Modal.css'
 
 const EditNoteModal = props => {
   const showHideClassName = props.show ? "modal display-block" : "modal display-none";
@@ -7,7 +7,7 @@ const EditNoteModal = props => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <p>Note Updated!</p>
+        <p>Note updated!</p>
         <button
           type="button"
           onClick={props.getNotes}

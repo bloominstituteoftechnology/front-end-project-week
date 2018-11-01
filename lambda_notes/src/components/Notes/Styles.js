@@ -43,12 +43,12 @@ export const Hr = styled.hr`
 `;
 
 export const TextBody = styled.p`
-  height: 200px;
+  height: 170px;
   font-size: 1.4rem;
   line-height: 25px;
   color: #4B4B4A;
   word-break: break-all;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 // SingleNote component
