@@ -22,8 +22,7 @@ class Signup extends Component {
   handleSignupSubmit = e => {
     e.preventDefault();
 
-    const { firebase, history } = this.props;
-    const { email, password } = this.state;
+    const { firebase } = this.props;
 
     const createNewUser = ({ email, password }) => {
       firebase
