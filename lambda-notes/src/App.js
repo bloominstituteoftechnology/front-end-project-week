@@ -120,7 +120,6 @@ class App extends Component {
               <Notes 
                 {...props} 
                 notes={this.state.notes} 
-                
               />
             )}
           />
