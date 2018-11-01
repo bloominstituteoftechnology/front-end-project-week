@@ -12,17 +12,19 @@ export const DELETING_NOTES = 'DELETING_NOTES';
 export const DELETED_NOTES = 'DELETED_NOTES';
 export const ERROR = 'ERROR';
 
+const url = `http://localhost:9000/notes`;
+
 export const fetchNotes = () => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
 
         axios
-            .get('https://killer-notes.herokuapp.com/note/get/all')
+            .get(url)
             .then(res => {
                 dispatch({ type: FETCHED_NOTES, payload: res.data });
             })
             .catch(err => {
-                dispatch({ tpye: ERROR, payload: err});
+                dispatch({ type: ERROR, payload: err});
             })
     }
 }
@@ -32,7 +34,7 @@ export const viewNote = noteId => {
         dispatch({ type: VIEWING_NOTE });
 
         axios
-            .get(`https://killer-notes.herokuapp.com/note/get/${noteId}`)
+            .get(`${url}${noteId}`)
             .then(res => {
                 dispatch ({ type: VIEWED_NOTE, payload: res.data });
             })
@@ -47,7 +49,7 @@ export const addNote = (note, history) => {
         dispatch({ type: SAVING_NOTES });
 
         axios
-            .post('https://killer-notes.herokuapp.com/note/create', {
+            .post(url, {
                 title: note.title,
                 textBody: note.content
             })
@@ -56,7 +58,7 @@ export const addNote = (note, history) => {
             })
             .then(() => history.push('/'))
             .catch(err => {
-                dispatch({ tpye: ERROR, payload: err});
+                dispatch({ type: ERROR, payload: err});
             })
     }
 }
@@ -66,13 +68,13 @@ export const deleteNote = (NoteId, history) => {
         dispatch({ type: DELETING_NOTES });
 
         axios
-            .delete(`https://killer-notes.herokuapp.com/note/delete/${NoteId}`)
+            .delete(`${url}${NoteId}`)
             .then(res => {
                 dispatch({ type: DELETED_NOTES });
             })
             .then(() => history.push('/'))
             .catch(err => {
-                dispatch({ tpye: ERROR, payload: err});
+                dispatch({ type: ERROR, payload: err});
             })
     }
 }
@@ -82,7 +84,7 @@ export const updateNote = note => {
         dispatch({ type: UPDATING_NOTES });
 
         axios
-        .put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, {
+        .put(`${url}${note.id}`, {
             title: note.title,
             textBody: note.content
         })
@@ -90,7 +92,7 @@ export const updateNote = note => {
             dispatch({ type: UPDATED_NOTES, payload: res.data })
         })
         .catch(err => {
-            dispatch({ tpye: ERROR, payload: err});
+            dispatch({ type: ERROR, payload: err});
         })
     }
 }

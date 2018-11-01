@@ -17,16 +17,22 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar>
-          <NavbarBrand>Lambda<br/>Notes</NavbarBrand>
+          <NavbarBrand>
+            Lambda<br/>Notes
+          </NavbarBrand>
           <Nav>
             <NavItem>
               <NavLink>
-                <Link to="/">View Your Notes</Link>
+                <Link to="/">
+                  View Your Notes
+                </Link>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink>
-                <Link to="/note/add">+ Create New Note</Link>
+                <Link to="/note/add">
+                  + Create New Note
+                </Link>
               </NavLink>
             </NavItem>
           </Nav>
@@ -59,4 +65,9 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, actions)(App));
+export default withRouter(
+  connect(
+    mapStateToProps, 
+    actions
+  )(App)
+);

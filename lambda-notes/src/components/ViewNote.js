@@ -12,7 +12,7 @@ class ViewNote extends Component {
         this.state = {
             updateActive: false,
             modal: false
-        }
+        };
     }
 
     componentDidMount() {
@@ -21,9 +21,9 @@ class ViewNote extends Component {
 
     toggleUpdate = () => {
         this.setState((prevState) => { 
-            return {updateActive: !prevState.updateActive}
+            return { updateActive: !prevState.updateActive }
         });
-    }
+    };
 
     deleteNote = () => {
         this.props.deleteNote(this.props.match.params.id, this.props.history);
@@ -33,7 +33,7 @@ class ViewNote extends Component {
         this.setState((prevState) => {
             return { modal: !prevState.modal };
         });
-    }
+    };
 
     render() {
         if (this.props.viewingNote) {
@@ -50,11 +50,11 @@ class ViewNote extends Component {
                 </div>
                 <div className="note-content">
                     <h3>{this.props.note.title}</h3>
-                    <MarkdownPreview value={this.props.note.textBody}/>
+                    <MarkdownPreview value={this.props.note.content}/>
                 </div>
                                
                 {this.state.updateActive !== false
-                    ? <EditNote onCancel={this.toggleUpdate} title={this.props.note.title} content={this.props.note.textBody} 
+                    ? <EditNote onCancel={this.toggleUpdate} title={this.props.note.title} content={this.props.note.content} 
                                 updateNote={this.props.updateNote} id={this.props.match.params.id} />
                     : null
                 }

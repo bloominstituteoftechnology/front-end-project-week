@@ -6,8 +6,8 @@ class Note extends Component {
         return (
             <div className="note-card">
                 <div className="card-body">
-                    <h5 className="card-title">{this.props.title.substring(0, 20)}</h5>
-                    <MarkdownPreview value={this.props.content.substring(0, 100)} />
+                    <h5 className="card-title">{this.props.title}</h5>
+                    <MarkdownPreview value={this.props.content} />
                 </div>
             </div>
         )

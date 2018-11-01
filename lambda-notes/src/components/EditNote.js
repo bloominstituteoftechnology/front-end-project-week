@@ -7,14 +7,14 @@ class EditNote extends Component {
         this.state = {
             title: this.props.title,
             content: this.props.content
-        }
+        };
     }
 
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
     
     updateNote = e => {
         e.preventDefault();
@@ -22,10 +22,10 @@ class EditNote extends Component {
             id: this.props.id,
             title: this.state.title,
             content: this.state.content
-        }
+        };
         this.props.updateNote(updatedNote);
         this.props.onCancel();
-    }
+    };
 
     render() {
         return (
