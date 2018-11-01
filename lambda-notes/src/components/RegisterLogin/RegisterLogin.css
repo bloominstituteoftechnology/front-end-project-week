@@ -15,11 +15,12 @@
 }
 
 .login-header {
-    height: 18vh;
-    /* background-color:lightgray; */
+    height: 12vh;
+    background-color:lightgray;
     width: 100%;
     padding-top: 20px;
     padding-left: 50%;
+    opacity: 0.6;
 }
 
 .login-input {
