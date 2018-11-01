@@ -1,73 +1,40 @@
 import React from "react";
-import axios from "axios";
 
-class NoteEdit extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      note: {},
-      editedNote: {},
-      editedTitle: "",
-      editedTextBody: ""
-    };
-  }
+const NoteEdit = props => {
+  const note = props.notes.find(
+    note => props.match.params.id === `${note._id}`
+  );
 
-  componentDidMount() {
-    axios
-      .get(
-        `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
-      )
-      .then(response =>
-        this.setState({
-          note: {
-            _id: response.data._id,
-            title: response.data.title,
-            textBody: response.data.textBody
-          }
-        })
-      )
-      .then(console.log(this.state));
-  }
+  console.log(props);
 
-  handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  clickHandler = event => {
+  const editNotes = event => {
     event.preventDefault();
+    props.editNote(note._id);
+    props.history.push(`/note/get/${note._id}`);
   };
 
-  render() {
-    return (
-      <div>
-        <h1>EDIT</h1>
-
-        <form onSubmit={this.editNote}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="Title"
-            // value={this.state.note.title}
-            name="title"
-          />
-          <input
-            type="text"
-            placeholder="text"
-            onChange={this.handleInputChange}
-            // value={this.state.note.textBody}
-            name="textBody"
-          />
-        </form>
-
-        <button
-          onClick={() => {
-            this.props.editNote(this.state.note._id);
-          }}
-        >
-          Submit
-        </button>
-      </div>
-    );
-  }
-}
+  return (
+    <form className="form">
+      <h2>Edit Note:</h2>
+      <input
+        type="text"
+        name="updatedTitle"
+        placeholder="Title"
+        onChange={props.handleInputChange}
+        value={props.updatedTitle}
+      />
+      <input
+        name="updatedTextBody"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Note Content"
+        onChange={props.handleInputChange}
+        value={props.updatedTextBody}
+      />
+      <button onClick={editNotes}>Update</button>
+    </form>
+  );
+};
 
 export default NoteEdit;
