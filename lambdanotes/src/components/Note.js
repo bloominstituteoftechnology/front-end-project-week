@@ -20,7 +20,6 @@ const NoteTags = styled.div`
 const Tag = styled.span`
 	display: inline-block;
 	max-width: 100px;
-	/* min-width: 30px; */
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -72,35 +71,6 @@ const NoteBody = styled.p`
 	line-height: 2.2rem;
 `;
 
-// const NoteTags = styled.div`
-// 	position: absolute;
-// 	bottom: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	background: linear-gradient(
-// 		to bottom,
-// 		rgba(255, 255, 255, 0),
-// 		rgba(255, 255, 255, 0.8) 5%,
-// 		rgba(255, 255, 255, 1) 5%
-// 	);
-// 	padding: 6px 8px 7px;
-// `;
-
-// const Tag = styled.span`
-// 	display: inline-block;
-// 	max-width: 100%;
-// 	white-space: nowrap;
-// 	overflow: hidden;
-// 	text-overflow: ellipsis;
-// 	font-size: 1.1rem;
-// 	font-weight: bold;
-// 	color: white;
-// 	background: #24b8bd;
-// 	padding: 2px 5px;
-// 	border-radius: 3px;
-// 	margin-right: 5px;
-// `;
-
 const truncate = (content, length) => {
 	return content.length > length
 		? `${content.slice(0, length - 3)} …`
@@ -111,16 +81,17 @@ const Note = props => {
 	return (
 		<NoteContainer>
 			<NoteTags>
-				{props.note.tags.length &&
-					props.note.tags.map(tag => (
-						<Tag
-							key={`${props.note.id}-${tag.id}`}
-							id={tag.id}
-							title={tag.text}
-						>
-							{tag.text}
-						</Tag>
-					))}
+				{props.note.tags.length
+					? props.note.tags.map(tag => (
+							<Tag
+								key={`${props.note.id}-${tag.id}`}
+								id={tag.id}
+								title={tag.text}
+							>
+								{tag.text}
+							</Tag>
+					  ))
+					: null}
 			</NoteTags>
 			<NoteLink to={`/note/${props.note.id}`}>
 				<NoteTitle>{props.note.title}</NoteTitle>

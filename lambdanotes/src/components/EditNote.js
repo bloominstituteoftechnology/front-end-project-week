@@ -32,6 +32,7 @@ class EditNote extends Component {
 			textBody: this.state.textBody
 		});
 
+		// This isn't working.
 		this.props.returnToNote('edit');
 	};
 
