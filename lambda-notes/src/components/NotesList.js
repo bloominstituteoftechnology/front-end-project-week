@@ -24,7 +24,7 @@ class NotesList extends React.Component {
       this.sortByLengthAsc();
     }
     if (this.props.lengthDes) {
-      this.sortByLengthDes(); 
+      this.sortByLengthDes();
     }
   }
 
@@ -44,13 +44,7 @@ class NotesList extends React.Component {
 
   sortByTitleAsc = () => {
     let sortedTitle = this.props.notes.slice().sort(function (a, b) {
-      let titleA = a.title.toLowerCase(),
-          titleB = b.title.toLowerCase()
-        if (titleA < titleB)
-        return -1
-        if (titleA > titleB)
-        return 1
-      return 0;
+      return a.title.localeCompare(b.title, 'en', {'numeric': true, 'sensitivity': 'base'});
     });
     this.setState({
       currentNotes: sortedTitle,
@@ -60,13 +54,7 @@ class NotesList extends React.Component {
 
   sortByTitleDes = () => {
     let sortedTitleDes = this.props.notes.slice().sort(function(a, b) {
-      let titleA = a.title.toLowerCase(),
-      titleB = b.title.toLowerCase()
-      if (titleA < titleB)
-      return 1
-      if (titleA > titleB)
-      return -1
-    return 0;
+    return b.title.localeCompare(a.title, 'en', {'numeric': true, 'sensitivity': 'base'});
   });
     this.setState({
       currentNotes: sortedTitleDes,
