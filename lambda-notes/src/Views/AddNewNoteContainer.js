@@ -63,16 +63,13 @@ class AddNewNote extends React.Component{
         this.props.addNote({
             title: this.state.title,
             textBody: this.state.body
+        },()=>{
+            if(this.props.isAdded){
+                this.setState({title:'', body:''},()=>{
+                    this.props.history.push('/')
+                })
+            }
         })
-
-
-    }
-    componentDidUpdate(){
-        if(this.props.isAdded){
-            this.setState({title:'', body:''},()=>{
-                this.props.history.push('/')
-            })
-        }
     }
     render(){
         return(

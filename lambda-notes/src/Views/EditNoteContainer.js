@@ -162,11 +162,28 @@ class EditNoteContainer extends React.Component{
         this.props.editNote(this.state.id,{
             textBody:this.state.body,
             title:this.state.title
-        })
+        },
+
+        ()=>{
+            this.setState({
+                body:'',
+                title:'',
+                id:'',
+                isEditting:false
+            },()=>{this.props.history.push('/')})
+            }
+        )
     }
     handleModalDelete = (event,id) =>{
         event.preventDefault();
-        this.props.deleteNote(id);
+        this.props.deleteNote(id,()=>{
+            this.setState({
+                body:'',
+                title:'',
+                id:'',
+                isEditting:false
+            },()=>{this.props.history.push('/')});
+        });
     }
     handleDelete = (event,id) =>{
         event.preventDefault();
@@ -179,12 +196,6 @@ class EditNoteContainer extends React.Component{
     }
     componentDidUpdate(){
         if((this.props.isEdited)||(this.props.isDeleted)){
-            this.setState({
-                body:'',
-                title:'',
-                id:'',
-                isEditting:false
-            },()=>{this.props.history.push('/')});
         }
     }
 

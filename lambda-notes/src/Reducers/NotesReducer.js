@@ -9,10 +9,7 @@ const InitialState = {
     individualNote:null,
     isFetching:false,
     isAdding:false,
-    isAdded:false,
     isEditting:false,
-    isEdited:false,
-    isDeleted:false,
     isDeleting:false,
   }
 
@@ -23,16 +20,18 @@ export const NotesReducer = (state=InitialState,action) =>{
 
         case FETCHING_NOTES:
         return {
-            ...state,isFetching:true, isAdded:false, isDeleted:false, isEdited:false,
+            ...state,isFetching:true
         }
         case FETCHING_NOTES_SUCCESS:
         return {
-            ...state, notes: action.payload, isFetching: false, isAdded:false,
+            ...state, notes: action.payload, isFetching: false
         }
         case FETCHING_NOTES_FAILURE:
         return {
-            ...state,isFetching:false, isAdded:false,
+            ...state,isFetching:false
         }
+
+
         case ADDING_NOTES:
         return {
             ...state,isAdding:true, isAdded:false,
@@ -52,37 +51,37 @@ export const NotesReducer = (state=InitialState,action) =>{
         }
         case FETCHING_NOTES_BY_ID_SUCCESS:
         return {
-            ...state, individualNote: action.payload, isFetching: false, isAdded:false,
+            ...state, individualNote: action.payload, isFetching: false
         }
         case FETCHING_NOTES_BY_ID_FAILURE:
         return {
-            ...state,isFetching:false, isAdded:false,
+            ...state,isFetching:false
         }
 
         case EDITTING_NOTES:
         return {
-            ...state,isEditting:true,isEdited:false
+            ...state,isEditting:true
         }
         case EDITTING_NOTES_SUCCESS:
         return {
-            ...state, individualNote: action.payload, isEditting:false, isEdited:true
+            ...state, individualNote: action.payload, isEditting:false
         }
         case EDITTING_NOTES_FAILURE:
         return {
-            ...state, isEditting:false,isEdited:false
+            ...state, isEditting:false
         }
 
         case DELETING_NOTES:
         return {
-            ...state,isDeleting:true,isDeleted:false
+            ...state,isDeleting:true
         }
         case DELETING_NOTES_SUCCESS:
         return {
-            ...state, individualNote: action.payload, isDeleting:false, isDeleted:true
+            ...state, individualNote: action.payload, isDeleting:false
         }
         case DELETING_NOTES_FAILURE:
         return {
-            ...state, isDeleting:false,isDeleted:false
+            ...state, isDeleting:false
         }
 
         default:

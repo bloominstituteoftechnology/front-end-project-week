@@ -23,26 +23,35 @@ export const DELETING_NOTES_FAILURE = 'DELETING_NOTES_FAILURE';
 
 
 
-export const deleteNote = (Id) => dispatch => {
+export const deleteNote = (Id,cb) => dispatch => {
   dispatch({ type: DELETING_NOTES });
 
   axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${Id}`)
     .then(response => {
       dispatch({ type: DELETING_NOTES_SUCCESS, payload: response.data});
-    })
+      if(typeof cb==='function')
+      {
+        cb()
+      }
+    })  
     .catch(error => {
       dispatch({ type: DELETING_NOTES_FAILURE, payload: error });
   });  
 }
 
-export const editNote = (Id,data) => dispatch => {
+export const editNote = (Id,data,cb) => dispatch => {
   dispatch({ type: EDITTING_NOTES });
 
   axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${Id}`,data)
     .then(response => {
       dispatch({ type: EDITTING_NOTES_SUCCESS, payload: response.data});
+      if(typeof cb==='function')
+      {
+        cb()
+      }
+
     })
     .catch(error => {
       dispatch({ type: EDITTING_NOTES_FAILURE, payload: error });
@@ -81,13 +90,16 @@ export const editNote = (Id,data) => dispatch => {
     });  
   }
 
-  export const addNote = (data) => dispatch => {
+  export const addNote = (data,cb) => dispatch => {
     dispatch({ type: ADDING_NOTES });
     
     axios
       .post(`https://fe-notes.herokuapp.com/note/create`,data)
       .then(response => {
         dispatch({ type: ADDING_NOTES_SUCCESS});
+        if(typeof cb==='function'){
+            cb(response)
+        }
       })
       .catch(error => {
         dispatch({ type: ADDING_NOTES_FAILURE, payload: error });
