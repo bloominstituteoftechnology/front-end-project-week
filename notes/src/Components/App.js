@@ -33,7 +33,23 @@ class App extends Component {
     axios
       .post(`${url}/create`, newNote)
       .then(this.getNotes)
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
+  }
+
+  editNote(id, newNoteContent) {
+    console.log('Updating note: ' + id + '/nwith: ' + newNoteContent);
+    axios
+      .put(`${url}/edit/${id}`)
+      .then(this.getNotes)
+      .catch(error => console.log(error));
+  }
+
+  deleteNote(id) {
+    console.log('Deleting note: ' + id);
+    axios
+      .delete(`${url}/delete/${id}`)
+      .then(this.getNotes)
+      .catch(error => console.log(error));
   }
 
   componentDidMount() {
@@ -46,11 +62,6 @@ class App extends Component {
     );
     return <ReadNote {...selectedNote} />;
   };
-
-  // addEditNote = () => {
-  //   console.log("addEditNoteCalled");
-  //   return <AddEditNote />;
-  // };
 
   render() {
     return (

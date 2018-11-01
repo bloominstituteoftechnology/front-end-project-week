@@ -28,6 +28,9 @@ class AddEditNote extends React.Component {
       title: '',
       textBody: ''
     });
+
+    window.location.reload();
+
   }
 
   handleInputChange = e => {
