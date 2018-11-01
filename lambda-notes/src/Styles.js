@@ -273,20 +273,28 @@ export const LoginButton = styled.button`
 `;
 
 export const LoginContainer = styled.div`
-    background-color: #D3D2D3;
-    width: 43.89%;
-    height: 350px;
-    color: white;
+  background-color: rgba(128,128,128,0.8);
+  width: 43.89%;
+  height: 350px;
+  color: white;
+
+  margin-left: 27%;
 `;
 
 export const LambdaH1 = styled.div`
-    /* text-align: center; */
-    color: black;
-    font-weight: bold;
-    font-size: 50px;
-    margin-top: 118px;
-    margin-bottom: -100px;
-    margin-left: 12%;
+  /* text-align: center; */
+  color: black;
+  font-weight: bold;
+  font-size: 55px;
+  margin-top: 118px;
+  margin-bottom: -131px;
+  width: 443px;
+  margin-left: 12%;
+  font-family:  Verdana;
+
+                          /* backup plan */
+  margin-top: 203px;
+  margin-left: 35%;
 `;
 
 export const ExportBtn = styled.div`
@@ -322,10 +330,20 @@ export const SignOut = styled.div`
 `;
 
 export const LoginBackground = styled.div`
-  background-image: url(https://lambdaschool.com/static/images/herogirl.png);
-  background-size: auto;
+  /* background-image: url(https://lambdaschool.com/static/images/herogirl.png); */
+  /* background-size: auto;
   background-position: 127% 0%;
   background-repeat: no-repeat;
   height: 97vh;
+  overflow: hidden; */
+
+  /* backup plan image */
+  background-image: url(https://images.pexels.com/photos/269448/pexels-photo-269448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: cover;
+  background-position: 50% -120px;
+  height: 97vh;
+  width: 99vw;
+  background-repeat: no-repeat;
   overflow: hidden;
+  border: 1.5px solid black;
 `;

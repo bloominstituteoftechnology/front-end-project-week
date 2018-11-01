@@ -30,8 +30,8 @@ const Login = props => {
           <LoginButton>Login</LoginButton>
         </LoginForm>
 
-        <LoginHint>Hint: user: shawn</LoginHint>
-        <LoginHint>Hint: password: cat</LoginHint>
+        {/* <LoginHint>Hint: user: shawn</LoginHint>
+        <LoginHint>Hint: password: cat</LoginHint> */}
       </LoginContainer>
     </LoginBackground>
   );
