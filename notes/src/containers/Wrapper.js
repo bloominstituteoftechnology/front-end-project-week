@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import ReactLoading from "react-loading";
 
-import { Container } from "../styles";
+import { Container, SpinnerWrapper } from "../styles";
 
 import Navigation from "../components/Navigation";
 import NoteContainer from "./NoteContainer";
@@ -110,8 +111,17 @@ class Wrapper extends Component {
   };
 
   render() {
-    if (this.props.notes.length < 1) {
-      return <div>Loading...</div>;
+    if (this.props.fetchingNotes === true) {
+      return (
+        <SpinnerWrapper>
+          <ReactLoading
+              type={"spinningBubbles"}
+              color="#777"
+              height={160}
+              width={160}
+            />
+        </SpinnerWrapper>
+      );
     }
 
     return (
@@ -163,7 +173,8 @@ const mapStateToProps = state => ({
   notes: state.notes,
   editing: state.editing,
   showSort: state.showSort,
-  criteria: state.criteria
+  criteria: state.criteria,
+  fetchingNotes: state.fetchingNotes
 });
 
 export default withRouter(

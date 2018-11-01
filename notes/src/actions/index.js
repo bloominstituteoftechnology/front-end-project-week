@@ -2,7 +2,9 @@ import { URL } from "../constants";
 
 import axios from "axios";
 
+export const FETCHING_NOTES = "FETCHING_NOTES";
 export const FETCH_NOTES = "FETCH_NOTES";
+export const FETCHING_NOTE = "FETCHING_NOTE";
 export const FETCH_NOTE = "FETCH_NOTE";
 export const ADD_NOTE = "ADD_NOTE";
 export const EDIT_NOTE = "EDIT_NOTE";
@@ -21,6 +23,7 @@ export const TOGGLE_SORT = "TOGGLE_SORT";
 export const SEARCH = "SEARCH";
 
 export const fetchNotes = () => dispatch => {
+  dispatch({ type: FETCHING_NOTES });
   axios
     .get(`${URL}get/all`)
     .then(res => dispatch({ type: FETCH_NOTES, payload: res.data }))
@@ -28,6 +31,7 @@ export const fetchNotes = () => dispatch => {
 };
 
 export const fetchNote = id => dispatch => {
+  dispatch({ type: FETCHING_NOTE });
   axios
     .get(`${URL}get/${id}`)
     .then(res => dispatch({ type: FETCH_NOTE, payload: res.data }))

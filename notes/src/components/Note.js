@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import ReactLoading from "react-loading";
 
 import Modal from "./Modal";
 
-import { MainContent, NoteWrapper, EditDelete } from "../styles";
+import {
+  MainContent,
+  NoteWrapper,
+  EditDelete,
+  SpinnerWrapper
+} from "../styles";
 import { fetchNote, deleteNote, openModal, closeModal } from "../actions";
 
 class Note extends Component {
@@ -14,11 +20,16 @@ class Note extends Component {
   }
 
   render() {
-    if (!this.props.note) {
-      return <div>Loading...</div>;
-    }
-
-    return (
+    return !this.props.note ? (
+      <SpinnerWrapper>
+        <ReactLoading
+          type={"spinningBubbles"}
+          color="#777"
+          height={"20%"}
+          width={"20%"}
+        />
+      </SpinnerWrapper>
+    ) : (
       <MainContent>
         <EditDelete>
           <span onClick={() => this.props.handleUpdate(this.props.note._id)}>
@@ -46,7 +57,10 @@ class Note extends Component {
   }
 }
 
-const mapStateToProps = state => ({ note: state.note, open: state.open });
+const mapStateToProps = state => ({
+  note: state.note,
+  open: state.open,
+});
 
 export default withRouter(
   connect(

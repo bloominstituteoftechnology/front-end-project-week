@@ -212,5 +212,12 @@ border-radius: 3px;
 border: none;
 margin: 10px 0;
 width: 200px
-height: 40px
+height: 40px`;
+
+export const SpinnerWrapper = styled.div`
+height: 100vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
 `;

@@ -1,5 +1,7 @@
 import {
+  FETCHING_NOTES,
   FETCH_NOTES,
+  FETCHING_NOTE,
   FETCH_NOTE,
   ADD_NOTE,
   EDIT_NOTE,
@@ -15,6 +17,8 @@ import {
 
 const initialState = {
   notes: [],
+  fetchingNotes: false,
+  fetchingNote: false,
   note: null,
   editing: false,
   open: false,
@@ -24,16 +28,21 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case FETCHING_NOTES:
+      return { ...state, fetchingNotes: true };
     case FETCH_NOTES:
       return {
         ...state,
-        notes: [...state.notes, ...action.payload]
+        notes: [...state.notes, ...action.payload],
+        fetchingNotes: false
       };
-
+    case FETCHING_NOTE:
+      return { ...state, fetchingNote: true };
     case FETCH_NOTE:
       return {
         ...state,
-        note: action.payload
+        note: action.payload,
+        fetchingNote: false,
       };
     case ADD_NOTE:
       return {
