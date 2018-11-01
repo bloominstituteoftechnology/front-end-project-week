@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f5f5f5;
+  color: #131516;
+}
+
+h2, h3, h4, h5, h6 {
+  font-size: 30px;
+}
+ 
+ h1 {
+  margin-bottom: 50px;
+  margin-left: 30px;
+  color: lightslategrey;
+}
+
+.logo {
+  font-family: 'Expletus Sans', cursive;
+  color: white;
+  font-size: 50px;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

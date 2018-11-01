@@ -1,0 +1,28 @@
+{
+  "name": "reverse-arguments",
+  "version": "1.0.0",
+  "description": "reverse the arguments passed to a function.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter nyan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stoeffel/reverse-arguments"
+  },
+  "keywords": [
+    "function",
+    "arguments"
+  ],
+  "author": "stoeffel",
+  "license": "MIT",
+  "bugs": {
+    "url": "http://github.com/stoeffel/reverse-arguments/issues"
+  },
+  "homepage": "http://github.com/stoeffel/reverse-arguments",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {}
+}

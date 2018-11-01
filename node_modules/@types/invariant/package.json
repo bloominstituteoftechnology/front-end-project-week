@@ -1,0 +1,21 @@
+{
+    "name": "@types/invariant",
+    "version": "2.2.29",
+    "description": "TypeScript definitions for invariant",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "MichaelBennett",
+            "url": "https://github.com/bennett000"
+        }
+    ],
+    "main": "",
+    "repository": {
+        "type": "git",
+        "url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "e50d46481801da247a6086077db25b5dab8870791e10a815884c4d397e0af631",
+    "typeScriptVersion": "2.0"
+}
