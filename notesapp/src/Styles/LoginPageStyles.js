@@ -54,18 +54,18 @@ export const WhiteBoxDiv2 = styled.div `
 export const LambdaLogo = styled.div `
 position: absolute;
 top: 30px;
-left: 200px;
+left: 110px;
 z-index: 2;
 background-image: url(${logo});
 background-size: cover;
 opacity: 1;
 background-repeat: no-repeat;
 height: 132px;
-width: 10%;
+width: 200px;
 `
 
 export const LoginTitle = styled.h1 `
-    color: rgb(24,31,34);
+     color: rgb(24,31,34);
     font-size: 220%;
     font-weight: 100;
     line-height: 50px;
@@ -73,7 +73,7 @@ export const LoginTitle = styled.h1 `
     margin: 0px;
     font-family: 'europa',sans-serif;
     position: absolute;
-    left: -770px;
+    left: 59px;
     top: 200px;
     z-index: 2;
 `
@@ -87,7 +87,7 @@ export const LoginTitle2 = styled.h1 `
     margin: 0px;
     font-family: 'europa',sans-serif;
     position: absolute;
-    left: -771px;
+    left: 58px;
     top: 245px;
     z-index: 2;
 `
@@ -99,17 +99,17 @@ export const LoginParagraph = styled.p `
     font-weight: 300;
     line-height: 34px;
     position: absolute;
-    left: -771px;
+    left: 60px;
     top: 285px;
     z-index: 2;
     display: flex;
     flex-wrap: nowrap;
-    width: 60%;
+    width: 540px;
 `
 
 export const LoginForm = styled.form `
     position: absolute;
-    left: 260px;
+    left: 60px;
     top: 425px;
     z-index: 4;
     display: flex;

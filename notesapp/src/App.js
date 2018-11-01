@@ -14,7 +14,6 @@ const existingNote = {
   tags: []
 };
 
-
 class App extends Component {
   constructor() {
     super();
@@ -28,7 +27,7 @@ class App extends Component {
       isEditing: false,
       editingID: null,
       filteredNotes: [],
-      filterTarget: '',
+      filterTarget: ""
     };
   }
 
@@ -55,29 +54,36 @@ class App extends Component {
         ...this.state.noteObj,
         [ev.target.name]: ev.target.value.split(",")
       }
-    })
-  }
+    });
+  };
 
   //SearchBar Change Handler
   searchBarHandler = ev => {
     this.setState({
       [ev.target.name]: ev.target.value
-    })
-  }
+    });
+  };
 
   filter = ev => {
     this.searchBarHandler(ev);
     this.setState(prevState => {
       const filteredNotes = prevState.notes.filter(note => {
-        return note.title.toLowerCase().includes(prevState.filterTarget) || note.textBody.toLowerCase().includes(this.state.filterTarget)
-      })
-     return {filteredNotes: filteredNotes}
-    })
-  }
+        return (
+          note.title.toLowerCase().includes(prevState.filterTarget) ||
+          note.textBody.toLowerCase().includes(this.state.filterTarget)
+        );
+      });
+      return { filteredNotes: filteredNotes };
+    });
+  };
 
   addNote = () => {
-    if (this.state.noteObj.title === "" || this.state.noteObj.textBody === "" || this.state.noteObj.tags === "") {
-      return alert("All fields must have content, please try again.")
+    if (
+      this.state.noteObj.title === "" ||
+      this.state.noteObj.textBody === "" ||
+      this.state.noteObj.tags === ""
+    ) {
+      return alert("All fields must have content, please try again.");
     }
     axios
       .post(`https://fe-notes.herokuapp.com/note/create`, this.state.noteObj)
@@ -90,6 +96,7 @@ class App extends Component {
             textBody: "",
             tags: ""
           },
+          downloadAllModal: false
         });
       })
       .catch(error => alert(error));
@@ -108,12 +115,13 @@ class App extends Component {
   editNote = () => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingID}`, this.state.noteObj
+        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingID}`,
+        this.state.noteObj
       )
       .then(response => {
         const updatedNotes = this.state.notes.map(note => {
           if (note._id === response.data._id) {
-            return response.data
+            return response.data;
           }
           return note;
         });
@@ -135,22 +143,38 @@ class App extends Component {
     });
   };
 
+  openDLAModal = () => {
+    this.setState({ downloadAllModal: true });
+  };
+
+  closeDLAModal = () => {
+    this.setState({ downloadAllModal: false });
+  };
 
   render() {
     return (
       <AppDiv>
-        <NavigationBar filterTarget={this.state.filterTarget} filter={this.filter}/>
+        <NavigationBar
+          filterTarget={this.state.filterTarget}
+          filter={this.filter}
+          notes={this.state.notes}
+          downloadAllModal={this.state.downloadAllModal}
+          openDLAModal={this.openDLAModal}
+          closeDLAModal={this.closeDLAModal}
+        />
         <Route
           exact
           path="/home"
-          render={props => <NoteList 
-            {...props} 
-            notes={this.state.filteredNotes.length > 0
-               ? this.state.filteredNotes
-               : this.state.notes
-              } 
-              
-          />}
+          render={props => (
+            <NoteList
+              {...props}
+              notes={
+                this.state.filteredNotes.length > 0
+                  ? this.state.filteredNotes
+                  : this.state.notes
+              }
+            />
+          )}
         />
         <Route
           path="/home/:id"

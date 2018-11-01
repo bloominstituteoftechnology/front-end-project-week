@@ -34,10 +34,10 @@ render() {
                 </WhiteBoxDiv1>
                 <WhiteBoxDiv2>
                 </WhiteBoxDiv2>
-                <LoginTitle>A Revolutionary New App</LoginTitle>
+            </HeroGirlImgDiv>
+            <LoginTitle>A Revolutionary New App</LoginTitle>
                 <LoginTitle2>That Takes Your Notes</LoginTitle2>
                 <LoginParagraph>Front End Project Week is a one week, immersive sprint that gives you the practice you need to launch your new React or Redux Notes App—from the comfort of your own home.</LoginParagraph>
-            </HeroGirlImgDiv>
             <LoginForm onSubmit={this.loginFunction}>
             <LoginInput 
             placeholder="username"
