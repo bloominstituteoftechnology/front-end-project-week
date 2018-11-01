@@ -6,7 +6,7 @@ const Note = props => {
     return (
         <Link className="note-links" to={`/note/${props.note._id}`}>
             <div className="note-container">
-                <h2 className="note-title">{props.note.title}</h2>
+                <h3 className="note-title">{props.note.title}</h3>
                 <hr/>
                 <p className="note-body">{props.note.textBody}</p>
             </div>

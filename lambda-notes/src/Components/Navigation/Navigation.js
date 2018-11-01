@@ -5,11 +5,11 @@ import './Navigation.css'
 const Navigation = props => {
     return (
         <div className="navigation">
-            <h1>Lambda Notes</h1>
-            <Link className="button" to="/">
+            <h1 className="nav-title">Lambda Notes</h1>
+            <Link className="nav-button" to="/">
                 <button>View Your Notes</button>
             </Link>
-            <Link className="button" to="/createnew">
+            <Link className="nav-button" to="/createnew">
                 <button>+ Create New Note</button>            
             </Link>
         </div>

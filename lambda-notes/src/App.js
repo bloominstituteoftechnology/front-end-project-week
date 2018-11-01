@@ -6,7 +6,7 @@ import Navigation from './Components/Navigation/Navigation'
 import List from './Components/Views/ListView/List'
 import CreateNew from './Components/Views/CreateNewView/CreateNew'
 import Note from './Components/Views/NoteView/Note'
-import Edit from './Components/Views/Edit'
+import Edit from './Components/Views/EditView/Edit'
 
 class App extends Component {
   constructor() {
@@ -30,7 +30,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Navigation />
+        
         <Route 
           exact path='/' 
           render={props => (
@@ -41,10 +43,8 @@ class App extends Component {
           )}
         />
 
-
-
         <Route 
-          path='/createNew'
+          path='/createnew'
           render={props => (
             <CreateNew 
               {...props}
@@ -61,8 +61,14 @@ class App extends Component {
           )}
         />
 
-
-        <Route path='/edit' component={Edit}/>
+        <Route
+          path='/edit'
+          render={props => (
+            <Edit 
+              {...props}
+            />
+          )}
+        />
 
       </div>
     )

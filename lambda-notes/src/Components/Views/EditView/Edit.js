@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import './CreateNew.css'
+import './Edit.css'
 
-class CreateNew extends Component {
+class Edit extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,11 +37,11 @@ class CreateNew extends Component {
             textBody: this.state.content,
           }
 
-          if (this.state.note === null) {
+          if (this.state.note !== null) {
             axios
-                .post('https://fe-notes.herokuapp.com/note/create', newNote)
-                .then(res => {console.log(res)})
-                .catch(err => console.log(err))
+                .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
+                 .then(res => {console.log(res)})
+                 .catch(err => {console.log(err)})
           }
           
           this.setState({
@@ -54,33 +54,38 @@ class CreateNew extends Component {
 
     render() {
         return (
-            <div className='create-new-container'>
-                <h2 className="create-new-note">Create New Note:</h2>
-                <form className="form-container" onSubmit={this.handleSubmit}>
+            <div className="edit-container">
+                <h2 className="edit-note">Edit Note:</h2>
+                <form className="edit-form-container" onSubmit={this.handleSubmit}>
                     <input 
-                        defaultValue={this.state.note !== null
-                                        ? this.state.note.title
-                                        : this.props.value}
+                        defaultValue={
+                            this.state.note !== null
+                                ? this.state.note.title
+                                : this.props.value
+                        }
                         onChange={this.handleInputChange}
-                        className="title-input"
+                        className="edit-title"
                         placeholder="Note Title"
                         type="text"
                         name="title"
                     />
                     <textarea 
-                        value={this.state.note !== null
-                                ? this.state.body
-                                : this.props.value}
+                        defaultValue={
+                            this.state.note !== null
+                                ? this.state.content
+                                : this.props.value
+                        }
                         onChange={this.handleInputChange}
-                        className="content-input"
+                        className="edit-content"
                         placeholder="Note Content"
                         type="text"
                         name="content"
                     />
                     <input 
-                        className="submit-button"
+                        className="update-button"
                         type="submit"
-                        value="Save"
+                        value="Update"
+                    />
                     />
                 </form>
             </div>
@@ -88,7 +93,4 @@ class CreateNew extends Component {
     }
 }
 
-export default CreateNew
-
-
-
+export default Edit

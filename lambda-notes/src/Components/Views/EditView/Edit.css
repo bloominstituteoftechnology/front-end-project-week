@@ -1,0 +1,50 @@
+.edit-container {
+    margin: 0 50px;
+    width: 90vw;
+    height: 100vh;
+}
+
+.edit-note {
+    text-align: left;
+    margin: 100px 0 20px;
+    font-size: 35px;
+}
+
+.edit-form-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-title {
+    width: 50%;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #C5C5C5;
+}
+
+.edit-content {
+    width: 80%;
+    height: 40vh;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px 0 10px 10px;
+    text-align: top;
+    line-height: 15px;
+    font-size: 18px;
+    border: 1px solid #C5C5C5;
+    font-family: sans-serif;
+}
+
+.update-button {
+    border: 1px solid #C5C5C5;
+    width: 270px;
+    background: #2BC1C4;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 3px;
+}

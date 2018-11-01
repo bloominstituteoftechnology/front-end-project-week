@@ -4,10 +4,9 @@ import './List.css'
 
 const List = props => {
     return (
-        <div>
-            LIST PAGE
-            <h2>Your Notes:</h2>
-            <div className="container">
+        <div className="list-container">
+            <h2 className="your-notes">Your Notes:</h2>
+            <div className="outer-note-container">
                 {props.notes.map(note => (
                     <Note 
                         key={note._id} 
