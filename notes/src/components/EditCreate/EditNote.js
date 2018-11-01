@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { create } from '../actions';
+
 //styling
 import './EditCreate.css';
 
@@ -17,6 +19,15 @@ class EditNote extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+    }
+
+    newNote = (event) => {
+        event.preventDefault();
+        const note = {
+            title: this.state.title,
+            textBody: this.state.textBody
+        }
+        this.props.create(note)
     }
 
     render() {
@@ -40,7 +51,9 @@ class EditNote extends Component {
                     >
     
                     </textarea>
-                    <button className='noteSave'>{this.props.editNote ? 'Update' : 'Save'}</button>
+                    <button onClick={this.newNote} className='noteSave'>
+                        {this.props.editNote ? 'Update' : 'Save'}
+                    </button>
                 </form>
             </div>
         );
@@ -54,4 +67,4 @@ const mapStateToProps = state => {
     }
 }
  
-export default connect(mapStateToProps)(EditNote);
+export default connect(mapStateToProps, { create })(EditNote);

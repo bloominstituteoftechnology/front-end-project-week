@@ -4,6 +4,7 @@ export const GETTING_NOTES = 'GETTING_NOTES';
 export const NOTE_SUCCESS = 'NOTE_SUCCESS';
 export const SINGLE_NOTE = 'SINGLE_NOTE';
 export const CREATE_NOTE = 'CREATE_NOTE';
+export const CREATIVE = 'CREATIVE';
 export const EDIT = 'EDIT';
 
 export const getNotes = () => dispatch => {
@@ -25,11 +26,24 @@ export const viewNote = (id) => dispatch => {
             .then(({ data }) => {
                 dispatch({ type: SINGLE_NOTE, payload: data })
             })
+            .catch(error => console.log(error))
     )
 }
 
-export const create = () => dispatch => {
-    dispatch({ type: CREATE_NOTE })
+export const createMode = () => dispatch => {
+    dispatch({ type: CREATIVE })
+}
+
+export const create = (note) => dispatch => {
+    return (
+        axios
+            .post('https://fe-notes.herokuapp.com/note/create', note)
+            .then(({ data }) => {
+                console.log(data)
+                // dispatch({ type: CREATE_NOTE, payload: data })
+            })
+            .catch(error => console.log(error))
+    )
 }
 
 export const edit = () => dispatch => {

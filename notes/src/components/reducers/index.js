@@ -1,5 +1,5 @@
 //import actions
-import { GETTING_NOTES, NOTE_SUCCESS, SINGLE_NOTE, CREATE_NOTE, EDIT } from '../actions';
+import { GETTING_NOTES, NOTE_SUCCESS, SINGLE_NOTE, CREATE_NOTE, CREATIVE, EDIT } from '../actions';
 
 const initialState = {
     noteList: [],
@@ -38,15 +38,19 @@ const noteReducer = (state = initialState, action) => {
                     textBody: action.payload.textBody
                 }
             }
+        case CREATIVE:
+            return {
+                ...state,
+                editNote: false
+            }
         case CREATE_NOTE:
             return {
                 ...state,
                 note: {
-                    tags: [],
-                    title: '',
-                    textBody: ''
+                    ...state,
+                    title: action.payload.title,
+                    textBody: action.payload.textBody
                 },
-                editNote: false
             }
         case EDIT:
             return {
