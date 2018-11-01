@@ -24,6 +24,25 @@ class App extends Component {
     }
   }
 
+  exportCsv = () => {
+    var csvRow =[];
+    var A = [['title','name']];
+    var data = this.state.notes;
+    for(var i =0;i < data.length;i++){
+      A.push([data[i].title,data[i].textBody])
+    }
+    for(let i = 0; i < A.length; i++){
+      csvRow.push(A[i].join(','))
+    }
+    let csvString=csvRow.join("%0A");
+    let a = document.createElement("a");
+    a.href = 'data:attachment/csv,' + csvString;
+    a.target = "_Blank";
+    a.download = "NotesFile.csv";
+    document.body.appendChild(a);
+    a.click();
+  }
+
   refreshState(){
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => this.setState({notes : response.data}))
@@ -61,7 +80,7 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar refresh={this.refreshState()}/>
-        <Route exact path='/' render={() => <NoteList notes={this.state.notes} /> } />
+        <Route exact path='/' render={() => <NoteList export={this.exportCsv} notes={this.state.notes} /> } />
         {/* Create New Card Route  */}
         <Route path='/create-new' render={() => <CreateNew 
         submit={this.createNewSubmit} 

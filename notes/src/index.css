@@ -22,7 +22,9 @@ code {
   flex-direction: column;
   align-items: center;
 }
-
+.export{
+  margin-right:100%;
+}
 .note-list{
   display: flex;
   flex-wrap: wrap;
