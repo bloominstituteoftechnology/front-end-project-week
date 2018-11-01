@@ -21,10 +21,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getNotes();
-  }
-
-  getNotes = () => {
     axios
     .get('http://localhost:7000/api/notes')
     .then(response => {
@@ -57,25 +53,29 @@ class App extends Component {
     };
 
 
+editHandler = id => {
+  console.log(this.state)
+  let notecopy = this.state.notes.slice();
+  let editnote = notecopy.find(note => note.id === id);
+  this.setState({ edittitle: editnote.title, editcontent: editnote.content });
+  console.log(this.state)
+};
 
-editNoteSubmit = (id) => {
-  const editedNote = {
-      title: this.state.title,
-      content: this.state.content
-  }
-  axios
-  .put(`http://localhost:7000/api/notes/${id}`, editedNote)
-  .then(response => {
-      console.log('put response', response);
-          this.setState({
-              title: '',
-              content: ''
+  editNoteSubmit = id => {
+      axios
+        .put(`http://localhost:7000/api/notes/${id}`, {
+          title: this.state.edittitle,
+          content: this.state.editcontent})
+        .then(() => {
+      axios
+        .get("http://localhost:7000/api/notes")
+        .then(response => {
+            this.setState({ notes: response.data })
           })
-          this.props.resetState();
-  })
-  .catch(error => this.setState({editError: error.response.data})
-  )
-}
+        })
+      .catch(error => this.setState({editError: error.response.data})
+      )
+    }
 
 
  deleteNote = (id) => {
@@ -87,12 +87,6 @@ editNoteSubmit = (id) => {
   })
   .catch(err => console.log(err));
 }
-
-  // deleteNote = id => {
-  //  let notes = this.state.notes.slice();
-  //  notes = notes.filter(note => note.id !== id);
-  //  this.setState({ notes, id: '', title: '', content: ''  });
-  // }
 
 
   modalToggle = () => {
@@ -128,8 +122,11 @@ editNoteSubmit = (id) => {
               inputText={this.state.content} 
               addNewNote={this.addNewNote} /> ) } />
           <Route exact path="/notes/:id/edit" render={props => 
-            (<EditNote {...props} 
+            (<EditNote {...props}
+              handleInputChange={this.handleInputChange}
               notes={this.state.notes} 
+              edittext={this.state.edittext}
+              edittitle={this.state.edittitle}
               editNoteSubmit={this.editNoteSubmit} />)}  />
         </div>
       </div>

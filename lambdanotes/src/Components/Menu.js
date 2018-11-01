@@ -8,7 +8,7 @@ const Menu = (props) => {
     <div className="menu">
     <div className={props.deleting ? "delete-menu": null}></div>
       <h1>Lambda Notes</h1>
-      <Link className="menu-link" to="/">View Your Notes</Link>
+      <Link className="menu-link" to="/notes">View Your Notes</Link>
       <Link className="menu-link" to="/newnote"> + Create New Note</Link>
     </div>
   );
