@@ -37,7 +37,6 @@ class App extends Component {
         title : '',
         textBody : '',
       }})
-      alert("New Note has been added", response)
       this.refreshState();
     })
     .catch(error => alert("ERROR :::", error));
