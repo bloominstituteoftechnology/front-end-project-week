@@ -16,7 +16,7 @@ export default props => {
         type="text"
         name="search"
         maxLength="20"
-        placeholder="Search..."
+        placeholder="🔍 Search"
         value={props.search}
         onChange={props.handleSearchChange}
       />
