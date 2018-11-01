@@ -27,36 +27,34 @@ class App extends Component {
   getNotes = () => {
     axios
     .get('http://localhost:7000/api/notes')
-    .then(response => this.setState({ ...this.state, notes: response.data }))
+    .then(response => {
+      this.setState(() => ({ notes: response.data }));
+    })
     .catch(error => console.log(error));
   }
+
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // addNewNote = event => {
-  //   event.preventDefault();
-  //   const notes = this.state.notes.slice();
-  //   notes.push({ 
-  //     id: Number(Date.now().toString().slice(-2)), 
-  //     title: this.state.title, 
-  //     content: this.state.content 
-  //   });
-  //   this.setState({ 
-  //     notes, 
-  //     id: '',
-  //     title: '',
-  //     content: '' 
-  //   });
-  // }
 
-
-  addNewNote = (note) => {
-    axios.post('http://localhost:7000/api/notes', note)
-    .then(response => this.getNotes())
-    .catch(error => console.log(error));
-  }
+  addNewNote = () => {
+    axios
+      .post("http://localhost:7000/api/notes", {
+        title: this.state.title,
+        content: this.state.content
+      }).then(()=>{
+        axios.get("http://localhost:7000/api/notes")
+        .then(response => {
+          console.log(response.data);
+          this.setState(()=> ({notes: response.data }))
+        })
+      })
+      .catch(error => {
+        console.error("Server Error", error)
+      });
+    };
 
 
 

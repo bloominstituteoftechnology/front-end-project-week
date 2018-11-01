@@ -1,6 +1,6 @@
 import React from 'react';
  
-export const AddNote = props => {
+const AddNote = props => {
     const handleClick = (event) => {
         event.preventDefault();
         props.addNewNote(event);
