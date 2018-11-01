@@ -25,7 +25,8 @@ const mapStateToProps = state => {
   console.log('STATE from ListView', state)
   return {
     notes: state.notes,
-    gettingNotes: state.gettingNotes
+    gettingNotes: state.gettingNotes,
+    editedNote: state.editedNote
   }
 }
 

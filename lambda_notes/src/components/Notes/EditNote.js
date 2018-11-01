@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { FormContainer, FormGroup, ActionButton } from './Styles';
+import EditNoteModal from './EditNoteModal';
 
 const EditNote = props => {
   return (
@@ -24,7 +25,12 @@ const EditNote = props => {
           value={props.textBody}
         />
 
-        <ActionButton type="submit">Update</ActionButton>
+        <ActionButton type="submit" onClick={props.showModal}>Update</ActionButton>
+        <EditNoteModal
+          show={props.show}
+          hideModal={props.hideModal}
+          getNotes={props.getNotes}
+        />
       </FormGroup>
     </FormContainer>
   );

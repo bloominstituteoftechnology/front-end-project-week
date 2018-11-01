@@ -7,7 +7,16 @@ import EditNote from '../components/Notes/EditNote';
 class EditNoteView extends Component {
   state = {
     title: '',
-    textBody: ''
+    textBody: '',
+    show: false
+  }
+
+  showModal = () => {
+    this.setState({ show: true });
+  }
+
+  hideModal = () => {
+    this.setState({ show: false });
   }
 
   componentDidMount() {
@@ -29,20 +38,28 @@ class EditNoteView extends Component {
     const { title, textBody } = this.state;
     this.props.editNote(id, { title, textBody });
     this.setState({ title: '', textBody: '' });
+  }
+
+  getNotes = () => {
     this.props.getNotes();
     this.props.history.push('/');
   }
 
   render() {
-    if (this.props.gettingNotes) {
-      return <h2>Loading note...</h2>
-    }
-
     const noteId = this.props.match.params.id;
     const note = this.props.notes.find(note => note._id === noteId);
 
     return (
-      <EditNote editNote={this.editNote} handleInput={this.handleInput} title={this.state.title} textBody={this.state.textBody} note={note} />
+      <EditNote
+        editNote={this.editNote}
+        handleInput={this.handleInput}
+        title={this.state.title}
+        textBody={this.state.textBody}
+        note={note} getNotes={this.getNotes}
+        hideModal={this.hideModal}
+        showModal={this.showModal}
+        show={this.state.show}
+      />
     );
   }
 }

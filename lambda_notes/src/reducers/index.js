@@ -10,6 +10,7 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
+  console.log('ACTION PAYLOAD', action.payload)
   switch (action.type) {
     case actionTypes.GETTING_NOTES:
       return { ...state, gettingNotes: true };
@@ -29,8 +30,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         notes: state.notes.map(note => {
-          if (note.id === action.id) {
-            return action.payload;
+          if (note._id === action._id) {
+            return { ...action.payload };
           } else {
             return note;
           }
