@@ -16,13 +16,13 @@ padding: 0px;
 export default class AllNotes extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      notes: []
-    };
+   // this.state = {
+     // notes: []
+    //};
   }
   
 
-  componentDidMount() {
+ /*componentDidMount() {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
@@ -31,12 +31,12 @@ export default class AllNotes extends Component {
       .catch(error => {
         console.error('Server Error', error);
       });
-  }
+ */
 
   render() {
     return (
       <div className="notes-list">
-        {this.state.notes.map(note => (
+        {this.props.notes.map(note => (
          <Link to={`/notes/${note._id}`} key={note._id}>
           <SingleNoteDetails
           key={note._id} 

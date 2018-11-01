@@ -7,7 +7,7 @@ const EditBar = props => {
     return (
     <div>
     <Link to={`/EditNoteForm/${props.id}`}>edit</Link>
-    <Link to='/' onClick={props.deleteNote} onChange={props.handleInputChange} name="noteId" value={props.id} >delete</Link>
+    <Link to='/' onClick={event => props.deleteNote(event,props.id)}>delete</Link>
     </div>
     );
 }
@@ -19,7 +19,7 @@ constructor(props) {
   super(props);
 
 }
-
+onChange={props.handleInputChange} name="noteId" value={props.id}
 deleteNote = event => {
   axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.id}`)

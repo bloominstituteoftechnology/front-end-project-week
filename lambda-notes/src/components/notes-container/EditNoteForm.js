@@ -20,7 +20,7 @@ class EditNoteForm extends Component {
     const { title, textBody} = this.props.singleNote;
     return (
       <div className="NewForm">
-        <form onSubmit={this.props.editNote} name="noteId" value={this.props.match.params.id}>
+        <form onSubmit={event => this.props.editNote(event,this.props.match.params.id)}>
           <input
             type="text"
             onChange={this.props.handleInputChange}

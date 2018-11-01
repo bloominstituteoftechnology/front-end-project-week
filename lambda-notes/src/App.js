@@ -52,10 +52,12 @@ class App extends Component {
     .then(response => {
       console.log(response);
       console.log(response.data);
-      this.setState(() => ({ 
+      this.setState((prevState) => ({ 
+        notes:[...prevState.notes, {_id:response.data.success,  title: prevState.newNote,
+          textBody: prevState.newTitle,}],
         newNote:'',
         newTitle:'',
-        }));
+      }));
       })
 
     .catch(error => {
@@ -72,16 +74,16 @@ class App extends Component {
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
         console.log(response.data)
-        this.setState(() => ({ note: response.data}));
+        this.setState(() => ({ note:response.data}));
+      //  this.setState((prevState) => ({ notes:[...prevState.notes, response.data]}));
       })
       .catch(error => {
         console.error(error);
       });
-  };
+  }
   
-  editNote = event => {
+  editNote = (event,id) => {
     event.preventDefault();
-    const id = this.state.noteId;
     axios     
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,  
     {
@@ -90,7 +92,11 @@ class App extends Component {
     })
 
     .then(response => {
-      this.setState(() => ({ notes: response.data }));
+      console.log(response)
+
+      this.setState(() => ({ notes:response.data }));
+      // 2) make map thing 
+     
    })
 
     .catch(error => {
@@ -100,12 +106,21 @@ class App extends Component {
 
   //DELETE NOTE-------------------------------------
   
-  deleteNote = event => {
-    const id = this.state.noteId;
+  deleteNote = (event, id) => {
+    //const id = this.state.noteId;
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
-        window.location.reload()
+        console.log(response)
+        const updatedArray= this.state.notes.filter(note => {
+          if (id === note._id) {
+            return false;
+          } else {
+            return true;
+          }
+        })
+        this.setState(() => ({ notes:updatedArray }));
+        //window.location.reload()
       })
       .catch(error => {
         console.error(error);
