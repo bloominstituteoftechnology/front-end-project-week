@@ -19,7 +19,8 @@ const EditForm = props => {
         />
         <Link to='/'><button
           onClick={() => {
-            props.editNote(props.match.params.id);
+            props.editNote(props.match.params.id)
+            
           }}
         >
           Edit Note

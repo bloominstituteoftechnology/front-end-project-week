@@ -96,9 +96,9 @@ class NoteListView extends React.Component {
         />
         <Route
           path="/form/edit/:id"
-          render={() => (
+          render={(props) => (
             <EditForm
-              {...this.props}
+              {...props}
               handleChanges={this.handleChangesEdit}
               editNote={this.editNote}
             />

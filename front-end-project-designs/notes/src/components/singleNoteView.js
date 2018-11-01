@@ -51,7 +51,8 @@ class SingleView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      singleNote: []
+      singleNote: [],
+      isEditing:false
     };
   }
   componentDidMount() {
