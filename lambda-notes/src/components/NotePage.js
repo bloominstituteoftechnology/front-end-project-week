@@ -13,20 +13,22 @@ const NotePage = props => {
         return (
             <div className="note-page">
                 {props.delete && (
+                <div className="modal-overlay">
                     <div className="delete-modal"> 
                         <p>Are you sure you want to delete this?</p>
-                        <div className="note-page-buttons">
+                        <div className="note-modal-buttons">
                             <button className="delete-btn" onClick={deleteNotes}>Delete</button>
                             <button className="no-btn" onClick={props.deleteToggleOff}>No</button>
                         </div>
-                    </div>
+                    </div>    
+                </div>
                 )}
                 <div className="note-page-buttons">
-                    <Link to={`/note/${note._id}/edit`} onClick={() => props.editNote(note.title, note.textBody)}>edit</Link>{" "}
+                    <Link to={`/note/${note._id}/edit`} onClick={() => props.editNoteContent(note.title, note.textBody)}>edit</Link>{" "}
                     <span onClick={props.deleteToggleOn}>delete</span>
                 </div>
-                <h2>{note.title}</h2>
-                <p>{note.textBody}</p>
+                <h2 className="note-title">{note.title}</h2>
+                <div className="note-body">{note.textBody}</div>
             </div>
         );
     }else{

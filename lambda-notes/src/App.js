@@ -55,6 +55,9 @@ class App extends Component {
       })
     this.setState();
   };
+  editNoteContent = (title, textBody) => {
+    this.setState({ newTitle: title, newTextBody: textBody });
+  };
 
   deleteToggleOn = () => {
     this.setState({ delete: true });
@@ -107,7 +110,7 @@ class App extends Component {
             <NotePage
               {...props}
               notes={this.state.notes}
-              editNoteInputHandler={this.editNoteInputHandler }
+              editNoteContent={this.editNoteContent }
               delete={this.state.delete}
               deleteToggleOn={this.deleteToggleOn}
               deleteToggleOff={this.deleteToggleOff}

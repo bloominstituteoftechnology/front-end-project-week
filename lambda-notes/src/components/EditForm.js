@@ -16,7 +16,7 @@ const EditForm = props => {
                 placeholder="Title"
                 onChange={props.changeHandler}
                 value={props.newTitle}
-            />
+            /> 
             <textarea
                 name="newTextBody"
                 id=""
