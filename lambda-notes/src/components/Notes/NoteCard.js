@@ -7,7 +7,7 @@ const NoteCard = props => {
     return (
         <Link to={`/notes/${props.note._id}`} className="note-card-link">
             <div className="note-card">
-                <h3>{props.note.title}</h3>
+                <h3 className="note-card-title">{props.note.title}</h3>
                 <hr />
                 <p>{props.note.textBody}</p>
             </div>
