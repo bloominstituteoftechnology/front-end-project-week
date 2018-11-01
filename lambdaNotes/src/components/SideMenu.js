@@ -3,9 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
 import { setSearchBoolean } from "../actions";
+import DownloadCSV from './DownloadCSV';
+import {downloadNotesToCSV} from '../util';
 
  const SideMenu = (props) => {
  
+
+  const downloadCSV = () =>{
+    console.log("SideMenu downloadCSV func");
+    downloadNotesToCSV(props.notes);
+  }
+
+
   return (
     <div className="sideMenu">
      <h2> Lambda<br /> Notes</h2>
@@ -15,6 +24,8 @@ import { setSearchBoolean } from "../actions";
      <Link to="/addNote">
       <button>+ Create New Notes</button>
      </Link>
+
+     <DownloadCSV notes={props.notes}  downloadCSV={downloadCSV}/>
      </div>
   
   );
@@ -22,7 +33,10 @@ import { setSearchBoolean } from "../actions";
 
 
 
-const mapStateToProps = () => {};
+
+const mapStateToProps = ({ notes }) => {
+  return { notes };
+};
 
 export default 
   connect(
