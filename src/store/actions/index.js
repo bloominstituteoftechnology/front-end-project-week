@@ -25,7 +25,7 @@ export const getNotes = () => {
   return dispatch => {
     dispatch({ type: NOTES_FETCH_START });
     axios
-      .get("https://lambdanotes-heroku.herokuapp.com/notes")
+      .get("https://lambdanotes-back.herokuapp.com/notes")
       .then(response => {
         dispatch({ type: NOTES_FETCH_COMPLETE, payload: response.data.notes });
       })
@@ -39,7 +39,7 @@ export const addNewNote = notes => {
   return dispatch => {
     dispatch({ type: ADD_NOTE_START });
     axios
-      .post("https://lambdanotes-heroku.herokuapp.com/notes", notes)
+      .post("https://lambdanotes-back.herokuapp.com/notes", notes)
       .then(response => {
         dispatch({ type: ADD_NOTE_COMPLETE, payload: response.data });
       })
@@ -53,7 +53,7 @@ export const getNote = id => {
   return dispatch => {
     dispatch({ type: VIEW_NOTE_START });
     axios
-      .get(`https://lambdanotes-heroku.herokuapp.com/notes/${id}`)
+      .get(`https://lambdanotes-back.herokuapp.com/notes/${id}`)
       .then(res => {
         dispatch({ type: VIEW_NOTE_COMPLETED, payload: res.data[0] });
       })
@@ -67,7 +67,7 @@ export const updateNote = note => dispatch => {
   dispatch({ type: UPDATE_NOTE_START });
   console.log(note);
   axios
-    .put(`https://lambdanotes-heroku.herokuapp.com/notes/edit/${note.id}`, note)
+    .put(`https://lambdanotes-back.herokuapp.com/notes/edit/${note.id}`, note)
     .then(response => {
       console.log(response);
       dispatch({ type: UPDATE_NOTE_COMPLETE, payload: response.data });
@@ -88,7 +88,7 @@ export const setUpdateNote = id => {
 export const deleteNote = noteId => dispatch => {
   dispatch({ type: DELETE_NOTE_START });
   axios
-    .delete(`https://lambdanotes-heroku.herokuapp.com/notes/delete/${noteId}`)
+    .delete(`https://lambdanotes-back.herokuapp.com/notes/delete/${noteId}`)
     .then(response => {
       dispatch({ type: DELETE_NOTE_COMPLETE, payload: response.data });
     })
