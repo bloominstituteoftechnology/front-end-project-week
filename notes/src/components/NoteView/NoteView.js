@@ -4,11 +4,11 @@ import React from 'react';
 //styling
 import './NoteView.css';
 
-const NoteView = () => {
+const NoteView = props => {
     return (
         <div className='noteView'>
             <p className='noteControl'>
-                <span className='editButton'>edit</span>
+                <span onClick={() => props.editNote(props)}className='editButton'>edit</span>
                 <span className='deleteButton'>delete</span>
             </p>
             <div className='note'>

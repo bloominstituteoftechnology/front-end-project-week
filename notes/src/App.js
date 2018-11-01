@@ -33,6 +33,10 @@ class App extends Component {
     props.history.push('/edit')
   }
 
+  createNote(props) {
+    props.history.push('/edit')
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,7 +44,7 @@ class App extends Component {
           <HeadNav
             {...props}
             goHome={this.goHome}
-            editNote={this.editNote}
+            createNote={this.createNote}
           />
         )} />
         <div className='mainView'>
@@ -52,7 +56,10 @@ class App extends Component {
             />
           )} />
           <Route path='/note' render={(props) => (
-            <NoteView />
+            <NoteView
+              {...props}
+              editNote={this.editNote}
+            />
           )} />
           <Route exact path='/edit' render={(props) => (
             <EditNote />

@@ -9,7 +9,7 @@ const HeadNav = props => {
             <h1>Lambda Notes</h1>
             <div className='navSection'>
                 <div onClick={() => props.goHome(props)} className='navButton'>View Your Notes</div>
-                <div onClick={() => props.editNote(props)} className='navButton'>+ Create New Note</div>
+                <div onClick={() => props.createNote(props)} className='navButton'>+ Create New Note</div>
             </div>
         </div>
     );
