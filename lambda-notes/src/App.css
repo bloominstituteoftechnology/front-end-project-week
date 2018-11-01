@@ -98,7 +98,9 @@ strong {
 }
 
 .container {
-  display: flex;
+	display: flex;
+	align-items: flex-start;
+	min-height: 100vh;
 }
 
 .login {
@@ -166,6 +168,11 @@ strong {
 }
 
 .notes-list .top-bar {
+	position: sticky;
+	top: 0;
+	background: #F2F1F2;
+	z-index: 1;
+	align-self: flex-start;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -196,8 +203,9 @@ strong {
 
 .notes-list h3 {
 	width: 100%;
+	margin: 5px;
 	font-weight: bold;
-	margin-top: 50px;
+	align-self: flex-start;
 }
 
 .notes-list .note-preview {
