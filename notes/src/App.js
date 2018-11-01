@@ -20,7 +20,8 @@ class App extends Component {
       newNote : {
         title : '',
         textBody : '',
-      }
+      },
+      size : 'note-card'
     }
   }
 
@@ -46,7 +47,11 @@ class App extends Component {
 
   changeSize = e => {
     e.stopPropagation();
-    console.log(this.classList)
+    if(this.state.size === 'note-card'){
+      this.setState({size : 'note-card-dbl'})
+    }else{
+      this.setState({size : 'note-card'});
+    }
   }
 
   refreshState(){
