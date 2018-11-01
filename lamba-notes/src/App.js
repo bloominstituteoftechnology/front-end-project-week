@@ -12,7 +12,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      id: "",
+      updatedTitle: "",
+      updatedTextBody: ""
     };
   }
 
@@ -23,8 +26,15 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  deleteNote = (event, id) => {
-    event.preventDefault();
+  editNote = id => {
+    axios.put(`http://fe-notes.herokuapp.com/note/edit/${id}`, {
+      title: this.state.updatedTitle,
+      textBody: this.state.updatedTextBody
+    });
+    this.setState();
+  };
+
+  deleteNote = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
@@ -35,15 +45,12 @@ class App extends Component {
       });
   };
 
-  editNote = id => {
-    const updatedNote = {
-      title: "",
-      textBody: ""
-    };
-    axios
-      .put(`http://fe-notes.herokuapp.com/note/${id}`, updatedNote)
-      .then(response => this.setState({ note: response.data }))
-      .catch(error => console.log(error));
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  clickHandler = event => {
+    event.preventDefault();
   };
 
   render() {
@@ -61,23 +68,35 @@ class App extends Component {
         </div>
 
         <div className="content">
+          {/* d i s p l a y   n o t e s */}
           <Route
             exact
             path="/"
-            render={() => <Notes notes={this.state.notes} />}
+            render={() => <Notes notes={this.state.notes.reverse()} />}
           />
 
-          <Route path="/submit" component={NoteForm} />
-
+          {/* d i s p l a y  s i n g l e  n o t e  */}
+          {/* with   d e l e t e   m e t h o d   passed  */}
           <Route
-            path="/note/edit/:id"
-            render={props => <NoteEdit {...props} editNote={this.editNote} />}
-          />
-
-          <Route
-            exact
             path="/note/get/:id"
             render={props => <Note {...props} deleteNote={this.deleteNote} />}
+          />
+
+          {/* a d d  n o t e  */}
+          <Route path="/submit" component={NoteForm} />
+
+          {/* e d i t  n o t e  */}
+          <Route
+            path="/note/edit/:id"
+            render={props => (
+              <NoteEdit
+                {...props}
+                notes={this.state.notes}
+                editNote={this.editNote}
+                newTitle={this.state.newTitle}
+                newTextBody={this.state.newTextBody}
+              />
+            )}
           />
         </div>
       </div>
