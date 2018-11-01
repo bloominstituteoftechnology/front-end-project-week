@@ -1,6 +1,5 @@
 .notes a {
     width: 20%;
-    height: auto;
     border: 2px solid #EAEAEA;
     background-color: #FFFFFF;
     margin: 1%;
@@ -10,7 +9,7 @@
     padding: 0 2.5%;
     text-decoration: none;
     color: black;
-    height: 200px;
+    height: auto;
     overflow: hidden;
 }
 
