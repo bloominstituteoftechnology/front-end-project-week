@@ -3,7 +3,7 @@
     text-align: start;
     background: lightgray;
     
-    height: 100%;
+    min-height: 100vh;
     border-bottom: 1.5px solid #9BA3A3;
 }
 
@@ -13,7 +13,7 @@
 
 .sideBar {
     padding: 0 20px 0 20px;
-    
+   
 }
 
 button {
@@ -34,7 +34,7 @@ h1 {
 }
 
 .forBorder {
-   
+    height: 100%;
     padding-top: 10px;
 }
 

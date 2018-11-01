@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 const SideBar = (props) => {
     return (
         <div className='sideBarContainer'>
-            <div className='forBorder'>
                 <div className ='sideBar'>
                     <h1>Lambda Notes</h1>
                     <NavLink to='/' activeClassName="selected">
@@ -16,7 +15,6 @@ const SideBar = (props) => {
                     </NavLink>  
                 </div>
             </div>
-        </div>
     );
 }
 

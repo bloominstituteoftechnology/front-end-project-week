@@ -11,9 +11,10 @@ import Note from './components/Note';
 import { NavLink} from 'react-router-dom';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      notes: this.props.notes,
       note: {
         tags: [],
         title: '',
@@ -22,9 +23,13 @@ class App extends Component {
     }
   }
 
+
+
   componentDidMount() {
+    console.log(this.props)
     this.props.fetchNotes();
-  }
+     
+  };
 
   changeHandler = (ev) => {
     if(ev.target.name === 'title'|| ev.target.name === 'textBody') {
@@ -40,6 +45,7 @@ class App extends Component {
 
   postHandler = (ev) => {
     this.props.postNote(this.state.note)
+
   }
 
   
@@ -60,7 +66,7 @@ class App extends Component {
             <div className='overlay-box'>
               <p>Are you sure you want to delete this?</p>
               <div className='overlay-buttons'>
-                <NavLink to='/'>
+                <NavLink onClick={this.forceUpdateHandler} to='/'>
                   <button className='deletebutton' onClick={this.deletingNote}>Delete</button>
                 </NavLink>
                   <button onClick ={this.togglingOverlay}>Cancel</button>
@@ -72,7 +78,7 @@ class App extends Component {
     return (
       <div className="App">
        {overlay}
-        <SideBar className='sidebar-content'></SideBar>
+        <SideBar className='sidebar-content' update={this.componentDidMount}></SideBar>
         <div className='content'>
         <Route exact path='/' render ={(props) => (
           <NoteListView {...props} noteContent={this.props.notes}/> 
@@ -89,7 +95,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     fetchingNotes: state.notesReducer.fetchingNotes,
     postingNote: state.notesReducer.postingNote,
