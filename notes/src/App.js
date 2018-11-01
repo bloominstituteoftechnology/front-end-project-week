@@ -9,6 +9,8 @@ import { Route } from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Note from './components/Note';
 import { NavLink} from 'react-router-dom';
+import axios from 'axios';
+
 
 class App extends Component {
   constructor(props) {
@@ -44,7 +46,7 @@ class App extends Component {
   }
 
   postHandler = (ev) => {
-    this.props.postNote(this.state.note)
+    this.props.postNote(this.state.note).then(() => this.props.fetchNotes())
 
   }
 
@@ -56,7 +58,7 @@ class App extends Component {
 
   deletingNote = (ev) => {
     this.props.overlayToggle();
-    this.props.deleteNote(this.props.note._id);
+    this.props.deleteNote(this.props.note._id).then(() => this.props.fetchNotes());
   }
 
   render() {

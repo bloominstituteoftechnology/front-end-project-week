@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router';
-import { editNote, overlayToggle, setNote } from '../actions';
+import { editNote, overlayToggle, setNote, fetchNotes } from '../actions';
 import { connect } from 'react-redux';
 import DisplayNote from './DisplayNote';
 import { Route } from 'react-router-dom';
@@ -38,7 +38,7 @@ class Note extends Component {
     }
 
     editingNote = (ev) => {
-        this.props.editNote(this.state.note._id, this.state.note);
+        this.props.editNote(this.state.note._id, this.state.note).then(() => this.props.fetchNotes());
     }
 
     togglingOverlay = (ev) => {
@@ -76,6 +76,6 @@ class Note extends Component {
   
   export default withRouter(connect(
     mapStateToProps,
-    { editNote, overlayToggle, setNote }, 
+    { editNote, overlayToggle, setNote, fetchNotes }, 
   )(Note));
   

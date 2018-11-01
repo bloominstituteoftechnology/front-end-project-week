@@ -24,7 +24,7 @@ export const SETTING_NOTE_FAILURE = 'SETTING_NOTE_FAILURE';
 
 export const fetchNotes = () => dispatch => {
     dispatch({type: FETCHING_NOTES});
-    axios
+    return axios
     .get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => {
         dispatch({type: FETCHING_NOTES_SUCCESS, payload: response.data})
@@ -36,7 +36,7 @@ export const fetchNotes = () => dispatch => {
 
 export const postNote = (note) => dispatch => {
     dispatch({type: POSTING_NOTE});
-    axios
+    return axios
     .post('https://fe-notes.herokuapp.com/note/create', note)
     .then(response => {
         console.log(response)
@@ -50,7 +50,7 @@ export const postNote = (note) => dispatch => {
 
 export const editNote = (id, note) => dispatch => {
     dispatch({type: EDITING_NOTE});
-    axios
+    return axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(response => {
         dispatch({type: EDITING_NOTE_SUCCESS, payload: response.data})
