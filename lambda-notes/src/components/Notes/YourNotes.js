@@ -10,6 +10,7 @@ class YourNotes extends React.Component {
         }
     }
 
+    // sets all note data from api to state
     componentDidMount() {
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
@@ -27,6 +28,7 @@ class YourNotes extends React.Component {
                 <h2 className="view-header">Your Notes</h2>
                 {this.state.notes.length ? this.state.notes.map((note) => <NoteCard key={note._id} note={note} />) : <h2>Loading...</h2>}
             </div >
+            // displays all notes
         );
     }
 }

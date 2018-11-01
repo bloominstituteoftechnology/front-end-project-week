@@ -11,6 +11,8 @@ class Navigation extends React.Component {
         }
     }
 
+    // CVSLink not functional, but same styling as View Your Notes and Create New Note buttons
+
     render() {
         return (
             <div className="navigation-wrapper">

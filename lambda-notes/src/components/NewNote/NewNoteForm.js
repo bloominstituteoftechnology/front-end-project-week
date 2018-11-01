@@ -13,12 +13,14 @@ class NewNoteForm extends React.Component {
         }
     }
 
+    // write input text to state when change in field
     changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
+    // if title and textBody field are not empty, post new note to api and set redirect to true in state
     submitHandler = (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -37,7 +39,7 @@ class NewNoteForm extends React.Component {
     }
 
     render() {
-        if (this.state.shouldRedirect) {
+        if (this.state.shouldRedirect) { {/* if new note has been posted and redirect in state is true, redirect to individual page */}
             return <Redirect to={`/notes/${this.state.redirectId}`} />
         } else {
             return (

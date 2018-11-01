@@ -12,9 +12,9 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <Route exact path="/" component={ YourNotes } />
-        <Route path={`/notes/:id`} render={(props) => <NotePage {...props} />} />
-        <Route path={'/new-note'} component={ NewNoteForm } />
+        <Route exact path="/" component={ YourNotes } /> {/* home page, displays all notes */}
+        <Route path={`/notes/:id`} render={(props) => <NotePage {...props} />} />  {/* individual note page */}
+        <Route path={'/new-note'} component={ NewNoteForm } />  {/* add note form */}
       </div>
     );
   }

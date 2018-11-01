@@ -1,6 +1,7 @@
 // ATTEMPT AT EXPORTING CSV FILE - FAILURE
 
-
+// TO TRY:
+// refactor how note imformation from api is passed between components
 
 //import React from 'react';
 // import axios from 'axios';
