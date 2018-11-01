@@ -9,6 +9,7 @@ import ReadNote from "../views/ReadNote";
 import Sidebar from "./Sidebar";
 
 import "./App.css";
+import DeleteModal from "../views/DeleteModal";
 
 const url = "https://fe-notes.herokuapp.com/note";
 
@@ -17,6 +18,10 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
+      title: '',
+      textBody: '',
+      tags: [],
+      activeId: '',
     };
   }
 
@@ -26,6 +31,23 @@ class App extends Component {
       .get(`${url}/get/all`)
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
+  }
+
+  getNoteById(id) {
+    console.log("getNoteById called");
+    axios
+      .get(`${url}/get/${id}`)
+      .then(response => {
+        console.log(response);
+        this.setState({ 
+        title: response.title, 
+        textBody: response.textBody, 
+        tags: response.tags, 
+        activeId: response._id })
+      })
+      .catch(error => console.log(error));
+
+    
   }
 
   postNote(newNote) {
@@ -39,7 +61,7 @@ class App extends Component {
   editNote(id, newNoteContent) {
     console.log('Updating note: ' + id + '/nwith: ' + newNoteContent);
     axios
-      .put(`${url}/edit/${id}`)
+      .put(`${url}/edit/${id}`, newNoteContent)
       .then(this.getNotes)
       .catch(error => console.log(error));
   }
@@ -64,6 +86,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("State.title = " + this.state.title);
     return (
       <Router>
         <div className="App">
@@ -76,6 +99,7 @@ class App extends Component {
             />
             <Route exact path="/n/:noteId" render={this.renderNote} />
             <Route path="/AddEditNote" render={() => <AddEditNote postNote={this.postNote} />} />
+            <Route path="/Delete" render={(id) => <DeleteModal deleteNote={this.deleteNote} />} />
           </Switch>
         </div>
       </Router>
