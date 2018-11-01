@@ -6,11 +6,7 @@ import styled from 'styled-components';
 
 
 
- const SecondaryHeading = styled.h2`
-  margin-bottom: 2rem;
-  text-decoration: none;
-  color: black;
-`;
+
  const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -18,9 +14,20 @@ import styled from 'styled-components';
   color: black;
 
 `;
+
+const SecondaryHeading = styled.h2`
+margin-bottom: 2rem;
+margin-left: 320px;
+z-index: 10;
+text-decoration: none;
+color: black;
+`;
+
+
  const AllNotes = ({ notes }) => {
   return (
     <div>
+    <SecondaryHeading>Your Notes:</SecondaryHeading>
 
       <CardsContainer>
         {notes.map(note => (

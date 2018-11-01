@@ -31,6 +31,15 @@ const StyledNote = styled.div`
   padding-bottom: 20px;
 `;
 
+const SecondaryHeading = styled.h2`
+  margin-bottom: 2rem;
+  margin-left: 320px;
+  z-index: 10;
+  text-decoration: none;
+  color: black;
+
+  `;
+
 class ViewNote extends Component {
   constructor(props) {
     super(props);
@@ -55,17 +64,12 @@ class ViewNote extends Component {
   render() {
     return (
       <div>
+      <SecondaryHeading>{this.state.title}</SecondaryHeading>
+
         <StyledNote>
           <form onSubmit={this.handleSubmit}>
-            <input
-              value={this.state.title}
-              type="text"
-              name="title"
-              id=""
-              cols="100"
-              rows="30"
-              onChange={this.handleChange}
-            />
+
+
             <textarea
               value={this.state.textBody}
               name="textBody"

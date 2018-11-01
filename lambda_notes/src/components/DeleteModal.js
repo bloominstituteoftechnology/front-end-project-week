@@ -32,7 +32,7 @@ class DeleteModal extends React.Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Delete Note</ModalHeader>
           <ModalBody>Are you sure you want to delete this?</ModalBody>
           <ModalFooter>
             <Button color="danger" onClick={this.toggle}>

@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import axios from "axios";
-import styled  from "styled-components";
+import styled from "styled-components";
 
 const SideButton = styled.button`
   width: 100%;
@@ -25,11 +25,19 @@ const SideButton = styled.button`
 `;
 
 const StyledNote = styled.div`
-display: flex;
-flex-direction: column;
-padding-left: 320px;
-width: 300px;
-padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 320px;
+  width: 300px;
+  padding-bottom: 20px;
+`;
+
+const SecondaryHeading = styled.h2`
+  margin-bottom: 2rem;
+  margin-left: 320px;
+  z-index: 10;
+  text-decoration: none;
+  color: black;
 `;
 
 class CreateNote extends Component {
@@ -54,29 +62,32 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <StyledNote>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            value={this.state.title}
-            type="text"
-            name="title"
-            id=""
-            cols="100"
-            rows="30"
+      <div>
+        <SecondaryHeading>Create New Note:</SecondaryHeading>
 
-            onChange={this.handleChange}
-          />
-          <textarea
-            value={this.state.textBody}
-            name="textBody"
-            id=""
-            cols="160"
-            rows="30"
-            onChange={this.handleChange}
-          />
-          <SideButton>SAVE</SideButton>
-        </form>
-      </StyledNote>
+        <StyledNote>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              value={this.state.title}
+              type="text"
+              name="title"
+              id=""
+              cols="100"
+              rows="30"
+              onChange={this.handleChange}
+            />
+            <textarea
+              value={this.state.textBody}
+              name="textBody"
+              id=""
+              cols="160"
+              rows="30"
+              onChange={this.handleChange}
+            />
+            <SideButton>SAVE</SideButton>
+          </form>
+        </StyledNote>
+      </div>
     );
   }
 }
