@@ -10,27 +10,33 @@ class EditForm extends Component {
         title: '',
         textBody: ''
     }
-  }
+  };
+  componentDidMount() {
+    const noteId = this.props.match.params.id;
+    const note = this.props.notes.find(note => note._id === noteId);
+    
+    this.setState({ ...note });
+    console.log('thisisthe state in the didmount', this.state)
+  };
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
   });
-  handleUpdate = id => {
-    const noteToUpdate = this.props.notes.find(note => note._id === id);
-    this.setState({ noteToUpdate });
-  }  
+
   editNote = (event, id) => {
     event.preventDefault();
     this.props.editNote(this.state );
     this.setState({ title: '', textBody: '' });
-    this.props.history.push('/');
+    this.props.history.push('/notes');
   }
 
   render() {
-    const noteId = this.props.match.params.id;
-    let note = this.props.notes.find(note => note._id === noteId);
+    
+    // if (this.state.title===''){
+    //   this.setState({note});
+    // }
     
     return (
-      <form onSubmit={(event) => this.editNote(event, noteId)} className='form'>
+      <form onSubmit={(event) => this.editNote(event)} className='form'>
         <h3 className='add-header'>Edit Note:</h3>
         <input 
           onChange={this.handleInputChange}
