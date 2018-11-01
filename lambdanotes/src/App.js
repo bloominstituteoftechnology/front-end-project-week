@@ -28,11 +28,12 @@ class App extends React.Component {
       isUpdating: false,
       showModal: false
     };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   handleOpenModal = () => {
+    console.log('fired');
     this.setState({ showModal: true });
   };
 
@@ -169,6 +170,7 @@ class App extends React.Component {
                 handleOpenModal={this.handleOpenModal}
                 handleCloseModal={this.handleCloseModal}
                 goToUpdateNoteForm={this.goToUpdateNoteForm}
+                showModal={this.state.showModal}
               />
             )}
           />

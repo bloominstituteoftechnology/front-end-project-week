@@ -11,13 +11,12 @@ function Note(props) {
     note => note._id == props.match.params.noteId
   );
   console.log(note);
+
   function handleDelete() {
-    props.handleOpenModal();
-    props.handleCloseModal();
     props.handleDeleteNote(note._id);
     props.history.push(`/`);
   }
-
+  console.log(props);
   return (
     <Fragment>
       <div className="single-note">
@@ -30,21 +29,29 @@ function Note(props) {
         >
           Edit
         </button>
-        <ReactModal
-          isOpen={props.showModal}
-          contentLabel="onRequestCloseExample"
-          onRequestClose={props.handleCloseModal}
-          className="modal"
-          overlayClassName="overlay"
-        >
-          <p>Are you sure you want to delete this?</p>
-          <button onClick={props.handleCloseModal} className="not-delete">
-            No
-          </button>
-        </ReactModal>
-        <button className="note-button" onClick={handleDelete}>
+        <button className="note-button" onClick={props.handleOpenModal}>
           Delete
         </button>
+
+        <ReactModal
+          isOpen={props.showModal}
+          contentLabel="Minimal Modal Example"
+          className="modal-style"
+        >
+          <div className="confirm">Are you sure you want to delete this?</div>
+          <div className="button-row">
+            <button className="delete" onClick={handleDelete}>
+              Delete
+            </button>
+            <button className="button" onClick={props.handleCloseModal}>
+              No
+            </button>
+          </div>
+        </ReactModal>
+
+        {/* <button className="note-button" onClick={handleDelete}>
+          Delete
+        </button> */}
 
         <div>
           <h1 className="note-name">{note.title}</h1>
