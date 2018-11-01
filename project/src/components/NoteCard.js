@@ -7,7 +7,7 @@ class NoteCard extends Component {
     }
     render(){console.log(this.key)
         return(
-            <div className = "note-card">
+            <div className = "note-card a">
                 <h2 className = "card-title">{this.props.title}</h2>
                 <NoteText text= {this.props.content} />
             </div>

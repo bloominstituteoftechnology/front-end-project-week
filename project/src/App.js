@@ -104,7 +104,8 @@ axios
 //   // }
 
   
-  axios.delete(`${url}/${id}`, { title: this.state.title, content: this.state.content }).then(response => {
+  axios.delete(`${url}/${id}`, { title: this.state.title, content: this.state.content })
+    .then(response => {
     axios.get(url).then(response => {
       this.setState({ notes: response.data });
     });
