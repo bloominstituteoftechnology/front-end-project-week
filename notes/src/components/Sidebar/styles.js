@@ -26,6 +26,7 @@ export const StyledH1 = styled.h1`
 
 export const StyledSidebarLink = styled(StyledLink)`
   text-decoration: none;
+  margin-bottom: 21px;
 `;
 
 export const StyledButton = styled(Button)``;
