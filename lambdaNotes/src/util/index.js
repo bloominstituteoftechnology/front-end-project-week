@@ -6,7 +6,7 @@ export const searchFunc = (query, notes) =>{
 
 
 export const downloadNotesToCSV = (notes) =>{
-  console.log("down function start!")
+  console.log("down function start!", notes)
     let filename, link, csv, keys, columnDelimiter, lineDelimiter;
 
     // data = data || null;
@@ -24,16 +24,21 @@ export const downloadNotesToCSV = (notes) =>{
     csv += keys.join(columnDelimiter);
     csv += lineDelimiter;
 
-    notes.forEach(function(item) {
+
+
+    notes.forEach(function(note) {
        let ctr = 0;
         keys.forEach(function(key) {
             if (ctr > 0) csv += columnDelimiter;
-
-            csv += item[key];
-            ctr++;
-        });
+                let temp = note[key].toString();
+                temp = temp.replace(/[,/n]/g, '');
+                csv += temp;
+  
+                ctr++;
+             });
         csv += lineDelimiter;
     });
+console.log(csv);
 
     if (csv == null) return;
 

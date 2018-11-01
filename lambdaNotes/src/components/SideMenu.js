@@ -10,7 +10,6 @@ import {downloadNotesToCSV} from '../util';
  
 
   const downloadCSV = () =>{
-    console.log("SideMenu downloadCSV func");
     downloadNotesToCSV(props.notes);
   }
 
