@@ -2,7 +2,7 @@ import React from "react";
 import {CSVLink} from "react-csv";
 import "../App.css";
 
-import NoteCard from "./NoteCard";
+import NoteCard from "./Notes/NoteCard";
 
 class ListView extends React.Component {
   constructor(props) {
@@ -29,19 +29,21 @@ class ListView extends React.Component {
     }
     return (
       <div className="list-view">
-        <input
-          type="search"
-          className="search"
-          onChange={this.updateSearch}
-          value={this.state.search}
-          placeholder="Search notes"
-        />
         <span>
+          <i class="fas fa-search" />
+          <input
+            type="search"
+            className="search"
+            onChange={this.updateSearch}
+            value={this.state.search}
+            placeholder="Search notes"
+          />
+
           <CSVLink
             data={this.props.notes}
             target="_blank"
             filename={"lambda-notes.csv"}
-            className="btn btn-primary"
+            className="csv"
           >
             Download CSV
           </CSVLink>

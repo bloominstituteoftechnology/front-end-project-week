@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "./Notes.css";
 import Modal from "react-modal";
 
 import CheckList from "./CheckList";
@@ -15,7 +15,6 @@ class NoteView extends React.Component {
     this.state = {
       showDelete: false,
       isEditing: false,
-      showChecklist: false,
       tags: [],
       title: this.note.title,
       textBody: this.note.textBody

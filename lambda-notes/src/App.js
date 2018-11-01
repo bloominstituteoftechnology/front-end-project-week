@@ -3,12 +3,12 @@ import {Route, Switch} from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
-import Login from "./components/Login";
-import authenticate from "./components/authenticate";
+import Login from "./components/Login/Login";
+import authenticate from "./components/Login/authenticate";
 import Menu from "./components/Menu";
 import ListView from "./components/ListView";
-import NewNote from "./components/NewNote";
-import NoteView from "./components/NoteView";
+import NewNote from "./components/Notes/NewNote";
+import NoteView from "./components/Notes/NoteView";
 
 class App extends Component {
   constructor(props) {
@@ -71,7 +71,7 @@ class App extends Component {
       <div className="App">
         <Menu />
         <div className="logout">
-          <h3>Welcome {this.props.user}</h3>
+          <h3>Welcome {this.props.user ? this.props.user : "user"}</h3>
           <button onClick={this.props.logout}>Logout</button>
         </div>
 

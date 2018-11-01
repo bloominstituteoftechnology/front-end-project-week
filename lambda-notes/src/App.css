@@ -1,3 +1,4 @@
+/* GLOBAL STYLES */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,58 +8,123 @@ html {
   background: #f3f3f3;
 }
 
-/* AUTHENTICATION */
-.logout {
-  position: absolute;
-  top: 20px;
-  right: 50px;
-  z-index: 1;
+button {
+  cursor: pointer;
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+h1 {
+  color: #666;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+textarea:focus {
+  outline: none;
 }
 
 hr {
   margin-bottom: 15px;
+  color: rgb(89, 21, 248);
 }
 
+/* TOP MENU */
+.logout {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  color: #ccc;
+  /* z-index: 1; */
+}
+
+.logout h3 {
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.logout button {
+  background: rgb(89, 21, 248);
+  color: white;
+  border: 1px solid rgb(89, 21, 248);
+  border-radius: 5px;
+  padding: 5px 7px;
+  float: right;
+  margin: 0 15px;
+  font-size: 12px;
+}
+/* SEARCH */
+.list-view span {
+  position: absolute;
+  top: 30px;
+}
+
+input[type="search"] {
+  /* position: absolute; */
+  padding: 7px 10px;
+  width: 300px;
+}
+
+.fas {
+  color: rgb(99, 34, 252);
+  font-size: 22px;
+}
+
+.csv,
+.logout button:hover {
+  background: transparent;
+  border: 1px solid rgb(89, 21, 248);
+  color: rgb(89, 21, 248);
+  padding: 5px 7px;
+  font-size: 12px;
+  margin: 0 15px;
+  border-radius: 5px;
+}
+
+.csv:hover,
+.logout button {
+  background: rgb(89, 21, 248);
+  color: white;
+  transition: 0.2s;
+}
+
+/* SIDE MENU */
 .menu {
-  background: #d6d6d6;
+  background: rgb(1, 1, 4);
   width: 300px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  border-right: 1px solid #999;
+  border-right: 1px solid #111;
   padding: 25px;
 }
 
 .menu h1 {
-  color: #4b4a4b;
-  /* width: 90%; */
-  margin: 10px auto 40px;
+  margin: 10px auto 60px;
   font-size: 50px;
   line-height: 0.9;
+  background: -webkit-linear-gradient(rgb(56, 10, 221), rgb(150, 37, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-button {
-  background: #2ebfc3;
+.menu button {
+  background: rgb(89, 21, 248);
   color: white;
-  border: 1px solid #239599;
+  border: 1px solid rgb(89, 21, 248);
   margin: 0 auto 25px;
   width: 100%;
-  min-width: 150px;
-  font-size: 20px;
+  font-size: 18px;
   padding: 15px 7px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #29aeb3;
-}
-
-/* SEARCH */
-input[type="search"] {
-  position: absolute;
-  padding: 7px 10px;
-  top: 30px;
+.menu button:hover {
+  background: rgb(78, 15, 224);
 }
 
 /* LIST VIEW */
@@ -67,127 +133,37 @@ input[type="search"] {
   position: sticky;
   top: 0;
   margin-left: 300px;
-  padding: 80px 30px 30px 30px;
+  padding: 90px 30px 30px 30px;
   height: 100%;
-}
-
-h1 {
-  color: #4b4a4b;
-  font-size: 30px;
-  margin-bottom: 45px;
 }
 
 .note-card-container {
   display: flex;
-  /* justify-content: space-evenly; */
   flex-wrap: wrap;
   align-content: flex-start;
   height: 100vh;
 }
 
 .note-card {
-  background: white;
+  background: #112;
   width: 350px;
-  color: #2f2f2f;
+  color: #bbb;
   height: 250px;
   padding: 25px;
   cursor: pointer;
   margin: 25px;
-  border: 1px solid #999;
+  border: 2px solid #050505;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.note-card h2 {
+  color: #ddd;
 }
 
 a {
   text-decoration: none;
 }
-
-/* NEW NOTE */
-
-.new-note input,
-.new-note textarea {
-  font-size: 20px;
-  padding: 15px 25px;
-  font-family: inherit;
-  margin-bottom: 30px;
-  border: 1px solid #999;
-  border-radius: 5px;
-}
-
-.new-note input {
-  width: 50%;
-}
-
-.new-note textarea {
-  width: 90%;
-  max-width: 900px;
-}
-
-.new-note button {
-  width: 15%;
-  margin-right: 30px;
-}
-
-/* NOTE VIEW */
-.note-view {
-  max-width: 700px;
-  color: #4b4a4b;
-}
-
-.single-note-content {
-  max-width: 550px;
-  margin: 0 auto;
-}
-
-h2 {
-  margin-bottom: 15px;
-}
-
-/* EDIT NOTE */
-
-.edit-delete {
-  text-align: right;
-  margin-bottom: 45px;
-}
-
-.edit-delete span {
-  margin-left: 15px;
-  cursor: pointer;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.ReactModal__Content {
-  width: 60%;
-  max-width: 600px;
-  margin: 100px auto;
-  top: 50%;
-  height: 250px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.ReactModal__Content button {
-  max-width: 200px;
-  min-width: 100px;
-  margin: 30px 15px 10px;
-}
-
-.cancel {
-  background: rgb(247, 33, 33);
-}
-
-.cancel:hover {
-  background: rgb(221, 9, 9);
-}
-
-/* @media (min-width: 1500px) {
-  .note-card {
-    width: 24%;
-  }
-} */
 
 @media (max-width: 1100px) {
   /* .note-card {
@@ -203,10 +179,6 @@ h2 {
   .display {
     margin-left: 250px;
   }
-
-  /* .note-card {
-    width: 90%;
-  } */
 
   .new-note input,
   .new-note textarea {
@@ -236,21 +208,9 @@ h2 {
   }
 
   input[type="search"] {
-    /* position: fixed; */
-    /* z-index: 5000; */
     top: 40px;
     width: 80%;
   }
-  /* .new-note-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-  } */
-
-  /* .view-all-btn {
-    margin: 0 auto;
-  } */
 
   .menu-btn-container {
     display: flex;

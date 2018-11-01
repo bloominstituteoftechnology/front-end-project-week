@@ -1,8 +1,8 @@
 import React from "react";
 
 import Login from "./Login";
-import App from "../App";
-import ListView from "./ListView";
+import App from "../../App";
+import ListView from "../ListView";
 
 const authenticate = App => {
   return class extends React.Component {
