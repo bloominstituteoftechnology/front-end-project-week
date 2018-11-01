@@ -11,7 +11,10 @@ import {
   UPDATE_FAILURE,
   IS_REGISTERING,
   REGISTER_SUCCESSFUL,
-  REGISTER_FAILURE
+  REGISTER_FAILURE,
+  IS_LOGGING_IN,
+  LOGIN_SUCCESSFUL,
+  LOGIN_FAILURE
 } from "../actions";
 
 const initialState = {
@@ -26,9 +29,10 @@ const initialState = {
   updated: false,
   deleted: false,
   isLoggedIn: false,
-  user: null,
+  user: {},
   token: null,
-  isRegstering: false
+  isRegstering: false,
+  isLoggingIn: false
 };
 
 export default (state = initialState, action) => {
@@ -38,7 +42,7 @@ export default (state = initialState, action) => {
     case FETCHING_NOTES_SUCCESSFUL:
       return Object.assign({}, state, {
         notes: [...action.payload.notes],
-        message: [...action.payload.message],
+        message: action.payload.message,
         isFetching: false,
         fetched: true
       });
@@ -81,9 +85,9 @@ export default (state = initialState, action) => {
     case REGISTER_SUCCESSFUL:
       return Object.assign({}, state, {
         isLoggedIn: true,
-        message: [...action.payload.message],
-        user: [...action.payload.user],
-        token: [...action.payload.token],
+        message: action.payload.message,
+        user: action.payload.user,
+        token: action.payload.token,
         isRegstering: false
       });
     case REGISTER_FAILURE:
@@ -91,6 +95,23 @@ export default (state = initialState, action) => {
         isLoggedIn: false,
         isRegstering: false
       });
+    case IS_LOGGING_IN:
+      return Object.assign({}, state, {
+        isLoggingIn: true
+      })
+    case LOGIN_SUCCESSFUL:
+      return Object.assign({}, state, {
+        isLoggedIn: true,
+        message: action.payload.message,
+        user: action.payload.user,
+        token: action.payload.token,
+        isLoggingIn: false
+      });
+    case LOGIN_FAILURE:
+      return Object.assign({}, state, {
+        isLoggedIn: false,
+        isLoggingIn: false
+      })
     default:
       return state;
   }

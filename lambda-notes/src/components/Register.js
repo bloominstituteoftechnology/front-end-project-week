@@ -87,7 +87,8 @@ const mapStateToProps = state => {
   return {
     isLoggedIn: state.isLoggedIn,
     token: state.token,
-    isRegistering: state.isRegistering
+    isRegistering: state.isRegistering,
+    user: state.user
   };
 };
 

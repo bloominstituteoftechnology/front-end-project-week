@@ -16,6 +16,9 @@ export const DELETE_ALL_FAILURE = "DELETE_ALL_FAILURE";
 export const REGISTER_SUCCESSFUL = "REGISTER_SUCCESSFUL";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 export const IS_REGISTERING = "IS_REGISTERING";
+export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const IS_LOGGING_IN = "IS_LOGGING_IN";
 
 export const getNotes = () => {
   return dispatch => {
@@ -23,7 +26,7 @@ export const getNotes = () => {
       dispatch({ type: FETCHING_NOTES });
       setTimeout(() => {
         axios
-          .get("http://localhost:9000/api/notes", {
+          .get("https://brian-lambda-notes.herokuapp.com/api/notes", {
             headers: {
               authorization: Cookies.get("token")
             }
@@ -43,7 +46,7 @@ export const createNote = note => {
   return dispatch => {
     dispatch({ type: CREATING_NOTE });
     axios
-      .post("http://localhost:9000/api/notes", note)
+      .post("https://brian-lambda-notes.herokuapp.com/api/notes", note)
       .then(resp =>
         dispatch({ type: CREATING_NOTE_SUCESSFULL, payload: resp.data })
       )
@@ -57,7 +60,7 @@ export const createNote = note => {
 export const deleteNote = id => {
   return dispatch => {
     axios
-      .delete(`http://localhost:9000/api/notes/${id}`)
+      .delete(`https://brian-lambda-notes.herokuapp.com/api/notes/${id}`)
       .then(() => dispatch({ type: DELETE_NOTE_SUCCESS }))
       .then(() => getNotes()(dispatch))
       .catch(err =>
@@ -69,7 +72,7 @@ export const deleteNote = id => {
 export const updateNote = note => {
   return dispatch => {
     axios
-      .put(`http://localhost:9000/api/notes/${note.id}`, note)
+      .put(`https://brian-lambda-notes.herokuapp.com/api/notes/${note.id}`, note)
       .then(() => dispatch({ type: UPDATE_SUCCESSFUL }))
       .then(() => getNotes()(dispatch))
       .catch(err =>
@@ -78,19 +81,39 @@ export const updateNote = note => {
   };
 };
 
-export const registerUser = user => {
+export const registerUser = (user, history) => {
   return dispatch => {
     dispatch({ type: IS_REGISTERING });
     axios
-      .post("http://localhost:9000/api/users/register", user)
+      .post("https://brian-lambda-notes.herokuapp.com/api/users/register", user)
       .then(resp => {
-        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem('username', resp.data.user.username);
         Cookies.set("token", resp.data.token);
         dispatch({ type: REGISTER_SUCCESSFUL, payload: resp.data });
+        history.push("/");
       })
       .catch(error => {
         console.log(`ERR: ${error}`);
         dispatch({ type: REGISTER_FAILURE, payload: error });
+      });
+  };
+};
+
+export const loginUser = (user, history) => {
+  return dispatch => {
+    dispatch({ type: IS_LOGGING_IN });
+    axios
+      .post("https://brian-lambda-notes.herokuapp.com/api/users/login", user)
+      .then(resp => {
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem('username', resp.data.user.username);
+        Cookies.set("token", resp.data.token);
+        dispatch({ type: LOGIN_SUCCESSFUL, payload: resp.data });
+        history.push("/");
+      })
+      .catch(error => {
+        dispatch({ type: LOGIN_FAILURE, payload: error });
       });
   };
 };

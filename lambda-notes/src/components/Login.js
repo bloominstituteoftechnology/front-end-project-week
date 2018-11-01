@@ -4,22 +4,28 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { loginUser } from "../actions/index";
 
 // CSS
 import "../CSS/Register.css";
 
 class Login extends React.Component {
   state = {
-    username: "",
     email: "",
-    error: null,
+    password: "",
+    error: null
   };
 
   handleOnChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleLogin = e => {
+    this.props.loginUser({email: this.state.email, password: this.state.password}, this.props.history);
+  }
+
   render() {
+    console.log(this.props.isLoggingIn);
     return (
       <div className="register-form">
         <h1 className="register-header">Login</h1>
@@ -45,8 +51,8 @@ class Login extends React.Component {
             {this.state.isRegistering ? (
               <div>Registering</div>
             ) : (
-              <button onClick={this.handleRegister} type="submit">
-                Register User Account
+              <button disabled={this.props.isLoggingIn} onClick={this.handleLogin} type="submit">
+                {this.props.isLoggingIn ? "Logging In..." : "Login"}
               </button>
             )}
           </div>
@@ -63,12 +69,14 @@ const mapStateToProps = state => {
   return {
     isLoggedIn: state.isLoggedIn,
     token: state.token,
-    isRegistering: state.isRegistering
+    isLoggingIn: state.isLoggingIn,
+    user: state.user
   };
 };
 
 export default withRouter(
   connect(
-    mapStateToProps
+    mapStateToProps,
+    { loginUser }
   )(Login)
 );

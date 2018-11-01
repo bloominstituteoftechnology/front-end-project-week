@@ -24,6 +24,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+      <div>
+        <h4>Welcome, {this.props.user.username}</h4>
+      </div>
         <div
           className="row m-3"
           style={
@@ -34,8 +37,8 @@ class App extends Component {
         >
           <div className="col-md-3 p-5 border-left action-container left-side">
             {localStorage.getItem("isLoggedIn") === "true" ? (
-              <ActionPanel />
-            ) : null}
+              <Route path="/" render={(props) => <ActionPanel {...props} />} />
+             ) : null}
           </div>
           <div className={`col-md-9 p-5 border right-side`}>
             {localStorage.getItem("isLoggedIn") === "true" ? (
@@ -46,8 +49,8 @@ class App extends Component {
                 <Route
                   exact
                   path="/editForm/:title/:id"
-                  render={() => (
-                    <EditNoteForm updateNote={this.props.updateNote} />
+                  render={(props) => (
+                    <EditNoteForm updateNote={this.props.updateNote} {...props} />
                   )}
                 />
               </React.Fragment>
@@ -70,9 +73,9 @@ const mapStateToProps = state => {
     isFetching: state.isFetching,
     notes: state.notes,
     isLoggedIn: state.isLoggedIn,
-    user: state.user,
     token: state.token,
-    error: state.error
+    error: state.error,
+    user: state.user
   };
 };
 
