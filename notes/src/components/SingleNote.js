@@ -35,6 +35,7 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
     }
      deleteNote = () => {
         this.props.deleteNote(this.props.match.params.id, this.props.history)
+        
     }
 
      render() {
@@ -47,7 +48,7 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
                  <Note title={this.props.note.title} 
                 content={this.props.note.textBody} />
                 <Button onClick={this.toggleUpdate} color="primary">Update</Button>
-                <Button onClick={this.deleteNote} color="danger">Delete</Button>
+                <Button onClick={this.toggleModal} color="danger">Delete</Button>
 
                 {this.state.updateActive !== false
                     ? <Edit onCancel={this.toggleUpdate} 

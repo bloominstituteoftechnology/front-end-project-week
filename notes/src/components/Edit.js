@@ -19,7 +19,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
             title: this.state.title,
             content: this.state.content
         }
-        this.props.updateNote(updatedNote);
+        this.props.updateNote(updatedNote,this.props.history);
         this.setState({
             title: '',
             content: ''
