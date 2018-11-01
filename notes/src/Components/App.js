@@ -30,6 +30,7 @@ class App extends Component {
   // handle the search change check if any of the data includes the search term
   handleSearchChange = e => {
     this.setState({ search: e.target.value });
+    console.log("I am a search bar");
     setTimeout(() => {
       const notes = this.props.notes.filter(note => {
         return (
@@ -37,7 +38,9 @@ class App extends Component {
           note.body.toLowerCase().includes(this.state.search.toLowerCase())
         );
       });
-      this.setState({ filteredNotes: notes });
+      this.setState({ filteredNotes: notes }, () => {
+        console.log("help", this.state.filteredNotes);
+      });
     }, 1);
   };
 
@@ -63,10 +66,10 @@ class App extends Component {
         <Route
           exact
           path="/api/all"
-          render={props => (
+          render={() => (
             <NoteList
               notes={
-                this.state.filteredNotes > 0
+                this.state.filteredNotes.length > 0
                   ? this.state.filteredNotes
                   : this.props.notes
               }
