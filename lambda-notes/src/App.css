@@ -294,8 +294,9 @@ form textarea {
 	font-family: 'Roboto', sans-serif;
 	padding: 20px;
 	border-radius: 3px;
-	width: 140%;
-	height: 43%;
+	width: 100%;
+	min-height: 300px;
+	height: 70%;
 }
 
 form .button {
@@ -303,7 +304,7 @@ form .button {
 }
 
 .note-container {
-	margin: 20px auto;
+	margin: 40px auto;
 	width: 100%;
 	padding: 5px 25px;
 }
