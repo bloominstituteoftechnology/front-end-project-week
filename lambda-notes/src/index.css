@@ -55,6 +55,7 @@ h1 {
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /* List View */
@@ -88,7 +89,14 @@ h1 {
   align-items: flex-start;
   padding: 0px 20px 0px 0px;
   margin: 20px;
-  box-shadow: 8px 10px 25px rgb(142, 142, 142);
+  box-shadow: 2px 15px 25px rgb(142, 142, 142);
+}
+
+.note-card:hover {
+  box-shadow: 2px 22px 20px rgb(142, 142, 142);
+  border: 1.5px solid rgb(159, 159, 252);
+  margin: 25px;
+  padding: 5px 20px 5px 5px;
 }
 
 .note-card p {
@@ -155,6 +163,7 @@ h1 {
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /* Full Note Page */
@@ -237,6 +246,16 @@ h1 {
   font-size: 20px;
   color: white;
   background-color: #ca001a;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgb(130, 130, 130);
+}
+
+.modal-btn-delete:hover {
+  box-shadow: 0px 10px 15px rgb(130, 130, 130);
+}
+
+.modal-btn-cancel:hover {
+  box-shadow: 0px 10px 15px rgb(130, 130, 130);
 }
 
 .modal-btn-cancel {
@@ -247,4 +266,6 @@ h1 {
   font-size: 20px;
   color: white;
   background-color: #24b8bd;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgb(130, 130, 130);
 }
