@@ -31,6 +31,7 @@ login = () => {
 render() {
     return (
         <div className="login-page">
+        <div className="login-content-wrapper">
         <h1>Lambda Notes</h1>
         <p>Enter username and password to log in!</p>
         <form className="login-form" onSubmit={this.login}>
@@ -50,6 +51,7 @@ render() {
         ></input>
       <button>Log In</button>
         </form>
+        </div>
         </div>
     )
 }

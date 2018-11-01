@@ -307,3 +307,55 @@ margin: 0 2%;
 .modal-cancel-button {
   background: #30BEC3;
 }
+
+.login-page {
+  background:#4B4A4B;
+  width:100%;
+  height:102.5vh;
+  margin-top:-25px;
+  padding-top:300px;
+}
+
+.login-content-wrapper {
+  background:#D6D6D6;
+  width:30%;
+  margin:0 auto;
+  text-align:center;
+  border: 10px solid #30BEC3;
+  border-radius:10px;
+}
+
+.login-content-wrapper h1 {
+padding:20px;
+font-size:50px;
+}
+
+.login-content-wrapper p {
+  font-size:20px;
+}
+
+.login-form {
+  display:flex;
+  flex-direction: column;
+  padding:20px;
+  width:50%;
+  margin:0 auto;
+}
+
+.login-form input {
+  padding:10px 2%;
+margin:10px 0;
+}
+
+.login-form button {
+  width:80%;
+  background:#30BEC3;
+  color:#ffffff;
+  font-size:20px;
+  font-weight: bold;
+  padding:15px 0;
+  margin:5px auto;
+border: 2px solid #8A9B9C;
+cursor: pointer;
+border-radius:5px;
+}
