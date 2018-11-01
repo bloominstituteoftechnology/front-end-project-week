@@ -46,19 +46,19 @@ class NotePage extends Component {
     });
   };
 
-  returnToNote = action => {
-    this.setState({
-      [action]: undefined
-    });
-  };
+  //returnToNote = action => {
+  //  this.setState({
+  //    [action]:
+  //  });
+  //};
 
-  componentDidMount() {
-    this.props.getNote(this.props.match.params.id);
-  }
+  // componentDidMount() {
+  //   this.props.getNote(this.props.match.params.id);
+  // }
 
-  componentWillUnmount() {
-    if (this.props.redirect) this.props.resetRedirect();
-  }
+  // componentWillUnmount() {
+  //   if (this.props.redirect) this.props.resetRedirect();
+  // }
 
   render() {
     if (this.props.redirect) {

@@ -86,12 +86,14 @@ export const deleteNote = id => {
 };
 
 export const updateNote = updatedNote => {
+  console.log(updatedNote, "This is my updated string");
+
   return dispatch => {
     dispatch({ type: UPDATING_NOTE });
 
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`,
+        `https://fe-notes.herokuapp.com/note/edit/${updatedNote._id}`,
         updatedNote
       )
 

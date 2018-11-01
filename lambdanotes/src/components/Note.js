@@ -101,8 +101,7 @@ const Note = props => {
               ) : null
           )}
         </NoteTags>
-      ) : null}{" "}
-      }
+      ) : null}
     </NoteLink>
   );
 };

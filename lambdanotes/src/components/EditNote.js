@@ -22,7 +22,7 @@ class EditNote extends Component {
   submitHandler = event => {
     event.preventDefault();
 
-    this.props.updateNote(this.props.note.id, {
+    this.props.updateNote(this.props.note._id, {
       title: this.state.title,
       textBody: this.state.textBody
     });
@@ -38,6 +38,7 @@ class EditNote extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <form className="EditNote" onSubmit={this.submitHandler}>
         <PageTitle>Edit Note:</PageTitle>
