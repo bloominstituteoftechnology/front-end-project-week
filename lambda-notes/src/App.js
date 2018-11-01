@@ -113,7 +113,7 @@ class App extends Component {
     if (this.isAuthenticated()) {
       return (
         <div className="App">
-          <NavBar />
+          <NavBar notes={this.state.notes}/>
           <Route 
             exact path='/' 
             render={props => (
@@ -173,7 +173,7 @@ class App extends Component {
     }
   }
   isAuthenticated() {
-    // check whether the current time is past the access Token's expire time
+    // check whether the current time is past the access Token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
