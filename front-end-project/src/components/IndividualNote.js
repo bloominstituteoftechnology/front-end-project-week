@@ -1,18 +1,12 @@
 import React from 'react'
 import './component.css'
 import { withRouter } from "react-router";
-import { XYCoord } from 'dnd-core';
+
 import flow from 'lodash/flow';
 import { findDOMNode } from 'react-dom';
 import {
     DragSource,
     DropTarget,
-    ConnectDropTarget,
-    ConnectDragSource,
-    DropTargetMonitor,
-    DropTargetConnector,
-    DragSourceConnector,
-    DragSourceMonitor,
   } from 'react-dnd';
 
 const cardSource = {
@@ -78,7 +72,7 @@ class  IndividualNote extends React.Component {
         super(props)
     }
 
-        
+
 
        routeToItem = (ev, note) => {
         ev.preventDefault();
@@ -88,7 +82,6 @@ class  IndividualNote extends React.Component {
     }
     render() {
         const {
-            isDragging,
             connectDragSource,
             connectDropTarget,
           } = this.props;
@@ -96,7 +89,7 @@ class  IndividualNote extends React.Component {
             connectDragSource &&
             connectDropTarget &&
             connectDragSource(
-            connectDropTarget(<div className="indiv-note"  onClick={ev => this.routeToItem(ev, this.props.note)}>
+            connectDropTarget(<div className="indiv-note box"  onClick={ev => this.routeToItem(ev, this.props.note)}>
             <h4 className="note-title">{this.props.note.title}</h4>
             <p className="note-body">{this.props.note.textBody}</p>
         </div>),

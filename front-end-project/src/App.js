@@ -38,8 +38,11 @@ class App extends Component {
     //        console.log("error", error)
     //      })
     this.getNotes();
+   
   }
 
+
+  
 
   
   moveCard = (dragIndex, hoverIndex) => {
@@ -126,13 +129,17 @@ class App extends Component {
   }
 
   sortAtoZ = e =>{
+    console.log("note length",this.state.notes.length)
     e.preventDefault();
     const sortedNote = this.state.notes;
-    sortedNote.sort(function(a,b) 
-                      {return (a.title > b.title) ?
-                      1 : ((b.title > a.title) ?
-                       -1 : 0);} );
-    console.log("sorted", sortedNote)
+    sortedNote.sort(function(a, b){
+      var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase();
+      if (nameA < nameB) //sort string ascending
+       return -1;
+      if (nameA > nameB)
+       return 1;
+      return 0; //default return value (no sorting)
+     });
     this.setState({
       notes: sortedNote
     })

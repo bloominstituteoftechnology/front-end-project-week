@@ -84,7 +84,8 @@
 }
 
 .note-title {
-    border-bottom: 5px solid #F9EACF;
+    border-bottom: 2px solid #F9EACF;
+    padding: 2px;
     
     
 }
@@ -218,9 +219,23 @@
     cursor: -moz-grab;
     cursor: -webkit-grab;
     padding: 2px;
-    box-shadow: 5px 5px #888888;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
     background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
 }
+
+.indiv-note:hover {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  
+  .indiv-note:hover::after {
+      opacity: 1;
+  }
+  
+
+
+
 
      /* (Optional) Apply a "closed-hand" cursor during drag operation. */
      .indiv-note:active { 
