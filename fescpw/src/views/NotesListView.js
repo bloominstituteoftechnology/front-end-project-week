@@ -30,11 +30,11 @@ class NotesListView extends Component {
         this.props.notesFetch();
     }
 
-    componentDidUpdate(nextProps) {
-        if (this.props.notes_array !== nextProps.notes_array) {
-            this.props.notesFetch();
-        }
-    }
+    // componentDidUpdate(nextProps) {
+    //     if (this.props.notes_array !== nextProps.notes_array) {
+    //         this.props.notesFetch();
+    //     }
+    // }
 
     isAuthenticated() {
         // Check whether the current time is past the
