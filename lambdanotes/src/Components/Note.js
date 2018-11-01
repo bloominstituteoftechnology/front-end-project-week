@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Modal from './Modal';
+import './Note.css';
 
 class Note extends Component {
     constructor(props) {
@@ -40,7 +41,9 @@ class Note extends Component {
                     <div onClick={this.openModal} className="delete">
                         delete
                     </div>
-                    {this.state.showModal ? <Modal id={this.state.note._id} hideModal={this.hideModal} /> : null}
+                </div>
+                <div className="modal">
+                {this.state.showModal ? <Modal id={this.state.note._id} hideModal={this.hideModal} /> : null}
                 </div>
                 <div className="body-container">
                     <h3>{this.state.note.title}</h3>

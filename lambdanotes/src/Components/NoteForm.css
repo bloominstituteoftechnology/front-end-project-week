@@ -1,0 +1,35 @@
+.create-new-note {
+    margin-left: 250px;
+    margin-top: 0;
+    background-color:  #F2F1F2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    margin-left: 100px; 
+    color: black;
+}
+
+.title{
+    height: 30px;
+    width: 200px;
+    margin-left: 100px;
+}
+
+.textbody {
+    height: 500px;
+    width: 500px;
+    margin-left: 100px;
+}
+
+.save {
+    background-color: #24B7BD;
+    color: white;
+    width: 90%;
+    margin: 5% 10%;
+    text-decoration: none;
+    padding: 10px;
+    width: 150px;
+}

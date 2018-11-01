@@ -7,7 +7,6 @@ import ListView from './Components/ListView';
 import NoteForm from './Components/NoteForm';
 import SideBar from './Components/SideBar';
 import Note from './Components/Note';
-import Modal from './Components/Modal';
 import Edit from './Components/Edit';
 
 class App extends Component {

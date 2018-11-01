@@ -42,23 +42,23 @@ class Edit extends Component {
 
     render() {
         return(
-            <div className='edit-note'>  
+            <div className="edit-note">  
                 <h3 className="page-title">Edit Note:</h3>  
-                <input 
+                <input className="title"
                     type='text'
                     placeholder='Note Title'
                     name='title'
                     value={this.state.title}
                     onChange={this.handleTextInput}
                 />
-                <input 
+                <input className="textbody"
                     type='text'
                     placeholder='Note Content'
                     name='textBody'
                     value={this.state.textBody}
                     onChange={this.handleTextInput}
                 />
-                <button onClick={() => this.editNote(this.props.match.params.id)}>Save</button>
+                <button onClick={() => this.editNote(this.props.match.params.id)} className="save">Save</button>
             </div>
         )
     }

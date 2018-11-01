@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import './NoteForm.css';
+
 class NoteForm extends Component {
     constructor() {
         super(); 
@@ -31,21 +33,21 @@ class NoteForm extends Component {
         return(
             <div className='create-new-note'>  
                 <h3 className="page-title">Create New Note:</h3>  
-                <input 
+                <input className="title"
                     type='text'
                     placeholder='Note Title'
                     name='title'
                     value={this.state.title}
                     onChange={this.handleTextInput}
                 />
-                <input 
+                <input className="textbody"
                     type='text'
                     placeholder='Note Content'
                     name='textBody'
                     value={this.state.textBody}
                     onChange={this.handleTextInput}
                 />
-                <button onClick={this.createNewNote}>Save</button>
+                <button onClick={this.createNewNote} className="save">Save</button>
             </div>
         )
     }

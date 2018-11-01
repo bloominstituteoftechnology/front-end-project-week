@@ -1,0 +1,37 @@
+.listview-container {
+    margin-left: 250px;
+    margin-top: -20px;
+    background-color: #F2F1F2;
+}
+
+h1 { 
+    color: #4B4B4B;
+    text-align: left;
+}
+
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note-card {
+    flex-direction: column; 
+    border: 1px solid black;
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    margin: 50px;
+    background-color: white;
+}
+
+
+.note-card h2 { 
+    color: #4B4B4B;
+    border-bottom: 1px solid black;
+    text-decoration: none;
+}
+
+.note-card p {
+    color: black;
+    text-decoration: none;
+}

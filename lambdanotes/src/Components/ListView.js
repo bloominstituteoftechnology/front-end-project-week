@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import './ListView.css';
 
 class ListView extends Component {
     constructor(props) {
@@ -9,17 +10,20 @@ class ListView extends Component {
 
     render() {
         return (
-            <div className='list-container'>
+            <div className='listview-container'>
+                <h1>Your Notes:</h1> 
+                <div className='list-container'>
                 {this.props.list.map(note => {
                     return (
                         <div className='note-card' key={note._id}>
                             <Link to={`/Note/${note._id}`}>
-                                <h1>{note.title}</h1>
+                                <h2>{note.title}</h2>
                                 <p>{note.textBody}</p> 
                             </Link>   
                         </div>
                         )
                     })}
+                </div>
             </div>   
         )
     };
