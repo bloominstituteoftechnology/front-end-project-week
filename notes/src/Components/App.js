@@ -9,7 +9,7 @@ import ReadNote from "../views/ReadNote";
 import Sidebar from "./Sidebar";
 
 import "./App.css";
-import DeleteModal from "../views/DeleteModal";
+// import DeleteModal from "../views/DeleteModal";
 
 const url = "https://fe-notes.herokuapp.com/note";
 
@@ -82,24 +82,30 @@ class App extends Component {
     const selectedNote = this.state.notes.find(
       note => note._id === match.params.noteId
     );
-    return <ReadNote {...selectedNote} />;
+    return <ReadNote {...selectedNote} deleteNote={this.deleteNote} editNote={this.editNote} />;
+  };
+
+  addNote = () => {
+    return <AddEditNote postNote={this.postNote} />;
+  }
+
+  updateNote = ({ match }) => {
+    const selectedNote = this.state.notes.find(
+      note => note._id === match.params.noteId
+    );
+    return <AddEditNote {...selectedNote} putNote={this.putNote} />;
   };
 
   render() {
-    console.log("State.title = " + this.state.title);
     return (
       <Router>
         <div className="App">
           <Sidebar />
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => <ListNotes notes={this.state.notes} />}
-            />
-            <Route exact path="/n/:noteId" render={this.renderNote} />
-            <Route path="/AddEditNote" render={() => <AddEditNote postNote={this.postNote} />} />
-            <Route path="/Delete" render={(id) => <DeleteModal deleteNote={this.deleteNote} />} />
+            <Route exact path="/" render={() => <ListNotes notes={this.state.notes} />} /> 
+            <Route exact path="/n/:noteId" render={this.renderNote} /> 
+            <Route path="/add" render={this.addNote} />
+            <Route path="/edit" render={this.updateNote} /> 
           </Switch>
         </div>
       </Router>

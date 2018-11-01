@@ -75,3 +75,12 @@
 .add-edit-note-form .button {
   width: 200px;
 }
+
+.is-closed {
+  display: none !important;
+}
+
+.is-open {
+  display: flex;
+  background: rgba(120, 120, 120, .4);
+}
