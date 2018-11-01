@@ -5,8 +5,8 @@ const NoteList = (props) => {
     return(
         <div className="note-list">
             <button className="export" onClick={() => props.export()}>Export As CSV</button>
-            <i onClick={() => props.changeSize()} className="fas fa-th-large"></i>
-            <i onClick={() => props.changeSize()} className="fas fa-th"></i>
+            <i onClick={() => props.changeSize(true)} className="fas fa-th-large"></i>
+            <i onClick={() => props.changeSize(false)} className="fas fa-th"></i>
             {props.notes.map(note => {
                 return (<NoteCard 
                     size={props.size}

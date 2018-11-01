@@ -45,8 +45,8 @@ class App extends Component {
     a.click();
   }
 
-  changeSize = e => {
-    if(this.state.size === 'note-card'){
+  changeSize = bool => {
+    if(bool === true){
       this.setState({size : 'note-card-dbl'})
     }else{
       this.setState({size : 'note-card'});
