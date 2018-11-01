@@ -11,8 +11,7 @@ const Notes = (props) => {
 				<input name="isChecked" type="checkbox" checked={props.isChecked} onChange={props.toggleCheck} />Delete
 				All The Things <button onClick={props.deleteALLNotes}>Delete</button>
 			</StyledDeleteAllTheThings>
-			<input
-				className="search"
+			<StyledFilterSearch
 				type="text"
 				name="search"
 				placeholder="Search By Title"
@@ -157,7 +156,7 @@ export const StyledCheckBoxP = styled.p`
 	font-size: 12px;
 `;
 
-export const styledFilterSearch = styled.input`
+export const StyledFilterSearch = styled.input`
 	width: 50%;
 	height: 23px;
 	margin-left: 8px;
