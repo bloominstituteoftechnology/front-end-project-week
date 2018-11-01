@@ -12,3 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.list-view, .create-new-view, .note-view {
+  border: 3px solid grey;
+  margin: 50px;
+}
