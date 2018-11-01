@@ -28,6 +28,9 @@ code {
   box-sizing: border-box;
   padding:5px 5% 0px 1%;
   justify-content: space-between;
+  background-color:#D3D2D3;
+  border-left:2px dashed rgb(88, 88, 88);
+  height:50px;
 }
 .size-btns{
   display:flex;
@@ -37,10 +40,16 @@ code {
 .export{
   /* margin-right:70%; */
   background : whitesmoke;
-  box-shadow: 5px 10px whitesmoke;
+  height:25px;
+}.export:hover{
+  background:white;
+  transition : .1s;
 }
 .fas{
   cursor:pointer;
+}.fas:hover{
+  color:rgb(96, 130, 146);
+  transition:.2s;
 }
 
 .note-list{
