@@ -2,8 +2,36 @@
 
 import React, { Component } from "react";
 import axios from "axios";
-import { styled } from "styled-components";
-import { SideButton } from "./Sidebar";
+import styled  from "styled-components";
+import DeleteModal from './DeleteModal';
+
+const SideButton = styled.button`
+  width: 100%;
+  padding: 1rem 0;
+  margin-top: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: inherit;
+  font-weight: bold;
+  color: #fafafa;
+  background-color: #26a69a;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+`;
+
+const StyledNote = styled.div`
+display: flex;
+flex-direction: column;
+padding-left: 320px;
+width: 300px;
+padding-bottom: 20px;
+`;
+
 
 class EditNote extends Component {
   state = {
@@ -27,11 +55,30 @@ class EditNote extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input value={this.state.title} type="text" name="title" id="" onChange={this.handleChange}/>
-        <textarea value={this.state.textBody} name="textBody" id="" cols="30" rows="10" onChange={this.handleChange}/>
-        <button>SUBMIT</button>
-      </form>
+      <StyledNote>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            value={this.state.title}
+            type="text"
+            name="title"
+            id=""
+            cols="100"
+            rows="30"
+
+            onChange={this.handleChange}
+          />
+          <textarea
+            value={this.state.textBody}
+            name="textBody"
+            id=""
+            cols="160"
+            rows="30"
+            onChange={this.handleChange}
+          />
+          <SideButton>SUBMIT</SideButton>
+        </form>
+      </StyledNote>
+
     );
   }
 }

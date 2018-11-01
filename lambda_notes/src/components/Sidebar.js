@@ -1,13 +1,10 @@
 // this is the sidebar it's the same on every page
 
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-
-
- const StyledSideBar = styled.div`
+const StyledSideBar = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -15,42 +12,43 @@ import { Link } from 'react-router-dom';
   width: 250px;
   background-color: #ddd;
   padding: 1.5rem;
-  border: 1px solid black;
+  border: .5px solid black;
+  text-decoration: none;
 `;
- const MainHeading = styled.h1`
+const MainHeading = styled.h1`
   font-size: 3.6rem;
   margin-bottom: 2rem;
 `;
- const SideButton = styled.button`
+const SideButton = styled.button`
   width: 100%;
   padding: 1rem 0;
+  text-decoration: none;
   text-align: center;
   font-size: inherit;
   font-weight: bold;
   color: #fafafa;
   background-color: #26a69a;
   border: none;
+  border-radius: 5px;
   display: block;
   cursor: pointer;
-   &:not(:last-child) {
+  &:not(:last-child) {
     margin-bottom: 1rem;
   }
 `;
- const SideBar = () => {
+const SideBar = () => {
   return (
-    // <StyledSideBar>
-    //   <MainHeading>
-    //     Lambda <br /> Notes
-    //   </MainHeading>
-    //    <SideButton>View Your Notes</SideButton>
-    //    <SideButton>+ Create a new note</SideButton>
-    // </StyledSideBar>
-    <div>
-      <h1>Lambda Notes</h1>
-      <Link to='/createnote'>CREATE NOTE</Link>
-      <Link to='/'>VIEW NOTE</Link>
-
-    </div>
+    <StyledSideBar>
+      <MainHeading>
+        Lambda <br /> Notes
+      </MainHeading>
+      <SideButton>
+        <Link to="/">View Your Notes</Link>
+      </SideButton>
+      <SideButton>
+        <Link to="/createnote">+Create a New Note</Link>
+      </SideButton>
+    </StyledSideBar>
   );
 };
- export default SideBar;
+export default SideBar;

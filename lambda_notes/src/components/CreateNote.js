@@ -3,8 +3,34 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import axios from "axios";
-import { styled } from "styled-components";
-import { SideButton } from "./Sidebar";
+import styled  from "styled-components";
+
+const SideButton = styled.button`
+  width: 100%;
+  padding: 1rem 0;
+  margin-top: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: inherit;
+  font-weight: bold;
+  color: #fafafa;
+  background-color: #26a69a;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+`;
+
+const StyledNote = styled.div`
+display: flex;
+flex-direction: column;
+padding-left: 320px;
+width: 300px;
+padding-bottom: 20px;
+`;
 
 class CreateNote extends Component {
   state = {
@@ -21,18 +47,36 @@ class CreateNote extends Component {
       title: this.state.title,
       textBody: this.state.textBody
     };
-      console.log(newNote)
+    console.log(newNote);
     this.props.createNote(newNote);
     this.props.history.push("/");
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input value={this.state.title} type="text" name="title" id="" onChange={this.handleChange}/>
-        <textarea value={this.state.textBody} name="textBody" id="" cols="30" rows="10" onChange={this.handleChange}/>
-        <button>SUBMIT</button>
-      </form>
+      <StyledNote>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            value={this.state.title}
+            type="text"
+            name="title"
+            id=""
+            cols="100"
+            rows="30"
+
+            onChange={this.handleChange}
+          />
+          <textarea
+            value={this.state.textBody}
+            name="textBody"
+            id=""
+            cols="160"
+            rows="30"
+            onChange={this.handleChange}
+          />
+          <SideButton>SAVE</SideButton>
+        </form>
+      </StyledNote>
     );
   }
 }

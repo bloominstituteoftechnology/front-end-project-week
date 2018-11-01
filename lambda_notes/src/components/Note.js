@@ -19,18 +19,22 @@ const CardTitle = styled.h3`
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   border-bottom: 2px solid #bdbdbd;
+  color: black;
+  overflow: hidden;
 `;
 
 const NoteBody = styled.div`
   font-family: "Raleway", sans-serif;
+  color: black;
+  overflow: hidden;
 `;
 
 const Note = ({ note: { _id, title, textBody } }) => {
   return (
     <Link to={`/viewnote/${_id}`}>
       <SingleCard>
-        <CardTitle>{title.substr(0, 15) + "..."} </CardTitle>
-        <NoteBody>{textBody.substr(0, 50) + "..."}</NoteBody>
+        <CardTitle>{title.substr(0, 10) + "..."} </CardTitle>
+        <NoteBody>{textBody.substr(0, 20) + "   ..."}</NoteBody>
       </SingleCard>
     </Link>
   );

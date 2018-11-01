@@ -8,16 +8,20 @@ import styled from 'styled-components';
 
  const SecondaryHeading = styled.h2`
   margin-bottom: 2rem;
+  text-decoration: none;
+  color: black;
 `;
  const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-left: 18rem;
+  color: black;
+
 `;
  const AllNotes = ({ notes }) => {
   return (
     <div>
-      <SecondaryHeading>Your Notes:</SecondaryHeading>
+
       <CardsContainer>
         {notes.map(note => (
           <Note note={note} key={note._id} />
