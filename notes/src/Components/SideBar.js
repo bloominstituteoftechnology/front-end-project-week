@@ -12,12 +12,6 @@ export default props => {
         <br />
         Notes
       </h1>
-      <Link to="/api/all">
-        <button>View Your Notes</button>
-      </Link>
-      <Link to="/api/create">
-        <button>+ Create New Note</button>
-      </Link>
       <input
         type="text"
         name="search"
@@ -26,6 +20,12 @@ export default props => {
         value={props.search}
         onChange={props.handleSearchChange}
       />
+      <Link to="/api/all">
+        <button>View Your Notes</button>
+      </Link>
+      <Link to="/api/create">
+        <button>+ Create New Note</button>
+      </Link>
       <CSVLink
         className="csv-export"
         filename={"exports.csv"}
