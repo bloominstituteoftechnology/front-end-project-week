@@ -6,5 +6,5 @@ export const EditNoteView = props => (
     note['_id'] = props.match.params.id
     console.log('submit wrapper', note)
     props.onSubmit(note)
-  }} action={"Edit"} />
+  }} action={"Update"} />
 );

@@ -17,6 +17,10 @@ class App extends Component {
     super(props)
     this.state = {
       notes: [],
+      draftNote: {
+        title: '',
+        textBody: ''
+      }
     }
     console.log(this.state)
   }
@@ -47,9 +51,21 @@ class App extends Component {
           title: note.title,
           textBody: note.textBody
         }
+
         this.setState(prev => {
+          let tempDraft = prev.state.draftNote;
+          if (newNote.title === tempDraft.title) {
+            tempDraft = {
+              title: '',
+              textBody: ''
+            }
+          }
           return {
-            notes: [...prev.notes, newNote]
+            notes: [...prev.notes, newNote],
+            draftNote: {
+              title: '',
+              textBody: ''
+            } 
           } 
         })
       })
@@ -65,6 +81,7 @@ class App extends Component {
         console.log('edit response', data)
         const matchIds = n => n._id == data.data._id
         this.setState(prev => {
+          // const newNote = JSON.parse(JSON.stringify(data.data))
           const editedIndex = prev.notes.findIndex(matchIds)
           prev.notes[editedIndex] = data.data
           console.log('editied state vars', editedIndex, data.data)
@@ -89,11 +106,8 @@ class App extends Component {
 
   render() {
     return (
-
       <div className="App">
         <Sidebar />
-
-
         <div className="page-wrapper">
 
           <Route
@@ -150,15 +164,10 @@ class App extends Component {
                 notes={this.state.notes} />
             )}
           />
-
-
         </div>
-
       </div>
     );
   }
 }
-
-
 
 export default App;

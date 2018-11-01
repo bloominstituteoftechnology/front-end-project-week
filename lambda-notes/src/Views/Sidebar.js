@@ -4,12 +4,15 @@ import './Sidebar.css';
 
 export const Sidebar = props => (
   <div className="Sidebar">
-    <h1>hey I'm the sidebar</h1>
+    <Link to='/' className="sidebar-heading">
+      <h1>Lambda</h1>
+      <h1>Notes</h1>
+    </Link>
     <Link to='/'>
-      <button>View All Notes</button>
+      <button className="sidebar-button" >View All Notes</button>
     </Link>
     <Link to='/note/create'>
-      <button>Create Note</button>
+      <button className="sidebar-button">Create Note</button>
     </Link>
 
   </div>
