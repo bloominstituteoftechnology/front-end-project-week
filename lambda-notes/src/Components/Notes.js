@@ -54,11 +54,18 @@ class Notes extends Component {
   }
 
   searchHandler = event => {
-    event.preventDefault();
     this.setState({ search: event.target.value });
   }
   
   render() {
+    let filteredNotes = this.props.notes.filter(
+      (note) => {
+        return (
+          (note.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !==-1) ||
+          (note.textBody.toLowerCase().indexOf(this.state.search.toLowerCase()) !==-1) 
+        );
+      }
+    );
     return (
       <NotesContainer>
         <Heading>Your Notes:</Heading>
@@ -72,7 +79,7 @@ class Notes extends Component {
           />
         </form>
         <NotesDisplay>
-          {this.props.notes.map(note => {
+          {filteredNotes.map(note => {
             return (
               <Link to={`/note/${note.id}`}>
                 <NoteCard
