@@ -16,6 +16,7 @@ class NoteForm extends Component {
     event.preventDefault();
     if (this.state.updatingNote) {
       this.handleUpdateNote();
+      this.state.updatingNote = false;
     } else {
       this.handleAddNewNote(event);
     }
