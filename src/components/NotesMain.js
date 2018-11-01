@@ -97,7 +97,7 @@ const H3 = styled.h3`
 const P = styled.p`
 `
 const P2 = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin: 0;
 `
 const Strong = styled.strong`
