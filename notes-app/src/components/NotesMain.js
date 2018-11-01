@@ -26,7 +26,7 @@ const NotesMain = (props) => {
                   <P>{note.text.substring(0, 60)}...</P>
                     <P2>Tags:&nbsp;
                       {
-                        note.tags.map((note, index) => {
+                        JSON.parse(note.tags).map((note, index) => {
                           return <span key={`tag${index}`}>{ ((index ? ', ' : '') + note).substring(0, 18)}</span>
                         })
                       }
@@ -40,7 +40,7 @@ const NotesMain = (props) => {
           )
         }
       </Div2>
-      <Div5>
+      {/*<Div5>
         <H2>All tags:</H2>
         { 
           props.tags.map((tag, index) => {
@@ -52,7 +52,7 @@ const NotesMain = (props) => {
             </Span1>
           })
         }
-      </Div5>
+      </Div5>*/}
 
       </Div1>
     )

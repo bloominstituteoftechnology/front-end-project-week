@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -17,7 +18,20 @@ class Note extends Component {
 
   deleteNoteFromAPI = (noteId) => {
     console.log(noteId)
-    axios.delete(``)
+    axios.delete(`http://localhost:7777/api/notes/${noteId}`)
+      .then(resp => console.log(resp))
+      .catch(err => console.log(err))
+    this.props.history.push("/")
+  }
+
+  cloneNoteToAPI = (note) => {
+    const clonedNote = {
+      title: note.title,
+      text: note.text,
+      tags: note.tags,
+    }
+
+  axios.post('http://localhost:7777/api/notes/', {...note})
       .then(resp => console.log(resp))
       .catch(err => console.log(err))
     this.props.history.push("/")
@@ -52,7 +66,7 @@ render() {
           <P1>{note.text}</P1>
           <P1>Note Tags:<br />
           {
-            note.tags.map((item, index) => {
+            JSON.parse(note.tags).map((item, index) => {
               return <span key={`tag${index}`}>{ (index ? ', ' : '') + item }</span>; 
             })
           }

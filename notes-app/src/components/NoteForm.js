@@ -30,7 +30,8 @@ class NoteForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const formattedTags = this.state.tags.split(",").map(word => word.trim().toLocaleLowerCase())
+    const { id } = this.props.match.params
+    const formattedTags = JSON.stringify(this.state.tags.split(',').map(word => word.trim().toLocaleLowerCase()))
     if (this.state.editing) {
       const updatedNote = {
         id: this.props.noteUpdate.id,
@@ -39,7 +40,7 @@ class NoteForm extends Component {
         tags: formattedTags
       }
       
-      axios.put(`http://localhost:7000/notes/${id}/edit`, updatedNote)
+      axios.put(`http://localhost:7777/api/notes/${id}/edit`, updatedNote)
         .then(resp => console.log(resp))
         .catch(err => console.log(err))
       this.props.history.push("/")
