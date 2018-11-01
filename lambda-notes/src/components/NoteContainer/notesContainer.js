@@ -12,8 +12,8 @@ class NotesContainer extends Component {
         super(props);
         this.state = {
             notes: [],
-            searchedPost:[],
-            searchResult:'',
+            searchedPost: [],
+            searchResult: '',
 
         };
     }
@@ -45,16 +45,16 @@ class NotesContainer extends Component {
     }
 
 
-    handleInput = event=>{
-        this.setState({ searchResult: event.target.value});
+    handleInput = event => {
+        this.setState({ searchResult: event.target.value });
     }
-    searchResults= event=>{
+    searchResults = event => {
         this.handleInput(event);
-        this.setState(preState =>{
-            const searchedPost = preState.notes.filter(result =>{
-                return result.title.includes(preState.searchResult);
+        this.setState(preState => {
+            const searchedPost = preState.notes.filter(result => {
+                return result.title.toLowerCase().includes(preState.searchResult);
             });
-            return {searchedPost: searchedPost}
+            return { searchedPost: searchedPost }
         })
     }
 
@@ -64,7 +64,7 @@ class NotesContainer extends Component {
             <div className='all-notes'>
                 <div>
                     <Route exact path='/' render={(Ownprops) => {
-                        return (<NotesList {...Ownprops} stateSearch={this.state.searchResult} searchResults={this.searchResults} notes={this.state.searchedPost.length >0 ?
+                        return (<NotesList {...Ownprops} stateSearch={this.state.searchResult} searchResults={this.searchResults} notes={this.state.searchedPost.length > 0 ?
                             this.state.searchedPost
                             : this.state.notes} />)
                     }} />
