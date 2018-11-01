@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Input, Button } from "reactstrap";
 import "./EditNote/notecard.css";
 import axios from "axios";
+
+
+
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +62,7 @@ class Register extends Component {
                     style={{ marginBottom: "1rem", marginLeft: "5rem", width: "40%", maxWidth: "300px" }}
           />
                 <Button onClick={this.handleFormSubmit} color="info" type="submit" style={{
-                     marginLeft: "5rem"}}>
+                     marginLeft: "5rem"}} className= "registerbutton">
             Register
           </Button>
         </form>

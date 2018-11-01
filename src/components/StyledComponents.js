@@ -74,3 +74,16 @@ export const DivClick = styled.div`
     cursor: pointer;
   }
 `;
+export const Registerbutton = styled.div`
+  font-family: "Raleway", sans-serif;
+  background: #2bc1c4;
+  color: #ffffff;
+  border: unset;
+  border: solid #740078 0.5px;
+  width: 80%;
+  height: 30px;
+  margin: 0 7.5% 15px;
+  padding: 8px;
+  justify-content: center;
+  }
+  `;
