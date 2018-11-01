@@ -296,15 +296,16 @@ margin: 0 auto;
 .anobato {
   display: flex;
   flex-wrap: wrap;
+  max-width: 1200px;
 } 
-
-
-.top-nav { 
-  background-color: green;
-  width: 100%;
-  height: 300px;
+/* 
+.note {
+  width: 40%;
+} */ 
+ /* .top-nav { 
+  background-image: url('https://image.ibb.co/mV5AdL/Copy-of-Copy-of-Copy-of-LIKHABOUTIQUE-2.png'); 
   
-}  
+}  */
 
 .logo{
   margin-top: 40px;

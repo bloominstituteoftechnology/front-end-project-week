@@ -16,6 +16,8 @@ class App extends Component {
   componentDidMount = () => {
     this.props.fetchNotes();
   }
+
+  
   render() {
     return (
       <div className="App">
@@ -36,7 +38,6 @@ class App extends Component {
       <Nav className='nav-bar'/>
       <Route exact path="/" render={props => (
         <Notes {...props} notes={this.props.notes} fetch={this.props.fetch} fetching={this.props.fetching} />
-
       )} />
       <Switch>
       <Route path="/note/add" render={props => (

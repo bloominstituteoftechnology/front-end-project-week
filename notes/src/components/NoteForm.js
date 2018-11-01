@@ -9,6 +9,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
             content: ''
         }
     }
+    
      handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     }
@@ -19,13 +20,14 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
             title: this.state.title,
             content: this.state.content
         }
-        this.props.addNote(newNote, this.props.history);
+        this.props.addNote(newNote);
         this.setState({
             title: '',
             content: ''
-        })
+        },  () => this.props.history.push('/'))
         
     }
+
 
         render() {
         console.log(this.props);

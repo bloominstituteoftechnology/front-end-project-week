@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const SAVING = 'SAVING';
@@ -37,8 +38,7 @@ export const addNote = (note, history) => {
         .then(response => {
             dispatch({ type: SAVED, payload: response.data })
         })
-        .then(() => history.push('/'))
-
+        .then(response => history.push('/'))
         .catch(error => {
             dispatch({ type: ERROR, payload: error })
         })
@@ -67,7 +67,7 @@ export const deleteNote =  (NoteId, history) => {
         .then(response => {
             dispatch({ type: DELETED, payload: response.data})
         })
-        .then(() => history.push('/'))
+        .then(response => history.push('/'))
         .catch(error => {
             dispatch({type: ERROR, payload: error })
         })
