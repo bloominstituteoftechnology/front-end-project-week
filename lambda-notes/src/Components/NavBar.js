@@ -73,25 +73,8 @@ class NavBar extends Component {
         title: '',
         textBody: '',
       },
-      // search: ''
     }
   };
-
-  // searchHandler = event => {
-  //   event.preventDefault();
-  //   this.setState({ search: event.target.value });
-  // }
-
-  // search = event => {
-  //   event.preventDefault();
-  //   let newNotes = [...this.state.notes];
-  //   newNotes = newNotes.filter(note => {
-  //     if (note.title === this.state.search) {
-  //       return note;
-  //     }
-  //   });
-  //   this.setState({ notes: newNotes });
-  // }
 
   render() {
     console.log('NOTES:', this.props.notes);
@@ -107,19 +90,9 @@ class NavBar extends Component {
           <NavButton>+ Create New Note</NavButton>
         </Link>
 
-        {/* <form> 
-          <input
-            type='text'
-            name='search'
-            placeholder='search'
-            value={this.state.search}
-            onChange={this.searchHandler}
-          />
-        </form> */}
-        
-        <button>
+        {/* <button>
           <CSVLink filename={'notes.csv'} data={this.props.notes}>Download Notes</CSVLink>
-        </button>
+        </button> */}
         <LogoutBtn onClick={this.logout}>Log out</LogoutBtn>
       </NavbarContainer>
     );
