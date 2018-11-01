@@ -125,7 +125,7 @@ class App extends Component {
       <div className="App">
         <Menu />
         <div className="container">
-          <SearchBar handleSearch={this.handleSearch} />
+          {/* <SearchBar handleSearch={this.handleSearch} /> */}
           <Route
             exact
             path="/"
