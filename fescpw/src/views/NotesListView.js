@@ -7,6 +7,7 @@ import { searchEdit, notesFetch, noteFetch } from '../redux/actions';
 import NotesList from '../components/NotesList';
 
 import NotesMenuView from './NotesMenuView';
+import NoteAuth from '../components/NoteAuth';
 
 const NotesFilterContainer = styled.div`
     width: 100%;
@@ -35,6 +36,13 @@ class NotesListView extends Component {
         }
     }
 
+    isAuthenticated() {
+        // Check whether the current time is past the
+        // Access Token's expiry time
+        let expiresAt = JSON.parse(localStorage.getItem("expires_at"));
+        return new Date().getTime() < expiresAt;
+    }
+
   render() {
     //   if (this.props.nts_fthg) {
     //       return (
@@ -43,19 +51,25 @@ class NotesListView extends Component {
     //   }
       const notesFilter = this.props.notes_array.filter(note => {
           return note.title.toLowerCase().includes(this.props.searchField.toLowerCase());
-      })
-    return (
-        <div>
-            <NotesMenuView />
-                <NotesFilterContainer>
-                    <NotesFilterInput onChange={(event) => this.props.searchEdit(event.target.value)} />
-                </NotesFilterContainer>
-            <NotesList {...this.props} 
-                noteFetch={this.props.noteFetch}
-                notesFilter={notesFilter} 
-            />
-        </div>
-    );
+      });
+      if (this.isAuthenticated()) {
+        return (
+            <div>
+                <NotesMenuView />
+                    <NotesFilterContainer>
+                        <NotesFilterInput onChange={(event) => this.props.searchEdit(event.target.value)} />
+                    </NotesFilterContainer>
+                <NotesList {...this.props} 
+                    noteFetch={this.props.noteFetch}
+                    notesFilter={notesFilter} 
+                />
+            </div>
+        );
+      } else {
+          return (
+              <NoteAuth />
+          );
+      }
   }
 }
 

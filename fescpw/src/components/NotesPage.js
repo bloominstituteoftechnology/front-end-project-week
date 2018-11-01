@@ -36,15 +36,40 @@ const NotesPageLink = styled.a`
   margin-top: 3%;
   color: black;
   text-decoration: none;
+  font-size: 1.4rem;
+`;
+
+const NotesPageButton = styled.button`
+  margin-top: 3%;
+  color: black;
+  text-decoration: none;
+  background-color: Transparent;
+  border: none;
+  font-size: 1.2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 0;
+  }
 `;
 
 const NotesPage = () => {
+  function logout() {
+    // Clear Access Token and ID Token from local storage
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("expires_at");
+    window.location.reload();
+  }
   return (
     <NotesPageContainer>
       <NotesPageContent>
         <NotesPageHeader>Lambda Notes</NotesPageHeader>
         <NotesPageSubheader>Record knowledge.</NotesPageSubheader>
         <NotesPageLink href="/notes">Get started</NotesPageLink>
+        <NotesPageButton onClick={function() { logout(); }}>Logout</NotesPageButton>
       </NotesPageContent>
     </NotesPageContainer>
   );

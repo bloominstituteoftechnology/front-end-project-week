@@ -6,6 +6,7 @@ import { notesCreate, notesEdit } from '../redux/actions';
 import NotesForm from '../components/NotesForm';
 
 import NotesMenuView from './NotesMenuView';
+import NoteAuth from '../components/NoteAuth';
 
 class NotesFormView extends Component {
     state = {
@@ -70,19 +71,33 @@ class NotesFormView extends Component {
         this.props.notesEdit(this.state.note);
         this.props.history.push("/notes");
     }
+
+    isAuthenticated() {
+        // Check whether the current time is past the
+        // Access Token's expiry time
+        let expiresAt = JSON.parse(localStorage.getItem("expires_at"));
+        return new Date().getTime() < expiresAt;
+    }
+
   render() {
-    return (
-        <div>
-      <NotesMenuView />
-      <NotesForm {...this.props} 
-        note={this.state.note}
-        notes_editing={this.state.notes_editing}
-        handleChange={this.handleChange}
-        handleCreate={this.handleCreate}
-        handleEdit={this.handleEdit}
-      />
-      </div>
-    )
+    if (this.isAuthenticated()) {
+        return (
+            <div>
+          <NotesMenuView />
+          <NotesForm {...this.props} 
+            note={this.state.note}
+            notes_editing={this.state.notes_editing}
+            handleChange={this.handleChange}
+            handleCreate={this.handleCreate}
+            handleEdit={this.handleEdit}
+          />
+          </div>
+        );
+    } else {
+        return (
+            <NoteAuth />
+        );
+    }
   }
 }
 
