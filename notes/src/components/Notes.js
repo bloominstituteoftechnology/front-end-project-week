@@ -5,6 +5,9 @@ import Note from './Note';
 class Notes extends Component {
   
   render() {
+  //   if (this.props.fetching){
+  //     return (<div></div>)
+  // }
     return (
       <div className="anobato">
       {this.props.notes.map(note => {

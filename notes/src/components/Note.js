@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
+import { MarkdownPreview } from "react-marked-markdown";
 
  class Note extends Component {
   render() {
@@ -10,7 +11,8 @@ import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
         <Card>
             <CardBody>
                 <CardTitle>{this.props.title}</CardTitle>
-                <CardText>{this.props.content}</CardText>
+                <CardText> <MarkdownPreview value={this.props.content} />
+                  </CardText>
             </CardBody>
         </Card>
       </div>

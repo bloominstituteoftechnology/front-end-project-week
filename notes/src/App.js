@@ -23,7 +23,6 @@ class App extends Component {
       <NavbarBrand>
             {/* Lambda<br/>Notes */}
             <img src={lambdanotes} alt={"logo"}/> 
-            <TopNav />
             </NavbarBrand>
           <Nav>
             <NavItem>

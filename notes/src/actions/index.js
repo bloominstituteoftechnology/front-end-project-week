@@ -38,6 +38,7 @@ export const addNote = (note, history) => {
             dispatch({ type: SAVED, payload: response.data })
         })
         .then(() => history.push('/'))
+
         .catch(error => {
             dispatch({ type: ERROR, payload: error })
         })

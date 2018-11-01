@@ -50,7 +50,7 @@ a:hover {
   text-decoration: none;
 }
  
-.navbar {
+ .navbar {
   width: 30%;
   max-width: 220px;
   display: flex;
@@ -61,7 +61,7 @@ a:hover {
   align-items: flex-start;
   flex-wrap: nowrap;
   background-color: #ab2317;
-} */
+}  
 
  .nav-item {
   width: 100%;
@@ -297,14 +297,14 @@ margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 } 
-/* 
-.note {
-  width: 40%;
-} */ 
- /* .top-nav { 
-  background-image: url('https://image.ibb.co/mV5AdL/Copy-of-Copy-of-Copy-of-LIKHABOUTIQUE-2.png'); 
+
+
+.top-nav { 
+  background-color: green;
+  width: 100%;
+  height: 300px;
   
-}  */
+}  
 
 .logo{
   margin-top: 40px;
