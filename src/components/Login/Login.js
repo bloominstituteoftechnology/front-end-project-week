@@ -31,6 +31,7 @@ class Modal extends React.Component {
             Sign In
           </button>
         </div>
+        <div>
         <button className="register-btn">
 
           <Link tag={Link} to="../register">
@@ -38,6 +39,7 @@ class Modal extends React.Component {
             </Link>
 
         </button>
+        </div>
 
 
         <div className="social-signin">
