@@ -1,6 +1,6 @@
 import React from "react";
 const Form = props => {
-    console.log('form is working')
+  console.log("form is working");
   return (
     <div>
       <form>
@@ -16,7 +16,15 @@ const Form = props => {
           placeholder=" Enter note"
           onChange={props.handleChanges}
         />
-        <button onClick={props.addNewNote}>Add Note</button>
+        <button
+        //  onClick={() => {
+        //   this.props.handleDelete(this.state.singleNote._id);
+        //   this.props.getNote();
+        //   this.props.history.push("/");
+        // }}
+        >
+          Add Note
+        </button>
       </form>
     </div>
   );

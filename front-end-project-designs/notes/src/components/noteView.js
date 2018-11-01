@@ -1,9 +1,11 @@
-import React from "react"
+import React from "react";
+import {Link}from "react-router-dom";
 const NoteView = props =>{
     console.log(props)
     return(
         <div>
-            Title: {props.note.title}
+            <Link to = {`/notes/${props.note._id}`}>Title: {props.note.title}</Link>
+            
             Text: {props.note.textBody}
             id: {props.note._id}
         </div>

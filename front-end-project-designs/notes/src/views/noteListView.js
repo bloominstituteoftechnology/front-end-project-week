@@ -35,6 +35,9 @@ class NoteListView extends React.Component {
   handleDelete = id => {
     this.props.deleteNote(id);
   };
+  getNote = () => {
+    this.props.fetchNotes();
+  };
   handleFetchSingle = id => {
     this.props.fecthSingle(id);
   };
@@ -51,30 +54,34 @@ class NoteListView extends React.Component {
     //     })
     // );
     return (
-        <Switch>
-          <Route path="/form" render={()=>(<Form />)} />
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <FullView
-                notes={this.props.notes}
-                handleChanges={this.handleChanges}
-                addNewNote={this.addNewNote}
-              />
-            )}
-          />
-          <Route
-            path="/notes/:id"
-            render={props => (
-              <SingleView
-                handleDelete={this.handleDelete}
-                handleFetchSingle={this.handleFetchSingle}
-              />
-            )}
-          />
-          
-        </Switch>
+      <Switch>
+        <Route
+          path="/form"
+          render={() => (
+            <Form
+              handleChanges={this.handleChanges}
+              addNewNote={this.addNewNote}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => <FullView notes={this.props.notes} />}
+        />
+        <Route
+          path="/notes/:id"
+          render={props => (
+            <SingleView
+              {...props}
+              singleNote={this.props.singleNote}
+              handleDelete={this.handleDelete}
+              handleFetchSingle={this.handleFetchSingle}
+              getNote={this.getNote}
+            />
+          )}
+        />
+      </Switch>
     );
   }
 }
