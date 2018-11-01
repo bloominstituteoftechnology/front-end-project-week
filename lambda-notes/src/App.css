@@ -79,21 +79,23 @@ h1 {
 
 .note-card-container {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   flex-wrap: wrap;
+  align-content: flex-start;
   height: 100vh;
 }
 
 .note-card {
   background: white;
-  width: 29%;
+  width: 350px;
   color: #2f2f2f;
   height: 250px;
   padding: 25px;
   cursor: pointer;
-  margin-bottom: 30px;
+  margin: 25px;
   border: 1px solid #999;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 a {
@@ -181,16 +183,16 @@ h2 {
   background: rgb(221, 9, 9);
 }
 
-@media (min-width: 1500px) {
+/* @media (min-width: 1500px) {
   .note-card {
     width: 24%;
   }
-}
+} */
 
 @media (max-width: 1100px) {
-  .note-card {
+  /* .note-card {
     width: 45%;
-  }
+  } */
 }
 
 @media (max-width: 800px) {
@@ -202,9 +204,9 @@ h2 {
     margin-left: 250px;
   }
 
-  .note-card {
+  /* .note-card {
     width: 90%;
-  }
+  } */
 
   .new-note input,
   .new-note textarea {

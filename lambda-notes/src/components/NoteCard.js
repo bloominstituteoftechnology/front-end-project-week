@@ -3,11 +3,25 @@ import "../App.css";
 import {Link} from "react-router-dom";
 
 const NoteCard = props => {
+  const titleLimit = 22;
+  const bodyLimit = 175;
+  const dots = "...";
+  let title = props.note.title;
+  let textBody = props.note.textBody;
+
+  if (props.note.title.length > titleLimit) {
+    title = title.substring(0, titleLimit) + dots;
+  }
+
+  if (textBody.length > bodyLimit) {
+    textBody = textBody.substring(0, bodyLimit) + dots;
+  }
+
   return (
     <Link to={`/${props.note._id}`} className="note-card">
       <div>
-        <h2>{props.note.title}</h2> <hr />
-        <p>{props.note.textBody}</p>
+        <h2>{title}</h2> <hr />
+        <p>{textBody}</p>
       </div>
     </Link>
   );
