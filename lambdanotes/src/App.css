@@ -114,6 +114,9 @@ a {
   margin: 15px 0;
   cursor: pointer;
 }
+.save-btn:hover {
+  background-color: rgb(0, 151, 151);
+}
 
 .SingleNoteView {
   padding: 20px 30px 30px 30px;
