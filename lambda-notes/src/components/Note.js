@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MDReactComponent from 'markdown-react-js';
+import ReactMarkdown from 'react-markdown';
+
 
 
 
@@ -24,7 +25,9 @@ const Note = props => {
         </Link>
         </div>
         <h3>{props.note.title}</h3>
-        <MDReactComponent text={body} />
+        <ReactMarkdown source={body} />
+
+
       </div>
     </div>
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { CreateView, NoteView, ListView } from './views';
 import './App.css';
+import { Authentication } from './components';
 // import { DeleteModal } from './components';
 // import { connect } from 'react-redux';
 // import { deleteNote } from './actions';
@@ -64,4 +65,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default withRouter(Authentication(App));

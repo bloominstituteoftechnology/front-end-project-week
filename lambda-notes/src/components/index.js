@@ -6,4 +6,5 @@ export { default as NotePreview } from './NotePreview';
 export { default as Sidebar } from './Sidebar';
 export { default as SearchBar } from './SearchBar';
 export { default as TopBar } from './TopBar';
-export { default as SortBar } from './SortBar'; 
+export { default as SortBar } from './SortBar';
+export { default as Authentication } from './Authentication'; 

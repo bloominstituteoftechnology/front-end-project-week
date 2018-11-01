@@ -101,6 +101,28 @@ strong {
   display: flex;
 }
 
+.login {
+	width: 40%;
+	margin: 70px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login h4 {
+	margin-top: 20px;
+}
+.login form {
+	diplay: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+.login form button {
+	width: 50%;
+	align-self: center;
+}
 .sidebar {
   background: #D3D2D3;
 	min-height: 100vh;
@@ -211,7 +233,7 @@ strong {
 
 .note-preview span a {
 	text-decoration: underline;
-	color: #24B8BD; 
+	color: #24B8BD;
 }
 
 
