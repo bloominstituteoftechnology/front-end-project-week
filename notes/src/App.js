@@ -23,6 +23,7 @@ class App extends Component {
       }
     }
   }
+
   refreshState(){
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => this.setState({notes : response.data}))
@@ -38,6 +39,7 @@ class App extends Component {
         textBody : '',
       }})
       this.refreshState();
+      this.history.push("/");
     })
     .catch(error => alert("ERROR :::", error));
   }
@@ -64,6 +66,7 @@ class App extends Component {
         <Route path='/create-new' render={() => <CreateNew 
         submit={this.createNewSubmit} 
         onChangeHandler ={this.onChangeHandler}
+        { ...this.props }
         />} />
         {/* View Card Route */}
         <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState()} notes={this.state.notes} /> } />

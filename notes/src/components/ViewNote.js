@@ -44,6 +44,7 @@ class ViewNote extends React.Component{
                 hidden={this.state.hidden} 
                 ID={this.props.match.params.id}
                 refresh={this.props.refresh}
+                { ...this.props }
                 />
 
                 <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>
