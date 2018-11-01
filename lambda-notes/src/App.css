@@ -1,0 +1,244 @@
+.App {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.navBar {
+  background: #d3d3d3;
+  display: flex;
+  width: 210px;
+  flex-direction: column;
+  margin: 0px;
+  height: 500px;
+  padding: 10px;
+  height: auto;
+
+
+}
+
+.navBar h1 {
+  font-size: 38px;
+  text-align: left;
+  margin: 0px;
+  color: #434343;
+  margin-bottom: 20px;
+  
+}
+
+.links{
+  border: 1px solid grey;
+  height: 50px;
+  width: 200px;
+  margin: 10px 0px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #24b8bd
+}
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 75%;
+ 
+}
+
+.noteslist {
+  display: flex;
+  flex-direction: column;
+  background: #f2f1f2;
+  width: 760px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 20px;
+
+}
+
+.noteslist h1 {
+  color: #434343;
+  margin-top: 50px;
+  font-size: 28px;
+}
+
+.noteCardTitle {
+  color: black;
+  font-size: 22px;
+  text-decoration-line: none;
+}
+
+.card {
+  border: 1px solid gray;
+  width: 200px;
+  height: 260px;
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  overflow: hidden;
+  
+  
+}
+
+.card:hover {
+  background: rgba(194, 240, 230, 0.527);
+}
+
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  height: auto;
+  
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+
+}
+
+.createPage {
+  display: flex;
+  flex-direction: column;
+  background: #f2f1f2;
+  width: 760px;
+  padding: 0px 20px;
+  height: 500px;
+}
+
+.create h2 {
+  color: #434343;
+  margin-top: 50px;
+  font-size: 28px;
+  text-align: left;
+}
+
+.titleHolder {
+  margin: 10px 0px;
+  padding: 10px 5px;
+  width: 350px;
+}
+
+.noteContent {
+  margin: 0px 0px;
+  padding: 20px 10px;
+  width: 600px;
+  height: 150px;
+  text-align: top;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+ 
+}
+
+.editDeleteButton {
+  background: none;
+  border: none;
+  text-decoration-line: underline;
+  color: #434343;
+  font-weight: bold;
+ 
+}
+
+.editDelete {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  padding-top: 20px;
+
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 20px;
+
+}
+
+.singleNoteViewContainer {
+  background: #f2f1f2;
+  height: auto;
+}
+
+.notes-container h1 {
+  color: #434343
+}
+
+.notes-container p {
+  color: #434343
+}
+
+.editform {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.editHeader {
+  color: #434343
+}
+
+.input1 {
+  margin: 10px 0px;
+  padding: 10px 5px;
+  width: 350px;
+}
+
+.input2 {
+  margin: 0px 0px;
+  padding: 20px 10px;
+  width: 600px;
+  height: 150px;
+  text-align: top;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.modal{
+  background: white;
+  border: 1px solid gray;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:  center;
+  height: 150px;
+  
+}
+
+.modalFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px 0px
+}
+.delete {
+  padding: 10px;
+  width: 130px;
+  background-color: rgb(202, 3, 3);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.cancel {
+  padding: 10px;
+  width: 130px;
+  background-color: rgb(3, 202, 192);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
