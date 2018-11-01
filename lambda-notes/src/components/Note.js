@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MDReactComponent from 'markdown-react-js';
+
 
 
 const Note = props => {
@@ -8,8 +10,8 @@ const Note = props => {
       <h1>Loading note...</h1>
     )
   }
+  const body = props.note.textBody;
   return (
-
     <div className='note-container'>
       <div className='note'>
         <div className='note-buttons'>
@@ -22,7 +24,7 @@ const Note = props => {
         </Link>
         </div>
         <h3>{props.note.title}</h3>
-        <p>{props.note.textBody}</p>
+        <MDReactComponent text={body} />
       </div>
     </div>
 

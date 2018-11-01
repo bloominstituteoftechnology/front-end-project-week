@@ -70,6 +70,11 @@ h1{
 	line-height: .9;
 }
 
+h2 {
+	font-size: 2.8rem;
+	font-weight: bold;
+}
+
 h3 {
 	font-size: 2rem;
 	font-weight: bold;
@@ -83,6 +88,15 @@ p {
 	font-size: 1.4rem;
 	font-family: 'Raleway', sans-serif;
 }
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
 .container {
   display: flex;
 }
@@ -183,17 +197,21 @@ p {
 	text-overflow: ellipsis;
 }
 
-.notes-list .note-preview p {
+.notes-list .note-preview span {
 	margin: 5px;
 	font-size: 1.2rem;
 	width: 80%;
 	height: 80%;
 	align-self: flex-start;
-	font-weight: bold;
 	line-height: 1.8;
 	white-space: pre-wrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.note-preview span a {
+	text-decoration: underline;
+	color: #24B8BD; 
 }
 
 
@@ -250,10 +268,14 @@ form .button {
 	margin-bottom: 25px;
 }
 
+.note-container p a {
+	text-decoration: underline;
+	color: #24B8BD;
+}
+
 .note-container p {
 	font-family: 'Raleway', sans-serif;
 	white-space: pre-wrap;
-	font-weight: bold;
 	line-height: 1.7;
 }
 
