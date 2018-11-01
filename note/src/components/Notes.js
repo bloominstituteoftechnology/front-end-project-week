@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 
 const NotesContainer = styled.div`
   border: 1px solid black;
@@ -44,9 +45,25 @@ const NotesContainer = styled.div`
   color: gray;
 `;
 
+const header = [
+    { label: 'Title', key: 'title'},
+    { label: 'Text Content', key: 'textBody'},
+    { label: 'ID', key: '_id'}
+]
+
 const Notes = props =>  {
+    console.log(props.notes)
+    if (props.notes.length < 1 || props.notes === undefined ){
+        return (
+        <h1 style={{alignItems:'center'}}>loading data</h1>
+        )
+    }
+    else {
         return (
             <NotesContainer>
+                <CSVLink data={props.notes} header={header}>
+                    Download The List as CSV
+                </CSVLink>
                 <Heading>Your Notes:</Heading>
                 <NotesDisplay>
                     {props.notes.map(note => {
@@ -75,5 +92,6 @@ const Notes = props =>  {
             </NotesContainer>
         )
     }
+}
 
 export default Notes;
