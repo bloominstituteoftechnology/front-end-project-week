@@ -80,6 +80,10 @@
 .nav-button p {
   width: 95%;
 }
+
+.searchbar {
+  z-index: 9999;
+}
 /* form  page */
 
 .form-container {

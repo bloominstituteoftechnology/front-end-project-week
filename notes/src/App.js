@@ -3,18 +3,20 @@ import axios from 'axios';
 import NoteList from './components/NoteList'
 import NoteForm from './components/NoteForm'
 import NavBar from './components/NavBar'
+import SearchBar from './components/SearchBar'
 import NoteCard from './components/NoteCard'
 import UpdateForm from './components/UpdateForm'
 
 // import DeleteNote from './components/DeleteNote'
-import {Route, Switch } from 'react-router-dom'
+import {Route } from 'react-router-dom'
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        notes: []
+        notes: [],
+        search: ''
       }
 
   }
@@ -72,12 +74,21 @@ class App extends Component {
       .catch(error => console.log(error))
  }
 
+ search = (searchData) => {
+   let stateCopy = this.state.notes
+   if(searchData.length > 0) {
+     this.setState({notes: this.state.notes.filter(item => item.title.includes(searchData))})
+   } else {
+     this.setState({notes: stateCopy})
+   }
+ }
+
 
 
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <Route path={'/'} render={(props) => <NavBar {...props} search={this.search}/>} />
         <Route exact path={'/'} render={(props) => <NoteList notes={this.state.notes} />} />
         <Route path={'/newNote'} render={(props) => <NoteForm {...props}  createNote={this.createNote} updateNote={this.updateNote} refreshNotes={this.refreshNotes}/>} />
         <Route path={'/note/:id'}  render={(props) => <NoteCard {...props} notes={this.state.notes} deleteNote={this.deleteNote} refreshNotes={this.refreshNotes} />  }/>
