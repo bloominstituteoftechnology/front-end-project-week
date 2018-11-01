@@ -34,7 +34,6 @@ const notesReducer = (state = initialState, action) => {
     case DELETING_NOTE:
       return {...state, deleting: true};
     case DELETE_NOTE_SUCCESS:
-    console.log('Deleting', action.payload)
       return { ...state, deleting: false };
     case DELETE_NOTE_FAILURE:
       return { 
@@ -45,9 +44,9 @@ const notesReducer = (state = initialState, action) => {
       case EDITING_NOTE:
         return {...state, editing: true};
       case EDIT_NOTE_SUCCESS:
-        console.log('Editing', action.payload)
         return {
           ...state,
+          editing: false,
           notes: state.notes.map(
             note => (note._id === action.payload._id ? action.payload : note)
           )

@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import Axios from 'axios';
-import { Link, withRouter, Route } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { editNote } from '../actions';
 
@@ -36,11 +36,7 @@ class SingleNote extends Component {
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
   });
-  editNote =()=>{
-    this.props.editNote();
-  }
   render() {
-    const note = this.props.notes.find(note => note._id === this.state.currentId);
     if (this.state.deleting === true){
       return(
         <div className='delete-container'>

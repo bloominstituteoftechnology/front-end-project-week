@@ -29,11 +29,13 @@ class App extends Component {
     event.preventDefault();
     this.props.addNote(this.state)
     this.setState({ title: '', textBody: '' });
+    window.location.reload();  
     this.props.history.push('/notes');
-    // window.location.reload();  
+    
   };
   handleDelete=(event)=> { 
     this.props.deleteNote(event);
+    window.location.reload(); 
     this.props.history.push('/notes'); 
   };
 

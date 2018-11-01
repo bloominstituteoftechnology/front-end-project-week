@@ -16,13 +16,12 @@ class EditForm extends Component {
     const note = this.props.notes.find(note => note._id === noteId);
     
     this.setState({ ...note });
-    console.log('thisisthe state in the didmount', this.state)
   };
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
   });
 
-  editNote = (event, id) => {
+  editNote = (event) => {
     event.preventDefault();
     this.props.editNote(this.state );
     this.setState({ title: '', textBody: '' });
@@ -30,11 +29,6 @@ class EditForm extends Component {
   }
 
   render() {
-    
-    // if (this.state.title===''){
-    //   this.setState({note});
-    // }
-    
     return (
       <form onSubmit={(event) => this.editNote(event)} className='form'>
         <h3 className='add-header'>Edit Note:</h3>

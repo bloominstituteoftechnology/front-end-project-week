@@ -30,7 +30,6 @@ export const fetchNotes = () => dispatch => {
 
 
 export const addNote = note => dispatch => {
-  console.log('this is the note', note)
   dispatch({ type: ADDING_NOTE });
   axios
     .post('https://fe-notes.herokuapp.com/note/create', note)
@@ -55,7 +54,6 @@ export const editNote = note => dispatch => {
 };
 
 export const deleteNote = id => dispatch => {
-  console.log('this is the id', id)
   dispatch({ type: DELETING_NOTE });
   axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
