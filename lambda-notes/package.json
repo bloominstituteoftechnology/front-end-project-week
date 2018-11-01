@@ -1,41 +1,46 @@
 {
-  "name": "lambda-pages",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.7",
-    "@fortawesome/free-solid-svg-icons": "^5.4.2",
-    "@fortawesome/react-fontawesome": "^0.1.3",
-    "axios": "^0.18.0",
-    "lodash.flow": "^3.5.0",
-    "react": "^16.6.0",
-    "react-beautiful-dnd": "^9.0.2",
-    "react-csv": "^1.0.18",
-    "react-dnd": "^5.0.0",
-    "react-dnd-html5-backend": "^5.0.1",
-    "react-dom": "^16.6.0",
-    "react-fuzzy-filter": "^4.0.0",
-    "react-markdown": "^4.0.3",
-    "react-redux": "^5.1.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^4.0.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "lambda-pages",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.7",
+        "@fortawesome/free-solid-svg-icons": "^5.4.2",
+        "@fortawesome/react-fontawesome": "^0.1.3",
+        "axios": "^0.18.0",
+        "lodash.flow": "^3.5.0",
+        "moment": "^2.22.2",
+        "react": "^16.6.0",
+        "react-beautiful-dnd": "^9.0.2",
+        "react-csv": "^1.0.18",
+        "react-dnd": "^5.0.0",
+        "react-dnd-html5-backend": "^5.0.1",
+        "react-dom": "^16.6.0",
+        "react-fuzzy-filter": "^4.0.0",
+        "react-markdown": "^4.0.3",
+        "react-redux": "^5.1.0",
+        "react-router-dom": "^4.3.1",
+        "react-scripts": "2.0.5",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0",
+        "styled-components": "^4.0.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "homepage": "https://rblambdanotes.netlify.com",
+    "devDependencies": {
+        "@fortawesome/fontawesome-pro": "^5.4.2"
+    }
 }

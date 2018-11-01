@@ -5,3 +5,7 @@ se.code-workspace
 .babelrc
 .eslintrc.json
 yarn-error.log
+netlify
+.netlify
+.vscodeß
+front-end-project-designs/*

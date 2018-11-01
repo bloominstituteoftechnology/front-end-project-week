@@ -1,2 +1,8 @@
 node_modules
 yarn-error.log
+.DS_Store
+./netlify
+./net*
+.netlify
+.vscode
+NOTES1.md
