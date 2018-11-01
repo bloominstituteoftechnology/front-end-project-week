@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom'; 
+import { Route, withRouter } from 'react-router-dom'; 
 
 //components needed
 import HeadNav from './components/HeadNav/HeadNav';
@@ -19,15 +19,30 @@ class App extends Component {
     this.props.getNotes()
   }
 
-  getNote = event => {
+  getNote = (event) => {
     const singleNote = this.props.noteList.filter(note => note._id === event.currentTarget.id)[0]
     this.props.viewNote(singleNote)
+    this.props.history.push('/note')
+  }
+
+  goHome(props) {
+    props.history.push('/')
+  }
+
+  editNote(props) {
+    props.history.push('/edit')
   }
 
   render() {
     return (
       <div className="App">
-        <HeadNav />
+        <Route path='/' render={(props) => (
+          <HeadNav
+            {...props}
+            goHome={this.goHome}
+            editNote={this.editNote}
+          />
+        )} />
         <div className='mainView'>
           <Route exact path='/' render={(props) => (
             <ListView
@@ -39,7 +54,7 @@ class App extends Component {
           <Route path='/note' render={(props) => (
             <NoteView />
           )} />
-          <Route path='/edit' render={(props) => (
+          <Route exact path='/edit' render={(props) => (
             <EditNote />
           )} />
         </div>
@@ -56,4 +71,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getNotes, viewNote })(App);
+export default withRouter(connect(mapStateToProps, { getNotes, viewNote })(App));

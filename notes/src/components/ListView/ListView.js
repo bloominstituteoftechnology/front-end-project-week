@@ -14,7 +14,10 @@ const listView = props => {
                 {props.noteList.map(note => {
                     return (
                         <div key={note._id}>
-                            <Note note={note} getNote={props.getNote} />
+                            <Note
+                                note={note}
+                                getNote={props.getNote}
+                            />
                         </div>
                     )
                 })}
