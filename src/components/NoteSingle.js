@@ -137,6 +137,7 @@ const P2 = styled.p`
   line-height: 3;
 `
 const Button = styled.button`
+  width: 100px;
   margin: 0 2%;
   padding: 2%;
   background: ${props => props.delete ? "red" : "#24B8BD"};

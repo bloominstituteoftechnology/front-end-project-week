@@ -105,13 +105,15 @@ const Strong = styled.strong`
   font-size: 2rem;
 `
 const MdPageview1 = styled(MdPageview)`
-  color: black;
-  font-size: 2rem;
+  color: white;
+  background: black;
+  font-size: 3rem;
+  border-radius: 3px;
   &:hover {
-    background: black;
-    color: white;
-    border-radius: 3px;
+    background: white;
+    color: black;
     border: none;
+    border-radius: 5px;
     box-shadow: 0 0 20px lightgray;
   }
 `
