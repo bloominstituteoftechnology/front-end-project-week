@@ -16,7 +16,7 @@ html {
     }
     .side-nav {
         .flex(flex-start, flex-start, column);
-        width: 20%;
+        width: 300px;
         background-color: @medium-grey;
         position: fixed;
         height: 100vh;
@@ -40,7 +40,7 @@ html {
     .current-page {
         width: 80%;
         min-height: 100vh;
-        margin-left: 20%;
+        margin-left: 300px;
         padding: 10px 30px;
         background-color: @light-grey;
         @media @tablet {
@@ -57,6 +57,13 @@ html {
         font-size: 3rem;
         color: @dark-grey;
         margin-left: 10px;
+    }
+    .searchbar {
+        margin-left: 10px;
+        padding: 10px;
+        width: 250px;
+        font-size: 1.8rem;
+        border: 1px solid @medium-grey;
     }
     .notes-container {
         .flex(flex-start, flex-start, row);
@@ -80,14 +87,19 @@ html {
         font-size: 2.4rem;
         padding: 5px 0 10px;
         border-bottom: 1px solid @dark-grey;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .note-body {
-        line-height: 2rem;
+        line-height: 1.8rem;
         font-size: 1.8rem;
-        height: 200px;
+        height: 180px;
         word-break: break-word;
         hyphens: auto;
         -moz-hyphens: auto;
+        overflow: hidden;
+        padding-bottom: 10px;
     }
 }
 
@@ -106,7 +118,6 @@ html {
         }
     }
     .full-note {
-        margin: 10px;
         .full-title {
             font-size: 4rem;
             font-weight: 600;

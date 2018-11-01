@@ -23,7 +23,7 @@ html {
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  width: 20%;
+  width: 300px;
   background-color: #D3D2D3;
   position: fixed;
   height: 100vh;
@@ -46,7 +46,7 @@ html {
 }
 .App .side-nav .nav-link {
   width: 250px;
-  background: #00BDC0;
+  background-color: #00BDC0;
   color: white;
   border: 1px solid #D3D2D3;
   font-size: 1.8rem;
@@ -58,10 +58,15 @@ html {
   margin: 10px auto;
   max-width: 95%;
 }
+.App .side-nav .nav-link:hover {
+  border: 1px solid #00BDC0;
+  background-color: white;
+  color: #00BDC0;
+}
 .App .current-page {
   width: 80%;
   min-height: 100vh;
-  margin-left: 20%;
+  margin-left: 300px;
   padding: 10px 30px;
   background-color: #F2F1F2;
 }
@@ -79,6 +84,13 @@ html {
   font-size: 3rem;
   color: #4D525D;
   margin-left: 10px;
+}
+.note-list .searchbar {
+  margin-left: 10px;
+  padding: 10px;
+  width: 250px;
+  font-size: 1.8rem;
+  border: 1px solid #D3D2D3;
 }
 .note-list .notes-container {
   display: flex;
@@ -104,14 +116,19 @@ html {
   font-size: 2.4rem;
   padding: 5px 0 10px;
   border-bottom: 1px solid #4D525D;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .note-card .note-body {
-  line-height: 2rem;
+  line-height: 1.8rem;
   font-size: 1.8rem;
-  height: 200px;
+  height: 180px;
   word-break: break-word;
   hyphens: auto;
   -moz-hyphens: auto;
+  overflow: hidden;
+  padding-bottom: 10px;
 }
 .note-page {
   display: flex;
@@ -133,9 +150,6 @@ html {
   color: black;
   margin: 0 10px;
   cursor: pointer;
-}
-.note-page .full-note {
-  margin: 10px;
 }
 .note-page .full-note .full-title {
   font-size: 4rem;
@@ -185,7 +199,7 @@ html {
 }
 .form .form-submit {
   width: 250px;
-  background: #00BDC0;
+  background-color: #00BDC0;
   color: white;
   border: 1px solid #D3D2D3;
   font-size: 1.8rem;
@@ -194,6 +208,11 @@ html {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+}
+.form .form-submit:hover {
+  border: 1px solid #00BDC0;
+  background-color: white;
+  color: #00BDC0;
 }
 .modal {
   padding: 60px 80px;
@@ -209,7 +228,7 @@ html {
 }
 .modal .modal-btns .modal-delete {
   width: 250px;
-  background: #DE0000;
+  background-color: #DE0000;
   color: white;
   border: 1px solid #D3D2D3;
   font-size: 1.8rem;
@@ -220,9 +239,14 @@ html {
   cursor: pointer;
   margin-right: 30px;
 }
+.modal .modal-btns .modal-delete:hover {
+  border: 1px solid #DE0000;
+  background-color: white;
+  color: #DE0000;
+}
 .modal .modal-btns .modal-no {
   width: 250px;
-  background: #00BDC0;
+  background-color: #00BDC0;
   color: white;
   border: 1px solid #D3D2D3;
   font-size: 1.8rem;
@@ -231,6 +255,11 @@ html {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+}
+.modal .modal-btns .modal-no:hover {
+  border: 1px solid #00BDC0;
+  background-color: white;
+  color: #00BDC0;
 }
 .loading {
   margin: 30vh auto;

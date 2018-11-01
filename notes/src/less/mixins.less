@@ -7,7 +7,7 @@
 
 .button(@bg, @color) {
     width: 250px;
-    background: @bg;
+    background-color: @bg;
     color: @color;
     border: 1px solid @medium-grey;
     font-size: 1.8rem;
@@ -16,6 +16,11 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    &:hover {
+        border: 1px solid @bg;
+        background-color: @color;
+        color: @bg;
+    }
 }
 
 .input(@width, @height, @margin) {
