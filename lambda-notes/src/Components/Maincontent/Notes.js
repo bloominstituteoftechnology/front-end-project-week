@@ -1,15 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import './input.css';
 
 const Notes = (props) => {
 	return (
 		<StyledNoteWrapper>
-			<p>{`Total Notes: ${props.count}`}</p>
+			<StyledTotalCount>{`Total Notes: ${props.count}`}</StyledTotalCount>
 			<StyledDeleteAllTheThings htmlFor="Delete All The Things">
 				<input name="isChecked" type="checkbox" checked={props.isChecked} onChange={props.toggleCheck} />Delete
 				All The Things <button onClick={props.deleteALLNotes}>Delete</button>
 			</StyledDeleteAllTheThings>
+			<input
+				className="search"
+				type="text"
+				name="search"
+				placeholder="Search"
+				value={props.searchTerm}
+				onChange={(e) => props.searchTermChanged(e.target.value)}
+			/>
 			<StyledHeader>Your Notes:</StyledHeader>
 			{props.notes.map((note) => {
 				return (
@@ -21,8 +30,10 @@ const Notes = (props) => {
 								<StyledSpan>{note.tags}</StyledSpan>
 							</p>
 						</StyledNoteContainer>
-						<StyledCheckboxThing type="checkbox" />
-						<p>Complete</p>
+						<StyledCheckBox>
+							<input type="checkbox" />
+							<StyledCheckBoxP>Done</StyledCheckBoxP>
+						</StyledCheckBox>
 					</div>
 				);
 			})}
@@ -66,7 +77,8 @@ export const StyledNoteContainer = styled(Link)`
 	width: 350px;
 	max-height: 350px;
 	margin: 10px;
-	border: 1px solid rgba(80, 80, 80, 0.3);
+	border: 1px solid rgba(80, 80, 80, 0.5);
+	border-radius: 5px;
 	transition: 0.3s ease-in-out;
 	${(props) => (props.isChecked === true ? 'opacity: 1' : 'opacity: 0.5')}
 	&:hover {
@@ -127,4 +139,30 @@ export const StyledDeleteAllTheThings = styled.label`
 	}
 `;
 
-export const StyledCheckboxThing = styled.input``;
+export const StyledTotalCount = styled.p`
+	margin-left: 10px;
+	font-size: 14px;
+`;
+
+export const StyledCheckBox = styled.div`
+	display: flex;
+	flex-direction: row;
+	margin-left: 20px;
+	align-items: flex-start;
+`;
+
+export const StyledCheckBoxP = styled.p`
+	margin-top: 0;
+	margin-left: 5px;
+	font-size: 12px;
+`;
+
+export const styledFilterSearch = styled.input`
+	width: 50%;
+	height: 23px;
+	margin-left: 8px;
+	margin-bottom: 15px;
+	padding-left: 5px;
+	border-radius: 4px;
+	border: 1px solid slategray;
+`;

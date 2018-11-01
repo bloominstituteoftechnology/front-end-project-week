@@ -8,7 +8,8 @@ class NoteContainer extends React.Component {
 		this.state = {
 			notes: [],
 			noteId: '',
-			isChecked: false
+			isChecked: false,
+			searchTerm: ''
 		};
 	}
 	componentDidMount() {
@@ -52,29 +53,40 @@ class NoteContainer extends React.Component {
 		const target = e.target;
 		const value = target.type === 'checkbox' ? target.checked : target.value;
 		const name = target.name;
-
 		this.setState({ [name]: value });
 		console.log(this.state);
+	};
+
+	searchTermChanged = (searchTerm) => {
+		this.setState({ searchTerm });
 	};
 
 	render() {
 		if (!this.state.notes.length) {
 			return <h1>Loading............</h1>;
 		} else {
-			const { notes } = this.state;
+			const { notes, isChecked, searchTerm } = this.state;
 			return (
 				<div>
 					<Notes
 						deleteALLNotes={this.deleteALLNotes}
-						isChecked={this.state.isChecked}
-						notes={notes}
-						name={this.state.isChecked}
+						isChecked={isChecked}
+						notes={
+							searchTerm ? (
+								notes.filter((note) => note.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)
+							) : (
+								notes
+							)
+						}
+						name={isChecked}
 						toggleCheck={this.toggleCheck}
 						{...this.props}
 						getEditId={this.getEditId}
 						getNoteId={this.getNoteId}
 						deletePost={this.deletePost}
-						count={this.state.notes.length}
+						count={notes.length}
+						value={searchTerm}
+						searchTermChanged={this.searchTermChanged}
 					/>
 				</div>
 			);
