@@ -16,7 +16,6 @@ class NoteForm extends Component {
     event.preventDefault();
     if (this.state.updatingNote) {
       this.handleUpdateNote();
-      this.state.updatingNote = false;
     } else {
       this.handleAddNewNote(event);
     }
@@ -49,6 +48,8 @@ class NoteForm extends Component {
   handleUpdateNote = () => {
     this.props.updateNote(this.state.note);
     this.props.history.push("/notes");
+    this.state.updatingNote = false;
+    console.log(updatingNote);
   };
 
   handleAddNewNote = event => {
