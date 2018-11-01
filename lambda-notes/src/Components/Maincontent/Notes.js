@@ -15,7 +15,7 @@ const Notes = (props) => {
 				className="search"
 				type="text"
 				name="search"
-				placeholder="Search"
+				placeholder="Search By Title"
 				value={props.searchTerm}
 				onChange={(e) => props.searchTermChanged(e.target.value)}
 			/>
