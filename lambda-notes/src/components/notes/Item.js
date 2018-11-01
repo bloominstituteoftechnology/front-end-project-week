@@ -16,7 +16,7 @@ class Item extends Component {
                         </header>
 
                         <div className='card-content'>
-                            <div className='content'>{this.props.bodyText}</div>
+                            <div className='content'>{this.props.textBody}</div>
                         </div>
 
                         <footer className='card-footer'>
@@ -29,7 +29,7 @@ class Item extends Component {
                                 }}
                                 className='card-footer-item'
                             >
-                                Delete
+                               <Link to='/'> Delete </Link>
                             </button>
                         </footer>
                     </div>

@@ -38,7 +38,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                notes: [ ...action.payload ],
+                notes: [...action.payload.reverse()],
             }
         case GET_NOTES_ERROR:
             return {
@@ -54,7 +54,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                note: { ...action.payload },
+                note: {...action.payload}
             }
         case GET_NOTE_ERROR:
             return {
@@ -71,7 +71,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingNotes: false,
-                notes: [...state.notes, ...action.payload]
+                notes: [...action.payload, ...state.notes]
             }
         case ADD_NOTE_ERROR:
             return {
@@ -85,10 +85,11 @@ const rootReducer = (state = initialState, action) => {
                 gettingNotes: true,
             }
         case DELETE_NOTE_SUCCESS:
+        const newNotes = state.notes.filter(note => note._id !== action.payload)
             return {
                 ...state,
                 gettingNotes: false,
-                notes: [...action.payload]
+                notes: [...newNotes]
             }
         case DELETE_NOTE_ERROR:
             return {
@@ -102,10 +103,14 @@ const rootReducer = (state = initialState, action) => {
                 gettingNotes: true,
             }
         case UPDATE_NOTE_SUCCESS:
+        let index;
+        state.notes.forEach( (note,i) => (note._id === action.payload._id ? (index = i) : null))
+        const newStateNotes = [...state.notes]
+        newStateNotes.splice(index, 1, action.payload)
             return {
                 ...state,
                 gettingNotes: false,
-                notes: [...state.notes, ...action.payload ],
+                notes: [...newStateNotes]
             }
         case UPDATE_NOTE_ERROR:
             return {

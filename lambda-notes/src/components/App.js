@@ -6,7 +6,7 @@ import { addNote } from '../actions/index'
 import { deleteNote } from '../actions/index'
 import { updateNote } from '../actions/index'
 
- 
+
 import Header from './Header'
 import Footer from './Footer'
 
@@ -15,9 +15,7 @@ import New from './notes/New'
 import Detail from './notes/Detail'
 
 class App extends Component {
-    componentDidMount() {
-        this.props.getNotes()
-    }
+  
 
     render() {
         return (
@@ -28,10 +26,18 @@ class App extends Component {
 
                         <div className='main'>
                             <Switch>
-                                <Route exact path='/' render={props => (<List {...props} notes={this.props.notes}/>)}/>
-                                <Route exact path='/notes/new' render={props => (<New {...props} addNote={this.props.addNote} notes={this.props.notes} /> )} />
-                                <Route path='/:id' render={props => (<Detail {...props} deleteNote={this.props.deleteNote}/>)}/>
-
+                                <Route exact path='/' render={props => <List {...props} notes={this.props.notes} />} />
+                                <Route
+                                    exact
+                                    path='/notes/new'
+                                    render={props => (
+                                        <New {...props} addNote={this.props.addNote} notes={this.props.notes} />
+                                    )}
+                                />
+                                <Route
+                                    path='/:id'
+                                    render={props => <Detail {...props} deleteNote={this.props.deleteNote} />}
+                                />
                             </Switch>
                         </div>
 

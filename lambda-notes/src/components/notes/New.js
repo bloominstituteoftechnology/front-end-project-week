@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { addNote } from '../../actions/index'
 import { connect } from 'react-redux'
+import { getNotes } from '../../actions/index'
 
 class New extends Component {
     constructor(props) {
         super(props)
         this.state = {title: '', textBody: ''}
+    }
+
+    componentDidMount() {
+     this.props.getNotes()
     }
 
     handleChange = e => {
@@ -19,6 +24,7 @@ class New extends Component {
             title: '',
             textBody: '',
         })
+        this.props.history.push('/')
         
     }
 
@@ -45,7 +51,7 @@ class New extends Component {
 
                         <textarea
                             className='textarea'
-                            name='bodyText'
+                            name='textBody'
                             onChange={e => {
                                 this.handleChange(e)
                             }}
@@ -60,4 +66,4 @@ class New extends Component {
     }
 }
 
-export default connect(null, { addNote })(New)
+export default connect(null, { addNote, getNotes })(New)
