@@ -31,7 +31,7 @@ export const addNote = note => {
           payload: {
             //the payload you're giving the API to populate the new note
             title: note.title,
-            textBody: note.textBody,
+            content: note.textBody,
             id: timeStamp //using a timestamp as the ID as it's unique enough
           }, 
         })

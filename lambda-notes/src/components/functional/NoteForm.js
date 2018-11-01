@@ -6,7 +6,7 @@ import { Form, TitleField, DescriptionField, TagField, Button } from "../styling
 class NoteForm extends React.Component {
   state = {
     title: "",
-    textBody: "",
+    content: "",
     tags: [],
     _id: null
   };
@@ -26,7 +26,7 @@ class NoteForm extends React.Component {
 
   componentWillReceiveProps() {
     //Sets the formatting the state should follow when receiving those respective props
-    this.setState({ title: "", textBody: "" });
+    this.setState({ title: "", content: "" });
   }
 
   handleChange = event => {
@@ -43,7 +43,7 @@ class NoteForm extends React.Component {
     urlPath === "/noteform"
       ? this.props.addNote(this.state)
       : this.props.editNote(this.state);
-    this.setState({ title: "", textBody: "", tags: []});
+    this.setState({ title: "", content: "", tags: []});
     this.props.history.push("/");
   };
 
@@ -61,9 +61,9 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
         />
         <DescriptionField
-          name="textBody"
+          name="content"
           placeholder="Note Content"
-          value={this.state.textBody}
+          value={this.state.content}
           onChange={this.handleChange}
         />
         <TagField
