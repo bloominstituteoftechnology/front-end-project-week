@@ -7,81 +7,21 @@ import NoteForm from './NoteForm';
 import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
 import Note from './Note';
-import NoteView from './NoteView';
+import NoteViewRedux from './NoteViewRedux';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //       notes: [],
-  //       noteTitleInput: '',
-  //       noteBodyInput: '',
-  //   }
-  // }
 
   componentDidMount() { 
     this.props.dispatchGetNotes(); //this doesn't do anything until mapDispatchToProps is called
   }
-
-  // getNotes = () => {
-  //   axios
-  //   .get('https://killer-notes.herokuapp.com/note/get/all')
-  //   .then(response => {
-  //       this.setState({ notes: response.data });
-  //   })
-  //   .catch(error => {
-  //   console.error('Server Error', error);
-  //   });
-  // }
-
-  // createNote = event => {
-  //   event.preventDefault();
-  //   const newNote = { 
-  //     title: this.state.noteTitleInput, 
-  //     textBody: this.state.noteBodyInput, 
-  //   };
-    
-  //   axios
-  //   .post(
-  //     'https://killer-notes.herokuapp.com/note/create', 
-  //     newNote
-  //   )
-  //   .then(response => {
-  //     console.log('hey');
-  //     console.log(`POST RESPONSE: `, response.data);
-  //     this.getNotes();
-  //   })
-  //   .catch(error => {
-  //     console.error('Server Error', error);
-  //   });
-  // };
-
-  // handleInputChange = event => {
-  //   this.setState({ [event.target.name]: event.target.value });
-  // };
  
   render() {
     return (
-      <div className="App">
+      <div className="App"> 
         <div className='nav-container'>
-          <NavLink to='/notes'>View Your Notes</NavLink>
-          <NavLink to='/note-form'>Create New Note</NavLink>
+          <NavLink to='/notes'>View your notes     </NavLink>
+          <NavLink to='/note-form'>     Create new note</NavLink>
         </div>
-
-        {/* <Route 
-          exact 
-          path='/notes' 
-          render={props => (
-            <NotesList {...props} notes={this.props.notes} />
-          )}
-        /> */}
-
-        {/* <Route 
-          path='/notes/:id' 
-          render={() => (
-            <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} />
-          )}
-        /> */}
 
         <Route
           exact
@@ -97,8 +37,18 @@ class App extends Component {
             <NoteForm />
           )}
         />
-        {/* <NoteForm /> */}
-        {/* <NotesList /> */}
+
+        <Route 
+          path='/notes/:id' 
+          render={props => (
+            <NoteViewRedux id = {props.match.params.id} />
+          )}
+        />
+        
+        {/* <Route
+          path="/avengers/:avengerId"
+          component={AvengerView}
+        /> */}
 
       </div>
     );

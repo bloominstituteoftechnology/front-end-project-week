@@ -10,7 +10,7 @@ class NoteView extends Component {
             titleInput: '',
             contentInput: '',
         }
-    }
+      }
     
 
     componentDidMount() {

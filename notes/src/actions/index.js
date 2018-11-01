@@ -51,11 +51,13 @@ export const createNote = newNote => {
     };
 };
 
-export const deleteNote = () => {
-
+export const deleteNote = noteId => {
+  // return dispatch => {
+  //   dispatch({ type: })
+  // };
 };
 
-export const editNote = () => {
+export const updateNote = () => {
 
 };
 

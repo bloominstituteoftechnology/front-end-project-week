@@ -22,12 +22,12 @@ class NotesList extends Component {
                         </Link>
                     ))}
                 </div>
-                <Route 
+                {/* <Route 
                     path='/notes/:id' 
                     render={() => (
                         <NoteView {...this.props} notes={this.state.notes} getNotes={this.getNotes} />
                     )}
-                />
+                /> */}
             </div>
         );
     }

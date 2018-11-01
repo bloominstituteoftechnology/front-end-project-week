@@ -5,32 +5,6 @@ import axios from '../../node_modules/axios';
 import { getNotes, deleteNote, editNote } from '../actions';
 
 class NoteView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: {},
-            titleInput: '',
-            contentInput: '',
-        }
-    }
-    
-
-    componentDidMount() {
-        console.log('NoteView mounted');
-        // const id = this.props.match.params.id;
-        // axios 
-        //     .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-        //     .then(response => {
-        //         console.log('Response: ', response);
-        //         this.setState({ note: response.data });
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
-        const note = this.props.notes.find(note => note.id === this.props.match.params.id);
-        this.setState({note});
-        console.log(note);
-    }
 
     deleteNote = event => {
         event.preventDefault();
@@ -73,12 +47,15 @@ class NoteView extends Component {
     };
 
     render() {
+        if(!this.props.note) {
+            return null;
+        }
         return (
             <div>
-                <h1>{this.state.note.title}</h1>
-                <p>{this.state.note.content}</p>
+                <h1>{this.props.note.title}</h1>
+                <p>{this.props.note.content}</p>
 
-                <button onClick={this.deleteNote}>
+                {/* <button onClick={this.deleteNote}>
                     Delete this note
                 </button>
 
@@ -100,10 +77,19 @@ class NoteView extends Component {
                     <button onClick={this.updateNote}>
                         Update this note
                     </button>
-                </form>
+                </form> */}
             </div>
         )
     }
 }
 
-export default NoteView;
+const mapStateToProps = (state, props) => {
+    // debugger;
+    return {
+        note: state.notes.find(note => note.id === props.id),
+    };
+}
+
+export default connect(
+    mapStateToProps,
+)(NoteView);
