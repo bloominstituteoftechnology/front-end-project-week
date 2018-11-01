@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../App.css';
 
-const Menu = (props) => {
+const Menu = props => {
   return (
     <div className="menu">
     <div className={props.deleting ? "delete-menu": null}></div>
