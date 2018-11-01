@@ -47,12 +47,15 @@ class App extends Component {
  }
 
  updateNote = (noteData) => {
-   let loneItem = this.state.notes.filter(item => noteData._id === item._id )
-
-   console.log('filtered item:', loneItem)
+   let removeItem = this.state.notes.filter(item => noteData._id !== item._id )
+ 
+ //   console.log('filtered item:', removeItem)
+ //   console.log('this is edited note:', noteData)
+   let newArray = [...removeItem, noteData]
+   // console.log('new array', newArray)
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${noteData._id}`, noteData)
-      .then(res => this.setState({notes: [...this.state.notes, noteData ]}))
+      .then(res => this.setState({notes: newArray}))
       // .then(res => console.log(res))
       .catch(err => console.log(err))
 
