@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import FullView from "../components/fullView";
-import { fetchNotes, addNote, deleteNote, fecthSingle } from "../actions";
+import { fetchNotes, addNote, deleteNote, fetchSingle } from "../actions";
 import { Switch, Route } from "react-router-dom";
 import SingleView from "../components/singleNoteView";
 import Form from "../components/form";
@@ -99,6 +99,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchNotes, addNote, deleteNote, fecthSingle }
+    { fetchNotes, addNote, deleteNote, fetchSingle }
   )(NoteListView)
 );

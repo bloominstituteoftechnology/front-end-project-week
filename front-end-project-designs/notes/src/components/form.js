@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 const Form = props => {
   console.log("form is working");
   return (
@@ -16,15 +17,14 @@ const Form = props => {
           placeholder=" Enter note"
           onChange={props.handleChanges}
         />
-        <button
-        //  onClick={() => {
-        //   this.props.handleDelete(this.state.singleNote._id);
-        //   this.props.getNote();
-        //   this.props.history.push("/");
-        // }}
+        <Link to='/'><button
+          onClick={() => {
+            props.addNewNote();
+            props.history.push("/");
+          }}
         >
           Add Note
-        </button>
+        </button></Link>
       </form>
     </div>
   );

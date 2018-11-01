@@ -36,10 +36,13 @@ export const deleteNote=(id)=>dispatch=>{
       
     })
 }
-export const fecthSingle=(id)=>dispatch=>{
+export const fetchSingle=(id)=>dispatch=>{
   axios
     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
     .then(response=>{
       dispatch({type: FETCH_SINGLE, payload: response.data})
     })
+}
+export const editNote=(id)=>dispatch=>{
+  
 }
