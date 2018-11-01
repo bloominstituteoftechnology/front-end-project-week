@@ -10,9 +10,11 @@
         font-weight: 900;
     }
 
+    // remove default a tag styling from <Link>
     .note-card-link {
         text-decoration: none;
 
+        // each individual card in all card view
         .note-card {
             height: 300px;
             width: 300px;
@@ -108,11 +110,13 @@
         outline-color: @buttonOutlineColor;
     }
 
+    // add new note button
     button.note-button {
         .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 10px, 1.8rem);
     }
 }
 
+// modal to confirmation delete
 .delete-modal {
     height: 100vh;
     width: 100vw;
