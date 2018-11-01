@@ -91,6 +91,7 @@
 
 .noteHeader {
     display: flex;
+    overflow: hidden;
 }
 
 .note input {
