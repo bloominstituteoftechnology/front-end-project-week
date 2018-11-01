@@ -45,7 +45,7 @@ import React, { Component } from 'react';
             onChange={this.handleChange}/>
             <input
               name='password'
-              type='text'
+              type='password'
               placeholder='Password'
               value={this.state.password}
               onChange={this.handleChange}/>

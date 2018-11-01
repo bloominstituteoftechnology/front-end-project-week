@@ -29,6 +29,7 @@ class NotesList extends React.Component {
   }
 
 
+
   handleInput = event => {
     this.searchNotes(event.target.value.toLowerCase());
   }
