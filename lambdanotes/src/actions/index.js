@@ -38,7 +38,9 @@ export const getNotes = () => {
 
 		axios
 			// .get('https://killer-notes.herokuapp.com/note/get/all')
-			.get(`${process.env.DB || `http://localhost:${port}`}/api/notes`)
+			.get(
+				`${process.env.REACT_APP_DB || `http://localhost:${port}`}/api/notes`
+			)
 
 			.then(async ({ data }) => {
 				await sleep(1000);
@@ -56,7 +58,10 @@ export const getNote = id => {
 
 		axios
 			// .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-			.get(`${process.env.DB || `http://localhost:${port}`}/api/notes/${id}`)
+			.get(
+				`${process.env.REACT_APP_DB ||
+					`http://localhost:${port}`}/api/notes/${id}`
+			)
 
 			.then(async ({ data }) => {
 				await sleep(1000);
@@ -74,7 +79,10 @@ export const addNote = note => {
 
 		axios
 			// .post('https://killer-notes.herokuapp.com/note/create', note)
-			.post(`${process.env.DB || `http://localhost:${port}`}/api/notes/`, note)
+			.post(
+				`${process.env.REACT_APP_DB || `http://localhost:${port}`}/api/notes/`,
+				note
+			)
 
 			.then(async () => {
 				await sleep(1000);
@@ -92,7 +100,10 @@ export const deleteNote = id => {
 
 		axios
 			// .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-			.delete(`${process.env.DB || `http://localhost:${port}`}/api/notes/${id}`)
+			.delete(
+				`${process.env.REACT_APP_DB ||
+					`http://localhost:${port}`}/api/notes/${id}`
+			)
 
 			.then(async () => {
 				await sleep(1000);
@@ -115,7 +126,8 @@ export const updateNote = (id, changes) => {
 			// 	updatedNote
 			// )
 			.put(
-				`${process.env.DB || `http://localhost:${port}`}/api/notes/${id}`,
+				`${process.env.REACT_APP_DB ||
+					`http://localhost:${port}`}/api/notes/${id}`,
 				changes
 			)
 
