@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { MdEdit, MdContentCopy, MdDelete } from 'react-icons/md'
 
 class NoteSingle extends Component {
   state = {
@@ -55,16 +56,17 @@ class NoteSingle extends Component {
         }
 
         <Div4>
-          <Link1 to={`/notes/${note.id}/edit`} onClick={() => this.props.editNote(Number(note.id))}>
-            Edit
-          </Link1>
-          <A1 onClick={() => this.cloneNoteToAPI(note)}>Clone</A1>
-          &nbsp;
-          <A1 onClick={this.openModal}>Delete</A1>
+          <H2>{note.title}</H2>
+          <Div5>
+            <Link1 to={`/notes/${note.id}/edit`} onClick={() => this.props.editNote(Number(note.id))}>
+              <MdEdit1 />
+            </Link1>
+            <A1 onClick={() => this.cloneNoteToAPI(note)}><MdContentCopy1 /></A1>
+            <A1 onClick={this.openModal}><MdDelete1 /></A1>
+          </Div5>
         </Div4>
-        <H2>{note.title}</H2>
-        <P1>{note.text}</P1>
-        <P1>Note Tags:<br />
+        <P>{note.text}</P>
+        <P1>Note Tags:&nbsp;
           {
             JSON.parse(note.tags).map((item, index) => {
               return <span key={`tag${index}`}>{(index ? ', ' : '') + item}</span>;
@@ -78,16 +80,8 @@ class NoteSingle extends Component {
 
 const Div1 = styled.div`
   padding: 1% 3%;
-  width: 75%;
-  background: #F2F1F2;
-  min-height: 90vh;
-`
-const Div4 = styled.div`
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-end;
+  border: 2px solid #DADCE0;
+  border-radius: 10px;
 `
 const Div2 = styled.div`
   position: fixed; /* Stay in place */
@@ -115,12 +109,24 @@ const Div3 = styled.div`
   align-content: center;
   padding-bottom: 3%;
 `
-
+const Div4 = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+const Div5 = styled.div`
+  width: 20%;
+  /* margin: 0; */
+  /* padding: 0; */
+  display: flex;
+  justify-content: space-between;
+`
 const H2 = styled.h2`
   margin: 0;
 `
+const P = styled.p`
+`
 const P1 = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 `
 const P2 = styled.p`
   font-size: 1.8rem;
@@ -145,6 +151,39 @@ const A1 = styled.a`
   text-decoration: underline;
   &:hover {
     cursor: pointer;
+  }
+`
+const MdEdit1 = styled(MdEdit)`
+  color: black;
+  font-size: 3rem;
+  &:hover {
+    background: black;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 20px lightgray;
+  }
+`
+const MdContentCopy1 = styled(MdContentCopy)`
+  color: black;
+  font-size: 3rem;
+  &:hover {
+    background: black;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 20px lightgray;
+  }
+`
+const MdDelete1 = styled(MdDelete)`
+  color: black;
+  font-size: 3rem;
+  &:hover {
+    background: black;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 20px lightgray;
   }
 `
 

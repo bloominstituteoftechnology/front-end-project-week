@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Draggable from 'react-draggable'
-import { MdEdit } from 'react-icons/md'
+import { MdPageview } from 'react-icons/md'
 
 const NotesMain = (props) => {
   const dragHandlers = { onStart: this.onStart, onStop: this.onStop }
@@ -32,7 +32,7 @@ const NotesMain = (props) => {
                   ...
                 </P2>
                 <Link to={`/notes/${note.id}`} title="View Note">
-                  <MdEdit1 />
+                  <MdPageview1 />
                 </Link>
               </Div3>
             </Draggable>
@@ -104,7 +104,7 @@ const P2 = styled.p`
 const Strong = styled.strong`
   font-size: 2rem;
 `
-const MdEdit1 = styled(MdEdit)`
+const MdPageview1 = styled(MdPageview)`
   color: black;
   font-size: 2rem;
   &:hover {
