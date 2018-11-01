@@ -236,7 +236,24 @@ strong {
 	text-overflow: ellipsis;
 }
 
-.note-preview span a {
+.notes-list .note-preview p {
+		margin: 5px;
+		font-size: 1.2rem;
+		width: 80%;
+		height: 80%;
+		align-self: flex-start;
+		line-height: 1.8;
+		white-space: pre-wrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+}
+
+.notes-list .note-preview img {
+	width: 100%;
+	height: auto;
+}
+
+.note-preview p a {
 	text-decoration: underline;
 	color: #24B8BD;
 }

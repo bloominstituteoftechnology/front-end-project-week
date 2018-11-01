@@ -1,5 +1,5 @@
 import React from 'react';
-import MDReactComponent from 'markdown-react-js';
+import ReactMarkdown from 'react-markdown';
 
 
 
@@ -8,7 +8,7 @@ const NotePreview = props => {
   return (
     <div className='note-preview'>
     <h4>{props.note.title}</h4>
-    <MDReactComponent text={body} />
+    <ReactMarkdown source={body} />
     </div>
   )
 }
