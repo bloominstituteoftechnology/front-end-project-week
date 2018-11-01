@@ -14,6 +14,7 @@ class Notes extends Component {
       <div className="listDisplay">
         <h1>Your Notes</h1>
         <div className="noteDisplay">
+          {console.log(this.props.notes)}
           {this.props.notes.map(note => {
             return (
               <Link to={`/notes/${note.id}`}>

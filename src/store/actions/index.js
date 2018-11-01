@@ -27,7 +27,7 @@ export const getNotes = () => {
     axios
       .get("https://lambdanotes-heroku.herokuapp.com/notes")
       .then(response => {
-        dispatch({ type: NOTES_FETCH_COMPLETE, payload: response.data });
+        dispatch({ type: NOTES_FETCH_COMPLETE, payload: response.data.notes });
       })
       .catch(err => {
         dispatch({ type: NOTES_FETCH_ERROR });
