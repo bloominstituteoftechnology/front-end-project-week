@@ -49,7 +49,7 @@ export const StyledLink = styled(Link)`
   margin-top: 10px;
   width: 75%;
   padding: 15px;
-  margin-left: 5%;
+  margin-left: 7%;
   color: white;
   text-align: center;
 
@@ -317,7 +317,7 @@ export const ExportBtn = styled.div`
   margin-top: 10px;
   width: 75%;
   padding: 15px;
-  margin-left: 5%;
+  margin-left: 7%;
   color: white;
   text-align: center;
   background-color: #24b8bd;
@@ -363,4 +363,18 @@ export const LoginBackground = styled.div`
   background-repeat: no-repeat;
   overflow: hidden;
   border: 1.5px solid black; */
+`;
+
+export const SearchInput = styled.input`
+    width: 75%;
+    padding: 0px;
+    margin-left: 10%;
+    font-size: 20px;
+    margin-top: 126px;
+    text-align: center;
+
+  :-webkit-autofill {
+    -webkit-text-fill-color: black;
+    -webkit-box-shadow: 0 0 0 100px white inset;
+  }
 `;

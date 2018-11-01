@@ -8,7 +8,8 @@ import {
   CardList,
   TitleH1,
   ExportBtn,
-  SignOut
+  SignOut,
+  SearchInput
 } from "../Styles";
 
 import NoteCard from "./NoteCard";
@@ -17,7 +18,8 @@ class NotesList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      filteredNotes: []
     };
   }
 
@@ -48,6 +50,15 @@ class NotesList extends React.Component {
     a.click();
   }
 
+  searchNotesHandler = e => {
+    const notes = this.props.notes.filter(note => {
+      if (note.title.includes(e.target.value)) {
+        return note;
+      }
+    });
+    this.setState({ filteredNotes: notes });
+  };
+
   render() {
     return (
       <div>
@@ -63,12 +74,13 @@ class NotesList extends React.Component {
           >
             Export
           </ExportBtn>
+          <SearchInput onChange={this.searchNotesHandler} type="text" placeholder="Search"/>
         </LeftBar>
         <CardList>
           <NotesH2>Your Notes:</NotesH2>
           <ContainCards>
             {this.props.notes.map(note => (
-              <NoteCard key={note._id} note={note} />
+              <NoteCard key={note._id} note={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : note} />
             ))}
           </ContainCards>
         </CardList>
