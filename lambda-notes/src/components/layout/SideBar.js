@@ -23,7 +23,7 @@ class SideBar extends Component {
   }
   handleLogoutClick = () => {
     const { firebase } = this.props;
-    firebase.logout().then((window.location = "/login"));
+    firebase.logout();
   };
   render() {
     const { isAuthenticated } = this.state;

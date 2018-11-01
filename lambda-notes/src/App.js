@@ -22,7 +22,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <SideBar />
-            <MobileNav />
+            <Route path="/" component={MobileNav} />
             <Switch>
               <Route exact path="/" component={UserIsAuthenticated(Notes)} />
               <Route

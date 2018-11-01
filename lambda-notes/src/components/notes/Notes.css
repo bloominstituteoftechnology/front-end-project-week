@@ -79,6 +79,12 @@
   margin-left: 250px;
   padding: 30px;
 }
+.edit-and-delete .fa-edit {
+  color: #24b8bd;
+}
+.edit-and-delete .fa-trash-alt {
+  color: red;
+}
 .single-note h1 {
   font-size: 1.7rem;
   margin-top: 20px;
@@ -159,7 +165,7 @@
   }
   .single-note {
     margin: auto;
-    margin-top: 30px;
+    margin-top: 40px;
   }
   .edit-and-delete {
     position: absolute;
@@ -194,5 +200,10 @@
     width: 100%;
     display: block;
     margin: 10px auto;
+  }
+  .edit-and-delete {
+    position: absolute;
+    left: 30%;
+    top: 50px;
   }
 }

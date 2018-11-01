@@ -11,7 +11,8 @@ class MobileNav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      mobileMenuToggle: false
     };
   }
 
@@ -26,29 +27,68 @@ class MobileNav extends Component {
   }
   handleLogoutClick = () => {
     const { firebase } = this.props;
-    firebase.logout().then((window.location = "/login"));
+    firebase.logout();
   };
 
+  mobileMenuToggle = () => {
+    this.setState({
+      mobileMenuToggle: !this.state.mobileMenuToggle
+    });
+  };
   render() {
     const { isAuthenticated } = this.state;
     return (
-      <nav className="nav-bar">
-        {isAuthenticated ? (
-          <Link to="/">
-            <h5>All notes</h5>
-          </Link>
-        ) : null}
+      <React.Fragment>
+        <nav className="nav-bar">
+          {isAuthenticated ? (
+            <Link to="/">
+              <h5>All notes</h5>
+            </Link>
+          ) : null}
 
-        {isAuthenticated ? (
-          <Link to="/add">
-            <h5>Create New Note</h5>
-          </Link>
-        ) : null}
+          {isAuthenticated ? (
+            <Link to="/add">
+              <h5>Create New Note</h5>
+            </Link>
+          ) : null}
 
-        {isAuthenticated ? (
-          <button onClick={this.handleLogoutClick}>Logout</button>
+          {isAuthenticated ? (
+            <button onClick={this.handleLogoutClick}>Logout</button>
+          ) : null}
+
+          {isAuthenticated ? (
+            <i className="fas fa-bars" onClick={this.mobileMenuToggle} />
+          ) : null}
+        </nav>
+        {this.state.mobileMenuToggle ? (
+          <div className="mobile-menu-toggle">
+            <i class="fas fa-times" onClick={this.mobileMenuToggle} />
+            <h5
+              onClick={() => (
+                this.mobileMenuToggle(), this.props.history.push("/")
+              )}
+            >
+              All Notes
+            </h5>
+            <h5
+              onClick={() => (
+                this.mobileMenuToggle(), this.props.history.push("/add")
+              )}
+            >
+              <i className="fas fa-plus" />
+              Add Note
+            </h5>
+
+            <button
+              onClick={() => (
+                this.mobileMenuToggle(), this.handleLogoutClick()
+              )}
+            >
+              Logout
+            </button>
+          </div>
         ) : null}
-      </nav>
+      </React.Fragment>
     );
   }
 }
