@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
  class Edit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            content: ''
+            title: this.props.title,
+            content: this.props.content
         }
     }
      handleChange = event => {
@@ -23,15 +24,23 @@ import React, { Component } from 'react'
             title: '',
             content: ''
         })
+        
     }
 
      render() {
         return (
-            <form onSubmit={this.updateNote}>
-                <input type="text" name="title" onChange={this.handleChange} value={this.state.title} required></input>
-                <textarea name="content" onChange={this.handleChange} value={this.state.content} required></textarea>
-                <button>Update!</button>
-            </form>
+            <Form onSubmit={this.updateNote} className="note-form">
+                <FormGroup>
+                    <Label for="title">Update Title</Label>
+                    <Input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="content"> Update Note</Label>
+                    <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
+                </FormGroup>
+                <Button color="primary">Update!</Button>
+                <Button type="button" onClick={this.props.onCancel} color="danger">Cancel</Button>
+            </Form>
         )
     }
 }

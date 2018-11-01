@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { withRouter, Route } from 'react-router-dom';
+import { withRouter, Route, Link , Switch} from 'react-router-dom';
 import * as actions from './actions'
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import SingleNote from './components/SingleNote';
-import Nav from './components/Nav';
+//  import TopNav from './components/TopNav';
+import { Navbar, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
+
 
 
 class App extends Component {
@@ -16,32 +18,50 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Navbar>
+      <NavbarBrand>
+            Lambda<br/>Notes
+            </NavbarBrand>
+          <Nav>
+            <NavItem>
+              <NavLink tag={Link} to="/"><i className="fas fa-book-open"></i> &nbsp;View Notes </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/note/add"><i className="fas fa-plus"></i> &nbsp;New Note </NavLink>
+            </NavItem>
+          </Nav>
+        </Navbar>
       <Nav className='nav-bar'/>
-      
       <Route exact path="/" render={props => (
         <Notes {...props} notes={this.props.notes} fetch={this.props.fetch} fetching={this.props.fetching} />
+
       )} />
-      <Route path="/notes/add" render={props => (
+      <Switch>
+      <Route path="/note/add" render={props => (
         <NoteForm {...props} addNote={this.props.addNote} />
       )} />
       <Route path="/notes/:id" render={props => (
           <SingleNote {...props} note={this.props.note} />
         )}  />
+        </Switch>
+
       </div>
     );
   }
 }
 
+// i think correcting the typo fixed my error!!!!!
 const mapStateToProps = state => {
   return {
     fetching: state.fetching,
     fetched: state.fetched,
     notes: state.notes,
     error: state.error,
-    fetchingNote: state.fetchingNotes,
-    noteFetched: state.notesFetched,
+    fetchingNote: state.fetchingNote,
+    noteFetched: state.noteFetched,
     note: state.note,
     updating: state.updating,
+    updated: state.updated,
   }
 }
 

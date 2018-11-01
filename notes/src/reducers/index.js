@@ -31,17 +31,17 @@ export const notesReducer = ( state = initialState, action ) => {
         case ERROR:
         return {...state, fetching: false, saving: false, error: action.payload};
         case FETCHING_NOTE:
-        return {...state,fetchingNote: true}
+        return {...state,fetchingNote: true, fetched: true}
         case FETCHED_NOTE:
         return {...state, noteFetched: true, fetchingNote: false, note: action.payload}
         case DELETING:
         return {...state, deleting: true}
         case DELETED:
-        return {...state, deleting: false, deleted: true, notes: action.payload}
+        return {...state, deleting: false}
         case UPDATING:
         return {...state,updating: true}
         case UPDATED:
-        return {...state, updated: true,updating: false, notes: action.payload}       
+        return {...state, updated: true,updating: false, note: action.payload}       
         default:
         return state;
     }

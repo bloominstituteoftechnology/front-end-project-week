@@ -1,75 +1,15 @@
-.App {
+
+
+ .App {
   text-align: center;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.nav-bar {
-  box-sizing: border-box;
-  width: 20%;
-  overflow-x: hidden;
-  padding: 0px 1%;
-  background-color: #ab2317;
-  
-}
-
-.nav-bar a {  
-  background-color: #e6e6e6;;
-  width: 35%;
-  text-overflow: ellipsis;
-  margin-bottom: 20px;
-  color: #ccc;;
-  font-size: 1rem;
-  width: 98%;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
-
-
-
-.nav-items-container {
-  padding-top: 30px;
-}
-
- .top-nav { 
-   background-image: url('https://image.ibb.co/mV5AdL/Copy-of-Copy-of-Copy-of-LIKHABOUTIQUE-2.png'); 
-   background-repeat: no-repeat;
-  height: 80px;
-  display: block;
-  background-color: #ab2317;
+  text-align: center;
+  max-width: 1200px;
   width: 100%;
-  display: block;
-  background-origin: content-box;
-  display: flex;
-  justify-content: center;
-  PADDING-TOP: 50PX
-
+  margin: 0 auto;
 
 } 
 
@@ -78,7 +18,7 @@ form {
   margin: 1rem auto;
   border: 1px solid #b2bec3;
   border-radius: 8px;
-  padding: 20px;
+  padding-left: 200px;
 
 }
 
@@ -99,33 +39,280 @@ a:hover {
   margin: 1rem auto;
 }
 
-/* background-image: url('https://image.ibb.co/ihqha0/Copy-of-Copy-of-Copy-of-LIKHABOUTIQUE-2.png'); */
-
- 
-/* .nav-bar{
-  background-image: url('https://image.ibb.co/jE6tV0/lambdanotes.png');
-  background-repeat: no-repeat;
-  height: 80px;
-  display: block;
-  background-color: #ab2317;
-  padding-bottom: 10px;
+a {
+  color: #2d3436;
 }
 
-.nav-items-container {
-  padding: 50px;
+a:hover {
+  color: #2d3436;
+  text-decoration: none;
+}
 
+.navbar {
+  width: 30%;
+  max-width: 220px;
+  display: flex;
+  height: 100%;
+  position: fixed;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  background-color: #ab2317;
+}
+
+ .nav-item {
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+  border: 1px solid grey;
+} 
+
+.nav-item a {
+  color: white;
+  font-size: 1.3rem;
+}
+
+
+button {
+  margin: 10px;
+}
+
+.note-container {
+  width: 100%;
+  margin: 1rem auto;
+  
+}
+
+
+.form-container {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #f2f1f2;
+  padding: 20px 20px;
+  height: 100%;
+}
+
+.form-container h3 {
+  margin-left: 20px;
+    margin-left: 20px;
+
+  padding-top: 80px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.note-form {
+  width: 100%;
+  margin-left: 40px;
+  padding-right: 10%;
+}
+
+.note-form input {
+  width: 50%;
+}
+
+.note-form textarea {
+  width: 100%;
+  height: 300px;
+}
+
+
+
+.nav-item{
+  box-shadow: inset 0 0 0 4px #58afd1;
+  color: #58afd1;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+  margin-right: 50px;
+}
+.nav-item::before, .nav-item::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.nav-item::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+.nav-item::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.nav-item:hover::before, .nav-item:hover::after {
+  border-color: #ffe593;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.nav-item:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+.nav-item:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+}
+
+
+.single-note-view {
+  width: 100%;
+  background-color: #f2f1f2;
+  padding: 20px 10px;
+  height: 100px;
+}
+
+.single-note-view .header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.single-note-view .header a {
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #5b5c60;
+}
+
+.single-note-view .header a:hover {
+  color: #5b5c60;
+  text-decoration: underline;
+}
+
+.single-note-view .note-content {
+  /* margin-left: 20px; */
+}
+
+.single-note-view .note-content h3 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #484544;
+}
+
+.modal-dialog {
+  display: flex;
+  margin-top: 20%;
+}
+
+.card-title {
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b2bec3;
+
+}
+
+.wide {
+  width: 200px;
+}
+
+.card .card-body {
+  /* border: 1px solid red; */
+  /* box-sizing: border-box; */
+  /* margin-left: 100px;  
+  padding-left: 30px; */
+  padding-right: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 150px;
+  width: 100%;
+  /* background-color: red; */
+
+
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* flex-direction: row;
+  flex-wrap: wrap;  */ 
+}
+
+.card {
+  padding-right: 50px; 
+   padding-left: 130px; 
+   margin-left: 225px;
+   width: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* background-color: orange; */
+
+}
+
+#mytext{
+font-size: 3rem;
+
+}
+
+.note-container {
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+.cardbody {
+
+  
+}
+ 
+
+
+/* .note-container {
+
+  border: 2px solid brown;
 } */
 
-.notes-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+
+.nav {
+  padding-top: 50px;
+}
+
+/* // item box */
+.nav-item {
+  padding-right: 48px;
+  padding-left: 40px;
+
 
 }
-.notes{
-width: 21.22%;
-justify-content: space-evenly;
- padding: 20px;
- border: 1px solid black;
+ 
+.anobato {
+} 
+/* 
+.note {
+  width: 40%;
+} */ 
+/* .top-nav { 
+  background-image: url('https://image.ibb.co/mV5AdL/Copy-of-Copy-of-Copy-of-LIKHABOUTIQUE-2.png'); 
+  
+} */
+
+.logo{
+  margin-top: 40px;
+}
+.navbar-brand {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 0.9;
+  text-color: white;
+  line-height: 1;
+    margin: 0 auto;
+} 
+
+.nav-link {
+  font-size: 1rem;
 }
