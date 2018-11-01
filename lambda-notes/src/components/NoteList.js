@@ -28,7 +28,7 @@ render(){
         ></input>
         </form>
         <div className="sort-options">
-        <button onClick={this.props.getNoteList}>Sort oldest to newest</button>
+        <button onClick={this.props.sortOldToNew}>Sort oldest to newest</button>
         <button onClick={this.props.sortNewToOld}>Sort newest to oldest</button>
         <button onClick={this.props.sortAlphabetically}> Sort alphabetically</button>
         </div>

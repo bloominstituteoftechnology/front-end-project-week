@@ -25,6 +25,8 @@ class App extends Component {
           title: '',
           textBody:''
         },
+        reversed: false,
+        alphabetized:false,
         //controls form in NoteList's searchbar, used to filter views
         searchTerm:''
     }
@@ -37,18 +39,33 @@ getNoteList=()=>{
   .catch(err=>{console.log("Something went wrong and we couldn't retrieve your notes: ",err)})
 }
 
-// sort method via button: passed down to Notelist, a new GET call that reverses the order of the notes coming in (most recent notes in server are typically the last in the array)
+//these 3 functions are a little complicated because they need to run ONLY if the notes are not arranged in that specified order. I would prefer they just rearrange the current notes on state instead of--
+//--having to make a new axios call, but there's not a good way to undo the sorting that happens in sortalphebetically
+// sort method via button: passed down to Notelist, a new GET call that reverses the order of the notes coming in (most recent notes in server are typically the last in the array) if note already reversed
 sortNewToOld = () => {
-  axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
-  .then(response=>this.setState({notes:response.data.reverse()}))
-  .catch(err=>{console.log("Something went wrong and we couldn't sort your notes: ",err)})
+  if (!this.state.reversed || this.state.alphabetized) {
+    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+    .then(response=>this.setState({notes:response.data.reverse(), reversed:true, alphabetized:false}))
+    .catch(err=>{console.log("Something went wrong and we couldn't retrieve your notes: ",err)})}
+    
 }
 
-//sort method: orders notes based on alphabetical ordering of titles
-sortAlphabetically = () => {
+//the same as getNoteList but it also resets reversed and alphabetized
+sortOldToNew = () => {
+  if (this.state.reversed || this.state.alphabetized) {
   axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
-  .then(response=>this.setState({notes:response.data.sort((a,b)=>a.title.localeCompare(b.title))}))
-  .catch(err=>{console.log("Something went wrong and we couldn't sort your notes: ",err)})
+  .then(response=>this.setState({notes:response.data, reversed:false, alphabetized:false}))
+  .catch(err=>{console.log("Something went wrong and we couldn't retrieve your notes: ",err)})
+  }
+}
+
+//sort method: orders notes based on alphabetical ordering of titles, resets reverse and set alphabetized to true
+sortAlphabetically = () => {
+  if (!this.state.alphabetized) {
+  axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+  .then(response=>this.setState({notes:response.data.sort((a,b)=>a.title.localeCompare(b.title)), reversed:false, alphabetized:true}))
+  .catch(err=>{console.log("Something went wrong and we couldn't retrieve your notes: ",err)})
+}
 }
 
 //initial loading of notes
@@ -126,7 +143,7 @@ this.setState({
 {...ownProps} 
 notes={this.state.notes} 
 sortNewToOld={this.sortNewToOld} 
-getNoteList={this.getNoteList} 
+sortOldToNew={this.sortOldToNew} 
 sortAlphabetically={this.sortAlphabetically} 
 searchHandler={this.searchHandler} 
 searchTerm={this.state.searchTerm}
