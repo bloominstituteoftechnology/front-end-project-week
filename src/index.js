@@ -19,9 +19,6 @@ const store = createStore(
   compose(applyMiddleware(thunk),devtools,),
 );
 
-const store = createStore(
-    notesReducer,compose(applyMiddleware(thunk), devTools)
-);
 
 ReactDOM.render(
     <Provider store={store}>
