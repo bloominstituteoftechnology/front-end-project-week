@@ -13,23 +13,13 @@ export const ADDING_NOTE_SUCCESS = 'ADDING_NOTE_SUCCESS';
 export const ADDING_NOTE_FAILURE = 'ADDING_NOTE_FAILURE';
 export const SHOW_NOTE = 'SHOW_NOTE';
 export const GO_HOME = 'GO_HOME';
-
-// export const DELETING_SMURF_SUCCESS = 'DELETING_SMURF_SUCCESS';
-// export const DELETING_SMURF_FAILURE = 'DELETING_SMURF_FAILURE';
-
-/*
-  For this project you'll need at least 2 action creators for the main portion,
-   and 2 more for the stretch problem.
-   Be sure to include action types for each type of action creator. Also, be sure to mind
-     the "pending" states like, fetching, creating, updating and deleting.
-   C - addSmurf
-   R - getSmurfs
-   U - updateSmurf
-   D - deleteSmurf
-*/
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETING_NOTE_SUCCESS = 'DELETING_NOTE_SUCCESS';
+export const DELETING_NOTE_FAILURE = 'DELETING_NOTE_FAILURE';
 
 const getUrl = 'https://fe-notes.herokuapp.com/note/get/all';
 const postUrl = 'https://fe-notes.herokuapp.com/note/create';
+const deleteUrl = 'https://fe-notes.herokuapp.com/note/delete';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
@@ -51,19 +41,18 @@ export const addNote = note => dispatch => {
     .post(postUrl, note)
     .then(response => {
       dispatch({ type: ADDING_NOTE_SUCCESS });
+      return axios
+        .get(getUrl)
+        .then(response => {
+          console.log('Response from getNotes is: ', response);
+          dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
+        })
+        .catch(error => {
+          dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
+        });
     })
     .catch(error => {
       dispatch({ type: ADDING_NOTE_FAILURE, payload: error });
-    })
-    .then(dispatch({ type: FETCHING_NOTES }));
-  axios
-    .get(getUrl)
-    .then(response => {
-      console.log('Response from getNotes is: ', response);
-      dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
-    })
-    .catch(error => {
-      dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
     });
 };
 
@@ -75,14 +64,41 @@ export const goHome = () => dispatch => {
   dispatch({ type: GO_HOME, payload: '' });
 };
 
-// export const deleteSmurf = id => dispatch => {
-//   axios
-//     .delete(`${url}/${id}`)
-//     .then(res => {
-//       dispatch({ type: DELETING_SMURF_SUCCESS, payload: id });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       dispatch({ type: DELETING_SMURF_FAILURE });
-//     });
-// };
+export const deleteNote = id => dispatch => {
+  console.log('this is the id kid', id);
+  dispatch({ type: DELETE_NOTE });
+  axios
+    .delete(`${deleteUrl}/${id}`)
+    .then(response => {
+      dispatch({ type: DELETING_NOTE_SUCCESS, payload: id });
+
+      return axios
+        .get(getUrl)
+        .then(response => {
+          console.log('Response from getNotes is: ', response);
+          dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
+        })
+        .catch(error => {
+          dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
+        });
+    })
+
+    .catch(error => {
+      console.log(error);
+      dispatch({ type: DELETING_NOTE_FAILURE, payload: error });
+    });
+};
+
+axios
+  .get('http://google.com')
+  .then(res => {
+    // do something with Google res
+
+    return axios.get('http://apple.com');
+  })
+  .then(res => {
+    // do something with Apple res
+  })
+  .catch(err => {
+    // handle err
+  });

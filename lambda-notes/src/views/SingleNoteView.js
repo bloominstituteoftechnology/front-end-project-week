@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { deleteNote } from '../actions';
 import { connect } from 'react-redux';
 import { Route, Link, withRouter } from 'react-router-dom';
 
@@ -31,24 +32,34 @@ const StyledLink = styled(Link)`
   color: black;
 `;
 
-const SingleNoteView = props => {
-  return (
-    <SingleNoteViewContainer>
-      {props.activeNote === undefined ? null : props.activeNote === undefined ? null : (
-        <TitleContainer>
-          <LinkContainer>
-            <StyledLink to="/">Edit</StyledLink>
-            <StyledLink to="/">Delete</StyledLink>
-          </LinkContainer>
-          <h2>{props.activeNote.title}</h2>
-          <SingleNoteContainer>
-            <p>{props.activeNote.textBody}</p>
-          </SingleNoteContainer>
-        </TitleContainer>
-      )}
-    </SingleNoteViewContainer>
-  );
-};
+class SingleNoteView extends Component {
+  DeleteClickHandler = event => {
+    event.preventDefault();
+    this.props.deleteNote(this.props.activeNote._id);
+    this.props.history.push('/');
+  };
+
+  render() {
+    return (
+      <SingleNoteViewContainer>
+        {this.props.activeNote === undefined ? null : this.props.activeNote === undefined ? null : (
+          <TitleContainer>
+            <LinkContainer>
+              <StyledLink to="/">Edit</StyledLink>
+              <StyledLink onClick={this.DeleteClickHandler} to="/">
+                Delete
+              </StyledLink>
+            </LinkContainer>
+            <h2>{this.props.activeNote.title}</h2>
+            <SingleNoteContainer>
+              <p>{this.props.activeNote.textBody}</p>
+            </SingleNoteContainer>
+          </TitleContainer>
+        )}
+      </SingleNoteViewContainer>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {
@@ -59,6 +70,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    {}
+    { deleteNote }
   )(SingleNoteView)
 );

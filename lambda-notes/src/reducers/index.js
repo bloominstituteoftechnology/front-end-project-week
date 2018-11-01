@@ -10,8 +10,10 @@ import {
   ADDING_NOTE_SUCCESS,
   ADDING_NOTE_FAILURE,
   SHOW_NOTE,
-  GO_HOME
-  // DELETING_SMURF_SUCCESS
+  GO_HOME,
+  DELETE_NOTE,
+  DELETING_NOTE_SUCCESS,
+  DELETING_NOTE_FAILURE
 } from '../actions/index';
 
 const initialState = {
@@ -19,7 +21,8 @@ const initialState = {
   fetchingNotes: false,
   addingNote: false,
   error: null,
-  activeNote: null
+  activeNote: null,
+  deletingNote: false
 };
 
 /*
@@ -43,8 +46,7 @@ export default (state = initialState, action) => {
         ...state,
         fetchingNotes: false,
         notes: action.payload,
-        error: null,
-        activeNote: null
+        error: null
       };
 
     case FETCHING_NOTES_FAILURE:
@@ -87,11 +89,25 @@ export default (state = initialState, action) => {
         activeNote: null
       };
 
-    // case DELETING_SMURF_SUCCESS:
-    //   return {
-    //     ...state,
-    //     smurfs: state.smurfs.filter(smurf => smurf.id !== action.payload)
-    //   };
+    case DELETE_NOTE:
+      return {
+        ...state,
+        deletingNote: true
+      };
+
+    case DELETING_NOTE_SUCCESS:
+      return {
+        ...state,
+        deletingNote: false,
+        activeNote: null
+      };
+
+    case DELETING_NOTE_FAILURE:
+      return {
+        ...state,
+        deletingNote: false,
+        activeNote: null
+      };
 
     default:
       return state;
