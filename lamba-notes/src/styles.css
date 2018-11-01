@@ -7,7 +7,6 @@
 }
 
 .card {
-  border: 3px solid red;
   margin: 20px;
   background-color: #fff;
   padding: 10px;
@@ -34,6 +33,9 @@
   margin: 10px 20px;
   font-size: 18px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .singleNote {
@@ -43,7 +45,6 @@
 
 .singleNote__edit {
   font-size: 16px;
-  color: red;
   text-decoration: none;
   margin-right: 20px;
 }
@@ -51,4 +52,52 @@
 .singleNote__delete {
   font-size: 16px;
   color: red;
+}
+
+.nav__btn {
+  background-color: #24b8bd;
+  color: #fff;
+  height: 65px;
+  width: 200px;
+  margin: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.note__List {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 500px 20px;
+}
+
+/* .your-notes {
+  color: #414141;
+  font-size:25px;
+  margin-bottom:50px;
+} */
+
+.notes-list .notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.note {
+  border: 1px solid rgb(167, 167, 167);
+  padding: 10px;
+  width: 150px;
+  height: 200px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: white;
+}
+.note .note-title {
+  text-decoration: none;
+  color: black;
 }

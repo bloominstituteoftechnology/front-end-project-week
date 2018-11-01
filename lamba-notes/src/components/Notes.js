@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class Notes extends React.Component {
   render() {
     return (
-      <div className="notes">
+      <div className="note_list">
         {this.props.notes.map(note => {
           return (
             <div key={note._id} className="card">

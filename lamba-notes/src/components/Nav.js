@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 class Nav extends React.Component {
   render() {
@@ -11,13 +11,19 @@ class Nav extends React.Component {
           Notes
         </h1>
         <div className="link-section">
-          <Link exact to="/" activeClassName="link">
+          {/* <NavLink exact to="/" activeClassName="link">
             <button class="btn">View Your Notes</button>
-          </Link>
+          </NavLink>
           <br />
           <NavLink to="/submit" activeClassName="link">
             <button class="btn">+ Create New Note</button>
-          </NavLink>
+          </NavLink> */}
+          <a className="nav__btn" href="/">
+            View Your Notes
+          </a>
+          <a className="nav__btn" href="/submit">
+            Create New Note
+          </a>
         </div>
       </div>
     );

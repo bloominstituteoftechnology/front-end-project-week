@@ -31,7 +31,6 @@ class Note extends Component {
 
   deleteRequest() {
     let id = this.props.match.params.id;
-    // delete
   }
 
   editRequest() {
@@ -63,15 +62,6 @@ class Note extends Component {
         </span>
         <h1>{this.state.editTitle}</h1>
         <p>{this.state.editBody}</p>
-        {/* {!this.state.edit ? <h1>{this.state.note.title}</h1> : null}
-        {!this.state.edit ? <p>{this.state.note.textBody}</p> : null}
-
-        {this.state.edit ? (
-          <input name="editTitle" value={this.state.editTitle} />
-        ) : null}
-        {this.state.edit ? (
-          <input name="editBody" value={this.state.note.editBody} />
-        ) : null} */}
       </div>
     );
   }

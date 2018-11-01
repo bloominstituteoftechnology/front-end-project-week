@@ -6,6 +6,7 @@ import Note from "./components/Note";
 import Notes from "./components/Notes";
 import NoteForm from "./components/NoteForm";
 import NoteEdit from "./components/NoteEdit";
+import Nav from "./components/Nav";
 import "./styles.css";
 
 class App extends Component {
@@ -56,17 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="sideBar">
-          <h1 className="sideBar__headline">
-            Lambda
-            <br />
-            Notes
-          </h1>
-          <button className="btn">View Your Notes</button>
-          <br />
-          <button className="btn">Create New Note</button>
-        </div>
-
+        <Nav />
         <div className="content">
           {/* d i s p l a y   n o t e s */}
           <Route
