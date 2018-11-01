@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { fetchNote, deleteNote } from '../../actions';
+import { fetchNote, deleteNote, setUpState } from '../../actions';
 import { connect } from 'react-redux';
-import './SingleNote.css';
+import './singleNote.css';
 
 class SingleNote extends Component {
     componentDidMount() {
@@ -22,6 +22,12 @@ class SingleNote extends Component {
         this.props.deleteNote(id);
         this.props.history.push('/');
     }
+
+    handleEdit = (event, title, body, id) => {
+        event.preventDefault();
+        this.props.setUpState(title,body, id);
+        this.props.history.push('/edit');
+    }
     
     render() {
 
@@ -30,7 +36,7 @@ class SingleNote extends Component {
                 <div className="page">
                     <div className="singleNote">
                         <div className="top">
-                            <span>edit</span>
+                            <span onClick={event => this.handleEdit(event, this.props.note.title, this.props.note.textBody, this.props.note._id)}>edit</span>
                             <span onClick={this.showModal}>delete</span>
                         </div>
                         <h2>{this.props.note.title}</h2>
@@ -68,5 +74,6 @@ const mapStateToProps = state => {
 }
 export default connect(mapStateToProps, {
     fetchNote,
-    deleteNote
+    deleteNote,
+    setUpState
 })(SingleNote);

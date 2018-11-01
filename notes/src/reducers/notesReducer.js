@@ -29,11 +29,40 @@ const initialState = {
     edited: false,
     deleting: false,
     deleted: false,
-    error: null
+    error: null,
+    noteShape: {
+        title: '',
+        textBody: '',
+        id: ''
+    }
 }
 
 export const notesReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'TITLESET':
+            return {
+                ...state,
+                noteShape: {
+                    ...state.noteShape,
+                    title: action.payload
+                }
+            }
+        case 'BODYSET':
+            return {
+                ...state,
+                noteShape: {
+                    ...state.noteShape,
+                    textBody: action.payload
+                }
+            }
+        case 'IDSET':
+            return {
+                ...state,
+                noteShape: {
+                    ...state.noteShape,
+                    id: action.payload
+                }
+            }
         case FETCHING:
             return {
                 ...state,
@@ -107,7 +136,8 @@ export const notesReducer = (state = initialState, action) => {
                 editing: false,
                 edited: true,
                 notes: [
-                    ...action.payload
+                    ...state.notes,
+                    action.payload
                 ]
             }
         case EDIT_FAILURE:

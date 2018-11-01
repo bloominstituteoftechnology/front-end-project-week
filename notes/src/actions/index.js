@@ -67,11 +67,11 @@ export const EDITING = 'EDITING';
 export const EDITED = 'EDITED';
 export const EDIT_FAILURE = 'EDIT_FAILURE';
 
-export const editNote = id => {
+export const editNote = (id, note) => {
     return function(dispatch) {
         dispatch({ type: EDITING });
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
             .then(response => {
                 dispatch({
                     type: EDITED,
@@ -109,5 +109,20 @@ export const deleteNote = id => {
                     payload: error
                 })
             })
+    }
+}
+
+export const setUpState = (title, body, id) => {
+    return function(dispatch) {
+
+        dispatch({
+            type: 'TITLESET', payload: title
+        });
+        dispatch({
+            type: 'BODYSET', payload: body
+        });
+        dispatch({
+            type: 'IDSET', payload: id
+        });
     }
 }
