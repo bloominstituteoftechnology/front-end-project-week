@@ -1,7 +1,29 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import EditBar from './EditBar.js';
 
+export default SingleNote = props => {
+ 
+    if (!props.note) {
+      return <div>Loading note information...</div>;
+    }
+    
+    const { title, textBody} = props.note;
+    return (
+      <div className="note-card">
+        <div className="note-title">
+          <h2>{title}</h2>
+          </div>
+          <div className="note-body">
+            <p>{textBody}</p>
+          </div>
+         
+          <EditBar deleteNote={props.deleteNote} singleNote = {props.note} id = {props.id} />
+        </div>
+    );
+  }
+
+/*
+import axios from 'axios';
 export default class SingleNote extends Component {
   constructor(props) {
     super(props);
@@ -27,25 +49,4 @@ export default class SingleNote extends Component {
       });
   };
 
-
-
-  render() {
-    if (!this.state.note) {
-      return <div>Loading note information...</div>;
-    }
-    
-    const { title, textBody} = this.state.note;
-    return (
-      <div className="note-card">
-        <div className="note-title">
-          <h2>{title}</h2>
-          </div>
-          <div className="note-body">
-            <p>{textBody}</p>
-          </div>
-         
-          <EditBar singleNote = {this.state.note} id = {this.props.match.params.id} />
-        </div>
-    );
-  }
-}
+*/

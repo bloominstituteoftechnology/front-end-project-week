@@ -20,6 +20,9 @@ class App extends Component {
       notes: [],
       newNote:'',
       newTitle:'',
+      note:null,
+      editedNote:'',
+      editedTitle:'',
    
        };
     };
@@ -35,8 +38,77 @@ class App extends Component {
       });
      
   }
+  //SAVE NEW NOTE-----------------------------------
+  addNewNote = event => {
+    event.preventDefault();
+    axios     
+    .post('https://fe-notes.herokuapp.com/note/create',  
+    {
+      title: this.state.newNote,
+      textBody: this.state.newTitle,
+    })
+
+    .then(response => {
+      console.log(response);
+      console.log(response.data);
+      this.setState(() => ({ 
+        newNote:'',
+        newTitle:'',
+        }));
+      })
+
+    .catch(error => {
+      console.error('Server Error', error);
+    });
+    }
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  //EDIT NOTE---------------------------------------
+  fetchNote = id => {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        console.log(response.data)
+        this.setState(() => ({ note: response.data }));
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
   
- 
+  editNote = event => {
+    event.preventDefault();
+    const id = this.props.match.params.id;
+    axios     
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,  
+    {
+      title: this.state.editedNote,
+      textBody: this.state.editedTitle,
+    })
+
+    .then(response => {
+      this.setState(() => ({ notes: response.data }));
+      })
+
+    .catch(error => {
+      console.error('Server Error', error);
+    });
+    }
+
+  //DELETE NOTE-------------------------------------
+  
+  deleteNote = event => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.id}`)
+      .then(response => {
+        window.location.reload()
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
   render() {
     return (
@@ -44,6 +116,7 @@ class App extends Component {
       <SidebarContainer/>
       <NotesContainer 
       notes={this.state.notes} 
+      deleteNote={this.deleteNote}
       />
       </ContainerWrap>
 

@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components'
+
+const NoteWrap = styled.div `
+width: 130px;
+height: 130px;
+display: flex;
+justify-content: flex-start;
+flex-direction: row;
+background-color: white;
+padding: 0px;
+`
 
 export default class AllNotes extends Component {
   constructor(props) {
