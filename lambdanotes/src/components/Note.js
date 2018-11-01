@@ -3,6 +3,44 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const NoteContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const NoteTags = styled.div`
+	display: flex;
+	height: 15px;
+	width: 192px;
+	text-overflow: ellipsis;
+	color: white;
+	padding: 0 3px 0 3px;
+`;
+
+const Tag = styled.span`
+	display: inline-block;
+	max-width: 100px;
+	/* min-width: 30px; */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 1.1rem;
+	font-weight: bold;
+	background: #24b8bd;
+	padding: 2px 5px 1px;
+	border-top: 1px solid #a5a5a5;
+	border-right: 1px solid #a5a5a5;
+	border-left: 1px solid #a5a5a5;
+	border-radius: 3px 3px 0 0;
+	margin-right: 2px;
+
+	&:hover {
+		overflow: visible;
+		max-width: 100%;
+		cursor: pointer;
+	}
+`;
+
 const NoteLink = styled(Link)`
 	position: relative;
 	display: flex;
@@ -33,55 +71,6 @@ const NoteBody = styled.p`
 	font-size: 1.3rem;
 	line-height: 2.2rem;
 `;
-
-// const NoteTags = styled.div`
-// 	position: absolute;
-// 	bottom: 0;
-// 	left: 0;
-// 	width: 184px;
-// 	white-space: nowrap;
-// 	overflow: hidden;
-// 	/* text-overflow: ellipsis; */
-// 	color: white;
-// 	padding: 2px 8px 7px;
-// 	/* margin-right: 8px; */
-
-// 	&:hover {
-// 		white-space: normal;
-// 		&:after {
-// 			display: none;
-// 		}
-// 	}
-
-// 	&:after {
-// 		content: '';
-// 		text-align: right;
-// 		position: absolute;
-// 		bottom: 7px;
-// 		right: 0px;
-// 		width: 30px;
-// 		height: 1.2em;
-// 		background: linear-gradient(
-// 			to right,
-// 			rgba(255, 255, 255, 0),
-// 			rgba(255, 255, 255, 1) 70%
-// 		);
-// 	}
-// `;
-
-// const Tag = styled.span`
-// 	display: inline-block;
-// 	max-width: 100px;
-// 	white-space: nowrap;
-// 	overflow: hidden;
-// 	text-overflow: ellipsis;
-// 	font-size: 1.1rem;
-// 	font-weight: bold;
-// 	background: #24b8bd;
-// 	padding: 2px 5px;
-// 	border-radius: 3px;
-// 	margin-right: 5px;
-// `;
 
 // const NoteTags = styled.div`
 // 	position: absolute;
@@ -120,22 +109,22 @@ const truncate = (content, length) => {
 
 const Note = props => {
 	return (
-		<NoteLink to={`/note/${props.note.id}`}>
-			<NoteTitle>{props.note.title}</NoteTitle>
-			<NoteBody>{truncate(props.note.textBody, 140)}</NoteBody>
-			{/* {props.note.tags.length ? (
-				<NoteTags>
-					{props.note.tags.map(
-						(tag, i) =>
-							tag ? (
-								<Tag key={props.note._id + i} title={tag}>
-									{tag}
-								</Tag>
-							) : null
-					)}
-				</NoteTags>
-			) : null} */}
-		</NoteLink>
+		<NoteContainer>
+			<NoteTags>
+				{props.note.tags.map(
+					(tag, i) =>
+						tag ? (
+							<Tag key={props.note._id + i} title={tag.text}>
+								{tag.text}
+							</Tag>
+						) : null
+				)}
+			</NoteTags>
+			<NoteLink to={`/note/${props.note.id}`}>
+				<NoteTitle>{props.note.title}</NoteTitle>
+				<NoteBody>{truncate(props.note.textBody, 140)}</NoteBody>
+			</NoteLink>
+		</NoteContainer>
 	);
 };
 
