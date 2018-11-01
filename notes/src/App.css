@@ -62,7 +62,8 @@ body {
 }
 
 .App {
-  display: flex;
+	display: flex;
+	position: relative;
 }
 
 h1 {

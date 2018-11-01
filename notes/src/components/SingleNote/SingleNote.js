@@ -6,18 +6,45 @@ import './SingleNote.css';
 class SingleNote extends Component {
     componentDidMount() {
     }
+
+    showModal = () => {
+        let modal = document.querySelector('.modal');
+        modal.style.display = 'flex';
+    }
+
+    hideModal = () => {
+        let modal = document.querySelector('.modal');
+        modal.style.display = 'none';
+    }
     
     render() {
-        return(
-            <div className="singleNote">
-                <div className="top">
-                    <span>edit</span>
-                    <span>delete</span>
+
+
+            return(
+                <div className="page">
+                    <div className="singleNote">
+                        <div className="top">
+                            <span>edit</span>
+                            <span onClick={this.showModal}>delete</span>
+                        </div>
+                        <h2>{this.props.note.title}</h2>
+                        <p>{this.props.note.textBody}</p>
+                    </div>
+                    <div className="modal">
+                        <p>
+                            Are you sure you want to delete this?
+                        </p>
+                        <div className="buttons">
+                            <div className="deleteButton">
+                                Delete
+                            </div>
+                            <div  onClick={this.hideModal} className="noButton">
+                                No
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h2>{this.props.note.title}</h2>
-                <p>{this.props.note.textBody}</p>
-            </div>
-        )
+            )
     }
     
 }
@@ -26,7 +53,8 @@ const mapStateToProps = state => {
     return {
         note: state.notesReducer.note,
         fetchingNote: state.notesReducer.fetchingNote,
-        fetchedNote: state.notesReducer.fetchedNote
+        fetchedNote: state.notesReducer.fetchedNote,
+        deletingNote: state.notesReducer.deletingNote
     }
 }
 export default connect(mapStateToProps, {

@@ -12,6 +12,7 @@
 .top span {
     margin: 5px 15px;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .singleNote h2 {
@@ -20,4 +21,50 @@
 
 .singleNote p {
     padding: 10px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: rgba(242,241,242,0.3);
+    z-index: 100;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    overflow: auto;
+}
+
+.buttons {
+    display: flex;
+}
+
+.deleteButton {
+    cursor: pointer;
+    width: 200px;
+    margin: 5px 0;
+    height: 40px;
+    background: red;
+    border: 1px solid #black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.noButton {
+    cursor: pointer;
+    width: 200px;
+    margin: 5px 0;
+    height: 40px;
+    background: #2FB6BB;
+    border: 1px solid #black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
 }
