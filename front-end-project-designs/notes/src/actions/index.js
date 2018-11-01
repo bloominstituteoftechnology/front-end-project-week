@@ -47,6 +47,6 @@ export const editNote= (id,updatedNote)=>dispatch=>{
   axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,updatedNote)
     .then(response=>{
-      dispatch({type:EDIT_NOTE, payload: {id, ...response.data}})
+      dispatch({type:'EDIT_NOTE', payload: {id, ...response.data}})
     })
 }
