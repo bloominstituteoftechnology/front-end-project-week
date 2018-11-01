@@ -18,47 +18,75 @@ html {
     flex-direction: column;
   }
 }
-.App .side-nav {
+.App .nav {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   width: 300px;
-  background-color: #D3D2D3;
+  background-color: #bdbdbd;
   position: fixed;
   height: 100vh;
 }
 @media (max-width: 800px) {
-  .App .side-nav {
+  .App .nav {
     height: 20vh;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     z-index: 2;
   }
 }
-.App .side-nav .nav-title {
+@media (max-width: 500px) {
+  .App .nav {
+    height: 30vh;
+  }
+}
+.App .nav .nav-title {
   font-size: 4rem;
-  color: #4D525D;
+  color: #2e3137;
   margin: 20px 20px 10px;
 }
-.App .side-nav .nav-link {
+.App .nav .nav-links {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media (max-width: 800px) {
+  .App .nav .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+@media (max-width: 500px) {
+  .App .nav .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.App .nav .nav-links .nav-link {
   width: 250px;
   background-color: #00BDC0;
   color: white;
-  border: 1px solid #D3D2D3;
+  border: 1px solid #bdbdbd;
   font-size: 1.8rem;
   font-weight: 600;
   padding: 15px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 10px;
   max-width: 95%;
 }
-.App .side-nav .nav-link:hover {
+.App .nav .nav-links .nav-link:hover {
   border: 1px solid #00BDC0;
   background-color: white;
   color: #00BDC0;
@@ -68,7 +96,7 @@ html {
   min-height: 100vh;
   margin-left: 300px;
   padding: 10px 30px;
-  background-color: #F2F1F2;
+  background-color: #e4e3e4;
 }
 @media (max-width: 800px) {
   .App .current-page {
@@ -77,20 +105,40 @@ html {
     width: 100%;
   }
 }
+@media (max-width: 500px) {
+  .App .current-page {
+    margin: 30vh 0 0;
+  }
+}
 .note-list {
   margin-top: 50px;
 }
+@media (max-width: 500px) {
+  .note-list {
+    text-align: center;
+  }
+}
 .note-list h2 {
   font-size: 3rem;
-  color: #4D525D;
+  color: #2e3137;
   margin-left: 10px;
+}
+@media (max-width: 500px) {
+  .note-list h2 {
+    margin-left: 0;
+  }
 }
 .note-list .searchbar {
   margin-left: 10px;
   padding: 10px;
   width: 250px;
   font-size: 1.8rem;
-  border: 1px solid #D3D2D3;
+  border: 1px solid #bdbdbd;
+}
+@media (max-width: 500px) {
+  .note-list .searchbar {
+    margin-left: 0;
+  }
 }
 .note-list .notes-container {
   display: flex;
@@ -99,13 +147,21 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
 }
+@media (max-width: 500px) {
+  .note-list .notes-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
 .note-list .notes-container a {
   text-decoration: none;
   padding: 10px 0;
   color: black;
 }
 .note-card {
-  border: 1px solid #4D525D;
+  border: 1px solid #2e3137;
   padding: 10px 20px;
   margin: 10px;
   width: 250px;
@@ -115,7 +171,7 @@ html {
 .note-card .note-title {
   font-size: 2.4rem;
   padding: 5px 0 10px;
-  border-bottom: 1px solid #4D525D;
+  border-bottom: 1px solid #2e3137;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -154,11 +210,11 @@ html {
 .note-page .full-note .full-title {
   font-size: 4rem;
   font-weight: 600;
-  color: #4D525D;
+  color: #2e3137;
 }
 .note-page .full-note .full-body {
   font-size: 2rem;
-  color: #4D525D;
+  color: #2e3137;
   margin-top: 30px;
 }
 .form {
@@ -168,7 +224,7 @@ html {
   flex-direction: column;
   font-size: 4rem;
   font-weight: 600;
-  color: #4D525D;
+  color: #2e3137;
   margin: 40px 10px;
 }
 .form .title-input {
@@ -177,12 +233,17 @@ html {
   padding: 15px;
   background-color: white;
   font-size: 1.8rem;
-  color: #4D525D;
+  color: #2e3137;
   margin: 30px 0 10px;
-  border: 2px solid #D3D2D3;
+  border: 2px solid #bdbdbd;
   border-radius: 5px;
   box-shadow: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+@media (max-width: 500px) {
+  .form .title-input {
+    width: 100%;
+  }
 }
 .form .content-input {
   width: 70%;
@@ -190,18 +251,23 @@ html {
   padding: 15px;
   background-color: white;
   font-size: 1.8rem;
-  color: #4D525D;
+  color: #2e3137;
   margin: 10px 0 20px;
-  border: 2px solid #D3D2D3;
+  border: 2px solid #bdbdbd;
   border-radius: 5px;
   box-shadow: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+@media (max-width: 500px) {
+  .form .content-input {
+    width: 100%;
+  }
 }
 .form .form-submit {
   width: 250px;
   background-color: #00BDC0;
   color: white;
-  border: 1px solid #D3D2D3;
+  border: 1px solid #bdbdbd;
   font-size: 1.8rem;
   font-weight: 600;
   padding: 15px;
@@ -213,6 +279,11 @@ html {
   border: 1px solid #00BDC0;
   background-color: white;
   color: #00BDC0;
+}
+@media (max-width: 500px) {
+  .form .form-submit {
+    margin: auto;
+  }
 }
 .modal {
   padding: 60px 80px;
@@ -230,7 +301,7 @@ html {
   width: 250px;
   background-color: #DE0000;
   color: white;
-  border: 1px solid #D3D2D3;
+  border: 1px solid #bdbdbd;
   font-size: 1.8rem;
   font-weight: 600;
   padding: 15px;
@@ -248,7 +319,7 @@ html {
   width: 250px;
   background-color: #00BDC0;
   color: white;
-  border: 1px solid #D3D2D3;
+  border: 1px solid #bdbdbd;
   font-size: 1.8rem;
   font-weight: 600;
   padding: 15px;

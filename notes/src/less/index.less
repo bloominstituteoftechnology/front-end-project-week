@@ -14,7 +14,7 @@ html {
     @media @tablet {
         .flex(flex-start, flex-start, column);
     }
-    .side-nav {
+    .nav {
         .flex(flex-start, flex-start, column);
         width: 300px;
         background-color: @medium-grey;
@@ -23,18 +23,31 @@ html {
         @media @tablet {
             height: 20vh;
             width: 100%;
-            .flex(space-evenly, center, row);
+            .flex(space-evenly, center, column);
             z-index: 2;
+        }
+        @media @phone {
+            height: 30vh;
         }
         .nav-title {
             font-size: 4rem;
             color: @dark-grey;
             margin: 20px 20px 10px;
         }
-        .nav-link {
-            .button(@teal, white);
+        .nav-links {
             margin: 10px auto;
-            max-width: 95%;
+            .flex(center, center, column);
+            @media @tablet {
+                .flex(center, center, row);
+            }
+            @media @phone {
+                .flex(center, center, column);
+            }
+            .nav-link {
+                .button(@teal, white);
+                margin: 10px;
+                max-width: 95%;
+            }
         }
     }
     .current-page {
@@ -48,15 +61,24 @@ html {
             margin: 20vh 0 0;
             width: 100%;
         }
+        @media @phone {
+            margin: 30vh 0 0;
+        }
     }
 }
 
 .note-list {
     margin-top: 50px;
+    @media @phone {
+        text-align: center;
+    }
     h2 {
         font-size: 3rem;
         color: @dark-grey;
         margin-left: 10px;
+        @media @phone {
+            margin-left: 0;
+        }
     }
     .searchbar {
         margin-left: 10px;
@@ -64,10 +86,16 @@ html {
         width: 250px;
         font-size: 1.8rem;
         border: 1px solid @medium-grey;
+        @media @phone {
+            margin-left: 0;
+        }
     }
     .notes-container {
         .flex(flex-start, flex-start, row);
         flex-wrap: wrap;
+        @media @phone {
+            .flex(center, flex-start, row);
+        }
         a {
             text-decoration: none;
             padding: 10px 0;
@@ -139,12 +167,21 @@ html {
     margin: 40px 10px;
     .title-input {
        .input(50%, auto, 30px 0 10px);
+       @media @phone {
+           width: 100%;
+       }
     }
     .content-input {
         .input(70%, 400px, 10px 0 20px);
+        @media @phone {
+            width: 100%;
+        }
     }
     .form-submit {
         .button(@teal, white);
+        @media @phone {
+            margin: auto;
+        }
     }
 }
 

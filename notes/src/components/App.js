@@ -4,14 +4,14 @@ import '../css/index.css';
 import NoteList from './NoteList';
 import AddNote from './AddNote';
 import NotePage from './NotePage';
-import SideNav from './SideNav';
+import Nav from './Nav';
 import EditPage from './EditPage';
 
 class App extends Component {
   	render() {
 		return (
 			<div className="App">
-				<SideNav />
+				<Nav />
 				<div className='current-page'>
 					<Switch>
 						<Route path='/add' component={AddNote} />
