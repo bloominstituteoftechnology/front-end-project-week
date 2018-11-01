@@ -32,7 +32,7 @@ const NoteForm = styled.form`
     margin-bottom: 20px;
     border: 1px solid black;
     border-radius: 3px;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     padding: 15px 10px;
   }
 
