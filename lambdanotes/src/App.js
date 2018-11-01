@@ -27,7 +27,6 @@ class App extends Component {
   }; 
 
   render() {
-
     return (
       <div className="App">
         <SideBar />
@@ -49,7 +48,6 @@ class App extends Component {
         />
 
         <Route path="/Edit/:id" component={Edit} />
-
       </div>
     );
   };
