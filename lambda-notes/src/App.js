@@ -7,8 +7,7 @@ import NewNote from './components/NewNote';
 import SideBar from './components/SideBar';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
-
-
+ 
 class App extends Component {
   state={
     notes: [

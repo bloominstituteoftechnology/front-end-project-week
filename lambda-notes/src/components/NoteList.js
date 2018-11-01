@@ -1,25 +1,40 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
-const NoteList = props => {
-    console.log('notelist props:', props)
-    return (
-        <NoteListWrap>
-            <H2>Your Notes:</H2>
-            <NoteCardWrap>
-                {props.notes.map(note => 
-                    <NoteCard key={note.id}>
-                        <NavLink to={`/note-view/${note.id}`}>
-                            <H3>{note.title}</H3>
-                             <P>{note.content} ...</P>
-                        </NavLink>  
-                    </NoteCard> 
-                )}
-            </NoteCardWrap>   
-        </NoteListWrap>
-    )
-}
+class NoteList extends Component {
+    state = {
+        notes: []
+    }
+
+    componentDidMount() {
+        axios
+            .get('http://localhost:3300/api/notes')
+            .then(res => {
+                this.setState({notes: res.data})
+            })
+            .catch(err => console.error('NoteList AXIOS ERROR:', err));
+    }
+
+    render() {
+        return (
+            <NoteListWrap>
+                <H2>Your Notes:</H2>
+                <NoteCardWrap>
+                    {this.state.notes.map(note => 
+                        <NoteCard key={note.id}>
+                            <NavLink to={`/note-view/${note.id}`}>
+                                <H3>{note.title}</H3>
+                                 <P>{note.content.substring(0,100)} ...</P>
+                            </NavLink>  
+                        </NoteCard> 
+                    )}
+                </NoteCardWrap>   
+            </NoteListWrap>
+        )
+    };
+};
 
 const NoteListWrap = styled.div`
     margin: 56px 0 0 3.5%;

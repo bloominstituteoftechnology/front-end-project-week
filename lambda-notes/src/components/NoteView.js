@@ -1,34 +1,49 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
-// import { Modal } from 'reactstrap';
+import axios from 'axios';
 
-
-const NoteView = props => {
-    console.log('noteview props:', props);
-    console.log('noteview propsnotes:', props.notes)
-    // eslint-disable-next-line
-    const note = props.notes.find(note => note.id == parseInt(props.match.params.id, 10));
-    console.log('from noteview:', note);
+class NoteView extends Component {
+    constructor(props) {
+        super(props);
+    }
     
-    return (
-        <NoteViewWrap>
-            <LinkWrap>
-                <Link>
-                    <NavLink to={`/edit-view/${note.id}`} onClick={() => props.editNote(note.id)}>edit</NavLink>
-                </Link>
-                <Link>
-                    <div color='primary'>
-                        <NavLink to="/list-view" onClick={()=>props.deleteNote(note.id)}>delete</NavLink>
-                    </div>
-                </Link>
-            </LinkWrap>            
-            <ContentWrap>
-                <h2>{note.title}</h2>
-                <p>{note.content}</p>
-            </ContentWrap>    
-        </NoteViewWrap>
-    )
+    // eslint-disable-next-line
+    // const note = this.state.notes.find(note => note.id == parseInt(this.state.match.params.id, 10));
+    
+    componentDidMount() {
+        axios
+            .get(`http://localhost:3300/api/notes/:id`)
+            .then(res => {
+                console.log('noteview', res.data)
+                this.setState({
+                    note: res.data,
+                    title:res.data.title,
+                    content: res.data.content
+                })
+            })
+            .catch(err => console.error('NoteView AXIOS ERROR:', err));
+    }
+
+    render() {
+        console.log('STATE *****', this.state, this.props)
+        return (
+            <NoteViewWrap>
+                <LinkWrap>
+                    <Link>
+                        <NavLink to={`/edit-view/${this.props.notes.id}`} onClick={() => this.props.editNote(this.props.notes.id)}>edit</NavLink>
+                    </Link>
+                    <Link>
+                        <NavLink to="/list-view" onClick={()=> this.props.deleteNote(this.props.notes.id)}>delete</NavLink>
+                    </Link>
+                </LinkWrap>            
+                <ContentWrap>
+                    <h2>{this.props.note.title}</h2>
+                    <p>{this.props.note.content}</p>
+                </ContentWrap>    
+            </NoteViewWrap>
+        )
+    }
 }
 
 const NoteViewWrap = styled.div`

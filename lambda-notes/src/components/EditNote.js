@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 class EditNote extends Component {
     state={
@@ -19,7 +20,23 @@ class EditNote extends Component {
             })
         }
       }
-    
+
+    // componentDidMount() {
+    //     console.log("is component firing?", this.state, this.state.isUpdating)
+    //     axios
+    //         .get(`http://localhost:3300/api/notes/${this.props.id}`)
+    //         .then(res => {
+    //             console.log('CDM DATA:', res.data);
+    //             if (this.props.isUpdating) {
+    //                 this.setState({
+    //                     title: this.props.isUpdating.title,
+    //                     content: this.props.isUpdating.content,
+    //                     updating: true
+    //                 });
+    //             };
+    //         })
+    //         .catch(err => console.error('ERROR:', err));
+    // };
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})

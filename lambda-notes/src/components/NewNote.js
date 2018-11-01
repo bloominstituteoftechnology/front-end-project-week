@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 class NewNote extends Component {
     state={
         title:'',
         content:'',
     }
+
+    componentDidMount() {
+        axios
+            .post('http://localhost:3300/api/notes')
+            .then(res => {
+                console.log('!!!!!!!!!!', res.data, res.data.title)
+                this.setState({title: res.data.title, content: res.data.content});
+            })
+            .catch(err => console.error('NEWNOTE AXIOS ERROR:', err));
+    };
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
@@ -29,6 +40,7 @@ class NewNote extends Component {
     }
 
     render(){
+        console.log(this.state)
         return(
             <Form>
                 <H2>Create New Note:</H2>
