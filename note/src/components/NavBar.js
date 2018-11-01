@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 
 const NavBarContainer = styled.div`
     border: 1px solid gray;
@@ -23,19 +24,38 @@ const NavButton = styled.button`
     font-size: 14px;
 `;
 
-const NavBar = props => {
-    return (
-        <NavBarContainer>
-            <h1>Lambda Notes</h1>
-            <Link to ='/'>
-            <NavButton>View your Notes</NavButton>
-            </Link>
+const headers = [
+    { label: 'Title', key: 'title'},
+    { label: 'Text Content', key: 'textBody'},
+    { label: 'ID', key: '_id'}
+]
 
-            <Link to='/new'>
-            <NavButton>+ Create New Note</NavButton>
-            </Link>
-        </NavBarContainer>
-    )
+const NavBar = props => {
+    if (props.notes.length < 1 || props.notes === undefined ){
+        return (
+        <div>
+            <h1 style={{textAlign:'center'}}>Loading the Note, Please Wait</h1>
+            <h3 style={{textAlign:'center'}}>(If it unable to load, the serve are down)</h3>
+        </div>
+        )
+    }
+    else {
+        return (
+            <NavBarContainer>
+                <h1>Lambda Notes</h1>
+                <Link to ='/'>
+                <NavButton>View your Notes</NavButton>
+                </Link>
+
+                <Link to='/new'>
+                <NavButton>+ Create New Note</NavButton>
+                </Link>
+                <CSVLink data={props.notes} headers={headers} style={{textDecoration: 'none'}}>
+                    <NavButton>Download The Notes as CSV</NavButton>
+                </CSVLink>
+            </NavBarContainer>
+        )
+    }
 }
 
 export default NavBar;

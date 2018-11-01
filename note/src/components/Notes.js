@@ -45,28 +45,10 @@ const NotesContainer = styled.div`
   color: gray;
 `;
 
-const headers = [
-    { label: 'Title', key: 'title'},
-    { label: 'Text Content', key: 'textBody'},
-    { label: 'ID', key: '_id'}
-]
-
 const Notes = props =>  {
     console.log(props.notes)
-    if (props.notes.length < 1 || props.notes === undefined ){
-        return (
-        <div>
-            <h1 style={{textAlign:'center'}}>Loading the Note, Please Wait</h1>
-            <h3 style={{textAlign:'center'}}>(If it unable to load, the serve are down)</h3>
-        </div>
-        )
-    }
-    else {
         return (
             <NotesContainer>
-                <CSVLink data={props.notes} headers={headers} style={{textDecoration: 'none'}}>
-                    Download The Notes as CSV
-                </CSVLink>
                 <Heading>Your Notes:</Heading>
                 <NotesDisplay>
                     {props.notes.map(note => {
@@ -94,7 +76,6 @@ const Notes = props =>  {
                 </NotesDisplay>
             </NotesContainer>
         )
-    }
 }
 
 export default Notes;
