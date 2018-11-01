@@ -31,7 +31,7 @@ handleInputChange = event => {
     return(
       <div className="form-styles">
         <form onSubmit={this.addNote}>
-        <h2>Create New Note:</h2>
+          <h2>Create New Note:</h2>
           <input
             onChange={this.handleInputChange}
             placeholder="Note Title"
@@ -46,7 +46,7 @@ handleInputChange = event => {
             name="textBody"
             type="text"
           />
-        <button type="submit">Save</button>
+          <button type="submit">Save</button>
         </form>
       </div>
     )

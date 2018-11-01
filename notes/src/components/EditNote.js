@@ -40,8 +40,8 @@ export default class EditNote extends React.Component {
     }
     render() {
       return (
-        <div  >
-          <form className="form-styles" onSubmit={this.update}>
+        <div className="edit" >
+          <form onSubmit={this.update} className="edit-styles" >
           <h2>Edit Note:</h2>
           <input
             onChange={this.handleInputChange}

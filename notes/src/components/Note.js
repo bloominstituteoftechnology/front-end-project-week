@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link , Route } from 'react-router-dom';
 
-
+import '../App.css';
 import EditNote from './EditNote';
 
 
@@ -36,7 +36,7 @@ export default class Note extends React.Component {
 
   modalDeleteToggle = event => {
     event.preventDefault();
-    this.setState({ deleted: !this.state.delete})
+    this.setState({ deleted: !this.state.deleted})
   }
 
   delete = () => {
@@ -50,22 +50,27 @@ export default class Note extends React.Component {
   
   render() {
       return (
-        <div className="create-note">
-          <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
-          <Route path='/edit' component={EditNote} />
 
-          <button onClick={this.modalDeleteToggle}>Delete</button>
-
+        this.state.deleted ? 
           <div className="modal">
+          <div className="modal-delete">
             <p>Are you sure you want to delete this?</p>
-            <button onClick={this.delete}>Delete</button>
-            <button onClick={this.modalDeleteToggle}>No</button>
+            <button className="delete" onClick={this.delete}>Delete</button>
+            <button className="no" onClick={this.modalDeleteToggle}>No</button>
+            </div>
+          </div> :
+        
+        <div className="view-note">
+          <div className="links">
+            <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
+            <Route  path='/edit' component={EditNote} />
+
+            <a onClick={this.modalDeleteToggle}>Delete</a>
           </div>
-        
-        
-        <h3>{this.state.note.title}</h3>
-        <p>{this.state.note.textBody}</p>
-        
+          
+
+          <h3>{this.state.note.title}</h3>
+          <p>{this.state.note.textBody}</p>
         </div>
       )
 }}
