@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+
+// Presentational component for displaying edit note
 class EditNote extends Component {
   constructor(props) {
     super(props);

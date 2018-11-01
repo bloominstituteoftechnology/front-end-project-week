@@ -20,6 +20,8 @@ const store = createStore(NoteReducer, enhancer);
 
 
 
+// Provider for Redux, Router for Single-Page-App
+
 ReactDOM.render(
     <Provider store={store}>
         <Router>

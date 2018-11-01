@@ -4,6 +4,8 @@ Design files were given and I created the app from scratch.
 
 I started the app using local data.  Once the app is working, I applied API calls and then redux.
 
+After building basic functionalities (MVP), I added search and download CSV functionalities.
+
 Trello URL for this project is https://trello.com/b/TvHEjkdC/lambda-notes-edward-jeong
 
 

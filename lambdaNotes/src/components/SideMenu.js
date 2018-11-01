@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import DownloadCSV from './DownloadCSV';
 import {downloadNotesToCSV} from '../util';
+import {setSearchBoolean} from '../actions'
+
 
 // SideMenu component handles left side menu
  const SideMenu = (props) => {
@@ -31,6 +33,6 @@ const mapStateToProps = ({ notes }) => {
 export default 
   connect(
     mapStateToProps,
-    {}
+    {setSearchBoolean}
   )(SideMenu)
 ;
