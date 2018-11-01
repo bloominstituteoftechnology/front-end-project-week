@@ -3,7 +3,7 @@ import './component.css'
 import { Link } from "react-router-dom"
 
 
-const NavSideBar = () => {
+const NavSideBar = (props) => {
 
     return (
         <div className="nav-side-bar">
@@ -19,6 +19,9 @@ const NavSideBar = () => {
                     </div>
                     <div className="create-btn">
                         <Link to="/add-Note"><h4 className="crt-btn">+ Create Your Notes</h4></Link>
+                    </div>
+                    <div>
+                        <input className="nav-search" type="text" onChange={props.changeHandler} placeholder="Search" value={props.searchInput} onKeyDown={props.searchNoteBar} name="searchInput"></input>
                     </div>
                 </div>
             </div>

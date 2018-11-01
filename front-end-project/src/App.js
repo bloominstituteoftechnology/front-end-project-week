@@ -18,8 +18,10 @@ class App extends Component {
     super()
     this.state = {
       notes:  [],
+      filterNotes: [],
       title: "",
       textBody: "",
+      searchInput:"",
       activeNote: "",
       editId: null,
     }
@@ -63,6 +65,14 @@ class App extends Component {
     })
   }
 
+  searchNoteBar = event => {
+    const notes = this.state.notes.filter(note => {
+      if(note.title.toLowerCase().includes(event.target.value)){
+        return note;
+      }
+    })
+    this.setState({ filterNotes: notes})
+  }
 
   changeHandler = ev => {
     this.setState({
@@ -139,12 +149,12 @@ class App extends Component {
     return (
       <div className="App">
       <div className="nav-width"></div>
-      <NavSideBar />
+      <NavSideBar searchNoteBar={this.searchNoteBar} searchInput={this.state.searchInput} changeHandler={this.changeHandler}/>
       <Route exact path ="/note-list/:id" render={props => (
         <SingleNote {...props} deleteNote={this.deleteNote} note={this.state.activeNote} goToEditForm={this.goToEditForm} />
       )} />
       <Route exact path="/note-list/" render={props => (
-        <NoteListContainer {...props} notes={this.state.notes} moveCard={this.moveCard} getNoteId={this.getNoteId} />
+        <NoteListContainer {...props} notes={this.state.filterNotes.length > 0 ? this.state.filterNotes : this.state.notes} moveCard={this.moveCard} getNoteId={this.getNoteId} />
       )} />
       <Route exact path="/add-Note" render={props => (
         <AddNote 

@@ -21,9 +21,9 @@
     text-align: center;
     background: #24B8BD;
     padding: 10px;
-    margin: 12px;
+    margin-left: 51px;
     margin-top: 25px;
-    width: 138%;
+    width: 100%;
     color: white;
     border: 1px solid #9BB2B3;
     font-size: 20px;
@@ -33,13 +33,23 @@
     text-align: center;
     background: #24B8BD;
     padding: 10px;
-    margin: 12px;
-    margin-top: 25px;
-    width: 138%;
+    margin-left: 50px;
+    margin-top: 20px;
+    width: 100%;
     color: white;
     border: 1px solid #9BB2B3;
     font-size: 20px;
+    margin-bottom: 25px;
+
 }
+
+.nav-search {
+    padding: 10px;
+    margin-left: 80px;
+    text-align: center;
+}
+
+
 
 /* Notes List css */
 
@@ -74,7 +84,8 @@
 }
 
 .note-title {
-    border-bottom: 2px solid #D9D9D9;
+    border-bottom: 5px solid #F9EACF;
+    
     
 }
 
@@ -105,7 +116,7 @@
     width: 600px;
     height: 50vh;
     font: normal 14px verdana;
-    line-height: 25px;
+    line-height: 1.7;
     padding: 2px 10px;
     border: solid 1px #ddd;
 }
@@ -122,6 +133,7 @@
     width: 1;
     height: 40px;
     border-radius: 5px;
+    font-size: 20px;
 }
 
 .text-field {
@@ -186,6 +198,19 @@
     border: 1px solid #D9D9D9;
     overflow: hidden;
     margin: 10px;
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    padding: 2px;
+    box-shadow: 5px 5px #888888;
+    background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
 }
 
+     /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+     .indiv-note:active { 
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+}
 
