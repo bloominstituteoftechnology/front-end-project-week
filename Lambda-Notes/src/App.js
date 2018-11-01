@@ -22,13 +22,32 @@ class App extends Component {
       }
     }
   }
-
+  // does everything needed for csv exporting , look at https://www.youtube.com/watch?v=iTsgvzsgtek if confused. 
+  exportCsv = () => {
+    var csvRow =[];
+    var A = [['title','name']];
+    var data = this.state.notes;
+    for(var i =0;i < data.length;i++){
+      A.push([data[i].title,data[i].textBody])
+    }
+    for(let i = 0; i < A.length; i++){
+      csvRow.push(A[i].join(','))
+    }
+    let csvString=csvRow.join("%0A");
+    let a = document.createElement("a");
+    a.href = 'data:attachment/csv,' + csvString;
+    a.target = "_Blank";
+    a.download = "NotesFile.csv";
+    document.body.appendChild(a);
+    a.click();
+  }
+  //allows for us to refresh 
   refreshState(){
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => this.setState({notes : response.data}))
     .catch(error => console.log("Refresh State ::: Axios says :", error))
   }
-
+//adds new note
   createNewSubmit = e =>{
     e.preventDefault();
     axios.post('https://fe-notes.herokuapp.com/note/create',this.state.newNote)
@@ -37,8 +56,9 @@ class App extends Component {
         title : '',
         textBody : '',
       }})
-     alert("New Note has been added", response)
+      alert("New Note has been added", response)
       this.refreshState();
+      this.history.push("/");
     })
     .catch(error => alert("ERROR :::", error));
   }
@@ -58,11 +78,12 @@ render() {
     return (
       <div className="App">
         <SideBar refresh={this.refreshState()}/>
-        <Route exact path='/' render={() => <NoteList notes={this.state.notes} /> } />
+        <Route exact path='/' render={() => <NoteList export={this.exportCsv} notes={this.state.notes} /> } />
         {/*  New   */}
         <Route path='/create-new' render={() => <CreateNew 
         submit={this.createNewSubmit} 
         onChangeHandler ={this.onChangeHandler}
+        { ...this.props }
         />} />
         {/* View  */}
         <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />

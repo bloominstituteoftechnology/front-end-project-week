@@ -139,4 +139,6 @@ code {
 .hidden{
   display : none;
 }
-
+.export{
+  margin-right:100%;
+}

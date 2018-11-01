@@ -4,11 +4,11 @@ const NoteCard = props => {
     return(
         
         <Link to={`/view/${props.id}`} className="note-card">
-        <form>
+        {/* <form>
             <input 
             type="checkbox"
             />
-          </form>
+          </form> */}
             <h2 className="card-title">{props.title}</h2>
             <p>{props.textBody}</p>
         </Link>

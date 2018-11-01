@@ -13,15 +13,18 @@ class EditNote extends React.Component{
             }
         }
     }
-
+//allows us to edit the note
     editNote = e => {
         e.preventDefault();
         const ID = this.props.match.params;
         axios.put(`https://fe-notes.herokuapp.com/note/edit/${ID.id}`,this.state.note)
-        .then(response => console.log(response))
-        this.props.refresh()
+        .then(response => {
+            this.setState({note : {title : '',textBody : ''}});
+            this.props.history.push("/");
+            this.props.refresh();
+            
+        })
         .catch(error => console.log("EDIT ERROR ::", error))
-
     }
 
     fetchNoteById = () => {
@@ -35,13 +38,13 @@ class EditNote extends React.Component{
 
     componentDidMount(){
         const ID = this.props.match.params;
-        // console.log(ID)
-        this.fetchNoteById(ID.id);//why? how lol?
+        
+        this.fetchNoteById(ID.id);
     }
     onChangeHandler = e => {
         this.setState({note : {...this.state.newNote,[e.target.name] : e.target.value }})
     }
-
+// renders everything for the edit note area 
     render(){
         return(
             <div>

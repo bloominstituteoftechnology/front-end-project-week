@@ -16,7 +16,7 @@ class ViewNote extends React.Component{
         const ID = this.props.match.params;
         this.fetchNoteById(ID.id);
     }
-
+// gets the notes for note specific view
     fetchNoteById = id => {
         console.log(`https://fe-notes.herokuapp.com/note/get/${id}`)
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
