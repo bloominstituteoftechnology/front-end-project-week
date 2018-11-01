@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteNote } from '../actions';
+import { hideDeleteModal, deleteNote } from '../actions';
 
 const ModalViewContainer = styled.div`
   background: #d7d7d7;
@@ -16,39 +16,56 @@ const ModalViewContainer = styled.div`
   font-size: 62.5%;
   box-sizing: border-box;
   position: fixed;
-  opacity: 0.75;
+  opacity: 0.9;
   z-index: 1;
+  display: flex;
+  justify-content: center;
 `;
 
 const ModalContainer = styled.div`
   background: white;
-  min-height: 10vh;
+  max-height: 20vh;
   font-size: calc(10px + 2vmin);
   color: black;
-  width: 50%;
+  width: 80%;
   border: 1px solid gray;
   margin: 0 auto;
   font-size: 62.5%;
   box-sizing: border-box;
-  position: fixed;
+  position: relative;
   z-index: 2;
-  margin: 25% 25%;
   border: solid black;
   opacity: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20%;
 `;
 
 const NoteAppButton = styled.button`
   background-color: #2ac0c4;
   color: white;
-  width: 90%;
+  width: 40%;
   font-size: 2rem;
-  padding: 30px 5%;
-  margin: 0 5%;
+  padding: 30px 20px;
+  margin: 0 0%;
   margin-bottom: 30px;
+`;
+
+const DeleteModalText = styled.h1`
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
 `;
 
 const DeleteButton = styled(NoteAppButton)`
   background-color: red;
+`;
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 `;
 
 class DeleteModal extends Component {
@@ -61,16 +78,24 @@ class DeleteModal extends Component {
     this.props.history.push('/');
   };
 
+  CancelDeleteNoteClickHandler = event => {
+    event.preventDefault();
+    this.props.hideDeleteModal();
+    // this.props.history.push('/');
+  };
+
   render() {
     return (
       <div>
         <ModalViewContainer>
           <ModalContainer>
-            <h1>Are you sure you want to delete this?</h1>
-            <Link to="/">
+            <DeleteModalText>Are you sure you want to delete this?</DeleteModalText>
+
+            <ButtonContainer>
               <DeleteButton onClick={this.DeleteNoteClickHandler}>Delete</DeleteButton>
-            </Link>
-            <NoteAppButton onClick={this.DeleteNoteClickHandler}>No</NoteAppButton>
+
+              <NoteAppButton onClick={this.CancelDeleteNoteClickHandler}>No</NoteAppButton>
+            </ButtonContainer>
           </ModalContainer>
         </ModalViewContainer>
       </div>
@@ -88,6 +113,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { deleteNote }
+    { hideDeleteModal, deleteNote }
   )(DeleteModal)
 );
