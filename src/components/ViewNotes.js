@@ -15,9 +15,7 @@ class ViewNotes extends React.Component {
       <div className="mainSection">
         <div className="topHeader">
           <h2>Sort by: </h2>
-          <button onClick={() => this.props.sort(1)}>Alphabetical Order</button>
-          <button onClick={() => this.props.sort(2)} >Title Length</button>
-          <button onClick={() => this.props.sort(3)} >Body Length</button>
+          <button onClick={() => this.props.sort()}>Reverse Order</button>
         </div>
         <div className="viewNotes">
           {this.props.notes.map((note, index) => {

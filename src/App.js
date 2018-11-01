@@ -24,6 +24,7 @@ class App extends Component {
     this.updateNotes();
   }
 
+  //axios get request, 1 second delay 
   updateNotes = () => {
     setTimeout(() => {
       axios
@@ -39,17 +40,20 @@ class App extends Component {
     }, 1000);
   };
 
+  //selected becomes the index in the array of notes that is clicked on
   selectNote = id => {
     this.setState({ selected: id });
     console.log(this.state.selected);
   };
 
+  //handles all input forms 
   changeHandler = ev => {
     this.setState({
       [ev.target.name]: ev.target.value
     });
   };
 
+  //axios post
   saveNote = ev => {
     ev.preventDefault();
     if (this.state.text === "" || this.state.content === "") {
@@ -65,6 +69,7 @@ class App extends Component {
     }
   };
 
+  //axios put
   saveEdit = (ev, id) => {
     ev.preventDefault();
     console.log("edititing note", id);
@@ -87,6 +92,7 @@ class App extends Component {
     }
   };
 
+  //axios delete
   deleteNote = (ev, id) => {
     ev.preventDefault();
     console.log(id);
@@ -95,6 +101,8 @@ class App extends Component {
       .then(this.updateNotes());
   };
 
+
+  //checks if title or textBody contain the text in state.searchText
   search = ev => {
     ev.preventDefault();
     this.setState({
@@ -107,14 +115,12 @@ class App extends Component {
     });
   };
 
-  sort = type => {
-    switch (type) {
-      case 1:
-        this.setState({});
-        break;
-      default:
-        this.updateNotes();
-    }
+
+  //reverses order of notes
+  sort = () => {
+    this.setState({
+      notes: this.state.notes.reverse()
+    });
   };
 
   render() {
