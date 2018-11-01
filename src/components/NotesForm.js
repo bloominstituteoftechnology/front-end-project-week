@@ -16,7 +16,6 @@ class NotesForm extends Component {
         e.preventDefault();
 		console.log(this.state);
         this.props.addNote (this.state);
-         
         this.props.history.push("/");  
     };
 

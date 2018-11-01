@@ -30,7 +30,6 @@ class Edit extends Component {
         }
         this.props.updateNote(updatedNote);
         this.props.history.push("/")
-        window.location.reload();
     }
     
     render() {
