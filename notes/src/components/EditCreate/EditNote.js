@@ -5,6 +5,19 @@ import { connect } from 'react-redux';
 import './EditCreate.css';
 
 class EditNote extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: this.props.note.title,
+            textBody: this.props.note.textBody
+        }
+    }
+    changeHandler = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+        console.log(event.target.name, event.target.value)
+    }
     render() {
         return (
             <div className='notePage'>
@@ -14,14 +27,15 @@ class EditNote extends Component {
                         type='text'
                         placeholder='Note Title'
                         name='title'
-                        value={this.props.note.title}
-                        // value={props.editNote ? props.note.title : 'dfgs'}
+                        onChange={this.changeHandler}
+                        value={this.state.title}
                     />
                     <textarea
                         rows='25'
                         placeholder='Note Content'
                         name='textBody'
-                        value={this.props.note.textBody}
+                        onChange={this.changeHandler}
+                        value={this.state.textBody}
                     >
     
                     </textarea>
