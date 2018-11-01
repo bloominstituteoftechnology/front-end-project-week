@@ -6,7 +6,6 @@ import { Route, Link, withRouter } from 'react-router-dom';
 
 const SingleNoteViewContainer = styled.div`
   text-align: left;
-  background: #f3f3f3;
   width: 75%;
 `;
 
@@ -17,10 +16,36 @@ const TitleContainer = styled.div`
   padding-left: 4%;
 `;
 
+const SingleNoteContainer = styled.div`
+  text-align: left;
+`;
+
+const LinkContainer = styled.div`
+  padding-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const StyledLink = styled(Link)`
+  margin-right: 50px;
+  color: black;
+`;
+
 const SingleNoteView = props => {
   return (
     <SingleNoteViewContainer>
-      <TitleContainer>{props.activeNote === undefined ? null : <h2>{props.activeNote.title}</h2>}</TitleContainer>
+      {props.activeNote === undefined ? null : props.activeNote === undefined ? null : (
+        <TitleContainer>
+          <LinkContainer>
+            <StyledLink to="/">Edit</StyledLink>
+            <StyledLink to="/">Delete</StyledLink>
+          </LinkContainer>
+          <h2>{props.activeNote.title}</h2>
+          <SingleNoteContainer>
+            <p>{props.activeNote.textBody}</p>
+          </SingleNoteContainer>
+        </TitleContainer>
+      )}
     </SingleNoteViewContainer>
   );
 };

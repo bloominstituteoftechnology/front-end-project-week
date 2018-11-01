@@ -14,9 +14,10 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: top;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: black;
+  width: 100%;
   max-width: 2000px;
   border: 1px solid gray;
   margin: 0 auto;

@@ -75,14 +75,6 @@ export const goHome = () => dispatch => {
   dispatch({ type: GO_HOME, payload: '' });
 };
 
-// axios.get(...)
-//   .then((response) => {
-//     return axios.get(...); // using response.data
-//   })
-//   .then((response) => {
-//     console.log('Response', response);
-//   });
-
 // export const deleteSmurf = id => dispatch => {
 //   axios
 //     .delete(`${url}/${id}`)

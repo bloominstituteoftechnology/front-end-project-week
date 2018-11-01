@@ -19,7 +19,7 @@ const initialState = {
   fetchingNotes: false,
   addingNote: false,
   error: null,
-  activeNote: ''
+  activeNote: null
 };
 
 /*
