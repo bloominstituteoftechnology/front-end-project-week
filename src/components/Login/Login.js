@@ -31,13 +31,13 @@ class Modal extends React.Component {
             Sign In
           </button>
         </div>
-        <Button className="signIn">
+        <button className="register-btn">
 
           <Link tag={Link} to="../register">
             Register
             </Link>
 
-        </Button>
+        </button>
 
 
         <div className="social-signin">

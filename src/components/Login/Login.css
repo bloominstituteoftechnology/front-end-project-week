@@ -6,6 +6,23 @@
     background-size: cover;
 }
 
+.register-btn {
+    position: relative;
+    margin: 15px 0 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #58a4b0;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    width: 85%;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
 .Modal a {
     display: block;
     color: rgba(255, 255, 255, 0.7);
@@ -51,7 +68,7 @@ form {
     border-radius: 5px;
 }
 
-.signIn{
+.signIn {
     position: relative;
     margin: 15px 0 0 0;
     left: 50%;
@@ -88,11 +105,10 @@ form {
 
 .social-signin button.fb {
     background: #3A5A98;
-   
 }
 
 .fb {
-   text-rendering: auto;
+    text-rendering: auto;
     align-items: flex-start;
     width: 85%;
     height: 30px;
