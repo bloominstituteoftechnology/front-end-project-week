@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 
 import { Auth0Lock } from 'auth0-lock';
 import auth0 from 'auth0-js';
@@ -63,7 +64,37 @@ webAuth.parseHash((err, authResult) => {
 });
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [],
+      note: {
+        id: '',
+        title: '',
+        textBody: '',
+      },
+      // search: ''
+    }
+  };
+
+  // searchHandler = event => {
+  //   event.preventDefault();
+  //   this.setState({ search: event.target.value });
+  // }
+
+  // search = event => {
+  //   event.preventDefault();
+  //   let newNotes = [...this.state.notes];
+  //   newNotes = newNotes.filter(note => {
+  //     if (note.title === this.state.search) {
+  //       return note;
+  //     }
+  //   });
+  //   this.setState({ notes: newNotes });
+  // }
+
   render() {
+    console.log('NOTES:', this.props.notes);
     return (
       <NavbarContainer>
         <h1>Lambda Notes</h1>
@@ -76,6 +107,19 @@ class NavBar extends Component {
           <NavButton>+ Create New Note</NavButton>
         </Link>
 
+        {/* <form> 
+          <input
+            type='text'
+            name='search'
+            placeholder='search'
+            value={this.state.search}
+            onChange={this.searchHandler}
+          />
+        </form> */}
+        
+        <button>
+          <CSVLink filename={'notes.csv'} data={this.props.notes}>Download Notes</CSVLink>
+        </button>
         <LogoutBtn onClick={this.logout}>Log out</LogoutBtn>
       </NavbarContainer>
     );
