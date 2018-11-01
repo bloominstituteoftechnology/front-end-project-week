@@ -12,6 +12,7 @@ class App extends Component {
   componentDidMount = () => {
     this.props.fetchNotes();
   }
+  
 
   render() {
     return (
