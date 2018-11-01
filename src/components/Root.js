@@ -33,7 +33,7 @@ const Root = ({ store }) => (
             <Route exact path='/' component={App} />
             <Route exact path='/newnote' component={AddNote} />
             <Route exact path='/notes/:id' render={props => <ViewNote {...props}/>} />
-            <Route path='/notes/:id' render={props => <EditNote {...props}/>} />
+            <Route path='/notes/:id/edit' render={props => <EditNote {...props}/>} />
           </Switch>
         </MyContent>
       </MyApp>
