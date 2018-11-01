@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import DeleteModal from './DeleteModal';
 
@@ -17,13 +16,23 @@ class ReadNote extends React.Component{
     this.setState({ modalToggle: !this.state.modalToggle });
   }
 
+  handleEditClick = () => {
+    console.log('readNote props: ', this.props);
+    const newNoteContent = {
+      title: this.props.title,
+      textBody: this.props.textBody,
+      tags: this.props.tags
+    }
+    this.props.editNote(this.props._id, newNoteContent);
+  }
+
   render() {
     console.log(this.props)
     return (
       <div className="full-page-note">
-        <div>
-          <Link to="/edit" className='edit-text-button'>edit</Link>
-          <span className='delete-text-button' onClick={this.deleteModalToggleButton}>
+        <div className='note-controls'>
+          <span className='note-control edit-text-button' onClick={this.handleEditClick}>edit</span>
+          <span className='note-control delete-text-button' onClick={this.deleteModalToggleButton}>
             delete
           </span>
           <DeleteModal 
@@ -33,8 +42,8 @@ class ReadNote extends React.Component{
             modalToggle={this.deleteModalToggleButton}
           />
         </div>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.textBody}</p>
+        <h1 className='note-title'>{this.props.title}</h1>
+        <p className='note-text'>{this.props.textBody}</p>
       </div>
     );
   }

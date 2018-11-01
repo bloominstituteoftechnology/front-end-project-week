@@ -7,9 +7,22 @@ class AddEditNote extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        title: "",
-        textBody: "",
-        tags: []
+      _id: '',
+      title: '',
+      textBody: '',
+      tags: []
+    }
+  }
+
+  componentDidMount(){
+    if(this.props._id){
+      console.log('addedit: ', this.props);
+      this.setState({
+        _id: this.props._id,
+        title: this.props.title,
+        textBody: this.props.textBody,
+        tags: this.props.tags
+      });
     }
   }
 

@@ -6,6 +6,8 @@ function DeleteModal(props) {
 
   const handleDelete = () => {
     props.deleteNote(props.currentId);
+    props.modalToggle();
+    window.location.reload();
   }
 
   return(

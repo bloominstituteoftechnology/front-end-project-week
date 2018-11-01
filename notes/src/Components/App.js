@@ -17,10 +17,10 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      title: '',
-      textBody: '',
-      tags: [],
-      activeId: '',
+      // title: '',
+      // textBody: '',
+      // tags: [],
+      // activeId: '',
     };
   }
 
@@ -58,7 +58,7 @@ class App extends Component {
   }
 
   editNote(id, newNoteContent) {
-    console.log('Updating note: ' + id + '/nwith: ' + newNoteContent);
+    console.log('Updating note: ' + id + '\nwith: ', newNoteContent);
     axios
       .put(`${url}/edit/${id}`, newNoteContent)
       .then(this.getNotes)
@@ -76,6 +76,7 @@ class App extends Component {
   componentDidMount() {
     this.getNotes();
   }
+
 
   renderNote = ({ match }) => {
     const selectedNote = this.state.notes.find(

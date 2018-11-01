@@ -126,3 +126,24 @@
 .delete {
   background: red;
 }
+
+.full-page-note {
+  text-align: left;
+}
+
+.note-controls {
+  text-align: right;
+}
+
+.note-control {
+  padding: 10px;
+}
+
+.note-text {
+  font-size: 1.2rem;
+}
+
+.full-page-note {
+  margin-top: 20px;
+  padding: 0 40px;
+}
