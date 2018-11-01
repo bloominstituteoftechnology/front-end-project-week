@@ -26,6 +26,7 @@
     display: inline-block;
     margin-right: 20px;
     width: 150px;
+    border-radius: 3px;
 }
 
 .loginBtn {
@@ -72,6 +73,7 @@ label {
 .register-form input {
     width: 70%;
     margin-left: 15%;
+    border-radius: 3px;
 }
 
 @media (max-width: 980px) {
