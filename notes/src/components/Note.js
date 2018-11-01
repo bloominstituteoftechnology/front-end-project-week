@@ -51,10 +51,18 @@ export default class Note extends React.Component {
   render() {
       return (
         <div className="create-note">
-        <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
-        <a  onClick={this.modalDeleteToggle}>Delete</a>
+          <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
+          <Route path='/edit' component={EditNote} />
+
+          <button onClick={this.modalDeleteToggle}>Delete</button>
+
+          <div className="modal">
+            <p>Are you sure you want to delete this?</p>
+            <button onClick={this.delete}>Delete</button>
+            <button onClick={this.modalDeleteToggle}>No</button>
+          </div>
         
-        <Route path='/edit' component={EditNote} />
+        
         <h3>{this.state.note.title}</h3>
         <p>{this.state.note.textBody}</p>
         
