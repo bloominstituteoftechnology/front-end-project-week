@@ -6,13 +6,15 @@ import AddNoteForm from "./components/AddNoteForm";
 import { Route, NavLink, withRouter } from "react-router-dom";
 import Note from "./components/Note";
 import EditNoteForm from "./components/EditNoteForm";
+import LoginPage from "./components/LoginPage";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: [],
-      searchTerm: ""
+      searchTerm: "",
+      username: ""
     };
   }
 
@@ -75,7 +77,21 @@ class App extends Component {
     this.setState({ searchTerm: e.target.value });
   };
 
+  loginHandler = (e, username) => {
+    console.log("login fired", username);
+    e.preventDefault();
+    if (username !== "") {
+      this.setState({ username: username });
+    } else {
+      alert("You need to login");
+    }
+  };
+
   render() {
+    if (this.state.username === "") {
+      return <LoginPage loginHandler={this.loginHandler} />;
+    }
+
     return (
       <div className="App">
         <div className="side-bar">

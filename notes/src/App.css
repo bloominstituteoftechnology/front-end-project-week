@@ -109,6 +109,7 @@ form {
   flex-direction: column;
   background-color: white;
   border: 1px solid #94a3a4;
+  overflow: hidden;
 }
 
 .card-line {
@@ -200,4 +201,26 @@ form {
 .delete-note-link {
   border-bottom: 1px solid black;
   cursor: pointer;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login {
+  height: 325px;
+  width: 300px;
+  border: 1px solid #94a3a4;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.login-input {
+  width: 80%;
+  margin-top: 20px;
 }
