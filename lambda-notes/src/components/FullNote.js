@@ -57,14 +57,30 @@ class FullNote extends React.Component {
     return (
       <div>
         <h2 className="header">{this.state.notes.title}</h2>
-        <p className="note-paragraph">{this.state.notes.textBody}</p>
-        <button onClick={this.deleteModal}>X</button>
-        <Link to={`/edit/${this.state.notes._id}`}>edit</Link>
+        <div className="note-paragraph">
+          <p>{this.state.notes.textBody}</p>
+        </div>
+        <Link className="e-d" to={`/edit/${this.state.notes._id}`}>
+          edit
+        </Link>
+        <span className="d-e" onClick={this.deleteModal}>
+          delete
+        </span>
         <div className="modal">
-          <button onClick={() => this.deleteNote(this.state.notes._id)}>
-            delete
-          </button>
-          <button onClick={this.deleteModal}>Cancel</button>
+          <div className="modal-box">
+            <p className="delete-text">Are you sure you want to delete this?</p>
+            <div className="modal-button-wrapper">
+              <button
+                className="modal-btn-delete"
+                onClick={() => this.deleteNote(this.state.notes._id)}
+              >
+                Delete
+              </button>
+              <button className="modal-btn-cancel" onClick={this.deleteModal}>
+                Cancel
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
