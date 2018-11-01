@@ -60,7 +60,6 @@ export const noteReducers = (state = initialState, action) => {
 
     case ADD_NOTE:
       const newNote = { ...action.payload };
-      console.log('newnote', newNote);
       return {
         ...state,
         notes: [

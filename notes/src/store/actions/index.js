@@ -40,10 +40,10 @@ export const addNote = note => {
     axios
       .post('https://lambda-notes-board.herokuapp.com/api/notes', note)
       .then(response => {
-        console.log('response', response);
         dispatch({
           type: ADD_NOTE,
           payload: {
+            _id: response.data._id,
             title: note.title,
             textBody: note.textBody,
           },
