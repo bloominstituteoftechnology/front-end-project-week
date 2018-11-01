@@ -134,9 +134,10 @@ strong {
 	align-self: center;
 }
 .sidebar {
+	position: sticky;
+	top: 0;
   background: #D3D2D3;
-	min-height: 100vh;
-	height: 600vh; 
+	height: 100vh;
 	max-width: 240px;
 	min-width: 240px;
   padding: 10px;
