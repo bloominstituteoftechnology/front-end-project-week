@@ -43,6 +43,11 @@ class App extends Component {
     a.click();
   }
 
+  changeSize = e => {
+    e.stopPropagation();
+    console.log(this.classList)
+  }
+
   refreshState(){
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => this.setState({notes : response.data}))
