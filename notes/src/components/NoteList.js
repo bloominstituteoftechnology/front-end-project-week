@@ -4,7 +4,7 @@ import NoteCard from './NoteCard'
 const NoteList = (props) => {
     return(
         <div className="note-list">
-            <button className="export" onClick={() => props.export()}>Export As CSV</button>
+            <i className="fas fa-file-export export" onClick={() => props.export()}>Export As CSV</i>
             <i onClick={() => props.changeSize(true)} className="fas fa-th-large"></i>
             <i onClick={() => props.changeSize(false)} className="fas fa-th"></i>
             {props.notes.map(note => {
