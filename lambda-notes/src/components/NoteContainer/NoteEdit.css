@@ -35,10 +35,14 @@ height: 40vh;
 }
 
 .add-note-wrapper{
-    margin: 50px 3%;
+    margin: 50px 12%;
     height: 83vh;
 }
 
 textarea{
     margin-top:10px;
+}
+
+.add-note-wrapper textarea{
+    width: 80%;
 }

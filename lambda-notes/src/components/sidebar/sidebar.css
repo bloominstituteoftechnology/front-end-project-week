@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    padding: 20px;
+    padding: 20px 3%;
     border: 1px solid #B1B1B1;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .button-create{
-    padding: 11px 7.5%;
+    padding: 11px 9.5%;
     margin: 10px 0 10px 0
 }
 

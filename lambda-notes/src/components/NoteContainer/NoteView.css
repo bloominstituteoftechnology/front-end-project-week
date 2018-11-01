@@ -13,7 +13,7 @@
 
 .edit-delete{
     display: flex;
-    padding: 36px 3% 4px 0;
+    padding: 36px 26% 4px 0;
     justify-content: flex-end;
 }
 
@@ -32,8 +32,9 @@
 
 .note-title-body{
     min-height: 83vh;
-    margin: 0px 3%;
-    color: #4A4A4A
+    margin: 0px 15%;
+    color: #4A4A4A;
+    width: 60%;
 }
 
 .note-title-body p{
