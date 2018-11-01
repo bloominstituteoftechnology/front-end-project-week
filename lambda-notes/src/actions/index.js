@@ -13,6 +13,8 @@ export const ADDING_NOTE_SUCCESS = 'ADDING_NOTE_SUCCESS';
 export const ADDING_NOTE_FAILURE = 'ADDING_NOTE_FAILURE';
 export const SHOW_NOTE = 'SHOW_NOTE';
 export const GO_HOME = 'GO_HOME';
+export const MIGHT_DELETE_NOTE = 'MIGHT_DELETE_NOTE';
+export const CANCEL_DELETE_NOTE = 'CANCEL_DELETE_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETING_NOTE_SUCCESS = 'DELETING_NOTE_SUCCESS';
 export const DELETING_NOTE_FAILURE = 'DELETING_NOTE_FAILURE';
@@ -66,6 +68,14 @@ export const showNote = note => dispatch => {
 
 export const goHome = () => dispatch => {
   dispatch({ type: GO_HOME, payload: '' });
+};
+
+export const showDeleteModal = () => dispatch => {
+  dispatch({ type: MIGHT_DELETE_NOTE, payload: true });
+};
+
+export const hideDeleteModal = () => dispatch => {
+  dispatch({ type: CANCEL_DELETE_NOTE, payload: false });
 };
 
 export const deleteNote = id => dispatch => {

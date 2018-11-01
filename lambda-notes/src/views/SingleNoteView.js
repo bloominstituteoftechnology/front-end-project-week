@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-import { deleteNote, editingNote } from '../actions';
+import DeleteModal from '../components/DeleteModal';
+import { showDeleteModal, editingNote } from '../actions';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -35,8 +35,9 @@ const StyledLink = styled(Link)`
 class SingleNoteView extends Component {
   DeleteClickHandler = event => {
     event.preventDefault();
-    this.props.deleteNote(this.props.activeNote._id);
-    this.props.history.push('/');
+    // this.props.deleteNote(this.props.activeNote._id);
+    // this.props.history.push('/');
+    this.props.showDeleteModal();
   };
 
   EditClickHandler = event => {
@@ -72,13 +73,14 @@ const mapStateToProps = state => {
   return {
     activeNote: state.activeNote,
     isActive: state.isActive,
-    editingNote: state.editingNote
+    editingNote: state.editingNote,
+    mightDelete: state.mightDelete
   };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { deleteNote, editingNote }
+    { showDeleteModal, editingNote }
   )(SingleNoteView)
 );

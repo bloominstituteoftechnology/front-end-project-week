@@ -11,6 +11,8 @@ import {
   ADDING_NOTE_FAILURE,
   SHOW_NOTE,
   GO_HOME,
+  MIGHT_DELETE_NOTE,
+  CANCEL_DELETE_NOTE,
   DELETE_NOTE,
   DELETING_NOTE_SUCCESS,
   DELETING_NOTE_FAILURE,
@@ -25,6 +27,7 @@ const initialState = {
   addingNote: false,
   isActive: false,
   activeNote: null,
+  mightDelete: false,
   deletingNote: false,
   editingNote: false,
   error: null
@@ -94,6 +97,18 @@ export default (state = initialState, action) => {
         ...state,
         activeNote: null,
         editingNote: false
+      };
+
+    case MIGHT_DELETE_NOTE:
+      return {
+        ...state,
+        mightDelete: true
+      };
+
+    case CANCEL_DELETE_NOTE:
+      return {
+        ...state,
+        mightDelete: false
       };
 
     case DELETE_NOTE:

@@ -5,6 +5,7 @@ import ListView from './ListView';
 import NewNoteView from './NewNoteView';
 import SingleNoteView from './SingleNoteView';
 import EditNoteView from './EditNoteView';
+import DeleteModal from '../components/DeleteModal';
 import styled from 'styled-components';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -30,16 +31,19 @@ class App extends Component {
   render() {
     console.log('trying to find the id', this.props);
     return (
-      <div className="App">
-        <AppContainer>
-          <Route path="/" render={props => <SideBarView {...props} />} />
-          <Route exact path="/" render={props => <ListView {...props} />} />
-          <Route exact path="/new-note" render={props => <NewNoteView {...props} />} />
+      <div>
+        {this.props.mightDelete ? <DeleteModal /> : null}
+        <div className="App">
+          <AppContainer>
+            <Route path="/" render={props => <SideBarView {...props} />} />
+            <Route exact path="/" render={props => <ListView {...props} />} />
+            <Route exact path="/new-note" render={props => <NewNoteView {...props} />} />
 
-          <Route exact path="/edit-note" render={props => <EditNoteView {...props} />} />
+            <Route exact path="/edit-note" render={props => <EditNoteView {...props} />} />
 
-          {this.props.activeNote && !this.props.editingNote ? <SingleNoteView /> : null}
-        </AppContainer>
+            {this.props.activeNote && !this.props.editingNote ? <SingleNoteView /> : null}
+          </AppContainer>
+        </div>
       </div>
     );
   }
@@ -49,7 +53,8 @@ const mapStateToProps = state => {
   return {
     activeNote: state.activeNote,
     isActive: state.isActive,
-    editingNote: state.editingNote
+    editingNote: state.editingNote,
+    mightDelete: state.mightDelete
   };
 };
 
