@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchNote } from '../../actions';
 import { connect } from 'react-redux';
+import './SingleNote.css';
 
 class SingleNote extends Component {
     componentDidMount() {
@@ -8,7 +9,11 @@ class SingleNote extends Component {
     
     render() {
         return(
-            <div>
+            <div className="singleNote">
+                <div className="top">
+                    <span>edit</span>
+                    <span>delete</span>
+                </div>
                 <h2>{this.props.note.title}</h2>
                 <p>{this.props.note.textBody}</p>
             </div>

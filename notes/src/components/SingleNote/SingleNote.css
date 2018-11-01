@@ -1,0 +1,23 @@
+.singleNote {
+    width: 100%;
+    background: #F2F1F2;
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top span {
+    margin: 5px 15px;
+    text-decoration: underline;
+}
+
+.singleNote h2 {
+    padding: 10px;
+}
+
+.singleNote p {
+    padding: 10px;
+}

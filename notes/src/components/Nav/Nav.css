@@ -1,4 +1,5 @@
 .nav {
+    min-height: 100vh;
     background: #D2D1D2;
     width: 20%;
     display: flex;
