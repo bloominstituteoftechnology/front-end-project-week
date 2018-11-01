@@ -18,7 +18,7 @@ class NoteSingle extends Component {
 
   deleteNoteFromAPI = (noteId) => {
     console.log(noteId)
-    axios.delete(`http://localhost:9000/notes/${noteId}`)
+    axios.delete(`http://localhost:3333/notes/${noteId}`)
       .then(resp => console.log(resp))
       .catch(err => console.log(err))
     this.props.history.push("/")
@@ -30,7 +30,7 @@ class NoteSingle extends Component {
       text: note.text,
       tags: note.tags,
     }
-    axios.post('http://localhost:9000/notes', clonedNote)
+    axios.post('http://localhost:3333/notes', clonedNote)
       .then(resp => console.log(resp))
       .catch(err => console.log(err))
     this.props.history.push("/")
