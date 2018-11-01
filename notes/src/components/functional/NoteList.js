@@ -13,7 +13,6 @@ class NoteList extends React.Component {
   }
 
   render() {
-    console.log(this.props.notes);
     return (
       <NotesContainer>
         <h2>Your Notes:</h2>
