@@ -4,9 +4,16 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 class NewNote extends Component {
-    state={
-        title:'',
-        content:'',
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            content: ''
+        }
+    }
+
+    handleChange = e => {
+        this.setState({[e.target.name]: e.target.value})
     }
 
     componentDidMount() {
@@ -19,10 +26,6 @@ class NewNote extends Component {
             .catch(err => console.error('NEWNOTE AXIOS ERROR:', err));
     };
 
-    handleChange = e => {
-        this.setState({[e.target.name]: e.target.value})
-    }
-
     handleSubmit = e => {
         e.preventDefault();
         const newNote = {
@@ -30,17 +33,17 @@ class NewNote extends Component {
             content: this.state.content,
             id: Date.now(),
         }
-        const emptyNote ={
-            title:'',
-            content:'',
-        }
+        // const emptyNote ={
+        //     title:'',
+        //     content:'',
+        // }
         this.props.createNote(newNote)
-        this.setState(emptyNote)
+        // this.setState(emptyNote)
         this.props.history.push('/list-view')
     }
 
     render(){
-        console.log(this.state)
+        console.log('&&&&&',this.state)
         return(
             <Form>
                 <H2>Create New Note:</H2>

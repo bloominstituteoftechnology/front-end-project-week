@@ -6,18 +6,20 @@ import axios from 'axios';
 class NoteView extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            id: '',
+            title: '',
+            content: ''
+        }
     }
-    
-    // eslint-disable-next-line
-    // const note = this.state.notes.find(note => note.id == parseInt(this.state.match.params.id, 10));
-    
+        
     componentDidMount() {
+        const id = this.props.match.params.id;
+
         axios
-            .get(`http://localhost:3300/api/notes/:id`)
+            .get(`http://localhost:3300/api/notes/${id}`)
             .then(res => {
-                console.log('noteview', res.data)
                 this.setState({
-                    note: res.data,
                     title:res.data.title,
                     content: res.data.content
                 })
@@ -26,20 +28,19 @@ class NoteView extends Component {
     }
 
     render() {
-        console.log('STATE *****', this.state, this.props)
         return (
             <NoteViewWrap>
                 <LinkWrap>
                     <Link>
-                        <NavLink to={`/edit-view/${this.props.notes.id}`} onClick={() => this.props.editNote(this.props.notes.id)}>edit</NavLink>
+                        <NavLink to={`/edit-view/${this.state.id}`} onClick={() => this.editNote({note: this.state})}>edit</NavLink>
                     </Link>
                     <Link>
-                        <NavLink to="/list-view" onClick={()=> this.props.deleteNote(this.props.notes.id)}>delete</NavLink>
+                        <NavLink to="/list-view" onClick={()=> this.deleteNote({id: this.id})}>delete</NavLink>
                     </Link>
                 </LinkWrap>            
                 <ContentWrap>
-                    <h2>{this.props.note.title}</h2>
-                    <p>{this.props.note.content}</p>
+                    <h2>{this.state.title}</h2>
+                    <p>{this.state.content}</p>
                 </ContentWrap>    
             </NoteViewWrap>
         )

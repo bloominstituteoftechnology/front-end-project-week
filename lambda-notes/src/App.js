@@ -27,7 +27,7 @@ class App extends Component {
 
 
   createNote = newNote => {
-    this.setState({notes:[...this.state.notes, newNote]})
+    this.setState({notes:[newNote]})
   }
 
   editNote = id => {
