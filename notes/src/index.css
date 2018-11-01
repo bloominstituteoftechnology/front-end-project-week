@@ -22,20 +22,27 @@ code {
   flex-direction: column;
   align-items: center;
 }
+.btn-section{
+  width:100%;
+  display:flex;
+  box-sizing: border-box;
+  padding:5px 5% 0px 1%;
+  justify-content: space-between;
+}
+.size-btns{
+  display:flex;
+  width:5%;
+  justify-content: space-between;
+}
 .export{
-  margin-right:10%;
+  /* margin-right:70%; */
   background : whitesmoke;
   box-shadow: 5px 10px whitesmoke;
 }
 .fas{
   cursor:pointer;
 }
-.fa-th{
-  margin-right:50%
-}
-.fa-th-large{
-  margin-right:5%;
-}
+
 .note-list{
   display: flex;
   flex-wrap: wrap;
