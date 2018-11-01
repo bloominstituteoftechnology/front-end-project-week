@@ -70,9 +70,9 @@ class Edit extends Component {
                         name="title"
                     />
                     <textarea 
-                        defaultValue={
+                        value={
                             this.state.note !== null
-                                ? this.state.content
+                                ? this.state.note.textBody
                                 : this.props.value
                         }
                         onChange={this.handleInputChange}
