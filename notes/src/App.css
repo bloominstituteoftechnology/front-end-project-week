@@ -2,7 +2,6 @@
 
  .App {
   text-align: center;
-  /* box-sizing: border-box; */
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -11,7 +10,10 @@
   width: 100%;
   margin: 0 auto;
 
-} 
+}  
+
+  /* box-sizing: border-box; */
+
 
 form {
   width: 60%;
@@ -47,7 +49,7 @@ a:hover {
   color: #2d3436;
   text-decoration: none;
 }
-
+ 
 .navbar {
   width: 30%;
   max-width: 220px;
@@ -59,7 +61,7 @@ a:hover {
   align-items: flex-start;
   flex-wrap: nowrap;
   background-color: #ab2317;
-}
+} */
 
  .nav-item {
   width: 100%;
@@ -120,8 +122,8 @@ button {
 
 
 .nav-item{
-  box-shadow: inset 0 0 0 4px #58afd1;
-  color: #58afd1;
+  box-shadow: inset 0 0 0 4px white;
+  color: white;
   transition: color 0.25s 0.0833333333s;
   position: relative;
   margin-right: 50px;
@@ -164,7 +166,7 @@ button {
   border: none;
   cursor: pointer;
   line-height: 1.5;
-  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  font: 700 1.2rem 'Montserrat', sans-serif;
   padding: 1em 2em;
   letter-spacing: 0.05rem;
 }
@@ -223,7 +225,7 @@ button {
   width: 200px;
 }
 
-.card .card-body {
+ .card-body {
   /* border: 1px solid red; */
   /* box-sizing: border-box; */
   /* margin-left: 100px;  
@@ -232,6 +234,8 @@ button {
   padding-top: 30px;
   padding-bottom: 30px;
   height: 150px;
+
+margin: 0 auto;
   width: 100%;
   /* background-color: red; */
 
@@ -246,24 +250,22 @@ button {
 }
 
 .card {
-  padding-right: 50px; 
-   padding-left: 130px; 
    margin-left: 225px;
    width: 100%;
+   height: 200px;
+   overflow: hidden;
+   
+
   /* display: flex;
   flex-wrap: wrap; */
   /* background-color: orange; */
 
 }
 
-#mytext{
-font-size: 3rem;
-
-}
-
 .note-container {
   /* display: flex;
   flex-wrap: wrap; */
+  padding: 20px;
 }
 .cardbody {
 
@@ -286,11 +288,14 @@ font-size: 3rem;
 .nav-item {
   padding-right: 48px;
   padding-left: 40px;
+  font-size: 10px;
 
 
 }
  
 .anobato {
+  display: flex;
+  flex-wrap: wrap;
 } 
 /* 
 .note {
@@ -304,15 +309,15 @@ font-size: 3rem;
 .logo{
   margin-top: 40px;
 }
-.navbar-brand {
+/* .navbar-brand {
   font-size: 36px;
   font-weight: bold;
   line-height: 0.9;
   text-color: white;
   line-height: 1;
     margin: 0 auto;
-} 
+}  */
 
-.nav-link {
-  font-size: 1rem;
+.note {
+  width: 30%;
 }
