@@ -72,7 +72,7 @@ export const getNote = id => {
        axios
           .get(`http://localhost:3300/notes/${id}`)
           .then(res => {
-              dispatch ({ type: VIEWED_NOTE, payload: res.data.notes });
+              dispatch ({ type: VIEWED_NOTE, payload: res.data.notes[0] });
           })
           .catch(err => {
               dispatch({ type:ERROR, payload: err });

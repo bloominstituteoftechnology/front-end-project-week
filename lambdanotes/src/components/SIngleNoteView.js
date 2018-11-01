@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 
 class SingleNoteView extends Component {
-	
 
 	componentDidMount() {
 		this.props.getNote(this.props.match.params.id);
@@ -25,11 +24,15 @@ class SingleNoteView extends Component {
 					<h3 onClick={this.deleteNote}>delete</h3>
 				</div>
 
-				<h1 className="note-page-title">{console.log(this.props.note.title)}</h1>
-				<p className="note-page-text">{this.props.note.content}</p>
+				<h1 className="note-page-title">{this.props.note.title}</h1>
+				<p className="note-page-text">{ this.props.note.content}</p>
 			</div>
 		);
 	}
+
+
+
+
 }
 
 
