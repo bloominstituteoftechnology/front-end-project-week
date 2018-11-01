@@ -39,7 +39,7 @@
 }
 .card-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 .card-container .card {
   display: flex;

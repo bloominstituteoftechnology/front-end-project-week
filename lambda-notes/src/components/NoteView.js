@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
+//Adding dragable elements
+
 class NoteView extends React.Component {
     constructor(props) {
         super(props);
@@ -129,8 +131,9 @@ render(){
                         Are you sure you want to delete this note?
                     </ModalBody>
                     <ModalFooter>
-                      <Button color="primary" onClick={this.deleteHandler}>Delete</Button>{' '}
-                      <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                    <Button color="primary" onClick={this.deleteHandler}>Delete</Button>{' '}
+                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                    
                     </ModalFooter>
                   </Modal>
                 </div>

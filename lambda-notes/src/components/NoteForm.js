@@ -46,14 +46,13 @@ render() {
             value={this.state.title}
             name="title" />
 
-
-            <textarea
-            className="text-input"
-            onChange={this.changeHandler}
-            type="textarea"
-            placeholder="text"
-            value={this.state.textBody}
-            name="textBody" />
+        
+            <textarea className="text-input"
+           onChange={this.changeHandler}
+           type="textarea"
+           placeholder="text"
+           value={this.state.textBody}
+           name="textBody" />
 
             <button onClick={this.newNoteHandler} type="submit" className="button">Add Note</button>
             </form>
