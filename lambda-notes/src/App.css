@@ -97,6 +97,10 @@ strong {
 	font-weight: bold;
 }
 
+.App {
+		min-height: 100vh;
+}
+
 .container {
 	display: flex;
 	align-items: flex-start;
@@ -132,6 +136,7 @@ strong {
 .sidebar {
   background: #D3D2D3;
 	min-height: 100vh;
+	height: 600vh; 
 	max-width: 240px;
 	min-width: 240px;
   padding: 10px;
@@ -168,8 +173,6 @@ strong {
 }
 
 .notes-list .top-bar {
-	position: sticky;
-	top: 0;
 	background: #F2F1F2;
 	z-index: 1;
 	align-self: flex-start;
