@@ -55,7 +55,8 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         viewingNote: false,
-        note: action.payload
+        note: action.payload,
+        updatingNote: false
       };
     case SET_UPDATE_NOTE:
       const note = state.notes.find(note => note.id === action.payload);
