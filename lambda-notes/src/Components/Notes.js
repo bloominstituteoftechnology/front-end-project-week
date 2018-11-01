@@ -45,10 +45,32 @@ const NoteBody = styled.p`
 `;
 
 class Notes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [],
+      search: ''
+    }
+  }
+
+  searchHandler = event => {
+    event.preventDefault();
+    this.setState({ search: event.target.value });
+  }
+  
   render() {
     return (
       <NotesContainer>
         <Heading>Your Notes:</Heading>
+        <form> 
+          <input
+            type='text'
+            name='search'
+            placeholder='search'
+            value={this.state.search}
+            onChange={this.searchHandler}
+          />
+        </form>
         <NotesDisplay>
           {this.props.notes.map(note => {
             return (
