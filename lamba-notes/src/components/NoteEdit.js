@@ -14,26 +14,28 @@ const NoteEdit = props => {
   };
 
   return (
-    <form className="form">
-      <h2>Edit Note:</h2>
-      <input
-        type="text"
-        name="updatedTitle"
-        placeholder="Title"
-        onChange={props.handleInputChange}
-        value={props.updatedTitle}
-      />
-      <input
-        name="updatedTextBody"
-        id=""
-        cols="30"
-        rows="10"
-        placeholder="Note Content"
-        onChange={props.handleInputChange}
-        value={props.updatedTextBody}
-      />
-      <button onClick={editNotes}>Update</button>
-    </form>
+    <div className="edit">
+      <form className="form">
+        <h2>Edit Note:</h2>
+        <input
+          type="text"
+          name="updatedTitle"
+          placeholder="Title"
+          onChange={props.handleInputChange}
+          value={props.updatedTitle}
+        />
+        <input
+          name="updatedTextBody"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Note Content"
+          onChange={props.handleInputChange}
+          value={props.updatedTextBody}
+        />
+        <button onClick={editNotes}>Update</button>
+      </form>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Modal from "react-responsive-modal";
 
 class Note extends Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class Note extends Component {
       note: {},
       editTitle: "",
       editBody: "",
-      deleteModal: false,
-      edit: true
+      // edit: true,
+      open: false // modal closed by default
     };
   }
 
@@ -29,20 +30,17 @@ class Note extends Component {
       .catch(error => console.log(error));
   }
 
-  deleteRequest() {
-    let id = this.props.match.params.id;
-  }
-
-  editRequest() {
-    let note = {
-      _id: this.state.note._id,
-      title: this.state.editTitle,
-      textBody: this.state.editBody
-    };
-  }
-
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  onOpenModal = () => {
+    this.setState({ open: true });
+    console.log("modal opened");
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
   };
 
   render() {
@@ -57,10 +55,16 @@ class Note extends Component {
           </Link>
           <span
             className="singleNote__delete"
-            onClick={() => this.props.deleteNote(this.state.note._id)}
+            onClick={() => {
+              this.onOpenModal();
+              this.props.deleteNote(this.state.note._id);
+            }}
           >
             delete
           </span>
+          <Modal open={this.state.open} onClose={this.onCloseModal} center>
+            <h2>Note had been deleted</h2>
+          </Modal>
         </div>
 
         <h1>{this.state.editTitle}</h1>

@@ -48,7 +48,7 @@
 
 .singleNote {
   margin: 50px;
-  width: 70vw;
+  width: 75vw;
 }
 
 .singleNote__edit {
@@ -110,7 +110,7 @@
   float: right;
 }
 .noteSubmit {
-  width: 70vw;
+  width: 75vw;
   margin: 50px;
 }
 
@@ -123,4 +123,8 @@
   height: 300px;
   width: 450px;
   text-align: start;
+}
+
+.edit {
+  width: 75vw;
 }
