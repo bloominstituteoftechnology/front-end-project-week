@@ -15,7 +15,6 @@ const ModalViewContainer = styled.div`
   font-size: 62.5%;
   box-sizing: border-box;
   position: fixed;
-  border: solid red;
   opacity: 0.9;
   z-index: 1;
   left: 50%;
