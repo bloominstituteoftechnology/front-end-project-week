@@ -32,11 +32,15 @@ const NotesContainer= props => {
     <NotesWrap>
      <HeadlineWrap>Your Notes:</HeadlineWrap>
      <Route exact path='/' component={AllNotes}/>
-     <Route exact path='/notes/:id' render ={matchHistoryLocationProps => <SingleNote {...matchHistoryLocationProps} deleteNote={props.deleteNote} />}/>
+     <Route exact path='/notes/:id' render ={matchHistoryLocationProps => <SingleNote {...matchHistoryLocationProps} deleteNote={props.deleteNote} 
+        singleNote={props.note}/>}/>
      <Route exact path='/NewNote' render ={matchHistoryLocationProps => <NewNoteForm {...matchHistoryLocationProps}   handleInputChange={props.handleInputChange}
       addNewNote={props.addNewNote} newTitle= {props.newTitle} newNote={props.newNote}/>}/>
-     <Route exact path='/EditNoteForm/:id' render ={matchHistoryLocationProps => <EditNoteForm {...matchHistoryLocationProps} editedNoteBodyHandler={props.editedNoteBodyHandler}
-     editedNoteHandler={props.editedNoteBodyHandler} editedNoteTitleHandler={props.editedNoteTitleHandler}/>}/>   
+     <Route exact path='/EditNoteForm/:id' render ={matchHistoryLocationProps => <EditNoteForm {...matchHistoryLocationProps} editedTitle={props.editedTitle}
+        editedNote={props.editedNote}
+        handleInputChange={props.handleInputChange}
+        fetchNote={props.fetchNote}
+        editNote={props.editNote} />}/>   
     </NotesWrap>
     )
 }

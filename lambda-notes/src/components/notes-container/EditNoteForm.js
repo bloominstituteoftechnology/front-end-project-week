@@ -1,23 +1,53 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 
 class EditNoteForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      note:null,
-      editedNote:'',
-      editedTitle:'',
-    };
   }
 
   componentDidMount() {
     console.log(this.props)
     const id = this.props.match.params.id;
-    this.fetchNote(id);
+    props.fetchNote(id);
   }
 
-  fetchNote = id => {
+  
+  render() {
+    if (!props.note) {
+      return <div>Loading note information...</div>;
+    }
+    
+    const { title, textBody} = props.note;
+    return (
+      <div className="NewForm">
+        <form onSubmit={props.editNote}>
+          <input
+            type="text"
+            onChange={props.handleInputChange}
+            placeholder={title}
+            value={props.editedTitle}
+            name="editedTitle"
+          />
+          <input
+            type="text"
+            onChange={props.handleInputChange}
+            placeholder={textBody}
+            value={props.editedNote}
+            name="editedNote"
+          />
+          <button type="submit">Save Edits</button>
+        </form>
+      </div>
+    );
+  }
+}
+
+export default EditNoteForm;
+
+
+/*import axios from 'axios';
+fetchNote = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
@@ -51,37 +81,4 @@ class EditNoteForm extends Component {
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  render() {
-    if (!this.state.note) {
-      return <div>Loading note information...</div>;
-    }
-    
-    const { title, textBody} = this.state.note;
-    return (
-      <div className="NewForm">
-        <form onSubmit={this.editNote}>
-          <input
-            type="text"
-            onChange={this.handleInputChange}
-            placeholder={title}
-            value={this.state.editedTitle}
-            name="editedTitle"
-          />
-          <input
-            type="text"
-            onChange={this.handleInputChange}
-            placeholder={textBody}
-            value={this.state.editedNote}
-            name="editedNote"
-          />
-          <button type="submit">Save Edits</button>
-        </form>
-      </div>
-    );
-  }
-}
-
-export default EditNoteForm;
-
-
+*/

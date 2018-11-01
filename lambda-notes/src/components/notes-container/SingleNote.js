@@ -1,8 +1,17 @@
 import React from 'react';
 import EditBar from './EditBar.js';
 
-export default SingleNote = props => {
- 
+export default class SingleNote extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    console.log(this.props)
+    const id = this.props.match.params.id;
+    props.fetchNote(id);
+  }
+
+  render() {
     if (!props.note) {
       return <div>Loading note information...</div>;
     }
@@ -17,11 +26,12 @@ export default SingleNote = props => {
             <p>{textBody}</p>
           </div>
          
-          <EditBar deleteNote={props.deleteNote} singleNote = {props.note} id = {props.id} />
+          <EditBar deleteNote={props.deleteNote} singleNote = {props.note} id = {props.id}
+             />
         </div>
     );
   }
-
+}
 /*
 import axios from 'axios';
 export default class SingleNote extends Component {
