@@ -53,17 +53,6 @@ function DeleteNote(props){
             <div>
                 <p>{note.description}</p>
             </div>
-            {/* <div className="yesno">
-            <h2>Are you certain?</h2>
-                <button className="yes" onClick={() => handleDeleteNote(note.id, props.history)}>
-                    <span>yes</span>
-                </button>
-            <Link to ={`/notes/${note.id}`}>
-                <button className="no">
-                    <span>no</span>
-                </button>
-            </Link>
-            </div> */}
         </div>
       );
     }
