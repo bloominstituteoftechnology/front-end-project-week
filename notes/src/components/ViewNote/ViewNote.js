@@ -48,7 +48,7 @@ export default class ViewNote extends Component {
 
   render() {
     if (!this.state.note) {
-      return <h3>Loading your note...</h3>;
+      return <NoteTitle>Loading your note...</NoteTitle>;
     }
 
     const { title, textBody } = this.state.note;
