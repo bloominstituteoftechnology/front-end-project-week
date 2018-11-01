@@ -66,3 +66,14 @@ export const edit = (note, noteId) => dispatch => {
 export const ruSure = () => dispatch => {
     dispatch({ type: DELETE_CONFIRM })
 }
+
+export const deleter = (noteId) => dispatch => {
+    return (
+        axios
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${noteId}`)
+            .then(({ data }) => {
+                console.log(data)
+            })
+            .catch(error => console.log(error))
+    )
+}

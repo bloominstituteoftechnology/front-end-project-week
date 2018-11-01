@@ -8,7 +8,7 @@ import './NoteView.css';
 const NoteView = props => {
     return (
         <div>
-            {props.deleteModal ? <Delete /> : null}
+            {props.deleteModal ? <Delete deleter={props.deleter} note={props.note}/> : null}
             <div className='noteView'>
                 <p className='noteControl'>
                     <span onClick={() => props.editNote(props)} className='editButton'>edit</span>

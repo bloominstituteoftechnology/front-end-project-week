@@ -10,7 +10,7 @@ import EditNote from './components/EditCreate/EditNote';
 import Delete from './components/Delete/Delete';
 
 //actions
-import { getNotes, viewNote, create, createMode, editMode, ruSure } from './components/actions';
+import { getNotes, viewNote, create, createMode, editMode, ruSure, deleter } from './components/actions';
 
 //page styling
 import './App.css';
@@ -42,7 +42,6 @@ class App extends Component {
   deleteNote = (event) => {
     event.preventDefault()
     this.props.ruSure()
-    console.log('click')
   }
 
   render() {
@@ -70,6 +69,7 @@ class App extends Component {
               note={this.props.note}
               deleteNote={this.deleteNote}
               deleteModal={this.props.deleteModal}
+              deleter={this.props.deleter}
             />
           )} />
           <Route exact path='/edit' render={(props) => (
@@ -92,4 +92,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, viewNote, create, createMode, editMode, ruSure })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, viewNote, create, createMode, editMode, ruSure, deleter })(App));
