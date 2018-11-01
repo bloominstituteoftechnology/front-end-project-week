@@ -18,6 +18,7 @@ class App extends Component {
     }
   }
 
+  //gets all the data from the api
   componentDidMount () {
     axios
     .get('https://fe-notes.herokuapp.com/note/get/all')
@@ -30,6 +31,7 @@ class App extends Component {
     })
   }
 
+  //function that sets the state to the incoming data
   addNewNote = data => {
     this.setState({notes: data})
   }

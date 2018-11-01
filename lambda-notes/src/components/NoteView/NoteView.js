@@ -14,12 +14,12 @@ class NoteView extends React.Component {
         };
         this.toggle = this.toggle.bind(this);
       }
-    
+    //matched id
       componentDidMount() {
         const id = this.props.match.params.id;
         this.fetchNote(id);
       }
-    
+    //gets api based off of matching id's
       fetchNote = id => {
         axios
           .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -30,7 +30,7 @@ class NoteView extends React.Component {
           .catch(error => console.log(error));
       };
     
-
+//puts new note to the api
       editNote = (id) => {
         axios
         .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.note)
@@ -40,6 +40,8 @@ class NoteView extends React.Component {
         })
         .catch(error => console.log(error))
       }
+
+      //sets state to new input value
 
       changeHandler = event => {
         this.setState({ [event.target.name]: event.target.value });
@@ -63,12 +65,13 @@ class NoteView extends React.Component {
     };
     
 
-
+//toggles modal from true or false (see modal delete in return)
       toggle() {
         this.setState({
           modal: !this.state.modal
         });}
 
+//deletes note based off of id
       deleteNoteButton = (id) => {
         
         axios
@@ -80,7 +83,7 @@ class NoteView extends React.Component {
         .catch (error => console.log('Error: ', error ))
       }
 
-
+//runs function ^^^^ and then pushed back to home page and forces reload
         deleteHandler = event => {
           event.preventDefault();
           this.deleteNoteButton(this.state.note._id);
@@ -92,6 +95,7 @@ class NoteView extends React.Component {
 
 
       render() {
+        //controls when the "do you want to delete this note?" box is shown
         let viewStyle = {};
         let editStyle = {};
          if (this.state.editing) {
@@ -106,8 +110,9 @@ class NoteView extends React.Component {
         
         return (
           <div className = 'singleNoteViewContainer'>
+          
             <div className ='editDelete'>
-                 {/* <button onClick= {this.deleteNoteButton} id={this.state.note._id}> Delete </button> */}
+                 
 
                 <Button className = 'editDeleteButton' onClick={this.toggle}> Delete</Button>
                 <Modal className = 'modal'

@@ -86,6 +86,10 @@
   
 }
 
+.card:hover {
+  background: rgba(194, 240, 230, 0.527);
+}
+
 .cardList {
   display: flex;
   flex-direction: row;
