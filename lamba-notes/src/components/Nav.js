@@ -11,9 +11,9 @@ class Nav extends React.Component {
           Notes
         </h1>
         <div className="link-section">
-          <NavLink exact to="/" activeClassName="link">
+          <Link exact to="/" activeClassName="link">
             <button class="btn">View Your Notes</button>
-          </NavLink>
+          </Link>
           <br />
           <NavLink to="/submit" activeClassName="link">
             <button class="btn">+ Create New Note</button>

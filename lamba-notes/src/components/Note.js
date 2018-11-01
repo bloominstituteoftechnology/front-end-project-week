@@ -1,66 +1,65 @@
-
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Note = props => {
-  if(props.notes.length){
-    let note = props.notes.find(note => `${note._id}` === props.match.params.id);
+class Note extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      note: {},
+      editTitle: "",
+      editBody: "",
+      deleteModal: false,
+      edit: true
+    };
+  }
 
-  return (
-    <div className="singleNote">
-      <Link
-        to={`/note/edit/${note.id}`}
-        onClick={() => props.editNote(note.title, note.textBody)}
-      >
-        edit
-      </Link>{" "}
-      <span onClick={props.deleteToggleOn}>delete</span>
-      {/* <button
-          onClick={event => {
-            this.props.deleteNote(this.state.note._id);
-            console.log(this.state.note);
-          }}
-        >
-          Delete
-        </button> */}
-      {/* <button
-          onClick={() => {
-            this.props.editNote(this.state.note._id);
-          }}
-        >
-          Edit
-        </button> */}
-      <h1>{this.state.note.title}</h1>
-      <p>{this.state.note.textBody}</p>
-    </div>
-  );
-};
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        this.setState({
+          note: response.data,
+          editBody: response.data.textBody,
+          editTitle: response.data.title
+        });
+        console.log("NOTE RESPONSE", response);
+      })
+      .catch(error => console.log(error));
+  }
+
+  deleteRequest() {
+    let id = this.props.match.params.id;
+  }
+
+  editRequest() {
+    let note = {
+      _id: this.state.note._id,
+      title: this.state.editTitle,
+      textBody: this.state.editBody
+    };
+  }
+
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  render() {
+    return (
+      <div>
+        {!this.state.edit ? <h1>{this.state.note.title}</h1> : null}
+        {!this.state.edit ? <p>{this.state.note.textBody}</p> : null}
+
+        {this.state.edit ? (
+          <input name="editTitle" value={this.state.editTitle} />
+        ) : null}
+        {this.state.edit ? (
+          <input name="editBody" value={this.state.note.editBody} />
+        ) : null}
+      </div>
+    );
+  }
+}
 
 export default Note;
-
-
-
-
-
-
-
-// class Note extends React.Component {
-//   }
-
-// componentDidMount() {
-//   axios
-//     .get(
-//       `http://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
-//     )
-//     .then(response => this.setState({ note: response.data }))
-//     .catch(error => console.log(error));
-// }
-
-// handleInputChange = event => {
-//   this.setState({ [event.target.name]: event.target.value });
-// };
-
-// clickHandler = event => {
-//   event.preventDefault();
-// };
-

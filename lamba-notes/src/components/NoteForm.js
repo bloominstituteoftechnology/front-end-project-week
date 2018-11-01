@@ -20,7 +20,6 @@ class NoteForm extends React.Component {
       })
       .then(response => console.log(response))
       .catch(error => console.log(error));
-    this.props.history.push("/");
 
     this.setState({
       title: "",
@@ -34,6 +33,7 @@ class NoteForm extends React.Component {
 
   clickHandler = event => {
     event.preventDefault();
+    this.props.history.push("/");
   };
 
   render() {
