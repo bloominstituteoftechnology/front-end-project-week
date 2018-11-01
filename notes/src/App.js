@@ -9,7 +9,7 @@ import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditCreate/EditNote';
 
 //actions
-import { getNotes, viewNote } from './components/actions';
+import { getNotes, viewNote, create, edit } from './components/actions';
 
 //page styling
 import './App.css';
@@ -18,22 +18,25 @@ class App extends Component {
   componentDidMount() {
     this.props.getNotes()
   }
-
+  
   getNote = (event) => {
     const singleNote = this.props.noteList.filter(note => note._id === event.currentTarget.id)[0]
     this.props.viewNote(singleNote)
     this.props.history.push('/note')
   }
-
-  goHome(props) {
+  
+  goHome = (props) => {
     props.history.push('/')
   }
-
-  editNote(props) {
+  
+  editNote= (props) => {
+    this.props.edit()
     props.history.push('/edit')
   }
-
-  createNote(props) {
+  
+  createNote = (props) => {
+    console.log(props)
+    this.props.create()
     props.history.push('/edit')
   }
 
@@ -45,6 +48,7 @@ class App extends Component {
             {...props}
             goHome={this.goHome}
             createNote={this.createNote}
+            create={this.props.create}
           />
         )} />
         <div className='mainView'>
@@ -59,10 +63,14 @@ class App extends Component {
             <NoteView
               {...props}
               editNote={this.editNote}
+              note={this.props.note}
             />
           )} />
           <Route exact path='/edit' render={(props) => (
-            <EditNote />
+            <EditNote
+              note={this.props.note}
+              editNote={this.props.editNote}
+            />
           )} />
         </div>
 
@@ -74,8 +82,10 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     noteList: state.noteList,
-    listLoading: state.listLoading
+    listLoading: state.listLoading,
+    note: state.note,
+    editNote: state.editNote
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, viewNote })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, viewNote, create, edit })(App));

@@ -3,16 +3,26 @@ import React from 'react';
 //styling
 import './EditCreate.css';
 
-const EditNote = () => {
+const EditNote = props => {
     return (
         <div className='notePage'>
-            <h3>Create New Note:</h3>
+            <h3>{props.editNote ? 'Edit Note:' : 'Create New Note:'}</h3>
             <form className='noteEntry'>
-                <input type='text' placeholder='Note Title' name='noteTitle' />
-                <textarea rows='25' placeholder='Note Content' name='noteContent'>
+                <input
+                    type='text'
+                    placeholder='Note Title'
+                    name='noteTitle'
+                    value={props.editNote ? props.note.title : ''}
+                />
+                <textarea
+                    rows='25'
+                    placeholder='Note Content'
+                    name='noteContent'
+                    value={props.editNote ? props.note.textBody : ''}
+                >
 
                 </textarea>
-                <button className='noteSave'>Save</button>
+                <button className='noteSave'>{props.editNote ? 'Update' : 'Save'}</button>
             </form>
         </div>
     );

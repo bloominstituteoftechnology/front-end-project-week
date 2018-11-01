@@ -4,5 +4,6 @@
 }
 
 .mainView {
+    min-width: calc(100% - 26.5rem);
     background-color: #F2F1F2;
 }

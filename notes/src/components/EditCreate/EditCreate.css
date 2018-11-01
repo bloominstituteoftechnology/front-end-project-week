@@ -12,9 +12,6 @@ input[name='noteTitle'] {
     width: 35.75rem;
     line-height: 3.75rem;
     margin-top: 3rem;
-}
-
-input::placeholder {
     padding-left: 1rem;
 }
 
