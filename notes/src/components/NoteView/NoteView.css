@@ -19,7 +19,7 @@
     text-align: right;
 }
 
-.editButton, .deleteButton {
+.editButton, .delete {
     text-decoration: underline;
     padding-left: 0.85rem;
 }

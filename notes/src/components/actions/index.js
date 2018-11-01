@@ -6,6 +6,8 @@ export const SINGLE_NOTE = 'SINGLE_NOTE';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const CREATIVE = 'CREATIVE';
 export const EDIT = 'EDIT';
+export const DELETE_CONFIRM = 'DELETE_CONFIRM'
+
 
 export const getNotes = () => dispatch => {
     dispatch({ type: GETTING_NOTES})
@@ -59,4 +61,8 @@ export const edit = (note, noteId) => dispatch => {
             })
             .catch(error => console.log(error))
     )
+}
+
+export const ruSure = () => dispatch => {
+    dispatch({ type: DELETE_CONFIRM })
 }

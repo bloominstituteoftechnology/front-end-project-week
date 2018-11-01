@@ -5,7 +5,7 @@ import './Delete.css';
 
 const Delete = () => {
     return (
-        <div className='delete'>
+        <div className='deleteWrap'>
             <div className='deleteBox'>
                 <p>Are you sure you want to delete this?</p>
                 <div className='deleteConfirm'>

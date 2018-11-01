@@ -10,7 +10,7 @@ import EditNote from './components/EditCreate/EditNote';
 import Delete from './components/Delete/Delete';
 
 //actions
-import { getNotes, viewNote, create, createMode, editMode } from './components/actions';
+import { getNotes, viewNote, create, createMode, editMode, ruSure } from './components/actions';
 
 //page styling
 import './App.css';
@@ -39,6 +39,12 @@ class App extends Component {
     props.history.push('/edit')
   }
 
+  deleteNote = (event) => {
+    event.preventDefault()
+    this.props.ruSure()
+    console.log('click')
+  }
+
   render() {
     return (
       <div className="App">
@@ -62,14 +68,13 @@ class App extends Component {
               {...props}
               editNote={this.editNote}
               note={this.props.note}
+              deleteNote={this.deleteNote}
+              deleteModal={this.props.deleteModal}
             />
           )} />
           <Route exact path='/edit' render={(props) => (
             <EditNote />
-          )} />
-          <Route path='/' render={this.props.deleteModal ? (props) => (
-            <Delete />
-          ) : null} />
+            )} />
         </div>
 
       </div>
@@ -87,4 +92,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, viewNote, create, createMode, editMode })(App));
+export default withRouter(connect(mapStateToProps, { getNotes, viewNote, create, createMode, editMode, ruSure })(App));
