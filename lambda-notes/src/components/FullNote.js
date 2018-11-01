@@ -12,7 +12,7 @@ class FullNote extends React.Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params;
+    const id = this.props.match.params.id;
     this.getNote(id);
   }
 
@@ -59,9 +59,7 @@ class FullNote extends React.Component {
         <h2 className="header">{this.state.notes.title}</h2>
         <p className="note-paragraph">{this.state.notes.textBody}</p>
         <button onClick={this.deleteModal}>X</button>
-        <Link to={{ pathname: `/edit-note`, state: { note: this.state.note } }}>
-          edit
-        </Link>
+        <Link to={`/edit/${this.state.notes._id}`}>edit</Link>
         <div className="modal">
           <button onClick={() => this.deleteNote(this.state.notes._id)}>
             delete

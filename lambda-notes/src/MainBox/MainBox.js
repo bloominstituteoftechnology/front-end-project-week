@@ -32,18 +32,6 @@ class MainBox extends React.Component {
       .catch(error => console.log(error));
   };
 
-  saveEdit = (ev, id) => {
-    ev.preventDefault();
-    console.log("edititing note", id);
-    axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
-        tags: [],
-        title: this.state.title,
-        textBody: this.state.content
-      })
-      .then(res => console.log(res));
-  };
-
   render() {
     return (
       <div className="main-box">
@@ -58,17 +46,7 @@ class MainBox extends React.Component {
           render={props => <ListView {...props} notes={this.state.notes} />}
         />
         <Route path="/notes/:id" render={props => <FullNote {...props} />} />
-        <Route
-          path="/edit-note"
-          render={props => (
-            <EditNote
-              {...props}
-              note={this.state.notes}
-              editNote={this.editNote}
-              saveEdit={this.saveEdit}
-            />
-          )}
-        />
+        <Route path="/edit/:id" component={EditNote} />
       </div>
     );
   }
