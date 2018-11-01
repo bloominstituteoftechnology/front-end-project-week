@@ -61,6 +61,11 @@ class App extends Component {
         <Sidebar
           search={this.state.search}
           handleSearchChange={this.handleSearchChange}
+          notes={
+            this.state.filteredNotes.length > 0
+              ? this.state.filteredNotes
+              : this.props.notes
+          }
         />
 
         <Route

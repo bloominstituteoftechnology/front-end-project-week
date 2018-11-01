@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { CSVLink } from "react-csv";
 import "./Components.css";
 import styled from "styled-components";
 
@@ -25,6 +26,13 @@ export default props => {
         value={props.search}
         onChange={props.handleSearchChange}
       />
+      <CSVLink
+        className="csv-export"
+        filename={"exports.csv"}
+        data={props.notes}
+      >
+        <button>CSV Export</button>
+      </CSVLink>
     </Wrapper>
   );
 };
