@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Notes = (props) => {
 	return (
 		<StyledNoteWrapper>
+			<p>{`Total Notes: ${props.count}`}</p>
 			<StyledDeleteAllTheThings htmlFor="Delete All The Things">
 				<input name="isChecked" type="checkbox" checked={props.isChecked} onChange={props.toggleCheck} />Delete
 				All The Things <button onClick={props.deleteALLNotes}>Delete</button>
@@ -20,6 +21,8 @@ const Notes = (props) => {
 								<StyledSpan>{note.tags}</StyledSpan>
 							</p>
 						</StyledNoteContainer>
+						<StyledCheckboxThing type="checkbox" />
+						<p>Complete</p>
 					</div>
 				);
 			})}
@@ -60,7 +63,8 @@ export const StyledNoteContainer = styled(Link)`
 	background-color: #ffffff;
 	text-align: start;
 	overflow: hidden;
-	width: 500px;
+	width: 350px;
+	max-height: 350px;
 	margin: 10px;
 	border: 1px solid rgba(80, 80, 80, 0.3);
 	transition: 0.3s ease-in-out;
@@ -122,3 +126,5 @@ export const StyledDeleteAllTheThings = styled.label`
 		color: red;
 	}
 `;
+
+export const StyledCheckboxThing = styled.input``;

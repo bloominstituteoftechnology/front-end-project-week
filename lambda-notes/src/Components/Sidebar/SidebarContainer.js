@@ -10,7 +10,6 @@ const SidebarContainer = (props) => {
 			</StyledH1>
 			<StyledRoutes to="/">View Your Notes</StyledRoutes>
 			<StyledRoutes to="/create-new-note">+ Create New Note</StyledRoutes>
-			<StyledButton>Destroy Checked Notes</StyledButton>
 		</StyledContainer>
 	);
 };
@@ -18,6 +17,7 @@ const SidebarContainer = (props) => {
 export default SidebarContainer;
 
 export const StyledContainer = styled.div`
+	z-index: 1;
 	display: flex;
 	flex-direction: column;
 	width: 221px;
@@ -33,6 +33,7 @@ export const StyledH1 = styled.h1`
 `;
 
 export const StyledRoutes = styled(Link)`
+z-index: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -46,22 +47,5 @@ export const StyledRoutes = styled(Link)`
 	background-color: #24b8bd;
 	text-decoration: none;
 	width: 90%;
-	padding: 10px;
-`;
-
-export const StyledButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 25px;
-	border-radius: 3px;
-	height: 80px;
-	border: 0;
-	width: 221px;
-	font-size: 22px;
-	font-weight: bold;
-	color: #fafdfd;
-	background-color: #24b8bd;
-	text-decoration: none;
 	padding: 10px;
 `;

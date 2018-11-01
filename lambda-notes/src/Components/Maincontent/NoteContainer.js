@@ -74,6 +74,7 @@ class NoteContainer extends React.Component {
 						getEditId={this.getEditId}
 						getNoteId={this.getNoteId}
 						deletePost={this.deletePost}
+						count={this.state.notes.length}
 					/>
 				</div>
 			);
