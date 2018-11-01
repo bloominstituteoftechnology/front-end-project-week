@@ -21,15 +21,20 @@ class NoteContainer extends React.Component {
 			.catch((err) => console.log(err));
 	}
 
-	deleteALLNotes = () => {
+	URLFunc = (id) => {
+		return `https://fe-notes.herokuapp.com/note/delete/${id}`;
+	};
+
+	deleteALLNotes = (e) => {
+		e.preventDefault();
 		if (this.state.isChecked === false) {
 			alert('Please check the box first');
 		} else {
-			const URL = (id) => {
-				return `https://fe-notes.herokuapp.com/note/delete/${id}`;
-			};
-			this.state.notes.forEach((id) =>
-				axios.delete(`${URL(id)}`).then(() => window.location.reload()).catch((err) => console.log(err))
+			this.state.notes.forEach((element) =>
+				axios
+					.delete(`${this.URLFunc(element._id)}`)
+					.then(() => window.location.reload())
+					.catch((err) => console.log(err))
 			);
 		}
 	};
