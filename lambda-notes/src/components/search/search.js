@@ -7,6 +7,7 @@ const SearchBar = props => {
 
 
     return (
+
         <form className='search-form'>
             <input
                 placeholder='search notes'

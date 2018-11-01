@@ -5,7 +5,7 @@ import AddNote from './addNote';
 import { Route } from 'react-router-dom';
 import Note from './note';
 import './Notes.css';
-import SearchBar from '../search/search';
+
 
 class NotesContainer extends Component {
     constructor(props) {
@@ -63,10 +63,13 @@ class NotesContainer extends Component {
         return (
             <div className='all-notes'>
                 <div>
+
                     <Route exact path='/' render={(Ownprops) => {
-                        return (<NotesList {...Ownprops} stateSearch={this.state.searchResult} searchResults={this.searchResults} notes={this.state.searchedPost.length > 0 ?
-                            this.state.searchedPost
-                            : this.state.notes} />)
+                        return (<NotesList {...Ownprops} stateSearch={this.state.searchResult}
+                            searchResults={this.searchResults}
+                            notes={this.state.searchedPost.length > 0 ?
+                                this.state.searchedPost
+                                : this.state.notes} />)
                     }} />
 
                     <Route path='/add-note' render={(Ownprops) => {
