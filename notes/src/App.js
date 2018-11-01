@@ -20,8 +20,7 @@ class App extends Component {
   }
   
   getNote = (event) => {
-    const singleNote = this.props.noteList.filter(note => note._id === event.currentTarget.id)[0]
-    this.props.viewNote(singleNote)
+    this.props.viewNote(event.currentTarget.id)
     this.props.history.push('/note')
   }
   

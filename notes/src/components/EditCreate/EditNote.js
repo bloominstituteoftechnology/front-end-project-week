@@ -12,12 +12,13 @@ class EditNote extends Component {
             textBody: this.props.note.textBody
         }
     }
+    
     changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log(event.target.name, event.target.value)
     }
+
     render() {
         return (
             <div className='notePage'>

@@ -18,9 +18,14 @@ export const getNotes = () => dispatch => {
     )
 }
 
-export const viewNote = (note) => dispatch => {
-    dispatch({ type: SINGLE_NOTE, payload: note })
-    // console.log(note)
+export const viewNote = (id) => dispatch => {
+    return (
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .then(({ data }) => {
+                dispatch({ type: SINGLE_NOTE, payload: data })
+            })
+    )
 }
 
 export const create = () => dispatch => {
