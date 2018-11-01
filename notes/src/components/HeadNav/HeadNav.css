@@ -1,6 +1,7 @@
 .headNav {
     background-color: #D3D2D3;
     width: 26.5rem;
+    min-height: 100vh;
     text-align: left;
 }
 

@@ -1,5 +1,6 @@
 .notePage {
-    padding-bottom: 5rem;
+    width: 100%;
+    padding: 5.5rem 2.75rem 5rem 2.75rem;
 }
 
 .noteEntry {

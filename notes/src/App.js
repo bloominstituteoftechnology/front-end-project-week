@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom'; 
 
 //components needed
 import HeadNav from './components/HeadNav/HeadNav';
@@ -21,8 +22,6 @@ class App extends Component {
   getNote = event => {
     const singleNote = this.props.noteList.filter(note => note._id === event.currentTarget.id)[0]
     this.props.viewNote(singleNote)
-    // console.log(singleNote._id)
-    // console.log(event.currentTarget.id)
   }
 
   render() {
@@ -30,9 +29,19 @@ class App extends Component {
       <div className="App">
         <HeadNav />
         <div className='mainView'>
-          <ListView noteList={this.props.noteList} getNote={this.getNote}/>
-          {/* <NoteView /> */}
-          {/* <EditNote /> */}
+          <Route exact path='/' render={(props) => (
+            <ListView
+              {...props}
+              noteList={this.props.noteList}
+              getNote={this.getNote}
+            />
+          )} />
+          <Route path='/note' render={(props) => (
+            <NoteView />
+          )} />
+          <Route path='/edit' render={(props) => (
+            <EditNote />
+          )} />
         </div>
 
       </div>

@@ -1,5 +1,11 @@
 .noteView {
-    padding-bottom: 5rem;
+    width: 100%;
+    padding: 1.75rem 3.25rem 5rem 2.75rem;
+    /* padding-top: 5.5rem; */
+}
+
+.note {
+    padding-top: 2.25rem;
 }
 
 .noteText {
@@ -8,4 +14,13 @@
     font-size: 1.4rem;
     line-height: 2.5rem;
     letter-spacing: 0.325px;
+}
+
+.noteControl {
+    text-align: right;
+}
+
+.editButton, .deleteButton {
+    text-decoration: underline;
+    padding-left: 0.85rem;
 }
