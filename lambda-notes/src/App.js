@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, addNote, deleteNote } from './actions';
+import { fetchNotes, addNote, deleteNote, sortNote } from './actions';
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
 import { connect } from 'react-redux';
@@ -38,14 +38,17 @@ class App extends Component {
     window.location.reload(); 
     this.props.history.push('/notes'); 
   };
-
+  sortNotesAZ = () => {
+    this.props.sortNote();  
+  };
+  
   render() {
     return (
       <div className="App">
         <Navigation className='nav-bar'/>
         <Switch>  
           <Route exact path='/notes' render={()=>
-            <NotesList {...this.props} delete={this.handleDelete} notes={this.props.notes} />
+            <NotesList {...this.props} sortNotesAZ={this.sortNotesAZ} delete={this.handleDelete} notes={this.props.notes} />
           } />        
           <Route path='/new-note' render={()=>
             <AddNoteForm 
@@ -72,4 +75,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps,{ fetchNotes, addNote, deleteNote })(App));
+export default withRouter(connect(mapStateToProps,{ fetchNotes, addNote, deleteNote, sortNote })(App));

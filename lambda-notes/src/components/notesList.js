@@ -5,6 +5,7 @@ const NotesList = props => {
   return (
     <div className='notes-container'>
       <h2 className='your-notes'>Your Notes:</h2>
+      <button onClick={props.sortNotesAZ} className='sort-button'>Sort A-Z</button>
       {props.notes.map(note => {
         const id = note._id
         return (

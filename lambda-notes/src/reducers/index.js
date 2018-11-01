@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHING_NOTES_SUCCESS, FETCHING_NOTES_FAILURE, ADDING_NOTE, ADD_NOTE_SUCCESS, ADD_NOTE_FAILURE, DELETING_NOTE, DELETE_NOTE_SUCCESS, DELETE_NOTE_FAILURE, EDITING_NOTE, EDIT_NOTE_SUCCESS, EDIT_NOTE_FAILURE } from '../actions';
+import { FETCHING_NOTES, FETCHING_NOTES_SUCCESS, FETCHING_NOTES_FAILURE, ADDING_NOTE, ADD_NOTE_SUCCESS, ADD_NOTE_FAILURE, DELETING_NOTE, DELETE_NOTE_SUCCESS, DELETE_NOTE_FAILURE, EDITING_NOTE, EDIT_NOTE_SUCCESS, EDIT_NOTE_FAILURE, SORTING_A_Z } from '../actions';
 
 const initialState = {
   notes: [],
@@ -56,7 +56,9 @@ const notesReducer = (state = initialState, action) => {
         ...state, 
         editing: false, 
         error: action.payload 
-      }           
+      } 
+    case SORTING_A_Z:
+      return {...state, notes: state.notes.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))}          
     default:
       return state; 
   }

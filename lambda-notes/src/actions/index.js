@@ -12,6 +12,7 @@ export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 export const EDITING_NOTE = 'EDITING_NOTE';
 export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
+export const SORTING_A_Z = 'SORTING_A_Z'
 
 
 
@@ -52,6 +53,10 @@ export const editNote = note => dispatch => {
       dispatch({ type: EDIT_NOTE_FAILURE, payload: error });
     });
 };
+
+export const sortNote = () => dispatch => {
+  dispatch({ type: SORTING_A_Z })
+}
 
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETING_NOTE });
