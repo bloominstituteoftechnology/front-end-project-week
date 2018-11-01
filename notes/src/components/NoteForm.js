@@ -23,7 +23,7 @@ class NoteForm extends Component {
         };
         console.log(newNote);
         this.props.createNote(newNote);
-        this.setState({ titleInput: '', textBodyInput: '' });
+        this.setState({ titleInput: '', contentInput: '' });
     };
 
     render() {
@@ -39,7 +39,7 @@ class NoteForm extends Component {
                 />
 
                 <input 
-                    name='textBodyInput'
+                    name='contentInput'
                     type='text'
                     placeholder='Note Body'
                     value={this.state.contentInput}

@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Route, } from 'react-router-dom';
 import NoteView from './NoteView';
+import {getNotes} from '../actions';
 
 class NotesList extends Component {
     componentDidMount() {
-        
+        this.props.getNotes();
     }
     notes = this.props.notes;
     render() {
@@ -44,6 +45,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(
-    mapStateToProps,
+    mapStateToProps, { getNotes }
 )(NotesList);
 

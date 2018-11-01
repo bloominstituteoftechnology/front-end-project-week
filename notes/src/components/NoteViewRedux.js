@@ -3,54 +3,28 @@ import { connect } from 'react-redux';
 
 
 import axios from '../../node_modules/axios';
-import { getNotes, deleteNote, editNote } from '../actions';
+import { getNotes, deleteNote, updateNote } from '../actions';
 
 class NoteViewRedux extends Component {
+    state = {
+        titleInput: '',
+        contentInput: '',
+    };
 
-    // deleteNote = event => {
-    //     event.preventDefault();
-    //     const id = this.state.note.id;
-    //     axios
-    //     .delete(
-    //         `http://localhost:3300/${id}`
-    //     )
-    //     .then(response => {
-    //         this.props.getNotes();
-    //         this.props.history.push('/notes');
-    //     })
-    //     .catch(error => {
-    //     console.error('Server Error', error);
-    //     });
-    // };
-
-    // updateNote = event => {
-    //     event.preventDefault();
-    //     const id = this.state.note.id;
-    //     const updatedNote = {
-    //         title: this.state.titleInput, 
-    //         textBody: this.state.contentInput,
-    //     };
-    //     axios
-    //         .put(
-    //             `http://localhost:3300/${id}`, updatedNote
-    //         )
-    //         .then(response => {
-    //             this.props.getNotes();
-    //             this.props.history.push('/notes');
-    //         })
-    //         .catch(error => {
-    //             console.error('Server Error', error);
-    //         });
-    // }
-
-    // handleInputChange = event => {
-    //     this.setState({ [event.target.name]: event.target.value });
-    // };
+    handleInputChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
+    
     handleDeleteNote = () => {
         this.props.deleteNote(this.props.id);
-        // this.props.getNotes();
         this.props.history.push('/notes');
-    }
+    };
+
+    handleUpdateNote = event => {
+        event.preventDefault();
+        let updatedNote = { title: this.state.titleInput, content: this.state.contentInput };
+        this.props.updateNote(this.props.id, updatedNote);
+    };   
 
     render() {
         if(!this.props.note) {
@@ -58,14 +32,15 @@ class NoteViewRedux extends Component {
         }
         return (
             <div>
-                <h1>{this.props.note.title}</h1>
-                <p>{this.props.note.content}</p>
+                <h2>Note Title: {this.props.note.title}</h2>
+                <p>Note Content: {this.props.note.content}</p>
 
                 <button onClick={this.handleDeleteNote}>
                     Delete this note
                 </button>
 
-                {/* <form className='update-note-form'>
+                <form className='update-note-form'>
+                    <h3>Update this note:</h3>
                     <input 
                         name='titleInput'
                         type='text'
@@ -80,10 +55,10 @@ class NoteViewRedux extends Component {
                         value={this.state.contentInput}
                         onChange={this.handleInputChange}
                     />
-                    <button onClick={this.updateNote}>
+                    <button onClick={this.handleUpdateNote}>
                         Update this note
                     </button>
-                </form> */}
+                </form>
             </div>
         )
     }
@@ -101,6 +76,7 @@ export default connect(
     mapStateToProps,
     {
         getNotes,
-        deleteNote
+        deleteNote,
+        updateNote,
     }
 )(NoteViewRedux);

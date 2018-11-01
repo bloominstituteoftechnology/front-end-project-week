@@ -4,9 +4,10 @@ export const GETTING_NOTES = 'GETTING_NOTES';
 export const GET_NOTES = 'GET_NOTES';
 export const POSTING_NOTE = 'POSTING_NOTE';
 export const POST_NOTE = 'POST_NOTE';
-
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
+export const UPDATING_NOTE = 'UPDATING_NOTE';
+export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const ERROR = 'ERROR';
 
 // URLs from original project:
@@ -17,7 +18,7 @@ export const ERROR = 'ERROR';
 const GET_ALL_URL = 'http://localhost:3300/notes';
 const POST_URL = 'http://localhost:3300/notes';
 const GET_BY_ID_URL = 'http://localhost:3300/notes/:id';
-const PUT_URL = 'http://localhost:3300/notes/:id';
+// const PUT_URL = 'http://localhost:3300/notes/:id';
 // let id = null;
 // const DELETE_URL = `http://localhost:3300/notes/${id}`;  
 
@@ -28,7 +29,7 @@ export const getNotes = () => {
       axios
         .get(`${GET_ALL_URL}`)
         .then(response => {
-          console.log(`response.data: `, response.data);
+          console.log(`Notes gotten: response: `, response.data);
           dispatch({ type: GET_NOTES, payload: response.data });
         })
         .catch(err => {
@@ -46,7 +47,7 @@ export const createNote = newNote => {
         .post(`${POST_URL}`, newNote)
         .then((response) => {
           dispatch({ type: POST_NOTE, payload: response.data });
-          console.log('Note posted: Id: ', response);
+          console.log('Note posted: response: ', response);
           dispatch(getNotes());
         })
         .catch(err => {
@@ -59,22 +60,32 @@ export const deleteNote = id => dispatch => {
   // return dispatch => {
     dispatch({ type: DELETING_NOTE });
     axios
-    .delete(
-      `http://localhost:3300/notes/${id}`
-    )
+      .delete(
+        `http://localhost:3300/notes/${id}`
+      )
+      .then(response => {
+        getNotes();
+        dispatch({ type: DELETE_NOTE, payload: response.data });
+        
+        console.log('Note deleted: response: ', response);
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+  // };
+};
+
+export const updateNote = (id, updatedNote) => dispatch => {
+  dispatch({ type: UPDATING_NOTE });
+  axios
+    .put(`http://localhost:3300/notes/${id}`, updatedNote)
     .then(response => {
-      dispatch({ type: DELETE_NOTE, payload: response.data});
-      // getNotes();
-      console.log(response.data);
+      dispatch({ type: UPDATE_NOTE, payload: response.data })
+      console.log('Note updated: response: ', response);
     })
     .catch(error => {
       console.error('Server Error', error);
     });
-  // };
-};
-
-export const updateNote = () => {
-
 };
 
 
