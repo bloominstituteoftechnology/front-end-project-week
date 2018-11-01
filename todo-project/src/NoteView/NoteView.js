@@ -25,7 +25,6 @@ export default class ViewNote extends Component {
     }
 
     deleteNote = (id) => {
-        console.log(id)
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then(response => {
@@ -40,7 +39,7 @@ export default class ViewNote extends Component {
   render() {
       return (
           <div>{this.state.notes.map(note => {
-              return <Route path={`/${note._id}`} render={props => (
+              return <Route key={note._id} path={`/${note._id}`} render={props => (
               <View 
               {...props} 
               note={note} 

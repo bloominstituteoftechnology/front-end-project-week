@@ -3,6 +3,7 @@
     width: 31%;
     margin-bottom: 1%;
     background: #FFFFFF;
+    overflow: hidden;
 }
 .title {
     font-size: 1.5rem;

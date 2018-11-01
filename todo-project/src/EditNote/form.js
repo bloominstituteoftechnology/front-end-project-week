@@ -3,13 +3,14 @@ import './form.css'
 import { NavLink } from 'react-router-dom'
 
 function form(props) {
+
     return (
     <div className='form'>
         <input 
         className='titleForm'
         type='text'
         onChange={props.handleInput}
-        placeholder=' Note Title'
+        placeholder={props.note.title}
         name='title'
         value={props.title}
         />
@@ -17,7 +18,7 @@ function form(props) {
         className='textBody'
         type='text'
         onChange={props.handleInput}
-        placeholder=' Note Content'
+        placeholder={props.note.textBody}
         name='textBody'
         value={props.textBody}
         />
@@ -27,4 +28,7 @@ function form(props) {
 }
 
 
+
+
 export default form;
+

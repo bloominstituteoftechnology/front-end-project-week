@@ -5,6 +5,7 @@ import NavContainer from './NavContainer'
 import CreateNote from './CreateNote/CreateNote'
 import ViewNote from './NoteView/NoteView'
 import EditNote from './EditNote/EditNote'
+import Authentication from './Authentication/Authenticate'
 import './App.css';
 
 class App extends Component {
@@ -25,6 +26,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authentication(App);
 
 

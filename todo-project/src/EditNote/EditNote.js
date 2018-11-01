@@ -21,7 +21,11 @@ export default class CreateNote extends Component {
     }
 
     componentDidMount() {
-      axios
+      this.fetchData()
+  }
+
+  fetchData() {
+    axios
           .get('https://fe-notes.herokuapp.com/note/get/all')
           .then(response => {
               console.log(response)
@@ -32,11 +36,12 @@ export default class CreateNote extends Component {
           })
   }
 
-
+ 
     handleInput = e => {
       this.setState({ [e.target.name]: e.target.value })
     }
-
+    
+  
 
     updateNote = (id) => {
       axios 
@@ -49,7 +54,7 @@ export default class CreateNote extends Component {
           console.log(err)
         })
     }
-  
+
  
   render() {
     return (
@@ -57,7 +62,7 @@ export default class CreateNote extends Component {
           <p style={titleBold} >Edit Note:</p>
           {this.state.notes.map(note => {
             return (
-              <Route path={`/${note._id}/edit-note`} render={props => (
+              <Route key={note._id} path={`/${note._id}/edit-note`} render={props => (
                 <Form 
                 handleInput={this.handleInput}
                 title={this.state.title}

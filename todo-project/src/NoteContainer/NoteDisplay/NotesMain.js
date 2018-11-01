@@ -16,6 +16,8 @@ export default class NotesMain extends Component {
         }
     }
 
+    username = localStorage.getItem('user')
+
     componentDidMount() {
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
@@ -31,7 +33,7 @@ export default class NotesMain extends Component {
   render() {
     return (
       <div>
-          <p style={titleBold} >Your Notes:</p>
+          <p style={titleBold} >{this.username}'s Notes:</p>
           <NotesList notes={this.state.notes} />
       </div>
         

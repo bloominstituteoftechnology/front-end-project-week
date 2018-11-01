@@ -11,7 +11,6 @@ class View extends React.Component {
         this.state = {
             show: false
         }
-        // this.Modal = this.Modal.bind(this)
     }
 
     showModal = () => {
