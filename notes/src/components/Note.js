@@ -56,7 +56,6 @@ class Note extends Component {
         </div>
         <div>
           <h3>{title}</h3>
-          {/* <p>{textBody}</p> */}
           <Markdown>{textBody}</Markdown>
         </div>
         <div>

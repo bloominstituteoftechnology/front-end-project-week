@@ -45,6 +45,11 @@
   margin-bottom: 20px;
 }
 
+.nav-buttons:hover {
+  background-color: white;
+  color: #35c0c3;
+}
+
 .form-button {
   text-decoration: none;
   font-size: 10px;
@@ -59,6 +64,12 @@
   border: 1px solid #94a3a4;
   margin-left: 10px;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-button:hover {
+  background-color: white;
+  color: #35c0c3;
 }
 
 .new-note-container {
@@ -109,13 +120,14 @@ form {
   align-items: center;
   flex-direction: column;
   background-color: white;
-  border: 1px solid #94a3a4;
+  border: 0.5px solid #94a3a4;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .card-line {
   height: 1px;
-  border-bottom: 1px solid black;
+  border-bottom: 0.5px solid #94a3a4;
 }
 .note-card-body {
   width: 125px;
@@ -138,6 +150,13 @@ form {
   color: black;
 }
 
+.card-hover:hover {
+  -webkit-box-shadow: 0px 2px 47px -2px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0px 2px 47px -2px rgba(0, 0, 0, 0.52);
+  box-shadow: 0px 2px 47px -2px rgba(0, 0, 0, 0.52);
+  border: 0.5px solid #94a3a4;
+}
+
 .edit-delete-container {
   display: flex;
   flex-direction: row;
@@ -148,18 +167,19 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 300px;
   flex-direction: column;
 }
 
 .modal-prompt {
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .modal-button-container {
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 300px;
   justify-content: space-between;
 }
 
@@ -178,6 +198,11 @@ form {
   margin-bottom: 20px;
 }
 
+.modal-delete-button:hover {
+  color: #c30019;
+  background-color: white;
+}
+
 .modal-no-button {
   text-decoration: none;
   font-size: 10px;
@@ -193,6 +218,11 @@ form {
   margin-bottom: 20px;
 }
 
+.modal-no-button:hover {
+  color: #35c0c3;
+  background-color: white;
+}
+
 .edit-note-link {
   margin-right: 10px;
   border-bottom: 1px solid black;
@@ -202,6 +232,7 @@ form {
 .delete-note-link {
   border-bottom: 1px solid black;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .login-container {

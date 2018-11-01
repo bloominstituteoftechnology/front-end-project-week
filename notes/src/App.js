@@ -87,6 +87,11 @@ class App extends Component {
     }
   };
 
+  logout = e => {
+    e.preventDefault();
+    this.setState({ username: "" });
+  };
+
   render() {
     if (this.state.username === "") {
       return <LoginPage loginHandler={this.loginHandler} />;
@@ -106,6 +111,9 @@ class App extends Component {
             <NavLink className="nav-buttons" to="/add-note">
               + Create New Note
             </NavLink>
+            <div onClick={this.logout} className="nav-buttons">
+              Logout
+            </div>
           </div>
         </div>
         <div className="body">
