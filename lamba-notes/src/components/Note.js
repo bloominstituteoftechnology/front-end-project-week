@@ -29,16 +29,22 @@ class Note extends React.Component {
 
   render() {
     return (
-      <div>
-        <button
+      <div className="singleNote">
+        <Link
+          to={`/note/${note._id}/edit`}
+          onClick={() => props.editNote(note.title, note.textBody)}
+        >
+          edit
+        </Link>{" "}
+        <span onClick={props.deleteToggleOn}>delete</span>
+        {/* <button
           onClick={event => {
             this.props.deleteNote(this.state.note._id);
             console.log(this.state.note);
           }}
         >
           Delete
-        </button>
-
+        </button> */}
         {/* <button
           onClick={() => {
             this.props.editNote(this.state.note._id);
@@ -46,7 +52,6 @@ class Note extends React.Component {
         >
           Edit
         </button> */}
-
         <h1>{this.state.note.title}</h1>
         <p>{this.state.note.textBody}</p>
       </div>
