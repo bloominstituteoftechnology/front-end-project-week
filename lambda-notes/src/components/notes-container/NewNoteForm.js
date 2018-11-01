@@ -1,4 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+export default NewNoteForm = props => {
+
+    return (
+      <div className="NewForm">
+        <form onSubmit={props.addNewNote}>
+          <input
+            type="text"
+            onChange={props.handleInputChange}
+            placeholder="Title"
+            value={props.newTitle}
+            name="newTitle"
+          />
+          <input
+            type="text"
+            onChange={props.handleInputChange}
+            placeholder="Note"
+            value={props.newNote}
+            name="newNote"
+          />
+          <button type="submit">Add New Note</button>
+        </form>
+      </div>
+    );
+  }
+
+
+/*
 import axios from 'axios';
 
 class NewNoteForm extends Component {
@@ -35,31 +63,4 @@ class NewNoteForm extends Component {
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  render() {
-    return (
-      <div className="NewForm">
-        <form onSubmit={this.addNewNote}>
-          <input
-            type="text"
-            onChange={this.handleInputChange}
-            placeholder="Title"
-            value={this.state.newTitle}
-            name="newTitle"
-          />
-          <input
-            type="text"
-            onChange={this.handleInputChange}
-            placeholder="Note"
-            value={this.state.newNote}
-            name="newNote"
-          />
-          <button type="submit">Add New Note</button>
-        </form>
-      </div>
-    );
-  }
-}
-
-export default NewNoteForm;
+  };*/

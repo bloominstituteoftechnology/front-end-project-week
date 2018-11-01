@@ -10,8 +10,6 @@ justify-content: flex-start;
 flex-direction: column;
 background-color: #D3D2D3;
 padding: 0px;
-
-
 `
 const HeadlineWrap = styled.p `
 font-size: 25px;

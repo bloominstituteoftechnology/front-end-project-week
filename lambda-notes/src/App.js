@@ -117,6 +117,11 @@ class App extends Component {
       <NotesContainer 
       notes={this.state.notes} 
       deleteNote={this.deleteNote}
+      handleInputChange={this.handleInputChange}
+      addNewNote={this.addNewNote}
+      newTitle= {this.state.newTitle}
+      newNote={this.state.newNote}
+
       />
       </ContainerWrap>
 
