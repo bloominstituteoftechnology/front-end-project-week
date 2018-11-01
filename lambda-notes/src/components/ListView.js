@@ -35,7 +35,7 @@ class ListView extends React.Component {
           onChange={this.updateSearch}
           value={this.state.search}
           placeholder="Search notes"
-        />{" "}
+        />
         <span>
           <CSVLink
             data={this.props.notes}

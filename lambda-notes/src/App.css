@@ -7,6 +7,14 @@ html {
   background: #f3f3f3;
 }
 
+/* AUTHENTICATION */
+.logout {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  z-index: 1;
+}
+
 hr {
   margin-bottom: 15px;
 }
@@ -173,7 +181,13 @@ h2 {
   background: rgb(221, 9, 9);
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 1500px) {
+  .note-card {
+    width: 24%;
+  }
+}
+
+@media (max-width: 1100px) {
   .note-card {
     width: 45%;
   }

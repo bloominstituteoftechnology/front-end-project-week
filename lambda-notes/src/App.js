@@ -3,6 +3,8 @@ import {Route, Switch} from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
+import Login from "./components/Login";
+import authenticate from "./components/authenticate";
 import Menu from "./components/Menu";
 import ListView from "./components/ListView";
 import NewNote from "./components/NewNote";
@@ -68,6 +70,10 @@ class App extends Component {
     return (
       <div className="App">
         <Menu />
+        <div className="logout">
+          <h3>Welcome {this.props.user}</h3>
+          <button onClick={this.props.logout}>Logout</button>
+        </div>
 
         <div className="display">
           <Switch>
@@ -104,4 +110,5 @@ class App extends Component {
   }
 }
 
-export default App;
+const enhancedApp = authenticate(App);
+export default enhancedApp;
