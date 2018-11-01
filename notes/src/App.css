@@ -1,0 +1,234 @@
+h2 {
+  font-size: 3.2rem;
+  margin-top: 80px;
+}
+
+.App {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #979797;
+  color: #4a4a4a;
+  background: #f3f3f3;
+}
+
+.sidebar {
+  width: 25%;
+  background: #d8d8d8;
+  min-height: 100vh; 
+  border-right: 1px solid #979797;
+}
+
+.sidebar h1 {
+  font-size: 4.8rem;
+  font-weight: bold;
+  margin: 29px 0px 40px 15px;
+  letter-spacing: 3px;
+  line-height: 43px;
+}
+
+.sidebar button {
+  color: white;
+  width: 85%;
+  margin-left: 20px;
+  border-radius: 0px;
+  height: 60px;
+  font-size: 2.3rem;
+  margin-bottom: 30px;
+  background: #2cc1c5;
+  border: 1px solid #979797;
+}
+
+.notes-main {
+  width: 75%;
+  padding-left: 20px;
+}
+
+.notes-main h2 {
+  margin-bottom: 41px;
+  margin-left: 18px;
+}
+
+.notes-main a {
+  text-decoration: none;
+  color: #4a4a4a;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.notecard-container {
+  border: 1px solid #979797;
+  height: 285px;
+  width: 30%; 
+  margin-left: 19px;
+  margin-bottom: 34px;
+  margin-right: 0px;
+  padding: 18px 33px 0px 23px;
+  background: white;
+  overflow: hidden;
+}
+
+.notecard-container h3 {
+  font-size: 2.3rem;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #979797;
+}
+
+.notecard-container p {
+  font-size: 1.8rem;
+  line-height: 31px;
+}
+
+.form-styles, .edit-styles {
+  padding-left: 35px;
+  width: 75%;
+}
+
+.form-styles h2, .edit-styles h2 {
+  margin-bottom: 45px;
+
+}
+
+.form-styles input{
+  width: 56%;
+  height: 60px;
+  border-radius: 3px;
+  background: white;
+  border: 1px solid #979797;
+  margin-bottom: 20px;
+}
+
+.edit-styles input {
+  width: 76%;
+  height: 60px;
+  border-radius: 3px;
+  background: white;
+  border: 1px solid #979797;
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.form-styles input::placeholder, .form-styles textarea::placeholder {
+  padding-left: 16px;
+  font-size: 1.8rem;
+}
+
+.form-styles textarea  {
+ width: 95%;
+ height: 500px;
+ margin-bottom: 20px;
+ border-radius: 3px;
+ border: 1px solid #979797;
+ resize: none;
+}
+.edit-styles textarea {
+  width: 100%;
+ height: 500px;
+ margin-bottom: 20px;
+ border-radius: 3px;
+ border: 1px solid #979797;
+ resize: none;
+ padding-left: 30px;
+ padding-top: 40px;
+}
+
+.form-styles textarea::placeholder,  {
+  padding-top: 25px;
+  padding-left: 30px;
+}
+
+.form-styles button, .edit-styles button {
+  width: 30%;
+  height: 60px;
+  color: white;
+  background: #2cc1c5;
+  font-size: 2rem;
+  margin-bottom: 200px;
+}
+
+.edit {
+  width: 75%;
+}
+
+.view-note a {
+  color: black;
+  text-decoration: underline;
+  font-size: 1.8rem;
+  margin-right: 15px;
+}
+.view-note {
+  padding-left: 35px;
+  width: 75%;
+}
+
+.view-note .links {
+  position: absolute;
+  right: 115px;
+  top: 30px;
+}
+
+.view-note h3 {
+  font-size: 2.4rem;
+  margin-top: 85px;
+  margin-bottom: 45px;
+  font-weight: bold;
+}
+
+.view-note p {
+  font-size: 1.8rem;
+  line-height: 31px;
+}
+
+ .modal {
+  z-index: 2;
+  position: absolute;
+  height: 100vh;
+  width: 89vw;
+  opacity: 0.75;
+  background-color: #D7D8D9;
+  display: flex;
+  justify-content: center;
+}
+
+ .modal-delete {
+  background-color: #f3f3f3;
+  border: 1px solid #979797;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 250px;
+  margin-top: 180px;
+  z-index: 3;
+  position: absolute;
+}
+
+ .modal  p {
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 1.6rem;
+}
+
+ .modal  button {
+  color: #FFFFFF;
+  border: 1px solid #979797;
+  width: 25%;
+  height: 40px;
+  font-size: 1.6rem;
+  margin-right: 3%;
+  align-items: center;
+  cursor: pointer;
+}
+
+ .modal  .no {
+  background-color: #24B8BD;
+}
+
+ .modal  .delete {
+  background-color: #CA001A;
+}
