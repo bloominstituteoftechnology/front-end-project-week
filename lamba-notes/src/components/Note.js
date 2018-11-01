@@ -5,7 +5,8 @@ class Note extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: {}
+      note: {},
+      updatedNote: {}
     };
   }
 
@@ -18,21 +19,62 @@ class Note extends React.Component {
       .catch(error => console.log(error));
   }
 
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  clickHandler = event => {
+    event.preventDefault();
+  };
+
   render() {
     return (
       <div>
         <button
           onClick={event => {
-            this.props.deleteNote(event, this.state.note._id);
+            this.props.deleteNote(this.state.note._id);
+            console.log(this.state.note);
           }}
         >
           Delete
         </button>
 
-        {/* edit button, too */}
+        <button
+          onClick={event => {
+            this.props.editNote(event, this.state.note._id);
+          }}
+        >
+          Edit
+        </button>
 
         <h1>{this.state.note.title}</h1>
-        <h3>{this.state.note.textBody}</h3>
+        <p>{this.state.note.textBody}</p>
+
+        {/* <h1>EDIT</h1>
+
+        <form onSubmit={this.editNote}>
+          <input
+            onChange={this.handleInputChange}
+            placeholder="Title"
+            // value={this.state.note.title}
+            name="title"
+          />
+          <input
+            type="text"
+            placeholder="text"
+            onChange={this.handleInputChange}
+            value={this.state.note.textBody}
+            name="textBody"
+          />
+        </form>
+
+        <button
+          onClick={() => {
+            this.props.editNote(this.state.note._id);
+          }}
+        >
+          Submit
+        </button> */}
       </div>
     );
   }

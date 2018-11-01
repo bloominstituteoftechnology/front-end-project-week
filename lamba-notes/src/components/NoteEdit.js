@@ -6,17 +6,27 @@ class NoteEdit extends React.Component {
     super(props);
     this.state = {
       note: {},
-      updatedNote: {}
+      editedNote: {},
+      editedTitle: "",
+      editedTextBody: ""
     };
   }
 
   componentDidMount() {
     axios
       .get(
-        `http://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
+        `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
       )
-      .then(response => this.setState({ note: response.data }))
-      .catch(error => console.log(error));
+      .then(response =>
+        this.setState({
+          note: {
+            _id: response.data._id,
+            title: response.data.title,
+            textBody: response.data.textBody
+          }
+        })
+      )
+      .then(console.log(this.state));
   }
 
   handleInputChange = event => {
@@ -36,21 +46,21 @@ class NoteEdit extends React.Component {
           <input
             onChange={this.handleInputChange}
             placeholder="Title"
-            value={this.state.note.title}
+            // value={this.state.note.title}
             name="title"
           />
           <input
             type="text"
             placeholder="text"
             onChange={this.handleInputChange}
-            value={this.state.note.textBody}
+            // value={this.state.note.textBody}
             name="textBody"
           />
         </form>
 
         <button
           onClick={() => {
-            this.props.updatedNote(this.state.note._id);
+            this.props.editNote(this.state.note._id);
           }}
         >
           Submit
