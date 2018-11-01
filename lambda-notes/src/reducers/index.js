@@ -6,7 +6,9 @@ import {
   CHECK_ALL,
   RECORD_SELF_ADDED,
   SET_SEARCH_PARAM,
-  SORT_TO_BEGINNING
+  SORT_TO_BEGINNING,
+  ADD_TO_UNDEAD_ARMY,
+  REMOVE_FROM_UNDEAD_ARMY
 } from '../actions'
 
 const initialState = {
@@ -14,7 +16,8 @@ const initialState = {
   checked: [],
   selfAdded: [],
   searchParam: '',
-  sortedOrder: []
+  sortedOrder: [],
+  undeadArmy: []
 }
 
 export default (state = initialState, action) => {
@@ -59,6 +62,17 @@ export default (state = initialState, action) => {
             ? state.sortedOrder.filter(item => item !== action.id)
             : state.sortedOrder)
         ]
+      }
+
+    case ADD_TO_UNDEAD_ARMY:
+      return {
+        ...state,
+        undeadArmy: [...state.undeadArmy, action.id]
+      }
+    case REMOVE_FROM_UNDEAD_ARMY:
+      return {
+        ...state,
+        undeadArmy: state.undeadArmy.filter(soldier => soldier !== action.id)
       }
     default:
       return state

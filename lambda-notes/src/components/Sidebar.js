@@ -9,7 +9,7 @@ import {
   DeleteButton
 } from '../styles/Sidebar'
 
-const numToAdd = 5
+const numToAdd = 25
 
 class Sidebar extends Component {
   handleChange = event => {

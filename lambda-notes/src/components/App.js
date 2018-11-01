@@ -14,7 +14,9 @@ import {
   bulkAddNotes,
   removeSelfAdded,
   setSearchParam,
-  sortToBeginning
+  sortToBeginning,
+  addToUndeadArmy,
+  removeFromUndeadArmy
 } from '../actions'
 import { PageContainer } from '../styles/App'
 import Sidebar from './Sidebar'
@@ -27,13 +29,15 @@ const mapStateToProps = ({
   checked,
   searchParam,
   selfAdded,
-  sortedOrder
+  sortedOrder,
+  undeadArmy
 }) => ({
   notes,
   checked,
   searchParam,
   selfAdded,
-  sortedOrder
+  sortedOrder,
+  undeadArmy
 })
 
 const zombieNote = {
@@ -49,9 +53,32 @@ class App extends Component {
     // create a zombie card that will keep coming back to life
     // if it is ever deleted
 
-    const keepZombieAlive = setInterval(() => {
-      const { notes, postNote, getAllNotes } = this.props
+    const keepZombiesAlive = setInterval(() => {
+      const { notes, postNote, getAllNotes, undeadArmy, addToUndeadArmy } = this.props
       getAllNotes()
+
+      // const notesIds = notes.map(({ _id }) => _id)
+      // console.log(notesIds.length)
+      // console.log(undeadArmy.length)
+
+
+      // if (undeadArmy.length < 5) {
+      //   addToUndeadArmy()
+      // }
+
+      // const numberOfUndead = 3
+
+      // while (undeadArmy.length < numberOfUndead) {
+      //   addToUndeadArmy()
+      // }
+
+      // undeadArmy.forEach(soldier => {
+      //   if (!notesIds.includes(soldier)) {
+      //     removeFromUndeadArmy(soldier)
+      //     addToUndeadArmy()
+      //   }
+      // })
+
 
       for (let i = 0; i < notes.length; i++) {
         if (notes[i].title === zombieNote.title) {
@@ -62,6 +89,8 @@ class App extends Component {
           postNote(zombieNote)
         }
       }
+
+
     }, 5000)
   }
 
@@ -85,6 +114,9 @@ class App extends Component {
       selfAdded,
       sortedOrder,
       sortToBeginning,
+      addToUndeadArmy,
+      removeFromUndeadArmy,
+      undeadArmy,
       history
     } = this.props
 
@@ -160,7 +192,9 @@ export default withRouter(
       removeSelfAdded,
       checkAll,
       setSearchParam,
-      sortToBeginning
+      sortToBeginning,
+      addToUndeadArmy,
+      removeFromUndeadArmy
     }
   )(App)
 )

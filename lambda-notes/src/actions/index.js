@@ -9,6 +9,8 @@ export const RECORD_SELF_ADDED = 'RECORD_SELF_ADDED'
 export const CLEAR_SELF_ADDED = 'CLEAR_SELF_ADDED'
 export const SET_SEARCH_PARAM = 'SET_SEARCH_PARAM'
 export const SORT_TO_BEGINNING = 'SORT_TO_BEGINNING'
+export const ADD_TO_UNDEAD_ARMY = 'ADD_TO_UNDEAD_ARMY'
+export const REMOVE_FROM_UNDEAD_ARMY = 'REMOVE_FROM_UNDEAD_ARMY'
 
 export const getAllNotes = () => dispatch => {
   axios
@@ -164,3 +166,30 @@ export const sortToBeginning = id => ({
   type: SORT_TO_BEGINNING,
   id
 })
+
+// HANDLE UNDEAD ARMY
+
+export const addToUndeadArmy = id => dispatch => {
+  axios
+    .post('https://fe-notes.herokuapp.com/note/create', {
+      title: 'Zombie',
+      textBody: 'This zombie is part of an undead army.'
+    })
+    .then(res => {
+      console.log(res.data.success)
+      dispatch({ type: RECORD_SELF_ADDED, payload: res.data.success })
+      dispatch({ type: ADD_TO_UNDEAD_ARMY, id: res.data.success })
+      dispatch(getAllNotes())
+    })
+    .catch(err => console.log(err))
+}
+
+export const removeFromUndeadArmy = id => dispatch => {
+  axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(res => {
+      dispatch({ type: REMOVE_FROM_UNDEAD_ARMY, id: res.data.success })
+      dispatch(getAllNotes())
+    })
+    .catch(err => console.log(err))
+}
