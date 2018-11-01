@@ -32,7 +32,7 @@ class NotesDisplay extends React.Component {
             let filteredNotes = this.state.notes.slice();
             console.log("++++++++ " ,filteredNotes);
             filteredNotes = filteredNotes.filter(note => 
-                                                note.title.includes(this.state.filterparameter || note.textbody.includes(this.state.filterparameter)) 
+                                                note.title.includes(this.state.filterparameter || note.textBody.includes(this.state.filterparameter)) 
                                                 )
             return this.setState({filteredNotes : filteredNotes}, () =>  console.log(this.state.filteredNotes))
         })
@@ -56,18 +56,18 @@ class NotesDisplay extends React.Component {
 
                 
                 <div className = "notes">
-                    {this.state.notes.map((note, index) => 
+                   {/* {this.state.notes.map((note, index) => 
                                                         <SingleNote
                                                             key = {note.id}
                                                             data = {note}
                                                         />
-                    )}
-                      {/* {this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.state.notes.map((note, index) => 
+                    )}*/}
+                       {(this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.state.notes).map((note, index) => 
                                                                                                                         <SingleNote  
                                                                                                                             key = {note.id}
                                                                                                                             data = {note}
                                                                                                                         />
-                    )}*/}
+                    )}
                 </div>
             </div>
         )
