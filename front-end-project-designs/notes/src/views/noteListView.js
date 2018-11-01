@@ -15,7 +15,9 @@ class NoteListView extends React.Component {
         tag: [],
         title: "",
         textBody: ""
-      }
+      },
+      title:"",
+      textBody:"",
     };
   }
   componentDidMount() {
@@ -30,6 +32,11 @@ class NoteListView extends React.Component {
       }
     });
   };
+  handleChangesEdit = event => {
+    this.setState({
+        [event.target.name]: event.target.value
+    });
+  };
   addNewNote = event => {
     this.props.addNote(this.state.newNote);
   };
@@ -42,8 +49,10 @@ class NoteListView extends React.Component {
   handleFetchSingle = id => {
     this.props.fecthSingle(id);
   };
+
   editNote=(id)=>{
-    this.props.editNote(id,this.state.newNote);
+    const {title,textBody}=this.state
+    this.props.editNote(id,{title,textBody});
   }
   render() {
     console.log("render here");
@@ -90,7 +99,7 @@ class NoteListView extends React.Component {
           render={() => (
             <EditForm
               {...this.props}
-              handleChanges={this.handleChanges}
+              handleChanges={this.handleChangesEdit}
               editNote={this.editNote}
             />
           )}

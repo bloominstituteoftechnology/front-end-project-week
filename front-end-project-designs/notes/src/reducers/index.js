@@ -12,7 +12,7 @@ const initialState = {
   notes: [],
   erorr: null,
   fetchingNote: false,
-  singleNote:[]
+  singleNote: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -30,7 +30,18 @@ const rootReducer = (state = initialState, action) => {
     case DELETE_NOTE:
       return { ...state, notes: [...state.notes] };
     case FETCH_SINGLE:
-      return{...state, singleNote:action.payload}
+      return { ...state, singleNote: action.payload };
+    case EDIT_NOTE:
+      return {
+        ...state,
+        notes: state.notes.map(note => {
+          if (note._id === action._id) {
+            return { ...action.payload };
+          } else {
+            return note;
+          }
+        })
+      };
     default:
       return state;
   }
