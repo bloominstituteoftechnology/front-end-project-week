@@ -1,4 +1,3 @@
-
 import React from "react";
 
 //HOC
@@ -27,7 +26,7 @@ const Authenticate = (App, Login) =>
 
     render() {
       if (this.state.loggedIn) {
-        return <App />;
+        return <App loggedIn={this.loggedIn}/>;
       } else {
         return <Login />;
       }

@@ -40,6 +40,7 @@ const NavBar = props => {
         )
     }
     else {
+        console.log(props)
         return (
             <NavBarContainer>
                 <h1>Lambda Notes</h1>
@@ -53,6 +54,7 @@ const NavBar = props => {
                 <CSVLink data={props.notes} headers={headers} style={{textDecoration: 'none'}}>
                     <NavButton>Download The Notes as CSV</NavButton>
                 </CSVLink>
+                <NavButton>Logout</NavButton>
             </NavBarContainer>
         )
     }

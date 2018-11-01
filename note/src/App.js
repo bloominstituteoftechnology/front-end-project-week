@@ -41,9 +41,10 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <HomePage>
-        <NavBar notes={this.state.notes}/>
+        <NavBar notes={this.state.notes} />
         <Route
           exact path='/'
           render={props => <Notes {...props} notes={this.state.notes} />}   

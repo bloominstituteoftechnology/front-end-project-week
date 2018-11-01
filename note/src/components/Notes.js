@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { CSVLink } from 'react-csv';
 
 const NotesContainer = styled.div`
   border: 1px solid black;
