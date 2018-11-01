@@ -111,14 +111,16 @@ const Note = props => {
 	return (
 		<NoteContainer>
 			<NoteTags>
-				{props.note.tags.map(
-					(tag, i) =>
-						tag ? (
-							<Tag key={props.note._id + i} title={tag.text}>
-								{tag.text}
-							</Tag>
-						) : null
-				)}
+				{props.note.tags.length &&
+					props.note.tags.map(tag => (
+						<Tag
+							key={`${props.note.id}-${tag.id}`}
+							id={tag.id}
+							title={tag.text}
+						>
+							{tag.text}
+						</Tag>
+					))}
 			</NoteTags>
 			<NoteLink to={`/note/${props.note.id}`}>
 				<NoteTitle>{props.note.title}</NoteTitle>
