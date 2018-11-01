@@ -7,6 +7,7 @@ import HeadNav from './components/HeadNav/HeadNav';
 import ListView from './components/ListView/ListView';
 import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditCreate/EditNote';
+import Delete from './components/Delete/Delete';
 
 //actions
 import { getNotes, viewNote, create, createMode, editMode } from './components/actions';
@@ -68,6 +69,9 @@ class App extends Component {
               // note={this.props.note}
               // editNote={this.props.editNote}
             />
+          )} />
+          <Route path='/' render={(props) => (
+            <Delete />
           )} />
         </div>
 
