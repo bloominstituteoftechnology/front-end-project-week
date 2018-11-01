@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NotesContainer from './components/notes-container/NotesContainer';
 import SidebarContainer from './components/sidebar/SideBarContainer';
+import styled from 'styled-components'
 import './App.css';
+
+const ContainerWrap = styled.div `
+width: 100%;
+display: flex;
+flex-direction: row;
+`
 
 class App extends Component {
   constructor(props) {
@@ -31,12 +38,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <ContainerWrap>
       <SidebarContainer/>
       <NotesContainer 
       notes={this.state.notes} 
       />
-      </div>
+      </ContainerWrap>
 
     );
   }
