@@ -82,7 +82,7 @@ class NoteView extends React.Component {
 
 
         deleteHandler = event => {
-          // event.preventDefault();
+          event.preventDefault();
           this.deleteNoteButton(this.state.note._id);
           this.props.history.push('/')
           window.location.reload();
@@ -105,11 +105,11 @@ class NoteView extends React.Component {
         }
         
         return (
-          <div className="notes-container">
+          <div className = 'singleNoteViewContainer'>
             <div className ='editDelete'>
                  {/* <button onClick= {this.deleteNoteButton} id={this.state.note._id}> Delete </button> */}
 
-                <Button onClick={this.toggle}> Delete</Button>
+                <Button className = 'editDeleteButton' onClick={this.toggle}> Delete</Button>
                 <Modal 
                   isOpen={this.state.modal}
                   toggle={this.toggle}>
@@ -124,12 +124,15 @@ class NoteView extends React.Component {
                 </Modal>
            
             
-                <Button onClick={this.editHandler}>Edit</Button>
+                <Button className = 'editDeleteButton' onClick={this.editHandler}>Edit</Button>
            </div>
-            <h1>{this.state.note.title}</h1>
+           <div className="notes-container">
+            <h1 className = 'noteTitle'>{this.state.note.title}</h1>
             <p>{this.state.note.textBody}</p>
+            </div>
             
-                <form onSubmit={this.saveHandler}>
+                <form className = 'editform' onSubmit={this.saveHandler}>
+                <h1 style={editStyle} >Edit Form: </h1>
                   <input
                     name="editedTitle"
                     type= "text"
@@ -144,8 +147,10 @@ class NoteView extends React.Component {
                     onKeyDown={this.submitHandler}
                     onChange={this.changeHandler}
                     value={this.state.editedTextBody}/>
+
+                    <Button onClick={this.saveHandler} style={editStyle} >Save</Button>
                 </form>
-                 <Button onClick={this.saveHandler} style={editStyle} >Save</Button>
+                 
                
           </div>
         );

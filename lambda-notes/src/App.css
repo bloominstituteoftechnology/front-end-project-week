@@ -107,8 +107,6 @@
   flex-direction: column;
   background: #f2f1f2;
   width: 760px;
-  /* justify-content: flex-start; */
-  /* align-items: flex-start; */
   padding: 0px 20px;
   height: 500px;
 }
@@ -139,3 +137,46 @@
  
 }
 
+.editDeleteButton {
+  background: none;
+  border: none;
+  text-decoration-line: underline;
+  color: #434343;
+  font-weight: bold;
+ 
+}
+
+.editDelete {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  padding-top: 20px;
+
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 20px;
+
+}
+
+.singleNoteViewContainer {
+  background: #f2f1f2;
+  height: 400px;
+}
+
+.notes-container h1 {
+  color: #434343
+}
+
+.notes-container p {
+  color: #434343
+}
+
+.editform {
+  display: flex;
+  flex-direction: column;
+}

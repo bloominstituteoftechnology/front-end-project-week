@@ -9,7 +9,7 @@ class All extends Component {
             <div className = 'noteslist'>
                 <h1> Your Notes: </h1>
                 <div className = 'cardList'>
-                {this.props.notes.map(note => {
+                {this.props.notes.slice(0).reverse().map(note => {
                     return (
                         <Link to={`/note/${note._id}`} key={note._id}>
                             <NoteCard
