@@ -7,8 +7,10 @@ import './sidebar.css';
 const SideBar = props => {
     return (
         <div className='sidebar-wrapper'>
-            <h1 className='lambda-notes'>Lambda</h1>
-            <h1 className='lambda-notes'>Notes</h1>
+            <Link to='/'>
+                <h1 className='lambda-notes'>Lambda</h1>
+                <h1 className='lambda-notes'>Notes</h1>
+            </Link>
             <Link to='/'>
                 <button className='button-view-notes'>View Your Notes</button>
             </Link>

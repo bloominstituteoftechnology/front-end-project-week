@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-between; 
+    justify-content: space-evenly; 
    
 }
 
@@ -55,7 +55,7 @@
 
 .note-links{
     text-decoration: none;
-    margin: 20px 0;
+    margin: 20px 1%;
     padding: 0 0;
     width: 31%;
     border: 1px solid #B1B1B1;

@@ -31,7 +31,7 @@
 }
 
 .note-title-body{
-    height: 83vh;
+    min-height: 83vh;
     margin: 0px 3%;
     color: #4A4A4A
 }
@@ -39,6 +39,7 @@
 .note-title-body p{
     font-size: 1.6rem;
     line-height: 25px;
+    white-space: pre-line;
 }
 
 

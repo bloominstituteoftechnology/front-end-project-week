@@ -4,6 +4,7 @@
     flex-direction: column;
     width: 20%;
     padding: 20px;
+    border: 1px solid #B1B1B1;
 }
 
 
@@ -20,17 +21,22 @@
     font-size: 3.6em;
     font-weight: bold;
     color:#4A4A4A;
+    text-decoration: none;
      
 }
 
 .button-view-notes{
-    padding: 10px 11%;
+    padding: 10px 13%;
     margin: 25px 0 10px 0
     
 
 }
 
 .button-create{
-    padding: 10px 6%;
+    padding: 11px 7.5%;
     margin: 10px 0 10px 0
+}
+
+.sidebar-wrapper a{
+    text-decoration: none;
 }
