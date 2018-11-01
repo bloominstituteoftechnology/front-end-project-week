@@ -92,14 +92,9 @@ export const DELETING = 'DELETING';
 export const DELETED = 'DELETED';
 export const DELETE_FAILURE = 'DELETE_FAILURE';
 
-export const startDelete = () => {
-    return function(dispatch) {
-        dispatch({ type: DELETING });
-    }
-}
-
 export const deleteNote = id => {
     return function(dispatch) {
+        dispatch({ type: DELETING });
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then(response => {

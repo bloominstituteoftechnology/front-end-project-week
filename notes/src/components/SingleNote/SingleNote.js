@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchNote } from '../../actions';
+import { fetchNote, deleteNote } from '../../actions';
 import { connect } from 'react-redux';
 import './SingleNote.css';
 
@@ -16,6 +16,12 @@ class SingleNote extends Component {
         let modal = document.querySelector('.modal');
         modal.style.display = 'none';
     }
+
+    handleDelete = (event, id) => {
+        event.preventDefault();
+        this.props.deleteNote(id);
+        this.props.history.push('/');
+    }
     
     render() {
 
@@ -31,17 +37,20 @@ class SingleNote extends Component {
                         <p>{this.props.note.textBody}</p>
                     </div>
                     <div className="modal">
-                        <p>
-                            Are you sure you want to delete this?
-                        </p>
-                        <div className="buttons">
-                            <div className="deleteButton">
-                                Delete
-                            </div>
-                            <div  onClick={this.hideModal} className="noButton">
-                                No
-                            </div>
+                        <div className="modal_background">
+                            <p>
+                                    Are you sure you want to delete this?
+                                </p>
+                                <div className="buttons">
+                                    <div onClick={event => this.handleDelete(event, this.props.note._id)} className="deleteButton">
+                                        Delete
+                                    </div>
+                                    <div  onClick={this.hideModal} className="noButton">
+                                        No
+                                    </div>
+                                </div>                        
                         </div>
+
                     </div>
                 </div>
             )
@@ -58,5 +67,6 @@ const mapStateToProps = state => {
     }
 }
 export default connect(mapStateToProps, {
-    fetchNote
+    fetchNote,
+    deleteNote
 })(SingleNote);

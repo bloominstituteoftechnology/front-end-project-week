@@ -127,7 +127,8 @@ export const notesReducer = (state = initialState, action) => {
                 deleting: false,
                 deleted: true,
                 notes: [
-                    ...action.payload
+                    ...state.notes,
+                    action.payload
                 ]
             }
         case DELETE_FAILURE:
