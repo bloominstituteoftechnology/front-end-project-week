@@ -56,16 +56,17 @@ class Note extends Component {
                     </span>
                 </div>
                         
-                <div className='delete-modal'>
-                    <div className='modal'>
-                        <h4>Are you sure you want to delete this?</h4>
-                        <div className='modal-buttons'>
-                            <button 
-                                className='delete-button' 
+                <div className="delete-modal">
+                    <div className="modal-box">
+                        <h4 className="confirmation">Are you sure you want to delete this?</h4>
+                        <div className="modal-buttons">
+                            <Link 
+                                className="delete-button"
                                 onClick={() => this.handleDelete(this.state.note._id)}
+                                to="/"
                             >
                                 Delete
-                            </button>
+                            </Link>
                             <button 
                                 className='no-button' 
                                 onClick={this.showModal}

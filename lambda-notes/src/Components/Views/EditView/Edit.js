@@ -86,7 +86,6 @@ class Edit extends Component {
                         type="submit"
                         value="Update"
                     />
-                    />
                 </form>
             </div>
         )
