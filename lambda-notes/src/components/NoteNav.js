@@ -1,6 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons' 
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(faEdit, faTrash)
 
 
 const StyledNoteNav = styled.nav`
@@ -42,10 +47,10 @@ const NoteNav = props => {
   return (
     <StyledNoteNav>
       <NavLink to={`/note/${props.id}/edit`}>
-        <button>EDIT</button>
+        <button><FontAwesomeIcon icon={faEdit}/></button>
       </NavLink>
       <button onClick={props.toggleModal}>
-        DELETE
+        <FontAwesomeIcon icon={faTrash}/>
       </button>
     </StyledNoteNav>
   );
