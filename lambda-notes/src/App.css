@@ -228,6 +228,7 @@ strong {
 .notes-list .note-preview h4 {
 	font-size: 1.8rem;
 	width: 90%;
+	min-height: 30px; 
 	border-bottom: 1px solid #524e4d;
 	padding: 7px 0;
 	font-weight: bold;
