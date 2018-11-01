@@ -22,11 +22,14 @@ class NoteDot extends React.Component {
     state = {
         lit: false,
         color: '',
-        dot: {}
+        dot: {...this.props.dot, bgColor: this.props.color},
+        bgColor: 'green'
     }
 
     highlight = () => {
-        this.setState({lit: !this.state.lit})
+
+        this.setState({lit: !this.state.lit});
+        this.props.selectDot(this.state.dot.dotID)
     }
 
     saveBG = () => {
@@ -37,7 +40,7 @@ class NoteDot extends React.Component {
         return (
          <div className={`circle ${this.props.number} ${this.state.lit ? 'lit' : ''}`} 
               onClick={this.highlight}
-              style={{backgroundColor: this.state.bgColor}}></div>
+              style={this.state.dot.loaded ? {backgroundColor: this.state.bgColor} : null}></div>
         )
     }
 }
@@ -59,20 +62,18 @@ export default class MiniMap extends React.Component {
         this.setState({color: color, changeTopic: false});
 
     }
+    
 
-    talk = () => {
-        console.log('WAAH')
-    }
     
     render(){
         console.log(this.props.subtopics)
         return (
             <MinMap color={this.state.color}>
-                <NoteDot number='one' color={this.state.color} />
-                <NoteDot number='two' />
-                <NoteDot number='three' />
-                <NoteDot number='four' />
-                <NoteDot number='five' />
+                {this.props.dots.map(dot => (
+                    <NoteDot number={dot.number} dot={dot} color={this.state.color} selectDot={this.props.selectDot} />
+                ))}
+                
+                
                 <div onClick={this.changeTopic} className={`minimap-click1`}></div>
                 <div onClick={this.changeTopic} className={`minimap-click2`}></div>
                 <div onClick={this.changeTopic} className={`minimap-click3`}></div>

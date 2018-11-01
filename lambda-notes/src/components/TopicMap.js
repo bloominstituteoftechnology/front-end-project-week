@@ -1,6 +1,13 @@
 import React from 'react';
 import MiniMap from './MiniMap';
 
+const dotsArr = [{number: 'one', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+              {number: 'two', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+              {number: 'three', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+              {number: 'four', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+              {number: 'five', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false}
+            ]
+
 export default class TopicMap extends React.Component {
     state = {
         title: 'Title',
@@ -8,8 +15,27 @@ export default class TopicMap extends React.Component {
         newNote: {'title': '', 'textBody': '', 'tags': []},
         topicNotes: [{'title': 'spaggle', 'textBody': '', 'tags': []}],
         subtopics: [],
-        newSubtopic: ''
-
+        newSubtopic: '',
+        miniMaps: [{
+            id: Date.now(),
+            bgColor: '',
+            subtopics: [],
+            dots: dotsArr
+            
+        }],
+        selectedDot: {}
+    }
+    selectDot = (id) => {
+        let selectedMap = this.state.miniMaps.find(map => {
+                                                    return map.dots.filter(dot => { console.log('Dot IDs',dot.dotID);
+        
+                                                    return dot.dotID === id })[0].dotID === id} );
+        let selectedDot = selectedMap.dots.filter(dot => dot.dotID === id)[0];
+        this.setState({selectedDot})
+        
+        
+        console.log('Selected Map',selectedMap);
+        console.log('Selected Dot', selectedDot);
     }
 
     inputHandler = (e) => {
@@ -57,13 +83,12 @@ export default class TopicMap extends React.Component {
                        onChange={this.inputHandler} />
 
                 <div className="note-map">
-                <MiniMap subtopics={this.state.subtopics}/>
-                <MiniMap subtopics={this.state.subtopics}/>
-                <MiniMap subtopics={this.state.subtopics}/>
-                <MiniMap subtopics={this.state.subtopics}/>
-                <MiniMap subtopics={this.state.subtopics}/>
-                <MiniMap subtopics={this.state.subtopics}/>
-                <MiniMap subtopics={this.state.subtopics}/>
+                {this.state.miniMaps.map(miniMap => <MiniMap miniMap={miniMap} 
+                                                             subtopics={this.state.subtopics} 
+                                                             selectDot={this.selectDot}
+                                                             dots={miniMap.dots}/>)
+                }
+                
                 </div>
                 <div className="subtopic-area">
                     <table>
