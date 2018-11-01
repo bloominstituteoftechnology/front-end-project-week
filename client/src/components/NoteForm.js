@@ -43,21 +43,33 @@ class NoteForm extends Component {
   render() {
     return (
       <div className="NoteForm">
+        <div className="add-header">
+          {" "}
+          <h1>Create New Note</h1>
+        </div>
         <form onSubmit={this.addNote}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="Note Title"
-            value={this.state.title}
-            name="title"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="Note Content"
-            value={this.state.textBody}
-            name="textBody"
-          />
+          <div>
+            <input
+              onChange={this.handleInputChange}
+              placeholder="Note Title"
+              value={this.state.title}
+              name="title"
+            />
+          </div>
+          <div>
+            <textarea
+              onChange={this.handleInputChange}
+              placeholder="Note Content"
+              value={this.state.textBody}
+              name="textBody"
+            />
+          </div>
 
-          <button type="submit">Save</button>
+          <div>
+            <button className="form-submit" type="submit">
+              Save
+            </button>
+          </div>
         </form>
       </div>
     );

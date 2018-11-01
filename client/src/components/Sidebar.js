@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import SidebarHeader from "./SidebarHeader";
-
 //The sidebar component with buttons linking to view page and create page
 
 const Sidebar = () => {
   return (
     <section className="sidebar">
-      <SidebarHeader />
+      <div className="header">
+        <div className="sidebar-header">Lambda Notes</div>
+      </div>
       <div>
         <Link to="/">
           <div className="sidebar-button">View Your Notes</div>

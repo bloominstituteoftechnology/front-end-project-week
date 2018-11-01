@@ -94,23 +94,36 @@ class NoteView extends Component {
     if (this.state.editing) {
       return (
         <div className="edit-form">
-          <h1>Edit Note:</h1>
+          <div className="edit-head">
+            <h1>Edit Note:</h1>
+          </div>
+
           <form onSubmit={this.editSubmitHandler}>
-            <input
-              name="title"
-              type="text"
-              placeholder="new title"
-              value={title}
-              onChange={this.handleChange}
-            />
-            <input
-              name="textBody"
-              type="text"
-              placeholder="new note"
-              value={textBody}
-              onChange={this.handleChange}
-            />
-            <button type="submit">Update</button>
+            <div>
+              <input
+                className="edit-title"
+                name="title"
+                type="text"
+                placeholder="new title"
+                value={title}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <textarea
+                className="edit-body"
+                name="textBody"
+                type="textarea"
+                placeholder="new note"
+                value={textBody}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <button className="form-submit" type="submit">
+                Update
+              </button>
+            </div>
           </form>
         </div>
       );
@@ -134,15 +147,22 @@ class NoteView extends Component {
           <p>{this.state.textBody}</p>
         </div>
 
-        <Modal open={open} onClose={this.closeModal} center>
-          <h2>Are you sure you want to delete this?</h2>
+        <Modal
+          open={open}
+          onClose={this.closeModal}
+          center
+          showCloseIcon={false}
+        >
+          <div className="modal">
+            <p>Are you sure you want to delete this?</p>
 
-          <button className="modal-delete" onClick={this.delete}>
-            Delete
-          </button>
-          <button onClick={this.closeModal} className="modal-no">
-            No
-          </button>
+            <button className="modal-delete" onClick={this.delete}>
+              Delete
+            </button>
+            <button onClick={this.closeModal} className="modal-no">
+              No
+            </button>
+          </div>
         </Modal>
       </div>
     );

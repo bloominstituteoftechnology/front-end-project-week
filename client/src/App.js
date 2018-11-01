@@ -11,12 +11,9 @@ import NoteView from "./components/NoteView";
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      notes: [],
-      id: "",
-      title: "",
-      textBody: "",
-      isUpdating: false
+      notes: []
     };
   }
 

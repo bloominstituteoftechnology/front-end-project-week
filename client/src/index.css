@@ -24,15 +24,20 @@ code {
 
   text-align: left;
 }
-
+.NotesList {
+  min-height: 1200px;
+  background: rgb(236, 236, 236);
+}
 .sidebar-header {
   font-size: 3rem;
-  padding-left: 1rem;
+  color: rgb(66, 66, 66);
   display: flex;
   align-items: flex-end;
-  padding-bottom: 1rem;
-  background: darkgray;
+  font-weight: bold;
+  padding: 0rem 0rem 1rem 1rem;
+  background: rgb(194, 194, 194);
   height: 8rem;
+  line-height: 3rem;
 }
 .list-header {
   font-size: 2.5rem;
@@ -40,7 +45,7 @@ code {
   display: flex;
   align-items: flex-end;
   padding-bottom: 1rem;
-  background: lightgray;
+  background: rgb(236, 236, 236);
 
   height: 8rem;
 }
@@ -48,17 +53,18 @@ code {
   width: 100%;
   min-height: 1200px;
   height: 100%;
-  background: darkgray;
+  background: rgb(194, 194, 194);
 }
 .note-view {
-  background: rgb(253, 250, 245);
+  background: rgb(236, 236, 236);
   display: flex;
   flex-direction: column;
+  padding: 2.5rem;
 }
+
 .note-buttons {
   display: flex;
   justify-content: flex-end;
-  padding-top: 0.75rem;
 }
 .note-buttons button {
   background: none;
@@ -67,43 +73,48 @@ code {
 }
 .note-header {
   font-size: 2.5rem;
-  padding-left: 2.5rem;
   display: flex;
   flex-direction: column;
-  padding-bottom: 1rem;
-  background: rgb(253, 250, 245);
+
+  background: rgb(236, 236, 236);
   order: 1;
-  height: 8rem;
+  height: 5.5rem;
   justify-content: space-between;
 }
+.add-header {
+  height: 6.5rem;
+}
+
 .note-body {
   order: 2;
 }
 .note-body p {
-  margin: 0 0 0 2.5rem;
   padding: 0;
 }
 .list {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
+  display: flex;
+  flex-flow: row wrap;
   margin: 0 auto;
-  background: lightgray;
+  background: rgb(236, 236, 236);
+  justify-items: center;
+  padding: 0 2.5rem;
 }
 
-.Note {
-  width: 12rem;
-  height: 12rem;
+.list a {
   text-overflow: ellipsis;
+  width: 30%;
   text-align: center;
   border: 1px solid black;
-  background: rgb(253, 250, 245);
+  background: white;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin: 0 0.5rem 1.5rem 0.5rem;
   text-align: left;
+  height: 15rem;
 }
+
 .Note p {
+  margin: 0 auto;
   width: 80%;
-  margin: 0.5rem auto;
   color: black;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -124,9 +135,9 @@ code {
   font-size: 1rem;
   width: 80%;
   padding: 0.5rem;
-  border: 1px solid black;
+  border: 1px solid grey;
   margin: 0 auto;
-  background: teal;
+  background: #2bc1c4;
   color: white;
   font-weight: bold;
   text-align: center;
@@ -138,4 +149,75 @@ code {
   margin-left: 2.5rem;
   display: grid;
   grid-template-rows: 5rem;
+}
+.styles_modal__gNwvD {
+  border: solid black 1px;
+}
+.modal {
+  height: 15vh;
+  width: 40vw;
+  text-align: center;
+  margin: 0;
+}
+.modal button {
+  height: 2.5rem;
+  width: 10rem;
+  margin: 0.5rem;
+  font-weight: bold;
+  color: white;
+}
+.modal-delete {
+  background: rgb(184, 2, 2);
+  border: 1px solid rgb(112, 0, 0);
+}
+
+.modal-no {
+  background: #2bc1c4;
+  border: 1px solid rgb(117, 117, 117);
+}
+
+.edit-form {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  background: rgb(236, 236, 236);
+}
+.edit-head {
+  height: 6.5rem;
+}
+.NoteForm {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  background: rgb(236, 236, 236);
+}
+
+form input {
+  width: 60%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid rgb(168, 167, 167);
+  margin-bottom: 1rem;
+}
+
+textarea {
+  box-sizing: border-box;
+  height: 20rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid rgb(168, 167, 167);
+  margin-bottom: 1rem;
+
+  vertical-align: top;
+  top: 0px;
+}
+
+.form-submit {
+  width: 12rem;
+  padding: 0.8rem;
+  font-weight: bold;
+  background: #2bc1c4;
+  color: white;
+  border: 1px solid gray;
 }
