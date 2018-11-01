@@ -5,24 +5,17 @@ import IndividualNote from './IndividualNote'
 class NoteListContainer extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            notes: [this.props.notes]
-        }
+    
     }
-    // const routeToItem = (ev, note) => {
-    //     ev.preventDefault();
-    //     props.getNoteId(note)
-    //     props.history.push(`/note-list/${note._id}`)
-    //     console.log("noteID",note._id)
-    // }
+
     render()
     {
         return (
             <div className="note-container">
                 <h1>Your Notes:</h1>
                 <div className="note-wrapper">
-                  {this.props.notes.map(note => {
-                      return <IndividualNote key={note._id} note={note} getNoteId={this.props.getNoteId} />
+                  {this.props.notes.map((note, i) => {
+                      return <IndividualNote key={note._id} moveCard={this.props.moveCard} index={i} note={note} id={note._id} getNoteId={this.props.getNoteId} />
                   })}
                 </div>
             </div>

@@ -7,6 +7,9 @@ import AddNote from './components/AddNote';
 import SingleNote from './components/SingleNote';
 import EditNote from './components/EditNote';
 import { Route } from "react-router-dom";
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContext } from 'react-dnd'
+const update = require('immutability-helper');
 
 
 
@@ -33,6 +36,21 @@ class App extends Component {
     //        console.log("error", error)
     //      })
     this.getNotes();
+  }
+
+
+  
+  moveCard = (dragIndex, hoverIndex) => {
+    const { notes } = this.state
+    const dragCard = notes[dragIndex]
+
+    this.setState(
+      update(this.state, {
+        notes: {
+          $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]],
+        },
+      }),
+    )
   }
 
   getNotes = () => {
@@ -126,7 +144,7 @@ class App extends Component {
         <SingleNote {...props} deleteNote={this.deleteNote} note={this.state.activeNote} goToEditForm={this.goToEditForm} />
       )} />
       <Route exact path="/note-list/" render={props => (
-        <NoteListContainer {...props} notes={this.state.notes} getNoteId={this.getNoteId} />
+        <NoteListContainer {...props} notes={this.state.notes} moveCard={this.moveCard} getNoteId={this.getNoteId} />
       )} />
       <Route exact path="/add-Note" render={props => (
         <AddNote 
@@ -156,4 +174,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);
