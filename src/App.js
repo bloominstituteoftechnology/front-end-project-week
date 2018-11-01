@@ -20,12 +20,12 @@ class App extends Component {
     this.getNotesFromAPI()
   }
 
-  componentDidUpdate() {
-    setTimeout(this.getNotesFromAPI, 5000)
-  }
+  // componentDidUpdate() {
+  //   setTimeout(this.getNotesFromAPI, 5000)
+  // }
 
   getNotesFromAPI = () => {
-    axios.get('http://localhost:3333/notes')
+    axios.get('https://lsnotes-timh1203.herokuapp.com/notes')
       .then(resp => this.setState({ notes: resp.data }))
       .catch(err => console.log(err))
   }

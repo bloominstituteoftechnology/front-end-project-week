@@ -39,7 +39,7 @@ class NoteForm extends Component {
         text: this.state.text,
         tags: formattedTags
       }
-      axios.put(`http://localhost:3333/notes/${id}/edit`, updatedNote)
+      axios.put(`https://lsnotes-timh1203.herokuapp.com/notes/${id}/edit`, updatedNote)
         .then(resp => console.log(resp))
         .catch(err => console.log(err))
       this.props.history.push("/")
@@ -56,7 +56,7 @@ class NoteForm extends Component {
         text: '',
         tags: ''
       }
-      axios.post('http://localhost:3333/notes', newNote)
+      axios.post('https://lsnotes-timh1203.herokuapp.com/notes', newNote)
         .then(resp => console.log(resp))
         .catch(err => console.log(err))
       this.setState(emptyNote)
