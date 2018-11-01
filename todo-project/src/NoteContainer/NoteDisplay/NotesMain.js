@@ -5,7 +5,15 @@ import NotesList from './NotesList'
 const titleBold = {
     'fontWeight': 'bold',
     'fontSize': '2rem',
-    'marginLeft': '1.3%'
+    'marginLeft': '1.3%',
+    'marginTop': '4%'
+}
+const logoutButton = {
+    'display': 'flex',
+    'justifyContent': 'flex-end',
+    'marginRight': '1%',
+    'cursor': 'pointer',
+    'textDecoration': 'underline'
 }
 
 export default class NotesMain extends Component {
@@ -29,13 +37,23 @@ export default class NotesMain extends Component {
                 console.log(error)
             })
     }
+
+    logout = function() {
+        localStorage.clear()
+        if(window.localStorage.getItem('user') === null) {
+            window.location.reload();
+        }
+    }
  
   render() {
     return (
+    <div>
+        <p style={logoutButton} onClick={this.logout} >Logout</p>
       <div>
           <p style={titleBold} >{this.username}'s Notes:</p>
           <NotesList notes={this.state.notes} />
       </div>
+    </div>
         
     )
   }
