@@ -45,7 +45,7 @@ class App extends Component {
           path='/notes/:id' 
           // component={NoteViewRedux}
           render={props => (
-            <NoteViewRedux id = {props.match.params.id} />
+            <NoteViewRedux id = {props.match.params.id} history={props.history}/>
           )}
         />
         

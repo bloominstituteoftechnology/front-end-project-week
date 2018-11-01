@@ -6,6 +6,8 @@ const initialState = {
     gotNotes: false,
     postingNote: false,
     postedNote: false,
+    deletingNote: false,
+    deletedNote: false,
     error: null,
 };
 
@@ -29,6 +31,17 @@ const notesReducer = (state = initialState, action) => {
           postingNote: false,
           // notes: action.payload,
         };
+      case actionTypes.DELETING_NOTE:
+        return {
+          ...state,
+          deletingNote: true,
+        };
+      case actionTypes.DELETE_NOTE:
+        return {
+          ...state,
+          deletingNote: false,
+          deletedNote: true,
+        }
       case actionTypes.ERROR:
         return {
           ...state,
@@ -36,6 +49,8 @@ const notesReducer = (state = initialState, action) => {
           gotNotes: false,
           postingNote: false,
           postedNote: false,
+          deletingNote: false,
+          deletedNote: false,
           error: action.payload,
         };
       default:

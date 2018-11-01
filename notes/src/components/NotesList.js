@@ -7,7 +7,9 @@ import { Route, } from 'react-router-dom';
 import NoteView from './NoteView';
 
 class NotesList extends Component {
+    componentDidMount() {
         
+    }
     notes = this.props.notes;
     render() {
         return (
