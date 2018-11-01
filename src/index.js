@@ -8,15 +8,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { notesReducer } from './reducers';
 import thunk from 'redux-thunk';
 
-const devtools = process.env.NODE_ENV === 'test'
-  ? x => x /* eslint-disable no-underscore-dangle */
-  : window.__REDUX_DEVTOOLS_EXTENSION__
-      && window.__REDUX_DEVTOOLS_EXTENSION__();
-/* eslint-enable no-underscore-dangle */
 
 const store = createStore(
   notesReducer,
-  compose(applyMiddleware(thunk),devtools,),
+  compose(applyMiddleware(thunk)),
 );
 
 
