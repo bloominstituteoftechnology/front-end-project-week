@@ -20,6 +20,7 @@ class App extends Component {
     }
   }
 
+// ========== GET notes ========== //
   componentDidMount() {
     axios
     .get('http://localhost:7000/api/notes')
@@ -35,6 +36,7 @@ class App extends Component {
   };
 
 
+  // ========== POST a note ========== //
   addNewNote = () => {
     axios
       .post("http://localhost:7000/api/notes", {
@@ -53,6 +55,7 @@ class App extends Component {
     };
 
 
+
 editHandler = id => {
   console.log(this.state)
   let notecopy = this.state.notes.slice();
@@ -61,6 +64,8 @@ editHandler = id => {
   console.log(this.state)
 };
 
+
+// ========== UPDATE a note ========== //
   editNoteSubmit = id => {
       axios
         .put(`http://localhost:7000/api/notes/${id}`, {
@@ -78,6 +83,8 @@ editHandler = id => {
     }
 
 
+
+// ========== DELETE a note ========== //
  deleteNote = (id) => {
   axios
   .delete(`http://localhost:7000/api/notes/${id}`)
@@ -96,6 +103,8 @@ editHandler = id => {
       this.forceUpdate();
   }
 
+
+  
   render() {
     return (
       <div className="App">
