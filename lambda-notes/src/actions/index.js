@@ -34,7 +34,7 @@ export const viewNote = noteId => {
         dispatch({ type: VIEWING_NOTE });
 
         axios
-            .get(`${url}${noteId}`)
+            .get(`${url}/${noteId}`)
             .then(res => {
                 dispatch ({ type: VIEWED_NOTE, payload: res.data });
             })
@@ -51,7 +51,7 @@ export const addNote = (note, history) => {
         axios
             .post(url, {
                 title: note.title,
-                textBody: note.content
+                content: note.content
             })
             .then(res => {
                 dispatch({ type: SAVED_NOTES, payload: res.data });
@@ -68,7 +68,7 @@ export const deleteNote = (NoteId, history) => {
         dispatch({ type: DELETING_NOTES });
 
         axios
-            .delete(`${url}${NoteId}`)
+            .delete(`${url}/${NoteId}`)
             .then(res => {
                 dispatch({ type: DELETED_NOTES });
             })
@@ -84,9 +84,9 @@ export const updateNote = note => {
         dispatch({ type: UPDATING_NOTES });
 
         axios
-        .put(`${url}${note.id}`, {
+        .put(`${url}/${note.id}`, {
             title: note.title,
-            textBody: note.content
+            content: note.content
         })
         .then(res => {
             dispatch({ type: UPDATED_NOTES, payload: res.data })

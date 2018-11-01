@@ -59,7 +59,7 @@ const mapStateToProps = state => {
     notes: state.notes,
     note: state.note,
     fetchingNotes: state.fetchingNotes,
-    viewingNote: state.fetchingNotes,
+    viewingNote: state.viewingNote,
     updatingNote: state.updatingNote,
     error: state.error
   }

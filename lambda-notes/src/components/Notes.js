@@ -43,9 +43,9 @@ class Notes extends Component {
                     {this.state.displayedNotes.map(note => {
                         return (
                             
-                                <div className="note" key={note._id}>
-                                    <Link to={`/notes/${note._id}`}>
-                                        <Note title={note.title} content={note.textBody} />
+                                <div className="note" key={note.id}>
+                                    <Link to={`/notes/${note.id}`}>
+                                        <Note id={note.id} title={note.title} content={note.content} />
                                     </Link>
                                 </div>
                             

@@ -73,8 +73,8 @@ class ViewNote extends Component {
 const mapStateToProps = state => {
     return {
       note: state.note,
-      viewingNote: state.fetchingNotes,
-      viewedNote: state.fetchedNotes,
+      viewingNote: state.viewingNotes,
+      viewedNote: state.viewedNote,
       error: state.error
     }
   }
