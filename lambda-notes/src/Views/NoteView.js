@@ -37,16 +37,16 @@ export const NoteView = props => {
           toggle={displayModal.toggle}/>
       ) : ''}
       <div className="controls">
-      <Link to={`/note/edit/${id}`}>
-        <span className="edit">edit</span>
-      </Link>
-      <span className="delete" onClick={(e)=>{
-        displayModal.toggle()
-      }}>delete</span>
+        <Link to={`/note/edit/${id}`}>
+          <span className="edit">edit</span>
+        </Link>
+        <span className="delete" onClick={(e)=>{
+          displayModal.toggle()
+        }}>delete</span>
       </div>
-      <h1>
+      <h2>
         {note.title}
-      </h1>
+      </h2>
       <p>
         {note.textBody}
       </p>

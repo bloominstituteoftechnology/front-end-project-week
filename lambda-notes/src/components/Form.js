@@ -10,7 +10,13 @@ const useInputValue = (initialValue) => {
   };
 }
 
-export const Form = ({ onSubmit, action, history, note }) => {
+export const Form = ({ 
+  onSubmit, 
+  action, 
+  history, 
+  note,
+  formTitle 
+}) => {
   if (note === undefined) {
     note = {
       title: '',
@@ -30,8 +36,9 @@ export const Form = ({ onSubmit, action, history, note }) => {
         })
         history.push('/')
       }}>
-        <input {...title} />
-        <input {...textBody} />
+        <h2>{formTitle}</h2>
+        <input {...title} className="title"/>
+        <input {...textBody} className="textBody"/>
         <button type="submit">{action}</button>
       </form>
     </div>
