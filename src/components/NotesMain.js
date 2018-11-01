@@ -106,7 +106,7 @@ const Strong = styled.strong`
 `
 const MdEdit1 = styled(MdEdit)`
   color: black;
-  font-size: 3rem;
+  font-size: 2rem;
   &:hover {
     background: black;
     color: white;
