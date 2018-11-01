@@ -263,6 +263,20 @@ html {
     width: 100%;
   }
 }
+.form .important-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.form .important-container .important-checkbox {
+  height: 40px;
+  width: 40px;
+}
+.form .important-container .important {
+  font-size: 2.2rem;
+}
 .form .form-submit {
   width: 250px;
   background-color: #00BDC0;

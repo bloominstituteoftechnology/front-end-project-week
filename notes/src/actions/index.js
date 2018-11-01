@@ -5,8 +5,11 @@ export const FETCHALL = 'FETCHALL';
 export const FETCHONE = 'FETCHONE'
 export const ERROR = 'ERROR';
 export const ADDED = 'ADDED';
+export const ADDIMPORTANT = 'ADDIMPORTANT';
 export const UPDATED = 'UPDATED';
 export const DELETED = 'DELETED';
+export const DELETEIMPORTANT = 'DELETEIMPORTANT';
+
 const url = 'https://fe-notes.herokuapp.com/note'
 
 export const fetchNotes = () => dispatch => {
@@ -44,6 +47,13 @@ export const addNote = (newNote) => dispatch => {
         });
 };
 
+export const addImportant = (important) => {
+    return {
+        type: ADDIMPORTANT, 
+        payload: important
+    }
+} 
+
 export const updateNote = (editedNote) => dispatch => {
     axios
         .put(`${url}/edit/${editedNote.id}`, editedNote)
@@ -64,4 +74,17 @@ export const deleteNote = (id) => dispatch => {
         .catch(error => {
             dispatch({ type: ERROR, payload: error });
         });
+};
+
+export const deleteImportant = (importantNotes) => dispatch => {
+    return importantNotes.map(id => {
+        return axios
+            .delete(`${url}/delete/${id}`)
+            .then(response => {
+                dispatch({ type: DELETED, payload: response.data });
+            })
+            .catch(error => {
+                dispatch({ type: ERROR, payload: error });
+            });
+    })
 };

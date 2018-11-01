@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchNotes, addNote } from '../actions';
+import { fetchNotes, addNote, addImportant } from '../actions';
 
 class AddNote extends Component {
     constructor(props) {
@@ -9,21 +9,27 @@ class AddNote extends Component {
         this.state = {
             title: '',
             textBody: '',
+            important: false,
             added: false
         }
     }
 
     changeHandler = event => {
+        const target = event.target
+        const name = target.name
+        const value = event.target.type === 'checkbox' ? target.checked : target.value        
         this.setState({ 
-            [event.target.name]: event.target.value,
+            [name]: value
         })
     };
 
     addNote = event => {
         event.preventDefault();
-        const { title, textBody } = this.state;
+        const { title, textBody, important } = this.state;
         let newNote = {title, textBody}
-        this.props.addNote(newNote).then(() => this.props.fetchNotes())
+        
+        this.props.addNote(newNote).then(() => this.props.addImportant(important)).then(() => this.props.fetchNotes())
+    
         this.setState({
             title: '',
             textBody: '',
@@ -54,6 +60,16 @@ class AddNote extends Component {
                         placeholder='Content' 
                         required
                     />
+                    <div className='important-container'>
+                        <input 
+                        className='important-checkbox' 
+                        type='checkbox' 
+                        name='important' 
+                        checked={this.state.important}
+                        onChange={this.changeHandler}
+                    />
+                        <div className='important'>Important</div>
+                    </div>
                     <input className='form-submit' type='submit' value='Save'/>
                 </form>
             </div>
@@ -67,4 +83,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { fetchNotes, addNote })(AddNote);
+export default connect(mapStateToProps, { fetchNotes, addNote, addImportant })(AddNote);

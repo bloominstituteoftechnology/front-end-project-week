@@ -1,10 +1,12 @@
-import { FETCHING, FETCHALL, FETCHONE, ADDED, UPDATED, DELETED, ERROR } from '../actions';
+import { FETCHING, FETCHALL, FETCHONE, ADDED, ADDIMPORTANT, UPDATED, DELETED, ERROR } from '../actions';
 
 const initialState = {
     fetching: false,
     notes: [],
     note: {},
-    error: null
+    newNote: '',
+    error: null,
+    importantNotes: []
 }
 
 export default (state = initialState, action) => {
@@ -24,9 +26,14 @@ export default (state = initialState, action) => {
                 note: action.payload
             };
         case ADDED: 
-            console.log(action.payload)
             return {
                 ...state,
+                newNote: action.payload.success
+            };
+        case ADDIMPORTANT:
+            return {
+                ...state, 
+                importantNotes: action.payload ? [...state.importantNotes, state.newNote] : [...state.importantNotes]
             };
         case UPDATED:
             return {
