@@ -105,8 +105,11 @@ h1 {
   width: 20px;
   height: 20px;
   text-decoration: none;
+  word-break: keep-all;
+  max-width: 600px;
   display: flex;
-  justify-content: column;
+  justify-content: flex-start;
+  text-align: start;
 }
 
 .note-card h3 {
@@ -252,10 +255,12 @@ h1 {
 
 .modal-btn-delete:hover {
   box-shadow: 0px 10px 15px rgb(130, 130, 130);
+  background-color: #e41e38;
 }
 
 .modal-btn-cancel:hover {
   box-shadow: 0px 10px 15px rgb(130, 130, 130);
+  background-color: #60e3e7;
 }
 
 .modal-btn-cancel {
