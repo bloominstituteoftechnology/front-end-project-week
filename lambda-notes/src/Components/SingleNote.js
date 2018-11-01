@@ -72,7 +72,9 @@ class SingleNote extends React.Component {
               to={`/notes/edit/${this.props.match.params.id}`}
             >
               <p
-                onClick={() => this.props.editNote(this.props.match.params.id)}
+                onClick={() =>
+                  this.props.editHandler(this.props.match.params.id)
+                }
               >
                 edit
               </p>
