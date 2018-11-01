@@ -162,6 +162,7 @@ h2 {
 }
 .view-note {
   padding-left: 35px;
+  width: 75%;
 }
 
 .view-note .links {
