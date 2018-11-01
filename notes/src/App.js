@@ -8,9 +8,23 @@ import { Auth0Lock } from "auth0-lock";
 import auth0 from "auth0-js";
 import SearchBarView from "./views/SearchBarView";
 
+var options = {
+  socialButtonStyle: "small",
+  languageDictionary: {
+    emailInputPlaceholder: "something@youremail.com",
+    title: "Lambda Notes"
+  },
+  theme: {
+    labeledSubmitButton: false,
+    primaryColor: "#81125b",
+    logo: "http://i63.tinypic.com/2djyk3k.png"
+  }
+};
+
 var lock = new Auth0Lock(
   process.env.REACT_APP_CLIENT_ID,
-  process.env.REACT_APP_DOMAIN_URL
+  process.env.REACT_APP_DOMAIN_URL,
+  options
 );
 
 var webAuth = new auth0.WebAuth({
