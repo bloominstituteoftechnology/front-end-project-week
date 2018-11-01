@@ -18,6 +18,14 @@ const Navigation = ({ editing, cancelEdit }) => (
       <Button>{editing ? "Edit Note" : "+ Create New Note"}</Button>
     </NavLink>
     <Search />
+    <Button
+      onClick={() => {
+        localStorage.removeItem("username");
+        window.location.reload();
+      }}
+    >
+      Logout
+    </Button>
   </NavBar>
 );
 
