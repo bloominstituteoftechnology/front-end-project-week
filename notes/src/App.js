@@ -46,7 +46,6 @@ class App extends Component {
   }
 
   changeSize = e => {
-    e.stopPropagation();
     if(this.state.size === 'note-card'){
       this.setState({size : 'note-card-dbl'})
     }else{
@@ -91,7 +90,12 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar refresh={this.refreshState()}/>
-        <Route exact path='/' render={() => <NoteList export={this.exportCsv} notes={this.state.notes} /> } />
+        <Route exact path='/' render={() => <NoteList 
+        size={this.state.size}
+        changeSize={this.changeSize} 
+        export={this.exportCsv} 
+        notes={this.state.notes} 
+        /> } />
         {/* Create New Card Route  */}
         <Route path='/create-new' render={() => <CreateNew 
         submit={this.createNewSubmit} 
