@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import NotesList from './NotesList';
+import NoteForm from './NoteForm';
+import NoteViewRedux from './NoteViewRedux';
 import { getNotes } from '../actions';
 import { connect } from 'react-redux';
-import NoteForm from './NoteForm';
+
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import Note from './Note';
-import NoteViewRedux from './NoteViewRedux';
 
 class App extends Component {
 
@@ -26,20 +27,23 @@ class App extends Component {
         <Route
           exact
           path='/notes'
-          render={() => (
-            <NotesList />
-          )}
+          component={NotesList}
+          // render={() => (
+          //   <NotesList />
+          // )}
         />
         <Route
           exact
           path='/note-form'
-          render={() => (
-            <NoteForm />
-          )}
+          component={NoteForm}
+          // render={() => (
+          //   <NoteForm />
+          // )}
         />
 
         <Route 
           path='/notes/:id' 
+          // component={NoteViewRedux}
           render={props => (
             <NoteViewRedux id = {props.match.params.id} />
           )}
@@ -76,5 +80,5 @@ const connector = connect(
 
 const ConnectedApp = connector(App);
 
-export default ConnectedApp;
+export default withRouter(ConnectedApp);
 

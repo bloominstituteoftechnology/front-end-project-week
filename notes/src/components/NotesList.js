@@ -3,7 +3,7 @@ import axios from 'axios';
 import Note from './Note';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { Route, } from 'react-router-dom';
 import NoteView from './NoteView';
 
 class NotesList extends Component {
@@ -16,9 +16,9 @@ class NotesList extends Component {
                     My Notes:
                 </h1>
                 <div className='notes-list'>
-                    {Object.keys(this.props.notes).map(key => (
-                        <Link key={key} to={`/notes/${key}`}>
-                            <Note key={key} note={this.props.notes[key]} />
+                    {this.props.notes.map(note => (
+                        <Link key={note.id} to={`/notes/${note.id}`}>
+                            <Note key={note.id} note={note} />
                         </Link>
                     ))}
                 </div>
