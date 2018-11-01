@@ -10,6 +10,7 @@ export const StyledCard = styled.div`
   background: rgb(255, 255, 255);
   padding: 13px 20px;
   border: 1px solid rgb(152, 152, 152);
+  border-radius: 3px;
 `;
 
 export const StyledH5 = styled.h5`

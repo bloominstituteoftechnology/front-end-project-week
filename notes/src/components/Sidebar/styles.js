@@ -21,7 +21,7 @@ export const StyledH1 = styled.h1`
   color: rgb(74, 73, 74);
   line-height: 3rem;
   text-align: left;
-  margin: 0 0 37px;
+  margin: 0 0 15px;
 `;
 
 export const StyledSidebarLink = styled(StyledLink)`
