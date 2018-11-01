@@ -19,7 +19,7 @@ const EditNote = props => {
                 className='edit-title'
             />
             <textarea
-                placeholder={props.notes.textBody}
+                placeholder={props.editTextBody}
                 name='editTextBody'
                 type='text'
                 value={props.editTextBody}

@@ -29,6 +29,9 @@ class Note extends Component {
             .then(response => {
                 this.setState(() => ({ note: response.data }))
             })
+            .then(() => {
+                this.setState({ editTextBody: this.state.note.textBody, editTitle: this.state.note.title })
+            })
             .catch(error => {
                 console.log(error);
             });
@@ -88,6 +91,7 @@ class Note extends Component {
     }
 
     render() {
+        console.log(this.state);
         if (!this.state.note) {
             return <div className='loading-note'> Loading Note...</div>
         }
@@ -102,6 +106,8 @@ class Note extends Component {
                         <EditNote notes={this.state.note}
                             saveEdits={this.saveEdits}
                             editHandler={this.editHandler}
+                            editTextBody={this.state.editTextBody}
+                            editTitle={this.state.editTitle}
                         />
                     ) : (<h1>{this.state.note.title}
                     </h1>)}
