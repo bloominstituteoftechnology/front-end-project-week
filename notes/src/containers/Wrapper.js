@@ -115,18 +115,24 @@ class Wrapper extends Component {
       return (
         <SpinnerWrapper>
           <ReactLoading
-              type={"spinningBubbles"}
-              color="#777"
-              height={160}
-              width={160}
-            />
+            type={"spinningBubbles"}
+            color="#333"
+            height={160}
+            width={160}
+          />
         </SpinnerWrapper>
       );
     }
 
     return (
       <Container>
-        <Navigation editing={this.props.editing} cancelEdit={this.cancelForm} />
+        <Navigation
+          editing={this.props.editing}
+          cancelEdit={() => {
+            this.props.hideEditForm();
+            this.setState({ newNote: blankFormValues });
+          }}
+        />
         <Route
           exact
           path="/"

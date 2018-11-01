@@ -24,7 +24,7 @@ class Note extends Component {
       <SpinnerWrapper>
         <ReactLoading
           type={"spinningBubbles"}
-          color="#777"
+          color="#333"
           height={"20%"}
           width={"20%"}
         />
