@@ -33,7 +33,9 @@ export const NoteView = props => {
       {displayModal.value ?( 
         <Modal 
           note={note}
-          deleteNote={props.deleteNote} 
+          delete={e => {
+            props.deleteNote(note)
+          }} 
           toggle={displayModal.toggle}/>
       ) : ''}
       <div className="controls">

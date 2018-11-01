@@ -27,6 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getAllNotes()
+    this.setState(prev => { notes: prev.notes.reverse() })
   }
 
   getAllNotes = () => {
@@ -61,7 +62,7 @@ class App extends Component {
             }
           }
           return {
-            notes: [...prev.notes, newNote],
+            notes: [newNote, ...prev.notes],
             draftNote: {
               title: '',
               textBody: ''
@@ -85,7 +86,7 @@ class App extends Component {
           const editedIndex = prev.notes.findIndex(matchIds)
           prev.notes[editedIndex] = data.data
           console.log('editied state vars', editedIndex, data.data)
-          return prev
+          return { notes: prev.notes }
         })
       })
       .catch(err => {
@@ -98,6 +99,10 @@ class App extends Component {
       .delete(URL + '/note/delete/' + note._id)
       .then(data => {
         console.log('baleted!', data)
+        const filterNote = n => n._id !== note._id
+        this.setState(prev => {
+          return { notes: prev.notes.filter(filterNote) }
+        })
       })
       .catch(err => {
         console.log(err)
