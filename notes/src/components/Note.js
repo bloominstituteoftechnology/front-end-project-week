@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
    h2 {
     margin: 20px 0;
     font-weight: bold;
@@ -15,9 +15,17 @@ export const Container = styled.div`
   }
 `;
 
-export const Section = styled.div`
+const Section = styled.div`
   display: flex;
   justify-content: flex-end;
+  button {
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
 `;
 
 const Note = props => {
@@ -25,10 +33,10 @@ const Note = props => {
     <Container>
       <Section>
         <Link to={`/edit/${props.note._id}`}>
-          <button type="button">Edit</button>
+          <button type="button">edit</button>
         </Link>
         
-        <button type="button" onClick={props.showModal}>Delete</button>
+        <button type="button" onClick={props.showModal}>delete</button>
       </Section>
 
       <h2>{props.note.title}</h2>

@@ -24,7 +24,8 @@ class NotesView extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
-    gettingNotes: state.gettingNotes
+    gettingNotes: state.gettingNotes,
+    editedNote: state.editedNote
   }
 }
 

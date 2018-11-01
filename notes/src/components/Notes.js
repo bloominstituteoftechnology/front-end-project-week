@@ -2,15 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   max-height: 100%;
 `;
 
-export const Heading = styled.h2`
-  
+const Heading = styled.h2`
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 2.5rem;
 `;
 
-export const Wrapper = styled.section`
+const Wrapper = styled.section`
   display: flex;
   width: 100%;
   max-height: 100%;
@@ -18,8 +20,8 @@ export const Wrapper = styled.section`
   flex-wrap: wrap;
 `;
 
-export const Note = styled.div`
-  width: 29%;
+const Note = styled.div`
+  width: 30%;
   height: 300px;
   margin: 0 1%;
   margin-bottom: 20px;
@@ -28,19 +30,20 @@ export const Note = styled.div`
   background-color: white;
 `;
 
-export const Title = styled.h3`
+const Title = styled.h3`
   font-size: 2rem;
   font-weight: bold;
 `;
 
-export const Border = styled.hr`
+const Border = styled.hr`
   border: 1px solid black;
 `;
 
-export const Text = styled.p`
-  height: 200px;
+const Text = styled.p`
+  height: 150px;
   font-size: 1.4rem;
   line-height: 25px;
+  overflow: hidden;
 `;
 
 const Notes = props => {
@@ -50,7 +53,7 @@ const Notes = props => {
       <Wrapper>
         {props.notes.map((note, i) => (
           <Note key={i}>
-            <Link to={`/notes/${note._id}`} >
+            <Link to={`/notes/${note._id}`} style={{ color: 'black' }}>
               <Title>{note.title}</Title>
             </Link>
             <Border />
