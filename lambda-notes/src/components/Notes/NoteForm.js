@@ -7,24 +7,26 @@ class NoteForm extends Component {
 		super(props);
 		this.state = {
 			title: '',
-			textBody: '',
+			content: '',
 		};
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.addNote = this.addNote.bind(this);
 	}
 
 	addNote = (event) => {
 		event.preventDefault();
 		const newNote = {
 			title: this.state.title,
-			textBody: this.state.textBody,
+			content: this.state.content,
 		};
 
 		this.props.addNote(newNote);
 
 		this.setState({
 			title: '',
-			textBody: '',
+			content: '',
 		});
-		this.props.history.push('/');
+		this.props.history.push('/notes');
 	};
 
 	handleInputChange = (event) => {
@@ -34,7 +36,7 @@ class NoteForm extends Component {
 	render() {
 		return (
 			<div>
-				<h1>{this.props.isUpdating ? 'Edit Note' : 'Create New Note'}</h1>
+				<h1>Create a new note</h1>
 				<form onSubmit={this.addNote} className="NoteForm">
 					<input
 						className="input-title"
@@ -46,8 +48,8 @@ class NoteForm extends Component {
 					/>
 					<input
 						className="input-note"
-						value={this.state.textBody}
-						name="textBody"
+						value={this.state.content}
+						name="content"
 						type="text"
 						placeholder="Note Content"
 						onChange={this.handleInputChange}

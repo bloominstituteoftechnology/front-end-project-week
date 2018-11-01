@@ -3,40 +3,43 @@ import axios from 'axios';
 import { Route, Link } from 'react-router-dom';
 
 import './App.css';
+import Note from './components/Notes/Note';
 import NoteForm from './components/Notes/NoteForm';
 import Notes from './components/Notes/Notes';
-import NoteList from './components/Notes/NoteList';
-import NoteView from './components/Notes/NoteView';
+import EditNote from './components/Notes/EditNote';
+import DeleteNote from './components/Notes/DeleteNote';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			notes: [],
-			note: {
-				title: '',
-				content: '',
-			},
-			isUpdating: 'false',
+			// note: {
+			/* id: '',
+			title: '',
+			content: '',
+			// },
+			isUpdating: 'false', */
 		};
 	}
 
+	componentDidMount() {
+		this.fetchNotes();
+	}
+	// Grab all the notes
 	fetchNotes = () => {
+		console.log('Getting all of the notes', this.state);
 		axios
 			.get('http://localhost:3300/api/notes')
 			.then((response) => {
 				console.log({ notes: response.data });
-				this.setState(() => ({ notes: response.data }));
+				this.setState(() => ({ ...this.state, notes: response.data }));
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 	};
-
-	componentDidMount() {
-		this.fetchNotes();
-	}
-
+	// Adds a new note
 	addNote = (note) => {
 		console.log('firing');
 		axios
@@ -52,40 +55,48 @@ class App extends Component {
 				console.error(error);
 			});
 	};
-
-	getNoteView = (noteId) => {
+	// Individual note
+	/* getRequestById = (noteID) => {
 		axios
-			.get(`http://localhost:3300/api/notes/${noteId}`)
+			.get(`http://localhost:3300/api/notes/${noteID}`)
 			.then((response) => {
-				this.setState({
-					title: response.data.title,
-					textBody: response.data.content,
-					id: response.data._id,
-				});
+				this.setState(() => ({ ...this.state, note: response.data }));
 
 				console.log({
-					title: response.data.title,
-					textBody: response.data.content,
-					id: response.data._id,
+					note: response.data,
 				});
 			})
 			.catch((error) => {
 				console.error(error);
 			});
+	}; */
+	// Deletes note by id
+	deleteNote = (id) => {
+		axios
+			.delete(`http://localhost:3300/api/notes/${id}`)
+			.then((response) => this.fetchNotes())
+			.catch((error) => {
+				console.error(error);
+			});
+	};
+	// Edit note by id
+	editNote = (id, editedNote) => {
+		axios
+			.put(`http://localhost:3300/api/notes/${id}`, editedNote)
+			.then((response) => this.fetchNotes())
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 
-	deleteNote = (noteID) => {};
-
-	editNote = () => {};
-
-	handleChange = (event) => {
+	/* handleChange = (event) => {
 		this.setState({
 			note: {
 				...this.state.note,
 				[event.target.name]: event.target.value,
 			},
 		});
-	};
+	}; */
 
 	render() {
 		return (
@@ -93,7 +104,7 @@ class App extends Component {
 				<header className="App-header">
 					<h1 className="App-title">Lambda Notes</h1>
 					<div className="View">
-						<Link to={`/`} style={{ textDecoration: 'none' }}>
+						<Link to={`/notes`} style={{ textDecoration: 'none' }}>
 							View Your Notes
 						</Link>
 					</div>
@@ -106,32 +117,35 @@ class App extends Component {
 				<div className="Main-Note-Container">
 					<Route
 						path="/noteform"
-						render={(props) => (
-							<NoteForm
-								{...props}
-								handleChange={this.handleInputChange}
-								onSubmit={this.handleSubmit}
-								title={this.state.title}
-								text={this.state.textBody}
-								addNote={this.addNote}
-							/>
-						)}
+						render={(props) => <NoteForm {...props} addNote={this.addNote} />}
 					/>
 					<Route
 						exact
-						path="/"
-						render={(props) => <Notes notes={this.state.notes} />}
+						path="/notes"
+						render={(props) => <Notes {...props} notes={this.state.notes} />}
 					/>
-					<Route
+					{/* <Route
 						path="/notelist"
 						render={(props) => (
 							<NoteList {...props} notesList={this.state.notes} />
 						)}
+					/> */}
+					<Route path="/notes/:id" render={(props) => <Note {...props} />} />
+					<Route
+						path="/editNote/:id"
+						render={(props) => <EditNote {...props} editNote={this.editNote} />}
 					/>
 					<Route
+						path="/deleteNote/:id"
+						render={(props) => (
+							<DeleteNote {...props} deleteNote={this.deleteNote} />
+						)}
+					/>
+
+					{/* <Route
 						path="/noteview/:noteID"
 						render={(props) => <NoteView {...props} note={this.state.note} />}
-					/>
+					/> */}
 				</div>
 			</div>
 		);

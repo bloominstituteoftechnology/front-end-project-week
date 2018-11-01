@@ -65,6 +65,19 @@
 .Note p {
 	font-size: 50%;
 }
+.NoteList {
+	width: 200px;
+	height: 200px;
+	background-color: #fff;
+	border: 1px solid gray;
+	box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+		0 2px 4px rgba(0, 0, 0, 0.24);
+	padding: 1rem;
+	cursor: pointer;
+	position: relative;
+	margin: 1rem auto;
+}
+
 .NoteForm {
 	display: flex;
 	flex-direction: column;
@@ -87,6 +100,53 @@
 .NoteForm button {
 	width: 200px;
 	height: 50px;
+}
+
+.Noteview {
+	width: 200px;
+	height: 200px;
+	background-color: #fff;
+	border: 1px solid gray;
+	box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+		0 2px 4px rgba(0, 0, 0, 0.24);
+	padding: 1rem;
+	cursor: pointer;
+	position: relative;
+	margin: 1rem auto;
+}
+.DeleteHeader {
+	font-size: 1.6rem;
+	margin-left: 60px;
+	margin-top: 60px;
+	margin-bottom: 45px;
+	color: #414141;
+}
+
+.NoteViewDiv {
+	width: 100%;
+	max-width: 600px;
+}
+
+.edit-delete {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 10px;
+}
+
+.edit-delete div {
+	text-decoration: underline;
+}
+
+.NoteViewHeader {
+	color: #414141;
+	font-size: 1.6rem;
+	margin-left: 60px;
+	margin-top: 32px;
+	margin-bottom: 45px;
+}
+
+.NoteViewParagraph {
+	margin-left: 70px;
 }
 
 .Create {

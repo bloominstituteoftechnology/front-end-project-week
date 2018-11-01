@@ -3,41 +3,40 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class NoteView extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
-			note: '',
+			note: {
+				id: '',
+				title: '',
+				content: '',
+			},
 			isUpdating: false,
 		};
 	}
 
 	componentDidMount() {
 		// change this line to grab the id passed on the URL
-		if (this.props.isUpdating) {
+		console.log(this.props);
+		/* if (this.props.isUpdating) {
 			this.setState({
 				isUpdating: true,
 				note: this.props.isUpdating,
 			});
-		}
-		const noteID = this.props.match.params.noteID;
+		} */
+		const noteID = this.props.match.params;
 		this.getNoteView(noteID);
+		console.log(noteID);
 	}
 
 	getNoteView = (noteID) => {
+		console.log('this is note id:', noteID);
 		axios
 			.get(`http://localhost:3300/api/notes/${noteID}`)
 			.then((response) => {
-				this.setState({
-					title: response.data.title,
-					textBody: response.data.content,
-					id: response.data._id,
-				});
+				this.setState(() => ({ note: response.data }));
 
-				console.log({
-					title: response.data.title,
-					textBody: response.data.content,
-					id: response.data._id,
-				});
+				console.log('This is the response:', response);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -71,14 +70,14 @@ class NoteView extends Component {
 					<button onClick={(noteID) => this.deleteNote}>Delete</button>
 				</div>
 				<h1>{this.state.title}</h1>
-				<p>{this.state.textBody}</p>
+				<p>{this.state.content}</p>
 			</div>
 		);
 	}
 }
 
 NoteView.defaultProps = {
-	notes: [],
+	note: '',
 };
 
 export default NoteView;
