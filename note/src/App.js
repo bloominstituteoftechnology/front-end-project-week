@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import NoteForm from './components/NoteForm';
 import NoteView from './components/NoteView';
 import EditForm from './components/EditForm';
+import Authenticate from './components/Authenticate'
+import Login from './components/Login'
 
 const HomePage = styled.div`
 `;
@@ -63,4 +65,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App, Login);
