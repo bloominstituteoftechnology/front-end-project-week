@@ -88,10 +88,13 @@ editHandler = id => {
  deleteNote = (id) => {
   axios
   .delete(`http://localhost:7000/api/notes/${id}`)
-  .then(response => {
-      console.log(response)
-      this.props.resetState();
-  })
+  .then(() => {
+    axios
+      .get("http://localhost:7000/api/notes")
+      .then(response => {
+          this.setState({ notes: response.data })
+        })
+      })
   .catch(err => console.log(err));
 }
 
