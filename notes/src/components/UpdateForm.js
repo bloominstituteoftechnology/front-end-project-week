@@ -30,8 +30,7 @@ class UpdateForm extends React.Component {
     event.preventDefault()
     this.props.updateNote(this.state)
     this.setState({title: '', textBody: '', tags: ''})
-    this.props.history.push(`/note/${this.state._id}`)
-
+    this.props.history.push('/')
   }
 
   newNote = () => {
