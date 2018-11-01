@@ -22,7 +22,7 @@ class Register extends Component {
     const { username, password } = this.state;
     console.log(username, password);
     axios
-      .post(`https://csilla-notes.herokuapp.com/api/auth/register`, {
+      .post(`https://csilla-notes.herokuapp.com/api/user`, {
         username,
         password
       })
@@ -36,8 +36,10 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="register">
-        <h2>Register</h2>
+      <div className="register" style={{align: "center"}}>
+            <h2 style={{ 
+                marginLeft: "5rem"
+            }}>Register</h2>
         <form onSubmit={this.handleFormSubmit}>
           <Input
             type="text"
@@ -45,7 +47,7 @@ class Register extends Component {
             placeholder="Username"
             onChange={this.handleInputChange}
             value={this.state.username}
-            style={{ marginBottom: "1rem", width: "40%", maxWidth: "400px" }}
+            style={{ marginBottom: "1rem", marginLeft: "5rem", width: "40%", maxWidth: "300px" }}
           />
           <br />
           <Input
@@ -54,9 +56,10 @@ class Register extends Component {
             placeholder="Password"
             onChange={this.handleInputChange}
             value={this.state.password}
-            style={{ marginBottom: "1rem", width: "40%", maxWidth: "400px" }}
+                    style={{ marginBottom: "1rem", marginLeft: "5rem", width: "40%", maxWidth: "300px" }}
           />
-          <Button onClick={this.handleFormSubmit} color="info" type="submit">
+                <Button onClick={this.handleFormSubmit} color="info" type="submit" style={{
+                     marginLeft: "5rem"}}>
             Register
           </Button>
         </form>
