@@ -28,23 +28,27 @@
   color:white;
   outline: none;
 }
+
+/*notes*/
 .notes-list{
   width:100%;
   display: flex;
   flex-direction: column;
+  padding:50px 20px;
 }
 
 .notes-list .your-notes {
   color: #414141;
-  margin: 5% 0 20px 5%;
+  font-size:25px;
+  margin-bottom:50px;
 }
 
 
 .notes-list .notes{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding:8px;
+  justify-content: space-between;
+
 }
 
 .note{
@@ -75,10 +79,30 @@ form input{
   width:300px;
   font-size:20px;
   outline: none;
+  margin-bottom:10px;
 }
+
 form textarea{
   border:1px solid black;
   width:600px;
   height:300px;
+  font-size:20px;
   outline: none;
+  padding:10px;
+}
+
+form button{
+  width:150px;
+  padding:15px;
+  margin-top:10px;
+  background:#00cec9;
+  font-size:20px;
+  color:white;
+}
+
+/*Note Page*/
+
+.note-page{
+  border:1px solid black;
+  padding:50px 20px;
 }
