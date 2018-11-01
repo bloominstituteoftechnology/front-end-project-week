@@ -68,8 +68,8 @@ class App extends Component {
           )} />
           <Route exact path='/edit' render={(props) => (
             <EditNote
-              note={this.props.note}
-              editNote={this.props.editNote}
+              // note={this.props.note}
+              // editNote={this.props.editNote}
             />
           )} />
         </div>
