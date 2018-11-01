@@ -45,6 +45,14 @@ class App extends Component {
     }
   }
 
+  deleteHandler = id => {
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+         .then(res => {this.setState({
+             deleted: true,
+         })})
+         .catch(err => console.log(err))
+  }
+
   render() {
     // Just some basic routes with render props. The only real prop passed down is notes from state (from the server).
     if (this.state.username === '') {
