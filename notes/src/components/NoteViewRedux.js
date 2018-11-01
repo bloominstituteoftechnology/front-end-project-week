@@ -86,7 +86,7 @@ class NoteView extends Component {
 const mapStateToProps = (state, props) => {
     // debugger;
     return {
-        note: state.notes.find(note => note.id === props.id),
+        note: state.notes.find(note => note.id.toString() === props.id),
     };
 }
 
