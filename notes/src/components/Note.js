@@ -22,10 +22,10 @@ export default class Note extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.fetchNote(id);
+    this.fetch(id);
   }
 
-  fetchNote = id => {
+  fetch = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then( response => {
@@ -36,18 +36,11 @@ export default class Note extends React.Component {
       })
   }
 
-  openModal() {
-    this.setState({ modalIsOpen: true })
-  }
-
-  closeModal() {
-   this.setState({ modalIsOpen: false })
-  }
-
+  
   render() {
       return (
         <div>
-        <Link to='/edit'>Edit</Link>
+        <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
         <Link  to='/delete'>Delete</Link>
         <Route path='/delete' render={ props => (
           <DeleteNote {...props}/>

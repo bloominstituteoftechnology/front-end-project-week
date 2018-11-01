@@ -11,11 +11,12 @@ export default class EditNote extends React.Component {
     }
   }
 
-  updateNote = event => {
+  update = event => {
     event.preventDefault();
     axios 
       .put(`https://fe-notes.herokuapp.com/note/edit/${this.state._id}`, this.state)
-      .then( response => this.props.history.push(`note/${response.data._id}`))
+      .then( response => this.props.history.push(`/get/${response.data._id}`))
+      //.then( () => this.props.history.push('/'))
       .catch( error => console.log(error))
   }
 
@@ -31,16 +32,15 @@ export default class EditNote extends React.Component {
       .catch( error => console.log( error))
     }
 
-    changeHandler = event => {
-      event.preventDefault();
+    handleInputChange = event => {
       this.setState({ [event.target.name]: event.target.value})
 
     }
     render() {
       return (
         <div>
-          <form onSubmit={this.addNote}>
-        
+          <form onSubmit={this.update}>
+          <h3>Edit Note:</h3>
           <input
             onChange={this.handleInputChange}
             placeholder="Note Title"
@@ -55,7 +55,7 @@ export default class EditNote extends React.Component {
             name="textBody"
             type="text"
           />
-        <button type="submit">Save</button>
+        <button type="submit">Update</button>
         </form>
         </div>
       )
