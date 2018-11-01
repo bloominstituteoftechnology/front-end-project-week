@@ -74,7 +74,7 @@ class NotesList extends React.Component {
           >
             Export
           </ExportBtn>
-          <SearchInput onChange={this.searchNotesHandler} type="text" placeholder="Search"/>
+          {/* <SearchInput onChange={this.searchNotesHandler} type="text" placeholder="Search"/> */}
         </LeftBar>
         <CardList>
           <NotesH2>Your Notes:</NotesH2>

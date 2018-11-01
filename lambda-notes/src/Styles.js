@@ -294,7 +294,7 @@ export const LoginContainer = styled.div`
   height: 350px;
   color: white;
 
-  /* margin-left: 27%; */
+  margin-left: 27%;
 `;
 
 export const LambdaH1 = styled.div`
@@ -309,8 +309,8 @@ export const LambdaH1 = styled.div`
   font-family: Verdana;
 
   /* backup plan */
-  /* margin-top: 203px;
-  margin-left: 35%; */
+  margin-top: 203px;
+  margin-left: 35%;
 `;
 
 export const ExportBtn = styled.div`
@@ -347,22 +347,22 @@ export const SignOut = styled.div`
 `;
 
 export const LoginBackground = styled.div`
-  background-image: url(https://lambdaschool.com/static/images/herogirl.png);
+  /* background-image: url(https://lambdaschool.com/static/images/herogirl.png);
   background-size: auto;
   background-position: 127% 0%;
   background-repeat: no-repeat;
   height: 97vh;
-  overflow: hidden;
+  overflow: hidden; */
 
   /* backup plan image */
-  /* background-image: url(https://images.pexels.com/photos/269448/pexels-photo-269448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-image: url(https://images.pexels.com/photos/269448/pexels-photo-269448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   background-size: cover;
   background-position: 50% -120px;
   height: 97vh;
   width: 99vw;
   background-repeat: no-repeat;
   overflow: hidden;
-  border: 1.5px solid black; */
+  border: 1.5px solid black;
 `;
 
 export const SearchInput = styled.input`
