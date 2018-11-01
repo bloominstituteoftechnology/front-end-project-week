@@ -7,18 +7,21 @@ const SingleNote = props => {
     let note = props.notes.find(
       note => `${note._id}` === props.match.params.id
     );
-    const deleteNotes = e => {
-      e.preventDefault();
+    const deleteNotes = () => {
       props.deleteNote(note._id);
       props.history.push("/");
     };
+    const deleteAndToggle = () => {
+      deleteNotes();
+      props.toggleDeletingOff();
+    }
     return (
       <div className="singleNote">
         {props.deleting && (
           <div className="deleteModal">
             <p>Are you sure you want to delete this?</p>
             <div className="button-div">
-              <button className="delete-button" onClick={deleteNotes}>
+              <button className="delete-button" onClick={deleteAndToggle}>
                 Delete
               </button>
               <button className="no-button" onClick={props.toggleDeletingOff}>

@@ -75,8 +75,7 @@ class App extends Component {
   toggleDeletingOn = () => {
     this.setState({ deleting: true });
   };
-  toggleDeletingOff = e => {
-    e.preventDefault();
+  toggleDeletingOff = () => {
     this.setState({ deleting: false });
   };
 
