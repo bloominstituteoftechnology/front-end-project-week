@@ -67,7 +67,7 @@ export const overlayToggle = () => dispatch => {
 
 export const deleteNote = (id) => dispatch => {
     dispatch({type: DELETING_NOTE});
-    axios
+    return axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
         dispatch({type: DELETING_NOTE_SUCCESS, payload: response.data})
