@@ -193,6 +193,12 @@ export const NoteTitle = styled.h2`
   margin-right: 62%;
   margin-top: 3%;
   font-size: 25px;
+  border: 1px solid black;
+  background: white;
+  /* box-shadow: 5px 10px #888888; */
+  width: auto;
+  margin-left: 43px;
+  margin-bottom: 30px;
 `;
 
 export const NoteP = styled.p`
