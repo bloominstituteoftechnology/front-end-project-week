@@ -28,7 +28,6 @@ class ModalState extends React.Component {
 
 	render() {
 		const { id } = this.state;
-		console.log('random ass ID:', id);
 		return (
 			<main>
 				<Modal show={this.state.show} handleClose={this.hideModal} deletePost={this.props.deletePost} />

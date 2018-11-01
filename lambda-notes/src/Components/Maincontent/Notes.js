@@ -5,20 +5,22 @@ import { Link } from 'react-router-dom';
 const Notes = (props) => {
 	return (
 		<StyledNoteWrapper>
+			<StyledDeleteAllTheThings htmlFor="Delete All The Things">
+				<input name="isChecked" type="checkbox" checked={props.isChecked} onChange={props.toggleCheck} />Delete
+				All The Things <button onClick={props.deleteALLNotes}>Delete</button>
+			</StyledDeleteAllTheThings>
 			<StyledHeader>Your Notes:</StyledHeader>
 			{props.notes.map((note) => {
 				return (
-					<StyledNoteContainer
-						onClick={() => props.getNoteId(note._id)}
-						key={note._id}
-						to={`/${note._id}/note`}
-					>
-						<StyledH1>{note.title}</StyledH1>
-						<p>{note.textBody}</p>
-						<p>
-							<StyledSpan>{note.tags}</StyledSpan>
-						</p>
-					</StyledNoteContainer>
+					<div key={note._id}>
+						<StyledNoteContainer onClick={() => props.getNoteId(note._id)} to={`/${note._id}/note`}>
+							<StyledH1>{note.title}</StyledH1>
+							<p>{note.textBody}</p>
+							<p>
+								<StyledSpan>{note.tags}</StyledSpan>
+							</p>
+						</StyledNoteContainer>
+					</div>
 				);
 			})}
 		</StyledNoteWrapper>
@@ -61,10 +63,13 @@ export const StyledNoteContainer = styled(Link)`
 	width: 500px;
 	margin: 10px;
 	border: 1px solid rgba(80, 80, 80, 0.3);
-	transition: 0.5s ease-in-out;
+	transition: 0.3s ease-in-out;
+	${(props) => (props.isChecked === true ? 'opacity: 1' : 'opacity: 0.5')}
 	&:hover {
 		cursor: pointer;
-		background-color: rgba(200, 240, 200, 1);
+		opacity: 1;
+		transform: scale(1.025);
+		/* background-color: rgba(200, 240, 200, 1); */
 		box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.41);
 	}
 
@@ -100,4 +105,20 @@ export const StyledModal = styled.div`
 	width: 500px;
 	height: 400px;
 	z-index: 2;
+`;
+
+export const StyledDeleteAllTheThings = styled.label`
+	padding: 0px;
+	margin: 5px 0 10px 5px;
+	border-bottom: slategray;
+	width: 100%;
+	color: #000000;
+	font-size: 14px;
+	font-style: italic;
+	opacity: 0.5;
+	transition: 0.5s ease-in-out;
+	&:hover {
+		opacity: 1;
+		color: red;
+	}
 `;
