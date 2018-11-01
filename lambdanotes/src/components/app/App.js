@@ -40,7 +40,7 @@ class App extends Component {
    componentDidMount() {
      axios
      .get('http://localhost:9000/notes')
-     .then((response) => {
+     .then(response => {
       this.setState({ ...this.state, notes: response.data})
       console.log(response.data);
      })
@@ -49,12 +49,7 @@ class App extends Component {
      })
    }
 
-  //  componentDidUpdate(prevProps, prevState) {
-  //    if(prevProps !== this.props.data) {
-
-  //    }
-  //  }
-
+   
   handleChange = event => {
     event.preventDefault();
     this.setState({

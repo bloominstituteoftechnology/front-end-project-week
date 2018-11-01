@@ -8,7 +8,7 @@ function CreateNew(props) {
 // console.log(props.note.title);
     return (
       <div className="create-container">
-      <h2> Create New Note </h2>
+      <h2 className="createheader"> Create New Note </h2>
         <div className="title-form">
         <form>
         <div className="title1">

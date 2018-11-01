@@ -1,10 +1,4 @@
-.singletitle {
-  padding-left: 2%;
-}
 
-.singledescrip {
-  padding-left: 2%;
-}
 .links {
     display: flex;
     flex-direction: row;
@@ -25,6 +19,9 @@
     cursor: pointer;
     margin: 5px;
 
+}
+.edit:hover{
+box-shadow: inset 0 0 0 2px #84001a;
 }
 
 .edit span {
@@ -67,6 +64,10 @@
     margin: 5px;
 
 }
+
+.delete:hover{
+  box-shadow: inset 0 0 0 2px #84001a;
+  }
 
 .delete span {
     cursor: pointer;

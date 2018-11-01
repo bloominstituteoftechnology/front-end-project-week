@@ -20,7 +20,20 @@ function DeleteNote(props){
     
 
     return (
-    <div className="cards-container">
+    <div>
+         <div className="yesno">
+            <div className="insideaction">
+            <h2>Are you certain?</h2>
+                <button className="yes" onClick={() => handleDeleteNote(note.id, props.history)}>
+                    <span>yes</span>
+                </button>
+            <Link to ={`/notes/${note.id}`}>
+                <button className="no">
+                    <span>no</span>
+                </button>
+            </Link>
+            </div>
+            </div>
         <div className="links">
             <Link to ={`/notes/${note.id}/edit`}>
                 <button className="edit">
@@ -33,14 +46,15 @@ function DeleteNote(props){
                 </button>
             </Link>
         </div>
-            <div className="statement">
+            <div>
                 <h2>{note.name}</h2>
             </div>
-            <div className="cards">
+            <hr/>
+            <div>
                 <p>{note.description}</p>
             </div>
-                <h2>Are you certain?</h2>
-            <div className="yesno">
+            {/* <div className="yesno">
+            <h2>Are you certain?</h2>
                 <button className="yes" onClick={() => handleDeleteNote(note.id, props.history)}>
                     <span>yes</span>
                 </button>
@@ -49,7 +63,7 @@ function DeleteNote(props){
                     <span>no</span>
                 </button>
             </Link>
-            </div>
+            </div> */}
         </div>
       );
     }

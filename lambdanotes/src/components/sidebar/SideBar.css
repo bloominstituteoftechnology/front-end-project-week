@@ -29,6 +29,10 @@
 
 }
 
+.button:hover {
+    box-shadow: inset 0 0 0 2px #84001a;
+}
+
 .button span {
     cursor: pointer;
     display: inline-block;

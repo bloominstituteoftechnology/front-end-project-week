@@ -1,6 +1,5 @@
 h2 {
   font-family: 'Roboto', sans-serif;
-  padding-left: 2%;
 }
 
 .title-form {
@@ -43,6 +42,10 @@ input {
   margin: 5px;
 
 }
+
+.edit-button:hover{
+  box-shadow: inset 0 0 0 2px #84001a;
+  }
 
 .edit-button span {
   cursor: pointer;

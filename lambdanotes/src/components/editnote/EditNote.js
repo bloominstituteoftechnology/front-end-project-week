@@ -23,7 +23,7 @@ class EditNote extends React.Component {
                     "description": description, 
                     "id": noteId
                     })
-                .then(response => history.push('/notes'))
+                .then(response => window.location ="/notes")
                     };
 
     render(){
@@ -47,6 +47,7 @@ class EditNote extends React.Component {
                 </Link>
             </div>
             <h2>Edit</h2>
+            <hr/>
             <div className="title1">
                 <label>Note Name</label>
                 <br/>
