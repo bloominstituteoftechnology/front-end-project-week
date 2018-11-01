@@ -9,7 +9,6 @@ import ReadNote from "../views/ReadNote";
 import Sidebar from "./Sidebar";
 
 import "./App.css";
-// import DeleteModal from "../views/DeleteModal";
 
 const url = "https://fe-notes.herokuapp.com/note";
 

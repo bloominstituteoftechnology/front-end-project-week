@@ -39,6 +39,7 @@
   width: 250px;
   height: 250px;
   word-wrap: break-word;
+  overflow: hidden;
 }
 
 .note-list--note h4 {
@@ -82,5 +83,46 @@
 
 .is-open {
   display: flex;
-  background: rgba(120, 120, 120, .4);
+  background: rgba(180, 180, 180, .8);
+}
+
+.delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal-content-container {
+  width: 70%;
+  height: 300px;
+  background: #f2f1f2;
+  border: 2px solid #999;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal-content {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.button-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.button-container .button {
+  width: 30%;
+}
+.delete {
+  background: red;
 }
