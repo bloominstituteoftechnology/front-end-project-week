@@ -11,7 +11,7 @@ export const getData = () => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:5000/api/notes/")
       .then(response => dispatch({ type: DATA_FETCHED, payload: response.data }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -24,7 +24,7 @@ export const addNote = note => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", note)
+      .post("http://localhost:5000/api/notes/", note)
       .then(response =>
         dispatch({
           type: ADD_NOTE,
@@ -38,7 +38,7 @@ export const addNote = note => {
       )
       .then(
         // Re-GET all the notes, with the newly added one included
-        axios.get("https://killer-notes.herokuapp.com/note/get/all")
+        axios.get("http://localhost:5000/api/notes/")
         .then(response => dispatch({ type: DATA_FETCHED, payload: response.data }))
       ).catch(err => dispatch({ type: ERROR, err }));
   };
@@ -51,7 +51,7 @@ export const deleteNote = id => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:5000/api/notes/${id}`)
       .then(response => dispatch({ type: DELETE_NOTE, id }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
@@ -64,7 +64,7 @@ export const editNote = note => {
   return dispatch => {
     dispatch({ type: FETCH_DATA });
     axios //Ping the edit fxn of the API with the newly modified note object
-      .put(`https://killer-notes.herokuapp.com/note/edit/${note._id}`, note)
+      .put(`http://localhost:5000/api/notes/${note.id}`, note)
       .then(response => dispatch({ type: EDIT_NOTE, payload: response.data }))
       .catch(err => dispatch({ type: ERROR, err }));
   };
