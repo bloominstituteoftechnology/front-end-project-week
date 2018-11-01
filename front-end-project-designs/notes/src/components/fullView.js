@@ -12,7 +12,7 @@ const FullView = props => {
         </ul>
         {/* <Form handleChanges= {props.handleChanges}
               addNewNote={props.addNewNote} */}
-        <Link to='/form'>Link to form</Link>
+        <Link to='/form/add'>Link to form</Link>
       </div>
     );
   };

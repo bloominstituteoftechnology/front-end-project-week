@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import NoteView from "./noteView";
+import {Link} from "react-router-dom";
 import {fetchSingle} from "../actions/index";
 import {connect} from "react-redux";
 import{withRouter} from "react-router-dom";
@@ -73,7 +74,7 @@ class SingleView extends React.Component {
     return (
       <div>
         <NoteView note={this.state.singleNote} />
-        <button>Edit</button>
+        <Link to= {`/form/edit/${this.props.match.params.id}`}><button>Edit</button></Link>
         <button
           onClick={() => {
             this.props.handleDelete(this.state.singleNote._id);

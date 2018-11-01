@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-const Form = props => {
+const EditForm = props => {
   console.log("form is working");
   return (
     <div>
@@ -19,13 +19,13 @@ const Form = props => {
         />
         <Link to='/'><button
           onClick={() => {
-            props.addNewNote();
+            props.editNote(props.match.params.id);
           }}
         >
-          Add Note
+          Edit Note
         </button></Link>
       </form>
     </div>
   );
 };
-export default Form;
+export default EditForm;

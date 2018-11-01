@@ -2,10 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import FullView from "../components/fullView";
-import { fetchNotes, addNote, deleteNote, fetchSingle } from "../actions";
+import { fetchNotes, addNote, deleteNote, fetchSingle, editNote } from "../actions";
 import { Switch, Route } from "react-router-dom";
 import SingleView from "../components/singleNoteView";
 import Form from "../components/form";
+import EditForm from "../components/editForm";
 class NoteListView extends React.Component {
   constructor(props) {
     super(props);
@@ -41,6 +42,9 @@ class NoteListView extends React.Component {
   handleFetchSingle = id => {
     this.props.fecthSingle(id);
   };
+  editNote=(id)=>{
+    this.props.editNote(id,this.state.newNote);
+  }
   render() {
     console.log("render here");
     if (this.props.fetchingNotes) {
@@ -56,7 +60,7 @@ class NoteListView extends React.Component {
     return (
       <Switch>
         <Route
-          path="/form"
+          path="/form/add"
           render={() => (
             <Form
               handleChanges={this.handleChanges}
@@ -81,6 +85,16 @@ class NoteListView extends React.Component {
             />
           )}
         />
+        <Route
+          path="/form/edit/:id"
+          render={() => (
+            <EditForm
+              {...this.props}
+              handleChanges={this.handleChanges}
+              editNote={this.editNote}
+            />
+          )}
+        />
       </Switch>
     );
   }
@@ -99,6 +113,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchNotes, addNote, deleteNote, fetchSingle }
+    { fetchNotes, addNote, deleteNote, fetchSingle, editNote }
   )(NoteListView)
 );

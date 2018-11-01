@@ -43,6 +43,10 @@ export const fetchSingle=(id)=>dispatch=>{
       dispatch({type: FETCH_SINGLE, payload: response.data})
     })
 }
-export const editNote=(id)=>dispatch=>{
-  
+export const editNote= (id,updatedNote)=>dispatch=>{
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,updatedNote)
+    // .then(response=>{
+    //   dispatch({type:EDIT_NOTE, payload: response.data})
+    // })
 }
