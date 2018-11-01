@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import StyledNoteCard from '../styles/StyledNoteCard';
-import ReactMarkdown from 'react-markdown';
+// import ReactMarkdown from 'react-markdown';
 
 class NoteCard extends Component {
   render() {
