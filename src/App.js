@@ -68,7 +68,7 @@ class App extends Component {
 
   render() {
     return (
-      <Div1 className="App">
+      <Div className="App">
         <SideBar />
 
         <Route exact path="/" render={() =>
@@ -102,50 +102,49 @@ class App extends Component {
         />
 
         <GlobalStyle />
-      </Div1>
+      </Div>
     )
   }
 }
 
 const GlobalStyle = createGlobalStyle`
   * {
-    box-sizing: border-box
+    box-sizing: border-box;
   }
   html,
   body {
-    margin: 0
-    padding: 0
-    font-size: 62.5%
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
   }
   .App {
-    width: 100%
-    max-width: 888px
-    margin: 0 auto
-    border: 1px solid #D6D5D6
+    width: 100%;
+    max-width: 888px;
+    margin: 0 auto;
+    font-family: 'Average Sans';
   }
   h1 {
-    font-size: 3rem
+    font-size: 3rem;
   }
   h2 {
-    font-size: 2.3rem
+    font-size: 2.3rem;
   }
   h3 {
-    font-size: 2rem
+    font-size: 2rem;
   }
   p {
-    font-size: 1.6rem
+    font-size: 1.6rem;
   }
   button {
-    background-color: #24B8BD
-    color: white
-    font-size: 1.5rem
-    width: 190px
-    padding: 5%
-    border-radius: 2px
+    background-color: #24B8BD;
+    color: white;
+    font-size: 1.5rem;
+    width: 190px;
+    padding: 5%;
+    border-radius: 2px;
+    font-family: 'Average Sans';
   }
 `
-const Div1 = styled.div`
-  display: flex
-`
+const Div = styled.div``
 
 export default withRouter(App)
