@@ -92,10 +92,16 @@ class App extends Component {
     })
 
     .then(response => {
-      console.log(response)
-
-      this.setState(() => ({ notes:response.data }));
-      // 2) make map thing 
+      console.log(response)     
+      const updatedArray= this.state.notes.map(note => {
+        if (id === note._id) {
+          return response.data
+        } else {
+          return note;
+        }
+      })
+      this.setState(() => ({ notes:updatedArray }));
+      // 2) make map thing, for updating the local state 
      
    })
 
