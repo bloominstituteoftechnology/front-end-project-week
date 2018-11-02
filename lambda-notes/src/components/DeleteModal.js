@@ -25,7 +25,7 @@ const ModalViewContainer = styled.div`
 
 const ModalContainer = styled.div`
   background: white;
-  height: 25vh;
+  height: 35vh;
   font-size: calc(10px + 2vmin);
   color: black;
   width: 80%;
