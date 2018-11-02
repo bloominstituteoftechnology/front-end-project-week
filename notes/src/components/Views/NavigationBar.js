@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   position: fixed;
   width: 30%;
   min-height: 100vh;
@@ -11,21 +11,21 @@ export const Container = styled.div`
   background-color: #D3D2D3;
 `;
 
-export const Wrapper = styled.section`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   margin: 5%;
   max-height: 100%;
 `;
 
-export const Heading = styled.h1`
+const Heading = styled.h1`
   margin-bottom: 20px;
   font-size: 4rem;
   font-weight: bold;
  
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   margin: 10px 0;
   padding: 25px;
   background-color: #33CAFF;

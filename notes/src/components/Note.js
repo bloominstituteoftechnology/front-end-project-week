@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
+import DeleteNote from './DeleteNote';
+
 const Container = styled.div`
    h2 {
     margin: 20px 0;
@@ -35,7 +37,12 @@ const Note = props => {
         <Link to={`/edit/${props.note._id}`}>
           <button type="button">edit</button>
         </Link>
-        
+        <DeleteNote
+          show={props.show}
+          hideModal={props.hideModal}
+          deleteNote={props.deleteNote}
+          noteID={props.note._id}
+        />
         <button type="button" onClick={props.showModal}>delete</button>
       </Section>
 
