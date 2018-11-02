@@ -18,6 +18,7 @@ const StyledSideBar = styled.div`
 const MainHeading = styled.h1`
   font-size: 3.6rem;
   margin-bottom: 2rem;
+  color: black;
 `;
 const SideButton = styled.button`
   width: 100%;
@@ -36,11 +37,18 @@ const SideButton = styled.button`
     margin-bottom: 1rem;
   }
 `;
+
+const styLink = styled.div`
+color: #000;
+
+`
 const SideBar = () => {
   return (
     <StyledSideBar>
       <MainHeading>
-        Lambda <br /> Notes
+      <styLink>
+        <Link to="/">Lambda <br /> Notes</Link>
+      </styLink>
       </MainHeading>
       <SideButton>
         <Link to="/">View Your Notes</Link>
