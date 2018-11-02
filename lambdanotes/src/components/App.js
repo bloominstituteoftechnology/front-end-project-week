@@ -24,6 +24,7 @@ class App extends Component {
 		return (
 			<AppContainer>
 				<SideBar />
+				<p>`{process.env.REACT_APP_DB}`</p>
 				<Route exact path="/" component={NoteListPage} />
 				<Route path={`/note/:id`} component={NotePage} />
 				<Route path="/new" component={NewNotePage} />
