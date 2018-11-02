@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
 
 
 // need to remove 8 SingleNote components once it is dynamic done now for layout purposes.
@@ -29,7 +31,7 @@ class CreateNewView extends React.Component {
     };
     // console.log(newNote)
     this.props.addNote(newNote);
-    this.setState({
+    this.setState({ // sets form to empty for new form
       title: '',
       content: ''
     });
@@ -38,7 +40,7 @@ class CreateNewView extends React.Component {
   render () {
     return (
       <div className='create-new-view'>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className='create-new-note'>
           <h2>Create New Note:</h2>
           <input 
@@ -62,4 +64,12 @@ class CreateNewView extends React.Component {
   }
 }
 
-export default CreateNewView;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps, {
+  addNote
+})(CreateNewView);

@@ -9,12 +9,12 @@ const NavBar = props => {
           <li> <a href='https://fe-notes.herokuapp.com/note/get/all'>View Your Notes</a> </li> 
           <li> <a href='https://fe-notes.herokuapp.com/note/create'>+ Create New Note</a> </li> 
         </ul>
-        {/* <div>
+        <div>
         <button>View Your Notes</button>
         <div>
         </div>
         <button>+ Create New Note</button>
-        </div> */}
+        </div>
       </nav>
     </div> // nav-bar
   )

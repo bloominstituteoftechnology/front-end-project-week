@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-.list-view, .create-new-view, .note-view {
+.list-view, .create-new-view, .note-view, .NoteListViewer_wrapper {
   border: 3px solid grey;
   margin: 50px;
 }

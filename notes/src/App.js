@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ListView from './components/ListView';
 // add to views later if needed
-// import { FriendListView } from "./views";
+import { NoteListViewers, NavBarViewers } from "./views";
 // import FriendForm from './components/FriendForm'
 import "./App.css";
 import CreateNewView from "./components/CreateNewView";
@@ -19,11 +19,14 @@ class App extends Component {
   render() {
     return (
       <div className='ENTIRE SITE'>
-        <ListView />
+      <NavBarViewers />
+        {/* <ListView />
         <CreateNewView />
-        <NoteView />
-        <EditView />
-        <DeleteModal />
+        <NoteView /> */}
+        {/* <EditView /> */}
+        {/* <DeleteModal /> */}
+        <NoteListViewers />
+
       </div>
     )
   }

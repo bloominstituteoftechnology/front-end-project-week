@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-// import { myFriendsReducer } from './friendsReducer';
+import { notesReducer as flatNotes} from './NotesReducer';
 
 export default combineReducers({
-  // myFriendsReducer
+  flatNotes
 });

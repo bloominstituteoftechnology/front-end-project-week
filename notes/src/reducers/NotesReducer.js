@@ -1,6 +1,7 @@
 import {
   FETCH_NOTES, 
   FETCH_NOTES_SUCCESS, 
+  ADD_NOTE_SUCCESS,
   ERROR
 } from '../actions';
 
@@ -21,7 +22,15 @@ export const notesReducer = (state = initialState, action) => {
         notes: [...state.notes, ...action.payload],
         fetching: false
       };
+    case ADD_NOTE_SUCCESS:
+      console.log('ADD SUCCESS', action.payload)
+        return {
+          ...state,
+          notes: [...action.payload],
+        };
     case ERROR:
       return { ...state, fetching: false, error: action.payload }
+    default:
+      return state;
   }
 }

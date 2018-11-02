@@ -2,16 +2,36 @@ import axios from 'axios';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
 export const ERROR = 'ERROR';
+// export const FETCH_NOTES = 'FETCH_NOTES';
+export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
+
 
 const url = 'https://fe-notes.herokuapp.com/note/'
 
-export const getNotes = () => {
+export const getNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES })
   axios
     .get(`${url}get/all`)
     .then(response => {
       dispatch({
         type: FETCH_NOTES_SUCCESS,
+        payload: response.data
+      })
+    })
+    .catch(error => {
+      dispatch({
+        type: ERROR,
+        payload: error
+      })
+    })
+}
+
+export const addNote = note => dispatch => {
+  axios
+    .post(`${url}create`, note)
+    .then(response => {
+      dispatch({
+        type: ADD_NOTE_SUCCESS,
         payload: response.data
       })
     })

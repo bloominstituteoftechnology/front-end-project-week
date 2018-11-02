@@ -37,7 +37,7 @@ class EditView extends React.Component {
   render () {
     return (
       <div className='create-new-view'>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className='create-new-note'>
           <h2>Edit Note:</h2>
           <input 

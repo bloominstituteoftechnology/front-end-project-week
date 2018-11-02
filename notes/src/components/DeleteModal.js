@@ -7,7 +7,7 @@ const DeleteModal = props => {
 
   return (
     <div className='note-view'>
-      <NavBar />
+      {/* <NavBar /> */}
       <h1>ADD DROP DOWN MENU FOR DELETE</h1>
       <h5>Are you sure you want to delete this?</h5>
       <button>Delete</button>
