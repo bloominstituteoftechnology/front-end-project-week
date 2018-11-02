@@ -30,6 +30,7 @@ color: black;
 font-weight: bold;
 font-size: 24px;
 `
+
 const FullView = props => {
     return (
       <ContainerDiv>
