@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /* 
-  Action Types Go Here!
+  Action Types Go Here! Test for Commit. 
   Be sure to export each action type so you can pull it into your reducer
 */
 
