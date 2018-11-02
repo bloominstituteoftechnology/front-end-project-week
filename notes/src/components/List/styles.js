@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ViewContainer, StyledH3, StyledInput } from '../../mixins';
+import { ViewContainer, StyledH3, StyledInput, Button } from '../../mixins';
 import { StyledLink } from '../../mixins';
 
 export const StyledView = styled(ViewContainer)`
@@ -10,16 +10,30 @@ export const SearchBar = styled.div`
   position: sticky;
   top: 0;
   z-index: 5;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
+  height: 64px;
   background: rgb(243, 243, 243);
+  padding: 8px 0px;
   /* background: linear-gradient(rgb(243, 243, 243) 52px, transparent); */
   /* border-bottom: 1px solid rgb(152, 152, 152); */
   /* margin-bottom: 8px; */
 `;
 
 export const SearchInput = styled(StyledInput)`
-  width: 50%;
-  margin: 8px 0 8px;
+  width: 30%;
+  margin: 0;
+`;
+
+export const NewOldButton = styled(Button)`
+  
+`;
+
+export const OldNewButton = styled(Button)`
+  
 `;
 
 export const ListTitle = styled(StyledH3)`
@@ -31,8 +45,7 @@ display: flex;
 flex-flow: row wrap;
 justify-content: flex-start;
 width: 100%;
-padding: 33px 1px;
-margin-left: 30px;
+padding: 33px 0 33px 31px;
 `;
 
 export const StyledNoteLink = styled(StyledLink)`
