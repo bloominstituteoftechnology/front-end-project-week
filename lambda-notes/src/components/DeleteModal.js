@@ -25,7 +25,7 @@ const ModalViewContainer = styled.div`
 
 const ModalContainer = styled.div`
   background: white;
-  max-height: 20vh;
+  height: 20vh;
   font-size: calc(10px + 2vmin);
   color: black;
   width: 80%;
@@ -49,7 +49,6 @@ const NoteAppButton = styled.button`
   width: 40%;
   font-size: 2rem;
   padding: 30px 20px;
-  margin: 0 0%;
   margin-bottom: 30px;
 `;
 
