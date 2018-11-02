@@ -13,17 +13,10 @@ const ListView = props => {
         <div className='all-notes-container'>
           <h2>Your Notes:</h2>
           <ul>
-
-          <SingleNote />
+            {props.notes.map(note => {
+              return <SingleNote key={note.title} note={note} />
+            })}
           </ul>
-          {/* <SingleNote />
-          <SingleNote />
-          <SingleNote />
-          <SingleNote />
-          <SingleNote />
-          <SingleNote />
-          <SingleNote />
-          <SingleNote /> */}
         </div>
       </div>
   )

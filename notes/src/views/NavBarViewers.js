@@ -29,8 +29,9 @@ class NavBarViewer extends React.Component {
             </ul>
           </nav>
           </div>
-        <NavBar />
-        <button onClick={this.props.getNotes}>GET &#9835;</button>
+        {/* <NavBar /> */}
+        <button onClick={this.props.getNotes}>View Your Notes &#9835;</button>
+        <button type='button' onClick={this.addNoteHandler}>Save</button>
       </div>
     )
   }

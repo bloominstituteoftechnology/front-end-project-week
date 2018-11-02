@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ListView } from '../components';
-// import { getNotes } from '../actions';
+import { getNotes } from '../actions';
 
 class NoteListViewer extends React.Component {
   constructor(props) {
@@ -37,5 +37,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps, 
-  // { getNotes }
+  { getNotes }
 )(NoteListViewer)
