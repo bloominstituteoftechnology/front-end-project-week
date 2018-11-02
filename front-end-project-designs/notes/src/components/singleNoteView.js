@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {fetchSingle} from "../actions/index";
 import {connect} from "react-redux";
 import{withRouter} from "react-router-dom";
+import NavBar from "./navBar";
 
 // class SingleView extends React.Component{
 //     constructor(props){
@@ -74,6 +75,7 @@ class SingleView extends React.Component {
     console.log("Single View Here");
     return (
       <div>
+        <NavBar />
         <NoteView note={this.state.singleNote} />
         <Link to= {`/form/edit/${this.props.match.params.id}`}><button>Edit</button></Link>
         <button

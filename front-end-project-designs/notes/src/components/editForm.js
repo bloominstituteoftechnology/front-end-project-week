@@ -1,9 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import NavBar from "./navBar";
 const EditForm = props => {
   console.log("form is working");
   return (
     <div>
+      <NavBar />
       <form>
         Title
         <input
