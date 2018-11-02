@@ -9,7 +9,8 @@ import StyledSpinner from '../styles/StyledSpinner';
 
 class NotesView extends Component {
   componentDidMount() {
-    return !this.props.notes.length ? this.props.getAllNotes() : null;
+    // return !this.props.notes.length ? this.props.getAllNotes() : null;
+    this.props.getAllNotes();
   }
 
   handleRedirectToNoteView = id => {
@@ -33,7 +34,7 @@ class NotesView extends Component {
             }}
           >
             <FontAwesomeIcon icon={faFileDownload} />
-            <span style={{ 'font-size': '1.2rem' }}>CSV</span>
+            <span style={{ fontSize: '1.2rem' }}>CSV</span>
           </CSVLink>
         </nav>
         <h2>Your Notes:</h2>

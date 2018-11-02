@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../styles/Button';
-var Markdown = require('react-markdown');
+// var Markdown = require('react-markdown');
 
 const StyledForm = styled.form`
   display: flex;

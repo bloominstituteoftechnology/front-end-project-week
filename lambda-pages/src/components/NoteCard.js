@@ -5,7 +5,7 @@ import StyledNoteCard from '../styles/StyledNoteCard';
 class NoteCard extends Component {
   render() {
     const { note } = this.props;
-    const input = note.textBody;
+    // const input = note.textBody;
     return (
       <StyledNoteCard
         onClick={() => this.props.handleRedirectToNoteView(note._id)}
