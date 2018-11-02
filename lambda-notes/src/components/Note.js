@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 
 
 
@@ -11,7 +11,8 @@ const Note = props => {
       <h1>Loading note...</h1>
     )
   }
-  const body = props.note.textBody;
+  const body = props.note.textBody.replace(/\[ \]/g, '<input type="checkbox" className="checkbox" value="on">');
+
   return (
     <div className='note-container'>
       <div className='note'>
@@ -25,8 +26,7 @@ const Note = props => {
         </Link>
         </div>
         <h3>{props.note.title}</h3>
-        <ReactMarkdown source={body} />
-
+        <Markdown>{body }</Markdown>
 
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx'
 
 
 
@@ -8,7 +8,7 @@ const NotePreview = props => {
   return (
     <div className='note-preview'>
     <h4>{props.note.title}</h4>
-    <ReactMarkdown source={body} />
+      <Markdown>{body.replace(/'[ ]'/g, '<input type="checkbox" className="checkbox" value="on">') }</Markdown>
     </div>
   )
 }

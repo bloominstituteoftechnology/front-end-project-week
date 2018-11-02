@@ -7,11 +7,10 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+small, strike, strong, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+table, caption, tbody, tfoot, thead,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
@@ -31,9 +30,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
+
 blockquote, q {
 	quotes: none;
 }
@@ -91,6 +88,7 @@ p {
 
 em {
 	font-style: italic;
+	margin: inherit;
 }
 
 strong {
@@ -101,6 +99,13 @@ strong {
 		min-height: 100vh;
 }
 
+.checkbox {
+
+}
+
+.note-container p {
+	display: inline;
+}
 .container {
 	display: flex;
 	align-items: flex-start;
@@ -228,7 +233,7 @@ strong {
 .notes-list .note-preview h4 {
 	font-size: 1.8rem;
 	width: 90%;
-	min-height: 30px; 
+	min-height: 30px;
 	border-bottom: 1px solid #524e4d;
 	padding: 7px 0;
 	font-weight: bold;
