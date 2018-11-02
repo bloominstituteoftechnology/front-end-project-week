@@ -31,7 +31,14 @@ height: 50px;
 `
 const StyledLink= styled(Link) `
 width: 30%;
-border: red solid 1px;
+`
+const Button =styled.button `
+width: 100%;
+color: white;
+font-size: 16px;
+padding: 15px;
+background-color: #24B8BD;
+font-weigth: bolder;
 `
 const Form = props => {
   console.log("form is working");
@@ -51,14 +58,14 @@ const Form = props => {
           onChange={props.handleChanges}
         />
         <StyledLink to="/">
-          <button
+          <Button
             onClick={() => {
               props.addNewNote();
               window.location.reload();
             }}
           >
-            Add Note
-          </button>
+            Save
+          </Button>
         </StyledLink>
       </InnerDiv>
     </FormDiv>
