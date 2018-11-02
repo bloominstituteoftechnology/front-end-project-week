@@ -24,14 +24,20 @@ const initialState = {
 export const notesReducer = (state = initialState, action) => {
   switch (action.type) {
     case NOTES_FETCH_START:
-      return { ...state, fetchingData: true };
+      return {
+        ...state,
+        fetchingData: true
+      };
 
     case NOTES_FETCH_COMPLETE:
+      console.log("should be false");
       return {
         ...state,
         notes: action.payload,
         fetchingData: false,
-        dataFetched: true
+        dataFetched: true,
+        updatingNote: false,
+        noteToUpdate: null
       };
 
     case NOTES_FETCH_ERROR:
@@ -55,9 +61,11 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         viewingNote: false,
-        note: action.payload
+        note: action.payload,
+        updatingNote: true
       };
     case SET_UPDATE_NOTE:
+      console.log("should be true");
       const note = state.notes.find(note => note.id === action.payload);
       return { ...state, noteToUpdate: note ? note : null };
     default:

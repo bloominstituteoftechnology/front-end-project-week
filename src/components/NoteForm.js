@@ -14,7 +14,7 @@ class NoteForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.updatingNote) {
+    if (this.props.updatingNote) {
       this.handleUpdateNote();
     } else {
       this.handleAddNewNote(event);
@@ -39,7 +39,7 @@ class NoteForm extends Component {
   componentDidMount() {
     if (this.props.noteToUpdate) {
       this.setState({
-        updatingNote: true,
+        updatingNote: this.props.updatingNote,
         note: this.props.noteToUpdate
       });
     }
@@ -47,9 +47,6 @@ class NoteForm extends Component {
 
   handleUpdateNote = () => {
     this.props.updateNote(this.state.note);
-    this.setState({
-      updatingNote: false
-    });
     this.props.history.push("/notes");
   };
 
@@ -61,9 +58,9 @@ class NoteForm extends Component {
   render() {
     return (
       <React.Fragment>
-        {console.log(this.state.updatingNote)}
+        {console.log(this.props.updatingNote)}
         <h2 className="edit-delete">
-          {this.state.updatingNote ? "Edit Note:" : "Create New Note:"}
+          {this.props.updatingNote ? "Edit Note:" : "Create New Note:"}
         </h2>
         <form className="Column-Layout">
           <input
@@ -93,7 +90,8 @@ class NoteForm extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
-    noteToUpdate: state.noteToUpdate
+    noteToUpdate: state.noteToUpdate,
+    updatingNote: state.updatingNote
   };
 };
 

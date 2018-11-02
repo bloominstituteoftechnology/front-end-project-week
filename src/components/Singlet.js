@@ -44,7 +44,6 @@ class Singlet extends React.Component {
       <div className="singlenoteDisplay">
         <h2 className="note-page-title">
           Note Title:
-          {console.log(this.props.note)}
           <br /> {this.props.note.title}
         </h2>
         <br />

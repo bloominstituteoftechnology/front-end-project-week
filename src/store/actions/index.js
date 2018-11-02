@@ -69,7 +69,6 @@ export const updateNote = note => dispatch => {
   axios
     .put(`https://lambdanotes-back.herokuapp.com/notes/edit/${note.id}`, note)
     .then(response => {
-      console.log(response);
       dispatch({ type: UPDATE_NOTE_COMPLETE, payload: response.data });
     })
     .catch(err => {
