@@ -8,9 +8,9 @@ class NoteListViewer extends React.Component {
     super(props)
   }
 
-  // componentDidMount() {
-  //   this.props.getNotes();
-  // }
+  componentDidMount() {
+    this.props.getNotes();
+  }
 
   render() {
     if (this.props.fetching) {
@@ -18,9 +18,7 @@ class NoteListViewer extends React.Component {
     }
     return (
       <div>
-      {/* <div className='NoteListViewer_wrapper'> */}
         <ListView notes={this.props.notes} />
-        {/* <button onClick={this.props.getNotes}>GET &#9835;</button> */}
       </div>
     )
   }

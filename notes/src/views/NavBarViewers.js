@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ListView } from '../components';
+// import { ListView } from '../components';
 import { getNotes } from '../actions';
-import { NavBar } from '../components';
+// import { NavBar } from '../components';
 
 class NavBarViewer extends React.Component {
   constructor(props) {

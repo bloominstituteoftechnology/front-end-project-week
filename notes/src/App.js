@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-// import ListView from './components/ListView';
-// add to views later if needed
 import { NoteListViewers, NavBarViewers } from "./views";
-// import FriendForm from './components/FriendForm'
+import { SingleNote, NoteView, ListView, EditView, NavBar, CreateNewView } from './components' ;
 import "./App.css";
-// import CreateNewView from "./components/CreateNewView";
-// import EditView from "./components/EditView";
-// import NoteView from "./components/NoteView";
-// import DeleteModal from "./components/DeleteModal";
 
 // import { Route, Switch } from 'react-router-dom';
-import { SingleNote, NoteView, ListView, EditView, NavBar } from './components' ;
+
 // to do WrongURL
 
 
@@ -31,13 +25,13 @@ class App extends Component {
           <Route exact path = '/editview' component={EditView} />
         </div>
       </Switch> */}
-      <NavBarViewers />
+      <NoteListViewers />
         {/* <ListView /> */}
-        {/* <CreateNewView /> */}
+        <CreateNewView />
         {/* <NoteView /> */}
         {/* <EditView /> */}
         {/* <DeleteModal /> */}
-        <NoteListViewers />
+
 
       </div>
     )

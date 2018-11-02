@@ -14,7 +14,7 @@ class CreateNewView extends React.Component {
     super(props);
     this.state = {
       title: '',
-      content: ''
+      textBody: ''
     }
   }
 
@@ -23,17 +23,17 @@ class CreateNewView extends React.Component {
   };
 
   addNoteHandler = e => {
-    const { title, content } = this.state;
+    const { title, textBody } = this.state;
     const newNote = {
       title,
-      content,
-      id: nextNoteId++
+      textBody,
+      // id: nextNoteId++
     };
     // console.log(newNote)
     this.props.addNote(newNote);
     this.setState({ // sets form to empty for new form
       title: '',
-      content: ''
+      textBody: ''
     });
   };
 
@@ -53,9 +53,9 @@ class CreateNewView extends React.Component {
           <input 
           onChange={this.handleNoteInput}
           type='text'
-          name='content'
+          name='textBody'
           placeholder='Note Content'
-          value={this.state.content}
+          value={this.state.textBody}
           />
           <button type='button' onClick={this.addNoteHandler}>Save</button>
         </div>

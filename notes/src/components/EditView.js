@@ -11,7 +11,8 @@ class EditView extends React.Component {
     super(props);
     this.state = {
       title: '',
-      content: ''
+      // content: ''
+      textBody: ''
     }
   }
 
@@ -20,17 +21,17 @@ class EditView extends React.Component {
   };
 
   editNoteHandler = e => {
-    const { title, content, id } = this.state; // more research how to handle id on edits?
+    const { title, textBody, id } = this.state; // more research how to handle id on edits?
     const newNote = {
       title,
-      content,
+      textBody,
       id
     };
     // console.log(newNote)
     this.props.addNote(newNote);
     this.setState({
       title: '',
-      content: ''
+      textBody: ''
     });
   };
 
@@ -50,9 +51,9 @@ class EditView extends React.Component {
           <input 
           onChange={this.handleNoteInput}
           type='text'
-          name='content'
+          name='textBody'
           placeholder='Note Content'
-          value={this.state.content}
+          value={this.state.textBody}
           />
           <button type='button' onClick={this.addNoteHandler}>Update</button>
         </div>
