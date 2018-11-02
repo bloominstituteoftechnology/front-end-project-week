@@ -24,6 +24,7 @@ class Signup extends Component {
 
     const { firebase } = this.props;
 
+    // sending state data to firebase to create new users
     const createNewUser = ({ email, password }) => {
       firebase
         .createUser({ email, password })
@@ -34,8 +35,6 @@ class Signup extends Component {
       email: this.state.email,
       password: this.state.password
     });
-    // .then(history.push("/"))
-    // .catch(err => alert("An error occured, please try again"));
   };
   render() {
     return (
@@ -69,4 +68,5 @@ class Signup extends Component {
   }
 }
 
+// connect to firebase
 export default firebaseConnect()(Signup);

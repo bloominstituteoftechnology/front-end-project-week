@@ -51,6 +51,7 @@ class SingleNote extends Component {
           </div>
           <div className="edit-and-delete">
             <span
+              // links to edit page
               onClick={() => this.props.history.push(`/notes/${note.id}/edit`)}
             >
               <i className="fas fa-edit" />
@@ -59,6 +60,7 @@ class SingleNote extends Component {
             <span
               onClick={() =>
                 this.setState({
+                  // toggle mobile menu modal
                   deleteMenuToggle: !this.state.deleteMenuToggle
                 })
               }
@@ -79,6 +81,7 @@ class SingleNote extends Component {
   }
 }
 
+// connect to firebase
 export default compose(
   firestoreConnect(props => [
     { collection: "notes", storeAs: "note", doc: props.match.params.id }

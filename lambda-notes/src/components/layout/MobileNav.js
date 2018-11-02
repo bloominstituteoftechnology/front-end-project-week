@@ -16,6 +16,7 @@ class MobileNav extends Component {
     };
   }
 
+  // gets auth object from firebase
   static getDerivedStateFromProps(props, state) {
     const { auth } = props;
 
@@ -93,6 +94,7 @@ class MobileNav extends Component {
   }
 }
 
+// connecting to firebase auth
 export default compose(
   firebaseConnect(),
   connect((state, props) => ({

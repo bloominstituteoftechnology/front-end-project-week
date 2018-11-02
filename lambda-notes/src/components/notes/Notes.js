@@ -18,10 +18,12 @@ class Notes extends Component {
     const { notes } = this.props;
 
     if (notes) {
+      // matches notes based on user ID
       const filteredNotes = this.props.notes.filter(
         note => note.userID === localStorage.getItem("userID")
       );
 
+      // filters notes based on user input on serch bar
       const filteredNotesPlusSearch = filteredNotes.filter(
         note =>
           note.title.toLowerCase().includes(this.state.searchNoteFilter) ||
@@ -39,7 +41,12 @@ class Notes extends Component {
             />
           </form>
           <div className="notes-container">
-            <h1 className="your-notes">Your Notes:</h1>
+            {filteredNotes.length ? (
+              <h1 className="your-notes">Your Notes:</h1>
+            ) : (
+              <h1 className="your-notes">Add a Note to get started</h1>
+            )}
+
             {filteredNotesPlusSearch.map(note => (
               <Note note={note} key={note.id} />
             ))}
@@ -52,6 +59,7 @@ class Notes extends Component {
   }
 }
 
+// connect to firestore
 export default compose(
   firestoreConnect([{ collection: "notes" }]),
   connect((state, props) => ({
