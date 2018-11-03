@@ -63,6 +63,7 @@ class EditNote extends Component {
               minLength="2"
               defaultValue={note.title}
               ref={this.titleInput}
+              maxLength="100"
             />
             <ReactQuill
               id="create-note-body"
