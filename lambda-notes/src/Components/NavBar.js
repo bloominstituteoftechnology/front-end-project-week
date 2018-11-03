@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 
-import { Auth0Lock } from 'auth0-lock';
 import auth0 from 'auth0-js';
 
 const NavbarContainer = styled.div`
@@ -61,7 +60,7 @@ const CSVBtn = styled.button`
 
 var webAuth = new auth0.WebAuth({
   domain: process.env.REACT_APP_DOMAIN_URL,
-  clientID: process.env.REACT_APP_CLIENT_ID,
+  clientID: process.env.REACT_APP_CLIENT_ID, 
   redirectUri: 'http://localhost:3000/callback'
 });
 webAuth.parseHash((err, authResult) => {
@@ -122,29 +121,3 @@ class NavBar extends Component {
 }
 
 export default NavBar;
-
-// const NavBar = props => {
-//   return (
-//     <NavbarContainer>
-//       <h1>Lambda Notes</h1>
-
-//       <Link to='/'>
-//         <NavButton>View Your Notes</NavButton>
-//       </Link>
-
-//       <Link to='/new'>
-//         <NavButton>+ Create New Note</NavButton>
-//       </Link>
-
-//       <div 
-//         onClick={function() {
-//           lock.show();
-//         }}
-//       >
-//         LOG IN
-//       </div>
-    
-//     </NavbarContainer>
-//   );
-  
-// }
