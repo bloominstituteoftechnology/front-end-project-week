@@ -6,6 +6,10 @@ import "./Notes.css";
 import { firestoreConnect, firebaseConnect } from "react-redux-firebase";
 import { compose } from "redux";
 
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
+import { quillModules, quillFormats } from "../../helpers/quillEditor";
 class AddNote extends Component {
   constructor() {
     super();
@@ -16,9 +20,9 @@ class AddNote extends Component {
     };
   }
 
-  handleNoteFormChange = e => {
+  handleTextBodyChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      textBody: e
     });
   };
 
@@ -32,6 +36,7 @@ class AddNote extends Component {
       .add({ collection: "notes" }, newNote)
       .then(() => this.props.history.push("/"));
   };
+
   render() {
     return (
       <div className="note-form">
@@ -40,18 +45,19 @@ class AddNote extends Component {
           <input
             type="text"
             placeholder="Note Title"
-            onChange={this.handleNoteFormChange}
+            onChange={e => this.setState({ title: e.target.value })}
             name="title"
             required
             minLength="2"
             value={this.state.title}
           />
-          <textarea
-            name="textBody"
+          <ReactQuill
+            modules={quillModules}
+            formats={quillFormats}
             id="create-note-body"
             cols="30"
             rows="20"
-            onChange={this.handleNoteFormChange}
+            onChange={this.handleTextBodyChange}
             placeholder="Note comment"
             required
             minLength="2"

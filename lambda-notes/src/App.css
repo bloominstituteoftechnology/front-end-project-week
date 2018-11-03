@@ -148,6 +148,11 @@ nav.nav-bar {
   margin-right: 8px;
 }
 
+/* style for custom editor */
+.ql-editor {
+  min-height: 300px;
+}
+
 @media (max-width: 960px) {
   .side-bar {
     display: none;

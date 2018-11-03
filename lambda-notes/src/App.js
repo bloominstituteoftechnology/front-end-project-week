@@ -10,6 +10,7 @@ import Login from "./components/auth/Login";
 import MobileNav from "./components/layout/MobileNav";
 import Signup from "./components/auth/Signup";
 import { UserIsAuthenticated, UserIsNotAuthenticated } from "./helpers/auth";
+import "react-quill/dist/quill.snow.css";
 
 import { Provider } from "react-redux";
 import store from "./store";

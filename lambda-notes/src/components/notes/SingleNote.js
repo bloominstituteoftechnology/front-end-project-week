@@ -4,7 +4,9 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import Spinner from "../layout/Spinner";
+import renderHTML from "react-render-html";
 
+import "./Notes.css";
 class SingleNote extends Component {
   constructor() {
     super();
@@ -70,8 +72,8 @@ class SingleNote extends Component {
             </span>
           </div>
           <div className="single-note">
-            <h1>{note.title}</h1>
-            <p>{note.textBody}</p>
+            <h1 className="note-title">{note.title}</h1>
+            <div>{renderHTML(note.textBody)}</div>
           </div>
         </React.Fragment>
       );

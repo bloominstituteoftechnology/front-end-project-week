@@ -4,6 +4,10 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import Spinner from "../layout/Spinner";
+import "react-quill/dist/quill.snow.css";
+import ReactQuill from "react-quill";
+
+import { quillModules, quillFormats } from "../../helpers/quillEditor";
 
 class EditNote extends Component {
   constructor(props) {
@@ -12,8 +16,21 @@ class EditNote extends Component {
     // refs for form
     this.titleInput = React.createRef();
     this.textBodyInput = React.createRef();
+
+    this.state = {
+      editedNote: {
+        title: "",
+        textBody: ""
+      }
+    };
   }
 
+  handleEditFormChange = e => {
+    this.setState({
+      ...this.state.editedNote,
+      textBody: e
+    });
+  };
   editNote = e => {
     e.preventDefault();
 
@@ -22,7 +39,7 @@ class EditNote extends Component {
     // updated note
     const updatedNote = {
       title: this.titleInput.current.value,
-      textBody: this.textBodyInput.current.value
+      textBody: this.state.textBody
     };
 
     // send updated note to firestore
@@ -47,8 +64,7 @@ class EditNote extends Component {
               defaultValue={note.title}
               ref={this.titleInput}
             />
-            <textarea
-              name="textBody"
+            <ReactQuill
               id="create-note-body"
               cols="30"
               rows="20"
@@ -56,7 +72,9 @@ class EditNote extends Component {
               required
               minLength="2"
               defaultValue={note.textBody}
-              ref={this.textBodyInput}
+              onChange={this.handleEditFormChange}
+              modules={quillModules}
+              formats={quillFormats}
             />
             <input type="submit" id="create-submit" value="Save" />
           </form>
