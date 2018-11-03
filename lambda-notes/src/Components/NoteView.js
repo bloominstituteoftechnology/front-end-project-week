@@ -91,19 +91,6 @@ class NoteView extends Component {
     this.props.history.push(`/edit/${id}`)
   };
 
-  // deleteNote = () => {
-  //   console.log('delete working?')
-  //   axios 
-  //     .delete(`https://killer-notes.herokuapp.com/note/delete/${this.state.id}`)
-  //     .then(response => {
-  //       console.log(response);
-  //     })
-  //     .catch(error => (
-  //       console.log('Server Error', error)
-  //     ));
-  //     this.props.history.push('/')
-  // }
-
   handleDelete = () => {
     this.props.handleDeleteNote(NoteView.id);
     this.props.history.push('/');
@@ -114,11 +101,6 @@ class NoteView extends Component {
     axios
       .delete(`http://localhost:5000/api/notes/${this.props.match.params.id}`)
       .then(response => {
-        // this.setState({
-        //   notes: this.state.notes.filter(note => {
-        //     return note.id !== noteId;
-        //   })
-        // })
         this.props.fetchNotes();
         this.props.history.push('/')
       })

@@ -81,21 +81,6 @@ class NoteForm extends Component {
     this.props.history.push('/')
   }
 
-  // addNote = event => {
-  //   event.preventDefault();
-  //   const newNote = {
-  //     title: this.state.title,
-  //     textBody: this.state.textBody,
-  //   };
-  //   console.log('newNote: ', newNote);
-  //   this.props.addNote(newNote);
-
-  //   this.setState({
-  //     title: '',
-  //     textBody: ''
-  //   });
-  // }
-
   render() {
     return (
       <FormContainer>

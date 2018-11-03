@@ -9,7 +9,6 @@ import Notes from './Components/Notes';
 import NoteForm from './Components/NoteForm';
 import NoteView from './Components/NoteView';
 import EditForm from './Components/EditForm';
-// import DeleteModal from './Components/DeleteModal';
 
 import { Auth0Lock } from 'auth0-lock';
 
@@ -78,35 +77,6 @@ class App extends Component {
         console.log('Server Error', error)
       ));
   }
-
-
-  // addNote = note => {
-  //   axios 
-  //     .post('http://localhost:5000/api/notes', note)
-  //     .then(response => {
-  //       this.setState(
-  //         {notes: response.data},
-  //         this.props.history.push('/')
-  //       );
-  //     })
-  //     .catch(error => (
-  //       console.log('Server Error', error)
-  //     ));
-  // }
-
-
-
-  // deleteNote = id => {
-  //   console.log('delete working?');
-  //   axios
-  //     .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-  //     .then(response => {
-  //       console.log(response.data);
-  //     })
-  //     .catch(error => (
-  //       console.log('Server Error', error)
-  //     ));
-  // }
 
   render() {
     console.log('PROCESS:', process.env);

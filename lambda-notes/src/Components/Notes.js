@@ -87,12 +87,10 @@ class Notes extends Component {
                   style={{ textDecoration: 'none' }}
                 >
                   <NoteTitle
-                    // key={note._id}
                   >
                     {note.title}
                   </NoteTitle>
                   <NoteBody
-                    // key={note._id}
                   >
                     {note.textBody}
                   </NoteBody>

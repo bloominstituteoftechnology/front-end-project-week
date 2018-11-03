@@ -83,29 +83,6 @@ class EditForm extends Component {
       this.props.history.push('/')
   };
 
-  // updateNote = event => {
-  //   event.preventDefault();
-  //   const updatedNote = {
-  //     id: this.state.id,
-  //     title: this.state.title,
-  //     textBody: this.state.textBody
-  //   };
-  //   this.props.updateNote(updatedNote);
-  //   this.props.history.push('/');
-  // }
-
-  // updatedNote = note => {
-  //   const id = this.props.match.params.id;
-  //   axios
-  //     .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
-  //     .then(response => {
-  //       this.setState({notes: response.data});
-  //     })
-  //     .catch(error => (
-  //       console.log('Server Error', error)
-  //     ));
-  // }  
-
   render() {
     return (
       <EditContainer>
