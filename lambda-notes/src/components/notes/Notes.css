@@ -79,6 +79,7 @@
   width: 80%;
   margin-left: 260px;
   padding: 30px;
+  word-wrap: break-word;
 }
 .single-note .note-title {
   margin-bottom: 20px;

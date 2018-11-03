@@ -6,6 +6,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import Spinner from "../layout/Spinner";
 import renderHTML from "react-render-html";
 
+import "react-quill/dist/quill.snow.css";
 import "./Notes.css";
 class SingleNote extends Component {
   constructor() {

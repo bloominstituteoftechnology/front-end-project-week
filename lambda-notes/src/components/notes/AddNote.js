@@ -50,6 +50,7 @@ class AddNote extends Component {
             required
             minLength="2"
             value={this.state.title}
+            maxLength="100"
           />
           <ReactQuill
             modules={quillModules}
