@@ -88,11 +88,15 @@ class Notes extends Component {
                 >
                   <NoteTitle
                   >
-                    {note.title}
+                    {note.title.length >=15
+                      ? note.title.substring(0,15) + '...'
+                      : note.title}
                   </NoteTitle>
                   <NoteBody
                   >
-                    {note.textBody}
+                    {note.textBody.length >=100
+                      ? note.textBody.substring(0, 100) + '...'
+                      : note.textBody}
                   </NoteBody>
                 </NoteCard>
               </Link>
