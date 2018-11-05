@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import NotesList from './components/NotesList';
-//import { Route } from 'react-router-dom';
+import NoteForm from './components/NoteForm';
 import axios from 'axios';
 import './App.css';
 
-
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: [],
+      title: '',
+      textBody: '',
     }
   }
 
-  componenetDidMount() {
+  componentDidMount() {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
@@ -27,8 +28,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <NotesList
-           notes={this.state.notes} />
+        <NoteForm />
+        <br></br>
+        <NotesList
+         notes={this.state.notes} />
       </div>
     );
   }
