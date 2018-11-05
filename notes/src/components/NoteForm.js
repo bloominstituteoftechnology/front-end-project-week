@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Route } from 'react-router-dom';
 
+import { ButtonsContainer, StyledButton, MassDeleteButton,SVGIcon } from '../styles';
+
 const NoteForm = ({onSubmit, history, deleteChecked, checkedNotes}) => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
@@ -49,10 +51,10 @@ const NoteForm = ({onSubmit, history, deleteChecked, checkedNotes}) => {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/></svg>
                             </NoteActions>
                         </div>
-                        <div className="form-actions">
-                            <button ref={ref => closeRef = ref} type="button" onClick={() => blurAll()}>Close</button>
-                            <button ref={ref => addRef = ref} type="submit">Add</button>
-                        </div>
+                        <ButtonsContainer className="button-container">
+                            <StyledButton ref={ref => closeRef = ref} type="button" onClick={() => blurAll()}>Close</StyledButton>
+                            <StyledButton ref={ref => addRef = ref} type="submit">Add</StyledButton>
+                        </ButtonsContainer>
                     </FormContainer>  
                 }
             />
@@ -80,22 +82,6 @@ const NoteForm = ({onSubmit, history, deleteChecked, checkedNotes}) => {
 
 export default NoteForm;
 
-const MassDeleteButton = styled.button`
-    width: 100%;
-    height: 100%;
-    border: none;
-    color: white;
-    background-color: #F5B504;
-    border-radius: 8px;
-    position: relative;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    ${props => props.amountChecked <= 0 && css`
-        color: rgba(255,255,255, 0.6);
-    `}
-`;
 
 const FormContainer = styled.form`
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
@@ -163,35 +149,11 @@ const FormContainer = styled.form`
         ${props => props.addForm && css `
             height: 169px;
             .title-input{display: flex};
-            .form-actions{display: flex};
+            .button-container{display: flex};
             .note-actions {display: none};
             textarea {height: auto};
             box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15);
         `}
-    }
-    .form-actions {
-        position: absolute;
-        z-index: 3;
-        width: 100%;
-        bottom: 12px;
-        display: flex;
-        justify-content: space-between;
-        display: none;
-        padding: 0px 16px;
-        button {
-            font-size: 15px;
-            font-weight: 600;
-            user-select: none;
-            outline: none;
-            cursor: pointer;
-            padding: 8px 24px;
-            border: none;
-            background-color: transparent;
-            border-radius: 8px;
-            :hover {
-                background-color: rgba(0,0,0,.1);
-            }
-        }
     }
 `;
 

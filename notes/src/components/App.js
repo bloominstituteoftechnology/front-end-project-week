@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
+import { NoteContainer }from '../styles';
 
 import { 
   getNotes, 
@@ -24,24 +25,6 @@ import NoteList from './NoteList'
 import NoteForm from './NoteForm'
 import NoteModule from './NoteModule'
 
-import styled, { css } from 'styled-components';
-
-
-const NoteContainer = styled.div`
-  margin-left: 280px;
-  display: block;
-  direction: ltr;
-  width: calc(100vw - 280px);
-  transition: all 450ms ease-in-out;
-  @media(max-width: 890px) {
-    margin-left: 0px;
-    width: 100%;
-  }
-  ${props => props.showMenu === false && css`
-    margin-left: 0px;
-    width: 100%;
-  `}
-`;
 
 class App extends Component {
 
@@ -78,8 +61,8 @@ class App extends Component {
     }
     if (this.props.sortMode === 'alpha') {
       return filterdNotes.sort((a, b) => {
-          var nameA = a.title.toUpperCase(); // ignore upper and lowercase
-          var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+          var nameA = a.title.toLowerCase(); // ignore upper and lowercase
+          var nameB = b.title.toLowerCase(); // ignore upper and lowercase
           if (nameA < nameB) {
             return -1;
           }
@@ -92,8 +75,8 @@ class App extends Component {
     }
     if (this.props.sortMode === 'reverse-alpha') {
       return filterdNotes.sort((a, b) => {
-        var nameA = a.title.toUpperCase(); // ignore upper and lowercase
-        var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+        var nameA = a.title.toLowerCase(); // ignore upper and lowercase
+        var nameB = b.title.toLowerCase(); // ignore upper and lowercase
         if (nameA < nameB) {
           return -1;
         }
@@ -219,3 +202,6 @@ export default withRouter(connect(
     deleteChecked,
   }
 )(App));
+
+
+

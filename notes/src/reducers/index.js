@@ -66,7 +66,7 @@ import {
 
       case SET_SORT_MODE :
         let num = state.sortNum + 1;
-        if(num >= 3) num = 0;
+        if(num >= state.sortModes.length) num = 0;
         return {
           ...state,
           sortNum: num,
