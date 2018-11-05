@@ -8,6 +8,9 @@ import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
 import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
+import Header from "./components/Header"
+
+
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -107,8 +110,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
       <Sidebar />
-        <MainContent>
+      <MainContent>
           <Route
             exact
             path="/"

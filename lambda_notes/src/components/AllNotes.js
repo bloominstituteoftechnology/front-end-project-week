@@ -12,6 +12,7 @@ import styled from 'styled-components';
   flex-wrap: wrap;
   margin-left: 18rem;
   color: black;
+  border-radius: 5px;
 
 `;
 
