@@ -9,18 +9,17 @@
 }
 
 .side-bar{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 30%;
   height: 100%;
-}
-
-.main-view{
-  border: 1px solid red;
-  width: 100%;
+  background: lightgrey;
 }
 
 .button{
   height: 40px;
   width: 90%;
   text-align: center;
+  color: white;
+  background: teal;
 }
+
