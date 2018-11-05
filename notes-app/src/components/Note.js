@@ -10,10 +10,11 @@ class Note extends Component {
     }
   }
 
-  componentDidMount(){
+/*   componentDidMount(){
     const id = this.state.match.params.id;
     this.fetchNote(id);
   }
+   */
 
   fetchNote = id => {
     axios
@@ -25,6 +26,7 @@ class Note extends Component {
         console.log(error);
       })
   }
+
 
   render() {
     if(!this.state.note) {

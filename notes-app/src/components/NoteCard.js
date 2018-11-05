@@ -2,11 +2,10 @@ import React from 'react';
 
 
 function NoteCard(props) {
-
   return (
     <div className="noteCard">
-      <div className="noteCardTitle">{props.note.title}</div>
-      <div className="noteCardText">{props.note.textBody}</div>
+      <div className="noteCardTitle">{props.title}</div>
+      <div className="noteCardText">{props.textBody}</div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ class NoteForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={}>
+        <form>
           <label for='name'>Title:</label>
           <input 
             type='text' 
