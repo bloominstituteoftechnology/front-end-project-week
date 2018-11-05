@@ -1,6 +1,7 @@
 import React from "react";
 
-import DeleteModal from './DeleteModal';
+import DeleteModal from '../components/DeleteModal';
+import EditModal from '../components/EditModal';
 
 import '../styles/Styles.css';
 
@@ -8,12 +9,21 @@ class ReadNote extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      modalToggle: false
+      deleteModalToggle: false,
+      editModalToggle: false,
+      _id: '',
+      title: '',
+      textBody: '',
+      tabs: []
     }
   }
 
   deleteModalToggleButton = () => {
-    this.setState({ modalToggle: !this.state.modalToggle });
+    this.setState({ deleteModalToggle: !this.state.deleteModalToggle });
+  }
+  
+  editModalToggleButton = () => {
+    this.setState({ editModalToggle: !this.state.editModalToggle });
   }
 
   handleEditClick = () => {
@@ -30,17 +40,24 @@ class ReadNote extends React.Component{
     console.log(this.props)
     return (
       <div className="full-page-note">
+        <DeleteModal 
+          deleteModalState={this.state.deleteModalToggle} 
+          deleteNote={this.props.deleteNote} 
+          currentId={this.props._id}
+          modalToggle={this.deleteModalToggleButton}
+        />
+        <EditModal
+          editModalState={this.state.editModalToggle} 
+          editNote={this.props.editNote}
+          currentId={this.props._id}
+          editModalToggle={this.props.editModalToggleBottmo}
+        />
+
         <div className='note-controls'>
           <span className='note-control edit-text-button' onClick={this.handleEditClick}>edit</span>
           <span className='note-control delete-text-button' onClick={this.deleteModalToggleButton}>
             delete
           </span>
-          <DeleteModal 
-            modalState={this.state.modalToggle} 
-            deleteNote={this.props.deleteNote} 
-            currentId={this.props._id}
-            modalToggle={this.deleteModalToggleButton}
-          />
         </div>
         <h1 className='note-title'>{this.props.title}</h1>
         <p className='note-text'>{this.props.textBody}</p>
