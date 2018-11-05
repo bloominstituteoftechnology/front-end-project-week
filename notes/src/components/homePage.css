@@ -1,5 +1,6 @@
 .container {
     border: 1px solid darkgray;
+    display: flex;
 }
 .sideBar {
     width: 25%;
@@ -15,6 +16,13 @@
 .sideBarButtons button {
     padding: 20px 0;
 }
+.container .notesBody {
+    padding: 20px;
+}
 .yourNotes {
     background-color: lightgray;
+}
+.note {
+    border: 1px solid darkgray;
+    margin: 10px 0px;
 }

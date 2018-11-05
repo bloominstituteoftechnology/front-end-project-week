@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import Notes from './components/Notes'
 import CreateNote from './components/CreateNote';
 import axios from 'axios';
+import OneNote from './components/OneNote';
 
 class App extends Component {
   constructor(props) {
@@ -17,21 +18,15 @@ class App extends Component {
     axios.get(`https://fe-notes.herokuapp.com/note/get/all`).then(response => {
       this.setState({ notes: response.data });
     });
-    // axios.post(`https://fe-notes.herokuapp.com/note/create`, notes)
-    // .then(response => {
-    //     this.setState({notes: response.data})
-    // })
-    // .catch(err => {
-    //     console.log(err)
-    // })
   };
 
   render() {
     return (
       <div className="App">
         <Route path="/" render={props => <HomePage {...props}/>} />
-        <Route path="/notes" render={props => <Notes {...props} notes={this.state.notes}/>} />
+        <Route exact path="/notes" render={props => <Notes {...props} notes={this.state.notes} id={this.state.id}/>} />
         <Route path="/createnote" render={props => <CreateNote {...props} notes={this.state.notes}/>} />
+        <Route path='/notes/id' render={props => <OneNote {...props}/>} />
       </div>
     );
   }
