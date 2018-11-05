@@ -5,7 +5,11 @@ const Notes = (props) => {
     <div>
       <h2>Hello from Notes</h2>
       {props.notes.map( (note, i) => {
-        return <h3>{note.title}</h3>
+        return (
+          <div key={i} id={i}>
+          <h3>{note.title}</h3>
+          </div>
+          )
       })}
     </div>
     )

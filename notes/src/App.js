@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       notes: [],
       newNote: {
-        tags: [],
+        tags: ["example one", "example two"],
         title: '',
         textBody: ''
       }
@@ -24,7 +24,7 @@ class App extends React.Component {
 
 componentDidMount() {
   axios
-    .get(`${URL}/get/all`)
+    .get(`${URL}get/all`)
     .then(response => this.setState({ notes: response.data }))
     .catch(error => {
       console.error('Server Error!', error)
@@ -33,11 +33,11 @@ componentDidMount() {
 
 addNote = event => {
   event.preventDefault();
-  axios.post(`${URL}/create`, this.state.newNote)
+  axios.post(`${URL}create`, this.state.newNote)
     .then(response => this.setState({
        notes: response.data,
        newNote: {
-        tags: [],
+        ...this.state, 
         title: '',
         textBody: ''
        }
